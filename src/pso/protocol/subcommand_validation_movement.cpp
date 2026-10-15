@@ -1,7 +1,7 @@
 #include "pso/protocol/subcommand_validation.h"
 
 extern "C" {
-s32 is_in_view__17TObjEneHoldEffectFPv(s32);
+s32 is_in_view__17TObjEneHoldEffectFv(s32);
 u32 find_entity_by_id(u16);
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
 
@@ -26,7 +26,7 @@ s32 validate_6x20_set_position(G_ClientIDHeader *packet) {
     if ((temp_r0 < 0) || (temp_r0 > 0x12)) {
         return 0;
     }
-    return ((u32)__cntlzw(is_in_view__17TObjEneHoldEffectFPv((s32)((u8*)packet + 8)))) >> 5;
+    return ((u32)__cntlzw(is_in_view__17TObjEneHoldEffectFv((s32)((u8*)packet + 8)))) >> 5;
 }
 
 s32 validate_6x1F_set_player_floor(G_ClientIDHeader *packet) {

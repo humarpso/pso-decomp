@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecKafun.h"
 
 struct RecoveredGlobal_802A9948___vt__9TTecKafun { s32 value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_802A9948___vt__9TTecKafun_size[sizeof(RecoveredGlobal_802A9948___vt__9TTecKafun) == 0x28 ? 1 : -1];
@@ -11,7 +12,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
 u32 find_entity_by_id(int);
 s32 apply_technique_to_area_targets(void *);
-void run_task__9TTecKafunFv(u8 *arg0);
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 u8 * construct_area_technique_base(void *, s32, s32, s32, s16);
@@ -29,7 +29,6 @@ u8 *TTecKafun__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s1
 extern "C" {
 
 void *__dt__9TTecKafunFv(void *arg0, s16 arg1);
-void render__9TTecKafunFv(void);
 void __dl__7TObjectFPv(void *);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
 
@@ -46,8 +45,9 @@ void *__dt__9TTecKafunFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void render__9TTecKafunFv(void) {  }
-void run_task__9TTecKafunFv(u8 *arg0) {
+void TTecKafun::render() {  }
+void TTecKafun::run_task() {
+    u8 *arg0 = (u8 *)this;
     if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;

@@ -109,11 +109,11 @@ struct VObj_18 : VBase_18 {
 };
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
-s32 set_player_state_default__12TBoss8DragonFPv(void *);
+s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 transition_enemy_state(void *, int);
 s32 play_persistent_sound(int, void *, void *, int, int);
-s32 update_guard_flag__19TObjEneEpsilonGuardFPv(void *);
-s32 update_position__19TObjEneEpsilonGuardFPv(void *);
+s32 update_guard_flag__19TObjEneEpsilonGuardFv(void *);
+s32 update_position__19TObjEneEpsilonGuardFv(void *);
 void fn_80362164(u8 *arg0);
 }
 
@@ -125,7 +125,7 @@ void fn_80362164(u8 *arg0) {
         return;
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
-        update_guard_flag__19TObjEneEpsilonGuardFPv((void *) (arg0));
+        update_guard_flag__19TObjEneEpsilonGuardFv((void *) (arg0));
         ((VObj_18 *)(arg0))->m83();
     } else if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 1) {
         transition_enemy_state((void *) (arg0), (int) (0));
@@ -134,8 +134,8 @@ void fn_80362164(u8 *arg0) {
         play_persistent_sound((int) (0x4003AD43), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
     ((VObj_18 *)(arg0))->m86();
-    update_position__19TObjEneEpsilonGuardFPv((void *) (arg0));
-    set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
+    update_position__19TObjEneEpsilonGuardFv((void *) (arg0));
+    set_player_state_default__12TBoss8DragonFv((void *) (arg0));
     ((VObj_18 *)(arg0))->m98();
 }
 

@@ -2,7 +2,7 @@
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
+s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 s32 project_actor_to_ground(void *, void *, s32);
 void fn_800D9BBC(u8 *arg0);
 }
@@ -22,7 +22,7 @@ void fn_800D9BBC(u8 *arg0) {
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x374) == 7) {
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (temp_r4 & 0xFFFFFFFE);
-        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
+        update_if_active__15TObjEneMe1GiGueFl(arg0, 0);
     }
 }
 #pragma pop

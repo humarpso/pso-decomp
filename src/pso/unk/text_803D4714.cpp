@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct Strm_803D4770;
 struct StrmVt_803D4770 {
     void *pad[6];
@@ -44,10 +45,7 @@ void sndStreamARAMUpdate(u32 stid, u32 off1, u32 len1, u32 off2, u32 len2);
 void TLobby__sub_803D3130(void *, s32, void *, void *);
 void *memcpy(void *, const void *, u32);
 void *memset(void *, int, u32);
-void update_stream_buffers__6TLobbyFPv(Obj_803D4770 *o);
-void update_stream_buffers__6TLobbyFPv(Obj_803D4770 *o);
 extern S_803D4714 gcrna_stream_pool[];
-void update_active_streams__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -69,16 +67,17 @@ inline s32 flagB_803D4770(Obj_803D4770 *o) {
 }
 
 struct Obj_803D4770;
-void update_active_streams__6TLobbyFv(void) {
+void TLobby::update_active_streams() {
     u32 i;
     for (i = 0; i < 0x10; i++) {
         if ((s32)gcrna_stream_pool[i].f == 1) {
-            update_stream_buffers__6TLobbyFPv((Obj_803D4770 *)&gcrna_stream_pool[i]);
+            ((TLobby *)((Obj_803D4770 *)&gcrna_stream_pool[i]))->update_stream_buffers();
         }
     }
 }
 
-void update_stream_buffers__6TLobbyFPv(Obj_803D4770 *o) {
+void TLobby::update_stream_buffers() {
+    Obj_803D4770 *o = (Obj_803D4770 *)this;
     Pair_803D4770 f;
     Pair_803D4770 e;
     Pair_803D4770 d;

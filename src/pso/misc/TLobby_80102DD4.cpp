@@ -12,10 +12,10 @@ u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1);
 void send_6x5D__6TLobbyFPv(void* p);
 void send_item_and_handle_60__6TLobbyFPv(void* p);
 s32 TLobby__send_and_handle_60(void *);
-int bswap_pkt_u32x2__10TObjPlayerFPv(void*);
+int bswap_pkt_u32x2__10TObjPlayerFv(void*);
 s32 bswap_16__FPUs(s32);
 int bswap__9TItemDataFv(void*);
-s32 read_be16_field2__10TObjPlayerFPv();
+s32 read_be16_field2__10TObjPlayerFv();
 
 extern s32 local_client_id;
 extern s32 lbl_805D5E50;
@@ -30,11 +30,11 @@ u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1) {
     return (u8) var_r5;
 }
 
-void bswap_shop_item__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFPv)(p); bswap__9TItemDataFv((char*)p + 0x4); }
+void bswap_shop_item__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(p); bswap__9TItemDataFv((char*)p + 0x4); }
 void send_item_and_handle_60__6TLobbyFPv(void* p) { bswap_shop_item__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void copy_item_data__6TLobbyFPvPv(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)p + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)p + 0x3) = *(u8*)((char*)q + 0x3); *(u8*)((char*)p + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)p + 0x6) = *(u32*)((char*)q + 0x6); *(u16*)((char*)p + 0xa) = *(u16*)((char*)q + 0xa); *(u32*)((char*)p + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)p + 0x10) = *(u32*)((char*)q + 0x10); }
 void init_6x5E_buy_item_header(void* p) { *(u8*)((char*)p + 0x0) = 94; *(u8*)((char*)p + 0x1) = 6; }
-void bswap_6x5D__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFPv)(p); bswap_16__FPUs((s32)((char*)p + 0x4)); bswap_16__FPUs((s32)((char*)p + 0x6)); bswap_pkt_u32x2__10TObjPlayerFPv((char*)p + 0x8); bswap__9TItemDataFv((char*)p + 0x10); }
+void bswap_6x5D__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(p); bswap_16__FPUs((s32)((char*)p + 0x4)); bswap_16__FPUs((s32)((char*)p + 0x6)); bswap_pkt_u32x2__10TObjPlayerFv((char*)p + 0x8); bswap__9TItemDataFv((char*)p + 0x10); }
 void send_6x5D__6TLobbyFPv(void* p) { bswap_6x5D__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void* init_fields__6TLobbyFPv(void* p) { init_default_fields__6TLobbyFPv((void*)((void*)(p))); *(unsigned char*)((char*)p + 0x24) = 2; *(unsigned char*)((char*)p + 0x25) = 0; *(unsigned char*)((char*)p + 0x26) = 0; *(unsigned char*)((char*)p + 0x27) = 0; *(unsigned char*)((char*)p + 0x1) = 10; return p; }
 
@@ -47,14 +47,12 @@ void init_default_fields__6TLobbyFPv(void* a0) { *(short*)((char*)a0 + 0x4) = 0;
 
 extern "C" {
 
-s32 read_be16_field2__10TObjPlayerFPv();
+s32 read_be16_field2__10TObjPlayerFv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-void init_floor_item_entry__6TLobbyFPv(u8 *arg0);
-void set_item_count__6TLobbyFPvs(void* p, s16 v);
 
 void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0) {
-    read_be16_field2__10TObjPlayerFPv();
+    read_be16_field2__10TObjPlayerFv();
     bswap_16__FPUs(arg0 + 4);
     bswap_16__FPUs(arg0 + 6);
     bswap_32__FPUl(arg0 + 8);
@@ -74,14 +72,12 @@ extern "C" {
 
 void send_pick_up_item__6TLobbyFi(s32 arg0);
 s32 TLobby__send_and_handle_60(void *);
-void init_floor_item_entry__6TLobbyFPv(u8 *arg0);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0);
 void bswap_pick_up_item_request__6TLobbyFi(s32 arg0);
 s32 dispatch_packet__6TLobbyFPv(void *);
-s32 read_be16_field2__10TObjPlayerFPv();
-void set_item_count__6TLobbyFPvs(void* p, s16 v);
+s32 read_be16_field2__10TObjPlayerFv();
 
 #include "types.h"
 extern "C" {
@@ -130,11 +126,9 @@ s32 dispatch_packet__6TLobbyFPv(void *);
 extern "C" {
 void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0);
 s32 TLobby__send_and_handle_60(void *);
-s32 read_be16_field2__10TObjPlayerFPv();
+s32 read_be16_field2__10TObjPlayerFv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-void init_floor_item_entry__6TLobbyFPv(u8 *arg0);
-void set_item_count__6TLobbyFPvs(void* p, s16 v);
 
 }
 
@@ -148,6 +142,7 @@ void send_pick_up_item_request__6TLobbyFi(s32 arg0) {
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct AttackWeaponBase { char pad[0x18]; };
 
@@ -222,9 +217,8 @@ extern "C" {
 u8 fn_8010319C(u8 *arg0);
 void init__9TItemDataFv(void *);
 extern const f32 lbl_805DAA88;
-void init_floor_item_entry__6TLobbyFPv(u8 *arg0);
 s32 __ct__13TItemAttackerFv(void *, void *, void *, s32, void *);
-s32 spawn_item_timer__13TItemAttackerFiii(int, void *, void *);
+s32 spawn_item_timer__13TItemAttackerFlll(int, void *, void *);
 s32 __nw__7TObjectFUl(int);
 void TItemAttacker__sub_8010349C(u32);
 void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
@@ -242,14 +236,12 @@ extern "C" {
 void TItem__sub_801031C0(void* p);
 void TLobby__sub_801030EC(u8 *arg0);
 void bswap_pick_up_item_request__6TLobbyFi(s32 arg0);
-s32 drop_stacked_item_passthrough__6TLobbyFi(s32 arg0);
-void set_item_count__6TLobbyFPvs(void* p, s16 v);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-s32 read_be16_field2__10TObjPlayerFPv();
+s32 read_be16_field2__10TObjPlayerFv();
 
 void bswap_pick_up_item_request__6TLobbyFi(s32 arg0) {
-    read_be16_field2__10TObjPlayerFPv();
+    read_be16_field2__10TObjPlayerFv();
     bswap_32__FPUl(arg0 + 4);
     bswap_16__FPUs(arg0 + 8);
     bswap_16__FPUs(arg0 + 0xA);
@@ -263,13 +255,15 @@ void TLobby__sub_801030EC(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
-void set_item_count__6TLobbyFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x1c) = v; }
-s32 drop_stacked_item_passthrough__6TLobbyFi(s32 arg0) {
-    init_floor_item_entry__6TLobbyFPv((u8 *)(arg0));
+void TLobby::set_item_count(s16 v) { *(s16*)((char*)this + 0x1c) = v; }
+s32 TLobby::drop_stacked_item_passthrough() {
+    s32 arg0 = (s32)this;
+    init_floor_item_entry();
     return arg0;
 }
 
-void init_floor_item_entry__6TLobbyFPv(u8 *arg0) {
+void TLobby::init_floor_item_entry() {
+    u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 1) = 0;
     *(s8 *)((s8 *)arg0 + 0) = -1;
     *(s16 *)((s8 *)arg0 + 2) = -1;
@@ -320,7 +314,7 @@ void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
         if (var_r0 != 0) {
             var_r0 = __ct__13TItemAttackerFv((void*)var_r0, (void *) (arg0), (void *) (arg1), arg2, (void *) (arg3));
         }
-        spawn_item_timer__13TItemAttackerFiii((int) (var_r0), (void *) (&TItemAttacker__sub_8010349C), (void *) (arg2));
+        spawn_item_timer__13TItemAttackerFlll((int) (var_r0), (void *) (&TItemAttacker__sub_8010349C), (void *) (arg2));
     }
 }
 

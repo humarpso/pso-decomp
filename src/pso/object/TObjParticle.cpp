@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjParticle.h"
 
 struct P_8019527C { u8 pad[0x90]; u32 f90; };
 
@@ -33,10 +34,9 @@ u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 u8 *TObjParticle__create(u8 *arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void render__12TObjParticleFv(P_8019527C *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
 s32 construct_world_actor_base(void *, void *);
@@ -49,10 +49,9 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 arg1, Src_80195400 *arg
 extern "C" {
 
 void *__dt__12TObjParticleFv(void *arg0, s16 arg1);
-void run_task__12TObjParticleFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
-s32 copy_pos__11TNowLoadingFPvPv(u32, void *);
-s32 copy_vec3__11TBoss4Type2FPvPv(u32, void *);
+s32 copy_pos__11TNowLoadingFPv(u32, void *);
+s32 copy_vec3__11TBoss4Type2FPv(u32, void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 f32 xyz_distance_squared(void *, s32);
 void mask_object_set_row_flags(void *, int);
@@ -64,7 +63,8 @@ extern const f32 lbl_805DBEE0;
 extern const f32 lbl_805DBEE4;
 extern const f32 lbl_805DBEE8;
 
-void render__12TObjParticleFv(P_8019527C *arg0) {
+void TObjParticle::render() {
+    P_8019527C *arg0 = (P_8019527C *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv(arg0) != 0) {
         if (arg0->f90 == 0) {
             return;
@@ -72,7 +72,8 @@ void render__12TObjParticleFv(P_8019527C *arg0) {
     }
 }
 
-void run_task__12TObjParticleFv(u8 *arg0) {
+void TObjParticle::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 var_f31;
 
     if (((get_global_state__14TOKeyMachine01Fv() == 0xE) || ((s32) *(s32 *)((s8 *)arg0 + 0x84) == 1)) && ((s32) *(s32 *)((s8 *)arg0 + 0x8C) != 1)) {
@@ -88,8 +89,8 @@ void run_task__12TObjParticleFv(u8 *arg0) {
         return;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x90) != 0U) {
-        copy_pos__11TNowLoadingFPvPv(*(u32 *)((s8 *)arg0 + 0x90), arg0 + 0x38);
-        copy_vec3__11TBoss4Type2FPvPv(*(u32 *)((s8 *)arg0 + 0x90), arg0 + 0x5C);
+        copy_pos__11TNowLoadingFPv(*(u32 *)((s8 *)arg0 + 0x90), arg0 + 0x38);
+        copy_vec3__11TBoss4Type2FPv(*(u32 *)((s8 *)arg0 + 0x90), arg0 + 0x5C);
     }
 }
 
@@ -119,7 +120,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 arg1, Src_80195400 *arg
     other = 0;
     arg0->f0 = obj_particle_class_name;
     VecCopy__FP3VecPC3Vec(&arg0->pos, &arg2->pos);
-    copy_xyz__10TObjPlayerFPvPv(&arg0->ang, &arg2->ang);
+    copy_xyz__10TObjPlayerFPv(&arg0->ang, &arg2->ang);
     VecCopy__FP3VecPC3Vec(arg0->params, arg2->params);
     for (i = 0; i < 3; i++) {
         arg0->ints[i] = arg2->ints[i];

@@ -21,6 +21,8 @@ struct TShopDeleteItemWindow
     u32 m_5c;
     u32 m_60;
     u32 m_64;
+    s32 destroy();
+    static s32 update_item_select(void *arg0);
 };
 
 #endif

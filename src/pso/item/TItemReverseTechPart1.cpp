@@ -16,7 +16,7 @@ struct Self_80119DA0 {
 
 void queue_destruction__7TObjectFv(void *);
 void TAdRicoRingCtrl__sub_8001B4A0(void *, f32);
-void start_fade_all__15TAdRicoRingCtrlFPvf(void *, f32);
+void start_fade_all__15TAdRicoRingCtrlFf(void *, f32);
 void *TAdRicoRingCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -35,7 +35,7 @@ void TItemReverseTechPart1::run_task() {
             }
             self->ring = p;
             if (self->ring != NULL) {
-                start_fade_all__15TAdRicoRingCtrlFPvf(self->ring, self->t1);
+                start_fade_all__15TAdRicoRingCtrlFf(self->ring, self->t1);
             }
         }
         if (self->timer == self->t1) {
@@ -82,7 +82,7 @@ extern "C" {
 void *TItemReverseTechPart1__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
+void *init_fade__6TLobbyFPvPv(void *, void *, void *);
 
 extern s32 __vt__21TItemReverseTechPart1[];
 extern void *lbl_805D2C4C;
@@ -104,7 +104,7 @@ void *TItemReverseTechPart1__ct(void *arg0) {
     TItemReverseTechPart1__instance = arg0;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init_fade__6TLobbyFPvPvPv(o, tl_00, destroy_and_flag__21TItemReverseTechPart2Fv);
+        init_fade__6TLobbyFPvPv(o, tl_00, destroy_and_flag__21TItemReverseTechPart2Fv);
     }
     return arg0;
 }

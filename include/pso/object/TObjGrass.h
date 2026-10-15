@@ -61,6 +61,18 @@ struct TObjGrass
     u8 _pad3C8[0x4];
     u32 m_3cc;
     u32 m_3d0;
+    static void update_dying(void *arg0_);
+    static void update_camera_vec_by_stage();
+    s32 update();
+    s32 update_web_attack();
+    static void update_chase_target(void *arg0_);
+    static void update_ai(void *arg0);
+    void render();
+    void run_task();
+    static void *create(void *arg0);
+    static void destroy_all();
+    static void load_resources();
+    void init_from_table_entry(s32 i);
 };
 
 #endif

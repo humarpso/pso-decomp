@@ -16,6 +16,8 @@ public:
 public:
     u8 m_smth[4];
     u8 m_smth1[4];
+public:
+    void*construct();
 };
 
 #endif

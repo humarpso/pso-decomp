@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowSubQuestBoard.h"
 
 extern "C" {
 
 void *TWindowSubQuestBoard__ct(void *arg0, void *arg1, void *arg2);
 int TWindowSubQuestBoard__sub_8027D1DC(void* p);
-u8 get_page_index__20TWindowSubQuestBoardFPv(void* p);
-int is_open__20TWindowSubQuestBoardFPv(void* p);
 void TWindowCtrl__sub_8027D214(void);
 void *TWindowSubQuestBoardSelect__ct(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -32,8 +31,8 @@ void *TWindowSubQuestBoard__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-u8 get_page_index__20TWindowSubQuestBoardFPv(void* p) { return *(u8*)((char*)p + 0x61); }
-int is_open__20TWindowSubQuestBoardFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
+u8 TWindowSubQuestBoard::get_page_index() { return *(u8*)((char*)this + 0x61); }
+int TWindowSubQuestBoard::is_open() { return *(u8*)((char*)this + 0x60) & 0x1; }
 int TWindowSubQuestBoard__sub_8027D1DC(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
 
 }

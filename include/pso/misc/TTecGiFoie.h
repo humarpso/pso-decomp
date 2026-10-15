@@ -19,6 +19,9 @@ struct TTecGiFoie
     u32 m_ec;
     u8 _padF0[0x48];
     u32 m_138;
+    void calc_params();
+    static void create(void *arg0, void *arg1, void *arg2);
+    static void render();
 };
 
 #endif

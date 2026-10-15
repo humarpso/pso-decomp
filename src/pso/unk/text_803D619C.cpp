@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 extern "C" {
 extern f32 lbl_805D76A8;
@@ -7,7 +8,7 @@ extern f32 lbl_805D76A8;
 #pragma optimize_for_size off
 #pragma scheduling off
 #pragma peephole off
-s32 calc_binomial_coefficient__12TBoss8DragonFii(s32 n, s32 k) {
+s32 TBoss8Dragon::calc_binomial_coefficient(s32 n, s32 k) {
     s32 d = 1;
     s32 r = 1;
     s32 i;

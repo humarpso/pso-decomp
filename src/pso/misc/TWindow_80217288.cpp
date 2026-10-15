@@ -36,7 +36,7 @@ struct Win_80217344 {
 
 void queue_destruction__7TObjectFv(void *);
 s32 get_instance__6TLobbyFv(void);
-void set_field_20__12TQuestListVMFPvi(void *, s32);
+void set_field_20__12TQuestListVMFl(void *, s32);
 void handle_confirm_dialog(void *arg0);
 void update_list_navigation__17TQuestListOfflineFPv(QuestList_802171BC *);
 void init_quest_list_window__17TQuestListOfflineFPv(QuestList_802171BC *);
@@ -225,7 +225,7 @@ void *TQuestListOffline__ct(Win_80217344 *self, s32 arg1, s32 arg2, s32 arg3) {
     } else {
         self->f54 = (void *)lbl_804C9C10;
     }
-    set_field_20__12TQuestListVMFPvi(self, 0);
+    set_field_20__12TQuestListVMFl(self, 0);
     return self;
 }
 

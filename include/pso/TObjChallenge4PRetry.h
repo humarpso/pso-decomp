@@ -13,6 +13,8 @@ public:
 public:
     virtual ~TObjChallenge4PRetry();
     virtual void run_task();
+public:
+    static void *create(void *arg0);
 };
 
 #endif

@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 
 extern "C" {
 
-f32 get_target_distance__13TWindowLockOnFv(void);
 void *get_window_layout_position();
 
-f32 get_target_distance__13TWindowLockOnFv(void) {
+f32 TWindowLockOn::get_target_distance() {
     return *(f32 *)((s8 *)(get_window_layout_position()) + 4);
 }
 

@@ -13,6 +13,11 @@ struct TObjEneHoldEffect
     u8 _pad96[0x2];
     u32 m_98;
     u32 m_9c;
+    u8 is_camera_visible();
+    u8 is_in_view();
+    void render();
+    static void create(void *arg0, void *arg1, void *arg2);
+    s32 validate_6x49_packet();
 };
 
 #endif

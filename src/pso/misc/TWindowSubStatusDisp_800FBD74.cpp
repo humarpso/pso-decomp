@@ -1,5 +1,6 @@
 #include "types.h"
 #include <stddef.h>
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
 
@@ -196,29 +197,29 @@ struct Quad_800FC24C { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
-s32 get_nth_view_player_id__11TCameraCtrlFi(int);
+s32 get_nth_view_player_id__11TCameraCtrlFl(int);
 void read_disc_file(void *, void *);
 s32 destroy_instance__22TQuestVmDownLoadServerFv();
 void create_instance__8TFogCtrlFv(void);
-s32 update_all__8TFogCtrlFii(int, int);
-s32 select_fog_for_viewport__8TFogCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 restore_fog_for_player__8TFogCtrlFii(s32 arg1, s32 arg0);
+s32 update_all__8TFogCtrlFll(int, int);
+s32 select_fog_for_viewport__8TFogCtrlFlll(s32 arg0, s32 arg1, s32 arg2);
+s32 restore_fog_for_player__8TFogCtrlFll(s32 arg1, s32 arg0);
 s32 TFogCtrl__sub_800FAC84(void* p);
 void copy_fog_entry(u8 *arg0, u8 *arg1);
 void* get_entry__8TFogCtrlFi(int a0);
 void clear_split_screen_fog__8TFogCtrlFv(void);
 void update_all__8TFogCtrlFv(void);
-void clear_active_flag__8TFogCtrlFPv(void *arg0);
+void clear_active_flag__8TFogCtrlFv(void *arg0);
 s32 apply_fog_entry(void *arg0);
-s32 restore_fog__8TFogCtrlFPvi(u8 *arg0, s32 arg1);
+s32 restore_fog__8TFogCtrlFl(u8 *arg0, s32 arg1);
 s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-void request_transition__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_param__8TFogCtrlFPv(void* p);
-void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx);
-s32 is_controller_animated__8TFogCtrlFii(s32 arg0, s32 arg1);
+void request_transition__8TFogCtrlFll(u8 *arg0, s32 arg1, s32 arg2);
+s32 get_param__8TFogCtrlFv(void* p);
+void apply_slot_params__8TFogCtrlFl(FogCtrl_800FB134 *self, s32 idx);
+s32 is_controller_animated__8TFogCtrlFll(s32 arg0, s32 arg1);
 void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
-void load_entry_into_slot__8TFogCtrlFPvii(Ctrl_800FB424 *self, s32 i, s32 entry);
+void load_entry_into_slot__8TFogCtrlFll(Ctrl_800FB424 *self, s32 i, s32 entry);
 void render__8TFogCtrlFv(void);
 u8 * __dt__8TFogCtrlFv(u8 *arg0, s16 arg1);
 TFogCtrl_800FB92C * TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index);
@@ -230,7 +231,6 @@ void create_area_fog_ctrl(void);
 void reset__8TFogCtrlFv(void);
 void init_scene_fog_system(void);
 void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
-void draw_number_digits__20TWindowSubStatusDispFPvsUsfff(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale);
 void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
 int get_name_text_width(void* p);
 u32 calc_small_font_text_width(const char *s);
@@ -239,8 +239,8 @@ void TWindowSubStatusDisp__sub_800FC248(void);
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
-s32 free__11TOBoss4RockFUi(void*);
-FogParam_800FBC5C * alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_free(void*);
+FogParam_800FBC5C * mem_alloc(s32);
 s32 create__22TObjFogCollisionPoisonFv();
 s32 TObjFogCollisionPoison__sub_801533BC();
 void clear_state_array__22TObjFogCollisionPoisonFv(void);
@@ -320,7 +320,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     get_player__20TWindowSubStatusDispFv();
 }
 
-void draw_number_digits__20TWindowSubStatusDispFPvsUsfff(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale) {
+void TWindowSubStatusDisp::draw_number_digits(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale) {
     Pos_800FBEA8 pos;
     s32 id;
     s32 i;

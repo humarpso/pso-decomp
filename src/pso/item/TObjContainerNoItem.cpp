@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerNoItem.h"
 
 struct VBase { char pad[0x18]; };
 
@@ -148,11 +149,11 @@ struct CE_80189614 { u8 pad[0x34]; s32 f34; u8 f38[0x28]; s32 f60; u8 pad2[0x326
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, void *, void *);
 s32 get_container_param(int);
@@ -160,7 +161,7 @@ extern RecoveredGlobal_8018925C_lbl_804B63BC forest_box_collision_body_parts;
 extern s32 __vt__19TObjContainerNoItem[];
 extern s32 TObjContainerNoItem__name;
 u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2);
-void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80444EF4[];
@@ -170,8 +171,8 @@ void TObjContainerEnemy__vt80(Obj_801895A4 *self);
 s32 get_current_floor();
 void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
-void byteswap_and_send__6TLobbyFi(void *);
-void init_packet_67_04__6TLobbyFPv(void *);
+void byteswap_and_send__6TLobbyFv(void *);
+void init_packet_67_04__6TLobbyFv(void *);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
 f32 TObjContainerEnemy__vt20(Obj_801894F8 *arg0);
@@ -192,7 +193,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
@@ -203,13 +204,12 @@ extern "C" {
 
 void TObjContainerNoItem__vt78(void *arg0);
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1);
-void *create__19TObjContainerNoItemFPv(void *arg0);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_container_object__10TObjPlayerFPvs(void *, s32);
+s32 destroy_container_object__10TObjPlayerFs(void *, s32);
 
 void TObjContainerNoItem__vt78(void *arg0) {
     s16 temp_r0;
@@ -227,7 +227,7 @@ void TObjContainerNoItem__vt78(void *arg0) {
 
 extern void *tl_05;
 
-void *create__19TObjContainerNoItemFPv(void *arg0) {
+void *TObjContainerNoItem::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
         o = TObjContainerNoItem__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -242,7 +242,7 @@ void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjContainerNoItem;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_container_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_container_object__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -260,7 +260,7 @@ u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&forest_box_collision_body_parts.value), (int) (1));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&forest_box_collision_body_parts.value) + 4));
@@ -271,13 +271,13 @@ void TObjContainerEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj*)arg0)->m77();
-            clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
+            clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (1));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
+        clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (1));
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
@@ -320,20 +320,20 @@ f32 TObjContainerEnemy__vt20(Obj_801894F8 *arg0) {
         sp8 = 1;
         access_object_saved_state(arg0, &sp8, 0);
         send_object_state_update(arg0, &sp8);
-        init_packet_67_04__6TLobbyFPv(&pkt);
+        init_packet_67_04__6TLobbyFv(&pkt);
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();
         pkt.d = arg0->f84;
         pkt.e = local_client_id;
-        byteswap_and_send__6TLobbyFi(&pkt);
+        byteswap_and_send__6TLobbyFv(&pkt);
     }
     return lbl_805DBCF4;
 }
 
 void TObjContainerEnemy__vt80(Obj_801895A4 *self) {
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     debug_printf_at(0x130020, lbl_80444EF4, self->id);
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
 }
 void TObjContainerEnemy__vt79(CE_80189614 *self) {
@@ -342,7 +342,7 @@ void TObjContainerEnemy__vt79(CE_80189614 *self) {
     }
     switch (self->mode) {
     case 0:
-        set_global_param__8TObjFishFi(lbl_805D5B7C);
+        set_global_param__8TObjFishFl(lbl_805D5B7C);
         push_matrix();
         post_translate_matrix(self->f38);
         rotate_matrix_y(0, self->f60);

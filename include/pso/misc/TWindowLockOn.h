@@ -21,6 +21,13 @@ struct TWindowLockOn
     u32 m_70;
     u32 m_74;
     u32 m_78;
+    s32 get_target_id();
+    static f32 get_target_distance();
+    void validate_target();
+    static void refresh_ground_item();
+    void update_photon_blast_marker();
+    static void *create_for_target(s32 arg0, u16 arg1);
+    void run_task();
 };
 
 #endif

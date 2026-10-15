@@ -27,7 +27,7 @@ extern RecoveredGlobal_800D9960_lbl_80500FA4 lbl_80500FA4;
 void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
-Vec_800D9ABC *alloc_buffer__11TOBoss4RockFPv(int);
+Vec_800D9ABC *mem_alloc(int);
 extern const f32 lbl_805DA3EC;
 extern const f32 lbl_805DA3F0;
 Trail_800D9ABC *init_trail_buffer__11TBoss4Type3FPvifff(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step);
@@ -51,7 +51,7 @@ void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 a
 extern "C" {
 
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
-int free__11TOBoss4RockFUi(s32);
+int mem_free(s32);
 int __dl__FPv(s32 *);
 
 typedef char RecoveredGlobal_800D9960_lbl_80500FA4_size[sizeof(RecoveredGlobal_800D9960_lbl_80500FA4) == 0xC ? 1 : -1];
@@ -87,7 +87,7 @@ void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 a
 
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        free__11TOBoss4RockFUi(*arg0);
+        mem_free(*arg0);
         *arg0 = 0;
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -106,7 +106,7 @@ Trail_800D9ABC *init_trail_buffer__11TBoss4Type3FPvifff(Trail_800D9ABC *arg0, s3
     arg0->start *= arg0->step;
     arg0->end *= arg0->step;
     n = arg0->len * arg0->segs;
-    arg0->buf = alloc_buffer__11TOBoss4RockFPv(n * 0xC);
+    arg0->buf = mem_alloc(n * 0xC);
     for (i = 0; i < n; i++) {
         arg0->buf[i].x = lbl_805DA3EC;
         arg0->buf[i].y = lbl_805DA3EC;

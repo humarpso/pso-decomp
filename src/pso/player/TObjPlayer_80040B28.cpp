@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-int get_battle_param__10TObjPlayerFi(int a0);
-
     extern int player_battle_param_table[];
-int get_battle_param__10TObjPlayerFi(int a0) {  return player_battle_param_table[a0]; }
+int TObjPlayer::get_battle_param(int a0) {  return player_battle_param_table[a0]; }
 
 }

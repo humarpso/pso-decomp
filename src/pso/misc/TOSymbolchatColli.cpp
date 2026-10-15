@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSymbolchatColli.h"
 
 struct Stack_80178830 {
     f32 sp8;
@@ -59,9 +60,8 @@ s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA2C;
 extern const f32 lbl_805DBA30;
-void render__17TOSymbolchatColliFv(u8 *arg0);
 void construct_actor_base__10TObjPlayerFPvPv(void *);
-void reset_photon_effect__10TObjPlayerFPv(void *);
+void reset_photon_effect__10TObjPlayerFv(void *);
 void init_collision_body_parts(void *, void *, int);
 extern u8 lbl_804B4550[];
 extern s32 __vt__17TOSymbolchatColli[];
@@ -71,47 +71,41 @@ s32 is_locally_controlled__10TObjPlayerFPv();
 f32 horizontal_distance_squared(void *, void *);
 Player_80178890 *find_entity_by_id(u16);
 void fn_8017866C(void *, s32, u16);
-s32 get_state__17TOSymbolchatColliFPv(void *arg0);
 void run_task__17TOSymbolchatColliFv(Obj_80178890 *self);
-void bswap_entry__20TWindowSubSymbolChatFPv(void *);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+void bswap_entry__20TWindowSubSymbolChatFv(void *);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
 void prs_decompress_buffer(s32, s32);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_alloc(s32);
 extern u32 symbolchat_colli_param_table[];
 extern s32 lbl_805D3190;
 extern int symbol_chat_colli_entries;
-void load_symbol_chat_data__17TOSymbolchatColliFv(void);
 void set_motion_params__10TObjPlayerFPvPv(void *, void *);
 void *memset(void *, int, u32);
 extern u32 symbolchat_colli_param_table[];
 extern int symbol_chat_colli_entries;
 extern const f32 lbl_805DBA28;
-void init_collision_params__17TOSymbolchatColliFPv(void *arg0);
 }
 
 extern "C" {
 
 void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1);
-void *create__17TOSymbolchatColliFPv(void *arg0);
-void free_rock__17TOSymbolchatColliFv(void);
-s32 get_state__17TOSymbolchatColliFPv(void *arg0);
 u8 is_current_floor_switch_set(u16);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
-int free__11TOBoss4RockFUi(void*);
+int mem_free(void*);
 
-s32 get_state__17TOSymbolchatColliFPv(void *arg0) {
-    if (is_current_floor_switch_set(*(u16 *)((s8 *)arg0 + 0x37C)) == 1) {
+s32 TOSymbolchatColli::get_state() {
+    if (is_current_floor_switch_set(*(u16 *)((s8 *)this + 0x37C)) == 1) {
         return 3;
     }
-    if (is_current_floor_switch_set(*(u16 *)((s8 *)arg0 + 0x37A)) == 1) {
+    if (is_current_floor_switch_set(*(u16 *)((s8 *)this + 0x37A)) == 1) {
         return 2;
     }
-    return (u32) __cntlzw(1 - is_current_floor_switch_set(*(u16 *)((s8 *)arg0 + 0x378))) >> 5;
+    return (u32) __cntlzw(1 - is_current_floor_switch_set(*(u16 *)((s8 *)this + 0x378))) >> 5;
 }
 
 extern void *tl_05;
@@ -119,8 +113,8 @@ extern void *tl_05;
 typedef struct Ent_8017873C Ent_8017873C;
 typedef struct HL_8017873C HL_8017873C;
 typedef struct Obj_8017873C Obj_8017873C;
-void init_collision_params__17TOSymbolchatColliFPv(void *arg0) {
-  Obj_8017873C *self = (Obj_8017873C *) arg0;
+void TOSymbolchatColli::init_collision_params() {
+  Obj_8017873C *self = (Obj_8017873C *) this;
   s32 i;
   self->radiusSq = self->radius * self->radius;
   memset(self->coll, 0, 0x24);
@@ -164,7 +158,8 @@ void init_collision_params__17TOSymbolchatColliFPv(void *arg0) {
   }
 }
 
-void render__17TOSymbolchatColliFv(u8 *arg0) {
+void TOSymbolchatColli::render() {
+    u8 *arg0 = (u8 *)this;
     Stack_80178830 stack;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         stack.sp8 = lbl_805DBA2C;
@@ -185,7 +180,7 @@ void run_task__17TOSymbolchatColliFv(Obj_80178890 *self) {
             if (horizontal_distance_squared(pl->pos, self->pos) < self->radiusSq) {
                 if (self->inside[i] == 0) {
                     self->inside[i] = 1;
-                    s32 st = get_state__17TOSymbolchatColliFPv(self);
+                    s32 st = ((TOSymbolchatColli *)self)->get_state();
                     fn_8017866C(self, st, i);
                 }
             } else {
@@ -197,7 +192,7 @@ void run_task__17TOSymbolchatColliFv(Obj_80178890 *self) {
     }
 }
 
-void *create__17TOSymbolchatColliFPv(void *arg0) {
+void *TOSymbolchatColli::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x384);
     if (o != NULL) {
         o = TOSymbolchatColli__ct((Obj_80178AD4 *)(o), (void *)(tl_05), (s32)(arg0));
@@ -206,21 +201,21 @@ void *create__17TOSymbolchatColliFPv(void *arg0) {
 }
 
     extern int symbol_chat_colli_entries;
-void free_rock__17TOSymbolchatColliFv(void) { free__11TOBoss4RockFUi((void*)(symbol_chat_colli_entries)); symbol_chat_colli_entries = 0; }
+void TOSymbolchatColli::free_rock() { mem_free((void*)(symbol_chat_colli_entries)); symbol_chat_colli_entries = 0; }
 
 extern s32 __vt__17TOSymbolchatColli[];
 
-void load_symbol_chat_data__17TOSymbolchatColliFv(void) {
+void TOSymbolchatColli::load_symbol_chat_data() {
     s32 h;
     s32 i;
-    symbol_chat_colli_entries = alloc_buffer__11TOBoss4RockFPv(0x840);
+    symbol_chat_colli_entries = mem_alloc(0x840);
     h = set_stream_and_load_file__6TLobbyFi(lbl_805D3190);
     if (h != 0) {
         prs_decompress_buffer(h, symbol_chat_colli_entries);
     }
-    safe_free__23TAdSinglePlyChrSelectGCFUi(h);
+    safe_free__23TAdSinglePlyChrSelectGCFUl(h);
     for (i = 0; i < 0x18; i++) {
-        bswap_entry__20TWindowSubSymbolChatFPv((u8 *)symbol_chat_colli_entries + i * 0x58);
+        bswap_entry__20TWindowSubSymbolChatFv((u8 *)symbol_chat_colli_entries + i * 0x58);
     }
     for (i = 0; i < 3; i++) {
         symbolchat_colli_param_table[i] = 0;
@@ -246,8 +241,8 @@ Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2) {
     *(s32 *)arg0 = lbl_805D3194;
     arg0->v5(arg2);
     init_collision_body_parts(arg0, lbl_804B4550, 1);
-    reset_photon_effect__10TObjPlayerFPv(arg0);
-    init_collision_params__17TOSymbolchatColliFPv((void *)(arg0));
+    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TOSymbolchatColli *)arg0)->init_collision_params();
     for (i = 0; i < 4; i++) {
         arg0->arr[i] = 0;
     }

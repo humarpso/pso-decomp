@@ -1,6 +1,7 @@
 #include "pso/map/FloorResourceCallbacks.h"
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_800F7A6C_lbl_804DB1F0 {
     s32 value;
@@ -25,9 +26,6 @@ extern "C" {
 void send_6x0A_enemy_state_packet(void* p);
 void init_6x0A_enemy_state_packet(void* p);
 int get_attack_credit_slot_count(void);
-void broadcast_state__6TLobbyFPv(void* p);
-void bswap_enemy_state__6TLobbyFPv(void* p);
-void bswap_field__6TLobbyFPv(void* p);
 void unload_current_floor_resources(void);
 int TLobby__send_and_handle_60(void*);
 void unload_floor_resources(s32 arg0);
@@ -37,10 +35,10 @@ int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int get_global_state__14TOKeyMachine01Fv(void);
 s32 load_current_floor_resources(void);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 
-void bswap_field__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); }
-void broadcast_state__6TLobbyFPv(void* p) { bswap_field__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
+void TLobby::bswap_field() { read_be16_field2__10TObjPlayerFv(this); bswap_32__FPUl((char*)this + 0x4); }
+void TLobby::broadcast_state() { bswap_field(); TLobby__send_and_handle_60(this); }
 
 void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 4) = 0;
@@ -48,8 +46,8 @@ void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void bswap_enemy_state__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
-void send_6x0A_enemy_state_packet(void* p) { bswap_enemy_state__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
+void TLobby::bswap_enemy_state() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
+void send_6x0A_enemy_state_packet(void* p) { ((TLobby *)p)->bswap_enemy_state(); TLobby__send_and_handle_60(p); }
 void init_6x0A_enemy_state_packet(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
 int get_attack_credit_slot_count(void) { return 4; }
 

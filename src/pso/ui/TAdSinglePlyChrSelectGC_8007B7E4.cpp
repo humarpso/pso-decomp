@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
-int get_state__23TAdSinglePlyChrSelectGCFv(void);
-
     extern int guild_card_save_payload;
-int get_state__23TAdSinglePlyChrSelectGCFv(void) {  return guild_card_save_payload; }
+int TAdSinglePlyChrSelectGC::get_state() {  return guild_card_save_payload; }
 
 }

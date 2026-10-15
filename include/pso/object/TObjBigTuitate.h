@@ -15,6 +15,9 @@ struct TObjBigTuitate
     u32 m_c0;
     u8 _padC4[0x4];
     u32 m_c8;
+    void render();
+    int run_task();
+    static void free_instance();
 };
 
 #endif

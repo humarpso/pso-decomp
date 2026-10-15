@@ -37,6 +37,9 @@ struct TObjEneRecobox
     u32 m_4e4;
     u32 m_4e8;
     u32 m_4ec;
+    static u32 remap_area_sound_id(u32 arg0);
+    static void release_static_instance();
+    static void load_resources();
 };
 
 #endif

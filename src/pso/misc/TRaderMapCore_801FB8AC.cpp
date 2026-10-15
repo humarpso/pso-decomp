@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct RecoveredGlobal_8019A9B8_lbl_80446184 {
     s32 value;
@@ -38,27 +39,25 @@ extern "C" {
 extern u32 TRaderMapCore__frame_model_resource;
 extern u32 TRaderMapCore__data_805D5F4C;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_8044A7B8;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 obj_f_enemy_resource_descriptor;
-void load_frame_texture__13TRaderMapCoreFv(void);
 }
 
 extern "C" {
 
-void free_statics__13TRaderMapCoreFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 s32 TLobby__sub_803DA16C(void*);
 
 extern u32 TRaderMapCore__frame_model_resource;
 extern u32 TRaderMapCore__data_805D5F4C;
 
-void free_statics__13TRaderMapCoreFv(void) {
+void TRaderMapCore::free_statics() {
     if ((u32) TRaderMapCore__data_805D5F4C != 0U) {
         TLobby__sub_803DA16C((void*)TRaderMapCore__data_805D5F4C);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TRaderMapCore__data_805D5F4C);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(TRaderMapCore__data_805D5F4C);
         TRaderMapCore__data_805D5F4C = 0U;
     }
     if ((u32) TRaderMapCore__frame_model_resource != 0U) {
@@ -70,10 +69,10 @@ typedef char RecoveredGlobal_8019A880_lbl_804B8F70_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8019A880___vt__8TObjTank_size[sizeof(RecoveredGlobal_8019A880___vt__8TObjTank) == 0x3C ? 1 : -1];
 typedef char RecoveredGlobal_8019A9B8_lbl_80446184_size[sizeof(RecoveredGlobal_8019A9B8_lbl_80446184) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8019A9B8_lbl_804B8F60_size[sizeof(RecoveredGlobal_8019A9B8_lbl_804B8F60) == 0x10 ? 1 : -1];
-void load_frame_texture__13TRaderMapCoreFv(void) {
+void TRaderMapCore::load_frame_texture() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &obj_f_enemy_resource_descriptor.value, 0, 0, 0));

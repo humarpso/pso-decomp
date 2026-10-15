@@ -25,6 +25,10 @@ struct TTecRaBarta
     u32 m_f4;
     u8 _padF8[0x40];
     u32 m_138;
+    void create(void *arg1, void *arg2);
+    static void render();
+    void run_task();
+    void *construct_area(void *source, void *origin, void *level);
 };
 
 #endif

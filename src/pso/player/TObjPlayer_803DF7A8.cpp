@@ -3,6 +3,7 @@
 
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 
 
@@ -71,7 +72,6 @@ void OSPanic(const char *, int, const char *, ...);
 void TObjPlayer__sub_803DAE1C(void *, int, void *);
 extern char lbl_804FC7F8[];
 extern char lbl_805D46F0[4];
-void reload_texture__10TObjPlayerFPviUiPv(void *arg0, s32 arg1, u32 arg2, void *arg3);
 void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
 void Dolphin_GXInitTexObj(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8);
 void GXInitTexObjCI(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8, u32);
@@ -85,7 +85,6 @@ extern const f32 lbl_805E1024;
 extern const f64 lbl_805E1028;
 extern const f64 lbl_805E1030;
 f32 project_point_onto_line(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out);
-s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
 s32 TObjPlayer__sub_803DFB1C(Vec_803E1B1C *a, Vec_803E1B1C *b);
 s32 __SITransfer(Vec_803E1B1C *a, Vec_803E1B1C *b);
@@ -96,13 +95,10 @@ s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB);
 extern "C" {
 
 
-void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
-void reset_particle_counter__10TObjPlayerFv(void);
-void set_effect_active__10TObjPlayerFv(void);
-s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 
 
-s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
+s32 TObjPlayer::test_aabb_overlap(u8 *arg1, u8 *arg2, u8 *arg3) {
+    u8 *arg0 = (u8 *)this;
     if (*(f32 *)((s8 *)arg1 + 0) < *(f32 *)((s8 *)arg2 + 0)) {
         return 0;
     }
@@ -181,7 +177,7 @@ s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB) 
     mask = 0;
     calc_bounds_min_max__10TObjPlayerFPvPvPv((struct Vec_803E1B1C *)(boxA), (struct Vec_803E1B1C *)(&mnA), (struct Vec_803E1B1C *)(&mxA));
     calc_bounds_min_max__10TObjPlayerFPvPvPv((struct Vec_803E1B1C *)(boxB), (struct Vec_803E1B1C *)(&mnB), (struct Vec_803E1B1C *)(&mxB));
-    if (test_aabb_overlap__10TObjPlayerFPvPvPvPv((u8 *)&mnA, (u8 *)&mxA, (u8 *)&mnB, (u8 *)&mxB) != 0) {
+    if (((TObjPlayer *)((u8 *)&mnA))->test_aabb_overlap((u8 *)&mxA, (u8 *)&mnB, (u8 *)&mxB) != 0) {
     Faces_803E0ED4 faces = box_face_corner_index_table;
     for (i = 0; i < 6; i++) {
         fa = faces.v[i];
@@ -347,7 +343,8 @@ void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct V
     }
 }
 
-void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
+void TObjPlayer::calc_bounds(u8 *arg1, u8 *arg2) {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg1 + 0) = (f32) (*(f32 *)((s8 *)arg0 + 0) - *(f32 *)((s8 *)arg0 + 0xC));
     *(f32 *)((s8 *)arg1 + 4) = (f32) (*(f32 *)((s8 *)arg0 + 4) - *(f32 *)((s8 *)arg0 + 0xC));
     *(f32 *)((s8 *)arg1 + 8) = (f32) (*(f32 *)((s8 *)arg0 + 8) - *(f32 *)((s8 *)arg0 + 0xC));
@@ -403,17 +400,17 @@ void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
     GXLoadTexObj(&list_texture_tex_obj, list_texture_map_table[map]);
 }
 
-void reload_texture__10TObjPlayerFPviUiPv(void *arg0, s32 arg1, u32 arg2, void *arg3) {
+void TObjPlayer::reload_texture(s32 arg1, u32 arg2, void *arg3) {
     s32 size;
     if ((arg2 & 0x40000000) != 0) {
         size = arg1;
     } else {
         OSPanic(lbl_804FC7F8, 0x30, lbl_805D46F0);
     }
-    TObjPlayer__sub_803DAE1C(arg0, size, arg3);
+    TObjPlayer__sub_803DAE1C(this, size, arg3);
 }
 
-void set_effect_active__10TObjPlayerFv(void) {
+void TObjPlayer::set_effect_active() {
     scene_fog_enable_flag = 1;
 }
 
@@ -422,7 +419,7 @@ void set_effect_active__10TObjPlayerFv(void) {
 
 extern s8 scene_fog_enable_flag;
 
-void reset_particle_counter__10TObjPlayerFv(void) {
+void TObjPlayer::reset_particle_counter() {
     scene_fog_enable_flag = 0;
 }
 

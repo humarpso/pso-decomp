@@ -8,6 +8,8 @@ public:
     virtual ~TAdBackGC();
     virtual void run_task();
     virtual void render();
+public:
+    static void run_task();
 };
 
 #endif

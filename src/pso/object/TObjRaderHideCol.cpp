@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjRaderHideCol.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -31,21 +32,20 @@ Pl_801973B0 *get_player_by_client_id(s32);
 void hide_radar__13TRaderMapCoreFv();
 void show_radar__13TRaderMapCoreFv();
 extern s32 local_client_id;
-void run_task__16TObjRaderHideColFv(Hide_801973B0 *arg0);
 }
 
 extern "C" {
 
 void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1);
-void render__16TObjRaderHideColFv(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-void render__16TObjRaderHideColFv(void) {  }
+void TObjRaderHideCol::render() {  }
 
 extern s32 __vt__16TObjRaderHideCol[];
 
-void run_task__16TObjRaderHideColFv(Hide_801973B0 *arg0) {
+void TObjRaderHideCol::run_task() {
+    Hide_801973B0 *arg0 = (Hide_801973B0 *)this;
     Pl_801973B0 *p = get_player_by_client_id(local_client_id);
     if (p != 0) {
         if (xyz_distance_squared(arg0->pos, p->pos) < arg0->f90 * arg0->f90) {

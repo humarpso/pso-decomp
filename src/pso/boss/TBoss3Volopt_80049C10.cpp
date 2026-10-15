@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 struct RecoveredGlobal_80049E9C_lbl_80484AD0 {
     s32 value;
@@ -47,7 +48,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss3Volopt__sub_8004812C(int);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
+s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
 s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
@@ -65,13 +66,13 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss3Volopt__sub_8004812C(int);
 void explode_and_destroy__12TBoss3VoloptFPv(void *);
 u32 csnVector(void *, void *, s32);
-void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
-void scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
+void copy_vec3__11TBoss4Type2FPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
+void scale_velocity__19TObjGyaranzoMissileFf(void *, f32);
 void direction_to_rotation_yx(void *, void *, void *);
 void direction_to_rotation_xy(void *, void *, void *);
 void check_enemy_body_collisions(void *);
-void check_object_collisions__10TObjPlayerFPv(void *);
+void check_object_collisions__10TObjPlayerFv(void *);
 Tgt_80049C10 *get_player_by_client_id(s32);
 void play_persistent_sound(s32, void *, void *, s32, s32);
 void vec3_add_to(void *, void *);
@@ -79,28 +80,28 @@ void subtract_vector(void *, void *);
 extern s32 volopt_homing_projectile_expire_tick;
 extern const f32 lbl_805D88A4;
 extern const f32 lbl_805D88A8;
-void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self);
 }
 
 extern "C" {
 
 void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_80484AFC[];
 
-void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self) {
+void TBoss3Volopt::update_homing_projectile() {
+    Self_80049C10 *self = (Self_80049C10 *)this;
     Tgt_80049C10 *t;
     t = get_player_by_client_id(self->fcc);
     if (t != NULL) {
         Vec_80049C10 d = t->pos;
         subtract_vector(&d, &self->pos);
-        scale_velocity__19TObjGyaranzoMissileFPvf(&d, TBoss3Volopt__sub_8004812C(1));
+        scale_velocity__19TObjGyaranzoMissileFf(&d, TBoss3Volopt__sub_8004812C(1));
         vec3_add_to(&self->vel, &d);
-        scale_velocity__19TObjGyaranzoMissileFPvf(&self->vel, TBoss3Volopt__sub_8004812C(0));
+        scale_velocity__19TObjGyaranzoMissileFf(&self->vel, TBoss3Volopt__sub_8004812C(0));
     }
     VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
     vec3_add_to(&self->pos, &self->vel);
@@ -112,10 +113,10 @@ void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self) {
         n.z = -n.z;
         direction_to_rotation_yx(&n, &self->fe8, &self->fec);
         self->fec -= 0x4000;
-        copy_vec3__11TBoss4Type2FPvPv(self->fe0, self->fe4);
-        scale_velocity__19TObjGyaranzoMissileFPvf(&n, lbl_805D88A4);
+        copy_vec3__11TBoss4Type2FPv(self->fe0, self->fe4);
+        scale_velocity__19TObjGyaranzoMissileFf(&n, lbl_805D88A4);
         vec3_add_to(&n, &self->pos);
-        copy_pos__11TNowLoadingFPvPv(self->fe0, &n);
+        copy_pos__11TNowLoadingFPv(self->fe0, &n);
     }
     if (csnVector(&self->prev, &self->pos, -1) != 0) {
         explode_and_destroy__12TBoss3VoloptFPv(self);
@@ -127,7 +128,7 @@ void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self) {
     } else {
         self->fa4->f18 |= 4;
     }
-    check_object_collisions__10TObjPlayerFPv(self);
+    check_object_collisions__10TObjPlayerFv(self);
     check_enemy_body_collisions(self);
     if (self->fa4->f18 & 0x180000) {
         explode_and_destroy__12TBoss3VoloptFPv(self);
@@ -148,7 +149,7 @@ void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0xE0) != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0));
         }
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -160,7 +161,7 @@ typedef char RecoveredGlobal_80049E9C_lbl_80484AFC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80049E9C_lbl_8058D490_size[sizeof(RecoveredGlobal_80049E9C_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r4;
-    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg1));
+    construct_collider_proxy__10TObjPlayerFv((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80049E9C_lbl_80484AFC *)&lbl_80484AFC).value;
     init_collision_body_parts((void *) (arg0), (void *) (&volopt_collision_body_desc.value), (int) (1));
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) lbl_805D88AC;

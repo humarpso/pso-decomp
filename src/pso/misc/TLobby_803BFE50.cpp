@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/SjRingBuffer.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_803C0B08_lbl_80570AC0 {
     s32 value;
@@ -140,55 +141,36 @@ void TLobby__sub_803BE0DC(void);
 extern s32 lbl_805D74F0;
 extern s32 lbl_805D7500;
 void dspInitCallback(void);
-s32 get_offset_58__6TLobbyFi(s32 arg0);
-s32 get_field_34__6TLobbyFPv(int);
+s32 get_field_34__6TLobbyFv(int);
 void TLobby__sub_803BFE58(u8 *arg0);
-s32 get_field30__6TLobbyFPv(int);
-void dispatch_field4_event__6TLobbyFPv(u8 *arg0);
-s32 get_field_2c__6TLobbyFPv(int);
-void send_with_offset4_alt__6TLobbyFPv(u8 *arg0);
-s32 get_field_28__6TLobbyFPv(int);
-void notify_client__6TLobbyFPv(u8 *arg0);
-s32 get_slot__6TLobbyFPv(int);
+s32 get_field30__6TLobbyFv(int);
+s32 get_field_2c__6TLobbyFv(int);
+s32 get_field_28__6TLobbyFv(int);
+s32 get_slot__6TLobbyFv(int);
 void TLobby__sub_803BFEE8(u8 *arg0);
 s32 TLobby__sub_803C3ABC(int);
-void send_packet_by_id__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803C3AC4(int);
-void notify_field_4_alt__6TLobbyFPv(u8 *arg0);
-s32 get_packet_flag_for_state__6TLobbyFPv(int);
-void send_packet_by_id_2__6TLobbyFPv(u8 *arg0);
+s32 get_packet_flag_for_state__6TLobbyFv(int);
 s32 TLobby__sub_803C3B38(int);
-void send_with_offset4__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803C3B44(int);
-void notify_field_4__6TLobbyFPv(u8 *arg0);
-s32 get_field_a8__6TLobbyFPv(int);
+s32 get_field_a8__6TLobbyFv(int);
 void TLobby__sub_803BFFC0(u8 *arg0);
-void set_field_44__6TLobbyFPvi(u8 *arg0, s32 arg1);
-void set_field_40__6TLobbyFPvi(u8 *arg0, s32 arg1);
-void set_field_3c__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void TLobby__sub_803BFFFC(u8 *arg0, s32 arg1, s32 arg2);
-void set_count__6TLobbyFPvi(u8 *arg0, s32 arg1);
 s32 TLobby__sub_803C0010(u8 *arg0);
 s32 TLobby__sub_803C39CC(int);
-void reset_flag__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_803C0758(u8 *arg0);
 s32 TLobby__sub_803C1A00(int);
-void set_network_result__6TLobbyFPvi(u8 *arg0, s32 arg1);
-s32 invoke_notify_callback__6TLobbyFPv(int);
-void set_param_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1);
-void clear_record__6TLobbyFPv(void *);
+s32 invoke_notify_callback__6TLobbyFv(int);
+void clear_record__6TLobbyFv(void *);
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
 s32 memset(void *, int, int);
 s32 memset(void *, int, int);
-void reset_entry__6TLobbyFPv(u8 *arg0);
 s32 memset(void *, int, int);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
-void clear_session_buffer__6TLobbyFv(void);
 s32 memset(void *, int, int);
 void TLobby__sub_803C406C(void);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
-void reset_sound_buffers__6TLobbyFv(void);
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
 extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
@@ -198,19 +180,17 @@ s32 TLobby__sub_803C07E8(Obj_803C07E8 *self);
 s32 memcmp(void *, void *, int);
 extern s32 lbl_805E0CB0;
 extern s32 lbl_805E0CB8;
-s32 is_riff_wave__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803C3B38(int);
-s32 get_field_0x3c__6TLobbyFPv(int);
+s32 get_field_0x3c__6TLobbyFv(int);
 
 void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3);
-s32 get_client_count__6TLobbyFPv(int);
-void convert_pcm_u8_to_s16__6TLobbyFPv(Snd_803C0F98 *arg0);
-s32 get_client_count__6TLobbyFPv(int);
+s32 get_client_count__6TLobbyFv(int);
+s32 get_client_count__6TLobbyFv(int);
 void EXIGetID(Snd_803C0BE8 *arg0);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void GXFlush(void);
 s32 TLobby__sub_803C0238();
-s32 get_field_a8__6TLobbyFPv(int);
+s32 get_field_a8__6TLobbyFv(int);
 s32 TLobby__sub_803C3B68(s32, void *, s32);
 s32 TLobby__sub_803D3130(AudioStreamChunk *, s32, AudioStreamChunk *, AudioStreamChunk *);
 void *memcpy(void *, const void *, u32);
@@ -223,56 +203,69 @@ void sndConvertMs(s32 *arg0);
 u32 sndConvert2Ms(u32 arg0);
 void salApplyMatrix(u8 *arg0, u8 *arg1, u8 *arg2);
 
-s32 get_offset_58__6TLobbyFi(s32 arg0) {
+s32 TLobby::get_offset_58() {
+    s32 arg0 = (s32)this;
     return arg0 + 0x58;
 }
 void TLobby__sub_803BFE58(u8 *arg0) {
-    get_field_34__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    get_field_34__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void dispatch_field4_event__6TLobbyFPv(u8 *arg0) {
-    get_field30__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+void TLobby::dispatch_field4_event() {
+    u8 *arg0 = (u8 *)this;
+    get_field30__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void send_with_offset4_alt__6TLobbyFPv(u8 *arg0) {
-    get_field_2c__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+void TLobby::send_with_offset4_alt() {
+    u8 *arg0 = (u8 *)this;
+    get_field_2c__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void notify_client__6TLobbyFPv(u8 *arg0) {
-    get_field_28__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+void TLobby::notify_client() {
+    u8 *arg0 = (u8 *)this;
+    get_field_28__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
 void TLobby__sub_803BFEE8(u8 *arg0) {
-    get_slot__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    get_slot__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void send_packet_by_id__6TLobbyFPv(u8 *arg0) {
+void TLobby::send_packet_by_id() {
+    u8 *arg0 = (u8 *)this;
     TLobby__sub_803C3ABC((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void notify_field_4_alt__6TLobbyFPv(u8 *arg0) {
+void TLobby::notify_field_4_alt() {
+    u8 *arg0 = (u8 *)this;
     TLobby__sub_803C3AC4((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void send_packet_by_id_2__6TLobbyFPv(u8 *arg0) {
-    get_packet_flag_for_state__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+void TLobby::send_packet_by_id_2() {
+    u8 *arg0 = (u8 *)this;
+    get_packet_flag_for_state__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void send_with_offset4__6TLobbyFPv(u8 *arg0) {
+void TLobby::send_with_offset4() {
+    u8 *arg0 = (u8 *)this;
     TLobby__sub_803C3B38((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void notify_field_4__6TLobbyFPv(u8 *arg0) {
+void TLobby::notify_field_4() {
+    u8 *arg0 = (u8 *)this;
     TLobby__sub_803C3B44((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
 void TLobby__sub_803BFFC0(u8 *arg0) {
-    get_field_a8__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    get_field_a8__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void set_field_44__6TLobbyFPvi(u8 *arg0, s32 arg1) {
+void TLobby::set_field_44(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x44) = arg1;
 }
-void set_field_40__6TLobbyFPvi(u8 *arg0, s32 arg1) {
+void TLobby::set_field_40(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x40) = arg1;
 }
-void set_field_3c__6TLobbyFPvi(u8 *arg0, s32 arg1) {
+void TLobby::set_field_3c(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x3C) = arg1;
 }
 void TLobby__sub_803BFFFC(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x48) = arg1;
     *(s32 *)((s8 *)arg0 + 0x4C) = arg2;
 }
-void set_count__6TLobbyFPvi(u8 *arg0, s32 arg1) {
+void TLobby::set_count(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x34) = arg1;
 }
 s32 TLobby__sub_803C0010(u8 *arg0) {
@@ -310,13 +303,13 @@ inline void parse_audio_stream_input_header(AudioStreamInputState *arg0) {
         return;
     }
     arg0->f98 = n;
-    if (get_field_a8__6TLobbyFPv(h) == 4) {
+    if (get_field_a8__6TLobbyFv(h) == 4) {
         arg0->f3 = 1;
     }
-    if (get_field_a8__6TLobbyFPv(h) == 2) {
+    if (get_field_a8__6TLobbyFv(h) == 2) {
         memcpy(arg0->f58, b.data, b.size < 0x40 ? b.size : 0x40);
     }
-    if (get_field_a8__6TLobbyFPv(h) == 10) {
+    if (get_field_a8__6TLobbyFv(h) == 10) {
         s->vt->unlock(s, 1, &b);
     } else {
         TLobby__sub_803D3130(&b, n, &b, &b2);
@@ -356,10 +349,11 @@ void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3) {
     } else {
         *arg3 = 0x1FFFFFFF;
     }
-    get_field_0x3c__6TLobbyFPv(arg0->f4);
+    get_field_0x3c__6TLobbyFv(arg0->f4);
 }
 
-void reset_flag__6TLobbyFPv(u8 *arg0) {
+void TLobby::reset_flag() {
+    u8 *arg0 = (u8 *)this;
     TLobby__sub_803C39CC((int) (*(s32 *)((s8 *)arg0 + 4)));
     *(s8 *)((s8 *)arg0 + 1) = 0;
 }
@@ -375,35 +369,38 @@ void TLobby__sub_803C0758(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 3) = 0;
     *(s8 *)((s8 *)arg0 + 1) = 1;
 }
-void set_network_result__6TLobbyFPvi(u8 *arg0, s32 arg1) {
+void TLobby::set_network_result(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x38) = arg1;
     TLobby__sub_803C1A00((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
-void set_param_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1) {
+void TLobby::set_param_and_notify(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 8) = arg1;
-    invoke_notify_callback__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    invoke_notify_callback__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
 }
 
 s32 TLobby__sub_803C07E8(Obj_803C07E8 *self) {
     return self->b;
 }
 
-void reset_entry__6TLobbyFPv(u8 *arg0) {
+void TLobby::reset_entry() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 4));
         if (temp_r3 != NULL) {
-            clear_record__6TLobbyFPv(temp_r3);
+            clear_record__6TLobbyFv(temp_r3);
         }
         init_once__6TLobbyFv();
         memset((void *) (arg0), (int) (0), (int) (0x9C));
         release_ref__6TLobbyFv();
     }
 }
-void clear_session_buffer__6TLobbyFv(void) {
+void TLobby::clear_session_buffer() {
     memset((void *) (&(*(RecoveredGlobal_803C0AD8_lbl_80570AC0 *)&lbl_80570AC0).value), (int) (0), (int) (0x9C0));
 }
-void reset_sound_buffers__6TLobbyFv(void) {
+void TLobby::reset_sound_buffers() {
     TLobby__sub_803C406C();
     memset((void *) (&lbl_80570AC0.value), (int) (0), (int) (0x9C0));
 }
@@ -415,14 +412,15 @@ void TLobby__sub_803C0B3C(u8 *arg0) {
         return;
     }
     if (temp_r0 == 1) {
-        convert_pcm_u8_to_s16__6TLobbyFPv((Snd_803C0F98 *)((void *) (arg0)));
+        ((TLobby *)arg0)->convert_pcm_u8_to_s16();
         return;
     }
     if (temp_r0 == 0) {
         TLobby__sub_803C133C((void *) (arg0));
     }
 }
-s32 is_riff_wave__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::is_riff_wave() {
+    u8 *arg0 = (u8 *)this;
     if (memcmp(arg0, &lbl_805E0CB0, 4) == 0 && memcmp(arg0 + 8, &lbl_805E0CB8, 4) == 0) {
         return 1;
     }
@@ -435,7 +433,7 @@ void EXIGetID(Snd_803C0BE8 *arg0) {
     s16 *r;
     s32 i;
     s32 n;
-    if (arg0->state == 1 && get_client_count__6TLobbyFPv(arg0->lobby) == 0) {
+    if (arg0->state == 1 && get_client_count__6TLobbyFv(arg0->lobby) == 0) {
         arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
         n = arg0->size - arg0->pos;
         if (n > arg0->avail) {
@@ -466,13 +464,14 @@ void EXIGetID(Snd_803C0BE8 *arg0) {
     }
 }
 
-void convert_pcm_u8_to_s16__6TLobbyFPv(Snd_803C0F98 *arg0) {
+void TLobby::convert_pcm_u8_to_s16() {
+    Snd_803C0F98 *arg0 = (Snd_803C0F98 *)this;
     u8 *src = arg0->src;
     s16 *l;
     s16 *r;
     s32 i;
     s32 n;
-    if (arg0->state == 1 && get_client_count__6TLobbyFPv(arg0->lobby) == 0) {
+    if (arg0->state == 1 && get_client_count__6TLobbyFv(arg0->lobby) == 0) {
         arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
         n = arg0->size - arg0->pos;
         if (n > arg0->avail) {

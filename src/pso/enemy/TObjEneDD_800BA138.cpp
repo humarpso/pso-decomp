@@ -22,6 +22,7 @@ struct VObj_800BA138 : Base_800BA138 {
 };
 
 #include <stddef.h>
+#include "pso/enemy/TObjEneDD.h"
 struct VBase_18_0c879f { char pad[0x18]; };
 
 struct VObj_18_0c879f : VBase_18_0c879f {
@@ -77,11 +78,9 @@ struct Obj_800BA244 { u8 pad[0x30]; u32 flags; u8 pad2[0xa4 - 0x34]; Part_800BA2
 
 extern "C" {
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B68C;
-void send_damage_message__9TObjEneDDFiPv(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B684;
 void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B67C;
-void inflict_poison__9TObjEneDDFiPv(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B674;
 void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
 void TObjEneDD__vt90(O_800BA1C8 *self);
@@ -130,26 +129,15 @@ struct EneDDObj_800BA138 : EneDDBase_800BA138 {
     virtual void m13(void *, void *, void *);
 };
 
-void emit_effect_at_position__9TObjEneDDFPvPv(void* p, void* a1);
 void TObjEneDD__sub_800BA5A4(void* p, void* a1);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
 void TObjEneDD__vt92(void *arg0);
-int check_state_flag_1__9TObjEneDDFPv(void* p);
-int check_state_flag_2__9TObjEneDDFPv(void* p);
-int check_state_flag_4__9TObjEneDDFPv(void* p);
-void emit_effect__9TObjEneDDFPvii(void* p, int a1, int a2);
-void emit_enemy_effect__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3);
-u8 is_alive__9TObjEneDDFPv(void *arg0);
-int set_state_8__9TObjEneDDFPv(void* p);
-void setup__9TObjEneDDFPvii(void* p, int a1, int a2);
-void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3);
-void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1);
-int is_target_unobstructed__9TObjEneDDFii(void* a0 = 0, void* a1 = 0, void* a2 = 0);
-int add_flags_2e4__10TObjPlayerFPvUi(void*, int);
+int is_target_unobstructed__9TObjEneDDFl(void* a0 = 0, void* a1 = 0, void* a2 = 0);
+int add_flags_2e4__10TObjPlayerFUl(void*, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 fn_800BC3E8(void *, s32);
-s32 get_position__12TBoss1DragonFPv(void *, s32);
+s32 get_position__12TBoss1DragonFv(void *, s32);
 
 void TObjEneDD__vt92(void *arg0) {
     struct VObj_800BA138 *o = (struct VObj_800BA138 *)arg0;
@@ -188,13 +176,13 @@ void TObjEneDD__vt88(Obj_800BA244 *self) {
     }
 }
 
-int set_state_8__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 8); }
-int check_state_flag_4__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 4); }
-int check_state_flag_2__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 2); }
-int check_state_flag_1__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 1); }
+int TObjEneDD::set_state_8() { return add_flags_2e4__10TObjPlayerFUl(this, 8); }
+int TObjEneDD::check_state_flag_4() { return add_flags_2e4__10TObjPlayerFUl(this, 4); }
+int TObjEneDD::check_state_flag_2() { return add_flags_2e4__10TObjPlayerFUl(this, 2); }
+int TObjEneDD::check_state_flag_1() { return add_flags_2e4__10TObjPlayerFUl(this, 1); }
 
 typedef char RecoveredGlobal_800BA318_lbl_8043B68C_size[sizeof(RecoveredGlobal_800BA318_lbl_8043B68C) == 0xC ? 1 : -1];
-void send_damage_message__9TObjEneDDFiPv(s32 arg0, u8 *arg1) {
+void TObjEneDD::send_damage_message(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
@@ -212,7 +200,7 @@ void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1) {
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
-void inflict_poison__9TObjEneDDFiPv(s32 arg0, u8 *arg1) {
+void TObjEneDD::inflict_poison(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
@@ -230,16 +218,16 @@ void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1) {
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
-void emit_effect_at_position__9TObjEneDDFPvPv(void* p, void* a1) { emit_enemy_effect__9TObjEneDDFiiPvi((s32)(p), (s32)((char*)p + 0x38), (u8 *)(a1), (s32)((void*)0)); }
+void TObjEneDD::emit_effect_at_position(void* a1) { TObjEneDD::emit_enemy_effect((s32)(this), (s32)((char*)this + 0x38), (u8 *)(a1), (s32)((void*)0)); }
 
-void emit_effect__9TObjEneDDFPvii(void* p, int a1, int a2) { emit_enemy_effect__9TObjEneDDFiiPvi((s32)(p), (s32)(a1), (u8 *)(a2), (s32)(0)); }
+void TObjEneDD::emit_effect(void* p, int a1, int a2) { TObjEneDD::emit_enemy_effect((s32)(p), (s32)(a1), (u8 *)(a2), (s32)(0)); }
 
 extern u8 *obj_ene_dd_instance;
 extern const f32 lbl_805D9EA0;
 
-void emit_enemy_effect__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
+void TObjEneDD::emit_enemy_effect(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     fn_800BC3E8(obj_ene_dd_instance, arg0);
-    get_position__12TBoss1DragonFPv(obj_ene_dd_instance, arg1);
+    get_position__12TBoss1DragonFv(obj_ene_dd_instance, arg1);
     *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
     *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;
     if (*(f32 *)((s8 *)arg2 + 8) > lbl_805D9EA0) {
@@ -249,16 +237,16 @@ void emit_enemy_effect__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3)
     ((EneDDObj2_800BA138*)obj_ene_dd_instance)->m15((void*)(arg2 + 0xC), (void*)arg3);
 }
 
-void TObjEneDD__sub_800BA5A4(void* p, void* a1) { setup_instance__9TObjEneDDFiiPvi((s32)(p), (s32)((char*)p + 0x38), (u8 *)(a1), (s32)((void*)0)); }
+void TObjEneDD__sub_800BA5A4(void* p, void* a1) { TObjEneDD::setup_instance((s32)(p), (s32)((char*)p + 0x38), (u8 *)(a1), (s32)((void*)0)); }
 
-void setup__9TObjEneDDFPvii(void* p, int a1, int a2) { setup_instance__9TObjEneDDFiiPvi((s32)(p), (s32)(a1), (u8 *)(a2), (s32)(0)); }
+void TObjEneDD::setup(void* p, int a1, int a2) { TObjEneDD::setup_instance((s32)(p), (s32)(a1), (u8 *)(a2), (s32)(0)); }
 
 extern u8 *obj_ene_dd_instance;
 extern const f32 lbl_805D9EA0;
 
-void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
+void TObjEneDD::setup_instance(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     fn_800BC3E8(obj_ene_dd_instance, arg0);
-    get_position__12TBoss1DragonFPv(obj_ene_dd_instance, arg1);
+    get_position__12TBoss1DragonFv(obj_ene_dd_instance, arg1);
     *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
     *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;
     if (*(f32 *)((s8 *)arg2 + 8) > lbl_805D9EA0) {
@@ -270,15 +258,15 @@ void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
 
 int TObjEneDD__sub_800BA6B8(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }
 int TObjEneDD__sub_800BA6C4(void* p) { return (*(u32*)((char*)p + 0x890) >> 6) & 0x1; }
-u8 is_alive__9TObjEneDDFPv(void *arg0) {
+u8 TObjEneDD::is_alive() {
     int var_r31;
 
     var_r31 = 0;
-    if ((arg0 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && !(*(s32 *)((s8 *)arg0 + 0x30) & 0x02040800)) {
+    if ((this != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && !(*(s32 *)((s8 *)this + 0x30) & 0x02040800)) {
         var_r31 = 1;
     }
     return (u8) var_r31;
 }
-void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1) { is_target_unobstructed__9TObjEneDDFii(a1, (char*)p + 0x2fc, p); }
+void TObjEneDD::transform_relative_position(void* a1) { is_target_unobstructed__9TObjEneDDFl(a1, (char*)this + 0x2fc, this); }
 
 }

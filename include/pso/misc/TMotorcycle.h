@@ -15,6 +15,11 @@ struct TMotorcycle
     u32 m_64;
     u8 _pad68[0x54];
     u32 m_bc;
+    void render();
+    void *create();
+    static void free_statics();
+    static void load_resources();
+    static void add_entry(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 };
 
 #endif

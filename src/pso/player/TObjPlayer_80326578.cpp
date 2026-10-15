@@ -35,7 +35,7 @@ u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2);
 u8 *TItemTimerEvent__ct(void *, u32, s32, s32);
 extern void *lbl_804A0568[8];
 u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
-void enable_flag20__10TObjPlayerFi(Rec_80326D54 *);
+void enable_flag20__10TObjPlayerFl(Rec_80326D54 *);
 s32 get_player_list__10TObjPlayerFv();
 void translate_matrix(s32, f32, f32, f32);
 extern Rec_80326D54 lbl_80476760;
@@ -60,7 +60,7 @@ void dark_bridge_update_tp_spend(void *arg0);
 s32 rotate_matrix_x(s32, s32);
 s32 add_actor_tp(s32, s16);
 int refresh_owner_stats__5TItemFPv(void*);
-s32 add_angle_clamped__10TObjPlayerFPvii(void *, int, int);
+s32 add_angle_clamped__10TObjPlayerFPlll(void *, int, int);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void set_weapon_trail_joints(void *, int, int, int);
@@ -69,7 +69,7 @@ s32 confusion_curse_timer_ct(s32, u32, s32, s32, f32);
 s32 TObjectV8047c128_subtract_hp(s32, s16);
 s32 __nw__15TItemHeapObjectFUl(s32);
 void free_obj_heap__10TObjPlayerFPv(void *);
-s32 get_id__13TItemProArmorFPv(void *);
+s32 get_id__13TItemProArmorFv(void *);
 s32 get_player_list__10TObjPlayerFv();
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80326618(void *arg0, s16 arg1);
@@ -92,7 +92,7 @@ void *set_vtable_mode2_alt__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
 extern s32 lbl_804ECEB8[];
 
 extern s32 lbl_804ECEB8[];
-extern s32 create__13TItemShootGunFiiif[];
+extern s32 create__13TItemShootGunFlllf[];
 
 u8 *TObjPlayer__sub_803265C0(u8 *arg0) {
     u8 *temp_r3;
@@ -121,7 +121,7 @@ void *item_equip_variant_deleting_dtor_80326618(void *arg0, s16 arg1) {
 void *init_vtable_variant__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
     TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ECEB8;
-    *(s32 **)((s8 *)arg0 + 0x1F0) = create__13TItemShootGunFiiif;
+    *(s32 **)((s8 *)arg0 + 0x1F0) = create__13TItemShootGunFlllf;
     return arg0;
 }
 
@@ -172,15 +172,15 @@ void dark_bridge_start_timers(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x174) != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
-            freeze_curse_timer_ct(temp_r3, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFPv(arg0), 0x2328, lbl_805DF658);
+            freeze_curse_timer_ct(temp_r3, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x2328, lbl_805DF658);
         }
         temp_r3_2 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3_2 != 0) {
-            confusion_curse_timer_ct(temp_r3_2, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFPv(arg0), 0x2328, lbl_805DF658);
+            confusion_curse_timer_ct(temp_r3_2, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x2328, lbl_805DF658);
         }
         temp_r3_3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3_3 != 0) {
-            paralysis_curse_timer_ct((u8 *)(temp_r3_3), (u32)(*(u32 *)((s8 *)arg0 + 0x174)), (s32)(get_id__13TItemProArmorFPv(arg0)), (s32)(0x2328), lbl_805DF658);
+            paralysis_curse_timer_ct((u8 *)(temp_r3_3), (u32)(*(u32 *)((s8 *)arg0 + 0x174)), (s32)(get_id__13TItemProArmorFv(arg0)), (s32)(0x2328), lbl_805DF658);
         }
     }
 }
@@ -243,16 +243,16 @@ void apply_container_item__10TObjPlayerFPv(void *arg0) {
 }
 
 void approach_target_angle__10TObjPlayerFPv(u8 *arg0) {
-    add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x1F8, 0x71C, 0x4000);
+    add_angle_clamped__10TObjPlayerFPlll(arg0 + 0x1F8, 0x71C, 0x4000);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 0x4000) {
-        add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x1FC, 0x71C, 0x4000);
+        add_angle_clamped__10TObjPlayerFPlll(arg0 + 0x1FC, 0x71C, 0x4000);
     }
 }
 
 void step_angles__10TObjPlayerFPv(u8 *arg0) {
-    add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x1FC, -0xAAA, 0);
+    add_angle_clamped__10TObjPlayerFPlll(arg0 + 0x1FC, -0xAAA, 0);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) == 0) {
-        add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x1F8, -0xAAA, 0);
+        add_angle_clamped__10TObjPlayerFPlll(arg0 + 0x1F8, -0xAAA, 0);
     }
 }
 
@@ -337,7 +337,7 @@ void TObjPlayer__sub_80326D54(Obj_80326D54 *arg0) {
     case 2: {
         Rec_80326D54 r = lbl_80476760;
         r.a = arg0->x1FC;
-        enable_flag20__10TObjPlayerFi(&r);
+        enable_flag20__10TObjPlayerFl(&r);
         break;
     }
     case 3:
@@ -358,7 +358,7 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_80326EA0(void *arg0, s16 arg1);
 void approach_positions__10TObjPlayerFi(s32 arg0);
 void update_orga_flow_params__10TObjPlayerFi(s32 arg0);
-s32 approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
+s32 approach_value__20TItemEffOrgaFlowShotFPfff(void *, f32, f32);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80326EA0(void *arg0, s16 arg1);
@@ -369,8 +369,8 @@ extern const f32 lbl_805DF66C;
 extern const f32 lbl_805DF670;
 
 void update_orga_flow_params__10TObjPlayerFi(s32 arg0) {
-    approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x1F8), (f32) (lbl_805DF664), (f32) (lbl_805DF668));
-    approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x1FC), (f32) (lbl_805DF66C), (f32) (lbl_805DF670));
+    approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x1F8), (f32) (lbl_805DF664), (f32) (lbl_805DF668));
+    approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x1FC), (f32) (lbl_805DF66C), (f32) (lbl_805DF670));
 }
 
 extern const f32 lbl_805DF660;
@@ -378,8 +378,8 @@ extern const f32 lbl_805DF670;
 extern const f32 lbl_805DF674;
 
 void approach_positions__10TObjPlayerFi(s32 arg0) {
-    approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x1F8), (f32) (lbl_805DF670), (f32) (lbl_805DF660));
-    approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x1FC), (f32) (lbl_805DF674), (f32) (lbl_805DF660));
+    approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x1F8), (f32) (lbl_805DF670), (f32) (lbl_805DF660));
+    approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x1FC), (f32) (lbl_805DF674), (f32) (lbl_805DF660));
 }
 
 extern s32 lbl_804ED298[];
@@ -459,14 +459,14 @@ void TObjPlayer__sub_80326F9C(O_80326F9C *arg0) {
 }
 
 void approach_orgaflow_shot__10TObjPlayerFi(s32 arg0) {
-    ((s32 (*)(s32, f32, f32))approach_value__20TItemEffOrgaFlowShotFPvff)(arg0 + 0x1F8, lbl_805DF684, lbl_805DF688);
+    ((s32 (*)(s32, f32, f32))approach_value__20TItemEffOrgaFlowShotFPfff)(arg0 + 0x1F8, lbl_805DF684, lbl_805DF688);
 }
 
 extern const f32 lbl_805DF680;
 extern const f32 lbl_805DF68C;
 
 void approach_position_x__10TObjPlayerFi(s32 arg0) {
-    ((s32 (*)(s32, f32, f32))approach_value__20TItemEffOrgaFlowShotFPvff)(arg0 + 0x1F8, lbl_805DF68C, lbl_805DF680);
+    ((s32 (*)(s32, f32, f32))approach_value__20TItemEffOrgaFlowShotFPfff)(arg0 + 0x1F8, lbl_805DF68C, lbl_805DF680);
 }
 
 extern s32 lbl_804ED390[];
@@ -503,10 +503,10 @@ void launch_dark_flow_extra__10TObjPlayerFPv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32, s32, s32);
 
-s16 get_field_2b8__14TItemProShieldFPv(s32);
-s32 is_mode_two_and_ready__10TObjPlayerFPv();
+s16 get_field_2b8__14TItemProShieldFv(s32);
+s32 is_mode_two_and_ready__10TObjPlayerFv();
 s16 obj_getS16_32C(s32);
-s32 update_active_game_effect__10TObjPlayerFPv(void *);
+s32 update_active_game_effect__10TObjPlayerFv(void *);
 
 #define lbl_804ED390 ((unsigned char *)lbl_804ED390)
 #define lbl_805DF680 (*(const float *)&lbl_805DF680)
@@ -533,8 +533,8 @@ void config_dark_flow_attack_collider(int a0, void* a1) { *(float*)((char*)a1 + 
 void launch_dark_flow_extra__10TObjPlayerFPv(void *arg0) {
     s32 temp_r31;
 
-    if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
-        temp_r31 = (s16) get_field_2b8__14TItemProShieldFPv(*(s32 *)((s8 *)arg0 + 0xF0));
+    if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
+        temp_r31 = (s16) get_field_2b8__14TItemProShieldFv(*(s32 *)((s8 *)arg0 + 0xF0));
         if ((s32) ((s16) obj_getS16_32C(*(s32 *)((s8 *)arg0 + 0xF0)) * 8) < temp_r31) {
             fire_shot_at_target__11TItemWeaponFv(arg0, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, -0x238E);
             fire_shot_at_target__11TItemWeaponFv(arg0, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, -0x11C7);
@@ -544,10 +544,10 @@ void launch_dark_flow_extra__10TObjPlayerFPv(void *arg0) {
             play_sound_effect(0x4001A642, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0);
             return;
         }
-        update_active_game_effect__10TObjPlayerFPv(arg0);
+        update_active_game_effect__10TObjPlayerFv(arg0);
         return;
     }
-    update_active_game_effect__10TObjPlayerFPv(arg0);
+    update_active_game_effect__10TObjPlayerFv(arg0);
 }
 
 }
@@ -556,25 +556,25 @@ void launch_dark_flow_extra__10TObjPlayerFPv(void *arg0) {
 #undef lbl_804ED390
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80327298(void *arg0, s16 arg1);
 void *construct_dark_flow(void *arg0);
-void scroll_dark_flow_texture__10TObjPlayerFPv(void *arg0);
 
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80327298(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-s32 submit_computer_command__10TObjPlayerFPv(s32, s32, s32, s32);
+s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 
-void scroll_dark_flow_texture__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::scroll_dark_flow_texture() {
     void *temp_r3;
 
-    temp_r3 = *(void **)((s8 *)arg0 + 0xF4);
+    temp_r3 = *(void **)((s8 *)this + 0xF4);
     if (temp_r3 != NULL) {
-        submit_computer_command__10TObjPlayerFPv(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x2C)) + 0x30), 0x10, 0, 0);
+        submit_computer_command__10TObjPlayerFv(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x2C)) + 0x30), 0x10, 0, 0);
     }
 }
 

@@ -18,6 +18,9 @@ struct TObjCollision
     u8 _padB0[0x10];
     u32 m_c0;
     u32 m_c4;
+    static void render();
+    static void run_task();
+    static void *create(void *arg0);
 };
 
 #endif

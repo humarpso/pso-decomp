@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Base_801D4AEC { char pad[0x18]; };
 #define CAT2(a,b) a##b
@@ -46,25 +47,21 @@ VA
 extern "C" {
 
 void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3);
-void reduce_item_amount__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-int set_globals_and_notify__6TLobbyFPvii(void* a0, int a1, int a2);
-void set_globals_and_update__6TLobbyFPvii(void* a0, int a1, int a2);
-s32 use_item__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-int reduce_owner_matched_items__6TLobbyFPv(void*);
-int reduce_child_item_amounts__6TLobbyFPv(void*);
+int reduce_owner_matched_items__6TLobbyFv(void*);
+int reduce_child_item_amounts__6TLobbyFv(void*);
 s32 try_spend_actor_meseta(s32, s32);
 s32 is_item_equipped(void *);
 int TObjPlayer__sub_801D52A8(void*);
-void *get_owner_if_alive__10TObjPlayerFPv(s32);
+void *get_owner_if_alive__10TObjPlayerFv(s32);
 s32 queue_destruction__7TObjectFv(s32);
-s32 start_inventory_update__10TObjPlayerFPvi(s32, s32);
+s32 start_inventory_update__10TObjPlayerFi(s32, s32);
 s32 unequip_item__10TObjPlayerFiPv(s32, void *);
 
-void reduce_item_amount__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TLobby::reduce_item_amount(s32 arg1, s32 arg2, s32 arg3) {
     s16 temp_r4;
     VObj_801D4AEC *temp_r3;
 
-    temp_r3 = (VObj_801D4AEC *)get_owner_if_alive__10TObjPlayerFPv(arg2);
+    temp_r3 = (VObj_801D4AEC *)get_owner_if_alive__10TObjPlayerFv(arg2);
     if ((temp_r3 != NULL) && (arg3 >= 0)) {
         if ((temp_r3->m34() - arg3) > 0) {
             temp_r3->m35(arg3);
@@ -73,39 +70,40 @@ void reduce_item_amount__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3)
         if (is_item_equipped(temp_r3) != 0) {
             unequip_item__10TObjPlayerFiPv(arg1, temp_r3);
         }
-        temp_r4 = *(s16 *)((s8 *)arg0 + 0x1C);
-        *(s16 *)((s8 *)arg0 + 0x1C) = (s16) (temp_r4 - 1);
+        temp_r4 = *(s16 *)((s8 *)this + 0x1C);
+        *(s16 *)((s8 *)this + 0x1C) = (s16) (temp_r4 - 1);
         temp_r3->m27(temp_r4);
         queue_destruction__7TObjectFv(arg2);
     }
 }
 
-s32 use_item__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 TLobby::use_item(s32 arg1, s32 arg2, s32 arg3) {
+    s32 arg0 = (s32)this;
     s32 temp_r3;
 
     if (arg2 == -1) {
         try_spend_actor_meseta(arg1, arg3);
         return 1;
     }
-    temp_r3 = start_inventory_update__10TObjPlayerFPvi(arg0, arg2);
+    temp_r3 = start_inventory_update__10TObjPlayerFi(arg0, arg2);
     if (temp_r3 == 0) {
         return 0;
     }
-    reduce_item_amount__6TLobbyFPviii((void *)(arg0), (s32)(arg1), (s32)(temp_r3), (s32)(arg3));
+    reduce_item_amount((s32)(arg1), (s32)(temp_r3), (s32)(arg3));
     return 1;
 }
 
     extern int item_reduce_target_player;
     extern unsigned char item_reduce_owner_match_field_ec;
     extern unsigned char reduce_owner_match_id;
-void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_owner_match_id = a3; reduce_owner_matched_items__6TLobbyFPv((void*)(*(int*)((char*)a0 + 0x1c4))); }
+void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_owner_match_id = a3; reduce_owner_matched_items__6TLobbyFv((void*)(*(int*)((char*)a0 + 0x1c4))); }
 
     extern int item_reduce_target_player;
     extern unsigned char item_reduce_owner_match_field_ec;
-void set_globals_and_update__6TLobbyFPvii(void* a0, int a1, int a2) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_child_item_amounts__6TLobbyFPv((void*)(*(int*)((char*)a0 + 0x1c4))); }
+void TLobby::set_globals_and_update(int a1, int a2) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_child_item_amounts__6TLobbyFv((void*)(*(int*)((char*)this + 0x1c4))); }
 
     extern int player_item_collect_cursor;
     extern int inventory_walk_visit_count;
-int set_globals_and_notify__6TLobbyFPvii(void* a0, int a1, int a2) { player_item_collect_cursor = a2; inventory_walk_visit_count = 0; TObjPlayer__sub_801D52A8((void*)(*(int*)((char*)a0 + 0x1c4))); return inventory_walk_visit_count; }
+int TLobby::set_globals_and_notify(int a1, int a2) { player_item_collect_cursor = a2; inventory_walk_visit_count = 0; TObjPlayer__sub_801D52A8((void*)(*(int*)((char*)this + 0x1c4))); return inventory_walk_visit_count; }
 
 }

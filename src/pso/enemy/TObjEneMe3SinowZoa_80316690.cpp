@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
 
 struct Vec_80316690 { f32 x, y, z; };
 
@@ -12,25 +13,23 @@ void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Hit_80316690 *csnVectorUnder(void *, void *, s32);
-s32 get_particle_model__13TParticleCtrlFi(s32);
+s32 get_particle_model__13TParticleCtrlFl(s32);
 int get_instance__13TParticleCtrlFv(void);
 void spawn_particle_effect(void *, int);
 void TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
-s32 check_floor_contact__18TObjEneMe3SinowZoaFPvPv(void *a0, void *arg1);
 }
 
 extern "C" {
 
-void check_and_notify__18TObjEneMe3SinowZoaFPv(void *arg0);
 void spawn_particle_effect(void *, int);
 
 struct VOff_803167FC_arg0 { char pad_0[0x38]; char f_38[1]; };
 
 #define DELL ((void *(*)(void *, int))spawn_particle_effect)
-s32 check_floor_contact__18TObjEneMe3SinowZoaFPvPv(void *a0, void *arg1) {
-    u8 *arg0 = (u8 *)a0;
+s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
+    u8 *arg0 = (u8 *)this;
     Vec_80316690 v;
     u8 pad[16];
     Hit_80316690 *hit;
@@ -49,7 +48,7 @@ s32 check_floor_contact__18TObjEneMe3SinowZoaFPvPv(void *a0, void *arg1) {
             TObjEneGibbles__sub_800D8988(arg0 + 0x38);
             p = DELL(hit->obj + 0x38, 0x49);
             if (p != 0) {
-                attach_particle_model(p, get_particle_model__13TParticleCtrlFi(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
+                attach_particle_model(p, get_particle_model__13TParticleCtrlFl(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
             }
             spawn_particle_effect(hit->obj + 0x38, 0xA4);
             return 1;
@@ -58,7 +57,7 @@ s32 check_floor_contact__18TObjEneMe3SinowZoaFPvPv(void *a0, void *arg1) {
             TObjEneGibbles__sub_800D8988(arg0 + 0x38);
             p = DELL(hit->obj + 0x54, 0x49);
             if (p != 0) {
-                attach_particle_model(p, get_particle_model__13TParticleCtrlFi(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
+                attach_particle_model(p, get_particle_model__13TParticleCtrlFl(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
             }
             spawn_particle_effect(hit->obj + 0x54, 0xA4);
             return 1;
@@ -67,17 +66,17 @@ s32 check_floor_contact__18TObjEneMe3SinowZoaFPvPv(void *a0, void *arg1) {
     return 0;
 }
 
-void check_and_notify__18TObjEneMe3SinowZoaFPv(void *arg0) {
+void TObjEneMe3SinowZoa::check_and_notify() {
     s32 x;
-    struct VOff_803167FC_arg0 *self = (struct VOff_803167FC_arg0 *)arg0;
-    x = check_floor_contact__18TObjEneMe3SinowZoaFPvPv((void *)(arg0), (void *)(self->f_38));
+    struct VOff_803167FC_arg0 *self = (struct VOff_803167FC_arg0 *)this;
+    x = check_floor_contact((void *)(self->f_38));
     if (x == 0) {
         spawn_particle_effect(self->f_38, 243);
     }
 }
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, TObjEneMe3SinowZoa__data_805DF2FC) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805DF300) != 0)) {
-        check_floor_contact__18TObjEneMe3SinowZoaFPvPv((void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x38)));
+        ((TObjEneMe3SinowZoa *)arg0)->check_floor_contact((void *)((void *) (arg0 + 0x38)));
     }
 }
 

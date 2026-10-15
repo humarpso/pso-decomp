@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCharaMaking.h"
 
 struct Ent_8028E6B4 { s32 id; u8 pad[4]; void *name; u8 pad2[4]; };
 
@@ -26,33 +27,31 @@ void build_appearance_texture_names__12TCharaMakingFv(TextureOutput *output, App
 
 extern "C" {
 
-s32 is_end__12TCharaMakingFv(void);
-s32 get_display_index__12TCharaMakingFPv(void *arg0);
 s32 is_quest_active();
 s32 get_main_phase();
 
-s32 is_end__12TCharaMakingFv(void) {
+s32 TCharaMaking::is_end() {
     if ((get_main_phase() == 0xF) || (is_quest_active() != 0)) {
         return 1;
     }
     return 0;
 }
 
-s32 get_display_index__12TCharaMakingFPv(void *arg0) {
+s32 TCharaMaking::get_display_index() {
     s8 temp;
 
-    if (!(*(s8 *)((s8 *)arg0 + 0x32) & 0xA)) {
-        return *(s8 *)((s8 *)arg0 + 0x31);
+    if (!(*(s8 *)((s8 *)this + 0x32) & 0xA)) {
+        return *(s8 *)((s8 *)this + 0x31);
     }
-    if ((*(s8 *)((s8 *)arg0 + 0x33) <= 0) ||
-        ((temp = *(s8 *)((s8 *)arg0 + 0x1C)) < 0) ||
+    if ((*(s8 *)((s8 *)this + 0x33) <= 0) ||
+        ((temp = *(s8 *)((s8 *)this + 0x1C)) < 0) ||
         (temp >= 7)) {
-        return *(s8 *)((s8 *)arg0 + 0x31);
+        return *(s8 *)((s8 *)this + 0x31);
     }
-    if (is_end__12TCharaMakingFv() != 0) {
-        return 0x12 - *(s8 *)((s8 *)arg0 + 0x1C);
+    if (TCharaMaking::is_end() != 0) {
+        return 0x12 - *(s8 *)((s8 *)this + 0x1C);
     }
-    return *(s8 *)((s8 *)arg0 + 0x31);
+    return *(s8 *)((s8 *)this + 0x31);
 }
 
 struct TextureOutput;

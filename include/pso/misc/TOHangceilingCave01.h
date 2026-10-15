@@ -5,6 +5,10 @@
 
 struct TOHangceilingCave01
 {
+    void init_geometry();
+    void draw_model();
+    void check_player_trigger();
+    static void destroy_instance();
 };
 
 #endif

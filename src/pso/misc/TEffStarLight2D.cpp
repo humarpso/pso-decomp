@@ -63,10 +63,7 @@ f32 newton_sqrtf(f32);
 extern void *__vt__18TEffStarLightChild[];
 extern s32 lbl_805D2928;
 void run_task__15TEffStarLight2DFv(Star_800851B0 *self);
-void copy_from__15TEffStarLight2DFPvPv(void* p, void* q);
-void copy_from_subobject__15TEffStarLight2DFPvPv(void* p, void* a1);
 O_80085388 *__ct__15TEffStarLight2DFv(O_80085388 *arg0, void *arg1, void *arg2, void *arg3);
-void render__18TEffStarLightChildFv(void);
 void run_task__18TEffStarLightChildFv(Star_80085424 *self);
 Star_800855F8 *__ct__18TEffStarLightChildFv(Star_800855F8 *self, Pt_800855F8 *a, Pt_800855F8 *b, void *parent, f32 w, f32 speed);
 }
@@ -100,8 +97,8 @@ void run_task__15TEffStarLight2DFv(Star_800851B0 *self) {
         }
     }
 }
-void copy_from_subobject__15TEffStarLight2DFPvPv(void* p, void* a1) { copy_from__15TEffStarLight2DFPvPv((void*)((char*)p + 0x38), (void*)(a1)); }
-void copy_from__15TEffStarLight2DFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(u8*)((char*)p + 0x8) = *(u8*)((char*)q + 0x8); *(u8*)((char*)p + 0x9) = *(u8*)((char*)q + 0x9); *(u8*)((char*)p + 0xa) = *(u8*)((char*)q + 0xa); *(u8*)((char*)p + 0xb) = *(u8*)((char*)q + 0xb); *(u32*)((char*)p + 0xc) = *(u32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); }
+void TEffStarLight2D::copy_from_subobject(void* a1) { ((TEffStarLight2D *)((char*)this + 0x38))->copy_from((void*)(a1)); }
+void TEffStarLight2D::copy_from(void* q) { *(f32*)((char*)this + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(u8*)((char*)this + 0x8) = *(u8*)((char*)q + 0x8); *(u8*)((char*)this + 0x9) = *(u8*)((char*)q + 0x9); *(u8*)((char*)this + 0xa) = *(u8*)((char*)q + 0xa); *(u8*)((char*)this + 0xb) = *(u8*)((char*)q + 0xb); *(u32*)((char*)this + 0xc) = *(u32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); }
 
 }
 
@@ -116,7 +113,7 @@ O_80085388 *__ct__15TEffStarLight2DFv(O_80085388 *arg0, void *arg1, void *arg2, 
     __ct__7TObjectFP7TObject(arg0, arg3);
     arg0->vptr = __vt__15TEffStarLight2D;
     arg0->f0 = lbl_805D292C;
-    copy_from__15TEffStarLight2DFPvPv((void*)((u8 *)arg0 + 0x38), (void*)(arg2));
+    ((TEffStarLight2D *)((u8 *)arg0 + 0x38))->copy_from((void*)(arg2));
     VecCopy__FP3VecPC3Vec((u8 *)arg0 + 0x2C, arg1);
     project_world_to_screen(0, (u8 *)arg0 + 0x2C, &p);
     arg0->f24 = p.x;
@@ -127,7 +124,7 @@ O_80085388 *__ct__15TEffStarLight2DFv(O_80085388 *arg0, void *arg1, void *arg2, 
 }
 #pragma pop
 
-void render__18TEffStarLightChildFv(void) {  }
+void TEffStarLightChild::render() {  }
 void run_task__18TEffStarLightChildFv(Star_80085424 *self) {
     Vec_80085424 a;
     Vec_80085424 b;

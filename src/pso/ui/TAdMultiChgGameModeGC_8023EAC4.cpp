@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/TAdMultiChgGameModeGC.h"
 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
-void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(void *);
+void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFl(void *);
 s32 get_or_create__22TAdMultiPlyChrSelectGCFii(s32, s32);
 void *TAdEnterPPPPassGC__ct(void *, s32);
 void *TAdEnterPasswordGC__ct(void *, s32);
@@ -20,7 +21,7 @@ void *TAdTimeSetGC__ct(void *, s32);
 void *TAdTrialAgreementGC__ct(void *, s32);
 void *TAdTrialModemChkGC__ct(void *, s32);
 void *TAdVIConfigGC__ct(void *, s32);
-void *construct_title_scene__6TLobbyFPv(void *, s32);
+void *construct_title_scene__6TLobbyFv(void *, s32);
 void *__ct__12TLevelSelectFv(void *);
 void *__ct__16TAdStorySelectGCFv(void *, s32);
 void *__ct__19TAdSelectGameModeGCFv(void *, s32);
@@ -33,30 +34,16 @@ extern s32 multi_chg_game_mode_state;
 extern s32 tl_01;
 extern s32 tl_02;
 extern s32 game_mode_scene_instance;
-void create_mode_scene__21TAdMultiChgGameModeGCFv(void);
 }
 
 extern "C" {
 
-void begin_change_game_mode__21TAdMultiChgGameModeGCFv(void);
-void begin_transition__21TAdMultiChgGameModeGCFv(void);
-void init_change_mode__21TAdMultiChgGameModeGCFv(void);
-void request_scene_change__21TAdMultiChgGameModeGCFv(void);
-void reset_mode_state__21TAdMultiChgGameModeGCFv(void);
-void set_change_game_mode__21TAdMultiChgGameModeGCFv(void);
-void set_game_mode__21TAdMultiChgGameModeGCFv(void);
-void set_game_mode_changed__21TAdMultiChgGameModeGCFv(void);
-void set_game_mode_state__21TAdMultiChgGameModeGCFv(void);
-void set_mode_state_0d__21TAdMultiChgGameModeGCFv(void);
-void set_mode_state_0e__21TAdMultiChgGameModeGCFv(void);
-void set_state_0x9__21TAdMultiChgGameModeGCFv(void);
-void set_state_0xc__21TAdMultiChgGameModeGCFv(void);
 s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void reset_mode_state__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::reset_mode_state() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 0xF;
     lbl_805D63C8 = 1;
@@ -65,7 +52,7 @@ void reset_mode_state__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void set_mode_state_0e__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::set_mode_state_0e() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 0xE;
     lbl_805D63C8 = 1;
@@ -74,7 +61,7 @@ void set_mode_state_0e__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void set_mode_state_0d__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::set_mode_state_0d() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 0xD;
     lbl_805D63C8 = 1;
@@ -83,7 +70,7 @@ void set_mode_state_0d__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void set_state_0xc__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::set_state_0xc() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 0xC;
     lbl_805D63C8 = 1;
@@ -92,7 +79,7 @@ void set_state_0xc__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void begin_change_game_mode__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::begin_change_game_mode() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 0xB;
     lbl_805D63C8 = 1;
@@ -101,7 +88,7 @@ void begin_change_game_mode__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void begin_transition__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::begin_transition() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 0xA;
     lbl_805D63C8 = 1;
@@ -110,7 +97,7 @@ void begin_transition__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void set_state_0x9__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::set_state_0x9() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 9;
     lbl_805D63C8 = 1;
@@ -119,7 +106,7 @@ void set_state_0x9__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void request_scene_change__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::request_scene_change() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 8;
     lbl_805D63C8 = 1;
@@ -128,7 +115,7 @@ void request_scene_change__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void set_change_game_mode__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::set_change_game_mode() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 7;
     lbl_805D63C8 = 1;
@@ -137,7 +124,7 @@ void set_change_game_mode__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void set_game_mode__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::set_game_mode() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 6;
     lbl_805D63C8 = 1;
@@ -146,7 +133,7 @@ void set_game_mode__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void set_game_mode_state__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::set_game_mode_state() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 5;
     lbl_805D63C8 = 1;
@@ -155,7 +142,7 @@ void set_game_mode_state__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void set_game_mode_changed__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::set_game_mode_changed() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 4;
     lbl_805D63C8 = 1;
@@ -164,12 +151,12 @@ void set_game_mode_changed__21TAdMultiChgGameModeGCFv(void) {
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
-void init_change_mode__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::init_change_mode() {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     multi_chg_game_mode_state = 0;
     lbl_805D63C8 = 1;
 }
-void create_mode_scene__21TAdMultiChgGameModeGCFv(void) {
+void TAdMultiChgGameModeGC::create_mode_scene() {
     void *p;
     switch (multi_chg_game_mode_state) {
     case 0:
@@ -183,14 +170,14 @@ void create_mode_scene__21TAdMultiChgGameModeGCFv(void) {
     case 27:
         break;
     default:
-        apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(lbl_8044DD18);
+        apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFl(lbl_8044DD18);
         break;
     }
     switch (multi_chg_game_mode_state) {
     case 0:
         p = __nw__7TObjectFUl(0x4C);
         if (p != NULL) {
-            p = construct_title_scene__6TLobbyFPv(p, tl_01);
+            p = construct_title_scene__6TLobbyFv(p, tl_01);
         }
         game_mode_scene_instance = (s32)p;
         break;

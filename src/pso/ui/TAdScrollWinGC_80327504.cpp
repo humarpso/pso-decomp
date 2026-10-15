@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdScrollWinGC.h"
 
 struct RecoveredGlobal_80327698___vt__14TAdScrollWinGC { s32 value; u8 remaining[0x14]; };
 
@@ -10,7 +11,7 @@ void fn_8026A14C(void);
 extern RecoveredGlobal_80327698___vt__14TAdScrollWinGC __vt__14TAdScrollWinGC;
 u8 *__dt__14TAdScrollWinGCFv(u8 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
-void advance_scroll__14TAdScrollWinGCFPvf(void *, f32);
+void advance_scroll__14TAdScrollWinGCFf(void *, f32);
 void fn_8026A61C(void *, f32);
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF69C;
@@ -19,16 +20,15 @@ extern const f32 lbl_805DF6A4;
 extern const f32 lbl_805DF6A8;
 extern const f32 lbl_805DF6AC;
 extern const f32 lbl_805DF6B0;
-void run_task__14TAdScrollWinGCFv(u8 *arg0);
 s32 get_localized_text_entry(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void complete_reveal__14TWindowMessageFPv(s32);
-void send_and_handle__6TLobbyFPvii(s32, s32, s32);
+void send_and_handle__6TLobbyFii(s32, s32, s32);
 void update_scroll_position__17TWindowMessageLogFPv(s32);
 void TAdScrollWinGC__sub_8026A5F8(s32);
 s32 create_message_log_window(void *, void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
-s32 get_scroll_delay_for_mode__14TAdScrollWinGCFPv(void *);
+s32 get_scroll_delay_for_mode__14TAdScrollWinGCFv(void *);
 extern u8 lbl_80476770[];
 extern u8 lbl_80476778[];
 extern RecoveredGlobal_80327698___vt__14TAdScrollWinGC __vt__14TAdScrollWinGC;
@@ -43,12 +43,12 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3);
 
 extern "C" {
 
-void close_window__14TAdScrollWinGCFPv(void* p);
 int TWindow__close(void*);
 
-void close_window__14TAdScrollWinGCFPv(void* p) { if (*(unsigned int*)((char*)p + 0x40) != 0) { TWindow__close(*(void**)((char*)p + 0x40)); *(int*)((char*)p + 0x40) = 0; } }
+void TAdScrollWinGC::close_window() { if (*(unsigned int*)((char*)this + 0x40) != 0) { TWindow__close(*(void**)((char*)this + 0x40)); *(int*)((char*)this + 0x40) = 0; } }
 
-void run_task__14TAdScrollWinGCFv(u8 *arg0) {
+void TAdScrollWinGC::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 d;
     u32 a;
     switch (*(s32 *)((s8 *)arg0 + 0x4C)) {
@@ -75,7 +75,7 @@ void run_task__14TAdScrollWinGCFv(u8 *arg0) {
         }
     }
     if (d > 0 && *(void **)((s8 *)arg0 + 0x40) != 0) {
-        advance_scroll__14TAdScrollWinGCFPvf(*(void **)((s8 *)arg0 + 0x40), lbl_805DF6B0 * (d - 0x19));
+        advance_scroll__14TAdScrollWinGCFf(*(void **)((s8 *)arg0 + 0x40), lbl_805DF6B0 * (d - 0x19));
     }
 }
 
@@ -109,18 +109,18 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x48) = 0;
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     *(s32 *)((s8 *)arg0 + 0x50) = 0;
-    base = get_scroll_delay_for_mode__14TAdScrollWinGCFPv(arg0);
+    base = get_scroll_delay_for_mode__14TAdScrollWinGCFv(arg0);
     *(s32 *)((s8 *)arg0 + 0x40) = create_message_log_window(lbl_80476770, lbl_80476778, 0);
     switch (*(s32 *)((s8 *)arg0 + 0x44)) {
     case 0:
     case 1:
         for (i = 0; i < 10; i++) {
-            send_and_handle__6TLobbyFPvii(*(s32 *)((s8 *)arg0 + 0x40), get_localized_text_entry(0x1A, base + i), 1);
+            send_and_handle__6TLobbyFii(*(s32 *)((s8 *)arg0 + 0x40), get_localized_text_entry(0x1A, base + i), 1);
         }
         break;
     case 2:
     case 3:
-        send_and_handle__6TLobbyFPvii(*(s32 *)((s8 *)arg0 + 0x40), arg3, 1);
+        send_and_handle__6TLobbyFii(*(s32 *)((s8 *)arg0 + 0x40), arg3, 1);
         break;
     }
     complete_reveal__14TWindowMessageFPv(*(s32 *)((s8 *)arg0 + 0x40));

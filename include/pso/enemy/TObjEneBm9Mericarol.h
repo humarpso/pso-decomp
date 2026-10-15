@@ -40,6 +40,23 @@ struct TObjEneBm9Mericarol
     u32 m_4a0;
     u8 _pad4A4[0x8];
     u32 m_4ac;
+    s32 get_phase();
+    void init_size_tier_and_offsets();
+    s32 find_nearby_target();
+    s32 try_set_mode8_if_flag2();
+    void sync_center_position();
+    static void free_shared_instances();
+    static void *create(void *arg0);
+    static void update_particle_effect();
+    s32 get_clamped_level();
+    void handle_motion_event(s32 arg1);
+    void handle_state_message(s32 msg);
+    void state_burrow(s32 arg1);
+    void handle_event(s32 arg1);
+    void handle_action(s32 arg1);
+    void *dt(s16 arg1);
+    void *destroy(s16 arg1);
+    void *construct(s32 arg1, s32 arg2);
 };
 
 #endif

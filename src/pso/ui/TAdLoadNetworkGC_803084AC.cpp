@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdLoadNetworkGC.h"
 struct V_803084AC { f32 x, y, z; };
 
 struct Net_803084AC { u8 pad0[0x20]; void *obj[5]; V_803084AC pos; };
@@ -8,10 +9,9 @@ struct Net_80308518 { u8 pad0[0x18]; void *vt; u8 pad1[4]; void *obj[5]; };
 struct Ray_803085A0 { V_803084AC a; V_803084AC b; };
 
 extern "C" {
-void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void copy_vec3__11TBoss4Type2FPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 extern V_803084AC TAdLoadNetworkGC__object_offset_table[];
-void run_task__16TAdLoadNetworkGCFv(Net_803084AC *o);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
@@ -31,11 +31,12 @@ Net_803084AC *TAdLoadNetworkGC__ct(Net_803084AC *self, void *parent, V_803084AC 
 
 extern "C" {
 
-void run_task__16TAdLoadNetworkGCFv(Net_803084AC *o) {
+void TAdLoadNetworkGC::run_task() {
+    Net_803084AC *o = (Net_803084AC *)this;
     u32 i;
     for (i = 0; i < 5; i++) {
-        copy_pos__11TNowLoadingFPvPv(o->obj[i], &o->pos);
-        copy_vec3__11TBoss4Type2FPvPv(o->obj[i], &TAdLoadNetworkGC__object_offset_table[i]);
+        copy_pos__11TNowLoadingFPv(o->obj[i], &o->pos);
+        copy_vec3__11TBoss4Type2FPv(o->obj[i], &TAdLoadNetworkGC__object_offset_table[i]);
     }
 }
 Net_80308518 *__dt__16TAdLoadNetworkGCFv(Net_80308518 *self, s16 flag) {

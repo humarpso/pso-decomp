@@ -1,9 +1,9 @@
 #include "pso/TItemLockCountCtrl.h"
 
-extern "C" void free__11TOBoss4RockFUi(void*);
+extern "C" void mem_free(void*);
 
 TItemLockCountCtrl::~TItemLockCountCtrl() {
-    free__11TOBoss4RockFUi(this->m_20);
+    mem_free(this->m_20);
 }
 
 #include "types.h"
@@ -12,7 +12,7 @@ extern "C" {
 
 void *TItemLockCountCtrl__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 __ct__7TObjectFP7TObject();
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_alloc(s32);
 s32 memset(s32, s32, s32);
 
 extern s32 __vt__18TItemLockCountCtrl[];
@@ -26,7 +26,7 @@ void *TItemLockCountCtrl__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TItemLockCountCtrl;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2BF8;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x20) = alloc_buffer__11TOBoss4RockFPv(temp_r31);
+    *(s32 *)((s8 *)arg0 + 0x20) = mem_alloc(temp_r31);
     *(s32 *)((s8 *)arg0 + 0x24) = arg3;
     *(s32 *)((s8 *)arg0 + 0x28) = arg4;
     memset(*(s32 *)((s8 *)arg0 + 0x20), 0, temp_r31);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/object/TObjDFUsoTower.h"
 
 struct RecoveredGlobal_80052200_lbl_804858A8 {
     s32 value;
@@ -23,13 +25,11 @@ extern const f32 lbl_805D8A30;
 u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1);
 s32 rand();
 extern const f32 lbl_805D8AD8;
-s32 pick_weighted_random__11TBoss4Type2FiPvPv(s32 n, f32 *w, s32 *t);
 }
 
 extern "C" {
 
 void *__dt__14TObjDFUsoTowerFv(void *arg0, s16 arg1);
-void *create__14TObjDFUsoTowerFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -61,14 +61,14 @@ u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1) {
     return arg0;
 }
 
-void *create__14TObjDFUsoTowerFPv(void *arg0) {
+void *TObjDFUsoTower::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
         o = TObjDFUsoTower__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }
-s32 pick_weighted_random__11TBoss4Type2FiPvPv(s32 n, f32 *w, s32 *t) {
+s32 TBoss4Type2::pick_weighted_random(s32 n, f32 *w, s32 *t) {
     s32 i;
     f32 acc;
     f32 r;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -26,19 +27,17 @@ void GXBegin(int, int, u16);
 void clear_move_state_bits__10TObjPlayerFv(void);
 extern u32 chunk_render_flags;
 
-void set_global_7778__10TObjPlayerFi(s32 arg0);
-void update_render_state__10TObjPlayerFv(void);
-s32 resolve_render_keys__10TObjPlayerFPvPv();
+s32 resolve_render_keys__10TObjPlayerFPPUlPPUl();
 s32 advance_render_counters__10TObjPlayerFv();
 
 extern s32 lbl_805D7778;
 
-void set_global_7778__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::set_global_7778(s32 arg0) {
     lbl_805D7778 = arg0;
 }
 
-void update_render_state__10TObjPlayerFv(void) {
-    resolve_render_keys__10TObjPlayerFPvPv();
+void TObjPlayer::update_render_state() {
+    resolve_render_keys__10TObjPlayerFPPUlPPUl();
     advance_render_counters__10TObjPlayerFv();
 }
 

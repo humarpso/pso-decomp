@@ -48,6 +48,13 @@ struct TObjEneMe1GiGue
     void* m_418;
     u8 _pad41C[0x2C];
     u32 m_448;
+    void dispatch_state();
+    static void *create(void *arg0);
+    static void delete_barrier();
+    static void load_resources();
+    void load_params_from_table(s32 i);
+    void update_if_active(s32 _w1);
+    void set_state(s32 arg1);
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOHealGeneral.h"
 
 struct Base_801695a8_80169520 { char pad[0x18]; };
 struct VObj_801695a8_80169520 : Base_801695a8_80169520 {
@@ -68,25 +69,24 @@ struct Heal_80169858 {
 extern "C" {
 void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern RecoveredGlobal_80169710_lbl_804B2748 bm_fe_obj_kaifuku_moto_resource_descriptor;
 extern RecoveredGlobal_80169710_lbl_804B2760 fe_obj_kaifuku_moto_2_resource_descriptor;
 extern u32 TOHealGeneral__model_archive;
-void load_resources__13TOHealGeneralFv(void);
-void request_destroy__11TBoss4Type2FUi(u32);
+void request_destroy__11TBoss4Type2FUl(u32);
 void unregister_object_by_id(void *);
 void free_collision_body_parts(void *);
-void destroy_key_base__5TOKeyFPvs(void *, s16);
+void destroy_key_base__5TOKeyFs(void *, s16);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__13TOHealGeneral[];
 TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s16 flag);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 u32 create_particle_emitter(void *, s32);
-void set_owner_id__13TParticleCtrlFPvUs(u32, u16);
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
-void reset_photon_effect__10TObjPlayerFPv(void *);
+void set_owner_id__13TParticleCtrlFUs(u32, u16);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
+void reset_photon_effect__10TObjPlayerFv(void *);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32, void *);
 void init_map_object_base(void *, s32);
@@ -104,21 +104,12 @@ void *TOHealGeneral__ct(void *arg0, void *arg1);
 void play_effect_default__10TObjPlayerFii(void *, s32);
 void *get_player_by_client_id(s32);
 extern s32 local_client_id;
-void accept_player__13TOHealGeneralFPvUs(void *arg0, u16 arg1);
 }
 
 extern "C" {
 
 void TOHealGeneral__sub_801699F4(void);
-void set_enable_count__13TOHealGeneralFPvi(void *arg0, s32 arg1);
-void set_script_entry__13TOHealGeneralFPvi(void *arg0, s32 arg1);
 void* TOHealGeneral__vt7(void* p);
-void close_dialog_window__13TOHealGeneralFv(void);
-void *create__13TOHealGeneralFPv(void *arg0);
-void render__13TOHealGeneralFv(u8 *arg0);
-void run_task__13TOHealGeneralFv(void *arg0);
-s32 update_active_state__13TOHealGeneralFPv(void *arg0);
-s32 update_heal_gauge_state__13TOHealGeneralFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 u8 is_current_floor_switch_set(u16);
 s32 is_any_player_within_radius_xz(f32);
@@ -132,32 +123,33 @@ s32 push_matrix();
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 update_closing__13TOHealGeneralFPv(void *);
-s32 update_opening__13TOHealGeneralFPv(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 update_closing__13TOHealGeneralFv(void *);
+s32 update_opening__13TOHealGeneralFv(void *);
+s32 set_global_param__8TObjFishFl(int);
 
-void run_task__13TOHealGeneralFv(void *arg0) {
+void TOHealGeneral::run_task() {
     s32 temp_r0;
 
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        TOHangerMachine01__sub_80169168(arg0);
+        TOHangerMachine01__sub_80169168(this);
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
+    temp_r0 = *(s32 *)((s8 *)this + 0xAC);
     switch (temp_r0) {
     case 0:
-        find_heal_target__13TOHealGeneralFPv(arg0);
+        find_heal_target__13TOHealGeneralFPv(this);
         return;
     case 1:
-        update_opening__13TOHealGeneralFPv(arg0);
+        update_opening__13TOHealGeneralFv(this);
         return;
     case 2:
-        update_closing__13TOHealGeneralFPv(arg0);
+        update_closing__13TOHealGeneralFv(this);
         return;
     }
 }
 
-void render__13TOHealGeneralFv(u8 *arg0) {
+void TOHealGeneral::render() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
@@ -166,7 +158,7 @@ void render__13TOHealGeneralFv(u8 *arg0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
@@ -186,17 +178,17 @@ void render__13TOHealGeneralFv(u8 *arg0) {
     }
 }
 
-void *create__13TOHealGeneralFPv(void *arg0) {
+void *TOHealGeneral::create() {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TOHealGeneral__ct((void *)(o), (void *)(arg0));
+        o = TOHealGeneral__ct((void *)(o), (void *)(this));
     }
     return o;
 }
 
 extern u32 TOHealGeneral__model_archive;
 
-void close_dialog_window__13TOHealGeneralFv(void) {
+void TOHealGeneral::close_dialog_window() {
     if ((u32) TOHealGeneral__model_archive != 0U) {
         TLobby__sub_8001FE7C((void*)TOHealGeneral__model_archive, 1);
         TOHealGeneral__model_archive = 0U;
@@ -205,7 +197,7 @@ void close_dialog_window__13TOHealGeneralFv(void) {
 
 typedef struct RecoveredGlobal_80169710_lbl_804B2748 RecoveredGlobal_80169710_lbl_804B2748;
 typedef struct RecoveredGlobal_80169710_lbl_804B2760 RecoveredGlobal_80169710_lbl_804B2760;
-void load_resources__13TOHealGeneralFv(void) {
+void TOHealGeneral::load_resources() {
   s32 temp_r3;
   s32 temp_r3_2;
   s32 temp_r3_3;
@@ -230,7 +222,7 @@ void load_resources__13TOHealGeneralFv(void) {
   if (temp_r3 < 0x24)
   {
     block_5:
-    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *) 0x440);
+    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFv((void *) 0x440);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -240,7 +232,7 @@ void load_resources__13TOHealGeneralFv(void) {
     return;
   }
   block_8:
-  temp_r3_3 = (new_var = alloc__23TAdSinglePlyChrSelectGCFPv((void *) 0x440));
+  temp_r3_3 = (new_var = alloc__23TAdSinglePlyChrSelectGCFv((void *) 0x440));
   var_r0_2 = temp_r3_3;
   if (var_r0_2 != 0)
   {
@@ -255,12 +247,12 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
         self->vtable = __vt__13TOHealGeneral;
         for (i = 0; i < 2; i++) {
             if (self->handles[i] != 0) {
-                request_destroy__11TBoss4Type2FUi(self->handles[i]);
+                request_destroy__11TBoss4Type2FUl(self->handles[i]);
             }
         }
         unregister_object_by_id(self);
         free_collision_body_parts(self);
-        destroy_key_base__5TOKeyFPvs(self, 0);
+        destroy_key_base__5TOKeyFs(self, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);
         }
@@ -282,8 +274,8 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     self->fC4 = lbl_805DB6CC;
     init_collision_body_parts(self, lbl_804B2770, 1, model);
     refresh_collision_body_centers(self);
-    reset_photon_effect__10TObjPlayerFPv(self);
-    clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
+    reset_photon_effect__10TObjPlayerFv(self);
+    clear_player_status_flag__10TObjPlayerFlUl(self, 0, 1);
     self->fCC = 0;
     self->fD0 = lbl_805DB6C0;
     for (i = 0; i < 2; i++) {
@@ -297,7 +289,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     }
     self->handles[1] = spawn_continuous_particle_effect_with_flags(&self->pts[1], 0x63, 0x10);
     if (self->handles[1] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(self->handles[1]) != 0) {
-        set_owner_id__13TParticleCtrlFPvUs(self->handles[1], self->f1c);
+        set_owner_id__13TParticleCtrlFUs(self->handles[1], self->f1c);
     } else {
         self->handles[1] = 0;
     }
@@ -315,81 +307,81 @@ void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1) {
     *(s32 *)((s8 *)arg0 + 0xAC) = (s32) *arg1;
 }
 
-void accept_player__13TOHealGeneralFPvUs(void *arg0, u16 arg1) {
+void TOHealGeneral::accept_player(u16 arg1) {
     void *p;
-    if (*(s32 *)((s8 *)arg0 + 0xD8) > 0) {
+    if (*(s32 *)((s8 *)this + 0xD8) > 0) {
         if (arg1 == local_client_id) {
             p = get_player_by_client_id(arg1);
-            if (p == NULL || *(s32 *)((s8 *)arg0 + 0xAC) != 1) {
+            if (p == NULL || *(s32 *)((s8 *)this + 0xAC) != 1) {
                 return;
             }
-            *(s32 *)((s8 *)arg0 + 0xAC) = 2;
-            *(u16 *)((s8 *)arg0 + 0x94) = arg1;
+            *(s32 *)((s8 *)this + 0xAC) = 2;
+            *(u16 *)((s8 *)this + 0x94) = arg1;
             play_effect_default__10TObjPlayerFii(p, -1);
         } else {
-            *(u16 *)((s8 *)arg0 + 0x94) = 0xFFFF;
+            *(u16 *)((s8 *)this + 0x94) = 0xFFFF;
         }
     }
 }
 
-s32 update_active_state__13TOHealGeneralFPv(void *arg0) {
+s32 TOHealGeneral::update_active_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
+    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
     switch (temp_r0) {
     case 1:
         if (is_any_player_within_radius_xz(lbl_805DB6D8) != 0) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 1;
+            *(s32 *)((s8 *)this + 0xCC) = 1;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+            *(s32 *)((s8 *)this + 0xCC) = 0;
         }
         break;
     case 2:
-        if (is_current_floor_switch_set((u16) *(s32 *)((s8 *)arg0 + 0xD0)) == 1) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 1;
+        if (is_current_floor_switch_set((u16) *(s32 *)((s8 *)this + 0xD0)) == 1) {
+            *(s32 *)((s8 *)this + 0xCC) = 1;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+            *(s32 *)((s8 *)this + 0xCC) = 0;
         }
         break;
     }
-    return *(s32 *)((s8 *)arg0 + 0xCC);
+    return *(s32 *)((s8 *)this + 0xCC);
 }
 
-void set_enable_count__13TOHealGeneralFPvi(void *arg0, s32 arg1) {
+void TOHealGeneral::set_enable_count(s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;
     if (var_r4 < 0) {
         var_r4 = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0xD8) = var_r4;
+    *(s32 *)((s8 *)this + 0xD8) = var_r4;
 }
 
-void set_script_entry__13TOHealGeneralFPvi(void *arg0, s32 arg1) {
+void TOHealGeneral::set_script_entry(s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;
     if (var_r4 < 0) {
         var_r4 = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0xD4) = var_r4;
+    *(s32 *)((s8 *)this + 0xD4) = var_r4;
 }
 
-s32 update_heal_gauge_state__13TOHealGeneralFPv(void *arg0) {
+s32 TOHealGeneral::update_heal_gauge_state() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0xD0) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
+    *(s32 *)((s8 *)this + 0xD0) = (s32) *(s32 *)((s8 *)this + 0x84);
+    temp_r0 = *(s32 *)((s8 *)this + 0xD0);
     if (temp_r0 > 0xFF) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+        *(s32 *)((s8 *)this + 0xC8) = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 1;
+        *(s32 *)((s8 *)this + 0xC8) = 1;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 2;
+        *(s32 *)((s8 *)this + 0xC8) = 2;
     }
-    set_script_entry__13TOHealGeneralFPvi((void *)((void *)(arg0)), (s32)((s32)(*(s32 *)((s8 *)arg0 + 0x88))));
-    set_enable_count__13TOHealGeneralFPvi((void *)(arg0), (s32)(*(s32 *)((s8 *)arg0 + 0x8C)));
-    return *(s32 *)((s8 *)arg0 + 0xD0);
+    set_script_entry((s32)((s32)(*(s32 *)((s8 *)this + 0x88))));
+    set_enable_count((s32)(*(s32 *)((s8 *)this + 0x8C)));
+    return *(s32 *)((s8 *)this + 0xD0);
 }
 
 }

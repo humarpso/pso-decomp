@@ -25,7 +25,7 @@ extern "C" {
 s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 get_bml_motion(void *, void *);
 s32 get_bml_model(void *, void *);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 reset_state(void *);
@@ -75,7 +75,7 @@ u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, s32 arg1, s32 arg2) 
     *(s32 *)((s8 *)arg0 + 0xF8) = get_bml_motion((void *) (TOHangceilingCave01__model_archive), (void *) (hanging_ceiling_motion_index));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B2174.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     reset_state((void *) (arg0));
     temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) | 0x1080);

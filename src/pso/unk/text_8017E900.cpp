@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TButterfly.h"
 
 struct Self_8017E900 { u8 pad[0x38]; u8 pos[0x60 - 0x38]; s32 f60; u8 pad64[0xA8 - 0x64]; f32 fa8; };
 
@@ -12,12 +13,12 @@ s32 get_bml_model(void *, s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 pop_matrix();
 extern void *butterfly_bml_resource;
-void draw_model__10TButterflyFPv(Self_8017E900 *self);
 }
 
 extern "C" {
 
-void draw_model__10TButterflyFPv(Self_8017E900 *self) {
+void TButterfly::draw_model() {
+    Self_8017E900 *self = (Self_8017E900 *)this;
     push_matrix();
     post_translate_matrix(self->pos);
     rotate_matrix_y(0, self->f60);

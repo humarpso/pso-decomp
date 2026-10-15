@@ -33,10 +33,10 @@ s32 TItemList__sub_801D5844(s32);
 s32 TItemList__sub_801D5854(s32, s32);
 int TItemList__sub_801D5868(void*, void*);
 int __dl__FPv();
-s32 copy_item_data__9TItemListFPv(s32, s32);
-s32 create_node__9TItemListFPvPvPvPv(s32, s32, s32, s32);
-s32 free_if_positive__6TLobbyFis(s32 arg0, s16 arg1);
-s32 set_field4__10TObjPlayerFPvi(s32, s32);
+s32 copy_item_data__9TItemListFv(s32, s32);
+s32 create_node__9TItemListFPvPvPvSc(s32, s32, s32, s32);
+s32 free_if_positive__6TLobbyFls(s32 arg0, s16 arg1);
+s32 set_field4__10TObjPlayerFl(s32, s32);
 
 void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 temp_r31;
@@ -46,9 +46,9 @@ void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3
     temp_r30 = TItemList__sub_801D5854(arg0, 0);
     if (TItemList__sub_801D5844(temp_r31) != 0) {
         TItemList__sub_801D5838((void*)(temp_r31));
-        set_field4__10TObjPlayerFPvi(temp_r30, arg4);
-        copy_item_data__9TItemListFPv(temp_r30, arg3);
-        create_node__9TItemListFPvPvPvPv(arg0, arg2, arg1, 0);
+        set_field4__10TObjPlayerFl(temp_r30, arg4);
+        copy_item_data__9TItemListFv(temp_r30, arg3);
+        create_node__9TItemListFPvPvPvSc(arg0, arg2, arg1, 0);
         TItemList__sub_801D5804((void*)(arg0));
     }
 }
@@ -64,7 +64,7 @@ void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2,
         if (((s32 (*)(void *))TItemList__sub_801D5844)(p) != 0) {
             TItemList__sub_801D5838(p);
             ((void (*)(void *, void *))copy_drop_node)(q, arg3);
-            ((void (*)(void *, void *, void *, s32))create_node__9TItemListFPvPvPvPv)(arg0, arg2, arg1, i);
+            ((void (*)(void *, void *, void *, s32))create_node__9TItemListFPvPvPvSc)(arg0, arg2, arg1, i);
             TItemList__sub_801D5804(arg0);
             p += 4;
             q++;

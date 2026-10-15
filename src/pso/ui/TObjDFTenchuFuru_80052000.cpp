@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDFUsoTower.h"
 
 typedef struct Vec_80052090 {
     f32 x, y, z;
@@ -24,25 +25,24 @@ extern const f32 lbl_805D8AC8;
 extern const f32 lbl_805D8ACC;
 extern const f32 lbl_805D8AD0;
 extern const f32 lbl_805D8AD4;
-void run_task__14TObjDFUsoTowerFv(Obj_80052090 *arg0);
 }
 
 extern "C" {
 
-void render__14TObjDFUsoTowerFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 sync_player_globals__10TObjPlayerFv();
 s32 TObjPlayer__sub_80052390();
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 set_color_blend_mode(s32, s32, s32, s32);
 
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 
-void render__14TObjDFUsoTowerFv(u8 *arg0) {
+void TObjDFUsoTower::render() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x94);
@@ -53,7 +53,7 @@ void render__14TObjDFUsoTowerFv(u8 *arg0) {
         }
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
         if (*(f32 *)((s8 *)arg0 + 0x94) < lbl_805D8A34) {
@@ -62,7 +62,8 @@ void render__14TObjDFUsoTowerFv(u8 *arg0) {
     }
 }
 #pragma opt_common_subs off
-void run_task__14TObjDFUsoTowerFv(Obj_80052090 *arg0) {
+void TObjDFUsoTower::run_task() {
+    Obj_80052090 *arg0 = (Obj_80052090 *)this;
     f32 d;
     f32 r;
     switch (arg0->state) {

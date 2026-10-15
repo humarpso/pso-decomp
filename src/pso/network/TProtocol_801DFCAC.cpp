@@ -1,5 +1,6 @@
 #include "pso/packet_classes.h"
 #include <stddef.h>
+#include "pso/TProtocol.h"
 typedef char SendActionSize[(sizeof(TSendAction<0>) == 12) ? 1 : -1];
 typedef char SendActionTagOffset[(offsetof(TSendAction<0>, tag) == 4) ? 1 : -1];
 typedef char NamedActionSize[(sizeof(TSendAction<1>) == 0x1C) ? 1 : -1];
@@ -25,7 +26,8 @@ s32 destroy__9TProtocolFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-s32 init_char_data__9TProtocolFi(s32 arg0) {
+s32 TProtocol::init_char_data() {
+    s32 arg0 = (s32)this;
     __ct__12TPlyCharDataFv(arg0 + 4);
     return arg0;
 }

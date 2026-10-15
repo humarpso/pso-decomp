@@ -26,6 +26,17 @@ struct TWindowInputNumber {
         return TObject::operator new(size);
     }
     TWindowInputNumber(void *position, s32 minimum, s32 maximum, s32 initial, s16 client);
+    void mark_confirmed();
+    void confirm_input();
+    void update();
+    void update_value();
+    void handle_decrement();
+    void move_cursor_next();
+    void set_value(f32 farg0);
+    int is_confirmed();
+    void create(s32 arg1);
+    void calc_digit_count();
+    void run_task();
 };
 
 typedef char TWindowInputNumberSize[sizeof(TWindowInputNumber) == 0x7C ? 1 : -1];

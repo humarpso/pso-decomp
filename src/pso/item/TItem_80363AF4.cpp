@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/item/EquippedItemDrawQueue.h"
+#include "pso/item/TItem.h"
 
 struct DrawPrefix { u8 prefix[0x18]; };
 
@@ -46,11 +47,10 @@ void render_equipped_item_queue();
 
 extern "C" {
 
-void push_to_player_list__5TItemFPv(void* a0);
 int push_to_list__10TObjPlayerFPvi(void*, void*);
 
     extern EquippedItemDrawQueue *player_item_id_list;
-void push_to_player_list__5TItemFPv(void* a0) { push_to_list__10TObjPlayerFPvi((void*)(player_item_id_list), a0); }
+void TItem::push_to_player_list(void* a0) { push_to_list__10TObjPlayerFPvi((void*)(player_item_id_list), a0); }
 void render_equipped_item_queue() {
     reset_transform_state__10TObjPlayerFv();
     lbl_805D5660 = model_render_flags;

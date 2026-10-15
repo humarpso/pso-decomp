@@ -30,6 +30,8 @@ struct TPhotonYoulla
     u32 m_19c;
     u32 m_1a0;
     u32 m_1a4;
+    void render();
+    void run_task();
 };
 
 #endif

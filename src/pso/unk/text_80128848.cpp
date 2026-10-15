@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -56,32 +57,30 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 TObjPlayer__sub_80128A70();
-void apply_m49_state_a__10TObjPlayerFPv(u8 *arg0);
-void draw_status_icons__10TObjPlayerFPvPvPv(void *, void *, void *);
-void draw_status_icon_set__10TObjPlayerFPv(u8 *arg0);
-u8 * init_shot_state__10TObjPlayerFPv(void *, s32, void *);
+void draw_status_icons__10TObjPlayerFPvPv(void *, void *, void *);
+u8 * init_shot_state__10TObjPlayerFv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_shot_state__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-u8 *create_shot_state__10TObjPlayerFPv(u8 *arg0) {
+u8 *TObjPlayer::create_shot_state(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x208));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_shot_state__10TObjPlayerFPv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(init_shot_state__10TObjPlayerFv(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }
     return NULL;
 }
 
-void apply_m49_state_a__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::apply_m49_state_a() {
+    u8 *arg0 = (u8 *)this;
     TObjPlayer__sub_80128A70();
     if (((VObj_18 *)(arg0))->m49(arg0 + 0x1FC, 0, 0, 1) != 0) {
         ((VObj_18 *)(arg0))->m49(arg0 + 0x208, 0, 0, 0);
@@ -89,8 +88,9 @@ void apply_m49_state_a__10TObjPlayerFPv(u8 *arg0) {
     }
     ((VObj_18 *)(arg0))->m49(arg0 + 0x208, 0, 0, 1);
 }
-void draw_status_icon_set__10TObjPlayerFPv(u8 *arg0) {
-    draw_status_icons__10TObjPlayerFPvPvPv(arg0, arg0 + 0x1FC, arg0 + 0x208);
+void TObjPlayer::draw_status_icon_set() {
+    u8 *arg0 = (u8 *)this;
+    draw_status_icons__10TObjPlayerFPvPv(arg0, arg0 + 0x1FC, arg0 + 0x208);
 }
 
 }

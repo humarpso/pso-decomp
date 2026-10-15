@@ -18,6 +18,8 @@ struct TObjWarpJungMain
     u8 _padBA[0x2];
     u32 m_bc;
     u32 m_c0;
+    void render();
+    void run_task();
 };
 
 #endif

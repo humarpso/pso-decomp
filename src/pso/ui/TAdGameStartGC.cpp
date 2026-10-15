@@ -68,9 +68,9 @@ void render__14TAdGameStartGCFv(void);
 void send_6x92__14TAdGameStartGCFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int bswap_32__FPUl(void*);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 
-void bswap_6x92__14TAdGameStartGCFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
+void bswap_6x92__14TAdGameStartGCFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
 void send_6x92__14TAdGameStartGCFPv(void* p) { bswap_6x92__14TAdGameStartGCFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void TAdGameStartGC__sub_802E6368(void* p) { *(u8*)((char*)p + 0x0) = 146; *(u8*)((char*)p + 0x1) = 3; }
 
@@ -263,7 +263,7 @@ extern "C" {
 #pragma push
 #pragma fp_contract on
 
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, int, f32);
@@ -274,7 +274,7 @@ void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
     s32 temp_r4;
 
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFi((void *) (game_start_player_instance));
+    set_global_param__8TObjFishFl((void *) (game_start_player_instance));
     set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x80) << 0x18) | 0xFF0000 | 0xFFFF));
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x1C);
     draw_textured_quad_at_depth((void *) (arg0 + 0x40), (int) (temp_r4), (f32) (((0.01f) * (f32) temp_r4) + (0.8f)));
@@ -285,7 +285,7 @@ void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
 
 extern "C" {
 void run_task__17TAdGameStartSubGCFv(u8 *arg0);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 get_instance__10TObjPlayerFv(void);
 extern s32 __vt__17TAdGameStartSubGC[];
 extern void *lbl_805D3FB0[2];
@@ -349,7 +349,7 @@ u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TAdGameStartSubGC;
     I(0) = (s32)lbl_805D3FB0[0];
     I(0x1C) = *(s32 *)((s8 *)arg2 + 0);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x60, arg2 + 4);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(arg0 + 0x60, arg2 + 4);
     t = *(s32 *)((s8 *)arg2 + 0xC);
     I(0x7C) = t;
     I(0x84) = -1;

@@ -1,26 +1,29 @@
 #include "types.h"
+#include "pso/TProtocol.h"
 
 extern "C" {
 s32 bswap__13packet_headerFv(s32 *);
-void handle_cmd_92__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 }
 
 extern "C" {
 
 s32 bswap__13packet_headerFv(s32 *);
 
-void handle_cmd_95__9TProtocolFR6packet(void *arg0, s32 *arg1) {
+void TProtocol::handle_cmd_95(packet &pkt) {
+    s32 *arg1 = (s32 *)&pkt;
     s32 sp8;
     s32 (*temp_r12)();
 
     sp8 = *arg1;
     bswap__13packet_headerFv(&sp8);
-    temp_r12 = *(s32 (**)())((s8 *)arg0 + 0xBC34);
+    temp_r12 = *(s32 (**)())((s8 *)this + 0xBC34);
     if (temp_r12 != NULL) {
         temp_r12();
     }
 }
-void handle_cmd_92__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
+void TProtocol::handle_cmd_92(packet &pkt) {
+    s32 *arg1 = (s32 *)&pkt;
+    u8 *arg0 = (u8 *)this;
     s32 sp8;
     s32 (*temp_r12)(u8);
     sp8 = *(s32 *)((s8 *)arg1 + 0);

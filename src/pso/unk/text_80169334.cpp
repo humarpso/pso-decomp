@@ -68,7 +68,7 @@ void *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *obj);
 f32 get_collision_body_radius(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
-s16 get_field_2b8__14TItemProShieldFPv(void *);
+s16 get_field_2b8__14TItemProShieldFv(void *);
 s16 obj_getS16_32C(void *);
 s16 obj_getS16_2BA(void *);
 s16 obj_getS16_32E(void *);
@@ -79,7 +79,7 @@ s32 is_valid_slot__17TOHangerMachine01FiUs(void *, u16);
 void send_6x2C_impose_hold(void *, void *, s32, s32, f32);
 void refill_traps__10TObjPlayerFPv(void *);
 void *spawn_particle_effect_with_flags(void *, s32, s32);
-void set_owner_id__13TParticleCtrlFPvUs(void *, u16);
+void set_owner_id__13TParticleCtrlFUs(void *, u16);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805DB6C8;
@@ -111,7 +111,7 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
             continue;
         }
         self->fF4 = id;
-        if (obj_getS16_32C(actor) < get_field_2b8__14TItemProShieldFPv(actor) ||
+        if (obj_getS16_32C(actor) < get_field_2b8__14TItemProShieldFv(actor) ||
             obj_getS16_32E(actor) < obj_getS16_2BA(actor) ||
             get_recovery_need_flags__10TObjPlayerFPv(actor) != 0 ||
             (is_alive_and_ready__10TObjPlayerFi(actor) != 0 && are_traps_full__10TObjPlayerFPv(actor) == 0)) {
@@ -126,11 +126,11 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
             }
             e = spawn_particle_effect_with_flags((u8 *)actor + 0x2FC, 0x1F6, 0x10);
             if (e != 0) {
-                set_owner_id__13TParticleCtrlFPvUs(e, self->fF4);
+                set_owner_id__13TParticleCtrlFUs(e, self->fF4);
             }
             e = spawn_particle_effect_with_flags((u8 *)actor + 0x2FC, 0x1F7, 0x10);
             if (e != 0) {
-                set_owner_id__13TParticleCtrlFPvUs(e, self->fF4);
+                set_owner_id__13TParticleCtrlFUs(e, self->fF4);
             }
             play_sound_effect(0x4002AB0E, self->pos, 0, 0);
             break;

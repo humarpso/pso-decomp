@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 struct Stack_8007CBC4 {
     s32 sp8;
@@ -54,27 +55,24 @@ s32 memcpy(int, void *, int);
 extern s32 lbl_805D49B4;
 extern s16 TObjBoss2Tunnel__snapshot_state;
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
-s32 load_snapshot__15TObjBoss2TunnelFv(void);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-s32 draw_textured_screen_quad__10TObjPlayerFUiPvPvi(int, void *, void *, int, f32);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
+s32 draw_textured_screen_quad__10TObjPlayerFUlPfPfl(int, void *, void *, int, f32);
 extern const f32 lbl_805D9224;
 extern const f32 lbl_805D9228;
 extern const f32 lbl_805D922C;
 extern const f32 lbl_805D9230;
 void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0);
 extern s32 TObjBoss2Tunnel__data_80438A08[];
-void poll_load_status__15TAdPlayerLoadGCFi(s32 a, void *b);
-void poll_pso_screen_load__15TObjBoss2TunnelFv(void);
+void poll_load_status__15TAdPlayerLoadGCFl(s32 a, void *b);
 s32 TAdPlayerLoadGC__sub_801E1538(void *, int);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
-bool verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
 s32 memcard_check_snapshot(s32, s32);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
 void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
 void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, void *, void *);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
-s32 load_player__23TAdSinglePlyChrSelectGCFiiii(s32, void *, s32, s32);
+s32 load_player__23TAdSinglePlyChrSelectGCFllll(s32, void *, s32, s32);
 char *strcpy(char *, const char *);
 s32 memcpy(int, void *, int);
 void *memset(void *, int, u32);
@@ -86,12 +84,11 @@ extern s32 lbl_805D49B4;
 extern s16 TObjBoss2Tunnel__snapshot_state;
 extern s32 *boss2_tunnel_snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
-s32 save_snapshot_to_card__15TObjBoss2TunnelFv(void);
 s32 get_main_phase(void);
 void setup_default_view__11TCameraCtrlFPvPv(u32, s32);
 void draw_snapshot_capture_overlay(void);
-void set_graph_param__8TDLGraphFPvi(void *, s32);
-void update_graph__8TDLGraphFii(s32, s32);
+void set_graph_param__8TDLGraphFl(void *, s32);
+void update_graph__8TDLGraphFll(s32, s32);
 VObj_8007C5C0 *create__8TDLGraphFv(void);
 void wait_ready_loop__6TLobbyFv(void);
 s32 get_localized_text_entry(s32, s32);
@@ -104,10 +101,10 @@ void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
-void set_field_1c__6TLobbyFPvf(void *, f32);
+void set_field_1c__6TLobbyFf(void *, f32);
 void complete_reveal__14TWindowMessageFPv(void *);
-void send_and_handle__6TLobbyFPvii(void *, s32, s32);
-void *create_message_window__6TLobbyFiiUis(f32 *, f32 *, s32, s32);
+void send_and_handle__6TLobbyFii(void *, s32, s32);
+void *create_message_window__6TLobbyFllUls(f32 *, f32 *, s32, s32);
 void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A78[];
 extern f32 lbl_80438A80[];
@@ -122,7 +119,6 @@ extern const f32 TObjBoss2Tunnel__data_805D9210;
 extern const f32 lbl_805D9214;
 extern const f32 lbl_805D9218;
 extern const f32 lbl_805D921C;
-s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void);
 s32 get_main_phase(void);
 void setup_default_view__11TCameraCtrlFPvPv(u32, s32);
 void wait_ready_loop__6TLobbyFv(void);
@@ -133,10 +129,10 @@ s8 func_801A5E54__Fv(void);
 void controller_stuff__Fv(void);
 void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
-void set_field_1c__6TLobbyFPvf(void *, f32);
+void set_field_1c__6TLobbyFf(void *, f32);
 void complete_reveal__14TWindowMessageFPv(void *);
-void send_and_handle__6TLobbyFPvii(void *, s32, s32);
-void *create_message_window__6TLobbyFiiUis(f32 *, f32 *, s32, s32);
+void send_and_handle__6TLobbyFii(void *, s32, s32);
+void *create_message_window__6TLobbyFllUls(f32 *, f32 *, s32, s32);
 void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A68[];
 extern f32 lbl_80438A70[];
@@ -151,18 +147,17 @@ extern const f32 lbl_805D9214;
 extern const f32 lbl_805D9218;
 extern const f32 lbl_805D921C;
 extern const f32 lbl_805D9220;
-void show_message_and_wait__15TObjBoss2TunnelFi(s32 arg0);
 }
 
 extern "C" {
 
 s32 memcard_check_snapshot(s32, s32);
-s32 load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, s32 *, s32);
+s32 load_player_slot__23TAdSinglePlyChrSelectGCFii(s32, s32 *, s32);
 extern s32 TObjBoss2Tunnel__data_80438A08[];
 extern s16 TObjBoss2Tunnel__snapshot_state;
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
 
-s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void) {
+s32 TObjBoss2Tunnel::run_confirm_message_loop() {
     s32 result;
     u8 *pad;
     VObj_8007C5C0 *win;
@@ -178,15 +173,15 @@ s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void) {
         lbl_805D4EA4 = lbl_80438A80[0] - lbl_805D9218;
         lbl_805D4EA8 = 1;
     }
-    win = (VObj_8007C5C0 *)create_message_window__6TLobbyFiiUis(lbl_80438A78, lbl_80438A80, 1, 4);
+    win = (VObj_8007C5C0 *)create_message_window__6TLobbyFllUls(lbl_80438A78, lbl_80438A80, 1, 4);
     if (win != NULL) {
-        send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 0xB), 3);
-        set_field_1c__6TLobbyFPvf(win, lbl_805D921C);
+        send_and_handle__6TLobbyFii(win, get_localized_text_entry(0x24, 0xB), 3);
+        set_field_1c__6TLobbyFf(win, lbl_805D921C);
     }
     complete_reveal__14TWindowMessageFPv(win);
     graph = create__8TDLGraphFv();
     if (graph != NULL) {
-        set_graph_param__8TDLGraphFPvi(graph, 2);
+        set_graph_param__8TDLGraphFl(graph, 2);
     }
     frames = 0;
     if (get_main_phase() == 0xF) {
@@ -208,7 +203,7 @@ s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void) {
         }
         begin_effect_render__13TParticleCtrlFv();
         if (graph != NULL) {
-            update_graph__8TDLGraphFii(frames, 0x78);
+            update_graph__8TDLGraphFll(frames, 0x78);
             graph->m1();
             graph->m2();
         }
@@ -238,11 +233,11 @@ s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void) {
     return result;
 }
 
-void poll_pso_screen_load__15TObjBoss2TunnelFv(void) {
-    poll_load_status__15TAdPlayerLoadGCFi(1, ((u8 *)&TObjBoss2Tunnel__data_80438A08));
+void TObjBoss2Tunnel::poll_pso_screen_load() {
+    poll_load_status__15TAdPlayerLoadGCFl(1, ((u8 *)&TObjBoss2Tunnel__data_80438A08));
 }
 
-void show_message_and_wait__15TObjBoss2TunnelFi(s32 arg0) {
+void TObjBoss2Tunnel::show_message_and_wait(s32 arg0) {
     VObj_8007C8AC *win;
     s32 frames;
     if (lbl_805D4E98 == 0) {
@@ -254,21 +249,21 @@ void show_message_and_wait__15TObjBoss2TunnelFi(s32 arg0) {
         lbl_805D4E9C = lbl_80438A70[0] - lbl_805D9218;
         boss2_tunnel_message_shown_flag = 1;
     }
-    win = (VObj_8007C8AC *)create_message_window__6TLobbyFiiUis(lbl_80438A68, lbl_80438A70, 1, 4);
+    win = (VObj_8007C8AC *)create_message_window__6TLobbyFllUls(lbl_80438A68, lbl_80438A70, 1, 4);
     if (win != NULL) {
         switch (arg0) {
         case -2:
         case -9:
-            send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 3), 3);
+            send_and_handle__6TLobbyFii(win, get_localized_text_entry(0x24, 3), 3);
             break;
         case -4:
-            send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 0xD), 3);
+            send_and_handle__6TLobbyFii(win, get_localized_text_entry(0x24, 0xD), 3);
             break;
         default:
-            send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 0xC), 3);
+            send_and_handle__6TLobbyFii(win, get_localized_text_entry(0x24, 0xC), 3);
             break;
         }
-        set_field_1c__6TLobbyFPvf(win, lbl_805D921C);
+        set_field_1c__6TLobbyFf(win, lbl_805D921C);
         complete_reveal__14TWindowMessageFPv(win);
     }
     if (get_main_phase() == 0xF) {
@@ -306,14 +301,14 @@ void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0) {
         stack.sp10 = lbl_805D9224;
         stack.sp14 = lbl_805D9228;
     } else {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (&stack.sp10), (void *) (arg0));
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (&stack.sp10), (void *) (arg0));
     }
     stack.sp8 = lbl_805D922C;
     stack.spC = lbl_805D9230;
-    draw_textured_screen_quad__10TObjPlayerFUiPvPvi((int) (-1), (void *) (&stack.sp10), (void *) (&stack.sp8), (int) (1), (f32) (lbl_805D922C));
+    draw_textured_screen_quad__10TObjPlayerFUlPfPfl((int) (-1), (void *) (&stack.sp10), (void *) (&stack.sp8), (int) (1), (f32) (lbl_805D922C));
 }
 
-bool verify_snapshot_checksum__15TObjBoss2TunnelFv(void) {
+bool TObjBoss2Tunnel::verify_snapshot_checksum() {
     Load_8007CB50 ld;
     s32 *p;
     s32 saved;
@@ -329,7 +324,7 @@ bool verify_snapshot_checksum__15TObjBoss2TunnelFv(void) {
     return sum == saved;
 }
 
-s32 load_snapshot__15TObjBoss2TunnelFv(void) {
+s32 TObjBoss2Tunnel::load_snapshot() {
     Stack_8007CBC4 stack;
     s32 temp_r31;
     if (TAdPlayerLoadGC__sub_801E1B50((int) (1)) == 0) {
@@ -350,13 +345,13 @@ s32 save_screen_snapshot(void) {
     if (memcard_check_snapshot(1, 0) == 0) {
         return 0;
     }
-    if (load_player_slot__23TAdSinglePlyChrSelectGCFPvii(1, TObjBoss2Tunnel__data_80438A08, TObjBoss2Tunnel__snapshot_buffer) != 0) {
+    if (load_player_slot__23TAdSinglePlyChrSelectGCFii(1, TObjBoss2Tunnel__data_80438A08, TObjBoss2Tunnel__snapshot_buffer) != 0) {
         return 0;
     }
     TObjBoss2Tunnel__snapshot_state = 2;
     return 1;
 }
-s32 save_snapshot_to_card__15TObjBoss2TunnelFv(void) {
+s32 TObjBoss2Tunnel::save_snapshot_to_card() {
     Card_8007CCD0 c;
     s32 *p;
     if (memcard_check_snapshot(1, 0) == 0) {
@@ -382,7 +377,7 @@ s32 save_snapshot_to_card__15TObjBoss2TunnelFv(void) {
     c.data = boss2_tunnel_snapshot_buffer;
     build_save_file_image__15TAdPlayerLoadGCFPvPv(TObjBoss2Tunnel__snapshot_buffer, &c, boss2_tunnel_snapshot_buffer);
     TAdPlayerLoadGC__sub_801E14E4(&c);
-    if (load_player__23TAdSinglePlyChrSelectGCFiiii(1, TObjBoss2Tunnel__data_80438A08, TObjBoss2Tunnel__snapshot_buffer, 0xF) != 0) {
+    if (load_player__23TAdSinglePlyChrSelectGCFllll(1, TObjBoss2Tunnel__data_80438A08, TObjBoss2Tunnel__snapshot_buffer, 0xF) != 0) {
         return 0;
     }
     lbl_805D49B4 = 1;

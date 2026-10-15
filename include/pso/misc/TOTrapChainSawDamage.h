@@ -25,6 +25,8 @@ struct TOTrapChainSawDamage
     u32 m_100;
     u32 m_104;
     u32 m_108;
+    void set_damage(s32 v);
+    void *create();
 };
 
 #endif

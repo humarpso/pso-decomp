@@ -5,9 +5,6 @@
 extern "C" {
 
 void *__ct__12TChCrEffFadeFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void render__12TChCrEffFadeFv(void *arg0);
-void run_task__12TChCrEffFadeFv(void *arg0);
-void update_fade__12TChCrEffFadeFPv(u8 *arg0);
 s32 TCameraCtrl__sub_80068EF0();
 s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 draw_fade_strip__12TChCrEffFadeFf(void *, f32);
@@ -15,20 +12,20 @@ s32 __ct__7TObjectFP7TObject(s32, s32);
 s32 fn_80293E58(void *, f32);
 s32 queue_destruction__7TObjectFv(void *);
 
-void render__12TChCrEffFadeFv(void *arg0) {
+void TChCrEffFade::render() {
     f32 temp_f0;
     s32 temp_r0;
 
     restore_full_screen_view__11TCameraCtrlFv();
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x2C);
+    temp_r0 = *(s32 *)((s8 *)this + 0x2C);
     switch (temp_r0) {
     case 0:
-        draw_fade_strip__12TChCrEffFadeFf(arg0, *(f32 *)((s8 *)arg0 + 0x28));
+        draw_fade_strip__12TChCrEffFadeFf(this, *(f32 *)((s8 *)this + 0x28));
         break;
     case 1:
-        fn_80293E58(arg0, *(f32 *)((s8 *)arg0 + 0x28));
-        temp_f0 = *(f32 *)((s8 *)arg0 + 0x28);
-        draw_fade_strip__12TChCrEffFadeFf(arg0, temp_f0 * temp_f0);
+        fn_80293E58(this, *(f32 *)((s8 *)this + 0x28));
+        temp_f0 = *(f32 *)((s8 *)this + 0x28);
+        draw_fade_strip__12TChCrEffFadeFf(this, temp_f0 * temp_f0);
         break;
     }
     TCameraCtrl__sub_80068EF0();
@@ -37,7 +34,8 @@ void render__12TChCrEffFadeFv(void *arg0) {
 extern s32 lbl_80464F20;
 extern const f32 lbl_805DD9F8;
 
-void update_fade__12TChCrEffFadeFPv(u8 *arg0) {
+void TChCrEffFade::update_fade() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r6;
 
     temp_r6 = *(s32 *)((s8 *)arg0 + 0x24);
@@ -48,14 +46,14 @@ void update_fade__12TChCrEffFadeFPv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) (lbl_805DD9F8 - ((f32) (temp_r6 - 3) / (f32) (*(s32 *)((s8 *)arg0 + 0x20) - 3)));
 }
 
-void run_task__12TChCrEffFadeFv(void *arg0) {
+void TChCrEffFade::run_task() {
     s32 temp_r3;
 
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + *(s32 *)((s8 *)arg0 + 0x1C));
-    update_fade__12TChCrEffFadeFPv((u8 *)(arg0));
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x24);
-    if ((temp_r3 <= 0) || (temp_r3 >= (s32) *(s32 *)((s8 *)arg0 + 0x20))) {
-        queue_destruction__7TObjectFv(arg0);
+    *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + *(s32 *)((s8 *)this + 0x1C));
+    update_fade();
+    temp_r3 = *(s32 *)((s8 *)this + 0x24);
+    if ((temp_r3 <= 0) || (temp_r3 >= (s32) *(s32 *)((s8 *)this + 0x20))) {
+        queue_destruction__7TObjectFv(this);
     }
 }
 
@@ -88,7 +86,7 @@ void *__ct__12TChCrEffFadeFv(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 1;
         *(s32 *)((s8 *)arg0 + 0x24) = 0;
     }
-    update_fade__12TChCrEffFadeFPv((u8 *)(arg0));
+    ((TChCrEffFade *)arg0)->update_fade();
     *(s32 *)((s8 *)arg0 + 0x2C) = arg3;
     return arg0;
 }

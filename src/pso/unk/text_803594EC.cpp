@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TBoss4Fade.h"
 struct E_8035959C { s32 a; s32 b; f32 c; };
 
 struct O_8035959C { u8 pad[0x1c]; s32 idx; E_8035959C e[2]; };
@@ -27,14 +28,12 @@ typedef struct Quad_803594EC
 } Quad_803594EC;
 
 extern "C" {
-void run_task__10TBoss4FadeFv(O_8035959C *self);
 s32 set_depth_buffer_settings_1__Fv(void);
 s32 restore_saved_depth_alpha_state();
 s32 draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
 extern u8 TBoss4Fade__fullscreen_vertices[];
 extern const f32 lbl_805E0098;
 extern const f32 lbl_805E009C;
-void render__10TBoss4FadeFv(Fade_803594EC *self);
 }
 
 extern "C" {
@@ -42,7 +41,8 @@ extern "C" {
 typedef struct Ent_803594EC Ent_803594EC;
 typedef struct Fade_803594EC Fade_803594EC;
 typedef struct Quad_803594EC Quad_803594EC;
-void render__10TBoss4FadeFv(Fade_803594EC *self) {
+void TBoss4Fade::render() {
+    Fade_803594EC *self = (Fade_803594EC *)this;
   u32 c;
   int new_var;
   Quad_803594EC q;
@@ -65,7 +65,8 @@ void render__10TBoss4FadeFv(Fade_803594EC *self) {
   }
 }
 
-void run_task__10TBoss4FadeFv(O_8035959C *self) {
+void TBoss4Fade::run_task() {
+    O_8035959C *self = (O_8035959C *)this;
     self->idx ^= 1;
     self->e[self->idx].a = 0;
 }

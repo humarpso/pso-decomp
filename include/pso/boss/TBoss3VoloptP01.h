@@ -37,6 +37,14 @@ struct TBoss3VoloptP01
     u32 m_3b4;
     u32 m_3b8;
     void* m_3bc;
+    void run_state_machine();
+    void update_breakup();
+    void update_state();
+    void dispatch_state();
+    static void destroy();
+    static void init_breakup_effect();
+    static void *create(void *arg0);
+    void init_cursor_record();
 };
 
 #endif

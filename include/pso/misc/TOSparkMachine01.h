@@ -18,6 +18,12 @@ struct TOSparkMachine01
     u8 _padA1[0x1];
     u8 m_a2;
     u8 m_a3;
+    void update_spark_toggle(s32 i);
+    void run_task();
+    void render();
+    void *create();
+    static void destroy_static_instance();
+    static void load_static_resource();
 };
 
 #endif

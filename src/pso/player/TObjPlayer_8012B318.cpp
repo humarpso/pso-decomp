@@ -1,19 +1,20 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void update_area_effect_objects__10TObjPlayerFPv(u8 *arg0);
 s32 scale_current_matrix(void *);
-u8 get_slot_count__14TItemProShieldFPv();
+u8 get_slot_count__14TItemProShieldFv();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(int, int);
 s32 get_player_list__10TObjPlayerFv();
 
-void update_area_effect_objects__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::update_area_effect_objects() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3_2;
     u8 temp_r3;
 
-    temp_r3 = get_slot_count__14TItemProShieldFPv();
+    temp_r3 = get_slot_count__14TItemProShieldFv();
     switch ((s32) temp_r3) {
     case 6:
         if (get_player_list__10TObjPlayerFv() == 4) {

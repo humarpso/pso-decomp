@@ -1,6 +1,7 @@
 #include "pso/TObjBoss7RaftSplash.h"
 
 #include "types.h"
+#include "pso/object/TObjFish.h"
 
 struct Stack_802F15D4 {
     s32 sp8;
@@ -10,11 +11,10 @@ struct Stack_802F15D4 {
 struct RecoveredGlobal_802F16CC___vt__19TObjBoss7RaftSplash { s32 value; u8 remaining[0x14]; };
 
 extern "C" {
-void create_splash_particle__8TObjFishFiii(s32, s32, s32);
+void create_splash_particle__8TObjFishFlll(s32, s32, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 TCameraCtrl__sub_8006A5DC();
 extern const f32 lbl_805DEC68;
-void run_task__19TObjBoss7RaftSplashFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 rand_signed_unit(void);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -29,12 +29,12 @@ u8 *TObjBoss7RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
 
 extern "C" {
 
-void spawn_default_particle__8TObjFishFv(void);
-s32 spawn_particle__8TObjFishFiif(f32);
+s32 spawn_particle__8TObjFishFllf(f32);
 
 extern const f32 lbl_805DEC90;
 
-void run_task__19TObjBoss7RaftSplashFv(u8 *arg0) {
+void TObjBoss7RaftSplash::run_task() {
+    u8 *arg0 = (u8 *)this;
     Stack_802F15D4 stack;
     f32 temp_f0;
     f32 temp_f1;
@@ -46,7 +46,7 @@ void run_task__19TObjBoss7RaftSplashFv(u8 *arg0) {
             *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (temp_f0 - temp_f1);
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x28));
             stack.spC += **(f32 **)((s8 *)arg0 + 0x24) - lbl_805DEC68;
-            create_splash_particle__8TObjFishFiii((s32) &stack.sp8, 0x200, (s32) (arg0 + 0x34));
+            create_splash_particle__8TObjFishFlll((s32) &stack.sp8, 0x200, (s32) (arg0 + 0x34));
         }
     }
 }
@@ -64,8 +64,8 @@ u8 *TObjBoss7RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4) {
     return arg0;
 }
 
-void spawn_default_particle__8TObjFishFv(void) {
-    spawn_particle__8TObjFishFiif(lbl_805DEC90);
+void TObjFish::spawn_default_particle() {
+    spawn_particle__8TObjFishFllf(lbl_805DEC90);
 }
 
 }

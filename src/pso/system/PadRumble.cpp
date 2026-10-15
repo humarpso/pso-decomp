@@ -26,20 +26,20 @@ struct Sp_802430F4 { u32 a; u32 b; };
 extern "C" {
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 s32 *get_pad_rumble_effect_slots(void);
-s32 is_active__12TBoss3VoloptFPv(int);
+s32 is_active__12TBoss3VoloptFv(int);
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 s32 *find_active_pad_rumble_effect_by_id(u32 arg0);
-s32 is_active__12TBoss3VoloptFPv(int);
+s32 is_active__12TBoss3VoloptFv(int);
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 s32 *find_free_pad_rumble_effect_slot(void);
-void reset_state__23TAdSinglePlyChrSelectGCFPv(void *);
+void reset_state__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 extern Pt_80243070 pad_rumble_channel_states[];
 extern const f32 lbl_805DCA04;
 void reset_pad_rumble_effects_and_channels(s16 arg0);
-void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(Sp_802430F4 *, u32, s32);
+void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPsl(Sp_802430F4 *, u32, s32);
 void TAdSinglePlyChrSelectGC__sub_80242B24(Sp_802430F4 *);
-s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Pt_80243070 *, Sp_802430F4 *);
+s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPs(Pt_80243070 *, Sp_802430F4 *);
 void fn_80242C54(Ent_802430F4 *);
 s32 fn_80242F0C(s32);
 void PADControlMotor(s32, u32);
@@ -59,7 +59,7 @@ s32 *find_active_pad_rumble_effect_by_id(u32 arg0) {
     var_r30 = 0;
     var_r31 = (s32 *)(&(*(RecoveredGlobal_80242F94_lbl_80518580 *)&pad_rumble_effect_slots).value);
 loop_1:
-    if ((is_active__12TBoss3VoloptFPv((int) (var_r31)) != 0) && (*(u8 *)((s8 *)var_r31 + 0) & 0x80) && ((u32) *(u32 *)((s8 *)var_r31 + 0x14) == arg0)) {
+    if ((is_active__12TBoss3VoloptFv((int) (var_r31)) != 0) && (*(u8 *)((s8 *)var_r31 + 0) & 0x80) && ((u32) *(u32 *)((s8 *)var_r31 + 0x14) == arg0)) {
         return var_r31;
     }
     var_r30 += 1;
@@ -77,7 +77,7 @@ s32 *find_free_pad_rumble_effect_slot(void) {
     var_r30 = 0;
     var_r31 = (s32 *)(&(*(RecoveredGlobal_80243010_lbl_80518580 *)&pad_rumble_effect_slots).value);
 loop_1:
-    if (is_active__12TBoss3VoloptFPv((int)(var_r31)) == 0) {
+    if (is_active__12TBoss3VoloptFv((int)(var_r31)) == 0) {
         return var_r31;
     }
     var_r30 += 1;
@@ -93,7 +93,7 @@ void reset_pad_rumble_effects_and_channels(s16 arg0) {
     s32 i;
     Pt_80243070 *q;
     for (i = 0; i < 16; i++, p++) {
-        reset_state__23TAdSinglePlyChrSelectGCFPv(p);
+        reset_state__23TAdSinglePlyChrSelectGCFv(p);
     }
     q = pad_rumble_channel_states;
     for (i = 0; i < 4; i++, q++) {
@@ -120,8 +120,8 @@ void update_pad_rumble(void) {
             PADControlMotor(i, 0);
         } else {
             TAdSinglePlyChrSelectGC__sub_80242B24(&sp);
-            accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(&sp, t, i);
-            if (update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(q, &sp) != 0) {
+            accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPsl(&sp, t, i);
+            if (update_rumble_pattern__23TAdSinglePlyChrSelectGCFPs(q, &sp) != 0) {
                 PADControlMotor(i, 1);
             } else {
                 PADControlMotor(i, 0);

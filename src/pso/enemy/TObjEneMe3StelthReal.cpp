@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3StelthReal.h"
 
 struct VBase_18_be4a70 { char pad[0x18]; };
 
@@ -115,7 +116,6 @@ void TObjEneMe3StelthReal__vt109(void);
 int TObjEneMe3StelthReal__vt60(void* p);
 int TObjEneMe3StelthReal__vt61(void* p);
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1);
-void *create__20TObjEneMe3StelthRealFPv(void *arg0);
 s32 transition_enemy_state(void *, s32);
 int TObjEneMe3Stelth__vt60(void*);
 int TObjEneMe3Stelth__vt61(void*);
@@ -169,7 +169,7 @@ u8 *TObjEneMe3StelthReal__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void *create__20TObjEneMe3StelthRealFPv(void *arg0) {
+void *TObjEneMe3StelthReal::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x44C);
     if (o != NULL) {
         o = TObjEneMe3StelthReal__ct((u8 *)(o), (s32)(tl_04), (s32)(arg0));

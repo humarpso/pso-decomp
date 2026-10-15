@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TNeedleShoot.h"
 struct Stack_802A45D4 {
     s32 sp8;
     s32 spC;
@@ -36,7 +37,6 @@ extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, int, int, int, void *, f32);
 extern RecoveredGlobal_802A45D4_lbl_80466678 needle_shoot_color_white;
 extern const f32 lbl_805DDF68;
-void render__12TNeedleShootFv(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(f32 *, f32 *, s32);
 void check_wall_hit__12TNeedleShootFPv(u8 *arg0);
@@ -74,7 +74,8 @@ void check_wall_hit__12TNeedleShootFPv(u8 *arg0) {
 }
 #pragma pop
 
-void render__12TNeedleShootFv(s32 arg0) {
+void TNeedleShoot::render() {
+    s32 arg0 = (s32)this;
     typedef char sp8_offset[(offsetof(Stack_802A45D4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802A45D4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802A45D4, sp10) == 0x8) ? 1 : -1];

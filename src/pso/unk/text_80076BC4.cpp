@@ -10,7 +10,7 @@ void *obj_getField1c(void *);
 void *get_player_by_client_id(s32);
 void send_chat__9TProtocolFR16TPlyGuildCardTagPc(void *, TPlyGuildCardTag *, u8 *);
 void capture_chat_sensor__6TLobbyFi(u8 *);
-void open__11TWindowCtrlFiii(void *, u8 *, int);
+void open__11TWindowCtrlFlll(void *, u8 *, int);
 extern s32 local_client_id;
 extern void *TLobby__protocol_instance;
 void submit_chat_text(u8 *arg0);
@@ -30,7 +30,7 @@ void submit_chat_text(u8 *arg0) {
             Tag_80076BC8 tmp = *(Tag_80076BC8 *)&TPlyGuildCardTag(0, 0);
             send_chat__9TProtocolFR16TPlyGuildCardTagPc(TLobby__protocol_instance, (TPlyGuildCardTag *)&tmp, arg0);
         } else {
-            open__11TWindowCtrlFiii(obj_getField1c(player), arg0, 0xCB);
+            open__11TWindowCtrlFlll(obj_getField1c(player), arg0, 0xCB);
         }
     }
 }
@@ -47,7 +47,7 @@ int get_chat_shortcut(s32 arg0);
 
 extern "C" {
 
-s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPv(void *);
+s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPl(void *);
 s32 send_chat_packet__9TWindowDDFPv(void *);
 void send_chat_shortcut(void);
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
@@ -64,7 +64,7 @@ void chat_dispatch_accepted_result(s32 *arg0) {
         send_chat_packet__9TWindowDDFPv((s8 *)arg0 + 4);
         return;
     case 3:
-        send_selected_symbol_chat__20TWindowSubSymbolChatFPv((s8 *)arg0 + 4);
+        send_selected_symbol_chat__20TWindowSubSymbolChatFPl((s8 *)arg0 + 4);
     case 0:
         return;
     }
@@ -82,7 +82,7 @@ s32 chat_accept_submission(s32 arg0) {
 
 extern "C" {
 
-s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPv(void *);
+s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPl(void *);
 s32 send_chat_packet__9TWindowDDFPv(void *);
 void send_chat_shortcut(void);
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
@@ -112,7 +112,7 @@ extern "C" {
 
 s32 send_chat_packet__9TWindowDDFPv(void *);
 void send_chat_shortcut(void);
-s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPv(void *);
+s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPl(void *);
 
 void clear_chat_shortcut(s32 i) {
     void **p = ((void **)get_chat_shortcut((s32)(i)));

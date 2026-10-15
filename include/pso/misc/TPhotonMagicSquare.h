@@ -27,6 +27,8 @@ struct TPhotonMagicSquare
     u32 m_c4;
     u8 _padC8[0x4];
     u32 m_cc;
+    void render();
+    void run_task();
 };
 
 #endif

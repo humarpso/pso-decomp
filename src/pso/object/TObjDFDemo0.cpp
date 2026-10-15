@@ -62,7 +62,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
@@ -72,13 +72,13 @@ extern const f32 lbl_805D89A0;
 void draw_fading_model__10TObjPlayerFPv(Obj_8004E2C8 *arg0);
 void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
-Outer_8004E068 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
+Outer_8004E068 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
@@ -134,7 +134,7 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
   {
     alpha = ((f32) (t - 0x7C)) / lbl_805D898C;
   }
-  col = collect_and_count__12TBoss3VoloptFUii(self->recs[1].a, 0x6A)->in->col;
+  col = collect_and_count__12TBoss3VoloptFUll(self->recs[1].a, 0x6A)->in->col;
   t = self->f110;
   f = lbl_805D8990;
   if (t >= 0xF0)
@@ -162,7 +162,7 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
   for (i = 0; i < 3; i++)
   {
     e = &lbl_8048561C[i];
-    col = collect_and_count__12TBoss3VoloptFUii(self->recs[e->idx].a, e->id)->in->col;
+    col = collect_and_count__12TBoss3VoloptFUll(self->recs[e->idx].a, e->id)->in->col;
     new_var = col;
     new_var2 = new_var[e->slot];
     col[e->slot] = (new_var2 & 0xFF) | hi;
@@ -180,7 +180,7 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
   rotate_matrix_y(0, self->f10C);
   for (j = 0; j < 2; j++)
   {
-    set_global_param__8TObjFishFi(self->recs[j].b);
+    set_global_param__8TObjFishFl(self->recs[j].b);
     draw_model_motion((*(&self->recs[j])).a, self->recs[j].c, self->f114);
   }
   clear_global_state__10TObjPlayerFv();
@@ -213,7 +213,7 @@ void draw_fading_model__10TObjPlayerFPv(Obj_8004E2C8 *arg0) {
     rotate_matrix_y(0, arg0->f10c);
     max = lbl_805D89A0;
     for (i = 0; i < 6; i++) {
-        set_global_param__8TObjFishFi(arg0->recs[i].b);
+        set_global_param__8TObjFishFl(arg0->recs[i].b);
         f = arg0->f114;
         switch (i) {
         case 0:
@@ -253,7 +253,7 @@ struct S_8004E634 {
 extern "C" {
 void fn_8004AA04(void *);
 void restore_player_cameras();
-void request_destroy__11TBoss4Type2FUi(void *);
+void request_destroy__11TBoss4Type2FUl(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, s32);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_80485640[];
@@ -269,7 +269,7 @@ S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag) {
         fn_8004AA04(o->f11c);
         for (i = 0; i < 4; i++) {
             if (o->ptr[i] != 0) {
-                request_destroy__11TBoss4Type2FUi(o->ptr[i]);
+                request_destroy__11TBoss4Type2FUl(o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

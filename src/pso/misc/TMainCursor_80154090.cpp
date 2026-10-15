@@ -21,8 +21,8 @@ void TMainCursor__sub_80154090(void);
 void TMainCursor__sub_80154094(void);
 s32 TMainCursor__sub_80154288(u8 *arg0, s32 arg1, u16 arg2);
 s32 test_flags_any(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-s32 clear_flags__11TAdRicoRingFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-s32 set_flags__10TObjPlayerFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 clear_flags__11TAdRicoRingFUl(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 set_flags__10TObjPlayerFUl(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 void update_cursor_pair__11TMainCursorFPv(void* p);
 void update_pair__11TMainCursorFPv(void* p);
 
@@ -95,7 +95,7 @@ void set_flag_bit__11TMainCursorFPviUs(void *arg0, s32 arg1, u16 arg2) {
 
     if (((s32 (*)(void))TMainCursor__sub_80154288)() != 0) {
         temp_r5 = *(s32 *)((s8 *)arg0 + 0x9C);
-        clear_flags__11TAdRicoRingFPvUi(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
+        clear_flags__11TAdRicoRingFUl(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
 }
 void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2) {
@@ -103,7 +103,7 @@ void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2) {
 
     if (((s32 (*)(void))TMainCursor__sub_80154288)() != 0) {
         temp_r5 = *(s32 *)((s8 *)arg0 + 0x9C);
-        set_flags__10TObjPlayerFPvUi(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
+        set_flags__10TObjPlayerFUl(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
 }
 

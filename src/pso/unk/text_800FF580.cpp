@@ -41,7 +41,7 @@ struct Obj_800FF788 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800FF8CC *, const Vec_800FF8CC *);
-Vec_800FF8CC *alloc__22TQuestVmDownLoadServerFPv(s32);
+Vec_800FF8CC *alloc__22TQuestVmDownLoadServerFv(s32);
 void vec3_add_to(Vec_800FF8CC *, Vec_800FF8CC *);
 void fn_800FF8CC(Self_800FF8CC *self, Src_800FF8CC *src, Pos_800FF8CC *pos, s32 arg);
 void VecCopy__FP3VecPC3Vec(Vec_800FF8CC *, const Vec_800FF8CC *);
@@ -113,7 +113,7 @@ void fn_800FF8CC(Self_800FF8CC *self, Src_800FF8CC *src, Pos_800FF8CC *pos, s32 
         total += s->count;
         self->num++;
     }
-    self->out = alloc__22TQuestVmDownLoadServerFPv(total * 0xC);
+    self->out = alloc__22TQuestVmDownLoadServerFv(total * 0xC);
     s = self->src;
     p = self->pos;
     out = self->out;

@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/TChCrCharSelect.h"
 
 extern "C" {
 
-void *create__15TChCrCharSelectFPv(void *arg0);
 void *__ct__15TChCrCharSelectFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *create__15TChCrCharSelectFPv(void *arg0) {
+void *TChCrCharSelect::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x20);
     if (o != NULL) {
         o = __ct__15TChCrCharSelectFv(o, arg0);

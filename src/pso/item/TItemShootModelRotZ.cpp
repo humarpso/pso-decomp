@@ -1,8 +1,8 @@
 #include "pso/TItemShootModelRotZ.h"
 
 extern "C" {
-s32   is_owner_alive__10TObjPlayerFPv(TItemShootModelRotZ*);
-void  notify_fish_if_valid__10TObjPlayerFUi(void*);
+s32   is_owner_alive__10TObjPlayerFv(TItemShootModelRotZ*);
+void  notify_fish_if_valid__10TObjPlayerFUl(void*);
 void  begin_effect_render__13TParticleCtrlFv(void);
 void  push_matrix(void);
 void  post_translate_matrix(Vec*);
@@ -14,9 +14,9 @@ extern const char* item_shoot_model_rot_z_class_name;
 }
 
 void TItemShootModelRotZ::render() {
-    if (is_owner_alive__10TObjPlayerFPv(this)) {
+    if (is_owner_alive__10TObjPlayerFv(this)) {
         if (this->m_58 != NULL) {
-            notify_fish_if_valid__10TObjPlayerFUi(this->m_5C);
+            notify_fish_if_valid__10TObjPlayerFUl(this->m_5C);
             begin_effect_render__13TParticleCtrlFv();
             push_matrix();
             post_translate_matrix(&this->m_pos);

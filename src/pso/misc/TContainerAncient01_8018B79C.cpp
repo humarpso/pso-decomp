@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TContainerAncient01.h"
 
 struct Base_8018B820_8018B79C { char pad[0x18]; };
 struct VObj_8018B820_8018B79C : Base_8018B820_8018B79C {
@@ -38,7 +39,7 @@ u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
 s32 TContainerAncient01__sub_8018B284(void *);
 s32 TContainerAncient01__sub_8018B48C(void *);
-s32 update_wait_for_player__19TContainerAncient01FPv(void *);
+s32 update_wait_for_player__19TContainerAncient01Fv(void *);
 s32 submit_cursor_candidate(void *, int, f32);
 s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01__bml_resource;
@@ -47,7 +48,6 @@ extern const f32 TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD50;
 extern const f32 lbl_805DBD54;
 extern const f32 lbl_805DBD58;
-void run_task__19TContainerAncient01Fv(u8 *arg0);
 f32 xyz_distance_squared(void *, void *, void *);
 extern const f32 TContainerAncient01__data_805DBD44;
 s32 TContainerAncient01__vt18(s32 arg0, s32 arg1);
@@ -58,7 +58,6 @@ extern "C" {
 int TContainerAncient01__vt19(void);
 f32 TContainerAncient01__vt20(void *arg0);
 f32 TContainerAncient01__vt21(void *arg0, s32 arg1, s32 *arg2);
-void render__19TContainerAncient01Fv(u8 *arg0);
 s32 scale_current_matrix(void *);
 s32 access_object_saved_state(void *, s16 *, s32);
 s32 post_translate_matrix(void *);
@@ -69,8 +68,8 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 check_demo_mode__10TObjPlayerFv();
-s32 reset_state__19TContainerAncient01FPv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 reset_state__19TContainerAncient01Fv();
+s32 set_global_param__8TObjFishFl(s32);
 
 extern f32 TContainerAncient01__data_805DBD14;
 
@@ -78,7 +77,7 @@ f32 TContainerAncient01__vt20(void *arg0) {
     s16 sp8;
 
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) {
-        reset_state__19TContainerAncient01FPv();
+        reset_state__19TContainerAncient01Fv();
         if (((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
             sp8 = 1;
             access_object_saved_state(arg0, &sp8, 0);
@@ -111,9 +110,10 @@ s32 TContainerAncient01__vt18(s32 arg0, s32 arg1) {
     return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *) (arg0)) < TContainerAncient01__data_805DBD44;
 }
 
-void render__19TContainerAncient01Fv(u8 *arg0) {
+void TContainerAncient01::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj8018B8BC_8018B79C *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -128,7 +128,8 @@ void render__19TContainerAncient01Fv(u8 *arg0) {
         pop_matrix();
     }
 }
-void run_task__19TContainerAncient01Fv(u8 *arg0) {
+void TContainerAncient01::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f1_2;
     s16 temp_r0;
@@ -137,7 +138,7 @@ void run_task__19TContainerAncient01Fv(u8 *arg0) {
             temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
             switch (temp_r0) {
             case 0:
-                update_wait_for_player__19TContainerAncient01FPv((void *) (arg0));
+                update_wait_for_player__19TContainerAncient01Fv((void *) (arg0));
                 break;
             case 1:
                 TContainerAncient01__sub_8018B48C((void *) (arg0));
@@ -149,7 +150,7 @@ void run_task__19TContainerAncient01Fv(u8 *arg0) {
                 *(s16 *)((s8 *)arg0 + 0x326) = 0;
                 *(s16 *)((s8 *)arg0 + 0xB8) = (s16) *(s16 *)((s8 *)arg0 + 0x326);
                 *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) TContainerAncient01__data_805DBD1C;
-                update_wait_for_player__19TContainerAncient01FPv((void *) (arg0));
+                update_wait_for_player__19TContainerAncient01Fv((void *) (arg0));
                 break;
             }
             temp_f1 = *(f32 *)((s8 *)arg0 + 0x2B4);

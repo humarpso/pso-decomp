@@ -25,6 +25,19 @@ struct TOHealGeneral
     u32 m_ec;
     u32 m_f0;
     u16 m_f4;
+    void run_task();
+    void render();
+    void *create();
+    static void close_dialog_window();
+    static void load_resources();
+    void accept_player(u16 arg1);
+    s32 update_active_state();
+    void set_enable_count(s32 arg1);
+    void set_script_entry(s32 arg1);
+    s32 update_heal_gauge_state();
+    void update_closing();
+    void update_opening();
+    void apply_heal_to_target();
 };
 
 #endif

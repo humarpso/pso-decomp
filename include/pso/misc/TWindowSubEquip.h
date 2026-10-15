@@ -14,6 +14,16 @@ struct TWindowSubEquip
     u32 m_30;
     u32 m_34;
     u32 m_38;
+    void update_displayed_item();
+    void update();
+    void set_scale_f();
+    static void open_submenu(s32 arg0, s32 arg1);
+    void *destroy(s16 arg1);
+    s32 open_equip_kind_list(u32 arg1);
+    static void render();
+    void run_task();
+    void update_window();
+    void apply_slot_selection();
 };
 
 #endif

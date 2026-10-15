@@ -8,6 +8,8 @@ public:
     virtual ~TBoss5GryphonLightningHorn();
     virtual void run_task();
     virtual void render();
+public:
+    static void render();
 };
 
 #endif

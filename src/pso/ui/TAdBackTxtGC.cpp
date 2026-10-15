@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
@@ -91,12 +92,11 @@ void register_texture_f256_backtext(void);
 
 extern "C" {
 
-void free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv(void);
 void TLobby__sub_803DA16C(void*);
 
 extern u32 TAdBackTxtGC__backtext_texture_list;
 
-void free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv(void) {
+void TAdSinglePlyChrSelectGC::free_singleton_805D65C0() {
     if ((u32) TAdBackTxtGC__backtext_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)TAdBackTxtGC__backtext_texture_list);
         TAdBackTxtGC__backtext_texture_list = 0U;

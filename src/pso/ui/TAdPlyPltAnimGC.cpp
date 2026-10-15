@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlyPltAnimCtrlGC.h"
 
 struct V2_80355D5C { f32 x, y; };
 struct Obj_80355D5C { u8 pad0[0x3C]; f32 a, b, c, d; u8 pad4C[0x10]; f32 e, f; };
@@ -41,7 +42,7 @@ extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
@@ -50,7 +51,6 @@ extern s32 player_prate_texture_list_ptr;
 extern const f32 lbl_805DFFC8;
 extern const f32 lbl_805DFFCC;
 void render__15TAdPlyPltAnimGCFv(u8 *arg0);
-void set_anim_state__19TAdPlyPltAnimCtrlGCFPvi(void *arg0, s32 arg1);
 extern const V2_80355D5C lbl_80479350[];
 extern const f32 lbl_805DFFD0;
 void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(Obj_80355D5C *o, V2_80355D5C *p);
@@ -79,7 +79,7 @@ void render__15TAdPlyPltAnimGCFv(u8 *arg0) {
     if (((s32) *(s32 *)((s8 *)arg0 + 0x74) != 0) && (get_state_flag__9TMainTaskFv() != 1)) {
         init_xyz_limits__10TObjPlayerFv();
         begin_screen_draw(1);
-        set_global_param__8TObjFishFi(player_prate_texture_list_ptr);
+        set_global_param__8TObjFishFl(player_prate_texture_list_ptr);
         set_draw_texture_and_color(0, (*(u8 *)((s8 *)arg0 + 0x6C) << 0x18) | 0xFF0000 | 0xFFFF);
         draw_textured_quad_at_depth((u8 *)(arg0) + 0x1C, (lbl_805DFFCC * (f32) *(s32 *)((s8 *)arg0 + 0x70)) + lbl_805DFFC8);
         get_player__20TWindowSubStatusDispFv();
@@ -88,15 +88,15 @@ void render__15TAdPlyPltAnimGCFv(u8 *arg0) {
 }
 #pragma pop
 
-void set_anim_state__19TAdPlyPltAnimCtrlGCFPvi(void *arg0, s32 arg1) {
+void TAdPlyPltAnimCtrlGC::set_anim_state(s32 arg1) {
     if (arg1 == 0) {
-        *(s32 *)((s8 *)arg0 + 0x78) = -1;
+        *(s32 *)((s8 *)this + 0x78) = -1;
     }
-    *(s32 *)((s8 *)arg0 + 0x74) = arg1;
+    *(s32 *)((s8 *)this + 0x74) = arg1;
 }
 
 void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0) {
-    set_anim_state__19TAdPlyPltAnimCtrlGCFPvi((void *)(arg0), (s32)(0));
+    ((TAdPlyPltAnimCtrlGC *)arg0)->set_anim_state((s32)(0));
 }
 #pragma push
 #pragma fp_contract on
@@ -107,7 +107,7 @@ void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(Obj_80355D5C *o, V2_80355D5C *p
     o->d = p->y + lbl_80479350[0].y;
     o->e = lbl_805DFFD0 * (o->c - o->a) + o->a;
     o->f = lbl_805DFFD0 * (o->d - o->b) + o->b;
-    set_anim_state__19TAdPlyPltAnimCtrlGCFPvi(o, 1);
+    ((TAdPlyPltAnimCtrlGC *)o)->set_anim_state(1);
 }
 #pragma pop
 

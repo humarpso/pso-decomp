@@ -15,6 +15,9 @@ struct TOFenceAncient03
     u32 m_bc;
     u8 _padC0[0x10];
     u32 m_d0;
+    static void *create(void *arg0);
+    static void free_shared_resources();
+    static void load_resources();
 };
 
 #endif

@@ -84,7 +84,7 @@ extern s32 TAdPlyStatusGC__is_shown;
 void update_shown__14TAdPlyStatusGCFv(struct RecoveredFields_8033F9DC_arg0 *arg0);
 extern s32 TAdPlyStatusGC__is_shown;
 void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1);
-void set_field_1c__6TLobbyFPvf(f32);
+void set_field_1c__6TLobbyFf(f32);
 s32 create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1);
 extern u8 lbl_804783D8[];
@@ -180,8 +180,8 @@ void draw_window_frame(void *);
 void draw_window_text(Vec2_8033F3D8 *, void *, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 s32 is_unloaded__12TChCrLoadAfsFPv(s32);
-Status_8033F3D8 **get_status_sub__14TAdPlyStatusGCFPv(s32);
-void set_global_param__8TObjFishFi(void *);
+Status_8033F3D8 **get_status_sub__14TAdPlyStatusGCFv(s32);
+void set_global_param__8TObjFishFl(void *);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(Box_8033F3D8 *, f32);
@@ -198,13 +198,13 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
 
     draw_window_frame(arg0);
     if ((u32)ply_status_chcr_load_afs != 0 && is_unloaded__12TChCrLoadAfsFPv(ply_status_chcr_load_afs) != 0 && TAdPlyStatusGC__is_shown != 0 &&
-        (*get_status_sub__14TAdPlyStatusGCFPv(ply_status_chcr_load_afs))->f8 != 0) {
+        (*get_status_sub__14TAdPlyStatusGCFv(ply_status_chcr_load_afs))->f8 != 0) {
         box = TAdPlyStatusGC__status_window_box;
         box.v[0] = TAdPlyStatusGC__status_window_box.v[0] + OFF_8033F3D8.x;
         box.v[2] = TAdPlyStatusGC__status_window_box.v[2] + OFF_8033F3D8.x;
         box.v[1] = TAdPlyStatusGC__status_window_box.v[1] + OFF_8033F3D8.y;
         box.v[3] = TAdPlyStatusGC__status_window_box.v[3] + OFF_8033F3D8.y;
-        set_global_param__8TObjFishFi(get_status_sub__14TAdPlyStatusGCFPv(ply_status_chcr_load_afs));
+        set_global_param__8TObjFishFl(get_status_sub__14TAdPlyStatusGCFv(ply_status_chcr_load_afs));
         begin_screen_draw(1);
         set_draw_texture_and_color(0, -1);
         draw_textured_quad_at_depth(&box, lbl_805DFAE0);
@@ -303,7 +303,7 @@ void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
 
 s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1) {
     s32 r = create_callback__22TAdEnterSerialAccessGCFPvPvPv(arg1, lbl_804783D8, (void *)draw_status_window__14TAdPlyStatusGCFPvPv);
-    set_field_1c__6TLobbyFPvf(lbl_805DFAEC);
+    set_field_1c__6TLobbyFf(lbl_805DFAEC);
     return r;
 }
 

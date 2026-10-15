@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/misc/TLobby.h"
 
 struct Rec_8020C458 { u8 p0[2]; s16 flags; u8 p1[0x44]; };
 
@@ -16,19 +18,17 @@ extern "C" {
 extern Grp_8020C458 TLobby__floor_enemy_group_table[];
 extern Rec_8020C458 *TLobby__data_805D6114;
 extern s32 TLobby__current_floor_enemy_set_count;
-s32 clear_record_flags_a__6TLobbyFv(void);
 extern Grp_8020C458 TLobby__floor_enemy_group_table[];
 extern Rec_8020C500 *TLobby__data_805D610C;
 extern s32 TLobby__current_floor_object_set_count;
-s32 clear_record_flags_b__6TLobbyFv(void);
 }
 
 extern "C" {
 
-s32 mask_sub_flags__9TObjEnemyFPvi(void *arg0, s32 arg1) {
+s32 TObjEnemy::mask_sub_flags(s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = *(void **)((s8 *)arg0 + 0x80);
+    temp_r5 = *(void **)((s8 *)this + 0x80);
     if (temp_r5 != NULL) {
         *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) & arg1);
         return 1;
@@ -57,7 +57,7 @@ s32 mask_object_set_row_flags(void *arg0, s32 arg1) {
     }
     return 0;
 }
-s32 clear_record_flags_a__6TLobbyFv(void) {
+s32 TLobby::clear_record_flags_a() {
     s32 i;
     s32 j;
     s32 k;
@@ -75,7 +75,7 @@ s32 clear_record_flags_a__6TLobbyFv(void) {
     }
     return 1;
 }
-s32 clear_record_flags_b__6TLobbyFv(void) {
+s32 TLobby::clear_record_flags_b() {
     s32 i;
     s32 j;
     s32 k;

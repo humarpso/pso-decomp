@@ -25,6 +25,11 @@ struct TODragonflyMachine01
     s16 m_100;
     u16 m_102;
     u32 m_104;
+    static void update_timer();
+    void run_task();
+    static void *create(void *arg0);
+    static void unload_static_data();
+    static void create_attack_effect();
 };
 
 #endif

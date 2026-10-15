@@ -25,6 +25,19 @@ struct TShopEquipmentSellWindow
     u32 m_3a0;
     u32 m_3a4;
     u32 m_3a8;
+    s32 update();
+    void handle_sell_confirm();
+    void handle_input_window_result();
+    s32 close();
+    void handle_selection();
+    void build_sell_list();
+    static s32 get_item_data_value(u32 arg0);
+    s32 get_item_price_if_valid();
+    int is_confirmed();
+    s32 get_result();
+    static void set_entry_count(void *arg1, void *arg2);
+    int get_item_count();
+    void add_item(s32 arg1, s32 arg2, s32 arg3);
 };
 
 #endif

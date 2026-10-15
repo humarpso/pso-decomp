@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOContainerAncientItemNone.h"
 
 struct Base_8015BE34 { char pad[0x18]; };
 struct VObj_8015BE34 : Base_8015BE34 {
@@ -84,7 +85,6 @@ struct VObj_8015BE34 : Base_8015BE34 {
 
 extern "C" {
 
-void *create__26TOContainerAncientItemNoneFPv(void *arg0);
 void TOContainerAncientItemNone__vt4(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__26TOContainerAncientItemNoneFv(void *arg0, s16 arg1);
 void *TOContainerAncientItemNone__ct(void *, void *);
@@ -105,7 +105,7 @@ void TOContainerAncientItemNone__vt4(void *arg0, s16 *arg1, s32 arg2) {
     }
 }
 
-void *create__26TOContainerAncientItemNoneFPv(void *arg0) {
+void *TOContainerAncientItemNone::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
         o = TOContainerAncientItemNone__ct(o, arg0);

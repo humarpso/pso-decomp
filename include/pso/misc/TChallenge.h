@@ -16,6 +16,7 @@ struct TChallenge
     void update_active();
     void wait_for_quest();
     void initialize_windows();
+    static void *create();
 };
 
 #endif

@@ -24,6 +24,8 @@ struct TObjEneReconBomb
     u32 m_358;
     u32 m_35c;
     u32 m_360;
+    void render();
+    void run_task();
 };
 
 #endif

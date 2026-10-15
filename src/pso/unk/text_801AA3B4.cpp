@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern char lbl_80446A78[];
@@ -49,11 +50,9 @@ extern u32 photon_blast_donation_flags[];
 extern u32 photon_blast_shared_resource;
 void TObjPlayer__sub_801AA3B4(void);
 extern struct PhotonBlastChain_801AA424 photon_blast_sequence_table[];
-void clear_photon_blast_slots__10TObjPlayerFv(void);
 u8 *load_resource_from_descriptor(u8 *, int, void *, int, int, int);
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 run_load_callback_table(void *, int);
-void clear_photon_blast_slots__10TObjPlayerFv(void);
 extern u8 photon_blast_load_callback_table[];
 extern u32 photon_blast_donation_flags[];
 extern u32 photon_blast_shared_resource;
@@ -72,9 +71,9 @@ void TObjPlayer__sub_801AA3B4(void) {
     for (i = 0; i < 4; i++) {
         photon_blast_donation_flags[i] = 0;
     }
-    clear_photon_blast_slots__10TObjPlayerFv();
+    TObjPlayer::clear_photon_blast_slots();
 }
-void clear_photon_blast_slots__10TObjPlayerFv(void) {
+void TObjPlayer::clear_photon_blast_slots() {
     s32 i;
     s32 j;
     for (i = 0; i < 4; i++) {
@@ -88,7 +87,7 @@ void clear_photon_blast_slots__10TObjPlayerFv(void) {
 void load_photon_blast_resources(void) {
     u8 *p;
     s32 i;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, &photon_blast_resource_descriptor, 0, 0, 0);
     }
@@ -97,7 +96,7 @@ void load_photon_blast_resources(void) {
     for (i = 0; i < 4; i++) {
         photon_blast_donation_flags[i] = 0;
     }
-    clear_photon_blast_slots__10TObjPlayerFv();
+    TObjPlayer::clear_photon_blast_slots();
 }
 
 }

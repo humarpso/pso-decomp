@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TFontSmallLobby.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_8003508C_80035084 {
     char pad[0x18];
@@ -103,20 +106,20 @@ extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 int TFontSmallLobby__sub_801C013C(void* p);
-int clear_flags__11TAdRicoRingFPvUi(void*, int);
-int clear_flags__11TAdRicoRingFPvUi(void*, int);
+int clear_flags__11TAdRicoRingFUl(void*, int);
+int clear_flags__11TAdRicoRingFUl(void*, int);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 extern const f32 lbl_805DC3BC;
 extern const f32 lbl_805DC3C0;
 extern const f32 lbl_805DC3C4;
 int TFontSmallLobby__sub_801C013C(void* p);
-void init_forward__10TObjPlayerFPv(void *);
+void init_forward__10TObjPlayerFv(void *);
 extern s32 fn_80152EF8[];
 void __construct_array(void *, void *, int, int, int);
-void reset_tech_state__10TObjPlayerFPv(void *);
+void reset_tech_state__10TObjPlayerFv(void *);
 void *TFontSmallLobby__sub_801C0164(void *arg0);
 int TFontSmallLobby__sub_801C01BC(void* p);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 extern s32 keyboard_task_object[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
@@ -140,35 +143,29 @@ extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
 void TFontSmallLobby__sub_801C029C(void* p);
-void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
 int bswap_16__FPUs(void*);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 extern u32 lbl_805D4BA4;
 extern void *tl_04;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern s32 TBoss2DeRolLe__instance;
-void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
-void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
 void TFontSmallLobby__sub_801C0378(void* p);
 int send_60_sized__6TLobbyFPv(void*);
-void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
 extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
 void TFontSmallLobby__sub_801C0378(void* p);
-void bswap_6x90_set_player_battle_team__15TFontSmallLobbyFPv(void* p);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 int bswap_32__FPUl(void*);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
-void bswap_6x90_set_player_battle_team__15TFontSmallLobbyFPv(void* p);
 void TFontSmallLobby__sub_801C0438(void* p);
 void TFontSmallLobby__sub_801C0438(void* p);
 int TFontSmallLobby__sub_801C01BC(void* p);
@@ -183,25 +180,21 @@ void TFontSmallLobby__sub_801C044C(void* p);
 void TFontSmallLobby__sub_801C0480(void* p);
 void TFontSmallLobby__sub_801C0480(void* p);
 int TFontSmallLobby__sub_801C01BC(void* p);
-void send_font_state_msg__15TFontSmallLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
 extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
-void send_font_state_msg__15TFontSmallLobbyFPv(void* p);
 void TFontSmallLobby__sub_801C04C8(void* p);
 void TFontSmallLobby__sub_801C04C8(void* p);
 int TFontSmallLobby__sub_801C01BC(void* p);
-void cleanup_small_font__6TLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
 extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
-void cleanup_small_font__6TLobbyFPv(void* p);
 void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1);
 void TObjPlayer__sub_801C0734(void* p);
 int TLobby__send_and_handle_60(void*);
@@ -210,15 +203,12 @@ extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
 void TObjPlayer__sub_801C0734(void* p);
-void byteswap_packet_body__10TObjPlayerFPv(void *arg0);
 int bswap_32__FPUl(void*);
-int read_be16_field2__10TObjPlayerFPv(void*);
-void byteswap_packet_body__10TObjPlayerFPv(void *arg0);
+int read_be16_field2__10TObjPlayerFv(void*);
 void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 int bswap_32__FPUl(void*);
 int bswap_16__FPUs(void*);
-void bswap_change_hp_packet__10TObjPlayerFPv(void *arg0);
 int TFontSmallLobby__sub_801C01BC(void* p);
 void fn_801C04DC(void* p);
 int TLobby__send_and_handle_60(void*);
@@ -274,34 +264,31 @@ extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
 void fn_801C0644(void* p);
-void init_packet_6x9b_level_up__15TFontSmallLobbyFPv(u8 *arg0);
 void TFontSmallLobby__sub_801C041C(u8 *arg0);
 void* TFontSmallLobby__sub_801C0228(void* p, void* _w1);
 u8 *TObjPlayer__sub_801C07B4(u8 *arg0, u8 *arg1);
 void TFontSmallLobby__sub_801C0258(void* p, void* q);
-void init_6x2F_packet_header__10TObjPlayerFPv(O_801C0708 *p);
-void init_packet_6x8f_battle_damage__15TFontSmallLobbyFPv(O_801C0350 *p);
 }
 
 extern "C" {
 
 int TObjPlayer__sub_801C00FC(void);
 int TObjPlayer__sub_801C0104(void);
-void set_technique_id__10TObjPlayerFPvs(void* p, s16 v);
+void set_technique_id__10TObjPlayerFs(void* p, s16 v);
 int get_item_count_max__10TObjPlayerFv(void);
 
 }
 extern "C" {
-int TFontSmallLobby__sub_801C013C(void* p) { return clear_flags__11TAdRicoRingFPvUi((void*)((char*)p + 0x10), (int)(2)); }
+int TFontSmallLobby__sub_801C013C(void* p) { return clear_flags__11TAdRicoRingFUl((void*)((char*)p + 0x10), (int)(2)); }
 
 void *TFontSmallLobby__sub_801C0164(void *arg0) {
-    init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 16));
+    init_forward__10TObjPlayerFv((void *)((char *)arg0 + 16));
     __construct_array((void *)((char *)arg0 + 32), fn_80152EF8, 0, 4, 10);
-    reset_tech_state__10TObjPlayerFPv(arg0);
+    reset_tech_state__10TObjPlayerFv(arg0);
     return arg0;
 }
 
-int TFontSmallLobby__sub_801C01BC(void* p) { return read_be16_field2__10TObjPlayerFPv(p); }
+int TFontSmallLobby__sub_801C01BC(void* p) { return read_be16_field2__10TObjPlayerFv(p); }
 
 void *TFontSmallLobby__sub_801C01DC(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);
@@ -314,7 +301,8 @@ void* TFontSmallLobby__sub_801C0228(void* p, void* _w1) { TFontSmallLobby__sub_8
 
 void TFontSmallLobby__sub_801C0258(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); }
 
-void init_packet_6x9b_level_up__15TFontSmallLobbyFPv(u8 *arg0) {
+void TFontSmallLobby::init_packet_6x9b_level_up() {
+    u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 4) = 0;
     *(s8 *)((s8 *)arg0 + 5) = 0;
     *(s8 *)((s8 *)arg0 + 6) = 0;
@@ -325,20 +313,21 @@ void init_packet_6x9b_level_up__15TFontSmallLobbyFPv(u8 *arg0) {
 
 void TFontSmallLobby__sub_801C029C(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60(p); }
 
-void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void TFontSmallLobby::bswap_battle_damage_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
 
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p, a1); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
 
-void init_packet_6x8f_battle_damage__15TFontSmallLobbyFPv(O_801C0350 *p) {
+void TFontSmallLobby::init_packet_6x8f_battle_damage() {
+    O_801C0350 *p = (O_801C0350 *)this;
     p->c = 0xFFFF;
     p->d = 0;
     p->a = 0x8f;
     p->b = 2;
 }
 
-void TFontSmallLobby__sub_801C0378(void* p) { bswap_battle_damage_packet__15TFontSmallLobbyFPv((void*)(p)); send_60_sized__6TLobbyFPv(p); }
+void TFontSmallLobby__sub_801C0378(void* p) { ((TFontSmallLobby *)p)->bswap_battle_damage_packet(); send_60_sized__6TLobbyFPv(p); }
 
-void bswap_6x90_set_player_battle_team__15TFontSmallLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_32__FPUl((char*)p + 0x4); }
+void TFontSmallLobby::bswap_6x90_set_player_battle_team() { read_be16_field2__10TObjPlayerFv((void*)(this)); bswap_32__FPUl((char*)this + 0x4); }
 
 void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);
@@ -358,7 +347,7 @@ void TFontSmallLobby__sub_801C044C(void* p) { TFontSmallLobby__sub_801C01BC((voi
 
 void TFontSmallLobby__sub_801C0480(void* p) { *(u8*)((char*)p + 0x0) = 129; *(u8*)((char*)p + 0x1) = 1; }
 
-void send_font_state_msg__15TFontSmallLobbyFPv(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60(p); }
+void TFontSmallLobby::send_font_state_msg() { TFontSmallLobby__sub_801C01BC((void*)(this)); TLobby__send_and_handle_60(this); }
 
 void TFontSmallLobby__sub_801C04C8(void* p) { *(u8*)((char*)p + 0x0) = 123; *(u8*)((char*)p + 0x1) = 1; }
 
@@ -366,7 +355,7 @@ void fn_801C04DC(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__s
 
 void fn_801C0510(void* p) { *(u8*)((char*)p + 0x0) = 122; *(u8*)((char*)p + 0x1) = 1; }
 
-void cleanup_small_font__6TLobbyFPv(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60(p); }
+void TLobby::cleanup_small_font() { TFontSmallLobby__sub_801C01BC((void*)(this)); TLobby__send_and_handle_60(this); }
 
 void fn_801C0558(void* p) { *(u8*)((char*)p + 0x0) = 28; *(u8*)((char*)p + 0x1) = 1; }
 
@@ -384,11 +373,11 @@ void fn_801C0630(void* p) { *(u8*)((char*)p + 0x0) = 34; *(u8*)((char*)p + 0x1) 
 
 void fn_801C0644(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60(p); }
 
-void bswap_change_hp_packet__10TObjPlayerFPv(void *arg0) {
-    read_be16_field2__10TObjPlayerFPv((void*)(arg0));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 4)));
-    bswap_16__FPUs((void*)((void *)((char *)arg0 + 8)));
-    bswap_16__FPUs((void*)((void *)((char *)arg0 + 10)));
+void TObjPlayer::bswap_change_hp_packet() {
+    read_be16_field2__10TObjPlayerFv((void*)(this));
+    bswap_32__FPUl((void*)((void *)((char *)this + 4)));
+    bswap_16__FPUs((void*)((void *)((char *)this + 8)));
+    bswap_16__FPUs((void*)((void *)((char *)this + 10)));
 }
 
 void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1) {
@@ -399,7 +388,8 @@ void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1) {
     return arg0;
 }
 
-void init_6x2F_packet_header__10TObjPlayerFPv(O_801C0708 *p) {
+void TObjPlayer::init_6x2F_packet_header() {
+    O_801C0708 *p = (O_801C0708 *)this;
     p->c = 0;
     p->d = 0;
     p->e = 0xFFFF;
@@ -407,14 +397,14 @@ void init_6x2F_packet_header__10TObjPlayerFPv(O_801C0708 *p) {
     p->b = 3;
 }
 
-void TObjPlayer__sub_801C0734(void* p) { bswap_change_hp_packet__10TObjPlayerFPv((void *)((void*)(p))); TLobby__send_and_handle_60(p); }
+void TObjPlayer__sub_801C0734(void* p) { ((TObjPlayer *)p)->bswap_change_hp_packet(); TLobby__send_and_handle_60(p); }
 
-void byteswap_packet_body__10TObjPlayerFPv(void *arg0) {
-    read_be16_field2__10TObjPlayerFPv((void*)(arg0));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 4)));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 8)));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 12)));
-    bswap_32__FPUl((void*)((void *)((char *)arg0 + 16)));
+void TObjPlayer::byteswap_packet_body() {
+    read_be16_field2__10TObjPlayerFv((void*)(this));
+    bswap_32__FPUl((void*)((void *)((char *)this + 4)));
+    bswap_32__FPUl((void*)((void *)((char *)this + 8)));
+    bswap_32__FPUl((void*)((void *)((char *)this + 12)));
+    bswap_32__FPUl((void*)((void *)((char *)this + 16)));
 }
 u8 *TObjPlayer__sub_801C07B4(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);

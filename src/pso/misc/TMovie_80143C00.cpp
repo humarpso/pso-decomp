@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMovie.h"
 typedef void (*RecoveredCallback_6d14191ba232)(u32, s32, s32, void *);
 extern "C" {
 void pack_movie_frame(void *);
@@ -13,12 +14,11 @@ extern u32 lbl_805D56A0;
 extern s32 lbl_805D56A4;
 extern s32 lbl_805D56A8;
 extern RecoveredCallback_6d14191ba232 lbl_805D6BF4;
-void flip_frame_buffer__6TMovieFv(void);
 }
 
 extern "C" {
 
-void flip_frame_buffer__6TMovieFv(void) {
+void TMovie::flip_frame_buffer() {
     u32 sp8[4];
     if (lbl_805D56A0 != 0U) {
         if (movie_flip_counter & 1) {

@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
 
-s32 get_array_entry__20TWindowSubStatusDispFPvi(void* p, int i);
-
-s32 get_array_entry__20TWindowSubStatusDispFPvi(void* p, int i) { return ((s32*)*(void**)((char*)p + 0x28))[i]; }
+s32 TWindowSubStatusDisp::get_array_entry(int i) { return ((s32*)*(void**)((char*)this + 0x28))[i]; }
 
 }

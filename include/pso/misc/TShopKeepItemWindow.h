@@ -21,6 +21,12 @@ struct TShopKeepItemWindow
     u32 m_390;
     u32 m_394;
     u32 m_398;
+    s32 close_with_cancel_callback();
+    s32 close_with_ok_callback();
+    s32 close();
+    void handle_deposit_confirm();
+    void update_number_input();
+    s32 rebuild_item_list();
 };
 
 #endif

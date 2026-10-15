@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TORockJungleL01.h"
 
 extern "C" {
 
 void *TORockJungleL01__create(void *arg0);
-void *destroy__15TORockJungleL01FPvs(void *arg0, s16 arg1);
 void *TORockJungleL01__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__10TORockCaveFv(void *, int);
@@ -23,19 +23,19 @@ void *TORockJungleL01__create(void *arg0) {
 
 extern s32 lbl_804DC448[];
 
-void *destroy__15TORockJungleL01FPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804DC448;
-        if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
-        unregister_object_by_id(arg0);
-        free_collision_body_parts(arg0);
-        TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xB4, -1);
-        __dt__10TORockCaveFv(arg0, 0);
+void *TORockJungleL01::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804DC448;
+        if (*(void **)((s8 *)this + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD4)); *(s32 *)((s8 *)this + 0xD4) = 0; }
+        unregister_object_by_id(this);
+        free_collision_body_parts(this);
+        TObjPlayer__sub_800D7C58((s8 *)this + 0xB4, -1);
+        __dt__10TORockCaveFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }

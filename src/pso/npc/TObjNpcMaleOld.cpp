@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcMaleOld.h"
 
 struct RecoveredGlobal_8014C2DC_lbl_804AA8A0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8014C2DC_lbl_804AA8A0_size[sizeof(RecoveredGlobal_8014C2DC_lbl_804AA8A0) == 0x10 ? 1 : -1];
@@ -95,11 +96,10 @@ struct RecoveredGlobal_8014C384___vt__14TObjNpcMaleOld {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8014C2DC_lbl_804AA8A0 bm_n_eom_i_body_resource_descriptor;
 extern u32 TObjNpcMaleOld__shared_model_resource;
-void load_resource_instance__14TObjNpcMaleOldFv(void);
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__14TObjNpcMaleOld[];
@@ -112,17 +112,16 @@ extern "C" {
 
 void * TObjNpcMaleTall__create(void *arg0);
 void *__dt__14TObjNpcMaleOldFv(void *arg0, s16 arg1);
-void destroy_static_instance__14TObjNpcMaleOldFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcMaleTall__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
+void destroy_npc_lappy_base__12TObjNpcLappyFs(void *, int);
 
 extern u32 TObjNpcMaleOld__shared_model_resource;
 
-void destroy_static_instance__14TObjNpcMaleOldFv(void) {
+void TObjNpcMaleOld::destroy_static_instance() {
     if ((u32) TObjNpcMaleOld__shared_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcMaleOld__shared_model_resource, 1);
         TObjNpcMaleOld__shared_model_resource = 0U;
@@ -131,10 +130,10 @@ void destroy_static_instance__14TObjNpcMaleOldFv(void) {
 
 extern s32 __vt__14TObjNpcMaleOld[];
 
-void load_resource_instance__14TObjNpcMaleOldFv(void) {
+void TObjNpcMaleOld::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_eom_i_body_resource_descriptor.value, 0, 0, 0));
@@ -145,7 +144,7 @@ void load_resource_instance__14TObjNpcMaleOldFv(void) {
 void *__dt__14TObjNpcMaleOldFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjNpcMaleOld;
-        destroy_npc_lappy_base__12TObjNpcLappyFPvs(arg0, 0);
+        destroy_npc_lappy_base__12TObjNpcLappyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -161,7 +160,7 @@ u8 *TObjNpcMaleOld__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014C384___vt__14TObjNpcMaleOld *)&__vt__14TObjNpcMaleOld).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcMaleOld__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleOld__shared_model_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleOld__shared_model_resource) + 0x42C)) + 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));

@@ -82,7 +82,7 @@ s32 obj_getField1c(void *);
 s16 calc_stat_bonus_sum__10TObjPlayerFUs();
 s16 calc_equip_bonus__10TObjPlayerFUs();
 s32 check_class_equip_permission(void *, int);
-u8 get_slot_count__14TItemProShieldFPv();
+u8 get_slot_count__14TItemProShieldFv();
 s32 apply_luck_reward__10TObjPlayerFiUc(void *, int);
 s32 add_dfp_material__10TObjPlayerFiUc(void *, int);
 s32 add_evp_material__10TObjPlayerFiUc(void *, int);
@@ -98,16 +98,16 @@ extern "C" {
 void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void *item_object_variant_deleting_dtor_80116F10(void *arg0, s16 arg1);
-void run_task__5TItemFPv();
-void dispatch_state__5TItemFPv();
-void render__5TItemFPv();
+void run_task__5TItemFv();
+void dispatch_state__5TItemFv();
+void render__5TItemFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
-void release_member_90__10TObjPlayerFPv();
+void release_member_90__10TObjPlayerFv();
 void TItemObject__vt7();
 void TItem__sub_80100B8C();
 void classify_actor_view_detail();
-void register_attack__5TItemFPv();
+void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFPvi();
 void TItemObject__vt12();
 void TItem__sub_801005E0();
@@ -124,7 +124,7 @@ void TItem__sub_80100694();
 void TItem__sub_80100690();
 void TItem__sub_8010068C();
 void TItem__sub_80100688();
-void destroy__5TItemFPv();
+void destroy__5TItemFv();
 void TItem__sub_801007A8();
 void TItemObject__vt29();
 void TItem__sub_80100680();
@@ -140,13 +140,13 @@ void TItem__sub_801005E4();
 void TItem__sub_801005D8();
 void TObjPlayer__sub_80102BD8();
 void *lbl_8049FBC0[45] = {
-    0, 0, (void *)item_object_variant_deleting_dtor_80116F10, (void *)run_task__5TItemFPv, (void *)dispatch_state__5TItemFPv, (void *)render__5TItemFPv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFPv, (void *)TItemObject__vt7, (void *)TItem__sub_80100B8C, (void *)classify_actor_view_detail, (void *)register_attack__5TItemFPv, (void *)try_pick_up_item__5TItemFPvi, (void *)TItemObject__vt12, (void *)TItem__sub_801005E0, (void *)TItem__sub_801005DC, (void *)TItem__sub_80100678, (void *)TItemObject__vt16, (void *)TItem__sub_8010067C, (void *)TItem__sub_801007B0, (void *)TItem__sub_801007AC, (void *)TItem__sub_8010075C, (void *)TItem__sub_80100758, (void *)TItem__sub_80100698, (void *)TItem__sub_80100694, (void *)TItem__sub_80100690, (void *)TItem__sub_8010068C, (void *)TItem__sub_80100688, (void *)destroy__5TItemFPv, (void *)TItem__sub_801007A8, (void *)TItemObject__vt29, (void *)TItem__sub_80100680, (void *)TObjPlayer__sub_80102BD0, (void *)TItem__sub_80100674, (void *)ret_8010066C, (void *)load_encoded_value__11TItemObjectFv, (void *)TItemObject__vt35, (void *)TItemObject__vt36, (void *)ret_8010064C, (void *)TItem__sub_80100648, (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)TObjPlayer__sub_80102BD8, (void *)apply_material_item
+    0, 0, (void *)item_object_variant_deleting_dtor_80116F10, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv, (void *)render__5TItemFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)TItemObject__vt7, (void *)TItem__sub_80100B8C, (void *)classify_actor_view_detail, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFPvi, (void *)TItemObject__vt12, (void *)TItem__sub_801005E0, (void *)TItem__sub_801005DC, (void *)TItem__sub_80100678, (void *)TItemObject__vt16, (void *)TItem__sub_8010067C, (void *)TItem__sub_801007B0, (void *)TItem__sub_801007AC, (void *)TItem__sub_8010075C, (void *)TItem__sub_80100758, (void *)TItem__sub_80100698, (void *)TItem__sub_80100694, (void *)TItem__sub_80100690, (void *)TItem__sub_8010068C, (void *)TItem__sub_80100688, (void *)destroy__5TItemFv, (void *)TItem__sub_801007A8, (void *)TItemObject__vt29, (void *)TItem__sub_80100680, (void *)TObjPlayer__sub_80102BD0, (void *)TItem__sub_80100674, (void *)ret_8010066C, (void *)load_encoded_value__11TItemObjectFv, (void *)TItemObject__vt35, (void *)TItemObject__vt36, (void *)ret_8010064C, (void *)TItem__sub_80100648, (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)TObjPlayer__sub_80102BD8, (void *)apply_material_item
 };
 
 void apply_material_item(u8 *arg0) {
     u8 temp_r3;
     u8 *temp_r3_2;
-    temp_r3 = get_slot_count__14TItemProShieldFPv();
+    temp_r3 = get_slot_count__14TItemProShieldFv();
     switch (temp_r3) {
     case 0:
         add_stat_and_item__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));

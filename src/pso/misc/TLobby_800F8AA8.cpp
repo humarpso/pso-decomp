@@ -849,7 +849,7 @@ void set_keyboard_mode__6TLobbyFi(int a0) { main_phase_deferred_callback = a0; }
 extern "C" {
 
 void flush_checked_reads__6TLobbyFv();
-s32 read_checked_align__6TLobbyFiii(s32, s32, u32);
+s32 read_checked_align__6TLobbyFlll(s32, s32, u32);
 extern s32 *pending_file_read_handle_ref;
 extern s32 pending_file_read_sector_count;
 extern u32 pending_file_read_destination;
@@ -864,7 +864,7 @@ void flush_pending__6TLobbyFv(void) {
         if ((temp_r5 != 0U)) {
             temp_r4 = pending_file_read_sector_count;
             if (temp_r4 != 0) {
-                read_checked_align__6TLobbyFiii(*pending_file_read_handle_ref, temp_r4, temp_r5);
+                read_checked_align__6TLobbyFlll(*pending_file_read_handle_ref, temp_r4, temp_r5);
             }
         }
         flush_checked_reads__6TLobbyFv();
@@ -876,7 +876,7 @@ void flush_checked_reads__6TLobbyFv() {
 
     for (i = 0; i < 4; i++) {
         if (lobby_checked_read_ptr_table[i] != NULL && lbl_80499A10[i] != 0 && lbl_80499A20[i] != 0) {
-            read_checked_align__6TLobbyFiii(*lobby_checked_read_ptr_table[i], lbl_80499A10[i], lbl_80499A20[i]);
+            read_checked_align__6TLobbyFlll(*lobby_checked_read_ptr_table[i], lbl_80499A10[i], lbl_80499A20[i]);
         }
     }
 }
@@ -931,12 +931,12 @@ void TLobby__sub_803DA16C(void *p);
 void release_menu_font__6TLobbyFv(void);
 extern u8 lobby_font_texture_loaded;
 extern const char lbl_8043D9F4[];
-void *tmp_buf_use_req__6TLobbyFPv(const char *);
+void *tmp_buf_use_req__6TLobbyFPCc(const char *);
 s32 prs_decompress_buffer(void *, void *);
 s32 load_gvm_texture_archive(void *, void *);
-void tmp_buf_release__6TLobbyFi(const char *s);
+void tmp_buf_release__6TLobbyFv(const char *s);
 void load_font_texture__6TLobbyFv(void);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
@@ -971,7 +971,7 @@ void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0) {
     v[3] = 432.0f;
     v[5] = v[4] = 0.0f;
     v[7] = v[6] = 1.0f;
-    set_global_param__8TObjFishFi(lbl_8049C61C);
+    set_global_param__8TObjFishFl(lbl_8049C61C);
     begin_screen_draw(0);
     set_draw_texture_and_color(arg0, -1);
     draw_textured_quad_at_depth(v, (0.5f));
@@ -986,12 +986,12 @@ void release_menu_font__6TLobbyFv(void) {
 }
 
 void load_font_texture__6TLobbyFv(void) {
-    void *file = tmp_buf_use_req__6TLobbyFPv(lbl_8043D9F4);
+    void *file = tmp_buf_use_req__6TLobbyFPCc(lbl_8043D9F4);
     if (file != 0) {
         s32 r;
         prs_decompress_buffer(lobby_font_texture_prs_data, file);
         r = load_gvm_texture_archive(file, lbl_8049C61C);
-        tmp_buf_release__6TLobbyFi(lbl_8043D9F4);
+        tmp_buf_release__6TLobbyFv(lbl_8043D9F4);
         lobby_font_texture_loaded = 1;
         if (r == -1) {
             lobby_font_texture_loaded = 0;
@@ -1030,11 +1030,10 @@ void reset_state_byte__6TLobbyFv(void) {
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void wait_ready_loop__6TLobbyFv(void);
-s32 run_disk_error_check__6TLobbyFv();
 s32 TLobby__sub_801384E4();
 s32 set_state__15TAdPlayerLoadGCFi(s32);
 s32 get_main_phase();
@@ -1042,10 +1041,10 @@ s32 render_tick__Fv();
 
 #define lobby_wait_ready_flag (*(s8 *)&lobby_wait_ready_flag)
 
-void wait_ready_loop__6TLobbyFv(void) {
+void TLobby::wait_ready_loop() {
     lobby_wait_ready_flag = 0;
 loop_1:
-    if (run_disk_error_check__6TLobbyFv() != 1) {
+    if (TLobby::run_disk_error_check() != 1) {
         if (get_main_phase() == 0xF) {
             TLobby__sub_801384E4();
         }
@@ -1077,25 +1076,25 @@ void TLobby__sub_800F8DD8(void);
 
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
-void draw_string__14TObjWarpStringFPviff(u8 *arg0, s32 arg1, f32 farg0, f32 farg1);
+void draw_string__14TObjWarpStringFlff(u8 *arg0, s32 arg1, f32 farg0, f32 farg1);
 s32 check_reset_button__16TKeyBoardControlFv(void);
 s8 func_801A5E54__Fv(void);
 void controller_stuff__Fv(void);
 void reset_system(void);
 void system_reset(void);
-void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Desc_800F8FB8 *, s32, s32, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFllf(Desc_800F8FB8 *, s32, s32, f32);
 s32 DVDCheckDisk(void);
 void set_perspective_projection_from_fov(s32, f32, f32, f32);
 void set_cached_blend_factor(s32, s32);
 void func_803DCDFC__Fv(void);
 extern u8 lobby_font_texture_loaded;
 
-#define show_msg_800F8FB8(arr, i) ((void (*)(f32, f32, u8 *, s32))draw_string__14TObjWarpStringFPviff)(arr[i].x, arr[i].y, arr[i].str, 0x8FFFFFFF)
+#define show_msg_800F8FB8(arr, i) ((void (*)(f32, f32, u8 *, s32))draw_string__14TObjWarpStringFlff)(arr[i].x, arr[i].y, arr[i].str, 0x8FFFFFFF)
 
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
-s32 run_disk_error_check__6TLobbyFv(void) {
+s32 TLobby::run_disk_error_check() {
     f32 pos[8];
     Desc_800F8FB8 d;
     s32 ids[4];
@@ -1121,7 +1120,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
     pd->pos[7] = (4.8e+02f);
     pd->ids[3] = -1;
     set_depth_buffer_settings_1__Fv();
-    draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 0x12, (-0.9f));
+    draw_tri_fan_2d__14TObjCMHairMenuFllf(&d, 4, 0x12, (-0.9f));
     status = DVDGetDriveStatus();
     restore_full_screen_view__11TCameraCtrlFv();
     if (DVDCheckDisk() == 0 && (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0)) {

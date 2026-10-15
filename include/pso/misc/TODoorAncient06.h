@@ -18,6 +18,10 @@ struct TODoorAncient06
     u32 m_bc;
     u8 _padC0[0x10];
     u32 m_d0;
+    void render();
+    static void *create(void *arg0);
+    static void destroy();
+    static void load_resources();
 };
 
 #endif

@@ -1,8 +1,8 @@
 #include "pso/protocol/subcommand_validation.h"
 
 extern "C" {
-s32 is_in_view__17TObjEneHoldEffectFPv(s32);
-s32 is_camera_visible__17TObjEneHoldEffectFPv(s32);
+s32 is_in_view__17TObjEneHoldEffectFv(s32);
+s32 is_camera_visible__17TObjEneHoldEffectFv(s32);
 extern const f32 lbl_805E03A8;
 extern const f32 lbl_805E03AC;
 u16 TObjRoomId__sub_801A1DB8(u16);
@@ -52,14 +52,14 @@ s32 validate_6x42_move_to_position(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
-    return (u32) __cntlzw(is_camera_visible__17TObjEneHoldEffectFPv((s32)packet + 4)) >> 5;
+    return (u32) __cntlzw(is_camera_visible__17TObjEneHoldEffectFv((s32)packet + 4)) >> 5;
 }
 
 s32 validate_6x40_walk_to_position(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
-    return (u32)__cntlzw(is_camera_visible__17TObjEneHoldEffectFPv((s32)packet + 4)) >> 5;
+    return (u32)__cntlzw(is_camera_visible__17TObjEneHoldEffectFv((s32)packet + 4)) >> 5;
 }
 
 s32 validate_6x3F_set_position(G_ClientIDHeader *packet) {
@@ -74,7 +74,7 @@ s32 validate_6x3F_set_position(G_ClientIDHeader *packet) {
     if ((s16) *(s16 *)((s8 *)((u8*)packet) + 8) > 0x12) {
         return 0;
     }
-    return (u32)__cntlzw(is_in_view__17TObjEneHoldEffectFPv((s32)((u8*)packet + 0xC))) >> 5;
+    return (u32)__cntlzw(is_in_view__17TObjEneHoldEffectFv((s32)((u8*)packet + 0xC))) >> 5;
 }
 
 s32 validate_6x3E_stop_at_position(G_ClientIDHeader *packet) {
@@ -89,7 +89,7 @@ s32 validate_6x3E_stop_at_position(G_ClientIDHeader *packet) {
     if ((s16) *(s16 *)((s8 *)((u8*)packet) + 8) > 0x12) {
         return 0;
     }
-    return (u32)__cntlzw(is_in_view__17TObjEneHoldEffectFPv((s32)((u8*)packet + 0xC))) >> 5;
+    return (u32)__cntlzw(is_in_view__17TObjEneHoldEffectFv((s32)((u8*)packet + 0xC))) >> 5;
 }
 
 s32 validate_6x88_restore_shrunken_player(G_ClientIDHeader *packet) {
@@ -222,7 +222,7 @@ s32 validate_6x2C_impose_hold(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
-    if (is_camera_visible__17TObjEneHoldEffectFPv((s32)((u8*)packet + 8)) != 0) {
+    if (is_camera_visible__17TObjEneHoldEffectFv((s32)((u8*)packet + 8)) != 0) {
         return 0;
     }
     cond = (*(f32 *)((s8 *)((u8*)packet) + 0x10) < lbl_805E03A8);
@@ -245,7 +245,7 @@ s32 validate_6x2A_drop_item(G_ClientIDHeader *packet) {
     if ((temp_r3 < 0) || (temp_r3 > 0x12)) {
         return 0;
     }
-    return (u32)__cntlzw(is_in_view__17TObjEneHoldEffectFPv((s32)((u8*)packet + 0xC))) >> 5;
+    return (u32)__cntlzw(is_in_view__17TObjEneHoldEffectFv((s32)((u8*)packet + 0xC))) >> 5;
 }
 
 s32 validate_6xAC(G_ClientIDHeader *packet) {
@@ -300,7 +300,7 @@ s32 validate_6x24_teleport_player(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
-    return (u32)__cntlzw(is_in_view__17TObjEneHoldEffectFPv((s32)packet + 8)) >> 5;
+    return (u32)__cntlzw(is_in_view__17TObjEneHoldEffectFv((s32)packet + 8)) >> 5;
 }
 
 s32 validate_6x23_set_player_visible(G_ClientIDHeader *packet) {

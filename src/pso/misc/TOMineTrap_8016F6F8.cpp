@@ -1,20 +1,20 @@
 #include "types.h"
+#include "pso/misc/TOMineTrap.h"
 
 struct Trap_8016F704 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x84 - 0x44]; s32 delay; u8 pad88[0x2A8 - 0x88]; void *target; u8 pad2AC[0x34C - 0x2AC]; f32 range; u8 pad350[0x35C - 0x350]; u16 targetId; };
 
 extern "C" {
 s32 obj_testFlags30(void *, u32);
 s32 get_current_floor(void);
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 f32 horizontal_distance_squared(void *, void *);
-u16 get_trap_type__10TOMineTrapFPv(void *);
+u16 get_trap_type__10TOMineTrapFv(void *);
 s32 get_trap_count__10TOMineTrapFv(void);
-u8 get_rule_field_0__6TLobbyFPv(void *);
+u8 get_rule_field_0__6TLobbyFv(void *);
 extern u8 lobby_rule_settings[];
-s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self);
 u16 obj_getField1c(void *);
 s32 get_current_floor(void);
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 u8 *TOMineTrap__ct(u8 *, u8 *, s32, s32);
 u8 *get_player_by_client_id(u32);
 s32 is_boss_area();
@@ -301,7 +301,6 @@ struct Pair_80170DD8 { s32 a; s32 b; };
 
 extern "C" {
 void set_indexed_flags(void *, s32, s32);
-void set_triggered__10TOMineTrapFPv(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
 void TOMineTrap__vt84(u8 *arg0);
 int TOMineTrap__sub_80170340(void);
@@ -309,51 +308,39 @@ int TOMineTrap__sub_80170348(void);
 void TOMineTrap__sub_80170350(void);
 void TOMineTrap__sub_80170354(void);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
-s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
-s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 apply_object_set_data();
-void init_object_set_pos__10TOMineTrapFPv(u8 *arg0);
 void TOMineTrap__sub_80170570(void);
 int get_localized_text_entry(void*, void*);
-void init_trap__10TOMineTrapFv(void);
 s32 get_main_phase();
-void update_state__10TOMineTrapFPv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s8 mine_trap_effect_table[];
-void spawn_effect__10TOMineTrapFi(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s8 mine_trap_keymachine_table[];
-void attach_to_keymachine__10TOMineTrapFi(s32 arg0);
 u32 spawn_particle_effect(s32, s32);
-s32 set_position_xy__10TObjPlayerFPvff(f32, f32);
+s32 set_position_xy__10TObjPlayerFff(f32, f32);
 extern f32 lbl_805DB864;
-void detonate_if_triggered__10TOMineTrapFi(s32 arg0);
 u32 spawn_particle_effect(s32, s32);
 void TOMineTrap__sub_8017070C(u8 *arg0);
 s32 access_object_saved_state(void*, s16 *, s32);
 s32 send_object_state_update(void *, s16 *);
 extern f32 lbl_805DB85C;
-f32 trigger_explosion__10TOMineTrapFPv(void *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s16 obj_getS16_116(s32);
 extern f32 lbl_805DB85C;
 extern const f32 TOMineTrap__data_805DB868;
-f32 calc_trigger_range__10TOMineTrapFPvi(void *arg0, s32 arg1);
 s32 access_object_saved_state(void*, s16 *, s32);
 s32 send_object_state_update(void *, s16 *);
-void update_trigger__10TOMineTrapFPv(void *arg0);
-void calc_attach_pos__10TObjPlayerFPv(void *);
+void calc_attach_pos__10TObjPlayerFv(void *);
 void set_indexed_flags(void *, s32, s32);
 int refresh_collision_body_centers(void*);
 void TOMineTrap__sub_80170A5C(u8 *arg0);
 void TOMineTrap__sub_80170CD4(void* p);
 int refresh_collision_body_centers(void*);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void sync_position__10TOMineTrapFPv(void* p);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 u16 obj_getField1c(void *);
 extern f32 lbl_805DB85C;
@@ -363,12 +350,11 @@ f32 sin_table_lookup(s32);
 extern const f32 TOMineTrap__data_805DB868;
 extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
-void update_float_height__10TOMineTrapFPv(u8 *arg0);
 f32 atan2_float(f64, f64);
-void calc_attach_pos__10TObjPlayerFPv(void *);
+void calc_attach_pos__10TObjPlayerFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int refresh_collision_body_centers(void*);
-s32 update_enemy_collision_flags__10TObjPlayerFPv(void *);
+s32 update_enemy_collision_flags__10TObjPlayerFv(void *);
 f32 vec3_add_to(void *, void *);
 f32 vec_squared_length(void *);
 f32 subtract_vector(void *, void *);
@@ -377,8 +363,7 @@ extern const f64 lbl_80442200;
 extern const f32 lbl_805DB870;
 extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
-void follow_target__10TOMineTrapFPv(u8 *arg0);
-void calc_attach_pos__10TObjPlayerFPv(void *);
+void calc_attach_pos__10TObjPlayerFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 void set_indexed_flags(void *, s32, s32);
 int refresh_collision_body_centers(void*);
@@ -388,20 +373,16 @@ s32 set_flag8__6TLobbyFPv(void *);
 s32 queue_destruction_for_each_node__7TObjectFv(void *);
 void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2);
 u16 obj_getField1c(void *);
-s32 matches_id__10TOMineTrapFPvUs(void *arg0, u16 arg1);
-s32 is_target_in_list__10TOMineTrapFPvPv(Self_801702C8 *self, void *obj);
+s32 matches_id__10TOMineTrapFUs(void *arg0, u16 arg1);
 void *get_player_data__10TObjPlayerFi(s32);
-s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 extern s32 TOMineTrap__data_805D3080;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern s32 lbl_805D5868;
-void destroy_matching_traps__10TOMineTrapFv(void);
 void *get_player_data__10TObjPlayerFi(s32);
-s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
-void update_trigger__10TOMineTrapFPv(void *arg0);
-void sync_position__10TOMineTrapFPv(void* p);
+s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 extern s32 TOMineIcon01__name;
 extern s32 TOMineIcon02__name;
 extern s32 TOMineIcon03__name;
@@ -410,12 +391,12 @@ extern s32 lbl_805D5868;
 extern s32 lbl_805D5870;
 void TOMineTrap__sub_80170BEC(u8 *arg0);
 u8 *get_battle_param__10TObjPlayerFi(s32);
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
 void init_all_slots__10TObjPlayerFv(void);
 void check_enemy_body_collisions(void *);
-void check_object_collisions__10TObjPlayerFPv(void *);
-s32 is_valid_and_active__10TObjPlayerFUi(void *);
+void check_object_collisions__10TObjPlayerFv(void *);
+s32 is_valid_and_active__10TObjPlayerFUl(void *);
 extern const f32 TOMineTrap__data_805DB868;
 extern const f32 lbl_805DB874;
 void detonate__10TOMineTrapFPv(u8 *arg0);
@@ -424,17 +405,16 @@ void detonate__10TOMineTrapFPv(u8 *arg0);
 extern "C" {
 
 void *__dt__10TOMineTrapFv(void *arg0, s16 arg1);
-void* get_mine_data_ptr__10TOMineTrapFPv(void* p);
-void set_state__10TOMineTrapFPv(void* p);
 s32 free_collision_body_parts(void *);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0 = 0);
 s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__6TOMineFv(void *, s32);
 
-void set_state__10TOMineTrapFPv(void* p) { *(s16*)((char*)p + 0x326) = 4; }
+void TOMineTrap::set_state() { *(s16*)((char*)this + 0x326) = 4; }
 
-s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self) {
+s32 TOMineTrap::find_target_in_range() {
+    Trap_8016F704 *self = (Trap_8016F704 *)this;
     u8 *p;
     s32 i;
     u16 id;
@@ -454,12 +434,12 @@ s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self) {
         if (id == 0xFFFF) {
             continue;
         }
-        if (id == get_trap_type__10TOMineTrapFPv(self) && get_trap_count__10TOMineTrapFv() != 1 &&
-            get_rule_field_0__6TLobbyFPv(lobby_rule_settings) != 0) {
+        if (id == get_trap_type__10TOMineTrapFv(self) && get_trap_count__10TOMineTrapFv() != 1 &&
+            get_rule_field_0__6TLobbyFv(lobby_rule_settings) != 0) {
             continue;
         }
         if (id < 0x1000) {
-            if (get_field_3e4__10TObjPlayerFPv(p) != get_current_floor()) {
+            if (get_field_3e4__10TObjPlayerFv(p) != get_current_floor()) {
                 continue;
             }
             if (horizontal_distance_squared(self->pos, p + 0x38) < self->range * self->range) {
@@ -478,7 +458,8 @@ s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self) {
     return 0;
 }
 
-void set_triggered__10TOMineTrapFPv(u8 *arg0) {
+void TOMineTrap::set_triggered() {
+    u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 0x326) = 3;
     set_indexed_flags(arg0, 0, 1);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
@@ -490,12 +471,12 @@ void TOMineTrap__vt84(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
 }
 
-void destroy_matching_traps__10TOMineTrapFv(void) {
+void TOMineTrap::destroy_matching_traps() {
     void *p;
     s32 i;
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (p != 0 && check_value_equals__13TQuestColCtrlFPvi(p, TOMineTrap__data_805D3080) != 0) {
+        if (p != 0 && check_value_equals__13TQuestColCtrlFPll(p, TOMineTrap__data_805D3080) != 0) {
             queue_destruction__7TObjectFv(p);
         }
     }
@@ -506,7 +487,7 @@ s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2) {
     void *player;
     void *obj;
     if (enable_v2_features != 1 || arg0 == 0 || (id = obj_getField1c((void *)arg0)) == 0xFFFF || id >= 0x1000 ||
-        (player = (void *)get_player_by_client_id(id)) == 0 || get_field_3e4__10TObjPlayerFPv(player) != get_current_floor() ||
+        (player = (void *)get_player_by_client_id(id)) == 0 || get_field_3e4__10TObjPlayerFv(player) != get_current_floor() ||
         arg1 < 0 || arg1 >= 4 || arg2 < 0 || arg2 > 0x14) {
         return 0;
     }
@@ -520,7 +501,7 @@ s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2) {
     return (s32)obj;
 }
 
-void* get_mine_data_ptr__10TOMineTrapFPv(void* p) { return (char*)p + 0x334; }
+void*TOMineTrap::get_mine_data_ptr() { return (char*)this + 0x334; }
 
 extern s32 __vt__10TOMineTrap[];
 
@@ -537,13 +518,14 @@ void *__dt__10TOMineTrapFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-s32 is_target_in_list__10TOMineTrapFPvPv(Self_801702C8 *self, void *obj) {
+s32 TOMineTrap::is_target_in_list(void *obj) {
+    Self_801702C8 *self = (Self_801702C8 *)this;
     if (obj != 0) {
         u32 id = obj_getField1c(obj);
         if (id < 4) {
             Node_801702C8 *n;
             for (n = self->head; n != 0; n = n->next) {
-                if (matches_id__10TOMineTrapFPvUs(n, id) != 0) {
+                if (matches_id__10TOMineTrapFUs(n, id) != 0) {
                     return 1;
                 }
             }
@@ -556,11 +538,11 @@ int TOMineTrap__sub_80170340(void) { return 1; }
 int TOMineTrap__sub_80170348(void) { return 1; }
 void TOMineTrap__sub_80170350(void) {  }
 void TOMineTrap__sub_80170354(void) {  }
-s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
-    if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
+s32 TOMineTrap::check_trigger(u32 arg1) {
+    if (is_target_in_list((void *)(arg1)) == 1) {
         return 0;
     }
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x344) == 2) && (arg1 == (u32) *(u32 *)((s8 *)arg0 + 0x2A8))) {
+    if (((s32) *(s32 *)((s8 *)this + 0x344) == 2) && (arg1 == (u32) *(u32 *)((s8 *)this + 0x2A8))) {
         return 0;
     }
     if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
@@ -568,11 +550,11 @@ s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     }
     return 0;
 }
-s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
-    if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
+s32 TOMineTrap::can_trigger(u32 arg1) {
+    if (is_target_in_list((void *)(arg1)) == 1) {
         return 0;
     }
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x344) == 2) && (arg1 == (u32) *(u32 *)((s8 *)arg0 + 0x2A8))) {
+    if (((s32) *(s32 *)((s8 *)this + 0x344) == 2) && (arg1 == (u32) *(u32 *)((s8 *)this + 0x2A8))) {
         return 0;
     }
     if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
@@ -607,49 +589,53 @@ void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
     }
 }
 
-void init_object_set_pos__10TOMineTrapFPv(u8 *arg0) {
+void TOMineTrap::init_object_set_pos() {
+    u8 *arg0 = (u8 *)this;
     apply_object_set_data();
     ((VObj_18 *)(arg0))->m81();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x334), (void *) (arg0 + 0x38));
 }
 void TOMineTrap__sub_80170570(void) {  }
-void init_trap__10TOMineTrapFv(void) { get_localized_text_entry((void*)16, (void*)16); }
-void update_state__10TOMineTrapFPv(void *arg0) {
+void TOMineTrap::init_trap() { get_localized_text_entry((void*)16, (void*)16); }
+void TOMineTrap::update_state() {
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x348) = (s32) *(f32 *)((s8 *)arg0 + 0x70);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x348);
+    *(s32 *)((s8 *)this + 0x348) = (s32) *(f32 *)((s8 *)this + 0x70);
+    temp_r0 = *(s32 *)((s8 *)this + 0x348);
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0x344) = 0;
+        *(s32 *)((s8 *)this + 0x344) = 0;
         return;
     }
     if (temp_r0 > 0) {
-        *(s32 *)((s8 *)arg0 + 0x344) = 1;
+        *(s32 *)((s8 *)this + 0x344) = 1;
         return;
     }
     if (get_main_phase() == 0xE) {
-        *(s32 *)((s8 *)arg0 + 0x344) = 0;
-        *(s32 *)((s8 *)arg0 + 0x8C) = 0x1E;
+        *(s32 *)((s8 *)this + 0x344) = 0;
+        *(s32 *)((s8 *)this + 0x8C) = 0x1E;
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x344) = 2;
+    *(s32 *)((s8 *)this + 0x344) = 2;
 }
-void spawn_effect__10TOMineTrapFi(s32 arg0) {
+void TOMineTrap::spawn_effect() {
+    s32 arg0 = (s32)this;
     s32 idx = get_global_state__14TOKeyMachine01Fv();
     s32 elem = *(s32 *)(mine_trap_effect_table + idx * 4);
     if (elem != -1) {
         play_sound_effect(elem, arg0 + 0x38, 0, 0);
     }
 }
-void attach_to_keymachine__10TOMineTrapFi(s32 arg0) {
+void TOMineTrap::attach_to_keymachine() {
+    s32 arg0 = (s32)this;
     s32 idx = get_global_state__14TOKeyMachine01Fv();
     s32 elem = *(s32 *)(mine_trap_keymachine_table + idx * 4);
     if (elem != -1) {
         play_sound_effect(elem, arg0 + 0x38, 0, 0);
     }
 }
-void detonate_if_triggered__10TOMineTrapFi(s32 arg0) {
+void TOMineTrap::detonate_if_triggered() {
+    s32 arg0 = (s32)this;
     if (spawn_particle_effect(arg0 + 0x2FC, 0x45) != 0U) {
-        set_position_xy__10TObjPlayerFPvff(lbl_805DB864, lbl_805DB864);
+        set_position_xy__10TObjPlayerFff(lbl_805DB864, lbl_805DB864);
     }
 }
 void TOMineTrap__sub_8017070C(u8 *arg0) {
@@ -674,7 +660,7 @@ void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
         *(s16 *)((s8 *)arg0 + 0x326) = temp_r0;
         set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (1)));
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
-        calc_attach_pos__10TObjPlayerFPv((void *) (arg0));
+        calc_attach_pos__10TObjPlayerFv((void *) (arg0));
         refresh_collision_body_centers((void*)((void *) (arg0)));
         ((VObj_18_d0f3c0 *)(arg0))->m79();
         access_object_saved_state((void*)((void *) (arg0)), (s16 *)((void *) (arg1)), (s32)((int) (0)));
@@ -682,21 +668,21 @@ void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
     }
 }
 
-f32 trigger_explosion__10TOMineTrapFPv(void *arg0) {
+f32 TOMineTrap::trigger_explosion() {
     s16 sp8;
-    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x4000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void*)(arg0), (s16 *)(&sp8), (s32)(1)) != 0)) {
-        *(s16 *)((s8 *)arg0 + 0x326) = 5;
-        sp8 = *(s16 *)((s8 *)arg0 + 0x326);
-        send_object_state_update(arg0, &sp8);
+    if (((u16) *(u16 *)((s8 *)this + 0x1C) >= 0x4000U) && ((u32) *(u32 *)((s8 *)this + 0x80) != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
+        *(s16 *)((s8 *)this + 0x326) = 5;
+        sp8 = *(s16 *)((s8 *)this + 0x326);
+        send_object_state_update(this, &sp8);
     }
     return lbl_805DB85C;
 }
-f32 calc_trigger_range__10TOMineTrapFPvi(void *arg0, s32 arg1) {
-    if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
+f32 TOMineTrap::calc_trigger_range(s32 arg1) {
+    if (is_target_in_list((void *)(arg1)) == 1) {
         return lbl_805DB85C;
     }
     if ((is_locally_controlled__10TObjPlayerFPv((u32)(arg1)) != 0) && (obj_getS16_116(arg1) != 0)) {
-        ((VObj_801708A4_8016F6F8 *)arg0)->v20(0, TOMineTrap__data_805DB868);
+        ((VObj_801708A4_8016F6F8 *)this)->v20(0, TOMineTrap__data_805DB868);
     }
     return lbl_805DB85C;
 }
@@ -711,7 +697,7 @@ f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
   {
     return (*(const f32 *)&lbl_805DB85C);
   }
-  if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1)
+  if (((TOMineTrap *)arg0)->is_target_in_list((void *)(arg1)) == 1)
   {
     return (*(const f32 *)&lbl_805DB85C);
   }
@@ -748,26 +734,27 @@ f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
   return (*(const f32 *)&lbl_805DB85C);
 }
 
-void update_trigger__10TOMineTrapFPv(void *arg0) {
+void TOMineTrap::update_trigger() {
     s16 sp8;
-    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x4000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void*)(arg0), (s16 *)(&sp8), (s32)(1)) != 0)) {
-        *(s16 *)((s8 *)arg0 + 0x326) = 3;
-        sp8 = *(s16 *)((s8 *)arg0 + 0x326);
-        send_object_state_update(arg0, &sp8);
+    if (((u16) *(u16 *)((s8 *)this + 0x1C) >= 0x4000U) && ((u32) *(u32 *)((s8 *)this + 0x80) != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
+        *(s16 *)((s8 *)this + 0x326) = 3;
+        sp8 = *(s16 *)((s8 *)this + 0x326);
+        send_object_state_update(this, &sp8);
     }
 }
 void TOMineTrap__sub_80170A5C(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0x326) = 2;
     set_indexed_flags(arg0, 0, 1);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
-    calc_attach_pos__10TObjPlayerFPv(arg0);
+    calc_attach_pos__10TObjPlayerFv(arg0);
     refresh_collision_body_centers((void*)((void *) (arg0)));
     ((VObj_18_d0f3c0 *)(arg0))->m79();
 }
 
 typedef struct Stack_80170AC8 Stack_80170AC8;
 #pragma fp_contract on
-void follow_target__10TOMineTrapFPv(u8 *arg0) {
+void TOMineTrap::follow_target() {
+    u8 *arg0 = (u8 *)this;
   unsigned short new_var;
   Stack_80170AC8 stack;
   f32 temp_f2;
@@ -788,10 +775,10 @@ void follow_target__10TOMineTrapFPv(u8 *arg0) {
     stack.sp10 *= lbl_805DB870;
   }
   vec3_add_to((void *) (arg0 + 0x38), (void *) (&stack.sp8));
-  update_enemy_collision_flags__10TObjPlayerFPv((void *) arg0);
+  update_enemy_collision_flags__10TObjPlayerFv((void *) arg0);
   temp_f2 = *((f32 *) (((s8 *) arg0) + 0x48));
   *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x2A8)))) + 0x3C)))) - temp_f2)) + temp_f2);
-  calc_attach_pos__10TObjPlayerFPv((void *) arg0);
+  calc_attach_pos__10TObjPlayerFv((void *) arg0);
   *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) (lbl_80442200 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
   refresh_collision_body_centers((void*)((void *) arg0));
 }
@@ -805,24 +792,25 @@ void TOMineTrap__sub_80170BEC(u8 *arg0) {
         for (i = lbl_805D5870; i < lbl_805D5868; i++) {
             p = (u8 *)get_player_data__10TObjPlayerFi(i);
             if (p != NULL && p != arg0 &&
-                (check_value_equals__13TQuestColCtrlFPvi(p, TOMineIcon01__name) != 0 ||
-                 check_value_equals__13TQuestColCtrlFPvi(p, TOMineIcon02__name) != 0 ||
-                 check_value_equals__13TQuestColCtrlFPvi(p, TOMineIcon03__name) != 0 ||
-                 check_value_equals__13TQuestColCtrlFPvi(p, TOMineIcon04__name) != 0) &&
+                (check_value_equals__13TQuestColCtrlFPll(p, TOMineIcon01__name) != 0 ||
+                 check_value_equals__13TQuestColCtrlFPll(p, TOMineIcon02__name) != 0 ||
+                 check_value_equals__13TQuestColCtrlFPll(p, TOMineIcon03__name) != 0 ||
+                 check_value_equals__13TQuestColCtrlFPll(p, TOMineIcon04__name) != 0) &&
                 *(s32 *)(p + 0x344) == 1 && *(s32 *)(p + 0x348) == *(s32 *)(arg0 + 0x348)) {
-                update_trigger__10TOMineTrapFPv(p);
+                ((TOMineTrap *)p)->update_trigger();
             }
         }
         break;
     }
-    sync_position__10TOMineTrapFPv((void*)(arg0));
+    ((TOMineTrap *)arg0)->sync_position();
 }
 
-void TOMineTrap__sub_80170CD4(void* p) { sync_position__10TOMineTrapFPv((void*)((void*)(p))); }
+void TOMineTrap__sub_80170CD4(void* p) { ((TOMineTrap *)p)->sync_position(); }
 
 #pragma push
 #pragma fp_contract on
-void update_float_height__10TOMineTrapFPv(u8 *arg0) {
+void TOMineTrap::update_float_height() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f4;
     if (!(*(s32 *)((s8 *)arg0 + 0x340) & 2)) {
@@ -840,18 +828,18 @@ void update_float_height__10TOMineTrapFPv(u8 *arg0) {
 }
 #pragma pop
 
-void sync_position__10TOMineTrapFPv(void* p) { VecCopy__FP3VecPC3Vec((void *)((char*)p + 0x38), (void *)((char*)p + 0x334)); refresh_collision_body_centers(p); }
+void TOMineTrap::sync_position() { VecCopy__FP3VecPC3Vec((void *)((char*)this + 0x38), (void *)((char*)this + 0x334)); refresh_collision_body_centers(this); }
 void detonate__10TOMineTrapFPv(u8 *arg0) {
     s32 i;
     u8 *obj;
     set_indexed_flags(arg0, 0, 2);
     *(f32 *)(*(u8 **)(arg0 + 0xA4) + 0xC) = *(f32 *)(arg0 + 0x350);
     init_all_slots__10TObjPlayerFv();
-    check_object_collisions__10TObjPlayerFPv(arg0);
+    check_object_collisions__10TObjPlayerFv(arg0);
     check_enemy_body_collisions(arg0);
     for (i = 0; i < 0x10; i++) {
         obj = get_battle_param__10TObjPlayerFi(i);
-        if (is_valid_and_active__10TObjPlayerFUi(obj) != 0) {
+        if (is_valid_and_active__10TObjPlayerFUl(obj) != 0) {
             Pair_80170DD8 pair = *(Pair_80170DD8 *)(arg0 + 0x354);
             f32 r = ((VObj_18_1da615 *)obj)->m21(arg0, &pair, 0, -1, -1);
             if (*(s32 *)(arg0 + 0x354) < 5) {
@@ -860,7 +848,7 @@ void detonate__10TOMineTrapFPv(u8 *arg0) {
         }
     }
     *(s16 *)(arg0 + 0x326) = 6;
-    clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
+    clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1);
     ((VObj_18_1da615 *)arg0)->m20(0, TOMineTrap__data_805DB868);
 }
 

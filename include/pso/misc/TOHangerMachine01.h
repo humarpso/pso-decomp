@@ -15,6 +15,12 @@ struct TOHangerMachine01
     u32 m_60;
     u8 _pad64[0x64];
     u32 m_c8;
+    void run_task();
+    void render();
+    static void *create(void *arg0);
+    static void free_static_model();
+    static void load_shared_resource();
+    static s32 is_valid_slot(int arg0, u16 arg1);
 };
 
 #endif

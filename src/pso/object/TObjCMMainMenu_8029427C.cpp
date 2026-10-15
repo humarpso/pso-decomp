@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/object/TObjCMMainMenu.h"
 
 extern "C" {
 
-void * create_fade__14TObjCMMainMenuFPvPv(void *arg0, void *arg1);
-void * create_fade_effect__14TObjCMMainMenuFPvPv(void *arg0, void *arg1);
 void *__ct__12TChCrEffFadeFv(void *, int, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void * create_fade__14TObjCMMainMenuFPvPv(void *arg0, void *arg1) {
+void *TObjCMMainMenu::create_fade(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {
@@ -16,7 +15,7 @@ void * create_fade__14TObjCMMainMenuFPvPv(void *arg0, void *arg1) {
     return o;
 }
 
-void * create_fade_effect__14TObjCMMainMenuFPvPv(void *arg0, void *arg1) {
+void *TObjCMMainMenu::create_fade_effect(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {

@@ -16,13 +16,13 @@ struct Ctx_8025A650 { u8 p0[0x10]; f32 x; f32 y; u8 p18[0x18]; s32 f30; u8 p34[4
 
 extern "C" {
 f32 get_item_star_row_width(u8 *arg0);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
 u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
@@ -69,7 +69,7 @@ void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx) {
     }
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_global_param__8TObjFishFl(lbl_805D63F0);
     set_draw_texture_and_color(1, -1);
     x = ctx->x + item->x;
     y = ctx->y + item->y;
@@ -136,7 +136,7 @@ typedef char RecoveredGlobal_8025A95C_lbl_804CFA10_size[sizeof(RecoveredGlobal_8
 u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *) (arg0), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025A95C_lbl_804CFA10 *)&lbl_804CFA10).value;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 8), (void *) (arg1 + 4));
     *(s32 *)((s8 *)arg0 + 0x10) = 0;
     return arg0;
 }

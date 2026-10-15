@@ -10,7 +10,7 @@ void queue_destruction__7TObjectFv(void *);
 void set_and_notify__6TLobbyFi(int);
 extern const f32 lbl_805DC2E0;
 void fn_801C247C(u8 *arg0);
-u8 *init__17TWindowDuelResultFPvPvPvPv(void *, s32, s32, s32);
+u8 *init__17TWindowDuelResultFPvPvPv(void *, s32, s32, s32);
 void set_and_notify__6TLobbyFi(int);
 u8 *__nw__7TObjectFUl(s32);
 extern u8 *duel_result_window;
@@ -37,7 +37,7 @@ void show_duel_result_window(s32 arg0, s32 arg1) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x24));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(init__17TWindowDuelResultFPvPvPvPv(temp_r3, tl_00, arg0, arg1));
+        var_r0 = (u8 *)(init__17TWindowDuelResultFPvPvPv(temp_r3, tl_00, arg0, arg1));
     }
     duel_result_window = var_r0;
 }

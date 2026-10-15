@@ -1,16 +1,18 @@
 #include "types.h"
+#include "pso/object/TObjCityAreaWarp.h"
+#include "pso/object/TObjCityMainWarp.h"
+#include "pso/object/TObjCityMapWarp.h"
+#include "pso/object/TObjLaboMapWarp.h"
 
 extern "C" {
 s32 is_split_screen();
 int is_main_phase_15__9TObjEneDDFv(void*);
 s32 get_story_flag(s32);
 extern s32 TObjCityMainWarp__visible_destination_mask;
-void update_warp_flags_from_story__16TObjCityMainWarpFPv(void *self);
 s32 is_split_screen();
 int is_main_phase_15__9TObjEneDDFv(void*);
 s32 get_story_flag(s32);
 extern s32 TObjCityMainWarp__visible_destination_mask;
-void init_visible_mask__16TObjCityMainWarpFPv(void *self);
 }
 
 extern "C" {
@@ -144,52 +146,36 @@ s32 get_bml_model(s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 is_quest_active();
-s32 is_visible__17TWindowSubComCardFPv(void *);
-s32 set_flag_40__16TAdChrSelASlotGCFPv(int);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 is_visible__17TWindowSubComCardFv(void *);
+s32 set_flag_40__16TAdChrSelASlotGCFv(int);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 int is_main_phase_15__9TObjEneDDFv(void*);
 s32 get_localized_text_entry(s32, s32);
-void render__15TObjLaboMapWarpFv(u8 *arg0);
 void run_task__15TObjLaboMapWarpFv(u8 *arg0);
-int is_field88_zero__15TObjLaboMapWarpFPv(void* p);
-void clamp_index__15TObjLaboMapWarpFPv(u8 *arg0);
 void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);
-void release_static_resource__15TObjLaboMapWarpFv(void);
-void load_static_resource__15TObjLaboMapWarpFv(void);
-void * create__15TObjLaboMapWarpFPv(void *arg0);
 void * __dt__15TObjLaboMapWarpFv(void *arg0, s16 arg1);
 void * TObjLaboMapWarp__ct(void *arg0);
 void TObjCityMapWarp__vt17(Obj_80185664 *self);
-void render__15TObjCityMapWarpFv(u8 *arg0);
-int is_field88_zero__15TObjCityMapWarpFPv(void* p);
-void clamp_destination_index__15TObjCityMapWarpFPv(u8 *arg0);
 void TObjCityMapWarp__vt13(u8 *arg0, s32 arg1);
-void * create__15TObjCityMapWarpFPv(void *arg0);
 void * __dt__15TObjCityMapWarpFv(void *arg0, s16 arg1);
 void * TObjCityMapWarp__ct(void *arg0);
 void TObjCityAreaWarp__vt17(void);
 void TObjCityAreaWarp__vt18(void* p);
-void render__16TObjCityAreaWarpFv(void* p);
-void do_warp__16TObjCityAreaWarpFPv(u8 *arg0);
 void TObjCityAreaWarp__vt13(void *arg0, s16 arg1);
-void * create__16TObjCityAreaWarpFPv(void *arg0);
 void * __dt__16TObjCityAreaWarpFv(void *arg0, s16 arg1);
 void * TObjCityAreaWarp__ct(void *arg0);
 void TObjCityMainWarp__vt18(Obj_80185E14 *arg0);
-void render__16TObjCityMainWarpFv(u8 *arg0);
 s32 TObjCityMainWarp__vt14(s32 arg0);
 void TObjCityMainWarp__vt16(void *arg0);
 s32 TObjCityMainWarp__vt15(u8 *arg0);
 void TObjCityMainWarp__vt12(void* p);
-void * create__16TObjCityMainWarpFPv(void *arg0);
 void * __dt__16TObjCityMainWarpFv(void *arg0, s16 arg1);
 void * TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2);
 void unlock_main_warp_destination(s32 id);
 void clear_enabled_main_warps(void);
-void clear_active_bit__16TObjCityMainWarpFv(void);
-void set_active_bit__16TObjCityMainWarpFv(s32 id);
+void set_active_bit__16TObjCityMainWarpFl(s32 id);
 s32 get_floor_warp_bit__16TObjCityMainWarpFi();
-s32 set_flag70_bit10__16TObjCityMainWarpFPv(int);
+s32 set_flag70_bit10__16TObjCityMainWarpFv(int);
 void handle_area_selection__12TObjAreaWarpFPv(void *);
 s32 is_warp_enabled__12TObjAreaWarpFi(s32);
 void __dt__12TObjAreaWarpFv(void *, int);
@@ -208,18 +194,18 @@ int clear_flag__11TWindowCtrlFv(void);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(int);
 s32 calc_window_size__17TWindowSubComCardFPv(int);
-s32 add_text_entry__19TWindowSubTradeMainFPviiii(s32, s32, s32, s32, s32);
+s32 add_text_entry__19TWindowSubTradeMainFllll(s32, s32, s32, s32, s32);
 s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(s32);
-void * init__13TAdVIConfigGCFPvf(void *, void *, f32);
+void * init__13TAdVIConfigGCFf(void *, void *, f32);
 s32 get_game_play_mode();
-void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 
@@ -241,8 +227,8 @@ extern const f32 lbl_805DBCA0;
 extern s32 TObjCityMainWarp__sub_80186AF4();
 extern void update_main_warp_visible_mask(int);
 extern void request_active_window_close();
-extern void set_loss_flag__6TLobbyFPv(void *);
-extern void set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
+extern void set_loss_flag__6TLobbyFv(void *);
+extern void set_scroll_target__17TWindowSubComCardFff(void *, f32, f32);
 extern void update_layout_height__17TWindowSubComCardFPvf(void *, f32);
 extern void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, int, int, int);
 extern s16 TLobby__data_805D5CE8;
@@ -280,16 +266,17 @@ extern const f32 lbl_805DBC98;
 extern const f32 lbl_805DBCA4;
 extern void *tl_05;
 
-void render__15TObjLaboMapWarpFv(u8 *arg0) {
+void TObjLaboMapWarp::render() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r31;
 
     if (((VObj_80185248 *)arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
         TObjFish__sub_8001EDB0(TObjLaboMapWarp__resource_bundle, 1);
-        ((s32 (*)(void))set_global_param__8TObjFishFi)();
+        ((s32 (*)(void))set_global_param__8TObjFishFl)();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        if (is_field88_zero__15TObjLaboMapWarpFPv((void*)(arg0)) != 0) {
+        if (is_field88_zero() != 0) {
             get_bml_model(TObjLaboMapWarp__resource_bundle, 1);
             ((s32 (*)(void))draw_ginja_object)();
             begin_effect_render__13TParticleCtrlFv();
@@ -317,9 +304,10 @@ void run_task__15TObjLaboMapWarpFv(u8 *arg0) {
     process_player_warps__11TObjMapWarpFPv(arg0);
 }
 
-int is_field88_zero__15TObjLaboMapWarpFPv(void* p) { return *(u32*)((char*)p + 0x88) == 0; }
+int TObjLaboMapWarp::is_field88_zero() { return *(u32*)((char*)this + 0x88) == 0; }
 
-void clamp_index__15TObjLaboMapWarpFPv(u8 *arg0) {
+void TObjLaboMapWarp::clamp_index() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r0;
     var_r0 = *(s32 *)((s8 *)arg0 + 0x8C);
     if (var_r0 < 0) {
@@ -337,27 +325,27 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
-        clamp_index__15TObjLaboMapWarpFPv((u8 *)((void *) (arg0)));
-        add_text_entry__19TWindowSubTradeMainFPviiii(*(u32 *)((s8 *)temp_r31 + 0xEC), get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
-        set_flag70_bit10__16TObjCityMainWarpFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
-        set_flag_40__16TAdChrSelASlotGCFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        ((TObjLaboMapWarp *)arg0)->clamp_index();
+        add_text_entry__19TWindowSubTradeMainFllll(*(u32 *)((s8 *)temp_r31 + 0xEC), get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
+        set_flag70_bit10__16TObjCityMainWarpFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        set_flag_40__16TAdChrSelASlotGCFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
     }
 }
 #pragma pop
 
-void release_static_resource__15TObjLaboMapWarpFv(void) {
+void TObjLaboMapWarp::release_static_resource() {
     if ((u32) (*(u32 *)&TObjLaboMapWarp__resource_bundle) != 0U) {
         TLobby__sub_8001FE7C((void*)(*(u32 *)&TObjLaboMapWarp__resource_bundle), 1);
         (*(u32 *)&TObjLaboMapWarp__resource_bundle) = 0U;
     }
 }
 
-void load_static_resource__15TObjLaboMapWarpFv(void) {
+void TObjLaboMapWarp::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_warp_labo_resource_descriptor.value, 0, 0, 0));
@@ -365,7 +353,7 @@ void load_static_resource__15TObjLaboMapWarpFv(void) {
     (*(s32 *)&TObjLaboMapWarp__resource_bundle) = var_r0;
 }
 
-void *create__15TObjLaboMapWarpFPv(void *arg0) {
+void *TObjLaboMapWarp::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
         o = ((void * (*)(void *, void *, void *))TObjLaboMapWarp__ct)(o, tl_05, arg0);
@@ -388,31 +376,32 @@ void *TObjLaboMapWarp__ct(void *arg0) {
     TObjMapWarp__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLaboMapWarp;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D32B4;
-    ((void (*)(void *))clamp_index__15TObjLaboMapWarpFPv)(arg0);
+    ((TObjLaboMapWarp *)arg0)->clamp_index();
     *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DBC8C;
     *(f32 *)((s8 *)arg0 + 0xFC) = lbl_805DBC90;
     return arg0;
 }
 
 void TObjCityMapWarp__vt17(Obj_80185664 *self) {
-    ((void (*)(void *))clamp_destination_index__15TObjCityMapWarpFPv)(self);
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    ((TObjCityMapWarp *)self)->clamp_destination_index();
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     debug_printf_at(0x13001C, lbl_804449C0);
     debug_printf_at(0x13001D, lbl_804449D0);
     debug_printf_at(0x13001E, lbl_804449E0);
     debug_printf_at(0x130020, lbl_804449F0);
     debug_printf_at(0x130021, lbl_80444A00);
     debug_printf_at(0x130022, lbl_80444A10, lbl_804B601C[self->dest]);
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
 }
 
-void render__15TObjCityMapWarpFv(u8 *arg0) {
+void TObjCityMapWarp::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_8018574C*)arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
-        set_global_param__8TObjFishFi(city_common_texture_list);
+        set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        if (is_field88_zero__15TObjCityMapWarpFPv((void*)(arg0)) != 0) {
+        if (is_field88_zero() != 0) {
             draw_ginja_object(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xD8));
             begin_effect_render__13TParticleCtrlFv();
             draw_ginja_model_with_motion(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0x38), *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x3C), *(f32 *)((s8 *)arg0 + 0xFC));
@@ -426,7 +415,8 @@ void render__15TObjCityMapWarpFv(u8 *arg0) {
     }
 }
 
-void run_task__15TObjCityMapWarpFv(Obj_80185824 *arg0) {
+void TObjCityMapWarp::run_task() {
+    Obj_80185824 *arg0 = (Obj_80185824 *)this;
     u32 n = *(u32 *)(*(u8 **)(*(u8 **)(city_common_model_archive + 0x430) + 0x3C) + 4);
     f32 lim = (f32)(n - 1);
     arg0->fFC += lbl_805DBC88;
@@ -439,9 +429,10 @@ void run_task__15TObjCityMapWarpFv(Obj_80185824 *arg0) {
     ((void (*)(void *))process_player_warps__11TObjMapWarpFPv)(arg0);
 }
 
-int is_field88_zero__15TObjCityMapWarpFPv(void* p) { return *(u32*)((char*)p + 0x88) == 0; }
+int TObjCityMapWarp::is_field88_zero() { return *(u32*)((char*)this + 0x88) == 0; }
 
-void clamp_destination_index__15TObjCityMapWarpFPv(u8 *arg0) {
+void TObjCityMapWarp::clamp_destination_index() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r0;
     var_r0 = *(s32 *)((s8 *)arg0 + 0x8C);
     if (var_r0 < 0) {
@@ -459,17 +450,17 @@ void TObjCityMapWarp__vt13(u8 *arg0, s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
-        clamp_destination_index__15TObjCityMapWarpFPv((u8 *)((void *) (arg0)));
-        add_text_entry__19TWindowSubTradeMainFPviiii(*(u32 *)((s8 *)temp_r31 + 0xEC), get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
-        set_flag70_bit10__16TObjCityMainWarpFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
-        set_flag_40__16TAdChrSelASlotGCFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        ((TObjCityMapWarp *)arg0)->clamp_destination_index();
+        add_text_entry__19TWindowSubTradeMainFllll(*(u32 *)((s8 *)temp_r31 + 0xEC), get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
+        set_flag70_bit10__16TObjCityMainWarpFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        set_flag_40__16TAdChrSelASlotGCFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
     }
 }
 #pragma pop
 
-void *create__15TObjCityMapWarpFPv(void *arg0) {
+void *TObjCityMapWarp::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
         o = ((void * (*)(void *, void *, void *))TObjCityMapWarp__ct)(o, tl_05, arg0);
@@ -492,7 +483,7 @@ void *TObjCityMapWarp__ct(void *arg0) {
     TObjMapWarp__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjCityMapWarp;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D32B0;
-    ((void (*)(void *))clamp_destination_index__15TObjCityMapWarpFPv)(arg0);
+    ((TObjCityMapWarp *)arg0)->clamp_destination_index();
     *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DBC8C;
     *(f32 *)((s8 *)arg0 + 0xFC) = lbl_805DBC90;
     return arg0;
@@ -503,13 +494,14 @@ void TObjCityAreaWarp__vt17(void) {
     TLobby__data_805D5CE8 = 1;
 }
 
-void TObjCityAreaWarp__vt18(void* p) { do_warp__16TObjCityAreaWarpFPv((u8 *)(p)); }
+void TObjCityAreaWarp__vt18(void* p) { ((TObjCityAreaWarp *)p)->do_warp(); }
 
-void render__16TObjCityAreaWarpFv(void* p) { if (is_main_phase_15__9TObjEneDDFv(p) != 0) { do_warp__16TObjCityAreaWarpFPv((u8 *)(p)); } }
+void TObjCityAreaWarp::render() { if (is_main_phase_15__9TObjEneDDFv(this) != 0) { do_warp(); } }
 
-void do_warp__16TObjCityAreaWarpFPv(u8 *arg0) {
+void TObjCityAreaWarp::do_warp() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj80185B58_80185AFC *) arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
-        set_global_param__8TObjFishFi(city_common_texture_list);
+        set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -520,7 +512,8 @@ void do_warp__16TObjCityAreaWarpFPv(u8 *arg0) {
     }
 }
 
-void run_task__16TObjCityAreaWarpFv(Obj_80185BE8 *arg0) {
+void TObjCityAreaWarp::run_task() {
+    Obj_80185BE8 *arg0 = (Obj_80185BE8 *)this;
     f32 lim;
     if (is_main_phase_15__9TObjEneDDFv(arg0) != 0) {
         lim = (f32)(((Root_80185BE8 *)city_common_model_archive)->anim->info->n - 1);
@@ -535,16 +528,16 @@ void run_task__16TObjCityAreaWarpFv(Obj_80185BE8 *arg0) {
 void TObjCityAreaWarp__vt13(void *arg0, s16 arg1) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) == 0U) {
         *(u32 *)((s8 *)arg0 + 0xB0) = ((u32 (*)(s32, s32, s16))create_window_menu)(get_window_layout_position(0x33), 1, arg1);
-        ((s32 (*)(u32, s32, s32, s32, s32))add_text_entry__19TWindowSubTradeMainFPviiii)(*(u32 *)((s8 *)arg0 + 0xB0), get_localized_text_entry(9, 0x24), 0xA, 0, -1);
-        ((s32 (*)(u32))set_flag70_bit10__16TObjCityMainWarpFPv)(*(u32 *)((s8 *)arg0 + 0xB0));
-        ((s32 (*)(u32))set_flag_40__16TAdChrSelASlotGCFPv)(*(u32 *)((s8 *)arg0 + 0xB0));
+        ((s32 (*)(u32, s32, s32, s32, s32))add_text_entry__19TWindowSubTradeMainFllll)(*(u32 *)((s8 *)arg0 + 0xB0), get_localized_text_entry(9, 0x24), 0xA, 0, -1);
+        ((s32 (*)(u32))set_flag70_bit10__16TObjCityMainWarpFv)(*(u32 *)((s8 *)arg0 + 0xB0));
+        ((s32 (*)(u32))set_flag_40__16TAdChrSelASlotGCFv)(*(u32 *)((s8 *)arg0 + 0xB0));
         ((s32 (*)(u32))calc_window_size__17TWindowSubComCardFPv)(*(u32 *)((s8 *)arg0 + 0xB0));
         ((s32 (*)(u32))align_menu_entry_positions)(*(u32 *)((s8 *)arg0 + 0xB0));
         *(s16 *)((s8 *)arg0 + 0xB8) = arg1;
     }
 }
 
-void *create__16TObjCityAreaWarpFPv(void *arg0) {
+void *TObjCityAreaWarp::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
         o = ((void * (*)(void *, void *, void *))TObjCityAreaWarp__ct)(o, tl_05, arg0);
@@ -582,14 +575,15 @@ void TObjCityMainWarp__vt18(Obj_80185E14 *arg0) {
         arg0->f150 = 2;
     }
     V3_80185E14 sp8 = lbl_80444998[0];
-    ((void (*)(int))set_global_count__12TObjNpcEnemyFi)(0xFF00FF);
+    ((void (*)(int))set_global_count__12TObjNpcEnemyFl)(0xFF00FF);
     ((void (*)(int, void *, ...))debug_printf_at)(0x130021, &lbl_805DBC94, sp8.w[arg0->f150]);
-    ((void (*)(int))set_global_count__12TObjNpcEnemyFi)(0xF0F0F0FF);
+    ((void (*)(int))set_global_count__12TObjNpcEnemyFl)(0xF0F0F0FF);
 }
 
-void render__16TObjCityMainWarpFv(u8 *arg0) {
+void TObjCityMainWarp::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj80185EC8_80185EC8 *) arg0)->m8(lbl_805DBC80, lbl_805DBC98) != 0) {
-        set_global_param__8TObjFishFi(city_common_texture_list);
+        set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -631,7 +625,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
     var_r31 = (u8 *)(arg0);
     if (get_instance__6TLobbyFv() == 0) {
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
-        if ((var_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(var_r3) != 0)) {
+        if ((var_r3 != NULL) && (is_visible__17TWindowSubComCardFv(var_r3) != 0)) {
             var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
             var_r4 = (s32 *)(&city_warp_floor_destination_table.value);
             var_r5 = (u8 *)(var_r31 + (get_selected_menu_value(var_r3) * 4));
@@ -644,7 +638,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
         return 0;
     }
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
-    if ((var_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(var_r3) != 0)) {
+    if ((var_r3 != NULL) && (is_visible__17TWindowSubComCardFv(var_r3) != 0)) {
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
         var_r4 = (s32 *)(&lbl_80444834.value);
         var_r5 = (u8 *)(var_r31 + (get_selected_menu_value(var_r3) * 4));
@@ -724,11 +718,11 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
                     }
                 }
             }
-            ((void (*)(void *))set_flag70_bit10__16TObjCityMainWarpFPv)(w->win);
-            ((void (*)(void *))set_loss_flag__6TLobbyFPv)(w->win);
+            ((void (*)(void *))set_flag70_bit10__16TObjCityMainWarpFv)(w->win);
+            ((void (*)(void *))set_loss_flag__6TLobbyFv)(w->win);
             ((void (*)(void *, f32))update_layout_height__17TWindowSubComCardFPvf)(w->win, lbl_805DBC9C);
             if (w->win->f3C > lbl_805DBCA0) {
-                ((void (*)(void *, f32, f32))set_scroll_target__17TWindowSubComCardFPvff)(w->win, lbl_805DBC9C, lbl_805DBCA0);
+                ((void (*)(void *, f32, f32))set_scroll_target__17TWindowSubComCardFff)(w->win, lbl_805DBC9C, lbl_805DBCA0);
             }
             ((void (*)(void *))align_menu_entry_positions)(w->win);
         }
@@ -738,10 +732,10 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
 }
 #pragma pop
 
-void *create__16TObjCityMainWarpFPv(void *arg0) {
+void *TObjCityMainWarp::create() {
     void *o = __nw__7TObjectFUl(0x154);
     if (o != NULL) {
-        o = TObjCityMainWarp__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
+        o = TObjCityMainWarp__ct((void *)(o), (void *)(tl_05), (void *)(this));
     }
     return o;
 }
@@ -774,9 +768,9 @@ void *TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2) {
         self->b[j] = 0;
     }
     if (is_split_screen() == 1) {
-        p = ((void * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFPv)(0x88);
+        p = ((void * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFv)(0x88);
         if (p != NULL) {
-            p = init__13TAdVIConfigGCFPvf(p, self->pos, lbl_805DBCA4);
+            p = init__13TAdVIConfigGCFf(p, self->pos, lbl_805DBCA4);
         }
         self->vi = p;
     } else {
@@ -794,7 +788,7 @@ void *TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2) {
 
 void unlock_main_warp_destination(s32 id) {
     if (get_instance__6TLobbyFv() == 0) {
-        set_active_bit__16TObjCityMainWarpFv(id);
+        set_active_bit__16TObjCityMainWarpFl(id);
         if (id == 8) {
             dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x30);
         }
@@ -804,7 +798,7 @@ void unlock_main_warp_destination(s32 id) {
         case 12: case 13: case 14: case 15:
             break;
         default:
-            set_active_bit__16TObjCityMainWarpFv(id);
+            set_active_bit__16TObjCityMainWarpFl(id);
             break;
         }
     }
@@ -812,7 +806,7 @@ void unlock_main_warp_destination(s32 id) {
 
 void clear_enabled_main_warps(void) { TObjCityMainWarp__enabled_destinations = 0; }
 
-void clear_active_bit__16TObjCityMainWarpFv(void) {
+void TObjCityMainWarp::clear_active_bit() {
     s32 temp_r3;
 
     temp_r3 = get_floor_warp_bit__16TObjCityMainWarpFi();
@@ -820,7 +814,7 @@ void clear_active_bit__16TObjCityMainWarpFv(void) {
         TObjCityMainWarp__enabled_destinations &= ~(1 << temp_r3);
     }
 }
-void update_warp_flags_from_story__16TObjCityMainWarpFPv(void *self) {
+void TObjCityMainWarp::update_warp_flags_from_story() {
     s32 var_r31;
     s32 var_r3;
     s32 temp_r0;
@@ -830,7 +824,7 @@ void update_warp_flags_from_story__16TObjCityMainWarpFPv(void *self) {
     s32 var_r4;
     s32 var_r5;
     s32 var_r5_2;
-    if ((is_main_phase_15__9TObjEneDDFv(self) != 0) || (is_split_screen() != 0)) {
+    if ((is_main_phase_15__9TObjEneDDFv(this) != 0) || (is_split_screen() != 0)) {
         var_r3 = 0x4F;
         var_r31 = 0x52;
     } else {
@@ -850,7 +844,7 @@ void update_warp_flags_from_story__16TObjCityMainWarpFPv(void *self) {
         TObjCityMainWarp__visible_destination_mask &= ~(1 << var_r5);
     }
 }
-void init_visible_mask__16TObjCityMainWarpFPv(void *self) {
+void TObjCityMainWarp::init_visible_mask() {
     s32 var_r3;
     s32 temp_r0;
     s32 temp_r0_2;
@@ -860,7 +854,7 @@ void init_visible_mask__16TObjCityMainWarpFPv(void *self) {
     s32 var_r5;
     s32 var_r5_2;
     TObjCityMainWarp__visible_destination_mask |= 1;
-    if ((is_main_phase_15__9TObjEneDDFv(self) != 0) || (is_split_screen() != 0)) {
+    if ((is_main_phase_15__9TObjEneDDFv(this) != 0) || (is_split_screen() != 0)) {
         var_r3 = 0x4C;
     } else {
         var_r3 = 0x4D;

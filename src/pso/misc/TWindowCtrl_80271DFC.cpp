@@ -1,10 +1,12 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
 extern void *TWindowCtrl__active_window;
 
-void set_flag_bit0__11TWindowCtrlFv(void) {
+void TWindowCtrl::set_flag_bit0() {
     if ((void *) TWindowCtrl__active_window != NULL) {
         *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) = (u16) (*(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) | 1);
     }
@@ -12,14 +14,14 @@ void set_flag_bit0__11TWindowCtrlFv(void) {
 
 extern void *TWindowCtrl__active_window;
 
-void clear_active_flag__11TWindowCtrlFv(void) {
+void TWindowCtrl::clear_active_flag() {
     if ((void *) TWindowCtrl__active_window != NULL) {
         *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) = (u16) (*(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) & 0xFFFE);
     }
 }
 
     extern int TRaderMapCore__view_mode;
-void clear__13TRaderMapCoreFv(void) { TRaderMapCore__view_mode = 0; }
+void TRaderMapCore::clear() { TRaderMapCore__view_mode = 0; }
 
     extern int TWindowSubStatusDisp__count_ratio_value;
 int get_window_count_ratio_value(void) {  return TWindowSubStatusDisp__count_ratio_value; }

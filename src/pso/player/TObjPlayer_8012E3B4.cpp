@@ -1,15 +1,16 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void update_or_destroy__10TObjPlayerFPv(u8 *arg0);
 s32 vec3_add_to(void *, void *);
 u32 query_game_join_id__10TObjPlayerFv(s32);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern const f32 lbl_805DAF70;
 
-void update_or_destroy__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::update_or_destroy() {
+    u8 *arg0 = (u8 *)this;
     if (query_game_join_id__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x1C)) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;

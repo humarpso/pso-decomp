@@ -35,7 +35,7 @@ s32 set_fade_material_color__14TBoss6PlotFalzFf(f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_model_motion(s32, s32, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
@@ -48,7 +48,7 @@ s32 set_fade_material_color__14TBoss6PlotFalzFf(f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_model_motion(s32, s32, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
@@ -67,20 +67,20 @@ void draw_fading_model_4__25TBoss6Demo20_TYPE2_APPEARFv(void *arg0);
 s32 set_fade_material_color__14TBoss6PlotFalzFf(f32);
 s32 post_translate_matrix(void *);
 s32 draw_model_motion(s32, s32, f32);
-s32 set_draw_callback_list__8TObjFishFPv(s32);
+s32 set_draw_callback_list__8TObjFishFv(s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 clear_global_state__10TObjPlayerFv();
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 reset_fish_globals__8TObjFishFv();
 s32 set_global_flag__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 void draw_model_12__25TBoss6Demo20_TYPE2_APPEARFv(void *arg0) {
     push_matrix();
     set_global_flag__10TObjPlayerFv();
     post_translate_matrix((void *)&boss6_type2_appear_origin);
-    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xD8));
+    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xD8));
     draw_model_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xDC), *(f32 *)((s8 *)arg0 + 0xE0));
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
@@ -107,7 +107,7 @@ void draw_fading_model_1_pair__25TBoss6Demo20_TYPE2_APPEARFv(void *arg0) {
         if (var_f31 < lbl_805DFA74) {
             set_fade_material_color__14TBoss6PlotFalzFf(var_f31);
         }
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xCC));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xCC));
         set_global_flag__10TObjPlayerFv();
         push_matrix();
         post_translate_matrix((s32 *)((u8 *)arg0 + 0x4C));
@@ -144,8 +144,8 @@ void draw_fading_model_4__25TBoss6Demo20_TYPE2_APPEARFv(void *arg0) {
         push_matrix();
         set_global_flag__10TObjPlayerFv();
         post_translate_matrix((void *)&boss6_type2_appear_origin);
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xC0));
-        set_draw_callback_list__8TObjFishFPv(*(u32 *)((s8 *)arg0 + 0x7C));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xC0));
+        set_draw_callback_list__8TObjFishFv(*(u32 *)((s8 *)arg0 + 0x7C));
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0xBC), *(s32 *)((s8 *)arg0 + 0xC4), *(f32 *)((s8 *)arg0 + 0xE0));
         clear_render_callback__8TObjFishFv(*(u32 *)((s8 *)arg0 + 0x7C));
         clear_global_state__10TObjPlayerFv();
@@ -181,7 +181,7 @@ void draw_fading_model_pair__25TBoss6Demo20_TYPE2_APPEARFv(void *arg0) {
         var_r31 = 0;
         do {
             temp_r30 = (u8 *)arg0 + var_r31;
-            set_global_param__8TObjFishFi(*(s32 *)((s8 *)temp_r30 + 0xA8));
+            set_global_param__8TObjFishFl(*(s32 *)((s8 *)temp_r30 + 0xA8));
             draw_model_motion(*(s32 *)((s8 *)temp_r30 + 0xA4), *(s32 *)((s8 *)temp_r30 + 0xAC), *(f32 *)((s8 *)arg0 + 0xE0));
             var_r29 += 1;
             var_r31 += 0xC;
@@ -217,7 +217,7 @@ typedef struct O_8033D6DC {
 } O_8033D6DC;
 
 extern "C" {
-s32 request_destroy__11TBoss4Type2FUi(void *);
+s32 request_destroy__11TBoss4Type2FUl(void *);
 s32 init_state_1__8TObjFishFPv(void *);
 s32 __dt__7TObjectFv(void *, int);
 s32 __dl__7TObjectFPv(void *);
@@ -226,15 +226,15 @@ s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 extern s32 __vt__25TBoss6Demo20_TYPE2_APPEAR[];
 O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
-s32 request_destroy__11TBoss4Type2FUi(void *);
+s32 request_destroy__11TBoss4Type2FUl(void *);
 void spawn_particle_effect_with_flags(void *, int, int);
 void *create_particle_emitter(void *, s32);
-void set_flags__11TBoss4Type2FPvUi(void *, u32);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void set_flags__11TBoss4Type2FUl(void *, u32);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 void play_persistent_sound(int, void *, int, int, int);
 void play_sound_effect(int, void *, int, int);
 void queue_event_1D__12TBoss3VoloptFss(int, int);
-s32 get_phase__8TObjFishFPv(s32);
+s32 get_phase__8TObjFishFv(s32);
 
 extern const Ent_8033D6DC boss6_type2_appear_particle_schedule[];
 
@@ -289,13 +289,13 @@ void run_task__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D6DC *self) {
             if (self->h[i] == NULL) {
                 self->h[i] = create_particle_emitter(p, e->id);
                 if (self->h[i] != NULL) {
-                    set_flags__11TBoss4Type2FPvUi(self->h[i], 0x40);
+                    set_flags__11TBoss4Type2FUl(self->h[i], 0x40);
                 }
             } else {
-                copy_pos__11TNowLoadingFPvPv(self->h[i], p);
+                copy_pos__11TNowLoadingFPv(self->h[i], p);
             }
         } else if (self->h[i] != NULL) {
-            request_destroy__11TBoss4Type2FUi(self->h[i]);
+            request_destroy__11TBoss4Type2FUl(self->h[i]);
             self->h[i] = NULL;
         }
     }
@@ -311,7 +311,7 @@ void run_task__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D6DC *self) {
         break;
     }
     self->frame++;
-    if (self->frame >= 0x197 || get_phase__8TObjFishFPv(self->fEC) != 5) {
+    if (self->frame >= 0x197 || get_phase__8TObjFishFv(self->fEC) != 5) {
         queue_destruction__7TObjectFv(self);
     }
 }
@@ -322,7 +322,7 @@ O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1) {
         arg0->f18 = __vt__25TBoss6Demo20_TYPE2_APPEAR;
         for (i = 0; i < 9; i++) {
             if (arg0->h[i] != 0) {
-                request_destroy__11TBoss4Type2FUi(arg0->h[i]);
+                request_destroy__11TBoss4Type2FUl(arg0->h[i]);
                 arg0->h[i] = 0;
             }
         }
@@ -353,7 +353,7 @@ s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 void activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
-void cache_target_and_forward__11TCameraCtrlFii(void *, int);
+void cache_target_and_forward__11TCameraCtrlFl(void *, int);
 s32 TObjFish__sub_800E3124(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_fish_count__8TObjFishFv(void);
@@ -420,7 +420,7 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     }
     activate_camera_mode(5);
     set_scripted_camera_pose((void *)lbl_80478058, (void *)lbl_80478058, (void *)lbl_80478064);
-    cache_target_and_forward__11TCameraCtrlFii((void *)boss6_type2_appear_camera_script, 0x416C);
+    cache_target_and_forward__11TCameraCtrlFl((void *)boss6_type2_appear_camera_script, 0x416C);
     *(f32 *)((s8 *)arg0 + 0xE0) = lbl_805DFA70;
     *(f32 *)((s8 *)arg0 + 0xE4) = lbl_805DFA70;
     *(s32 *)((s8 *)arg0 + 0xE8) = 0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOCapsuleMachine01.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -38,8 +39,7 @@ u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *TOCapsuleMachine01__model_resource;
 extern s32 lbl_805D58C4;
 extern s32 TOCapsuleMachine01__last_update_frame_tick;
-void reset_static_state__18TOCapsuleMachine01Fv(void);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, int);
@@ -52,12 +52,11 @@ extern const f32 lbl_805DB380;
 extern const f32 lbl_805DB384;
 u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8015A734_lbl_804AFF00 bm_fs_obj_cap_moto_resource_descriptor;
 extern u8 *TOCapsuleMachine01__model_resource;
 extern s32 TOCapsuleMachine01__last_update_frame_tick;
 extern s32 capsule_machine_ginja_mesh_handle;
-void alloc_and_load_resource__18TOCapsuleMachine01Fv(void);
 }
 
 extern "C" {
@@ -76,9 +75,6 @@ struct VObj_8015A5E8 : Base_8015A5E8 {
 };
 
 void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1);
-void *create__18TOCapsuleMachine01FPv(void *arg0);
-void render__18TOCapsuleMachine01Fv(u8 *arg0);
-void run_task__18TOCapsuleMachine01Fv(void);
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
@@ -90,14 +86,14 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_key_base__5TOKeyFPvs(void *, s32);
-s32 set_global_param__8TObjFishFi(s32);
+s32 destroy_key_base__5TOKeyFs(void *, s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 actor_frame_tick;
 extern s32 TOCapsuleMachine01__last_update_frame_tick;
 extern s32 capsule_machine_ginja_mesh_handle;
 
-void run_task__18TOCapsuleMachine01Fv(void) {
+void TOCapsuleMachine01::run_task() {
     if ((s32) TOCapsuleMachine01__last_update_frame_tick != (s32) actor_frame_tick) {
         TOCapsuleMachine01__last_update_frame_tick = actor_frame_tick;
         scroll_ginja_mesh_uvs(capsule_machine_ginja_mesh_handle, 0, 5, 4, 1);
@@ -105,18 +101,19 @@ void run_task__18TOCapsuleMachine01Fv(void) {
     }
 }
 
-void render__18TOCapsuleMachine01Fv(u8 *arg0) {
+void TOCapsuleMachine01::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_8015A5E8 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
 }
 
-void *create__18TOCapsuleMachine01FPv(void *arg0) {
+void *TOCapsuleMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
         o = TOCapsuleMachine01__ct((u8 *)(o), (s32)(arg0));
@@ -126,7 +123,7 @@ void *create__18TOCapsuleMachine01FPv(void *arg0) {
 
 extern s32 __vt__18TOCapsuleMachine01[];
 
-void reset_static_state__18TOCapsuleMachine01Fv(void) {
+void TOCapsuleMachine01::reset_static_state() {
     TOCapsuleMachine01__last_update_frame_tick = 0;
     lbl_805D58C4 = 0;
     if ((void *) TOCapsuleMachine01__model_resource != NULL) {
@@ -137,12 +134,12 @@ void reset_static_state__18TOCapsuleMachine01Fv(void) {
 
 typedef struct RecoveredFields_8015A734_var_r4 RecoveredFields_8015A734_var_r4;
 typedef struct RecoveredGlobal_8015A734_lbl_804AFF00 RecoveredGlobal_8015A734_lbl_804AFF00;
-void alloc_and_load_resource__18TOCapsuleMachine01Fv(void) {
+void TOCapsuleMachine01::alloc_and_load_resource() {
   int temp_r3;
   long long new_var2;
   int var_r4;
   void **new_var;
-  temp_r3 = (new_var2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *) 0x440));
+  temp_r3 = (new_var2 = alloc__23TAdSinglePlyChrSelectGCFv((void *) 0x440));
   var_r4 = temp_r3;
   if (var_r4 != 0)
   {
@@ -159,7 +156,7 @@ void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOCapsuleMachine01;
         free_collision_body_parts(arg0);
         unregister_object_by_id(arg0);
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -180,7 +177,7 @@ u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFF10.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     return arg0;
 }
 

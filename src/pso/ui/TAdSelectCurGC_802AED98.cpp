@@ -11,6 +11,7 @@ public:
 #endif
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -50,10 +51,9 @@ extern const s32 lbl_80470764[];
 extern const s32 lbl_80470778[];
 extern const s32 current_language;
 extern u32 menu_selection_cursor_texture_list;
-void apply_menu_cursor_selection__6TLobbyFv(void);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 check_flag_0x48__14TAdSelectCurGCFPv(void *, int);
+s32 check_flag_0x48__14TAdSelectCurGCFv(void *, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 void play_sound_effect(int, int, int, int);
@@ -61,7 +61,7 @@ void fn_802AEAA4(void *, s32);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void TAdSelectCurGC__sub_802AF274(void* p, f32 v);
 extern void *__vt__14TAdSelectCurGC[];
@@ -88,8 +88,8 @@ void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
     if (o->fB0 == 0 && o->fAC == 0 && (s32)o->fA8 != 0) {
         if (o->fB8 != 0) {
             u8 t = 0;
-            if (check_flag_0x48__14TAdSelectCurGCFPv(controller_input_state + 0x20, 0x10) == 0 &&
-                check_flag_0x48__14TAdSelectCurGCFPv(controller_input_state + 0x20, 0x20) == 0) {
+            if (check_flag_0x48__14TAdSelectCurGCFv(controller_input_state + 0x20, 0x10) == 0 &&
+                check_flag_0x48__14TAdSelectCurGCFv(controller_input_state + 0x20, 0x20) == 0) {
                 t = 1;
             }
             ok = t;
@@ -116,7 +116,7 @@ void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
         }
         if (o->fB4 == 0 &&
             (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 4) != 0 ||
-             test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 4) != 0)) {
+             test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state + 0x160, 4) != 0)) {
             play_sound_effect(0x52D01, 0, 0, 0);
             o->fAC = 1;
         }
@@ -156,8 +156,8 @@ TAdSelectCurGC_802AF0E0 *__ct__14TAdSelectCurGCFv(TAdSelectCurGC_802AF0E0 *o, vo
     __ct__7TObjectFP7TObject(o);
     o->vt18 = __vt__14TAdSelectCurGC;
     o->f0 = lbl_805D3E70;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)o + 0x1C, a);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)o + 0x9C, b);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((u8 *)o + 0x1C, a);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((u8 *)o + 0x9C, b);
     o->fA4 = 0;
     o->fA8 = 0;
     o->fAC = 0;
@@ -180,7 +180,7 @@ void TLobby__sub_802AF198(void) {
     }
 }
 
-void apply_menu_cursor_selection__6TLobbyFv(void) {
+void TLobby::apply_menu_cursor_selection() {
     update_menu_cursor__6TLobbyFv();
     ByteBlock_14 a = *(const ByteBlock_14 *)lbl_80470764;
     ByteBlock_14 b = *(const ByteBlock_14 *)lbl_80470778;

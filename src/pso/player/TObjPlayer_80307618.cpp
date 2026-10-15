@@ -29,12 +29,12 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80307800(s32 arg0);
-s32 load_projection_tex__10TObjPlayerFii(void *, int);
-s32 setup_particle_once__10TObjPlayerFPv(void *);
+s32 load_projection_tex__10TObjPlayerFll(void *, int);
+s32 setup_particle_once__10TObjPlayerFv(void *);
 s32 get_player_list__10TObjPlayerFv();
 extern const f32 lbl_805DF0AC;
 void TObjPlayer__sub_803076F8(u8 *arg0);
-u8 get_slot_count__14TItemProShieldFPv(void *);
+u8 get_slot_count__14TItemProShieldFv(void *);
 u8 * TItemWeapon__ct(void *, void *);
 s32 set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern s32 lbl_804E70A8[];
@@ -49,7 +49,6 @@ void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1);
 void TObjPlayer__sub_803078BC(void);
 void TObjPlayer__sub_80307908(void);
 void *TObjPlayer__sub_8030790C(void *arg0, s16 arg1);
-void disable_keyboard_control__10TObjPlayerFv(void);
 void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0);
 void update_invincible_blink__10TObjPlayerFPv(void *arg0);
 f32 sin_table_lookup(s32);
@@ -79,7 +78,7 @@ extern f32 lbl_805DF0A8;
 
 void update_invincible_blink__10TObjPlayerFPv(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) > 0) {
-        if (get_slot_count__14TItemProShieldFPv((void *)(arg0)) == 1) {
+        if (get_slot_count__14TItemProShieldFv((void *)(arg0)) == 1) {
             *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (*(s32 *)((s8 *)arg0 + 0x1F8) - 1);
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 0) {
                 set_status_flags__10TObjPlayerFPvUi(arg0, 0x800);
@@ -97,8 +96,8 @@ void TObjPlayer__sub_803076F8(u8 *arg0) {
     s32 temp_r31;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 0) {
         temp_r31 = get_player_list__10TObjPlayerFv();
-        setup_particle_once__10TObjPlayerFPv((void *) (arg0));
-        load_projection_tex__10TObjPlayerFii((void *) (arg0), (int) ((s32) (lbl_805DF0AC * (f32) (*(s32 *)((s8 *)arg0 + 0x1FC) + (temp_r31 * 3)))));
+        setup_particle_once__10TObjPlayerFv((void *) (arg0));
+        load_projection_tex__10TObjPlayerFll((void *) (arg0), (int) ((s32) (lbl_805DF0AC * (f32) (*(s32 *)((s8 *)arg0 + 0x1FC) + (temp_r31 * 3)))));
     }
 }
 
@@ -107,7 +106,7 @@ u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80307784_lbl_804E70A8 *)&lbl_804E70A8).value;
     set_status_flags__10TObjPlayerFPvUi((void *)(arg0), (s32)(1));
-    if (get_slot_count__14TItemProShieldFPv((void *)(arg0)) == 1) {
+    if (get_slot_count__14TItemProShieldFv((void *)(arg0)) == 1) {
         set_status_flags__10TObjPlayerFPvUi((void *)(arg0), (s32)(0x800));
     }
     *(s32 *)((s8 *)arg0 + 0x1F8) = 5;
@@ -132,6 +131,7 @@ u8 *TObjPlayer__sub_80307800(s32 arg0) {
 #include "types.h"
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -151,7 +151,7 @@ void TObjPlayer__sub_803078BC(void) {  }
 
 extern s32 ending_movie_active_flag;
 
-void disable_keyboard_control__10TObjPlayerFv(void) {
+void TObjPlayer::disable_keyboard_control() {
     queue_destruction__7TObjectFv();
     if ((s32) ending_movie_active_flag != 0) {
         TKeyBoardControl__sub_8000F9CC(2);

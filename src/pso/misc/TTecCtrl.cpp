@@ -11,7 +11,7 @@ struct RecoveredGlobal_8022F068_lbl_804CC934 {
 
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 void clear_zonde_beam_vertex_pointer(void);
 s32 TLobby__sub_803DA16C(void *, s32);
 extern RecoveredGlobal_8022F068_lbl_804CC934 technique_ringwave_texture_list;
@@ -25,7 +25,7 @@ extern u8 technique_resource_descriptor[];
 extern u8 lbl_8044D088[];
 extern u8 lbl_8044D094[];
 extern RecoveredGlobal_8022F068_lbl_804CC934 technique_ringwave_texture_list;
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 u8 *load_resource_from_descriptor(u8 *, s32, void *, s32, s32, s32);
 void **load_gvm_texture_file(void *);
 void bind_gvm_texture_list(void *, void *);
@@ -37,12 +37,10 @@ extern "C" {
 
 void* get_technique_base_params(int a0);
 void *__ct__8TTecCtrlFv(void *arg0);
-void render__8TTecCtrlFv(void);
-void run_task__8TTecCtrlFv(void);
 s32 reset_telepipe_visit_counts();
 void __ct__7TObjectFP7TObject(void *);
 
-void render__8TTecCtrlFv(void) {  }
+void TTecCtrl::render() {  }
 
     extern unsigned char technique_param_table[];
 
@@ -57,7 +55,7 @@ void* get_technique_base_params(int a0) {  return (char*)technique_param_table +
 
 extern s8 lbl_805D63A8;
 
-void run_task__8TTecCtrlFv(void) {
+void TTecCtrl::run_task() {
     lbl_805D63A8 = 0;
     reset_telepipe_visit_counts();
 }
@@ -84,7 +82,7 @@ void TLobby__sub_8022F068(void) {
         if ((u32) *(u32 *)((s8 *)temp_r4 + 8) != 0U) {
             TLobby__sub_803DA16C(lbl_805D63B0, (s32) temp_r4);
         }
-        safe_free__23TAdSinglePlyChrSelectGCFUi((u32) lbl_805D63B0);
+        safe_free__23TAdSinglePlyChrSelectGCFUl((u32) lbl_805D63B0);
         lbl_805D63B0 = NULL;
     }
     if ((void *) technique_effect_bml != NULL) {
@@ -93,7 +91,7 @@ void TLobby__sub_8022F068(void) {
     technique_effect_bml = NULL;
 }
 void load_technique_resources(void) {
-    u8 *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    u8 *p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, technique_resource_descriptor, 0, 0, 0);
     }

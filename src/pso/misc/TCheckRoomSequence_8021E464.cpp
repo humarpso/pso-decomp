@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/misc/TCheckRoomSequence.h"
 
 extern "C" {
 
 int get_check_room_slot_active_flag(int a0);
-void *create__18TCheckRoomSequenceFPv(void *arg0);
 void *TCheckRoomSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *create__18TCheckRoomSequenceFPv(void *arg0) {
+void *TCheckRoomSequence::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x4C);
     if (o != NULL) {
         o = TCheckRoomSequence__ct(o, tl_05, arg0);

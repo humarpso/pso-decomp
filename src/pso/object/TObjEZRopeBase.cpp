@@ -1,6 +1,6 @@
 #include "pso/TObjEZRopeBase.h"
 
-extern "C" void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
+extern "C" void safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 
 extern "C" void TObjPlayer__sub_800FEE84();
 extern "C" void update_bone_attach_points__10TObjPlayerFPv();
@@ -19,7 +19,7 @@ void *__vt__21TObjHMS_EZRope_Player[6] = {
 #pragma pop
 
 TObjEZRopeBase::~TObjEZRopeBase() {
-    if (m_2c != nullptr) { safe_free__23TAdSinglePlyChrSelectGCFUi(m_2c); m_2c = nullptr; }
+    if (m_2c != nullptr) { safe_free__23TAdSinglePlyChrSelectGCFUl(m_2c); m_2c = nullptr; }
 }
 
 #include "types.h"

@@ -11,6 +11,25 @@ struct TAdMcSelectGC
     u32 m_28;
     u32 m_2c;
     u32 m_30;
+    void init_slot(s32 arg1, void *arg2);
+    static void render(void *self);
+    static void update_state();
+    static s32 get_selected_slot_index();
+    static void select_if_mc_present();
+    void run_task();
+    static void *create(void *arg0);
+    static void open();
+    static void close();
+    static int get_mc_count();
+    s32 get_slot_index();
+    void set_field_13c(s32 v);
+    void set_field_0x1c(s32 v);
+    void set_select_index(s32 v);
+    void set_field_134(s32 arg1);
+    void set_field_24(s32 v);
+    void set_field20(f32 v);
+    void set_field_20(s32 v);
+    void set_float_1c(f32 v);
 };
 
 #endif

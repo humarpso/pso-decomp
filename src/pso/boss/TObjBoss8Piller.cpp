@@ -12,10 +12,9 @@ struct RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern BmlResourceDescriptor bm_obj_boss8_piller_resource_descriptor;
 extern u32 TObjBoss8Piller__shared_resource;
-void load_resource_descriptor__15TObjBoss8PillerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
@@ -30,7 +29,6 @@ u8 *__ct__15TObjBoss8PillerFv(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3);
 
 extern "C" {
 
-void free_held_object__15TObjBoss8PillerFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjBoss8Piller__shared_resource;
@@ -49,16 +47,16 @@ u8 *__ct__15TObjBoss8PillerFv(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     return arg0;
 }
 
-void free_held_object__15TObjBoss8PillerFv(void) {
+void TObjBoss8Piller::free_held_object() {
     if ((u32) TObjBoss8Piller__shared_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjBoss8Piller__shared_resource, 1);
         TObjBoss8Piller__shared_resource = 0U;
     }
 }
-void load_resource_descriptor__15TObjBoss8PillerFv(void) {
+void TObjBoss8Piller::load_resource_descriptor() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_boss8_piller_resource_descriptor, 0, 0, 0));

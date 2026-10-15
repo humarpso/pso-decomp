@@ -7,6 +7,9 @@ struct TAdSnAkPassConfirmGC
 {
     u8 _pad1C[0x2C];
     u32 m_48;
+    s32 get_confirm_state();
+    void render();
+    void run_task();
 };
 
 #endif

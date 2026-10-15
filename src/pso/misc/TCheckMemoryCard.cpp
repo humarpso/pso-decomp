@@ -19,22 +19,19 @@ struct RecoveredGlobal_8033C424_lbl_804EF940 {
 };
 
 extern "C" {
-s32 poll_memcard_status__15TAdPlayerLoadGCFPv(void *);
-s32 set_state__17TWindowSubComCardFPvi(void *, s32);
+s32 poll_memcard_status__15TAdPlayerLoadGCFv(void *);
+s32 set_state__17TWindowSubComCardFl(void *, s32);
 extern RecoveredGlobal_8033C424_lbl_804EF940 lbl_804EF940;
-void run_task__16TCheckMemoryCardFv(u8 *arg0);
 }
 
 extern "C" {
 
 void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1);
-void * create__16TCheckMemoryCardFPvPvPv(void *arg0, void *arg1, void *arg2);
-void render__16TCheckMemoryCardFv(void);
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int close_windows__17TWindowSubComCardFPv(void*);
-s32 set_state__17TWindowSubComCardFPvi(void *, s32);
+int close_windows__17TWindowSubComCardFv(void*);
+s32 set_state__17TWindowSubComCardFl(void *, s32);
 int TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
@@ -43,17 +40,18 @@ void __ct__7TObjectFP7TObject(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-s32 init__22TQuestVmDownLoadServerFPvPvPvPvPv(void *, s32, s32, s32, s32);
-void reset__17TWindowSubComCardFPv(void *);
-int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
+s32 init__22TQuestVmDownLoadServerFPvPvPvPv(void *, s32, s32, s32, s32);
+void reset__17TWindowSubComCardFv(void *);
+int update_card_display__17TWindowSubComCardFPvPvPvPv(void*, int, int, int, int);
 
-void render__16TCheckMemoryCardFv(void) {  }
+void TCheckMemoryCard::render() {  }
 
 extern s32 __vt__16TCheckMemoryCard[];
 
 typedef char MemberActionStorage_8033C424_size[sizeof(MemberActionStorage_8033C424) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8033C424_lbl_804EF940_size[sizeof(RecoveredGlobal_8033C424_lbl_804EF940) == 0x60 ? 1 : -1];
-void run_task__16TCheckMemoryCardFv(u8 *arg0) {
+void TCheckMemoryCard::run_task() {
+    u8 *arg0 = (u8 *)this;
     MemberActionStorage_8033C424 member_action;
     typedef char sp8_offset[(offsetof(Stack_8033C424, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8033C424, spC) == 0x4) ? 1 : -1];
@@ -61,9 +59,9 @@ void run_task__16TCheckMemoryCardFv(u8 *arg0) {
     Stack_8033C424 stack;
     u8 *temp_r6;
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = poll_memcard_status__15TAdPlayerLoadGCFPv((void *) (arg0));
+    *(s32 *)((s8 *)arg0 + 0x28) = poll_memcard_status__15TAdPlayerLoadGCFv((void *) (arg0));
     if (*(s32 *)((s8 *)arg0 + 0x28) & 1) {
-        set_state__17TWindowSubComCardFPvi((void *)((void *) (arg0)), (s32)((int) (0)));
+        set_state__17TWindowSubComCardFl((void *)((void *) (arg0)), (s32)((int) (0)));
     }
     temp_r6 = (u8 *)&lbl_804EF940.value + (*(s32 *)((s8 *)arg0 + 0x20) * 0x18);
     member_action.words[0] = *(s32 *)((s8 *)temp_r6 + 0xC);
@@ -112,15 +110,15 @@ void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void 
     *(void **)((s8 *)arg0 + 0x48) = arg2;
     *(void **)((s8 *)arg0 + 0x1C) = arg4;
     *(void **)((s8 *)arg0 + 0x4C) = arg3;
-    reset__17TWindowSubComCardFPv(arg0);
+    reset__17TWindowSubComCardFv(arg0);
     return arg0;
 }
 
-void * create__16TCheckMemoryCardFPvPvPv(void *arg0, void *arg1, void *arg2) {
+void *TCheckMemoryCard::create(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x250);
     if (o != NULL) {
-        o = TCheckMemoryCard__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(1));
+        o = TCheckMemoryCard__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(1));
     }
     return o;
 }

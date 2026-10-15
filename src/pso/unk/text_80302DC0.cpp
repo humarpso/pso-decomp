@@ -26,8 +26,8 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
-s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
-s32 update_enemy_collision_flags__10TObjPlayerFPv(void *);
+s32 copy_pos__11TNowLoadingFPv(void *, void *);
+s32 update_enemy_collision_flags__10TObjPlayerFv(void *);
 extern u8 lbl_8047511C[];
 extern s32 lbl_80475124[];
 extern const f32 lbl_805DEFA0;
@@ -56,7 +56,7 @@ void fn_80302DC0(u8 *arg0) {
             b.x += *(f32 *)((s8 *)arg0 + 0xC4) * *(f32 *)((s8 *)arg0 + 0xB0);
             b.z += *(f32 *)((s8 *)arg0 + 0xC4) * *(f32 *)((s8 *)arg0 + 0xB8);
             if (*(void **)((s8 *)arg0 + 0xCC) != NULL) {
-                copy_pos__11TNowLoadingFPvPv(*(void **)((s8 *)arg0 + 0xCC), &b);
+                copy_pos__11TNowLoadingFPv(*(void **)((s8 *)arg0 + 0xCC), &b);
             }
             *(f32 *)((s8 *)arg0 + 0xC4) += step;
         }
@@ -69,7 +69,7 @@ void fn_80302DC0(u8 *arg0) {
         VecCopy__FP3VecPC3Vec(arg0 + 0x38, &a);
         *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x10) = lbl_805DEFA8;
         *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = lbl_805DEFA8;
-        update_enemy_collision_flags__10TObjPlayerFPv(arg0);
+        update_enemy_collision_flags__10TObjPlayerFv(arg0);
         if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x200000) {
             queue_destruction__7TObjectFv(arg0);
             return;

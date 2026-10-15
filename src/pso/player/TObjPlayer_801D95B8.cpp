@@ -1,46 +1,42 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 struct Rec_801D96CC { u8 a; u8 pad[3]; s16 b; };
 
-s16 get_or_init_field_4__10TObjPlayerFPv(void *arg0);
-s16 get_section_clamped__10TObjPlayerFPv(void *arg0);
-u8 get_valid_technique__10TObjPlayerFPv(void *arg0);
-void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2);
 void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 set_technique_level_entry(s32, s16, s32);
 s32 get_cast_technique_level(s32, s16);
 s32 is_invalid_slot__10TObjPlayerFUc();
 s32 is_valid_technique_id__10TObjPlayerFs(s16);
 s32 is_valid_technique_slot__10TObjPlayerFUc(u8);
-s32 set_technique_id__10TObjPlayerFPvs(void *, s32);
+s32 set_technique_id__10TObjPlayerFs(void *, s32);
 u8 get_item_count_max__10TObjPlayerFv();
 s32 check_technique_level__10TObjPlayerFiiUc(void *, int, u8);
 u8 get_effective_technique_level__10TObjPlayerFPvs(void *, int);
 s32 TObjPlayer__sub_801C010C(void *, s16);
-s32 clamp_to_max__10TObjPlayerFiUcUc(void *, s32, s32);
+s32 clamp_to_max__10TObjPlayerFlUcUc(void *, s32, s32);
 u8 get_castable_technique_level__10TObjPlayerFPv(Rec_801D96CC *p);
-void level_up_all_techniques__10TObjPlayerFPvi(void *p, s32 add);
 
-s16 get_section_clamped__10TObjPlayerFPv(void *arg0) {
+s16 TObjPlayer::get_section_clamped() {
     s16 temp_r4;
 
-    temp_r4 = *(s16 *)((s8 *)arg0 + 6);
+    temp_r4 = *(s16 *)((s8 *)this + 6);
     if ((temp_r4 < 0) || (temp_r4 > 0xA)) {
-        *(s16 *)((s8 *)arg0 + 6) = 0;
+        *(s16 *)((s8 *)this + 6) = 0;
     }
-    return *(s16 *)((s8 *)arg0 + 6);
+    return *(s16 *)((s8 *)this + 6);
 }
 
-s16 get_or_init_field_4__10TObjPlayerFPv(void *arg0) {
-    if (is_valid_technique_id__10TObjPlayerFs(*(s16 *)((s8 *)arg0 + 4)) == 0) {
-        set_technique_id__10TObjPlayerFPvs(arg0, 0);
+s16 TObjPlayer::get_or_init_field_4() {
+    if (is_valid_technique_id__10TObjPlayerFs(*(s16 *)((s8 *)this + 4)) == 0) {
+        set_technique_id__10TObjPlayerFs(this, 0);
     }
-    return *(s16 *)((s8 *)arg0 + 4);
+    return *(s16 *)((s8 *)this + 4);
 }
 
-void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2) {
+void TObjPlayer::split_capped_value(u8 arg0, u8 *arg1, s8 *arg2) {
     if ((is_invalid_slot__10TObjPlayerFUc() != 0) || (arg0 <= 0xEU)) {
         *arg1 = arg0;
         *arg2 = 0;
@@ -50,10 +46,10 @@ void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2) {
     *arg2 = arg0 - 0xE;
 }
 
-u8 get_valid_technique__10TObjPlayerFPv(void *arg0) {
+u8 TObjPlayer::get_valid_technique() {
     u8 var_r31;
 
-    var_r31 = *(u8 *)((s8 *)arg0 + 1);
+    var_r31 = *(u8 *)((s8 *)this + 1);
     if (is_valid_technique_slot__10TObjPlayerFUc(var_r31) == 0) {
         var_r31 = 0;
     }
@@ -92,14 +88,14 @@ void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1) {
     } while (var_r31 < 0x13);
 }
 
-void level_up_all_techniques__10TObjPlayerFPvi(void *p, s32 add) {
+void TObjPlayer::level_up_all_techniques(s32 add) {
     s32 i = 0;
     do {
-        s32 v = ((s32 (*)(void *, s16))get_cast_technique_level)(p, i);
+        s32 v = ((s32 (*)(void *, s16))get_cast_technique_level)(this, i);
         if (((s32 (*)(s32))is_invalid_slot__10TObjPlayerFUc)(v) == 0) {
             v += add;
-            v = clamp_to_max__10TObjPlayerFiUcUc(p, v, ((s32 (*)(void *, s16))get_effective_technique_level__10TObjPlayerFPvs)(p, i));
-            ((void (*)(void *, s16, s32))set_technique_level_entry)(p, i, clamp_to_max__10TObjPlayerFiUcUc(p, v, TObjPlayer__sub_801C010C(p, i)));
+            v = clamp_to_max__10TObjPlayerFlUcUc(this, v, ((s32 (*)(void *, s16))get_effective_technique_level__10TObjPlayerFPvs)(this, i));
+            ((void (*)(void *, s16, s32))set_technique_level_entry)(this, i, clamp_to_max__10TObjPlayerFlUcUc(this, v, TObjPlayer__sub_801C010C(this, i)));
         }
         i++;
     } while (i < 0x13);

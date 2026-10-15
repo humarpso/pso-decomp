@@ -30,6 +30,9 @@ struct TObjCityMainWarpChallenge
     u32 m_164;
     u32 m_168;
     u32 m_16c;
+    void update_state();
+    void render();
+    void run_task();
 };
 
 #endif

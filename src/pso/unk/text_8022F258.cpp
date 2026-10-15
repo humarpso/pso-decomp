@@ -3,11 +3,11 @@
 extern "C" {
 extern u32 dark_technique_charge_effect_ids[];
 void* spawn_particle_effect(float*,u32);
-int check_flag_0x80__10TObjPlayerFPv(void*);
+int check_flag_0x80__10TObjPlayerFv(void*);
 void queue_destruction__7TObjectFv(void*);
 void updateDarkTechniqueCharge(TechniqueChargeEmitter* state);
 s32 __construct_array(void *, void *, int, int, int);
-void init_slots__14TItemEquipBaseFPv(void *);
+void init_slots__14TItemEquipBaseFv(void *);
 extern s32 TItemEquipBase__sub_8010B73C[];
 void *fn_8022F258(void *self);
 }
@@ -16,7 +16,7 @@ extern "C" {
 
 void *fn_8022F258(void *self) {
     __construct_array(self, (void *)TItemEquipBase__sub_8010B73C, 0, 8, 6);
-    init_slots__14TItemEquipBaseFPv(self);
+    init_slots__14TItemEquipBaseFv(self);
     return self;
 }
 
@@ -25,7 +25,7 @@ void updateDarkTechniqueCharge(TechniqueChargeEmitter* state) {
     if(state->age%10==0) {
         for(int i=0;i<3;++i)spawn_particle_effect(state->position,dark_technique_charge_effect_ids[i]);
     }
-    if(!check_flag_0x80__10TObjPlayerFPv(state->actor))queue_destruction__7TObjectFv(state);
+    if(!check_flag_0x80__10TObjPlayerFv(state->actor))queue_destruction__7TObjectFv(state);
     else if(state->age>=180)queue_destruction__7TObjectFv(state);
 }
 

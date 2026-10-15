@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TOFenceAncient01.h"
 
 extern "C" {
 extern char lbl_80441438[];
@@ -40,15 +41,14 @@ struct Arr_80166C40 { void *a; s32 b; s32 c; s32 d; };
 extern "C" {
 s32 fn_80166E64(u8 *arg0);
 u8 *TLobby__sub_8001FE7C(void *, s16);
-void free__11TOBoss4RockFUi(u32);
-void free_if_valid__10TObjPlayerFi(s32);
+void mem_free(u32);
+void free_if_valid__10TObjPlayerFl(s32);
 extern u8 *TOFenceAncient01__model_resource;
 extern u32 TOFenceAncient01__resource_pointer_array;
-void free_resources__16TOFenceAncient01Fv(void);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
-s32 init_fields__16TOFenceAncient01FPv();
+s32 init_fields__16TOFenceAncient01Fv();
 s32 fn_80166E64(u8 *arg0);
 s32 fn_80166EA8(u8 *arg0, int);
 extern RecoveredGlobal_80166D5C_lbl_804B1BE8 fence_ancient01_collision_parts;
@@ -61,15 +61,14 @@ extern const f32 lbl_805DB614;
 extern const f32 lbl_805DB618;
 u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 O_80166C40 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-O_80166C40 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-Arr_80166C40 *alloc_buffer__11TOBoss4RockFPv(s32);
+O_80166C40 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+Arr_80166C40 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
 extern char lbl_80441498[];
 extern char lbl_804414B0[];
 extern char lbl_804414C8[];
 extern u8 *TOFenceAncient01__model_resource;
 extern u32 TOFenceAncient01__resource_pointer_array;
-void load_resources__16TOFenceAncient01Fv(void);
 }
 
 extern "C" {
@@ -78,18 +77,17 @@ void TOFenceAncient02__vt12(void* p);
 void TOFenceAncient02__vt13(void* p);
 void TOFenceAncient02__vt14(void);
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1);
-void *create__16TOFenceAncient01FPv(void *arg0);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
-s32 destroy__16TOFenceAncient01FPvs(void *, s32);
+int clear_player_status_flag__10TObjPlayerFlUl(void*, void*, void*);
+s32 destroy__16TOFenceAncient01Fs(void *, s32);
 int set_indexed_flags(void*, void*, void*);
 
 extern void *tl_05;
 
-void *create__16TOFenceAncient01FPv(void *arg0) {
+void *TOFenceAncient01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
         o = TOFenceAncient01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -99,7 +97,7 @@ void *create__16TOFenceAncient01FPv(void *arg0) {
 
 extern s32 __vt__16TOFenceAncient01[];
 
-void free_resources__16TOFenceAncient01Fv(void) {
+void TOFenceAncient01::free_resources() {
   s32 var_r31;
   s32 var_r30;
   if (((u32) TOFenceAncient01__resource_pointer_array) != 0)
@@ -108,14 +106,14 @@ void free_resources__16TOFenceAncient01Fv(void) {
     var_r31 = 4;
     do
     {
-      free_if_valid__10TObjPlayerFi(*((s32 *) (((s8 *) TOFenceAncient01__resource_pointer_array) + var_r31)));
+      free_if_valid__10TObjPlayerFl(*((s32 *) (((s8 *) TOFenceAncient01__resource_pointer_array) + var_r31)));
       var_r30 += 1;
       var_r31 += 4;
     }
     while (var_r30 < 4);
     if (((u32) TOFenceAncient01__resource_pointer_array) != 0)
     {
-      free__11TOBoss4RockFUi(TOFenceAncient01__resource_pointer_array);
+      mem_free(TOFenceAncient01__resource_pointer_array);
       TOFenceAncient01__resource_pointer_array = 0;
     }
   }
@@ -126,15 +124,15 @@ void free_resources__16TOFenceAncient01Fv(void) {
   }
 }
 
-void load_resources__16TOFenceAncient01Fv(void) {
+void TOFenceAncient01::load_resources() {
     O_80166C40 *o;
     Arr_80166C40 *r;
-    o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (o != NULL) {
         o = load_resource_from_descriptor(o, 1, &ofence_ancient01_resource_descriptor, 0, 0, 0);
     }
     (*(O_80166C40 * *)&TOFenceAncient01__model_resource) = o;
-    r = alloc_buffer__11TOBoss4RockFPv(0x10);
+    r = mem_alloc(0x10);
     (*(Arr_80166C40 * *)&TOFenceAncient01__resource_pointer_array) = r;
     r->a = (*(O_80166C40 * *)&TOFenceAncient01__model_resource)->sub->c;
     (*(Arr_80166C40 * *)&TOFenceAncient01__resource_pointer_array)->b = load_gvm_texture_file(lbl_80441498);
@@ -147,7 +145,7 @@ void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOFenceAncient01;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy__16TOFenceAncient01FPvs(arg0, 0);
+        destroy__16TOFenceAncient01Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -161,7 +159,7 @@ u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f1;
     u8 *temp_r4;
     u8 *temp_r6;
-    init_fields__16TOFenceAncient01FPv();
+    init_fields__16TOFenceAncient01Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80166D5C___vt__16TOFenceAncient01 *)&__vt__16TOFenceAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOFenceAncient01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -174,7 +172,7 @@ u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) (temp_f1 - lbl_805DB610);
     init_collision_body_parts((void *) (arg0), (void *) (&fence_ancient01_collision_parts.value), (int) (3), (int) (temp_r6), (f32) (temp_f1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     fn_80166E64((u8 *)((void *) (arg0)));
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB614;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB618;
@@ -208,7 +206,7 @@ s32 fn_80166EA8(u8 *arg0, int _w1) {
 }
 
 void TOFenceAncient02__vt14(void) {  }
-void TOFenceAncient02__vt13(void* p) { *(int*)((char*)p + 0xac) = 0; *(int*)((char*)p + 0xd0) = 0; clear_player_status_flag__10TObjPlayerFPviUi(p, (void*)0, (void*)8); }
+void TOFenceAncient02__vt13(void* p) { *(int*)((char*)p + 0xac) = 0; *(int*)((char*)p + 0xd0) = 0; clear_player_status_flag__10TObjPlayerFlUl(p, (void*)0, (void*)8); }
 void TOFenceAncient02__vt12(void* p) { *(int*)((char*)p + 0xac) = 1; *(int*)((char*)p + 0xd0) = 1; set_indexed_flags(p, (void*)0, (void*)8); }
 
 }

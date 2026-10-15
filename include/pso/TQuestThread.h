@@ -7,6 +7,10 @@ class TQuestThread : public TObject {
 public:
     virtual ~TQuestThread();
     virtual void run_task();
+public:
+    s32 tick_com_card();
+    s32 update_board_card();
+    s32 update_com_card();
 };
 
 #endif

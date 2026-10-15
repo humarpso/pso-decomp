@@ -1,6 +1,8 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TOTrapAncient02.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_800836E8 {
     f32 sp8;
     f32 spC;
@@ -25,7 +27,6 @@ extern s32 current_matrix;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9414;
-void load_projection_tex_matrix__15TOTrapAncient02Fi(s32 arg0);
 f64 calc_camera_fov_degrees();
 s32 is_split_screen();
 s32 TCameraCtrl__sub_800689F4();
@@ -46,25 +47,24 @@ void load_projected_texture_matrix(f32 farg0);
 extern "C" {
 
 void setup_particle_tev(s32 arg0);
-void setup_tev_stage__10TObjPlayerFv(void);
 s32 GXSetTevOp(s32, s32);
 s32 GXSetTevOrder(s32, s32, s32, s32);
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
 s32 load_list_texture(s32, s32, s32, s32);
 s32 is_split_screen();
-s32 set_global_param__8TObjFishFi(s32 *);
-s32 set_tex_coord_gen__10TObjPlayerFiiii(s32, s32, s32, s32);
+s32 set_global_param__8TObjFishFl(s32 *);
+s32 set_tex_coord_gen__10TObjPlayerFllll(s32, s32, s32, s32);
 
 extern s32 shared_capture_texture_list[];
 extern s32 model_render_flags;
 
-void setup_tev_stage__10TObjPlayerFv(void) {
+void TObjPlayer::setup_tev_stage() {
     if (is_split_screen() == 0) {
         GXSetTevOrder(1, 1, 1, 4);
         GXSetTevOp(1, 2);
-        set_tex_coord_gen__10TObjPlayerFiiii(1, 0, 0, 0x1E);
-        set_global_param__8TObjFishFi(shared_capture_texture_list);
+        set_tex_coord_gen__10TObjPlayerFllll(1, 0, 0, 0x1E);
+        set_global_param__8TObjFishFl(shared_capture_texture_list);
         load_list_texture(0, 0, 0, 1);
         model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count(1);
@@ -83,8 +83,8 @@ void setup_particle_tev(s32 arg0) {
         } else {
             GXSetTevOp(1, 1);
         }
-        set_tex_coord_gen__10TObjPlayerFiiii(1, 0, 0, 0x1E);
-        set_global_param__8TObjFishFi(shared_capture_texture_list);
+        set_tex_coord_gen__10TObjPlayerFllll(1, 0, 0, 0x1E);
+        set_global_param__8TObjFishFl(shared_capture_texture_list);
         load_list_texture(0, 0, 0, 1);
         model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count(1);
@@ -114,7 +114,8 @@ void load_projected_texture_matrix(f32 farg0) {
     }
 }
 
-void load_projection_tex_matrix__15TOTrapAncient02Fi(s32 arg0) {
+void TOTrapAncient02::load_projection_tex_matrix() {
+    s32 arg0 = (s32)this;
     u8 sp10[0x30];
     f32 spC;
     f32 sp8;

@@ -7,6 +7,46 @@ class TItemLoad : public TObject {
 public:
     virtual ~TItemLoad();
     virtual void run_task();
+public:
+    int update_item();
+    void clear_slots();
+    int get_ring_lobby();
+    void update_load();
+    void *init(void *arg1, void *arg2, void *arg3, void *arg4);
+    static void update_all();
+    static void free_all_models();
+    void start_load_with_id(s32 id, s32 arg2);
+    void *dt(s16 arg1);
+    s32 construct_with_vtable(void *a1, int a2, int a3);
+    void begin_load_if_pending(s32 arg1, s32 arg2);
+    void reload_item();
+    void *construct(void * _w1, int _w2, int _w3);
+    void reset_ring_state();
+    void update_state();
+    s32 begin_load(s32 arg1);
+    void reset_state();
+    void update_ring();
+    void update_load_state();
+    void advance_load_state();
+    void *init();
+    static s32 decompress_buffer(u32 arg0);
+    static void free_boss4_rock();
+    static void alloc_work_buffer();
+    void *load_buffer(u32 arg1, s32 arg2);
+    void request_load(s32 arg1);
+    void free_texture();
+    u32 load_data(s32 arg1);
+    static s32 has_resource_id(s32 id);
+    static void get_data_entry(s32 arg0, s32 *arg1);
+    static void lookup_item_data(s32 arg0, s32 *arg1);
+    static void get_item_params(s32 *arg0, s32 *arg1, s32 *arg2);
+    static void get_model_ids(u8 arg0, s32 *arg1, s32 *arg2);
+    static void *find_node_by_id(s32 id);
+    static void release_resource_by_id(s32 id);
+    static void update();
+    static void free_all();
+    static void init_resources();
+    static void create();
 };
 
 #endif

@@ -52,12 +52,11 @@ s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u32 TOSignCave02__shared_resource;
-void load_shared_resource__12TOSignCave02Fv(void);
 s32 init_map_object_base(void *, void *);
 extern s32 __vt__12TOSignCave02[];
 extern s32 lbl_805D3164;
@@ -70,12 +69,10 @@ u8 *TOSignCave02__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern "C" {
 
 void *__dt__12TOSignCave02Fv(void *arg0, s16 arg1);
-void *create__12TOSignCave02FPv(void *arg0);
-void free_static_model__12TOSignCave02Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 
 extern void *tl_05;
 
@@ -92,7 +89,7 @@ void TOSignCave02::render() {
     CaveSignModel *node8;
     CaveSignModel *node9;
     if (((VObj_18_26a62c *)(this))->m8(field_c0, field_c4) != 0) {
-        set_global_param__8TObjFishFi(render_parameter);
+        set_global_param__8TObjFishFl(render_parameter);
         push_matrix();
         post_translate_matrix(transform);
         rotate_matrix_y(0, angle);
@@ -151,7 +148,7 @@ void TOSignCave02::render() {
 
 extern "C" {
 
-void *create__12TOSignCave02FPv(void *arg0) {
+void *TOSignCave02::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
         o = TOSignCave02__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -161,7 +158,7 @@ void *create__12TOSignCave02FPv(void *arg0) {
 
 extern u32 TOSignCave02__shared_resource;
 
-void free_static_model__12TOSignCave02Fv(void) {
+void TOSignCave02::free_static_model() {
     if ((u32) TOSignCave02__shared_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOSignCave02__shared_resource, 1);
         TOSignCave02__shared_resource = 0U;
@@ -170,10 +167,10 @@ void free_static_model__12TOSignCave02Fv(void) {
 
 extern s32 __vt__12TOSignCave02[];
 
-void load_shared_resource__12TOSignCave02Fv(void) {
+void TOSignCave02::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOSignCave02__resource_descriptor, 0, 0, 0));
@@ -184,7 +181,7 @@ void load_shared_resource__12TOSignCave02Fv(void) {
 void *__dt__12TOSignCave02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOSignCave02;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

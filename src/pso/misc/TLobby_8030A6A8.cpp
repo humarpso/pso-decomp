@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 get_player_count__10TObjPlayerFv();
@@ -9,9 +10,6 @@ s32 get_game_play_mode(void);
 
 extern "C" {
 
-s32 is_online_ready__6TLobbyFv(void);
-s32 is_camera_ctrl_active__6TLobbyFv(void);
-s32 is_ready__6TLobbyFv(void);
 s32 TLobby__sub_8030A770(void);
 s32 get_instance__11TCameraCtrlFv();
 s32 is_quest_active();
@@ -21,7 +19,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern s32 game_difficulty_selection;
 
-s32 is_online_ready__6TLobbyFv(void) {
+s32 TLobby::is_online_ready() {
     if (((s32) game_difficulty_selection == 3) && (get_instance__6TLobbyFv() == 0)) {
         return 1;
     }
@@ -31,14 +29,14 @@ s32 is_online_ready__6TLobbyFv(void) {
     return 0;
 }
 
-s32 is_camera_ctrl_active__6TLobbyFv(void) {
+s32 TLobby::is_camera_ctrl_active() {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         return get_instance__11TCameraCtrlFv();
     }
     return 1;
 }
 
-s32 is_ready__6TLobbyFv(void) {
+s32 TLobby::is_ready() {
     if ((get_game_play_mode() == 2) && (is_quest_active() == 1)) {
         return 1;
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSwitchAttack.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -64,30 +65,29 @@ struct Sw_801778A8 {
 };
 
 extern "C" {
-s32 init_params__14TOSwitchAttackFPv(void *);
+s32 init_params__14TOSwitchAttackFv(void *);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__14TOSwitchAttack[];
 extern s32 lbl_805D3178;
 u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2);
-void init_6x05_switch_changed__6TLobbyFPv(void *);
-void finalize_and_send_60__6TLobbyFPv(void *);
+void init_6x05_switch_changed__6TLobbyFv(void *);
+void finalize_and_send_60__6TLobbyFv(void *);
 s32 get_current_floor();
 u16 obj_getField1c(void *);
 void TOSwitchItem__vt19(Self_80177CF4 *self);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 s32 get_game_mode__6TLobbyFv(void);
-void set_shake_preset__11TCameraCtrlFi(s32);
+void set_shake_preset__11TCameraCtrlFl(s32);
 void spawn_particle_effect_with_flags(void *, s32, s32);
 s32 get_enemy_count__9TObjEneDDFv(void);
 f32 horizontal_distance_squared(void *, void *);
 VObj_801778A8 *resolve_hittable_target(u16, s16);
 Mylla_801778A8 *find_entity_by_id(u16);
-void create_sub__14TOSwitchAttackFiiiif(void *, s32, s32, s32, f32);
+void create_sub__14TOSwitchAttackFllllf(void *, s32, s32, s32, f32);
 void play_sound_effect(s32, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DBA08;
-void run_task__14TOSwitchAttackFv(Sw_801778A8 *o);
 }
 
 extern "C" {
@@ -95,19 +95,18 @@ extern "C" {
 void TOSwitchAttack__sub_80177C20(void);
 void TOSwitchAttack__sub_80177C24(void);
 void *__dt__14TOSwitchAttackFv(void *arg0, s16 arg1);
-void *create__14TOSwitchAttackFPv(void *arg0);
-void render__14TOSwitchAttackFv(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-void render__14TOSwitchAttackFv(void) {  }
+void TOSwitchAttack::render() {  }
 
 extern void *tl_05;
 
 #pragma push
 #pragma opt_lifetimes off
-void run_task__14TOSwitchAttackFv(Sw_801778A8 *o) {
+void TOSwitchAttack::run_task() {
+    Sw_801778A8 *o = (Sw_801778A8 *)this;
     u8 busy;
     s32 ok;
     u8 r;
@@ -144,7 +143,7 @@ void run_task__14TOSwitchAttackFv(Sw_801778A8 *o) {
         for (i = 0; i != n; i++) {
             p = resolve_hittable_target(i, 0);
             if (p != NULL) {
-                if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor() &&
+                if (get_field_3e4__10TObjPlayerFv(p) == get_current_floor() &&
                     horizontal_distance_squared((u8 *)p + 0x38, &o->pos) < o->f94) {
                     Atk_801778A8 b;
                     b.a = 0;
@@ -176,11 +175,11 @@ void run_task__14TOSwitchAttackFv(Sw_801778A8 *o) {
         case 0:
             spawn_particle_effect_with_flags(&o->pos, 0x45, 0x40);
             spawn_particle_effect_with_flags(&o->pos, 0x189, 0x40);
-            set_shake_preset__11TCameraCtrlFi(2);
+            set_shake_preset__11TCameraCtrlFl(2);
             play_sound_effect(0x4001C112, &o->pos, 0, 0);
             break;
         case 1:
-            set_shake_preset__11TCameraCtrlFi(2);
+            set_shake_preset__11TCameraCtrlFl(2);
             break;
         case 2:
             if (o->fA8 == 0) {
@@ -195,7 +194,7 @@ void run_task__14TOSwitchAttackFv(Sw_801778A8 *o) {
         case 11: case 12: case 13: case 14: case 15: case 16: case 17:
         case 18: case 19: case 20:
             if (o->f14 == 0) {
-                create_sub__14TOSwitchAttackFiiiif(o, o->fA2, o->fA0, o->fA7 - 3, o->f90);
+                create_sub__14TOSwitchAttackFllllf(o, o->fA2, o->fA0, o->fA7 - 3, o->f90);
             }
             break;
         }
@@ -205,7 +204,7 @@ void run_task__14TOSwitchAttackFv(Sw_801778A8 *o) {
 }
 #pragma pop
 
-void *create__14TOSwitchAttackFPv(void *arg0) {
+void *TOSwitchAttack::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
         o = TOSwitchAttack__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -234,20 +233,20 @@ u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80177C80___vt__14TOSwitchAttack *)&__vt__14TOSwitchAttack).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3178;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    init_params__14TOSwitchAttackFPv((void *) (arg0));
+    init_params__14TOSwitchAttackFv((void *) (arg0));
     *(s8 *)((s8 *)arg0 + 0xA6) = 0;
     *(s32 *)((s8 *)arg0 + 0xA8) = 0;
     return arg0;
 }
 void TOSwitchItem__vt19(Self_80177CF4 *self) {
     Pkt_80177CF4 pkt;
-    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    init_6x05_switch_changed__6TLobbyFv(&pkt);
     pkt.object = obj_getField1c(self);
     pkt.zero = 0;
     pkt.switchId = self->switchId;
     pkt.area = get_current_floor();
     pkt.flags = self->on != 0;
-    finalize_and_send_60__6TLobbyFPv(&pkt);
+    finalize_and_send_60__6TLobbyFv(&pkt);
 }
 
 }

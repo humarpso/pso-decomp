@@ -2,6 +2,7 @@
 
 #include <stddef.h>
 #include <stddef.h>
+#include "pso/misc/TPhotonMylla.h"
 struct Stack_801AD5D8 {
     s32 sp8;
     f32 spC;
@@ -97,7 +98,7 @@ u8 * find_entity_by_id(u16);
 u8 * TPhotonMagicSquare__ct(void *, s32, s32, s32, s32, f32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
 s32 advance_animation_playback(void *);
 s32 queue_photon_blast_hit(int, int, int, f32);
 s32 begin_photon_summon_camera(void *, int);
@@ -115,9 +116,8 @@ extern const f32 lbl_805DC214;
 extern const f32 lbl_805DC218;
 extern const f32 lbl_805DC21C;
 extern const f32 lbl_805DC220;
-void run_task__12TPhotonMyllaFv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
@@ -127,7 +127,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 translate_matrix(int, f32, f32, f32);
 s32 set_material_alpha_compare_reference(int);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 s32 set_global_flag__10TObjPlayerFv();
@@ -140,11 +140,10 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__12TPhotonMyllaFv(Self_801AD4C0 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-void set_field_dc__10TObjPlayerFPvi(void *, s32);
-void set_field_d8__10TObjPlayerFPvi(void *, void *);
+s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
+void set_field_dc__10TObjPlayerFl(void *, s32);
+void set_field_d8__10TObjPlayerFl(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 * find_entity_by_id(u16);
 s32 begin_photon_summon_camera(void *, int);
@@ -201,10 +200,11 @@ typedef char RecoveredFields_801AD5D8_arg0_194_offset[offsetof(RecoveredFields_8
 typedef char RecoveredFields_801AD5D8_arg0_1A0_offset[offsetof(RecoveredFields_801AD5D8_arg0, field_1A0) == 0x1A0 ? 1 : -1];
 typedef char RecoveredFields_801AD5D8_arg0_1A4_offset[offsetof(RecoveredFields_801AD5D8_arg0, field_1A4) == 0x1A4 ? 1 : -1];
 
-void render__12TPhotonMyllaFv(Self_801AD4C0 *self) {
+void TPhotonMylla::render() {
+    Self_801AD4C0 *self = (Self_801AD4C0 *)this;
     if (self->started != 0) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(self->f24);
+        set_global_param__8TObjFishFl(self->f24);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
@@ -218,7 +218,7 @@ void render__12TPhotonMyllaFv(Self_801AD4C0 *self) {
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
         set_photon_blast_joint_callback__10TObjPlayerFPv(self);
-        draw__16TObjEneRe7BeruraFPv(self);
+        draw__16TObjEneRe7BeruraFv(self);
         clear_global_state__10TObjPlayerFv();
         set_material_alpha_compare_reference(0xBF);
         chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -231,7 +231,8 @@ void render__12TPhotonMyllaFv(Self_801AD4C0 *self) {
     }
 }
 
-void run_task__12TPhotonMyllaFv(u8 *arg0) {
+void TPhotonMylla::run_task() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_801AD5D8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801AD5D8, spC) == 0x4) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_801AD5D8, sp14) == 0xC) ? 1 : -1];
@@ -264,7 +265,7 @@ void run_task__12TPhotonMyllaFv(u8 *arg0) {
     if ((lbl_805DC204 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) && ((s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8 == 1)) {
         begin_photon_summon_camera((void *) (arg0), (int) (3));
         ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 = 0;
-        set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
+        set_field_b8__14TObjEnePanarmsFs((void *) (arg0), (int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (5));
     }
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_194 = (s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8;
@@ -343,11 +344,11 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     }
     F_801AD970(self, s32, 0x34) = photon_blast_shared_resource->res->fA8;
     F_801AD970(self, s32, 0x24) = photon_blast_shared_resource->res->fAC;
-    set_field_d8__10TObjPlayerFPvi(self, lbl_804C39D8);
-    set_field_dc__10TObjPlayerFPvi(self, photon_blast_shared_resource->f430);
+    set_field_d8__10TObjPlayerFl(self, lbl_804C39D8);
+    set_field_dc__10TObjPlayerFl(self, photon_blast_shared_resource->f430);
     F_801AD970(self, s16, 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(self, F_801AD970(self, s16, 0xB8));
-    set_field_b8__14TObjEnePanarmsFPvs(self, F_801AD970(self, s16, 0xB8));
+    set_field_b8__14TObjEnePanarmsFs(self, F_801AD970(self, s16, 0xB8));
     F_801AD970(self, s16, 0x194) = 1;
     F_801AD970(self, s32, 0x198) = pkt->first;
     F_801AD970(self, s32, 0x19C) = pkt->more;
@@ -395,7 +396,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     }
     F_801AD970(self, f32, 0x150) = pkt->f20;
     if (F_801AD970(self, s32, 0x198) == 0) {
-        set_field_b8__14TObjEnePanarmsFPvs(self, 0);
+        set_field_b8__14TObjEnePanarmsFs(self, 0);
         begin_photon_summon_camera(self, 3);
         F_801AD970(self, s32, 0x198) = 1;
         F_801AD970(self, s16, 0x194) = 0;

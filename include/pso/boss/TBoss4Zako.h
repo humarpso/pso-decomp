@@ -21,6 +21,10 @@ struct TBoss4Zako {
  void update_move_to_target_state();
  void update_surround_player_state();
  void update_sink_state();
+    static s32 create(s32 arg0);
+    void set_state3();
+    void update_orbit_velocity();
+    static s32 queue_entry(void *v, s32 a, s32 b);
 };
 typedef char TBoss4ZakoSize[(sizeof(TBoss4Zako)==0x3C4)?1:-1];
 #include <stddef.h>

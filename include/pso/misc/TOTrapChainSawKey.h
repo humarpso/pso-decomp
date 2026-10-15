@@ -25,6 +25,9 @@ struct TOTrapChainSawKey
     u32 m_f8;
     u32 m_fc;
     u32 m_100;
+    void *create();
+    static u8 *get_motion(s32 arg0);
+    static u8 *get_model(s32 arg0);
 };
 
 #endif

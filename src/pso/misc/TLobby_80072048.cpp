@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -29,9 +30,7 @@ Npc_8007206C *copy_player_visual_record(Npc_8007206C *dst, Npc_8007206C *src);
 
 extern "C" {
 
-void copy_header_struct__6TLobbyFPvPv(void* p, void* q);
-
-void copy_header_struct__6TLobbyFPvPv(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
+void TLobby::copy_header_struct(void* q) { *(u8*)((char*)this + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)this + 0x1) = *(u8*)((char*)q + 0x1); *(u16*)((char*)this + 0x2) = *(u16*)((char*)q + 0x2); *(u32*)((char*)this + 0x4) = *(u32*)((char*)q + 0x4); }
 Npc_8007206C *copy_player_visual_record(Npc_8007206C *dst, Npc_8007206C *src) {
     *dst = *src;
     return dst;

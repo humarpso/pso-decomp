@@ -19,6 +19,10 @@ struct TObjContainerJung
     s16 m_326;
     u8 _pad328[0x3C];
     u32 m_364;
+    static u8 *get_model_by_index(s32 arg0);
+    static void *create(void *arg0);
+    static void release();
+    static void load_resources();
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TORockCave.h"
 
 struct BmlResourceBlock_804B3AB8 { const char *model_filenames[4]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B3AB8_size[(sizeof(BmlResourceBlock_804B3AB8) == 0x20) ? 1 : -1];
@@ -94,15 +95,13 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_object(int);
-void draw_model__10TORockCaveFPv(u8 *arg0);
 u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u32 cave_rock_resource_bundle;
 extern u32 rock_cave_model_resource;
-void load_resources__10TORockCaveFv(void);
 }
 
 extern "C" {
@@ -111,30 +110,30 @@ void *TORockCave__ct(void *arg0);
 void TORockCave__sub_80175460(void);
 void TORockCave__sub_80175464(void);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
-void free_instances__10TORockCaveFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void TOSensor__sub_80175468(void);
-void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
+void construct_collider_proxy__10TObjPlayerFv(void *, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void destroy_particle_controller__10TObjPlayerFs(void *, int);
 
 extern u32 cave_rock_resource_bundle;
 extern u32 rock_cave_model_resource;
 
-void draw_model__10TORockCaveFPv(u8 *arg0) {
+void TORockCave::draw_model() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_18 *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {
         ((VObj_18 *)(arg0))->m12();
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
         ((VObj_18 *)(arg0))->m13();
     }
 }
 
-void free_instances__10TORockCaveFv(void) {
+void TORockCave::free_instances() {
     if ((u32) rock_cave_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)rock_cave_model_resource, 1);
         rock_cave_model_resource = 0U;
@@ -149,14 +148,14 @@ extern s32 __vt__10TORockCave[];
 
 #define MK_80175224(dst, off)                                                   \
     {                                                                           \
-        void *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);                   \
+        void *p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);                   \
         u32 r = (u32)p;                                                         \
         if (p != 0) {                                                           \
             r = load_resource_from_descriptor(p, 1, tbl + (off), 0, 0, 0);               \
         }                                                                       \
         dst = r;                                                                \
     }
-void load_resources__10TORockCaveFv(void) {
+void TORockCave::load_resources() {
     u8 *tbl = (u8 *)&rock_cave_resource_table;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 3:
@@ -181,7 +180,7 @@ void load_resources__10TORockCaveFv(void) {
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -196,7 +195,7 @@ extern const f32 lbl_805DB978;
 extern void *TORockCave__class_name;
 
 void *TORockCave__ct(void *arg0) {
-    construct_collider_proxy__10TObjPlayerFPv(arg0, tl_05);
+    construct_collider_proxy__10TObjPlayerFv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
     *(void **)((s8 *)arg0 + 0x0) = TORockCave__class_name;
     *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DB974;

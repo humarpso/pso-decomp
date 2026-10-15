@@ -1,17 +1,16 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern u8 TObjPlayer__char_data_array[];
 void destroy_char_data__10TObjPlayerFis(void *p, s32 d);
 void __destroy_arr(void *arr, void *dtor, u32 size, u32 n);
-void destroy_char_data_array__10TObjPlayerFv(void);
 void __register_global_object(void *obj, void *dtor, void *chain);
-void reset_lobby_settings__10TObjPlayerFPv(void *);
+void reset_lobby_settings__10TObjPlayerFv(void *);
 void *__construct_array(void *, void *, void *, u32, u32);
-void destroy_char_data_array__10TObjPlayerFv(void);
 void destroy_char_data__10TObjPlayerFis(void *p, s32 d);
 void TObjPlayer__sub_801BFF80(void);
-void init_char_data__10TObjPlayerFPv(void *);
+void init_char_data__10TObjPlayerFv(void *);
 void TObjPlayer__sub_801BE104(void);
 }
 
@@ -24,12 +23,12 @@ u8 lbl_8050EA64[0xC];
 u8 TObjPlayer__char_data_array[0x42C * 0xC];
 void TObjPlayer__sub_801BE104(void) {
     __construct_array(TObjPlayer__arrival_override_table, (void *)TObjPlayer__sub_801BFF80, NULL, 0x14, 0xC);
-    reset_lobby_settings__10TObjPlayerFPv(lobby_rule_settings);
-    __construct_array(TObjPlayer__char_data_array, (void *)init_char_data__10TObjPlayerFPv, (void *)destroy_char_data__10TObjPlayerFis, 0x42C, 0xC);
-    __register_global_object(NULL, (void *)destroy_char_data_array__10TObjPlayerFv, lbl_8050EA64);
+    reset_lobby_settings__10TObjPlayerFv(lobby_rule_settings);
+    __construct_array(TObjPlayer__char_data_array, (void *)init_char_data__10TObjPlayerFv, (void *)destroy_char_data__10TObjPlayerFis, 0x42C, 0xC);
+    __register_global_object(NULL, (void *)TObjPlayer::destroy_char_data_array, lbl_8050EA64);
 }
 
-void destroy_char_data_array__10TObjPlayerFv(void) {
+void TObjPlayer::destroy_char_data_array() {
     __destroy_arr(TObjPlayer__char_data_array, (void *)destroy_char_data__10TObjPlayerFis, 0x42c, 0xc);
 }
 

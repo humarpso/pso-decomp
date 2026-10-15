@@ -20,7 +20,7 @@ extern G_80090418 *lbl_805D4F20;
 void TObjPlayer__sub_80090418(O_80090418 *self, s32 i);
 void queue_destruction__7TObjectFv(void *);
 void __dt__14TObjEneBalClawFv(void *, int);
-s32 get_flag_0x388_b24__10TObjPlayerFPv(void *);
+s32 get_flag_0x388_b24__10TObjPlayerFv(void *);
 void *find_entity_by_id(u16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -48,7 +48,7 @@ Body_80090178 *TObjEneBalClawBody__sub_80090178(Body_80090178 *self, s16 flag) {
         if (self->parts[3] != NULL) {
             queue_destruction__7TObjectFv(self->parts[3]);
         }
-        if (get_flag_0x388_b24__10TObjPlayerFPv(self) != 0) {
+        if (get_flag_0x388_b24__10TObjPlayerFv(self) != 0) {
             for (i = 0; i < self->count; i++) {
                 p = find_entity_by_id(self->ids[i]);
                 if (p != NULL) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TItemLockCountCtrl.h"
 
 struct Base_801193D8 { char pad[0x18]; };
 
@@ -8,7 +9,6 @@ struct VObj_801193D8 : Base_801193D8 {
 
 extern "C" {
 extern VObj_801193D8 *item_effect_object_table[7];
-void free_all__18TItemLockCountCtrlFv(void);
 extern VObj_801193D8 *item_effect_object_table[7];
 void *TItemLockCountCtrl__ct(void *, s32, s32, void (*)(int), void (*)(int));
 void *__nw__7TObjectFUl(u32);
@@ -26,7 +26,6 @@ void apply_unit_immunity__18TItemLockCountCtrlFi(int arg0);
 void apply_battle_ctrl_effect(int arg0);
 void notify_stealth_enemies_08(int arg0);
 void set_battle_ctrl_flag30__18TItemLockCountCtrlFi(int arg0);
-void init_effect_table__18TItemLockCountCtrlFv(void);
 }
 
 extern "C" {
@@ -99,7 +98,7 @@ void set_battle_ctrl_flag30__18TItemLockCountCtrlFi(int arg0) {
         obj_setFlags30(temp, 0x40);
     }
 }
-void free_all__18TItemLockCountCtrlFv(void) {
+void TItemLockCountCtrl::free_all() {
     s32 i;
     for (i = 0; i != 7; i++) {
         if (item_effect_object_table[i] != 0) {
@@ -114,7 +113,7 @@ void free_all__18TItemLockCountCtrlFv(void) {
         p = TItemLockCountCtrl__ct(p, 0, 0xC, a, b);             \
     }                                                            \
     item_effect_object_table[idx] = (VObj_801193D8 *)p;
-void init_effect_table__18TItemLockCountCtrlFv(void) {
+void TItemLockCountCtrl::init_effect_table() {
     void *p;
     MK_80119444(0, set_battle_ctrl_flag30__18TItemLockCountCtrlFi, TItemLockCountCtrl__sub_80119238)
     MK_80119444(1, apply_unit_immunity__18TItemLockCountCtrlFi, fn_80119204)

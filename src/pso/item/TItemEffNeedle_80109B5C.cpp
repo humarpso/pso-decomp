@@ -4,7 +4,7 @@ struct Rec_80109B5C { u8 pad[0x1C]; f32 pos[3]; u8 pad2[0x2C - 0x28]; };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 s32 __ct__18TItemEffNeedleBaseFv(void *, s32, s32);
 u8 *find_entity_by_id(u16);
 extern s32 __vt__14TItemEffNeedle[];
@@ -17,7 +17,7 @@ extern "C" {
 s32 obj_getField1c(void *);
 s32 create_timed_particle_emitter(void *, s32, s32, s32, void *);
 s32 find_item_by_id();
-s32 get_entity_id__10TObjPlayerFPv(s32);
+s32 get_entity_id__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_8010A058(s32);
 void *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
@@ -37,7 +37,7 @@ void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     if (temp_r3 != NULL) {
         temp_r5 = *(Rec_80109B5C **)((s8 *)temp_r3 + 0xA4);
         VecCopy__FP3VecPC3Vec(self + 0x30, temp_r5[*(s32 *)((s8 *)self + 0x54)].pos);
-        copy_xyz__10TObjPlayerFPvPv(self + 0x58, self + 0x44);
+        copy_xyz__10TObjPlayerFPv(self + 0x58, self + 0x44);
         *(s32 *)((s8 *)self + 0x5C) = (s32) (*(s32 *)((s8 *)self + 0x5C) - *(s32 *)((s8 *)temp_r3 + 0x60));
     }
     return arg0;
@@ -58,7 +58,7 @@ void create_needle_effect(s32 arg0, void *arg1) {
     }
     if (var_r31 != NULL) {
         *(s32 *)((s8 *)var_r31 + 0x3C) = TObjPlayer__sub_8010A058(temp_r29);
-        *(s32 *)((s8 *)var_r31 + 0x40) = get_entity_id__10TObjPlayerFPv(temp_r29);
+        *(s32 *)((s8 *)var_r31 + 0x40) = get_entity_id__10TObjPlayerFv(temp_r29);
         *(s32 *)((s8 *)var_r31 + 0x44) = (s32) (*(s32 *)((s8 *)var_r31 + 0x44) + 0x8000);
     }
     temp_r7 = *(void **)((s8 *)arg1 + 0);

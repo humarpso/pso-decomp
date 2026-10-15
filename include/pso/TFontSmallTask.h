@@ -16,6 +16,8 @@ public:
     s32 age, lifetime, delay;
     s16 active;
     u16 view;
+public:
+    s32 get_task_id();
 };
 
 #endif

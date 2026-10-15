@@ -14,6 +14,9 @@ struct TObjEnvSound
     u32 m_94;
     u32 m_98;
     u32 m_9c;
+    static void render();
+    void run_task();
+    static s32 is_sound_enabled(void *self, s32 cue);
 };
 
 #endif

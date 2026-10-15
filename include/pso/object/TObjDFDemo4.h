@@ -15,6 +15,7 @@ struct TObjDFDemo4
     u8 _padFC[0x4];
     u32 m_100;
     void* m_104;
+    static void *create(void *arg0, void *arg1, void *arg2);
 };
 
 #endif

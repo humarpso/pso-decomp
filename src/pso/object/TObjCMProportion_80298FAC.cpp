@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCMProportion.h"
 
 struct RecoveredGlobal_8029914C_lbl_805409C8 {
     s32 value;
@@ -12,17 +13,15 @@ struct RecoveredGlobal_8029916C_lbl_805409C8 {
 
 extern "C" {
 u8 *get_creation_pad();
-f32 get_right_trigger_ratio__16TObjCMProportionFv(void);
 extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 u8 TObjCMProportion__sub_8029914C(s32 arg0);
 extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 u8 TObjCMProportion__sub_8029916C(s32 arg0);
-s32 is_flag_set__11TLoadingCurFPv(void *, s32);
+s32 is_flag_set__11TLoadingCurFv(void *, s32);
 u8 *get_creation_pad();
 extern s32 lbl_804DBDC0[];
 extern u8 controller_input_state[];
 extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
-void poll_pad_buttons__16TObjCMProportionFv(void);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 u8 *get_creation_pad();
@@ -35,16 +34,15 @@ void get_creation_pad_stick(s32 *arg0, f32 *arg1);
 
 extern "C" {
 
-f32 get_ratio__16TObjCMProportionFv(void);
 u8 *get_creation_pad();
 
 extern s32 lbl_80465168;
 extern const f32 lbl_805DDC20;
 
-f32 get_ratio__16TObjCMProportionFv(void) {
+f32 TObjCMProportion::get_ratio() {
     return (f32) *(u16 *)((s8 *)(get_creation_pad()) + 0x18) / lbl_805DDC20;
 }
-f32 get_right_trigger_ratio__16TObjCMProportionFv(void) {
+f32 TObjCMProportion::get_right_trigger_ratio() {
     return (f32) *(u16 *)((s8 *)(get_creation_pad()) + 0x1A) / lbl_805DDC20;
 }
 typedef char RecoveredGlobal_8029914C_lbl_805409C8_size[sizeof(RecoveredGlobal_8029914C_lbl_805409C8) == 0x18 ? 1 : -1];
@@ -84,7 +82,7 @@ u8 TObjCMProportion__sub_8029916C(s32 arg0) {
     return (u8) ((*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029916C_lbl_805409C8 *)&creation_input_state).value) + 0x10) & arg0) != 0);
 }
 #define G_80299238(off) (*(s32 *)((s8 *)(&creation_input_state) + (off)))
-void poll_pad_buttons__16TObjCMProportionFv(void) {
+void TObjCMProportion::poll_pad_buttons() {
     s32 old;
     s32 i;
     old = G_80299238(0xC);
@@ -100,17 +98,17 @@ void poll_pad_buttons__16TObjCMProportionFv(void) {
             G_80299238(0xC) |= 0x20;
         } else {
             for (i = 0; i < 4; i++) {
-                if (is_flag_set__11TLoadingCurFPv(controller_input_state + 0x160, lbl_804DBDC0[i]) != 0) {
+                if (is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, lbl_804DBDC0[i]) != 0) {
                     G_80299238(0xC) |= lbl_804DBDC0[i];
                     break;
                 }
             }
         }
     }
-    if (!(G_80299238(0xC) & 4) && is_flag_set__11TLoadingCurFPv(controller_input_state + 0x160, 4) != 0) {
+    if (!(G_80299238(0xC) & 4) && is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, 4) != 0) {
         G_80299238(0xC) |= 4;
     }
-    if (!(G_80299238(0xC) & 2) && is_flag_set__11TLoadingCurFPv(controller_input_state + 0x160, 2) != 0) {
+    if (!(G_80299238(0xC) & 2) && is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, 2) != 0) {
         G_80299238(0xC) |= 2;
     }
     G_80299238(0x10) = G_80299238(0xC) & ~old;

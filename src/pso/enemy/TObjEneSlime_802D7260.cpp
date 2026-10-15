@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSlime.h"
 
 extern "C" {
 
-void spawn_child__12TObjEneSlimeFsiiff(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 void *insert_slot_by_id__12TObjNpcEnemyFs();
 
-void spawn_child__12TObjEneSlimeFsiiff(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void TObjEneSlime::spawn_child(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     void *temp_r3;
 
     temp_r3 = insert_slot_by_id__12TObjNpcEnemyFs();

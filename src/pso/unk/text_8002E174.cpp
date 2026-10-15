@@ -49,6 +49,8 @@ void TObjBoss1Rock__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
 }
 
 #include "types.h"
+#include "pso/boss/TObjBoss1Rock.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Unit { u8 pad[0x2C]; } Unit;
 
@@ -121,11 +123,11 @@ s32 TObjLight__sub_801337F8(s32);
 s32 rotate_matrix_z(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 rotate_matrix_x(int, int);
-s32 concat_matrix__10TObjPlayerFUiUi(int, int);
+s32 concat_matrix__10TObjPlayerFUlUl(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 s32 set_chunk_blend(int);
@@ -135,14 +137,13 @@ extern Holder_8002E3D4 *lbl_805D4BA4;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
-s32 init_base__10TObjPlayerFPv(void *);
+s32 init_base__10TObjPlayerFv(void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 concat_matrix__10TObjPlayerFUiUi(int, int);
+s32 concat_matrix__10TObjPlayerFUlUl(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 extern s32 lbl_80482090[];
@@ -161,34 +162,33 @@ extern "C" {
 void TObjBoss1Rock__sub_8002E3CC(void);
 void TObjBoss1Rock__sub_8002E3D0(void);
 void *TObjPlayer__sub_8002E5D4(void *arg0, s16 arg1);
-void *construct__13TObjBoss1RockFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
-void deleting_dtor__10TObjPlayerFPvs(void *, int);
+void deleting_dtor__10TObjPlayerFs(void *, int);
 
 extern s32 __vt__13TObjBoss1Rock[];
 
-void *construct__13TObjBoss1RockFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjBoss1Rock;
-    TObjBoss1Rock__ct((u8 *)arg0, (u8 *)arg2, (u8 *)arg3, (s32)arg4);
-    return arg0;
+void *TObjBoss1Rock::construct(void *arg1, void *arg2, void *arg3, void *arg4) {
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = __vt__13TObjBoss1Rock;
+    TObjBoss1Rock__ct((u8 *)this, (u8 *)arg2, (u8 *)arg3, (s32)arg4);
+    return this;
 }
 
 extern const f32 lbl_805D8224;
 
-void *construct_random__13TObjBoss1RockFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *TObjBoss1Rock::construct_random(void *arg1, void *arg2, void *arg3) {
     s32 flag;
 
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjBoss1Rock;
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = __vt__13TObjBoss1Rock;
     if (lbl_805D8220 * (f32)rand() > lbl_805D8224) {
         flag = 0;
     } else {
         flag = 1;
     }
-    TObjBoss1Rock__ct((u8 *)arg0, (u8 *)arg2, (u8 *)arg3, (s32)flag);
-    return arg0;
+    TObjBoss1Rock__ct((u8 *)this, (u8 *)arg2, (u8 *)arg3, (s32)flag);
+    return this;
 }
 
 void TObjBoss1Rock__sub_8002E3CC(void) {  }
@@ -199,7 +199,8 @@ extern s32 lbl_80482090[];
 struct Ctr;
 typedef struct Ctr Ctr;
 
-void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self) {
+void TObjPlayer::draw_part_models() {
+    Obj_8002E3D4 *self = (Obj_8002E3D4 *)this;
     Node_8002E3D4 *n;
     Part_8002E3D4 *p;
     s32 i;
@@ -211,7 +212,7 @@ void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self) {
     {
         Color_8002E3D4 c = player_part_model_white_color;
         n = mesh->nodes;
-        set_global_param__8TObjFishFi(model->f2C);
+        set_global_param__8TObjFishFl(model->f2C);
         push_matrix();
         for (i = 0; i < 0x1C; i++, n = n->next, p++) {
             push_matrix();
@@ -219,7 +220,7 @@ void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self) {
             rotate_matrix_z(0, p->f20);
             rotate_matrix_x(0, p->f18);
             translate_matrix(0, -self->f4F4.x, -self->f4F4.y, -self->f4F4.z);
-            concat_matrix__10TObjPlayerFUiUi(0, self->f4F0);
+            concat_matrix__10TObjPlayerFUlUl(0, self->f4F0);
             switch (p->f28) {
             case 0:
             case 1:
@@ -272,7 +273,7 @@ void TObjPlayer__sub_8002E53C(u8 *arg0) {
 void *TObjPlayer__sub_8002E5D4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80482090;
-        deleting_dtor__10TObjPlayerFPvs(arg0, 0);
+        deleting_dtor__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -283,13 +284,13 @@ Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, 
     Part_8002E62C *p;
     s32 i;
     Vec_8002E62C *v;
-    init_base__10TObjPlayerFPv(self);
+    init_base__10TObjPlayerFv(self);
     p = self->parts;
     self->vt = lbl_80482090;
     self->f4F0 = arg2;
     push_matrix();
     set_matrix_identity(0);
-    concat_matrix__10TObjPlayerFUiUi(0, self->f4F0);
+    concat_matrix__10TObjPlayerFUlUl(0, self->f4F0);
     v = &self->f4F4;
     v->x = lbl_805D822C;
     v->y = lbl_805D822C;

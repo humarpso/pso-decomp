@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -141,7 +142,7 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_chunk_object(void *);
 extern char lbl_804763D4[];
 extern char lbl_804763E4[];
@@ -153,20 +154,19 @@ extern char lbl_80476440[];
 extern s32 debug_chunk_object;
 extern const f32 TObjEneRecon__data_805DF438;
 extern const f32 lbl_805DF43C;
-void draw_with_debug_info__12TObjEneReconFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 clear_global_flag_400__9TObjEneDDFv();
-s32 update_primary_light__9TObjEneDDFPv(void *);
-s32 update_secondary_light__9TObjEneDDFPv(void *);
+s32 update_primary_light__9TObjEneDDFv(void *);
+s32 update_secondary_light__9TObjEneDDFv(void *);
 s32 updateFromCamera__15RenderFadeStateFPCf(int, void *);
 s32 update_obstruction_fade(int);
 s32 toggle_particle_effect__10TObjPlayerFv();
-s32 render_world_model__10TObjPlayerFPv(void *);
-s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 render_world_model__10TObjPlayerFv(void *);
+s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 render_trap_model_if_visible__12TObjEneReconFPv(void *);
@@ -175,7 +175,7 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -193,7 +193,8 @@ void render__12TObjEneReconFPv(u8 *arg0);
 
 extern "C" {
 
-void draw_with_debug_info__12TObjEneReconFPv(u8 *arg0) {
+void TObjEneRecon::draw_with_debug_info() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;
     if (get_target_info__9TObjEneDDFPv() != 0) {
@@ -215,7 +216,7 @@ void draw_with_debug_info__12TObjEneReconFPv(u8 *arg0) {
         debug_printf_at(pack_debug_text_position(0, 5), lbl_80476440);
     }
     if (((VObj_18_26a62c *)(arg0))->m8(TObjEneRecon__data_805DF438, lbl_805DF43C) != 0) {
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -301,8 +302,8 @@ block_18:
                     goto block_23;
                 }
 block_23:
-                update_secondary_light__9TObjEneDDFPv((void *) (arg0));
-                set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+                update_secondary_light__9TObjEneDDFv((void *) (arg0));
+                set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
                 push_matrix();
                 post_translate_matrix((void *) (arg0 + 0x38));
                 rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -318,13 +319,13 @@ block_23:
                 clear_global_flag_400__9TObjEneDDFv();
                 toggle_particle_effect__10TObjPlayerFv();
                 if (var_r28 == 1) {
-                    draw__16TObjEneRe7BeruraFPv((void *) (arg0));
+                    draw__16TObjEneRe7BeruraFv((void *) (arg0));
                 } else {
-                    render_world_model__10TObjPlayerFPv((void *) (arg0));
+                    render_world_model__10TObjPlayerFv((void *) (arg0));
                 }
                 end_effect_render__13TParticleCtrlFv();
                 pop_matrix();
-                update_primary_light__9TObjEneDDFPv((void *) (arg0));
+                update_primary_light__9TObjEneDDFv((void *) (arg0));
                 if (var_r27 != 0) {
                     ((Fade_8031EA70 *)(arg0 + 0x3C0))->m7();
                 } else if (temp_r30 != 0) {

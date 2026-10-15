@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
 
@@ -24,32 +25,26 @@ extern s32 lbl_8047D7AC[];
 extern s32 lbl_8047D7C8[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
-s32 cv_fs_get_stat__6TLobbyFPv(u8 *arg0);
 extern s32 lbl_8047D7E4[];
 extern s32 lbl_8047D800[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
-void cvfs_stop_tr__6TLobbyFPv(u8 *arg0);
 extern s32 lbl_8047D8B8[];
 extern s32 lbl_8047D8D4[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
-s32 cv_fs_tell__6TLobbyFPv(u8 *arg0);
 extern s32 lbl_8047D8EC[];
 extern s32 lbl_8047D908[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
-void cv_fs_close__6TLobbyFPv(u8 *arg0);
 extern s32 lbl_8047D850[];
 extern s32 lbl_8047D86C[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
-s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
 extern s32 lbl_8047D884[];
 extern s32 lbl_8047D8A0[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
-s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 strncmp(void *, void *, int);
 void *memcpy(void *, void *, u32);
 u32 strlen(void *);
@@ -59,7 +54,6 @@ extern s8 fs_default_device_name[];
 extern Ent_803CF958 cvfs_entry_table[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
-void cvFsSetDefDev__6TLobbyFPv(char *arg0);
 void *memset(void *, s32, u32);
 extern s32 lbl_805D7600;
 void SIGetTypeAsync(void);
@@ -69,7 +63,8 @@ void TLobby__sub_803CEF60(void);
 
 extern "C" {
 
-s32 cv_fs_get_stat__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::cv_fs_get_stat() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     s32 var_r31;
     var_r31 = 3;
@@ -99,7 +94,8 @@ void TLobby__sub_803CEF60(void) {
     }
 }
 
-void cvfs_stop_tr__6TLobbyFPv(u8 *arg0) {
+void TLobby::cvfs_stop_tr() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     if (arg0 == NULL) {
         if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
@@ -117,7 +113,8 @@ void cvfs_stop_tr__6TLobbyFPv(u8 *arg0) {
     }
 }
 
-s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+s32 TLobby::cv_fs_req_rd(s32 arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
     if (arg0 == NULL) {
@@ -138,7 +135,8 @@ s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     return var_r31;
 }
 
-s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+s32 TLobby::cv_fs_seek(s32 arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
     if (arg0 == NULL) {
@@ -159,7 +157,8 @@ s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     return var_r31;
 }
 
-s32 cv_fs_tell__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::cv_fs_tell() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     s32 var_r31;
     if (arg0 == NULL) {
@@ -179,7 +178,8 @@ s32 cv_fs_tell__6TLobbyFPv(u8 *arg0) {
     }
     return var_r31;
 }
-void cv_fs_close__6TLobbyFPv(u8 *arg0) {
+void TLobby::cv_fs_close() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     if (arg0 == NULL) {
         if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
@@ -211,7 +211,8 @@ inline s32 find_803CF958(char *s, s32 len) {
     }
     return 0;
 }
-void cvFsSetDefDev__6TLobbyFPv(char *arg0) {
+void TLobby::cvFsSetDefDev() {
+    char *arg0 = (char *)this;
     s32 len;
     u32 j;
     u32 n;

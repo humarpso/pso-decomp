@@ -14,6 +14,8 @@ struct TWindowSubComCardList
     u32 m_94;
     u32 m_98;
     u8 m_9c;
+    void run_task();
+    void init(int a1, int a2, int a3);
 };
 
 #endif

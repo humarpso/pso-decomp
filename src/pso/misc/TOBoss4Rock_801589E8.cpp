@@ -5,15 +5,18 @@ extern "C" {
 s32 TObjFish__sub_8001EDB0(s32,s32);
 s32 get_bml_model(s32,s32);
 s32 rotate_matrix_y(int,int);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_object(int);
-void* alloc_buffer__11TOBoss4RockFPv(s32);
+void* mem_alloc(s32);
 void TOBoss4__ct(void*,void*);
 void VecCopy__FP3VecPC3Vec(Vec_8015959C*,Vec_8015959C*);
 u8* TOBoss4Bird__ct(u8*,s32);
 extern s32 __vt__11TOBoss4Bird[];
 }
 #include "types.h"
+#include "pso/misc/TOBoss4Bird.h"
+#include "pso/misc/TOBoss4Rock.h"
+#include "pso/misc/TOBoss4Tower.h"
 extern "C" {
 extern const u32 lbl_805DB310 = 0x44FA0000;
 }
@@ -64,7 +67,8 @@ inline void respawn_801589E8(Rock_801589E8 *self, s32 i) {
     self->rotspd[i].z = (s32)((4096.0f) * ((3.0517578e-05f) * (f32)rand()));
 }
 
-void run_task__11TOBoss4RockFv(Rock_801589E8 *self) {
+void TOBoss4Rock::run_task() {
+    Rock_801589E8 *self = (Rock_801589E8 *)this;
     s32 i;
 
     for (i = 0; i < self->count; i++) {
@@ -121,28 +125,27 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_object(int);
-void render__11TOBoss4RockFv(Rock_80158DCC *self);
 }
 
 extern "C" {
 
-void *create__11TOBoss4RockFPv(void *arg0);
 void *__dt__11TOBoss4RockFv(void *arg0, s16 arg1);
 void *TOBoss4Rock__ct(void *, void *);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TOBoss4Fv(void *, int);
 void *__nw__7TObjectFUl(int);
 
-void render__11TOBoss4RockFv(Rock_80158DCC *self) {
+void TOBoss4Rock::render() {
+    Rock_80158DCC *self = (Rock_80158DCC *)this;
     s32 i;
     if (self->m8(self->f90, self->f94) != 0) {
         push_matrix();
         post_translate_matrix(&self->pos);
         for (i = 0; i < self->count; i++) {
-            set_global_param__8TObjFishFi(self->params[i]);
+            set_global_param__8TObjFishFl(self->params[i]);
             push_matrix();
             post_translate_matrix(&self->positions[i]);
             rotate_matrix_z(0, self->rots[i].z);
@@ -155,7 +158,7 @@ void render__11TOBoss4RockFv(Rock_80158DCC *self) {
     }
 }
 
-void *create__11TOBoss4RockFPv(void *arg0) {
+void *TOBoss4Rock::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
         o = TOBoss4Rock__ct(o, arg0);
@@ -168,12 +171,12 @@ extern s32 __vt__11TOBoss4Rock[];
 void *__dt__11TOBoss4RockFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOBoss4Rock;
-        if (*(void **)((s8 *)arg0 + 0xA0) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xA0)); }
-        if (*(void **)((s8 *)arg0 + 0xA4) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xA4)); }
-        if (*(void **)((s8 *)arg0 + 0xA8) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xA8)); }
-        if (*(void **)((s8 *)arg0 + 0xAC) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xAC)); }
-        if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xB0)); }
-        if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xB4)); }
+        if (*(void **)((s8 *)arg0 + 0xA0) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xA0)); }
+        if (*(void **)((s8 *)arg0 + 0xA4) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xA4)); }
+        if (*(void **)((s8 *)arg0 + 0xA8) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xA8)); }
+        if (*(void **)((s8 *)arg0 + 0xAC) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xAC)); }
+        if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xB0)); }
+        if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xB4)); }
         __dt__7TOBoss4Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -213,7 +216,7 @@ struct Rock_80158FB4 {
 
 extern "C" {
 
-void *alloc_buffer__11TOBoss4RockFPv(s32);
+void *mem_alloc(s32);
 void TOBoss4__ct(void *, void *);
 s32 rand();
 extern s32 __vt__11TOBoss4Rock[];
@@ -271,12 +274,12 @@ void *TOBoss4Rock__ct(void *arg0_, void *arg1) {
     } else if (self->count > 8) {
         self->count = 8;
     }
-    self->models = (s32 *)alloc_buffer__11TOBoss4RockFPv(self->count * 4);
-    self->params = (s32 *)alloc_buffer__11TOBoss4RockFPv(self->count * 4);
-    self->positions = (Vec_80158FB4 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0xC);
-    self->speeds = (f32 *)alloc_buffer__11TOBoss4RockFPv(self->count * 4);
-    self->rots = (Rot_80158FB4 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0xC);
-    self->rotspd = (Rot_80158FB4 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0xC);
+    self->models = (s32 *)mem_alloc(self->count * 4);
+    self->params = (s32 *)mem_alloc(self->count * 4);
+    self->positions = (Vec_80158FB4 *)mem_alloc(self->count * 0xC);
+    self->speeds = (f32 *)mem_alloc(self->count * 4);
+    self->rots = (Rot_80158FB4 *)mem_alloc(self->count * 0xC);
+    self->rotspd = (Rot_80158FB4 *)mem_alloc(self->count * 0xC);
     for (i = 0; i < self->count; i++) {
         respawn_80158FB4(self, i);
     }
@@ -291,7 +294,7 @@ void *TOBoss4Rock__ct(void *arg0_, void *arg1) {
 #define TObjFish__sub_8001EDB0 ((s32 (*)(void*,int))TObjFish__sub_8001EDB0)
 #define get_bml_model ((s32 (*)(void*,int))get_bml_model)
 #define rotate_matrix_y ((s32 (*)(s32,s32))rotate_matrix_y)
-#define set_global_param__8TObjFishFi ((s32 (*)(s32))set_global_param__8TObjFishFi)
+#define set_global_param__8TObjFishFl ((s32 (*)(s32))set_global_param__8TObjFishFl)
 #define draw_ginja_object ((s32 (*)(s32))draw_ginja_object)
 #define TOBoss4__ct ((s32 (*)(void))TOBoss4__ct)
 
@@ -324,7 +327,6 @@ struct VObj_80159400 : Base_80159400 {
 
 void *TOBoss4Tower__create(void *arg0);
 void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1);
-void render__12TOBoss4TowerFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -340,12 +342,13 @@ void *TOBoss4Tower__create(void *arg0) {
     return o;
 }
 
-void render__12TOBoss4TowerFv(u8 *arg0) {
+void TOBoss4Tower::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_80159400 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0x90), *(f32 *)((s8 *)arg0 + 0x94)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
@@ -380,7 +383,7 @@ u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
 #undef TObjFish__sub_8001EDB0
 #undef get_bml_model
 #undef rotate_matrix_y
-#undef set_global_param__8TObjFishFi
+#undef set_global_param__8TObjFishFl
 #undef draw_ginja_object
 #undef TOBoss4__ct
 
@@ -428,7 +431,8 @@ extern Vec_8015959C lbl_8050BEE0;
 extern Vec_8015959C lbl_8050BF00;
 extern u8 identity_matrix[];
 
-void run_task__11TOBoss4BirdFv(Bird_8015959C *self) {
+void TOBoss4Bird::run_task() {
+    Bird_8015959C *self = (Bird_8015959C *)this;
     self->fa4 += self->fa0;
     if (self->f9c < self->fa4) {
         self->fa4 -= self->f9c;
@@ -513,17 +517,17 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(int, int, f32);
-void render__11TOBoss4BirdFv(Bird_80159870 *self);
 }
 
 extern "C" {
 
-void render__11TOBoss4BirdFv(Bird_80159870 *self) {
+void TOBoss4Bird::render() {
+    Bird_80159870 *self = (Bird_80159870 *)this;
     s32 i;
     if (self->m8(self->f90, self->f94) != 0) {
         push_matrix();
         post_translate_matrix(&self->pos);
-        set_global_param__8TObjFishFi(self->param);
+        set_global_param__8TObjFishFl(self->param);
         for (i = 0; i < self->count; i++) {
             push_matrix();
             translate_matrix(0, (0.0f), self->fD4, (0.0f));
@@ -543,14 +547,13 @@ void render__11TOBoss4BirdFv(Bird_80159870 *self) {
 
 extern "C" {
 
-void *create__11TOBoss4BirdFPv(void *arg0);
 void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TOBoss4Fv(void *, int);
 void *__nw__7TObjectFUl(int);
 
-void *create__11TOBoss4BirdFPv(void *arg0) {
+void *TOBoss4Bird::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
         o = TOBoss4Bird__ct(o, arg0);
@@ -563,8 +566,8 @@ extern s32 __vt__11TOBoss4Bird[];
 void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOBoss4Bird;
-        if (*(void **)((s8 *)arg0 + 0xBC) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xBC)); }
-        if (*(void **)((s8 *)arg0 + 0xC0) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xC0)); }
+        if (*(void **)((s8 *)arg0 + 0xBC) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xBC)); }
+        if (*(void **)((s8 *)arg0 + 0xC0) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xC0)); }
         __dt__7TOBoss4Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -577,7 +580,7 @@ void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1) {
 
 #undef TOBoss4Bird__ct
 #define get_bml_model ((u8* (*)(s32,s32))get_bml_model)
-#define alloc_buffer__11TOBoss4RockFPv ((s32 (*)(s32))alloc_buffer__11TOBoss4RockFPv)
+#define mem_alloc ((s32 (*)(s32))mem_alloc)
 #define TOBoss4__ct ((void (*)(void*))TOBoss4__ct)
 #define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define __vt__11TOBoss4Bird (*(u8 (*)[1])&__vt__11TOBoss4Bird)
@@ -660,8 +663,8 @@ u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {
     } else if (o->count > 6) {
         o->count = 6;
     }
-    o->vecs = (Vec_80159A10 *)alloc_buffer__11TOBoss4RockFPv(o->count * 0xC);
-    o->angs = (s32 *)alloc_buffer__11TOBoss4RockFPv(o->count * 4);
+    o->vecs = (Vec_80159A10 *)mem_alloc(o->count * 0xC);
+    o->angs = (s32 *)mem_alloc(o->count * 4);
     {
         VecTbl_80159A10 tbl = boss4_bird_vec_table[0];
         for (i = 0; i < o->count; i++) {
@@ -683,7 +686,7 @@ u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {
 }
 
 #undef get_bml_model
-#undef alloc_buffer__11TOBoss4RockFPv
+#undef mem_alloc
 #undef TOBoss4__ct
 #undef VecCopy__FP3VecPC3Vec
 #undef __vt__11TOBoss4Bird

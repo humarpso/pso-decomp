@@ -9,6 +9,8 @@ struct TObjRaderHideCol
     void* m_38;
     u8 _pad3C[0x58];
     u32 m_94;
+    static void render();
+    void run_task();
 };
 
 #endif

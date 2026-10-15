@@ -4,8 +4,8 @@ extern "C" {
 s32 find_chat_keyword(char *, char (*)[0x20], s32);
 char *strncpy(char *, const char *, size_t);
 void *memset(void *, int, size_t);
-void free__11TOBoss4RockFUi(void *);
-char *alloc_buffer__11TOBoss4RockFPv(int);
+void mem_free(void *);
+char *mem_alloc(int);
 extern s32 current_language;
 TOChatSensorCapture *TOChatSensorCapture__instance;
 extern const char lbl_8044049C[];
@@ -51,7 +51,7 @@ void TOChatSensorCapture::run_task() {
 }
 
 TOChatSensorCapture::~TOChatSensorCapture() {
-    for (int i = 0; i != 4; i++) free__11TOBoss4RockFUi(messages[i]);
+    for (int i = 0; i != 4; i++) mem_free(messages[i]);
     TOChatSensorCapture__instance = 0;
 }
 
@@ -62,7 +62,7 @@ TOChatSensorCapture::TOChatSensorCapture(TObject *parent) : TObject(parent) {
     s32 i = 0;
     do {
         lifetime[i] = 0;
-        messages[i] = alloc_buffer__11TOBoss4RockFPv(0x100);
+        messages[i] = mem_alloc(0x100);
         memset(messages[i], 0, 4);
         i += 1;
     } while (i != 4);

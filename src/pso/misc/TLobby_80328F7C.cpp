@@ -166,7 +166,7 @@ extern "C" {
 s32 get_cell_address__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
 void check_valid_state__6TLobbyFi(s32 arg0);
 void set_player_handle_valid__6TLobbyFPv(void *arg0);
-s32 is_handle_valid__10TObjPlayerFPv();
+s32 is_handle_valid__10TObjPlayerFv();
 
 extern s32 lbl_805D6C80;
 
@@ -191,12 +191,12 @@ s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1) {
 }
 
 void check_valid_state__6TLobbyFi(s32 arg0) {
-    is_valid_state__6TLobbyFPvi((void *)((void *)(arg0)), (s32)((s32)(is_handle_valid__10TObjPlayerFPv())));
+    is_valid_state__6TLobbyFPvi((void *)((void *)(arg0)), (s32)((s32)(is_handle_valid__10TObjPlayerFv())));
 }
 
 void set_player_handle_valid__6TLobbyFPv(void *arg0) {
     struct VObj_80329044 *o = (struct VObj_80329044 *)arg0;
-    o->m75(is_handle_valid__10TObjPlayerFPv());
+    o->m75(is_handle_valid__10TObjPlayerFv());
 }
 typedef char RecoveredGlobal_80329088_lbl_805430E8_size[sizeof(RecoveredGlobal_80329088_lbl_805430E8) == 0x1C0 ? 1 : -1];
 typedef char RecoveredGlobal_80329088_lbl_805432A8_size[sizeof(RecoveredGlobal_80329088_lbl_805432A8) == 0x1C0 ? 1 : -1];
@@ -256,7 +256,7 @@ s32 update_state_6c84__6TLobbyFi(s32 arg0);
 s32 load_action_motion_pairs(s32, s32, s32, s32);
 s32 apply_player_flag_2__6TLobbyFv();
 s32 apply_state_6c84__6TLobbyFv();
-void free__11TOBoss4RockFUi(void*);
+void mem_free(void*);
 s32 init_object_flag__6TLobbyFv();
 s32 set_flag_1_at_6c84__6TLobbyFv();
 
@@ -277,7 +277,7 @@ s32 update_state_6c84__6TLobbyFi(s32 arg0) {
 
 void free_singleton_805D6C80__6TLobbyFv(void) {
     if ((u32) lbl_805D6C80 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D6C80);
+        mem_free((void*)lbl_805D6C80);
         lbl_805D6C80 = 0U;
     }
 }
@@ -290,12 +290,12 @@ void free_singleton_805D6C80__6TLobbyFv(void) {
 extern "C" {
 
 void alloc_work_buffer__6TLobbyFv(void);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_alloc(s32);
 
 extern s32 lbl_805D6C80;
 
 void alloc_work_buffer__6TLobbyFv(void) {
-    lbl_805D6C80 = alloc_buffer__11TOBoss4RockFPv(0x1C0000);
+    lbl_805D6C80 = mem_alloc(0x1C0000);
 }
 
 }
@@ -348,7 +348,7 @@ extern "C" {
 void *init_vtable8__6TLobbyFPv(void *arg0);
 void init_player_forward__6TLobbyFv(void);
 void TLobby__sub_802A7B50(void *);
-s32 init_forward__10TObjPlayerFPv(s32 *);
+s32 init_forward__10TObjPlayerFv(s32 *);
 
 extern s32 lbl_804ED7D0[];
 
@@ -361,7 +361,7 @@ void *init_vtable8__6TLobbyFPv(void *arg0) {
 extern s32 lbl_805D6C84;
 
 void init_player_forward__6TLobbyFv(void) {
-    init_forward__10TObjPlayerFPv(&lbl_805D6C84);
+    init_forward__10TObjPlayerFv(&lbl_805D6C84);
 }
 
 }
@@ -369,31 +369,29 @@ void init_player_forward__6TLobbyFv(void) {
 __declspec(section ".ctors") static void *const __sinit_TLobby_80328F7C_80329368_cpp_ref = (void *)init_player_forward__6TLobbyFv;
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-int is_state_valid_flag__6TLobbyFi(s32 arg0);
-
-int is_check_state_valid__6TLobbyFPv(void* object);
 }
 
 extern "C" {
 
 int TLobby__sub_803293F0(void* p);
 int TLobby__sub_80329470(void);
-int is_invalid_state__6TLobbyFPv(void* p);
 #define IVS ((int (*)(void*))is_valid_state__6TLobbyFPvi)
 #define CVS ((int (*)(void*))check_valid_state__6TLobbyFi)
 
-int is_invalid_state__6TLobbyFPv(void* p) { return (IVS(p)) == 0; }
+int TLobby::is_invalid_state() { return (IVS(this)) == 0; }
 int TLobby__sub_803293F0(void* p) { return (CVS((void*)(p))) == 0; }
 
-int is_state_valid_flag__6TLobbyFi(s32 arg0) {
+int TLobby::is_state_valid_flag() {
+    s32 arg0 = (s32)this;
     return (u8) (((s32)IVS((void*)(arg0))) == 1);
 }
 
-int is_check_state_valid__6TLobbyFPv(void* object) {
-    return (u8) (((s32)CVS(object)) == 1);
+int TLobby::is_check_state_valid() {
+    return (u8) (((s32)CVS(this)) == 1);
 }
 
 int TLobby__sub_80329470(void) {  return lbl_805D6C80; }

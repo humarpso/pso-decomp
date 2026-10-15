@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss4DarkFalz.h"
+#include "pso/boss/TBoss4Zako.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8030ABF4_TCameraCtrl__data_804FF634 {
     s32 value;
@@ -32,7 +35,6 @@ extern s32 TBoss4ZakoDraw__rotation_phase;
 void TCameraCtrl__sub_8030ABF4(void);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
-void clear_uro_link_state__14TBoss4DarkFalzFv(void);
 u8 *get_bml_model(s32, s32);
 s32 get_instance_count__9TBoss4UroFv(void);
 void sync_player_globals__10TObjPlayerFv(void);
@@ -42,17 +44,15 @@ void rotate_matrix_x(int, int);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(int);
+void set_global_param__8TObjFishFl(int);
 void draw_chunk_object(int);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 falz_zako_texture_list;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern const f32 lbl_805DF148;
-void draw_area_chunk_objects__10TObjPlayerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
-s32 queue_entry__10TBoss4ZakoFPvii(void *v, s32 a, s32 b);
 struct Raw_8030A9B0 { u8 b[12]; };
 struct Ent_8030A9B0 { f32 x; f32 y; f32 z; s32 f0c; s32 f10; };
 struct Tbl_8030A9B0 { s32 count; Ent_8030A9B0 ents[1]; };
@@ -157,14 +157,14 @@ void TObjPlayer__sub_8030A9B0() {
 void TObjPlayer__sub_8030A9B0();
 #pragma pop
 
-void draw_area_chunk_objects__10TObjPlayerFv(void) {
+void TObjPlayer::draw_area_chunk_objects() {
     Tbl_8030AB48 *t = &((Tbl_8030AB48 *)&boss4_zako_draw_buffers)[TBoss4ZakoDraw__draw_buffer_index];
     Ent_8030AB48 *p = t->ents;
     s32 r31;
     s32 i;
     r31 = ((s32)get_bml_model((s32)(get_instance_count__9TBoss4UroFv()), (s32)(8)));
     TObjPlayer__sub_80052390(lbl_805DF148);
-    set_global_param__8TObjFishFi(falz_zako_texture_list);
+    set_global_param__8TObjFishFl(falz_zako_texture_list);
     for (i = 0; i < t->count; i++, p++) {
         push_matrix();
         post_translate_matrix(p);
@@ -194,12 +194,12 @@ void TCameraCtrl__sub_8030ABF4(void) {
         var_r4 = (u8 *)((void *)8);
         var_r3 = (s32 *)(*(s32 **)((s8 *)(get_bml_model(get_instance_count__9TBoss4UroFv(), 8)) + 0x2C));
         *(s32 *)((s8 *)var_r3 + 0x18) = (s32) (TBoss4ZakoDraw__rotation_phase << 0xC);
-        draw_area_chunk_objects__10TObjPlayerFv();
+        TObjPlayer::draw_area_chunk_objects();
         TObjPlayer__sub_8030A9B0();
     }
 }
 
-s32 queue_entry__10TBoss4ZakoFPvii(void *v, s32 a, s32 b) {
+s32 TBoss4Zako::queue_entry(void *v, s32 a, s32 b) {
     Tbl_8030AC7C *t = &((Tbl_8030AC7C *)&boss4_zako_draw_buffers)[TBoss4ZakoDraw__draw_buffer_index ^ 1];
     s32 n = t->count;
     Ent_8030AC7C *e = &t->ents[n];
@@ -213,7 +213,7 @@ s32 queue_entry__10TBoss4ZakoFPvii(void *v, s32 a, s32 b) {
     return 1;
 }
 
-void clear_uro_link_state__14TBoss4DarkFalzFv(void) {
+void TBoss4DarkFalz::clear_uro_link_state() {
     s32 i;
     for (i = 0; i < 2; i++) {
         ((E_8030AD08 *)&boss4_zako_draw_buffers)[i].a = 0;

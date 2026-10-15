@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8012DBF4_lbl_804A5B20 {
     s32 value;
@@ -13,25 +14,23 @@ typedef struct SlicerLaunchData_8012D9C8 {
 } SlicerLaunchData_8012D9C8;
 
 extern "C" {
-u8 get_slot_count__14TItemProShieldFPv();
-s32 approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
-s32 add_angle_clamped__10TObjPlayerFPvii(void *, int, int);
+u8 get_slot_count__14TItemProShieldFv();
+s32 approach_value__20TItemEffOrgaFlowShotFPfff(void *, f32, f32);
+s32 add_angle_clamped__10TObjPlayerFPlll(void *, int, int);
 extern const f32 lbl_805DAF38;
 extern const f32 lbl_805DAF3C;
 extern const f32 lbl_805DAF50;
 extern const f32 lbl_805DAF54;
-void update_slicer_hinge_active__10TObjPlayerFPv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_slicer_weapon(u8 *arg0);
-u8 get_slot_count__14TItemProShieldFPv();
-s32 approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
-s32 add_angle_clamped__10TObjPlayerFPvii(void *, int, int);
+u8 get_slot_count__14TItemProShieldFv();
+s32 approach_value__20TItemEffOrgaFlowShotFPfff(void *, f32, f32);
+s32 add_angle_clamped__10TObjPlayerFPlll(void *, int, int);
 extern const f32 lbl_805DAF40;
 extern const f32 lbl_805DAF44;
 extern const f32 lbl_805DAF48;
 extern const f32 lbl_805DAF4C;
-void update_slicer_hinge_idle__10TObjPlayerFPv(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
@@ -40,13 +39,13 @@ extern const f32 lbl_805DAF3C;
 u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
-u32 get_field_d8__10TObjPlayerFPv(void *);
+u32 get_field_d8__10TObjPlayerFv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 s16 get_validated_attack_stage(void *);
-f32 query_extended_state__10TObjPlayerFPv(void *);
+f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
-void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
+void draw_icon__10TObjPlayerFll(void *, int, f32 *);
 void create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
 void launch_slicer_shot(u8 *weapon);
 }
@@ -58,63 +57,65 @@ void launch_slicer_shot(u8 *weapon) {
     SlicerLaunchData_8012D9C8 launch;
     init_slicer_launch_state(&launch);
     launch.player = obj_getField1c(*(u8 **)((s8 *)weapon + 0xF0));
-    launch.weapon = get_field_d8__10TObjPlayerFPv(weapon);
+    launch.weapon = get_field_d8__10TObjPlayerFv(weapon);
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
     launch.kind = TObjPlayer__sub_801D2F4C(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
     launch.stage = get_validated_attack_stage(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
-    launch.multiplier = query_extended_state__10TObjPlayerFPv(*(u8 **)((s8 *)weapon + 0xF0));
+    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 **)((s8 *)weapon + 0xF0));
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
     launch.facing = *(s32 *)((s8 *)(*(u8 **)((s8 *)weapon + 0xF0)) + 0x60);
-    draw_icon__10TObjPlayerFPvii(weapon, 1, launch.first);
-    draw_icon__10TObjPlayerFPvii(weapon, 2, launch.second);
+    draw_icon__10TObjPlayerFll(weapon, 1, launch.first);
+    draw_icon__10TObjPlayerFll(weapon, 2, launch.second);
     create__10TTecSlicerFPUs(&launch);
 }
 
-void update_slicer_hinge_idle__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::update_slicer_hinge_idle() {
+    u8 *arg0 = (u8 *)this;
   int new_var;
   u8 temp_r3;
-  temp_r3 = get_slot_count__14TItemProShieldFPv();
+  temp_r3 = get_slot_count__14TItemProShieldFv();
   switch ((s32) temp_r3)
   {
     case 5:
     {
       s32 lim;
-      add_angle_clamped__10TObjPlayerFPvii((void *)(arg0 + 0x1F8), (int)(0x1555), (int)(0x8000));
+      add_angle_clamped__10TObjPlayerFPlll((void *)(arg0 + 0x1F8), (int)(0x1555), (int)(0x8000));
       new_var = 0x8000;
       if (new_var <= ((s32) (*((s32 *) (((s8 *) arg0) + 0x1F8)))))
       {
-        approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x204, lbl_805DAF40, lbl_805DAF44);
+        approach_value__20TItemEffOrgaFlowShotFPfff(arg0 + 0x204, lbl_805DAF40, lbl_805DAF44);
       }
     }
       break;
     case 6:
       break;
     case 7:
-      approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x204, lbl_805DAF48, lbl_805DAF4C);
-      add_angle_clamped__10TObjPlayerFPvii((void *)(arg0 + 0x1F8), (int)(-0x1555), (int)(-0x8000));
+      approach_value__20TItemEffOrgaFlowShotFPfff(arg0 + 0x204, lbl_805DAF48, lbl_805DAF4C);
+      add_angle_clamped__10TObjPlayerFPlll((void *)(arg0 + 0x1F8), (int)(-0x1555), (int)(-0x8000));
       break;
   }
 }
 
-void update_slicer_hinge_active__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::update_slicer_hinge_active() {
+    u8 *arg0 = (u8 *)this;
   u8 temp_r3;
-  temp_r3 = get_slot_count__14TItemProShieldFPv();
+  temp_r3 = get_slot_count__14TItemProShieldFv();
   switch ((s32) temp_r3)
   {
     case 5:
-      approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x204), (f32) lbl_805DAF50, (f32) lbl_805DAF38);
+      approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x204), (f32) lbl_805DAF50, (f32) lbl_805DAF38);
       if (lbl_805DAF38 <= (*((f32 *) (((s8 *) arg0) + 0x204))))
     {
-      add_angle_clamped__10TObjPlayerFPvii((void *) (arg0 + 0x1F8), (int) (-0x2AAA), (int) 0);
+      add_angle_clamped__10TObjPlayerFPlll((void *) (arg0 + 0x1F8), (int) (-0x2AAA), (int) 0);
     }
     case 6:
       return;
     return;
     case 7:
-      approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x204), (f32) lbl_805DAF54, (f32) lbl_805DAF3C);
-      add_angle_clamped__10TObjPlayerFPvii((void *) (arg0 + 0x1F8), (int) 0x2AAA, (int) 0);
+      approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x204), (f32) lbl_805DAF54, (f32) lbl_805DAF3C);
+      add_angle_clamped__10TObjPlayerFPlll((void *) (arg0 + 0x1F8), (int) 0x2AAA, (int) 0);
       break;
   }
 }

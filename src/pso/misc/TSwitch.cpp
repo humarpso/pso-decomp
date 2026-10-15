@@ -36,12 +36,10 @@ void set_floor_switch_flag(u32 id, s16 floor);
 extern "C" {
 
 void *__ct__7TSwitchFv(void *arg0);
-void render__7TSwitchFv(void);
-void run_task__7TSwitchFv(void);
 void __ct__7TObjectFP7TObject(void *);
 
-void render__7TSwitchFv(void) {  }
-void run_task__7TSwitchFv(void) {  }
+void TSwitch::render() {  }
+void TSwitch::run_task() {  }
 
 void restore_switch_table(s32 arg0, s32 arg1) {
     memcpy((void *) TSwitch__floor_switch_table, (void *) (arg0), (void *) (arg1));

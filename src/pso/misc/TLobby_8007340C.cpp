@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void set_loss_flag__6TLobbyFPv(void* p);
-int is_visible__17TWindowSubComCardFPv(void* p);
+int is_visible__17TWindowSubComCardFv(void* p);
 
-void set_loss_flag__6TLobbyFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x200; }
+void TLobby::set_loss_flag() { *(u16*)((char*)this + 0x70) |= 0x200; }
 
 }

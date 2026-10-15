@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjVoloptCage.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -97,16 +98,14 @@ typedef struct Obj_80049430 {
 
 extern "C" {
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
-void update_state__14TObjVoloptCageFPv(void *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjVoloptCage__sub_800C76F0(void *);
-s32 update_prev_position__10TObjPlayerFPv(void *);
+s32 update_prev_position__10TObjPlayerFv(void *);
 s32 submit_cursor_candidate(void *, int);
-void run_task__14TObjVoloptCageFv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv();
 s32 clear_volopt_cage_flag();
 void obj_clear_flag30_20000(void *arg0);
-s32 check_player_flag1__6TLobbyFPv(int);
+s32 check_player_flag1__6TLobbyFv(int);
 s32 __dt__15TObjEnemyCustomFv(void *, int);
 s32 free_collision_body_parts(void *);
 s32 send_code_45_1__10TObjPlayerFi(int);
@@ -117,9 +116,9 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
 void recalc_combat_stats__10TObjPlayerFv(void *, s32, int, int, f32, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
-void reset_photon_effect__12TBoss3VoloptFPv(void *);
+void reset_photon_effect__12TBoss3VoloptFv(void *);
 void TObjEnemyCustom__ct();
-void set_param__12TObjEneLappyFPvi(void *, int);
+void set_param__12TObjEneLappyFl(void *, int);
 void init_collision_body_parts(void *, void *, int);
 s32 get_player_by_client_id(int);
 extern u8 volopt_cage_collision_body_desc[];
@@ -138,18 +137,17 @@ extern "C" {
 void TLobby__sub_80049568(void);
 void obj_clear_flag30_20000(void *arg0);
 void obj_set_flag_20000(void *arg0);
-void update_state__14TObjVoloptCageFPv(void *arg0);
-s32 update_breakup__14TObjVoloptCageFPv();
-s32 update_collision_state__14TObjVoloptCageFPv();
+s32 update_breakup__14TObjVoloptCageFv();
+s32 update_collision_state__14TObjVoloptCageFv();
 s32 TObjVoloptCage__sub_80049000();
 s32 obj_clearFlags30(void *, s32);
 s32 obj_setFlags30(void *, s32);
 s32 update_capture__14TObjVoloptCageFPv();
 
-void update_state__14TObjVoloptCageFPv(void *arg0) {
+void TObjVoloptCage::update_state() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 7:
         TObjVoloptCage__sub_80049000();
@@ -158,17 +156,18 @@ void update_state__14TObjVoloptCageFPv(void *arg0) {
         update_capture__14TObjVoloptCageFPv();
         return;
     case 4:
-        update_collision_state__14TObjVoloptCageFPv();
+        update_collision_state__14TObjVoloptCageFv();
         return;
     case 5:
-        update_breakup__14TObjVoloptCageFPv();
+        update_breakup__14TObjVoloptCageFv();
         return;
     }
 }
 
     extern int boss3_volopt_cage_flag;
 
-void run_task__14TObjVoloptCageFv(u8 *arg0) {
+void TObjVoloptCage::run_task() {
+    u8 *arg0 = (u8 *)this;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         TObjVoloptCage__sub_800C76F0((void *) (arg0));
         return;
@@ -183,13 +182,13 @@ void run_task__14TObjVoloptCageFv(u8 *arg0) {
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != (s32) *(s32 *)((s8 *)arg0 + 0x374)) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x37C) != -1) {
             *(s32 *)((s8 *)arg0 + 0x37C) = -1;
-            update_state__14TObjVoloptCageFPv((void *) (arg0));
+            update_state();
         }
         *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
         *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     }
-    update_state__14TObjVoloptCageFPv((void *) (arg0));
-    update_prev_position__10TObjPlayerFPv((void *) (arg0));
+    update_state();
+    update_prev_position__10TObjPlayerFv((void *) (arg0));
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
     submit_cursor_candidate((void *) (arg0), (int) (-1));
 }
@@ -200,7 +199,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjVoloptCage.value;
         temp_r3 = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x338)));
         if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
-            if (check_player_flag1__6TLobbyFPv((int) (temp_r3)) != 0) {
+            if (check_player_flag1__6TLobbyFv((int) (temp_r3)) != 0) {
                 send_code_45_1__10TObjPlayerFi((int) (temp_r3));
             }
             obj_clear_flag30_20000((void *)((int) (temp_r3)));
@@ -234,8 +233,8 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
     arg0->f80 = 0;
     arg0->f28 = arg1->f28;
     arg0->f2a = arg1->f2a;
-    reset_photon_effect__12TBoss3VoloptFPv(arg0);
-    set_param__12TObjEneLappyFPvi(arg0, 0x2E);
+    reset_photon_effect__12TBoss3VoloptFv(arg0);
+    set_param__12TObjEneLappyFl(arg0, 0x2E);
     arg0->f3c = lbl_805D8884;
     recalc_combat_stats__10TObjPlayerFv(arg0, lbl_805D4D18, 0, 0, lbl_805D8888, lbl_805D8888);
     arg0->flags |= 0x40000 | 0x8000;

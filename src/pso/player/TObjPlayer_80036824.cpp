@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss2Joint.h"
+#include "pso/player/TObjPlayer.h"
 
 struct B_80036850 { u8 pad[0x18]; };
 
@@ -116,15 +118,13 @@ void TBoss2Joint__vt85(V_80036850 *self, s32 x, s32 y);
 extern "C" {
 
 void TBoss2Joint__vt103(void);
-void render__11TBoss2JointFv(void);
-f32 get_scale_factor__10TObjPlayerFv(void);
 
 f64 acos();
 
-f32 get_scale_factor__10TObjPlayerFv(void) {
+f32 TObjPlayer::get_scale_factor() {
     return (f32) acos();
 }
-void render__11TBoss2JointFv(void) {  }
+void TBoss2Joint::render() {  }
 void TBoss2Joint__vt103(void) {  }
 void TBoss2Joint__vt85(V_80036850 *self, s32 x, s32 y) {
     switch (x) {

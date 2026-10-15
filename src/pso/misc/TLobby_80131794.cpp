@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 int strcmp(const char *a, const char *b);
-int compare_file_extension__6TLobbyFPvPv(const char *s, const char *ext);
 char *strcat(char *, const char *);
 char *strncpy(char *, const char *, u32);
 void *memset(void *, int, u32);
@@ -15,17 +15,16 @@ s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 
 extern "C" {
 
-void debug_print__6TLobbyFii(s32 arg0, ...);
-s32 request_close__19TWindowSubTradeMainFPv(void *);
+s32 request_close__19TWindowSubTradeMainFv(void *);
 s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
-int get_lobby_field_20__15TWindowMakeTeamFPv(void* p);
-int set_field_1c__6TLobbyFPvf(void*);
+int get_lobby_field_20__15TWindowMakeTeamFv(void* p);
+int set_field_1c__6TLobbyFf(void*);
 s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);
 int set_flag62_bit2__16TKeyBoardControlFPv(void*);
-int set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(void* p);
+int set_keyboard_flag62_bit2__15TWindowMakeTeamFv(void* p);
 s32 window_request_show(void * a0 = 0);
 
-void debug_print__6TLobbyFii(s32 arg0, ...) {}
+void TLobby::debug_print(s32 arg0, ...) {}
 
 s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2) {
     char buf[0x20];
@@ -79,7 +78,8 @@ s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2) {
     return 0;
 }
 
-int compare_file_extension__6TLobbyFPvPv(const char *s, const char *ext) {
+int TLobby::compare_file_extension(const char *ext) {
+    const char *s = (const char *)this;
     while (*s) {
         if (*s == '.') {
             return strcmp(s + 1, ext);

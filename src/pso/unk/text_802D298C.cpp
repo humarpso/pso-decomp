@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_802D298C_TLobby__data_80540BD0 {
     s32 value;
@@ -36,7 +37,6 @@ s32 *get_trade_window_state(void);
 extern s32 local_client_id;
 extern s32 TLobby__protocol_instance;
 extern u8 TLobby__trade_proposal_state;
-void apply_trade_items__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -107,7 +107,7 @@ s32 TLobby__sub_802D2A50(u32 arg0) {
     TLobby__data_805D6894 = arg0;
     return 1;
 }
-void apply_trade_items__6TLobbyFv(void) {
+void TLobby::apply_trade_items() {
     s32 allowed;
     struct E_802D2A70 *list;
     u32 id;

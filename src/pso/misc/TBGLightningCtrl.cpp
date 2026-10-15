@@ -6,6 +6,7 @@ public:
     virtual ~TBGLightning();
 };
 #include <stddef.h>
+#include "pso/misc/TBGLightningCtrl.h"
 
 extern "C" {
 
@@ -68,7 +69,7 @@ struct Stack_802A9A2C {
 s32 VecCopy__FP3VecPC3Vec(void *, s32, s8, f32, f32);
 s32 queue_destruction__7TObjectFv();
 s32 get_state_flag__9TMainTaskFv();
-s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 s32 reset_transform_state__10TObjPlayerFv();
 s32 init_xyz_limits__10TObjPlayerFv();
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -81,11 +82,9 @@ void * __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(u8 *, void *);
 void TBGLightningCtrl__sub_802A9A08(void);
 void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(u8 *arg0, s32 arg1);
-void render__16TBGLightningCtrlFv(void);
 void * __dt__16TBGLightningCtrlFv(void *arg0, s16 arg1);
 u8 * TBGLightningCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 void * TBGLightningCtrl__create(void *arg0);
-void destroy_instance__16TBGLightningCtrlFv(void);
 void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c);
 void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir);
 void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir);
@@ -98,11 +97,11 @@ s32 rand();
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 TLobby__sub_803DA16C(void*);
-int set_global_param__8TObjFishFi(void*);
+int set_global_param__8TObjFishFl(void*);
 void set_texture_num(s32);
 void reset_particles__13TParticleCtrlFv(void);
 void TParticleCtrl__sub_803E2A1C(void *, int);
-void setup_particle_draw__13TParticleCtrlFi(s32 arg0);
+void setup_particle_draw__13TParticleCtrlFl(s32 arg0);
 
 extern void *__vt__12TBGLightning[];
 extern void *__vt__16TBGLightningCtrl[];
@@ -116,7 +115,7 @@ extern void *camera_ctrl_instance;
 extern int bg_lightning_texture_handle;
 extern void *tl_05;
 
-void TBGLightningCtrl__sub_802A9A08(void) { set_global_param__8TObjFishFi((void*)(bg_lightning_texture_handle)); }
+void TBGLightningCtrl__sub_802A9A08(void) { set_global_param__8TObjFishFl((void*)(bg_lightning_texture_handle)); }
 
 #pragma push
 #pragma fp_contract on
@@ -134,7 +133,7 @@ void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(u8 *arg0, s32 arg1) {
 extern int fold_flush_0;
 #pragma pop
 
-void render__16TBGLightningCtrlFv(void) {  }
+void TBGLightningCtrl::render() {  }
 
 #pragma push
 #pragma fp_contract on
@@ -183,10 +182,10 @@ void *TBGLightningCtrl__create(void *arg0) {
     return o;
 }
 
-void destroy_instance__16TBGLightningCtrlFv(void) {
+void TBGLightningCtrl::destroy_instance() {
     if ((u32) (*(u32 *)&bg_lightning_texture_handle) != 0U) {
         TLobby__sub_803DA16C((void*)(*(u32 *)&bg_lightning_texture_handle));
-        safe_free__23TAdSinglePlyChrSelectGCFUi((*(u32 *)&bg_lightning_texture_handle));
+        safe_free__23TAdSinglePlyChrSelectGCFUl((*(u32 *)&bg_lightning_texture_handle));
         (*(u32 *)&bg_lightning_texture_handle) = 0U;
     }
 }
@@ -245,7 +244,7 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     p.z = self->pos.z - 0.5f * d.z;
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(idx + lbl_8046FC8C[self->f1c]);
-    setup_particle_draw__13TParticleCtrlFi(1);
+    setup_particle_draw__13TParticleCtrlFl(1);
     submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();
 }
@@ -279,7 +278,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
     p.z = self->pos.z + dir->z * (-3.0f * self->f2c) - 0.5f * d.z;
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(0);
-    setup_particle_draw__13TParticleCtrlFi(1);
+    setup_particle_draw__13TParticleCtrlFl(1);
     submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();
 }
@@ -353,7 +352,7 @@ void __dt__12TBGLightningFv();
 void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
-void reset_motion_fields__10TObjPlayerFPv();
+void reset_motion_fields__10TObjPlayerFv();
 void TParticleCtrl__sub_801A2124();
 void update_object_view_visibility();
 void classify_actor_view_detail();
@@ -362,11 +361,11 @@ void *__vt__16TBGLightningCtrl[] = {
     0, 0,
     (void *)__dt__16TBGLightningCtrlFv,
     (void *)run_task__16TBGLightningCtrlFv,
-    (void *)render__16TBGLightningCtrlFv,
+    (void *)TBGLightningCtrl::render,
     (void *)render_shadows__7TObjectFv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
-    (void *)reset_motion_fields__10TObjPlayerFPv,
+    (void *)reset_motion_fields__10TObjPlayerFv,
     (void *)TParticleCtrl__sub_801A2124,
     (void *)update_object_view_visibility,
     (void *)classify_actor_view_detail,

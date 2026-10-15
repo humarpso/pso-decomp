@@ -85,11 +85,11 @@ struct Self_801221A0 : Pl_801221A0 {
 };
 
 extern "C" {
-u8 * init_state_vector__10TObjPlayerFPv(void *, s32, s32);
+u8 * init_state_vector__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_vector_state__10TObjPlayerFi(s32 arg0);
-s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
+s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
 void spawn_weapon_impact_effect();
 void create_shoot_model_rot_z();
 void create_gun_shot();
@@ -105,14 +105,14 @@ u8 *create_state_vector_state__10TObjPlayerFi(s32 arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x204));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_state_vector__10TObjPlayerFPv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(init_state_vector__10TObjPlayerFv(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }
     return NULL;
 }
 void guld_milla_marker(Self_801221A0 *self) {
-    if (is_mode_two_and_ready__10TObjPlayerFPv(self) != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFv(self) != 0) {
         self->fn1f0 = (void *)create_shoot_model_rot_z;
         self->fn1ec = NULL;
     } else {

@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss4DarkFalz.h"
+#include "pso/object/TObjOnlineEnding.h"
 
 extern "C" {
 
-void close_window__16TObjOnlineEndingFPv(void* p);
-void* get_attack_entry__16TObjOnlineEndingFi(int a0);
-int get_instance__16TObjOnlineEndingFv(void);
 int TWindow__close(void*);
 void *__nw__7TObjectFUl(int);
 
@@ -42,7 +41,7 @@ extern "C" u8 lbl_80472B4C[];
 extern "C" u8 lbl_80472B5C[];
 extern "C" u8 lbl_80472B70[];
 extern "C" void render_shadows__7TObjectFv();
-extern "C" void reset_motion_fields__10TObjPlayerFPv();
+extern "C" void reset_motion_fields__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 struct Obj_802E4E44;
 struct Obj_802E4C70;
@@ -152,19 +151,19 @@ void *online_ending_quad_vertices[8] = {
 void *__vt__16TObjOnlineEnding[13] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__16TObjOnlineEndingFPvs, (void *)&update__16TObjOnlineEndingFPv,
     (void *)&draw_scene__16TObjOnlineEndingFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
 #define lbl_804E3A38 ((f32 *)lbl_804E3A38)
 #define online_ending_quad_vertices ((V2_802E4C70 *)online_ending_quad_vertices)
 #define __vt__16TObjOnlineEnding ((const s32 *)__vt__16TObjOnlineEnding)
 
-int get_instance__16TObjOnlineEndingFv(void) {  return player_unique_pair_entry_count; }
+int TObjOnlineEnding::get_instance() {  return player_unique_pair_entry_count; }
 
     extern unsigned char lbl_8050DAD0[];
-void* get_attack_entry__16TObjOnlineEndingFi(int a0) {  return (char*)lbl_8050DAD0 + a0 * 8; }
+void*TObjOnlineEnding::get_attack_entry(int a0) {  return (char*)lbl_8050DAD0 + a0 * 8; }
 
-void close_window__16TObjOnlineEndingFPv(void* p) { if (*(unsigned int*)((char*)p + 0x154) != 0) { TWindow__close(*(void**)((char*)p + 0x154)); *(int*)((char*)p + 0x154) = 0; } }
+void TObjOnlineEnding::close_window() { if (*(unsigned int*)((char*)this + 0x154) != 0) { TWindow__close(*(void**)((char*)this + 0x154)); *(int*)((char*)this + 0x154) = 0; } }
 
 }
 
@@ -215,9 +214,9 @@ s32 queue_destruction__7TObjectFv(void *);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
 void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0);
-s32 draw_player_model_by_client__10TObjPlayerFUsiff(int, int, f32, f32);
+s32 draw_player_model_by_client__10TObjPlayerFUslff(int, int, f32, f32);
 u32 calc_text_width(void *);
-s32 render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
+s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 scale_matrix(int, f32, f32, f32);
@@ -225,7 +224,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_model_motion(int, int, f32);
 extern const f32 online_ending_scene_scale;
 extern f32 online_ending_quad_y_offset;
@@ -243,7 +242,6 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0);
 
 extern "C" {
 
-void create_result_window__16TObjOnlineEndingFPv(void *arg0);
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1);
 s32 restore_player_cameras();
 s32 get_online_result_value__6TLobbyFv();
@@ -256,13 +254,13 @@ s32 get_card_window_value__16TObjOnlineEndingFv();
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 is_flag_set__6TLobbyFv();
 
-void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
+void TObjOnlineEnding::create_result_window() {
     s32 temp_r31;
     s32 temp_r30_2;
     s32 temp_r30;
     s32 var_r29;
 
-    *(s32 *)((s8 *)arg0 + 0x154) = 0;
+    *(s32 *)((s8 *)this + 0x154) = 0;
     if (is_flag_set__6TLobbyFv() != 0) {
         temp_r30 = get_layout_id__20TWindowSubStatusDispFv(-1) - 1;
         {
@@ -274,7 +272,7 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
                 temp_r31 = TWindowSubStatusDisp__sub_800718D0();
                 var_r29 = TWindowChallengeResult__ct(var_r29, TLobby__sub_80070ACC(), temp_r31, temp_r30_2);
             }
-            *(s32 *)((s8 *)arg0 + 0x154) = var_r29;
+            *(s32 *)((s8 *)this + 0x154) = var_r29;
         }
         }
     }
@@ -291,7 +289,7 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
     push_matrix();
     post_translate_matrix(lbl_804E3A38);
     scale_matrix(0, online_ending_scene_scale, lbl_805DE934, lbl_805DE934);
-    set_global_param__8TObjFishFi(arg0->f94);
+    set_global_param__8TObjFishFl(arg0->f94);
     draw_model_motion(arg0->f90, arg0->f98, arg0->f150);
     pop_matrix();
     for (i = 0; i < arg0->count; i++) {
@@ -309,14 +307,14 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
                 u32 w = calc_text_width(name);
                 V2_802E4C70 v = online_ending_quad_vertices[i];
                 v.x -= (f32)(w >> 1);
-                render_status_line__15TAdSubPlyItemGCFPvi(name, -1, v.x, v.y, lbl_805DE940);
+                render_status_line__15TAdSubPlyItemGCFi(name, -1, v.x, v.y, lbl_805DE940);
             }
             push_matrix();
             post_translate_matrix(lbl_804E3A38);
             post_translate_matrix(e->f18);
             rotate_matrix_y(0, e->f1C);
             scale_matrix(0, e->f20, e->f20, e->f20);
-            draw_player_model_by_client__10TObjPlayerFUsiff(e->id, e->f24, lbl_805DE944, lbl_805DE934);
+            draw_player_model_by_client__10TObjPlayerFUslff(e->id, e->f24, lbl_805DE944, lbl_805DE934);
             pop_matrix();
         }
     }
@@ -360,7 +358,7 @@ void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0) {
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(const s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjOnlineEnding;
-        close_window__16TObjOnlineEndingFPv(arg0);
+        ((TObjOnlineEnding *)arg0)->close_window();
         restore_player_cameras();
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -394,7 +392,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 get_field_3e0__12TBoss3VoloptFPv(void *);
+s32 get_field_3e0__12TBoss3VoloptFv(void *);
 void construct_world_actor_base(void *, void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 void play_area_music(void *);
@@ -442,7 +440,7 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
     }
     for (i = 0; i < 4; i++) {
         pl = (u8 *)((u32 (*)(s32))get_player_by_client_id)(i);
-        if (pl != 0 && SELF->fA0 == get_field_3e0__12TBoss3VoloptFPv(pl)) {
+        if (pl != 0 && SELF->fA0 == get_field_3e0__12TBoss3VoloptFv(pl)) {
             s32 c;
             e = &SELF->ent[SELF->count];
             e->active = 1;
@@ -472,7 +470,7 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
     }
     fn_802E6260();
     fn_802E6218(arg0);
-    create_result_window__16TObjOnlineEndingFPv(arg0);
+    ((TObjOnlineEnding *)arg0)->create_result_window();
     SELF->f14C = 0;
     SELF->fA4 = 0;
     return arg0;
@@ -485,12 +483,10 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
 
 extern "C" {
 
-void *create__16TObjOnlineEndingFPv(void *arg0);
-void free_global_instance__14TBoss4DarkFalzFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjOnlineEnding__ct(void *, void *);
 
-void *create__16TObjOnlineEndingFPv(void *arg0) {
+void *TObjOnlineEnding::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x158);
     if (o != NULL) {
         o = TObjOnlineEnding__ct(o, arg0);
@@ -500,7 +496,7 @@ void *create__16TObjOnlineEndingFPv(void *arg0) {
 
 extern u32 lbl_805D68F4;
 
-void free_global_instance__14TBoss4DarkFalzFv(void) {
+void TBoss4DarkFalz::free_global_instance() {
     if ((u32) lbl_805D68F4 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D68F4, 1);
         lbl_805D68F4 = 0U;

@@ -8,6 +8,9 @@ public:
     virtual ~TBoss8DragonDemo();
     virtual void run_task();
     virtual void render();
+public:
+    int copy_position();
+    static void render();
 };
 
 #endif

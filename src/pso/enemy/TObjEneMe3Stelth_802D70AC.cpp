@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3Stelth.h"
 
 extern "C" {
 
-void spawn_attack__16TObjEneMe3StelthFsiiiff(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1);
 u8 *insert_slot_by_id__12TObjNpcEnemyFs();
 s32 copy_position_data(void *, s32);
 
-void spawn_attack__16TObjEneMe3StelthFsiiiff(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1) {
+void TObjEneMe3Stelth::spawn_attack(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1) {
     u8 *temp_r3;
 
     temp_r3 = insert_slot_by_id__12TObjNpcEnemyFs();

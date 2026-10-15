@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopJudgmentItemWindow.h"
 
 extern "C" {
 s32 get_camera_id__11TCameraCtrlFv();
@@ -10,8 +11,6 @@ u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
-
-void open_default__23TShopJudgmentItemWindowFi(s32 a);
 
 extern s32 local_client_id;
 
@@ -38,7 +37,7 @@ u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
     return var_r0;
 }
 
-void open_default__23TShopJudgmentItemWindowFi(s32 a) {
+void TShopJudgmentItemWindow::open_default(s32 a) {
     create_item_list_window((s32)(a), (s32)(0x40), (s32)(local_client_id));
 }
 

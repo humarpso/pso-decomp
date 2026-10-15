@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/object/TObjCurtainLobby.h"
 
 extern "C" {
 extern char lbl_804798F0[];
@@ -31,13 +32,11 @@ s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void);
 void TObjCurtainLobby__sub_8035B8B4(void);
-void run_task__16TObjCurtainLobbyFv(Curtain_8035B94C *self);
 }
 
 extern "C" {
 
 void TObjCurtainLobby__sub_8035B8B4(void);
-void render__16TObjCurtainLobbyFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 draw_ginja_object(int);
@@ -46,21 +45,18 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi(int);
-void close_dialog_window__16TObjCurtainLobbyFv(void);
-void *create__16TObjCurtainLobbyFPv(void *arg0);
+s32 set_global_param__8TObjFishFl(int);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjCurtainLobby__model_resource;
 extern s32 curtain_lobby_type;
-void load_resources__16TObjCurtainLobbyFv(void);
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 s32 init_map_object_base();
 extern s32 __vt__16TObjCurtainLobby[];
 extern s32 TObjCurtainLobby__class_name;
@@ -83,12 +79,13 @@ s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void) {
 
 void TObjCurtainLobby__sub_8035B8B4(void) {  }
 
-void render__16TObjCurtainLobbyFv(u8 *arg0) {
+void TObjCurtainLobby::render() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
     if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U)) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi((int) (*(u32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(u32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -101,7 +98,8 @@ void render__16TObjCurtainLobbyFv(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
     }
 }
-void run_task__16TObjCurtainLobbyFv(Curtain_8035B94C *self) {
+void TObjCurtainLobby::run_task() {
+    Curtain_8035B94C *self = (Curtain_8035B94C *)this;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((void (*)(void *))TObjCurtainLobby__sub_8035B8B4)(self);
     }
@@ -135,23 +133,23 @@ void run_task__16TObjCurtainLobbyFv(Curtain_8035B94C *self) {
 }
 
 extern void *tl_05;
-void *create__16TObjCurtainLobbyFPv(void *arg0) {
+void *TObjCurtainLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
         o = ((void *(*)(void *, void *, void *))TObjCurtainLobby__ct)(o, tl_05, arg0);
     }
     return o;
 }
-void close_dialog_window__16TObjCurtainLobbyFv(void) {
+void TObjCurtainLobby::close_dialog_window() {
     if ((u32) TObjCurtainLobby__model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjCurtainLobby__model_resource, 1);
         TObjCurtainLobby__model_resource = 0U;
     }
 }
-void load_resources__16TObjCurtainLobbyFv(void) {
+void TObjCurtainLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_curtain_resource_descriptor, 0, 0, 0));
@@ -162,7 +160,7 @@ void load_resources__16TObjCurtainLobbyFv(void) {
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCurtainLobby;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

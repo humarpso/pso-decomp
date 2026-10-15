@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOContainerAncientItemCommon.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_8015B8E8 { char pad[0x18]; };
 
@@ -114,7 +117,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 void TObjPlayer__sub_8015C3C8(u8 *arg0);
 extern s32 __vt__23TOContainerAncientEnemy[];
@@ -124,12 +127,10 @@ void * TOContainerAncientItemCommon__ct(void *, void *);
 s32 __nw__7TObjectFUl(int);
 s32 get_game_play_mode();
 extern s32 enable_v2_features;
-s32 create__28TOContainerAncientItemCommonFi(s32 arg0);
 void submit_cursor_candidate(Obj_8015C48C *self, s32 x);
-void submit_cursor_candidate_if_idle__10TObjPlayerFPv(Obj_8015C48C *self);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 s32 spawn_particle_effect(void *, int);
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void play_container_break_sound(s32 arg0);
@@ -170,17 +171,17 @@ struct VObj_8015C098 : Base_8015C098 {
 void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_ancient_container__10TObjPlayerFPvs(void *, int);
+void destroy_ancient_container__10TObjPlayerFs(void *, int);
 void init_ancient_container(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
-s32 spawn_item__17TObjContainerItemFPvi(void *, void *);
+s32 spawn_item__17TObjContainerItemFl(void *, void *);
 
 void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((struct VObj_8015C098 *) arg0)->m77();
-            spawn_item__17TObjContainerItemFPvi(arg0, arg0);
+            spawn_item__17TObjContainerItemFl(arg0, arg0);
         }
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
         set_flag8__6TLobbyFPv(arg0);
@@ -190,7 +191,8 @@ void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
 
 extern s32 __vt__28TOContainerAncientItemCommon[];
 
-s32 create__28TOContainerAncientItemCommonFi(s32 arg0) {
+s32 TOContainerAncientItemCommon::create() {
+    s32 arg0 = (s32)this;
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r0;
@@ -214,7 +216,7 @@ s32 create__28TOContainerAncientItemCommonFi(s32 arg0) {
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TOContainerAncientItemCommon;
-        destroy_ancient_container__10TObjPlayerFPvs(arg0, 0);
+        destroy_ancient_container__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -231,7 +233,8 @@ void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2EFC;
     return arg0;
 }
-void spawn_break_debris__8TObjFishFPv(Obj_8015C234 *self) {
+void TObjFish::spawn_break_debris() {
+    Obj_8015C234 *self = (Obj_8015C234 *)this;
     extern const u32 ancient_container_resource_bundle;
     if (self->f326 == 1) {
         return;
@@ -250,7 +253,7 @@ void spawn_break_debris__8TObjFishFPv(Obj_8015C234 *self) {
     b.y2 = b.y;
     b.a = get_bml_model((void *)ancient_container_resource_bundle, 2);
     b.b = TObjFish__sub_8001EDB0((void *)ancient_container_resource_bundle, 2);
-    if (check_value_equals__13TQuestColCtrlFPvi(self, lbl_805D2F00) != 0) {
+    if (check_value_equals__13TQuestColCtrlFPll(self, lbl_805D2F00) != 0) {
         a.b = ancient_container_fragment_texture_lists->a;
         b.b = ancient_container_fragment_texture_lists->b;
     }
@@ -282,7 +285,7 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
@@ -305,7 +308,8 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
         }
     }
 }
-void submit_cursor_candidate_if_idle__10TObjPlayerFPv(Obj_8015C48C *self) {
+void TObjPlayer::submit_cursor_candidate_if_idle() {
+    Obj_8015C48C *self = (Obj_8015C48C *)this;
     switch (self->a326) {
     case 0:
         if (self->a364 != 0) {

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TOKeyGenericSw.h"
 
 struct BmlResourceBlock_804B2CC0 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B2CC0_size[(sizeof(BmlResourceBlock_804B2CC0) == 0x18) ? 1 : -1];
@@ -80,7 +81,7 @@ extern "C" {
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_ginja_object(s32);
 s32 pop_matrix();
 s32 begin_effect_render__13TParticleCtrlFv();
@@ -88,16 +89,14 @@ s32 end_effect_render__13TParticleCtrlFv();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 *TOKeyGenericSw__texture_lists;
 extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
-void render__14TOKeyGenericSwFv(Obj_8016CA64 *self);
 void TLobby__sub_8001FE7C(void *, s32);
-void free__11TOBoss4RockFUi(void *);
-void free_if_valid__10TObjPlayerFi(s32);
+void mem_free(void *);
+void free_if_valid__10TObjPlayerFl(s32);
 extern s32 *TOKeyGenericSw__texture_lists;
 extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
-void free_shared_resources__14TOKeyGenericSwFv(void);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-void *alloc_buffer__11TOBoss4RockFPv(u32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
+void *mem_alloc(u32);
 s32 load_gvm_texture_file(void *);
 s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -105,7 +104,6 @@ extern char lbl_80441D04[];
 extern char lbl_80441D24[];
 extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 extern s32 *TOKeyGenericSw__texture_lists;
-void load_resources__14TOKeyGenericSwFv(void);
 }
 
 extern "C" {
@@ -114,25 +112,25 @@ void TOKeyGenericSw__vt14(void *arg0);
 void TOKeyGenericSw__vt15(void *arg0);
 void TOKeyGenericSw__vt23(void);
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1);
-void *create__14TOKeyGenericSwFPv(void *arg0);
 void *TOKeyGenericSw__ct(void *, void *, void *);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 update_anim_phase__17TOBarrierEnergy01FPv();
+s32 update_anim_phase__17TOBarrierEnergy01Fv();
 
 void TOKeyGenericSw__vt23(void) {  }
 
-void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
+void TOKeyGenericSw::render() {
+    Obj_8016CA64 *self = (Obj_8016CA64 *)this;
     if (self->m8(self->xc0, self->xc4) == 0) return;
     push_matrix();
     self->x24 = TOKeyGenericSw__texture_lists[0];
     self->x34 = TOKeyGenericSw__shared_resource_ptrs[0]->area->x8;
     post_translate_matrix(self->x38);
     rotate_matrix_y(0, self->x60);
-    set_global_param__8TObjFishFi(self->x24);
+    set_global_param__8TObjFishFl(self->x24);
     draw_ginja_object(self->x34);
     pop_matrix();
     begin_effect_render__13TParticleCtrlFv();
@@ -148,14 +146,14 @@ void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
     self->x34 = TOKeyGenericSw__shared_resource_ptrs[1]->area->x8;
     post_translate_matrix(self->x38);
     rotate_matrix_y(0, self->x60);
-    set_global_param__8TObjFishFi(self->x24);
+    set_global_param__8TObjFishFl(self->x24);
     draw_ginja_model_with_motion(self->x34, self->xbc, self->xb0);
     pop_matrix();
     end_effect_render__13TParticleCtrlFv();
 }
 
 void TOKeyGenericSw__vt15(void *arg0) {
-    update_anim_phase__17TOBarrierEnergy01FPv();
+    update_anim_phase__17TOBarrierEnergy01Fv();
     ((VObj_8016CB88_8016CA60*)arg0)->m18();
     *(s32 *)((s8 *)arg0 + 0xF4) = 1;
     *(s32 *)((s8 *)arg0 + 0xEC) = 0;
@@ -164,7 +162,7 @@ void TOKeyGenericSw__vt15(void *arg0) {
 }
 
 void TOKeyGenericSw__vt14(void *arg0) {
-    update_anim_phase__17TOBarrierEnergy01FPv();
+    update_anim_phase__17TOBarrierEnergy01Fv();
     ((VObj_8016CBE4_8016CA60*)arg0)->m18();
     *(s32 *)((s8 *)arg0 + 0xEC) = 1;
     *(s32 *)((s8 *)arg0 + 0xF4) = 0;
@@ -174,7 +172,7 @@ void TOKeyGenericSw__vt14(void *arg0) {
 
 extern void *tl_05;
 
-void *create__14TOKeyGenericSwFPv(void *arg0) {
+void *TOKeyGenericSw::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
         o = TOKeyGenericSw__ct(o, tl_05, arg0);
@@ -184,11 +182,11 @@ void *create__14TOKeyGenericSwFPv(void *arg0) {
 
 extern s32 __vt__14TOKeyGenericSw[];
 
-void free_shared_resources__14TOKeyGenericSwFv(void) {
+void TOKeyGenericSw::free_shared_resources() {
     if (TOKeyGenericSw__texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFi(TOKeyGenericSw__texture_lists[2]);
+        free_if_valid__10TObjPlayerFl(TOKeyGenericSw__texture_lists[2]);
         if (TOKeyGenericSw__texture_lists != NULL) {
-            free__11TOBoss4RockFUi(TOKeyGenericSw__texture_lists);
+            mem_free(TOKeyGenericSw__texture_lists);
             TOKeyGenericSw__texture_lists = NULL;
         }
     }
@@ -202,37 +200,37 @@ void free_shared_resources__14TOKeyGenericSwFv(void) {
     }
 }
 
-void load_resources__14TOKeyGenericSwFv(void) {
+void TOKeyGenericSw::load_resources() {
     u8 *base = (u8 *)&fs_obj_hanyousu_body1_resource_bundle;
     s32 st = get_global_state__14TOKeyMachine01Fv();
     void *p;
     if (is_global_state_in_table__19TContainerAncient01Fv() == 1 || st == 0x1C || st == 0x1D) {
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x40, 0, 0, 0);
         }
         TOKeyGenericSw__shared_resource_ptrs[0] = (Map_8016CA64 *)p;
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x60, 0, 0, 0);
         }
         TOKeyGenericSw__shared_resource_ptrs[1] = (Map_8016CA64 *)p;
-        TOKeyGenericSw__texture_lists = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
+        TOKeyGenericSw__texture_lists = (s32 *)mem_alloc(0xC);
         TOKeyGenericSw__texture_lists[0] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[0]->area + 0xC);
         TOKeyGenericSw__texture_lists[1] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1]->area + 0xC);
         TOKeyGenericSw__texture_lists[2] = load_gvm_texture_file(lbl_80441D04);
     } else {
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x8, 0, 0, 0);
         }
         TOKeyGenericSw__shared_resource_ptrs[0] = (Map_8016CA64 *)p;
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x28, 0, 0, 0);
         }
         TOKeyGenericSw__shared_resource_ptrs[1] = (Map_8016CA64 *)p;
-        TOKeyGenericSw__texture_lists = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
+        TOKeyGenericSw__texture_lists = (s32 *)mem_alloc(0xC);
         TOKeyGenericSw__texture_lists[0] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[0]->area + 0xC);
         TOKeyGenericSw__texture_lists[1] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1]->area + 0xC);
         TOKeyGenericSw__texture_lists[2] = load_gvm_texture_file(lbl_80441D24);

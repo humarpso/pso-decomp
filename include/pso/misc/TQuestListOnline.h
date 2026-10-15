@@ -33,6 +33,22 @@ struct TQuestListOnline {
     void build_list_window();
     void request_menu();
     s32 get_selection_stage();
+    static int get_quest_count();
+    void begin_file_download();
+    static void receive_quest_info(void *arg0);
+    void copy_quest_list_data();
+    static void release_resources();
+    static void init_download_buffers();
+    static s32 get_list_state();
+    static s32 get_selected_entry();
+    static int get_selected_quest_id();
+    static u8 get_unlocked_tier();
+    static void decompress_quest_buffer(s32 arg0);
+    static s32 init();
+    static void ensure_online_quests_loaded();
+    static int get_quest_list_flag();
+    static void close_windows_and_reset();
+    static void handle_quest_ready();
 };
 #include <stddef.h>
 typedef char QuestListOnlineSize[(sizeof(TQuestListOnline)==0x70)?1:-1];

@@ -5,6 +5,7 @@
 
 struct TItemBuff
 {
+    static void free_all_and_init();
 };
 
 #endif

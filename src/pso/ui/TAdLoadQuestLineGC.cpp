@@ -4,7 +4,6 @@
 
 extern "C" {
 s32 get_state_flag__9TMainTaskFv();
-void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
 extern TAdLoadQuestLineGC *ad_load_quest_line_instances[3];
@@ -14,16 +13,15 @@ s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 extern "C" {
 
 void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
-void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0);
 
 void __ct__7TObjectFP7TObject(void *);
 s32 init_quest_line_draw_colors();
 s32 fn_80349E5C();
 
-void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0) {
+void TAdLoadQuestLineGC::render_by_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
     switch (temp_r0) {
     case 0:
         fn_80349E5C();
@@ -40,7 +38,7 @@ void TAdLoadQuestLineGC::render() {
     if (get_state_flag__9TMainTaskFv() != 1) {
         ++m_frameCount;
         if (m_frameCount >= 2) {
-            render_by_state__18TAdLoadQuestLineGCFPv(this);
+            render_by_state();
         }
     }
 }

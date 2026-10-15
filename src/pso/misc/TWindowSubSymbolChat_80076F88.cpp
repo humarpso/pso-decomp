@@ -2,6 +2,7 @@
 
 #include "pso/protocol/subcmd_6x.h"
 #include <stddef.h>
+#include "pso/misc/TWindowSubSymbolChat.h"
 
 struct RecoveredGlobal_800773BC_lbl_80438830 {
     s32 value;
@@ -31,70 +32,31 @@ struct Ent_800771E4 { s8 a, b, c; u8 d; };
 struct Obj_800771E4 { u8 pad0[0x28]; Ent_800771E4 e[12]; };
 
 extern "C" {
-s32 count_empty_slots__20TWindowSubSymbolChatFPv(Obj_80077098 *arg0);
-s32 count_used_slots__20TWindowSubSymbolChatFPv(Obj_800770D0 *arg0);
 void TWindowSubSymbolChat__sub_800771B0(Obj_800771B0 *arg0, s32 arg1);
 s32 TWindowSubSymbolChat__sub_800771C4(Obj_800771C4 *arg0, s32 arg1);
-void set_entry__20TWindowSubSymbolChatFPviiiiii(Obj_800771E4 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6);
-u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
-u8 *get_message_10__20TWindowSubStatusDispFPv(s32);
+u8 *get_message_10__20TWindowSubStatusDispFl(s32);
     extern int selected_symbol_chat_preset;
-u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
-void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0);
-s32 is_initialized__20TWindowSubSymbolChatFPv();
+s32 is_initialized__20TWindowSubSymbolChatFv();
     extern int selected_symbol_chat_preset;
-void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0);
-void update_symbol_chat_result__20TWindowSubSymbolChatFv(void * _w0);
     extern int selected_symbol_chat_preset;
-void update_symbol_chat_result__20TWindowSubSymbolChatFv(void * _w0);
-void update_layout__20TWindowSubSymbolChatFPv(void* p);
 int get_instance__20TWindowSubSymbolChatFv(void*);
     extern int selected_symbol_chat_preset;
-void update_layout__20TWindowSubSymbolChatFPv(void* p);
-void refresh_parts__20TWindowSubSymbolChatFPv(void* p);
 int get_instance__20TWindowSubSymbolChatFv(void*);
     extern int selected_symbol_chat_preset;
-void refresh_parts__20TWindowSubSymbolChatFPv(void* p);
-void set_symbol_flags__20TWindowSubSymbolChatFPvii(u8 *arg0, s32 arg1, s32 arg2);
     extern int selected_symbol_chat_preset;
-void set_symbol_flags__20TWindowSubSymbolChatFPvii(u8 *arg0, s32 arg1, s32 arg2);
-void set_symbol_flags__20TWindowSubSymbolChatFPvii(u8 *arg0, s32 arg1, s32 arg2);
-void set_symbol_flags__20TWindowSubSymbolChatFPvii(u8 *arg0, s32 arg1, s32 arg2);
     extern int selected_symbol_chat_preset;
-void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
-void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
-void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
-void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 s32 strncpy(void *, void *, int);
-void set_entry_name__20TWindowSubSymbolChatFPvPv(u8 *arg0, void *arg1);
 s32 copy_symbol_chat_entry__6TLobbyFPvPv(void *, void *);
-s32 send_symbol_chat__20TWindowSubSymbolChatFPv(void *);
+s32 send_symbol_chat__20TWindowSubSymbolChatFv(void *);
 s32 TWindowSubSymbolChat__sub_80077704(void *);
 extern s32 local_client_id;
-void send_selected_symbol_chat__20TWindowSubSymbolChatFPv(s32 *arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 symbol_chat_sound_ids;
-void play_symbol_sound__20TWindowSubSymbolChatFi(s32 arg0);
 E_80077480 *get_character_save_record(u32 id);
 u8 *get_symbol_chat_preset(s32 i);
-s32 find_free_entry__20TWindowSubSymbolChatFPvi(Obj_80077108 *self, s32 i);
-void set_entry_bits__20TWindowSubSymbolChatFPvUsiiii(Obj_8007728C *self, u16 v, s32 a, s32 idx, s32 b, s32 c);
-void move_words__6TLobbyFPvPvi(void *, void *, u32);
-void remove_slot_shift_down__20TWindowSubSymbolChatFPvi(Obj_8007714C *self, s32 i);
+void move_words__6TLobbyFPUll(void *, void *, u32);
 s32 is_symbol_chat_preset_in_use(u32 *arg0);
 }
 
@@ -157,25 +119,27 @@ extern "C" {
 }
 extern "C" {
 
-void send_selected_symbol_chat__20TWindowSubSymbolChatFPv(s32 *arg0) {
+void TWindowSubSymbolChat::send_selected_symbol_chat(s32 *arg0) {
     G_SymbolChat_6x07 packet;
     s32 temp_r4;
     TWindowSubSymbolChat__sub_80077704((void *) (&packet.header));
     temp_r4 = ((s32)((int)get_symbol_chat_preset((s32)((void *)((void *) (*arg0))))));
     packet.client_id = local_client_id;
     copy_symbol_chat_entry__6TLobbyFPvPv((void *) (&packet.data[0]), (void *) (temp_r4 + 0x1C));
-    send_symbol_chat__20TWindowSubSymbolChatFPv((void *) (&packet.header));
+    send_symbol_chat__20TWindowSubSymbolChatFv((void *) (&packet.header));
 }
 
 int TWindowSubSymbolChat__sub_80076FE0(void* p) { return (*(u32*)((char*)p + 0x1c) >> 9) & 0x1; }
 
-void set_entry_name__20TWindowSubSymbolChatFPvPv(u8 *arg0, void *arg1) {
+void TWindowSubSymbolChat::set_entry_name(void *arg1) {
+    u8 *arg0 = (u8 *)this;
     strncpy((void *) (arg0 + 4), arg1, (int) (0x16));
     *(s8 *)((s8 *)arg0 + 0x1A) = 0;
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)((s8 *)arg0 + 0) | 1);
 }
 
-void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1) {
+void TWindowSubSymbolChat::set_flag_bit9(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     s32 var_r4;
     var_r4 = arg1;
     if (var_r4 != 0) {
@@ -186,13 +150,15 @@ void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)((s8 *)arg0 + 0) | 1);
 }
 
-void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1) {
+void TWindowSubSymbolChat::set_symbol_index(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) & 0xFFFFFE1F);
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) | (arg1 << 5));
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)((s8 *)arg0 + 0) | 1);
 }
 
-s32 count_empty_slots__20TWindowSubSymbolChatFPv(Obj_80077098 *arg0) {
+s32 TWindowSubSymbolChat::count_empty_slots() {
+    Obj_80077098 *arg0 = (Obj_80077098 *)this;
     s32 n = 0;
     s32 i;
     for (i = 0; i < 12; i++) {
@@ -203,7 +169,8 @@ s32 count_empty_slots__20TWindowSubSymbolChatFPv(Obj_80077098 *arg0) {
     return n;
 }
 
-s32 count_used_slots__20TWindowSubSymbolChatFPv(Obj_800770D0 *arg0) {
+s32 TWindowSubSymbolChat::count_used_slots() {
+    Obj_800770D0 *arg0 = (Obj_800770D0 *)this;
     s32 n = 0;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -215,7 +182,8 @@ s32 count_used_slots__20TWindowSubSymbolChatFPv(Obj_800770D0 *arg0) {
     return n;
 }
 
-s32 find_free_entry__20TWindowSubSymbolChatFPvi(Obj_80077108 *self, s32 i) {
+s32 TWindowSubSymbolChat::find_free_entry(s32 i) {
+    Obj_80077108 *self = (Obj_80077108 *)this;
     for (; i < 12; i++) {
         if (self->e[i].id == -1) {
             return i;
@@ -224,10 +192,11 @@ s32 find_free_entry__20TWindowSubSymbolChatFPvi(Obj_80077108 *self, s32 i) {
     return i;
 }
 
-void remove_slot_shift_down__20TWindowSubSymbolChatFPvi(Obj_8007714C *self, s32 i) {
+void TWindowSubSymbolChat::remove_slot_shift_down(s32 i) {
+    Obj_8007714C *self = (Obj_8007714C *)this;
     if (i < 11) {
         Ent_8007714C *p = &self->e[i];
-        move_words__6TLobbyFPvPvi(p, p + 1, ((11 - i) * sizeof(Ent_8007714C)) / 4);
+        move_words__6TLobbyFPUll(p, p + 1, ((11 - i) * sizeof(Ent_8007714C)) / 4);
     }
     self->e[11].id = -1;
     self->e[11].a = 0;
@@ -243,7 +212,8 @@ s32 TWindowSubSymbolChat__sub_800771C4(Obj_800771C4 *arg0, s32 arg1) {
     return ((u8)arg0->s[arg1] - 0xFF) != 0 ? 1 : 0;
 }
 
-void set_entry__20TWindowSubSymbolChatFPviiiiii(Obj_800771E4 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
+void TWindowSubSymbolChat::set_entry(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
+    Obj_800771E4 *arg0 = (Obj_800771E4 *)this;
     Ent_800771E4 *p = &arg0->e[arg1];
     p->a = arg2;
     p->b = arg3;
@@ -252,16 +222,18 @@ void set_entry__20TWindowSubSymbolChatFPviiiiii(Obj_800771E4 *arg0, s32 arg1, s3
     p->d = p->d | (arg6 * 2);
 }
 
-void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+void TWindowSubSymbolChat::add(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+    s32 *arg0 = (s32 *)this;
     s32 temp;
-    temp = find_free_entry__20TWindowSubSymbolChatFPvi((Obj_80077108 *)((void*)((void*)((void*)(arg0)))), (s32)((void*)((void*)((void*)(0)))));
+    temp = find_free_entry((s32)((void*)((void*)((void*)(0)))));
     if (temp < 0xC) {
-        set_entry__20TWindowSubSymbolChatFPviiiiii((Obj_800771E4 *)arg0, temp, arg1, arg2, arg3, arg4, arg5);
+        set_entry(temp, arg1, arg2, arg3, arg4, arg5);
         *arg0 |= 1;
     }
 }
 
-void set_entry_bits__20TWindowSubSymbolChatFPvUsiiii(Obj_8007728C *self, u16 v, s32 a, s32 idx, s32 b, s32 c) {
+void TWindowSubSymbolChat::set_entry_bits(u16 v, s32 a, s32 idx, s32 b, s32 c) {
+    Obj_8007728C *self = (Obj_8007728C *)this;
     u16 *p = &self->h[idx];
     *p = v;
     *p |= a << 8;
@@ -270,38 +242,40 @@ void set_entry_bits__20TWindowSubSymbolChatFPvUsiiii(Obj_8007728C *self, u16 v, 
     self->flags |= 1;
 }
 
-void set_symbol_flags__20TWindowSubSymbolChatFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+void TWindowSubSymbolChat::set_symbol_flags(s32 arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) & 0xFFFFFFE0);
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) | (arg2 * 4));
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) | arg1);
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)((s8 *)arg0 + 0) | 1);
 }
 
-void refresh_parts__20TWindowSubSymbolChatFPv(void* p) { count_empty_slots__20TWindowSubSymbolChatFPv((Obj_80077098 *)get_instance__20TWindowSubSymbolChatFv(p)); }
+void TWindowSubSymbolChat::refresh_parts() { ((TWindowSubSymbolChat *)((Obj_80077098 *)get_instance__20TWindowSubSymbolChatFv(this)))->count_empty_slots(); }
 
-void update_layout__20TWindowSubSymbolChatFPv(void* p) { count_used_slots__20TWindowSubSymbolChatFPv((Obj_800770D0 *)get_instance__20TWindowSubSymbolChatFv(p)); }
+void TWindowSubSymbolChat::update_layout() { ((TWindowSubSymbolChat *)((Obj_800770D0 *)get_instance__20TWindowSubSymbolChatFv(this)))->count_used_slots(); }
 
-void update_symbol_chat_result__20TWindowSubSymbolChatFv(void * _w0) { selected_symbol_chat_preset = ((int)get_symbol_chat_preset((s32)((void *)(_w0)))); }
+void TWindowSubSymbolChat::update_symbol_chat_result() { selected_symbol_chat_preset = ((int)get_symbol_chat_preset((s32)((void *)(this)))); }
 
-void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0) {
-    if (is_initialized__20TWindowSubSymbolChatFPv() != 0) {
-        play_symbol_sound__20TWindowSubSymbolChatFi((s32)(((u32) *(u32 *)((s8 *)arg0 + 0x1C) >> 5U) & 0xF));
+void TWindowSubSymbolChat::update_selected_symbol() {
+    if (is_initialized__20TWindowSubSymbolChatFv() != 0) {
+        TWindowSubSymbolChat::play_symbol_sound((s32)(((u32) *(u32 *)((s8 *)this + 0x1C) >> 5U) & 0xF));
     }
 }
 
 typedef char RecoveredGlobal_800773BC_lbl_80438830_size[sizeof(RecoveredGlobal_800773BC_lbl_80438830) == 0x24 ? 1 : -1];
-void play_symbol_sound__20TWindowSubSymbolChatFi(s32 arg0) {
+void TWindowSubSymbolChat::play_symbol_sound(s32 arg0) {
     if ((arg0 >= 0) && (arg0 < 9)) {
         play_sound_effect(*(s32 *)((s8 *)(&symbol_chat_sound_ids.value) + (arg0 * 4)), 0U, 0, 0);
     }
 }
 
-u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0) {
+u8 *TWindowSubSymbolChat::get_symbol_chat_data() {
+    u8 *arg0 = (u8 *)this;
     if (is_symbol_chat_preset_in_use((u32 *)(arg0)) == 0) {
-        return get_message_10__20TWindowSubStatusDispFPv(0xCC);
+        return get_message_10__20TWindowSubStatusDispFl(0xCC);
     }
     if ((s8) *(u8 *)((s8 *)arg0 + 4) == 0) {
-        return get_message_10__20TWindowSubStatusDispFPv(0xCD);
+        return get_message_10__20TWindowSubStatusDispFl(0xCD);
     }
     return arg0 + 4;
 }

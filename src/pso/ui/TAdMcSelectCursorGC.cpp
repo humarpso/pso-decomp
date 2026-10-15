@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMcSelectCursorGC.h"
 
 struct Ent_8032A574 { f32 a, b, c, d; u8 pad[0x10]; };
 
@@ -39,14 +40,11 @@ extern const f32 lbl_805DF730;
 extern const f32 lbl_805DF734;
 extern const f32 lbl_805DF738;
 extern const f32 lbl_805DF73C;
-void run_task__19TAdMcSelectCursorGCFv(Self_8032A2A4 *self);
 }
 
 extern "C" {
 
 void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1);
-void render__19TAdMcSelectCursorGCFv(void *arg0);
-void render_cursor__19TAdMcSelectCursorGCFPv(u8 *arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
 s32 set_draw_texture_and_color(int, int);
@@ -58,22 +56,23 @@ s32 get_state_flag__9TMainTaskFv();
 s32 init_xyz_limits__10TObjPlayerFv();
 s32 reset_transform_state__10TObjPlayerFv();
 s32 set_depth_buffer_settings_2__Fv();
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 extern s32 TAdMcSelectCursorGC__texture_entry;
 extern const f32 lbl_805DF728;
 
-void render_cursor__19TAdMcSelectCursorGCFPv(u8 *arg0) {
+void TAdMcSelectCursorGC::render_cursor() {
+    u8 *arg0 = (u8 *)this;
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFi((void *) (TAdMcSelectCursorGC__texture_entry));
+    set_global_param__8TObjFishFl((void *) (TAdMcSelectCursorGC__texture_entry));
     set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x128) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x28), (f32) (lbl_805DF728));
     get_player__20TWindowSubStatusDispFv();
 }
 
-void render__19TAdMcSelectCursorGCFv(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x13C) == 1) {
+void TAdMcSelectCursorGC::render() {
+    if ((s32) *(s32 *)((s8 *)this + 0x13C) == 1) {
         if (get_state_flag__9TMainTaskFv() == 1) {
             return;
         }
@@ -83,9 +82,9 @@ void render__19TAdMcSelectCursorGCFv(void *arg0) {
         set_depth_buffer_settings_2__Fv();
 block_5:
         init_xyz_limits__10TObjPlayerFv();
-        render_cursor__19TAdMcSelectCursorGCFPv((u8 *)(arg0));
+        render_cursor();
         reset_transform_state__10TObjPlayerFv();
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x13C) == 0) {
+        if ((s32) *(s32 *)((s8 *)this + 0x13C) == 0) {
             restore_saved_depth_alpha_state();
         }
     }
@@ -95,7 +94,8 @@ extern s32 __vt__19TAdMcSelectCursorGC[];
 extern u32 TAdMcSelectCursorGC__instance;
 
 #pragma fp_contract on
-void run_task__19TAdMcSelectCursorGCFv(Self_8032A2A4 *self) {
+void TAdMcSelectCursorGC::run_task() {
+    Self_8032A2A4 *self = (Self_8032A2A4 *)this;
     u32 t2;
     u32 t;
     u32 t1;

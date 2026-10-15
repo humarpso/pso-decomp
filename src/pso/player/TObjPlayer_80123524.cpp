@@ -1,19 +1,17 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Sp8Type_80123524 { s32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
 
-void draw_mag__10TObjPlayerFPv(void *arg0);
-void try_spawn_cane_effect__10TObjPlayerFi(s32 arg0);
-void update_pulse__10TObjPlayerFPv(void *arg0);
-s32 get_flag_40__8TItemMagFPv();
+s32 get_flag_40__8TItemMagFv();
 s32 post_translate_matrix(Sp8Type_80123524 *);
 s32 draw_ginja_object(void *);
-s32 get_mag_scale__10TObjPlayerFPv(void *);
+s32 get_mag_scale__10TObjPlayerFv(void *);
 s32 spawn_cane_effect__10TObjPlayerFiUii(s32, s32, s32);
-s32 get_attack_stage__11TItemWeaponFPv();
-s32 draw_icon__10TObjPlayerFPvii(void *, s32, Sp8Type_80123524 *, s32);
+s32 get_attack_stage__11TItemWeaponFv();
+s32 draw_icon__10TObjPlayerFll(void *, s32, Sp8Type_80123524 *, s32);
 s32 draw_weapon_at_joint(void *, s32, void *);
 s32 warn_if_gauge_low__10TObjPlayerFv(s32);
 s32 set_model_fade_alpha__10TObjPlayerFf();
@@ -25,7 +23,7 @@ s32 pop_matrix();
 
 extern s32 model_render_flags;
 
-void draw_mag__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::draw_mag() {
     Sp8Type_80123524 sp8;
     s32 temp_r3;
     s32 temp_r6;
@@ -34,41 +32,41 @@ void draw_mag__10TObjPlayerFPv(void *arg0) {
     void *temp_r30;
     void *temp_r29;
 
-    if (((void *) *(void **)((s8 *)arg0 + 0xF4) != NULL) && (get_flag_40__8TItemMagFPv() == 0)) {
-        temp_r5 = *(void **)((s8 *)arg0 + 0xF4);
+    if (((void *) *(void **)((s8 *)this + 0xF4) != NULL) && (get_flag_40__8TItemMagFv() == 0)) {
+        temp_r5 = *(void **)((s8 *)this + 0xF4);
         temp_r31 = *(void **)((s8 *)temp_r5 + 0x2C);
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 8);
         temp_r30 = *(void **)((s8 *)temp_r31 + 0x2C);
         *(s32 *)((s8 *)temp_r30 + 0) = (s32) (*(s32 *)((s8 *)temp_r30 + 0) | 8);
         temp_r29 = *(void **)((s8 *)temp_r30 + 0x30);
         *(s32 *)((s8 *)temp_r29 + 0) = (s32) (*(s32 *)((s8 *)temp_r29 + 0) | 8);
-        draw_weapon_at_joint(arg0, 0x30, temp_r5);
+        draw_weapon_at_joint(this, 0x30, temp_r5);
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFF7);
         *(s32 *)((s8 *)temp_r30 + 0) = (s32) (*(s32 *)((s8 *)temp_r30 + 0) & 0xFFFFFFF7);
         *(s32 *)((s8 *)temp_r29 + 0) = (s32) (*(s32 *)((s8 *)temp_r29 + 0) & 0xFFFFFFF7);
         TObjPlayer__sub_80364198();
         model_render_flags &= 0xFFFFFFEF;
-        get_mag_scale__10TObjPlayerFPv(arg0);
+        get_mag_scale__10TObjPlayerFv(this);
         set_model_fade_alpha__10TObjPlayerFf();
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 1);
         *(s32 *)((s8 *)temp_r30 + 0) = (s32) (*(s32 *)((s8 *)temp_r30 + 0) & 0xFFFFFFFD);
-        *(s32 *)((s8 *)temp_r30 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r30 + 0x18) + *(s32 *)((s8 *)arg0 + 0x1F8));
+        *(s32 *)((s8 *)temp_r30 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r30 + 0x18) + *(s32 *)((s8 *)this + 0x1F8));
         *(s32 *)((s8 *)temp_r29 + 0) = (s32) (*(s32 *)((s8 *)temp_r29 + 0) & 0xFFFFFFFD);
-        temp_r6 = *(s32 *)((s8 *)arg0 + 0x1F8);
+        temp_r6 = *(s32 *)((s8 *)this + 0x1F8);
         *(s32 *)((s8 *)temp_r29 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r29 + 0x18) - temp_r6);
-        if (draw_icon__10TObjPlayerFPvii(arg0, 1, &sp8, temp_r6) != 0) {
+        if (draw_icon__10TObjPlayerFll(this, 1, &sp8, temp_r6) != 0) {
             push_matrix();
             post_translate_matrix(&sp8);
-            rotate_matrix_y(0, *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF0)) + 0x60));
+            rotate_matrix_y(0, *(s32 *)((s8 *)(*(void **)((s8 *)this + 0xF0)) + 0x60));
             draw_ginja_object(temp_r31);
             pop_matrix();
         }
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFFE);
         *(s32 *)((s8 *)temp_r30 + 0) = (s32) (*(s32 *)((s8 *)temp_r30 + 0) | 2);
-        *(s32 *)((s8 *)temp_r30 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r30 + 0x18) - *(s32 *)((s8 *)arg0 + 0x1F8));
+        *(s32 *)((s8 *)temp_r30 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r30 + 0x18) - *(s32 *)((s8 *)this + 0x1F8));
         *(s32 *)((s8 *)temp_r29 + 0) = (s32) (*(s32 *)((s8 *)temp_r29 + 0) | 2);
         temp_r3 = *(s32 *)((s8 *)temp_r29 + 0x18);
-        *(s32 *)((s8 *)temp_r29 + 0x18) = (s32) (temp_r3 + *(s32 *)((s8 *)arg0 + 0x1F8));
+        *(s32 *)((s8 *)temp_r29 + 0x18) = (s32) (temp_r3 + *(s32 *)((s8 *)this + 0x1F8));
         warn_if_gauge_low__10TObjPlayerFv(temp_r3);
         TObjPlayer__sub_8036414C();
     }
@@ -76,24 +74,24 @@ void draw_mag__10TObjPlayerFPv(void *arg0) {
 
 extern s32 tl_05;
 
-void try_spawn_cane_effect__10TObjPlayerFi(s32 arg0) {
-    if (get_attack_stage__11TItemWeaponFPv() == 0) {
+void TObjPlayer::try_spawn_cane_effect(s32 arg0) {
+    if (get_attack_stage__11TItemWeaponFv() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
 }
 
-void update_pulse__10TObjPlayerFPv(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) != 0) {
-        *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (*(s32 *)((s8 *)arg0 + 0x1F8) + 0x38E);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) >= 0x1555) {
-            *(s32 *)((s8 *)arg0 + 0x1F8) = 0x1555;
-            *(s32 *)((s8 *)arg0 + 0x1FC) = 0;
+void TObjPlayer::update_pulse() {
+    if ((s32) *(s32 *)((s8 *)this + 0x1FC) != 0) {
+        *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 0x38E);
+        if ((s32) *(s32 *)((s8 *)this + 0x1F8) >= 0x1555) {
+            *(s32 *)((s8 *)this + 0x1F8) = 0x1555;
+            *(s32 *)((s8 *)this + 0x1FC) = 0;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (*(s32 *)((s8 *)arg0 + 0x1F8) - 0x38E);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) <= 0) {
-            *(s32 *)((s8 *)arg0 + 0x1F8) = 0x1555;
-            *(s32 *)((s8 *)arg0 + 0x1FC) = 1;
+        *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) - 0x38E);
+        if ((s32) *(s32 *)((s8 *)this + 0x1F8) <= 0) {
+            *(s32 *)((s8 *)this + 0x1F8) = 0x1555;
+            *(s32 *)((s8 *)this + 0x1FC) = 1;
         }
     }
 }

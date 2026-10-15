@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TScene.h"
 struct Stack_80083914 {
     f32 sp8;
     u8 pad_C[0x4];
@@ -19,7 +20,7 @@ s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 is_split_screen();
 s32 check_all_players_ready__10TObjPlayerFv();
-s32 set_tex_coord_gen__10TObjPlayerFiiii(int, int, int, int);
+s32 set_tex_coord_gen__10TObjPlayerFllll(int, int, int, int);
 f32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightFrustum(void *, f32, f32, f32, f32, f32, f32, f32, f32);
 f32 rotate_matrix_by_node_angles(void *, int);
@@ -54,7 +55,6 @@ f32 calc_camera_fov_degrees(void);
 
 extern "C" {
 
-void apply_single_screen_state__6TSceneFv(void);
 s32 check_all_players_ready__10TObjPlayerFv();
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
@@ -62,7 +62,7 @@ s32 is_split_screen();
 
 extern s32 model_render_flags;
 
-void apply_single_screen_state__6TSceneFv(void) {
+void TScene::apply_single_screen_state() {
     if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0)) {
         model_render_flags &= 0xFFF7FFFF;
         set_ginja_post_tev_stage_count(0);
@@ -91,7 +91,7 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         load_current_pos_matrix((int) (0));
         GXSetTevOrder((int) (1), (int) (1), (int) (1), (int) (4));
         GXSetTevOp((int) (1), (int) (1));
-        set_tex_coord_gen__10TObjPlayerFiiii((int) (1), (int) (0), (int) (0), (int) (0x1E));
+        set_tex_coord_gen__10TObjPlayerFllll((int) (1), (int) (0), (int) (0), (int) (0x1E));
         model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count((s32)((int) (1U)));
         set_ginja_post_texgen_count((s32)((int) (1U)));

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/packet_classes.h"
+#include "pso/TPlyGuildCardTag.h"
 #pragma inline_depth(1)
 #pragma auto_inline on
 #pragma dont_inline off
@@ -16,12 +17,11 @@ public:
 extern "C" {
 
 void *TPlyGuildCardTag__sub_801E0314(void *arg0, void *arg1);
-void bswap_lobby_entry__16TPlyGuildCardTagFPv(void* p);
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 int bswap_32__FPUl(void*);
 int bswap__16TPlyGuildCardTagFv(void*);
 
-void bswap_lobby_entry__16TPlyGuildCardTagFPv(void* p) { bswap__16TPlyGuildCardTagFv(p); bswap_32__FPUl((char*)p + 0x8); }
+void TPlyGuildCardTag::bswap_lobby_entry(void *entry) { bswap__16TPlyGuildCardTagFv(entry); bswap_32__FPUl((char*)entry + 0x8); }
 
 }
 

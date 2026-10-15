@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjParticleLobby.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -27,16 +28,14 @@ u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_filtered_event_theme__6TLobbyFv();
 s32 get_event_theme_index__17TObjParticleLobbyFv(void);
 s32 check_demo_mode__10TObjPlayerFv(void);
-void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
+void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void enable__13TParticleCtrlFPv(void *);
 s32 get_event_theme_index__17TObjParticleLobbyFv(void);
 void TObjParticleLobby__sub_80369698(void);
-void run_task__17TObjParticleLobbyFv(Self_803696A0 *o);
-void set_param_ptr__11TBoss4Type2FPvi(void *, s32);
-void set_flags__11TBoss4Type2FPvUi(void *, u16);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void set_param_ptr__11TBoss4Type2Fl(void *, s32);
+void set_flags__11TBoss4Type2FUl(void *, u16);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 get_event_theme_index__17TObjParticleLobbyFv(void);
-void setup_emitter__17TObjParticleLobbyFPv(void *arg0);
 }
 
 extern "C" {
@@ -45,11 +44,9 @@ void TObjParticleLobby__sub_80369698(void);
 void TObjParticleLobby__sub_80369A60(void);
 void TObjParticleLobby__sub_80369A64(void);
 void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1);
-void *create__17TObjParticleLobbyFPv(void *arg0);
-void render__17TObjParticleLobbyFv(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 s32 get_event_theme_index__17TObjParticleLobbyFv(void) {
@@ -64,11 +61,12 @@ s32 get_event_theme_index__17TObjParticleLobbyFv(void) {
 }
 
 void TObjParticleLobby__sub_80369698(void) {  }
-void render__17TObjParticleLobbyFv(void) {  }
+void TObjParticleLobby::render() {  }
 
 extern void *tl_05;
 
-void run_task__17TObjParticleLobbyFv(Self_803696A0 *o) {
+void TObjParticleLobby::run_task() {
+    Self_803696A0 *o = (Self_803696A0 *)this;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((void (*)(void *))TObjParticleLobby__sub_80369698)(o);
         return;
@@ -89,7 +87,7 @@ void run_task__17TObjParticleLobbyFv(Self_803696A0 *o) {
             o->state = 3;
         }
         if (o->ctrl != NULL) {
-            set_position_xy__10TObjPlayerFPvff(o->ctrl, o->t, 1.0f);
+            set_position_xy__10TObjPlayerFff(o->ctrl, o->t, 1.0f);
         }
         break;
     case 1:
@@ -100,7 +98,7 @@ void run_task__17TObjParticleLobbyFv(Self_803696A0 *o) {
             break;
         }
         if (o->ctrl != NULL) {
-            set_position_xy__10TObjPlayerFPvff(o->ctrl, o->t, 1.0f);
+            set_position_xy__10TObjPlayerFff(o->ctrl, o->t, 1.0f);
         }
         break;
     case 3:
@@ -112,104 +110,104 @@ void run_task__17TObjParticleLobbyFv(Self_803696A0 *o) {
     }
 }
 
-void setup_emitter__17TObjParticleLobbyFPv(void *arg0) {
+void TObjParticleLobby::setup_emitter() {
     u16 flags;
     u16 t;
     s32 v;
     f32 f;
     flags = 0;
-    switch (*(u32 *)((s8 *)arg0 + 0x84)) {
+    switch (*(u32 *)((s8 *)this + 0x84)) {
     case 1:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 1;
+        *(s32 *)((s8 *)this + 0xD0) = 1;
         break;
     case 2:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 5;
+        *(s32 *)((s8 *)this + 0xD0) = 5;
         break;
     case 3:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 7;
+        *(s32 *)((s8 *)this + 0xD0) = 7;
         break;
     case 4:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 3;
+        *(s32 *)((s8 *)this + 0xD0) = 3;
         break;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 9;
+        *(s32 *)((s8 *)this + 0xD0) = 9;
         break;
     case 6:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 8;
+        *(s32 *)((s8 *)this + 0xD0) = 8;
         break;
     case 7:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 4;
+        *(s32 *)((s8 *)this + 0xD0) = 4;
         break;
     case 8:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0xA;
+        *(s32 *)((s8 *)this + 0xD0) = 0xA;
         break;
     case 9:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0xB;
+        *(s32 *)((s8 *)this + 0xD0) = 0xB;
         break;
     default:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0;
+        *(s32 *)((s8 *)this + 0xD0) = 0;
         break;
     }
-    if (*(s32 *)((s8 *)arg0 + 0xD0) == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(arg0)) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 3;
+    if (*(s32 *)((s8 *)this + 0xD0) == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(this)) {
+        *(s32 *)((s8 *)this + 0xC8) = 3;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+        *(s32 *)((s8 *)this + 0xC8) = 0;
     }
-    v = (s32)*(f32 *)((s8 *)arg0 + 0x68);
+    v = (s32)*(f32 *)((s8 *)this + 0x68);
     if (v < 0) {
         v = 0;
     }
     if (v >= 0x240) {
         v = 0x23F;
     }
-    if (*(void **)((s8 *)arg0 + 0xD4) != NULL) {
-        set_param_ptr__11TBoss4Type2FPvi(*(void **)((s8 *)arg0 + 0xD4), v);
+    if (*(void **)((s8 *)this + 0xD4) != NULL) {
+        set_param_ptr__11TBoss4Type2Fl(*(void **)((s8 *)this + 0xD4), v);
     }
-    f = *(f32 *)((s8 *)arg0 + 0x70);
+    f = *(f32 *)((s8 *)this + 0x70);
     if (f < 0.0f) {
         t = 0x2;
-        if (*(s32 *)((s8 *)arg0 + 0x88) == 1) {
+        if (*(s32 *)((s8 *)this + 0x88) == 1) {
             t = 0x42;
         }
         flags = t;
-        if (*(s32 *)((s8 *)arg0 + 0x8C) == 1) {
+        if (*(s32 *)((s8 *)this + 0x8C) == 1) {
             flags = t | 0x2000;
         }
     } else if ((s32)f == 2) {
         t = 0x8;
-        if (*(s32 *)((s8 *)arg0 + 0x88) == 1) {
+        if (*(s32 *)((s8 *)this + 0x88) == 1) {
             t = 0x48;
         }
         flags = t;
-        if (*(s32 *)((s8 *)arg0 + 0x8C) == 1) {
+        if (*(s32 *)((s8 *)this + 0x8C) == 1) {
             flags = t | 0x2000;
         }
     } else if ((s32)f == 3) {
         t = 0x4;
-        if (*(s32 *)((s8 *)arg0 + 0x88) == 1) {
+        if (*(s32 *)((s8 *)this + 0x88) == 1) {
             t = 0x44;
         }
         flags = t;
-        if (*(s32 *)((s8 *)arg0 + 0x8C) == 1) {
+        if (*(s32 *)((s8 *)this + 0x8C) == 1) {
             flags = t | 0x2000;
         }
     } else {
-        if (*(s32 *)((s8 *)arg0 + 0x88) == 1) {
+        if (*(s32 *)((s8 *)this + 0x88) == 1) {
             flags = 0x40;
         }
-        if (*(s32 *)((s8 *)arg0 + 0x8C) == 1) {
+        if (*(s32 *)((s8 *)this + 0x8C) == 1) {
             flags |= 0x2000;
         }
     }
-    if (*(void **)((s8 *)arg0 + 0xD4) != NULL) {
-        set_flags__11TBoss4Type2FPvUi(*(void **)((s8 *)arg0 + 0xD4), flags);
+    if (*(void **)((s8 *)this + 0xD4) != NULL) {
+        set_flags__11TBoss4Type2FUl(*(void **)((s8 *)this + 0xD4), flags);
     }
-    if (*(void **)((s8 *)arg0 + 0xD4) != NULL) {
-        copy_pos__11TNowLoadingFPvPv(*(void **)((s8 *)arg0 + 0xD4), (u8 *)arg0 + 0x38);
+    if (*(void **)((s8 *)this + 0xD4) != NULL) {
+        copy_pos__11TNowLoadingFPv(*(void **)((s8 *)this + 0xD4), (u8 *)this + 0x38);
     }
 }
 
-void *create__17TObjParticleLobbyFPv(void *arg0) {
+void *TObjParticleLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
         o = TObjParticleLobby__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -226,7 +224,7 @@ void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjParticleLobby;
         if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -240,7 +238,7 @@ u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D44B8;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0xD4) = create_particle_emitter((void *) (arg0 + 0x38), (int) (1));
-    setup_emitter__17TObjParticleLobbyFPv((void *)((void *) (arg0)));
+    ((TObjParticleLobby *)arg0)->setup_emitter();
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (1.0f);
     return arg0;
 }

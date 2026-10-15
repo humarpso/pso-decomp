@@ -1,11 +1,12 @@
 #include "pso/item/TItemTexLoad.h"
 
 #include "types.h"
+#include "pso/misc/TWindowLoadItemTexture.h"
 
 extern "C" {
 s32 get_camera_id__11TCameraCtrlFv(void);
 
-void get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+void get_array_entry__20TWindowSubStatusDispFi(void *, int);
 s32 save_position__17TWindowSubComCardFPv(void *);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, s32 *, s16, void *);
 extern s32 lbl_804D0058[];
@@ -21,10 +22,8 @@ void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3)
 extern "C" {
 
 void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1);
-void *create__22TWindowLoadItemTextureFPvPv(void *arg0, void *arg1);
 void fn_80262C2C(void* p);
 void render__22TWindowLoadItemTextureFv(u8 *arg0);
-void run_task__22TWindowLoadItemTextureFv(void* p);
 
 s32 setup_window_draw_context(void *, void *);
 s32 draw_window_frame(void *, s32);
@@ -32,26 +31,26 @@ s32 draw_visible_window_entries(void *, void *, s32);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
+void destroy_window_base__9TWindowDDFs(void *, int);
 void set_sprite_uv_bounds(f32, f32, f32, f32);
 s32 fn_8026287C(void *);
-void get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
-int initialize_subwindow__9TWindowDDFPv(void*);
+void get_array_entry__20TWindowSubStatusDispFi(void *, int);
+int initialize_subwindow__9TWindowDDFv(void*);
 void queue_destruction__7TObjectFv(void *);
-int update_fade__17TWindowSubComCardFPv(void*);
+int update_fade__17TWindowSubComCardFv(void*);
 
 extern s32 lbl_8044F280[];
 extern const f32 lbl_805DD0EC;
 extern const f32 lbl_805DD0F4;
 extern const f32 lbl_805DD0F8;
 
-void *create__22TWindowLoadItemTextureFPvPv(void *arg0, void *arg1) {
+void *TWindowLoadItemTexture::create(void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x74);
     if (o != NULL) {
-        o = TWindowLoadItemTexture__ct((void *)(o), (void *)(arg0), (void *)(lbl_8044F280), (void *)(arg1));
+        o = TWindowLoadItemTexture__ct((void *)(o), (void *)(this), (void *)(lbl_8044F280), (void *)(arg1));
     }
-    get_array_entry__20TWindowSubStatusDispFPvi(o, 0);
+    get_array_entry__20TWindowSubStatusDispFi(o, 0);
     set_sprite_uv_bounds(lbl_805DD0EC, lbl_805DD0EC, lbl_805DD0F4, lbl_805DD0F8);
     return o;
 }
@@ -73,7 +72,7 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r31);
 }
 
-void run_task__22TWindowLoadItemTextureFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
+void TWindowLoadItemTexture::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); update_window_entry_list(this, (char*)this + 0x24); }
 
 extern s32 __vt__22TWindowLoadItemTexture[];
 
@@ -81,7 +80,7 @@ void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowLoadItemTexture;
         queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x6C));
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -109,7 +108,7 @@ void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3)
     *(f32 *)((s8 *)arg0 + 0x38) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)arg2 + 4);
     save_position__17TWindowSubComCardFPv(arg0);
-    e = ((void *(*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 0);
+    e = ((void *(*)(void *, int))get_array_entry__20TWindowSubStatusDispFi)(arg0, 0);
     *(f32 *)((s8 *)e + 0x10) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)e + 0x14) = *(f32 *)((s8 *)arg2 + 4);
     *(s32 *)((s8 *)arg0 + 0x6C) = (s32)TItemTexLoad::create((TObject*)tl_07);

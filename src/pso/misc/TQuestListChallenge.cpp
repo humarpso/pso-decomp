@@ -98,25 +98,25 @@ extern "C" {
 
 s32 obj_getField1c(s32);
 s32 get_camera_id__11TCameraCtrlFv();
-s32 set_field_20__12TQuestListVMFPvi(void *, s32);
-s32 get_status_flag__6TLobbyFPv(void *);
-s32 get_flag_bit2__6TLobbyFPv(void *);
+s32 set_field_20__12TQuestListVMFl(void *, s32);
+s32 get_status_flag__6TLobbyFv(void *);
+s32 get_flag_bit2__6TLobbyFv(void *);
 s32 get_quest_list_text(int, int, int);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 set_position_xy(void *, f32, f32);
 s32 TWindow__close(void *);
-s32 set_field_1c__6TLobbyFPvf(void *, f32);
+s32 set_field_1c__6TLobbyFf(void *, f32);
 void *create_yes_no_window(s32, u16, s32, s32);
-s32 select_cursor_entry__6TLobbyFPv(s32);
-s32 send_and_handle__6TLobbyFPvii(void *, s32, s32);
-void *create_message_window__6TLobbyFiiUis(s32, Pair_80288DA4 *, s32, u16);
+s32 select_cursor_entry__6TLobbyFv(s32);
+s32 send_and_handle__6TLobbyFii(void *, s32, s32);
+void *create_message_window__6TLobbyFllUls(s32, Pair_80288DA4 *, s32, u16);
 s32 get_window_layout_position(s32);
 void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self);
 }
 
 extern "C" {
 s32 get_quest_list_text(int, int, int);
-s32 select_cursor_entry__6TLobbyFPv(s32);
+s32 select_cursor_entry__6TLobbyFv(s32);
 s32 lbl_805D64A8;
 s32 lbl_805D64AC;
 s32 TQuestListChallenge__active_instance;
@@ -125,7 +125,7 @@ s32 get_game_play_mode();
 s32 __ct__15TShopWindowBaseFv();
 s32 calc_min_challenge_progress__6TLobbyFv();
 s32 get_instance__6TLobbyFv();
-s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 set_field_20__12TQuestListVMFl(void *, s32);
 extern s32 TQuestListChallenge__active_instance;
 extern void *__vt__19TQuestListChallenge[];
 u8 *TQuestListChallenge__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -146,7 +146,7 @@ struct QLC_80288FDC {
 s32 obj_getField1c(s32);
 s32 get_guild_text(s32);
 void calc_list_content_extent(u32);
-void add_list_entry__6TLobbyFPviii(u32, s32, s32, s32);
+void add_list_entry__6TLobbyFlll(u32, s32, s32, s32);
 s32 create_item_list_window(s32, s32, s32);
 void create_quest_list_window__19TQuestListChallengeFv(QLC_80288FDC *arg0);
 }
@@ -170,11 +170,11 @@ s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__15TShopWindowBaseFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-s32 get_status_flag__17TWindowSubComCardFPv(void *);
-s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFv(void *);
+s32 is_visible__17TWindowSubComCardFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 select_cursor_entry__6TLobbyFPv(s32);
-s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 select_cursor_entry__6TLobbyFv(s32);
+s32 set_field_20__12TQuestListVMFl(void *, s32);
 
 extern "C" {
 struct QLCStage_80289200 { s32 a; s32 b; s32 c; const char *name; };
@@ -198,7 +198,7 @@ s32 get_selected_quest_text__19TQuestListChallengeFv(void) {
     if ((void *) (*(u8 * *)&TQuestListChallenge__active_instance) != NULL) {
         temp_r3 = *(u32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x38);
         if (temp_r3 != 0U) {
-            return get_quest_list_text((int) (*(s32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x50)), (int) (*(s32 *)((s8 *)(*(s32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x58) + (select_cursor_entry__6TLobbyFPv((s32)((int) (temp_r3))) * 0x10)) + 0)), (int) ((*(u8 * *)&TQuestListChallenge__active_instance)));
+            return get_quest_list_text((int) (*(s32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x50)), (int) (*(s32 *)((s8 *)(*(s32 *)((s8 *)(*(u8 * *)&TQuestListChallenge__active_instance) + 0x58) + (select_cursor_entry__6TLobbyFv((s32)((int) (temp_r3))) * 0x10)) + 0)), (int) ((*(u8 * *)&TQuestListChallenge__active_instance)));
         }
     }
     return 0;
@@ -255,13 +255,13 @@ void handle_confirm_select__19TQuestListChallengeFv(void *arg0) {
 
     temp_r3 = *(VObj_80288C78_80288B5C **)((s8 *)arg0 + 0x30);
     if (temp_r3->m8() != 0) {
-        if ((*(void **)((s8 *)arg0 + 0x34) != NULL) && (is_visible__17TWindowSubComCardFPv(*(void **)((s8 *)arg0 + 0x34)) == 1)) {
+        if ((*(void **)((s8 *)arg0 + 0x34) != NULL) && (is_visible__17TWindowSubComCardFv(*(void **)((s8 *)arg0 + 0x34)) == 1)) {
             temp_r3_2 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x34));
             if (temp_r3_2 == 0) {
-                temp_r0 = select_cursor_entry__6TLobbyFPv(*(s32 *)((s8 *)arg0 + 0x38));
+                temp_r0 = select_cursor_entry__6TLobbyFv(*(s32 *)((s8 *)arg0 + 0x38));
                 temp_r4 = *(Entry_80288C78_80288B5C **)((s8 *)arg0 + 0x58);
                 prepare_offline_quest_filenames(temp_r4[temp_r0].fieldC, (s32) temp_r4);
-                set_field_20__12TQuestListVMFPvi(arg0, 3);
+                set_field_20__12TQuestListVMFl(arg0, 3);
                 return;
             }
             if (temp_r3_2 == 1) {
@@ -270,19 +270,19 @@ void handle_confirm_select__19TQuestListChallengeFv(void *arg0) {
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 0x80);
                 }
-                set_field_20__12TQuestListVMFPvi(arg0, 0);
+                set_field_20__12TQuestListVMFl(arg0, 0);
                 return;
             }
             goto block_9;
         }
 block_9:
-        if ((*(void **)((s8 *)arg0 + 0x34) != NULL) && (get_status_flag__17TWindowSubComCardFPv(*(void **)((s8 *)arg0 + 0x34)) == 1)) {
+        if ((*(void **)((s8 *)arg0 + 0x34) != NULL) && (get_status_flag__17TWindowSubComCardFv(*(void **)((s8 *)arg0 + 0x34)) == 1)) {
             close_windows__19TQuestListChallengeFPv((void *)(arg0));
             temp_r3_4 = *(VObj_80288C78_80288B5C **)((s8 *)arg0 + 0x30);
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 0x80);
             }
-            set_field_20__12TQuestListVMFPvi(arg0, 0);
+            set_field_20__12TQuestListVMFl(arg0, 0);
         }
     }
 }
@@ -301,10 +301,10 @@ void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self) {
         return;
     }
     if (self->f38 != NULL && self->f3C != NULL) {
-        sel = select_cursor_entry__6TLobbyFPv((s32)self->f38);
+        sel = select_cursor_entry__6TLobbyFv((s32)self->f38);
         if (sel != self->f4C) {
             text = SUB_80222C28(self->f50, self->entries[sel].f4);
-            send_and_handle__6TLobbyFPvii(self->f3C, text, 0x80);
+            send_and_handle__6TLobbyFii(self->f3C, text, 0x80);
             self->f4C = sel;
             if (self->f40 != NULL) {
                 TWindow__close(self->f40);
@@ -312,20 +312,20 @@ void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self) {
             }
         }
     }
-    if (self->f38 != NULL && get_flag_bit2__6TLobbyFPv(self->f38) == 1) {
-        set_field_20__12TQuestListVMFPvi(self, 4);
+    if (self->f38 != NULL && get_flag_bit2__6TLobbyFv(self->f38) == 1) {
+        set_field_20__12TQuestListVMFl(self, 4);
         return;
     }
-    if (self->f38 != NULL && get_status_flag__6TLobbyFPv(self->f38) == 1) {
-    sel = select_cursor_entry__6TLobbyFPv((s32)self->f38);
+    if (self->f38 != NULL && get_status_flag__6TLobbyFv(self->f38) == 1) {
+    sel = select_cursor_entry__6TLobbyFv((s32)self->f38);
     if (self->f40 == NULL) {
         p.a = lbl_80450AB4[0].a;
         p.b = lbl_80450AB4[0].b;
         id = (u16)obj_getField1c(self->f24);
-        self->f40 = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x2E), &p, 1, id);
+        self->f40 = create_message_window__6TLobbyFllUls(get_window_layout_position(0x2E), &p, 1, id);
         text2 = SUB_80222C28(self->f50, self->entries[sel].f8);
-        send_and_handle__6TLobbyFPvii(self->f40, text2, 0x80);
-        set_field_1c__6TLobbyFPvf(self->f40, 37000.0f);
+        send_and_handle__6TLobbyFii(self->f40, text2, 0x80);
+        set_field_1c__6TLobbyFf(self->f40, 37000.0f);
         if (get_camera_id__11TCameraCtrlFv() >= 2) {
             set_position_xy(self->f40, 0.75f, 0.75f);
         }
@@ -337,7 +337,7 @@ void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self) {
         if (self->obj != NULL) {
             self->obj->m7(5, 0x80);
         }
-        set_field_20__12TQuestListVMFPvi(self, 2);
+        set_field_20__12TQuestListVMFl(self, 2);
     }
     }
 }
@@ -352,10 +352,10 @@ void create_quest_list_window__19TQuestListChallengeFv(QLC_80288FDC *arg0) {
         arg0->list = create_item_list_window(get_guild_text(0), 0x40, id);
         for (i = 0; i < arg0->count; i++) {
             e = ((s32 (*)(s32, s32))get_quest_list_text)(arg0->f50, arg0->entries[i].id);
-            add_list_entry__6TLobbyFPviii(arg0->list, 0x2C, e, i);
+            add_list_entry__6TLobbyFlll(arg0->list, 0x2C, e, i);
         }
         calc_list_content_extent(arg0->list);
-        set_field_20__12TQuestListVMFPvi(arg0, 1);
+        set_field_20__12TQuestListVMFl(arg0, 1);
     }
 }
 
@@ -452,7 +452,7 @@ u8 *TQuestListChallenge__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         *(s32 *)((s8 *)arg0 + 0x54) = 8;
         break;
     }
-    set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (0)));
+    set_field_20__12TQuestListVMFl((void *)((void *) (arg0)), (s32)((int) (0)));
     (*(u8 * *)&TQuestListChallenge__active_instance) = arg0;
     return arg0;
 }

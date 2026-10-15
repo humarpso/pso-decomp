@@ -49,7 +49,6 @@ void TObjBoss2DustCtrl__sub_8003AB5C(void);
 void *TObjBoss2DustCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void TObjBoss2DustCtrl__sub_8003AD50(void);
-void create__17TObjBoss2DustCtrlFv(void);
 void* __nw__7TObjectFUl(s32);
 extern s32 __vt__17TObjBoss2DustCtrl[];
 extern void *lbl_805D26F8;
@@ -62,7 +61,7 @@ struct RecoveredGlobal_8003AB00_lbl_804FEA80 {
 extern "C" {
 s32 end_effect_render__13TParticleCtrlFv();
 s32 post_translate_matrix(int);
-s32 draw_trail_strip__10TObjPlayerFPvPvi(int, int, int);
+s32 draw_trail_strip__10TObjPlayerFPvl(int, int, int);
 void boss2_dust_draw_at(s32 *arg0, s32 arg1);
 }
 
@@ -85,7 +84,7 @@ void boss2_dust_draw_at(s32 *arg0, s32 arg1) {
     var_r4 = 6;
     var_r3 = (s32 *)((u8 *)(s32 *)boss2_dust_output_table + var_r5);
     var_r5 = 0;
-    draw_trail_strip__10TObjPlayerFPvPvi((int) (var_r3), (int) (6), (int) (0));
+    draw_trail_strip__10TObjPlayerFPvl((int) (var_r3), (int) (6), (int) (0));
     pop_matrix();
 }
 
@@ -151,7 +150,7 @@ void *TObjBoss2DustCtrl__ct(void *arg0) {
     return arg0;
 }
 
-void create__17TObjBoss2DustCtrlFv(void) {
+void TObjBoss2DustCtrl::create() {
     void* obj = __nw__7TObjectFUl(0x1C);
     if (obj != 0) {
         ((s32 (*)(void *, s32))TObjBoss2DustCtrl__ct)(obj, tl_05);

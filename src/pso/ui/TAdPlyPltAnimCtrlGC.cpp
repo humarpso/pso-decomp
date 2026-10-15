@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlyPltAnimCtrlGC.h"
 
 struct RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC {
     s32 value;
@@ -8,7 +9,6 @@ struct RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC {
 struct O_80355148 { u8 pad[0x1c]; s32 state; };
 
 extern "C" {
-int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 s32 TAdPlyPltAnimCtrlGC__sub_80355D38();
 void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0);
 u8 fn_8035510C(s32 *arg0, s32 arg1);
@@ -19,19 +19,13 @@ extern s32 lbl_805D4390;
 u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1);
 s32 TAdPlyPltAnimCtrlGC__sub_80355148(O_80355148 *self);
 s32 get_state_flag__9TMainTaskFv();
-void render__19TAdPlyPltAnimCtrlGCFv(void *self);
-int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(void *, void *);
 extern u32 ply_plt_anim_time_threshold_table[];
-void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0);
 }
 
 extern "C" {
 
 void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1);
-u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0);
-int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
-void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1);
 int test_flags_any(void*, int);
 void TObjPlayer__sub_80354F8C(void* p);
 int TObjPlayer__sub_80354FB0(void* p);
@@ -41,24 +35,24 @@ s32 __dl__7TObjectFPv(void *);
 int __dl__FPv();
 s32 __dt__7TObjectFv(void *, s32);
 u32 __nw__7TObjectFUl(s32);
-int clear_flags__11TAdRicoRingFPvUi(void*, int);
-int clear_id__10TObjPlayerFPv(void*);
-int clear_lock_flag__10TObjPlayerFPv(void* p);
-int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*, void*);
+int clear_flags__11TAdRicoRingFUl(void*, int);
+int clear_id__10TObjPlayerFv(void*);
+int clear_lock_flag__10TObjPlayerFv(void* p);
+int copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void*, void*);
 s32 get_quest_thread_id__10TObjPlayerFPv(void* p);
 void* init_and_reset_forward__10TObjPlayerFPv(void* p);
-int init_forward__10TObjPlayerFPv(void*);
-void reset_field4__10TObjPlayerFPv(void* p);
-int set_flag0_bits01__10TObjPlayerFPv(void* p);
-int set_flag1__10TObjPlayerFPv(void* p);
-int set_flags__10TObjPlayerFPvUi(void*, int);
-void set_player_index__10TObjPlayerFPvi(void* p, s32 v);
+int init_forward__10TObjPlayerFv(void*);
+void reset_field4__10TObjPlayerFv(void* p);
+int set_flag0_bits01__10TObjPlayerFv(void* p);
+int set_flag1__10TObjPlayerFv(void* p);
+int set_flags__10TObjPlayerFUl(void*, int);
+void set_player_index__10TObjPlayerFl(void* p, s32 v);
 
 u8 fn_8035510C(s32 *arg0, s32 arg1) {
     return (u8) (arg1 == (arg1 & *arg0));
 }
 
-void render__19TAdPlyPltAnimCtrlGCFv(void *self) {
+void TAdPlyPltAnimCtrlGC::render(void *self) {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return;
     }
@@ -78,19 +72,20 @@ void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     *(s32 *)((s8 *)arg0 + 0x20) = -1;
     do {
-        if (get_table_value__19TAdPlyPltAnimCtrlGCFi((int) (var_r31)) != 0U) {
+        if (TAdPlyPltAnimCtrlGC::get_table_value((int) (var_r31)) != 0U) {
             TAdPlyPltAnimCtrlGC__sub_80355D38();
         }
         var_r31 += 1;
     } while (var_r31 < 5);
 }
 
-void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)((void*)(p))); copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((char*)p + 0x24, a1); *(int*)((char*)p + 0x1c) = 1; }
+void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)((void*)(this))); copy_vec2__28TWindowSubSymbolChatPartsSetFPv((char*)this + 0x24, a1); *(int*)((char*)this + 0x1c) = 1; }
 
 extern s32 __vt__19TAdPlyPltAnimCtrlGC[];
 extern u32 plyplt_anim_ctrl_instance;
 
-void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
+void TAdPlyPltAnimCtrlGC::run_task() {
+    u8 *arg0 = (u8 *)this;
     void *p;
     if (*(s32 *)((s8 *)arg0 + 0x1C) == 0) {
         return;
@@ -101,7 +96,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
         break;
     case 1:
         if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[0]) {
-            if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(0)) != NULL) {
+            if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(0)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             *(s32 *)((s8 *)arg0 + 0x1C) = 2;
@@ -109,7 +104,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
         break;
     case 2:
         if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[1]) {
-            if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(1)) != NULL) {
+            if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(1)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             *(s32 *)((s8 *)arg0 + 0x1C) = 3;
@@ -117,7 +112,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
         break;
     case 3:
         if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[2]) {
-            if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(2)) != NULL) {
+            if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(2)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             *(s32 *)((s8 *)arg0 + 0x1C) = 4;
@@ -125,7 +120,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
         break;
     case 4:
         if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[3]) {
-            if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(3)) != NULL) {
+            if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(3)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             *(s32 *)((s8 *)arg0 + 0x1C) = 5;
@@ -133,7 +128,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
         break;
     case 5:
         if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[4]) {
-            if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(4)) != NULL) {
+            if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(4)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             *(s32 *)((s8 *)arg0 + 0x1C) = 6;
@@ -181,7 +176,7 @@ u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0) {
+u32 TAdPlyPltAnimCtrlGC::get_instance(s32 arg0) {
     u32 var_r0;
 
     if ((u32) plyplt_anim_ctrl_instance == 0U) {
@@ -195,6 +190,6 @@ u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0) {
 }
 
     extern int TAdPlyPltAnimGC__instances[];
-int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0) {  return TAdPlyPltAnimGC__instances[a0]; }
+int TAdPlyPltAnimCtrlGC::get_table_value(int a0) {  return TAdPlyPltAnimGC__instances[a0]; }
 
 }

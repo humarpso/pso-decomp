@@ -64,11 +64,11 @@ public:
 };
 
 extern "C" {
-void set_hp_clamped__10TObjPlayerFPvs(Player_8034DAA0 *, s32);
+void set_hp_clamped__10TObjPlayerFs(Player_8034DAA0 *, s32);
 s32 obj_getS16_2BA(Player_8034DAA0 *);
 void obj_setFlags30(void *, u32);
-s32 get_field_2b8__14TItemProShieldFPv(Player_8034DAA0 *);
-void set_facing__10TObjPlayerFPvs(Player_8034DAA0 *, s32);
+s32 get_field_2b8__14TItemProShieldFv(Player_8034DAA0 *);
+void set_facing__10TObjPlayerFs(Player_8034DAA0 *, s32);
 Player_8034DAA0 *get_player_by_client_id(s32);
 extern Vec2i_8034DAA0 lbl_80478C90[];
 extern Vec2i_8034DAA0 lbl_80478C98[];
@@ -125,10 +125,10 @@ void TLobby__sub_8034DAA0(s32 arg0, u32 arg1) {
         break;
     }
     case 10:
-        set_hp_clamped__10TObjPlayerFPvs(p, get_field_2b8__14TItemProShieldFPv(p));
+        set_hp_clamped__10TObjPlayerFs(p, get_field_2b8__14TItemProShieldFv(p));
         break;
     case 11:
-        set_facing__10TObjPlayerFPvs(p, obj_getS16_2BA(p));
+        set_facing__10TObjPlayerFs(p, obj_getS16_2BA(p));
         break;
     }
 }

@@ -25,22 +25,21 @@ struct Pos_8013319C { s32 x; s32 y; };
 struct Poss_8013319C { Pos_8013319C p[4]; };
 
 extern "C" {
-s32 get_difficulty_flag_bit__12TLevelSelectFii(int, int);
+s32 get_difficulty_flag_bit__12TLevelSelectFll(int, int);
 int count_unlocked_difficulties__12TLevelSelectFv(void);
 void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
 s32 get_localized_text_entry(s32, s32);
-s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 get_selected_slot__23TAdSinglePlyChrSelectGCFv(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void set_default_camera__21TAdMultiChgGameModeGCFv(void);
 void set_game_mode_changed__21TAdMultiChgGameModeGCFv(void);
-void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, u32);
+void set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, u32);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern s32 game_difficulty_selection;
-void run_task__12TLevelSelectFv(Self_80133068 *self);
 void __ct__7TObjectFP7TObject(void *, void *);
 void TKeyBoardControl__sub_8000F90C(s32);
 void TKeyBoardControl__sub_8000F9CC(s32);
@@ -55,9 +54,9 @@ void __ct__13TAdTitleTexGCFv(void *, void *);
 void __ct__14TAdSelectTxtGCFv(void *, void *, void *, int);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-void add_item_rect__12TLevelSelectFPvPv(void *, void *);
+void add_item_rect__12TLevelSelectFPv(void *, void *);
 s32 get_localized_text_entry(s32, s32);
-void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, u32);
+void set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, u32);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern Ents_8013319C level_select_entry_table;
 extern Pos_8013319C lbl_8043ED58[];
@@ -72,43 +71,42 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self);
 
 extern "C" {
 
-void render__12TLevelSelectFv(void);
-
-void render__12TLevelSelectFv(void) {  }
+void TLevelSelect::render() {  }
 int count_unlocked_difficulties__12TLevelSelectFv(void) {
     u8 f;
     int n;
     f = 0;
-    if (get_difficulty_flag_bit__12TLevelSelectFii(0, 0x35) != 0 || get_difficulty_flag_bit__12TLevelSelectFii(0, 0x57) != 0) {
+    if (get_difficulty_flag_bit__12TLevelSelectFll(0, 0x35) != 0 || get_difficulty_flag_bit__12TLevelSelectFll(0, 0x57) != 0) {
         f = 1;
     }
     n = f;
     f = 0;
-    if (get_difficulty_flag_bit__12TLevelSelectFii(1, 0x37) != 0 || get_difficulty_flag_bit__12TLevelSelectFii(1, 0x57) != 0) {
+    if (get_difficulty_flag_bit__12TLevelSelectFll(1, 0x37) != 0 || get_difficulty_flag_bit__12TLevelSelectFll(1, 0x57) != 0) {
         f = 1;
     }
     n += f;
     f = 0;
-    if (get_difficulty_flag_bit__12TLevelSelectFii(2, 0x37) != 0 || get_difficulty_flag_bit__12TLevelSelectFii(2, 0x57) != 0) {
+    if (get_difficulty_flag_bit__12TLevelSelectFll(2, 0x37) != 0 || get_difficulty_flag_bit__12TLevelSelectFll(2, 0x57) != 0) {
         f = 1;
     }
     n += f;
     return n;
 }
-void run_task__12TLevelSelectFv(Self_80133068 *self) {
+void TLevelSelect::run_task() {
+    Self_80133068 *self = (Self_80133068 *)this;
     set_default_camera__21TAdMultiChgGameModeGCFv();
     if (game_difficulty_selection != TAdSinglePlyChrSelectGC__sub_801334DC(self->f20)) {
-        set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->f24, 1, get_localized_text_entry(0xD, TAdSinglePlyChrSelectGC__sub_801334DC(self->f20) + 1));
+        set_entry_value__22TAdMultiPlyChrSelectGCFlUl(self->f24, 1, get_localized_text_entry(0xD, TAdSinglePlyChrSelectGC__sub_801334DC(self->f20) + 1));
     }
     game_difficulty_selection = TAdSinglePlyChrSelectGC__sub_801334DC(self->f20);
-    switch (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->f20)) {
+    switch (get_selected_slot__23TAdSinglePlyChrSelectGCFv(self->f20)) {
     case 1:
         TKeyBoardControl__sub_8000F9CC(0xE);
         break;
     case 0:
     default:
         if (TWindowShortListCtrl__check_controller_button(&controller_physical_port_bank[0x20], 2) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(&controller_input_state[0x160], 2) != 0) {
+            test_flag_4c__23TAdSinglePlyChrSelectGCFv(&controller_input_state[0x160], 2) != 0) {
             queue_destruction__7TObjectFv(self);
             set_game_mode_changed__21TAdMultiChgGameModeGCFv();
         }
@@ -170,26 +168,26 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
                 p = __ct__14TAdSelectCurGCFv(p, self, &poss, &pos);
             }
             self->cur = p;
-            add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[0]);
+            add_item_rect__12TLevelSelectFPv(self->cur, &poss.p[0]);
             p = __nw__7TObjectFUl(0x44);
             if (p != NULL) {
                 p = __ct__13TAdGuideTxtGCFv(p, self);
             }
             self->guide = p;
-            ((void (*)(void *, s32, u32))set_entry_value__22TAdMultiPlyChrSelectGCFiiUi)(self->guide, 0, get_localized_text_entry(0xD, 0));
-            ((void (*)(void *, s32, u32))set_entry_value__22TAdMultiPlyChrSelectGCFiiUi)(self->guide, 1, get_localized_text_entry(0xD, 1));
+            ((void (*)(void *, s32, u32))set_entry_value__22TAdMultiPlyChrSelectGCFlUl)(self->guide, 0, get_localized_text_entry(0xD, 0));
+            ((void (*)(void *, s32, u32))set_entry_value__22TAdMultiPlyChrSelectGCFlUl)(self->guide, 1, get_localized_text_entry(0xD, 1));
             switch (self->count) {
             case 1:
-                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[1]);
+                add_item_rect__12TLevelSelectFPv(self->cur, &poss.p[1]);
                 break;
             case 2:
-                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[1]);
-                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[2]);
+                add_item_rect__12TLevelSelectFPv(self->cur, &poss.p[1]);
+                add_item_rect__12TLevelSelectFPv(self->cur, &poss.p[2]);
                 break;
             case 3:
-                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[1]);
-                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[2]);
-                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[3]);
+                add_item_rect__12TLevelSelectFPv(self->cur, &poss.p[1]);
+                add_item_rect__12TLevelSelectFPv(self->cur, &poss.p[2]);
+                add_item_rect__12TLevelSelectFPv(self->cur, &poss.p[3]);
                 break;
             }
         }

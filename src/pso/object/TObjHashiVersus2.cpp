@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/object/TObjHashiVersus2.h"
 
 extern "C" {
 extern char lbl_80445974[];
@@ -20,14 +21,13 @@ typedef char RecoveredGlobal_801913F8___vt__16TObjHashiVersus2_size[sizeof(Recov
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u32 TObjHashiVersus2__resource_bundle;
-void load_shared_resource__16TObjHashiVersus2Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjHashiBase__ct(void *, s32);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 u8 is_current_floor_switch_set(int);
 extern RecoveredGlobal_801913F8_lbl_804B7D24 TObjHashiVersus2__collision_body_parts;
 extern s32 __vt__16TObjHashiVersus2[];
@@ -41,7 +41,6 @@ extern "C" {
 
 void *TObjHashiVersus2__create(void *arg0);
 void *__dt__16TObjHashiVersus2Fv(void *arg0, s16 arg1);
-void free_static_data__16TObjHashiVersus2Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
@@ -61,7 +60,7 @@ void *TObjHashiVersus2__create(void *arg0) {
 
 extern u32 TObjHashiVersus2__resource_bundle;
 
-void free_static_data__16TObjHashiVersus2Fv(void) {
+void TObjHashiVersus2::free_static_data() {
     if ((u32) TObjHashiVersus2__resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)TObjHashiVersus2__resource_bundle, 1);
         TObjHashiVersus2__resource_bundle = 0U;
@@ -70,10 +69,10 @@ void free_static_data__16TObjHashiVersus2Fv(void) {
 
 extern s32 __vt__16TObjHashiVersus2[];
 
-void load_shared_resource__16TObjHashiVersus2Fv(void) {
+void TObjHashiVersus2::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjHashiVersus2__resource_descriptor, 0, 0, 0));
@@ -106,7 +105,7 @@ u8 *TObjHashiVersus2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus2__resource_bundle), 0);
     init_collision_body_parts(arg0, (s32) &TObjHashiVersus2__collision_body_parts.value, 2);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     return arg0;
 }
 

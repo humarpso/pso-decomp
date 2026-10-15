@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
 
 struct RecoveredGlobal_80119060_lbl_80506228 {
     s32 value;
@@ -13,10 +14,8 @@ struct RecoveredGlobal_801190B0_lbl_80506228 {
 extern "C" {
 s32 fn_8011085C(int, void *);
 extern RecoveredGlobal_80119060_lbl_80506228 item_effect_object_table;
-void apply_equip_effect_slot__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1);
 s32 fn_801108C8(int, void *);
 extern RecoveredGlobal_80119060_lbl_80506228 item_effect_object_table;
-void apply_equip_slot_effect__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1);
 }
 
 extern "C" {
@@ -31,7 +30,7 @@ s32 TObjEneMe3Stelth__sub_800F5864(u32, s32);
 u32 get_player_by_client_id(u16);
 
 typedef char RecoveredGlobal_80119060_lbl_80506228_size[sizeof(RecoveredGlobal_80119060_lbl_80506228) == 0x20 ? 1 : -1];
-void apply_equip_effect_slot__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1) {
+void TItemEquipBase::apply_equip_effect_slot(u16 arg0, u32 arg1) {
     u32 temp_r3;
     if ((arg0 < 0xCU) && (arg1 < 7U)) {
         temp_r3 = *(s32 *)((s8 *)(&item_effect_object_table.value) + (arg1 * 4));
@@ -42,7 +41,7 @@ void apply_equip_effect_slot__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1) {
 }
 
 typedef char RecoveredGlobal_801190B0_lbl_80506228_size[sizeof(RecoveredGlobal_801190B0_lbl_80506228) == 0x20 ? 1 : -1];
-void apply_equip_slot_effect__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1) {
+void TItemEquipBase::apply_equip_slot_effect(u16 arg0, u32 arg1) {
     u32 temp_r3;
     if ((arg0 < 0xCU) && (arg1 < 7U)) {
         temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_801190B0_lbl_80506228 *)&item_effect_object_table).value) + (arg1 * 4));

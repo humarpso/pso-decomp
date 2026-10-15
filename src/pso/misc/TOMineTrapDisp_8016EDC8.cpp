@@ -6,11 +6,11 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void);
 s32 obj_getField1c(void *);
 f32 horizontal_distance_squared(void *, void *);
-void *get_mine_data_ptr__10TOMineTrapFPv(void *);
-void get_player_state__6TOMineFPv(void *, u16);
+void *get_mine_data_ptr__10TOMineTrapFv(void *);
+void get_player_state__6TOMineFv(void *, u16);
 s32 fn_80171314(void *);
 s32 TOMineTrap__sub_80171350(void);
-s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s32 get_stat_by_key_state__10TObjPlayerFv(void *);
 s32 is_technique_ready__8TTecCtrlFv(void);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805DB850;
@@ -49,7 +49,7 @@ void TOMineTrapDisp::run_task() {
                     if (fn_80171314(pl) != 0 ||
                         (is_technique_ready__8TTecCtrlFv() != 0 && fAC == (u16)obj_getField1c(pl))) {
                         if (!(horizontal_distance_squared(pos, pl + 0x38) <= lbl_805DB850)) {
-                            if ((s16)get_stat_by_key_state__10TObjPlayerFPv(pl) != (s16)get_stat_by_key_state__10TObjPlayerFPv(this)) {
+                            if ((s16)get_stat_by_key_state__10TObjPlayerFv(pl) != (s16)get_stat_by_key_state__10TObjPlayerFv(this)) {
                                 continue;
                             }
                         }
@@ -67,8 +67,8 @@ void TOMineTrapDisp::run_task() {
     case 1:
         break;
     case 2:
-        get_player_state__6TOMineFPv(d, fA8);
-        VecCopy__FP3VecPC3Vec(pos, get_mine_data_ptr__10TOMineTrapFPv(d));
+        get_player_state__6TOMineFv(d, fA8);
+        VecCopy__FP3VecPC3Vec(pos, get_mine_data_ptr__10TOMineTrapFv(d));
         break;
     case 3:
         break;

@@ -42,6 +42,18 @@ struct TObjEneBeast
     void* m_3a8;
     void* m_3ac;
     u8 m_3b0[4][0x1C];
+    static void on_attack_cooldown_expired();
+    void spawn_death_fire();
+    void update_claw_trail();
+    void select_subtype();
+    void update_appearance();
+    static void *create(void *arg0);
+    static void load_resources();
+    s32 update_action_hold();
+    void run_task();
+    static int is_lying_down();
+    void request_stand_action();
+    void select_model_record(s32 i);
 };
 
 #include <stddef.h>

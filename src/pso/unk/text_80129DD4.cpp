@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_8622c5 { char pad[0x18]; };
 
@@ -61,27 +62,27 @@ struct RecoveredGlobal_80129DD4_lbl_8043E968 {
 };
 
 extern "C" {
-s32 draw_icon__10TObjPlayerFPvii(void *, int, void *);
+s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 TObjPlayer__sub_80128A70();
 extern RecoveredGlobal_80129DD4_lbl_8043E968 lbl_8043E968;
-void draw_icon_slots__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80129DD4_lbl_8043E968_size[sizeof(RecoveredGlobal_80129DD4_lbl_8043E968) == 0x18 ? 1 : -1];
-void draw_icon_slots__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::draw_icon_slots() {
+    u8 *arg0 = (u8 *)this;
     s32 sp8;
     TObjPlayer__sub_80128A70();
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (1), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (1), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 0, *(s32 *)((s8 *)(&lbl_8043E968.value) + 0), 1);
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (1), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (1), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 1, *(s32 *)((s8 *)(&lbl_8043E968.value) + 4), 1);
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (1), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (1), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 2, *(s32 *)((s8 *)(&lbl_8043E968.value) + 8), 1);
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (1), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (1), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 3, *(s32 *)((s8 *)(&lbl_8043E968.value) + 0xC), 1);
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (1), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (1), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 4, *(s32 *)((s8 *)(&lbl_8043E968.value) + 0x10), 1);
 }
 

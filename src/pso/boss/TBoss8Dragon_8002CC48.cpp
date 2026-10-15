@@ -1,5 +1,7 @@
 #include "types.h"
 #include <stddef.h>
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/boss/TObjBoss1Rock.h"
 
 struct RecoveredGlobal_8002D41C_lbl_80482060 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8002D41C_lbl_80482060_size[sizeof(RecoveredGlobal_8002D41C_lbl_80482060) == 0x18 ? 1 : -1];
@@ -180,25 +182,25 @@ void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void set_chunk_material_override_pair(s32, s32, s32, s32);
 void draw_chunk_object(void *);
 void queue_destruction__7TObjectFv();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 free__11TOBoss4RockFUi(s32);
+s32 mem_free(s32);
 s32 __dl__FPv(void *);
-void *alloc_buffer__11TOBoss4RockFPv(u32);
+void *mem_alloc(u32);
 f32 newton_sqrtf(f32);
 f32 calc_nearest_crater_distance(void *);
-void *construct__13TObjBoss1RockFPvPvPvPvPv(void *, void *, void *, void *, void *);
-f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+void *construct__13TObjBoss1RockFPvPvPvPv(void *, void *, void *, void *, void *);
+f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32, f32);
-s32 update_scale__15TObjBoss2TunnelFPv(void *, f32);
+s32 update_scale__15TObjBoss2TunnelFv(void *, f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void set_chunk_material_color(void *);
@@ -209,22 +211,16 @@ void *__dt__22TObjBoss1MokoHill_SoloFv(void *arg0, s16 arg1);
 void render_dragon_trail(Obj_8002CE78 *arg0);
 void update_dragon_trail(Trail_8002CFB8 *self);
 s32 is_dragon_trail_damaging(u8 *arg0);
-void set_field_3c__12TBoss8DragonFPv(void* p);
-void set_field_1c__12TBoss8DragonFPv(void* p);
-void spawn_child_object__12TBoss8DragonFPv(void *arg0);
 void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1);
 u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 void update_dragon_trail_uvs(Obj_8002D4C0 *self);
-void free_resources__12TBoss8DragonFv(void);
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0);
 s32 TBoss8Dragon__sub_8002DB04(void *arg0);
 void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1);
 Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 width, s32 strips, s32 materialWords, s16 *material);
-f32 apply_default_velocity_scale__12TBoss8DragonFv(f32 *vector);
 f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1);
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
 f32 rand_signed_unit(void);
-void render__13TObjBoss1RockFPv(Obj_8002DF7C *self);
 
 void update_dragon_trail_piece(Trail_8002CC48 *self) {
     switch (self->state) {
@@ -296,7 +292,7 @@ void render_dragon_trail(Obj_8002CE78 *arg0) {
     Ent_8002CE78 *p;
     s32 i;
     if (arg0->active != 0) {
-        set_global_param__8TObjFishFi(dragon_common_texture_list);
+        set_global_param__8TObjFishFl(dragon_common_texture_list);
         update_dragon_trail_uvs((Obj_8002D4C0 *)((struct Obj_8002D4C0 *)dragon_trail_position_source));
         for (p = (Ent_8002CE78 *)lbl_805D4B78, i = 0; i < lbl_805D4B74; i++, p++) {
             *p->dst = p->base + p->ofs;
@@ -382,13 +378,13 @@ void update_dragon_trail(Trail_8002CFB8 *self) {
             pos.z = s * lbl_805D81B4 + ((Vec_8002CFB8 *)dragon_trail_position_source)->z;
             vel.x = pos.x - ax;
             vel.z = pos.z - az;
-            clamp_velocity__15TObjBoss2TunnelFPv(&vel);
+            clamp_velocity__15TObjBoss2TunnelFv(&vel);
             vel.x *= 1.5f;
             vel.z *= 1.5f;
             vel.y = lerp__9TDeadSpotFff(6.0f, 9.0f);
             o = __nw__7TObjectFUl(0x54);
             if (o != NULL) {
-                construct__13TObjBoss1RockFPvPvPvPvPv(o, self->f10, &pos, &vel, (void *)1);
+                construct__13TObjBoss1RockFPvPvPvPv(o, self->f10, &pos, &vel, (void *)1);
             }
         }
         for (p = (Ent_8002CFB8 *)lbl_805D4B78, i = 0; i < lbl_805D4B74; p++, i++) {
@@ -422,19 +418,19 @@ s32 is_dragon_trail_damaging(u8 *arg0) {
     return *(f32 *)((s8 *)arg0 + 0x34) >= lbl_805D81D0;
 }
 
-void set_field_3c__12TBoss8DragonFPv(void* p) { set_field_1c__12TBoss8DragonFPv((void*)((void*)(p))); *(int*)((char*)p + 0x3c) = 1; }
-void set_field_1c__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
+void TBoss8Dragon::set_field_3c() { set_field_1c(); *(int*)((char*)this + 0x3c) = 1; }
+void TBoss8Dragon::set_field_1c() { *(s32*)((char*)this + 0x1c) = 1; }
 
-void spawn_child_object__12TBoss8DragonFPv(void *arg0) {
+void TBoss8Dragon::spawn_child_object() {
     void *o;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805D81A0;
-    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805D81A0;
+    *(u32 *)((s8 *)this + 0x1C) = 0;
+    *(f32 *)((s8 *)this + 0x34) = lbl_805D81A0;
+    *(f32 *)((s8 *)this + 0x30) = lbl_805D81A0;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(*(void **)((s8 *)arg0 + 0x10)), (int)(30));
+        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(*(void **)((s8 *)this + 0x10)), (int)(30));
     }
-    *(u32 *)((s8 *)arg0 + 0x3C) = 0;
+    *(u32 *)((s8 *)this + 0x3C) = 0;
 }
 
 void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1) {
@@ -493,7 +489,7 @@ void update_dragon_trail_uvs(Obj_8002D4C0 *self) {
     }
 }
 
-void free_resources__12TBoss8DragonFv(void) { ((int (*)(void*))free__11TOBoss4RockFUi)((void*)(lbl_805D4B78)); lbl_805D4B78 = 0; ((int (*)(void*))free__11TOBoss4RockFUi)((void*)(lbl_805D4B6C)); lbl_805D4B6C = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B64), (void*)1); lbl_805D4B64 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B68), (void*)1); lbl_805D4B68 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B60), (void*)1); lbl_805D4B60 = 0; }
+void TBoss8Dragon::free_resources() { ((int (*)(void*))mem_free)((void*)(lbl_805D4B78)); lbl_805D4B78 = 0; ((int (*)(void*))mem_free)((void*)(lbl_805D4B6C)); lbl_805D4B6C = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B64), (void*)1); lbl_805D4B64 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B68), (void*)1); lbl_805D4B68 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B60), (void*)1); lbl_805D4B60 = 0; }
 
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x14) + ((*(s32 *)((s8 *)arg0 + 0xC) + 3) * 2);
@@ -505,9 +501,9 @@ s32 TBoss8Dragon__sub_8002DB04(void *arg0) {
 
 void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0x10));
+        mem_free(*(s32 *)((s8 *)arg0 + 0x10));
         *(s32 *)((s8 *)arg0 + 0x10) = 0;
-        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0x14));
+        mem_free(*(s32 *)((s8 *)arg0 + 0x14));
         *(s32 *)((s8 *)arg0 + 0x14) = 0;
         *(s32 *)((s8 *)arg0 + 0x18) = 0;
         *(s32 *)((s8 *)arg0 + 0x1C) = 0;
@@ -532,8 +528,8 @@ Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 widt
     g->strips = strips;
     g->materialWords = materialWords;
     g->stripWords = g->width * 6 + 1;
-    g->polygons = (u16 *)alloc_buffer__11TOBoss4RockFPv((g->materialWords + 5 + g->stripWords * g->strips) * 2);
-    g->vertices = (u32 *)alloc_buffer__11TOBoss4RockFPv((g->width * (g->strips + 1) * 6 + 3) * 4);
+    g->polygons = (u16 *)mem_alloc((g->materialWords + 5 + g->stripWords * g->strips) * 2);
+    g->vertices = (u32 *)mem_alloc((g->width * (g->strips + 1) * 6 + 3) * 4);
     p = (s16 *)g->polygons;
     for (i = 0; i < g->materialWords; i++) {
         *p++ = *material++;
@@ -594,7 +590,8 @@ Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 widt
     return g;
 }
 
-f32 apply_default_velocity_scale__12TBoss8DragonFv(f32 *vector) {
+f32 TBoss8Dragon::apply_default_velocity_scale() {
+    f32 *vector = (f32 *)this;
     return apply_velocity_scale__12TBoss8DragonFPvff(vector, lbl_805D81E4, lbl_805D81D4);
 }
 
@@ -605,7 +602,7 @@ f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1) {
     f32 var_f31;
     s32 temp_r31;
 
-    temp_f1 = clamp_velocity__15TObjBoss2TunnelFPv(arg0);
+    temp_f1 = clamp_velocity__15TObjBoss2TunnelFv(arg0);
     if (temp_f1 > farg0) {
         var_f31 = lbl_805D8198;
         *(f32 *)((s8 *)arg0 + 0) = var_f31;
@@ -619,7 +616,7 @@ f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1) {
         *(f32 *)((s8 *)arg0 + 0) = temp_f2;
         *(f32 *)((s8 *)arg0 + 4) = (f32) lbl_805D81F4;
         *(f32 *)((s8 *)arg0 + 8) = (f32) (*(f32 *)((s8 *)arg0 + 8) * temp_f1_2);
-        update_scale__15TObjBoss2TunnelFPv(arg0, temp_f1_2);
+        update_scale__15TObjBoss2TunnelFv(arg0, temp_f1_2);
     }
     return var_f31;
 }
@@ -640,14 +637,15 @@ f32 rand_signed_unit(void) {
 
 #pragma push
 #pragma fp_contract on
-void render__13TObjBoss1RockFPv(Obj_8002DF7C *self) {
+void TObjBoss1Rock::render() {
+    Obj_8002DF7C *self = (Obj_8002DF7C *)this;
     if (self->color < lbl_805D8200) {
         lbl_805D5660 = model_render_flags;
         model_render_flags = lbl_805D5660 | 0x810;
         ((void (*)(s32, s32))set_chunk_material_override_pair)(0xFF00, 0x800);
         set_chunk_material_color(&self->color);
         push_matrix();
-        set_global_param__8TObjFishFi(dragon_common_texture_list);
+        set_global_param__8TObjFishFl(dragon_common_texture_list);
         post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);
@@ -657,7 +655,7 @@ void render__13TObjBoss1RockFPv(Obj_8002DF7C *self) {
         model_render_flags = lbl_805D5660;
     } else {
         push_matrix();
-        set_global_param__8TObjFishFi(dragon_common_texture_list);
+        set_global_param__8TObjFishFl(dragon_common_texture_list);
         post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8DragonEffBreath.h"
 
 struct Vec_802FE024 { f32 x, y, z; };
 
@@ -14,7 +15,7 @@ struct Obj_802FE024 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__21TBoss8DragonEffBreath[];
@@ -26,22 +27,21 @@ Obj_802FE024 *TBoss8DragonEffBreath__ct(Obj_802FE024 *self, void *parent, void *
 extern "C" {
 
 void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1);
-void render__21TBoss8DragonEffBreathFv(void);
-void run_task__21TBoss8DragonEffBreathFv(u8 *arg0);
 s32 vec3_add_to(void *, void *);
 void delete_buffer__12TBoss8DragonFis(void *, int);
-s32 setup_breath_instance__12TBoss8DragonFPviUii(u32, void *, int, int);
+s32 setup_breath_instance__12TBoss8DragonFPviUli(u32, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 get_enemy_entity(int);
 s32 queue_destruction__7TObjectFv(void *);
 
-void render__21TBoss8DragonEffBreathFv(void) {  }
+void TBoss8DragonEffBreath::render() {  }
 
 extern const f32 lbl_805DEEF0;
 extern const f32 lbl_805DEEF4;
 
-void run_task__21TBoss8DragonEffBreathFv(u8 *arg0) {
+void TBoss8DragonEffBreath::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     u32 ent;
 
@@ -52,7 +52,7 @@ void run_task__21TBoss8DragonEffBreathFv(u8 *arg0) {
         return;
     }
     if ((temp_f1 < lbl_805DEEF4) && ((ent = get_enemy_entity((int) (*(u16 *)((s8 *)arg0 + 0x38)))) != 0U)) {
-        setup_breath_instance__12TBoss8DragonFPviUii(ent, (void *) (arg0 + 0x1C), (int) (*(s32 *)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0x3C)));
+        setup_breath_instance__12TBoss8DragonFPviUli(ent, (void *) (arg0 + 0x1C), (int) (*(s32 *)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0x3C)));
     }
 }
 
@@ -82,7 +82,7 @@ Obj_802FE024 *TBoss8DragonEffBreath__ct(Obj_802FE024 *self, void *parent, void *
     self->vel.z = self->vel.z * lbl_805DEEF8;
     self->a = a;
     self->b = b;
-    h = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
+    h = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (h != NULL) {
         h = TBoss8Dragon__sub_800BC5EC(h, 4);
     }

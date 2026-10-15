@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor.h"
 
 struct Cur_8013B0F0 {
     u8 pad0[0x4EC];
@@ -14,11 +15,11 @@ struct Pl_8013B0F0 {
 
 extern "C" {
 s32 get_main_phase();
-s32 init_slots__11TMainCursorFPv(Cur_8013B0F0 *);
+s32 init_slots__11TMainCursorFv(Cur_8013B0F0 *);
 s32 bind_action_channels__11TMainCursorFv(Cur_8013B0F0 *);
 s32 TMainCursor__sub_8013E03C(void *);
-s32 set_target_index__11TMainCursorFPvs(void *, int);
-s32 update_cursor_pos__11TMainCursorFPv(void *);
+s32 set_target_index__11TMainCursorFs(void *, int);
+s32 update_cursor_pos__11TMainCursorFv(void *);
 s32 reset_nearest_target_record(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(Pl_8013B0F0 *);
 s32 submit_cursor_candidate(Pl_8013B0F0 *, int);
@@ -29,12 +30,11 @@ void run_cursor_reset_task(s32 arg0);
 
 extern "C" {
 
-void* init_vtable__11TMainCursorFPv(void* a0);
-int init__13TLockOnCursorFPvPvPv(void);
+int init__13TLockOnCursorFPvPv(void);
 
     extern unsigned char lbl_804A7278[];
     extern int lbl_805D2CC0;
-void* init_vtable__11TMainCursorFPv(void* a0) { init__13TLockOnCursorFPvPvPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A7278; *(int*)((char*)a0 + 0x0) = lbl_805D2CC0; return a0; }
+void*TMainCursor::init_vtable() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A7278; *(int*)((char*)this + 0x0) = lbl_805D2CC0; return this; }
 void run_cursor_reset_task(s32 arg0) {
     Pl_8013B0F0 *pl;
     Cur_8013B0F0 *cur;
@@ -48,9 +48,9 @@ void run_cursor_reset_task(s32 arg0) {
         return;
     }
     reset_nearest_target_record(cur->sub);
-    update_cursor_pos__11TMainCursorFPv(cur->pos);
-    set_target_index__11TMainCursorFPvs(cur->target, 0xFFFF);
-    init_slots__11TMainCursorFPv(cur);
+    update_cursor_pos__11TMainCursorFv(cur->pos);
+    set_target_index__11TMainCursorFs(cur->target, 0xFFFF);
+    init_slots__11TMainCursorFv(cur);
     bind_action_channels__11TMainCursorFv(cur);
     if (get_main_phase() == 0xF) {
         for (i = 0; i < 12; i++) {

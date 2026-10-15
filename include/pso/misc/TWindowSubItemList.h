@@ -14,6 +14,8 @@ struct TWindowSubItemList
     u32 m_84;
     u8 _pad88[0x4];
     u32 m_8c;
+    void render();
+    int run_task();
 };
 
 #endif

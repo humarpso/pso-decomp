@@ -17,6 +17,11 @@ struct TODragonfly
     u8 _padD8[0x20];
     u32 m_f8;
     u32 m_fc;
+    s32 pick_random_destination(f32 farg0);
+    void move_toward_target();
+    void update_idle();
+    void draw_model();
+    void update();
 };
 
 #endif

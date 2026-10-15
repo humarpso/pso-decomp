@@ -13,6 +13,8 @@ struct TBoss7LaserLight
     void* m_38;
     u8 _pad3C[0x4];
     u32 m_40;
+    static void render();
+    void run_task();
 };
 
 #endif

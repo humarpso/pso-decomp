@@ -19,6 +19,16 @@ struct TWindowSubTechnique
     u32 m_3c;
 
     void rebuildTechniqueList(s32 list, s32 category);
+    s32 open_menu();
+    void update_selected_help(s32 arg1);
+    static void render();
+    void run_task();
+    void clear_flag70_bit80();
+    static void get_selection(s16 *arg0, s32 *arg1, s32 arg2);
+    static s32 update_selection(s16 *arg0, s32 *arg1);
+    int get_current_selection(void* _w1);
+    static s32 lookup_technique(s32 arg0, s32 arg1);
+    s32 create_title_window();
 };
 
 #endif

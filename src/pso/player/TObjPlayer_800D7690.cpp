@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Ent_800D76E8 {
     f32 ax, ay, az;
@@ -14,22 +15,22 @@ typedef struct Trail_800D76E8 {
 } Trail_800D76E8;
 
 extern "C" {
-s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(void *, int);
+s32 decrement_packed_timer__15TObjBoss2TunnelFPUll(void *, int);
 void TObjPlayer__sub_800D76E8(Trail_800D76E8 *arg0);
 }
 
 extern "C" {
 
 void TObjPlayer__sub_800D7818(void *arg0, s32 arg1, s32 arg2);
-void flush_dropped_meseta__10TObjPlayerFPv(u8 *arg0);
-s32 draw_trail_strip__10TObjPlayerFPvPvi(void *, s32, s32);
+s32 draw_trail_strip__10TObjPlayerFPvl(void *, s32, s32);
 s32 init_xyz_limits__10TObjPlayerFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
-void flush_dropped_meseta__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::flush_dropped_meseta() {
+    u8 *arg0 = (u8 *)this;
     if ((toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 1)) {
         init_xyz_limits__10TObjPlayerFv();
-        draw_trail_strip__10TObjPlayerFPvPvi(arg0 + 0x20, *(s32 *)((s8 *)arg0 + 0x1C) * 2, 1);
+        draw_trail_strip__10TObjPlayerFPvl(arg0 + 0x20, *(s32 *)((s8 *)arg0 + 0x1C) * 2, 1);
     }
 }
 
@@ -41,9 +42,9 @@ void TObjPlayer__sub_800D76E8(Trail_800D76E8 *arg0) {
         return;
     }
     ta = arg0->e[0].ta;
-    r = decrement_packed_timer__15TObjBoss2TunnelFPvi(&ta, 0x20);
+    r = decrement_packed_timer__15TObjBoss2TunnelFPUll(&ta, 0x20);
     tb = arg0->e[0].tb;
-    if (r & decrement_packed_timer__15TObjBoss2TunnelFPvi(&tb, 0x20)) {
+    if (r & decrement_packed_timer__15TObjBoss2TunnelFPUll(&tb, 0x20)) {
         Ent_800D76E8 *dst = &arg0->e[0];
         Ent_800D76E8 *src = &arg0->e[1];
         s32 i;

@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void init_limits__6TLobbyFv(void);
 void TLobby__sub_801A2550(void);
 void TLobby__sub_801A2554(void);
 
 extern s16 lbl_805D5CD2;
 extern s16 lbl_805D5CD4;
 
-void init_limits__6TLobbyFv(void) {
+void TLobby::init_limits() {
     lbl_805D5CD2 = 0x1000;
     lbl_805D5CD4 = 0x4000;
 }

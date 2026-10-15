@@ -5,12 +5,10 @@ extern s32 TWindowCtrlMain__sub_controller;
 #include "types.h"
 
 extern "C" {
-void run_task__14TWindowCtrlSubFv(void);
 s32 update_fade_alphas__15TWindowCtrlMainFv();
 s32 resolve_chat_balloon_overlaps();
 s32 run_tasks__7TObjectFv(s32);
 extern s32 TWindowCtrlMain__window_task_root;
-void run_task__14TWindowCtrlSubFv(void);
 }
 
 extern "C" {
@@ -21,7 +19,7 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__14TWindowCtrlSub[];
 extern void *TWindowCtrlSub__name;
 
-void run_task__14TWindowCtrlSubFv(void) {
+void TWindowCtrlSub::run_task() {
     resolve_chat_balloon_overlaps();
     update_fade_alphas__15TWindowCtrlMainFv();
     run_tasks__7TObjectFv(TWindowCtrlMain__window_task_root);

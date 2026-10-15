@@ -6,6 +6,9 @@
 class TObjOnlineEndingHexLine : public TObject {
 public:
     virtual ~TObjOnlineEndingHexLine();
+public:
+    void step_line();
+    static void *create(void *arg0, void *arg1);
 };
 
 #endif

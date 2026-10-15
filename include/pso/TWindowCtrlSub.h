@@ -8,6 +8,8 @@ class TWindowCtrlSub : public TObject {
 public:
     virtual ~TWindowCtrlSub();
     virtual void run_task();
+public:
+    static void run_task();
 };
 
 #endif

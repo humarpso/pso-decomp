@@ -8,6 +8,9 @@ public:
     virtual ~TAdChrSelMovePlateGC();
     virtual void run_task();
     virtual void render();
+public:
+    void clear_entries();
+    void init_plate_rects();
 };
 
 #endif

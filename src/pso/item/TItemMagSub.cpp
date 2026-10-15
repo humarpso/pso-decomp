@@ -293,8 +293,8 @@ void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TItem__sub_80100A40(f32 *, f32, f32);
-void run_with_transform_context__10TObjPlayerFiii(void *, void (*)(void *));
-f32 get_mag_scale_f__10TObjPlayerFPv(void *);
+void run_with_transform_context__10TObjPlayerFii(void *, void (*)(void *));
+f32 get_mag_scale_f__10TObjPlayerFv(void *);
 u32 mag_owner_has_motion_action(s32);
 s32 mag_owner_freezes_follow(int);
 int set_flags__11TItemMagSubFUl(void*, int);
@@ -337,7 +337,7 @@ void reset_transform_state__10TObjPlayerFv();
 s32 begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void __dt__7TObjectFv(void *, int);
-void notify_fish_if_valid__10TObjPlayerFUi(u32);
+void notify_fish_if_valid__10TObjPlayerFUl(u32);
 void __dl__15TItemHeapObjectFPv(void *);
 void __ct__15TItemHeapObjectFP7TObject(void *, void *);
 f32 sin_table_lookup(s32);
@@ -358,7 +358,7 @@ s32 set_chunk_material_color(void *);
 void draw_model_motion(void *, void *, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
-void set_global_state__16TObjEneRe7BeruraFi(void (*)(void *));
+void set_global_state__16TObjEneRe7BeruraFl(void (*)(void *));
 
 extern void *TItemMagSub__oscillating_instance;
 extern s32 TItemMagSub__feed_sequence_index;
@@ -539,17 +539,17 @@ void TItemMagSub::render_shadows() {
     copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
     if (self->model) {
         TItemMagSub__oscillating_instance = self;
-        notify_fish_if_valid__10TObjPlayerFUi(self->textures);
+        notify_fish_if_valid__10TObjPlayerFUl(self->textures);
         push_matrix();
         apply_placement_matrix__11TItemMagSubFv((u8 *)self);
         TItemMagSub__feed_sequence_index = 0;
         self->selected_node = 0;
         if (self->animation) {
-            set_global_state__16TObjEneRe7BeruraFi(update_node_oscillation__11TItemMagSubFPv);
+            set_global_state__16TObjEneRe7BeruraFl(update_node_oscillation__11TItemMagSubFPv);
             set_global_flag__10TObjPlayerFv();
             draw_model_motion(self->model, self->animation, self->animation_frame);
             clear_global_state__10TObjPlayerFv();
-            set_global_state__16TObjEneRe7BeruraFi(0);
+            set_global_state__16TObjEneRe7BeruraFl(0);
         } else {
             model_render_flags |= 0x8011;
             set_color_blend_mode(1, 4, 5, 0);
@@ -580,19 +580,19 @@ void TItemMagSub::render() {
     TItemMagSub* self = this;
     if (TItem__sub_80100A40(self->owner->center, mag_sub_render_distance_limit, mag_sub_screen_cull_margin) && self->model) {
         TItemMagSub__oscillating_instance = self;
-        notify_fish_if_valid__10TObjPlayerFUi(self->textures);
+        notify_fish_if_valid__10TObjPlayerFUl(self->textures);
         push_matrix();
         apply_placement_matrix__11TItemMagSubFv((u8 *)(self));
         (*(u32 *)&TItemMagSub__feed_sequence_index) = 0;
         self->selected_node = 0;
         if (self->animation) {
-            set_global_state__16TObjEneRe7BeruraFi(update_node_oscillation__11TItemMagSubFPv);
+            set_global_state__16TObjEneRe7BeruraFl(update_node_oscillation__11TItemMagSubFPv);
             set_global_flag__10TObjPlayerFv();
             draw_model_motion(self->model, self->animation, self->animation_frame);
             clear_global_state__10TObjPlayerFv();
-            set_global_state__16TObjEneRe7BeruraFi(0);
+            set_global_state__16TObjEneRe7BeruraFl(0);
         } else {
-            run_with_transform_context__10TObjPlayerFiii(self->model, update_node_oscillation__11TItemMagSubFPv);
+            run_with_transform_context__10TObjPlayerFii(self->model, update_node_oscillation__11TItemMagSubFPv);
         }
         (*(u32 *)&TItemMagSub__feed_sequence_index) = 0;
         pop_matrix();
@@ -728,7 +728,7 @@ void TItemMagSub::run_task() {
         update_special_pose__11TItemMagSubFv((MagSub_801151E0 *)arg0);
         return;
     }
-    *(f32 *)((s8 *)arg0 + 0xB8) = get_mag_scale_f__10TObjPlayerFPv(*(u8 **)((s8 *)arg0 + 0x20) + 0x608);
+    *(f32 *)((s8 *)arg0 + 0xB8) = get_mag_scale_f__10TObjPlayerFv(*(u8 **)((s8 *)arg0 + 0x20) + 0x608);
     if (test_flags__11TItemMagSubFUl(arg0, 8U) != 0U) {
         update_transition__11TItemMagSubFv((TItemMagSub_801152AC *)arg0);
     } else {

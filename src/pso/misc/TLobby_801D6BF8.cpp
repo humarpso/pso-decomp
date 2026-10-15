@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void update_all_children__6TLobbyFPv(void* p);
-int update_child_player__6TLobbyFi(void*);
-int reset_particle_ctrl__10TObjPlayerFPv(void*);
+int update_child_player__6TLobbyFv(void*);
+int reset_particle_ctrl__10TObjPlayerFPl(void*);
 
-void update_all_children__6TLobbyFPv(void* p) { reset_particle_ctrl__10TObjPlayerFPv(p); update_child_player__6TLobbyFi((char*)p + 0x8); update_child_player__6TLobbyFi((char*)p + 0x18); update_child_player__6TLobbyFi((char*)p + 0x28); update_child_player__6TLobbyFi((char*)p + 0x38); update_child_player__6TLobbyFi((char*)p + 0x48); }
+void TLobby::update_all_children() { reset_particle_ctrl__10TObjPlayerFPl(this); update_child_player__6TLobbyFv((char*)this + 0x8); update_child_player__6TLobbyFv((char*)this + 0x18); update_child_player__6TLobbyFv((char*)this + 0x28); update_child_player__6TLobbyFv((char*)this + 0x38); update_child_player__6TLobbyFv((char*)this + 0x48); }
 
 }

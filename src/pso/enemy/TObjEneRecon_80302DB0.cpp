@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 extern "C" {
 
 void TObjEneRecon__sub_80302DBC(void);
-void set_active__12TObjEneReconFv(void);
 
     extern unsigned char scene_sora_recon_active_flag;
-void set_active__12TObjEneReconFv(void) { scene_sora_recon_active_flag = 1; }
+void TObjEneRecon::set_active() { scene_sora_recon_active_flag = 1; }
 
 void TObjEneRecon__sub_80302DBC(void) {  }
 

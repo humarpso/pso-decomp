@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 
 extern "C" {
 extern u8 lbl_805005A4[];
@@ -6,7 +7,6 @@ extern u8 lbl_80500598[];
 void *TQuestVmDownLoadServer__sub_8007ECB0(void *arg0);
 void *TQuestVmDownLoadServer__sub_8007EC58(void *arg0, s16 arg1);
 void __register_global_object(void *obj, void *dtor, void *entry);
-void register_global_instance_dtor__22TQuestVmDownLoadServerFv(void);
 }
 
 extern "C" {
@@ -14,21 +14,20 @@ extern "C" {
 int TQuestVmDownLoadServer__sub_8007EBDC(void* p);
 void *TQuestVmDownLoadServer__sub_8007EC58(void *arg0, s16 arg1);
 void *TQuestVmDownLoadServer__sub_8007ECB0(void *arg0);
-int alloc__22TQuestVmDownLoadServerFPv(void* p);
 void __ct__7TObjectFP7TObject(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void* p);
+int alloc__23TAdSinglePlyChrSelectGCFv(void* p);
 int fn_803DE864(void*);
 s32 xfree__FPv();
 int xmalloc__FUl(void*);
 
 int TQuestVmDownLoadServer__sub_8007EBDC(void* p) { return fn_803DE864(p); }
-int alloc__22TQuestVmDownLoadServerFPv(void* p) { return xmalloc__FUl(p); }
+int TQuestVmDownLoadServer::alloc() { return xmalloc__FUl(this); }
 
 extern s32 lbl_8048DF58[];
 
-void register_global_instance_dtor__22TQuestVmDownLoadServerFv(void) {
+void TQuestVmDownLoadServer::register_global_instance_dtor() {
     __register_global_object(TQuestVmDownLoadServer__sub_8007ECB0(lbl_805005A4), (void *)TQuestVmDownLoadServer__sub_8007EC58, lbl_80500598);
 }
 
@@ -53,4 +52,4 @@ void *TQuestVmDownLoadServer__sub_8007ECB0(void *arg0) {
 
 }
 
-__declspec(section ".ctors") static void *const __sinit_TQuestVmDownLoadServer_8007EBDC_cpp_ref = (void *)register_global_instance_dtor__22TQuestVmDownLoadServerFv;
+__declspec(section ".ctors") static void *const __sinit_TQuestVmDownLoadServer_8007EBDC_cpp_ref = (void *)TQuestVmDownLoadServer::register_global_instance_dtor;

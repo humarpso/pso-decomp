@@ -1,11 +1,11 @@
 #include "pso/TItemShootModel.h"
 
 extern "C" {
-s32   is_owner_alive__10TObjPlayerFPv(TItemShootModel*);
-void* get_entity_id__10TObjPlayerFPv(void*);
+s32   is_owner_alive__10TObjPlayerFv(TItemShootModel*);
+void* get_entity_id__10TObjPlayerFv(void*);
 f32   newton_sqrtf(f32);
 f64   atan2_float(f32, f32);
-void  notify_fish_if_valid__10TObjPlayerFUi(void*);
+void  notify_fish_if_valid__10TObjPlayerFUl(void*);
 void  begin_effect_render__13TParticleCtrlFv(void);
 void  push_matrix(void);
 void  post_translate_matrix(Vec*);
@@ -19,9 +19,9 @@ extern const f64   lbl_8043E7A0[];
 }
 
 void TItemShootModel::render() {
-    if (is_owner_alive__10TObjPlayerFPv(this)) {
+    if (is_owner_alive__10TObjPlayerFv(this)) {
         if (this->m_58 != NULL) {
-            notify_fish_if_valid__10TObjPlayerFUi(this->m_5C);
+            notify_fish_if_valid__10TObjPlayerFUl(this->m_5C);
             begin_effect_render__13TParticleCtrlFv();
             push_matrix();
             post_translate_matrix(&this->m_pos);
@@ -38,7 +38,7 @@ TItemShootModel::TItemShootModel(void* owner, const Vec* pos, const Vec* dir, f3
     : TItemShoot(owner, pos, dir, life) {
     this->m_name = TItemShootModel__class_name;
     this->m_58 = *(void**)((u8*)owner + 0x188);
-    this->m_5C = get_entity_id__10TObjPlayerFPv(owner);
+    this->m_5C = get_entity_id__10TObjPlayerFv(owner);
     if (lbl_805DAC60 != this->m_dir.y) {
         f32 horiz = newton_sqrtf(this->m_dir.x * this->m_dir.x + this->m_dir.z * this->m_dir.z);
         this->m_28 = -(s32)(lbl_8043E7A0[0] * atan2_float(this->m_dir.y, horiz));

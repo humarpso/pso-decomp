@@ -22,11 +22,11 @@ struct VObj_801AE1F8 : VBase_801AE1F8 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFPvs(void *, s32);
-void set_field_dc__10TObjPlayerFPvi(void *, s32);
-void set_field_d8__10TObjPlayerFPvi(void *, s32);
+s32 set_field_b8__14TObjEnePanarmsFs(void *, s32);
+void set_field_dc__10TObjPlayerFl(void *, s32);
+void set_field_d8__10TObjPlayerFl(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 u8 *find_entity_by_id(u16);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -56,7 +56,7 @@ extern "C" void destroy__12TPhotonPillaFPvs();
 extern "C" void enter_scene__10TSceneSoraFi();
 extern "C" void render__12TPhotonPillaFPv();
 extern "C" void render_shadows__7TObjectFv();
-extern "C" void reset_movement__10TObjPlayerFPv();
+extern "C" void reset_movement__10TObjPlayerFv();
 extern "C" void update_if_active__10TSceneSoraFPv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_photon_blast();
@@ -84,7 +84,7 @@ void *lbl_804C3A84[18] = {
 void *lbl_804C3ACC[17] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__12TPhotonPillaFPvs, (void *)&update_photon_blast,
     (void *)&render__12TPhotonPillaFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_movement__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&reset_movement__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&enter_scene__10TSceneSoraFi, (void *)&update_if_active__10TSceneSoraFPv,
     (void *)0x0,
 };
@@ -100,7 +100,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     *(u16 *)((s8 *)arg0 + 0x17C) = *(u16 *)((s8 *)arg1 + 0xC);
     init_collision_body_parts(arg0, (void *)lbl_804C3A58, 1);
     refresh_collision_body_centers(arg0);
-    reset_photon_effect__10TObjPlayerFPv(arg0);
+    reset_photon_effect__10TObjPlayerFv(arg0);
     *(u8 **)((s8 *)arg0 + 0x190) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x17C));
     temp_r3 = *(u8 **)((s8 *)arg0 + 0x190);
     if (temp_r3 != NULL) {
@@ -108,11 +108,11 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x38);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x3C);
-    set_field_d8__10TObjPlayerFPvi(arg0, (s32)lbl_804C3A38);
-    set_field_dc__10TObjPlayerFPvi(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    set_field_d8__10TObjPlayerFl(arg0, (s32)lbl_804C3A38);
+    set_field_dc__10TObjPlayerFl(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_field_b8__14TObjEnePanarmsFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     *(s16 *)((s8 *)arg0 + 0x198) = 1;
     *(s32 *)((s8 *)arg0 + 0x19C) = *(s32 *)((s8 *)arg1 + 0x10);
     *(s32 *)((s8 *)arg0 + 0x1A0) = *(s32 *)((s8 *)arg1 + 0x14);
@@ -145,7 +145,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     }
     *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
     if (*(s32 *)((s8 *)arg0 + 0x19C) == 0) {
-        set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
+        set_field_b8__14TObjEnePanarmsFs(arg0, 0);
         begin_photon_summon_camera(arg0, 4);
         *(s32 *)((s8 *)arg0 + 0x19C) = 1;
         *(s16 *)((s8 *)arg0 + 0x198) = 0;

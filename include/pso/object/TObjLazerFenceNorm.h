@@ -16,6 +16,11 @@ struct TObjLazerFenceNorm
     u16 m_b0;
     u8 _padB2[0x2];
     u32 m_b4;
+    void run_task();
+    static void free_resources();
+    void draw_model();
+    void render();
+    void reset_by_door();
 };
 
 #endif

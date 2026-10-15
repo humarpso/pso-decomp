@@ -24,12 +24,12 @@ struct VObj_18_df5984 : VBase_18_df5984 {
 extern "C" {
 s32 get_state_flag__9TMainTaskFv();
 void TAdWarningBaseGC__vt5(void *self);
-void send_and_handle__6TLobbyFPvii(s32, void *, int);
-s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
+void send_and_handle__6TLobbyFii(s32, void *, int);
+s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_80477334[];
 extern u8 lbl_8047733C[];
 s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
@@ -64,8 +64,8 @@ void TAdWarningBaseGC__vt5(void *self) {
 }
 
 s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0) {
-    s32 r = update_window_mode_from_progress__6TLobbyFiPv(lbl_80477334, lbl_8047733C);
-    send_and_handle__6TLobbyFPvii(r, arg0->m5(), 3);
+    s32 r = update_window_mode_from_progress__6TLobbyFPv(lbl_80477334, lbl_8047733C);
+    send_and_handle__6TLobbyFii(r, arg0->m5(), 3);
     return r;
 }
 
@@ -84,9 +84,9 @@ void TAdWarningBaseGC__vt4(u8 *arg0) {
         break;
     case 2:
         if (TWindowShortListCtrl__check_controller_button(a = controller_physical_port_bank + 0x20, 4) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(b = controller_input_state + 0x160, 4) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFv(b = controller_input_state + 0x160, 4) != 0 ||
             TWindowShortListCtrl__check_controller_button(a, 2) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(b, 2) != 0) {
+            test_flag_4c__23TAdSinglePlyChrSelectGCFv(b, 2) != 0) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 3;
             *(s32 *)((s8 *)arg0 + 0x24) = 4;
         }

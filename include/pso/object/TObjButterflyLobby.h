@@ -23,6 +23,13 @@ struct TObjButterflyLobby
     u8 _padC3[0x1];
     u32 m_c4;
     u32 m_c8;
+    static void free_singleton_805D4E6C();
+    static void alloc_scene_buffer();
+    void init_params();
+    void render();
+    void update_fade();
+    void run_task();
+    static void destroy_instance();
 };
 
 #endif

@@ -17,6 +17,9 @@ struct TOCapsuleLabo
     u8 _padD0[0x10];
     u32 m_e0;
     u32 m_e4;
+    static void unload_static_data();
+    static void load_resources();
+    void render();
 };
 
 #endif

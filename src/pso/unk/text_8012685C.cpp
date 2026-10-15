@@ -82,7 +82,7 @@ struct WeaponPlayerAttachmentInterface : WeaponPlayerObjectPrefix {
 };
 
 extern "C" {
-u8 get_slot_count__14TItemProShieldFPv(s32);
+u8 get_slot_count__14TItemProShieldFv(s32);
 s32 get_player_list__10TObjPlayerFv();
 s32 reflect_matrix_in_plane(s32, f32 *, f32);
 extern s32 knuckle_second_hand_pass;
@@ -91,8 +91,8 @@ extern const f32 lbl_805DAD94;
 void reflect_knuckle_second_hand(s32 arg0);
 void spawn_particle_effect(void *, s32);
 void spawn_cane_effects__10TObjPlayerFiUiii(s32, void *, s32, s32);
-u8 get_slot_count__14TItemProShieldFPv(s32);
-s32 get_attack_stage__11TItemWeaponFPv(void *);
+u8 get_slot_count__14TItemProShieldFv(s32);
+s32 get_attack_stage__11TItemWeaponFv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_validated_attack_stage(void *);
 extern s32 knuckle_marker_joint_table[];
@@ -103,7 +103,7 @@ extern "C" {
 
 void reflect_knuckle_second_hand(s32 arg0) {
     Stack_8012685C stack;
-    if ((get_player_list__10TObjPlayerFv() == 0) && (get_slot_count__14TItemProShieldFPv(arg0) == 3) && ((s32) knuckle_second_hand_pass != 0)) {
+    if ((get_player_list__10TObjPlayerFv() == 0) && (get_slot_count__14TItemProShieldFv(arg0) == 3) && ((s32) knuckle_second_hand_pass != 0)) {
         stack.sp10 = lbl_805DAD94;
         stack.spC = lbl_805DAD94;
         stack.sp8 = lbl_805DAD94;
@@ -121,9 +121,9 @@ void TItemWeaponFist::emit_marker_effects() {
   s32 k;
   s16 stage;
   s32 index;
-  if (get_slot_count__14TItemProShieldFPv((s32)(arg0)) == 3)
+  if (get_slot_count__14TItemProShieldFv((s32)(arg0)) == 3)
   {
-    if (get_attack_stage__11TItemWeaponFPv(arg0) == 0)
+    if (get_attack_stage__11TItemWeaponFv(arg0) == 0)
     {
       spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, -1, -2);
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjRain.h"
 
 struct Vec_80197998 { f32 x, y, z; };
 
@@ -36,14 +37,14 @@ extern const f32 lbl_805DBF2C;
 extern const f32 lbl_805DBF30;
 extern const f32 lbl_805DBF34;
 extern const f32 lbl_805DBF38;
-void init_drops__8TObjRainFv(u8 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void init_drops__8TObjRainFv(u8 *arg0) {
+void TObjRain::init_drops() {
+    u8 *arg0 = (u8 *)this;
     Rain_80197998 *rain = (Rain_80197998 *)arg0;
     s32 angle;
     Drop_80197998 *d;

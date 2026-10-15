@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TSetManager.h"
+#include "pso/misc/TLobby.h"
 
 struct Dst_8020DEE4 { u16 id; s16 v; u8 pad[4]; };
 
@@ -25,9 +27,8 @@ struct Rec_8020D9A0 { u8 pad0[2]; s16 f2; s16 f4; u8 pad6[2]; u16 f8; u8 padA[0x
 extern "C" {
 void TLobby__sub_8020D94C(void);
 extern s16 TLobby__data_805D6134;
-void clear_floor_flags_and_depart__6TLobbyFv(void);
 s32 get_current_floor(void);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(void *p);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(void *p);
 extern Area_8020DEE4 TLobby__floor_enemy_group_table[];
 extern SrcA_8020DEE4 *TLobby__data_805D610C;
 extern SrcB_8020DEE4 *TLobby__data_805D6114;
@@ -43,15 +44,13 @@ extern s32 TLobby__data_805D6120;
 extern u32 TLobby__data_805D6124;
 extern s32 TLobby__data_805D6128;
 extern s16 TLobby__data_805D6134;
-void setup_floor_decorations__6TLobbyFv(void);
 void *memset(void *, int, unsigned long);
 extern A_8020DBCC *TLobby__data_805D6140;
 extern B_8020DBCC *TLobby__data_805D6144;
-void reset_id_tables__6TLobbyFv(void);
-s32 update_lobby_scene__6TSceneFPv(char *);
+s32 update_lobby_scene__6TSceneFv(char *);
 void read_disc_file(char *, void *);
 void replace_file_extension__6TLobbyFPvPvPv(char *, s32, char *);
-void *alloc_buffer__11TOBoss4RockFPv(u32);
+void *mem_alloc(u32);
 void swap_object_row_endian(void *);
 s32 is_online_ready__6TLobbyFv();
 extern char lbl_8044BC24[];
@@ -65,14 +64,13 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room);
 extern "C" {
 
 void TLobby__sub_8020D94C(void);
-void create__11TSetManagerFv(void);
 void* TSetManager__ct(void*, s32);
 void* __nw__7TObjectFUl(u32);
-void free__11TOBoss4RockFUi(void*);
+void mem_free(void*);
 
 extern s32 tl_02;
 
-void create__11TSetManagerFv(void) {
+void TSetManager::create() {
     void* obj = __nw__7TObjectFUl(0x20);
     if (obj != 0) {
         TSetManager__ct(obj, tl_02);
@@ -86,12 +84,12 @@ extern s32 TLobby__data_805D6128;
 
 void TLobby__sub_8020D94C(void) {
     if ((u32) TLobby__data_805D611C != 0U) {
-        free__11TOBoss4RockFUi((void*)TLobby__data_805D611C);
+        mem_free((void*)TLobby__data_805D611C);
         TLobby__data_805D611C = 0U;
         TLobby__data_805D6120 = 0;
     }
     if ((u32) TLobby__data_805D6124 != 0U) {
-        free__11TOBoss4RockFUi((void*)TLobby__data_805D6124);
+        mem_free((void*)TLobby__data_805D6124);
         TLobby__data_805D6124 = 0U;
         TLobby__data_805D6128 = 0;
     }
@@ -114,12 +112,12 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
     } else {
         replace_file_extension__6TLobbyFPvPvPv(path, r->name, lbl_8044BC2C);
     }
-    size = update_lobby_scene__6TSceneFPv(path);
+    size = update_lobby_scene__6TSceneFv(path);
     if (size < 0) {
         return 0;
     }
     TLobby__data_805D6120 = (u32)size / 0x44;
-    if ((TLobby__data_805D611C = (u32)alloc_buffer__11TOBoss4RockFPv(TLobby__data_805D6120 * 0x44)) == 0) {
+    if ((TLobby__data_805D611C = (u32)mem_alloc(TLobby__data_805D6120 * 0x44)) == 0) {
         return 0;
     }
     read_disc_file(path, (void *)TLobby__data_805D611C);
@@ -134,7 +132,7 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
 
 #pragma push
 #pragma scheduling off
-void clear_floor_flags_and_depart__6TLobbyFv(void) {
+void TLobby::clear_floor_flags_and_depart() {
     s32 temp_r3;
     TLobby__sub_8020D94C();
     temp_r3 = TLobby__data_805D6134 & ~8;
@@ -144,7 +142,7 @@ void clear_floor_flags_and_depart__6TLobbyFv(void) {
 }
 #pragma pop
 
-void setup_floor_decorations__6TLobbyFv(void) {
+void TLobby::setup_floor_decorations() {
     Vec3_8020DB44 v;
     s32 t;
     s32 r;
@@ -165,7 +163,7 @@ void setup_floor_decorations__6TLobbyFv(void) {
     lbl_805D60F8 = -1;
 }
 
-void reset_id_tables__6TLobbyFv(void) {
+void TLobby::reset_id_tables() {
     s32 i;
     s32 n = 0;
     if (TLobby__data_805D6140 != 0) {
@@ -209,11 +207,11 @@ void depart_floor_population(int unused) {
         }
     }
     if (TLobby__data_805D6114 != 0) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TLobby__data_805D6114);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(TLobby__data_805D6114);
         TLobby__data_805D6114 = 0;
     }
     if (TLobby__data_805D610C != 0) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TLobby__data_805D610C);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(TLobby__data_805D610C);
         TLobby__data_805D610C = 0;
     }
 }

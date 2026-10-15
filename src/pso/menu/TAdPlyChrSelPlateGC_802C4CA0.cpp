@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdPlyChrSelPlateGC.h"
 struct O_802C4D5C { u8 pad[0x2a8]; f32 v[1]; };
 
 typedef struct Q_802C4D88 { s8 b[4]; } Q_802C4D88;
@@ -42,24 +43,22 @@ typedef struct S_802C4E38 {
 
 extern "C" {
 extern const f32 lbl_805DE548;
-bool is_slot_value_ready__19TAdPlyChrSelPlateGCFPvi(O_802C4D5C *self, s32 i);
 extern const f32 lbl_805DE54C;
-void reset_selection_slots__19TAdPlyChrSelPlateGCFPv(S_802C4D88 *arg0);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void push_plate_position__19TAdPlyChrSelPlateGCFPv(S_802C4DD0 *arg0);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 extern const f32 lbl_805DE548;
 extern const f32 lbl_805DE550;
 extern const f32 lbl_805DE554;
 extern const f32 lbl_805DE558;
-void run_task__19TAdPlyChrSelPlateGCFv(S_802C4E38 *self);
 }
 
 extern "C" {
 
-bool is_slot_value_ready__19TAdPlyChrSelPlateGCFPvi(O_802C4D5C *self, s32 i) {
+bool TAdPlyChrSelPlateGC::is_slot_value_ready(s32 i) {
+    O_802C4D5C *self = (O_802C4D5C *)this;
     return (self->v[i] >= lbl_805DE548) ? true : false;
 }
-void reset_selection_slots__19TAdPlyChrSelPlateGCFPv(S_802C4D88 *arg0) {
+void TAdPlyChrSelPlateGC::reset_selection_slots() {
+    S_802C4D88 *arg0 = (S_802C4D88 *)this;
     s32 i;
     arg0->f3AC = -1;
     arg0->f224 = 0;
@@ -73,17 +72,19 @@ void reset_selection_slots__19TAdPlyChrSelPlateGCFPv(S_802C4D88 *arg0) {
     }
 }
 typedef void (*Fn1_802C4DD0)(void *);
-void push_plate_position__19TAdPlyChrSelPlateGCFPv(S_802C4DD0 *arg0) {
+void TAdPlyChrSelPlateGC::push_plate_position() {
+    S_802C4DD0 *arg0 = (S_802C4DD0 *)this;
     if (arg0->f224 < 0x20) {
-        ((Fn1_802C4DD0)copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv)(&arg0->v11C[arg0->f224]);
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->v1C[arg0->f224], &arg0->v11C[0]);
+        ((Fn1_802C4DD0)copy_vec2__28TWindowSubSymbolChatPartsSetFPv)(&arg0->v11C[arg0->f224]);
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&arg0->v1C[arg0->f224], &arg0->v11C[0]);
         arg0->f224 = arg0->f224 + 1;
     }
 }
 #pragma push
 #pragma fp_contract on
 #pragma opt_propagation off
-void run_task__19TAdPlyChrSelPlateGCFv(S_802C4E38 *self) {
+void TAdPlyChrSelPlateGC::run_task() {
+    S_802C4E38 *self = (S_802C4E38 *)this;
     s32 half;
     s32 m;
     u32 i;

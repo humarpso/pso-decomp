@@ -7,6 +7,8 @@
 class TItemDropSub : public TObject {
 public:
     virtual ~TItemDropSub();
+public:
+    static void create_instance(s32 arg0);
 };
 
 #endif

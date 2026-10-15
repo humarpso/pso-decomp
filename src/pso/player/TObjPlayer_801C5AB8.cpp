@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-s32 decrement_clamp__10TObjPlayerFPvi(s32 *arg0, s32 arg1);
-
-s32 decrement_clamp__10TObjPlayerFPvi(s32 *arg0, s32 arg1) {
+s32 TObjPlayer::decrement_clamp(s32 *arg0, s32 arg1) {
     *arg0 -= arg1;
     if ((s32) *arg0 < 0) {
         *arg0 = 0;
@@ -19,51 +18,47 @@ s32 decrement_clamp__10TObjPlayerFPvi(s32 *arg0, s32 arg1) {
 
 extern "C" {
 
-void copy_offset_position__10TObjPlayerFPvPv(void *arg0, void *arg1);
-void *get_quest_id__12TQuestListVMFPv(void *);
+void *get_quest_id__12TQuestListVMFv(void *);
 
 extern const f32 lbl_805DC334;
 
-void copy_offset_position__10TObjPlayerFPvPv(void *arg0, void *arg1) {
+void TObjPlayer::copy_offset_position(void *arg1) {
     f32 temp_f2;
 
-    temp_f2 = *(f32 *)((s8 *)(get_quest_id__12TQuestListVMFPv(arg1)) + 0x10);
-    *(f32 *)((s8 *)arg0 + 0) = (f32) *(f32 *)((s8 *)arg1 + 0x38);
-    *(f32 *)((s8 *)arg0 + 4) = (f32) ((lbl_805DC334 * temp_f2) + *(f32 *)((s8 *)arg1 + 0x3C));
-    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 0x40);
+    temp_f2 = *(f32 *)((s8 *)(get_quest_id__12TQuestListVMFv(arg1)) + 0x10);
+    *(f32 *)((s8 *)this + 0) = (f32) *(f32 *)((s8 *)arg1 + 0x38);
+    *(f32 *)((s8 *)this + 4) = (f32) ((lbl_805DC334 * temp_f2) + *(f32 *)((s8 *)arg1 + 0x3C));
+    *(f32 *)((s8 *)this + 8) = (f32) *(f32 *)((s8 *)arg1 + 0x40);
 }
 
 }
 
 extern "C" {
 
-void calc_pos_delta__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
-
-void calc_pos_delta__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    *(s16 *)((s8 *)arg2 + 0) = (s16) (*(s16 *)((s8 *)arg1 + 0) - *(s16 *)((s8 *)arg0 + 0));
-    *(s16 *)((s8 *)arg2 + 2) = (s16) (*(s16 *)((s8 *)arg1 + 2) - *(s16 *)((s8 *)arg0 + 2));
-    *(s16 *)((s8 *)arg2 + 4) = (s16) (*(s16 *)((s8 *)arg1 + 4) - *(s16 *)((s8 *)arg0 + 4));
-    *(s16 *)((s8 *)arg2 + 6) = (s16) (*(s16 *)((s8 *)arg1 + 6) - *(s16 *)((s8 *)arg0 + 6));
-    *(s16 *)((s8 *)arg2 + 8) = (s16) (*(s16 *)((s8 *)arg1 + 8) - *(s16 *)((s8 *)arg0 + 8));
-    *(s16 *)((s8 *)arg2 + 0xA) = (s16) (*(s16 *)((s8 *)arg1 + 0xA) - *(s16 *)((s8 *)arg0 + 0xA));
-    *(s16 *)((s8 *)arg2 + 0x16) = (s16) (*(s16 *)((s8 *)arg1 + 0x16) - *(s16 *)((s8 *)arg0 + 0x16));
-    *(s16 *)((s8 *)arg2 + 0x18) = (s16) (*(s16 *)((s8 *)arg1 + 0x18) - *(s16 *)((s8 *)arg0 + 0x18));
+void TObjPlayer::calc_pos_delta(void *arg1, void *arg2) {
+    *(s16 *)((s8 *)arg2 + 0) = (s16) (*(s16 *)((s8 *)arg1 + 0) - *(s16 *)((s8 *)this + 0));
+    *(s16 *)((s8 *)arg2 + 2) = (s16) (*(s16 *)((s8 *)arg1 + 2) - *(s16 *)((s8 *)this + 2));
+    *(s16 *)((s8 *)arg2 + 4) = (s16) (*(s16 *)((s8 *)arg1 + 4) - *(s16 *)((s8 *)this + 4));
+    *(s16 *)((s8 *)arg2 + 6) = (s16) (*(s16 *)((s8 *)arg1 + 6) - *(s16 *)((s8 *)this + 6));
+    *(s16 *)((s8 *)arg2 + 8) = (s16) (*(s16 *)((s8 *)arg1 + 8) - *(s16 *)((s8 *)this + 8));
+    *(s16 *)((s8 *)arg2 + 0xA) = (s16) (*(s16 *)((s8 *)arg1 + 0xA) - *(s16 *)((s8 *)this + 0xA));
+    *(s16 *)((s8 *)arg2 + 0x16) = (s16) (*(s16 *)((s8 *)arg1 + 0x16) - *(s16 *)((s8 *)this + 0x16));
+    *(s16 *)((s8 *)arg2 + 0x18) = (s16) (*(s16 *)((s8 *)arg1 + 0x18) - *(s16 *)((s8 *)this + 0x18));
 }
 
 }
 
 extern "C" {
 
-void init_shield_params__10TObjPlayerFPvi(void *arg0, s32 arg1);
-s16 get_field_2b8__14TItemProShieldFPv(s32);
+s16 get_field_2b8__14TItemProShieldFv(s32);
 void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4);
 
 s16 obj_getS16_2BA(s32);
 
-void init_shield_params__10TObjPlayerFPvi(void *arg0, s32 arg1) {
+void TObjPlayer::init_shield_params(s32 arg1) {
     ((void (*)()) set_params__10TObjPlayerFPvPvPviPv)();
-    *(s16 *)((s8 *)arg0 + 0x16) = get_field_2b8__14TItemProShieldFPv(arg1);
-    *(s16 *)((s8 *)arg0 + 0x18) = obj_getS16_2BA(arg1);
+    *(s16 *)((s8 *)this + 0x16) = get_field_2b8__14TItemProShieldFv(arg1);
+    *(s16 *)((s8 *)this + 0x18) = obj_getS16_2BA(arg1);
 }
 
 }

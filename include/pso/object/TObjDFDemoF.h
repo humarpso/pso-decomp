@@ -7,6 +7,7 @@ struct TObjDFDemoF
 {
     u8 _pad1C[0x74];
     u32 m_90;
+    static void *create(void *arg0);
 };
 
 #endif

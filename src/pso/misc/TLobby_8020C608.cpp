@@ -26,6 +26,7 @@ s32 set_flag8__6TLobbyFPv(void *arg0) {
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct VBase { char pad[0x18]; };
 struct VObj : VBase {
@@ -53,7 +54,6 @@ struct VObj : VBase {
 
 extern "C" {
 
-s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2);
 u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFPv(s32);
 s32 get_object_type__6TLobbyFi(s32);
@@ -62,7 +62,7 @@ s32 append_wave_member(s32, void *);
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D6144;
 
-s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2) {
+s32 TLobby::spawn_matching_objects(s16 arg0, s16 arg1, s32 arg2) {
     s16 temp_r0;
     s16 temp_r3;
     s32 temp_r31;

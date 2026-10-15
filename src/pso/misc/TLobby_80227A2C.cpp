@@ -87,6 +87,7 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 };
 
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
 struct RecoveredGlobal_80069094_camera_controller_registry { s32 value; u8 remaining[0x64]; };
 
 struct RecoveredGlobal_80069024_TCameraCtrl__data_804FF634 {
@@ -248,7 +249,6 @@ void apply_clamped_field_27c__6TLobbyFv(void);
 s32 get_field_0x280__6TLobbyFPv(s32 *);
 void get_menu_field_280__6TLobbyFv(void);
 s32 set_menu_index__6TLobbyFPvi(void *, int);
-void set_menu_index_main__6TLobbyFPv(u8 *arg0);
 s32 is_ready__6TLobbyFPv(s32 *);
 void is_sound_enabled(void);
 s32 is_special_sound_id(u32 x);
@@ -272,8 +272,6 @@ int TLobby__sub_80227AF8(void* p);
 int release_sound_with_fade(void* p);
 int TLobby__sub_80227D38(void);
 void handle_6xB2_play_sound_from_player(void *arg0);
-s32 is_camera_state_active__6TLobbyFv(void);
-void set_mode__6TLobbyFi(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 u16 TCameraCtrl__sub_8006A5DC();
 int TLobby__sub_8023F754(void*);
@@ -327,14 +325,14 @@ void handle_6xB2_play_sound_from_player(void *arg0) {
     }
 }
 
-s32 is_camera_state_active__6TLobbyFv(void) {
+s32 TLobby::is_camera_state_active() {
     if ((TCameraCtrl__sub_8006A5DC() == 5) || (TCameraCtrl__sub_8006A5DC() == 9)) {
         return 1;
     }
     return 0;
 }
 
-void set_mode__6TLobbyFi(s32 arg0) {
+void TLobby::set_mode(s32 arg0) {
     switch (arg0) {
     case 0:
         on_set_mode__6TLobbyFv(1);
@@ -356,7 +354,7 @@ void get_menu_field_280__6TLobbyFv(void) {
 typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(RecoveredGlobal_80069094_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
-void set_menu_index_main__6TLobbyFPv(u8 *arg0) {
+void TLobby::set_menu_index_main(u8 *arg0) {
     set_menu_index__6TLobbyFPvi((void *)(&(*(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 *)&sound_control_state).value), (int)(arg0));
 }
 typedef char RecoveredGlobal_80069024_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_80069024_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];
@@ -526,7 +524,7 @@ struct L_8022884C { u8 pad[0x109c]; s32 count; s32 hi; s32 lo; };
 
 extern "C" {
 s32 get_instance__6TLobbyFv();
-s32 get_player_floor__6TLobbyFi(s32);
+s32 get_player_floor__6TLobbyFl(s32);
 s32 select_area_entrance(void *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
@@ -556,10 +554,7 @@ s32 validate_and_set_selection__6TLobbyFPvi(void *, int);
 s32 TLobby__sub_803382E4();
 s32 TLobby__sub_803CB81C();
 extern unsigned char sound_control_state[];
-void wait_for_sound_init__6TLobbyFv(void);
-s32 init_range_zero__6TLobbyFPv(void* arg0);
 extern RecoveredGlobal_802287F0_lbl_80515BA0 lbl_80515BA0;
-s32 init_range_zero_global__6TLobbyFv(void);
 void *reset_sound_owner_state(void *self);
 void TLobby__sub_80240808(void *self, s32 x);
 void *__register_global_object(void *obj, void *dtor, void *entry);
@@ -567,14 +562,11 @@ extern unsigned char sound_control_state[];
 extern char lbl_80514F58[];
 void TLobby__sub_80228118(void);
 char *strcpy(char *dst, const char *src);
-void add_token__6TLobbyFPvPv(O_80228A74 *self, const char *src);
-void add_token__6TLobbyFPvPv(O_80228A74 *self, const char *src);
 void clear_work_buffer(u8 *arg0);
 void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s);
 extern char lbl_805DC788[4];
 u32 strlen(const char *s);
 char *strcpy(char *dst, const char *src);
-void trim_whitespace__6TLobbyFPv(char *s);
 s32 debug_printf_at(u32, void *, ...);
 void TLobby__sub_8022884C(L_8022884C *self);
 s32 run_frame__6TLobbyFv();
@@ -582,30 +574,24 @@ s32 TLobby__sub_80226B64(int);
 extern s32 floor_sound_bank_table[];
 extern s32 floor_sound_bank_volume_table[];
 void load_floor_sound_bank(s32 arg0);
-void add_token__6TLobbyFPvPv(O_80228A74 *self, const char *src);
 void clear_work_buffer(u8 *arg0);
 void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s);
 }
 
 extern "C" {
 
-void clear_ready_flag_unless_locked__6TLobbyFPv(void *arg0);
 void clear_work_buffer(u8 *arg0);
-void *construct__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-s32 init_range_zero__6TLobbyFPv(void* arg0);
-void refresh_render_state__6TLobbyFv(void);
-void set_area__6TLobbyFPvi(void *arg0, s32 arg1);
 s32 get_floor_map_terrain(s32);
 int pop_sound_groups__6TLobbyFPvi(void*, void*);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 init_range__6TLobbyFPvi(void*, int);
+s32 init_range__6TLobbyFl(void*, int);
 void memset(void *, int, int);
 int render_tick__Fv(void);
 
     extern unsigned char sound_control_state[];
     extern float lbl_805DC76C;
-void refresh_render_state__6TLobbyFv(void) { pop_sound_groups__6TLobbyFPvi(sound_control_state, (void*)0); ((int (*)(float))apply_clamped_field_27c__6TLobbyFv)(lbl_805DC76C); render_tick__Fv(); }
+void TLobby::refresh_render_state() { pop_sound_groups__6TLobbyFPvi(sound_control_state, (void*)0); ((int (*)(float))apply_clamped_field_27c__6TLobbyFv)(lbl_805DC76C); render_tick__Fv(); }
 
 void load_floor_sound_bank(s32 arg0) {
     s32 temp_r0;
@@ -648,7 +634,7 @@ void TLobby__sub_8022809C(void) {
 }
 
 typedef char RecoveredGlobal_802280C4_lbl_80514F64_size[sizeof(RecoveredGlobal_802280C4_lbl_80514F64) == 0xC3C ? 1 : -1];
-void wait_for_sound_init__6TLobbyFv(void) {
+void TLobby::wait_for_sound_init() {
     init_sound_aux_effects((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&sound_control_state).value));
     validate_and_set_selection__6TLobbyFPvi((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&sound_control_state).value), (int) (0));
     do {
@@ -663,15 +649,15 @@ void TLobby__sub_80228118(void) {
     __register_global_object(reset_sound_owner_state(((char *)&sound_control_state)), (void *)TLobby__sub_80240808, lbl_80514F58);
 }
 
-void clear_ready_flag_unless_locked__6TLobbyFPv(void *arg0) {
+void TLobby::clear_ready_flag_unless_locked() {
     if (get_global_state__14TOKeyMachine01Fv() != 0xF) {
-        *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFE);
+        *(s32 *)((s8 *)this + 0x20) = (s32) (*(s32 *)((s8 *)this + 0x20) & 0xFFFFFFFE);
     }
 }
 
-void set_area__6TLobbyFPvi(void *arg0, s32 arg1) {
-    *(s32 *)((s8 *)arg0 + 0xC) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x18) = get_floor_map_terrain(*(s32 *)((s8 *)arg0 + 0xC));
+void TLobby::set_area(s32 arg1) {
+    *(s32 *)((s8 *)this + 0xC) = arg1;
+    *(s32 *)((s8 *)this + 0x18) = get_floor_map_terrain(*(s32 *)((s8 *)this + 0xC));
 }
 
 #pragma push
@@ -685,8 +671,8 @@ s32 select_area_entrance(void *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0x20) & 1) {
         return 2;
     }
-    if ((get_instance__6TLobbyFv() == 0) && (get_player_floor__6TLobbyFi(*(s32 *)((s8 *)arg0 + 0)) == 0xD)) {
-        switch (get_player_floor__6TLobbyFi(*(s32 *)((s8 *)arg0 + 4))) {
+    if ((get_instance__6TLobbyFv() == 0) && (get_player_floor__6TLobbyFl(*(s32 *)((s8 *)arg0 + 0)) == 0xD)) {
+        switch (get_player_floor__6TLobbyFl(*(s32 *)((s8 *)arg0 + 4))) {
         case 8:
         case 9:
         case 10:
@@ -791,11 +777,11 @@ void promote_area_floor(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_802287F0_lbl_80515BA0_size[sizeof(RecoveredGlobal_802287F0_lbl_80515BA0) == 0x28 ? 1 : -1];
-s32 init_range_zero_global__6TLobbyFv(void) { return init_range_zero__6TLobbyFPv((void*)((s32) &lbl_80515BA0.value)); }
+s32 TLobby::init_range_zero_global() { return ((TLobby *)((s32) &lbl_80515BA0.value))->init_range_zero(); }
 
-s32 init_range_zero__6TLobbyFPv(void* arg0) {
-    init_range__6TLobbyFPvi(arg0, 0);
-    return (s32)arg0;
+s32 TLobby::init_range_zero() {
+    init_range__6TLobbyFl(this, 0);
+    return (s32)this;
 }
 
 struct O_80228A74;
@@ -826,7 +812,7 @@ void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     for (;;) {
         switch (*s) {
         case 0:
-            add_token__6TLobbyFPvPv(self, start);
+            ((TLobby *)self)->add_token(start);
             return;
         case '"':
             if (quoted) {
@@ -846,7 +832,7 @@ void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s) {
             } else {
                 *s = 0;
                 s++;
-                add_token__6TLobbyFPvPv(self, start);
+                ((TLobby *)self)->add_token(start);
                 start = s;
             }
             break;
@@ -866,7 +852,7 @@ void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     for (;;) {
         switch (*s) {
         case 0:
-            add_token__6TLobbyFPvPv(self, start);
+            ((TLobby *)self)->add_token(start);
             return;
         case '"':
             if (quoted) {
@@ -887,7 +873,7 @@ void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s) {
             } else {
                 *s = 0;
                 s++;
-                add_token__6TLobbyFPvPv(self, start);
+                ((TLobby *)self)->add_token(start);
                 start = s;
             }
             break;
@@ -898,7 +884,8 @@ void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     }
 }
 
-void add_token__6TLobbyFPvPv(O_80228A74 *self, const char *src) {
+void TLobby::add_token(const char *src) {
+    O_80228A74 *self = (O_80228A74 *)this;
     strcpy(self->names[((P_80228A74 *)self)->count++], src);
 }
 
@@ -909,16 +896,17 @@ void clear_work_buffer(u8 *arg0) {
 
 extern s32 lbl_804CC048[];
 
-void *construct__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CC048;
-    *(void **)((s8 *)arg0 + 0x10A0) = arg2;
-    *(void **)((s8 *)arg0 + 0x10A4) = arg3;
-    memset((void *)((void *)((char *)arg0 + 28)), (int)(0), (int)(4096));
-    *(u32 *)((s8 *)arg0 + 0x109C) = 0;
-    return arg0;
+void *TLobby::construct(void *arg1, void *arg2, void *arg3) {
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804CC048;
+    *(void **)((s8 *)this + 0x10A0) = arg2;
+    *(void **)((s8 *)this + 0x10A4) = arg3;
+    memset((void *)((void *)((char *)this + 28)), (int)(0), (int)(4096));
+    *(u32 *)((s8 *)this + 0x109C) = 0;
+    return this;
 }
-void trim_whitespace__6TLobbyFPv(char *s) {
+void TLobby::trim_whitespace() {
+    char *s = (char *)this;
     s32 len = strlen(s);
     s32 i;
     for (i = 0; i <= len && ((u8 *)s)[i] <= ' '; i++) {

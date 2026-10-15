@@ -9,7 +9,7 @@ extern "C" {
 void *__ct__11TAdSEGAlogoFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
+void *init_fade__6TLobbyFPvPv(void *, void *, void *);
 void init_logo_state__23TAdSinglePlyChrSelectGCFi(int);
 
 extern s32 __vt__11TAdSEGAlogo[];
@@ -30,7 +30,7 @@ void *__ct__11TAdSEGAlogoFv(void *arg0) {
     init_logo_state__23TAdSinglePlyChrSelectGCFi(0);
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init_fade__6TLobbyFPvPvPv(o, tl_00, request_destroy__11TAdSEGAlogoFv);
+        init_fade__6TLobbyFPvPv(o, tl_00, request_destroy__11TAdSEGAlogoFv);
     }
     return arg0;
 }

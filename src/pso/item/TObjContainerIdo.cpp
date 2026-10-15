@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerIdo.h"
 
 struct Base_8017E158_8017E154 { char pad[0x18]; };
 struct VObj_8017E158_8017E154 : Base_8017E158_8017E154 {
@@ -32,19 +33,17 @@ extern "C" {
 
 void TObjContainerIdo__vt12(void);
 void TObjContainerIdo__vt13(void);
-void check_and_trigger__16TObjContainerIdoFPv(void *arg0);
-void run__16TObjContainerIdoFPv(void *arg0);
 
 void TObjContainerIdo__vt12(void) {  }
 
-void run__16TObjContainerIdoFPv(void *arg0) {
-    struct VObj_8017E158_8017E154 *o = (struct VObj_8017E158_8017E154 *)arg0;
+void TObjContainerIdo::run() {
+    struct VObj_8017E158_8017E154 *o = (struct VObj_8017E158_8017E154 *)this;
     o->m12();
 }
 
-void check_and_trigger__16TObjContainerIdoFPv(void *arg0) {
-    struct VObj_8017E184_8017E154 *o = (struct VObj_8017E184_8017E154 *)arg0;
-    if (o->m7(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {
+void TObjContainerIdo::check_and_trigger() {
+    struct VObj_8017E184_8017E154 *o = (struct VObj_8017E184_8017E154 *)this;
+    if (o->m7(*(f32 *)((s8 *)this + 0xAC), *(f32 *)((s8 *)this + 0xB0)) != 0) {
         o->m12();
     }
 }

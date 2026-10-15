@@ -8,11 +8,11 @@ extern "C" {
 void remove_trade_entry__6TLobbyFPvUi(void *, u32);
 u8 * TLobby__sub_802D2334(void *, u32);
 void transfer_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2);
-s32 get_trade_obj_ptr__6TLobbyFPv(s32);
+s32 get_trade_obj_ptr__6TLobbyFv(s32);
 u8 *find_free_trade_slot__6TLobbyFPv(void *);
 u8 * TLobby__sub_802D2334(void *, u32);
 void move_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2);
-void clear_stale_entries__6TLobbyFPv(void *);
+void clear_stale_entries__6TLobbyFPUc(void *);
 s32 add_trade_item__6TLobbyFPvUii(void *, s32, s32);
 s32 check_trade_offer_inventory(S_802D1D48 *arg0, s32 *arg1);
 }
@@ -24,7 +24,7 @@ s32 check_trade_offer_inventory(S_802D1D48 *arg0, s32 *arg1) {
     s32 i;
     s32 id;
     s32 empty = 1;
-    clear_stale_entries__6TLobbyFPv(arg0->tail);
+    clear_stale_entries__6TLobbyFPUc(arg0->tail);
     for (p = arg0->e, i = 0; i < 0x1F; i++, p++) {
         id = p->id;
         if ((u32)(id + 0x10000) != 0xFFFF && p->cnt > 0) {
@@ -71,7 +71,7 @@ void move_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2) {
     }
     if (((u32) (arg1 + (0x10000 & 0xFF))) == (-0xFFU))
     {
-      var_r3 = get_trade_obj_ptr__6TLobbyFPv((s32) arg0);
+      var_r3 = get_trade_obj_ptr__6TLobbyFv((s32) arg0);
     }
     else
     {

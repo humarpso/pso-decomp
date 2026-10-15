@@ -12,6 +12,9 @@ struct TObjDFUsoTower
     void* m_38;
     u8 _pad3C[0x54];
     u32 m_90;
+    static void *create(void *arg0);
+    void render();
+    void run_task();
 };
 
 #endif

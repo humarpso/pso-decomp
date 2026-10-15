@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -21,20 +22,19 @@ struct Pair_802D26C8 { Half_802D26C8 h[2]; };
 extern "C" {
 u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1);
 s32 get_shared_text_buffer();
-s32 get_message_10__20TWindowSubStatusDispFPv(s32);
+s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 refresh_player_status__6TLobbyFv(int);
 s32 text_builder_append();
 s32 text_builder_reset();
 extern s8 TLobby__trade_partner_client_id;
 void TLobby__sub_802D268C(void);
-s32 get_quest_id__12TQuestListVMFPv(void *);
+s32 get_quest_id__12TQuestListVMFv(void *);
 s32 get_player_by_client_id(u32);
 void prepare_and_send_trade_packet__6TLobbyFPvPv(s32, s32);
 void build_6xA6_modify_trade_proposal(void *);
 extern u32 local_client_id;
 extern s8 TLobby__trade_partner_client_id;
 extern u8 TLobby__trade_proposal_state;
-void send_trade_proposal_modify__6TLobbyFv(void);
 s32 send_trade_list__6TLobbyFPvPv(s32, s32 *);
 s32 clear_flag400__6TLobbyFv();
 s32 build_trade_item_list__6TLobbyFPv(s32 *);
@@ -43,28 +43,25 @@ extern s32 TLobby__protocol_instance;
 extern u16 trade_protocol_flags;
 extern u8 TLobby__trade_proposal_state;
 extern u32 TLobby__trade_main_window;
-void update_trade_list_send__6TLobbyFv(void);
 s32 send_trade_proposal_result__6TLobbyFcc(s32, s32);
 s32 forward_to_child__19TWindowSubTradeMainFPvi(u32, s32);
 extern u16 trade_protocol_flags;
 extern u8 TLobby__trade_proposal_state;
 extern s32 trade_proposal_delay;
 extern u32 TLobby__trade_main_window;
-void update_trade_proposal_state__6TLobbyFv(void);
 s32 check_trade_offer_inventory(void *, void *);
-s32 update_both_halves__6TLobbyFPv(void *);
+s32 update_both_halves__6TLobbyFv(void *);
 u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1);
 s32 show_event_message__6TLobbyFiii(void *, int, int);
 extern Half_802D26C8 TLobby__trade_window_state[4];
 extern u32 local_client_id;
 extern s8 TLobby__trade_partner_client_id;
-s32 check_trade_items_and_show_error__6TLobbyFv(void);
 }
 
 extern "C" {
 
 typedef struct Stack_802D23E0 Stack_802D23E0;
-void send_trade_proposal_modify__6TLobbyFv(void) {
+void TLobby::send_trade_proposal_modify() {
   Stack_802D23E0 stack;
   u8 *temp_r3;
   u8 *temp_r3_2;
@@ -74,7 +71,7 @@ void send_trade_proposal_modify__6TLobbyFv(void) {
     temp_r3 = (u8 *) get_player_by_client_id(local_client_id);
     if (temp_r3)
     {
-      temp_r3_2 = (u8 *) get_quest_id__12TQuestListVMFPv(temp_r3);
+      temp_r3_2 = (u8 *) get_quest_id__12TQuestListVMFv(temp_r3);
       if (temp_r3_2 != 0)
       {
         stack.spC = 0;
@@ -90,7 +87,7 @@ void send_trade_proposal_modify__6TLobbyFv(void) {
   }
 }
 
-void update_trade_list_send__6TLobbyFv(void) {
+void TLobby::update_trade_list_send() {
     u8 sp8[0x288];
     switch ((s8) TLobby__trade_proposal_state) {
     case 5:
@@ -116,7 +113,7 @@ void update_trade_list_send__6TLobbyFv(void) {
     }
 }
 
-void update_trade_proposal_state__6TLobbyFv(void) {
+void TLobby::update_trade_proposal_state() {
     if (!(trade_protocol_flags & 0x10)) {
         trade_proposal_delay = 0;
         if (trade_protocol_flags & 0x20) {
@@ -165,18 +162,18 @@ void update_trade_proposal_state__6TLobbyFv(void) {
 void TLobby__sub_802D268C(void) {
     text_builder_reset();
     refresh_player_status__6TLobbyFv(TLobby__trade_partner_client_id);
-    get_message_10__20TWindowSubStatusDispFPv(0xF6);
+    get_message_10__20TWindowSubStatusDispFl(0xF6);
     text_builder_append();
     get_shared_text_buffer();
 }
 #pragma pop
 
-s32 check_trade_items_and_show_error__6TLobbyFv(void) {
+s32 TLobby::check_trade_items_and_show_error() {
     s32 code;
     Pair_802D26C8 buf;
     s32 r;
     s32 flag = 0;
-    update_both_halves__6TLobbyFPv(&buf);
+    update_both_halves__6TLobbyFv(&buf);
     ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[0], &TLobby__trade_window_state[2]);
     ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[1], &TLobby__trade_window_state[1]);
     r = check_trade_offer_inventory(&buf, &code);
@@ -185,7 +182,7 @@ s32 check_trade_items_and_show_error__6TLobbyFv(void) {
     } else if (r != 0) {
         return show_event_message__6TLobbyFiii((void *)local_client_id, r, code);
     }
-    update_both_halves__6TLobbyFPv(&buf);
+    update_both_halves__6TLobbyFv(&buf);
     ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[0], &TLobby__trade_window_state[0]);
     ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[1], &TLobby__trade_window_state[3]);
     r = check_trade_offer_inventory(&buf, &code);

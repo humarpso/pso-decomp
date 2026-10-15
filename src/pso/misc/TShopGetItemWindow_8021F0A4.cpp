@@ -5,7 +5,7 @@ extern "C" {
 void reset_shop_stock_and_params(void);
 s32 clear_shop_armor_flags();
 s32 clear_shop_weapon_flags();
-s32 get_task_id__14TFontSmallTaskFPv(s32 *);
+s32 get_task_id__14TFontSmallTaskFv(s32 *);
 s32 clear_shop_tool_flags();
 
 extern s32 TLobby__data_805011D8[];
@@ -21,7 +21,7 @@ void reset_shop_stock_and_params(void) {
     clear_shop_armor_flags();
     clear_shop_tool_flags();
     lbl_805D6244 = 0;
-    temp_r3 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
+    temp_r3 = get_task_id__14TFontSmallTaskFv(TLobby__data_805011D8);
     lbl_805D6238 = temp_r3;
     if (temp_r3 < 0) {
         lbl_805D6238 = 0;

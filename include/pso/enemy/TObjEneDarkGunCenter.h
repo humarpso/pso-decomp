@@ -20,6 +20,9 @@ struct TObjEneDarkGunCenter
     u32 m_380;
     u8 _pad384[0x20];
     u32 m_3a4;
+    static void render();
+    static void *create(void *arg0);
+    void hide_linked_enemies();
 };
 
 #endif

@@ -8,7 +8,6 @@ struct O_80110788 { s32 arr[4]; s32 f10; s32 f14; };
 
 extern "C" {
 s32 TItemLoad__sub_80110750(O_80110750 *self, s32 i);
-void clear_slots__9TItemLoadFPv(O_80110788 *self);
 }
 
 extern "C" {
@@ -18,8 +17,6 @@ s32 TItemLoad__sub_801107DC(void* p);
 s32 TItemLoad__sub_801107E4(void* p);
 void* TItemLoad__sub_801107EC(void* p);
 int TItemLoad__sub_801107F4(void* p);
-int get_ring_lobby__9TItemLoadFPv(void* p);
-int update_item__9TItemLoadFPv(void* p);
 s32 TItemLoad__sub_80110740(void* p);
 s32 TItemLoad__sub_80110748(void* p);
 int TLobby__sub_803CC4C0(void*);
@@ -29,9 +26,10 @@ s32 TItemLoad__sub_80110750(O_80110750 *self, s32 i) {
     return self->arr[i];
 }
 
-int update_item__9TItemLoadFPv(void* p) { return test_flags_any((char*)p + 0x1c, 2); }
+int TItemLoad::update_item() { return test_flags_any((char*)this + 0x1c, 2); }
 
-void clear_slots__9TItemLoadFPv(O_80110788 *self) {
+void TItemLoad::clear_slots() {
+    O_80110788 *self = (O_80110788 *)this;
     s32 i;
     for (i = 0; i < 4; i++) {
         self->arr[i] = 0;
@@ -41,7 +39,7 @@ void clear_slots__9TItemLoadFPv(O_80110788 *self) {
 }
 
 void TItemLoad__sub_801107B4(void) {  }
-int get_ring_lobby__9TItemLoadFPv(void* p) { return TLobby__sub_803CC4C0(*(void**)((char*)p + 0x4)); }
+int TItemLoad::get_ring_lobby() { return TLobby__sub_803CC4C0(*(void**)((char*)this + 0x4)); }
 s32 TItemLoad__sub_801107DC(void* p) { return *(s32*)((char*)p + 0xc); }
 s32 TItemLoad__sub_801107E4(void* p) { return *(s32*)((char*)p + 0x1c); }
 void* TItemLoad__sub_801107EC(void* p) { return (char*)p + 0x2c; }

@@ -70,6 +70,7 @@ struct TAdChrSelSlotGC_802C7314 {
 };
 
 #include <stddef.h>
+#include "pso/ui/TAdMcSelectGC.h"
 struct TObject;
 struct StatusWindow;
 struct CallbackTask;
@@ -94,12 +95,10 @@ struct CharacterSelectTransitionState {
 extern "C" {
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
 extern const f32 lbl_805DE5CC;
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void init_slot_entry__15TAdChrSelSlotGCFPviPv(S_802C74AC *arg0, s32 arg1, void *arg2);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 extern const f32 lbl_805DE5CC;
 extern f32 lbl_805D67F4, lbl_805D67F8;
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void init_slot__13TAdMcSelectGCFPviPv(S_802C7560 *arg0, s32 arg1, void *arg2);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
 extern const s32 chr_sel_slot_resource_name_table[];
@@ -110,14 +109,13 @@ void TLobby__sub_802C7920(void);
 extern u8 __vt__15TAdChrSelSlotGC[];
 extern s32 TAdChrSelSlotGC__name;
 S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self, TObject* _w1);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
 extern u32 lbl_805D67F0;
 extern const f32 lbl_805DE5C8;
-void draw_slot_icons__15TAdChrSelSlotGCFPv(TAdChrSelSlotGC_802C7314 *self);
 s32 get_main_phase();
 f32 calc_result_offset__6TLobbyFv();
 f32 calc_phase_offset__6TLobbyFv();
@@ -127,7 +125,7 @@ s32 __ct__7TObjectFP7TObject(CharacterSelectTransitionState*, TObject* parent);
 f32 calc_phase_offset__6TLobbyFv();
 void* __nw__7TObjectFUl(u32 size);
 StatusWindow* TWindowSubStatusDisp__ct(void* storage, s32 client);
-CallbackTask* update_display__20TWindowSubSymbolChatFi(void (*callback)());
+CallbackTask* update_display__20TWindowSubSymbolChatFl(void (*callback)());
 void update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv();
 extern s32 lbl_804E0B28[];
 extern s32 lbl_805D67E8;
@@ -141,8 +139,6 @@ void TAdChrSelSlotGC__sub_802C70AC(void);
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
 void TLobby__sub_802C78EC(void);
 void *destroy_character_select_transition(void *arg0, s16 arg1);
-void render__15TAdChrSelSlotGCFv(void *arg0);
-void reset_all_slots__15TAdChrSelSlotGCFPv(void* p);
 void TLobby__sub_803DA16C(void*);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -230,16 +226,17 @@ CharacterSelectTransitionState* construct_character_select_transition(CharacterS
         window = TWindowSubStatusDisp__ct(window, self->client);
     }
     self->statusWindow = window;
-    self->callback = update_display__20TWindowSubSymbolChatFi(update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv);
+    self->callback = update_display__20TWindowSubSymbolChatFl(update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv);
     return self;
 }
 
-void draw_slot_icons__15TAdChrSelSlotGCFPv(TAdChrSelSlotGC_802C7314 *self) {
+void TAdChrSelSlotGC::draw_slot_icons() {
+    TAdChrSelSlotGC_802C7314 *self = (TAdChrSelSlotGC_802C7314 *)this;
     u32 i;
     for (i = 0; i < 5; i++) {
         if (self->visible[i] != 0) {
             begin_screen_draw(1);
-            set_global_param__8TObjFishFi((void *)lbl_805D67F0);
+            set_global_param__8TObjFishFl((void *)lbl_805D67F0);
             set_draw_texture_and_color(0, self->tex[i]);
             draw_textured_quad_at_depth(&self->quad[i], lbl_805DE5C8);
             get_player__20TWindowSubStatusDispFv();
@@ -247,8 +244,8 @@ void draw_slot_icons__15TAdChrSelSlotGCFPv(TAdChrSelSlotGC_802C7314 *self) {
     }
 }
 
-void render__15TAdChrSelSlotGCFv(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x124) == 1) {
+void TAdChrSelSlotGC::render() {
+    if ((s32) *(s32 *)((s8 *)this + 0x124) == 1) {
         if (get_state_flag__9TMainTaskFv() == 1) {
             return;
         }
@@ -259,16 +256,16 @@ void render__15TAdChrSelSlotGCFv(void *arg0) {
 block_5:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        draw_slot_icons__15TAdChrSelSlotGCFPv((TAdChrSelSlotGC_802C7314 *)(arg0));
+        draw_slot_icons();
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x124) == 0) {
+        if ((s32) *(s32 *)((s8 *)this + 0x124) == 0) {
             restore_saved_depth_alpha_state();
         }
     }
 }
 
-void reset_all_slots__15TAdChrSelSlotGCFPv(void* p) { TAdChrSelSlotGC__sub_802C754C((O_802C754C *)(p), (s32)((void*)0)); TAdChrSelSlotGC__sub_802C754C((O_802C754C *)(p), (s32)((void*)1)); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(p)), (s32)((s32)((void*)0))); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(p)), (s32)((s32)((void*)1))); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(p)), (s32)((s32)((void*)2))); }
+void TAdChrSelSlotGC::reset_all_slots() { TAdChrSelSlotGC__sub_802C754C((O_802C754C *)(this), (s32)((void*)0)); TAdChrSelSlotGC__sub_802C754C((O_802C754C *)(this), (s32)((void*)1)); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(this)), (s32)((s32)((void*)0))); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(this)), (s32)((s32)((void*)1))); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(this)), (s32)((s32)((void*)2))); }
 
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1) {
     arg0->arr[arg1] = 0;
@@ -276,9 +273,10 @@ void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1) {
 
 extern u32 lbl_805D67F0;
 
-void init_slot_entry__15TAdChrSelSlotGCFPviPv(S_802C74AC *arg0, s32 arg1, void *arg2) {
+void TAdChrSelSlotGC::init_slot_entry(s32 arg1, void *arg2) {
+    S_802C74AC *arg0 = (S_802C74AC *)this;
     arg0->a[arg1] = 1;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->v[arg1 + 2], arg2);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&arg0->v[arg1 + 2], arg2);
     arg0->e[arg1].x = arg0->v[arg1 + 2].x;
     arg0->e[arg1].y = arg0->v[arg1 + 2].y;
     arg0->e[arg1].x2 = lbl_805DE5CC + arg0->v[arg1 + 2].x;
@@ -290,9 +288,10 @@ void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i) {
     self->v[i] = 0;
 }
 
-void init_slot__13TAdMcSelectGCFPviPv(S_802C7560 *arg0, s32 arg1, void *arg2) {
+void TAdMcSelectGC::init_slot(s32 arg1, void *arg2) {
+    S_802C7560 *arg0 = (S_802C7560 *)this;
     arg0->a[arg1] = 1;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->v[arg1], arg2);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&arg0->v[arg1], arg2);
     arg0->e[arg1].x = arg0->v[arg1].x;
     arg0->e[arg1].y = arg0->v[arg1].y;
     arg0->e[arg1].x2 = lbl_805DE5CC + arg0->v[arg1].x;

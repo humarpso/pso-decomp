@@ -11,16 +11,15 @@ s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 s32 fn_8029A6EC(void *);
 s32 set_cached_blend_factor(int, int);
 extern s32 chr_select_ad_pic_2_texture_descriptor[];
-void render__9TAdBackGCFv(u8 *arg0);
 }
 
 extern "C" {
 
 void *__ct__9TAdBackGCFv(void *arg0);
-void run_task__9TAdBackGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
 
-void render__9TAdBackGCFv(u8 *arg0) {
+void TAdBackGC::render() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2__Fv();
@@ -40,7 +39,7 @@ block_4:
     }
 }
 
-void run_task__9TAdBackGCFv(void) {  }
+void TAdBackGC::run_task() {  }
 
 extern const f32 lbl_805DDC68;
 extern s32 __vt__9TAdBackGC[];

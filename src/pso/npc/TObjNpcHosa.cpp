@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/npc/TObjNpcHosa.h"
 
 extern "C" {
 extern char lbl_804665F8[];
@@ -104,13 +105,12 @@ struct RecoveredGlobal_802A3B00___vt__11TObjNpcHosa {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 
 extern u32 TObjNpcHosa__static_model_resource;
-void load_static_resource__11TObjNpcHosaFv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__11TObjNpcHosa[];
@@ -123,17 +123,16 @@ extern "C" {
 
 void * TObjNpcKenkyuW__create(void *arg0);
 void *__dt__11TObjNpcHosaFv(void *arg0, s16 arg1);
-void destroy_static_instance__11TObjNpcHosaFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcKenkyuW__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
+void destroy_npc_lappy_base__12TObjNpcLappyFs(void *, int);
 
 extern u32 TObjNpcHosa__static_model_resource;
 
-void destroy_static_instance__11TObjNpcHosaFv(void) {
+void TObjNpcHosa::destroy_static_instance() {
     if ((u32) TObjNpcHosa__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcHosa__static_model_resource, 1);
         TObjNpcHosa__static_model_resource = 0U;
@@ -142,10 +141,10 @@ void destroy_static_instance__11TObjNpcHosaFv(void) {
 
 extern s32 __vt__11TObjNpcHosa[];
 
-void load_static_resource__11TObjNpcHosaFv(void) {
+void TObjNpcHosa::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &npc_hosa_resource_descriptor, 0, 0, 0));
@@ -156,7 +155,7 @@ void load_static_resource__11TObjNpcHosaFv(void) {
 void *__dt__11TObjNpcHosaFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjNpcHosa;
-        destroy_npc_lappy_base__12TObjNpcLappyFPvs(arg0, 0);
+        destroy_npc_lappy_base__12TObjNpcLappyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -172,7 +171,7 @@ u8 *TObjNpcHosa__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A3B00___vt__11TObjNpcHosa *)&__vt__11TObjNpcHosa).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcHosa__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcHosa__static_model_resource)), (int) (0));
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcHosa__static_model_resource)), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));

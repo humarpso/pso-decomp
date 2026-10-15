@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/ui/TAdEnterBaseGC.h"
 
 extern "C" {
 
-void render__14TAdEnterBaseGCFv(void);
 void fn_8032AC94(void);
 
 void fn_8032AC94(void) {  }
-void render__14TAdEnterBaseGCFv(void) {  }
+void TAdEnterBaseGC::render() {  }
 
 }

@@ -11,6 +11,7 @@ struct TObjWarpBase
     u32 m_b0;
     u32 m_b4;
     u16 m_b8;
+    static void free_globals();
 };
 
 #endif

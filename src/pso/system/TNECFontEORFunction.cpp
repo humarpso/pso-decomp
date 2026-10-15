@@ -35,7 +35,7 @@ s32 menu_font_char_advance_table[191] = {
     12, 12, 12, 12, 12, 17, 12, 12, 12, 12, 12, 6, 6, 6, 6, 11,
     11, 12, 12, 12, 12, 12, 11, 12, 11, 11, 11, 11, 11, 11, 11,
 };
-void run_task__19TNECFontEORFunctionFv(void) {
+void TNECFontEORFunction::run_task() {
     if (menu_font_upload_flags & 2) {
         DCFlushRange((void *) (lbl_805D56B4), (int) (0x80));
         init_and_load_tlut((int) (0), (int) (2), (int) (0x80), (void *) (lbl_805D56B4));

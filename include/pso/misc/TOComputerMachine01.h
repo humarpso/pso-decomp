@@ -17,6 +17,10 @@ struct TOComputerMachine01
     u32 m_60;
     u8 _pad64[0x7C];
     u32 m_e0;
+    void render();
+    static void *create(void *arg0);
+    static void reset_state();
+    static void load_model_resource();
 };
 
 #endif

@@ -39,13 +39,13 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_chunk_model(s32);
 s32 draw_chunk_object(void *);
 s32 draw_model_motion(void *, void *, f32);
 void fn_80169E30(u8 *arg0);
 s32 submit_cursor_candidate(void *, int);
-s32 check_player_flag1__6TLobbyFPv();
+s32 check_player_flag1__6TLobbyFv();
 s32 end_conversation_camera();
 s32 begin_conversation_camera();
 s32 check_demo_mode__10TObjPlayerFv();
@@ -135,7 +135,7 @@ void run_script_object_task(u8 *arg0) {
             end_conversation_camera();
             if ((s32) *(u16 *)((s8 *)arg0 + 0x94) == (s32) local_client_id) {
                 temp_r3_6 = get_player_by_client_id((void *) (local_client_id));
-                if ((temp_r3_6 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {
+                if ((temp_r3_6 != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
                     send_code_45_1__10TObjPlayerFi((int) (temp_r3_6));
                 }
             }
@@ -159,7 +159,7 @@ void fn_80169E30(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) == 1) {
             void *p = *(void **)((s8 *)arg0 + 0xBC);
             if (p != NULL) {

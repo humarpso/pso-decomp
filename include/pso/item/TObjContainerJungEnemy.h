@@ -29,6 +29,8 @@ struct TObjContainerJungEnemy
     u32 m_36c;
     u32 m_370;
     u32 m_374;
+    void load_models();
+    static void *create(void *arg0);
 };
 
 #endif

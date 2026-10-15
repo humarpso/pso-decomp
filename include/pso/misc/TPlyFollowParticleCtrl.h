@@ -10,6 +10,9 @@ struct TPlyFollowParticleCtrl
     u8 _padA8[0x4];
     u16 m_ac;
     u16 m_ae;
+    void set_type(s16 v);
+    u16 get_lifetime();
+    static void destroy_if_inactive(s32 arg0);
 };
 
 #endif

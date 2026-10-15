@@ -14,6 +14,7 @@ struct TWindowSubEquipKind
     u32 m_84;
     s16 m_88;
     s16 m_8a;
+    void run_task();
 };
 
 #endif

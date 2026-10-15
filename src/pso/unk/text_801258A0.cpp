@@ -29,7 +29,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_panzer_faust(s32 arg0);
-u8 get_slot_count__14TItemProShieldFPv(void *);
+u8 get_slot_count__14TItemProShieldFv(void *);
 u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_801258A0_lbl_804A2564 lbl_804A2564;
@@ -51,7 +51,7 @@ u8 *construct_panzer_faust(u8 *arg0, u8 *arg1, s32 _w2) {
     *(s32 *)((s8 *)arg0 + 0x234) = 0;
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DAD50;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x8000);
-    if (get_slot_count__14TItemProShieldFPv(arg0) == 1) {
+    if (get_slot_count__14TItemProShieldFv(arg0) == 1) {
         *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DAD50;
         *(s32 *)((s8 *)arg0 + 0x23C) = 0x80;
     } else {

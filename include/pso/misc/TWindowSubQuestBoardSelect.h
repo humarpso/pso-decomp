@@ -15,6 +15,11 @@ struct TWindowSubQuestBoardSelect
     u8 m_61;
     u8 _pad62[0x2];
     u32 m_64;
+    void handle_cancel();
+    void handle_decide();
+    void select_next();
+    s32 handle_page_input();
+    void run_task();
 };
 
 #endif

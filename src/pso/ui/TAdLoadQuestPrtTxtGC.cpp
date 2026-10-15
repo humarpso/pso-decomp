@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/ui/TAdLoadQuestPrtTxtGC.h"
 
 extern "C" {
 
-void render__20TAdLoadQuestPrtTxtGCFv(void);
-
-void render__20TAdLoadQuestPrtTxtGCFv(void) {  }
+void TAdLoadQuestPrtTxtGC::render() {  }
 
 }

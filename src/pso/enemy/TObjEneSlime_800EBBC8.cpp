@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSlime.h"
 
 struct VBase_18_fe72f9 { char pad[0x18]; };
 
@@ -92,7 +93,7 @@ struct RecoveredGlobal_800EBC28___vt__12TObjEneSlime {
 };
 
 extern "C" {
-s32 reset_photon_effect__12TBoss3VoloptFPv(void *);
+s32 reset_photon_effect__12TBoss3VoloptFv(void *);
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 init_slots__12TObjEneSlimeFPv(void *);
@@ -105,9 +106,8 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2);
 extern "C" {
 
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1);
-void free_instance__12TObjEneSlimeFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void release_split_slimes__12TObjEneSlimeFPv(void *);
+void release_split_slimes__12TObjEneSlimeFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 
@@ -116,7 +116,7 @@ extern s32 __vt__12TObjEneSlime[];
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEneSlime;
-        release_split_slimes__12TObjEneSlimeFPv(arg0);
+        release_split_slimes__12TObjEneSlimeFv(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -135,7 +135,7 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AD8;
     ((VObj_18_fe72f9 *)(arg0))->m79(arg2);
     ((VObj_18_fe72f9 *)(arg0))->m80();
-    reset_photon_effect__12TBoss3VoloptFPv((void *) (arg0));
+    reset_photon_effect__12TBoss3VoloptFv((void *) (arg0));
     TBoss4DarkFalz__sub_8004B4F0((void *) (arg0 + 0x374), (void *) (arg2));
     *(s32 *)((s8 *)arg0 + 0x3B4) = (s32) *(s16 *)((s8 *)arg2 + 2);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x3B4);
@@ -151,7 +151,7 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     return arg0;
 }
 
-void free_instance__12TObjEneSlimeFv(void) {
+void TObjEneSlime::free_instance() {
     if ((u32) slime_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)slime_bml_resource, 1);
         slime_bml_resource = 0U;

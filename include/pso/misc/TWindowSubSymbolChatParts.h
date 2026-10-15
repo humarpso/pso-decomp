@@ -26,6 +26,9 @@ struct TWindowSubSymbolChatParts
     u8 _pad84[0x4];
     u32 m_88;
     u32 m_8c;
+    void handle_cancel();
+    void add_part();
+    void handle_add();
 };
 
 #endif

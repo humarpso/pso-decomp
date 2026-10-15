@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/TParticleCtrl.h"
 struct Stack_8008683C {
     s32 sp8;
     s32 spC;
@@ -17,10 +18,8 @@ struct Ent_800868C4 { u8 data[0x98]; };
 extern "C" {
 s32 get_bml_model(void *, s32);
 extern u8 *TParticleCtrl__regular_bml_resource;
-s32 get_particle_model__13TParticleCtrlFi(s32 arg0);
 s32 alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *, void *, void *, void *);
 extern RecoveredGlobal_8008683C_lbl_804393F0 lbl_804393F0;
-void generate_child_default__13TParticleCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 extern s32 particle_pool_limit;
 extern Ent_800868C4 *particle_global_entry_table;
 extern Ent_800868C4 *particle_area_entry_table;
@@ -43,14 +42,12 @@ void *create_timed_particle_emitter_with_angles(void *pos, void *dir, s32 id, s3
 
 extern "C" {
 
-int get_instance__13TParticleCtrlFv(void);
-void init_heap__13TParticleCtrlFPv(void *arg0);
 void *__ct__5THeapFUli(void *, void *, int);
 void *__nw__5THeapFUl(int);
 
 extern void *TParticleCtrl__heap;
 
-void init_heap__13TParticleCtrlFPv(void *arg0) {
+void TParticleCtrl::init_heap(void *arg0) {
     void *o;
     if (TParticleCtrl__heap == NULL) {
         o = __nw__5THeapFUl(0x14);
@@ -64,7 +61,8 @@ void init_heap__13TParticleCtrlFPv(void *arg0) {
     extern int TParticleCtrl__texture_list;
 
 typedef char RecoveredGlobal_8008683C_lbl_804393F0_size[sizeof(RecoveredGlobal_8008683C_lbl_804393F0) == 0xC ? 1 : -1];
-void generate_child_default__13TParticleCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
+void TParticleCtrl::generate_child_default(s32 arg1, s32 arg2) {
+    s32 arg0 = (s32)this;
     typedef char sp8_offset[(offsetof(Stack_8008683C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8008683C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8008683C, sp10) == 0x8) ? 1 : -1];
@@ -75,14 +73,14 @@ void generate_child_default__13TParticleCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     alloc_child_particle__13TParticleCtrlFPvPvPvPv((void *) (arg0), (void *) (arg1), (void *) (&stack.sp8), (void *) (arg2));
 }
 
-s32 get_particle_model__13TParticleCtrlFi(s32 arg0) {
+s32 TParticleCtrl::get_particle_model(s32 arg0) {
     if (arg0 < 3) {
         return get_bml_model(TParticleCtrl__regular_bml_resource, arg0);
     }
     return 0;
 }
 
-int get_instance__13TParticleCtrlFv(void) {  return TParticleCtrl__texture_list; }
+int TParticleCtrl::get_instance() {  return TParticleCtrl__texture_list; }
 #pragma push
 #pragma opt_propagation off
 void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c) {

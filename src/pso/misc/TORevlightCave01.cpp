@@ -1,27 +1,25 @@
 #include "types.h"
+#include "pso/misc/TORevlightCave01.h"
 
 struct RecoveredGlobal_80173614_lbl_804B3A70 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80173614_lbl_804B3A70_size[sizeof(RecoveredGlobal_80173614_lbl_804B3A70) == 0x10 ? 1 : -1];
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80173614_lbl_804B3A70 bm_fs_obj_yukakaiten01_resource_descriptor;
 extern u32 TORevlightCave01__static_model_resource;
-void load_shared_resource__16TORevlightCave01Fv(void);
 }
 
 extern "C" {
 
-void *create__16TORevlightCave01FPv(void *arg0);
-void release_static_instance__16TORevlightCave01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TORevlightCave01__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *create__16TORevlightCave01FPv(void *arg0) {
+void *TORevlightCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
         o = TORevlightCave01__ct(o, tl_05, arg0);
@@ -31,16 +29,16 @@ void *create__16TORevlightCave01FPv(void *arg0) {
 
 extern u32 TORevlightCave01__static_model_resource;
 
-void release_static_instance__16TORevlightCave01Fv(void) {
+void TORevlightCave01::release_static_instance() {
     if ((u32) TORevlightCave01__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TORevlightCave01__static_model_resource, 1);
         TORevlightCave01__static_model_resource = 0U;
     }
 }
-void load_shared_resource__16TORevlightCave01Fv(void) {
+void TORevlightCave01::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_yukakaiten01_resource_descriptor.value, 0, 0, 0));

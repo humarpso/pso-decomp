@@ -10,6 +10,8 @@ public:
  void* m_20;
 public:
     virtual ~TObjItemNameSelect();
+public:
+    static void *create(void *arg0);
 };
 
 #endif

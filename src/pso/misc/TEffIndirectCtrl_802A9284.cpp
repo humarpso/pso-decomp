@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TEffIndirectCtrl.h"
 
 extern "C" {
 s32 read_disc_file(s32, u8 *);
@@ -14,14 +15,13 @@ void load_indirect_dat(void);
 
 extern "C" {
 
-void free_all__16TEffIndirectCtrlFv(void);
 s32 free_buffers__16TEffIndirectCtrlFv();
 s32 TObjPlayer__sub_802A83F4();
 s32 xfree__FPv(s32);
 
 extern s32 TEffIndirectCtrl__source_buffers[];
 
-void free_all__16TEffIndirectCtrlFv(void) {
+void TEffIndirectCtrl::free_all() {
     s32 var_r28;
     s32 var_r30;
     s32 var_r31;

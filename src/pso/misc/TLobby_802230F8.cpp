@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Rec_802231F0 { u8 b[0x18]; };
 
@@ -7,7 +8,6 @@ s32 TAdSinglePlyChrSelectGC__sub_80223350(void *arg0, void *arg1);
 u32 TAdSinglePlyChrSelectGC__sub_8022338C(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_802232F8(void *arg0, void *arg1);
 void swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
-void sort_records__6TLobbyFPvii(Rec_802231F0 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -16,15 +16,13 @@ s32 TAdSinglePlyChrSelectGC__sub_80223350(void *arg0, void *arg1);
 u32 TAdSinglePlyChrSelectGC__sub_8022338C(u8 *arg0, u8 *arg1);
 u32 TLobby__sub_8022318C(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_802232F8(void *arg0, void *arg1);
-s32 compare_greater__6TLobbyFPvPv(void *arg0, void *arg1);
-s32 compare_version__6TLobbyFPvPv(void *arg0, void *arg1);
 void swap_item_data__6TLobbyFPvPv(s32 *arg0, s32 *arg1);
 s32 copy_item_data__6TLobbyFPvPv(s32 *, s32 *);
 
-s32 compare_version__6TLobbyFPvPv(void *arg0, void *arg1) {
+s32 TLobby::compare_version(void *arg1) {
     u32 b, a;
 
-    a = *(u8 *)((s8 *)arg0 + 0);
+    a = *(u8 *)((s8 *)this + 0);
     b = *(u8 *)((s8 *)arg1 + 0);
     if (a > b) {
         return 1;
@@ -32,13 +30,13 @@ s32 compare_version__6TLobbyFPvPv(void *arg0, void *arg1) {
     if (a == b) {
         {
             u32 b2, a2;
-            a2 = *(u8 *)((s8 *)arg0 + 1);
+            a2 = *(u8 *)((s8 *)this + 1);
             b2 = *(u8 *)((s8 *)arg1 + 1);
             if (a2 > b2) {
                 return 1;
             }
             if (a2 == b2) {
-                if ((u8) *(u8 *)((s8 *)arg0 + 2) > (u8) *(u8 *)((s8 *)arg1 + 2)) {
+                if ((u8) *(u8 *)((s8 *)this + 2) > (u8) *(u8 *)((s8 *)arg1 + 2)) {
                     return 1;
                 }
             }
@@ -47,16 +45,16 @@ s32 compare_version__6TLobbyFPvPv(void *arg0, void *arg1) {
     return 0;
 }
 
-s32 compare_greater__6TLobbyFPvPv(void *arg0, void *arg1) {
+s32 TLobby::compare_greater(void *arg1) {
     u8 temp_r0;
     u8 temp_r5;
 
-    temp_r5 = *(u8 *)((s8 *)arg0 + 0);
+    temp_r5 = *(u8 *)((s8 *)this + 0);
     temp_r0 = *(u8 *)((s8 *)arg1 + 0);
     if (temp_r5 > temp_r0) {
         return 1;
     }
-    if ((temp_r5 == temp_r0) && ((u8) *(u8 *)((s8 *)arg0 + 1) > (u8) *(u8 *)((s8 *)arg1 + 1))) {
+    if ((temp_r5 == temp_r0) && ((u8) *(u8 *)((s8 *)this + 1) > (u8) *(u8 *)((s8 *)arg1 + 1))) {
         return 1;
     }
     return 0;
@@ -74,7 +72,8 @@ void swap_item_data__6TLobbyFPvPv(s32 *arg0, s32 *arg1) {
     copy_item_data__6TLobbyFPvPv(arg1, sp8);
 }
 
-void sort_records__6TLobbyFPvii(Rec_802231F0 *arg0, s32 arg1, s32 arg2) {
+void TLobby::sort_records(s32 arg1, s32 arg2) {
+    Rec_802231F0 *arg0 = (Rec_802231F0 *)this;
     s32 i;
     s32 j;
     for (i = 0; i < arg1 - 1; i++) {

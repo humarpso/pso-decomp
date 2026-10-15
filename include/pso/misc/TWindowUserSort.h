@@ -9,6 +9,7 @@ struct TWindowUserSort
     void* m_24;
     u8 _pad28[0x38];
     u32 m_60;
+    void run_task();
 };
 
 #endif

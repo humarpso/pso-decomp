@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCharaMaking.h"
 
 struct RecoveredGlobal_8028E9A4___vt__12TCharaMaking { s32 value; u8 remaining[0x18]; };
 typedef char RecoveredGlobal_8028E9A4___vt__12TCharaMaking_size[sizeof(RecoveredGlobal_8028E9A4___vt__12TCharaMaking) == 0x1C ? 1 : -1];
@@ -17,7 +18,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 TCMCharacter__ct(int, void *);
-s32 create__14TObjCMMainMenuFPv(void *);
+s32 create__14TObjCMMainMenuFv(void *);
 extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
 extern s32 lbl_805D3B6C;
 extern s32 creation_main_menu_obj;
@@ -26,7 +27,6 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern RecoveredGlobal_8028E794_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern const f32 lbl_805DD938;
-void update_light_direction__12TCharaMakingFPv(u8 *arg0);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
@@ -35,13 +35,11 @@ extern s32 creation_main_menu_obj;
 u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1);
 s32 is_active__23TAdSinglePlyChrSelectGCFv(void *self);
 s32 update_main_menu__12TCharaMakingFi(s32 arg0);
-void run_task__12TCharaMakingFv(void *self);
 }
 
 extern "C" {
 
 void TCharaMaking__sub_8028E790(void);
-void *create__12TCharaMakingFPvPv(void *arg0, void *arg1);
 s32 update_main_menu__12TCharaMakingFi(s32 arg0);
 void *__nw__7TObjectFUl(int);
 s32 create__15TChCrCharSelectFPv(s32);
@@ -59,7 +57,8 @@ extern s32 creation_main_menu_obj;
 extern s32 creation_dressing_room_mode_flag;
 
 typedef char RecoveredGlobal_8028E794_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_8028E794_TObjLight__data_80506320) == 0x50 ? 1 : -1];
-void update_light_direction__12TCharaMakingFPv(u8 *arg0) {
+void TCharaMaking::update_light_direction() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f31;
     *(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 4) = (f32) (lbl_805DD938 * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x1C)));
     temp_f31 = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x1C));
@@ -91,12 +90,12 @@ s32 update_main_menu__12TCharaMakingFi(s32 arg0) {
 
 extern void *creation_player_character;
 
-void run_task__12TCharaMakingFv(void *self) {
-    if (!is_active__23TAdSinglePlyChrSelectGCFv(self)) return;
-    if (update_main_menu__12TCharaMakingFi((s32)(self))) return;
+void TCharaMaking::run_task() {
+    if (!is_active__23TAdSinglePlyChrSelectGCFv(this)) return;
+    if (update_main_menu__12TCharaMakingFi((s32)(this))) return;
 }
 
-void *create__12TCharaMakingFPvPv(void *arg0, void *arg1) {
+void *TCharaMaking::create(void *arg0, void *arg1) {
     void *o;
     creation_player_character = arg1;
     o = __nw__7TObjectFUl(0x24);
@@ -129,10 +128,10 @@ u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
     if (temp_r3 != 0U) {
         TCMCharacter__ct((int) (temp_r3), (void *) (arg0));
     }
-    creation_main_menu_obj = create__14TObjCMMainMenuFPv((void *) (arg0));
+    creation_main_menu_obj = create__14TObjCMMainMenuFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1555;
     *(s32 *)((s8 *)arg0 + 0x20) = 0x9000;
-    update_light_direction__12TCharaMakingFPv((u8 *)((void *) (arg0)));
+    ((TCharaMaking *)arg0)->update_light_direction();
     return arg0;
 }
 

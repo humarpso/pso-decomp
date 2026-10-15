@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
 
 extern "C" {
 
-void update_move__18TObjEneMe3SinowZoaFPv(void* p);
 int TObjEneMe3SinowZoa__sub_8031A3D8(void*);
 int get_target_info__9TObjEneDDFPv(void*);
-int setup_move_bounds__18TObjEneMe3SinowZoaFPv(void*);
+int setup_move_bounds__18TObjEneMe3SinowZoaFv(void*);
 
-void update_move__18TObjEneMe3SinowZoaFPv(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { setup_move_bounds__18TObjEneMe3SinowZoaFPv(p); TObjEneMe3SinowZoa__sub_8031A3D8(p); } }
+void TObjEneMe3SinowZoa::update_move() { if (get_target_info__9TObjEneDDFPv(this) != 0) { setup_move_bounds__18TObjEneMe3SinowZoaFv(this); TObjEneMe3SinowZoa__sub_8031A3D8(this); } }
 
 }

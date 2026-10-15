@@ -8,7 +8,7 @@ struct E1_8020AB50 { E2_8020AB50 *recs; s32 count; };
 
 extern "C" {
 s32 read_disc_file(void *, void *);
-void debug_print__6TLobbyFii(const char *, ...);
+void debug_print__6TLobbyFle(const char *, ...);
 s32 replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
 s32 bswap_enemy_set_row(void *);
 s32 reserve_enemy_set_actor_ids(void *, u32, s32);
@@ -37,12 +37,12 @@ s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     E3_8020AB50 *t3;
     t2 = TLobby__data_805D6068[arg1].recs;
     if (t2 == NULL || TLobby__data_805D6068[arg1].count - 1 < arg2) {
-        debug_print__6TLobbyFii(lbl_8044BBB8);
+        debug_print__6TLobbyFle(lbl_8044BBB8);
         return 0;
     }
     t3 = t2[arg2].recs;
     if (t3 == NULL || t2[arg2].count - 1 < arg3) {
-        debug_print__6TLobbyFii(lbl_8044BBB8);
+        debug_print__6TLobbyFle(lbl_8044BBB8);
         return 0;
     }
     name = t3[arg3].name;

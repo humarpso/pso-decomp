@@ -38,7 +38,6 @@ extern "C" {
 
 void *__dt__20TObjEneMe1Gee_NEEDLEFv(void *arg0, s16 arg1);
 void* get_shoot_data__12TNeedleShootFPv(void* p);
-void init_velocity__12TNeedleShootFPv(u8 *arg0);
 s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
@@ -53,14 +52,15 @@ extern "C" {
 }
 
 #include "types.h"
+#include "pso/misc/TNeedleShoot.h"
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-void tick_lifetime__12TNeedleShootFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void tick_lifetime__12TNeedleShootFPv(u8 *arg0) {
+void TNeedleShoot::tick_lifetime() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xC0) - 1;
     *(s32 *)((s8 *)arg0 + 0xC0) = temp_r0;
@@ -69,7 +69,8 @@ void tick_lifetime__12TNeedleShootFPv(u8 *arg0) {
     }
 }
 
-void init_velocity__12TNeedleShootFPv(u8 *arg0) {
+void TNeedleShoot::init_velocity() {
+    u8 *arg0 = (u8 *)this;
     if (get_global_state__14TOKeyMachine01Fv() == 0x22) {
         play_sound_effect((int) (0x4003B20E), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
     } else {

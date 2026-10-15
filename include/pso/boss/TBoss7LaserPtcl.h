@@ -17,6 +17,13 @@ struct TBoss7LaserPtcl {
     u32 m_54;
 
     void run_task();
+    u8 is_state_2();
+    void calc_world_position(void *arg1);
+    void update_position();
+    void init_laser();
+    void calc_position(u8 *arg1, u8 *arg2);
+    void destroy_particles();
+    static void render();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 struct Base_8029c054_8029C030 { char pad[0x14]; };
 struct VObj_8029c054_8029C030 : Base_8029c054_8029C030 {
@@ -42,7 +43,6 @@ void set_cull_back__8TObjFishFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
-void update_near_fade__12TBoss8DragonFPv(Rd_8029C094 *arg0);
 }
 
 extern "C" {
@@ -60,7 +60,8 @@ void TAdRayGC__sub_8029C054(u8 *arg0) {
     }
     set_cull_none__8TObjFishFv();
 }
-void update_near_fade__12TBoss8DragonFPv(Rd_8029C094 *arg0) {
+void TBoss8Dragon::update_near_fade() {
+    Rd_8029C094 *arg0 = (Rd_8029C094 *)this;
     Vec_8029C094 v;
     set_cull_back__8TObjFishFv();
     matrix_mult_vec(0, arg0->pos, &v);

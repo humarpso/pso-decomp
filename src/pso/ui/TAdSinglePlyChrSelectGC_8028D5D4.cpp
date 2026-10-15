@@ -11,6 +11,8 @@ u8 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 s32 TLobby__sub_8028D7D0();
@@ -18,20 +20,18 @@ extern u32 lbl_80518850[4];
 extern u32 chr_select_load_buffer_table[4];
 extern u32 chr_select_load_buffer_base;
 extern u32 chr_select_load_buffer;
-u32 alloc_load_buffer__6TLobbyFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-s32 get_result__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-
-s32 get_result__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+s32 TAdSinglePlyChrSelectGC::get_result() {
     if (((s32 (*)())is_selection_done__23TAdSinglePlyChrSelectGCFPv)() != 0) {
-        return *(s32 *)((s8 *)arg0 + 0x28);
+        return *(s32 *)((s8 *)this + 0x28);
     }
     return 0;
 }
-u32 alloc_load_buffer__6TLobbyFii(s32 arg0, s32 arg1) {
+u32 TLobby::alloc_load_buffer(s32 arg1) {
+    s32 arg0 = (s32)this;
     u32 p;
     if (chr_select_load_buffer_base == 0U) {
         return 0U;

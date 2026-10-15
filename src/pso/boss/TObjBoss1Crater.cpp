@@ -91,7 +91,7 @@ s32 TBoss1Dragon__sub_8002AB6C(void *);
 void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, s32 arg2, s32 *arg3);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 isV2Mode__12TBoss1DragonFv();
-void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 create_particle_emitter(void *, int, f32);
 void construct_collision_body(void *);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
@@ -124,9 +124,9 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
+void destroy_enemy_object__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 
 extern u8 *lbl_805D4B50;
 extern s32 dragon_common_texture_list;
@@ -134,7 +134,7 @@ extern s32 model_render_flags;
 
 void render__15TObjBoss1CraterFv(u8 *arg0) {
     push_matrix();
-    set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
+    set_global_param__8TObjFishFl((void *) (dragon_common_texture_list));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
     model_render_flags |= 0x01000000;
@@ -206,7 +206,7 @@ void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss1Crater;
         if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB4), 1); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
         if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB0)); *(s32 *)((s8 *)arg0 + 0xB0) = 0; }
-        destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_enemy_object__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -229,7 +229,7 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
     r = lbl_805D8164 * (f32)rand();
     self->f60 = (s32)(lbl_805D8160 * r);
     self->fB0 = create_particle_emitter(self->pos, 0x40, r);
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
         p = TBoss8Dragon__sub_800BC5EC(p, 4);
     }

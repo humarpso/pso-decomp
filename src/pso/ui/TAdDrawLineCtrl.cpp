@@ -5,7 +5,6 @@
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 run_tasks__7TObjectFv(int);
-void run_task__15TAdDrawLineCtrlFv(u8 *arg0);
 void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D49D8;
@@ -15,7 +14,6 @@ u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0);
 extern "C" {
 
 void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
-void render__15TAdDrawLineCtrlFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void set_draw_line_param_all_nodes(void *, f32);
@@ -28,8 +26,8 @@ s32 reset_transform_state__10TObjPlayerFv();
 s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
-void render__15TAdDrawLineCtrlFv(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x28) == 0) {
+void TAdDrawLineCtrl::render() {
+    if ((s32) *(s32 *)((s8 *)this + 0x28) == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2__Fv();
             goto block_5;
@@ -37,10 +35,10 @@ void render__15TAdDrawLineCtrlFv(void *arg0) {
     } else if ((get_main_phase() != 2) || (get_state_flag__9TMainTaskFv() != 1)) {
 block_5:
         reset_transform_state__10TObjPlayerFv();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
-            render_nodes__7TObjectFv(*(void **)((s8 *)arg0 + 0x20));
+        if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
+            render_nodes__7TObjectFv(*(void **)((s8 *)this + 0x20));
         }
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x28) == 0) {
+        if ((s32) *(s32 *)((s8 *)this + 0x28) == 0) {
             restore_saved_depth_alpha_state();
         }
     }
@@ -49,7 +47,8 @@ block_5:
 extern s32 __vt__15TAdDrawLineCtrl[];
 extern void *TAdDrawLineCtrl__class_name;
 
-void run_task__15TAdDrawLineCtrlFv(u8 *arg0) {
+void TAdDrawLineCtrl::run_task() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     if (temp_r0 != 0U) {

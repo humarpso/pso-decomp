@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void notify_and_close__6TLobbyFv(void);
 s32 pop_and_close__6TLobbyFv();
 
 extern u8 *async_file_read_current_request;
 extern s32 async_file_read_state;
 
-void notify_and_close__6TLobbyFv(void) {
+void TLobby::notify_and_close() {
     s32 (*temp_r12)(void *);
     s32 *temp_r3;
 

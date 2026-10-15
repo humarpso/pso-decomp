@@ -17,6 +17,9 @@ struct TODoorCave03
     u8 _padB0[0x20];
     u32 m_d0;
     void* m_d4;
+    static void *create(void *arg0);
+    static void free_shared_data();
+    static void load_resources();
 };
 
 #endif

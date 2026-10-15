@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 typedef struct Vec_80325D58 { f32 x; f32 y; f32 z; } Vec_80325D58;
 
@@ -14,10 +15,9 @@ s32 TObjPlayer__sub_80325D58(void *arg0, Vec_80325D58 *from, Vec_80325D58 *dir, 
 
 extern "C" {
 
-int queue_destruction__12TBoss8DragonFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
-int queue_destruction__12TBoss8DragonFPv(void* p) { return queue_destruction__7TObjectFv(p); }
+int TBoss8Dragon::queue_destruction() { return queue_destruction__7TObjectFv(this); }
 #pragma push
 #pragma fp_contract on
 #define STEP_80325D58() \

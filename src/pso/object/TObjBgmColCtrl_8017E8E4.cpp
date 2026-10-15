@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/object/TObjBgmColCtrl.h"
 
 extern "C" {
 
 extern s32 lbl_805D62E4;
 
-u8 is_active__14TObjBgmColCtrlFv(void) {
+u8 TObjBgmColCtrl::is_active() {
     return (u8) (lbl_805D62E4 != 0);
 }
 

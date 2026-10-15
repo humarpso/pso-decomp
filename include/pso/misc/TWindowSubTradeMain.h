@@ -22,6 +22,29 @@ struct TWindowSubTradeMain
     u32 m_4c;
     u32 m_50;
     void* m_54;
+    void request_close();
+    s32 add_text_entry(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+    void clear_trade_flag();
+    void send_60_update();
+    void bswap_6x6A_packet();
+    void init_pkt_cmd_6A();
+    static int get_warp_state();
+    void set_close_flag();
+    void set_visible();
+    void update_trade_state();
+    void close();
+    void clear_flag();
+    void clear_flag70_bit80();
+    void set_trade_state(s16 arg1);
+    void refresh_item_list(void* a1);
+    static s32 get_state();
+    static void draw_offer(void *arg0, void *arg1);
+    static void draw_request(void *arg0, void *arg1);
+    s32 open_confirm_yes_no();
+    s32 create_trade_menu();
+    s32 build_trade_menu();
+    static void render();
+    void run_task();
 };
 
 #endif

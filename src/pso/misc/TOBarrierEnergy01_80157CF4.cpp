@@ -1,22 +1,21 @@
 #include "types.h"
+#include "pso/misc/TOBarrierEnergy01.h"
 
 extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
-void play_ambient_loop_sound__17TOBarrierEnergy01Fi(s32 arg0);
 }
 
 extern "C" {
 
 void TOBarrierEnergy01__vt18(void);
-void* init__17TOBarrierEnergy01FPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
 void TOAttackableCol__vt23(void);
 int bswap_16__FPUs(void*);
-int bswap_header__6TLobbyFi(void*);
+int bswap_header__6TLobbyFv(void*);
 
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TOBarrierEnergy01__vt13();
@@ -34,7 +33,7 @@ extern "C" u8 lbl_80440188[];
 extern "C" u8 lbl_804401A4[];
 extern "C" u8 lbl_804401B8[];
 extern "C" u8 lbl_804401D0[];
-extern "C" void release_member_90__10TObjPlayerFPv();
+extern "C" void release_member_90__10TObjPlayerFv();
 extern "C" void render__17TOBarrierEnergy01Fv();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void run_switch_door_task();
@@ -59,16 +58,17 @@ void *lbl_804AFB34[11] = {
 void *__vt__17TOBarrierEnergy01[21] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__17TOBarrierEnergy01Fv, (void *)&run_switch_door_task,
     (void *)&render__17TOBarrierEnergy01Fv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&release_member_90__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&update_door_switch_state, (void *)&TOBarrierEnergy01__vt13,
     (void *)&TOBarrierEnergy01__vt14, (void *)&TOBarrierEnergy01__vt15, (void *)&TOBarrierEnergy01__vt16, (void *)&init_door_switch_binding,
     (void *)&TOBarrierEnergy01__vt18,
 };
 
-void* init__17TOBarrierEnergy01FPv(void* p) { TLobby__sub_80156BA8(p); return p; }
+void*TOBarrierEnergy01::init() { TLobby__sub_80156BA8(this); return this; }
 
 void TOBarrierEnergy01__vt18(void) {  }
-void play_ambient_loop_sound__17TOBarrierEnergy01Fi(s32 arg0) {
+void TOBarrierEnergy01::play_ambient_loop_sound() {
+    s32 arg0 = (s32)this;
     u32 temp_r3;
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     switch (temp_r3) {

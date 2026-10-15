@@ -7,7 +7,7 @@ struct Win_802497A8 { u8 pad[4]; Set_802497A8 *set; };
 
 extern "C" {
 s32 get_shared_text_buffer();
-s32 get_card_id__17TWindowSubComCardFPv(void *);
+s32 get_card_id__17TWindowSubComCardFv(void *);
 s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
 s32 get_stat_table_entry__9TObjLukerFi(int);
@@ -62,7 +62,7 @@ void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     }
     set_default_status__17TWindowDuelResultFPvi(t10, get_stat_table_entry__9TObjLukerFi(n));
     if (TWindowSubComCard__sub_8007B6F4(arg1) != 0) {
-        id = get_card_id__17TWindowSubComCardFPv(arg1);
+        id = get_card_id__17TWindowSubComCardFv(arg1);
         if (id == 0) {
             t4->flags |= 2;
         } else {

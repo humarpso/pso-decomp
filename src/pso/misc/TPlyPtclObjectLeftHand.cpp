@@ -28,18 +28,18 @@ s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0);
 void *get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 void __dt__22TPlyFollowParticleCtrlFv(void *, int);
-u16 get_lifetime__22TPlyFollowParticleCtrlFPv();
-s32 get_position_ptr__10TObjPlayerFPv(s32);
+u16 get_lifetime__22TPlyFollowParticleCtrlFv();
+s32 get_position_ptr__10TObjPlayerFv(s32);
 
 s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0) {
     void *temp_r3;
 
-    temp_r3 = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFPv());
+    temp_r3 = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFv());
     if (temp_r3 == NULL) {
         return 0;
     }
-    ((VObj_PTR18_8030A400 *) temp_r3)->m63(0x23, get_position_ptr__10TObjPlayerFPv(arg0));
-    return get_position_ptr__10TObjPlayerFPv(arg0);
+    ((VObj_PTR18_8030A400 *) temp_r3)->m63(0x23, get_position_ptr__10TObjPlayerFv(arg0));
+    return get_position_ptr__10TObjPlayerFv(arg0);
 }
 
 extern s32 __vt__22TPlyPtclObjectLeftHand[];

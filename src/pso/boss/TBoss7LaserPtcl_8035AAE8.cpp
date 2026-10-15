@@ -16,10 +16,10 @@ struct Ang_8035AAEC { s32 x, y, z; };
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32 y, f32 x);
 void create_oneshot_particle_emitter(void *, void *, int, int);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 void direction_to_rotation_xz(void *, void *, void *);
-void update_position__15TBoss7LaserPtclFPv(void *);
-void destroy_particles__15TBoss7LaserPtclFi(void *);
+void update_position__15TBoss7LaserPtclFv(void *);
+void destroy_particles__15TBoss7LaserPtclFv(void *);
 void vec3_add_to(void *, void *);
 void normalize_vector(void *);
 extern const f64 lbl_804796D8[];
@@ -48,7 +48,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void update_position__15TBoss7LaserPtclFPv(void *);
+void update_position__15TBoss7LaserPtclFv(void *);
 extern s32 __vt__15TBoss7LaserPtcl[];
 extern s32 TBoss7LaserPtcl__class_name;
 extern const f32 lbl_805E010C;
@@ -61,7 +61,7 @@ extern s32 lbl_804F1C88[];
 extern const f32 lbl_805E0118;
 u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
-void apply_status_effect__10TObjPlayerFi(void *);
+void apply_status_effect__10TObjPlayerFl(void *);
 void reset_global_table(void);
 s32 get_instance__16TObjOnlineEndingFv(void);
 void *get_attack_entry__16TObjOnlineEndingFi(int);
@@ -79,12 +79,11 @@ void TBoss7LaserPtcl__sub_8035AF0C(void);
 void TBoss7LaserPtcl__sub_8035AF10(void);
 void TBoss7LaserPtcl__sub_8035AF14(void);
 void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1);
-void render__15TBoss7LaserPtclFv(void);
-void destroy_particles__15TBoss7LaserPtclFi(void *);
+void destroy_particles__15TBoss7LaserPtclFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-void render__15TBoss7LaserPtclFv(void) {  }
+void TBoss7LaserPtcl::render() {  }
 
 }
 
@@ -103,12 +102,12 @@ void TBoss7LaserPtcl::run_task() {
     p = o->particles;
     for (i = 2; i != 0; i--) {
         if (*p != NULL) {
-            copy_pos__11TNowLoadingFPvPv(*p++, &o->position);
+            copy_pos__11TNowLoadingFPv(*p++, &o->position);
         }
     }
     if (o->state == 1) {
         o->travel_distance += lbl_805E0100;
-        update_position__15TBoss7LaserPtclFPv(o);
+        update_position__15TBoss7LaserPtclFv(o);
         VecCopy__FP3VecPC3Vec(&v, &o->displacement);
         VecCopy__FP3VecPC3Vec(&w, &o->position);
         normalize_vector(&v);
@@ -124,7 +123,7 @@ void TBoss7LaserPtcl::run_task() {
         }
         if (lbl_805E0108 <= o->travel_distance) {
             o->state = 2;
-            destroy_particles__15TBoss7LaserPtclFi(o);
+            destroy_particles__15TBoss7LaserPtclFv(o);
         }
     }
 }
@@ -137,7 +136,7 @@ extern s32 __vt__15TBoss7LaserPtcl[];
 void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss7LaserPtcl;
-        destroy_particles__15TBoss7LaserPtclFi(arg0);
+        destroy_particles__15TBoss7LaserPtclFv(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -155,7 +154,7 @@ u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg3);
-    update_position__15TBoss7LaserPtclFPv(arg0);
+    update_position__15TBoss7LaserPtclFv(arg0);
     *(s32 *)((s8 *)arg0 + 0x44) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x204, 0x40);
     *(s32 *)((s8 *)arg0 + 0x48) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x205, 0x40);
     return arg0;
@@ -170,7 +169,7 @@ void TBoss7LaserPtcl__sub_8035AD68(u8 *arg0) {
     Ptcl_8035AD68 *o = (Ptcl_8035AD68 *)arg0;
     o->x40 += lbl_805E0110;
     reset_global_table();
-    apply_status_effect__10TObjPlayerFi(o->x1c);
+    apply_status_effect__10TObjPlayerFl(o->x1c);
     for (i = 0; i != get_instance__16TObjOnlineEndingFv(); i++) {
         u8 **e = (u8 **)get_attack_entry__16TObjOnlineEndingFi(i);
         emit_hit_effect__18TBoss7PhotonBulletFPvPv(o->x10, *e + 0x38);

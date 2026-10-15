@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Entry_802D20C8 { u32 id; s32 count; };
 
@@ -21,34 +22,31 @@ struct VObj802D1F30 : VBase802D1F30 {
 };
 
 extern "C" {
-s32 copy_and_register_item_data__11TItemObjectFPv(u32);
+s32 copy_and_register_item_data__11TItemObjectFv(u32);
 u32 find_item_by_id();
-s32 copy_to_item_data__5TItemFPvPv(void *, void *);
+s32 copy_to_item_data__5TItemFPv(void *, void *);
 s32 item_identity_matches(void *, void *);
 s32 TObjPlayer__sub_801C1AC8();
-void *get_trade_obj_ptr__6TLobbyFPv(s32);
+void *get_trade_obj_ptr__6TLobbyFv(s32);
 Entry_802D20C8 *find_free_trade_slot__6TLobbyFPv(void *);
 s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2);
-u8 *get_quest_id__12TQuestListVMFPv(void *);
+u8 *get_quest_id__12TQuestListVMFv(void *);
 u32 find_item_by_id();
 u8 *get_player_by_client_id(s32);
-s32 run_and_get_result__10TObjPlayerFPvi(int, void *);
-void update_both_halves__6TLobbyFPv(void* p);
-void *get_trade_obj_ptr__6TLobbyFPv(s32);
+s32 run_and_get_result__10TObjPlayerFi(int, void *);
+void *get_trade_obj_ptr__6TLobbyFv(s32);
 void snapshot_player_trade_inventory(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-void clear_stale_entries__6TLobbyFPv(u8 *arg0);
-void set_trade_field_4__6TLobbyFii(s32 arg0, s32 arg1);
-void update_both_halves__6TLobbyFPv(void* p);
 u32 find_item_by_id();
 int TLobby__sub_802D2358(void*);
-void *get_trade_obj_ptr__6TLobbyFPv(s32);
+void *get_trade_obj_ptr__6TLobbyFv(s32);
 
-void set_trade_field_4__6TLobbyFii(s32 arg0, s32 arg1) {
-    *(s32 *)((s8 *)(get_trade_obj_ptr__6TLobbyFPv(arg0 + 0xF8)) + 4) = arg1;
+void TLobby::set_trade_field_4(s32 arg1) {
+    s32 arg0 = (s32)this;
+    *(s32 *)((s8 *)(get_trade_obj_ptr__6TLobbyFv(arg0 + 0xF8)) + 4) = arg1;
 }
 
 void snapshot_player_trade_inventory(s32 arg0, s32 arg1) {
@@ -61,10 +59,10 @@ void snapshot_player_trade_inventory(s32 arg0, s32 arg1) {
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     u8 *var_r25;
-    update_both_halves__6TLobbyFPv((void *) arg0);
+    ((TLobby *)arg0)->update_both_halves();
     temp_r3 = get_player_by_client_id(arg1);
     if (temp_r3 != NULL) {
-        temp_r29 = run_and_get_result__10TObjPlayerFPvi((int) (*(s32 *)((s8 *)temp_r3 + 0xD00)), (void *) ids);
+        temp_r29 = run_and_get_result__10TObjPlayerFi((int) (*(s32 *)((s8 *)temp_r3 + 0xD00)), (void *) ids);
         var_r25 = (unsigned char *) (arg0 + 0xF8);
         var_r26 = 0;
         while (var_r26 < temp_r29) {
@@ -79,8 +77,8 @@ void snapshot_player_trade_inventory(s32 arg0, s32 arg1) {
             }
             var_r26 += 1;
         }
-        temp_r31 = (u8 *) get_trade_obj_ptr__6TLobbyFPv(arg0 + 0xF8);
-        temp_r3_3 = get_quest_id__12TQuestListVMFPv(temp_r3);
+        temp_r31 = (u8 *) get_trade_obj_ptr__6TLobbyFv(arg0 + 0xF8);
+        temp_r3_3 = get_quest_id__12TQuestListVMFv(temp_r3);
         *(s32 *)((s8 *)temp_r31 + 0) = -0xFF;
         if (temp_r3_3 != NULL) {
             *(s32 *)((s8 *)temp_r31 + 4) = (s32) *(s32 *)((s8 *)temp_r3_3 + 0x20);
@@ -90,9 +88,9 @@ void snapshot_player_trade_inventory(s32 arg0, s32 arg1) {
     }
 }
 
-void update_both_halves__6TLobbyFPv(void* p) { TLobby__sub_802D2358(p); TLobby__sub_802D2358((char*)p + 0xf8); }
+void TLobby::update_both_halves() { TLobby__sub_802D2358(this); TLobby__sub_802D2358((char*)this + 0xf8); }
 
-void clear_stale_entries__6TLobbyFPv(u8 *arg0) {
+void TLobby::clear_stale_entries(u8 *arg0) {
     u8 *var_r29;
     s32 var_r28;
 
@@ -115,7 +113,7 @@ s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
     u32 found;
     s32 i;
     if (arg1 == 0xFFFFFF01) {
-        s32 *t = (s32 *) get_trade_obj_ptr__6TLobbyFPv((s32) arg0);
+        s32 *t = (s32 *) get_trade_obj_ptr__6TLobbyFv((s32) arg0);
         t[1] += arg2;
         return t[1] > 999999;
     }
@@ -124,16 +122,16 @@ s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
         return 0;
     }
     if (TObjPlayer__sub_801C1AC8() != 0) {
-        copy_to_item_data__5TItemFPvPv((void *) item, &a);
+        copy_to_item_data__5TItemFPv((void *) item, &a);
         e = arg0;
         for (i = 0; i < 30; i++, e++) {
             if (e->id != 0xFFFFFFFF && e->id != 0xFFFFFF01) {
                 found = ((u32 (*)(u32)) find_item_by_id)(e->id);
                 if (found != 0) {
-                    copy_to_item_data__5TItemFPvPv((void *) found, &b);
+                    copy_to_item_data__5TItemFPv((void *) found, &b);
                     if (item_identity_matches(&b, &a) != 0) {
                         e->count += arg2;
-                        if (e->count > copy_and_register_item_data__11TItemObjectFPv(found)) {
+                        if (e->count > copy_and_register_item_data__11TItemObjectFv(found)) {
                             return 2;
                         }
                     }

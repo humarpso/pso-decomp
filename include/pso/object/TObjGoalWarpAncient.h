@@ -22,6 +22,10 @@ struct TObjGoalWarpAncient
     u32 m_e0;
     u32 m_e4;
     u32 m_e8;
+    static void load_resources();
+    static void register_warp_object(void* a0);
+    static s32 get_instance();
+    static void register_warp(void* a0);
 };
 
 #endif

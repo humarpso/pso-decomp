@@ -353,7 +353,7 @@ void TObjEneDD__sub_800BBA0C(u8 *arg0);
 void TObjEneDD__vt83(void *arg0);
 s32 TObjEneDD__vt81(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 load_enemy_bml_resource(u8 *arg0);
 void transition_enemy_state(V_800BBA18 *self, s16 state);
 s32 TObjEneDD__vt82(V_800BBB18 *self);
@@ -375,9 +375,9 @@ void invoke_initialization_hook__9TObjEneDDFPv(void *arg0);
 void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
 s32 subtractive_rng_seed(void *, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 call_vt78__10TObjPlayerFPv();
+s32 call_vt78__10TObjPlayerFv();
 int fn_800FD8A0(void*);
-s32 reset_photon_effect__12TBoss3VoloptFPv(void *);
+s32 reset_photon_effect__12TBoss3VoloptFv(void *);
 
 extern s32 area_random_seed;
 
@@ -420,7 +420,7 @@ void TObjEneDD__vt77(void *arg0) {
     s16 temp_r31;
 
     temp_r31 = *(s16 *)((s8 *)arg0 + 0x326);
-    call_vt78__10TObjPlayerFPv();
+    call_vt78__10TObjPlayerFv();
     *(s16 *)((s8 *)arg0 + 0x326) = temp_r31;
 }
 
@@ -442,7 +442,7 @@ void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
 s32 load_enemy_bml_resource(u8 *arg0) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, arg0, 0, 0, 0));
@@ -505,7 +505,7 @@ void init_position_vectors__9TObjEneDDFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x50, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
-    reset_photon_effect__12TBoss3VoloptFPv(arg0);
+    reset_photon_effect__12TBoss3VoloptFv(arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjEneDD__data_805D9E8C;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjEneDD__data_805D9E8C;
@@ -586,6 +586,7 @@ void release_resource__9TObjEneDDFv(void) {
 }
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 extern "C" {
 s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2);
@@ -593,12 +594,10 @@ s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2);
 
 extern "C" {
 
-void create_instance__9TObjEneDDFv(void);
-int get_enemy_count__9TObjEneDDFv(void);
 void *__nw__7TObjectFUl(int);
 void *construct_collision_body(void *, int, int);
 
-void create_instance__9TObjEneDDFv(void) {
+void TObjEneDD::create_instance() {
     void *o;
     o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
@@ -608,7 +607,7 @@ void create_instance__9TObjEneDDFv(void) {
 }
 
     extern int lbl_805D5870;
-int get_enemy_count__9TObjEneDDFv(void) {  return lbl_805D5870; }
+int TObjEneDD::get_enemy_count() {  return lbl_805D5870; }
 s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2) {
     s32 temp_r3;
     temp_r3 = *arg1;

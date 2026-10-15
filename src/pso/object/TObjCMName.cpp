@@ -4,6 +4,7 @@
 #include "pso/TObjCMAssignMenu.h"
 #include "pso/object/TObjCMMainMenu.h"
 #include "pso/object/TObjCMProportion.h"
+#include "pso/object/TObjCMAutoMkData.h"
 
 struct Menu_80296D68
 {
@@ -78,10 +79,8 @@ struct Auto_802952E0
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
-void clear_task_state__14TObjCMMainMenuFv(void);
 s32 TChCrCharSelect__sub_80298F8C(int);
 s32 TObjCMProportion__sub_8029916C(s32);
-void calc_grid_layout__16TObjCMAssignMenuFPv(void *arg0);
 extern const f32 lbl_805DDA70;
 extern const f32 lbl_805DDA90;
 extern const f32 lbl_805DDAA8;
@@ -93,10 +92,9 @@ void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 calc_text_width(void *);
-void draw_string__14TObjWarpStringFPviff(const char *, u32, f32, f32);
-s32 validate_character_name__14TObjCMMainMenuFPv(void *);
+void draw_string__14TObjWarpStringFlff(const char *, u32, f32, f32);
+s32 validate_character_name__14TObjCMMainMenuFPSc(void *);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
-f32 get_scale__14TObjCMMainMenuFv(void);
 void reset_icon_flags__10TObjCMIconFv(void);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 f32 sin_table_lookup(s32);
@@ -128,22 +126,18 @@ f32 get_right_trigger_ratio__16TObjCMProportionFv();
 extern s32 TObjCMMainMenu__data_805D659C;
 extern const f32 lbl_805DDBF4;
 extern const f32 lbl_805DDBF8;
-void update_random_proportion_action__14TObjCMMainMenuFPv(void * _w0);
 extern s32 TObjCMMainMenu__data_805D659C;
 extern const f32 lbl_805DDA70;
 extern const f32 lbl_805DDA90;
 extern const f32 lbl_805DDBFC;
 extern const f32 TObjCMMainMenu__data_805DDC00;
-void update_slide_offset__14TObjCMMainMenuFPv(M_802983A0 *arg0);
-f32 get_proportion__14TObjCMMainMenuFv(void);
 s32 set_creation_projection_center(f32);
 s32 queue_destruction__7TObjectFv(void *);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 void reset_icon_flags__10TObjCMIconFv(void);
 s32 TObjCMProportion__sub_8029916C(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-void clear_task_state__14TObjCMMainMenuFv(void);
-s32 get_display_index__12TCharaMakingFPv(s32);
+s32 get_display_index__12TCharaMakingFv(s32);
 s32 rand();
 extern const Icons_802952E0 lbl_80465118;
 extern s32 creation_resource_ready_state;
@@ -156,7 +150,6 @@ extern const f32 lbl_805DDAF4;
 extern const f32 lbl_805DDAF8;
 extern const f32 lbl_805DDAFC;
 extern const f32 lbl_805DDB00;
-void run_task__16TObjCMAutoMkDataFv(Auto_802952E0 *self);
 }
 
 extern "C" {
@@ -396,7 +389,7 @@ struct M_80298450 { u8 pad[0x38]; f32 f38; };
 
 f32 fabs_float(f32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, int);
 void copy_player_visual_record(void *, void *);
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
@@ -407,13 +400,13 @@ s32 __dt__7TObjectFv(void *, s32);
 void __ct__7TObjectFP7TObject(void *);
 Chara_80298B70 * TObjCMMainMenu__sub_8028D9A8(void);
 s32 TObjCMMainMenu__sub_8028D9B4(void *);
-s32 validate_character_name__14TObjCMMainMenuFPv(void *);
+s32 validate_character_name__14TObjCMMainMenuFPSc(void *);
 u8 calc_section_id_from_name();
-s32 get_display_index__12TCharaMakingFPv(s32);
+s32 get_display_index__12TCharaMakingFv(s32);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
 s32 reset_character_creation_figure_rotation();
 s32 draw_creation_ruler_lines(f32);
-s32 get_creation_sprite_id__14TObjCMMainMenuFi(int);
+s32 get_creation_sprite_id__14TObjCMMainMenuFl(int);
 void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
 void draw_ui_sprite(s32, void *, f32, f32);
 void fn_802910A4(s32, void *, void *, f32);
@@ -426,30 +419,23 @@ void * __ct__10TObjCMNameFv(void *arg0);
 void * create__16TObjCMProportionFPv(void *arg0);
 void * __dt__16TObjCMProportionFv(void *arg0, s16 arg1);
 void * TObjCMProportion__ct(void *arg0);
-void render__16TObjCMAutoMkDataFv(void *arg0);
 void * create__16TObjCMAutoMkDataFPv(void *arg0);
 void * __dt__16TObjCMAutoMkDataFv(void *arg0, s16 arg1);
 u8 * TObjCMAutoMkData__ct(u8 *arg0);
-void * create__14TObjCMHairMenuFPv(void *arg0);
 Hair_802964B0 * __ct__14TObjCMHairMenuFv(Hair_802964B0 *arg0, void *arg1);
-void draw_assign_icons__16TObjCMAssignMenuFPv(Menu_80296560 *self);
 void TObjCMAssignMenu__sub_80296648(Menu_80296648 *self);
-void render_assign_slots__16TObjCMAssignMenuFv(Menu_80296744 *self);
 void render__16TObjCMAssignMenuFv(Menu_80296928 *self);
-void calc_grid_layout__16TObjCMAssignMenuFPv(void *arg0);
 void * create__16TObjCMAssignMenuFPvPv(void *arg0, void *arg1);
 void * __ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind);
 void fn_802972BC(void);
 void fn_802972C0(void);
 void TObjCMMainMenu__sub_802972C4(void);
-s32 try_pay_fee__14TObjCMMainMenuFv(void);
 void confirm_selection__14TObjCMMainMenuFPv(void *arg0);
 void open_name_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_proportion_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_auto_mk_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_hair_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_assign_menu__14TObjCMMainMenuFPv(u8 *arg0);
-void draw_footer_divider__14TObjCMMainMenuFPv(Menu_80297DB8 *self);
 void TObjCMMainMenu__vt7(void);
 void TObjCMMainMenu__sub_80298310(void);
 void TObjCMMainMenu__vt6(void *arg0);
@@ -457,15 +443,8 @@ void TObjCMMainMenu__vt5(void *arg0);
 void TObjCMMainMenu__vt2(void *arg0);
 void TObjCMMainMenu__vt1(void);
 void TObjCMMainMenu__handle_creation_input(u8 *arg0);
-void * create__14TObjCMMainMenuFPv(void *arg0);
-void * destroy__14TObjCMMainMenuFPvs(void *arg0, s16 arg1);
 void * TObjCMMainMenu__ct(void *arg0, void *parent);
-void clear_task_state__14TObjCMMainMenuFv(void);
-f32 get_scale__14TObjCMMainMenuFv(void);
-f32 get_proportion__14TObjCMMainMenuFv(void);
-void set_selection__14TObjCMMainMenuFi(int a0);
 void TObjCMMainMenu__sub_80298DA0(int a0);
-void set_speed__14TObjCMMainMenuFf(f32 farg0);
 u8 is_not_dressing_room_mode__14TObjCMMainMenuFv(void);
 s32 * TObjCMMainMenu__sub_80298DD4(void);
 s32 get_creation_pad(void);
@@ -668,7 +647,7 @@ void TObjCMProportion::run_task() {
     CharacterAppearanceFields *temp_r3_3;
     CharacterAppearanceFields *temp_r3_4;
 
-    var_f1 = get_proportion__14TObjCMMainMenuFv();
+    var_f1 = TObjCMMainMenu::get_proportion();
     if ((s32) arg0->active != 0) {
         if (lbl_805DDA70 == arg0->fade) {
             var_f1 += lbl_805DDAE0;
@@ -735,7 +714,7 @@ void TObjCMProportion::run_task() {
         }
         if (TObjCMProportion__sub_8029916C(6) != 0) {
             ((void (*)(s32, s32, s32, s32))play_sound_effect)(0x53704, 0, 0, 0);
-            clear_task_state__14TObjCMMainMenuFv();
+            TObjCMMainMenu::clear_task_state();
             arg0->active = 0;
         }
     }
@@ -776,8 +755,8 @@ void *TObjCMProportion__ct(void *arg0) {
     return arg0;
 }
 
-void render__16TObjCMAutoMkDataFv(void *arg0) {
-    draw_creation_ruler_lines(*(f32 *)((s8 *)arg0 + 0x38));
+void TObjCMAutoMkData::render() {
+    draw_creation_ruler_lines(*(f32 *)((s8 *)this + 0x38));
 }
 
 #pragma push
@@ -786,7 +765,8 @@ typedef struct Auto_802952E0 Auto_802952E0;
 typedef struct Icons_802952E0 Icons_802952E0;
 typedef struct Limits_802952E0 Limits_802952E0;
 typedef struct Making_802952E0 Making_802952E0;
-void run_task__16TObjCMAutoMkDataFv(Auto_802952E0 *self) {
+void TObjCMAutoMkData::run_task() {
+    Auto_802952E0 *self = (Auto_802952E0 *)this;
   f32 x;
   f32 t;
   s16 *lim;
@@ -794,7 +774,7 @@ void run_task__16TObjCMAutoMkDataFv(Auto_802952E0 *self) {
   s32 i;
   s32 v;
   Making_802952E0 **new_var;
-  x = get_proportion__14TObjCMMainMenuFv();
+  x = TObjCMMainMenu::get_proportion();
   if (self->state != 2)
   {
     if (1.0f == self->fade)
@@ -848,7 +828,7 @@ void run_task__16TObjCMAutoMkDataFv(Auto_802952E0 *self) {
       if (TObjCMProportion__sub_8029916C((s32)(2)) != 0)
     {
       play_sound_effect(0x53704, 0, 0, 0);
-      clear_task_state__14TObjCMMainMenuFv();
+      TObjCMMainMenu::clear_task_state();
       self->state = 2;
       break;
     }
@@ -856,7 +836,7 @@ void run_task__16TObjCMAutoMkDataFv(Auto_802952E0 *self) {
     {
       break;
     }
-      lim = ((Limits_802952E0 *)&class_appearance_table)[get_display_index__12TCharaMakingFPv((s32)(self->app))].lim;
+      lim = ((Limits_802952E0 *)&class_appearance_table)[get_display_index__12TCharaMakingFv((s32)(self->app))].lim;
       sel = (*new_var)->sel;
       for (i = 0; i <= 4; i++, lim++, sel++)
     {
@@ -942,7 +922,7 @@ u8 *TObjCMAutoMkData__ct(u8 *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCMAutoMkData;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3CE4;
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)&creation_player_character);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x30), (int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x48));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 0x30), (int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x48));
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DDA90;
     *(s32 *)((s8 *)arg0 + 0x20) = 0;
     ((s32 (*)(int))set_eff_tag__11TChCrEffTagFi)((int) (0xB));
@@ -1032,7 +1012,7 @@ void TObjCMHairMenu::run_task() {
         }
         if (((s32 (*)(int))TObjCMProportion__sub_8029916C)(6) != 0) {
             ((s32 (*)(int, int, int, int))play_sound_effect)(0x53704, 0, 0, 0);
-            ((s32 (*)(void))clear_task_state__14TObjCMMainMenuFv)();
+            TObjCMMainMenu::clear_task_state();
             active = 0;
         }
     }
@@ -1040,10 +1020,10 @@ void TObjCMHairMenu::run_task() {
 extern int fold_flush_1;
 #pragma pop
 
-void *create__14TObjCMHairMenuFPv(void *arg0) {
+void *TObjCMHairMenu::create() {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
-        o = __ct__14TObjCMHairMenuFv((Hair_802964B0 *)(o), (void *)(arg0));
+        o = __ct__14TObjCMHairMenuFv((Hair_802964B0 *)(o), (void *)(this));
     }
     return o;
 }
@@ -1059,7 +1039,7 @@ Hair_802964B0 *__ct__14TObjCMHairMenuFv(Hair_802964B0 *arg0, void *arg1) {
     arg0->f1c = (*(s32 *)&creation_player_character);
     arg0->f20 = 0;
     arg0->f24 = 0;
-    arg0->f28 = class_appearance_table[get_display_index__12TCharaMakingFPv(arg0->f1c)].f8;
+    arg0->f28 = class_appearance_table[get_display_index__12TCharaMakingFv(arg0->f1c)].f8;
     arg0->f30 = 1;
     arg0->f34 = lbl_805DDA90;
     for (i = 0; i < 3; i++) {
@@ -1074,7 +1054,8 @@ Hair_802964B0 *__ct__14TObjCMHairMenuFv(Hair_802964B0 *arg0, void *arg1) {
 extern "C" {
 #pragma push
 #pragma fp_contract on
-void draw_assign_icons__16TObjCMAssignMenuFPv(Menu_80296560 *self) {
+void TObjCMAssignMenu::draw_assign_icons() {
+    Menu_80296560 *self = (Menu_80296560 *)this;
     s32 idx;
     u32 bit;
     s32 i;
@@ -1137,7 +1118,8 @@ extern int fold_flush_3;
 
 #pragma push
 #pragma fp_contract on
-void render_assign_slots__16TObjCMAssignMenuFv(Menu_80296744 *self) {
+void TObjCMAssignMenu::render_assign_slots() {
+    Menu_80296744 *self = (Menu_80296744 *)this;
     f32 zero;
     f32 a;
     f32 step;
@@ -1199,7 +1181,7 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
     s32 idx;
     s32 i;
     s32 sprite;
-    render_assign_slots__16TObjCMAssignMenuFv((Menu_80296744 *)(self));
+    ((TObjCMAssignMenu *)self)->render_assign_slots();
     pulse = 0.25f * sin_table_lookup(self->frame << 10) + 1.0f;
     if (pulse > 1.0f) {
         pulse = 1.0f;
@@ -1277,7 +1259,7 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
         if (self->owner->flags & 0x10) {
             TObjCMAssignMenu__sub_80296648((Menu_80296648 *)(self));
         } else {
-            draw_assign_icons__16TObjCMAssignMenuFPv((Menu_80296560 *)(self));
+            ((TObjCMAssignMenu *)self)->draw_assign_icons();
         }
         break;
     }
@@ -1285,35 +1267,35 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
 extern int fold_flush_5;
 #pragma pop
 
-void calc_grid_layout__16TObjCMAssignMenuFPv(void *arg0) {
+void TObjCMAssignMenu::calc_grid_layout() {
     s32 temp_r0;
     s32 var_ctr;
     s32 var_r4;
     s32 var_r6;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x2C);
+    temp_r0 = *(s32 *)((s8 *)this + 0x2C);
     var_r6 = 0;
     var_r4 = 0;
     for (var_ctr = temp_r0; var_ctr > 0; var_ctr--) {
-        if (var_r4 == (s32) *(s32 *)((s8 *)arg0 + 0x28)) {
+        if (var_r4 == (s32) *(s32 *)((s8 *)this + 0x28)) {
             break;
         }
         var_r6 += 1;
         var_r4 += 1;
     }
-    *(s32 *)((s8 *)arg0 + 0x44) = (s32) *(s32 *)((s8 *)arg0 + 0x30);
-    *(s32 *)((s8 *)arg0 + 0x48) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 1;
-    *(s32 *)((s8 *)arg0 + 0x50) = (s32) *(s32 *)((s8 *)arg0 + 0x30);
-    *(s32 *)((s8 *)arg0 + 0x54) = var_r6;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x30) > 0xA) {
-        *(s32 *)((s8 *)arg0 + 0x44) = 9;
-        *(s32 *)((s8 *)arg0 + 0x48) = (s32) (var_r6 / 9);
-        *(s32 *)((s8 *)arg0 + 0x4C) = (s32) ((s32) (*(s32 *)((s8 *)arg0 + 0x30) + 8) / 9);
-        *(s32 *)((s8 *)arg0 + 0x54) = (s32) (var_r6 % 9);
-        *(s32 *)((s8 *)arg0 + 0x50) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) - (*(s32 *)((s8 *)arg0 + 0x48) * 9));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x50) > 9) {
-            *(s32 *)((s8 *)arg0 + 0x50) = 9;
+    *(s32 *)((s8 *)this + 0x44) = (s32) *(s32 *)((s8 *)this + 0x30);
+    *(s32 *)((s8 *)this + 0x48) = 0;
+    *(s32 *)((s8 *)this + 0x4C) = 1;
+    *(s32 *)((s8 *)this + 0x50) = (s32) *(s32 *)((s8 *)this + 0x30);
+    *(s32 *)((s8 *)this + 0x54) = var_r6;
+    if ((s32) *(s32 *)((s8 *)this + 0x30) > 0xA) {
+        *(s32 *)((s8 *)this + 0x44) = 9;
+        *(s32 *)((s8 *)this + 0x48) = (s32) (var_r6 / 9);
+        *(s32 *)((s8 *)this + 0x4C) = (s32) ((s32) (*(s32 *)((s8 *)this + 0x30) + 8) / 9);
+        *(s32 *)((s8 *)this + 0x54) = (s32) (var_r6 % 9);
+        *(s32 *)((s8 *)this + 0x50) = (s32) (*(s32 *)((s8 *)this + 0x30) - (*(s32 *)((s8 *)this + 0x48) * 9));
+        if ((s32) *(s32 *)((s8 *)this + 0x50) > 9) {
+            *(s32 *)((s8 *)this + 0x50) = 9;
         }
     }
 }
@@ -1429,7 +1411,7 @@ void run_task__16TObjCMAssignMenuFv(void *arg0) {
     }
     self->value = *new_var;
   }
-  calc_grid_layout__16TObjCMAssignMenuFPv(self);
+  ((TObjCMAssignMenu *)self)->calc_grid_layout();
   if (self->scroll < ((f32) self->target))
   {
     self->scroll += lbl_805DDB80;
@@ -1450,7 +1432,7 @@ void run_task__16TObjCMAssignMenuFv(void *arg0) {
   if ((self->enabled != 0) && (TObjCMProportion__sub_8029916C((s32)(6)) != 0))
   {
     play_sound_effect(0x53704, 0, 0, 0);
-    clear_task_state__14TObjCMMainMenuFv();
+    TObjCMMainMenu::clear_task_state();
     self->active = 0;
   }
   else
@@ -1482,7 +1464,7 @@ void *__ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind) {
     ((Menu_80297128 *)arg0)->chara = (*(Chara_80297128 * *)&creation_player_character);
     ((Menu_80297128 *)arg0)->f20 = 0;
     ((Menu_80297128 *)arg0)->kind = (s32)kind;
-    ((Menu_80297128 *)arg0)->count = ((Row_80297128 *)&class_appearance_table)[((s32 (*)(void *))get_display_index__12TCharaMakingFPv)(((Menu_80297128 *)arg0)->chara)].v[((Menu_80297128 *)arg0)->kind];
+    ((Menu_80297128 *)arg0)->count = ((Row_80297128 *)&class_appearance_table)[((s32 (*)(void *))get_display_index__12TCharaMakingFv)(((Menu_80297128 *)arg0)->chara)].v[((Menu_80297128 *)arg0)->kind];
     ((Menu_80297128 *)arg0)->f28 = ((Menu_80297128 *)arg0)->chara->f38[((Menu_80297128 *)arg0)->kind];
     ((Menu_80297128 *)arg0)->n = 0;
     ((Menu_80297128 *)arg0)->mask = 0;
@@ -1492,7 +1474,7 @@ void *__ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind) {
         ((Menu_80297128 *)arg0)->mask |= bit;
         bit <<= 1;
     }
-    calc_grid_layout__16TObjCMAssignMenuFPv(arg0);
+    ((TObjCMAssignMenu *)arg0)->calc_grid_layout();
     ((Menu_80297128 *)arg0)->f58 = ((Menu_80297128 *)arg0)->f48;
     ((Menu_80297128 *)arg0)->f3C = 1;
     ((Menu_80297128 *)arg0)->f40 = lbl_805DDA90;
@@ -1523,7 +1505,7 @@ void fn_802972C0(void) {  }
 
 void TObjCMMainMenu__sub_802972C4(void) {  }
 
-s32 try_pay_fee__14TObjCMMainMenuFv(void) {
+s32 TObjCMMainMenu::try_pay_fee() {
     s32 temp_r4;
     void *temp_r3;
 
@@ -1544,7 +1526,7 @@ s32 try_pay_fee__14TObjCMMainMenuFv(void) {
 }
 
 void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
-    if (validate_character_name__14TObjCMMainMenuFPv(*(void **)((s8 *)arg0 + 0x1C)) == 0) {
+    if (validate_character_name__14TObjCMMainMenuFPSc(*(void **)((s8 *)arg0 + 0x1C)) == 0) {
         play_sound_effect((s32)(0x53F06), (s32)(0), (s32)(0), (s32)(0));
         return;
     }
@@ -1552,9 +1534,9 @@ void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
     if ((s8) *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 0x30) == -1) {
         *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 0x30) = calc_section_id_from_name();
     } else {
-        try_pay_fee__14TObjCMMainMenuFv();
+        TObjCMMainMenu::try_pay_fee();
     }
-    ((s32 (*)(s32))set_selection__14TObjCMMainMenuFi)(1);
+    TObjCMMainMenu::set_selection(1);
     reset_character_creation_figure_rotation();
     *(s32 *)((s8 *)arg0 + 0x30) = 0x3C;
     TObjCMMainMenu__data_805D659C = 2;
@@ -1581,7 +1563,7 @@ void open_auto_mk_menu__14TObjCMMainMenuFPv(void *arg0) {
 void open_hair_menu__14TObjCMMainMenuFPv(void *arg0) {
     play_sound_effect((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     TObjCMMainMenu__data_805D659C = 1;
-    ((s32 (*)(s32))create__14TObjCMHairMenuFPv)(*(s32 *)((s8 *)arg0 + 0x50));
+    ((TObjCMHairMenu *)(*(s32 *)((s8 *)arg0 + 0x50)))->create();
 }
 
 void open_assign_menu__14TObjCMMainMenuFPv(u8 *arg0) {
@@ -1592,7 +1574,8 @@ void open_assign_menu__14TObjCMMainMenuFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void draw_root_menu__14TObjCMMainMenuFv(u8 *arg0) {
+void TObjCMMainMenu::draw_root_menu() {
+    u8 *arg0 = (u8 *)this;
     Menu_802975DC *m = (Menu_802975DC *)arg0;
     V2_802975DC a;
     V2_802975DC b;
@@ -1630,7 +1613,7 @@ void draw_root_menu__14TObjCMMainMenuFv(u8 *arg0) {
         a.y = 80.0f;
         for (i = 0; i < m->count; i++) {
             k = 0;
-            v = get_creation_sprite_id__14TObjCMMainMenuFi(m->ids[i] + 0x8F) + 0x90;
+            v = get_creation_sprite_id__14TObjCMMainMenuFl(m->ids[i] + 0x8F) + 0x90;
             for (j = 0; j < 15; j++) {
                 e = char_creation_root_menu_tab_table[j];
                 if (v < e) {
@@ -1676,7 +1659,7 @@ void draw_root_menu__14TObjCMMainMenuFv(u8 *arg0) {
         base = 0.6f * sq;
         for (q = 0; q < m->count; q++) {
             flag = 0;
-            if (m->ids[q] == 9 && validate_character_name__14TObjCMMainMenuFPv(m->f1C) == 0) {
+            if (m->ids[q] == 9 && validate_character_name__14TObjCMMainMenuFPSc(m->f1C) == 0) {
                 flag = 1;
             }
             r = flag;
@@ -1717,16 +1700,16 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
     f32 s;
     f32 step;
     f32 y;
-    if (m->ids[m->sel] == 9 && validate_character_name__14TObjCMMainMenuFPv(m->f1C) == 0) {
+    if (m->ids[m->sel] == 9 && validate_character_name__14TObjCMMainMenuFPSc(m->f1C) == 0) {
         color = ((u32)(TObjCMMainMenu__data_805DDB44 * (lbl_805DDA70 - lbl_805DDBA8 * fabs_float(sin_table_lookup(m->pulse << 10)))) << 24) | 0xFFFFFF;
-        s = get_scale__14TObjCMMainMenuFv();
+        s = TObjCMMainMenu::get_scale();
         step = lbl_805DDBAC * s;
         y = lbl_805DDBA4 * s - step;
         for (i = 0; i < 2; i++) {
             const char *str = TQuestVmDownLoadServer__sub_8006EF6C(i + 0x3B);
             f32 x = lbl_805DDBA0 - (f32)calc_text_width((void *)str);
             restore_full_screen_view__11TCameraCtrlFv();
-            draw_string__14TObjWarpStringFPviff(str, color, x, y);
+            draw_string__14TObjWarpStringFlff(str, color, x, y);
             TCameraCtrl__sub_80068EF0();
             y += step;
         }
@@ -1734,7 +1717,7 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
     switch (TObjCMMainMenu__data_805D659C) {
     case 0:
         if (is_active__23TAdSinglePlyChrSelectGCFv() != 0) {
-            if (m->ids[m->sel] == 9 && validate_character_name__14TObjCMMainMenuFPv(m->f1C) == 0) {
+            if (m->ids[m->sel] == 9 && validate_character_name__14TObjCMMainMenuFPSc(m->f1C) == 0) {
                 v14 = lbl_805DDA5C;
                 TObjCMIcon__sub_802994C8(1, &v14);
             } else if (((s8 *)m->f1C)[0x30] == -1) {
@@ -1776,10 +1759,11 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
 }
 #pragma pop
 
-void draw_footer_divider__14TObjCMMainMenuFPv(Menu_80297DB8 *self) {
+void TObjCMMainMenu::draw_footer_divider() {
+    Menu_80297DB8 *self = (Menu_80297DB8 *)this;
     Prim_80297DB8 prim;
     u32 cols[4];
-    f32 s = get_scale__14TObjCMMainMenuFv();
+    f32 s = TObjCMMainMenu::get_scale();
     f32 top = lbl_805DDBB0 * s;
     f32 bot = top + lbl_805DDBB4 * s;
     Cols_80297DB8 *src;
@@ -1807,9 +1791,6 @@ void draw_footer_divider__14TObjCMMainMenuFPv(Menu_80297DB8 *self) {
 
 void set_depth_buffer_settings_1__Fv(); void restore_saved_depth_alpha_state(); void TObjCMMainMenu__sub_802979BC(void*); void render_nodes__7TObjectFv(void*);
 void TObjCMMainMenu__sub_80298310(void);
-void update_random_proportion_action__14TObjCMMainMenuFPv(void * _w0);
-void update_slide_offset__14TObjCMMainMenuFPv(M_802983A0 *arg0);
-void update_submenu_fade__14TObjCMMainMenuFv(M_802983F8 *arg0);
 void update_menu_reveal__14TObjCMMainMenuFv(M_80298450 *self);
 }
 #pragma defer_codegen on
@@ -1821,8 +1802,8 @@ void TObjCMMainMenu::run_task() {
     reset_proportions__15TChCrCharSelectFv();
     rand();
     ((void (*)(void *, int))update_menu_reveal__14TObjCMMainMenuFv)(this, this->reveal_ticks++);
-    ((void (*)(void *))update_submenu_fade__14TObjCMMainMenuFv)(this);
-    update_slide_offset__14TObjCMMainMenuFPv((M_802983A0 *)(this));
+    update_submenu_fade();
+    update_slide_offset();
     static MenuFn_802987AC table[7] = {
         &TObjCMMainMenu::handle_creation_input, &TObjCMMainMenu::sub_8029862C, &TObjCMMainMenu::sub_80298534,
         &TObjCMMainMenu::sub_8029862C, &TObjCMMainMenu::sub_8029862C, &TObjCMMainMenu::sub_80298518,
@@ -1830,7 +1811,7 @@ void TObjCMMainMenu::run_task() {
     };
     (this->*table[TObjCMMainMenu__data_805D659C])();
     TObjCMMainMenu__selected_entry_id = this->entries[this->selected_entry];
-    update_random_proportion_action__14TObjCMMainMenuFPv((void *)(this));
+    TObjCMMainMenu::update_random_proportion_action((void *)(this));
     ((void (*)(void *))TObjCMMainMenu__sub_80298310)(this);
     switch (TObjCMMainMenu__data_805D659C) {
     case 4:
@@ -1860,7 +1841,7 @@ void TObjCMMainMenu::run_task() {
         }
         break;
     }
-    set_speed__14TObjCMMainMenuFf(lbl_805DDB00 * (lbl_805DDA70 - this->preview));
+    TObjCMMainMenu::set_speed(lbl_805DDB00 * (lbl_805DDA70 - this->preview));
     ((void (*)(int, f32 *))get_creation_pad_stick)(0, &sp8);
     if (sp8 > lbl_805DDA90 || TObjCMProportion__sub_8029914C(0xF0) != 0) {
         if (this->idle_ticks > 0) {
@@ -2016,7 +1997,8 @@ void update_menu_reveal__14TObjCMMainMenuFv(M_80298450 *self) {
 #pragma pop
 
 extern "C" {
-void update_submenu_fade__14TObjCMMainMenuFv(M_802983F8 *arg0) {
+void TObjCMMainMenu::update_submenu_fade() {
+    M_802983F8 *arg0 = (M_802983F8 *)this;
     f32 v;
     switch (TObjCMMainMenu__data_805D659C) {
     case 0:
@@ -2040,7 +2022,8 @@ void update_submenu_fade__14TObjCMMainMenuFv(M_802983F8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 extern "C" {
-void update_slide_offset__14TObjCMMainMenuFPv(M_802983A0 *arg0) {
+void TObjCMMainMenu::update_slide_offset() {
+    M_802983A0 *arg0 = (M_802983A0 *)this;
     f32 v;
     switch (TObjCMMainMenu__data_805D659C) {
     case 1:
@@ -2063,7 +2046,7 @@ void update_slide_offset__14TObjCMMainMenuFPv(M_802983A0 *arg0) {
 #pragma pop
 
 extern "C" {
-void update_random_proportion_action__14TObjCMMainMenuFPv(void * _w0) {
+void TObjCMMainMenu::update_random_proportion_action(void * _w0) {
     f32 temp_f31;
     f32 temp_f31_2;
     if (is_active__23TAdSinglePlyChrSelectGCFv() != 0) {
@@ -2087,11 +2070,11 @@ void TObjCMMainMenu__sub_80298310(void) {  }
 
 void TObjCMMainMenu::render() {
     set_depth_buffer_settings_1__Fv();
-    draw_footer_divider__14TObjCMMainMenuFPv((Menu_80297DB8*)this);
+    draw_footer_divider();
     TObjCMMainMenu__sub_80297B18((Menu_80297B18*)this);
     TObjCMMainMenu__sub_802979BC(this);
     render_nodes__7TObjectFv(nodes);
-    draw_root_menu__14TObjCMMainMenuFv((u8*)this);
+    draw_root_menu();
     static void (TObjCMMainMenu::*table[7])() = {
         &TObjCMMainMenu::sub_802981BC, 0, &TObjCMMainMenu::sub_80297EF4,
         0, 0, 0, 0,
@@ -2107,36 +2090,36 @@ void TObjCMMainMenu::sub_802981BC() {  }
 #pragma defer_codegen off
 extern "C" {
 
-void *create__14TObjCMMainMenuFPv(void *arg0) {
+void *TObjCMMainMenu::create() {
     void *o = __nw__7TObjectFUl(0x58);
     if (o != NULL) {
-        o = TObjCMMainMenu__ct((void *)(o), (void *)(arg0));
+        o = TObjCMMainMenu__ct((void *)(o), (void *)(this));
     }
     return o;
 }
 
-void *destroy__14TObjCMMainMenuFPvs(void *arg0, s16 arg1) {
+void *TObjCMMainMenu::destroy(s16 arg1) {
     void *temp_r3;
     void *temp_r5;
 
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804DBDA8;
-        temp_r3 = *(void **)((s8 *)arg0 + 0x50);
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804DBDA8;
+        temp_r3 = *(void **)((s8 *)this + 0x50);
         if (temp_r3 != NULL) {
             if (temp_r3 != NULL) {
                 ((VObj_80298AD0_80298A88 *)temp_r3)->m0(1);
             }
-            *(void **)((s8 *)arg0 + 0x50) = NULL;
+            *(void **)((s8 *)this + 0x50) = NULL;
         }
-        *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 0x18) = -1;
-        temp_r5 = *(void **)((s8 *)arg0 + 0x1C);
+        *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x1C)) + 0x18) = -1;
+        temp_r5 = *(void **)((s8 *)this + 0x1C);
         *(s8 *)((s8 *)temp_r5 + 0x33) = 2;
-        __dt__7TObjectFv(arg0, 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 void *TObjCMMainMenu__ct(void *arg0, void *parent) {
@@ -2180,7 +2163,7 @@ void *TObjCMMainMenu__ct(void *arg0, void *parent) {
     ((Menu_80298B70 *)arg0)->f48 = lbl_805DDA90;
     ((Menu_80298B70 *)arg0)->f4C = 0;
     ((Menu_80298B70 *)arg0)->f54 = lbl_805DDA90;
-    set_speed__14TObjCMMainMenuFf(lbl_805DDB00);
+    TObjCMMainMenu::set_speed(lbl_805DDB00);
     o = __nw__7TObjectFUl(0x1C);
     if (o != 0) {
         o = ((void * (*)(void *, void *))__ct__7TObjectFP7TObject)(o, 0);
@@ -2192,21 +2175,21 @@ void *TObjCMMainMenu__ct(void *arg0, void *parent) {
     return arg0;
 }
 
-void clear_task_state__14TObjCMMainMenuFv(void) { (*(int *)&TObjCMMainMenu__data_805D659C) = 0; }
+void TObjCMMainMenu::clear_task_state() { (*(int *)&TObjCMMainMenu__data_805D659C) = 0; }
 
-f32 get_scale__14TObjCMMainMenuFv(void) {
+f32 TObjCMMainMenu::get_scale() {
     return ui_sprite_scale;
 }
 
-f32 get_proportion__14TObjCMMainMenuFv(void) {
+f32 TObjCMMainMenu::get_proportion() {
     return lbl_805D3CA0;
 }
 
-void set_selection__14TObjCMMainMenuFi(int a0) { creation_camera_mode = a0; }
+void TObjCMMainMenu::set_selection(int a0) { creation_camera_mode = a0; }
 
 void TObjCMMainMenu__sub_80298DA0(int a0) { creation_figure_rotation_y = (creation_figure_rotation_y + a0); }
 
-void set_speed__14TObjCMMainMenuFf(f32 farg0) {
+void TObjCMMainMenu::set_speed(f32 farg0) {
     if ((void *) creation_figure_object != NULL) {
         *(f32 *)((s8 *)creation_figure_object + 0x38) = farg0;
     }

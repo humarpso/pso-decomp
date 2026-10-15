@@ -23,6 +23,18 @@ struct TWindowSubShortMail
     u32 m_54;
     u32 m_58;
     u32 m_5c;
+    void hide_window();
+    void set_position(void *arg1);
+    static s32 is_active();
+    void close();
+    void update_mail_count();
+    s32 refresh_mail_list(void *arg1);
+    static void render();
+    void run_task();
+    void update();
+    void *destroy(s16 arg1);
+    void notify_warp_flag70();
+    void advance_line(s32 arg1);
 };
 
 #endif

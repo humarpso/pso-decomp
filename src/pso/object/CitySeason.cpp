@@ -64,7 +64,7 @@ s32 calc_random_scaled__10TObjPlayerFv(void);
 void create_oneshot_particle_emitter(void *, void *, s32, s32);
 void spawn_particle_effect_with_flags(void *, s32, s32);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 rand(void);
 extern const f32 lbl_805DBC18[1];
 #define lbl_805DBC18 (*(const f32 *)&lbl_805DBC18)
@@ -98,7 +98,7 @@ void TObjCity_Season_FireWork::run_task() {
                 queue_destruction__7TObjectFv(self->handle);
                 self->handle = NULL;
             } else {
-                copy_pos__11TNowLoadingFPvPv(self->handle, self->pos);
+                copy_pos__11TNowLoadingFPv(self->handle, self->pos);
             }
         }
         break;
@@ -171,7 +171,7 @@ extern s32 __vt__24TObjCity_Season_FireWork[];
 extern s32 TObjCity_Season_FireWork__name;
 
 u8 *__ct__24TObjCity_Season_FireWorkFP7TObjectPvf(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0);
-void set_global_count__12TObjNpcEnemyFi(int);
+void set_global_count__12TObjNpcEnemyFl(int);
 void debug_printf_at(int, void *, ...);
 extern const char lbl_80444218[];
 extern const char lbl_80444228[];
@@ -215,12 +215,12 @@ extern "C" {
 
 void draw_debug_info__16TObjEneBm5GibonUFv(void) {
     ((void (*)(void))fn_8018355C)();
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     debug_printf_at(0x13001C, (void *)lbl_80444218);
     debug_printf_at(0x13001D, (void *)lbl_80444228);
     debug_printf_at(0x13001E, (void *)lbl_80444238);
     debug_printf_at(0x130020, (void *)lbl_80444248);
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
 }
 __declspec(section ".rodata") extern const char lbl_80444218[] = "<- AREA WIDTH";
 __declspec(section ".rodata") extern const char lbl_80444228[] = "<- RISE HEIGHT";
@@ -266,7 +266,7 @@ struct V4_8018355C { s32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
 f32 rand_signed_unit();
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
+f32 update_scale__15TObjBoss2TunnelFv(void *);
 s32 TLobby__sub_80184C54();
 u32 __nw__7TObjectFUl(int);
 s32 rand();
@@ -329,7 +329,7 @@ void fn_80183604(u8 *arg0) {
     {
       VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (arg0 + 0x38));
       subtract_vector((void *) (&stack.sp14), (void *) (camera_ctrl_instance + 0x178));
-      if ((update_scale__15TObjBoss2TunnelFPv((void *) (&stack.sp14)) < lbl_805DBC3C) && (vec3_dot((void *) (&stack.sp14), (void *) (((u8 *) (&lbl_804FF5E8.value)) + 0xC)) > lbl_805DBC1C))
+      if ((update_scale__15TObjBoss2TunnelFv((void *) (&stack.sp14)) < lbl_805DBC3C) && (vec3_dot((void *) (&stack.sp14), (void *) (((u8 *) (&lbl_804FF5E8.value)) + 0xC)) > lbl_805DBC1C))
       {
         temp_f30 = rand_signed_unit();
         temp_f30 = (*((f32 *) (((s8 *) arg0) + 0x68))) * temp_f30;
@@ -473,7 +473,7 @@ s32 scroll_strip_uvs(s32, s16, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern u32 lbl_805D5B38;
 extern s32 lbl_805D5B3C;
@@ -487,7 +487,7 @@ extern const f32 lbl_805DBC48[1];
 
 void draw_model__6TLobbyFPv(u8 *arg0) {
     if (((u32) lbl_805D5B38 != 0U) && (((Fn801838D4VObj_801838d4*)arg0)->m8(lbl_805DBC44, lbl_805DBC48) != 0)) {
-        set_global_param__8TObjFishFi(lbl_805D5B44);
+        set_global_param__8TObjFishFl(lbl_805D5B44);
         scroll_strip_uvs(lbl_805D5B48, (s16) *(s32 *)((s8 *)arg0 + 0x90), 0);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
@@ -654,7 +654,7 @@ s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
 extern const char lbl_80444250[];
 void debug_draw_model_index(void *self);
 
-void draw_oriented_shadow__9TObjEneDDFiiiUi(Vec_80183AF0 *, Vec_80183AF0 *, s32, Vec_80183AF0 *);
+void draw_oriented_shadow__9TObjEneDDFllUl(Vec_80183AF0 *, Vec_80183AF0 *, s32, Vec_80183AF0 *);
 s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
 int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
 
@@ -676,9 +676,9 @@ u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 void debug_draw_model_index(void *self) {
     TObjCity_Season_SonicAdv2__sub_80183C38(self);
-    ((void (*)(s32 arg0))set_global_count__12TObjNpcEnemyFi)(0xFF00FF);
+    ((void (*)(s32 arg0))set_global_count__12TObjNpcEnemyFl)(0xFF00FF);
     ((void (*)(s32 id, const char *fmt, ...))debug_printf_at)(0x130020, lbl_80444250);
-    ((void (*)(s32 arg0))set_global_count__12TObjNpcEnemyFi)(0xF0F0F0FF);
+    ((void (*)(s32 arg0))set_global_count__12TObjNpcEnemyFl)(0xF0F0F0FF);
 }
 __declspec(section ".rodata") extern const char lbl_80444250[] = "<- MDL IDX";
 #pragma push
@@ -691,7 +691,7 @@ void fn_80183AF0(Obj_80183AF0 *self) {
     Vec_80183AF0 b;
     res = ((Res_80183AF0 * (*)(void *))get_anim_frame__25TObjCity_Season_EasterEggFPv)(self);
     if (res != NULL && self->m8(lbl_805DBC44[0], lbl_805DBC4C[0]) != 0) {
-        ((void (*)(s32))set_global_param__8TObjFishFi)(city_season_xmas_model_table[5]);
+        ((void (*)(s32))set_global_param__8TObjFishFl)(city_season_xmas_model_table[5]);
         idx = TObjCity_Season_SonicAdv2__sub_80183C38(self);
         ((void (*)())push_matrix)();
         ((void (*)(void *))post_translate_matrix)(&self->pos);
@@ -706,7 +706,7 @@ void fn_80183AF0(Obj_80183AF0 *self) {
         b.x = lbl_805DBC54[0];
         b.y = lbl_805DBC1C[0];
         b.z = lbl_805DBC58[0];
-        draw_oriented_shadow__9TObjEneDDFiiiUi(&pos, &a, self->x60, &b);
+        draw_oriented_shadow__9TObjEneDDFllUl(&pos, &a, self->x60, &b);
     }
 }
 #pragma pop
@@ -846,7 +846,7 @@ void fn_80183D4C(u8 *arg0) {
     temp_r3 = (u8 *)(((u8 * (*)())get_anim_frame__25TObjCity_Season_EasterEggFPv)());
     if (temp_r3 != NULL) {
         if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC44, lbl_805DBC60) != 0) {
-            ((s32 (*)(int))set_global_param__8TObjFishFi)((int) (*(s32 *)((s8 *)(&city_season_xmas_model_table.value) + 0x10)));
+            ((s32 (*)(int))set_global_param__8TObjFishFl)((int) (*(s32 *)((s8 *)(&city_season_xmas_model_table.value) + 0x10)));
             ((s32 (*)(void *, int, int))scroll_strip_uvs)((void *) (lbl_805D5B34), (int) (0), (int) ((s16) *(s32 *)((s8 *)arg0 + 0xB4)));
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
@@ -1011,7 +1011,7 @@ void TLobby__sub_80183FC0(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(*(u8 **)((s8 *)(&(*(RecoveredGlobal_80183FC0_lbl_8050DC38 *)&city_season_easter_egg_model_table).value) + 0xC));
     if ((temp_r31 != NULL) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC44, lbl_805DBC68) != 0)) {
-        ((s32 (*)(int))set_global_param__8TObjFishFi)((int) (*(s32 *)((s8 *)(&city_season_xmas_model_table.value) + 0xC)));
+        ((s32 (*)(int))set_global_param__8TObjFishFl)((int) (*(s32 *)((s8 *)(&city_season_xmas_model_table.value) + 0xC)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -1157,7 +1157,7 @@ void TLobby__sub_8018417C(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(*(u8 **)((s8 *)(&city_season_easter_egg_model_table.value) + 8));
     if ((temp_r31 != NULL) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC6C, lbl_805DBC4C) != 0)) {
-        ((s32 (*)(int))set_global_param__8TObjFishFi)((int) (*(s32 *)((s8 *)(&city_season_xmas_model_table.value) + 8)));
+        ((s32 (*)(int))set_global_param__8TObjFishFl)((int) (*(s32 *)((s8 *)(&city_season_xmas_model_table.value) + 8)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -1227,7 +1227,7 @@ void __dl__7TObjectFPv(void *);
 
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern void *tl_05;
 
@@ -1270,7 +1270,7 @@ void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0) {
 
     temp_r3 = ((u8 * (*)())get_anim_frame__25TObjCity_Season_EasterEggFPv)();
     if ((temp_r3 != NULL) && (((VObj_80184314_80184210 *)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)city_season_xmas_model_table + 8));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)city_season_xmas_model_table + 8));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -1340,7 +1340,7 @@ void __dl__7TObjectFPv(void *);
 
 void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern void *tl_05;
 
@@ -1392,7 +1392,7 @@ void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0) {
 
     temp_r3 = ((u8 * (*)(void *))get_anim_frame__25TObjCity_Season_EasterEggFPv)((void *)(arg0));
     if ((temp_r3 != NULL) && (((VObj_8018455c_80184408*)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)city_season_xmas_model_table + 4));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)city_season_xmas_model_table + 4));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -1455,7 +1455,7 @@ void __dl__7TObjectFPv(void *);
 
 void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern void *tl_05;
 
@@ -1507,7 +1507,7 @@ void notify_fish_on_easter_egg(u8 *arg0) {
 
     temp_r3 = ((u8 * (*)(void *))get_anim_frame__25TObjCity_Season_EasterEggFPv)((void *)(arg0));
     if ((temp_r3 != NULL) && (((VObj_8018455c_80184620*)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
-        set_global_param__8TObjFishFi(city_season_xmas_model_table[0]);
+        set_global_param__8TObjFishFl(city_season_xmas_model_table[0]);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -1653,7 +1653,7 @@ int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 
-s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 
 #define city_season_easter_egg_model_table (*(int (*)[1])&city_season_easter_egg_model_table)
 int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0) {  return city_season_easter_egg_model_table[*(int*)((char*)a0 + 0xac)]; }
@@ -1669,7 +1669,7 @@ void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 a
             unregister_object_by_id(arg0);
             free_collision_body_parts(arg0);
         }
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             ((s32 (*)(void *))__dl__7TObjectFPv)(arg0);
         }
@@ -1712,9 +1712,9 @@ struct RecoveredGlobal_80184B44_lbl_804B5E48 {
 };
 
 extern "C" {
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFPv(void *);
+s32 construct_collider_proxy__10TObjPlayerFv(void *);
 
 extern const RecoveredGlobal_80184B44_lbl_804440B0 city_season_collision_template;
 #define lbl_804B5E48 (*(RecoveredGlobal_80184B44_lbl_804B5E48 *)&lbl_804B5E48)
@@ -1730,7 +1730,7 @@ u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     struct CopyStack_80184B44 { u8 bytes[0x2C]; };
     CopyStack_80184B44 copy_storage_80184B44;
     u8 *temp_r4;
-    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
+    construct_collider_proxy__10TObjPlayerFv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B5E48.value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0xAC) = arg3;
@@ -1739,7 +1739,7 @@ u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
         *(ByteBlock_2C *)(copy_storage_80184B44.bytes) = *(const ByteBlock_2C *)((s32) temp_r4 + 4);
         (*(f32 *)(copy_storage_80184B44.bytes + 0xC)) = farg0;
         init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80184B44.bytes)), (int) (1));
-        reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+        reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     } else {
         *(s32 *)((s8 *)arg0 + 0xA4) = 0;
     }

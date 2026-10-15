@@ -3,6 +3,7 @@
 TBoss6CrushRock::~TBoss6CrushRock() {}
 
 #include "types.h"
+#include "pso/boss/TBoss6PlotFalz.h"
 
 struct RecoveredGlobal_8035A1A4___vt__15TBoss6CrushRock {
     s32 value;
@@ -26,7 +27,7 @@ extern const f32 lbl_805E00D0;
 extern const f32 lbl_805E00D4;
 u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__nw__7TObjectFUl(int);
-void *create__15TBoss6CrushPtclFPv(void *arg0);
+void *create__15TBoss6CrushPtclFv(void *arg0);
 s32 is_falz_alive__15TBoss6CrushRockFv(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -37,8 +38,6 @@ extern const f32 lbl_805E00E0;
 }
 
 extern "C" {
-
-s32 get_hp__14TBoss6PlotFalzFv(void);
 
 extern s32 TBoss6PlotFalz__instance;
 
@@ -78,11 +77,11 @@ void spawn_crush_rocks__10TBoss6RockFPvi(Vec_8035A460 *self, s32 kind) {
     if (is_falz_alive__15TBoss6CrushRockFv() == 0) {
         return;
     }
-    create__15TBoss6CrushPtclFPv(self);
+    create__15TBoss6CrushPtclFv(self);
     radius = lbl_805E00D8;
     base = 5;
     n = 2;
-    if ((u32)get_hp__14TBoss6PlotFalzFv() == 0) {
+    if ((u32)TBoss6PlotFalz::get_hp() == 0) {
         return;
     }
     switch (kind) {
@@ -110,7 +109,7 @@ void spawn_crush_rocks__10TBoss6RockFPvi(Vec_8035A460 *self, s32 kind) {
 }
 #pragma pop
 
-s32 get_hp__14TBoss6PlotFalzFv(void) {
+s32 TBoss6PlotFalz::get_hp() {
     return TBoss6PlotFalz__instance;
 }
 

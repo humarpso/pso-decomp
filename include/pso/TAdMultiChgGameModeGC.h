@@ -8,6 +8,39 @@ public:
     virtual ~TAdMultiChgGameModeGC();
     virtual void run_task();
     virtual void render();
+public:
+    static void render();
+    static s32 check_players_ready(void * _w0);
+    static s32 is_input_phase_active();
+    static void set_default_camera();
+    static void set_mode_change_state();
+    static void set_change_mode_flags();
+    static void apply_bgm_col_ctrl(s32 arg0);
+    static void set_state_0x1a();
+    static void reset_and_set_mode();
+    static void set_mode_18();
+    static void set_mode_17();
+    static void set_mode_0x15();
+    static void set_mode_0x14();
+    static void request_transition();
+    static void reset_mode_state();
+    static void set_mode_state_0e();
+    static void set_mode_state_0d();
+    static void set_state_0xc();
+    static void begin_change_game_mode();
+    static void begin_transition();
+    static void set_state_0x9();
+    static void request_scene_change();
+    static void set_change_game_mode();
+    static void set_game_mode();
+    static void set_game_mode_state();
+    static void set_game_mode_changed();
+    static void init_change_mode();
+    static void create_mode_scene();
+    static void set_mode_1c();
+    static void render_scene();
+    static void render_game_mode_change();
+    static void sync_mode_state();
 };
 
 #endif

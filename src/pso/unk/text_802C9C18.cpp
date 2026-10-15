@@ -5,7 +5,7 @@ struct Sounds_802C9C18 { s32 a[2]; s32 b[2]; s32 c[2]; s32 d[2]; };
 extern "C" {
 u16 obj_getField1c(void *);
 s32 obj_clear_flag30_20000(int);
-s32 check_player_flag1__6TLobbyFPv();
+s32 check_player_flag1__6TLobbyFv();
 s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -52,7 +52,7 @@ void fn_802C9D38(u8 *arg0) {
         if (o != NULL) {
             temp_r3 = get_player_by_client_id((void *) (obj_getField1c(o)));
             if (temp_r3 != 0) {
-                if (check_player_flag1__6TLobbyFPv() != 0) {
+                if (check_player_flag1__6TLobbyFv() != 0) {
                     send_code_45_1__10TObjPlayerFi((int) (temp_r3));
                 }
                 obj_clear_flag30_20000((int) (temp_r3));
@@ -62,7 +62,7 @@ void fn_802C9D38(u8 *arg0) {
         void *o2 = *(void **)((s8 *)arg0 + 0x2A8);
         if ((o2 != NULL) && ((s32) local_client_id == (s32) obj_getField1c(o2))) {
         temp_r3_2 = get_player_by_client_id((void *) (local_client_id));
-        if ((temp_r3_2 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {
+        if ((temp_r3_2 != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
             send_code_45_1__10TObjPlayerFi((int) (temp_r3_2));
         }
         }

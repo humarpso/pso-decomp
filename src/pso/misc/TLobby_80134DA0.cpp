@@ -11,12 +11,12 @@ s32 set_clock_offset_from_server_time();
 int fn_800779A0(void*);
 int TAdSinglePlyChrSelectGC__sub_80077AE8(void*);
 s32 send_server_time_accepted__9TProtocolFv(s32);
-int init_once__6TLobbyFi(void*);
+int init_once__6TLobbyFl(void*);
 
     extern int TLobby__event_theme_id;
 void set_lobby_event_theme(int a0) { TLobby__event_theme_id = a0; }
 
-int init_once__6TLobbyFPv(void* p) { return init_once__6TLobbyFi(p); }
+int init_once__6TLobbyFPv(void* p) { return init_once__6TLobbyFl(p); }
 int TLobby__sub_80134DC8(void* p) { return fn_800779A0(p); }
 int TLobby__sub_80134DE8(void* p) { return TAdSinglePlyChrSelectGC__sub_80077AE8(p); }
 

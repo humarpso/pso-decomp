@@ -35,10 +35,9 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_ginja_object(s32);
 s32 draw_model_motion(s32, void *, f32);
-void render__13TObjHashiBaseFPv(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 f32 xz_distance_squared(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
@@ -47,7 +46,6 @@ extern RecoveredGlobal_80191874_lbl_804FF610 lbl_804FF610;
 extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DBE2C;
 extern const f32 lbl_805DBE30;
-s16 update_visibility__13TObjHashiBaseFPvff(u8 *arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -57,8 +55,8 @@ void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1);
 void handle_6x78(void *arg0);
 u8 is_current_floor_switch_set(u16, f32);
 void __dl__7TObjectFPv(void *);
-s32 bswap_6x78__11TObjInfoColFPv();
-void destroy_key_base__5TOKeyFPvs(void *, int);
+s32 bswap_6x78__11TObjInfoColFv();
+void destroy_key_base__5TOKeyFs(void *, int);
 s32 fn_80191D14(u16, s32);
 s32 get_handle_6x78_entry(u16);
 s32 fn_80191D5C(u16);
@@ -70,7 +68,8 @@ extern s32 __vt__13TObjHashiBase[];
 #pragma opt_common_subs off
 #pragma fp_contract on
 typedef char RecoveredGlobal_80191874_lbl_804FF610_size[sizeof(RecoveredGlobal_80191874_lbl_804FF610) == 0xC ? 1 : -1];
-s16 update_visibility__13TObjHashiBaseFPvff(u8 *arg0, f32 farg0, f32 farg1) {
+s16 TObjHashiBase::update_visibility(f32 farg0, f32 farg1) {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_80191874, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80191874, sp10) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_80191874, sp14) == 0xC) ? 1 : -1];
@@ -117,13 +116,14 @@ block_13:
 }
 #pragma pop
 
-void render__13TObjHashiBaseFPv(u8 *arg0) {
+void TObjHashiBase::render() {
+    u8 *arg0 = (u8 *)this;
     void *p;
     if (((VDisp *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         p = *(void **)((s8 *)arg0 + 0xBC);
         if (p != NULL) {
             draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), p, *(f32 *)((s8 *)arg0 + 0xB0));
@@ -173,7 +173,7 @@ extern "C" {
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjHashiBase;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -210,7 +210,7 @@ void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2) {
 }
 
 void handle_6x78(void *arg0) {
-    bswap_6x78__11TObjInfoColFPv();
+    bswap_6x78__11TObjInfoColFv();
     if (get_handle_6x78_entry(*(u16 *)((s8 *)arg0 + 4)) != 0) {
         fn_80191D14(*(u16 *)((s8 *)arg0 + 4), 0);
         return;

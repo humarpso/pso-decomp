@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 {
     s32 value;
@@ -59,19 +61,16 @@ struct Set_801A5F1C {
 struct Obj_801A5F1C { u8 pad0[0x94]; s32 base[4]; };
 
 extern "C" {
-s32 check_and_read__16TKeyBoardControlFi(void *);
-void read_key_checked__16TKeyBoardControlFUc(u8 arg0);
+s32 check_and_read__16TKeyBoardControlFl(void *);
 s32 is_split_screen();
 s32 TKeyBoardControl__sub_80132650(void *);
 s32 update_button_hold_counters(int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
-void update_input_frame__16TKeyBoardControlFv(void);
 s32 TKeyBoardControl__sub_80132310(s32);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
-s32 get_ascii_key__16TKeyBoardControlFv(void);
 s32 check_reset_button__16TKeyBoardControlFv();
 void reset_system();
 s32 DVDCheckDisk();
@@ -119,7 +118,6 @@ struct Kb_801A6910 {
 };
 struct Def_804C2308 { u32 w[13]; };
 extern "C" {
-s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self);
 void accumulate_key_bits(s32 arg0, s32 *arg1);
 Def_804C2308 controller_default_pad_state = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 u32 TKeyBoardControl_key_bit_table[6] = { 16, 32, 64, 128, 4, 2 };
@@ -129,13 +127,11 @@ s32 lbl_804C236C[4] = { 0, 6, 12, 18 };
 
 extern "C" {
 
-void reset_fields__10TObjPlayerFPv(void* p);
-
-void reset_fields__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*)p + 0x8) = 0; }
+void TObjPlayer::reset_fields() { *(s32*)((char*)this + 0x0) = 0; *(s32*)((char*)this + 0x4) = 0; *(s32*)((char*)this + 0x8) = 0; }
 
 typedef struct RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270;
 typedef char RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270_size[((sizeof(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270)) == 0xB0) ? (1) : (-1)];
-s32 get_ascii_key__16TKeyBoardControlFv(void) {
+s32 TKeyBoardControl::get_ascii_key() {
   short new_var;
   s32 temp_r3;
   s32 var_r3;
@@ -256,17 +252,17 @@ s32 func_801A5E54__Fv(void) {
     return (lbl_805D49B4 != 0) ? 0 : lbl_805D5D09;
 }
 
-void read_key_checked__16TKeyBoardControlFUc(u8 arg0) {
-    check_and_read__16TKeyBoardControlFi((void *) (arg0));
+void TKeyBoardControl::read_key_checked(u8 arg0) {
+    check_and_read__16TKeyBoardControlFl((void *) (arg0));
 }
 typedef char RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_801A5EC4_lbl_8050E208_size[sizeof(RecoveredGlobal_801A5EC4_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void update_input_frame__16TKeyBoardControlFv(void) {
+void TKeyBoardControl::update_input_frame() {
     u8 *temp_r31;
     TKeyBoardControl__sub_80132650((void *) (&TKeyBoardControl__global_key_state.value));
     if (is_split_screen() == 0) {
         temp_r31 = (u8 *)&controller_input_state.value + 0x160;
-        ((s32 (*)(int))poll_key_state__16TKeyBoardControlFPv)((int) (temp_r31));
+        ((TKeyBoardControl *)temp_r31)->poll_key_state();
         update_button_hold_counters((int) (temp_r31));
     }
 }
@@ -502,9 +498,8 @@ extern s32 lbl_805D34C8;
 extern s8 lbl_805D5D08;
 extern s8 keyboard_reset_button_pressed;
 extern s8 pad_recalibration_hold_frames[4];
-void init_pad_state__16TKeyBoardControlFv(void);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
-s32 read_input__16TKeyBoardControlFi(u8);
+s32 read_input__16TKeyBoardControlFl(u8);
 void copy_state__16TKeyBoardControlFPvPv(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
 void reset__16TKeyBoardControlFv();
 extern const f32 lbl_805DC0C0;
@@ -631,7 +626,7 @@ void copy_state__16TKeyBoardControlFPvPv(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1)
   new_var->f4C = arg1->f4C;
 }
 
-void init_pad_state__16TKeyBoardControlFv(void) {
+void TKeyBoardControl::init_pad_state() {
     s32 i;
     for (i = 0; i < 4; i++) {
         pad_recalibration_counters[i] = 0;
@@ -648,14 +643,15 @@ void init_pad_state__16TKeyBoardControlFv(void) {
     }
     lbl_805D34C8 = 1;
 }
-s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self) {
+s32 TKeyBoardControl::poll_key_state() {
+    Kb_801A6910 *self = (Kb_801A6910 *)this;
     s32 i;
     u8 n;
     s32 j;
     self->f0 = 0;
     self->f8 = 0;
     for (i = 0; i < 6; i++) {
-        if (read_input__16TKeyBoardControlFi(keyboard_poll_key_codes[i]) != 0) {
+        if (read_input__16TKeyBoardControlFl(keyboard_poll_key_codes[i]) != 0) {
             self->f0 |= TKeyBoardControl_key_bit_table[i];
         }
     }

@@ -17,6 +17,12 @@ struct TOContainerAncientEnemy
     void* m_2fc;
     u8 _pad300[0x26];
     u16 m_326;
+    void check_and_destroy(s16 *arg1, s32 arg2);
+    void spawn_break_debris();
+    f32 open_and_send();
+    void draw_debug_event_no();
+    void draw_model();
+    void submit_cursor_candidate_if_idle();
 };
 
 #endif

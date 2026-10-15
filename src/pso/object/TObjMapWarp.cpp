@@ -62,16 +62,14 @@ void TObjWarpBase__vt15(s32 arg0, s32 arg1);
 s32 fn_8019DD24(void *, int);
 void *get_player_by_client_id(u32);
 s32 TWindow__close(int);
-void close_player_window__11TObjMapWarpFiUs(s32 arg0, u16 arg1);
 s32 get_localized_text_entry(s32, s32);
-s32 add_text_entry__19TWindowSubTradeMainFPviiii(s32, s32, s32, s32, s32);
+s32 add_text_entry__19TWindowSubTradeMainFllll(s32, s32, s32, s32, s32);
 s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(s32);
-s32 set_flag_40__16TAdChrSelASlotGCFPv(int);
-s32 set_flag70_bit10__16TObjCityMainWarpFPv(int);
+s32 set_flag_40__16TAdChrSelASlotGCFv(int);
+s32 set_flag70_bit10__16TObjCityMainWarpFv(int);
 s32 align_menu_entry_positions(int);
 s32 calc_window_size__17TWindowSubComCardFPv(int);
-void open_player_warp_window__11TObjMapWarpFii(s32 arg0, s32 arg1);
 void *TObjWarpBase__ct(void *, void *, void *);
 int push_matrix_from(void *);
 void post_translate_matrix(void *);
@@ -97,7 +95,6 @@ struct VObj_8019D6F8_8019D4E4 : Base_8019D6F8_8019D4E4 {
 
 u8 TObjWarpBase__vt13(void *arg0);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
-u8 can_warp__11TObjMapWarpFiUs(s32 arg0, u16 arg1);
 s32 TObjWarpBase__vt0(void *, s32);
 void *get_player_by_client_id(u32);
 s32 __dl__7TObjectFPv(void *);
@@ -108,7 +105,7 @@ s32 test_flag_2000000__10TObjPlayerFPv(void *);
 extern s32 quest_warp_enabled;
 extern s32 lbl_805D55C0;
 
-u8 can_warp__11TObjMapWarpFiUs(s32 arg0, u16 arg1) {
+u8 TObjMapWarp::can_warp(s32 arg0, u16 arg1) {
     void *var_r31;
     u32 id;
 
@@ -136,23 +133,25 @@ extern s32 __vt__11TObjMapWarp[];
 
 #pragma push
 #pragma opt_common_subs off
-void open_player_warp_window__11TObjMapWarpFii(s32 arg0, s32 arg1) {
+void TObjMapWarp::open_player_warp_window(s32 arg1) {
+    s32 arg0 = (s32)this;
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
-        add_text_entry__19TWindowSubTradeMainFPviiii(*(u32 *)((s8 *)temp_r31 + 0xEC), get_localized_text_entry(9, 0x25), 2, 0, -1);
+        add_text_entry__19TWindowSubTradeMainFllll(*(u32 *)((s8 *)temp_r31 + 0xEC), get_localized_text_entry(9, 0x25), 2, 0, -1);
         calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
-        set_flag70_bit10__16TObjCityMainWarpFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
-        set_flag_40__16TAdChrSelASlotGCFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        set_flag70_bit10__16TObjCityMainWarpFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        set_flag_40__16TAdChrSelASlotGCFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
     }
 }
 #pragma pop
 
 #pragma push
 #pragma opt_common_subs off
-void close_player_window__11TObjMapWarpFiUs(s32 arg0, u16 arg1) {
+void TObjMapWarp::close_player_window(u16 arg1) {
+    s32 arg0 = (s32)this;
     u32 temp_r3;
     u32 temp_r3_2;
     u8 *temp_r31;

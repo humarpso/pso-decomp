@@ -12,6 +12,7 @@ struct TObjBoss8PillerCtrl
     u8 _pad2E[0x2];
     u32 m_30;
     u32 m_34;
+    static void render();
 };
 
 #endif

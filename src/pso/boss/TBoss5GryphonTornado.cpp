@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonTornado.h"
 
 struct RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado {
     s32 value;
@@ -37,13 +38,13 @@ u8 *TBoss5GryphonTornado__ct(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4);
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 get_flag_bit6__12TBoss8DragonFPv(s32);
+s32 get_flag_bit6__12TBoss8DragonFv(s32);
 void TBoss8Dragon__sub_800640A4(s32, Vec_80355570 *);
 s32 get_instance_count__12TBoss8DragonFv();
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Res_80355570 *csnVecterUnder(Vec_80355570 *, s32);
 void *spawn_continuous_particle_effect_with_flags(Vec_80355570 *, s32, s32);
-void copy_pos__11TNowLoadingFPvPv(void *, Vec_80355570 *);
+void copy_pos__11TNowLoadingFPv(void *, Vec_80355570 *);
 void enable__13TParticleCtrlFPv(void *);
 void add_radar_scaled_marker(Vec_80355570 *, s32, s32, s32, f32);
 void play_persistent_sound(s32, void *, Vec_80355570 *, s32, s32);
@@ -56,29 +57,28 @@ extern const f32 lbl_805DFFAC;
 extern const f32 lbl_805DFFB0;
 extern const f32 lbl_805DFFB4;
 extern const f32 lbl_805DFFB8;
-void run_task__20TBoss5GryphonTornadoFv(Tornado_80355570 *o);
 }
 
 extern "C" {
 
 void *__dt__20TBoss5GryphonTornadoFv(void *arg0, s16 arg1);
-void render__20TBoss5GryphonTornadoFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-void render__20TBoss5GryphonTornadoFv(void) {  }
+void TBoss5GryphonTornado::render() {  }
 
 extern s32 __vt__20TBoss5GryphonTornado[];
 
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-void run_task__20TBoss5GryphonTornadoFv(Tornado_80355570 *o) {
+void TBoss5GryphonTornado::run_task() {
+    Tornado_80355570 *o = (Tornado_80355570 *)this;
     Vec_80355570 v;
     Res_80355570 *r;
     f32 h;
-    if (get_flag_bit6__12TBoss8DragonFPv(o->f4C) != 0) {
+    if (get_flag_bit6__12TBoss8DragonFv(o->f4C) != 0) {
         queue_destruction__7TObjectFv(o);
         return;
     }
@@ -111,13 +111,13 @@ void run_task__20TBoss5GryphonTornadoFv(Tornado_80355570 *o) {
             o->p58 = spawn_continuous_particle_effect_with_flags(&o->pos, gryphon_tornado_particle_id_table[2], 0x40);
         }
         if (o->p50 != NULL) {
-            copy_pos__11TNowLoadingFPvPv(o->p50, &o->pos);
+            copy_pos__11TNowLoadingFPv(o->p50, &o->pos);
         }
         if (o->p54 != NULL) {
-            copy_pos__11TNowLoadingFPvPv(o->p54, &o->pos);
+            copy_pos__11TNowLoadingFPv(o->p54, &o->pos);
         }
         if (o->p58 != NULL) {
-            copy_pos__11TNowLoadingFPvPv(o->p58, &o->pos);
+            copy_pos__11TNowLoadingFPv(o->p58, &o->pos);
         }
         if (o->timer > 0x168) {
             o->state = 2;

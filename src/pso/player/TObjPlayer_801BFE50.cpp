@@ -10,10 +10,10 @@ extern "C" {
 void* init_pair__10TObjPlayerFPv(void* p);
 s32 init_state__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801BFED4(void* p);
-int clear_id__10TObjPlayerFPv(void*);
-s32 init_forward__10TObjPlayerFPv();
-s32 setup_state__10TObjPlayerFi();
-int setup_state_helper__10TObjPlayerFPv(void* p);
+int clear_id__10TObjPlayerFv(void*);
+s32 init_forward__10TObjPlayerFv();
+s32 setup_state__10TObjPlayerFv();
+int setup_state_helper__10TObjPlayerFv(void* p);
 
 void* init_pair__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BFE88((u8 *)(p)); TObjPlayer__sub_801BFE88((u8 *)((char*)p + 0xc)); return p; }
 
@@ -28,7 +28,7 @@ void TObjPlayer__sub_801BFE88(u8 *arg0) {
 }
 
 s32 init_state__10TObjPlayerFi(s32 arg0) {
-    setup_state__10TObjPlayerFi();
+    setup_state__10TObjPlayerFv();
     TObjPlayer__sub_801BFED4((void *) (arg0));
     return arg0;
 }

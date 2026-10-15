@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNpcPlayer.h"
 
 struct Msg_8014DC5C { s16 hdr; s16 type; s16 angle; s16 flag; };
 
@@ -13,30 +14,30 @@ struct Self_8014DC5C {
 };
 
 extern "C" {
-u32 get_npc_state__10TNpcPlayerFPv(s32);
+u32 get_npc_state__10TNpcPlayerFv(s32);
 s32 npc_counter_reset_if_reached(void *, s32, s32);
 s32 set_partner_counter(void *, s32, s32);
 u32 TNpcPlayer__sub_80152978(s32);
 void partner_request_physical_attack(u8 *arg0);
 u8 *find_active_entity_by_id(s32);
-u8 *get_state_ptr__10TObjPlayerFPv(void *);
-s16 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
-void request_chatter__10TNpcPlayerFPvUi(void *, s32);
+u8 *get_state_ptr__10TObjPlayerFv(void *);
+s16 calc_angle_to__10TObjPlayerFPv(void *, void *);
+void request_chatter__10TNpcPlayerFUl(void *, s32);
 void reset_partner_counter(void *, s32);
 void increment_partner_counter(void *, s32);
 s16 TNpcPlayer__sub_801528DC(void *);
-u32 get_npc_state__10TNpcPlayerFPv(s32);
+u32 get_npc_state__10TNpcPlayerFv(s32);
 s16 get_npc_type__10TNpcPlayerFPv(void *);
 s16 get_partner_counter(void *, s32);
-void update__10TNpcPlayerFPv(void *);
+void update__10TNpcPlayerFv(void *);
 void init_6x45_attack_packet(void *);
-void update_players__10TNpcPlayerFPv(void *);
+void update_players__10TNpcPlayerFv(void *);
 void init_6x44_attack_packet(void *);
-void update_lobby__10TNpcPlayerFPv(void *);
+void update_lobby__10TNpcPlayerFv(void *);
 void init_6x43_attack_packet(void *);
-void set_field2__10TNpcPlayerFPvs(void *, s32);
-void set_field_0__10TNpcPlayerFPvs(void *, s32);
-void set_state__10TNpcPlayerFPvi(void *, s32);
+void set_field2__10TNpcPlayerFs(void *, s32);
+void set_field_0__10TNpcPlayerFs(void *, s32);
+void set_state__10TNpcPlayerFl(void *, s32);
 void send_partner_attack_stage_request(Self_8014DC5C *self);
 }
 
@@ -44,37 +45,36 @@ extern "C" {
 
 void TNpcPlayer__sub_8014DC30(void);
 int TNpcPlayer__sub_8014DC3C(void* p);
-void init_equipment__10TNpcPlayerFPv(void *arg0);
 int request_technique_cast__10TNpcPlayerFPvi(void*);
 s32 set_technique_seed_level(s32, s32, u8);
 s32 clamp_and_set_unit_value__10TObjPlayerFiUci(s32, u8, s32);
 
-void init_equipment__10TNpcPlayerFPv(void *arg0) {
+void TNpcPlayer::init_equipment() {
     s32 temp_r31;
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x34);
-    temp_r31 = *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x78)) + 0x94);
+    temp_r4 = *(s32 *)((s8 *)this + 0x34);
+    temp_r31 = *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94);
     if (temp_r4 & 4) {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 0);
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 1);
-        set_technique_seed_level(temp_r31 + 0x428, 0, *(u8 *)((s8 *)arg0 + 0x50));
-        set_technique_seed_level(temp_r31 + 0x428, 1, *(u8 *)((s8 *)arg0 + 0x50));
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 0);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 1);
+        set_technique_seed_level(temp_r31 + 0x428, 0, *(u8 *)((s8 *)this + 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 1, *(u8 *)((s8 *)this + 0x50));
     } else if (temp_r4 & 8) {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 3);
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 4);
-        set_technique_seed_level(temp_r31 + 0x428, 3, *(u8 *)((s8 *)arg0 + 0x50));
-        set_technique_seed_level(temp_r31 + 0x428, 4, *(u8 *)((s8 *)arg0 + 0x50));
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 3);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 4);
+        set_technique_seed_level(temp_r31 + 0x428, 3, *(u8 *)((s8 *)this + 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 4, *(u8 *)((s8 *)this + 0x50));
     } else if (temp_r4 & 0x10) {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 6);
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 8);
-        set_technique_seed_level(temp_r31 + 0x428, 6, *(u8 *)((s8 *)arg0 + 0x50));
-        set_technique_seed_level(temp_r31 + 0x428, 8, *(u8 *)((s8 *)arg0 + 0x50));
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 6);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 8);
+        set_technique_seed_level(temp_r31 + 0x428, 6, *(u8 *)((s8 *)this + 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 8, *(u8 *)((s8 *)this + 0x50));
     }
-    clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x51), 0xF);
-    clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x51), 0x10);
-    set_technique_seed_level(temp_r31 + 0x428, 0xF, *(u8 *)((s8 *)arg0 + 0x51));
-    set_technique_seed_level(temp_r31 + 0x428, 0x10, *(u8 *)((s8 *)arg0 + 0x51));
+    clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x51), 0xF);
+    clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x51), 0x10);
+    set_technique_seed_level(temp_r31 + 0x428, 0xF, *(u8 *)((s8 *)this + 0x51));
+    set_technique_seed_level(temp_r31 + 0x428, 0x10, *(u8 *)((s8 *)this + 0x51));
 }
 
     extern int TNpcPlayer__data_805D5864;
@@ -95,14 +95,14 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
         if (self->npc != NULL) {
             m0.type = get_npc_type__10TNpcPlayerFPv(self->npc);
             m0.flag = 0;
-            tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
+            tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
             if (tgt != NULL) {
-                m0.angle = calc_angle_to__10TObjPlayerFPvPv(self->npc->pl->pos, tgt + 0x38);
+                m0.angle = calc_angle_to__10TObjPlayerFPv(self->npc->pl->pos, tgt + 0x38);
                 pl = self->npc->pl;
-                set_state__10TNpcPlayerFPvi(get_state_ptr__10TObjPlayerFPv(pl->state), 1);
-                set_field_0__10TNpcPlayerFPvs(get_state_ptr__10TObjPlayerFPv(pl->state) + 4, ((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
-                set_field2__10TNpcPlayerFPvs(get_state_ptr__10TObjPlayerFPv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
-                update_lobby__10TNpcPlayerFPv(&m0);
+                set_state__10TNpcPlayerFl(get_state_ptr__10TObjPlayerFv(pl->state), 1);
+                set_field_0__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, ((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
+                set_field2__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
+                update_lobby__10TNpcPlayerFv(&m0);
                 increment_partner_counter(self->f5C, 1);
             }
         }
@@ -112,14 +112,14 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
         if (self->npc != NULL) {
             m1.type = get_npc_type__10TNpcPlayerFPv(self->npc);
             m1.flag = 1;
-            tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
+            tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
             if (tgt != NULL) {
-                m1.angle = calc_angle_to__10TObjPlayerFPvPv(self->npc->pl->pos, tgt + 0x38);
+                m1.angle = calc_angle_to__10TObjPlayerFPv(self->npc->pl->pos, tgt + 0x38);
                 pl = self->npc->pl;
-                set_state__10TNpcPlayerFPvi(get_state_ptr__10TObjPlayerFPv(pl->state), 1);
-                set_field_0__10TNpcPlayerFPvs(get_state_ptr__10TObjPlayerFPv(pl->state) + 4, ((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
-                set_field2__10TNpcPlayerFPvs(get_state_ptr__10TObjPlayerFPv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
-                update_players__10TNpcPlayerFPv(&m1);
+                set_state__10TNpcPlayerFl(get_state_ptr__10TObjPlayerFv(pl->state), 1);
+                set_field_0__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, ((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
+                set_field2__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
+                update_players__10TNpcPlayerFv(&m1);
                 increment_partner_counter(self->f5C, 1);
             }
         }
@@ -129,16 +129,16 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
         if (self->npc != NULL) {
             m2.type = get_npc_type__10TNpcPlayerFPv(self->npc);
             m2.flag = 1;
-            tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
+            tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
             if (tgt != NULL) {
-                m2.angle = calc_angle_to__10TObjPlayerFPvPv(self->npc->pl->pos, tgt + 0x38);
+                m2.angle = calc_angle_to__10TObjPlayerFPv(self->npc->pl->pos, tgt + 0x38);
                 pl = self->npc->pl;
-                set_state__10TNpcPlayerFPvi(get_state_ptr__10TObjPlayerFPv(pl->state), 1);
-                set_field_0__10TNpcPlayerFPvs(get_state_ptr__10TObjPlayerFPv(pl->state) + 4, ((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
-                set_field2__10TNpcPlayerFPvs(get_state_ptr__10TObjPlayerFPv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
-                update__10TNpcPlayerFPv(&m2);
+                set_state__10TNpcPlayerFl(get_state_ptr__10TObjPlayerFv(pl->state), 1);
+                set_field_0__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, ((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
+                set_field2__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
+                update__10TNpcPlayerFv(&m2);
                 reset_partner_counter(self->f5C, 1);
-                request_chatter__10TNpcPlayerFPvUi(self, 0xD);
+                request_chatter__10TNpcPlayerFUl(self, 0xD);
             }
         }
         break;
@@ -151,7 +151,7 @@ void partner_request_physical_attack(u8 *arg0) {
     u32 temp_r31;
     u32 temp_r3;
     temp_r31 = TNpcPlayer__sub_80152978(*(s32 *)((s8 *)arg0 + 0x78));
-    temp_r3 = get_npc_state__10TNpcPlayerFPv(*(s32 *)((s8 *)arg0 + 0x78));
+    temp_r3 = get_npc_state__10TNpcPlayerFv(*(s32 *)((s8 *)arg0 + 0x78));
     if (temp_r3 != temp_r31) {
         set_partner_counter(arg0 + 0x5C, 1, 0);
     }

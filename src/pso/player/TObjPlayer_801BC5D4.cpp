@@ -1,29 +1,30 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void reset_state__10TObjPlayerFPv(u8 *arg0);
-s32 clear_flags__11TAdRicoRingFPvUi(void *, int);
+s32 clear_flags__11TAdRicoRingFUl(void *, int);
 s32 TObjPlayer__sub_801BF690(void *);
 s32 zero_vec3(void *);
-s32 init_tag__10TObjPlayerFPv(void *);
-s32 reset_counter_field4__10TObjPlayerFPv(void *);
-s32 set_vec4_const__10TObjPlayerFPv(void *);
-s32 reset_type__10TObjPlayerFPv(void *);
+s32 init_tag__10TObjPlayerFv(void *);
+s32 reset_counter_field4__10TObjPlayerFv(void *);
+s32 set_vec4_const__10TObjPlayerFv(void *);
+s32 reset_type__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_8011E204(void *, int);
 s32 reset_movement_state__10TObjPlayerFPv(void *);
 
 extern const f32 TObjPlayer__data_805DC278;
 
-void reset_state__10TObjPlayerFPv(u8 *arg0) {
-    clear_flags__11TAdRicoRingFPvUi(arg0 + 0x858, 2);
-    reset_counter_field4__10TObjPlayerFPv(arg0 + 0x63C);
-    reset_type__10TObjPlayerFPv(arg0 + 0x644);
+void TObjPlayer::reset_state() {
+    u8 *arg0 = (u8 *)this;
+    clear_flags__11TAdRicoRingFUl(arg0 + 0x858, 2);
+    reset_counter_field4__10TObjPlayerFv(arg0 + 0x63C);
+    reset_type__10TObjPlayerFv(arg0 + 0x644);
     reset_movement_state__10TObjPlayerFPv(arg0 + 0x7CC);
     TObjPlayer__sub_801BF690(arg0 + 0x730);
-    set_vec4_const__10TObjPlayerFPv(arg0 + 0x608);
+    set_vec4_const__10TObjPlayerFv(arg0 + 0x608);
     *(s32 *)((s8 *)arg0 + 0x548) = 0;
-    init_tag__10TObjPlayerFPv(arg0 + 0x340);
+    init_tag__10TObjPlayerFv(arg0 + 0x340);
     *(s32 *)((s8 *)arg0 + 0x3D4) = 0;
     TObjPlayer__sub_8011E204(arg0, 0x283);
     *(s32 *)((s8 *)arg0 + 0x3F4) = 0;

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemDrop.h"
+#include "pso/misc/TLobby.h"
 
 struct B_800F957C { u8 pad[0x18]; };
 
@@ -13,34 +15,32 @@ struct Head_800F957C { u8 pad[0x14]; N_800F957C *first; };
 
 extern "C" {
 extern Head_800F957C resource_load_task_root[];
-int safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
-void free_nodes_with_id__6TLobbyFUi(u32 arg0);
+int safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 }
 
 extern "C" {
 
 s32 apply_rel_relocations(void *);
-void *construct__9TItemDropFPv(void *);
+void *construct__9TItemDropFv(void *);
 s32 read_disc_file(void *, void *);
-void *destroy__9TItemDropFPvs(void *arg0, s16 arg1);
 int fn_800F953C(void* p);
 int fn_800F955C(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
+int safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 int set_stream_and_load_file__6TLobbyFi(void*);
 
 extern s32 lbl_8049C658[];
 
-void *destroy__9TItemDropFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049C658;
-        __dt__7TObjectFv(arg0, 0);
+void *TItemDrop::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_8049C658;
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }
@@ -54,11 +54,11 @@ struct Drop_800F9448 {
     s32 a;
     s32 b;
     u8 pad_24[0x14];
-    Drop_800F9448() { construct__9TItemDropFPv(this); }
+    Drop_800F9448() { construct__9TItemDropFv(this); }
 };
 
 static inline s32 finish_800F9448(Drop_800F9448 *d, s32 r) {
-    destroy__9TItemDropFPvs(d, -1);
+    ((TItemDrop *)d)->destroy(-1);
     return r;
 }
 
@@ -92,13 +92,13 @@ s32 load_relocatable_file(s32 arg0, s32 arg1) {
 #pragma pop
 
 extern "C" {
-int fn_800F953C(void* p) { return safe_free__23TAdSinglePlyChrSelectGCFUi(p); }
+int fn_800F953C(void* p) { return safe_free__23TAdSinglePlyChrSelectGCFUl(p); }
 int fn_800F955C(void* p) { return set_stream_and_load_file__6TLobbyFi(p); }
-void free_nodes_with_id__6TLobbyFUi(u32 arg0) {
+void TLobby::free_nodes_with_id(u32 arg0) {
     N_800F957C *n = resource_load_task_root->first;
     while (n != 0) {
         if (n->id24 == arg0) {
-            safe_free__23TAdSinglePlyChrSelectGCFUi(n->p1C);
+            safe_free__23TAdSinglePlyChrSelectGCFUl(n->p1C);
             if (n != 0) {
                 n->m0(1);
             }

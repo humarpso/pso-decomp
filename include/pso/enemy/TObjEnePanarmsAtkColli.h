@@ -17,6 +17,8 @@ struct TObjEnePanarmsAtkColli
     u32 m_380;
     u32 m_384;
     u32 m_388;
+    void run_task();
+    void *create(void *arg1, void *arg2, void *arg3);
 };
 
 #endif

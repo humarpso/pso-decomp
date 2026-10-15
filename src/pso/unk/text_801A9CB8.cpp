@@ -24,7 +24,7 @@ void __dt__7TObjectFv(void *, int);
 void release_photon_blast_camera__11TCameraCtrlFv(void);
 void restore_player_cameras(void);
 void reset_cameras_to_actor(void *, int);
-void restore_fog_for_player__8TFogCtrlFii(int, int);
+void restore_fog_for_player__8TFogCtrlFll(int, int);
 void *get_player_by_client_id(s32);
 void release_photon_blast_player_holds(void *);
 void set_and_notify_default__6TLobbyFv(void);
@@ -53,7 +53,7 @@ Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag) {
                 reset_cameras_to_actor(get_player_by_client_id(local_client_id), 0);
             }
         } else {
-            restore_fog_for_player__8TFogCtrlFii(self->id, 0);
+            restore_fog_for_player__8TFogCtrlFll(self->id, 0);
         }
         if (self->id != 0xFFFF && self->id < 4) {
             for (i = 0; i < 4; i++) {

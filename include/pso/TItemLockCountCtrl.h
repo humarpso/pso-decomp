@@ -10,6 +10,10 @@ public:
  void* m_20;
 public:
     virtual ~TItemLockCountCtrl();
+public:
+    static void free_all();
+    static void init_effect_table();
+    static void create_instance();
 };
 
 #endif

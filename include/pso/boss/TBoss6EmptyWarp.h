@@ -6,6 +6,11 @@
 struct TBoss6EmptyWarp
 {
     u32 m_1c;
+    int render();
+    void run_task();
+    static void *create();
+    void activate_warp();
+    static void init_warp();
 };
 
 #endif

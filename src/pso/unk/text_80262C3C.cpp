@@ -1,5 +1,6 @@
 #include "types.h"
 #include <stddef.h>
+#include "pso/misc/TWindowLockOn.h"
 
 struct VBase_18_7b8813
 {
@@ -118,18 +119,18 @@ struct Ent_802634E8 { u8 pad0[0x10]; f32 w; };
 extern "C" {
 u32 obj_getArrWord_254(Ent_80262E90 *, s32);
 s16 obj_getS16_2BA(Ent_80262E90 *);
-s16 get_field_2b8__14TItemProShieldFPv(Ent_80262E90 *);
+s16 get_field_2b8__14TItemProShieldFv(Ent_80262E90 *);
 s32 find_entity_by_id(u16);
-s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
-void set_flag0_bit2__15TWindowHelpItemFPv(Gauge_80262E90 *);
+s32 get_array_entry__20TWindowSubStatusDispFi(void *, int);
+void set_flag0_bit2__15TWindowHelpItemFv(Gauge_80262E90 *);
 void set_help_mode__14TWindowComCardFPvi(s32, s32);
 s32 get_status_effect_icon_index(u32);
 void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self);
 u16 obj_getField1c(void *);
-s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+s32 get_array_entry__20TWindowSubStatusDispFi(void *, int);
 void refresh_status_display__9TWindowDDFv(void *);
 void init_window_layout_entries(void *, void *, int);
-s32 reset_float_field__15TWindowHelpItemFPv(int);
+s32 reset_float_field__15TWindowHelpItemFv(int);
 f32 get_target_distance__13TWindowLockOnFv(s32);
 void update_for_player_index__13TWindowLockOnFPvi(void *, s32);
 extern Cb_802634E8 lockon_photon_blast_marker_callback;
@@ -156,28 +157,28 @@ s32 obj_testFlags30(s32, s32);
 s8 TObjPlayer__sub_80102C30(void *);
 s32 find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+s32 get_array_entry__20TWindowSubStatusDispFi(void *, int);
 void update_photon_blast_player_marker(s32, u32);
 s32 obj_isState3_324(void *);
-s32 get_target_id__13TWindowLockOnFPv(void *);
-s32 is_script_controlled__10TObjPlayerFPv(void *);
+s32 get_target_id__13TWindowLockOnFv(void *);
+s32 is_script_controlled__10TObjPlayerFv(void *);
 void TWindow__close(void *);
-void update_fade__17TWindowSubComCardFPv(void *);
-void initialize_subwindow__9TWindowDDFPv(void *);
+void update_fade__17TWindowSubComCardFv(void *);
+void initialize_subwindow__9TWindowDDFv(void *);
 void update_window_entry_list(void *, void *);
 void init_window_layout_entries(void *, void *, int);
 void init_item_row__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
-u8 get_field_ec__12TOSwitchItemFPv(void *);
-u8 calc_display_grade__5TItemFPv(void *);
+u8 get_field_ec__12TOSwitchItemFv(void *);
+u8 calc_display_grade__5TItemFv(void *);
 f32 get_item_star_row_width(void *);
 f32 get_target_distance__13TWindowLockOnFv(s32);
 s32 setup_window_draw_context(void *, void *);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
-s32 destroy_all_items__20TWindowSubStatusDispFPv(s32);
+s32 destroy_all_items__20TWindowSubStatusDispFv(s32);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
+void destroy_window_base__9TWindowDDFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
 u8 *TWindowLockOn__ct(u8 *, s16, s32);
@@ -189,21 +190,17 @@ extern s32 lbl_805D3948;
 extern const f32 lbl_805DD130;
 extern const f32 lbl_805DD134;
 
-void validate_target__13TWindowLockOnFPv(u8 *arg0);
 bool is_lockable_target__13TWindowLockOnFi(s32 arg0);
-void refresh_ground_item__13TWindowLockOnFv(void);
-void update_photon_blast_marker__13TWindowLockOnFPv(u8 *arg0);
 void TWindowLockOn__update_for_enemy(s32, s32);
 s32 TWindowLockOn__update_for_item(s32 a0, s32 a1);
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
 void bind_target__13TWindowLockOnFv(Win_8026366C *w, u16 id);
-void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1);
 void render__13TWindowLockOnFv(u8 *arg0);
-void run_task__13TWindowLockOnFv(Win_8026385C *w);
 void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1);
 
 #define PSO_VCALL_VObj_18_7b8813_m31(_self) (((VObj_18_7b8813 *)(_self))->m31())
-void validate_target__13TWindowLockOnFPv(u8 *arg0) {
+void TWindowLockOn::validate_target() {
+    u8 *arg0 = (u8 *)this;
   u16 temp_r3;
   u8 *temp_r3_2;
   temp_r3 = *((u16 *) (((s8 *) arg0) + 0x60));
@@ -251,7 +248,7 @@ bool is_lockable_target__13TWindowLockOnFi(s32 arg0) {
         return 0;
     }
     if (obj_testFlags30((s32)((void *) (arg0)), (s32)((int) (0x10000000))) != 0) {
-        if ((obj_isState3_324((void *) (arg0)) != 0) || (is_script_controlled__10TObjPlayerFPv((void *) (arg0)) != 0)) {
+        if ((obj_isState3_324((void *) (arg0)) != 0) || (is_script_controlled__10TObjPlayerFv((void *) (arg0)) != 0)) {
             return 0;
         }
         return 1;
@@ -260,7 +257,7 @@ bool is_lockable_target__13TWindowLockOnFi(s32 arg0) {
         if (obj_testFlags30((s32)((void *) (arg0)), (s32)((int) (0x40000000))) != 0) {
             return 0;
         }
-        return get_target_id__13TWindowLockOnFPv((void *) (arg0)) != 0;
+        return get_target_id__13TWindowLockOnFv((void *) (arg0)) != 0;
     }
     return obj_testFlags30((s32)((void *) (arg0)), (s32)((int) (0x80000000))) != 0;
 }
@@ -280,27 +277,28 @@ void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self) {
     i = 0;
     do {
         mode = get_status_effect_icon_index(obj_getArrWord_254(ent, i));
-        set_help_mode__14TWindowComCardFPvi(get_array_entry__20TWindowSubStatusDispFPvi(self, i + 3), mode);
+        set_help_mode__14TWindowComCardFPvi(get_array_entry__20TWindowSubStatusDispFi(self, i + 3), mode);
         i++;
     } while (i < 4);
     {
-        g = (Gauge_80262E90 *)get_array_entry__20TWindowSubStatusDispFPvi(self, 7);
-        g->cur = get_field_2b8__14TItemProShieldFPv(ent);
+        g = (Gauge_80262E90 *)get_array_entry__20TWindowSubStatusDispFi(self, 7);
+        g->cur = get_field_2b8__14TItemProShieldFv(ent);
         g->max = ent->f32c;
-        set_flag0_bit2__15TWindowHelpItemFPv(g);
+        set_flag0_bit2__15TWindowHelpItemFv(g);
     }
     {
-        g = (Gauge_80262E90 *)get_array_entry__20TWindowSubStatusDispFPvi(self, 8);
+        g = (Gauge_80262E90 *)get_array_entry__20TWindowSubStatusDispFi(self, 8);
         g->cur = obj_getS16_2BA(ent);
         g->max = ent->f32e;
-        set_flag0_bit2__15TWindowHelpItemFPv(g);
+        set_flag0_bit2__15TWindowHelpItemFv(g);
     }
 }
 
-void refresh_ground_item__13TWindowLockOnFv(void) {  }
+void TWindowLockOn::refresh_ground_item() {  }
 
-void update_photon_blast_marker__13TWindowLockOnFPv(u8 *arg0) {
-    update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) *(u16 *)((s8 *)arg0 + 0x60));
+void TWindowLockOn::update_photon_blast_marker() {
+    u8 *arg0 = (u8 *)this;
+    update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFi(arg0, 0), (u32) *(u16 *)((s8 *)arg0 + 0x60));
 }
 
 struct Obj_80263014;
@@ -331,11 +329,11 @@ struct Data_80263014 {
 
 s32 obj_testFlag_2E4(void *, int);
 s32 is_split_screen(void);
-s32 get_message_10__20TWindowSubStatusDispFPv(int);
+s32 get_message_10__20TWindowSubStatusDispFl(int);
 s32 enemy_name_for_rt_index(int);
 u32 calc_text_width(int);
-int get_field_20__17TWindowSubComCardFPv(int);
-s32 reset_float_field__15TWindowHelpItemFPv(int);
+int get_field_20__17TWindowSubComCardFv(int);
+s32 reset_float_field__15TWindowHelpItemFv(int);
 s32 set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern Data_80263014 lock_on_window_params;
 extern const f32 lbl_805DD104;
@@ -359,14 +357,14 @@ void TWindowLockOn__update_for_enemy(s32 a0, s32 a1) {
 
     init_window_layout_entries(arg0->sub, d->m6c, arg0->player);
     arg0->cb = d->cb;
-    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
-    set_default_status__17TWindowDuelResultFPvi((void *)e, get_message_10__20TWindowSubStatusDispFPv(0xA5));
-    reset_float_field__15TWindowHelpItemFPv(e);
-    width = calc_text_width(get_field_20__17TWindowSubComCardFPv(e));
-    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-    set_default_status__17TWindowDuelResultFPvi((void *)e, enemy_name_for_rt_index(get_target_id__13TWindowLockOnFPv(obj)));
-    reset_float_field__15TWindowHelpItemFPv(e);
-    arg0->w = (f32)calc_text_width(get_field_20__17TWindowSubComCardFPv(e));
+    e = get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
+    set_default_status__17TWindowDuelResultFPvi((void *)e, get_message_10__20TWindowSubStatusDispFl(0xA5));
+    reset_float_field__15TWindowHelpItemFv(e);
+    width = calc_text_width(get_field_20__17TWindowSubComCardFv(e));
+    e = get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
+    set_default_status__17TWindowDuelResultFPvi((void *)e, enemy_name_for_rt_index(get_target_id__13TWindowLockOnFv(obj)));
+    reset_float_field__15TWindowHelpItemFv(e);
+    arg0->w = (f32)calc_text_width(get_field_20__17TWindowSubComCardFv(e));
     arg0->h = lbl_805DD104;
     if (is_split_screen() == 0) {
         arg0->h += lbl_805DD108;
@@ -384,14 +382,14 @@ void TWindowLockOn__update_for_enemy(s32 a0, s32 a1) {
     } else {
         kind = 4;
     }
-    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
+    e = get_array_entry__20TWindowSubStatusDispFi(arg0, 2);
     np = d->names;
     set_default_status__17TWindowDuelResultFPvi((void *)e, np[kind]);
-    reset_float_field__15TWindowHelpItemFPv(e);
+    reset_float_field__15TWindowHelpItemFv(e);
     ((Ent_80263014 *)e)->y = lbl_805DD10C + (f32)width;
     np = d->colors;
     ((Ent2_80263014 *)e)->color = np[kind];
-    w2 = calc_text_width(get_field_20__17TWindowSubComCardFPv(e));
+    w2 = calc_text_width(get_field_20__17TWindowSubComCardFv(e));
     w2 += width;
     if ((f32)w2 > arg0->w) {
         arg0->w = (f32)w2;
@@ -399,11 +397,11 @@ void TWindowLockOn__update_for_enemy(s32 a0, s32 a1) {
     arg0->w += TWindowLockOn__data_805DD110;
     arg0->dist = get_target_distance__13TWindowLockOnFv(0x1E) - arg0->h * arg0->scale;
     arg0->i50 = 0;
-    p = (Ent_80263014 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 7);
+    p = (Ent_80263014 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 7);
     p->x14 = arg0->w - TWindowLockOn__data_805DD110;
-    p->x20 = (f32)get_field_2b8__14TItemProShieldFPv((Ent_80262E90 *)obj);
+    p->x20 = (f32)get_field_2b8__14TItemProShieldFv((Ent_80262E90 *)obj);
     p->x24 = (f32)*(s16 *)((u8 *)obj + 0x32C);
-    p = (Ent_80263014 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 8);
+    p = (Ent_80263014 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 8);
     p->x14 = arg0->w - TWindowLockOn__data_805DD110;
     p->x20 = (f32)obj_getS16_2BA((Ent_80262E90 *)obj);
     p->x24 = (f32)*(s16 *)((u8 *)obj + 0x32E);
@@ -422,7 +420,7 @@ s32 TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     f32 r;
     init_window_layout_entries(arg0->sub, lockon_window_layout_entries, arg0->player);
     arg0->cb = lbl_804D0288;
-    e = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+    e = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
     init_item_row__20TWindowSubStatusDispFPvPvi(e, item, 0);
     calc_row_width__20TWindowSubStatusDispFv(e);
     e->y = lbl_805DD114;
@@ -431,9 +429,9 @@ s32 TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     }
     arg0->w = e->w;
     arg0->h = lbl_805DD11C;
-    e2 = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
-    if (get_field_ec__12TOSwitchItemFPv(item) == 0 || get_field_ec__12TOSwitchItemFPv(item) == 1) {
-        ((Ent2_80263370 *)e2)->grade = calc_display_grade__5TItemFPv(item);
+    e2 = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
+    if (get_field_ec__12TOSwitchItemFv(item) == 0 || get_field_ec__12TOSwitchItemFv(item) == 1) {
+        ((Ent2_80263370 *)e2)->grade = calc_display_grade__5TItemFv(item);
         arg0->h += lbl_805DD120;
         e2->flags &= ~2;
         r = get_item_star_row_width(e2);
@@ -460,10 +458,10 @@ s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1) {
     u16 id;
     init_window_layout_entries(arg0->sub, &lock_on_window_params, arg0->player);
     arg0->cb = lockon_photon_blast_marker_callback;
-    w = (Ent_802634E8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    w = (Ent_802634E8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
     id = obj_getField1c(arg1);
     update_for_player_index__13TWindowLockOnFPvi(w, id);
-    reset_float_field__15TWindowHelpItemFPv((s32)w);
+    reset_float_field__15TWindowHelpItemFv((s32)w);
     refresh_status_display__9TWindowDDFv(w);
     arg0->w = lbl_805DD124 + w->w;
     arg0->h = lbl_805DD128;
@@ -476,7 +474,7 @@ s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1) {
 #pragma pop
 
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
-    destroy_all_items__20TWindowSubStatusDispFPv(arg0 + 0x24);
+    destroy_all_items__20TWindowSubStatusDispFv(arg0 + 0x24);
     if (obj_testFlags30(arg1, 0x10000000) != 0) {
         TWindowLockOn__update_for_other_player((s32)(arg0), (s32)(arg1));
         return;
@@ -516,7 +514,7 @@ void bind_target__13TWindowLockOnFv(Win_8026366C *w, u16 id) {
     }
 }
 
-void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1) {
+void *TWindowLockOn::create_for_target(s32 arg0, u16 arg1) {
     void *p;
     if (arg1 == 0xFFFF) {
         return NULL;
@@ -541,15 +539,16 @@ void render__13TWindowLockOnFv(u8 *arg0) {
     }
 }
 
-void run_task__13TWindowLockOnFv(Win_8026385C *w) {
+void TWindowLockOn::run_task() {
+    Win_8026385C *w = (Win_8026385C *)this;
     s32 old;
     w->refresh_flags = 0x01000000;
     if (w->refresh) {
         (w->*w->refresh)();
     }
-    ((void (*)(void *))validate_target__13TWindowLockOnFPv)(w);
-    initialize_subwindow__9TWindowDDFPv(w);
-    update_fade__17TWindowSubComCardFPv(w);
+    validate_target();
+    initialize_subwindow__9TWindowDDFv(w);
+    update_fade__17TWindowSubComCardFv(w);
     update_window_entry_list(w, w->m24);
     old = w->retention;
     w->retention = old - 1;
@@ -561,7 +560,7 @@ void run_task__13TWindowLockOnFv(Win_8026385C *w) {
 void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowLockOn;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

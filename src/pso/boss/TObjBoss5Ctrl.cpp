@@ -14,7 +14,7 @@ s32 is_room_enemy_set_cleared(s32, s32);
 u32 create__19TObjBoss5FloorStoneFv();
 u32 create__19TObjBoss5FloorGrassFv();
 u32 create__19TObjBoss5PillarDemoFv();
-u32 create__19TObjBoss5PillarCtrlFPv(void *);
+u32 create__19TObjBoss5PillarCtrlFv(void *);
 s32 is_split_screen();
 extern void *__vt__13TObjBoss5Ctrl[];
 extern s32 lbl_805D2828;
@@ -65,7 +65,7 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
                 *(u32 *)((s8 *)arg0 + 0x20) = create__19TObjBoss5FloorStoneFv();
             }
             if ((u32) *(u32 *)((s8 *)arg0 + 0x24) == 0U) {
-                *(u32 *)((s8 *)arg0 + 0x24) = create__19TObjBoss5PillarCtrlFPv(arg0);
+                *(u32 *)((s8 *)arg0 + 0x24) = create__19TObjBoss5PillarCtrlFv(arg0);
             }
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x28) == 0U) {

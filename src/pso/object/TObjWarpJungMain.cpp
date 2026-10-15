@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjWarpJung.h"
+#include "pso/object/TObjWarpJungMain.h"
 
 struct VBase_18_8019FB8C { char pad[0x18]; };
 
@@ -25,7 +27,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-int set_global_param__8TObjFishFi(void*);
+int set_global_param__8TObjFishFl(void*);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 warp_jung_beam_models[];
@@ -40,10 +42,9 @@ extern s32 lbl_805D5CC0;
 extern s32 lbl_805D5CC4;
 extern const f32 lbl_805DC040;
 extern const f32 lbl_805DC044;
-void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0);
-s32 set_loss_flag__6TLobbyFPv(u32);
+s32 set_loss_flag__6TLobbyFv(u32);
 s32 get_localized_text_entry(s32, s32);
-s32 set_flag70_bit10__16TObjCityMainWarpFPv(u32);
+s32 set_flag70_bit10__16TObjCityMainWarpFv(u32);
 s32 request_active_window_close();
 s32 align_menu_entry_positions(u32);
 s32 calc_window_size__17TWindowSubComCardFPv(u32);
@@ -122,8 +123,8 @@ struct Obj_801A0224 {
 f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(s32, s32);
-s32 is_visible__17TWindowSubComCardFPv(void *);
-void * alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 is_visible__17TWindowSubComCardFv(void *);
+void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 int confirm_area_transfer__12TObjAreaWarpFPvi(void*);
 void handle_area_selection__12TObjAreaWarpFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
@@ -132,17 +133,11 @@ int TObjWarpBase__vt12(void*);
 s32 TObjWarpJungMain__vt16(u8 *arg0);
 int TObjWarpJungMain__vt17(void* p);
 void TObjWarpJungMain__vt12(void* p);
-void run_task__16TObjWarpJungMainFv(u8 *arg0);
 void * __dt__16TObjWarpJungMainFv(void *arg0, s16 arg1);
 void * TObjWarpJung__create(void *arg0);
-void render__12TObjWarpJungFv(u8 *arg0);
 int TObjWarpJung__vt17(void* p);
-void run_task__12TObjWarpJungFv(u8 *arg0);
 void * __dt__12TObjWarpJungFv(void *arg0, s16 arg1);
 Obj_801A0224 * TObjWarpJung__ct(Obj_801A0224 *self);
-f32 get_static_field4_as_float__12TObjWarpJungFv(void);
-void set_global_render_param__12TObjWarpJungFv(void);
-void render_warp_effect__12TObjWarpJungFii(s32 arg0, s32 arg1);
 s32 render_warp__12TObjWarpJungFPv(s32);
 s32 TObjWarpJung__sub_801A0404(s32);
 s32 update_warp_display__12TObjWarpJungFv();
@@ -152,7 +147,7 @@ void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 int clear_flag__11TWindowCtrlFv(void);
 s32 get_selected_menu_value(void *);
-void * init__13TAdVIConfigGCFPvf(void *, void *, f32);
+void * init__13TAdVIConfigGCFf(void *, void *, f32);
 s32 get_game_play_mode(void);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 PPCSync();
@@ -160,7 +155,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-int set_global_param__8TObjFishFi(void*);
+int set_global_param__8TObjFishFl(void*);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 
 extern s32 __vt__12TObjWarpJung[];
@@ -179,7 +174,8 @@ extern const f32 lbl_805DC050;
 extern const f32 lbl_805DC054;
 extern void *tl_05;
 
-void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0) {
+void TObjWarpJungMain::render() {
+    VObj_18_8019FB8C *arg0 = (VObj_18_8019FB8C *)this;
     s32 i;
     if (arg0->m8(lbl_805DC040, lbl_805DC044) != 0) {
         if (actor_frame_tick != lbl_805D5CB4) {
@@ -205,7 +201,7 @@ void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0) {
             }
             break;
         }
-        set_global_param__8TObjFishFi((void *)warp_jung_model_handle);
+        set_global_param__8TObjFishFl((void *)warp_jung_model_handle);
         push_matrix();
         post_translate_matrix((u8 *)arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -220,7 +216,7 @@ void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0) {
 s32 TObjWarpJungMain__vt16(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB0));
-    if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
+    if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFv(temp_r3) != 0)) {
         *(s32 *)((s8 *)arg0 + 0xBC) = (s32) *(s32 *)((s8 *)(&jungle_warp_destination_ids.value) + (get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0xB0)) * 4));
         return 1;
     }
@@ -240,14 +236,15 @@ void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
         }
         calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0xB0));
         align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0xB0));
-        set_flag70_bit10__16TObjCityMainWarpFPv(*(u32 *)((s8 *)arg0 + 0xB0));
-        set_loss_flag__6TLobbyFPv(*(u32 *)((s8 *)arg0 + 0xB0));
+        set_flag70_bit10__16TObjCityMainWarpFv(*(u32 *)((s8 *)arg0 + 0xB0));
+        set_loss_flag__6TLobbyFv(*(u32 *)((s8 *)arg0 + 0xB0));
         request_active_window_close();
         *(s16 *)((s8 *)arg0 + 0xB8) = arg1;
     }
 }
 
-void run_task__16TObjWarpJungMainFv(u8 *arg0) {
+void TObjWarpJungMain::run_task() {
+    u8 *arg0 = (u8 *)this;
   *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DC048);
   if ((*((f32 *) (((s8 *) arg0) + 0xC4))) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&warp_jung_beam_motion)) + 4))) - 1) & 0xFFFFFFFF)))
   {
@@ -279,9 +276,9 @@ Obj_8019FF24 *TObjWarpJungMain__ct(Obj_8019FF24 *self) {
     }
     self->fAC = lbl_805DC050;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        void *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x88);
+        void *p = alloc__23TAdSinglePlyChrSelectGCFv(0x88);
         if (p != NULL) {
-            p = init__13TAdVIConfigGCFPvf(p, self->f38, lbl_805DC054);
+            p = init__13TAdVIConfigGCFf(p, self->f38, lbl_805DC054);
         }
         self->fC0 = p;
     } else {
@@ -298,7 +295,8 @@ void *TObjWarpJung__create(void *arg0) {
     return o;
 }
 
-void render__12TObjWarpJungFv(u8 *arg0) {
+void TObjWarpJung::render() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
 
     if (((VObj_801A0070_more_8019fe60_1*)arg0)->m8(lbl_805DC040, lbl_805DC044) != 0) {
@@ -314,13 +312,13 @@ void render__12TObjWarpJungFv(u8 *arg0) {
             TObjWarpJung__sub_801A0404(1);
             break;
         }
-        ((s32 (*)(void))set_global_render_param__12TObjWarpJungFv)();
+        TObjWarpJung::set_global_render_param();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         render_warp__12TObjWarpJungFPv(0);
         begin_effect_render__13TParticleCtrlFv();
-        ((s32 (*)(s32, s32))render_warp_effect__12TObjWarpJungFii)(1, (s32) *(f32 *)((s8 *)arg0 + 0xC4));
+        TObjWarpJung::render_warp_effect(1, (s32) *(f32 *)((s8 *)arg0 + 0xC4));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
@@ -328,7 +326,8 @@ void render__12TObjWarpJungFv(u8 *arg0) {
 
 int TObjWarpJung__vt17(void* p) { return confirm_area_transfer__12TObjAreaWarpFPvi(p); }
 
-void run_task__12TObjWarpJungFv(u8 *arg0) {
+void TObjWarpJung::run_task() {
+    u8 *arg0 = (u8 *)this;
   *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DC048);
   if ((*((f32 *) (((s8 *) arg0) + 0xC4))) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&warp_jung_beam_motion)) + 4))) - 1) & 0xFFFFFFFF)))
   {
@@ -360,9 +359,9 @@ Obj_801A0224 *TObjWarpJung__ct(Obj_801A0224 *self) {
     }
     self->fAC = lbl_805DC050;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        void *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x88);
+        void *p = alloc__23TAdSinglePlyChrSelectGCFv(0x88);
         if (p != NULL) {
-            p = init__13TAdVIConfigGCFPvf(p, self->f38, lbl_805DC054);
+            p = init__13TAdVIConfigGCFf(p, self->f38, lbl_805DC054);
         }
         self->fC0 = p;
     } else {
@@ -371,13 +370,13 @@ Obj_801A0224 *TObjWarpJung__ct(Obj_801A0224 *self) {
     return self;
 }
 
-f32 get_static_field4_as_float__12TObjWarpJungFv(void) {
+f32 TObjWarpJung::get_static_field4_as_float() {
     return (f32) *(u32 *)((s8 *)warp_jung_beam_motion + 4);
 }
 
-void set_global_render_param__12TObjWarpJungFv(void) { set_global_param__8TObjFishFi((void*)(warp_jung_model_handle)); }
+void TObjWarpJung::set_global_render_param() { set_global_param__8TObjFishFl((void*)(warp_jung_model_handle)); }
 
-void render_warp_effect__12TObjWarpJungFii(s32 arg0, s32 arg1) {
+void TObjWarpJung::render_warp_effect(s32 arg0, s32 arg1) {
     s32 temp_r3;
 
     temp_r3 = get_bml_model(TObjWarpJung__beam_bml_resource, arg0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct Ent_802098AC { f32 a, b, c; u32 d, e, f, g; };
 
 struct Out_802098AC { u8 pad[0x14]; f32 a, b, c; u32 d, e, f; };
@@ -25,11 +26,10 @@ struct Tmp_8020994C { u8 pad[0x18]; s16 v; u8 pad2[2]; };
 
 extern "C" {
 s32 next_event_shuffle_entry(s32);
-void swap_header_endian__6TLobbyFPv(void *);
+void swap_header_endian__6TLobbyFv(void *);
 extern s32 lbl_805D60A4;
 extern Ent_802098AC *lbl_805D60B8;
-void pick_random_entry__6TLobbyFPv(Out_802098AC *out);
-s16 clamp_min_drop__6TLobbyFUi(s32, s32);
+s16 clamp_min_drop__6TLobbyFUl(s32, s32);
 void TLobby__sub_8020A48C(void *p);
 void TLobby__sub_8020A568(void *p);
 extern u8 *TLobby__item_data_table_buffer;
@@ -38,18 +38,18 @@ u32 item_drop_rng_below(s32, u32);
 void TLobby__sub_8020A568(void *p);
 extern s32 item_drop_rng;
 extern u8 *TLobby__item_data_table_buffer;
-void pick_weighted_entry__6TLobbyFPvPv(s32 *arg0, s32 *arg1);
 void TLobby__sub_8020A48C(void *p);
-void copy_record_entry__6TLobbyFii(void *, void *);
+void copy_record_entry__6TLobbyFl(void *, void *);
 Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key);
 }
 
 extern "C" {
 
-void pick_random_entry__6TLobbyFPv(Out_802098AC *out) {
+void TLobby::pick_random_entry() {
+    Out_802098AC *out = (Out_802098AC *)this;
     s32 i = next_event_shuffle_entry(lbl_805D60A4);
     Ent_802098AC e = lbl_805D60B8[i];
-    swap_header_endian__6TLobbyFPv(&e);
+    swap_header_endian__6TLobbyFv(&e);
     out->a = e.a;
     out->b = e.b;
     out->c = e.c;
@@ -69,7 +69,7 @@ Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key) {
     lo = 0;
     while (lo < hi) {
         mid = (lo + hi) / 2;
-        copy_record_entry__6TLobbyFii(&t, arr + mid * 32);
+        copy_record_entry__6TLobbyFl(&t, arr + mid * 32);
         TLobby__sub_8020A48C(&t);
         if (t.v < key) {
             lo = mid + 1;
@@ -78,7 +78,7 @@ Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key) {
         }
     }
     e = arr + lo * 32;
-    copy_record_entry__6TLobbyFii(&t, e);
+    copy_record_entry__6TLobbyFl(&t, e);
     TLobby__sub_8020A48C(&t);
     if (t.v == key) {
         return (Rec_802099FC *)e;
@@ -101,10 +101,10 @@ void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1) {
         arg0->f[4] = r.f[4];
         arg0->f40 = r.h[1];
         arg0->f42 = r.h[0];
-        arg0->f6 = clamp_min_drop__6TLobbyFUi(r.h[4], r.h[5] + 1);
+        arg0->f6 = clamp_min_drop__6TLobbyFUl(r.h[4], r.h[5] + 1);
     }
 }
-void pick_weighted_entry__6TLobbyFPvPv(s32 *arg0, s32 *arg1) {
+void TLobby::pick_weighted_entry(s32 *arg0, s32 *arg1) {
     Hdr_80209AEC hdr = *(Hdr_80209AEC *)TLobby__item_data_table_buffer;
     Ent_80209AEC *tbl;
     u32 total;

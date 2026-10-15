@@ -15,6 +15,22 @@ public:
     s32 timer;
     TObject *owned_window;
 
+public:
+    void close_and_advance(void* a1);
+    void set_message_by_index(s32 arg1);
+    void open_message_window(u32 arg1);
+    void destroy_if_keyboard_idle();
+    void save_if_dirty();
+    int close_and_advance_to_3();
+    void update_save_status();
+    int close_and_advance_step2();
+    int save_1();
+    void update_save_state();
+    void close_window();
+    void create_backgrounds();
+    void save_character();
+    void set_state(s32 arg1);
+    static void *create(void *arg0);
 };
 
 typedef void (TSaveChCr::*TSaveChCrStateAction)();

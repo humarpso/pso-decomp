@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TContainerAncient01.h"
+#include "pso/misc/TScene.h"
 
 struct Tbl_8020335C { s32 v[8]; };
 
@@ -7,7 +9,6 @@ s32 *resolve_indirect_object_record(s32 arg0, u8 *arg1);
 s32 *resolve_indirect_node_record(s32 arg0, u8 *arg1);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern struct Tbl_8020335C group_selection_area_id_table;
-s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 }
 
 extern "C" {
@@ -28,14 +29,14 @@ s32 *resolve_indirect_node_record(s32 arg0, u8 *arg1) {
     return *(s32 **)((s8 *)arg1 + 0);
 }
 
-void set_instance__6TSceneFi(int a0) { TScene__render_callback = a0; }
+void TScene::set_instance(int a0) { TScene__render_callback = a0; }
 
     extern int TScene__active_scene_callback;
-void set_active_scene__6TSceneFi(int a0) { TScene__active_scene_callback = a0; }
+void TScene::set_active_scene(int a0) { TScene__active_scene_callback = a0; }
 
     extern int TScene__map_section_render_callback;
-void set_id__6TSceneFi(int a0) { TScene__map_section_render_callback = a0; }
-s32 is_global_state_in_table__19TContainerAncient01Fv(void) {
+void TScene::set_id(int a0) { TScene__map_section_render_callback = a0; }
+s32 TContainerAncient01::is_global_state_in_table() {
     struct Tbl_8020335C t = group_selection_area_id_table;
     s32 state = get_global_state__14TOKeyMachine01Fv();
     s32 i;

@@ -13,6 +13,9 @@ struct TBoss2LaserLight
     void* m_38;
     u8 _pad3C[0x4];
     u32 m_40;
+    void update_particle_trail();
+    static void render();
+    void run_task();
 };
 
 #endif

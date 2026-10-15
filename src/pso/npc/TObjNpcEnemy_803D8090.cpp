@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1Gee.h"
+#include "pso/npc/TObjNpcEnemy.h"
 
 struct Rec_803D8098 { s16 x; s16 y; s16 z; s16 pad; s32 f8; char *name; };
 
@@ -9,7 +11,6 @@ extern char *debug_text_pool_cursor;
 extern Rec_803D8098 *debug_text_record_cursor;
 extern f32 debug_text_scale;
 extern s32 debug_text_global_count;
-void queue_debug_text__13TObjEneMe1GeeFiPv(s32 arg0, char *arg1);
 int sprintf(char *, const char *, ...);
 extern char lbl_805D46A0[6];
 extern const f32 lbl_805E0EB8;
@@ -19,14 +20,12 @@ void print_float_padded(s32 arg0, s32 prec, f32 val);
 
 extern "C" {
 
-void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-
 extern s32 debug_text_global_count;
 
-void set_global_count__12TObjNpcEnemyFi(s32 arg0) {
+void TObjNpcEnemy::set_global_count(s32 arg0) {
     debug_text_global_count = arg0;
 }
-void queue_debug_text__13TObjEneMe1GeeFiPv(s32 arg0, char *arg1) {
+void TObjEneMe1Gee::queue_debug_text(s32 arg0, char *arg1) {
     s16 len;
     s16 x;
     f32 scale;

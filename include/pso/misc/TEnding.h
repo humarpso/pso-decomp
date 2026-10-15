@@ -18,6 +18,9 @@ public:
     s32 elapsed_ticks;
     u8 unresolved_2c[0x6E0];
     TAdRicoRingCtrl *ring_controller;
+public:
+    static void set_flag_and_advance();
+    static int start_ending_scene();
 };
 
 #include <stddef.h>

@@ -33,6 +33,27 @@ struct TObjEneRe4Sorcerer
     void* m_418;
     u8 _pad41C[0x58];
     void* m_474;
+    static void step_effect_sequence();
+    void handle_death_state(s32 arg1);
+    void update_state_machine(void *arg1p);
+    void state_wait(s32 arg1);
+    s32 handle_state(s32 arg1);
+    void create_effect();
+    s32 cast_resta();
+    s32 cast_technique();
+    void turn_to_target();
+    void calc_orb_positions();
+    void apply_mylla_effect();
+    void set_photon_state();
+    static s32 check_shield(s32 arg0, void *arg1);
+    void advance_anim_frame();
+    void request_death_effect();
+    s32 try_attack(f32 farg0, f32 farg1);
+    void update_collision_center();
+    void init_enemy();
+    static void free_bits();
+    void *create();
+    static void load_resources();
 };
 
 #endif

@@ -88,7 +88,7 @@ void* construct_creation_camera(void* a0);
     extern int TObjCMMainMenu__selected_entry_id;
 u32 get_character_creation_selected_entry_id(void);
 s32 get_character_save_record(u32);
-s32 decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
+s32 decode_obfuscated_string__6TLobbyFPvi(void *, void *, int, int);
 extern RecoveredGlobal_80291D4C_lbl_80540958 lbl_80540958;
 s32 *TLobby__sub_80291D4C(void);
 }
@@ -122,7 +122,7 @@ extern "C" {
 s32 *TLobby__sub_80291D4C(void) {
     s32 temp_r3;
     temp_r3 = get_character_save_record(0xFFFFU);
-    decode_obfuscated_string__6TLobbyFPvPvi((void *) (&lbl_80540958.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
+    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_80540958.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
     return &lbl_80540958.value;
 }
 }

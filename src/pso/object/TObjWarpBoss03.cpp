@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjWarpBoss03.h"
 
 extern "C" {
 
@@ -6,9 +7,8 @@ void *TObjWarpBoss03__ct(void *arg0);
 void TObjWarpBoss03__vt18(void* p);
 void *TObjWarpJungMain__create(void *arg0);
 void *__dt__14TObjWarpBoss03Fv(void *arg0, s16 arg1);
-int run_task__14TObjWarpBoss03Fv(void* p);
 void TObjAreaWarp__ct(void *);
-int debug_print_area_num__12TObjAreaWarpFPv(void*);
+int debug_print_area_num__12TObjAreaWarpFv(void*);
 int handle_area_selection__12TObjAreaWarpFPv(void*);
 void *TObjWarpJungMain__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -16,8 +16,8 @@ void __dt__12TObjAreaWarpFv(void *, int);
 void *__nw__7TObjectFUl(int);
 int fn_8019F9E4(void*);
 
-void TObjWarpBoss03__vt18(void* p) { debug_print_area_num__12TObjAreaWarpFPv(p); fn_8019F9E4(p); }
-int run_task__14TObjWarpBoss03Fv(void* p) { return handle_area_selection__12TObjAreaWarpFPv(p); }
+void TObjWarpBoss03__vt18(void* p) { debug_print_area_num__12TObjAreaWarpFv(p); fn_8019F9E4(p); }
+int TObjWarpBoss03::run_task() { return handle_area_selection__12TObjAreaWarpFPv(this); }
 
 extern s32 __vt__14TObjWarpBoss03[];
 

@@ -9,6 +9,7 @@ struct TBoss6Zanzo
     u32 m_20;
     u32 m_24;
     u32 m_28;
+    void render();
 };
 
 #endif

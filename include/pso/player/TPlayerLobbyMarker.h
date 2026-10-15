@@ -13,6 +13,8 @@ public:
     u8 flags;
     u16 player_id;
     s32 rotation;
+public:
+    void set_material_index(u8 v);
 };
 typedef char LobbyMarker_size[sizeof(TPlayerLobbyMarker) == 0x24 ? 1 : -1];
 #endif

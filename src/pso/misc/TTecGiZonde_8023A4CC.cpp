@@ -2,6 +2,7 @@
 
 #include <stddef.h>
 #include <stddef.h>
+#include "pso/misc/TTecGiZonde.h"
 struct Stack_8023A510 {
     s32 sp8;
     s32 spC;
@@ -75,9 +76,8 @@ extern "C" {
 void TObjPlayer__sub_8023A70C(void* p);
 void move_ground_technique_projectile(void* p);
 void advance_lifetime_or_destroy(void *arg0);
-void render__11TTecGiZondeFv(void);
 
-void render__11TTecGiZondeFv(void) {  }
+void TTecGiZonde::render() {  }
 void advance_lifetime_or_destroy(void *arg0) {
     f32 temp_f1;
 

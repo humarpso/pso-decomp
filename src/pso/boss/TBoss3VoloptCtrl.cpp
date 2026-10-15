@@ -13,7 +13,6 @@ extern const f32 lbl_805D86F8;
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0);
 s32 get_main_phase(void);
 s32 get_current_floor();
-void *init_object__16TBoss3VoloptCtrlFPv(void *arg0);
 s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
 s32 get_story_flag(s32);
@@ -21,7 +20,6 @@ s32 unhide_room_set_objects(s32, s32, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003EA2C(int);
-void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0);
 s32 TObjPlayer__sub_801BA42C();
 s32 freeze_all_players__10TObjPlayerFv();
 s32 play_area_music(void *);
@@ -33,9 +31,6 @@ extern s32 volopt_resources_loaded;
 extern "C" {
 
 void *TBoss3VoloptCtrl__ct(void *arg0);
-void *deleting_destructor__16TBoss3VoloptCtrlFPvs(void *arg0, s16 arg1);
-void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0);
-void *init_object__16TBoss3VoloptCtrlFPv(void *arg0);
 s32 TLobby__sub_8020C07C(s32, s32, s32, s32, s32);
 s32 unhide_room_set_objects(s32, s32, s32);
 s32 get_current_floor();
@@ -67,29 +62,29 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
 }
 
 extern "C" {
-void *deleting_destructor__16TBoss3VoloptCtrlFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80483B88;
-        __dt__7TObjectFv(arg0, 0);
+void *TBoss3VoloptCtrl::deleting_destructor(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_80483B88;
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 }
 
 extern "C" {
-void *init_object__16TBoss3VoloptCtrlFPv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0, tl_02);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_80483B88;
-    disallow_rendering__7TObjectFv(arg0);
-    return arg0;
+void *TBoss3VoloptCtrl::init_object() {
+    __ct__7TObjectFP7TObject(this, tl_02);
+    *(s32 **)((s8 *)this + 0x18) = lbl_80483B88;
+    disallow_rendering__7TObjectFv(this);
+    return this;
 }
 }
 
 extern "C" {
-void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0) {
+void TBoss3VoloptCtrl::dispatch_state(s32 arg0) {
     switch (arg0) {
     case 0:
         unhide_room_set_objects(get_current_floor(), 0, 1);
@@ -134,9 +129,9 @@ void TBoss3VoloptCtrl::run_task() {
                     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
                         unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(1));
                     } else if (get_story_flag(0x2F) != 0) {
-                        dispatch_state__16TBoss3VoloptCtrlFi((s32)((int) (4)));
+                        TBoss3VoloptCtrl::dispatch_state(4);
                     } else {
-                        dispatch_state__16TBoss3VoloptCtrlFi((s32)((int) (3)));
+                        TBoss3VoloptCtrl::dispatch_state(3);
                     }
                 } else {
                     unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(1));
@@ -144,7 +139,7 @@ void TBoss3VoloptCtrl::run_task() {
                 unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(3));
                 temp_r3 = (u8 *)(__nw__7TObjectFUl(0x1C));
                 if (temp_r3 != NULL) {
-                    init_object__16TBoss3VoloptCtrlFPv(temp_r3);
+                    ((TBoss3VoloptCtrl *)temp_r3)->init_object();
                 }
                 phase = 2;
                 break;

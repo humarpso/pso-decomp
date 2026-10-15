@@ -23,9 +23,9 @@ struct Stack_801AAB74 { f32 x, y, z; };
 extern "C" {
 u8 *photon_base_ct(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFPvs(void *, s32);
-void set_field_dc__10TObjPlayerFPvi(void *, s32);
-void set_field_d8__10TObjPlayerFPvi(void *, s32);
+s32 set_field_b8__14TObjEnePanarmsFs(void *, s32);
+void set_field_dc__10TObjPlayerFl(void *, s32);
+void set_field_d8__10TObjPlayerFl(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 begin_photon_summon_camera(void *, int);
@@ -65,11 +65,11 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x98);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x9C);
-    set_field_d8__10TObjPlayerFPvi(arg0, (s32) photon_estlla_param_table);
-    set_field_dc__10TObjPlayerFPvi(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    set_field_d8__10TObjPlayerFl(arg0, (s32) photon_estlla_param_table);
+    set_field_dc__10TObjPlayerFl(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_field_b8__14TObjEnePanarmsFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     *(s16 *)((s8 *)arg0 + 0x190) = 1;
     *(s32 *)((s8 *)arg0 + 0x194) = *(s32 *)((s8 *)arg1 + 0x10);
     *(s32 *)((s8 *)arg0 + 0x198) = *(s32 *)((s8 *)arg1 + 0x14);
@@ -98,7 +98,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     }
     *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
     if (*(s32 *)((s8 *)arg0 + 0x194) == 0) {
-        set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
+        set_field_b8__14TObjEnePanarmsFs(arg0, 0);
         begin_photon_summon_camera(arg0, 0);
         *(s32 *)((s8 *)arg0 + 0x194) = 1;
         *(s16 *)((s8 *)arg0 + 0x190) = 0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemEffPG.h"
 
 struct RecoveredGlobal_8034FCF0_lbl_804F0BF0 {
     s32 value;
@@ -12,10 +13,8 @@ s32 play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
 void TItemEffPG__visual_run(u8 *arg0);
-void * init_fields__10TItemEffPGFPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create__10TItemEffPGFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_particle_emitter(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -34,7 +33,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(void *);
 s32 set_chunk_material_color(void *);
 extern s32 saved_model_draw_color[];
@@ -45,15 +44,12 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void draw_effect_models__10TItemEffPGFPv(u8 *arg0);
 }
 
 extern "C" {
 
 void TItemEffPG__begin_visual_fade(void* p);
 void *__dt__10TItemEffPGFPvs(void *arg0, s16 arg1);
-s32 countdown_timer__10TItemEffPGFPv(void *arg0);
-void *destroy__10TItemEffPGFPvs(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__10TItemEffPGFv(void *, int);
@@ -63,23 +59,24 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern s32 lbl_804F0AF8[];
 
-void *init_fields__10TItemEffPGFPv(void *arg0, s32 _w1, void * _w2) {
-    TItemWeapon__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0AF8;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 1);
-    *(u32 *)((s8 *)arg0 + 0x1F8) = -30947;
-    *(u32 *)((s8 *)arg0 + 0x1FC) = -7281;
-    return arg0;
+void *TItemEffPG::init_fields(s32 _w1, void * _w2) {
+    TItemWeapon__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804F0AF8;
+    set_status_flags__10TObjPlayerFPvUi(this, 1);
+    *(u32 *)((s8 *)this + 0x1F8) = -30947;
+    *(u32 *)((s8 *)this + 0x1FC) = -7281;
+    return this;
 }
 
-u8 *create__10TItemEffPGFPv(u8 *arg0) {
+u8 *TItemEffPG::create() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_fields__10TItemEffPGFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TItemEffPG *)temp_r3)->init_fields((s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -90,7 +87,8 @@ void TItemEffPG__begin_visual_fade(void* p) { *(s32*)((char*)p + 0x58) = 1; }
 
 extern s32 lbl_804F0BF0[];
 
-void draw_effect_models__10TItemEffPGFPv(u8 *arg0) {
+void TItemEffPG::draw_effect_models() {
+    u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x1C))) == 0U) {
         return;
     }
@@ -104,7 +102,7 @@ void draw_effect_models__10TItemEffPGFPv(u8 *arg0) {
             model_render_flags |= 0x20;
             set_chunk_material_color((void *) (arg0 + 0x28));
             begin_effect_render__13TParticleCtrlFv();
-            set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x5C));
             push_matrix();
@@ -196,12 +194,12 @@ u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     return arg0;
 }
 
-s32 countdown_timer__10TItemEffPGFPv(void *arg0) {
+s32 TItemEffPG::countdown_timer() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0xD4);
+    temp_r4 = *(s32 *)((s8 *)this + 0xD4);
     if (temp_r4 > 0) {
-        *(s32 *)((s8 *)arg0 + 0xD4) = (s32) (temp_r4 - 1);
+        *(s32 *)((s8 *)this + 0xD4) = (s32) (temp_r4 - 1);
         return 1;
     }
     return 0;
@@ -209,15 +207,15 @@ s32 countdown_timer__10TItemEffPGFPv(void *arg0) {
 
 extern s32 lbl_804F0C08[];
 
-void *destroy__10TItemEffPGFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0C08;
-        __dt__10TItemEffPGFv(arg0, 0);
+void *TItemEffPG::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804F0C08;
+        __dt__10TItemEffPGFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }

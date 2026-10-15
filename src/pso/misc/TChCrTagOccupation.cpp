@@ -191,10 +191,6 @@ int TChCrTagOccupation__vt4(Obj_802A2F78 *self);
 
 extern "C" {
 
-void *create__18TChCrTagOccupationFPv(void *arg0);
-void create_all__18TChCrTagOccupationFv(void);
-int render__18TChCrTagOccupationFv(void* p);
-
 #pragma push
 #pragma fp_contract on
 void fn_802A2DF4(Tag_802A2DF4 *self) {
@@ -228,7 +224,7 @@ void fn_802A2DF4(Tag_802A2DF4 *self) {
 }
 #pragma pop
 
-int render__18TChCrTagOccupationFv(void* p) { return ((int (*)(void *))fn_802A2DF4)(p); }
+int TChCrTagOccupation::render(void* p) { return ((int (*)(void *))fn_802A2DF4)(p); }
 
 int TChCrTagOccupation__vt4(Obj_802A2F78 *self) {
     if (get_selected_char__15TChCrCharSelectFv(self) == self->f20) return 1;
@@ -272,7 +268,7 @@ u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2) {
 }
 #pragma pop
 
-void *create__18TChCrTagOccupationFPv(void *arg0) {
+void *TChCrTagOccupation::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
         o = __ct__18TChCrTagOccupationFv((u8 *)(o), (s32)(tl_03), (s32)(arg0));
@@ -280,7 +276,7 @@ void *create__18TChCrTagOccupationFPv(void *arg0) {
     return o;
 }
 
-void create_all__18TChCrTagOccupationFv(void) { { int i; for (i = 0; i < 3; i++) { create__18TChCrTagOccupationFPv((void *)((void*)i)); } } }
+void TChCrTagOccupation::create_all() { { int i; for (i = 0; i < 3; i++) { TChCrTagOccupation::create((void *)((void*)i)); } } }
 
 }
 
@@ -291,7 +287,7 @@ void *__vt__18TChCrTagOccupation[8] = {
     0,
     (void *)__dt__18TChCrTagOccupationFv,
     (void *)update_fade__8TChCrTagFPv,
-    (void *)render__18TChCrTagOccupationFv,
+    (void *)TChCrTagOccupation::render,
     (void *)render_shadows__7TObjectFv,
     (void *)TChCrTagOccupation__vt4,
     0,

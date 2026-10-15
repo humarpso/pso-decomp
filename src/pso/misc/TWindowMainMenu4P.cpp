@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMainMenu4P.h"
 
 struct VBase_18_f8ef8c { char pad[0x18]; };
 
@@ -19,7 +20,7 @@ typedef char RecoveredGlobal_802889A8_lbl_804D0530_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 s32 get_player_by_client_id(u32);
-s32 is_ready__10TObjPlayerFPv(void *);
+s32 is_ready__10TObjPlayerFv(void *);
 void open__15TWindowMainMenuFPvi(void *, s32);
 extern RecoveredGlobal_802889A8_lbl_804D04F8 lbl_804D04F8;
 extern RecoveredGlobal_802889A8_lbl_804D0530 lbl_804D0530;
@@ -32,8 +33,6 @@ void *TWindowMainMenu4P__ct(void *arg0);
 void TWindowMainMenu4P__vt6(void *arg0);
 void TWindowMainMenu4P__vt7(void* p);
 void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1);
-void render__17TWindowMainMenu4PFv(void);
-void run_task__17TWindowMainMenu4PFv(void* p);
 void TWindowMainMenu__ct(void *);
 int TWindowMainMenu__sub_80263FE0(void*);
 int handle_menu_selection__15TWindowMainMenuFPv(void*);
@@ -41,9 +40,9 @@ void __dl__7TObjectFPv(void *);
 void __dt__15TWindowMainMenuFv(void *, int);
 int close_active_submenu__15TWindowMainMenuFPv(void*);
 s32 close_and_clear_flags__15TWindowMainMenuFPv();
-int show_child_window__15TWindowMainMenuFPv(void*);
+int show_child_window__15TWindowMainMenuFv(void*);
 
-void TWindowMainMenu4P__vt7(void* p) { if (close_active_submenu__15TWindowMainMenuFPv(p) != 0) { show_child_window__15TWindowMainMenuFPv(p); } }
+void TWindowMainMenu4P__vt7(void* p) { if (close_active_submenu__15TWindowMainMenuFPv(p) != 0) { show_child_window__15TWindowMainMenuFv(p); } }
 
 void TWindowMainMenu4P__vt6(void *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0x4C) & 1) {
@@ -56,7 +55,7 @@ void TWindowMainMenu4P__vt4(u8 *arg0) {
     if (!(*(s32 *)((s8 *)arg0 + 0x4C) & 1)) {
         temp_r3 = (u8 *)(get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54)));
         if (temp_r3 != NULL) {
-            if (is_ready__10TObjPlayerFPv(temp_r3) != 0) {
+            if (is_ready__10TObjPlayerFv(temp_r3) != 0) {
                 open__15TWindowMainMenuFPvi(arg0, (s32) &lbl_804D0530.value);
             } else {
                 open__15TWindowMainMenuFPvi(arg0, (s32) &lbl_804D04F8.value);
@@ -66,8 +65,8 @@ void TWindowMainMenu4P__vt4(u8 *arg0) {
     }
 }
 
-void render__17TWindowMainMenu4PFv(void) {  }
-void run_task__17TWindowMainMenu4PFv(void* p) { handle_menu_selection__15TWindowMainMenuFPv(p); TWindowMainMenu__sub_80263FE0(p); }
+void TWindowMainMenu4P::render() {  }
+void TWindowMainMenu4P::run_task() { handle_menu_selection__15TWindowMainMenuFPv(this); TWindowMainMenu__sub_80263FE0(this); }
 
 extern s32 __vt__17TWindowMainMenu4P[];
 

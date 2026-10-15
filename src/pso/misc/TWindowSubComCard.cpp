@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TQuestListOnline.h"
+#include "pso/misc/TQuestListVM.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct Base_8021845C_802183B4 { char pad[0x18]; };
 struct VObj_8021845C_802183B4 : Base_8021845C_802183B4 {
@@ -48,31 +50,28 @@ void TQuestListVM__vt4(void *arg0);
 void TQuestListVM__vt5(void *arg0);
 void TQuestListVM__vt7(void *arg0);
 s32 TQuestListVM__vt8(void *arg0);
-void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0);
 
-void poll_download__12TQuestListVMFv(void);
-void set_selected_entry__12TQuestListVMFPvPv(void* p, void* a1);
 s32 TShopWindowBase__sub_80223A48(void *);
-u32 get_serial_access__22TQuestVmDownLoadServerFPv();
-s32 poll_serial_access__22TQuestVmDownLoadServerFPv();
-s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
-int set_field_20__12TQuestListVMFPvi(void*, void*);
+u32 get_serial_access__22TQuestVmDownLoadServerFv();
+s32 poll_serial_access__22TQuestVmDownLoadServerFv();
+s32 set_entry_state__20TWindowSubStatusDispFSc(s32 a0 = 0, s32 a1 = 0);
+int set_field_20__12TQuestListVMFl(void*, void*);
 
 }
 s32 TQuestListOnline::get_selection_stage() { return selection_stage; }
 extern "C" {
-void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0) {
+void TWindowSubComCard::clear_flag_and_release() {
     u32 temp;
-    *(u16 *)((s8 *)arg0 + 0x70) = (u16) (*(u16 *)((s8 *)arg0 + 0x70) & 0xFFFFFFFD);
-    temp = (u32) *(u32 *)((s8 *)arg0 + 0x88);
+    *(u16 *)((s8 *)this + 0x70) = (u16) (*(u16 *)((s8 *)this + 0x70) & 0xFFFFFFFD);
+    temp = (u32) *(u32 *)((s8 *)this + 0x88);
     if (temp != 0U) {
-        set_entry_state__20TWindowSubStatusDispFPvc(temp, 1);
+        set_entry_state__20TWindowSubStatusDispFSc(temp, 1);
     }
 }
-void set_selected_entry__12TQuestListVMFPvPv(void* p, void* a1) { set_field_20__12TQuestListVMFPvi(p, (void*)20); *(void**)((char*)p + 0x23b4) = a1; }
-void poll_download__12TQuestListVMFv(void) {
-    if (get_serial_access__22TQuestVmDownLoadServerFPv() == 0U) {
-        poll_serial_access__22TQuestVmDownLoadServerFPv();
+void TQuestListVM::set_selected_entry(void* a1) { set_field_20__12TQuestListVMFl(this, (void*)20); *(void**)((char*)this + 0x23b4) = a1; }
+void TQuestListVM::poll_download() {
+    if (get_serial_access__22TQuestVmDownLoadServerFv() == 0U) {
+        poll_serial_access__22TQuestVmDownLoadServerFv();
     }
 }
 

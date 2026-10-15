@@ -38,13 +38,13 @@ extern const f32 lbl_805DBAC8;
 void run_task__19TObjGoalWarpAncientFv(u8 *arg0);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
-s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
 s32 get_instance__19TObjGoalWarpAncientFv();
 s32 register_warp__19TObjGoalWarpAncientFPv(int);
 s32 TObjGoalWarpAncient__sub_8017D2D4(int);
 s32 TObjAreaWarp__ct(void *, void *, void *);
-s32 init__13TAdVIConfigGCFPvf(int, void *, f32);
+s32 init__13TAdVIConfigGCFf(int, void *, f32);
 s32 get_game_play_mode();
 extern s32 __vt__19TObjGoalWarpAncient[];
 extern s32 TObjGoalWarpAncient__class_name;
@@ -53,14 +53,14 @@ extern const f32 lbl_805DBAC4;
 u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
 s32 get_instance__19TObjGoalWarpAncientFv();
-s32 debug_print_area_num__12TObjAreaWarpFPv();
-void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+s32 debug_print_area_num__12TObjAreaWarpFv();
+void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80443288[];
 extern char lbl_804432A4[];
 void TObjGoalWarpAncient__vt18(void *arg0);
-s32 draw_debug_destinations__11TObjMapWarpFPv();
-void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+s32 draw_debug_destinations__11TObjMapWarpFv();
+void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_804432C8[];
 extern char lbl_804432E8[];
@@ -81,7 +81,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern const f32 lbl_805DBAB8;
 extern const f32 lbl_805DBABC;
@@ -92,12 +92,12 @@ void render__19TObjGoalWarpAncientFv(u8 *arg0) {
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xD8));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xD8));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xCC), *(s32 *)((s8 *)arg0 + 0xE4), *(f32 *)((s8 *)arg0 + 0xC4));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xE0));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xE0));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xE8), *(f32 *)((s8 *)arg0 + 0xC8));
         end_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xDC));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xDC));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0xD0));
         pop_matrix();
     }
@@ -111,8 +111,8 @@ typedef char RecoveredFields_8017CCA4_arg0_E4_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_8017CCA4_arg0_E8_offset[offsetof(RecoveredFields_8017CCA4_arg0, field_E8) == 0xE8 ? 1 : -1];
 
 void TObjGoalWarpAncient__vt18(void *arg0) {
-    debug_print_area_num__12TObjAreaWarpFPv();
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    debug_print_area_num__12TObjAreaWarpFv();
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
         *(s32 *)((s8 *)arg0 + 0xD8) = get_instance__19TObjGoalWarpAncientFv();
         debug_printf_at(0x130022, lbl_80443288);
@@ -120,7 +120,7 @@ void TObjGoalWarpAncient__vt18(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv((int)(1));
         debug_printf_at(0x130022, lbl_804432A4);
     }
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
 }
 
 void run_task__19TObjGoalWarpAncientFv(u8 *arg0) {
@@ -153,6 +153,7 @@ void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1) {
 #pragma push
 
 #include "types.h"
+#include "pso/object/TObjMapWarpAncient.h"
 
 struct VObjBase_8017CED8_more_8017cca4_1 { char pad[0x18]; };
 struct VObj_8017CED8_more_8017cca4_1 : VObjBase_8017CED8_more_8017cca4_1 {
@@ -171,13 +172,11 @@ extern "C" {
 void process_player_warps__11TObjMapWarpFPv(void *);
 extern const f32 lbl_805DBAC0;
 extern const f32 lbl_805DBAC4;
-void run_task__18TObjMapWarpAncientFv(u8 *arg0);
 }
 
 extern "C" {
 
 void *TObjMapWarpAncient__create(void *arg0);
-void render__18TObjMapWarpAncientFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
@@ -188,7 +187,7 @@ s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern void *tl_05;
 
@@ -217,10 +216,10 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
     if (is_split_screen() == 1) {
-        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x88));
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((int) (0x88));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFPvf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBABC));
+            var_r0 = init__13TAdVIConfigGCFf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBABC));
         }
         *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
     } else {
@@ -240,20 +239,21 @@ void *TObjMapWarpAncient__create(void *arg0) {
 extern const f32 lbl_805DBAB8;
 extern const f32 lbl_805DBABC;
 
-void render__18TObjMapWarpAncientFv(u8 *arg0) {
+void TObjMapWarpAncient::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_8017CED8_more_8017cca4_1*)arg0)->m8(lbl_805DBAB8, lbl_805DBABC) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         begin_effect_render__13TParticleCtrlFv();
         if ((s32) *(s32 *)((s8 *)arg0 + 0x88) >= 0) {
-            set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x10C));
+            set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x10C));
             draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x100), *(s32 *)((s8 *)arg0 + 0x118), *(f32 *)((s8 *)arg0 + 0xFC));
         }
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x110));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x110));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x104));
         end_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x114));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x114));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x108));
         pop_matrix();
     }
@@ -261,18 +261,19 @@ void render__18TObjMapWarpAncientFv(u8 *arg0) {
 
 void TObjMapWarpAncient__vt17(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-        set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+        set_global_count__12TObjNpcEnemyFl(0xFF00FF);
         debug_printf_at(0x130021, lbl_804432C8);
-        set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+        set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
         return;
     }
-    draw_debug_destinations__11TObjMapWarpFPv();
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    draw_debug_destinations__11TObjMapWarpFv();
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     debug_printf_at(0x130021, lbl_804432E8);
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
 }
 
-void run_task__18TObjMapWarpAncientFv(u8 *arg0) {
+void TObjMapWarpAncient::run_task() {
+    u8 *arg0 = (u8 *)this;
   if (((s32) (*((s32 *) (((s8 *) arg0) + 0x88)))) >= 0)
   {
     *((f32 *) (((s8 *) arg0) + 0xFC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xFC))) + lbl_805DBAC0);

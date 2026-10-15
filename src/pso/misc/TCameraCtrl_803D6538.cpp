@@ -1,6 +1,8 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_803D6DDC {
     u8 * sp8;
     u8 * spC;
@@ -153,7 +155,6 @@ void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count,
 extern RecoveredGlobal_803D662C_lbl_8058D4D0 camera_clip_parameters;
 extern G_803D6688 lbl_8058D4F8;
 extern const f32 lbl_805E0E10;
-void update_projection_params__11TCameraCtrlFPv(Cam_803D66DC *arg0);
 }
 
 extern "C" {
@@ -178,7 +179,6 @@ void bind_motion_blend_channels(u8 *arg0, f32 farg0);
 extern RecoveredGlobal_803D662C_lbl_8058D4D0 camera_clip_parameters;
 extern const f32 lbl_805E0E00;
 extern const f32 lbl_805E0E04;
-void set_clamped_offsets__11TCameraCtrlFff(f32 farg0, f32 farg1);
 extern RecoveredGlobal_803D77C0_lbl_8047E3C8 lbl_8047E3C8;
 extern RecoveredGlobal_803D77C0_lbl_804FA500 lbl_804FA500;
 extern RecoveredGlobal_803D77C0_lbl_804FA50C motion_angle_sampler_table;
@@ -191,29 +191,26 @@ extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
 extern u8 *current_motion_context;
 void select_motion_context(s32 arg0);
 s32 translate_matrix(s32, f32, f32, f32);
-s32 translate_view_negated__11TCameraCtrlFfff(f32 x, f32 y, f32 z);
 extern u8 *current_motion_context;
 void advance_motion_row(void);
 u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 extern u8 *current_motion_context;
 void set_motion_row_stride(s32 n);
-void concat_quaternion_rotation__10TObjPlayerFPv(void *);
+void concat_quaternion_rotation__10TObjPlayerFv(void *);
 void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 void compose_motion_node_matrix(void *arg0);
 s32 blend_motion_poses(void *, void *, void *, void *, void *);
-void concat_quaternion_rotation__10TObjPlayerFPv(void *);
+void concat_quaternion_rotation__10TObjPlayerFv(void *);
 void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
-void apply_motion_node_transform__10TObjPlayerFPv(void *arg0);
 void TCameraCtrl__sub_803D65F8(u8 *);
 void set_camera_look_at(u8* eye, u8* target, u8* up);
 void set_matrix_identity(s32);
 extern u8 lbl_804FA4F0[];
-void look_at_position__11TCameraCtrlFfff(f32 farg0, f32 farg1, f32 farg2);
 extern G_803D6688 lbl_8058D4F8;
 extern const f32 lbl_805E0E08;
 void set_screen_size(f32 farg0, f32 farg1);
@@ -222,15 +219,11 @@ s32 sample_motion_vector_channel(s32 arg0);
 extern u8 *current_motion_context;
 s32 TObjPlayer__sub_803D6C1C(s32 arg0);
 extern u8 *current_motion_context;
-s32 run_next_key_callback__10TObjPlayerFi(s32 arg0);
 extern u8 *current_motion_context;
-s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 void find_motion_key_interval_u16(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac);
 void select_motion_sampler(s32 *arg0, f32 farg0);
 s32 sample_motion_vector_channel(s32 arg0);
-s32 run_next_key_callback__10TObjPlayerFi(s32 arg0);
-s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0);
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
 extern u8 *current_motion_context;
@@ -248,13 +241,12 @@ extern "C" {
 
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
-void update_camera_state__11TCameraCtrlFv(f32 _w0, f32 _w1, f32 _w2);
 
-void update_camera_state__11TCameraCtrlFv(f32 _w0, f32 _w1, f32 _w2) {
-    translate_view_negated__11TCameraCtrlFfff(_w0, _w1, _w2);
+void TCameraCtrl::update_camera_state(f32 _w0, f32 _w1, f32 _w2) {
+    TCameraCtrl::translate_view_negated(_w0, _w1, _w2);
 }
 
-void look_at_position__11TCameraCtrlFfff(f32 farg0, f32 farg1, f32 farg2) {
+void TCameraCtrl::look_at_position(f32 farg0, f32 farg1, f32 farg2) {
     u8 sp14[0x14];
     V_803D6558 v;
     TCameraCtrl__sub_803D65F8((u8 *)(sp14));
@@ -267,7 +259,7 @@ void look_at_position__11TCameraCtrlFfff(f32 farg0, f32 farg1, f32 farg2) {
 
 #pragma push
 #pragma scheduling off
-s32 translate_view_negated__11TCameraCtrlFfff(f32 x, f32 y, f32 z) {
+s32 TCameraCtrl::translate_view_negated(f32 x, f32 y, f32 z) {
     return translate_matrix(0, -x, -y, -z);
 }
 #pragma pop
@@ -287,7 +279,7 @@ void set_camera_look_at(u8* eye, u8* target, u8* up) {
 #pragma opt_common_subs off
 #pragma scheduling off
 typedef char RecoveredGlobal_803D662C_lbl_8058D4D0_size[sizeof(RecoveredGlobal_803D662C_lbl_8058D4D0) == 0x28 ? 1 : -1];
-void set_clamped_offsets__11TCameraCtrlFff(f32 farg0, f32 farg1) {
+void TCameraCtrl::set_clamped_offsets(f32 farg0, f32 farg1) {
     f32 var_f1;
     f32 var_f2;
     var_f1 = farg0;
@@ -329,7 +321,8 @@ void set_screen_size(f32 farg0, f32 farg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void update_projection_params__11TCameraCtrlFPv(Cam_803D66DC *arg0) {
+void TCameraCtrl::update_projection_params() {
+    Cam_803D66DC *arg0 = (Cam_803D66DC *)this;
     f32 c, b, a;
     (*(Cam_803D66DC *)&lbl_8058D4F8).f18 = a = arg0->f18;
     (*(Cam_803D66DC *)&lbl_8058D4F8).f8 = b = arg0->f8;
@@ -474,7 +467,7 @@ s32 TObjPlayer__sub_803D6C1C(s32 arg0) {
 }
 
 #define G_803D6C94 ((St_803D6C94 *)current_motion_context)
-s32 run_next_key_callback__10TObjPlayerFi(s32 arg0) {
+s32 TObjPlayer::run_next_key_callback(s32 arg0) {
     if (G_803D6C94->keys[G_803D6C94->idx] != 0) {
         G_803D6C94->fn28(G_803D6C94->keys[G_803D6C94->idx], G_803D6C94->vals[G_803D6C94->idx], arg0, G_803D6C94->t);
         G_803D6C94->idx = G_803D6C94->idx + 1;
@@ -485,7 +478,7 @@ s32 run_next_key_callback__10TObjPlayerFi(s32 arg0) {
 }
 
 #define G_803D6D0C ((St_803D6D0C *)current_motion_context)
-s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0) {
+s32 TObjPlayer::sample_next_quaternion_key(s32 arg0) {
     if (G_803D6D0C->keys[G_803D6D0C->idx] != 0) {
       interpolate_motion_quaternion_keys(
           (u32)(G_803D6D0C->keys[G_803D6D0C->idx]),
@@ -549,7 +542,8 @@ void interpolate_motion_vector_keys_xy(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) 
 
 #pragma push
 #pragma scheduling off
-void interpolate_motion_key__10TObjPlayerFPviPvf(u8 *arg0, s32 arg1, s32 *arg2, f32 farg0) {
+void TObjPlayer::interpolate_motion_key(s32 arg1, s32 *arg2, f32 farg0) {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_803D6F20, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D6F20, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D6F20, sp10) == 0x8) ? 1 : -1];
@@ -718,13 +712,13 @@ typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_8
 #pragma scheduling off
 #pragma opt_common_subs off
 #pragma peephole off
-void apply_motion_node_transform__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::apply_motion_node_transform() {
     struct Vec_803D7CA4 trans;
     struct Vec_803D7CA4 scale;
     struct Angles_803D7CA4 rot;
     struct Quat_803D7CA4 quat;
     s32 kind;
-    kind = blend_motion_poses(arg0, &trans, &rot, &scale, &quat);
+    kind = blend_motion_poses(this, &trans, &rot, &scale, &quat);
     post_translate_matrix(&trans);
     switch (kind) {
     case 0:
@@ -734,7 +728,7 @@ void apply_motion_node_transform__10TObjPlayerFPv(void *arg0) {
         rotate_matrix_by_node_angles(&rot, 1);
         break;
     default:
-        concat_quaternion_rotation__10TObjPlayerFPv(&quat);
+        concat_quaternion_rotation__10TObjPlayerFv(&quat);
         break;
     }
     scale_current_matrix(&scale);
@@ -895,11 +889,11 @@ void bind_motion_channel_samplers(int arg0, f32 farg0) {
         *(void **)((s8 *)current_motion_context + 0x30) = (void *)TObjPlayer__sub_803D7FD0;
     }
     if ((u32) (temp_r5 & 2) != 0) {
-        *(void **)((s8 *)current_motion_context + 0x34) = (void *)run_next_key_callback__10TObjPlayerFi;
+        *(void **)((s8 *)current_motion_context + 0x34) = (void *)TObjPlayer::run_next_key_callback;
         *(void **)((s8 *)current_motion_context + 0x3C) = NULL;
     } else if ((u32) (temp_r5 & 0x2000) != 0) {
         *(void **)((s8 *)current_motion_context + 0x34) = NULL;
-        *(void **)((s8 *)current_motion_context + 0x3C) = (void *)sample_next_quaternion_key__10TObjPlayerFi;
+        *(void **)((s8 *)current_motion_context + 0x3C) = (void *)TObjPlayer::sample_next_quaternion_key;
     } else {
         *(void **)((s8 *)current_motion_context + 0x34) = (void *)TObjPlayer__sub_803D7FD8;
         *(void **)((s8 *)current_motion_context + 0x3C) = NULL;
@@ -927,7 +921,7 @@ void compose_motion_node_matrix(void *arg0) {
         rotate_matrix_by_node_angles(&rot, 1);
         break;
     default:
-        concat_quaternion_rotation__10TObjPlayerFPv(&quat);
+        concat_quaternion_rotation__10TObjPlayerFv(&quat);
         break;
     }
     scale_current_matrix(&scale);

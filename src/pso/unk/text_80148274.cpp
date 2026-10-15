@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcBase.h"
 
 struct VBase_80148274 { char pad[0x18]; };
 
@@ -100,10 +101,9 @@ struct Obj_80148274 { u8 pad0[0x350]; void *anim; };
 extern "C" {
 void set_motion_params__10TObjPlayerFPvPv(void *, void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
-void update_prev_position__10TObjPlayerFPv(void *);
-void reset_photon_effect__10TObjPlayerFPv(void *);
+void update_prev_position__10TObjPlayerFv(void *);
+void reset_photon_effect__10TObjPlayerFv(void *);
 u32 init_collision_body_parts(void *, void *, s32);
-void setup_common__11TObjNpcBaseFv(Obj_80148274 *self);
 }
 
 extern "C" {
@@ -122,12 +122,13 @@ void *npc_base_collision_body_desc[11] = {
     (void *)0x0, (void *)0x0, (void *)0x30203, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void setup_common__11TObjNpcBaseFv(Obj_80148274 *self) {
+void TObjNpcBase::setup_common() {
+    Obj_80148274 *self = (Obj_80148274 *)this;
     set_motion_params__10TObjPlayerFPvPv(self, npc_default_battle_stats);
     self->anim = npc_movement_parameters;
     init_collision_body_parts(self, npc_base_collision_body_desc, 1);
-    reset_photon_effect__10TObjPlayerFPv(self);
-    update_prev_position__10TObjPlayerFPv(self);
+    reset_photon_effect__10TObjPlayerFv(self);
+    update_prev_position__10TObjPlayerFv(self);
     copy_position__20TBoss3VoloptHiraisinFi(self);
     ((VObj_80148274 *)self)->m85(0, 1);
 }

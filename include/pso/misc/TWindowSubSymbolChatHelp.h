@@ -12,6 +12,11 @@ struct TWindowSubSymbolChatHelp
     u32 m_68;
     u32 m_6c;
     u32 m_70;
+    void draw_help_entries(void *arg1);
+    void handle_toggle_input();
+    void handle_page_input();
+    void render();
+    void run_task();
 };
 
 #endif

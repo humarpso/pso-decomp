@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/boss/TBoss8Dragon.h"
 
 struct RecoveredGlobal_8012DBF4_lbl_804A5B20 {
     s32 value;
@@ -34,16 +35,15 @@ s32 __nw__7TObjectFUl(int);
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805D8D48;
 extern const f32 lbl_805DF654;
-s32 spawn_ground_lightning__12TBoss8DragonFiii(s32 arg0, s32 arg1, s32 arg2);
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
-u32 get_field_d8__10TObjPlayerFPv(void *);
+u32 get_field_d8__10TObjPlayerFv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 s16 get_validated_attack_stage(void *);
-f32 query_extended_state__10TObjPlayerFPv(void *);
+f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
-void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
+void draw_icon__10TObjPlayerFll(void *, int, f32 *);
 void create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
 void launch_slicer__10TObjPlayerFPv(u8 *weapon);
 }
@@ -51,8 +51,6 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon);
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1);
-void render__26TBoss5GryphonLightningHornFv(void);
-void run_task__26TBoss5GryphonLightningHornFv(void* p);
 int spawn_gryphon_lightning(void*);
 int fn_80325F7C(void*);
 int rebuild_lightning_segments(void*);
@@ -60,8 +58,8 @@ void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1);
 
-void render__26TBoss5GryphonLightningHornFv(void) {  }
-void run_task__26TBoss5GryphonLightningHornFv(void* p) { rebuild_lightning_segments(p); fn_80325F7C(p); spawn_gryphon_lightning(p); }
+void TBoss5GryphonLightningHorn::render() {  }
+void TBoss5GryphonLightningHorn::run_task() { rebuild_lightning_segments(this); fn_80325F7C(this); spawn_gryphon_lightning(this); }
 TBoss5GryphonLightningHorn::~TBoss5GryphonLightningHorn() {}
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;
@@ -77,7 +75,7 @@ u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3)
     *(s32 *)((s8 *)arg0 + 0x90) = 4;
     return arg0;
 }
-s32 spawn_ground_lightning__12TBoss8DragonFiii(s32 arg0, s32 arg1, s32 arg2) {
+s32 TBoss8Dragon::spawn_ground_lightning(s32 arg0, s32 arg1, s32 arg2) {
     Vec position;
     f32 ground_height;
     s32 allocation;
@@ -111,17 +109,17 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon) {
     SlicerLaunchData_8012D9C8 launch;
     init_slicer_launch_state(&launch);
     launch.player = obj_getField1c(*(u8 **)((s8 *)weapon + 0xF0));
-    launch.weapon = get_field_d8__10TObjPlayerFPv(weapon);
+    launch.weapon = get_field_d8__10TObjPlayerFv(weapon);
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
     launch.kind = TObjPlayer__sub_801D2F4C(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
     launch.stage = get_validated_attack_stage(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
-    launch.multiplier = query_extended_state__10TObjPlayerFPv(*(u8 **)((s8 *)weapon + 0xF0));
+    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 **)((s8 *)weapon + 0xF0));
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
     launch.facing = *(s32 *)((s8 *)(*(u8 **)((s8 *)weapon + 0xF0)) + 0x60);
-    draw_icon__10TObjPlayerFPvii(weapon, 0x2, launch.first);
-    draw_icon__10TObjPlayerFPvii(weapon, 0x1, launch.second);
+    draw_icon__10TObjPlayerFll(weapon, 0x2, launch.first);
+    draw_icon__10TObjPlayerFll(weapon, 0x1, launch.second);
     create__10TTecSlicerFPUs(&launch);
 }
 typedef char RecoveredGlobal_8012DBF4_lbl_804A5B20_size[sizeof(RecoveredGlobal_8012DBF4_lbl_804A5B20) == 0xF8 ? 1 : -1];

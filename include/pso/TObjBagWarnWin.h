@@ -7,6 +7,10 @@ class TObjBagWarnWin : public TObject {
 public:
     virtual ~TObjBagWarnWin();
     virtual void run_task();
+public:
+    static s32 should_show_warning(void *arg0);
+    void open_message_window();
+    static void *create(void *arg0);
 };
 
 #endif

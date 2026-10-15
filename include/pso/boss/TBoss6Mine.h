@@ -45,6 +45,15 @@ struct TBoss6Mine
     void* m_3bc;
     u8 _pad3C0[0xC];
     u32 m_3cc;
+    void render_shadow_if_visible();
+    void set_state7();
+    void copy_pos();
+    void draw();
+    void draw_parts();
+    void update_facing_angles();
+    s32 is_far_from_origin();
+    static s32 create(s32 arg0);
+    static f32 next_random_float(s32 *arg0);
 };
 
 #endif

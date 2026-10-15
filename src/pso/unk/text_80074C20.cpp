@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct Lobby_80074C20 { u8 pad[0xBC88]; void *cb; };
 
 extern "C" {
@@ -6,12 +7,11 @@ void fn_80074C70(void);
 void fn_80074BD0(void);
 s32 send_lobby_name_request__9TProtocolFv(void *);
 extern Lobby_80074C20 *TLobby__protocol_instance;
-s32 start_lobby_name_request__6TLobbyFv(void);
 }
 
 extern "C" {
 
-s32 start_lobby_name_request__6TLobbyFv(void) {
+s32 TLobby::start_lobby_name_request() {
     fn_80074C70();
     if (TLobby__protocol_instance == 0) {
         return 0;

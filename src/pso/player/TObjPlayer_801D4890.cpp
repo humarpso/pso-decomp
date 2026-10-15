@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
@@ -44,34 +45,31 @@ struct V_A_801d48f8 : Base_A_801d48f8 {
 
 extern "C" {
 void remove_equipped_item__10TObjPlayerFPvii(void *, s32, s32);
-s32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
+s32 start_inventory_update__10TObjPlayerFi(void *, s32);
 s32 TObjPlayer__sub_801D49F4(void *arg0, void *arg1, s32 *arg2, s32 arg3);
 }
 
 extern "C" {
 
-int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1);
-int run_state_query__10TObjPlayerFPvi(void* a0, int a1);
-s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 s32 place_on_ground__5TItemFPvsPvi(void *, s16, s32, s32);
-s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
+s16 get_stat_by_key_state__10TObjPlayerFv(s32);
 s32 unequip_item__10TObjPlayerFiPv(s32, void *);
 s32 is_item_equipped(void *);
-s32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
-int collect_owner_fields_recursive__10TObjPlayerFPv(void*);
-int count_owned_items__10TObjPlayerFPv(void*);
-void *get_owner_if_alive__10TObjPlayerFPv();
+s32 start_inventory_update__10TObjPlayerFi(void *, s32);
+int collect_owner_fields_recursive__10TObjPlayerFv(void*);
+int count_owned_items__10TObjPlayerFv(void*);
+void *get_owner_if_alive__10TObjPlayerFv();
 s32 queue_destruction__7TObjectFv(s32, s16);
 
     extern int TObjPlayer__owner_field_write_cursor;
     extern int inventory_walk_visit_count;
-int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1) { TObjPlayer__owner_field_write_cursor = a1; inventory_walk_visit_count = 0; collect_owner_fields_recursive__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); return inventory_walk_visit_count; }
+int TObjPlayer::run_and_get_result(int a1) { TObjPlayer__owner_field_write_cursor = a1; inventory_walk_visit_count = 0; collect_owner_fields_recursive__10TObjPlayerFv((void*)(*(int*)((char*)this + 0x1c4))); return inventory_walk_visit_count; }
 
     extern int inventory_walk_visit_count;
     extern int owned_item_export_cursor;
-int run_state_query__10TObjPlayerFPvi(void* a0, int a1) { owned_item_export_cursor = a1; inventory_walk_visit_count = 0; count_owned_items__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); return inventory_walk_visit_count; }
+int TObjPlayer::run_state_query(int a1) { owned_item_export_cursor = a1; inventory_walk_visit_count = 0; count_owned_items__10TObjPlayerFv((void*)(*(int*)((char*)this + 0x1c4))); return inventory_walk_visit_count; }
 
-s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+s32 TObjPlayer::update_inventory_item(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s16 temp_r4;
     void *temp_r3_2;
     s32 temp_r3;
@@ -79,11 +77,11 @@ s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, 
     if (arg4 < 0) {
         return 0;
     }
-    temp_r3 = start_inventory_update__10TObjPlayerFPvi(arg0, arg2);
+    temp_r3 = start_inventory_update__10TObjPlayerFi(this, arg2);
     if (temp_r3 == 0) {
         return 0;
     }
-    temp_r3_2 = get_owner_if_alive__10TObjPlayerFPv();
+    temp_r3_2 = get_owner_if_alive__10TObjPlayerFv();
     if (temp_r3_2 == NULL) {
         return 0;
     }
@@ -94,10 +92,10 @@ s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, 
     if (is_item_equipped(temp_r3_2) != 0) {
         unequip_item__10TObjPlayerFiPv(arg1, temp_r3_2);
     }
-    *(s16 *)((s8 *)temp_r3_2 + 0x28) = get_stat_by_key_state__10TObjPlayerFPv(arg1);
+    *(s16 *)((s8 *)temp_r3_2 + 0x28) = get_stat_by_key_state__10TObjPlayerFv(arg1);
     place_on_ground__5TItemFPvsPvi(temp_r3_2, arg5, arg3, 0);
-    temp_r4 = *(s16 *)((s8 *)arg0 + 0x1C);
-    *(s16 *)((s8 *)arg0 + 0x1C) = (s16) (temp_r4 - 1);
+    temp_r4 = *(s16 *)((s8 *)this + 0x1C);
+    *(s16 *)((s8 *)this + 0x1C) = (s16) (temp_r4 - 1);
     queue_destruction__7TObjectFv(temp_r3, temp_r4);
     return 1;
 }
@@ -105,7 +103,7 @@ s32 TObjPlayer__sub_801D49F4(void *arg0, void *arg1, s32 *arg2, s32 arg3) {
     s32 i;
     s32 r;
     for (i = 0; i < arg3; arg2++, i++) {
-        r = start_inventory_update__10TObjPlayerFPvi(arg0, *arg2);
+        r = start_inventory_update__10TObjPlayerFi(arg0, *arg2);
         if (r == 0) {
             return 0;
         }
@@ -154,7 +152,7 @@ void remove_equipped_item__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     s16 temp_r4;
     void *temp_r3;
 
-    temp_r3 = ((void *(*)(s32)) get_owner_if_alive__10TObjPlayerFPv)(arg2);
+    temp_r3 = ((void *(*)(s32)) get_owner_if_alive__10TObjPlayerFv)(arg2);
     if (temp_r3 != NULL) {
         if (((s32 (*)()) is_item_equipped)() != 0) {
             unequip_item__10TObjPlayerFiPv(arg1, temp_r3);

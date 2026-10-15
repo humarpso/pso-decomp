@@ -20,6 +20,20 @@ struct TShopArmorListWindow
     u8 _pad4C[0x1A4];
     u32 m_1f0;
     u32 m_1f4;
+    void update_selection(void *arg1);
+    void handle_equip_offer();
+    s32 open_menu_window();
+    int advance_to_preparation_phase();
+    s32 update();
+    s32 handle_select();
+    void handle_selection();
+    s32 check_purchase_eligibility();
+    static void refresh_item_list(void *p);
+    void clamp_selection_to_valid_entry();
+    void save_cursor_selection();
+    void close_list();
+    void save_and_refresh_cursor(void* a1, void* a2);
+    void save_and_close();
 };
 
 #endif

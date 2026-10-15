@@ -13,7 +13,7 @@ u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2);
 }
 
 extern "C" {
-void request_destroy__11TBoss4Type2FUi(u32);
+void request_destroy__11TBoss4Type2FUl(u32);
 void queue_destruction__7TObjectFv(void*);
 }
 
@@ -21,11 +21,11 @@ void TBoss6CrushPtcl::run_task() {
     m_1C++;
     if (m_1C >= 6) {
         if (m_20 != 0) {
-            request_destroy__11TBoss4Type2FUi(m_20);
+            request_destroy__11TBoss4Type2FUl(m_20);
             m_20 = 0;
         }
         if (m_24 != 0) {
-            request_destroy__11TBoss4Type2FUi(m_24);
+            request_destroy__11TBoss4Type2FUl(m_24);
             m_24 = 0;
         }
         queue_destruction__7TObjectFv(this);
@@ -38,7 +38,6 @@ TBoss6CrushPtcl::~TBoss6CrushPtcl() {}
 
 extern "C" {
 
-void *create__15TBoss6CrushPtclFPv(void *arg0);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_02;
@@ -54,10 +53,10 @@ u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2) {
     return arg0;
 }
 
-void *create__15TBoss6CrushPtclFPv(void *arg0) {
+void *TBoss6CrushPtcl::create() {
     void *o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        o = TBoss6CrushPtcl__ct((u8 *)(o), (void *)(tl_02), (Vec_80359EF0 *)(arg0));
+        o = TBoss6CrushPtcl__ct((u8 *)(o), (void *)(tl_02), (Vec_80359EF0 *)(this));
     }
     return o;
 }

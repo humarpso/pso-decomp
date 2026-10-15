@@ -19,6 +19,11 @@ struct TObjEneBm3Fly {
     u8 unknown41A[0x458 - 0x41A];
     u8* particle_effect;
     s32 alternate_phase;
+    void store_position();
+    s32 init_child_params();
+    static void release_shared_data();
+    void *create(void *arg1, void *arg2, void *arg3, void *arg4);
+    static void load_resources();
 };
 
 typedef char TObjEneBm3Fly_facing_angle_offset[(offsetof(TObjEneBm3Fly, facing_angle) == 0x60) ? 1 : -1];

@@ -28,6 +28,12 @@ struct TBoss2Joint
     u32 m_394;
     u32 m_398;
     u32 m_39c;
+    void call_36A90_with_1();
+    void init_joint_offset(s32 arg1);
+    void update_position_history();
+    void run_task();
+    s32 init_params();
+    static void render();
 };
 
 #endif

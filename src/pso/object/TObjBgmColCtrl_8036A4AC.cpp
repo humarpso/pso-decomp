@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/object/TObjBgmColCtrl.h"
 
 extern "C" {
 
-void update_all_zones__14TObjBgmColCtrlFi(s32 arg0);
 s32 strcmp(s32, s32);
 s32 fn_8036A514(s32);
 s32 check_flag_index_set(s32);
 s32 fn_8036A648(s32);
 
-void update_all_zones__14TObjBgmColCtrlFi(s32 arg0) {
+void TObjBgmColCtrl::update_all_zones(s32 arg0) {
     s32 var_r31;
 
     var_r31 = 0;

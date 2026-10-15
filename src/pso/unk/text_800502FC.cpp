@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjDFYutai.h"
 
 typedef struct Vec_800502FC {
     f32 x, y, z;
@@ -29,9 +30,8 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TBoss4Type3__sub_8005254C(int);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
-void run_task__11TObjDFYutaiFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void draw_player_model_by_id__10TObjPlayerFif(u16, f32);
+void draw_player_model_by_id__10TObjPlayerFlf(u16, f32);
 s32 TBoss4Type3__sub_8005254C(int);
 u8 *get_player_by_client_id(u16);
 void scale_matrix(s32, f32, f32, f32);
@@ -39,7 +39,6 @@ void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void render__11TObjDFYutaiFv(Obj_800502FC *arg0);
 }
 
 extern "C" {
@@ -68,7 +67,8 @@ __declspec(section ".data") void *lbl_804858D8[2] = {
 #pragma fp_contract on
 #pragma dont_inline off
 #pragma inline_depth(1)
-void render__11TObjDFYutaiFv(Obj_800502FC *arg0) {
+void TObjDFYutai::render() {
+    Obj_800502FC *arg0 = (Obj_800502FC *)this;
     Vec_800502FC v;
     u8 *p;
     f32 s;
@@ -85,13 +85,14 @@ void render__11TObjDFYutaiFv(Obj_800502FC *arg0) {
     post_translate_matrix(&v);
     rotate_matrix_y(0, *(s32 *)(p + 0x60));
     scale_matrix(0, s, s, s);
-    draw_player_model_by_id__10TObjPlayerFif(arg0->id, w);
+    draw_player_model_by_id__10TObjPlayerFlf(arg0->id, w);
     pop_matrix();
 }
 
 #pragma push
 #pragma opt_common_subs off
-void run_task__11TObjDFYutaiFv(u8 *arg0) {
+void TObjDFYutai::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     if (TBoss4Type3__sub_8005254C((int) (*(u16 *)((s8 *)arg0 + 0x20))) == 0) {
         queue_destruction__7TObjectFv((void *) (arg0));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss1DragonEffTail.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -72,8 +73,8 @@ s32 check_v2_mode__9TObjEneDDFv();
 extern const f32 lbl_805D8158;
 void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1);
 void fn_8002B630(void *, void *);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-void init_instance__16TObjEneDellBiterFPvPvPvPvPv(void *, void *, s32, void *, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+void init_instance__16TObjEneDellBiterFPvPvPvPv(void *, void *, s32, void *, s32);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);
 extern u8 TBoss1DragonEffTail__collision_body_templates[];
 extern s32 __vt__19TBoss1DragonEffTail[];
@@ -81,8 +82,8 @@ extern s32 TBoss1DragonEffTail__name;
 extern const f32 lbl_805D8154;
 EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 reset_tail_hp__12TBoss1DragonFi(void *);
-s32 reload_difficulty_stats__12TBoss1DragonFi(void *);
+s32 reset_tail_hp__12TBoss1DragonFv(void *);
+s32 reload_difficulty_stats__12TBoss1DragonFv(void *);
 s32 update_collider_contact_by_height(void *, f32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -105,17 +106,13 @@ extern "C" {
 
 void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1);
 void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1);
-void disable__19TBoss1DragonEffTailFPv(void* p);
-void enable__19TBoss1DragonEffTailFPv(void* p);
-int is_visible__19TBoss1DragonEffTailFPv(void* p);
-void render__19TBoss1DragonEffTailFv(void);
 s32 vec3_add_to(s32, s32, s32);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 void __dl__7TObjectFPv(void *);
-void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
+void destroy_enemy_object__10TObjPlayerFs(void *, int);
 int fill_value_array(void*);
 
-void render__19TBoss1DragonEffTailFv(void) {  }
+void TBoss1DragonEffTail::render() {  }
 
 void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     u8 *p;
@@ -151,10 +148,10 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     }
     {
         Pair_8002BD38 sp8 = *(Pair_8002BD38 *) lbl_80435454;
-        reset_tail_hp__12TBoss1DragonFi(*(void **)((s8 *)arg0 + 0xB0));
+        reset_tail_hp__12TBoss1DragonFv(*(void **)((s8 *)arg0 + 0xB0));
         ((VObj_18_8002BD38 *) arg0)->m15(&sp8, *(void **)((s8 *)arg0 + 0xB8));
     }
-    reload_difficulty_stats__12TBoss1DragonFi(*(void **)((s8 *)arg0 + 0xB0));
+    reload_difficulty_stats__12TBoss1DragonFv(*(void **)((s8 *)arg0 + 0xB0));
 }
 
 void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1) {
@@ -168,9 +165,9 @@ void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
     }
 }
 
-void enable__19TBoss1DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 1; is_visible__19TBoss1DragonEffTailFPv((void*)(p)); }
-void disable__19TBoss1DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 0; is_visible__19TBoss1DragonEffTailFPv((void*)(p)); }
-int is_visible__19TBoss1DragonEffTailFPv(void* p) { return fill_value_array(*(void**)((char*)p + 0xb8)); }
+void TBoss1DragonEffTail::enable() { *(int*)((char*)this + 0xbc) = 1; is_visible(); }
+void TBoss1DragonEffTail::disable() { *(int*)((char*)this + 0xbc) = 0; is_visible(); }
+int TBoss1DragonEffTail::is_visible() { return fill_value_array(*(void**)((char*)this + 0xb8)); }
 
 extern s32 __vt__19TBoss1DragonEffTail[];
 
@@ -179,7 +176,7 @@ void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss1DragonEffTail;
         delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB8), 1);
         *(s32 *)((s8 *)arg0 + 0xB8) = 0;
-        destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_enemy_object__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -190,7 +187,7 @@ EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     void *data;
     s32 i;
     void *p;
-    init_instance__16TObjEneDellBiterFPvPvPvPvPv(arg0, 0, arg1, TBoss1DragonEffTail__collision_body_templates, 0x11);
+    init_instance__16TObjEneDellBiterFPvPvPvPv(arg0, 0, arg1, TBoss1DragonEffTail__collision_body_templates, 0x11);
     arg0->vtbl = ((s32 *)&__vt__19TBoss1DragonEffTail);
     data = TBoss1DragonEffTail__collision_body_templates;
     arg0->unk0 = TBoss1DragonEffTail__name;
@@ -199,7 +196,7 @@ EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     }
     arg0->unkB0 = arg1;
     arg0->unkB4 = arg2;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != 0) {
         p = TBoss8Dragon__sub_800BC5EC(p, 4);
     }

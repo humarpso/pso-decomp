@@ -19,6 +19,8 @@ struct TOMekaFish01
     u8 _padC0[0x38];
     u32 m_f8;
     u32 m_fc;
+    static void free_static_data();
+    static void load_shared_resource();
 };
 
 #endif

@@ -124,83 +124,82 @@ struct Trails_8011FE04 { u8 pad[0x18C]; void *trails[4]; };
 extern "C" {
 
 void TObjPlayer__sub_80100F34(void*);
-void bind_loaded_resources__14TItemEquipBaseFPv(void*);
-s32 get_attack_stage__11TItemWeaponFPv(void*);
+void bind_loaded_resources__14TItemEquipBaseFv(void*);
+s32 get_attack_stage__11TItemWeaponFv(void*);
 void clear_equip_flags__10TObjPlayerFPvUi(void*,u32);
 void set_status_flags__10TObjPlayerFPvUi(void*,u32);
-s32 test_flag30_bit0x100000__10TObjPlayerFPv(void*);
+s32 test_flag30_bit0x100000__10TObjPlayerFv(void*);
 void register_technique_boosts__14TItemEquipBaseFPvPv(void*,void*);
 s32 obj_isState7_324(void*);
 void advance_weapon_photon_phase(void*);
-s32 get_flag_40__8TItemMagFPv(void*);
+s32 get_flag_40__8TItemMagFv(void*);
 void TItemEffectWeapon__sub_8036340C(void*);
 void TItemEffectWeapon__sub_80363410(void*);
 extern const f32 lbl_805DAC9C;
 
-u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-void update_weapon_trails__11TItemWeaponFPv(u8 *arg0);
-u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
+u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
+u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, int);
 s32 draw_weapon_model(void *);
 s32 draw_weapon_at_joint(void *, int);
-void update_trails__11TItemWeaponFPv(u8 *arg0);
-u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
+u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
 s32 draw_weapon_model(void *);
 s32 draw_weapon_at_joint(void *, int);
-void draw_equipped_weapon__11TItemWeaponFPv(u8 *arg0);
-s32 get_field_d8__10TObjPlayerFPv(void *);
-u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-void update_trails__11TItemWeaponFPv(u8 *arg0);
+s32 get_field_d8__10TObjPlayerFv(void *);
+u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
 void render_trail__17TItemEffectWeaponFv(void *);
-void push_id_to_list__10TObjPlayerFi(s32);
+void push_id_to_list__10TObjPlayerFl(s32);
 void draw_weapon_trails__11TItemWeaponFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void update_trails__11TItemWeaponFPv(u8 *arg0) {
-    if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x400U) != 0U) {
+void TItemWeapon::update_trails() {
+    u8 *arg0 = (u8 *)this;
+    if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x400U) != 0U) {
         draw_weapon_at_joint((void *) (arg0), (int) (0x30));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
         draw_weapon_at_joint((void *) (arg0), (int) (0x23));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
         return;
     }
-    if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 1U) == 0U) {
+    if (test_flags_1b8__10TObjPlayerFUl(arg0, 1U) == 0U) {
         draw_weapon_model((void *) (arg0));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
     }
 }
 
-void update_weapon_trails__11TItemWeaponFPv(u8 *arg0) {
-    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U)) {
+void TItemWeapon::update_weapon_trails() {
+    u8 *arg0 = (u8 *)this;
+    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U)) {
         ((VObj_18_4841bb *)(arg0))->m53();
-        update_trails__11TItemWeaponFPv((u8 *)((void *) (arg0)));
+        update_trails();
     }
 }
-void draw_equipped_weapon__11TItemWeaponFPv(u8 *arg0) {
-    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x1000U) == 0U)) {
+void TItemWeapon::draw_equipped_weapon() {
+    u8 *arg0 = (u8 *)this;
+    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x1000U) == 0U)) {
         ((VObj_18_4841bb *)(arg0))->m53();
-        if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x400U) != 0U) {
+        if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x400U) != 0U) {
             draw_weapon_at_joint((void *) (arg0), (int) (0x30));
             draw_weapon_at_joint((void *) (arg0), (int) (0x23));
             return;
         }
-        if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 1U) == 0U) {
+        if (test_flags_1b8__10TObjPlayerFUl(arg0, 1U) == 0U) {
             draw_weapon_model((void *) (arg0));
         }
     }
 }
 void draw_weapon_trails__11TItemWeaponFPv(u8 *arg0) {
     s32 count;
-    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U)) {
-        if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x800U) != 0U) {
-            push_id_to_list__10TObjPlayerFi(get_field_d8__10TObjPlayerFPv(arg0));
+    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U)) {
+        if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x800U) != 0U) {
+            push_id_to_list__10TObjPlayerFl(get_field_d8__10TObjPlayerFv(arg0));
             return;
         }
         ((VObj_18_8011FE04 *)(arg0))->m53();
-        update_trails__11TItemWeaponFPv(arg0);
+        ((TItemWeapon *)arg0)->update_trails();
         count = 0;
         do {
             void *trail = ((Trails_8011FE04 *)arg0)->trails[count];
@@ -219,17 +218,17 @@ void TItemWeapon::update_active_weapon() {
     u32 frames;
     s32 count;
     s32 idle_count;
-    if(test_flags_1b8__10TObjPlayerFPvUi(self,0x100)==0) {
-        if(test_flags_1b8__10TObjPlayerFPvUi(self,0x4000)!=0) TObjPlayer__sub_80100F34(self);
-        bind_loaded_resources__14TItemEquipBaseFPv(self);
-        stage=get_attack_stage__11TItemWeaponFPv(self);
+    if(test_flags_1b8__10TObjPlayerFUl(self,0x100)==0) {
+        if(test_flags_1b8__10TObjPlayerFUl(self,0x4000)!=0) TObjPlayer__sub_80100F34(self);
+        bind_loaded_resources__14TItemEquipBaseFv(self);
+        stage=get_attack_stage__11TItemWeaponFv(self);
         if(stage!=self->stage) {
             clear_equip_flags__10TObjPlayerFPvUi(self,0x1000000);
             self->stage=stage;
         }
         if(stage>=0) set_status_flags__10TObjPlayerFPvUi(self,0x10);
         else clear_equip_flags__10TObjPlayerFPvUi(self,0x10);
-        if(stage>=0 || test_flag30_bit0x100000__10TObjPlayerFPv(self->player)) self->update_attack();
+        if(stage>=0 || test_flag30_bit0x100000__10TObjPlayerFv(self->player)) self->update_attack();
         else self->update_idle();
         if(self->motion) {
             self->motion_frame+=lbl_805DAC9C;
@@ -239,7 +238,7 @@ void TItemWeapon::update_active_weapon() {
         register_technique_boosts__14TItemEquipBaseFPvPv(self,self->material);
         self->update_weapon();
         if(!obj_isState7_324(self->player)) advance_weapon_photon_phase(self);
-        if(get_flag_40__8TItemMagFPv(self)) {
+        if(get_flag_40__8TItemMagFv(self)) {
             count=0;
             do {
                 void* trail=self->trails[count];

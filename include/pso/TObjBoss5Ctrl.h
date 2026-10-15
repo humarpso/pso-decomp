@@ -13,6 +13,9 @@ public:
 public:
     virtual ~TObjBoss5Ctrl();
     virtual void run_task();
+public:
+    static void play_pillar_sound();
+    static void *create();
 };
 
 #endif

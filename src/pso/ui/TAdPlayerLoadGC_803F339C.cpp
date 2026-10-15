@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdPlayerLoadGC.h"
 
 struct S_803F3328 { u8 pad0[4]; s32 state; u8 card[0x80]; };
 typedef struct Slot_803F3478 {
@@ -29,21 +30,19 @@ extern u32 lobby_net_config_buffer;
 extern s32 lbl_805D7940;
 s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);
-void unmount_card__15TAdPlayerLoadGCFi(s32 chan);
 s32 memset(void *, int, int);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
-void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0);
+void reset_slot_entry__15TAdPlayerLoadGCFl(s32 arg0);
 extern S_803F3328 lbl_805A29B0[];
 s32 CARDClose(void *);
 s32 memset(void *, int, int);
-s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
+s32 close_card_slot__15TAdPlayerLoadGCFl(s32 arg0);
 s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
 s32 memset(void *, int, int);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
-s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 s32 TAdPlayerLoadGC__sub_803F3998(s32 chan);
@@ -53,19 +52,18 @@ s32 memset(void *, int, int);
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 extern S_803F3328 lbl_805A29B0[];
-s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
 }
 
 extern "C" {
 
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
-s32 get_or_set_channel_flag__15TAdPlayerLoadGCFii(s32 arg0, s32 arg1);
+s32 get_or_set_channel_flag__15TAdPlayerLoadGCFll(s32 arg0, s32 arg1);
 
 extern s32 lbl_805D4700;
 
 extern s32 lbl_805D7940;
 
-s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
+s32 TAdPlayerLoadGC::finish_load_slot_state4(s32 arg0, s32 *arg1) {
     s32 r;
     s32 t;
     if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
@@ -94,7 +92,7 @@ s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     return r;
 }
 
-s32 queue_network_request__15TAdPlayerLoadGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 TAdPlayerLoadGC::queue_network_request(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 chan;
 
     if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
@@ -115,7 +113,7 @@ s32 queue_network_request__15TAdPlayerLoadGCFiiii(s32 arg0, s32 arg1, s32 arg2, 
     TAdPlayerLoadGC__load_request_slots[chan].f54 = arg0;
     return 0;
 }
-s32 finish_load_slot_state3__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
+s32 TAdPlayerLoadGC::finish_load_slot_state3(s32 arg0, s32 *arg1) {
     s32 r;
     s32 t;
 
@@ -152,7 +150,7 @@ s32 finish_load_slot_state3__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
 #pragma push
 #pragma opt_dead_assignments off
 #pragma optimize_for_size off
-s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 chan, const char *name) {
+s32 TAdPlayerLoadGC::begin_card_file_request(s32 chan, const char *name) {
     s32 i;
     s32 *pc;
     s32 idx;
@@ -189,10 +187,10 @@ s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 chan, const char *name) {
 }
 #pragma pop
 
-void unmount_card__15TAdPlayerLoadGCFi(s32 chan) {
+void TAdPlayerLoadGC::unmount_card(s32 chan) {
     CARDUnmount(chan);
 }
-s32 take_network_info_load_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
+s32 TAdPlayerLoadGC::take_network_info_load_result(s32 arg0, s32 *arg1) {
     s32 r;
     s32 t;
 
@@ -238,7 +236,7 @@ s32 TAdPlayerLoadGC__sub_803F3998(s32 chan) {
     return r;
 }
 
-s32 take_network_info_poll_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
+s32 TAdPlayerLoadGC::take_network_info_poll_result(s32 arg0, s32 *arg1) {
     s32 r;
     s32 t;
 

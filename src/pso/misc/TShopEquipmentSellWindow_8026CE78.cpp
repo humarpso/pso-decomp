@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopEquipmentSellWindow.h"
 
 struct Base_8026CE78 { char pad[0x18]; };
 struct VObj_8026CE78 : Base_8026CE78 {
@@ -362,14 +363,13 @@ struct VObj_8026CE78 : Base_8026CE78 {
 
 extern "C" {
 
-void set_entry_count__24TShopEquipmentSellWindowFPvPv(void *arg1, void *arg2);
-void *get_array_entry__20TWindowSubStatusDispFPvi(s32, s32);
+void *get_array_entry__20TWindowSubStatusDispFi(s32, s32);
 
-void set_entry_count__24TShopEquipmentSellWindowFPvPv(void *arg1, void *arg2) {
+void TShopEquipmentSellWindow::set_entry_count(void *arg1, void *arg2) {
     s32 temp_r3;
     void *temp_r31;
 
-    temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((s32)arg1, 1);
+    temp_r31 = get_array_entry__20TWindowSubStatusDispFi((s32)arg1, 1);
     if (arg2 == NULL) {
         *(s32 *)((s8 *)temp_r31 + 0x20) = 0;
         return;

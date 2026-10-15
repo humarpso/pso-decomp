@@ -30,14 +30,14 @@ void fn_80340040(O_80340040 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 P_8033FF78 *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv();
-s32 is_active__14TBoss6PlotFalzFPv(void *);
+s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 extern const f32 lbl_805DFAF8;
 extern const f32 lbl_805DFB10;
 void check_any_player_near(O_8033FF78 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 create__10TObjMapCsnFi(void *);
+s32 create__10TObjMapCsnFl(void *);
 extern E_8034009C lbl_8047843C[];
 void fn_8034009C(O_8034009C *arg0);
 }
@@ -57,7 +57,7 @@ void check_any_player_near(O_8033FF78 *arg0) {
     lim = lbl_805DFB10;
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (is_active__14TBoss6PlotFalzFPv(p) != 0) {
+        if (is_active__14TBoss6PlotFalzFv(p) != 0) {
             VecCopy__FP3VecPC3Vec(&v, &arg0->pos);
             subtract_vector(&v, &p->pos);
             v.y = y;
@@ -94,7 +94,7 @@ void fn_8034009C(O_8034009C *arg0) {
         prm.f1c = e->f18;
         prm.f20 = 0;
         VecCopy__FP3VecPC3Vec(&prm.b, &e->b);
-        arg0->o[i] = (void *)create__10TObjMapCsnFi(&prm);
+        arg0->o[i] = (void *)create__10TObjMapCsnFl(&prm);
     }
 }
 

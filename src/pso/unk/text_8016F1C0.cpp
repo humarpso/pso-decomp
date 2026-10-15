@@ -20,7 +20,7 @@ extern s32 TOMineDisp__name;
 extern const f32 lbl_805DB85C;
 u8 *TOMineDisp__ct(u8 *arg0, s32 arg1, s16 arg2);
 void *get_shared_text_buffer(void);
-s32 get_trap_type__10TOMineTrapFPv(s32);
+s32 get_trap_type__10TOMineTrapFv(s32);
 s32 is_technique_ready__8TTecCtrlFv(void);
 VO_8016F320 *get_player_by_client_id(u16);
 void text_builder_append(const char *);
@@ -35,7 +35,7 @@ extern "C" {
 
 void TOMineTrap__vt81(s32 arg0);
 u32 TOMineTrapDisp__ct(u32, s32, u16, s32);
-s32 get_trap_type__10TOMineTrapFPv(s32);
+s32 get_trap_type__10TOMineTrapFv(s32);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 is_split_screen();
@@ -64,7 +64,7 @@ void TOMineTrap__vt81(s32 arg0) {
     if (is_split_screen() == 0) {
         var_r31 = __nw__7TObjectFUl(0xB0);
         if (var_r31 != 0U) {
-            var_r31 = TOMineTrapDisp__ct(var_r31, arg0, (u16) local_client_id, get_trap_type__10TOMineTrapFPv(arg0));
+            var_r31 = TOMineTrapDisp__ct(var_r31, arg0, (u16) local_client_id, get_trap_type__10TOMineTrapFv(arg0));
         }
         if (var_r31 != 0U) {
             VecCopy__FP3VecPC3Vec(var_r31 + 0x50, arg0 + 0x50);
@@ -74,7 +74,7 @@ void TOMineTrap__vt81(s32 arg0) {
         for (var_r30 = 0; var_r30 != 4; var_r30++) {
             var_r31 = __nw__7TObjectFUl(0xB0);
             if (var_r31 != 0U) {
-                var_r31 = TOMineTrapDisp__ct(var_r31, arg0, var_r30, get_trap_type__10TOMineTrapFPv(arg0));
+                var_r31 = TOMineTrapDisp__ct(var_r31, arg0, var_r30, get_trap_type__10TOMineTrapFv(arg0));
             }
             if (var_r31 != 0U) {
                 VecCopy__FP3VecPC3Vec(var_r31 + 0x50, arg0 + 0x50);
@@ -87,7 +87,7 @@ s32 show_owner_message__10TOMineTrapFiUi(s32 arg0, u32 arg1) {
     char *name;
     VO_8016F320 *p;
     if ((arg1 != 0U) && (is_technique_ready__8TTecCtrlFv() != 0)) {
-        p = get_player_by_client_id(get_trap_type__10TOMineTrapFPv(arg0));
+        p = get_player_by_client_id(get_trap_type__10TOMineTrapFv(arg0));
         if (p != NULL) {
             name = p->m10();
             if (name != NULL) {
@@ -106,6 +106,7 @@ s32 show_owner_message__10TOMineTrapFiUi(s32 arg0, u32 arg1) {
 }
 
 #include "types.h"
+#include "pso/misc/TOMineTrap.h"
 
 struct Pkt_8016F558 { u8 code, words; u16 object, sub, idx; };
 
@@ -146,26 +147,24 @@ struct Pkt_8016F418 { u8 pad[4]; u16 id; u16 kind; };
 
 extern "C" {
 void TOMineTrap__sub_8017141C(void *);
-void send_and_handle_60__10TOMineTrapFPv(void *);
-void send_state_packet__10TOMineTrapFPvUs(Self_8016F558 *self, u16 idx);
-s32 check_value_equals__13TQuestColCtrlFPvi(u32, int);
-void send_state_packet__10TOMineTrapFPvUs(Self_8016F558 *self, u16 idx);
-void set_state__10TOMineTrapFPv(void *);
-void set_triggered__10TOMineTrapFPv(void *);
+void send_and_handle_60__10TOMineTrapFv(void *);
+s32 check_value_equals__13TQuestColCtrlFPll(u32, int);
+void set_state__10TOMineTrapFv(void *);
+void set_triggered__10TOMineTrapFv(void *);
 extern s32 TOMineTrap__data_805D3080;
 extern const f32 lbl_805DB85C;
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1);
-void set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
+void set_position_xy__10TObjPlayerFff(u32, f32, f32);
 u32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805DB864;
 void TOMineTrap__vt80(Obj_8016F64C *arg0);
 VObj_8016F418 *get_player_data__10TObjPlayerFi(s32);
-s32 check_value_equals__13TQuestColCtrlFPvi(u32, int);
-void set_state__10TOMineTrapFPv(void *);
-void set_triggered__10TOMineTrapFPv(void *);
+s32 check_value_equals__13TQuestColCtrlFPll(u32, int);
+void set_state__10TOMineTrapFv(void *);
+void set_triggered__10TOMineTrapFv(void *);
 s16 TOMineTrap__sub_80171340(void *);
 u16 TOMineTrap__sub_80171358(void *);
-void bswap_6x80_trigger_trap__10TOMineTrapFPv(void *);
+void bswap_6x80_trigger_trap__10TOMineTrapFv(void *);
 extern s32 TOMineTrap__data_805D3080;
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
@@ -185,7 +184,7 @@ s32 TOMineTrap__vt10(void) {
     void *temp_r3;
 
     var_r31 = 0;
-    temp_r3 = get_player_by_client_id((u16)((s32 (*)(void))get_trap_type__10TOMineTrapFPv)());
+    temp_r3 = get_player_by_client_id((u16)((s32 (*)(void))get_trap_type__10TOMineTrapFv)());
     if (temp_r3 != NULL) {
         var_r31 = ((VObj8016F3C4 *)temp_r3)->m10();
     }
@@ -198,13 +197,13 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
     if (arg0 == NULL) {
         return;
     }
-    bswap_6x80_trigger_trap__10TOMineTrapFPv(arg0);
+    bswap_6x80_trigger_trap__10TOMineTrapFv(arg0);
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p == NULL) {
             continue;
         }
-        if (check_value_equals__13TQuestColCtrlFPvi((u32)p, TOMineTrap__data_805D3080) == 0) {
+        if (check_value_equals__13TQuestColCtrlFPll((u32)p, TOMineTrap__data_805D3080) == 0) {
             continue;
         }
         if (arg0->id != TOMineTrap__sub_80171358(p)) {
@@ -224,7 +223,7 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
             case 0:
             case 1:
             case 2:
-                set_triggered__10TOMineTrapFPv(p);
+                set_triggered__10TOMineTrapFv(p);
                 break;
             }
             break;
@@ -234,7 +233,7 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
             case 1:
             case 2:
             case 3:
-                set_state__10TOMineTrapFPv(p);
+                set_state__10TOMineTrapFv(p);
                 break;
             }
             break;
@@ -243,14 +242,15 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
     }
 }
 
-void send_state_packet__10TOMineTrapFPvUs(Self_8016F558 *self, u16 idx) {
+void TOMineTrap::send_state_packet(u16 idx) {
+    Self_8016F558 *self = (Self_8016F558 *)this;
     if (idx < 3) {
         Pkt_8016F558 pkt;
         TOMineTrap__sub_8017141C(&pkt);
         pkt.object = self->id;
         pkt.sub = self->sub;
         pkt.idx = idx;
-        send_and_handle_60__10TOMineTrapFPv(&pkt);
+        send_and_handle_60__10TOMineTrapFv(&pkt);
     }
 }
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1) {
@@ -258,16 +258,16 @@ f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1) {
     case 0:
     case 1:
     case 2:
-        if ((arg1 != 0U) && (check_value_equals__13TQuestColCtrlFPvi(arg1, TOMineTrap__data_805D3080) != 0)) {
-            set_triggered__10TOMineTrapFPv(arg0);
+        if ((arg1 != 0U) && (check_value_equals__13TQuestColCtrlFPll(arg1, TOMineTrap__data_805D3080) != 0)) {
+            set_triggered__10TOMineTrapFv(arg0);
             if (arg0->cnt > 0xF) {
                 arg0->cnt = 0xF;
             }
             break;
         }
     case 3:
-        set_state__10TOMineTrapFPv(arg0);
-        send_state_packet__10TOMineTrapFPvUs((Self_8016F558 *)(arg0), (u16)(2));
+        set_state__10TOMineTrapFv(arg0);
+        ((TOMineTrap *)arg0)->send_state_packet((u16)(2));
         break;
     }
     return lbl_805DB85C;
@@ -278,7 +278,7 @@ void TOMineTrap__vt80(Obj_8016F64C *arg0) {
     default:
         r = spawn_particle_effect(arg0->sub, 0x45);
         if (r != 0U) {
-            set_position_xy__10TObjPlayerFPvff(r, lbl_805DB864, lbl_805DB864);
+            set_position_xy__10TObjPlayerFff(r, lbl_805DB864, lbl_805DB864);
         }
         break;
     case 15:

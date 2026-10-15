@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct VBase_8020d1bc { char pad[0x18]; };
 struct VObj_8020d1bc : VBase_8020d1bc {
@@ -11,12 +12,11 @@ struct VObj_8020d1bc : VBase_8020d1bc {
 
 extern "C" {
 
-void assign_objects_to_slots__6TLobbyFPvi(u8 *arg0, s32 arg1);
 u8 *create_set_object_from_row(void *);
 
 extern s32 TLobby__data_805D6140;
 
-void assign_objects_to_slots__6TLobbyFPvi(u8 *arg0, s32 arg1) {
+void TLobby::assign_objects_to_slots(u8 *arg0, s32 arg1) {
     s16 temp_r3;
     s16 temp_r0;
     u8 *ptr;

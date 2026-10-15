@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOCtrlDubchik.h"
 
 struct VBase_18_65b835 { char pad[0x18]; };
 
@@ -234,16 +235,14 @@ struct Obj_8015D518 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 send_6x0A_enemy_state(void *, void *);
-s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
+s32 exchange_object_state__6TLobbyFls(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
-void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 bm_fs_obj_zombie_con_resource_descriptor;
 extern u32 TOCtrlDubchik__shared_resource;
-void load_shared_resource__13TOCtrlDubchikFv(void);
 s32 apply_actor_gravity(void *, void *, f32);
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
 extern const f32 TOCtrlDubchik__data_805DB3AC;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
@@ -255,10 +254,10 @@ s32 TOCtrlDubchik__vt24(u8 *arg0, s32 arg1, s32 arg2);
 s32 roll_physical_accuracy__10TObjPlayerFv(void *, void *, void *, f32);
 s32 TOCtrlDubchik__vt25(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 initialize__9TObjEnemyFPv(void *);
 void set_indexed_flags(void *, s32, s32);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8015D3CC_lbl_804B0A20 TOCtrlDubchik__collision_body;
@@ -279,14 +278,12 @@ void update_bobbing__13TOCtrlDubchikFPv(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
-void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
-void decay_timer_and_finish__13TOCtrlDubchikFPv(u8 *arg0);
 s32 apply_actor_gravity(void *, void *, f32);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, s32);
-s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 f32 sin_table_lookup(s32);
 extern s32 lbl_805D29F8;
 extern s32 lbl_805D586C;
@@ -299,17 +296,13 @@ s32 obj_testFlags30(void *, s32);
 s32 check_demo_mode__10TObjPlayerFv(void);
 s32 refresh_collision_body_centers(void *);
 void TOCtrlDubchik__sub_8015C9D0(u8 *);
-void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
-void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0);
-void decay_timer_and_finish__13TOCtrlDubchikFPv(u8 *arg0);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
 void update_bobbing__13TOCtrlDubchikFPv(u8 *arg0);
 void TOCtrlDubchik__sub_8015CE80(u8 *arg0);
 void submit_cursor_candidate(void *, s32);
-void run_task__13TOCtrlDubchikFv(u8 *arg0);
 u8 *get_player_data__10TObjPlayerFi(s32);
-s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 void spawn_particle_effect(void *, s32);
 void TObjPlayer__sub_800A8C1C(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -328,8 +321,6 @@ extern "C" {
 s32 TOCtrlDubchik__vt18(void *arg0);
 void TOCtrlDubchik__vt23(void);
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1);
-void *create__13TOCtrlDubchikFPv(void *arg0);
-void destroy_instance__13TOCtrlDubchikFv(void);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
@@ -357,19 +348,20 @@ void TOCtrlDubchik__sub_8015CA74(void *arg0_) {
     }
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (p != NULL && p != arg0 && check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D29F8) != 0 &&
+        if (p != NULL && p != arg0 && check_value_equals__13TQuestColCtrlFPll(p, lbl_805D29F8) != 0 &&
             *(s32 *)(p + 0x368) == 0 && *(s16 *)(arg0 + 0x28) == *(s16 *)(p + 0x28)) {
             TObjPlayer__sub_800A8C1C(p);
         }
     }
 }
 
-void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0) {
+void TOCtrlDubchik::complete_and_destroy() {
+    u8 *arg0 = (u8 *)this;
     s32 sp8;
-    if (exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
+    if (exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
         sp8 = 1;
         send_6x0A_enemy_state((void *) (arg0), (void *) (&sp8));
-        exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (0));
+        exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&sp8), (int) (0));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         TOCtrlDubchik__sub_8015CA74((void *)((void *) (arg0)));
         set_flag8__6TLobbyFPv((void *) (arg0));
@@ -379,7 +371,8 @@ void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0) {
+void TOCtrlDubchik::decay_timer_and_clear_flag() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x384) = (f32) (*(f32 *)((s8 *)arg0 + 0x384) - TOCtrlDubchik__data_805DB3B0);
     if (*(f32 *)((s8 *)arg0 + 0x384) < TOCtrlDubchik__data_805DB3A8) {
         *(f32 *)((s8 *)arg0 + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
@@ -392,7 +385,8 @@ void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void decay_timer_and_finish__13TOCtrlDubchikFPv(u8 *arg0) {
+void TOCtrlDubchik::decay_timer_and_finish() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x388) = (f32) (*(f32 *)((s8 *)arg0 + 0x388) - TOCtrlDubchik__data_805DB3B0);
     if (*(f32 *)((s8 *)arg0 + 0x388) < TOCtrlDubchik__data_805DB3A8) {
         *(f32 *)((s8 *)arg0 + 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
@@ -433,7 +427,7 @@ void TOCtrlDubchik__sub_8015CCF4(u8 *arg0) {
     new_var2 = (f32) TOCtrlDubchik__data_805DB3AC;
     *((f32 *) (((s8 *) arg0) + 0x388)) = new_var2;
     *((s16 *) (((s8 *) arg0) + 0x326)) = 3;
-    clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x08000004);
+    clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 0x08000004);
  do { set_indexed_flags(arg0, 0, 2); } while (0 != 0U);
   }
   new_var4 = new_var4;
@@ -466,14 +460,15 @@ void TOCtrlDubchik__sub_8015CE80(u8 *arg0) {
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && p != arg0 && obj_testFlags30(p, 0x800) != 0 &&
-            check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D29F8) != 0 &&
+            check_value_equals__13TQuestColCtrlFPll(p, lbl_805D29F8) != 0 &&
             *(s32 *)(p + 0x368) == 0 && *(s16 *)(arg0 + 0x28) == *(s16 *)(p + 0x28)) {
             *(s16 *)(arg0 + 0x326) = 1;
         }
     }
 }
 
-void run_task__13TOCtrlDubchikFv(u8 *arg0) {
+void TOCtrlDubchik::run_task() {
+    u8 *arg0 = (u8 *)this;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         TOCtrlDubchik__sub_8015C9D0(arg0);
         return;
@@ -499,13 +494,13 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
         update_spin__13TOCtrlDubchikFPv(arg0);
         break;
     case 4:
-        decay_timer_and_finish__13TOCtrlDubchikFPv(arg0);
+        decay_timer_and_finish();
         break;
     case 5:
-        decay_timer_and_clear_flag__13TOCtrlDubchikFPv(arg0);
+        decay_timer_and_clear_flag();
         break;
     case 6:
-        complete_and_destroy__13TOCtrlDubchikFPv(arg0);
+        complete_and_destroy();
         break;
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
@@ -513,7 +508,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
     submit_cursor_candidate(arg0, -1);
 }
 
-void *create__13TOCtrlDubchikFPv(void *arg0) {
+void *TOCtrlDubchik::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3A0);
     if (o != NULL) {
         o = TOCtrlDubchik__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -523,7 +518,7 @@ void *create__13TOCtrlDubchikFPv(void *arg0) {
 
 extern u32 TOCtrlDubchik__shared_resource;
 
-void destroy_instance__13TOCtrlDubchikFv(void) {
+void TOCtrlDubchik::destroy_instance() {
     if ((u32) TOCtrlDubchik__shared_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOCtrlDubchik__shared_resource, 1);
         TOCtrlDubchik__shared_resource = 0U;
@@ -532,10 +527,10 @@ void destroy_instance__13TOCtrlDubchikFv(void) {
 
 extern s32 __vt__13TOCtrlDubchik[];
 
-void load_shared_resource__13TOCtrlDubchikFv(void) {
+void TOCtrlDubchik::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_zombie_con_resource_descriptor.value, 0, 0, 0));
@@ -563,12 +558,12 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F1C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(u8 **)((s8 *)arg0 + 0x34) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 8));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 0xC);
     init_collision_body_parts((void *) (arg0), (void *) (&TOCtrlDubchik__collision_body.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s16 *)((s8 *)arg0 + 0x32C) = 0x12C;

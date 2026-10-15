@@ -24,6 +24,12 @@ struct TOKeyCave01
     u8 _padEC[0xC];
     u32 m_f8;
     u32 m_fc;
+    void send_switch_changed(s32 flags);
+    void run_task();
+    void render();
+    static void *create(void *arg0);
+    static void free_objects();
+    static void load_resources();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 extern "C" {
 f32 sin_table_lookup(s32);
@@ -6,35 +7,27 @@ f32 cos_table_lookup(s32);
 void rotate_vec_xz(void *arg0, void *arg1, s32 arg2);
 s32 get_view_matrix__11TCameraCtrlFv();
 s32 matrix_mult_vec(s32, s32, s32);
-s32 concat_matrix__11TCameraCtrlFUiUi(s32, s32);
+s32 concat_matrix__11TCameraCtrlFUlUl(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-void transform_vec_by_camera__15TObjBoss2TunnelFiii(s32 arg0, s32 arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
-s32 count_tree_nodes__15TObjBoss2TunnelFPv(u8 *arg0);
 extern const f32 TObjBoss2Tunnel__data_805D9234;
 bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-s16 turn_toward_angle_limited__15TObjBoss2TunnelFiiiii(s32 arg0, s32 cur, s32 target, s32 step, s32 limit);
 }
 
 extern "C" {
 
-s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1);
-f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0);
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0);
-s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1);
-void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2);
-s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2);
 int vec3_add_to(void*, void*);
 void *csnVecterUnder(void *, s32, f32);
 f32 sin_table_lookup(s32);
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
 
-s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1) {
+s32 TObjBoss2Tunnel::decrement_packed_timer(u32 *arg0, s32 arg1) {
     u32 temp_r5;
 
     temp_r5 = *arg0;
@@ -48,7 +41,7 @@ s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1) {
 
 extern f32 TObjBoss2Tunnel__data_805D9210;
 
-s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2) {
+s32 TObjBoss2Tunnel::spawn_effect(s32 arg0, void *arg1, void *arg2) {
     f32 temp_f1;
     void *temp_r3;
 
@@ -67,7 +60,7 @@ s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2) {
 
 extern f32 TObjBoss2Tunnel__data_805D9210;
 
-s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
+s32 TObjBoss2Tunnel::adjust_to_ground(s32 arg0, void *arg1) {
     f32 temp_f1;
     void *temp_r3;
 
@@ -83,9 +76,9 @@ s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
     return 0;
 }
 
-void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2) { rotate_xz_pair_by_angle((f32 *)(p), (f32 *)((char*)p + 0x8), (s32)(_w2)); vec3_add_to(p, a1); }
+void TObjBoss2Tunnel::init_zako(void* a1, s32 _w2) { rotate_xz_pair_by_angle((f32 *)(this), (f32 *)((char*)this + 0x8), (s32)(_w2)); vec3_add_to(this, a1); }
 
-s16 turn_toward_angle_limited__15TObjBoss2TunnelFiiiii(s32 arg0, s32 cur, s32 target, s32 step, s32 limit) {
+s16 TObjBoss2Tunnel::turn_toward_angle_limited(s32 arg0, s32 cur, s32 target, s32 step, s32 limit) {
     target = angle_diff_s16(arg0, target);
     if (target > limit) {
         target = limit;
@@ -126,23 +119,24 @@ s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0) {
 
 extern f32 TObjBoss2Tunnel__data_805D926C;
 
-s32 count_tree_nodes__15TObjBoss2TunnelFPv(u8 *arg0) {
+s32 TObjBoss2Tunnel::count_tree_nodes() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;
     var_r31 = 1;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x2C));
     if (temp_r3 != NULL) {
-        var_r31 = count_tree_nodes__15TObjBoss2TunnelFPv(temp_r3) + 1;
+        var_r31 = ((TObjBoss2Tunnel *)temp_r3)->count_tree_nodes() + 1;
     }
     temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x30));
     if (temp_r3_2 != NULL) {
-        var_r31 += count_tree_nodes__15TObjBoss2TunnelFPv(temp_r3_2);
+        var_r31 += ((TObjBoss2Tunnel *)temp_r3_2)->count_tree_nodes();
     }
     return var_r31;
 }
 
-f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0) {
+f32 TObjBoss2Tunnel::calc_scaled_value(s32 arg0, f32 farg0) {
     return (TObjBoss2Tunnel__data_805D926C * farg0) / sin_table_lookup(arg0 / 2);
 }
 #pragma push
@@ -186,9 +180,9 @@ bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1) {
 
 #pragma push
 #pragma fp_contract on
-void transform_vec_by_camera__15TObjBoss2TunnelFiii(s32 arg0, s32 arg1, s32 arg2) {
+void TObjBoss2Tunnel::transform_vec_by_camera(s32 arg0, s32 arg1, s32 arg2) {
     push_matrix();
-    concat_matrix__11TCameraCtrlFUiUi(0, get_view_matrix__11TCameraCtrlFv());
+    concat_matrix__11TCameraCtrlFUlUl(0, get_view_matrix__11TCameraCtrlFv());
     matrix_mult_vec(0, arg1, arg2);
     pop_matrix();
 }

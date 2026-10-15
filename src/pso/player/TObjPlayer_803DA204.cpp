@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct S_803DA218 { s32 a; u32 c; s32 b; };
 
@@ -16,17 +17,13 @@ struct Slot_803DA388 { s32 id; s32 a; s32 b; s32 c; s32 d; s32 e; s32 f; s32 g; 
 
 extern "C" {
 extern s32 player_ref_entry_active_count;
-void release_empty_ref_entry__10TObjPlayerFPv(u8 *arg0);
 void set_texture_name(S_803DA218 *self, s32 a, s32 b, u32 c);
 extern s32 record_array_count;
 extern Rec_803DA688 *record_array_ptr;
-s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 extern s32 record_array_count;
 extern Rec_803DA688 *record_array_ptr;
-s32 find_table_index_by_id__10TObjPlayerFUi(u32 arg0);
 extern s32 record_array_count;
 extern Rec_803DA688 *record_array_ptr;
-void init_record_array__10TObjPlayerFPvi(Rec_803DA688 *arg0, s32 arg1);
 extern Err_803DA5A8 lbl_8058D470[];
 extern s32 lbl_805D775C;
 extern Slot_803DA5A8 *lbl_805D7760;
@@ -40,9 +37,8 @@ void TObjPlayer__sub_803DA388(Slot_803DA388 *p, s32 n);
 
 extern "C" {
 
-void set_render_rect__10TObjPlayerFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-
-void set_render_rect__10TObjPlayerFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void TObjPlayer::set_render_rect(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0) = arg1;
     *(s32 *)((s8 *)arg0 + 0x10) = arg3;
     *(s32 *)((s8 *)arg0 + 0x14) = arg4;
@@ -68,7 +64,8 @@ void set_texture_name(S_803DA218 *self, s32 a, s32 b, u32 c) {
 
 #pragma push
 #pragma optimize_for_size off
-void init_record_array__10TObjPlayerFPvi(Rec_803DA688 *arg0, s32 arg1) {
+void TObjPlayer::init_record_array(s32 arg1) {
+    Rec_803DA688 *arg0 = (Rec_803DA688 *)this;
     s32 i;
     record_array_ptr = arg0;
     record_array_count = arg1;
@@ -106,7 +103,7 @@ void TObjPlayer__sub_803DA388(Slot_803DA388 *p, s32 n) {
 }
 #pragma pop
 
-s32 find_table_index_by_id__10TObjPlayerFUi(u32 arg0) {
+s32 TObjPlayer::find_table_index_by_id(u32 arg0) {
     E_803DA55C *e;
     u32 *q;
     s32 i;
@@ -157,7 +154,7 @@ s32 find_free_slot__10TObjPlayerFPvPv(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1)
     return idx;
 }
 
-s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
+s32 TObjPlayer::find_record_index(u32 arg0, u32 arg1) {
     Sub_803DA688 *d;
     s32 i;
     Rec_803DA688 *p = record_array_ptr;
@@ -170,7 +167,8 @@ s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
     return -1;
 }
 
-void release_empty_ref_entry__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::release_empty_ref_entry() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r4;
     temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xC));
     if ((s32) *(s32 *)((s8 *)temp_r4 + 0x24) <= 0) {

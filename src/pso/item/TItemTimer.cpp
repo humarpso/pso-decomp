@@ -3,7 +3,6 @@
 extern "C" {
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void*);
 void queue_destruction__7TObjectFv(void*);
-void invoke_callback__10TItemTimerFPv(void*);
 }
 
 void TItemTimer::run_task() {
@@ -11,7 +10,7 @@ void TItemTimer::run_task() {
     if (all_parents_unqueued_for_destruction__7TObjectFv(m_20) == 0) {
         queue_destruction__7TObjectFv(this);
     } else if (m_1C == 0) {
-        invoke_callback__10TItemTimerFPv(&m_20);
+        ((TItemTimer *)(&m_20))->invoke_callback();
         queue_destruction__7TObjectFv(this);
     }
 }
@@ -141,21 +140,16 @@ extern "C" {
 u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TItemTimer__sub_8011D7DC(void *arg0);
 void add_owner_pb_gauge_point(void *arg0);
-void apply_to_player__10TItemTimerFPv(void *arg0);
-void invoke_callback__10TItemTimerFPv(void *arg0);
-void reset_fields__10TItemTimerFPv(void* p);
-void set_owner_flag_800__10TItemTimerFPv(void *arg0);
 void freeze_curse_deliver(void *arg0);
-void update_owner_state__10TItemTimerFPv(void *arg0);
 s32 add_actor_hp(s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 add_actor_tp(s32, s32);
 s32 subtract_actor_tp(s32, s32);
-s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
+s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 s32 is_item_area_enabled();
 s32 __ct__7TObjectFP7TObject();
 s32 disallow_rendering__7TObjectFv(void *);
-s32 get_field_3e0__12TBoss3VoloptFPv(void *);
+s32 get_field_3e0__12TBoss3VoloptFv(void *);
 s32 is_flag_20000_set__10TObjPlayerFv(s32);
 s32 obj_getField1c(s32);
 s32 obj_isState2_324(void *);
@@ -170,7 +164,7 @@ extern s32 lbl_805D2C88;
 u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TItemTimer;
-    reset_fields__10TItemTimerFPv((void*)((void *) (arg0 + 0x20)));
+    ((TItemTimer *)(arg0 + 0x20))->reset_fields();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C88;
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (arg3 - 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) < 1) {
@@ -181,12 +175,12 @@ u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
-void invoke_callback__10TItemTimerFPv(void *arg0) {
+void TItemTimer::invoke_callback() {
     s32 (*temp_r12)(s32);
 
-    temp_r12 = *(s32 (**)(s32))((s8 *)arg0 + 4);
+    temp_r12 = *(s32 (**)(s32))((s8 *)this + 4);
     if (temp_r12 != NULL) {
-        temp_r12(*(s32 *)((s8 *)arg0 + 0));
+        temp_r12(*(s32 *)((s8 *)this + 0));
     }
 }
 
@@ -195,13 +189,13 @@ void TItemTimer__sub_8011D598(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 4) = arg2;
 }
 
-void reset_fields__10TItemTimerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
+void TItemTimer::reset_fields() { *(s32*)((char*)this + 0x0) = 0; *(s32*)((char*)this + 0x4) = 0; }
 
 extern const f32 lbl_805DAC78;
 extern const f32 lbl_805DAC7C;
 void paralysis_curse_deliver(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
-    get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
+    get_field_3e0__12TBoss3VoloptFv(arg0->obj);
     if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x10;
         a.v2 = lbl_805DAC7C;
@@ -213,7 +207,7 @@ void paralysis_curse_deliver(Timer_8011D5B4 *arg0) {
 
 void confusion_curse_deliver(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
-    get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
+    get_field_3e0__12TBoss3VoloptFv(arg0->obj);
     if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x12;
         a.v2 = lbl_805DAC7C;
@@ -225,7 +219,7 @@ void confusion_curse_deliver(Timer_8011D5B4 *arg0) {
 
 void slow_curse_deliver(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
-    get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
+    get_field_3e0__12TBoss3VoloptFv(arg0->obj);
     if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x11;
         a.v2 = lbl_805DAC7C;
@@ -239,11 +233,11 @@ void TItemTimer__sub_8011D7DC(void *arg0) {
     s32 temp_r3;
 
     if ((test_flag_2000000__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x28)) == 0) && (is_flag_20000_set__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x28)) == 0)) {
-        get_field_3e0__12TBoss3VoloptFPv((void *)((void *)(*(s32 *)((s8 *)arg0 + 0x28))));
+        get_field_3e0__12TBoss3VoloptFv((void *)((void *)(*(s32 *)((s8 *)arg0 + 0x28))));
         if ((is_item_area_enabled() == 1) && (obj_testFlags30((void *)(*(s32 *)((s8 *)arg0 + 0x28)), (s32)(0x800)) == 0)) {
             temp_r3 = spawn_particle_effect_with_flags(*(s32 *)((s8 *)arg0 + 0x28) + 0x2FC, *(s32 *)((s8 *)arg0 + 0x2C), 0x10);
             if (temp_r3 != 0) {
-                set_owner_id__13TParticleCtrlFPvUs(temp_r3, obj_getField1c(*(s32 *)((s8 *)arg0 + 0x28)));
+                set_owner_id__13TParticleCtrlFUs(temp_r3, obj_getField1c(*(s32 *)((s8 *)arg0 + 0x28)));
             }
         }
     }
@@ -256,7 +250,7 @@ void freeze_curse_deliver(void *arg0) {
 
     if (obj_isState2_324(*(void **)((s8 *)arg0 + 0x28)) == 0) {
         if (((VObj18_8011d87c_8011D414 *) *(void **)((s8 *)arg0 + 0x28))->vf84() == 0) {
-            get_field_3e0__12TBoss3VoloptFPv((void *)((void *)(*(void **)((s8 *)arg0 + 0x28))));
+            get_field_3e0__12TBoss3VoloptFv((void *)((void *)(*(void **)((s8 *)arg0 + 0x28))));
             if ((is_item_area_enabled() == 1) && ((lbl_805DAC78 * (f32) rand()) < *(f32 *)((s8 *)arg0 + 0x2C))) {
                 ((VObj18_8011d87c_8011D414 *) *(void **)((s8 *)arg0 + 0x28))->vfC0(0);
                 ((VObj18_8011d87c_8011D414 *) *(void **)((s8 *)arg0 + 0x28))->vf128(0);
@@ -276,22 +270,22 @@ void add_owner_pb_gauge_point(void *arg0) {
     }
 }
 
-void apply_to_player__10TItemTimerFPv(void *arg0) {
-    if (obj_testFlags30((void *)((void *)(*(s32 *)((s8 *)arg0 + 0x28))), (s32)((s32)(0x800))) == 0) {
-        add_actor_tp(*(s32 *)((s8 *)arg0 + 0x28), 1);
+void TItemTimer::apply_to_player() {
+    if (obj_testFlags30((void *)((void *)(*(s32 *)((s8 *)this + 0x28))), (s32)((s32)(0x800))) == 0) {
+        add_actor_tp(*(s32 *)((s8 *)this + 0x28), 1);
     }
 }
 
-void set_owner_flag_800__10TItemTimerFPv(void *arg0) {
-    if (obj_testFlags30((void *)((void *)(*(s32 *)((s8 *)arg0 + 0x28))), (s32)((s32)(0x800))) == 0) {
-        add_actor_hp(*(s32 *)((s8 *)arg0 + 0x28), 1);
+void TItemTimer::set_owner_flag_800() {
+    if (obj_testFlags30((void *)((void *)(*(s32 *)((s8 *)this + 0x28))), (s32)((s32)(0x800))) == 0) {
+        add_actor_hp(*(s32 *)((s8 *)this + 0x28), 1);
     }
 }
 
-void update_owner_state__10TItemTimerFPv(void *arg0) {
-    get_field_3e0__12TBoss3VoloptFPv((void *)(*(s32 *)((s8 *)arg0 + 0x28)));
-    if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)((s8 *)arg0 + 0x28)) == 0) && (obj_testFlags30((void *)(*(s32 *)((s8 *)arg0 + 0x28)), (s32)(0x800)) == 0)) {
-        subtract_actor_tp(*(s32 *)((s8 *)arg0 + 0x28), 1);
+void TItemTimer::update_owner_state() {
+    get_field_3e0__12TBoss3VoloptFv((void *)(*(s32 *)((s8 *)this + 0x28)));
+    if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)((s8 *)this + 0x28)) == 0) && (obj_testFlags30((void *)(*(s32 *)((s8 *)this + 0x28)), (s32)(0x800)) == 0)) {
+        subtract_actor_tp(*(s32 *)((s8 *)this + 0x28), 1);
     }
 }
 

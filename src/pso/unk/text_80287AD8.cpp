@@ -19,13 +19,13 @@ extern "C" {
 extern const f32 lbl_805DD880;
 void ease_window_timer_position(Obj_80287BE8 *o);
 u32 calc_text_width(char *);
-TimerChild_80287B60 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+TimerChild_80287B60 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 extern char lbl_8044FCD8[];
 extern const f32 lbl_805DD878;
 extern const f32 lbl_805DD87C;
 void init_timer_window_layout_alt(TWindowTimer_80287B60 *self);
 u32 calc_text_width(char *);
-TimerChild_80287B60 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+TimerChild_80287B60 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 extern u8 lbl_8044FCC8[];
 extern const f32 lbl_805DD878;
 extern const f32 lbl_805DD87C;
@@ -41,7 +41,7 @@ void init_timer_window_layout(Wn_80287AD8 *arg0) {
     En_80287AD8 *e;
     arg0->f60 |= 1;
     temp_f31 = (f32)calc_text_width((char *)(lbl_8044FCC8));
-    e = ((En_80287AD8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0));
+    e = ((En_80287AD8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 0));
     e->f8 = -(lbl_805DD87C * temp_f31 - lbl_805DD878);
 }
 #pragma pop
@@ -53,7 +53,7 @@ void init_timer_window_layout_alt(TWindowTimer_80287B60 *self) {
     TimerChild_80287B60 *child;
     self->flags &= ~1;
     width = (f32)calc_text_width(lbl_8044FCD8);
-    child = get_array_entry__20TWindowSubStatusDispFPvi(self, 0);
+    child = get_array_entry__20TWindowSubStatusDispFi(self, 0);
     child->x = lbl_805DD878 - lbl_805DD87C * width;
 }
 #pragma pop

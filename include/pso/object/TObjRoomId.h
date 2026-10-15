@@ -11,6 +11,7 @@ struct TObjRoomId
     u32 m_88;
     u32 m_8c;
     void* m_90;
+    static void draw_debug_line(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
 };
 
 #endif

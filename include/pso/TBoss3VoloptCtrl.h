@@ -10,6 +10,10 @@ public:
     virtual void run_task();
     s32 countdown;
     s32 phase;
+public:
+    void *deleting_destructor(s16 arg1);
+    void *init_object();
+    static void dispatch_state(s32 arg0);
 };
 
 #include <stddef.h>

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -46,7 +47,6 @@ struct Ctr_80224190 { u8 buf[0x74]; };
 
 extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 shop_tool_stock_buffers;
-void copy_shop_item_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 memset(void *, int, int);
 extern RecoveredGlobal_802243D4_lbl_80513F10 shop_tool_flags;
 void clear_shop_tool_flags(void);
@@ -68,10 +68,10 @@ extern s32 shop_tool_stock_level;
 void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1);
 s32 fn_80223B98(s32 arg0);
 s32 TLobby__sub_80223D48(s32 arg0);
-void reset_counter_64__6TLobbyFPv(void *);
+void reset_counter_64__6TLobbyFv(void *);
 void push_shop_pool_entry(void *, u8);
 void shuffle_shop_pool_n_times(void *, s32);
-s32 pop_byte__6TLobbyFPv(void *);
+s32 pop_byte__6TLobbyFv(void *);
 void init__9TItemDataFv(void *);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1);
@@ -84,10 +84,10 @@ extern s32 shop_tool_stock_level;
 void generate_shop_technique_pool(s32 arg0);
 s32 fn_80223C28(s32 arg0);
 s32 TLobby__sub_80223D48(s32 arg0);
-void reset_counter_64__6TLobbyFPv(void *);
+void reset_counter_64__6TLobbyFv(void *);
 void push_shop_pool_entry(void *, u8);
 void shuffle_shop_pool_n_times(void *, s32);
-s32 pop_byte__6TLobbyFPv(void *);
+s32 pop_byte__6TLobbyFv(void *);
 void init__9TItemDataFv(void *);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 TLobby__sub_80223E64(Item_802242F8 *, s32);
@@ -252,7 +252,7 @@ void generate_shop_technique_pool(s32 arg0) {
     arr = ((Item_802242F8 **)&shop_tool_stock_buffers)[arg0];
     n = fn_80223B98(shop_tool_stock_level);
     if (n > 0) {
-        reset_counter_64__6TLobbyFPv(&ctr);
+        reset_counter_64__6TLobbyFv(&ctr);
         i = TLobby__sub_80223D48(shop_tool_stock_level);
         t = ((Tbl_8022403C **)lobby_tool_random_rel)[1];
         e = &t->base[i * t->count];
@@ -267,7 +267,7 @@ void generate_shop_technique_pool(s32 arg0) {
         shuffle_shop_pool_n_times(&ctr, 5);
         i = 0;
         while (i < n) {
-            s32 b = pop_byte__6TLobbyFPv(&ctr);
+            s32 b = pop_byte__6TLobbyFv(&ctr);
             if (b != -1) {
                 init__9TItemDataFv(&it);
                 it.b[0] = 3;
@@ -299,7 +299,7 @@ void generate_shop_rare_tool_pool(s32 arg0) {
     arr = ((Item_802242F8 **)&shop_tool_stock_buffers)[arg0];
     n = fn_80223C28(shop_tool_stock_level);
     if (n > 0) {
-        reset_counter_64__6TLobbyFPv(&ctr);
+        reset_counter_64__6TLobbyFv(&ctr);
         i = TLobby__sub_80223D48(shop_tool_stock_level);
         t = ((Tbl_80224190 **)lobby_tool_random_rel)[1];
         e = &t->base[i * t->count];
@@ -316,7 +316,7 @@ void generate_shop_rare_tool_pool(s32 arg0) {
             orig = n;
             j = 0;
             while (n > j) {
-                b = pop_byte__6TLobbyFPv(&ctr);
+                b = pop_byte__6TLobbyFv(&ctr);
                 if (b == 0xF) {
                     if (orig == n) {
                         n--;
@@ -365,7 +365,8 @@ void clear_shop_tool_flags(void) {
     memset((void *) (&shop_tool_flags.value), (int) (0), (int) (0x10));
 }
 
-void copy_shop_item_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
+void TLobby::copy_shop_item_entry(s32 arg1, s32 arg2) {
+    s32 arg0 = (s32)this;
     *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)(&shop_tool_stock_buffers.value) + (arg2 * 4)) + (arg1 * 0x14));
 }
 void mark_shop_tool_sold_out(s32 a, s32 b) {

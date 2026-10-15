@@ -72,7 +72,6 @@ bool is_in_view_depth__6TSceneFf(f32 farg0);
 f32 xyz_distance_squared(void *, void *);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 lbl_805DC5D0;
-s32 find_section_at_position__6TSceneFPv(void *arg0);
 f32 vec3_dot(void *, void *);
 f32 project_point_onto_line(void *, void *, void *);
 extern Root_80204024 *camera_ctrl_instance;
@@ -92,7 +91,6 @@ SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
 extern const f32 lbl_805DC5DC;
 extern const f32 lbl_805DC5E0;
-void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 TScene__data_805DC5D8;
 extern const f32 TScene__data_805DC600;
@@ -110,17 +108,14 @@ extern RecoveredCallback_2be3cacebb2e TScene__render_callback;
 extern s32 model_render_flags;
 extern s32 lbl_805D5660;
 void draw_if_all_ready__10TObjPlayerFv(void);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 void prepare_ginja_model(void);
 void end_ginja_model_draw(void);
 void push_matrix(void);
 void pop_matrix(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-void render_static_map_section__6TSceneFv(void *, SceneMaterialSection *, s32);
-void render_animated_map_section__6TSceneFv(void *, SceneMaterialSection *, s32);
 void post_translate_matrix(f32 *);
 void rotate_matrix_by_node_angles(s32 *, s32);
-void render_map_sections__6TSceneFPv(void *scene);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 TScene__data_805DC5D8;
 void advance_scene_object_animations(void);
@@ -130,7 +125,7 @@ SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 f32 fabs_float(f32);
-void offset_position__6TSceneFPvii(void*,s32,s32);
+void offset_position__6TSceneFll(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
@@ -159,8 +154,8 @@ void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void update_particle_if_active__12TObjEneReconFv(void);
 void notify_scene__12TObjEneReconFi(s32);
-void set_indirect_tev__6TSceneFii(u32, s32);
-void draw_field_1c__6TSceneFPviii(void *, s32, s32, s32);
+void set_indirect_tev__6TSceneFll(u32, s32);
+void draw_field_1c__6TSceneFlll(void *, s32, s32, s32);
 void release_indexed_entry__6TLobbyFi(Lobby_8020533C *);
 void vec3_add_to(void *, void *);
 void draw_ginja_object(void *);
@@ -171,9 +166,7 @@ extern void (*TScene__active_scene_callback)(u32);
 
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
-s32 find_section_at_position__6TSceneFPv(void *arg0);
 SceneMaterialSection *find_scene_room_by_id(s32 id);
-void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room);
 s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
 
 f32 vec3_dot(void *, void *);
@@ -214,7 +207,7 @@ struct Task_80204688;
 extern "C" {
 extern const char lbl_8044A7F0[];
 extern const char lbl_8044A7F8[];
-void initialize_fmt1_materials__6TSceneFPv(void *);
+void initialize_fmt1_materials__6TSceneFv(void *);
 void initialize_fmt2_materials__6TSceneFv();
 void TScene__sub_80205FD0(void *);
 void TScene__sub_80205ECC(void *);
@@ -222,7 +215,7 @@ void TScene__sub_80205ECC(void *);
 extern s32 TScene__data_805D5FE8;
 SceneDispatchPrefix scene_format_dispatch_tables = {
     {{lbl_8044A7F0, 0}, {lbl_8044A7F8, 1}, {NULL, -1}},
-    {{0, -1, (void (*)())initialize_fmt1_materials__6TSceneFPv},
+    {{0, -1, (void (*)())initialize_fmt1_materials__6TSceneFv},
      {0, -1, (void (*)())initialize_fmt2_materials__6TSceneFv}},
     {{0, 0, NULL}, {0, 0, NULL}},
     {{0, -1, (void (*)())TScene__sub_80205FD0},
@@ -238,7 +231,6 @@ extern s8 TScene__floor_scene_ready_flag;
 
 extern "C" {
 
-s32 get_player_ctrl_field__6TSceneFUs(u16 arg0);
 u32 get_player_by_client_id(void *);
 
 }
@@ -252,7 +244,7 @@ SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 
 f32 fabs_float(f32);
-void offset_position__6TSceneFPvii(void*,s32,s32);
+void offset_position__6TSceneFll(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
@@ -278,7 +270,6 @@ extern u8 identity_matrix[];
 extern Root_80204024 *camera_ctrl_instance;
 bool is_in_view_depth__6TSceneFf(f32 farg0);
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
-void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room);
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 f32 vec3_dot(void *, void *);
@@ -298,21 +289,16 @@ s32 is_split_screen(void);
 
 }
 extern "C" {
-s32 find_section_at_position__6TSceneFPv(void *arg0);
-s32 get_player_ctrl_field__6TSceneFUs(u16 arg0);
 SceneMaterialSection *find_scene_room_by_id(s32 id);
 void advance_scene_object_animations(void);
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
 bool is_in_view_depth__6TSceneFf(f32 farg0);
-void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room);
 s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
-void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1, s32 arg2);
-void render_map_sections__6TSceneFPv(void *scene);
 }
 extern "C" { s8 scene_initialize_materials_guard; s8 scene_cleanup_materials_guard; }
 extern "C" {
-s32 find_section_at_position__6TSceneFPv(void *arg0) {
+s32 TScene::find_section_at_position() {
     Rec_80203510 *r;
     s32 best = -1;
     s32 i;
@@ -324,7 +310,7 @@ s32 find_section_at_position__6TSceneFPv(void *arg0) {
     r = (*(Root_80203510 * *)&TScene__data_805D5FCC)->recs;
     for (i = 0; i < (*(Root_80203510 * *)&TScene__data_805D5FCC)->count; i++, r++) {
         if (r->id >= 0) {
-            f32 d = xyz_distance_squared(arg0, r->pos);
+            f32 d = xyz_distance_squared(this, r->pos);
             if (!(d > r->radius * r->radius) && d < bestd) {
                 bestd = d;
                 best = r->id;
@@ -336,12 +322,12 @@ s32 find_section_at_position__6TSceneFPv(void *arg0) {
 }
 
 extern "C" {
-s32 get_player_ctrl_field__6TSceneFUs(u16 arg0) {
+s32 TScene::get_player_ctrl_field(u16 arg0) {
     u32 temp_r3;
 
     temp_r3 = get_player_by_client_id((void *) (arg0));
     if (temp_r3 != 0U) {
-        return find_section_at_position__6TSceneFPv((void *)((void *) (temp_r3 + 0x38)));
+        return ((TScene *)(temp_r3 + 0x38))->find_section_at_position();
     }
     return -1;
 }
@@ -405,7 +391,7 @@ void TScene::tick_material_fmt2() {
                 uv->v += uv->dv;
                 if (fabs_float(uv->u) >= lbl_805DC5D4 || fabs_float(uv->v) >= lbl_805DC5D4) {
                     if (uv->buffer != NULL) {
-                        offset_position__6TSceneFPvii((void*)(uv->buffer), (s32)((s32)uv->u), (s32)((s32)uv->v));
+                        offset_position__6TSceneFll((void*)(uv->buffer), (s32)((s32)uv->u), (s32)((s32)uv->v));
                     }
                     uv->u -= (f32)(s32)uv->u;
                     uv->v -= (f32)(s32)uv->v;
@@ -439,7 +425,7 @@ void TScene::tick_material_fmt2() {
                 uv->v += uv->dv;
                 if (uv->u >= 1.0f || uv->v >= 1.0f) {
                     if (uv->buffer != NULL) {
-                        offset_position__6TSceneFPvii((void*)(uv->buffer), (s32)((s32)uv->u), (s32)((s32)uv->v));
+                        offset_position__6TSceneFll((void*)(uv->buffer), (s32)((s32)uv->u), (s32)((s32)uv->v));
                     }
                     uv->u -= (f32)(s32)uv->u;
                     uv->v -= (f32)(s32)uv->v;
@@ -572,14 +558,14 @@ void TScene::render() {
             }
             (this->*tbl[TScene__sub_80205874(this)])();
         }
-        render_map_sections__6TSceneFPv(this);
+        render_map_sections();
         set_material_alpha_compare_reference(0xBF);
     }
 }
 #pragma pop
 
 extern "C" {
-void render_map_sections__6TSceneFPv(void *scene) {
+void TScene::render_map_sections() {
     SceneMaterialSection *sec;
     s32 i;
     if (TScene__data_805D5FCC != NULL) {
@@ -588,7 +574,7 @@ void render_map_sections__6TSceneFPv(void *scene) {
             TScene__render_callback();
         }
         if (*(void **)((u8 *)TScene__data_805D5FCC + 0x14) != NULL) {
-            set_global_param__8TObjFishFi(*(void **)((u8 *)TScene__data_805D5FCC + 0x14));
+            set_global_param__8TObjFishFl(*(void **)((u8 *)TScene__data_805D5FCC + 0x14));
         }
         sec = TScene__data_805D5FCC->sections;
         prepare_ginja_model();
@@ -601,12 +587,12 @@ void render_map_sections__6TSceneFPv(void *scene) {
                     case 0:
                     case 0xF:
                     case 0x12:
-                        render_static_map_section__6TSceneFv(scene, sec, 0);
-                        render_animated_map_section__6TSceneFv(scene, sec, 0);
+                        render_static_map_section(sec, 0);
+                        render_animated_map_section(sec, 0);
                         break;
                     default:
-                        render_static_map_section__6TSceneFv(scene, sec, 1);
-                        render_animated_map_section__6TSceneFv(scene, sec, 1);
+                        render_static_map_section(sec, 1);
+                        render_animated_map_section(sec, 1);
                         break;
                     }
                     pop_matrix();
@@ -614,15 +600,15 @@ void render_map_sections__6TSceneFPv(void *scene) {
                     push_matrix();
                     post_translate_matrix(sec->position);
                     rotate_matrix_by_node_angles(sec->angles, 1);
-                    render_static_map_section__6TSceneFv(scene, sec, 1);
-                    render_animated_map_section__6TSceneFv(scene, sec, 1);
+                    render_static_map_section(sec, 1);
+                    render_animated_map_section(sec, 1);
                     pop_matrix();
                 } else {
                     push_matrix();
                     post_translate_matrix(sec->position);
                     rotate_matrix_by_node_angles(sec->angles, 1);
-                    render_static_map_section__6TSceneFv(scene, sec, 0);
-                    render_animated_map_section__6TSceneFv(scene, sec, 0);
+                    render_static_map_section(sec, 0);
+                    render_animated_map_section(sec, 0);
                     pop_matrix();
                 }
             }
@@ -634,7 +620,7 @@ void render_map_sections__6TSceneFPv(void *scene) {
 }
 
 extern "C" {
-void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1, s32 arg2) {
+void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
     SceneMaterialStatic *e;
     s32 i;
     Node_8020533C *node;
@@ -660,7 +646,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
             model_render_flags |= 1;
         }
         if (e->flags & 0x10) {
-            Node_8020533C *sh = (Node_8020533C *)resolve_indirect_node_record(arg0, e);
+            Node_8020533C *sh = (Node_8020533C *)resolve_indirect_node_record(this, e);
             if (sh != NULL) {
                 Vec_8020533C v;
                 Ang_8020533C a;
@@ -674,7 +660,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
                 render_projected_shadow_receiver(&v, &a);
             }
         }
-        node = (Node_8020533C *)resolve_indirect_node_record(arg0, e);
+        node = (Node_8020533C *)resolve_indirect_node_record(this, e);
         if (TScene__map_section_render_callback != NULL) {
             Vec_8020533C v;
             Ang_8020533C a;
@@ -695,7 +681,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
                 } else {
                     notify_scene__12TObjEneReconFi(-1);
                 }
-                set_global_param__8TObjFishFi((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14));
+                set_global_param__8TObjFishFl((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14));
                 set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
                 draw_ginja_object(node);
                 update_particle_if_active__12TObjEneReconFv();
@@ -720,11 +706,11 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
                 Model_8020533C *m = (Model_8020533C *)e->node;
                 if (m != NULL) {
                     if (m->tex != NULL) {
-                        draw_field_1c__6TSceneFPviii(tex = m->tex, m->f8, m->fE, 0);
-                        set_global_param__8TObjFishFi((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14));
+                        draw_field_1c__6TSceneFlll(tex = m->tex, m->f8, m->fE, 0);
+                        set_global_param__8TObjFishFl((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14));
                         set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
                         draw_ginja_object(node);
-                        set_indirect_tev__6TSceneFii((u32)tex, 0);
+                        set_indirect_tev__6TSceneFll((u32)tex, 0);
                     }
                 }
             }
@@ -751,7 +737,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
 extern "C" {
 s32 is_not_split_screen__13TRaderMapCoreFv();
 void draw_ginja_model_with_motion(void *, void *, f32);
-void render_animated_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1, s32 arg2) {
+void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
   void *texture;
   SceneMaterialAnimated *e;
   s32 i;
@@ -786,7 +772,7 @@ void render_animated_map_section__6TSceneFv(void *arg0, SceneMaterialSection *ar
     {
       model_render_flags |= 1;
     }
-    node = (Node_8020533C *) resolve_indirect_object_record(arg0, e);
+    node = (Node_8020533C *) resolve_indirect_object_record(this, e);
     if (e->flags & 0x10)
     {
       Vec_8020533C v;
@@ -822,11 +808,11 @@ void render_animated_map_section__6TSceneFv(void *arg0, SceneMaterialSection *ar
         void *tex = m->tex;
         if (tex != 0)
         {
-          draw_field_1c__6TSceneFPviii(texture = tex, m->f8, m->fE, 0);
-          set_global_param__8TObjFishFi((void *) (*((s32 *) (((s8 *) TScene__data_805D5FCC) + 0x14))));
+          draw_field_1c__6TSceneFlll(texture = tex, m->f8, m->fE, 0);
+          set_global_param__8TObjFishFl((void *) (*((s32 *) (((s8 *) TScene__data_805D5FCC) + 0x14))));
           set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
           draw_ginja_model_with_motion(node, e->motion, e->frame);
-          set_indirect_tev__6TSceneFii((u32) texture, 0);
+          set_indirect_tev__6TSceneFll((u32) texture, 0);
         }
 
       }
@@ -960,7 +946,7 @@ void TScene::cull_sections() {
     sec = TScene__data_805D5FCC->sections;
     for (i = 0; i < TScene__data_805D5FCC->count; i++) {
         if (sec->flags & 0x80000) {
-            update_room_object_visibility__6TSceneFPvPv(task, sec);
+            ((TScene *)task)->update_room_object_visibility(sec);
             sec++;
         } else {
             f32 dist;
@@ -1071,7 +1057,7 @@ void TScene::update_room_visibility_from_camera() {
     s32 sec;
     s32 i;
     f32 d;
-    sec = find_section_at_position__6TSceneFPv(&(*(Cam_802043CC * *)&camera_ctrl_instance)->pos);
+    sec = ((TScene *)(&(*(Cam_802043CC * *)&camera_ctrl_instance)->pos))->find_section_at_position();
     if (sec < 0) {
         sub_80204D7C();
         return;
@@ -1133,7 +1119,7 @@ void TScene::update_room_visibility_from_camera() {
         s = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;
         for (k = 0; k < (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->count; k++, s++) {
             if (s->flags & 0x80000) {
-                update_room_object_visibility__6TSceneFPvPv((void *)this, s);
+                update_room_object_visibility(s);
             } else if (s->id < 0) {
                 check_object_in_view_cone__6TSceneFiPvPvPvi((s32)(this), (Obj_80204B78 *)(s), (Vec_80204024 *)(&(*(Cam_802043CC * *)&camera_ctrl_instance)->pos), (void *)(&out2), (s32)((*(Cam_802043CC * *)&camera_ctrl_instance)->f19C));
             }
@@ -1163,7 +1149,7 @@ void TScene::update_records_in_range() {
 }
 
 extern "C" {
-void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room) {
+void TScene::update_room_object_visibility(SceneMaterialSection *room) {
     SceneMaterialStatic *object;
     s32 i;
     SceneMaterialAnimated *anim;
@@ -1171,7 +1157,7 @@ void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSectio
     room->flags |= 0x10000;
     for (object = room->objects; i < room->count; i++, object++) {
         if (object->node != NULL) {
-            if (TScene__sub_802040D4(task, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_node_record((void*)(task), (SceneMaterialStatic*)(object))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
+            if (TScene__sub_802040D4(this, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_node_record((void*)(this), (SceneMaterialStatic*)(object))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
                 object->flags |= 0x10000;
             } else {
                 object->flags &= ~0x10000;
@@ -1180,7 +1166,7 @@ void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSectio
     }
     for (anim = room->animated, i = 0; i < room->animatedCount; i++, anim++) {
         if (anim->node != NULL) {
-            if (TScene__sub_802040D4(task, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_object_record((void*)(task), (SceneMaterialAnimated*)(anim))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
+            if (TScene__sub_802040D4(this, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_object_record((void*)(this), (SceneMaterialAnimated*)(anim))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
                 anim->flags |= 0x10000;
             } else {
                 anim->flags &= ~0x10000;

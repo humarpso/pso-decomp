@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOMonitorMachine01.h"
 
 typedef struct Mon_8017205C {
     u8 pad0[0x84];
@@ -84,7 +85,6 @@ void TLobby__sub_8001FE7C(void *, s32);
 extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
 extern s32 TOMonitorMachine01__last_update_tick;
 extern void *TOMonitorMachine01__shared_bml_archive;
-void reset_static_state__18TOMonitorMachine01Fv(void);
 void scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
 extern s32 TOMonitorMachine01__last_update_tick;
@@ -95,26 +95,23 @@ extern const f32 lbl_805DB8FC;
 extern const f32 lbl_805DB900;
 extern const f32 lbl_805DB904;
 extern const f32 lbl_805DB908;
-void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self);
 int rotate_matrix_y(int, int);
 int push_matrix();
 int pop_matrix();
 int post_translate_matrix(void *);
-int set_global_param__8TObjFishFi(int);
+int set_global_param__8TObjFishFl(int);
 int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
 void scale_matrix(s32, f32, f32, f32);
 int begin_effect_render__13TParticleCtrlFv();
 int end_effect_render__13TParticleCtrlFv();
 extern const f32 lbl_805DB8F0;
-void render__18TOMonitorMachine01Fv(Mon_80172220 *self);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern u8 monitor_machine01_resource_desc[];
 extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
 extern void *TOMonitorMachine01__shared_bml_archive;
 extern s32 TOMonitorMachine01__last_update_tick;
-void load_resources__18TOMonitorMachine01Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 init_map_object_base(void *, s32);
@@ -130,12 +127,12 @@ void *TOMonitorMachine01__ct(void *arg0_, void *arg1);
 extern "C" {
 
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1);
-void *create__18TOMonitorMachine01FPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 
-void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self) {
+void TOMonitorMachine01::run_task() {
+    Mon_8017205C *self = (Mon_8017205C *)this;
     if (TOMonitorMachine01__last_update_tick != actor_frame_tick) {
         TOMonitorMachine01__last_update_tick = actor_frame_tick;
         scroll_ginja_mesh_uvs(TOMonitorMachine01__scroll_mesh_ptrs[0], 1, 0, 1, 1);
@@ -181,13 +178,14 @@ void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self) {
     }
 }
 
-void render__18TOMonitorMachine01Fv(Mon_80172220 *self) {
+void TOMonitorMachine01::render() {
+    Mon_80172220 *self = (Mon_80172220 *)this;
     Node_80172220 *n;
     if (self->m8(self->fC0, self->fC4) != 0) {
         push_matrix();
         post_translate_matrix((u8 *)self + 0x38);
         rotate_matrix_y(0, self->f60);
-        set_global_param__8TObjFishFi(self->f24);
+        set_global_param__8TObjFishFl(self->f24);
         n = self->model->root;
         push_matrix();
         translate_matrix(0, -self->fCC, 0.0f, 0.0f);
@@ -234,17 +232,17 @@ void render__18TOMonitorMachine01Fv(Mon_80172220 *self) {
     }
 }
 
-void *create__18TOMonitorMachine01FPv(void *arg0) {
+void *TOMonitorMachine01::create() {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TOMonitorMachine01__ct((void *)(o), (void *)(arg0));
+        o = TOMonitorMachine01__ct((void *)(o), (void *)(this));
     }
     return o;
 }
 
 extern s32 __vt__18TOMonitorMachine01[];
 
-void reset_static_state__18TOMonitorMachine01Fv(void) {
+void TOMonitorMachine01::reset_static_state() {
     s32 i;
     TOMonitorMachine01__last_update_tick = 0;
     for (i = 0; i < 2; i++) {
@@ -256,10 +254,10 @@ void reset_static_state__18TOMonitorMachine01Fv(void) {
     }
 }
 
-void load_resources__18TOMonitorMachine01Fv(void) {
+void TOMonitorMachine01::load_resources() {
     void *temp_r5;
     void *p;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = (void *)load_resource_from_descriptor(p, 1, monitor_machine01_resource_desc, 0, 0, 0);
     }
@@ -273,7 +271,7 @@ void load_resources__18TOMonitorMachine01Fv(void) {
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOMonitorMachine01;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

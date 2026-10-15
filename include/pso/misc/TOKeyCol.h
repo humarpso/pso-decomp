@@ -10,6 +10,10 @@ struct TOKeyCol
     u8 _pad8C[0x44];
     u32 m_d0;
     u32 m_d4;
+    void send_switch_changed(s32 flags);
+    void run_task();
+    static void render();
+    static void *create(void *arg0);
 };
 
 #endif

@@ -21,7 +21,7 @@ struct Head_801E4260 {
 extern "C" {
 void TLobby__sub_8007EB20(const char *, ...);
 void TLobby__sub_801A54E8(void *);
-void clear_send_buffer__7TPacketFPv(void *);
+void clear_send_buffer__7TPacketFv(void *);
 void dispatch_pso_data_commands(void *);
 extern char lbl_80449784[];
 }
@@ -295,7 +295,7 @@ void TGameProtocol::run_task() {
         }
         if (*(u16 *)((u8 *)n + 6) == *(u32 *)((u8 *)this + 0x1C)) {
             TLobby__sub_801A54E8(n);
-            clear_send_buffer__7TPacketFPv(n);
+            clear_send_buffer__7TPacketFv(n);
         }
     }
     *(u32 *)((u8 *)this + 0x1C) = (*(u32 *)((u8 *)this + 0x1C) + 1) & 3;

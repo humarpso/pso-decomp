@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Quad_8024FBB0 {
     f32 x;
@@ -49,7 +50,7 @@ void calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, void *, s32);
 void end_render_forward__20TWindowSubStatusDispFPv();
 void reset_gauge__20TWindowSubStatusDispFPv(s32);
 void apply_context_transform_to_rect(s32, void *);
-s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(s32, void *);
+s32 is_point_in_bounds__19TWindowKeyBoardSoftFPv(s32, void *);
 s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(s32, void *);
 void draw_textured_quad_at_depth(void *, f32);
 extern s32 current_language;
@@ -66,9 +67,7 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
 
 extern "C" {
 
-void set_input_mode__20TWindowSubStatusDispFPvUc(void* p, u8 v);
-
-void set_input_mode__20TWindowSubStatusDispFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x64) = v; }
+void TWindowSubStatusDisp::set_input_mode(u8 v) { *(u8*)((char*)this + 0x64) = v; }
 
 s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width) {
     s32 ok;
@@ -200,7 +199,7 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
             ok = 0;
             q.x2 = q.x + width;
         }
-        if (text_clip_enabled_flag == 0 || is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(text_draw_clip_context, &q) != 0) {
+        if (text_clip_enabled_flag == 0 || is_point_in_bounds__19TWindowKeyBoardSoftFPv(text_draw_clip_context, &q) != 0) {
             calc_gauge_scale__20TWindowSubStatusDispFPvPvi(glyph, &q, col);
             set_glyph_quad_extents(adv, &q);
             if ((f32)(u8)adv > width) {

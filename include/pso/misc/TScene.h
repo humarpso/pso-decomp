@@ -4,6 +4,7 @@
 #include "pso/TObject.h"
 #include "types.h"
 
+struct SceneMaterialSection;
 class TScene : public TObject
 {
 public:
@@ -26,6 +27,45 @@ public:
     void dispatch_material_animation();
     void tick_material_fmt1();
     void tick_material_fmt2();
+public:
+    static void bind_ending_wall_textures();
+    static void set_scene(int a0);
+    static void apply_single_screen_state();
+    int update_lobby_scene();
+    static void set_ready();
+    static void reset_counter();
+    static int get_status();
+    static void set_instance(int a0);
+    static void set_active_scene(int a0);
+    static void set_id(int a0);
+    s32 find_section_at_position();
+    static s32 get_player_ctrl_field(u16 arg0);
+    void render_map_sections();
+    void render_static_map_section(SceneMaterialSection *arg1, s32 arg2);
+    void render_animated_map_section(SceneMaterialSection *arg1, s32 arg2);
+    void update_room_object_visibility(SceneMaterialSection *room);
+    static void set_field4();
+    void init_material_nodes();
+    static void create_texture_wave_tasks(s32 arg0);
+    void copy_header_and_vec(void* q);
+    void initialize_fmt1_materials();
+    static void create();
+    static void load_floor_rel_file(s32 arg0);
+    static void load_tam_file(s32 arg0);
+    static void free_scene_resources();
+    static void load_file_to_buffer(s32 arg0);
+    static void load_floor_bin_file(s32 arg0);
+    static void load_map_texture_archive(s32 arg0);
+    static void load_supplementary_t_rel(s32 arg0);
+    static void load_scene_rel_file(s32 arg0);
+    static void load_scene_data(s32 arg0);
+    static void load_current_floor();
+    static void set_indirect_tev(s32 ignored, s32 arg1);
+    void draw_field_1c(s32 arg1, s32 arg2, s32 arg3);
+    void offset_position(s32 arg1, s32 arg2);
+    void apply_uv_offset(s16 arg1, s16 arg2);
+    void *destroy_buffers(s16 arg1);
+    void *init_buffers(s32 arg1, s32 arg2);
 };
 
 #include <stddef.h>

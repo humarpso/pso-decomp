@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjBoss8Piller.h"
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
@@ -6,16 +7,14 @@ u32 get_enemy_entity(int);
 s32 TBoss8Dragon__sub_802FB1B0(int, f32, void *);
 extern const f32 lbl_805DF150;
 extern const f32 lbl_805DF154;
-void run_task__15TObjBoss8PillerFv(u8 *arg0);
 }
 
 extern "C" {
 
-void render__15TObjBoss8PillerFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 draw_model_motion(int, int, f32);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 reset_transform_state__10TObjPlayerFv();
 s32 push_matrix();
 s32 pop_matrix();
@@ -25,7 +24,8 @@ s32 is_split_screen();
 extern u8 *TObjBoss8Piller__shared_resource;
 extern const f32 lbl_805DF150;
 
-void render__15TObjBoss8PillerFv(u8 *arg0) {
+void TObjBoss8Piller::render() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r31;
 
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
@@ -34,7 +34,7 @@ void render__15TObjBoss8PillerFv(u8 *arg0) {
         } else {
             var_r31 = *(s32 *)((s8 *)(*(void **)((s8 *)TObjBoss8Piller__shared_resource + 0x42C)) + 8);
         }
-        set_global_param__8TObjFishFi((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)TObjBoss8Piller__shared_resource + 0x42C)) + 0xC)));
+        set_global_param__8TObjFishFl((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)TObjBoss8Piller__shared_resource + 0x42C)) + 0xC)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));
         scale_matrix((int) (0), (f32) (lbl_805DF150), (f32) (lbl_805DF150), (f32) (lbl_805DF150));
@@ -43,7 +43,8 @@ void render__15TObjBoss8PillerFv(u8 *arg0) {
         reset_transform_state__10TObjPlayerFv();
     }
 }
-void run_task__15TObjBoss8PillerFv(u8 *arg0) {
+void TObjBoss8Piller::run_task() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r3;
     u32 temp_r3_2;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) + lbl_805DF150);

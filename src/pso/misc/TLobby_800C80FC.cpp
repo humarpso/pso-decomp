@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-int bswap_packet_header__6TLobbyFPv(void* p);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 
-int bswap_packet_header__6TLobbyFPv(void* p) { return read_be16_field2__10TObjPlayerFPv(p); }
+int TLobby::bswap_packet_header() { return read_be16_field2__10TObjPlayerFv(this); }
 
 }

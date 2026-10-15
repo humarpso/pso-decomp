@@ -1,10 +1,13 @@
 #include "types.h"
+#include "pso/misc/TOTrapChainSaw.h"
+#include "pso/misc/TOTrapChainSawDamage.h"
+#include "pso/misc/TOTrapChainSawKey.h"
 #pragma readonly_strings on
 
 extern "C" {
 s32 fn_802C9924(s32);
-s32 get_motion__17TOTrapChainSawKeyFi(s32);
-s32 get_model__17TOTrapChainSawKeyFi(int, f32);
+s32 get_motion__17TOTrapChainSawKeyFl(s32);
+s32 get_model__17TOTrapChainSawKeyFl(int, f32);
 void TOTrapChainSawKey__vt14(u8 *arg0);
 }
 
@@ -280,24 +283,24 @@ int memset(void*, int, int);
 u16 obj_getField1c(void *);
 s32 obj_setFlags30(void *, int);
 s8 get_current_floor(int);
-s32 get_field_3e4__10TObjPlayerFPv(s32);
+s32 get_field_3e4__10TObjPlayerFv(s32);
 f32 fabs_float(f32);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
+s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 s32 set_indexed_flags(void *, s32, s32);
 void unregister_object_by_id(void *);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 TOTrapAncient02R__sub_80154D78(void *);
 s32 refresh_collision_body_centers(void *);
 u32 check_actor_body_contact(void *, s32, f32);
 void free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, int, int);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 s32 init_map_object_base(void *, void *);
-void finalize_and_send_60__6TLobbyFPv(void *);
-void init_6x05_switch_changed__6TLobbyFPv(void *);
+void finalize_and_send_60__6TLobbyFv(void *);
+void init_6x05_switch_changed__6TLobbyFv(void *);
 s32 get_player_by_client_id(s32);
-void draw_ginja_model__10TObjPlayerFPvi(void *, void *, f32);
+void draw_ginja_model__10TObjPlayerFl(void *, void *, f32);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -316,7 +319,6 @@ void TOTrapChainSawKey__vt12(void);
 void TOTrapChainSawKey__vt22(u8 *arg0);
 void TOTrapChainSawKey__vt16(S_802C86D4 *arg0);
 int TOTrapChainSawKey__vt13(void* p);
-void * create__17TOTrapChainSawKeyFPv(void *arg0);
 void * __dt__17TOTrapChainSawKeyFv(void *arg0, s16 arg1);
 u8 * TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2);
 void TOTrapChainSawDamage__vt25(u8 *arg0);
@@ -327,12 +329,9 @@ void TOTrapChainSawDamage__vt22(void *arg0);
 void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1);
 void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1);
 void TOTrapChainSawDamage__vt13(void *arg0);
-void * create__20TOTrapChainSawDamageFPv(void *arg0);
 void * __dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1);
 void * TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2);
 s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1);
-f32 scale_by_level__14TOTrapChainSawFf(f32 farg0);
-void update_demo__14TOTrapChainSawFPv(void *arg0);
 void TOTrapChainSaw__sub_802C9090(void);
 void update_demo_if_in_range__14TOTrapChainSawFPv(u8 *arg0);
 int clear_field_d8__14TOTrapChainSawFPv(void* p);
@@ -346,17 +345,17 @@ void decode_params__14TOTrapChainSawFPv(void *arg0);
 void * __dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
 u8 * TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 fn_802C9924(s32);
-s32 get_motion__17TOTrapChainSawKeyFi(s32);
-void set_damage__20TOTrapChainSawDamageFPvi(void *, void *);
+s32 get_motion__17TOTrapChainSawKeyFl(s32);
+void set_damage__20TOTrapChainSawDamageFl(void *, void *);
 s32 TOTrapChainSawDamage__sub_802C9C00(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-s32 set_global_count__12TObjNpcEnemyFi(s32);
+s32 set_global_count__12TObjNpcEnemyFl(s32);
 void debug_printf_at(s32, const char *, ...);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 void set_model_node_callback(void *);
 void draw_ginja_model_with_motion(void *, void *, f32);
 
@@ -426,15 +425,15 @@ void TOTrapChainSawEdge__vt14(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0xFC) = (s32) *(f32 *)((s8 *)arg0 + 0x70);
     x = *(s32 *)((s8 *)arg0 + 0xFC);
     *(s32 *)((s8 *)arg0 + 0xFC) = x < 0 ? 0 : (x > 1 ? 1 : x);
-    *(s32 *)((s8 *)arg0 + 0xC8) = ((s32 (*)(s32))get_model__17TOTrapChainSawKeyFi)(a.v[*(s32 *)((s8 *)arg0 + 0xFC)]);
-    *(s32 *)((s8 *)arg0 + 0xBC) = get_motion__17TOTrapChainSawKeyFi(b.v[*(s32 *)((s8 *)arg0 + 0xFC)]);
+    *(s32 *)((s8 *)arg0 + 0xC8) = ((s32 (*)(s32))get_model__17TOTrapChainSawKeyFl)(a.v[*(s32 *)((s8 *)arg0 + 0xFC)]);
+    *(s32 *)((s8 *)arg0 + 0xBC) = get_motion__17TOTrapChainSawKeyFl(b.v[*(s32 *)((s8 *)arg0 + 0xFC)]);
     *(s32 *)((s8 *)arg0 + 0x24) = fn_802C9924(0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (0.0f);
     *(f32 *)((s8 *)arg0 + 0xB8) = (1.0f);
 }
 
 void TOTrapChainSawEdge__vt23(void *arg0) {
-    set_global_param__8TObjFishFi(*(void **)((s8 *)arg0 + 0x24));
+    set_global_param__8TObjFishFl(*(void **)((s8 *)arg0 + 0x24));
     push_matrix();
     post_translate_matrix((void *)((char *)arg0 + 56));
     push_matrix();
@@ -540,14 +539,14 @@ void TOTrapChainSawKey__vt25(void) {  }
 void TOTrapChainSawKey__vt15(void* p) { if (*(int*)((char*)p + 0xf0) != 1) { check_player_contact__14TOTrapChainSawFPv(p); } }
 
 void TOTrapChainSawKey__vt23(void *arg0) {
-    set_global_param__8TObjFishFi(*(void **)((s8 *)arg0 + 0x24));
+    set_global_param__8TObjFishFl(*(void **)((s8 *)arg0 + 0x24));
     push_matrix();
     post_translate_matrix((void *)((char *)arg0 + 56));
     push_matrix();
     rotate_matrix_y(0, *(void **)((s8 *)arg0 + 0x60));
     rotate_matrix_y(0, *(void **)((s8 *)arg0 + 0xD4));
     set_model_node_callback(((s32 *)TParticleCtrl__sub_802C8464));
-    draw_ginja_model__10TObjPlayerFPvi(*(void **)((s8 *)arg0 + 0xC8), *(void **)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB4));
+    draw_ginja_model__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xC8), *(void **)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB4));
     ((void (*)(int))set_model_node_callback)(0);
     if (*(s32 *)((s8 *)arg0 + 0xF0) == 1) {
         begin_effect_render__13TParticleCtrlFv();
@@ -561,9 +560,9 @@ void TOTrapChainSawKey__vt23(void *arg0) {
 
 void TOTrapChainSawKey__vt12(void) {
     ((s32 (*)(void))TOTrapChainSaw__sub_802C9090)();
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     debug_printf_at(0x13001E, "<- SELECT A MODEL");
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
 }
 
 void TOTrapChainSawKey__vt22(u8 *arg0) {
@@ -580,13 +579,13 @@ void TOTrapChainSawKey__vt22(u8 *arg0) {
 
 void TOTrapChainSawKey__vt16(S_802C86D4 *arg0) {
     P_802C86D4 p;
-    init_6x05_switch_changed__6TLobbyFPv(&p);
+    init_6x05_switch_changed__6TLobbyFv(&p);
     p.sC = 0;
     p.sA = 0xFFFF;
     p.s10 = arg0->fE8;
     p.b12 = get_current_floor(0xFFFF);
     p.b13 = 1;
-    finalize_and_send_60__6TLobbyFPv(&p);
+    finalize_and_send_60__6TLobbyFv(&p);
 }
 
 void TOTrapChainSawKey__vt14(u8 *arg0) {
@@ -596,23 +595,23 @@ void TOTrapChainSawKey__vt14(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0xF8) = (s32) *(f32 *)((s8 *)arg0 + 0x70);
     x = *(s32 *)((s8 *)arg0 + 0xF8);
     *(s32 *)((s8 *)arg0 + 0xF8) = (x < 0) ? 0 : ((x > 1) ? 1 : x);
-    *(s32 *)((s8 *)arg0 + 0xC8) = ((s32 (*)(int))get_model__17TOTrapChainSawKeyFi)(a.v[*(s32 *)((s8 *)arg0 + 0xF8)]);
-    *(s32 *)((s8 *)arg0 + 0xBC) = get_motion__17TOTrapChainSawKeyFi((s32)(b.v[*(s32 *)((s8 *)arg0 + 0xF8)]));
+    *(s32 *)((s8 *)arg0 + 0xC8) = ((s32 (*)(int))get_model__17TOTrapChainSawKeyFl)(a.v[*(s32 *)((s8 *)arg0 + 0xF8)]);
+    *(s32 *)((s8 *)arg0 + 0xBC) = get_motion__17TOTrapChainSawKeyFl((s32)(b.v[*(s32 *)((s8 *)arg0 + 0xF8)]));
     *(s32 *)((s8 *)arg0 + 0x24) = fn_802C9924((s32)(3));
     *(f32 *)((s8 *)arg0 + 0xB4) = (0.0f);
     *(f32 *)((s8 *)arg0 + 0xB8) = (1.0f);
-    *(s32 *)((s8 *)arg0 + 0xFC) = get_model__17TOTrapChainSawKeyFi((int)(2), (0.0f));
-    *(s32 *)((s8 *)arg0 + 0x100) = get_motion__17TOTrapChainSawKeyFi((s32)(2));
+    *(s32 *)((s8 *)arg0 + 0xFC) = get_model__17TOTrapChainSawKeyFl((int)(2), (0.0f));
+    *(s32 *)((s8 *)arg0 + 0x100) = get_motion__17TOTrapChainSawKeyFl((s32)(2));
     *(f32 *)((s8 *)arg0 + 0x104) = (0.0f);
     *(f32 *)((s8 *)arg0 + 0x108) = (1.0f);
 }
 
 int TOTrapChainSawKey__vt13(void* p) { return ((int (*)(void*))decode_params__14TOTrapChainSawFPv)(p); }
 
-void *create__17TOTrapChainSawKeyFPv(void *arg0) {
+void *TOTrapChainSawKey::create() {
     void *o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
-        o = TOTrapChainSawKey__ct((u8 *)(o), (void *)(tl_05), (void *)(arg0));
+        o = TOTrapChainSawKey__ct((u8 *)(o), (void *)(tl_05), (void *)(this));
     }
     return o;
 }
@@ -638,16 +637,16 @@ u8 *TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2) {
     ((VObj_18_373ea7 *)(arg0))->m14();
     init_collision_body_parts((void *) (arg0), (int) ((u8 *)(&((RecoveredGlobal_802C8910_lbl_804E0CC0 *)chain_saw_collision_body_part_table)->value) + (*(s32 *)((s8 *)arg0 + 0xF8) * 0x58)), (int) (2));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     return arg0;
 }
 
 void TOTrapChainSawDamage__vt26(void *arg0) {
     if (*(void **)((s8 *)arg0 + 0x104) != NULL) {
-        set_damage__20TOTrapChainSawDamageFPvi(*(void **)((s8 *)arg0 + 0x104), *(void **)((s8 *)arg0 + 0xD4));
+        set_damage__20TOTrapChainSawDamageFl(*(void **)((s8 *)arg0 + 0x104), *(void **)((s8 *)arg0 + 0xD4));
     }
     if (*(void **)((s8 *)arg0 + 0x108) != NULL) {
-        set_damage__20TOTrapChainSawDamageFPvi(*(void **)((s8 *)arg0 + 0x108), *(void **)((s8 *)arg0 + 0xD4));
+        set_damage__20TOTrapChainSawDamageFl(*(void **)((s8 *)arg0 + 0x108), *(void **)((s8 *)arg0 + 0xD4));
     }
 }
 
@@ -671,14 +670,14 @@ void TOTrapChainSawDamage__vt24(void* p) { *(s32*)((char*)p + 0x100) = 0; }
 
 void TOTrapChainSawDamage__vt12(void) {
     TOTrapChainSaw__sub_802C9090();
-    ((void (*)(s32))set_global_count__12TObjNpcEnemyFi)(0xFF00FF);
+    ((void (*)(s32))set_global_count__12TObjNpcEnemyFl)(0xFF00FF);
     ((void (*)(int, void *, ...))debug_printf_at)(0x13001D, (void *)"<- DAMAGE POWER");
     ((void (*)(int, void *, ...))debug_printf_at)(0x13001E, (void *)"<- SELECT A MODEL");
-    ((void (*)(s32))set_global_count__12TObjNpcEnemyFi)(0xF0F0F0FF);
+    ((void (*)(s32))set_global_count__12TObjNpcEnemyFl)(0xF0F0F0FF);
 }
 
 void TOTrapChainSawDamage__vt23(void *arg0) {
-    set_global_param__8TObjFishFi(*(void **)((s8 *)arg0 + 0x24));
+    set_global_param__8TObjFishFl(*(void **)((s8 *)arg0 + 0x24));
     push_matrix();
     post_translate_matrix((void *)((char *)arg0 + 56));
     push_matrix();
@@ -699,7 +698,7 @@ void TOTrapChainSawDamage__vt23(void *arg0) {
 void TOTrapChainSawDamage__vt22(void *arg0) {
     ((s32 (*)())update_state__14TOTrapChainSawFPv)();
     if ((s32) *(s32 *)((s8 *)arg0 + 0xF0) == 1) {
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 1, 0x100);
+        clear_player_status_flag__10TObjPlayerFlUl(arg0, 1, 0x100);
         return;
     }
     set_indexed_flags(arg0, 1, 0x100);
@@ -739,8 +738,8 @@ void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1) {
     arg0->fF8 = (s32)arg0->f70;
     v = arg0->fF8;
     arg0->fF8 = v < 0 ? 0 : (v > 1 ? 1 : v);
-    arg0->fC8 = get_model__17TOTrapChainSawKeyFi((int)(a.v[arg0->fF8]), _w1);
-    arg0->fBC = get_motion__17TOTrapChainSawKeyFi(b.v[arg0->fF8]);
+    arg0->fC8 = get_model__17TOTrapChainSawKeyFl((int)(a.v[arg0->fF8]), _w1);
+    arg0->fBC = get_motion__17TOTrapChainSawKeyFl(b.v[arg0->fF8]);
     arg0->f24 = fn_802C9924(0);
     arg0->fB4 = (0.0f);
     arg0->fB8 = (1.0f);
@@ -769,10 +768,10 @@ extern int fold_flush_4;
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma inline_depth(1)
-void *create__20TOTrapChainSawDamageFPv(void *arg0) {
+void *TOTrapChainSawDamage::create() {
     void *o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
-        o = TOTrapChainSawDamage__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
+        o = TOTrapChainSawDamage__ct((void *)(o), (void *)(tl_05), (void *)(this));
     }
     return o;
 }
@@ -817,7 +816,7 @@ void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
     ((VObj_802C8E24 *)arg0)->m14();
     ((s32 (*)(void *, void *, int))init_collision_body_parts)(arg0, &((Ent_802C8E24 *)lbl_804E0C10)[*(s32 *)(((u8 *)arg0) + 0xF8)], 2);
     refresh_collision_body_centers(arg0);
-    reset_photon_effect__10TObjPlayerFPv(arg0);
+    reset_photon_effect__10TObjPlayerFv(arg0);
     *(f32 *)(((u8 *)arg0) + 0x3C) += (5.0f);
     {
         Copy_802C8E24 c = *(Copy_802C8E24 *)arg2;
@@ -862,19 +861,19 @@ s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1) {
 extern int fold_flush_8;
 #pragma pop
 
-f32 scale_by_level__14TOTrapChainSawFf(f32 farg0) {
+f32 TOTrapChainSaw::scale_by_level(f32 farg0) {
     F4_802C8FF8 t = TOTrapChainSaw__level_scale_table;
     return farg0 * t.v[game_difficulty_selection];
 }
 
-void update_demo__14TOTrapChainSawFPv(void *arg0) {
+void TOTrapChainSaw::update_demo() {
     s32 temp_r31;
 
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        temp_r31 = *(s32 *)((s8 *)arg0 + 0x60);
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (temp_r31 + *(s32 *)((s8 *)arg0 + 0xD4));
-        TOTrapAncient02R__sub_80154D78(arg0);
-        *(s32 *)((s8 *)arg0 + 0x60) = temp_r31;
+        temp_r31 = *(s32 *)((s8 *)this + 0x60);
+        *(s32 *)((s8 *)this + 0x60) = (s32) (temp_r31 + *(s32 *)((s8 *)this + 0xD4));
+        TOTrapAncient02R__sub_80154D78(this);
+        *(s32 *)((s8 *)this + 0x60) = temp_r31;
     }
 }
 
@@ -883,7 +882,7 @@ void TOTrapChainSaw__sub_802C9090(void) {  }
 void update_demo_if_in_range__14TOTrapChainSawFPv(u8 *arg0) {
     if (((VObj_18_52534d *)(arg0))->m8((4e+02f), (5e+01f)) == 1) {
         ((VObj_18_52534d *)(arg0))->m23();
-        update_demo__14TOTrapChainSawFPv(arg0);
+        ((TOTrapChainSaw *)arg0)->update_demo();
     }
 }
 
@@ -915,7 +914,7 @@ int check_player_contact__14TOTrapChainSawFPv(void *arg0) {
         for (i = 0; i < 4; i++) {
             p = get_player_by_client_id(i);
             if (p != 0 && ((VObj_802C91DC *)arg0)->m17(p) == 0) {
-                if (get_field_3e4__10TObjPlayerFPv(p) == ((s32 (*)(void))get_current_floor)()) {
+                if (get_field_3e4__10TObjPlayerFv(p) == ((s32 (*)(void))get_current_floor)()) {
                     t = *(s32 *)((s8 *)((VObj_802C91DC *)arg0) + 0x60);
                     *(s32 *)((s8 *)((VObj_802C91DC *)arg0) + 0x60) = t + *(s32 *)((s8 *)((VObj_802C91DC *)arg0) + 0xD4);
                     if (check_actor_body_contact(((VObj_802C91DC *)arg0), p, (1e+02f)) != 0) {
@@ -931,7 +930,7 @@ int check_player_contact__14TOTrapChainSawFPv(void *arg0) {
         s32 t2;
         q = get_player_by_client_id(local_client_id);
         if (q != 0 && ((VObj_802C91DC *)arg0)->m17(q) == 0) {
-            if (get_field_3e4__10TObjPlayerFPv(q) == ((s32 (*)(void))get_current_floor)()) {
+            if (get_field_3e4__10TObjPlayerFv(q) == ((s32 (*)(void))get_current_floor)()) {
                 t2 = *(s32 *)((s8 *)((VObj_802C91DC *)arg0) + 0x60);
                 *(s32 *)((s8 *)((VObj_802C91DC *)arg0) + 0x60) = t2 + *(s32 *)((s8 *)((VObj_802C91DC *)arg0) + 0xD4);
                 if (check_actor_body_contact(((VObj_802C91DC *)arg0), q, (1e+02f)) != 0) {
@@ -1057,7 +1056,7 @@ void decode_params__14TOTrapChainSawFPv(void *arg0) {
 void *__dt__14TOTrapChainSawFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOTrapChainSaw;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1084,7 +1083,7 @@ u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
-void release_member_90__10TObjPlayerFPv();
+void release_member_90__10TObjPlayerFv();
 void TParticleCtrl__sub_801A2124();
 void update_object_view_visibility();
 void classify_actor_view_detail();
@@ -1107,7 +1106,7 @@ s32 __vt__18TOTrapChainSawEdge[31] = {
     (s32)&render_shadows__7TObjectFv,
     (s32)&TLobby__sub_801A1FD8,
     (s32)&apply_object_set_data,
-    (s32)&release_member_90__10TObjPlayerFPv,
+    (s32)&release_member_90__10TObjPlayerFv,
     (s32)&TParticleCtrl__sub_801A2124,
     (s32)&update_object_view_visibility,
     (s32)&classify_actor_view_detail,
@@ -1129,7 +1128,7 @@ s32 __vt__18TOTrapChainSawEdge[31] = {
     (s32)&TOTrapChainSaw__sub_802C9BEC,
     (s32)&TOTrapChainSaw__sub_802C9BF0,
     (s32)&TOTrapChainSaw__sub_802C9BF4,
-    (s32)&scale_by_level__14TOTrapChainSawFf
+    (s32)&TOTrapChainSaw::scale_by_level
 };
 s32 __vt__17TOTrapChainSawKey[31] = {
     0,
@@ -1140,7 +1139,7 @@ s32 __vt__17TOTrapChainSawKey[31] = {
     (s32)&render_shadows__7TObjectFv,
     (s32)&TLobby__sub_801A1FD8,
     (s32)&apply_object_set_data,
-    (s32)&release_member_90__10TObjPlayerFPv,
+    (s32)&release_member_90__10TObjPlayerFv,
     (s32)&TParticleCtrl__sub_801A2124,
     (s32)&update_object_view_visibility,
     (s32)&classify_actor_view_detail,
@@ -1162,7 +1161,7 @@ s32 __vt__17TOTrapChainSawKey[31] = {
     (s32)&TOTrapChainSawKey__vt25,
     (s32)&TOTrapChainSaw__sub_802C9BF0,
     (s32)&TOTrapChainSaw__sub_802C9BF4,
-    (s32)&scale_by_level__14TOTrapChainSawFf
+    (s32)&TOTrapChainSaw::scale_by_level
 };
 s32 __vt__20TOTrapChainSawDamage[31] = {
     0,
@@ -1173,7 +1172,7 @@ s32 __vt__20TOTrapChainSawDamage[31] = {
     (s32)&render_shadows__7TObjectFv,
     (s32)&TLobby__sub_801A1FD8,
     (s32)&apply_object_set_data,
-    (s32)&release_member_90__10TObjPlayerFPv,
+    (s32)&release_member_90__10TObjPlayerFv,
     (s32)&TParticleCtrl__sub_801A2124,
     (s32)&update_object_view_visibility,
     (s32)&classify_actor_view_detail,
@@ -1195,7 +1194,7 @@ s32 __vt__20TOTrapChainSawDamage[31] = {
     (s32)&TOTrapChainSawDamage__vt25,
     (s32)&TOTrapChainSawDamage__vt26,
     (s32)&TOTrapChainSaw__sub_802C9BF4,
-    (s32)&scale_by_level__14TOTrapChainSawFf
+    (s32)&TOTrapChainSaw::scale_by_level
 };
 s32 __vt__14TOTrapChainSaw[31] = {
     0,
@@ -1206,7 +1205,7 @@ s32 __vt__14TOTrapChainSaw[31] = {
     (s32)&render_shadows__7TObjectFv,
     (s32)&TLobby__sub_801A1FD8,
     (s32)&apply_object_set_data,
-    (s32)&release_member_90__10TObjPlayerFPv,
+    (s32)&release_member_90__10TObjPlayerFv,
     (s32)&TParticleCtrl__sub_801A2124,
     (s32)&update_object_view_visibility,
     (s32)&classify_actor_view_detail,
@@ -1228,7 +1227,7 @@ s32 __vt__14TOTrapChainSaw[31] = {
     (s32)&TOTrapChainSaw__sub_802C9BEC,
     (s32)&TOTrapChainSaw__sub_802C9BF0,
     (s32)&TOTrapChainSaw__sub_802C9BF4,
-    (s32)&scale_by_level__14TOTrapChainSawFf
+    (s32)&TOTrapChainSaw::scale_by_level
 };
 
 }

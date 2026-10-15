@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TSceneSora.h"
 
 struct RecoveredGlobal_802072E0___vt__10TSceneSora {
     s32 value;
@@ -69,17 +70,15 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi();
+s32 set_global_param__8TObjFishFl();
 extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__sky_bml_resource;
-void render__10TSceneSoraFv(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC608;
-void run_task__10TSceneSoraFv(TSceneSora_80207238 *sky);
 void *get_current_floor();
 u32 TLobby__sub_8002058C(void *, int, Res_80207478 *, Res_80207478 *, int, int, int);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 update_lobby_scene__6TSceneFPv(void *);
+void *alloc__23TAdSinglePlyChrSelectGCFv(int);
+s32 update_lobby_scene__6TSceneFv(void *);
 s32 replace_file_extension__6TLobbyFPvPvPv(char *, char *, char *);
 s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
 Ent_80207478 *get_floor_scene_table(s32);
@@ -93,13 +92,11 @@ extern s32 TSceneSora__sky_active_flag;
 extern s32 TSceneSora__instance;
 extern u32 TSceneSora__sky_bml_resource;
 extern s32 TSceneSora__has_sky_motion;
-void load_sky_resources__10TSceneSoraFv(void);
 }
 
 extern "C" {
 
 void TLobby__sub_802075F4(void);
-void create_instance__10TSceneSoraFv(void);
 s32 __nw__7TObjectFUl(s32);
 
 extern s32 TSceneSora__instance;
@@ -108,11 +105,12 @@ extern s32 tl_05;
 
 typedef char RecoveredGlobal_802072E0___vt__10TSceneSora_size[sizeof(RecoveredGlobal_802072E0___vt__10TSceneSora) == 0x38 ? 1 : -1];
 
-void render__10TSceneSoraFv(u8 *arg0) {
+void TSceneSora::render() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) TSceneSora__sky_active_flag != 0) {
         begin_effect_render__13TParticleCtrlFv();
         TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
-        set_global_param__8TObjFishFi();
+        set_global_param__8TObjFishFl();
         push_matrix();
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
         if ((u32) *(u32 *)((s8 *)arg0 + 0x94) != 0U) {
@@ -125,7 +123,8 @@ void render__10TSceneSoraFv(u8 *arg0) {
     }
 }
 
-void run_task__10TSceneSoraFv(TSceneSora_80207238 *sky) {
+void TSceneSora::run_task() {
+    TSceneSora_80207238 *sky = (TSceneSora_80207238 *)this;
     if (sky->motion != NULL) {
         sky->frame += sky->rate;
         if (sky->frame > (f32)(sky->motion->frame_count - 1)) {
@@ -170,7 +169,7 @@ u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
     return arg0;
 }
 
-void create_instance__10TSceneSoraFv(void) {
+void TSceneSora::create_instance() {
     s32 var_r3;
 
     if ((u32) TSceneSora__sky_bml_resource != 0U) {
@@ -193,7 +192,7 @@ void TSceneSora__sub_80207430(void) {
     TSceneSora__instance = 0;
 }
 
-void load_sky_resources__10TSceneSoraFv(void) {
+void TSceneSora::load_sky_resources() {
     char name2[0x20];
     char name1[0x20];
     Ref_80207478 ref;
@@ -212,7 +211,7 @@ void load_sky_resources__10TSceneSoraFv(void) {
         replace_file_extension__6TLobbyFPvPvPv(name1, tbl[ref.idx].name, lbl_8044A9D0);
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             replace_file_extension__6TLobbyFPvPvPv(name2, tbl[ref.idx].name, lbl_8044A9D8);
-            ok = update_lobby_scene__6TSceneFPv(name2);
+            ok = update_lobby_scene__6TSceneFv(name2);
         }
         if (ok <= 0) {
             replace_file_extension__6TLobbyFPvPvPv(name2, tbl[ref.idx].name, lbl_8044A9E0);
@@ -234,7 +233,7 @@ void load_sky_resources__10TSceneSoraFv(void) {
         }
         b.n = 0;
         a.n = 0;
-        o = (u32)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        o = (u32)alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != 0) {
             o = TLobby__sub_8002058C((void *)o, 1, &b, &a, 0, 0, 0);
         }

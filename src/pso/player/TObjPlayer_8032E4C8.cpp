@@ -1,13 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void TItemWpnCardEffect__sub_8032E588(s32 arg0, s32 arg1, s32 arg2);
 void start_guardianna_wall_card(s32 arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_8032E648(s32 arg0, s32 arg1, s32 arg2);
-void create_aux_object__10TObjPlayerFiPvi(s32 arg0, u32 *arg1, s32 arg2);
-void create_network_object__10TObjPlayerFiPvi(s32 arg0, u32 *arg1, s32 arg2);
-void start_guardianna_hit_card__10TObjPlayerFiPvi(s32 arg0, u32 *arg1, s32 arg2);
 s32 construct_card_effect_on_target(void *, s32, u32 *, s32, s32, s32);
 void *__nw__7TObjectFUl(s32);
 s32 construct_card_effect_at_point(void*, s32, s32, s32, s32, s32);
@@ -23,7 +21,7 @@ void start_guardianna_wall_card(s32 arg0, s32 arg1, s32 arg2) {
 
 extern s32 tl_05;
 
-void start_guardianna_hit_card__10TObjPlayerFiPvi(s32 arg0, u32 *arg1, s32 arg2) {
+void TObjPlayer::start_guardianna_hit_card(s32 arg0, u32 *arg1, s32 arg2) {
     void *obj;
 
     if ((arg1 != NULL) && ((u32) *arg1 != 0U)) {
@@ -45,7 +43,7 @@ void TItemWpnCardEffect__sub_8032E588(s32 arg0, s32 arg1, s32 arg2) {
 
 extern s32 tl_05;
 
-void create_aux_object__10TObjPlayerFiPvi(s32 arg0, u32 *arg1, s32 arg2) {
+void TObjPlayer::create_aux_object(s32 arg0, u32 *arg1, s32 arg2) {
     void *obj;
 
     if ((arg1 != NULL) && ((u32) *arg1 != 0U)) {
@@ -67,7 +65,7 @@ void TObjPlayer__sub_8032E648(s32 arg0, s32 arg1, s32 arg2) {
 
 extern s32 tl_05;
 
-void create_network_object__10TObjPlayerFiPvi(s32 arg0, u32 *arg1, s32 arg2) {
+void TObjPlayer::create_network_object(s32 arg0, u32 *arg1, s32 arg2) {
     void *obj;
 
     if ((arg1 != NULL) && ((u32) *arg1 != 0U)) {

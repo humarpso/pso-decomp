@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-u32 get_packet_size__6TLobbyFPv(u8 *arg0);
-u32 get_available_size__6TLobbyFPv(u8 *arg0);
-
-u32 get_packet_size__6TLobbyFPv(u8 *arg0) {
+u32 TLobby::get_packet_size() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r0;
     s32 var_r0_2;
     s32 var_r3;
@@ -36,7 +35,8 @@ u32 get_packet_size__6TLobbyFPv(u8 *arg0) {
     return (u32) var_r3 >> 1U;
 }
 
-u32 get_available_size__6TLobbyFPv(u8 *arg0) {
+u32 TLobby::get_available_size() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r0;
     s32 var_r0_2;
     s32 var_r3;

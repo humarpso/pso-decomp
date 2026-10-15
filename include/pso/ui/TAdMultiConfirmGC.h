@@ -10,6 +10,11 @@ struct TAdMultiConfirmGC
     u8 _pad24[0x20];
     u32 m_44;
     u32 m_48;
+    static void render();
+    void run_task();
+    static int reset_cursor(void* p);
+    static int set_cursor_index_1(void* p);
+    static int set_cursor_index_2(void* p);
 };
 
 #endif

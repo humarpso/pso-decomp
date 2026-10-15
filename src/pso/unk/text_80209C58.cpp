@@ -2,7 +2,7 @@
 struct Hdr_80209C58 { s32 type; s32 size; s32 id; s32 x; };
 
 extern "C" {
-void bswap_quad_word__6TLobbyFPv(void *);
+void bswap_quad_word__6TLobbyFv(void *);
 extern s32 lbl_805D60CC;
 Hdr_80209C58 *find_header_by_id__6TLobbyFPvi(Hdr_80209C58 *arg, s32 id);
 }
@@ -14,7 +14,7 @@ Hdr_80209C58 *find_header_by_id__6TLobbyFPvi(Hdr_80209C58 *arg, s32 id) {
     if ((p = arg) != NULL) {
         for (;;) {
             Hdr_80209C58 h = *p;
-            bswap_quad_word__6TLobbyFPv(&h);
+            bswap_quad_word__6TLobbyFv(&h);
             if (h.type == 3) {
                 if (h.id == id) {
                     lbl_805D60CC = h.x;

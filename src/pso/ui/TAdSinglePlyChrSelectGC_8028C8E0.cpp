@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TChCrLoadReq.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Cm_8028CB6C { u8 pad[0x3E]; s16 f3e; };
 
@@ -79,22 +80,18 @@ struct Sel_8028CD18 {
 
 extern "C" {
 s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
-s32 are_all_selections_done__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
-void *create__12TChCrLoadAfsFPvPvPv(void *, int, void *);
-void *calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(void *, s32, s32, s32);
-s32 get_display_index__12TCharaMakingFPv(void *);
-void get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
+void *create__12TChCrLoadAfsFPvPv(void *, int, void *);
+s32 get_display_index__12TCharaMakingFv(void *);
+void get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPl(void *, void *);
 void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0);
 u32 create__22TChCrLoadAfsTextureReqFPvPv(void *, Req_8028CC28 *);
-s32 get_display_index__12TCharaMakingFPv(void *);
-void request_texture_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CC28 *arg0);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 get_display_index__12TCharaMakingFv(void *);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 u32 TLobby__sub_801E38A0(void *, s32 *, s32 *, s32, s32);
 s32 is_node_tree_valid(u32, s32);
-void *get_result__23TAdSinglePlyChrSelectGCFPv(void *);
+void *get_result__23TAdSinglePlyChrSelectGCFv(void *);
 void blend_creation_proportion_shapes(void *);
-void reset_creation_parts__23TAdSinglePlyChrSelectGCFPv(void *);
-s32 load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+void reset_creation_parts__23TAdSinglePlyChrSelectGCFv(void *);
 u32 create_ch_cr_load_gm_nj_req(void *, Req_8028CD18 *);
 void TLobby__sub_8028D738(s32);
 void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self);
@@ -109,29 +106,27 @@ s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0);
 void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0, s32 *);
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void);
 void close_and_destroy__12TChCrLoadReqFv(void *arg0);
-s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-void try_advance_state__12TChCrLoadReqFv(void* p);
-s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 chr_select_slot_state;
 
-s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+s32 TAdSinglePlyChrSelectGC::try_acquire_slot() {
     if (((s32) chr_select_slot_state < 0) || ((s32) chr_select_slot_state > 1)) {
         return 0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x6C) != 0) {
+    if ((s32) *(s32 *)((s8 *)this + 0x6C) != 0) {
         return 0;
     }
     if ((s32) chr_select_slot_state >= 1) {
         return 0;
     }
     chr_select_slot_state += 1;
-    *(s32 *)((s8 *)arg0 + 0x6C) = 1;
+    *(s32 *)((s8 *)this + 0x6C) = 1;
     return 1;
 }
 
-s32 are_all_selections_done__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
+s32 TAdSinglePlyChrSelectGC::are_all_selections_done() {
+    u8 *arg0 = (u8 *)this;
     s32 off;
     s32 i;
     i = 0;
@@ -150,7 +145,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0) {
 
 extern s32 chr_select_load_slot_count;
 
-s32 load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+s32 TAdSinglePlyChrSelectGC::load_preview_models() {
     s32 len;
     s32 tag;
     u32 bufs[6];
@@ -158,19 +153,19 @@ s32 load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 i;
     s32 j;
     u32 p;
-    Sel_8028C9B0 *self = (Sel_8028C9B0 *)arg0;
+    Sel_8028C9B0 *self = (Sel_8028C9B0 *)this;
     for (i = 0; i < 6; i++) {
         len = 0;
-        p = TLobby__sub_801E38A0(get_result__23TAdSinglePlyChrSelectGCFPv(self->f74[i]), &len, &tag, 0, 0);
+        p = TLobby__sub_801E38A0(get_result__23TAdSinglePlyChrSelectGCFv(self->f74[i]), &len, &tag, 0, 0);
         if (p == 0 || tag != 0x4E4A544C) return;
-        safe_free__23TAdSinglePlyChrSelectGCFUi(p);
-        bufs[i] = TLobby__sub_801E38A0(get_result__23TAdSinglePlyChrSelectGCFPv(self->f74[i]), &len, &tag, 0, 0);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(p);
+        bufs[i] = TLobby__sub_801E38A0(get_result__23TAdSinglePlyChrSelectGCFv(self->f74[i]), &len, &tag, 0, 0);
         if (bufs[i] == 0 || tag != 0x4E4A434D) {
-            for (i = 0; i < 6; i++) safe_free__23TAdSinglePlyChrSelectGCFUi(bufs[i]);
+            for (i = 0; i < 6; i++) safe_free__23TAdSinglePlyChrSelectGCFUl(bufs[i]);
             return;
         }
         if (is_node_tree_valid(bufs[i], tag) == 0) {
-            for (i = 0; i < 6; i++) safe_free__23TAdSinglePlyChrSelectGCFUi(bufs[i]);
+            for (i = 0; i < 6; i++) safe_free__23TAdSinglePlyChrSelectGCFUl(bufs[i]);
             return;
         }
     }
@@ -182,9 +177,9 @@ s32 load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         s.y[i] = bufs[i];
         s.z[i] = bufs[i + 3];
     }
-    reset_creation_parts__23TAdSinglePlyChrSelectGCFPv(&s);
+    reset_creation_parts__23TAdSinglePlyChrSelectGCFv(&s);
     blend_creation_proportion_shapes(self->f38 + 0x48);
-    for (j = 0; j < 6; j++) safe_free__23TAdSinglePlyChrSelectGCFUi(bufs[j]);
+    for (j = 0; j < 6; j++) safe_free__23TAdSinglePlyChrSelectGCFUl(bufs[j]);
 }
 
 void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0) {
@@ -194,26 +189,27 @@ void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0) {
     s32 i;
     s32 id;
     void *t;
-    get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPvPv((u8 *)arg0->cm + 0x48, (u8 *)arg0 + 0x68);
-    disp = get_display_index__12TCharaMakingFPv(arg0->cm);
+    get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPl((u8 *)arg0->cm + 0x48, (u8 *)arg0 + 0x68);
+    disp = get_display_index__12TCharaMakingFv(arg0->cm);
     for (i = 0, off = 0; i < 3; i++, off += 4) {
         p = (Sl_8028CB6C *)((u8 *)arg0 + off);
         id = p->a;
-        t = create__12TChCrLoadAfsFPvPvPv(arg0, 0xDB, calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(arg0, disp, arg0->cm->f3e, id));
+        t = create__12TChCrLoadAfsFPvPv(arg0, 0xDB, TAdSinglePlyChrSelectGC::calc_preview_offset(arg0, disp, arg0->cm->f3e, id));
         p->b = t;
         if (t == NULL) {
             break;
         }
-        p->c = create__12TChCrLoadAfsFPvPvPv(arg0, 0xDB, (void*)((TChCrLoadReq*)arg0)->calc_preview_last_index(disp, id));
+        p->c = create__12TChCrLoadAfsFPvPv(arg0, 0xDB, (void*)((TChCrLoadReq*)arg0)->calc_preview_last_index(disp, id));
     }
 }
 
-void request_texture_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CC28 *arg0) {
+void TAdSinglePlyChrSelectGC::request_texture_loads() {
+    Sel_8028CC28 *arg0 = (Sel_8028CC28 *)this;
     Req_8028CC28 r1;
     Req_8028CC28 r2;
     Req_8028CC28 r3;
     s32 idx;
-    idx = get_display_index__12TCharaMakingFPv(arg0->chara);
+    idx = get_display_index__12TCharaMakingFv(arg0->chara);
     r1.id = arg0->id4C;
     r1.type = 4;
     r1.flags = arg0->flags;
@@ -302,14 +298,14 @@ void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0, s32 *) {
 
 extern s32 chr_select_load_slot_count;
 
-s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x8C) != 0) || ((s32) chr_select_load_slot_count < 0) || ((s32) chr_select_load_slot_count > 1)) {
+s32 TAdSinglePlyChrSelectGC::try_claim_load_slot() {
+    if (((s32) *(s32 *)((s8 *)this + 0x8C) != 0) || ((s32) chr_select_load_slot_count < 0) || ((s32) chr_select_load_slot_count > 1)) {
         return 0;
     }
     if ((s32) chr_select_load_slot_count >= 1) {
         return 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x8C) = 1;
+    *(s32 *)((s8 *)this + 0x8C) = 1;
     chr_select_load_slot_count += 1;
     return 1;
 }
@@ -332,15 +328,15 @@ s32 TChCrLoadReq::calc_preview_last_index(s32 display_index, s32 region_index) {
 
 extern "C" {
 
-void *calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void *TAdSinglePlyChrSelectGC::calc_preview_offset(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return (void *)(arg2 + (arg3 * chr_select_preview_stride_table[arg1] + chr_select_preview_base_offset_table[arg1]));
 }
 
 void close_and_destroy__12TChCrLoadReqFv(void *arg0) {
     s32 *temp_r4;
 
-    if (are_all_selections_done__23TAdSinglePlyChrSelectGCFPv((u8 *)(arg0)) != 0) {
-        load_preview_models__23TAdSinglePlyChrSelectGCFPv((void *)(arg0));
+    if (((TAdSinglePlyChrSelectGC *)arg0)->are_all_selections_done() != 0) {
+        ((TAdSinglePlyChrSelectGC *)arg0)->load_preview_models();
         temp_r4 = *(s32 **)((s8 *)arg0 + 0x3C);
         *temp_r4 &= 0xFFFFFF7F;
         TAdSinglePlyChrSelectGC__sub_8028CEEC((void *)(arg0), (s32 *)(temp_r4));
@@ -348,6 +344,6 @@ void close_and_destroy__12TChCrLoadReqFv(void *arg0) {
     }
 }
 
-void try_advance_state__12TChCrLoadReqFv(void* p) { if (TAdSinglePlyChrSelectGC__sub_8028C998((void *)(p)) != 0) { start_preview_loads__23TAdSinglePlyChrSelectGCFPv((Gc_8028CB6C *)(p)); *(int*)((char*)p + 0x60) = 2; } }
+void TChCrLoadReq::try_advance_state() { if (TAdSinglePlyChrSelectGC__sub_8028C998((void *)(this)) != 0) { start_preview_loads__23TAdSinglePlyChrSelectGCFPv((Gc_8028CB6C *)(this)); *(int*)((char*)this + 0x60) = 2; } }
 
 }

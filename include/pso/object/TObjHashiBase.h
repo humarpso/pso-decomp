@@ -14,5 +14,7 @@ struct TObjHashiBase {
     f32 farVisibility,nearVisibility;
     s32 switchId;
     f32 raisedHeight,riseSpeed;
+    s16 update_visibility(f32 farg0, f32 farg1);
+    void render();
 };
 #endif

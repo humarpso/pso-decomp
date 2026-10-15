@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecGiZonde.h"
 
 struct RecoveredGlobal_8023CE54_lbl_804CCD78 {
     s32 value;
@@ -16,14 +17,13 @@ u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg
 extern "C" {
 
 void *TTecGiZonde__sub_8023CDFC(void *arg0, s16 arg1);
-void tick_lifetime__11TTecGiZondeFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();
 
-void tick_lifetime__11TTecGiZondeFPv(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x38) = (s32) (*(s32 *)((s8 *)arg0 + 0x38) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x38) >= 0x46) {
+void TTecGiZonde::tick_lifetime() {
+    *(s32 *)((s8 *)this + 0x38) = (s32) (*(s32 *)((s8 *)this + 0x38) + 1);
+    if ((s32) *(s32 *)((s8 *)this + 0x38) >= 0x46) {
         queue_destruction__7TObjectFv();
     }
 }

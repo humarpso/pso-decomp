@@ -1,6 +1,7 @@
 #include "pso/object/ObjectFactoryTables.h"
 
 #include "types.h"
+#include "pso/TSetManager.h"
 
 struct RecoveredGlobal_8020D2B4_lbl_8058D490 { s32 value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_8020D2B4_lbl_8058D490_size[sizeof(RecoveredGlobal_8020D2B4_lbl_8058D490) == 0x30 ? 1 : -1];
@@ -66,15 +67,14 @@ s32 rotate_matrix_x(int, int);
 extern RecoveredGlobal_8020D2B4_lbl_8058D490 identity_matrix;
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 s32 get_current_floor();
-s32 assign_display_objects__6TLobbyFPvi(int, int);
-s32 assign_objects_to_slots__6TLobbyFPvi(int, int);
+s32 assign_display_objects__6TLobbyFPUcl(int, int);
+s32 assign_objects_to_slots__6TLobbyFPUcl(int, int);
 extern RecoveredGlobal_8020D6F0_TLobby__data_80513AD0 TLobby__floor_enemy_group_table;
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D610C;
 extern s32 TLobby__data_805D6114;
 extern s32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
-void apply_floor_set_rows__11TSetManagerFPv(u8 *arg0);
 void *find_scene_room_by_id(s32 room);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count);
@@ -100,8 +100,6 @@ void spawn_decorations_in_range(void *arg0);
 }
 
 extern "C" {
-
-void update_decoration_spawning__11TSetManagerFPv(void* p);
 
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     push_matrix_from((u32) &identity_matrix.value);
@@ -220,12 +218,13 @@ void spawn_decorations_in_range(void *arg0) {
     }
 }
 
-void update_decoration_spawning__11TSetManagerFPv(void* p) { spawn_decorations_in_range((void *)(p)); }
+void TSetManager::update_decoration_spawning() { spawn_decorations_in_range((void *)(this)); }
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
 typedef char RecoveredGlobal_8020D6F0_TLobby__data_80513AD0_size[sizeof(RecoveredGlobal_8020D6F0_TLobby__data_80513AD0) == 0x1B0 ? 1 : -1];
-void apply_floor_set_rows__11TSetManagerFPv(u8 *arg0) {
+void TSetManager::apply_floor_set_rows() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     u8 *temp_r30;
     temp_r3 = get_current_floor();
@@ -240,10 +239,10 @@ void apply_floor_set_rows__11TSetManagerFPv(u8 *arg0) {
         *(s32 *)((s8 *)temp_r30 + 0xC) = (s32) (*(s32 *)((s8 *)temp_r30 + 0xC) | 4);
     }
     if (*(s32 *)((s8 *)temp_r30 + 8) & 2) {
-        assign_objects_to_slots__6TLobbyFPvi((int) (TLobby__data_805D610C), (int) (*(s32 *)((s8 *)temp_r30 + 0)));
+        assign_objects_to_slots__6TLobbyFPUcl((int) (TLobby__data_805D610C), (int) (*(s32 *)((s8 *)temp_r30 + 0)));
     }
     if (*(s32 *)((s8 *)temp_r30 + 0xC) & 4) {
-        assign_display_objects__6TLobbyFPvi((int) (TLobby__data_805D6114), (int) (*(s32 *)((s8 *)temp_r30 + 4)));
+        assign_display_objects__6TLobbyFPUcl((int) (TLobby__data_805D6114), (int) (*(s32 *)((s8 *)temp_r30 + 4)));
     }
     if ((s32) TLobby__data_805D6120 > 0) {
         apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D611C)), (s32)((int) (TLobby__data_805D6120)));

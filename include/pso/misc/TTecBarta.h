@@ -47,6 +47,13 @@ struct TTecBarta {
     TechniqueParticleEmitter** emitters;
     u16 hitIds[32];
     s32 hitCursor;
+    void update_technique_by_state();
+    void create_particle_emitters();
+    void init_parameters();
+    void create(void *arg1, void *arg2, void *arg3);
+    void create_ex(void *arg1, void *arg2, void *arg3);
+    void run_task();
+    static void render();
 };
 typedef char TTecBarta_size[sizeof(TTecBarta)==0x178?1:-1];
 

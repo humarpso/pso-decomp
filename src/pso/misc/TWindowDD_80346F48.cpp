@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
 
 struct DD_80346FE4 {
     u8 pad[0x10];
@@ -19,23 +20,20 @@ char *strncpy(char *, const char *, u32);
 extern s32 local_client_id;
 extern char **TWindowDD__player_name_buffers;
 extern DD_80346FE4 *TWindowDD__word_select_lists;
-void build_player_word_lists__9TWindowDDFv(void);
 }
 
 extern "C" {
 
-void reset_selection__9TWindowDDFPv(void* a0);
-void update_selected_id__9TWindowDDFPv(void *arg0);
 int build_item_list__9TWindowDDFPv(void);
 
     extern short lbl_805D6E24;
-void reset_selection__9TWindowDDFPv(void* a0) { *(short*)((char*)a0 + 0x1c) = -1; lbl_805D6E24 = -1; build_item_list__9TWindowDDFPv(); }
+void TWindowDD::reset_selection() { *(short*)((char*)this + 0x1c) = -1; lbl_805D6E24 = -1; build_item_list__9TWindowDDFPv(); }
 
 extern s16 lbl_805D6E24;
 
-void update_selected_id__9TWindowDDFPv(void *arg0) {
-    if (((s16) *(s16 *)((s8 *)arg0 + 2) == 1) && (TWindowDD__sub_80346FC0((s16)(*(s16 *)((s8 *)arg0 + 4))) != 0)) {
-        lbl_805D6E24 = *(s16 *)((s8 *)arg0 + 4);
+void TWindowDD::update_selected_id() {
+    if (((s16) *(s16 *)((s8 *)this + 2) == 1) && (TWindowDD__sub_80346FC0((s16)(*(s16 *)((s8 *)this + 4))) != 0)) {
+        lbl_805D6E24 = *(s16 *)((s8 *)this + 4);
     }
 }
 s32 TWindowDD__sub_80346FC0(s16 arg0) {
@@ -46,7 +44,7 @@ s32 TWindowDD__sub_80346FC0(s16 arg0) {
     }
     return var_r3;
 }
-void build_player_word_lists__9TWindowDDFv(void) {
+void TWindowDD::build_player_word_lists() {
     s32 i;
     s32 n;
     s16 *list;

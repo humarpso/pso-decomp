@@ -4,6 +4,7 @@
 #include "types.h"
 #include "pso/misc/TChallenge.h"
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
 typedef char TChallenge_state_offset[(offsetof(TChallenge, state) == 0x1C) ? 1 : -1];
 typedef char TChallenge_frame_offset[(offsetof(TChallenge, frame_count) == 0x20) ? 1 : -1];
 typedef char TChallenge_size[(sizeof(TChallenge) == 0x30) ? 1 : -1];
@@ -90,7 +91,6 @@ extern s32 local_client_id;
 void TLobby__sub_80070358(void);
 void clear_four_slots__6TLobbyFv(void);
 void TLobby__sub_800738F4(void *, s32);
-void set_challenge_record_page__6TLobbyFPvi(void *self, s32 v);
 s32 get_main_phase(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 void create_obj_tag_challenge(s32);
@@ -100,16 +100,13 @@ extern s32 tl_07;
 s32 get_main_phase(void);
 void queue_destruction__7TObjectFv(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 destroy_on_phase_change__6TLobbyFPv(void *self);
 s32 get_current_floor(void);
-void create_time_window__6TLobbyFv(void *);
 void create_obj_tag_challenge(s32);
 s32 create_ch_time_win(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern s32 tl_07;
 void TLobby__sub_80070170(void *arg0);
 Info_800703D0 *TLobby__sub_800703D0(Info_800703D0 *dst, Info_800703D0 *src);
-void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 s32 send_6x7c_reset__6TLobbyFv(void *);
 u32 get_player_by_client_id(s32);
 extern void *challenge_mode_state[];
@@ -121,11 +118,9 @@ extern "C" {
 
 void TLobby__sub_80070550(void);
 
-void update_battle_cleanup_flag__6TLobbyFPv(void *arg0);
 s32 is_quest_active();
 s32 update_card_save_info__6TLobbyFv(void *);
 s32 spawn_player_tombstones__6TLobbyFv();
-void update_quest_challenge_state__6TLobbyFPv(void *);
 s32 TLobby__sub_800722AC(s32);
 s32 TLobby__sub_80072618();
 s32 TLobby__sub_800739BC(void *);
@@ -399,7 +394,7 @@ void *challenge_mode_state[420] = {
 };
 #define challenge_mode_state (*(s32 (*)[466])challenge_mode_state)
 
-void create_time_window__6TLobbyFv(void * _w0) {
+void TLobby::create_time_window(void * _w0) {
     spawn_player_tombstones__6TLobbyFv();
     create_ch_time_win(tl_07);
     create_new_floor_windows__6TLobbyFi(tl_07);
@@ -410,40 +405,40 @@ void create_time_window__6TLobbyFv(void * _w0) {
 
 extern s32 local_client_id;
 
-void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
+void TLobby::update_battle_cleanup_flag() {
     if (get_player_by_client_id(local_client_id) == 0U) {
-        *(s32 *)((s8 *)arg0 + 0x28) = 0;
+        *(s32 *)((s8 *)this + 0x28) = 0;
         return;
     }
     if (check_player_state_flag_2__6TLobbyFPv() != 0) {
-        if (((s32) *(s32 *)((s8 *)arg0 + 0x28) != 0) && ((s32) *(s32 *)((s8 *)(&challenge_mode_state) + 0x34) == 0)) {
-            update_card_save_info__6TLobbyFv(arg0);
+        if (((s32) *(s32 *)((s8 *)this + 0x28) != 0) && ((s32) *(s32 *)((s8 *)(&challenge_mode_state) + 0x34) == 0)) {
+            update_card_save_info__6TLobbyFv(this);
             TLobby__sub_800722AC(local_client_id);
             TLobby__sub_80072618();
         }
-        *(s32 *)((s8 *)arg0 + 0x28) = 0;
+        *(s32 *)((s8 *)this + 0x28) = 0;
     }
 }
 
 typedef char RecoveredGlobal_80070358_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070358_lbl_8048C9D8) == 0x748 ? 1 : -1];
 
-void set_challenge_record_page__6TLobbyFPvi(void *self, s32 v) {
+void TLobby::set_challenge_record_page(s32 v) {
     if (v < 0 || v >= 0x11) {
         return;
     }
     if ((*(G_80070024 *)&challenge_mode_state).x48 != v) {
-        TLobby__sub_800738F4(self, v);
+        TLobby__sub_800738F4(this, v);
         (*(G_80070024 *)&challenge_mode_state).x48 = v;
     }
 }
 
-s32 send_challenge_with_value__6TLobbyFii(void *, s32);
-s32 get_selected_quest_id__6TLobbyFPv();
+s32 send_challenge_with_value__6TLobbyFll(void *, s32);
+s32 get_selected_quest_id__6TLobbyFv();
 s32 get_list_state__16TQuestListOnlineFv();
 extern s32 TLobby__designated_client_id;
 
 #define arg0 ((L_80070078 *)arg0_)
-void update_quest_challenge_state__6TLobbyFPv(void *arg0_) {
+void TLobby::update_quest_challenge_state(void *arg0_) {
     s32 id;
     s32 n;
 
@@ -453,14 +448,14 @@ void update_quest_challenge_state__6TLobbyFPv(void *arg0_) {
         case 1:
             break;
         case 2:
-            id = get_selected_quest_id__6TLobbyFPv();
+            id = get_selected_quest_id__6TLobbyFv();
             n = 1;
             if (id >= 0x33 && id <= 0x3B) {
                 n = id - 0x30;
             }
             break;
         case 3:
-            id = get_selected_quest_id__6TLobbyFPv();
+            id = get_selected_quest_id__6TLobbyFv();
             n = 2;
             if (id >= 0x3D && id <= 0x41) {
                 n = id - 0x31;
@@ -475,7 +470,7 @@ void update_quest_challenge_state__6TLobbyFPv(void *arg0_) {
             arg0->x2C = 30;
         }
         if ((arg0->x2C <= 0 || n != 0) && n != ((Q_80070078 *)challenge_mode_state)->x48) {
-            send_challenge_with_value__6TLobbyFii(arg0, n);
+            send_challenge_with_value__6TLobbyFll(arg0, n);
         }
     }
 }
@@ -507,7 +502,7 @@ void TLobby__sub_80070170(void *arg0) {
         v = get_current_floor();
         if (challenge_mode_state[2] != v) {
             challenge_mode_state[2] = v;
-            create_time_window__6TLobbyFv((void *)(arg0));
+            TLobby::create_time_window((void *)(arg0));
         }
         break;
     }
@@ -562,30 +557,30 @@ Info_800703D0 *TLobby__sub_800703D0(Info_800703D0 *dst, Info_800703D0 *src) {
     return dst;
 }
 
-s32 destroy_on_phase_change__6TLobbyFPv(void *self) {
+s32 TLobby::destroy_on_phase_change() {
     switch (get_main_phase()) {
     case 15:
         if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
-            queue_destruction__7TObjectFv(self);
+            queue_destruction__7TObjectFv(this);
             return 1;
         }
         break;
     case 14:
-        queue_destruction__7TObjectFv(self);
+        queue_destruction__7TObjectFv(this);
         return 1;
     default:
-        queue_destruction__7TObjectFv(self);
+        queue_destruction__7TObjectFv(this);
         return 1;
     }
     return 0;
 }
 
 void TLobby__sub_80070550(void) {  }
-void TChallenge::update_active() { void *p = this; if (destroy_on_phase_change__6TLobbyFPv((void *)((void*)(p))) == 0) { TLobby__sub_80070170((void *)(p)); update_battle_cleanup_flag__6TLobbyFPv((void *)(p)); } }
+void TChallenge::update_active() { void *p = this; if (((TLobby *)p)->destroy_on_phase_change() == 0) { TLobby__sub_80070170((void *)(p)); ((TLobby *)p)->update_battle_cleanup_flag(); } }
 void TChallenge::wait_for_quest() {
     u8 *arg0 = (u8 *)this;
-    if (((s32)destroy_on_phase_change__6TLobbyFPv((void *)((void*)((void*)(arg0))))) == 0) {
-        update_quest_challenge_state__6TLobbyFPv((void *) (arg0));
+    if (((s32)((TLobby *)arg0)->destroy_on_phase_change()) == 0) {
+        TLobby::update_quest_challenge_state((void *) (arg0));
         if (is_quest_active() != 0) {
             ((s32)init__23TAdSinglePlyChrSelectGCFv());
             ((s32)TLobby__sub_800739BC((void *) (arg0)));
@@ -659,7 +654,7 @@ Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1) {
         arg0->vt = lbl_8048D108;
         destroy__13TObjTombstoneFv();
         ((void (*)(void *))clear_four_slots__6TLobbyFv)(arg0);
-        copy_challenge_settings__6TLobbyFPvPv((u8 *)challenge_mode_state, (u8 *)challenge_settings_defaults);
+        ((TLobby *)challenge_mode_state)->copy_challenge_settings((u8 *)challenge_settings_defaults);
         challenge_task = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -669,7 +664,8 @@ Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1) {
     return arg0;
 }
 
-void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
+void TLobby::copy_challenge_settings(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r6;
     u8 *temp_r8;
     *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
@@ -703,7 +699,7 @@ void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
 }
 
 struct Obj_80070944 { s32 f0; u8 pad4[0x14]; void *vt; s32 f1C, f20, f24, f28, f2C; };
-void send_challenge_records__6TLobbyFUi(void *);
+void send_challenge_records__6TLobbyFUl(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_805D2850;
 
@@ -711,9 +707,9 @@ Obj_80070944 *TChallenge__ct(Obj_80070944 *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->vt = lbl_8048D108;
     arg0->f0 = lbl_805D2850;
-    copy_challenge_settings__6TLobbyFPvPv((u8 *)challenge_mode_state, (u8 *)challenge_settings_defaults);
+    ((TLobby *)challenge_mode_state)->copy_challenge_settings((u8 *)challenge_settings_defaults);
     ((void (*)(void *))TLobby__sub_80070358)(arg0);
-    send_challenge_records__6TLobbyFUi(arg0);
+    send_challenge_records__6TLobbyFUl(arg0);
     arg0->f20 = 0;
     arg0->f24 = 0;
     arg0->f28 = 1;

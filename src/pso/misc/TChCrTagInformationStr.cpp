@@ -18,11 +18,10 @@ void run_task__22TChCrTagInformationStrFv(u8 *arg0);
 extern "C" {
 
 void *__ct__22TChCrTagInformationStrFv(void *arg0, s32 arg1, s32 arg2);
-void * create__22TChCrTagInformationStrFPvPv(void *arg0, void *arg1);
 s32 __ct__7TObjectFP7TObject();
 void *__nw__7TObjectFUl(int);
 
-void * create__22TChCrTagInformationStrFPvPv(void *arg0, void *arg1) {
+void *TChCrTagInformationStr::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubEquip.h"
 
 struct Equip_80275CB0 {
     u8 pad0[0x18];
@@ -17,10 +18,10 @@ struct Equip_80275CB0 {
 extern "C" {
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void set_field_1c__6TLobbyFPvf(void *);
+void set_field_1c__6TLobbyFf(void *);
 void call_if_split_screen(void *, s32);
 void TWindowSubEquip__sub_80263AF8(void *, s32);
-void *create_message_window__6TLobbyFiiUis(void *, void *, s32, s32);
+void *create_message_window__6TLobbyFllUls(void *, void *, s32, s32);
 void *get_window_layout_position(s32);
 void *TWindowSubCustomEquip__ct(void *, s32);
 extern u8 lbl_8044F718[];
@@ -30,25 +31,24 @@ void *TWindowSubEquip__sub_80275CB0(void *arg0, void *arg1, s32 arg2);
 
 extern "C" {
 
-void *destroy__15TWindowSubEquipFPvs(void *arg0, s16 arg1);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_804D1160[];
 
-void *destroy__15TWindowSubEquipFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804D1160;
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)((s8 *)arg0 + 0x2C) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)((s8 *)arg0 + 0x30) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x28)); *(s32 *)((s8 *)arg0 + 0x28) = 0; }
-        __dt__7TObjectFv(arg0, 0);
+void *TWindowSubEquip::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804D1160;
+        if (*(void **)((s8 *)this + 0x2C) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x2C)); *(s32 *)((s8 *)this + 0x2C) = 0; }
+        if (*(void **)((s8 *)this + 0x30) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x30)); *(s32 *)((s8 *)this + 0x30) = 0; }
+        if (*(void **)((s8 *)this + 0x28) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x28)); *(s32 *)((s8 *)this + 0x28) = 0; }
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 #define self ((Equip_80275CB0 *)arg0)
 void *TWindowSubEquip__sub_80275CB0(void *arg0, void *arg1, s32 arg2) {
@@ -63,10 +63,10 @@ void *TWindowSubEquip__sub_80275CB0(void *arg0, void *arg1, s32 arg2) {
     }
     self->custom = p;
     TWindowSubEquip__sub_80263AF8(self->parent, 0);
-    set_field_1c__6TLobbyFPvf(self->custom);
-    self->list = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x11), lbl_8044F718, 1, self->x20);
+    set_field_1c__6TLobbyFf(self->custom);
+    self->list = create_message_window__6TLobbyFllUls(get_window_layout_position(0x11), lbl_8044F718, 1, self->x20);
     TWindowSubEquip__sub_80263AF8(self->parent, 2);
-    set_field_1c__6TLobbyFPvf(self->list);
+    set_field_1c__6TLobbyFf(self->list);
     call_if_split_screen(self->list, self->x20);
     self->x2c = 0;
     self->x34 = 0;

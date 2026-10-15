@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdPlayerLoadGC.h"
 
 struct RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 {
     s32 value;
@@ -52,27 +53,20 @@ s32 TAdPlayerLoadGC__sub_801E101C(s32);
 s32 CARDProbeEx(s32, s32 *, s32 *);
 extern s32 TAdPlayerLoadGC__card_result_code;
 extern s32 TAdPlayerLoadGC__card_slot_state_flags;
-s32 probe_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E101C(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 CARDCheck(s32);
 extern s32 TAdPlayerLoadGC__card_result_code;
 extern s32 TAdPlayerLoadGC__card_slot_state_flags;
 s32 CARDFreeBlocks(s32, s32 *, s32 *);
-s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0);
 extern s32 TAdPlayerLoadGC__card_result_code;
-s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDDelete();
 extern s32 TAdPlayerLoadGC__card_result_code;
-s32 poll_load_status__15TAdPlayerLoadGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E101C(s32);
-s32 get_load_result__15TAdPlayerLoadGCFv(void *);
 s32 CARDCheckAsync(void *, int);
 s32 CARDProbeEx(s32, s32 *, s32 *);
 extern s32 TAdPlayerLoadGC__card_slot_state_flags;
 extern s32 TAdPlayerLoadGC__card_result_code;
-s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32 arg0);
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__banner_buffers;
 extern s32 TAdPlayerLoadGC__banner_file_buf;
 void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
@@ -82,19 +76,16 @@ extern s32 TAdPlayerLoadGC__banner_file_buf;
 void TAdPlayerLoadGC__sub_801E1350(void);
 s32 CARDGetResultCode(void *);
 extern s32 TAdPlayerLoadGC__card_result_code;
-s32 check_card_result_code__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDUnmount();
 extern s32 TAdPlayerLoadGC__card_slot_state_flags;
-void unmount_card_and_clear_flags__15TAdPlayerLoadGCFi(s32 n);
 s32 read_disc_file(const char*, void*);
 void* xmalloc__FUl(u32);
 extern Names_801E13C4 memory_card_banner_filenames;
 extern char lbl_804496A8[];
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__banner_buffers;
 extern s32 TAdPlayerLoadGC__banner_file_buf;
-void load_banner_files__15TAdPlayerLoadGCFv(void);
 void __dl__FPv(void *);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void getDateStamp__FP9DateStamp(DateStamp_801E17F4 *);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32, s32);
 int sprintf(char *, const char *, ...);
@@ -105,10 +96,7 @@ extern char lbl_804496B8[];
 extern char lbl_805DC410[4];
 extern char lbl_805DC414[4];
 s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(u8 *arg0, Src_801E17F4 *arg1);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32 arg0);
-s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E101C(s32);
 s32 CARDGetResultCode(void *);
 s32 CARDGetStatus(s32, s32, CARDStat_801E2048 *);
@@ -117,7 +105,6 @@ extern s32 TAdPlayerLoadGC__card_result_code;
 extern s32 TAdPlayerLoadGC__card_slot_state_flags;
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
 s32 TAdPlayerLoadGC__sub_801E101C(s32);
-s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
 void fn_801E283C(u32, Date_801E21A8 *);
 s32 CARDGetResultCode(void *);
@@ -133,13 +120,11 @@ extern "C" {
 
 void TAdPlayerLoadGC__sub_801E14E4(void);
 int TAdPlayerLoadGC__sub_801E1510(void);
-void poll_card_load__15TAdPlayerLoadGCFi(s32 arg0);
-void reset_load_state__15TAdPlayerLoadGCFPvPv(void *arg0, void *arg1);
 s32 TAdPlayerLoadGC__sub_801E101C(s32);
 s32 CARDProbeEx(s32, s32 *, s32 *);
 s32 CARDGetSerialNo();
 
-void reset_load_state__15TAdPlayerLoadGCFPvPv(void *arg0, void *arg1) {
+void TAdPlayerLoadGC::reset_load_state(void *arg0, void *arg1) {
     *(s32 *)((s8 *)arg1 + 4) = 0;
     *(s32 *)((s8 *)arg1 + 0) = 0;
     CARDGetSerialNo();
@@ -148,7 +133,7 @@ void reset_load_state__15TAdPlayerLoadGCFPvPv(void *arg0, void *arg1) {
 extern s32 TAdPlayerLoadGC__card_slot_state_flags;
 extern s32 TAdPlayerLoadGC__card_result_code;
 
-void poll_card_load__15TAdPlayerLoadGCFi(s32 arg0) {
+void TAdPlayerLoadGC::poll_card_load(s32 arg0) {
     s32 spC;
     s32 sp8;
     s32 temp_r3;
@@ -166,7 +151,8 @@ void poll_card_load__15TAdPlayerLoadGCFi(s32 arg0) {
     }
 }
 
-s32 check_card_result_code__15TAdPlayerLoadGCFi(s32 arg0) {
+s32 TAdPlayerLoadGC::check_card_result_code() {
+    s32 arg0 = (s32)this;
     if (arg0 >= 2) {
         return 0;
     }
@@ -191,7 +177,8 @@ s32 check_card_result_code__15TAdPlayerLoadGCFi(s32 arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32 arg0) {
+s32 TAdPlayerLoadGC::probe_and_check_card() {
+    s32 arg0 = (s32)this;
     s32 spC;
     s32 sp8;
     s32 temp_r3;
@@ -217,7 +204,7 @@ s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32 arg0) {
     if (sp8 == 0x2000) {
         if (!(TAdPlayerLoadGC__card_slot_state_flags & (4 << arg0))) {
             TAdPlayerLoadGC__sub_801E101C(arg0);
-            if ((u32) get_load_result__15TAdPlayerLoadGCFv((void *)((void *) (arg0))) == -0x7FU) {
+            if ((u32) TAdPlayerLoadGC::get_load_result((void *)((void *) (arg0))) == -0x7FU) {
                 TAdPlayerLoadGC__card_result_code = -0x7F;
                 return 0;
             }
@@ -268,7 +255,7 @@ s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32 arg0) {
 }
 #pragma pop
 
-void unmount_card_and_clear_flags__15TAdPlayerLoadGCFi(s32 n) {
+void TAdPlayerLoadGC::unmount_card_and_clear_flags(s32 n) {
     s32 r = CARDUnmount();
     if (r == 0 || r == -3) {
         TAdPlayerLoadGC__card_slot_state_flags &= ~(4 << n);
@@ -294,7 +281,7 @@ void TAdPlayerLoadGC__sub_801E1350(void) {
     }
 }
 
-void load_banner_files__15TAdPlayerLoadGCFv(void) {
+void TAdPlayerLoadGC::load_banner_files() {
     Names_801E13C4 names = memory_card_banner_filenames;
     const char* path = lbl_804496A8;
     s32 i;
@@ -338,7 +325,7 @@ int TAdPlayerLoadGC__sub_801E1510(void) {  return lbl_805D5E44; }
 s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2) {
     return (s32) (((arg2 >> 0xDU) + 3) << 0xD) / 8192;
 }
-s32 get_load_result__15TAdPlayerLoadGCFv(void * _w0) {
+s32 TAdPlayerLoadGC::get_load_result(void * _w0) {
     return TAdPlayerLoadGC__card_result_code;
 }
 
@@ -348,7 +335,7 @@ s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(u8 *arg0, Src_801E17F4 *arg1) 
     s32 size;
     Hdr_801E17F4 *h;
     memset(buf, 0, 0x80);
-    h = (Hdr_801E17F4 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x2048);
+    h = (Hdr_801E17F4 *)alloc__23TAdSinglePlyChrSelectGCFv(0x2048);
     memset(h->title, 0, 0x20);
     memset(h->sub, 0, 0x20);
     strncpy(h->title, lbl_804496B8, 0x20);
@@ -375,7 +362,8 @@ s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(u8 *arg0, Src_801E17F4 *arg1) 
     return size / 8192 + 3;
 }
 
-s32 probe_card_slot__15TAdPlayerLoadGCFi(s32 arg0) {
+s32 TAdPlayerLoadGC::probe_card_slot() {
+    s32 arg0 = (s32)this;
     s32 spC;
     s32 sp8;
     s32 temp_r3;
@@ -412,13 +400,13 @@ s32 probe_card_slot__15TAdPlayerLoadGCFi(s32 arg0) {
 block_17:
     return 1;
 }
-s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0) {
+s32 TAdPlayerLoadGC::check_memcard_status(s32 arg0) {
     s32 temp_r3;
     if (arg0 >= 2) {
         TAdPlayerLoadGC__card_result_code = -0xFF;
         return -0xFF;
     }
-    if ((probe_card_slot__15TAdPlayerLoadGCFi((s32)(arg0)) == 0) || (TAdPlayerLoadGC__sub_801E1B50(arg0) != 0) || (probe_and_check_card__15TAdPlayerLoadGCFi((s32)(arg0)) == 0)) {
+    if ((((TAdPlayerLoadGC *)arg0)->probe_card_slot() == 0) || (TAdPlayerLoadGC__sub_801E1B50(arg0) != 0) || (((TAdPlayerLoadGC *)arg0)->probe_and_check_card() == 0)) {
         TAdPlayerLoadGC__card_result_code = -0xFF;
         return -0xFF;
     }
@@ -448,8 +436,8 @@ s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name) {
         TAdPlayerLoadGC__card_result_code = -0xFB;
         return -0xFB;
     }
-    if (probe_card_slot__15TAdPlayerLoadGCFi(chan) == 0 || TAdPlayerLoadGC__sub_801E1B50(chan) != 0 ||
-        probe_and_check_card__15TAdPlayerLoadGCFi(chan) == 0 || check_memcard_status__15TAdPlayerLoadGCFi(chan) != 0) {
+    if (((TAdPlayerLoadGC *)chan)->probe_card_slot() == 0 || TAdPlayerLoadGC__sub_801E1B50(chan) != 0 ||
+        ((TAdPlayerLoadGC *)chan)->probe_and_check_card() == 0 || TAdPlayerLoadGC::check_memcard_status(chan) != 0) {
         TAdPlayerLoadGC__card_result_code = -0xFB;
         return -0xFB;
     }
@@ -505,7 +493,7 @@ s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(s32 chan, const char *name, Info
         TAdPlayerLoadGC__card_result_code = -0xFF;
         return -0xFF;
     }
-    switch (check_memcard_status__15TAdPlayerLoadGCFi(chan)) {
+    switch (TAdPlayerLoadGC::check_memcard_status(chan)) {
     case -1:
         TAdPlayerLoadGC__card_result_code = -1;
         return -1;
@@ -568,14 +556,14 @@ check:
     return -0xFB;
 }
 
-s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32 arg0) {
+s32 TAdPlayerLoadGC::query_memcard_capacity(s32 arg0) {
     s32 spC;
     s32 sp8;
     s32 temp_r3;
     if (arg0 >= 2) {
         return -0xFF;
     }
-    if (check_memcard_status__15TAdPlayerLoadGCFi((s32)(arg0)) != 0) {
+    if (check_memcard_status(arg0) != 0) {
         TAdPlayerLoadGC__card_result_code = -0xFD;
         return -0xFD;
     }
@@ -599,7 +587,7 @@ s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32 arg0) {
         return -0xFD;
     }
 }
-s32 poll_load_status__15TAdPlayerLoadGCFi(s32 arg0) {
+s32 TAdPlayerLoadGC::poll_load_status(s32 arg0) {
     s32 temp_r3;
     if (arg0 >= 2) {
         TAdPlayerLoadGC__card_result_code = -1;

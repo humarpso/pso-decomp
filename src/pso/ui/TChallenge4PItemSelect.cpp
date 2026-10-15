@@ -16,10 +16,10 @@ struct RecoveredGlobal_8034B158_lbl_804F00C8 {
 };
 
 extern "C" {
-int is_visible__17TWindowSubComCardFPv(void *);
+int is_visible__17TWindowSubComCardFv(void *);
 void init__9TItemDataFv(void *);
 s32 get_selected_menu_value(void *);
-void set_entry_item__18TChallenge4PResultFPvPvi(s32, s32, s32);
+void set_entry_item__18TChallenge4PResultFPvl(s32, s32, s32);
 extern RecoveredGlobal_8034B158_lbl_804F00C8 TChallenge4PItemSelect__item_table;
 }
 
@@ -43,9 +43,9 @@ s32 fn_8034BE30(TChallenge4PResult *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 s32 get_instance__11TCameraCtrlFv();
 void queue_destruction__7TObjectFv(void *);
-s32 set_field_1c__6TLobbyFPvf(u32, f32);
+s32 set_field_1c__6TLobbyFf(u32, f32);
 s32 set_position_xy(u32, f32, f32);
-s32 set_scroll_target__17TWindowSubComCardFPvff(u32, f32, f32);
+s32 set_scroll_target__17TWindowSubComCardFff(u32, f32, f32);
 
 }
 void TChallenge4PItemSelect::close_with_callback() {
@@ -76,7 +76,7 @@ void TChallenge4PItemSelect::submit_selected_item() {
     u8 *temp_r31;
     u8 *temp_r3;
     temp_r3 = (u8 *)((u8 *)menu_window);
-    if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
+    if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFv(temp_r3) != 0)) {
         temp_r31 = (u8 *)&TChallenge4PItemSelect__item_table.value + (get_selected_menu_value((u8 *)menu_window) * 0xC);
         init__9TItemDataFv(&stack.sp8);
         stack.sp8 = (s8) *(s32 *)((s8 *)temp_r31 + 0);
@@ -84,7 +84,7 @@ void TChallenge4PItemSelect::submit_selected_item() {
         stack.spA = (s8) *(s32 *)((s8 *)temp_r31 + 8);
         temp_r3_2 = (u32)result;
         if (temp_r3_2 != 0U) {
-            set_entry_item__18TChallenge4PResultFPvPvi((s32) temp_r3_2, (s32) &stack.sp8, 2);
+            set_entry_item__18TChallenge4PResultFPvl((s32) temp_r3_2, (s32) &stack.sp8, 2);
         }
         state = 2;
     }
@@ -108,9 +108,9 @@ void TChallenge4PItemSelect::open_menu() {
                 forward_trade_action_default__16TObjCityMainWarpFPviii((u32 &)menu_window, get_text_collection(challenge4p_item_select_text_ids[var_r29]), 6, var_r29);
                 var_r29 += 1;
             } while (var_r29 < 8);
-            set_scroll_target__17TWindowSubComCardFPvff((u32 &)menu_window, lbl_805DFD98, lbl_805DFD9C);
+            set_scroll_target__17TWindowSubComCardFff((u32 &)menu_window, lbl_805DFD98, lbl_805DFD9C);
             TWindowSubComCard__sub_80265500((u32 &)menu_window);
-            set_field_1c__6TLobbyFPvf((u32 &)menu_window, lbl_805DFDA0);
+            set_field_1c__6TLobbyFf((u32 &)menu_window, lbl_805DFDA0);
             if (get_instance__11TCameraCtrlFv() > 2) {
                 set_position_xy((u32 &)menu_window, lbl_805DFDA4, lbl_805DFDA4);
             }

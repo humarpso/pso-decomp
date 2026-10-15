@@ -1,24 +1,22 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 memmove(void *dst, const void *src, u32 n);
-void move_words__6TLobbyFPvPvi(u32 *dst, u32 *src, s32 n);
 s32 memmove(void *dst, const void *src, u32 n);
-void copy_u16_array__6TLobbyFPvPvi(u16 *dst, u16 *src, s32 n);
 }
 
 extern "C" {
 
-void move_data__6TLobbyFv(void * _w0, const void * _w1, u32 _w2);
-
-void move_data__6TLobbyFv(void * _w0, const void * _w1, u32 _w2) {
-    memmove((void *)(_w0), (const void *)(_w1), (u32)(_w2));
+void TLobby::move_data(const void * _w1, u32 _w2) {
+    memmove((void *)(this), (const void *)(_w1), (u32)(_w2));
 }
 
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void copy_u16_array__6TLobbyFPvPvi(u16 *dst, u16 *src, s32 n) {
+void TLobby::copy_u16_array(u16 *src, s32 n) {
+    u16 *dst = (u16 *)this;
     memmove(dst, src, n * sizeof(u16));
 }
 #pragma pop
@@ -26,7 +24,8 @@ void copy_u16_array__6TLobbyFPvPvi(u16 *dst, u16 *src, s32 n) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void move_words__6TLobbyFPvPvi(u32 *dst, u32 *src, s32 n) {
+void TLobby::move_words(u32 *src, s32 n) {
+    u32 *dst = (u32 *)this;
     memmove((void *)(dst), (const void *)(src), (u32)(n * sizeof(u32)));
 }
 #pragma pop

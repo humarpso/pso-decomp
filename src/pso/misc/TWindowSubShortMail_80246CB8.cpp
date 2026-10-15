@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubShortMail.h"
 
 extern "C" {
 
@@ -10,7 +11,7 @@ s32 is_trade_active(void) {
 
 extern u16 lbl_805D63FC;
 
-s32 is_active__19TWindowSubShortMailFv(void) {
+s32 TWindowSubShortMail::is_active() {
     return lbl_805D63FC & 1;
 }
 

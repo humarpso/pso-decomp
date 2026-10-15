@@ -69,6 +69,18 @@ struct TObjEneIllGill
     u32 m_414;
     u32 m_418;
     u32 m_41c;
+    void update_ai();
+    static void advance_camera_vec_stage();
+    void update_death_fall();
+    void free_resources();
+    static void update_chase_target(void *arg0_);
+    void run_attack_phase();
+    void move_toward_dest_with_detour();
+    void render();
+    void run_task();
+    void *create();
+    static void free_effect();
+    static void load_shared_resources();
 };
 
 #endif

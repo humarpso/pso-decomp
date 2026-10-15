@@ -16,6 +16,8 @@ struct TWindowCtrlPlayer
     u32 m_34;
     u32 m_38;
     u32 m_3c;
+    static void render();
+    void run_task();
 };
 
 #endif

@@ -19,6 +19,8 @@ struct TBoss5GryphonShockWave
     void* m_50;
     u8 _pad54[0xC];
     void* m_60;
+    static void render();
+    void run_task();
 };
 
 #endif

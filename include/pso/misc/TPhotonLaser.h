@@ -16,6 +16,7 @@ struct TPhotonLaser
     u8 _pad368[0x4];
     u32 m_36c;
     u16 m_370;
+    static void render();
 };
 
 #endif

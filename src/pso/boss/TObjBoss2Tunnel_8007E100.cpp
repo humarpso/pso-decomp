@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 typedef struct Curve_8007E16C {
     f32 accel;
@@ -38,21 +39,18 @@ extern const f32 lbl_805D9288;
 extern const f32 lbl_805D928C;
 extern const f32 lbl_805D9294;
 
-int check_param_threshold__15TObjBoss2TunnelFPvf(void *arg0, f32 arg1);
-s32 dt__15TObjBoss2TunnelFis(s32 arg0, s16 arg1);
-s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0);
 s32 __dl__FPv();
-s32 reset_floats__15TObjBoss2TunnelFPv();
+s32 reset_floats__15TObjBoss2TunnelFv();
 
-s32 dt__15TObjBoss2TunnelFis(s32 arg0, s16 arg1) {
+s32 TObjBoss2Tunnel::dt(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }
     return arg0;
 }
 
-s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0) {
-    reset_floats__15TObjBoss2TunnelFPv();
+s32 TObjBoss2Tunnel::reset_floats(s32 arg0) {
+    reset_floats__15TObjBoss2TunnelFv();
     return arg0;
 }
 
@@ -85,8 +83,8 @@ f32 sample_acceleration_curve(Curve_8007E16C *c, f32 t) {
 }
 #pragma pop
 
-int check_param_threshold__15TObjBoss2TunnelFPvf(void *arg0, f32 arg1) {
-    return arg1 >= *(f32 *)((u8 *)arg0 + 20);
+int TObjBoss2Tunnel::check_param_threshold(f32 arg1) {
+    return arg1 >= *(f32 *)((u8 *)this + 20);
 }
 void init_acceleration_curve(Curve_8007E210 *c, f32 a, f32 d, f32 length, f32 speed) {
     f32 sq;

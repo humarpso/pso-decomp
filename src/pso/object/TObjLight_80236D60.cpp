@@ -4,7 +4,7 @@
 extern "C" {
 extern u32 TObjLight__support_charge_effect_ids[];
 void* spawn_particle_effect(float*,u32);
-int check_flag_0x80__10TObjPlayerFPv(void*);
+int check_flag_0x80__10TObjPlayerFv(void*);
 void queue_destruction__7TObjectFv(void*);
 void TObjLight__updateSupportTechniqueCharge(TechniqueChargeEmitter* state);
 }
@@ -27,7 +27,7 @@ void TObjLight__updateSupportTechniqueCharge(TechniqueChargeEmitter* state) {
     if(state->age%10==0) {
         for(int i=0;i<2;++i)spawn_particle_effect(state->position,TObjLight__support_charge_effect_ids[i]);
     }
-    if(!check_flag_0x80__10TObjPlayerFPv(state->actor))queue_destruction__7TObjectFv(state);
+    if(!check_flag_0x80__10TObjPlayerFv(state->actor))queue_destruction__7TObjectFv(state);
     else if(state->age>=180)queue_destruction__7TObjectFv(state);
 }
 

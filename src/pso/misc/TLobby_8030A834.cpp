@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 void *fn_8030A83C(void *arg0);
@@ -9,14 +10,13 @@ void *fn_8030A83C(void *arg0);
 
 extern "C" {
 
-int get_online_ready_flag__6TLobbyFv(void);
 int TCameraCtrl__sub_8030ABF4(void);
 int end_effect_render__13TParticleCtrlFv(void);
 void render__14TBoss4ZakoDrawFv(void);
 int toggle_particle_effect__10TObjPlayerFv(void);
 
     extern int lobby_online_ready_flag;
-int get_online_ready_flag__6TLobbyFv(void) {  return lobby_online_ready_flag; }
+int TLobby::get_online_ready_flag() {  return lobby_online_ready_flag; }
 
 void *fn_8030A83C(void *arg0) {
     void *o = __nw__7TObjectFUl(0x1C);

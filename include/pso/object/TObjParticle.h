@@ -17,6 +17,8 @@ struct TObjParticle
     u32 m_8c;
     u32 m_90;
     u32 m_94;
+    void render();
+    void run_task();
 };
 
 #endif

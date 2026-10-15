@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TItemEffShield.h"
 
 struct RecoveredGlobal_8010A404_lbl_8049F148 {
     s32 value;
@@ -94,7 +95,6 @@ struct Shield_8010A4C0 {
 
 extern "C" {
 s32 create_oneshot_particle_emitter(void *, void *, int, int);
-void spawn_recipe_particles__14TItemEffShieldFPv(u8 *arg0);
 s32 get_item_system_generation(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049F148[];
@@ -105,8 +105,7 @@ extern RecoveredGlobal_8010A5E0___vt__14TItemEffShield __vt__14TItemEffShield;
 extern s32 TItemEffShield__class_name;
 u8 *__ct__14TItemEffShieldFv(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
-void copy_xyz__10TObjPlayerFPvPv(void *, void *);
-void spawn_recipe_particles__14TItemEffShieldFPv(u8 *arg0);
+void copy_xyz__10TObjPlayerFPv(void *, void *);
 Player_8010A4C0 *get_player_by_client_id(u16);
 void play_sound_effect(s32, void *, s32, s32);
 void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self);
@@ -144,7 +143,8 @@ u8 *ct_init__14TItemEffShieldFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
     return arg0;
 }
 
-void spawn_recipe_particles__14TItemEffShieldFPv(u8 *arg0) {
+void TItemEffShield::spawn_recipe_particles() {
+    u8 *arg0 = (u8 *)this;
   s32 temp_r5;
   s32 var_r31;
   s32 var_r30;
@@ -172,14 +172,14 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
     Recipe_8010A4C0 *r;
     if (p != NULL) {
         p->get_joint_pos(self->m_40, self->m_1c);
-        copy_xyz__10TObjPlayerFPvPv(self->m_28, (u8 *)p + 0x5C);
+        copy_xyz__10TObjPlayerFPv(self->m_28, (u8 *)p + 0x5C);
     }
     if (p != NULL && self->m_3c != (r = self->m_34)->m_28) {
         switch (self->m_3c) {
         case 0:
             if (self->m_38 - 1 == r->m_20) {
                 play_sound_effect(0x4001A81E, self->m_1c, 0, 0);
-                spawn_recipe_particles__14TItemEffShieldFPv((u8 *)self);
+                ((TItemEffShield *)self)->spawn_recipe_particles();
                 self->m_3c++;
                 self->m_38 = 0;
             } else {
@@ -188,7 +188,7 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
             break;
         default:
             if (self->m_38 == r->m_24) {
-                spawn_recipe_particles__14TItemEffShieldFPv((u8 *)self);
+                ((TItemEffShield *)self)->spawn_recipe_particles();
                 self->m_3c++;
                 self->m_38 = 0;
             } else {

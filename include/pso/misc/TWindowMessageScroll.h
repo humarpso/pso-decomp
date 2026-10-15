@@ -9,6 +9,7 @@ struct TWindowMessageScroll
     void* m_24;
     u8 _pad28[0x70];
     u32 m_98;
+    void run_task();
 };
 
 #endif

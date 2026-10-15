@@ -41,6 +41,8 @@ struct TObjEneDimedian
     u32 m_3c4;
     u32 m_3c8;
     void* m_3cc;
+    static void *create(void *arg0);
+    static void free_boss_objects();
 };
 
 #endif

@@ -18,6 +18,19 @@ struct TBoss4Thanks {
     s32 texture_list;
     s32 motions[2];
     void *particle_emitters[4];
+    static u8 is_door_0x97_open();
+    static int dispatch_main_phase_153();
+    static int dispatch_main_phase();
+    void update_particle_emitters();
+    void destroy_effects();
+    static int is_player_nearby(void *arg0);
+    void update_fade_out();
+    void advance_thanks_state();
+    void mark_done();
+    void run_task();
+    static void *create();
+    s32 is_door_open_and_ready();
+    static s32 check_ready();
 };
 
 #include <stddef.h>

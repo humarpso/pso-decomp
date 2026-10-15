@@ -20,6 +20,9 @@ struct TObjBoss2CeilJunk
     u32 m_a8;
     u32 m_ac;
     u32 m_b0;
+    void render();
+    static void *create(void *arg0);
+    static void create_particle();
 };
 
 #endif

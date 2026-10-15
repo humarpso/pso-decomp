@@ -27,6 +27,10 @@ struct TOTrapSeabed01
     u32 m_350;
     u32 m_354;
     u32 m_358;
+    void clamp_params_and_init();
+    static void *create(void *arg0);
+    static void free_static_resources();
+    static void load_resources();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TORainbowCave01.h"
 
 struct RecoveredGlobal_80173330_lbl_804B3A18 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80173330_lbl_804B3A18_size[sizeof(RecoveredGlobal_80173330_lbl_804B3A18) == 0x10 ? 1 : -1];
@@ -44,12 +45,10 @@ struct Cave_801731F8 { u8 pad[0xC8]; f32 speed; f32 alpha; f32 range; };
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80173330_lbl_804B3A18 abeniji_fe_obj001_niji_resource_descriptor;
 extern u32 TORainbowCave01__static_model_resource;
-void load_resource_instance__15TORainbowCave01Fv(void);
 u8 * init_map_object_base(void *);
-void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int, f32, f32);
 extern s32 __vt__15TORainbowCave01[];
 extern s32 TORainbowCave01__name;
 extern u32 TORainbowCave01__static_model_resource;
@@ -62,34 +61,29 @@ void push_matrix(void);
 void pop_matrix(void);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void draw_ginja_object(s32);
 void set_chunk_material_color(void *);
 extern Color_8017310C chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void render__15TORainbowCave01Fv(Cave_8017310C *self);
-void update__15TORainbowCave01FPv(void *);
-s32 is_player_in_range__15TORainbowCave01Fif(s32 arg0, f32 farg0);
-void run_task__15TORainbowCave01Fv(Cave_801731F8 *self);
+void update__15TORainbowCave01Fv(void *);
 }
 
 extern "C" {
 
 void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1);
-void *create__15TORainbowCave01FPv(void *arg0);
-void free_static_data__15TORainbowCave01Fv(void);
-s32 is_player_in_range__15TORainbowCave01Fif(s32 arg0, f32 farg0);
 void TLobby__sub_8001FE7C(void*, int);
 f32 horizontal_distance_squared(s32, s32);
 s32 find_entity_by_id(u16);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 
 extern s32 local_client_id;
 
-s32 is_player_in_range__15TORainbowCave01Fif(s32 arg0, f32 farg0) {
+s32 TORainbowCave01::is_player_in_range(f32 farg0) {
+    s32 arg0 = (s32)this;
     s32 temp_r3;
 
     temp_r3 = find_entity_by_id((u16) local_client_id);
@@ -103,7 +97,8 @@ extern void *tl_05;
 
 #pragma push
 #pragma fp_contract on
-void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int _w1, f32 _w2, f32 _w3) {
+void TORainbowCave01::init_light_params(int _w1, f32 _w2, f32 _w3) {
+    u8 *arg0 = (u8 *)this;
     f32 k = 0.0009765625f;
     *(f32 *)((s8 *)arg0 + 0xC8) = 1.0f / ((f32) *(s32 *)((s8 *)arg0 + 0x84) * k + 29.999998f);
     *(f32 *)((s8 *)arg0 + 0xD0) = 4e+04f + (f32) *(s32 *)((s8 *)arg0 + 0x8C);
@@ -111,12 +106,13 @@ void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int _w1, f32 _w2, f32 
 }
 #pragma pop
 
-void render__15TORainbowCave01Fv(Cave_8017310C *self) {
+void TORainbowCave01::render() {
+    Cave_8017310C *self = (Cave_8017310C *)this;
     Color_8017310C c;
     s32 old;
     if (self->m8(self->fC0, self->fC4) != 0 && -1.0f < self->fCC) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(self->f24);
+        set_global_param__8TObjFishFl(self->f24);
         old = model_render_flags;
         lbl_805D5660 = old;
         model_render_flags = old | 0x20;
@@ -139,8 +135,9 @@ void render__15TORainbowCave01Fv(Cave_8017310C *self) {
     }
 }
 
-void run_task__15TORainbowCave01Fv(Cave_801731F8 *self) {
-    s32 in = (is_player_in_range__15TORainbowCave01Fif((s32)self, self->range) == 1) ? 1 : 0;
+void TORainbowCave01::run_task() {
+    Cave_801731F8 *self = (Cave_801731F8 *)this;
+    s32 in = (is_player_in_range(self->range) == 1) ? 1 : 0;
     switch (in + 1) {
     case 1:
         self->alpha += self->speed;
@@ -155,10 +152,10 @@ void run_task__15TORainbowCave01Fv(Cave_801731F8 *self) {
         }
         break;
     }
-    update__15TORainbowCave01FPv(self);
+    update__15TORainbowCave01Fv(self);
 }
 
-void *create__15TORainbowCave01FPv(void *arg0) {
+void *TORainbowCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
         o = TORainbowCave01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -168,7 +165,7 @@ void *create__15TORainbowCave01FPv(void *arg0) {
 
 extern u32 TORainbowCave01__static_model_resource;
 
-void free_static_data__15TORainbowCave01Fv(void) {
+void TORainbowCave01::free_static_data() {
     if ((u32) TORainbowCave01__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TORainbowCave01__static_model_resource, 1);
         TORainbowCave01__static_model_resource = 0U;
@@ -177,10 +174,10 @@ void free_static_data__15TORainbowCave01Fv(void) {
 
 extern s32 __vt__15TORainbowCave01[];
 
-void load_resource_instance__15TORainbowCave01Fv(void) {
+void TORainbowCave01::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &abeniji_fe_obj001_niji_resource_descriptor.value, 0, 0, 0));
@@ -191,7 +188,7 @@ void load_resource_instance__15TORainbowCave01Fv(void) {
 void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TORainbowCave01;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -210,7 +207,7 @@ u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) 400.0f;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (4e+04f);
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (0.0f);
-    init_light_params__15TORainbowCave01FPviff((u8 *)((void *) (arg0)), (int)((int) (temp_r4)), (f32) ((4e+04f)), (f32) (400.0f));
+    ((TORainbowCave01 *)arg0)->init_light_params((int)((int) (temp_r4)), (f32) ((4e+04f)), (f32) (400.0f));
     return arg0;
 }
 

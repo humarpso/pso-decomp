@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
-
-s32 get_display_flag__11TWindowCtrlFv(void);
 
 s32 is_split_screen();
 extern void *TWindowCtrl__active_window;
 
-s32 get_display_flag__11TWindowCtrlFv(void) {
+s32 TWindowCtrl::get_display_flag() {
     if (is_split_screen() != 0) {
         return 0;
     }

@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/TAdStorySelectGC.h"
 
 extern "C" {
 
 s32 request_story_select_state(s32 arg0);
-void set_state__16TAdStorySelectGCFi(s32 arg0);
 s32 TLobby__sub_80207BB0();
 s32 init_floor_map_registry();
 
@@ -19,7 +19,7 @@ s32 request_story_select_state(s32 arg0) {
 
 extern s32 selected_episode;
 
-void set_state__16TAdStorySelectGCFi(s32 arg0) {
+void TAdStorySelectGC::set_state(s32 arg0) {
     selected_episode = arg0;
     switch (arg0) {
     case 0:

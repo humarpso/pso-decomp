@@ -1,15 +1,14 @@
 #include "types.h"
+#include "pso/misc/TMovie.h"
 
 extern "C" {
-
-void calc_frame_buffer_size__6TMovieFii(s32 arg0, s32 arg1);
 
 extern void *TMovie__framebuffer_video_mode;
 extern s32 movie_frame_buffer_size;
 extern s32 lbl_805D5690;
 extern s32 lbl_805D5694;
 
-void calc_frame_buffer_size__6TMovieFii(s32 arg0, s32 arg1) {
+void TMovie::calc_frame_buffer_size(s32 arg0, s32 arg1) {
     movie_frame_buffer_size = arg0;
     lbl_805D5690 = arg1;
     lbl_805D5694 = ((*(u16 *)((s8 *)TMovie__framebuffer_video_mode + 4) + 0xF) & 0xFFF0) * *(u16 *)((s8 *)TMovie__framebuffer_video_mode + 8) * 2;

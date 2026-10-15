@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TODoorJungleMain.h"
+#include "pso/misc/TOKeyJungleMain.h"
 
 extern "C" u8 * TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2);
 
@@ -40,7 +42,7 @@ void TODoorJungleMain__vt4(void *arg0, s16 *arg1, s32 arg2) {
 
 extern "C" {
 s32 get_current_floor(void);
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805DDCD0;
 s32 is_any_player_near(s32 arg0);
@@ -60,7 +62,7 @@ s32 is_any_player_near(s32 arg0) {
   temp_r3 = (u8 *) get_player_by_client_id(var_r29);
   if (temp_r3 != 0)
   {
-    temp_r31 = get_field_3e4__10TObjPlayerFPv(temp_r3);
+    temp_r31 = get_field_3e4__10TObjPlayerFv(temp_r3);
     new_var = get_current_floor();
     if ((new_var == temp_r31) && (((f32 (*)(void *, void *))xz_distance_squared)((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < temp_f31))
     {
@@ -80,7 +82,6 @@ s32 is_any_player_near(s32 arg0) {
 extern "C" {
 void clear_story_flag_in_bank(int, int);
 extern s32 TOKeyJungleMain__data_804653C8[];
-void init_key_slots__15TOKeyJungleMainFPv(void* _w0);
 }
 
 extern "C" {
@@ -89,11 +90,11 @@ void TLobby__sub_8029B2A4(void* p);
 void *TODoorJungleMain__create(void *arg0);
 void *__nw__7TObjectFUl(int);
 
-void TLobby__sub_8029B2A4(void* p) { init_key_slots__15TOKeyJungleMainFPv((void*)(p)); }
+void TLobby__sub_8029B2A4(void* p) { TOKeyJungleMain::init_key_slots((void*)(p)); }
 
 extern void *tl_05;
 
-void init_key_slots__15TOKeyJungleMainFPv(void* _w0) {
+void TOKeyJungleMain::init_key_slots(void* _w0) {
     s32 i;
     s32 j;
     for (i = 0; i < 4; i++) {
@@ -212,17 +213,16 @@ extern "C" {
 extern u32 TODoorJungleMain__bml_resource;
 extern u32 door_jungle_main_gvm_texture;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80465418;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_o_jungle_doormain_resource_descriptor;
-void load_resources__16TODoorJungleMainFv(void);
 s32 get_bml_motion(void *, s32);
-void reset_photon_effect__10TObjPlayerFPv(void *);
+void reset_photon_effect__10TObjPlayerFv(void *);
 void refresh_collision_body_centers(void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_door_base(void *);
-s32 create__10TObjMapCsnFi(s32);
+s32 create__10TObjMapCsnFl(s32);
 extern RecoveredGlobal_8029B924_lbl_804DC014 TODoorJungleMain_collision_body_parts;
 extern s32 __vt__16TODoorJungleMain[];
 extern s32 TODoorJungleMain__name;
@@ -240,13 +240,12 @@ s32 rotate_matrix_y(int, int);
 int push_matrix(void *);
 int pop_matrix(void);
 int post_translate_matrix(void *);
-void *set_global_param__8TObjFishFi(void *);
+void *set_global_param__8TObjFishFl(void *);
 int draw_ginja_object(void *);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 extern Ids_8029B428 door_jungle_main_ids;
 extern u32 TODoorJungleMain__bml_resource;
 extern u32 door_jungle_main_gvm_texture;
-void render__16TODoorJungleMainFv(Door_8029B428 *self);
 }
 
 extern "C" {
@@ -286,12 +285,12 @@ struct Mtx_8029B640 { f32 m[12]; };
 extern "C" {
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
-s32 get_difficulty_flag_bit__12TLevelSelectFii(s32, s32);
+s32 get_difficulty_flag_bit__12TLevelSelectFll(s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 extern s32 TOKeyJungleMain__data_804653C8[3];
 extern s32 game_difficulty_selection;
 s32 spawn_particle_effect_with_flags(void *, int, int);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
 s32 minimap_render_gate(void *, u32, u16, s32, s32);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 matrix_mult_vec(void *, void *, void *);
@@ -304,22 +303,21 @@ extern const f32 lbl_805DDCD4;
 #pragma pop
 
 void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1);
-void free_static_resources__16TODoorJungleMainFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
-void destroy_ancient_door_base__15TODoorAncient01FPvs(void *, int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+void destroy_ancient_door_base__15TODoorAncient01Fs(void *, int);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern u32 TODoorJungleMain__bml_resource;
 extern u32 door_jungle_main_gvm_texture;
 
-void free_static_resources__16TODoorJungleMainFv(void) {
+void TODoorJungleMain::free_static_resources() {
     if ((u32) door_jungle_main_gvm_texture != 0U) {
         TLobby__sub_803DA16C((void*)door_jungle_main_gvm_texture);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(door_jungle_main_gvm_texture);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(door_jungle_main_gvm_texture);
         door_jungle_main_gvm_texture = 0U;
     }
     if ((u32) TODoorJungleMain__bml_resource != 0U) {
@@ -334,10 +332,10 @@ typedef char RecoveredGlobal_8019A880_lbl_804B8F70_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8019A880___vt__8TObjTank_size[sizeof(RecoveredGlobal_8019A880___vt__8TObjTank) == 0x3C ? 1 : -1];
 typedef char RecoveredGlobal_8019A9B8_lbl_80446184_size[sizeof(RecoveredGlobal_8019A9B8_lbl_80446184) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8019A9B8_lbl_804B8F60_size[sizeof(RecoveredGlobal_8019A9B8_lbl_804B8F60) == 0x10 ? 1 : -1];
-void load_resources__16TODoorJungleMainFv(void) {
+void TODoorJungleMain::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 0x1, &bm_o_jungle_doormain_resource_descriptor.value, 0, 0, 0));
@@ -346,11 +344,12 @@ void load_resources__16TODoorJungleMainFv(void) {
     (*(u8 * *)&door_jungle_main_gvm_texture) = load_gvm_texture_file((s32) &lbl_80465418.value);
 }
 
-void render__16TODoorJungleMainFv(Door_8029B428 *self) {
+void TODoorJungleMain::render() {
+    Door_8029B428 *self = (Door_8029B428 *)this;
     Ids_8029B428 ids = door_jungle_main_ids;
     s32 i;
     if (self->m8(self->fc0, self->fc4) == 1) {
-        push_matrix(set_global_param__8TObjFishFi((void *)door_jungle_main_gvm_texture));
+        push_matrix(set_global_param__8TObjFishFl((void *)door_jungle_main_gvm_texture));
         post_translate_matrix(self->xf);
         rotate_matrix_y(0, self->f60);
         if (self->flags & 1) {
@@ -376,7 +375,7 @@ void TODoorJungleMain__vt12(Door_8029B524 *self) {
         prev = self->count;
         self->count = 0;
         for (i = 0; i < 3; i++) {
-            if (get_difficulty_flag_bit__12TLevelSelectFii(lvl, TOKeyJungleMain__data_804653C8[i]) != 0) {
+            if (get_difficulty_flag_bit__12TLevelSelectFll(lvl, TOKeyJungleMain__data_804653C8[i]) != 0) {
                 self->count++;
             }
         }
@@ -394,7 +393,8 @@ void TODoorJungleMain__vt12(Door_8029B524 *self) {
         }
     }
 }
-void run_task__16TODoorJungleMainFv(u8 *arg0) {
+void TODoorJungleMain::run_task() {
+    u8 *arg0 = (u8 *)this;
     Vec_8029B640 a;
     Vec_8029B640 b;
     Mtx_8029B640 mtx;
@@ -438,7 +438,7 @@ void run_task__16TODoorJungleMainFv(u8 *arg0) {
         minimap_render_gate(arg0 + 0x38, 0xFF00FF00, *(s32 *)((s8 *)arg0 + 0x60), 0, 0);
     } else {
         minimap_render_gate(arg0 + 0x38, 0xFFFF0000, *(s32 *)((s8 *)arg0 + 0x60), 0, 0);
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
+        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 8);
     }
 }
 void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {
@@ -447,7 +447,7 @@ void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { ((void (*)(void *))queue_destruction__7TObjectFv)(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)((s8 *)arg0 + 0xDC) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
+        destroy_ancient_door_base__15TODoorAncient01Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -469,7 +469,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805DDCDC;
     init_collision_body_parts(arg0, (s32) &TODoorJungleMain_collision_body_parts.value, 1);
     refresh_collision_body_centers(arg0);
-    reset_photon_effect__10TObjPlayerFPv(arg0);
+    reset_photon_effect__10TObjPlayerFv(arg0);
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DDCE0;
     temp_r4 = arg2 - 4;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DDCE4;
@@ -480,7 +480,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     (*(f32 *)(copy_storage_8029B924.bytes + 0x28)) = lbl_805DDCEC;
     (*(f32 *)(copy_storage_8029B924.bytes + 0x2C)) = lbl_805DDCF0;
     (*(s32 *)(copy_storage_8029B924.bytes + 0x30)) = 2;
-    *(s32 *)((s8 *)arg0 + 0xDC) = create__10TObjMapCsnFi((s32) (copy_storage_8029B924.bytes));
+    *(s32 *)((s8 *)arg0 + 0xDC) = create__10TObjMapCsnFl((s32) (copy_storage_8029B924.bytes));
     return arg0;
 }
 

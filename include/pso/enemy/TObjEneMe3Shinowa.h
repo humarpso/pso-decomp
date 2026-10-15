@@ -11,6 +11,9 @@ struct TObjEneMe3Shinowa
     u32 m_3c4;
     u8 _pad3C8[0x20];
     void* m_3e8;
+    void dispatch_if_active();
+    s32 update_effect();
+    void copy_position_vector();
 };
 
 #endif

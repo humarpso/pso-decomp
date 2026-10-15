@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 struct Part_800BA934 { u8 pad[0x1c]; u8 f1c[0x10]; };
 
@@ -31,7 +32,6 @@ int set_global_flag__10TObjPlayerFv(void);
 int matrix_mult_vec(void *, void *, void *);
 void clear_global_state__10TObjPlayerFv(void);
 int pop_matrix(void);
-void transform_part_positions__9TObjEneDDFPv(Obj_800BA934 *self);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void subtract_vector(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
@@ -52,13 +52,11 @@ void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
 
 extern "C" {
 
-void clear_field_388__9TObjEneDDFPv(void* p);
-void init_model__9TObjEneDDFPv(void* p);
-void set_active__9TObjEneDDFPv(void* p);
 void TObjEneDD__vt85(void);
 int init_collision_body_parts(void*);
 
-void transform_part_positions__9TObjEneDDFPv(Obj_800BA934 *self) {
+void TObjEneDD::transform_part_positions() {
+    Obj_800BA934 *self = (Obj_800BA934 *)this;
     s32 i;
     push_matrix();
     set_matrix_identity(0);
@@ -104,8 +102,8 @@ void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s
     rotate_xz_pair_by_angle(&p->x, &p->z, -self->angle);
 }
 
-void init_model__9TObjEneDDFPv(void* p) { init_collision_body_parts(p); transform_part_positions__9TObjEneDDFPv((Obj_800BA934 *)((void*)(p))); }
-void clear_field_388__9TObjEneDDFPv(void* p) { *(s32*)((char*)p + 0x388) = 0; }
-void set_active__9TObjEneDDFPv(void* p) { *(s32*)((char*)p + 0x388) = 1; }
+void TObjEneDD::init_model() { init_collision_body_parts(this); transform_part_positions(); }
+void TObjEneDD::clear_field_388() { *(s32*)((char*)this + 0x388) = 0; }
+void TObjEneDD::set_active() { *(s32*)((char*)this + 0x388) = 1; }
 
 }

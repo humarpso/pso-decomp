@@ -20,6 +20,11 @@ struct TButterfly
     u8 m_b8;
     u8 m_b9;
     u8 m_ba;
+    void init_motion();
+    void render();
+    void run_task();
+    static void destroy_instance();
+    void draw_model();
 };
 
 #endif

@@ -26,17 +26,16 @@ void* __nw__7TObjectFUl(unsigned long);
 void* __ct__12TQuestThreadFv(void*, void*, s32);
 void set_parent__7TObjectFP7TObject(void*, void*);
 f32 fabs_float(f32);
-void set_global_count__12TObjNpcEnemyFi(int);
+void set_global_count__12TObjNpcEnemyFl(int);
 void debug_printf_at(int, void *, ...);
 extern s32 lbl_80445DF4[];
 extern u8 lbl_80445E08[];
 void TMotorcycle__vt14(Mc_80194EC4 *arg0);
-void set_global_count__12TObjNpcEnemyFi(int);
+void set_global_count__12TObjNpcEnemyFl(int);
 void debug_printf_at(int, void *, ...);
 extern Pair_80194AEC lbl_80445D94[];
 extern u8 lbl_80445D9C[];
 extern u8 lbl_80445DAC[];
-void debug_draw_label__11TObjMesBaseFPv(Mes_80194AEC *arg0);
 }
 
 extern "C" {
@@ -63,12 +62,10 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1);
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
 void TObjMesBase__vt12(void);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
-void clear_ref_if_destroyed__11TObjMesBaseFPv(void *arg0);
-void dispatch_state__11TObjMesBaseFPv(void *arg0);
-s32 construct_collider_proxy__10TObjPlayerFPv();
+s32 construct_collider_proxy__10TObjPlayerFv();
 void __dl__7TObjectFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *obj);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void destroy_particle_controller__10TObjPlayerFs(void *, int);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility(s32, f32, f32);
 
@@ -76,7 +73,8 @@ s32 update_object_view_visibility(s32, f32, f32);
 
 extern "C" {
 
-void debug_draw_label__11TObjMesBaseFPv(Mes_80194AEC *arg0) {
+void TObjMesBase::debug_draw_label() {
+    Mes_80194AEC *arg0 = (Mes_80194AEC *)this;
     arg0->fB4 = arg0->f84;
     arg0->fB8 = arg0->f8C;
     if (arg0->fB8 < 0) {
@@ -86,10 +84,10 @@ void debug_draw_label__11TObjMesBaseFPv(Mes_80194AEC *arg0) {
         arg0->fB8 = 1;
     }
     Pair_80194AEC names = lbl_80445D94[0];
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     debug_printf_at(0x130020, lbl_80445D9C, arg0->fB4);
     debug_printf_at(0x130022, lbl_80445DAC, names.s[arg0->fB8]);
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
 }
 
 void TObjMesBase::start_message() {
@@ -114,25 +112,25 @@ void TObjMesBase::start_message() {
         }
     }
 }
-void clear_ref_if_destroyed__11TObjMesBaseFPv(void *arg0) {
-    void *p = *(void **)((s8 *)arg0 + 0xAC);
+void TObjMesBase::clear_ref_if_destroyed() {
+    void *p = *(void **)((s8 *)this + 0xAC);
     if ((p != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(p) == 0)) {
-        *(u32 *)((s8 *)arg0 + 0xAC) = 0U;
-        *(s32 *)((s8 *)arg0 + 0xB0) = 0;
+        *(u32 *)((s8 *)this + 0xAC) = 0U;
+        *(s32 *)((s8 *)this + 0xB0) = 0;
     }
 }
 void TObjMesBase__vt12(void) {  }
 
-void dispatch_state__11TObjMesBaseFPv(void *arg0) {
+void TObjMesBase::dispatch_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB0);
+    temp_r0 = *(s32 *)((s8 *)this + 0xB0);
     switch (temp_r0) {
     case 0:
-        ((VObj_80194CE8_80194C98 *)arg0)->m12();
+        ((VObj_80194CE8_80194C98 *)this)->m12();
         return;
     case 1:
-        ((VObj_80194CE8_80194C98 *)arg0)->m13();
+        ((VObj_80194CE8_80194C98 *)this)->m13();
         return;
     }
 }
@@ -142,7 +140,7 @@ extern s32 __vt__11TObjMesBase[];
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -154,7 +152,7 @@ extern s32 __vt__11TObjMesBase[];
 extern s32 TObjMesBase__class_name;
 
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
-    construct_collider_proxy__10TObjPlayerFPv();
+    construct_collider_proxy__10TObjPlayerFv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMesBase__class_name;
     ((TObjMesBase80194_80194C98 *)arg0)->ct(arg2);
@@ -180,13 +178,13 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
     return update_object_view_visibility(arg0, farg0, farg1);
 }
 void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
-    debug_draw_label__11TObjMesBaseFPv((Mes_80194AEC *)(arg0));
+    ((TObjMesBase *)arg0)->debug_draw_label();
     arg0->fBC = (s32)fabs_float(arg0->f68);
     arg0->fBC = arg0->fBC % 2;
     arg0->fBC = lbl_80445DF4[arg0->fBC];
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     debug_printf_at(0x13001C, lbl_80445E08);
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
 }
 
 }

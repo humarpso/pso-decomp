@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-s16 get_kill_count__10TObjPlayerFPv(void* p);
-
-s16 get_kill_count__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x11a); }
+s16 TObjPlayer::get_kill_count() { return *(s16*)((char*)this + 0x11a); }
 
 }

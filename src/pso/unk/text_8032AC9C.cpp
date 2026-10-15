@@ -4,7 +4,7 @@ struct P2_8032AC9C { f32 x, y; };
 extern "C" {
 void draw_window_frame();
 void *get_localized_text_entry(int, int);
-void render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
+void render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
 void draw_masked_password_field(void *);
 void fn_8032AC24();
 void fn_8032AC94();
@@ -18,7 +18,7 @@ extern "C" {
 
 void fn_8032AC9C(void *arg0, void *arg1) {
     draw_window_frame();
-    render_status_line__15TAdSubPlyItemGCFPvi(get_localized_text_entry(0x17, 4), -1, password_screen_status_line_position[0].x, password_screen_status_line_position[0].y, lbl_805DF778);
+    render_status_line__15TAdSubPlyItemGCFi(get_localized_text_entry(0x17, 4), -1, password_screen_status_line_position[0].x, password_screen_status_line_position[0].y, lbl_805DF778);
     switch (TAdEnterBaseGC__entry_mode) {
     case 0:
     case 1:

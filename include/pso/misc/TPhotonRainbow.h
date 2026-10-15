@@ -18,6 +18,8 @@ struct TPhotonRainbow
     u32 m_9c;
     u8 _padA0[0x8];
     u32 m_a8;
+    void render();
+    void run_task();
 };
 
 #endif

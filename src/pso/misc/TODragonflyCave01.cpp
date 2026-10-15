@@ -77,7 +77,7 @@ void release_static_instance__17TODragonflyCave01Fv(void) {
 }
 
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 
 void load_resources__17TODragonflyCave01Fv(void) {
@@ -85,7 +85,7 @@ void load_resources__17TODragonflyCave01Fv(void) {
 
     switch (get_global_state__14TOKeyMachine01Fv()) {
     default:
-        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &dragonfly_cave01_resource_descriptor, 0, 0, 0);
         }
@@ -94,7 +94,7 @@ void load_resources__17TODragonflyCave01Fv(void) {
     case 0x10:
     case 0x15:
     case 0x16:
-        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODragonflyCave01__resource_descriptor, 0, 0, 0);
         }
@@ -135,6 +135,7 @@ extern const f32 lbl_805DB57C;
 }
 
 #include "types.h"
+#include "pso/misc/TODragonfly.h"
 
 struct DfBase_80164cc4_80164760 { char pad[0x18]; };
 struct DfV_80164cc4_80164760 : DfBase_80164cc4_80164760 {
@@ -181,10 +182,9 @@ extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB58C;
 extern const f32 lbl_805DB590;
-void update_idle__11TODragonflyFi(s32 arg0);
 f32 atan2_float(f64, f64);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 check_camera_distance__10TObjPlayerFi(void *);
+s32 check_camera_distance__10TObjPlayerFv(void *);
 s32 rand(void);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -200,7 +200,6 @@ extern const f32 lbl_805DB570;
 extern const f32 lbl_805DB574;
 extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB580;
-s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_map_object_base(void *, int);
 s32 rand(void);
@@ -220,10 +219,8 @@ u8 *TODragonfly__ct(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DB584;
-void move_toward_target__11TODragonflyFPv(Self_8016492C *self);
 f32 horizontal_distance_squared(void *, void *);
 s32 is_any_player_within_radius_xz(s32, f32);
-s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB584;
@@ -248,8 +245,6 @@ struct VObj_80164c34_80164760 : Base_80164c34_80164760 {
 
 void TODragonfly__sub_80164760(void);
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
-void draw_model__11TODragonflyFPv(u8 *arg0);
-void update__11TODragonflyFPv(void *arg0);
 f32 sin_table_lookup(s32);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
@@ -259,9 +254,9 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-void destroy_key_base__5TOKeyFPvs(void *, int);
-s32 set_global_param__8TObjFishFi(s32);
-s32 update_anim_phase__17TOBarrierEnergy01FPv(void *);
+void destroy_key_base__5TOKeyFs(void *, int);
+s32 set_global_param__8TObjFishFl(s32);
+s32 update_anim_phase__17TOBarrierEnergy01Fv(void *);
 
 #pragma push
 #pragma fp_contract on
@@ -294,7 +289,8 @@ extern const f32 lbl_805DB580;
 typedef char RecoveredGlobal_80164764_lbl_8050BEE0_size[sizeof(RecoveredGlobal_80164764_lbl_8050BEE0) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80164764_lbl_8050BFA0_size[sizeof(RecoveredGlobal_80164764_lbl_8050BFA0) == 0x40 ? 1 : -1];
 typedef char RecoveredGlobal_80164764_lbl_8058D490_size[sizeof(RecoveredGlobal_80164764_lbl_8058D490) == 0x30 ? 1 : -1];
-s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0) {
+s32 TODragonfly::pick_random_destination(f32 farg0) {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0) = (f32) lbl_805DB580;
     *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 4) = farg0;
     *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) = (f32) (*(f32 *)((s8 *)arg0 + 0xD0) * (lbl_805DB57C * (f32) rand()));
@@ -306,7 +302,7 @@ s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0) {
     vec3_add_to((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x50));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (&lbl_8050BEE0.value));
     subtract_vector((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x38));
-    if (check_camera_distance__10TObjPlayerFi((void *) (&lbl_8050BEE0.value)) == 1) {
+    if (check_camera_distance__10TObjPlayerFv((void *) (&lbl_8050BEE0.value)) == 1) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 1;
         *(s32 *)((s8 *)arg0 + 0xCC) = 0;
         *(s32 *)((s8 *)arg0 + 0x60) = (s32) (lbl_804411B0 * atan2_float((f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0), (f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8)));
@@ -318,7 +314,8 @@ s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0) {
     return 0;
 }
 
-void move_toward_target__11TODragonflyFPv(Self_8016492C *self) {
+void TODragonfly::move_toward_target() {
+    Self_8016492C *self = (Self_8016492C *)this;
     f32 d = horizontal_distance_squared(self->target, self->pos);
     if (d < (lbl_805DB584 + self->radius) * (lbl_805DB584 + self->radius)) {
         self->state = 2;
@@ -335,11 +332,11 @@ void TODragonfly__sub_80164990(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (temp_r5 + 1);
     if (lbl_805DB578 < (f32) temp_r5) {
         if (is_any_player_within_radius_xz((s32) arg0, lbl_805DB588) == 1) {
-            if (pick_random_destination__11TODragonflyFPvf((u8 *)(arg0), lbl_805DB578 + *(f32 *)((s8 *)arg0 + 0x6C)) == 1) {
+            if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + *(f32 *)((s8 *)arg0 + 0x6C)) == 1) {
                 *(s32 *)((s8 *)arg0 + 0xAC) = 3;
                 *(s32 *)((s8 *)arg0 + 0xCC) = 0;
             }
-        } else if (pick_random_destination__11TODragonflyFPvf((u8 *)(arg0), *(f32 *)((s8 *)arg0 + 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1) {
+        } else if (((TODragonfly *)arg0)->pick_random_destination(*(f32 *)((s8 *)arg0 + 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 1;
             *(s32 *)((s8 *)arg0 + 0xCC) = 0;
         }
@@ -351,7 +348,7 @@ void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
     f32 t;
     f32 d;
     if (is_any_player_within_radius_xz((s32)arg0, lbl_805DB590) == 1) {
-        if (pick_random_destination__11TODragonflyFPvf((u8 *)arg0, lbl_805DB578 + arg0->f6c) == 1) {
+        if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + arg0->f6c) == 1) {
             arg0->st = 3;
             arg0->cc = 0;
         }
@@ -368,17 +365,18 @@ void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void update_idle__11TODragonflyFi(s32 arg0) {
+void TODragonfly::update_idle() {
+    s32 arg0 = (s32)this;
     s32 temp_r4;
     if (is_any_player_within_radius_xz(arg0, lbl_805DB590) == 1) {
-        if (pick_random_destination__11TODragonflyFPvf((u8 *)((void *) arg0), lbl_805DB578 + *(f32 *)((s8 *)arg0 + 0x6C)) == 1) {
+        if (pick_random_destination(lbl_805DB578 + *(f32 *)((s8 *)arg0 + 0x6C)) == 1) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 3;
             *(s32 *)((s8 *)arg0 + 0xCC) = 0;
         }
     } else {
         temp_r4 = *(s32 *)((s8 *)arg0 + 0xCC);
         *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (temp_r4 + 1);
-        if ((lbl_805DB578 < (f32) temp_r4) && (pick_random_destination__11TODragonflyFPvf((u8 *)((void *) arg0), *(f32 *)((s8 *)arg0 + 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1)) {
+        if ((lbl_805DB578 < (f32) temp_r4) && (pick_random_destination(*(f32 *)((s8 *)arg0 + 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1)) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 1;
             *(s32 *)((s8 *)arg0 + 0xCC) = 0;
         }
@@ -386,41 +384,42 @@ void update_idle__11TODragonflyFi(s32 arg0) {
 }
 #pragma pop
 
-void draw_model__11TODragonflyFPv(u8 *arg0) {
+void TODragonfly::draw_model() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_80164c34_80164760 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         translate_matrix(0, lbl_805DB580, *(f32 *)((s8 *)arg0 + 0xF0), lbl_805DB580);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
         pop_matrix();
     }
 }
 
-void update__11TODragonflyFPv(void *arg0) {
+void TODragonfly::update() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (*(s32 *)((s8 *)arg0 + 0xFC) + *(s32 *)((s8 *)arg0 + 0xF8));
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0xFC)));
+    *(s32 *)((s8 *)this + 0xFC) = (s32) (*(s32 *)((s8 *)this + 0xFC) + *(s32 *)((s8 *)this + 0xF8));
+    *(f32 *)((s8 *)this + 0xF0) = (f32) (*(f32 *)((s8 *)this + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)this + 0xFC)));
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        ((DfV_80164cc4_80164760 *)arg0)->vf12();
+        ((DfV_80164cc4_80164760 *)this)->vf12();
         return;
     }
-    update_anim_phase__17TOBarrierEnergy01FPv(arg0);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
+    update_anim_phase__17TOBarrierEnergy01Fv(this);
+    temp_r0 = *(s32 *)((s8 *)this + 0xAC);
     switch (temp_r0) {
     case 0:
-        update_idle__11TODragonflyFi((s32)(arg0));
+        update_idle();
         return;
     case 1:
-        TODragonfly__sub_80164A90((O_80164A90 *)(arg0));
+        TODragonfly__sub_80164A90((O_80164A90 *)(this));
         return;
     case 2:
-        TODragonfly__sub_80164990((u8 *)(arg0));
+        TODragonfly__sub_80164990((u8 *)(this));
         return;
     case 3:
-        move_toward_target__11TODragonflyFPv((Self_8016492C *)(arg0));
+        move_toward_target();
         return;
     }
 }
@@ -430,7 +429,7 @@ extern s32 __vt__11TODragonfly[];
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TODragonfly;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

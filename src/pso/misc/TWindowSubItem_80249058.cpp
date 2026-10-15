@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowSubItem.h"
 
 extern "C" {
 
-s32 get_cursor_pos__14TWindowSubItemFPv(void* p);
-int is_flag_4_set__20TWindowSubStatusDispFPv(void* p);
-int get_flag__20TWindowSubStatusDispFPv(void* p);
+int is_flag_4_set__20TWindowSubStatusDispFv(void* p);
+int get_flag__20TWindowSubStatusDispFv(void* p);
 
-s32 get_cursor_pos__14TWindowSubItemFPv(void* p) { return *(s32*)((char*)p + 0x18); }
+s32 TWindowSubItem::get_cursor_pos() { return *(s32*)((char*)this + 0x18); }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5PillarDemo.h"
 
 struct RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo {
     s32 value;
@@ -11,7 +12,6 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 extern void *lbl_805D4DD8;
 extern s32 tl_02;
-s32 create__19TObjBoss5PillarDemoFv(void);
 s32 TObjBoss5Pillar__ct(void *, void *, void *);
 extern s32 __vt__19TObjBoss5PillarDemo[];
 extern s32 lbl_805D3B28;
@@ -19,7 +19,7 @@ extern void *lbl_805D4DD8;
 extern const f32 lbl_805DD908;
 u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2);
 void transform_to_view__11TCameraCtrlFii(void *, void *);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 extern u8 lbl_80450CDC[];
 extern s32 boss5_pillar_demo_index;
 void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1);
@@ -33,7 +33,6 @@ void TObjBoss5PillarDemo__sub_8028ACE4(void);
 void TObjBoss5PillarDemo__sub_8028AD88(void* a0);
 void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0);
 void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1);
-void update_active_pillar__19TObjBoss5PillarDemoFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjBoss5PillarFv(void *, int);
 s32 clear_child_target_refs(s32, s32);
@@ -53,7 +52,7 @@ void TObjBoss5PillarDemo__sub_8028AB38(void) {
 
 extern void *lbl_805D4DD8;
 
-void update_active_pillar__19TObjBoss5PillarDemoFv(void) {
+void TObjBoss5PillarDemo::update_active_pillar() {
     void *temp_r4;
 
     if ((void *) lbl_805D4DD8 != NULL) {
@@ -88,7 +87,7 @@ u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-s32 create__19TObjBoss5PillarDemoFv(void) {
+s32 TObjBoss5PillarDemo::create() {
     s32 temp_r31;
     s32 temp_r3;
     s32 var_r0;
@@ -114,10 +113,10 @@ void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1) {
     if (idx >= 0 && idx < arg0->count) {
         transform_to_view__11TCameraCtrlFii(lbl_80450CDC, sp);
         if (arg0->a != NULL && arg0->a[idx] != NULL) {
-            copy_pos__11TNowLoadingFPvPv(arg0->a[idx], sp);
+            copy_pos__11TNowLoadingFPv(arg0->a[idx], sp);
         }
         if (arg0->b != NULL && arg0->b[idx] != NULL) {
-            copy_pos__11TNowLoadingFPvPv(arg0->b[idx], sp);
+            copy_pos__11TNowLoadingFPv(arg0->b[idx], sp);
         }
     }
 }

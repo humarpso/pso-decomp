@@ -274,7 +274,7 @@ s32 transition_enemy_state(void *, s32);
 void set_state_flags__18TObjEneRe4SorcererFPv(u8 *arg0);
 void set_hold_flags__18TObjEneRe4SorcererFPv(u8 *arg0);
 void TObjEneRe4Sorcerer__sub_800ED47C(void* p);
-s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(s32, void *, int, int);
 extern const f32 TObjEneRe4Bit__data_805DA770;
 void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
@@ -303,12 +303,12 @@ extern const f32 lbl_805DA778;
 void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1);
 s32 transition_enemy_state(void *, s32);
 void handle_state_message__13TObjEneRe4BitFPvi(void *self, s32 msg);
-int render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
+int render_with_position_override__10TObjPlayerFPUcl(void *, void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 int clear_global_flag_400__9TObjEneDDFv();
-f32 update_primary_light__9TObjEneDDFPv(void *);
-int update_secondary_light__9TObjEneDDFPv(void *);
+f32 update_primary_light__9TObjEneDDFv(void *);
+int update_secondary_light__9TObjEneDDFv(void *);
 int toggle_particle_effect__10TObjPlayerFv();
 int end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
@@ -318,7 +318,7 @@ int translate_matrix(int, f32, f32, f32);
 int push_matrix();
 int pop_matrix();
 int post_translate_matrix(void *);
-int set_global_param__8TObjFishFi(void *);
+int set_global_param__8TObjFishFl(void *);
 int draw_chunk_object(void *);
 extern Vec_800ECA40 re4_bit_render_vec;
 extern s32 lbl_805D5660;
@@ -334,7 +334,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self);
 extern "C" {
 
 void reset_transform__13TObjEneRe4BitFPv(void *arg0);
-void transform_part_positions__9TObjEneDDFPv(void *);
+void transform_part_positions__9TObjEneDDFv(void *);
 s32 transition_enemy_state(void *, s32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
@@ -398,7 +398,7 @@ extern "C" void fn_80010EC8();
 extern "C" void clear_lobby_object_state();
 extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
-extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
+extern "C" void get_enemy_name__14TObjEnePanarmsFv();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
@@ -463,7 +463,7 @@ void *__vt__13TObjEneRe4Bit[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TObjEneRe4BitFv, (void *)&run_task__13TObjEneRe4BitFv,
     (void *)&render__13TObjEneRe4BitFv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
@@ -514,13 +514,13 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
     }
     if (self->flags & 0x800) {
         Vec_800ECA40 v = re4_bit_render_vec;
-        render_with_position_override__10TObjPlayerFPvPvi(self, &v, 0);
+        render_with_position_override__10TObjPlayerFPUcl(self, &v, 0);
     }
-    update_secondary_light__9TObjEneDDFPv(self);
+    update_secondary_light__9TObjEneDDFv(self);
     m = *self->x24;
     saved = m->x2C;
     m->x2C = m->ents[self->idx].c;
-    set_global_param__8TObjFishFi(self->x24);
+    set_global_param__8TObjFishFl(self->x24);
     lbl_805D5660 = model_render_flags;
     clear_global_flag_400__9TObjEneDDFv();
     toggle_particle_effect__10TObjPlayerFv();
@@ -543,7 +543,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
     self->light.l7();
     model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
-    update_primary_light__9TObjEneDDFPv(self);
+    update_primary_light__9TObjEneDDFv(self);
     (*self->x24)->x2C = saved;
 }
 
@@ -556,11 +556,11 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x408) = 0;
         ((s32 (*)(void *))set_hold_flags__18TObjEneRe4SorcererFPv)((void *) (arg0));
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x400);
-        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A815)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003A815)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         break;
     case 3:
         if (*(s32 *)((s8 *)arg0 + 0x3CC) & 8) {
-            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AD16)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003AD16)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             transition_enemy_state((void *)((void *) (arg0)), (s32)((int) (1)));
         }
         break;
@@ -776,7 +776,7 @@ void reset_transform__13TObjEneRe4BitFPv(void *arg0) {
     *(f32 *)((s8 *)arg0 + 0x3FC) = TObjEneRe4Bit__data_805DA770;
     *(f32 *)((s8 *)arg0 + 0x400) = TObjEneRe4Bit__data_805DA770;
     ((void (*)(void *))update_position_flag__13TObjEneRe4BitFPv)((void *)(arg0));
-    transform_part_positions__9TObjEneDDFPv(arg0);
+    transform_part_positions__9TObjEneDDFv(arg0);
 }
 
 }
@@ -1450,10 +1450,10 @@ extern "C" {
 void TObjEneRe4Bit__vt60(u8 *arg0);
 void TObjEneRe4Bit__vt61(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 set_player_state_default__12TBoss8DragonFPv(void *);
+s32 set_player_state_default__12TBoss8DragonFv(void *);
 void copy_pos__13TObjEneRe4BitFPv(void* p);
 void run_task__13TObjEneRe4BitFv(u8 *arg0);
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
+f32 update_scale__15TObjBoss2TunnelFv(void *);
 void vec3_add_to(void *, void *);
 void subtract_vector(void *, void *);
 extern const f32 lbl_805DA77C;
@@ -1475,8 +1475,8 @@ void TObjPlayer__sub_800A05B8(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEneDDFv(void *, int);
 s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
-s32 init_object__9TObjEneDDFPv();
-s32 init_vtable_and_field18__10TObjPlayerFPv(void *);
+s32 init_object__9TObjEneDDFv();
+s32 init_vtable_and_field18__10TObjPlayerFv(void *);
 s16 obj_getField1c(void *);
 
 #pragma push
@@ -1487,7 +1487,7 @@ void update_homing_velocity__13TObjEneRe4BitFPv(Obj_800ED4BC *arg0) {
     ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((void*)(&sp), (void*)(arg0->f3C0));
     sp.y = sp.y + arg0->f3D8;
     subtract_vector(&sp, &arg0->v2FC);
-    s = lbl_805DA77C * update_scale__15TObjBoss2TunnelFPv(&sp);
+    s = lbl_805DA77C * update_scale__15TObjBoss2TunnelFv(&sp);
     arg0->v3F8.x = lbl_805DA780 * (sp.x * s + arg0->v3F8.x);
     arg0->v3F8.y = lbl_805DA780 * (sp.y * s + arg0->v3F8.y);
     arg0->v3F8.z = lbl_805DA780 * (sp.z * s + arg0->v3F8.z);
@@ -1553,7 +1553,7 @@ void run_task__13TObjEneRe4BitFv(u8 *arg0) {
     }
     copy_pos__13TObjEneRe4BitFPv((void*)((void *) (arg0)));
     ((VObj_18_p4 *)(arg0))->m86();
-    set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
+    set_player_state_default__12TBoss8DragonFv((void *) (arg0));
 }
 
 void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1) {
@@ -1569,10 +1569,10 @@ void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int reset_hp__9TObjEneDDFPv(void *, s32, s32, s32);
-int initialize_enemy_state__9TObjEneDDFPv(void *, int);
-int set_state_8__9TObjEneDDFPv(void *);
-int init_model__9TObjEneDDFPv(void *, void *, int);
+int reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
+int initialize_enemy_state__9TObjEneDDFv(void *, int);
+int set_state_8__9TObjEneDDFv(void *);
+int init_model__9TObjEneDDFv(void *, void *, int);
 int init_position_vectors__9TObjEneDDFPv(void *);
 struct Tbl_800ED7FC { s32 a[2]; s32 b[2]; s32 c[2]; };
 extern s32 TObjEneRe4Bit__model;
@@ -1586,15 +1586,15 @@ void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
     init_position_vectors__9TObjEneDDFPv(self);
     self->x34 = TObjEneRe4Bit__model;
     self->x24 = re4_bit_texture_list;
-    init_model__9TObjEneDDFPv(self, re4_bit_model_node_desc, 1);
+    init_model__9TObjEneDDFv(self, re4_bit_model_node_desc, 1);
     i = self->kind == 1 ? 0 : 1;
-    reset_hp__9TObjEneDDFPv(self, TObjEneRe4Bit_boss_handles[i], lbl_80501058[i], lbl_80501060[i]);
-    set_state_8__9TObjEneDDFPv(self);
+    reset_hp__9TObjEneDDFv(self, TObjEneRe4Bit_boss_handles[i], lbl_80501058[i], lbl_80501060[i]);
+    set_state_8__9TObjEneDDFv(self);
     self->x350 = re4_bit_init_params;
     if (self->kind == 1) {
-        initialize_enemy_state__9TObjEneDDFPv(self, 0x20);
+        initialize_enemy_state__9TObjEneDDFv(self, 0x20);
     } else {
-        initialize_enemy_state__9TObjEneDDFPv(self, 0x21);
+        initialize_enemy_state__9TObjEneDDFv(self, 0x21);
     }
     self->x37C = lbl_805DA784;
     self->x3CC = 0;
@@ -1617,9 +1617,9 @@ void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
 extern s32 lbl_805D2AE8;
 
 u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5, s16 arg6) {
-    init_object__9TObjEneDDFPv();
+    init_object__9TObjEneDDFv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneRe4Bit;
-    init_vtable_and_field18__10TObjPlayerFPv((void *) (arg0 + 0x3DC));
+    init_vtable_and_field18__10TObjPlayerFv((void *) (arg0 + 0x3DC));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AE8;
     init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));
     *(s16 *)((s8 *)arg0 + 0x3C4) = obj_getField1c((void *) (arg2));
@@ -1641,10 +1641,10 @@ struct Obj_800EDAB4 { u8 pad0[0x42C]; Inner_800EDAB4 *f42C; };
 struct Dst_800EDAB4 { s32 a[2]; s32 b[2]; s32 c[2]; s32 d[2]; };
 
 extern "C" {
-s32 register_boss__6TLobbyFPv(s32);
-s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
-s32 register_object__6TLobbyFPv(s32);
-s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
+s32 register_boss__6TLobbyFl(s32);
+s32 dispatch_shared_handler_b__6TLobbyFl(s32);
+s32 register_object__6TLobbyFl(s32);
+s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 extern s32 lbl_8043D2B0[];
 extern s32 lbl_8043D2B8[];
 extern s32 lbl_8043D2C0[];
@@ -1687,10 +1687,10 @@ void TObjEneRe4Bit__sub_800EDAB4(void) {
     TObjEneRe4Bit__model = sorcerer_bml_resource->f42C->f18;
     re4_bit_texture_list = sorcerer_bml_resource->f42C->fC;
     for (i = 0; i < 2; i++) {
-        TObjEneRe4Bit_boss_handles[i] = register_boss__6TLobbyFPv(lbl_8043D2B0[i]);
-        lbl_80501058[i] = dispatch_shared_handler_b__6TLobbyFPv(lbl_8043D2B8[i]);
-        lbl_80501060[i] = register_object__6TLobbyFPv(lbl_8043D2C0[i]);
-        lbl_80501068[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_8043D2C8[i]);
+        TObjEneRe4Bit_boss_handles[i] = register_boss__6TLobbyFl(lbl_8043D2B0[i]);
+        lbl_80501058[i] = dispatch_shared_handler_b__6TLobbyFl(lbl_8043D2B8[i]);
+        lbl_80501060[i] = register_object__6TLobbyFl(lbl_8043D2C0[i]);
+        lbl_80501068[i] = dispatch_shared_handler_a__6TLobbyFl(lbl_8043D2C8[i]);
     }
 }
 

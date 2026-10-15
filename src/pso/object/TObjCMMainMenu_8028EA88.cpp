@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCMMainMenu.h"
 
 struct RecoveredGlobal_8028EC24_lbl_8051C07C {
     s8 value;
@@ -20,7 +21,7 @@ s32 init_default_view__11TCameraCtrlFv();
 s32 reset_view_state__11TCameraCtrlFv();
 s32 select_active_controller__11TCameraCtrlFc(s32);
 s32 TCameraCtrl__ct(void *, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 set_ending_callback__6TLobbyFv();
 s32 TKeyBoardControl__sub_80131F60();
 s32 update_keyboard_menu__6TLobbyFv();
@@ -58,8 +59,6 @@ extern "C" {
 
 void TObjCMMainMenu__sub_8028EC18(void);
 void TObjCMMainMenu__sub_8028EC34(void);
-u8 is_state_3__14TObjCMMainMenuFv(void);
-u8 is_state_4__14TObjCMMainMenuFv(void);
 
 extern s32 TObjCMMainMenu__data_805D659C;
 
@@ -86,7 +85,7 @@ void init_creation_menu_scene(void) {
     if (p != NULL) {
         TWindowCtrlMain__ct(p);
     }
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, creation_menu_resource_descriptor, 0, 0, 0);
     }
@@ -116,13 +115,13 @@ s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0) {
     return *(s32 *)((s8 *)((u8 *)(&TObjCMMainMenu__data_804DB9C8.value) + (*(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x24) + (*(s32 *)((s8 *)arg0 + 0x2C) * 4)) + 0) * 0x10)) + 0);
 }
 
-u8 is_state_4__14TObjCMMainMenuFv(void) {
+u8 TObjCMMainMenu::is_state_4() {
     return (u8) (TObjCMMainMenu__data_805D659C == 4);
 }
 
 extern s32 TObjCMMainMenu__data_805D659C;
 
-u8 is_state_3__14TObjCMMainMenuFv(void) {
+u8 TObjCMMainMenu::is_state_3() {
     return (u8) (TObjCMMainMenu__data_805D659C == 3);
 }
 

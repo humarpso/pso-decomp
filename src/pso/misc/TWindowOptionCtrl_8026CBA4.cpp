@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowOptionCtrl.h"
 
 struct V2_8026CBB8 { f32 x, y; };
 
@@ -28,7 +29,7 @@ extern V2_8026CBB8 lbl_80477890[];
 extern unsigned char window_layout_rect_table[];
 V2_8026CBB8 *get_window_layout_position(s32 idx);
 s32 TWindowCtrlMain__sub_8024CE58(void);
-void get_scale__20TWindowSubStatusDispFPv(void *);
+void get_scale__20TWindowSubStatusDispFv(void *);
 extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DD2C8;
 void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w);
@@ -36,10 +37,8 @@ void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w);
 
 extern "C" {
 
-void* get_option_entry__17TWindowOptionCtrlFi(int a0);
-
     extern unsigned char window_layout_rect_table[];
-void* get_option_entry__17TWindowOptionCtrlFi(int a0) {  return (char*)window_layout_rect_table + a0 * 8; }
+void*TWindowOptionCtrl::get_option_entry(int a0) {  return (char*)window_layout_rect_table + a0 * 8; }
 V2_8026CBB8 *get_window_layout_position(s32 idx) {
     if (is_split_screen() != 0) {
         return (get_camera_id__11TCameraCtrlFv() == 2) ? &lbl_80477890[idx] : &window_layout_position_table[idx];
@@ -51,7 +50,7 @@ void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w) {
     f32 lim;
     f32 t;
     if (TWindowCtrlMain__sub_8024CE58() != 0) {
-        get_scale__20TWindowSubStatusDispFPv(w);
+        get_scale__20TWindowSubStatusDispFv(w);
         window_depth_order_cursor -= lbl_805DD2C8;
         lim = w->f54;
         for (n = w->f10->f14; n != NULL; n = n->fC) {
@@ -86,11 +85,11 @@ void resort_window_order__15TWindowCtrlMainFPv(Node_8026CCA4 *w) {
             g->head->prev = w->prev;
         }
     }
-    scale = ((f32 (*)(void *))get_scale__20TWindowSubStatusDispFPv)(w);
+    scale = ((f32 (*)(void *))get_scale__20TWindowSubStatusDispFv)(w);
     window_depth_order_cursor += lbl_805DD2C8;
     for (n = g->head; n != NULL; n = n->next) {
         last = n;
-        if (!(scale < ((f32 (*)(void *))get_scale__20TWindowSubStatusDispFPv)(n))) {
+        if (!(scale < ((f32 (*)(void *))get_scale__20TWindowSubStatusDispFv)(n))) {
             break;
         }
         n->f54 += lbl_805DD2C8;

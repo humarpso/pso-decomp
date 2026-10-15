@@ -11,7 +11,7 @@ extern "C" {
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
 R_8008197C *TScene__sub_80081B24(void);
-void destroy_and_free__23TAdSinglePlyChrSelectGCFPvs(s32, s16);
+void destroy_and_free__23TAdSinglePlyChrSelectGCFs(s32, s16);
 extern u8 lbl_8048E168[];
 O_8008197C *texture_wave_destroy(O_8008197C *arg0, s16 arg1);
 }
@@ -26,7 +26,7 @@ O_8008197C *texture_wave_destroy(O_8008197C *arg0, s16 arg1) {
         q->arr[arg0->f20].c = arg0->f34;
         q->arr[arg0->f20].b = arg0->f30;
         q->arr[arg0->f20].a = arg0->f2c;
-        destroy_and_free__23TAdSinglePlyChrSelectGCFPvs(arg0->f1c, 1);
+        destroy_and_free__23TAdSinglePlyChrSelectGCFs(arg0->f1c, 1);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

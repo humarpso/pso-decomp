@@ -2,6 +2,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/TChCrTagPlGraphic.h"
 struct Stack_802A3138 {
     f32 sp8;
     f32 spC;
@@ -19,11 +20,10 @@ struct RecoveredFields_802A3138_arg0 {
 };
 
 extern "C" {
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 draw_ui_sprite_shaded(f32, f32, f32, void *, void *, void *);
 extern const f32 lbl_805DDF18;
 extern const f32 lbl_805DDF1C;
-void draw_class_illustration__17TChCrTagPlGraphicFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -35,7 +35,8 @@ typedef char RecoveredFields_802A3138_arg0_20_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_802A3138_arg0_3C_offset[offsetof(RecoveredFields_802A3138_arg0, field_3C) == 0x3C ? 1 : -1];
 typedef char RecoveredFields_802A3138_arg0_40_offset[offsetof(RecoveredFields_802A3138_arg0, field_40) == 0x40 ? 1 : -1];
 typedef char RecoveredFields_802A3138_arg0_44_offset[offsetof(RecoveredFields_802A3138_arg0, field_44) == 0x44 ? 1 : -1];
-void draw_class_illustration__17TChCrTagPlGraphicFPv(u8 *arg0) {
+void TChCrTagPlGraphic::draw_class_illustration() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_802A3138, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802A3138, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802A3138, sp10) == 0x8) ? 1 : -1];
@@ -45,7 +46,7 @@ void draw_class_illustration__17TChCrTagPlGraphicFPv(u8 *arg0) {
     f32 temp_f31;
     s32 temp_r31;
     if (!(((RecoveredFields_802A3138_arg0 *)arg0)->field_3C <= lbl_805DDF18)) {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (&stack.sp10), (void *) (arg0 + 0x48));
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (&stack.sp10), (void *) (arg0 + 0x48));
         temp_f0 = ((RecoveredFields_802A3138_arg0 *)arg0)->field_44;
         stack.spC = temp_f0;
         stack.sp8 = temp_f0;

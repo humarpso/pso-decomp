@@ -1,16 +1,17 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void apply_proshield_charge_bonus__10TObjPlayerFPv(u8 *arg0);
-u8 get_slot_count__14TItemProShieldFPv();
+u8 get_slot_count__14TItemProShieldFv();
 s32 advance_angle_wrap(void *, s32);
 s32 obj_getPtr2B0_20(s32);
 
-void apply_proshield_charge_bonus__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::apply_proshield_charge_bonus() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r4;
 
-    if (get_slot_count__14TItemProShieldFPv() == 6) {
+    if (get_slot_count__14TItemProShieldFv() == 6) {
         var_r4 = obj_getPtr2B0_20(*(s32 *)((s8 *)arg0 + 0xF0)) / 100000;
         var_r4 = var_r4 * 0x222;
         if (var_r4 > 0x1555) {

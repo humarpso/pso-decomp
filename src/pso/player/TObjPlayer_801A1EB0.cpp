@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Vec_801A1F48 { f32 x, y, z; };
 
@@ -8,45 +10,43 @@ struct Dst_801A1F48 { u8 pad[0x1C]; u16 id; u8 pad1e[0xA]; s16 kind; u8 pad2a[0x
 
 extern "C" {
 Vec_801A1F48 *VecCopy__FP3VecPC3Vec(Vec_801A1F48 *, const Vec_801A1F48 *);
-void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+void copy_xyz__10TObjPlayerFPv(void *, void *);
 void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src);
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
-u16 alloc_actor_ids__6TLobbyFi(s32 arg);
 }
 
 extern "C" {
 
 void TLobby__sub_801A1FD8(void);
 u16 get_or_assign_actor_id(void *arg0, s32 arg1);
-s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0);
 s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 u16 TLobby__sub_801A20C8(s32);
 int TObjRoomId__sub_801A1E2C(void);
 u16 fn_801A210C(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 
-s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0) {
+s16 TObjPlayer::get_stat_by_key_state() {
     s32 temp_r3;
 
     if ((get_global_state__14TOKeyMachine01Fv() == 0) || (get_global_state__14TOKeyMachine01Fv() == 0x12)) {
         return 0;
     }
-    if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) < 0x1000U) {
+    if ((u16) *(u16 *)((s8 *)this + 0x1C) < 0x1000U) {
         temp_r3 = get_global_state__14TOKeyMachine01Fv();
         if (((u32) (temp_r3 - 1) <= 1U) || (is_global_state_in_table__19TContainerAncient01Fv() != 0) || (temp_r3 == 0xC) || (temp_r3 == 0x20)) {
-            return *(s16 *)((s8 *)arg0 + 0x2E);
+            return *(s16 *)((s8 *)this + 0x2E);
         }
-        return *(s16 *)((s8 *)arg0 + 0x28);
+        return *(s16 *)((s8 *)this + 0x28);
     }
-    return *(s16 *)((s8 *)arg0 + 0x28);
+    return *(s16 *)((s8 *)this + 0x28);
 }
 
 void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src) {
     s32 i;
     self->id = src->id;
     VecCopy__FP3VecPC3Vec(&self->pos2, VecCopy__FP3VecPC3Vec(&self->pos, &src->pos));
-    copy_xyz__10TObjPlayerFPvPv(&self->rot, &src->rot);
+    copy_xyz__10TObjPlayerFPv(&self->rot, &src->rot);
     VecCopy__FP3VecPC3Vec(&self->v68, &src->v24);
     self->kind = src->kind;
     for (i = 0; i < 3; i++) {
@@ -69,13 +69,13 @@ u16 get_or_assign_actor_id(void *arg0, s32 arg1) {
             break;
         default:
         case 0x40000000:
-            *(u16 *)((s8 *)arg0 + 0x1C) = alloc_actor_ids__6TLobbyFi((s32)(arg1));
+            *(u16 *)((s8 *)arg0 + 0x1C) = TLobby::alloc_actor_ids((s32)(arg1));
             break;
         }
     }
     return *(u16 *)((s8 *)arg0 + 0x1C);
 }
-u16 alloc_actor_ids__6TLobbyFi(s32 arg) {
+u16 TLobby::alloc_actor_ids(s32 arg) {
     u16 n = arg;
     s32 id = lbl_805D5CD4;
     if (id + n + 1 >= 0xFFFF) {

@@ -1,18 +1,16 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
-int get_game_mode__23TAdSinglePlyChrSelectGCFv(void);
-u8 is_both_confirmed__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-
     extern int chr_select_game_mode;
-int get_game_mode__23TAdSinglePlyChrSelectGCFv(void) {  return chr_select_game_mode; }
+int TAdSinglePlyChrSelectGC::get_game_mode() {  return chr_select_game_mode; }
 
-u8 is_both_confirmed__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+u8 TAdSinglePlyChrSelectGC::is_both_confirmed() {
     s32 var_r4;
 
     var_r4 = 0;
-    if (((u8) *(u8 *)((s8 *)arg0 + 0) == 1) && ((u8) *(u8 *)((s8 *)arg0 + 1) == 1)) {
+    if (((u8) *(u8 *)((s8 *)this + 0) == 1) && ((u8) *(u8 *)((s8 *)this + 1) == 1)) {
         var_r4 = 1;
     }
     return (u8)var_r4;

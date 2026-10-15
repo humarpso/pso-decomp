@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOKeyAncient03.h"
+#include "pso/misc/TOKeyCave01.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -77,11 +79,10 @@ struct VObj_18_8016BABC : VBase_18_8016BABC {
 
 extern "C" {
 s32 is_split_screen();
-s32 is_any_player_in_range__5TOKeyFPv(void *);
-s32 is_local_player_in_range__5TOKeyFPv(void *);
+s32 is_any_player_in_range__5TOKeyFv(void *);
+s32 is_local_player_in_range__5TOKeyFv(void *);
 s32 TOKeyCave01__vt13(u8 *arg0);
-s32 send_switch_changed__14TOKeyAncient03FPvi(void *, int);
-void run_task__14TOKeyAncient03Fv(u8 *arg0);
+s32 send_switch_changed__14TOKeyAncient03Fl(void *, int);
 extern const f32 lbl_805DB718;
 extern const f32 lbl_805DB71C;
 extern const f32 lbl_805DB720;
@@ -103,18 +104,17 @@ extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
 extern s32 enable_v2_features;
 void TOKeyCave01__vt16(s32 arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80441ACC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 bm_fs_obj_o_doorpanel_resource_descriptor;
 extern u32 TOKeyAncient03__model_archive;
 extern void *TOKeyAncient03__texture_variants;
-void load_resources__14TOKeyAncient03Fv(void);
 s32 get_main_phase(void);
 s32 is_split_screen();
 u8 * TOKey__ct(void *);
-s32 init_switch_id__5TOKeyFPv(void *);
+s32 init_switch_id__5TOKeyFv(void *);
 extern s32 __vt__14TOKeyAncient03[];
 extern s32 TOKeyAncient03__class_name;
 extern u32 TOKeyAncient03__model_archive;
@@ -127,25 +127,23 @@ u8 *TOKeyAncient03__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DB728;
 extern const f32 lbl_805DB724;
 void TOKeyAncient03__vt14(Obj_8016B9A4 *self);
-void init_6x05_switch_changed__6TLobbyFPv(void *);
-void finalize_and_send_60__6TLobbyFPv(void *);
+void init_6x05_switch_changed__6TLobbyFv(void *);
+void finalize_and_send_60__6TLobbyFv(void *);
 s32 get_current_floor();
 extern s32 local_client_id;
-void send_switch_changed__11TOKeyCave01FPvi(Self_8016BF08 *self, s32 flags);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern void *TOKeyAncient03__texture_variants;
 extern s32 model_render_flags;
-void render__14TOKeyAncient03Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -154,15 +152,13 @@ void TOKeyAncient03__vt16(s32 arg0);
 void TOKeyAncient03__vt17(s32 arg0);
 void TOKeyCave01__vt23(void);
 void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1);
-void cleanup_refs__14TOKeyAncient03Fv(void);
-void *create__14TOKeyAncient03FPv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 free__11TOBoss4RockFUi(void*);
-s32 free_if_valid__10TObjPlayerFi(s32);
+s32 mem_free(void*);
+s32 free_if_valid__10TObjPlayerFl(s32);
 
 void TOKeyAncient03__vt17(s32 arg0) {
     play_sound_effect(0x4004B20D, arg0 + 0x38, 0, 0);
@@ -199,32 +195,34 @@ void TOKeyAncient03__vt14(Obj_8016B9A4 *self) {
     }
 }
 
-void run_task__14TOKeyAncient03Fv(u8 *arg0) {
+void TOKeyAncient03::run_task() {
+    u8 *arg0 = (u8 *)this;
     ((VObj_18 *)(arg0))->m12();
     if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
-            send_switch_changed__14TOKeyAncient03FPvi((void *) (arg0), (int) (1));
+            send_switch_changed__14TOKeyAncient03Fl((void *) (arg0), (int) (1));
             ((VObj_18 *)(arg0))->m16();
             *(s32 *)((s8 *)arg0 + 0xD4) = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
-            send_switch_changed__14TOKeyAncient03FPvi((void *) (arg0), (int) (0));
+            send_switch_changed__14TOKeyAncient03Fl((void *) (arg0), (int) (0));
             ((VObj_18 *)(arg0))->m17();
             *(s32 *)((s8 *)arg0 + 0xD4) = 0;
         }
     }
 }
 
-void render__14TOKeyAncient03Fv(u8 *arg0) {
+void TOKeyAncient03::render() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r4;
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     if (((VObj_18_8016BABC *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)TOKeyAncient03__texture_variants + (*(s32 *)((s8 *)arg0 + 0xD4) * 4))));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)TOKeyAncient03__texture_variants + (*(s32 *)((s8 *)arg0 + 0xD4) * 4))));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -258,7 +256,7 @@ void render__14TOKeyAncient03Fv(u8 *arg0) {
     }
 }
 
-void *create__14TOKeyAncient03FPv(void *arg0) {
+void *TOKeyAncient03::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
         o = TOKeyAncient03__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -269,11 +267,11 @@ void *create__14TOKeyAncient03FPv(void *arg0) {
 extern u32 TOKeyAncient03__model_archive;
 extern void *TOKeyAncient03__texture_variants;
 
-void cleanup_refs__14TOKeyAncient03Fv(void) {
+void TOKeyAncient03::cleanup_refs() {
     if ((void *) TOKeyAncient03__texture_variants != NULL) {
-        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)TOKeyAncient03__texture_variants + 4));
+        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)TOKeyAncient03__texture_variants + 4));
         if ((void *) TOKeyAncient03__texture_variants != NULL) {
-            free__11TOBoss4RockFUi((void*)TOKeyAncient03__texture_variants);
+            mem_free((void*)TOKeyAncient03__texture_variants);
             TOKeyAncient03__texture_variants = NULL;
         }
     }
@@ -287,17 +285,17 @@ extern s32 __vt__14TOKeyAncient03[];
 
 typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
-void load_resources__14TOKeyAncient03Fv(void) {
+void TOKeyAncient03::load_resources() {
     s32 *temp_r3_2;
     u8 *temp_r3;
     u8 *var_r0;
-    temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
+    temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &bm_fs_obj_o_doorpanel_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TOKeyAncient03__model_archive) = var_r0;
-    temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
+    temp_r3_2 = (s32 *)(mem_alloc(8));
     (*(s32 * *)&TOKeyAncient03__texture_variants) = temp_r3_2;
     *temp_r3_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 0xC);
     *(s32 *)((s8 *)(*(s32 * *)&TOKeyAncient03__texture_variants) + 4) = load_gvm_texture_file((void *) (&lbl_80441ACC.value));
@@ -319,7 +317,7 @@ u8 *TOKeyAncient03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 *)&__vt__14TOKeyAncient03).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient03__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    init_switch_id__5TOKeyFPv((void *) (arg0));
+    init_switch_id__5TOKeyFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(*(s32 * *)&TOKeyAncient03__texture_variants);
     *(u8 **)((s8 *)arg0 + 0x34) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 8));
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB72C;
@@ -363,16 +361,16 @@ s32 TOKeyCave01__vt13(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
-            var_r3 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
+            var_r3 = is_any_player_in_range__5TOKeyFv((void *) (arg0));
         } else {
-            var_r3 = is_local_player_in_range__5TOKeyFPv((void *) (arg0));
+            var_r3 = is_local_player_in_range__5TOKeyFv((void *) (arg0));
         }
         if (((s32) *(s32 *)((s8 *)arg0 + 0xD4) == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;
     case 1:
-        var_r31 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
+        var_r31 = is_any_player_in_range__5TOKeyFv((void *) (arg0));
         break;
     }
     return var_r31;
@@ -380,15 +378,16 @@ s32 TOKeyCave01__vt13(u8 *arg0) {
 
 typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
 
-void send_switch_changed__11TOKeyCave01FPvi(Self_8016BF08 *self, s32 flags) {
+void TOKeyCave01::send_switch_changed(s32 flags) {
+    Self_8016BF08 *self = (Self_8016BF08 *)this;
     Pkt_8016BF08 pkt;
-    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    init_6x05_switch_changed__6TLobbyFv(&pkt);
     pkt.object = self->id;
     pkt.zero = local_client_id;
     pkt.switchId = self->switchId;
     pkt.area = get_current_floor();
     pkt.flags = flags;
-    finalize_and_send_60__6TLobbyFPv(&pkt);
+    finalize_and_send_60__6TLobbyFv(&pkt);
 }
 
 void TOKeyCave01__vt17(s32 arg0) {

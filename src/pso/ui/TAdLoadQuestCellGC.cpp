@@ -4,7 +4,6 @@
 
 extern "C" {
 s32 get_state_flag__9TMainTaskFv();
-void render_state__18TAdLoadQuestCellGCFPv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2);
 __declspec(section ".data") TAdLoadQuestCellGC *ad_load_quest_cell_table[3] = { 0, 0, 0 };
@@ -14,17 +13,16 @@ s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 extern "C" {
 
 void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2);
-void render_state__18TAdLoadQuestCellGCFPv(void *arg0);
 
 void __ct__7TObjectFP7TObject(void *);
 s32 draw_quest_load_panel_overlays();
 s32 draw_quest_load_letterbox_bars();
 s32 fn_80349844();
 
-void render_state__18TAdLoadQuestCellGCFPv(void *arg0) {
+void TAdLoadQuestCellGC::render_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
     switch (temp_r0) {
     case 0:
         fn_80349844();
@@ -44,7 +42,7 @@ void TAdLoadQuestCellGC::render() {
     if (get_state_flag__9TMainTaskFv() != 1) {
         ++m_frameCount;
         if (m_frameCount >= 2) {
-            render_state__18TAdLoadQuestCellGCFPv(this);
+            render_state();
         }
     }
 }

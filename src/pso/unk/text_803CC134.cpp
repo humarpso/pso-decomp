@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
@@ -17,7 +18,7 @@ u8 lbl_8057B7D0[0x1000];
 u8 afs_archive_toc_table[0x400];
 u8 adxf_file_handle_pool[0x1380];
 
-void dec_ref_and_reset_tables__6TLobbyFv(void) {
+void TLobby::dec_ref_and_reset_tables() {
     if (--lbl_805D75D0 == 0) {
         release_used_slots__6TLobbyFv();
         lobby_adxf_current_file_id = -1;
@@ -32,7 +33,7 @@ void dec_ref_and_reset_tables__6TLobbyFv(void) {
     }
 }
 
-void init_afs_adxf_state__6TLobbyFv(void) {
+void TLobby::init_afs_adxf_state() {
     lbl_805E0D80;
     if (lbl_805D75D0 == 0) {
         memset(adxf_file_handle_pool, 0, 0x1380);

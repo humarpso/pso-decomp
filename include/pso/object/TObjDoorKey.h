@@ -25,6 +25,12 @@ struct TObjDoorKey
     u32 m_f0;
     u32 m_f4;
     u32 m_f8;
+    void render();
+    s32 draw_active_beam();
+    s32 draw_inactive_badge();
+    void run_task();
+    static void free_key();
+    static void load_resources();
 };
 
 #endif

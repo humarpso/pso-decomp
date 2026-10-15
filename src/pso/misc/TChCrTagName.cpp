@@ -89,18 +89,18 @@ s32 TChCrTagName__vt4(u8 *arg0);
 s32 get_selected_index__15TChCrCharSelectFv();
 s32 get_selected_char__15TChCrCharSelectFv();
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 extern vec2f lbl_80466408[];
 void draw_tag_sprite__12TChCrTagNameFPv(TChCrTagName_802A2500 *self);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 extern vec2f lbl_80466410[];
 extern vec2f lbl_80466418[];
 extern vec2f lbl_80466420[];
 extern vec2f lbl_80466428[];
 int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 f32 sin_table_lookup(s32);
 extern vec2f lbl_80466430[];
@@ -155,7 +155,7 @@ int draw_tag_sprites__12TChCrTagNameFPv(void *p) {
     }
     bright = (0.75f) * (s * s) + (0.25f);
     t2 = t * t;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
     pos.x += (5.0f);
     pos.y += (9.0f);
     alpha = t2;
@@ -169,7 +169,7 @@ int draw_tag_sprites__12TChCrTagNameFPv(void *p) {
         }
     }
     draw_ui_sprite_shaded(id, &pos, &scale, depth, alpha, bright);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
     pos.x = (169.0f);
     pos.y += (3.0f);
     draw_ui_sprite_shaded(self->f20 + 0x57, &pos, &scale, depth, t2, bright);
@@ -195,7 +195,7 @@ int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
     {
         vec2f scale = lbl_80466410[0];
         vec2f pos;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
         draw_ui_sprite_shaded(0x41, &pos, &scale, depth, t, bright);
         pos.y += (22.0f);
         draw_ui_sprite_shaded(0x42, &pos, &scale, depth, t, bright);
@@ -203,7 +203,7 @@ int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
     {
         vec2f scale = lbl_80466418[0];
         vec2f pos;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
         pos.x += (226.0f);
         draw_ui_sprite_shaded(self->f20 == 0 ? 0x44 : 0x48, &pos, &scale, depth, t, bright);
         pos.y += (22.0f);
@@ -212,7 +212,7 @@ int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
     {
         vec2f scale = lbl_80466420[0];
         vec2f pos;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
         pos.x += (226.0f);
         pos.y += (8.0f);
         draw_ui_sprite_shaded(0x40, &pos, &scale, depth, t, bright);
@@ -220,7 +220,7 @@ int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
     if (self->f24 < (1.0f)) {
         vec2f scale = lbl_80466428[0];
         vec2f pos;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
         pos.x -= (3.0f);
         draw_ui_sprite_shaded(0x3F, &pos, &scale, depth, t, bright);
     }
@@ -244,7 +244,7 @@ void draw_tag_sprite__12TChCrTagNameFPv(TChCrTagName_802A2500 *self) {
     } else {
         depth = (0.3125f) * s + (-2.75f);
     }
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
     pos.y += (3.0f);
     draw_ui_sprite_shaded(id, &pos, &scale, depth, t * t, (0.75f) * (s * s) + (0.25f));
 }

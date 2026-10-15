@@ -27,6 +27,11 @@ struct TOMonumentAncient02
     u8 _padDC[0xC];
     u32 m_e8;
     u32 m_ec;
+    void run_task();
+    void render();
+    static void *create(void *arg0);
+    static void free_shared_data();
+    static void load_resources();
 };
 
 #endif

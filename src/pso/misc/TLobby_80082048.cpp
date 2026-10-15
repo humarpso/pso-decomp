@@ -15,6 +15,7 @@ struct RecoveredGlobal_80082080_lbl_8048E194 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80082080_lbl_8048E194_size[sizeof(RecoveredGlobal_80082080_lbl_8048E194) == 0x10 ? 1 : -1];
 
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
 struct RecoveredFields_8008213C_arg0 {
     u8 unknown_0[0x18];
     s32 * field_18;
@@ -58,15 +59,14 @@ struct RecoveredFields_8008213C_temp_r3 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u32 freeze_shell_bml_resource;
-void load_freeze_ice_resource__6TLobbyFv(void);
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, int);
-u8 *get_quest_id__12TQuestListVMFPv(void *);
+u8 *get_quest_id__12TQuestListVMFv(void *);
 s32 create_particle_emitter(void *, int);
 s32 refresh_collision_body_centers(void *);
 extern s32 lbl_8048E1A4[];
@@ -86,15 +86,14 @@ int TObjPlayer__sub_800822B0(void);
 int TObjPlayer__sub_800822B8(void);
 f32 TObjPlayer__sub_800822C0(void);
 f32 TObjPlayer__sub_800822C8(void);
-void destroy_global_singleton__6TLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
-void request_destroy__11TBoss4Type2FUi(void *);
+void request_destroy__11TBoss4Type2FUl(void *);
 
 extern u32 freeze_shell_bml_resource;
 
-void destroy_global_singleton__6TLobbyFv(void) {
+void TLobby::destroy_global_singleton() {
     if ((u32) freeze_shell_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)freeze_shell_bml_resource, 1);
         freeze_shell_bml_resource = 0U;
@@ -103,10 +102,10 @@ void destroy_global_singleton__6TLobbyFv(void) {
 
 extern s32 lbl_8048E1A4[];
 
-void load_freeze_ice_resource__6TLobbyFv(void) {
+void TLobby::load_freeze_ice_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &enemy_freeze_ice_resource_descriptor, 0, 0, 0));
@@ -117,7 +116,7 @@ void load_freeze_ice_resource__6TLobbyFv(void) {
 void *destroy_freeze_shell(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E1A4;
-        if (*(void **)((s8 *)arg0 + 0x350) != NULL) { request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x350)); }
+        if (*(void **)((s8 *)arg0 + 0x350) != NULL) { request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x350)); }
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -165,7 +164,7 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
             ((RecoveredFields_8008213C_arg0 *)arg0)->field_338 = (f32) (lbl_805D9398 * *(f32 *)((s8 *)(((RecoveredFields_8008213C_arg1 *)arg1)->field_A4) + 0xC));
         } else {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg1 + 0x2FC));
-            temp_r3 = get_quest_id__12TQuestListVMFPv(arg1);
+            temp_r3 = get_quest_id__12TQuestListVMFv(arg1);
             if (temp_r3 != NULL) {
                 ((RecoveredFields_8008213C_arg0 *)arg0)->field_338 = (f32) (lbl_805D939C * ((RecoveredFields_8008213C_temp_r3 *)temp_r3)->field_10);
             } else {

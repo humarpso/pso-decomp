@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
 
 struct RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270 {
     s32 value;
@@ -20,32 +21,25 @@ s32 TKeyBoardControl__sub_80132310(s32);
 extern s32 TKeyBoardControl__global_key_state[];
 void TKeyBoardControl__sub_801A58D8(void);
 extern Pad_801A57D0 *controller_input_state[];
-s32 any_pad_input_active__16TKeyBoardControlFv(void);
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 extern s32 TKeyBoardControl__global_key_state[];
-s32 is_key_down__16TKeyBoardControlFi(s32 arg0);
 }
 
 extern "C" {
 
 void init_stick_escape_detector(void *arg0, void *arg1);
-s32 check_and_read__16TKeyBoardControlFi(s32 arg0);
-s32 check_input_angle__16TKeyBoardControlFPv(void *arg0);
-s32 check_reset_button__16TKeyBoardControlFv(void);
-s32 read_input__16TKeyBoardControlFi(s32 arg0);
-void reset__16TKeyBoardControlFv(void);
 s32 OSGetResetButtonState();
 void update_state_from_input__16TKeyBoardControlFPv(void *arg0);
 s32 TKeyBoardControl__sub_801323C8(void *, void *);
 s32 check_input_ready__16TKeyBoardControlFi(s32 *);
 
     extern unsigned char lbl_805D5D09;
-void reset__16TKeyBoardControlFv(void) { lbl_805D5D09 = 0; }
+void TKeyBoardControl::reset() { lbl_805D5D09 = 0; }
 
 extern u8 keyboard_reset_button_pressed;
 
-s32 any_pad_input_active__16TKeyBoardControlFv(void) {
+s32 TKeyBoardControl::any_pad_input_active() {
     s32 i;
     for (i = 0; i < 4; i++) {
         Pad_801A57D0 *p = controller_input_state[i];
@@ -56,7 +50,7 @@ s32 any_pad_input_active__16TKeyBoardControlFv(void) {
     return 0;
 }
 
-s32 check_reset_button__16TKeyBoardControlFv(void) {
+s32 TKeyBoardControl::check_reset_button() {
     if (OSGetResetButtonState() != 0) {
         keyboard_reset_button_pressed = 1;
     }
@@ -82,23 +76,23 @@ void TKeyBoardControl__sub_801A58D8(void) {
     TKeyBoardControl__sub_80132310((s32) &(*(RecoveredGlobal_801A58D8_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value);
 }
 
-s32 check_and_read__16TKeyBoardControlFi(s32 arg0) {
+s32 TKeyBoardControl::check_and_read(s32 arg0) {
     if (check_input_ready__16TKeyBoardControlFi(TKeyBoardControl__global_key_state) != 0) {
-        return is_key_down__16TKeyBoardControlFi((s32)(arg0));
+        return TKeyBoardControl::is_key_down((s32)(arg0));
     }
     return 0;
 }
 
 extern s32 TKeyBoardControl__global_key_state[];
 
-s32 read_input__16TKeyBoardControlFi(s32 arg0) {
+s32 TKeyBoardControl::read_input(s32 arg0) {
     if (check_input_ready__16TKeyBoardControlFi(TKeyBoardControl__global_key_state) != 0) {
         return ((s32 (*)(s32))update_state_from_input__16TKeyBoardControlFPv)(arg0);
     }
     return 0;
 }
 
-s32 is_key_down__16TKeyBoardControlFi(s32 arg0) {
+s32 TKeyBoardControl::is_key_down(s32 arg0) {
     s32 i;
     s32 n;
     n = get_key_state_2__16TKeyBoardControlFPv(((s32 *)&TKeyBoardControl__global_key_state));
@@ -117,26 +111,26 @@ void update_state_from_input__16TKeyBoardControlFPv(void *arg0) {
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DC0B0;
 
-s32 check_input_angle__16TKeyBoardControlFPv(void *arg0) {
+s32 TKeyBoardControl::check_input_angle() {
     s32 temp_r4_2;
     void *temp_r4;
     s32 temp_r5;
     u16 temp_r0;
 
-    temp_r4 = *(void **)((s8 *)arg0 + 8);
+    temp_r4 = *(void **)((s8 *)this + 8);
     if (temp_r4 == NULL) {
         return 0;
     }
     if (*(f32 *)((s8 *)temp_r4 + 0x24) < lbl_805DC0B0) {
         return 0;
     }
-    temp_r5 = *(s32 *)((s8 *)arg0 + 0);
-    *(s32 *)((s8 *)arg0 + 0) = *(s32 *)((s8 *)temp_r4 + 0x1C);
-    temp_r0 = temp_r5 - *(s32 *)((s8 *)arg0 + 0);
+    temp_r5 = *(s32 *)((s8 *)this + 0);
+    *(s32 *)((s8 *)this + 0) = *(s32 *)((s8 *)temp_r4 + 0x1C);
+    temp_r0 = temp_r5 - *(s32 *)((s8 *)this + 0);
     if (((s32) temp_r0 > 0x5000) && ((s32) temp_r0 < 0xB000)) {
-        temp_r4_2 = *(s32 *)((s8 *)arg0 + 4);
-        *(s32 *)((s8 *)arg0 + 4) = (s32) actor_frame_tick;
-        if ((s32) (*(s32 *)((s8 *)arg0 + 4) - temp_r4_2) < 8) {
+        temp_r4_2 = *(s32 *)((s8 *)this + 4);
+        *(s32 *)((s8 *)this + 4) = (s32) actor_frame_tick;
+        if ((s32) (*(s32 *)((s8 *)this + 4) - temp_r4_2) < 8) {
             return 1;
         }
     }

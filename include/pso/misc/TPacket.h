@@ -5,6 +5,7 @@
 
 struct TPacket
 {
+    void clear_send_buffer();
 };
 
 #endif

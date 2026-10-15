@@ -1,24 +1,24 @@
 #include "types.h"
+#include "pso/misc/TOBoss4Rock.h"
 
 extern "C" {
 
-void *destroy__11TOBoss4RockFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 
 extern s32 lbl_804F1C58[];
 
-void *destroy__11TOBoss4RockFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F1C58;
-        free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0x28));
-        __dt__7TObjectFv(arg0, 0);
+void *TOBoss4Rock::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804F1C58;
+        mem_free(*(void **)((s8 *)this + 0x28));
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }

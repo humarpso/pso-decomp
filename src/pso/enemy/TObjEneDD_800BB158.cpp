@@ -10,6 +10,7 @@ struct Stack_800BB218
 };
 
 #include <stddef.h>
+#include "pso/enemy/TObjEneDD.h"
 
 extern "C" {
 f32 fabs_float(f32);
@@ -22,10 +23,10 @@ u8 *TObjEneDD__vt100(u8 *arg0, u8 *arg1);
 
 extern "C" {
 
-void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *, s32);
 
-void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {
+void TObjEneDD::calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r5;
 
     f32 temp_f3 = farg2 + *(f32 *)((s8 *)arg0 + 0x37C);

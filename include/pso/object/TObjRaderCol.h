@@ -11,6 +11,9 @@ struct TObjRaderCol
     u32 m_94;
     u32 m_98;
     u32 m_9c;
+    static void render();
+    static void check_local_player_in_range(void *arg0_);
+    void run_task();
 };
 
 #endif

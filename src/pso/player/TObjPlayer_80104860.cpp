@@ -1,25 +1,23 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 item_identity_matches(u8 *arg0, u8 *arg1);
 s32 get_weapon_special_type_amount(u8, s16 *, s16 *);
-u8 get_next_matching_special_index__10TObjPlayerFUc(u8 arg0);
 s32 compare_item_data_masked(void *arg0, void *arg1, s32 arg2);
 }
 
 extern "C" {
 
-s32 is_active_battle_player__10TObjPlayerFv(void);
-u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(s32);
+s32 get_field_3e4__10TObjPlayerFv(s32);
 s32 get_weapon_special_type_amount(u8, s16 *, s16 *);
 s32 get_player_by_client_id(s32);
 s32 is_split_screen();
 
 extern s32 local_client_id;
 
-s32 is_active_battle_player__10TObjPlayerFv(void) {
+s32 TObjPlayer::is_active_battle_player() {
     s32 temp_r31;
     s32 temp_r3;
 
@@ -29,12 +27,12 @@ s32 is_active_battle_player__10TObjPlayerFv(void) {
     temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         temp_r31 = get_current_floor();
-        return temp_r31 - get_field_3e4__10TObjPlayerFPv(temp_r3) ? 1 : 0;
+        return temp_r31 - get_field_3e4__10TObjPlayerFv(temp_r3) ? 1 : 0;
     }
     return 0;
 }
 
-u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0) {
+u8 TObjPlayer::find_adjacent_matching_slot(u8 arg0) {
     s16 spC;
     s16 spA;
     s16 sp8;
@@ -52,7 +50,7 @@ u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0) {
     return arg0;
 }
 
-u8 get_next_matching_special_index__10TObjPlayerFUc(u8 arg0) {
+u8 TObjPlayer::get_next_matching_special_index(u8 arg0) {
     s16 spC;
     s16 spA;
     s16 sp8;

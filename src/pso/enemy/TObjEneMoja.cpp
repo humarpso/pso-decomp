@@ -1,19 +1,18 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMoja.h"
 
 extern "C" {
 
-void * create__11TObjEneMojaFPv(void *arg0);
-void free_resources__11TObjEneMojaFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjEneMoja__ct(void *, void *, void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
-void free__11TOBoss4RockFUi(void*);
+void mem_free(void*);
 
 extern void *tl_04;
 
-void * create__11TObjEneMojaFPv(void *arg0) {
+void *TObjEneMoja::create(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);
@@ -34,21 +33,21 @@ extern u32 lbl_805D50D4;
 extern u32 lbl_805D50D8;
 extern u32 lbl_805D50DC;
 
-void free_resources__11TObjEneMojaFv(void) {
+void TObjEneMoja::free_resources() {
     if ((u32) lbl_805D50C8 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D50C8);
+        mem_free((void*)lbl_805D50C8);
         lbl_805D50C8 = 0U;
     }
     if ((u32) lbl_805D50CC != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D50CC);
+        mem_free((void*)lbl_805D50CC);
         lbl_805D50CC = 0U;
     }
     if ((u32) lbl_805D50D0 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D50D0);
+        mem_free((void*)lbl_805D50D0);
         lbl_805D50D0 = 0U;
     }
     if ((u32) lbl_805D50D4 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D50D4);
+        mem_free((void*)lbl_805D50D4);
         lbl_805D50D4 = 0U;
     }
     if ((u32) lbl_805D50DC != 0U) {

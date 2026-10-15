@@ -7,7 +7,7 @@ s32 TObjPlayer__sub_80052390();
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_model_motion(s32, s32, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
@@ -31,7 +31,7 @@ void fn_8004D9A8(u8 *arg0) {
             if (i == 0 || i == 1) {
                 s = o->f104;
             }
-            set_global_param__8TObjFishFi(o->d4[i]);
+            set_global_param__8TObjFishFl(o->d4[i]);
             draw_model_motion(o->bc[i], o->ec[i], s);
         }
         clear_global_state__10TObjPlayerFv();
@@ -50,17 +50,17 @@ struct Self_8004DA7C { u8 pad[0x90]; s32 t; u8 pad94[0x14]; void *p[5]; u8 padbc
 struct Ent_8004DA7C { s32 arg; s32 start; s32 end; u8 data[0xC]; };
 
 extern "C" {
-void request_destroy__11TBoss4Type2FUi(void *);
+void request_destroy__11TBoss4Type2FUl(void *);
 void *create_particle_emitter(void *, s32);
-void set_flags__11TBoss4Type2FPvUi(void *, u32);
+void set_flags__11TBoss4Type2FUl(void *, u32);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 void vec3_add_to(void *, void *);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 void *spawn_particle_effect(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
-void scroll_strips__11TBoss4Type2FPv(void *);
+void scroll_strips__11TBoss4Type2Fv(void *);
 void queue_destruction__7TObjectFv(void *);
 void TBoss3Volopt__sub_8004DA7C(u8 *self);
 }
@@ -109,14 +109,14 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
         s32 t = *(s32 *)((s8 *)self + 0x90);
         if (t >= e->end) {
             if (((Self_8004DA7C *)self)->p[i] != NULL) {
-                request_destroy__11TBoss4Type2FUi(((Self_8004DA7C *)self)->p[i]);
+                request_destroy__11TBoss4Type2FUl(((Self_8004DA7C *)self)->p[i]);
                 ((Self_8004DA7C *)self)->p[i] = NULL;
             }
         } else if (t >= e->start) {
             if (((Self_8004DA7C *)self)->p[i] == NULL) {
                 ((Self_8004DA7C *)self)->p[i] = create_particle_emitter(e->data, e->arg);
                 if (((Self_8004DA7C *)self)->p[i] != NULL) {
-                    set_flags__11TBoss4Type2FPvUi(((Self_8004DA7C *)self)->p[i], 0x40);
+                    set_flags__11TBoss4Type2FUl(((Self_8004DA7C *)self)->p[i], 0x40);
                 }
             }
             switch (i) {
@@ -131,7 +131,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
                     b.x *= (1.95f);
                     b.z *= (1.95f);
                     vec3_add_to(&a, &b);
-                    copy_pos__11TNowLoadingFPvPv(((Self_8004DA7C *)self)->p[i], &a);
+                    copy_pos__11TNowLoadingFPv(((Self_8004DA7C *)self)->p[i], &a);
                 }
             }
             break;
@@ -146,7 +146,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
             vec3_add_to(&c, &((Vec_8004DA7C *)lbl_80485514)[t - 0x8C]);
             p = spawn_particle_effect(&c, 0x14A);
             if (p != NULL) {
-                set_flags__11TBoss4Type2FPvUi(p, 0x40);
+                set_flags__11TBoss4Type2FUl(p, 0x40);
             }
         }
     }
@@ -195,7 +195,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
         queue_event_1D__12TBoss3VoloptFss(0xC0, 0xF);
         break;
     }
-    scroll_strips__11TBoss4Type2FPv(self + 0x94);
+    scroll_strips__11TBoss4Type2Fv(self + 0x94);
     if (++*(s32 *)((s8 *)self + 0x90) >= 0x118) {
         queue_destruction__7TObjectFv(self);
     }
@@ -224,7 +224,7 @@ struct S_8004DE44 {
 extern "C" {
 void fn_8004AA04(void *);
 void restore_player_cameras();
-void request_destroy__11TBoss4Type2FUi(void *);
+void request_destroy__11TBoss4Type2FUl(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, s32);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TObjDFDemo0[13];
@@ -240,7 +240,7 @@ S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag) {
         fn_8004AA04(o->f94);
         for (i = 0; i < 5; i++) {
             if (o->ptr[i] != 0) {
-                request_destroy__11TBoss4Type2FUi(o->ptr[i]);
+                request_destroy__11TBoss4Type2FUl(o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }
@@ -287,7 +287,7 @@ void init_model_node_tables(void *, void *, s32);
 int get_instance_count__9TBoss4UroFv(void);
 void activate_camera_mode(s32);
 void set_scripted_camera_pose(void *, void *, void *);
-void cache_target_and_forward__11TCameraCtrlFii(void *, s32);
+void cache_target_and_forward__11TCameraCtrlFl(void *, s32);
 void construct_world_actor_base(void *, void *);
 extern u8 TObjDFDemo0__model_node_entries[];
 extern s32 lbl_80485EB0[];
@@ -299,12 +299,12 @@ extern "C" void TParticleCtrl__sub_801A2124();
 extern "C" void apply_object_set_data();
 extern "C" void classify_actor_view_detail();
 extern "C" void render_shadows__7TObjectFv();
-extern "C" void reset_motion_fields__10TObjPlayerFPv();
+extern "C" void reset_motion_fields__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 void *__vt__11TObjDFDemo0[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo0Fv, (void *)&TBoss3Volopt__sub_8004DA7C,
     (void *)&fn_8004D9A8, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
 
@@ -339,7 +339,7 @@ Obj_8004DEE0 *TObjDFDemo0__ct(void *arg0, void *arg1) {
     init_model_node_tables(self->f94, TObjDFDemo0__model_node_entries, 7);
     activate_camera_mode(5);
     set_scripted_camera_pose(lbl_804854F0, lbl_804854F0, lbl_804854FC);
-    cache_target_and_forward__11TCameraCtrlFii(lbl_80485508, 0x416C);
+    cache_target_and_forward__11TCameraCtrlFl(lbl_80485508, 0x416C);
     self->f10c = (0.0f);
     play_sound_effect(0x40039E21, lbl_804854F0, 0, 1);
     self->f90 = 0;

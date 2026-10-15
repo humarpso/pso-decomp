@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLoadCtrl.h"
 
 struct Base_8001C8B8_8001C61C { char pad[0x18]; };
 struct VObj_8001C8B8_8001C61C : Base_8001C8B8_8001C61C {
@@ -50,7 +51,6 @@ extern u32 TLoadCtrl__instance;
 extern s32 TLoadCtrl__loading_mode;
 extern s32 tl_su;
 extern s32 tl_camera;
-void start_loading__9TLoadCtrlFUi(u32 arg0);
 s32 TNowLoading__ct(s32, void *, void *);
 s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
@@ -67,14 +67,10 @@ extern Vec_8001C620 lbl_804349E4;
 extern u32 TLoadCtrl__instance;
 extern s32 TLoadCtrl__loading_mode;
 extern s32 TLoadCtrl__fade_task;
-void run_task__9TLoadCtrlFv(Obj_8001C620 *self);
 }
 
 extern "C" {
 
-void cleanup_scene__9TLoadCtrlFv(void);
-void poll_default__9TLoadCtrlFv(void);
-void render__9TLoadCtrlFv(void);
 s32 TAdLoadQuestGC__sub_8030984C();
 s32 reset_default_view__11TCameraCtrlFv();
 s32 init_default_view__11TCameraCtrlFv();
@@ -90,7 +86,7 @@ bool TLoadCtrl__sub_8001C60C(void) {
     return (*(s32 *)&TLoadCtrl__instance) != 0;
 }
 
-void render__9TLoadCtrlFv(void) {  }
+void TLoadCtrl::render() {  }
 
 extern u32 TLoadCtrl__instance;
 extern s32 TLoadCtrl__loading_mode;
@@ -98,7 +94,8 @@ extern void *camera_ctrl_instance;
 
 typedef char RecoveredGlobal_8001C828___vt__9TLoadCtrl_size[sizeof(RecoveredGlobal_8001C828___vt__9TLoadCtrl) == 0x18 ? 1 : -1];
 
-void run_task__9TLoadCtrlFv(Obj_8001C620 *self) {
+void TLoadCtrl::run_task() {
+    Obj_8001C620 *self = (Obj_8001C620 *)this;
     s32 o;
     if (TLoadCtrl__instance != 0U) {
         if ((u32)TLoadCtrl__fade_task != 0U && all_parents_unqueued_for_destruction__7TObjectFv(TLoadCtrl__fade_task) == 0) {
@@ -184,7 +181,7 @@ u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-void cleanup_scene__9TLoadCtrlFv(void) {
+void TLoadCtrl::cleanup_scene() {
     u32 t;
 
     t = TLoadCtrl__instance;
@@ -220,7 +217,7 @@ void cleanup_scene__9TLoadCtrlFv(void) {
     create__11TCameraCtrlFv();
 }
 
-void start_loading__9TLoadCtrlFUi(u32 arg0) {
+void TLoadCtrl::start_loading(u32 arg0) {
     s32 temp_r3;
     u8 *var_r0;
     u8 *temp_cam;
@@ -278,6 +275,6 @@ void start_loading__9TLoadCtrlFUi(u32 arg0) {
     TLoadCtrl__instance = (u32) var_r0;
 }
 
-void poll_default__9TLoadCtrlFv(void) { start_loading__9TLoadCtrlFUi((u32)((void*)(0))); }
+void TLoadCtrl::poll_default() { TLoadCtrl::start_loading((u32)((void*)(0))); }
 
 }

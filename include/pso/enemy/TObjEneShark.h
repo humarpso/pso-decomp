@@ -56,6 +56,8 @@ struct TObjEneShark {
     void* m_3c4;
     void* m_3c8;
     RenderFadeState camera_fades[4];
+    static void *create(void *arg0);
+    static void free_resources();
 };
 
 #include <stddef.h>

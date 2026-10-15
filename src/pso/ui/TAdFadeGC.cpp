@@ -7,16 +7,14 @@ struct Desc_802C79C8 { f32 *pos; u32 *col; s32 a; s32 b; };
 extern "C" {
 s32 get_main_phase(void);
 s32 get_current_floor(void);
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 s32 get_player_by_client_id(u32);
 f32 xz_distance_squared(void *, void *);
 bool is_player_outside_trade_radius(u8 *arg0, u32 arg1);
-void start_fade__9TAdFadeGCFPvPv(void *arg0, void *arg1);
 s32 queue_destruction__7TObjectFv(void *);
 int all_parents_unqueued_for_destruction__7TObjectFv(void*);
-void run_task__9TAdFadeGCFv(void *arg0);
 s32 draw_color_lines(void *, int, int, f32);
-s32 draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32, f32, f32);
+s32 draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, int, int, f32, f32, f32);
 s32 set_cached_blend_factor(s32, s32);
 f32 lbl_805D6800;
 s8 lbl_805D6804;
@@ -25,8 +23,6 @@ s8 lbl_805D6804;
 extern "C" {
 
 void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2);
-void render__9TAdFadeGCFv(void* p);
-void draw_fade__9TAdFadeGCFPv(u8 *);
 void __ct__7TObjectFP7TObject(void *);
 void render__18TObjTradeCollisionFv(void);
 
@@ -34,7 +30,8 @@ extern const char lbl_80471D70[] = "TAdFadeGC";
 const char *TAdFadeGC__name = lbl_80471D70;
 #define TAdFadeGC__name (*(void **)&TAdFadeGC__name)
 
-void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
+void TAdFadeGC::draw_fade() {
+    u8 *arg0 = (u8 *)this;
     f32 pos[8];
     Desc_802C79C8 d;
     u32 col[4];
@@ -93,68 +90,68 @@ void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
         d.pos[7] = (0.0f);
         c = *(u32 *)((s8 *)arg0 + 0x30);
         d.col[3] = (c << 8) | (c >> 24);
-        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 7, (-1.0f), (4.8e+02f), (0.0f));
+        draw_tri_fan_2d__14TObjCMHairMenuFllf(&d, 4, 7, (-1.0f), (4.8e+02f), (0.0f));
         break;
     }
 }
 
-void render__9TAdFadeGCFv(void* p) { if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 0) { draw_fade__9TAdFadeGCFPv((u8 *)p); } }
+void TAdFadeGC::render() { if (all_parents_unqueued_for_destruction__7TObjectFv(this) != 0) { draw_fade(); } }
 
 extern s32 __vt__9TAdFadeGC[];
 
-void run_task__9TAdFadeGCFv(void *arg0) {
+void TAdFadeGC::run_task() {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f1_2;
     f32 var_f2;
     s32 temp_r0;
-    if (((s32)all_parents_unqueued_for_destruction__7TObjectFv((void*)(arg0))) != 0) {
-        *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x28);
+    if (((s32)all_parents_unqueued_for_destruction__7TObjectFv((void*)(this))) != 0) {
+        *(s32 *)((s8 *)this + 0x1C) = (s32) (*(s32 *)((s8 *)this + 0x1C) + 1);
+        temp_r0 = *(s32 *)((s8 *)this + 0x28);
         switch (temp_r0) {
         case 0:
-            *(f32 *)((s8 *)arg0 + 0x20) += 60.0f;
-            *(f32 *)((s8 *)arg0 + 0x20) = (*(f32 *)((s8 *)arg0 + 0x20) > (6.4e+02f)) ? (6.4e+02f) : *(f32 *)((s8 *)arg0 + 0x20);
+            *(f32 *)((s8 *)this + 0x20) += 60.0f;
+            *(f32 *)((s8 *)this + 0x20) = (*(f32 *)((s8 *)this + 0x20) > (6.4e+02f)) ? (6.4e+02f) : *(f32 *)((s8 *)this + 0x20);
             return;
         case 1: {
-            *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) + *(f32 *)((s8 *)arg0 + 0x34));
-            if (*(f32 *)((s8 *)arg0 + 0x2C) > 1.0f) {
-                *(f32 *)((s8 *)arg0 + 0x2C) = 1.0f;
-                queue_destruction__7TObjectFv(arg0);
+            *(f32 *)((s8 *)this + 0x2C) = (f32) (*(f32 *)((s8 *)this + 0x2C) + *(f32 *)((s8 *)this + 0x34));
+            if (*(f32 *)((s8 *)this + 0x2C) > 1.0f) {
+                *(f32 *)((s8 *)this + 0x2C) = 1.0f;
+                queue_destruction__7TObjectFv(this);
                 return;
             }
-            temp_f1 = *(f32 *)((s8 *)arg0 + 0x2C);
-            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (((s32) ((255.0f) * temp_f1) << 0x18) | 0xFF0000 | 0xFFFF);
+            temp_f1 = *(f32 *)((s8 *)this + 0x2C);
+            *(s32 *)((s8 *)this + 0x30) = (s32) (((s32) ((255.0f) * temp_f1) << 0x18) | 0xFF0000 | 0xFFFF);
             return;
         }
         case 2: {
-            *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) + *(f32 *)((s8 *)arg0 + 0x34));
-            temp_f1_2 = *(f32 *)((s8 *)arg0 + 0x2C);
+            *(f32 *)((s8 *)this + 0x2C) = (f32) (*(f32 *)((s8 *)this + 0x2C) + *(f32 *)((s8 *)this + 0x34));
+            temp_f1_2 = *(f32 *)((s8 *)this + 0x2C);
             if (temp_f1_2 < 0.0f) {
-                *(f32 *)((s8 *)arg0 + 0x2C) = 0.0f;
-                queue_destruction__7TObjectFv(arg0);
+                *(f32 *)((s8 *)this + 0x2C) = 0.0f;
+                queue_destruction__7TObjectFv(this);
                 return;
             }
-            *(s32 *)((s8 *)arg0 + 0x30) = (s32) ((s32) ((255.0f) * temp_f1_2) << 0x18);
+            *(s32 *)((s8 *)this + 0x30) = (s32) ((s32) ((255.0f) * temp_f1_2) << 0x18);
             break;
         }
         }
     }
 }
 
-void start_fade__9TAdFadeGCFPvPv(void *arg0, void *arg1) {
+void TAdFadeGC::start_fade(void *arg1) {
     switch ((s32)arg1) {
     case 0:
         break;
     case 1:
-        *(f32 *)((s8 *)arg0 + 0x2C) = (0.0f);
-        *(s32 *)((s8 *)arg0 + 0x30) = 0;
-        *(f32 *)((s8 *)arg0 + 0x34) = (0.025f);
+        *(f32 *)((s8 *)this + 0x2C) = (0.0f);
+        *(s32 *)((s8 *)this + 0x30) = 0;
+        *(f32 *)((s8 *)this + 0x34) = (0.025f);
         break;
     case 2:
-        *(f32 *)((s8 *)arg0 + 0x2C) = (1.0f);
-        *(s32 *)((s8 *)arg0 + 0x30) = 0;
-        *(f32 *)((s8 *)arg0 + 0x34) = -0.06666667f;
+        *(f32 *)((s8 *)this + 0x2C) = (1.0f);
+        *(s32 *)((s8 *)this + 0x30) = 0;
+        *(f32 *)((s8 *)this + 0x34) = -0.06666667f;
         break;
     }
 }
@@ -167,7 +164,7 @@ void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2) {
     *(u32 *)((s8 *)arg0 + 0x1C) = -1;
     *(f32 *)((s8 *)arg0 + 0x20) = (0.0f);
     *(void **)((s8 *)arg0 + 0x28) = arg2;
-    start_fade__9TAdFadeGCFPvPv((void *)(arg0), (void *)(*(void **)((s8 *)arg0 + 0x28)));
+    ((TAdFadeGC *)arg0)->start_fade((void *)(*(void **)((s8 *)arg0 + 0x28)));
     return arg0;
 }
 #pragma push
@@ -186,7 +183,7 @@ bool is_player_outside_trade_radius(u8 *arg0, u32 arg1) {
     if (get_main_phase() != 0xF) {
         return 0;
     }
-    temp_r31 = get_field_3e4__10TObjPlayerFPv((void *) temp_r3);
+    temp_r31 = get_field_3e4__10TObjPlayerFv((void *) temp_r3);
     if (temp_r31 != get_current_floor()) {
         return 0;
     }

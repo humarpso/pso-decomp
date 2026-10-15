@@ -13,6 +13,10 @@ struct TObjGrassWeb
     u32 m_90;
     u8 _pad94[0x10];
     u16 m_a4;
+    int queue_destruction();
+    void apply_to_player();
+    void run_task();
+    static void render();
 };
 
 #endif

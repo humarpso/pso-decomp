@@ -61,9 +61,9 @@ s32 get_player_list__10TObjPlayerFv(void);
 s32 test_flags_any(void *p, s32 n);
 void draw_ginja_object(void *p);
 void srank_punch_node_callback(Obj_80128E08 *self);
-s32 set_flags__10TObjPlayerFPvUi(void *, int);
-s32 clear_flags__11TAdRicoRingFPvUi(void *, int);
-s32 spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
+s32 set_flags__10TObjPlayerFUl(void *, int);
+s32 clear_flags__11TAdRicoRingFUl(void *, int);
+s32 spawn_item_timer__13TItemAttackerFlll(void *, void *, int);
 s32 increment_burst_counter(int);
 s32 get_burst_counter(int);
 s32 TObjPlayer__sub_80128A70();
@@ -87,15 +87,15 @@ void srank_punch_marker(u8 *arg0) {
             increment_burst_counter((int) (temp_r31));
             var_r30 += 1;
         } while (var_r30 != 2);
-        set_flags__10TObjPlayerFPvUi((void *) (arg0 + 0x1FC), (int) (2));
-        spawn_item_timer__13TItemAttackerFiii((void *) (arg0), (void *) (clear_rico_ring_flag__10TObjPlayerFUi), (int) (0x3C));
-        set_flags__10TObjPlayerFPvUi((void *) (arg0 + 0x1FC), (int) (4));
+        set_flags__10TObjPlayerFUl((void *) (arg0 + 0x1FC), (int) (2));
+        spawn_item_timer__13TItemAttackerFlll((void *) (arg0), (void *) (clear_rico_ring_flag__10TObjPlayerFUi), (int) (0x3C));
+        set_flags__10TObjPlayerFUl((void *) (arg0 + 0x1FC), (int) (4));
         if (((VObj_18 *)(arg0))->m49(arg0 + 0x200, 0, 0, 1) == 1) {
-            clear_flags__11TAdRicoRingFPvUi((void *) (arg0 + 0x1FC), (int) (4));
+            clear_flags__11TAdRicoRingFUl((void *) (arg0 + 0x1FC), (int) (4));
             ((VObj_18 *)(arg0))->m49(arg0 + 0x20C, 0, 0, 0);
             return;
         }
-        clear_flags__11TAdRicoRingFPvUi((void *) (arg0 + 0x1FC), (int) (4));
+        clear_flags__11TAdRicoRingFUl((void *) (arg0 + 0x1FC), (int) (4));
         ((VObj_18 *)(arg0))->m49(arg0 + 0x20C, 0, 0, 1);
     }
 }

@@ -13,6 +13,13 @@ struct TObjWarpJung
     u32 m_8c;
     u8 _pad90[0x30];
     u32 m_c0;
+    void render();
+    void run_task();
+    static f32 get_static_field4_as_float();
+    static void set_global_render_param();
+    static void render_warp_effect(s32 arg0, s32 arg1);
+    static void render_warp(void* a0);
+    static s32 update_warp_display();
 };
 
 #endif

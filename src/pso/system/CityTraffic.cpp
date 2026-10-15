@@ -69,9 +69,9 @@ extern s32 city_traffic_path_motion_index_table[];
 extern s32 city_aircar_model_indices[];
 s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0);
 void VecCopy__FP3VecPC3Vec(Vec_801817AC *, const Vec_801817AC *);
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
-s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 alloc_tables__6TLobbyFPvii(s32, s32, s32, Ent_801817AC *);
+f32 update_scale__15TObjBoss2TunnelFv(void *);
+s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
+s32 alloc_tables__6TLobbyFll(s32, s32, s32, Ent_801817AC *);
 s32 get_city_common_motion(s32 i);
 s32 get_city_common_model(s32 i);
 s32 TLobby__sub_80184C2C(int);
@@ -202,7 +202,7 @@ void measure_traffic_path_lengths(void) {
       ((void (*)(Motion_801817AC *, f32))bind_motion_context)(m, frame);
       sample_motion_node_transform((void *)(get_city_common_model(city_aircar_model_indices[i])), (void *)(&cur), (void *)(&a2), (void *)(&b2), (void *)(&q2));
       subtract_vector(&prev, &cur);
-      total += update_scale__15TObjBoss2TunnelFPv(&prev);
+      total += update_scale__15TObjBoss2TunnelFv(&prev);
       VecCopy__FP3VecPC3Vec(&prev, &cur);
     }
     air_car_lane_spacing_table[i] = total;
@@ -220,11 +220,11 @@ void measure_traffic_path_lengths(void) {
     city_air_car_model_handle = TLobby__sub_80184C2C(2);
     for (j = 0; j < 5; j++)
     {
-      p = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
+      p = alloc__23TAdSinglePlyChrSelectGCFv(0x14);
       new_var = city_traffic_car_chunk_index_table;
       if (p != 0)
       {
-        p = alloc_tables__6TLobbyFPvii(p, city_air_car_model_resource->entries[new_var[j]].f8, 1, city_air_car_model_resource->entries);
+        p = alloc_tables__6TLobbyFll(p, city_air_car_model_resource->entries[new_var[j]].f8, 1, city_air_car_model_resource->entries);
       }
       air_car_buffer_pair_table[j] = (void *)p;
     }

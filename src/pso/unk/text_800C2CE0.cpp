@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -215,46 +216,46 @@ struct Obj_800C2E64 : Obj_800C2E64Base {
 
 extern "C" {
 u16 obj_getField1c(void *);
-s32 is_alive__9TObjEneDDFPv(void *);
+s32 is_alive__9TObjEneDDFv(void *);
 s32 is_player_entity_id(u16);
-s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
-u8 *find_target_in_range__16TObjEneRe2FlowerFPv(void *);
-void *init_target_ref__10TObjPlayerFPvii(void *, void *, void *);
+s32 get_flag_11__16TObjEneRe2FlowerFv(void *);
+u8 *find_target_in_range__16TObjEneRe2FlowerFv(void *);
+void *init_target_ref__10TObjPlayerFll(void *, void *, void *);
 void send_6x2F_change_player_hp(s32, u16, s32);
 void *__nw__7TObjectFUl(u32);
 extern Pair_800C2E64 lbl_8043BA60[];
 void TObjEneRe2Flower__sub_800C2E64(Obj_800C2E64 *self, s32 state);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFv();
 void clear_attack_receipts(void *);
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 s32 transition_enemy_state(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
 s32 fn_800C3A60(void *, s32);
-s32 clear_child_flags__16TObjEneRe2FlowerFPv(void *);
+s32 clear_child_flags__16TObjEneRe2FlowerFv(void *);
 s32 advance_animation_playback();
-s32 play_effect_if_v2__10TObjPlayerFi(s32);
+s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805D9FD0;
-void state_damaged__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 #define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
-void state_damaged__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
+void TObjEneDD::state_damaged(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     switch (arg1) {
     case 4:
         F(s16, 0xB8) = 4;
         ((VObj_18 *)(arg0))->m94();
-        clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
+        clear_child_flags__16TObjEneRe2FlowerFv(arg0);
         F(s32, 0x3C4) &= ~8;
         TBoss8Dragon__sub_800BB7D4(arg0, 0xF2);
         play_sound_effect(fn_800C3A60(arg0, 0x4003AB13), arg0 + 0x38, 0, 0);
-        play_effect_if_v2__10TObjPlayerFi(-0x200);
+        play_effect_if_v2__10TObjPlayerFl(-0x200);
         break;
     case 3:
-        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFv() != 0) {
             if (F(s32, 0x378) == 8) {
                 transition_enemy_state(arg0, F(s32, 0x378));
             } else if (F(s16, 0x32C) < F(s16, 0x2B8) / 4) {
@@ -289,7 +290,7 @@ void TObjEneRe2Flower__sub_800C2E64(Obj_800C2E64 *self, s32 state) {
         F(self, s16, 0xB8) = 1;
         self->s180();
         self->s16c();
-        clear_child_flags__16TObjEneRe2FlowerFPv(self);
+        clear_child_flags__16TObjEneRe2FlowerFv(self);
         F(self, u32, 0x3C4) &= ~8;
         F(self, s32, 0x410) = 0;
         F(self, s32, 0x414) = 0;
@@ -302,20 +303,20 @@ void TObjEneRe2Flower__sub_800C2E64(Obj_800C2E64 *self, s32 state) {
     case 0:
         ((void (*)(void *))advance_animation_playback)(self);
         if (F(self, s32, 0x410) == 6) {
-            t = find_target_in_range__16TObjEneRe2FlowerFPv(self);
+            t = find_target_in_range__16TObjEneRe2FlowerFv(self);
             if (t != NULL) {
                 void *m = __nw__7TObjectFUl(0x28);
                 if (m != NULL) {
-                    init_target_ref__10TObjPlayerFPvii(m, self, t);
+                    init_target_ref__10TObjPlayerFll(m, self, t);
                 }
                 F(self, u8 *, 0x390) = t;
                 F(self, s32, 0x414) = 1;
                 play_sound_effect(fn_800C3A60(self, 0x4003A50F), (u8 *)self + 0x38, 0, 0);
-                play_effect_if_v2__10TObjPlayerFi(-0x200);
+                play_effect_if_v2__10TObjPlayerFl(-0x200);
             }
         } else if (F(self, s32, 0x410) == 0x19 && F(self, s32, 0x414) != 0 &&
-                   is_alive__9TObjEneDDFPv(F(self, void *, 0x390)) != 0) {
-            if (get_flag_11__16TObjEneRe2FlowerFPv(self) != 0) {
+                   is_alive__9TObjEneDDFv(F(self, void *, 0x390)) != 0) {
+            if (get_flag_11__16TObjEneRe2FlowerFv(self) != 0) {
                 if (is_player_entity_id(obj_getField1c(F(self, void *, 0x390))) != 0) {
                     send_6x2F_change_player_hp(F(self, u16, 0x1C), obj_getField1c(F(self, void *, 0x390)), 1);
                 }

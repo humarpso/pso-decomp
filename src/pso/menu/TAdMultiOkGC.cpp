@@ -74,8 +74,6 @@ extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
-void render__12TAdMultiOkGCFv(Ok_80306C10 *o);
-void run_task__12TAdMultiOkGCFv(Ok_80306F84 *o);
 extern const f32 lbl_805DF04C;
 extern const f32 lbl_805DF050;
 extern const f32 lbl_805DF054;
@@ -83,13 +81,11 @@ extern const f32 lbl_805DF058;
 extern const f32 lbl_805DF05C;
 extern const f32 lbl_805DF060;
 extern const f32 lbl_805DF064;
-void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 extern Ports_80306DF4 multi_ok_player_port_index_table;
 extern Pad_80306DF4 controller_physical_port_bank[];
-void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -98,7 +94,6 @@ extern s32 multi_confirm_texture_list;
 extern const f32 lbl_805DF040;
 extern const f32 lbl_805DF044;
 extern const f32 lbl_805DF048;
-void draw_entry__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__12TAdMultiOkGC[];
 extern Pos_80307034 ad_multi_ok_layout_table;
@@ -127,14 +122,14 @@ s32 are_all_entries_finished(O_80306AC8 *self) {
 
 #pragma push
 #pragma fp_contract on
-void draw_entry__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
+void TAdMultiOkGC::draw_entry(int arg1) {
     E_80306B04 *e;
     s32 i;
     f32 base;
-    e = (E_80306B04 *)arg0;
+    e = (E_80306B04 *)this;
     if (e[arg1].flags & 2) {
         begin_screen_draw(1);
-        set_global_param__8TObjFishFi(multi_confirm_texture_list);
+        set_global_param__8TObjFishFl(multi_confirm_texture_list);
         e += arg1;
         base = lbl_805DF040 * (f32)arg1;
         for (i = 0; i < 5; i++) {
@@ -149,24 +144,25 @@ void draw_entry__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
 }
 #pragma pop
 
-void render__12TAdMultiOkGCFv(Ok_80306C10 *o) {
+void TAdMultiOkGC::render() {
+    Ok_80306C10 *o = (Ok_80306C10 *)this;
     s32 i;
     if (get_state_flag__9TMainTaskFv() != 1) {
         init_xyz_limits__10TObjPlayerFv();
         for (i = 0; i < o->count; i++) {
-            draw_entry__12TAdMultiOkGCFPvi((void *)(o), (int)(i));
+            draw_entry((int)(i));
         }
         reset_transform_state__10TObjPlayerFv();
     }
 }
 #pragma push
 #pragma fp_contract on
-void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
+void TAdMultiOkGC::update_entry_animation(int arg1) {
     E_80306C70 *e;
     s32 i;
     s32 d;
     f32 f;
-    e = &((O_80306C70 *)arg0)->e[arg1];
+    e = &((O_80306C70 *)this)->e[arg1];
     if (e->flags & 2) {
         e->t++;
         for (i = 0; i < 5; i++) {
@@ -195,8 +191,8 @@ void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
 }
 #pragma pop
 
-void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
-    O_80306DF4 *o = (O_80306DF4 *)arg0;
+void TAdMultiOkGC::handle_player_buttons(int arg1) {
+    O_80306DF4 *o = (O_80306DF4 *)this;
     Ports_80306DF4 ports = multi_ok_player_port_index_table;
     if (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank[ports.v[o->port[arg1]]].btn, 4) != 0) {
         E_80306DF4 *e = &o->e[arg1];
@@ -219,11 +215,12 @@ void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
     }
 }
 
-void run_task__12TAdMultiOkGCFv(Ok_80306F84 *o) {
+void TAdMultiOkGC::run_task() {
+    Ok_80306F84 *o = (Ok_80306F84 *)this;
     s32 i;
     for (i = 0; i < o->count; i++) {
-        handle_player_buttons__12TAdMultiOkGCFPvi((void *)(o), (int)(i));
-        update_entry_animation__12TAdMultiOkGCFPvi((void *)(o), (int)(i));
+        handle_player_buttons((int)(i));
+        update_entry_animation((int)(i));
     }
 }
 }

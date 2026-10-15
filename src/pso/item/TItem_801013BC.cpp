@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 
 struct Player_8010147C { u8 pad[0xF0]; u32 f_F0; };
 
@@ -14,14 +15,13 @@ extern s32 (*model_node_visit_callback)(void *);
 extern u8 *model_node_matrix_output_cursor;
 void draw_model_node_tree(u8 *arg0);
 u16 obj_getField1c(void *);
-s32 set_item_count__6TLobbyFPvs(s32, s32);
+s32 set_item_count__6TLobbyFs(s32, s32);
 s32 TLobby__sub_80103B04();
 s32 set_indexed_flags(void *, int, int);
 s32 unregister_object_by_id(void *);
-void unregister_from_world__5TItemFi(s32 arg0);
-void copy_to_item_data__5TItemFPvPv(void *, void *);
-u32 test_item_flags__10TObjPlayerFPvUi(void *, int);
-s32 has_flag_128__10TObjPlayerFPv(void *);
+void copy_to_item_data__5TItemFPv(void *, void *);
+u32 test_item_flags__10TObjPlayerFUl(void *, int);
+s32 has_flag_128__10TObjPlayerFv(void *);
 u32 calc_action_flags__9TItemDataFv(void *, u32, u32);
 u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind);
 }
@@ -29,70 +29,65 @@ u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kin
 extern "C" {
 
 void TItem__sub_801013E8(void *arg0);
-void calc_display_grade__5TItemFPv(void *arg0);
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
-void copy_item_data_and_process__5TItemFPv(void *arg0);
-void destroy__5TItemFPv(void* p);
-s32 register_attack__5TItemFPv(void *arg0);
-void set_mode__5TItemFPvc(void *arg0, s8 arg1);
-void update_item_data__5TItemFPv(void *arg0);
 s32 get_item_chunk_buffer(s32);
 void is_custom_name_srank__9TItemDataFPv(void *);
 void is_rare_item__9TItemDataFPv(void *);
-s32 format_item_name__9TItemDataFv(s32 *, s32);
-int unregister_item__5TItemFPv(void*);
+s32 format_item_name__9TItemDataFPc(s32 *, s32);
+int unregister_item__5TItemFv(void*);
 s32 pop_free_id__6TLobbyFv();
-void calc_display_grade__9TItemDataFPv(void *);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(s32, s32, s32);
-void copy_to_item_data__5TItemFPvPv(void *, void *);
+void calc_display_grade__9TItemDataFv(void *);
+s32 clear_player_status_flag__10TObjPlayerFlUl(s32, s32, s32);
+void copy_to_item_data__5TItemFPv(void *, void *);
 int disallow_rendering__7TObjectFv(void*);
-void get_item_price_if_valid__24TShopEquipmentSellWindowFUi(void *);
+void get_item_price_if_valid__24TShopEquipmentSellWindowFv(void *);
 int queue_destruction__7TObjectFv(void*);
-s32 reset_photon_effect__10TObjPlayerFPv(s32);
-s32 set_item_count__6TLobbyFPvs(s32, s32);
+s32 reset_photon_effect__10TObjPlayerFv(s32);
+s32 set_item_count__6TLobbyFs(s32, s32);
 
-void update_item_data__5TItemFPv(void *arg0) {
+void TItem::update_item_data() {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
+    copy_to_item_data__5TItemFPv((void *)(this), (void *)(&sp8));
     is_custom_name_srank__9TItemDataFPv(&sp8);
 }
 
 void TItem__sub_801013E8(void *arg0) {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
+    copy_to_item_data__5TItemFPv((void *)(arg0), (void *)(&sp8));
     is_rare_item__9TItemDataFPv(&sp8);
 }
 
-void destroy__5TItemFPv(void* p) { unregister_item__5TItemFPv(p); disallow_rendering__7TObjectFv(p); queue_destruction__7TObjectFv(p); }
+void TItem::destroy() { unregister_item__5TItemFv(this); disallow_rendering__7TObjectFv(this); queue_destruction__7TObjectFv(this); }
 
-void copy_item_data_and_process__5TItemFPv(void *arg0) {
+void TItem::copy_item_data_and_process() {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
-    get_item_price_if_valid__24TShopEquipmentSellWindowFUi(&sp8);
+    copy_to_item_data__5TItemFPv((void *)(this), (void *)(&sp8));
+    get_item_price_if_valid__24TShopEquipmentSellWindowFv(&sp8);
 }
 
 u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind) {
     u8 item[0x14];
     u32 r;
-    copy_to_item_data__5TItemFPvPv(p, item);
+    copy_to_item_data__5TItemFPv(p, item);
     if (kind == 0) {
         kind = p->f_F0;
     }
     r = calc_action_flags__9TItemDataFv(item, mask, kind);
-    if (test_item_flags__10TObjPlayerFPvUi(p, 0x200) != 0) {
+    if (test_item_flags__10TObjPlayerFUl(p, 0x200) != 0) {
         r |= 2;
     }
-    if (r == 0 && has_flag_128__10TObjPlayerFPv(p) != 0) {
+    if (r == 0 && has_flag_128__10TObjPlayerFv(p) != 0) {
         r |= 0x10;
         r &= ~2;
     }
     return r & mask;
 }
 
-void unregister_from_world__5TItemFi(s32 arg0) {
+void TItem::unregister_from_world() {
+    s32 arg0 = (s32)this;
   if (obj_getField1c((void *)((void *) arg0)) != ((-1U) & 0xFFFF))
   {
     if ((!arg0) && (!arg0))
@@ -101,49 +96,49 @@ void unregister_from_world__5TItemFi(s32 arg0) {
     unregister_object_by_id((void *) arg0);
     obj_getField1c((void *)((void *) arg0));
     TLobby__sub_80103B04();
-    set_item_count__6TLobbyFPvs((s32)((void *) arg0), (s32)((int) 0xFFFF));
+    set_item_count__6TLobbyFs((s32)((void *) arg0), (s32)((int) 0xFFFF));
     set_indexed_flags((void *) arg0, (int) 0, (int) 1);
   }
 }
 
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
     if ((u16) obj_getField1c((void *)(arg0)) == 0xFFFF) {
-        set_item_count__6TLobbyFPvs(arg0, pop_free_id__6TLobbyFv());
-        reset_photon_effect__10TObjPlayerFPv(arg0);
+        set_item_count__6TLobbyFs(arg0, pop_free_id__6TLobbyFv());
+        reset_photon_effect__10TObjPlayerFv(arg0);
         if (arg1 != 0) {
-            clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
+            clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1);
         }
     }
 }
 
-void set_mode__5TItemFPvc(void *arg0, s8 arg1) {
+void TItem::set_mode(s8 arg1) {
     if (arg1 == 3) {
-        *(s32 *)((s8 *)arg0 + 0xF0) = 0;
+        *(s32 *)((s8 *)this + 0xF0) = 0;
     }
     if (arg1 == 0) {
-        *(s32 *)((s8 *)arg0 + 0xF0) = 0;
-        claim_ownership__5TItemFii((s32)(arg0), (s32)(0));
+        *(s32 *)((s8 *)this + 0xF0) = 0;
+        claim_ownership__5TItemFii((s32)(this), (s32)(0));
     } else {
-        unregister_from_world__5TItemFi((s32)(arg0));
+        unregister_from_world();
     }
-    *(s8 *)((s8 *)arg0 + 0xEB) = arg1;
+    *(s8 *)((s8 *)this + 0xEB) = arg1;
 }
 
-s32 register_attack__5TItemFPv(void *arg0) {
+s32 TItem::register_attack() {
     s32 sp8[8];
     s32 temp_r3;
 
-    copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(sp8));
+    copy_to_item_data__5TItemFPv((void *)(this), (void *)(sp8));
     temp_r3 = get_item_chunk_buffer(0);
-    format_item_name__9TItemDataFv(sp8, temp_r3);
+    format_item_name__9TItemDataFPc(sp8, temp_r3);
     return temp_r3;
 }
 
-void calc_display_grade__5TItemFPv(void *arg0) {
+void TItem::calc_display_grade() {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
-    calc_display_grade__9TItemDataFPv(&sp8);
+    copy_to_item_data__5TItemFPv((void *)(this), (void *)(&sp8));
+    calc_display_grade__9TItemDataFv(&sp8);
 }
 void draw_model_node_tree(u8 *arg0) {
     s32 temp_r30;

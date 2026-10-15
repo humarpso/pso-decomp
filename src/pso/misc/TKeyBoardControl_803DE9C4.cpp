@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_803DEB74_lbl_8058D8E0 {
     s32 value;
@@ -45,15 +47,12 @@ typedef struct Out_803DEA18
 extern "C" {
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
-s16 scale_axis_value__16TKeyBoardControlFs(s16 x);
 s32 Dolphin_PADRead(void *, void *);
 extern s32 keyboard_pad_status_buffer[];
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 extern s32 TKeyBoardControl__pad_status_buffer[];
-void init_pad_slots_and_read__16TKeyBoardControlFv(void);
 extern Ent_803DEBC8 pad_button_map_table[];
 extern u32 lbl_805D46E0;
-s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0);
 extern V4_803DECFC model_material_color;
 extern u8 TObjLight__gx_light_objects[];
 extern s32 chunk_polygon_flags_or_mask;
@@ -73,30 +72,24 @@ extern u32 matrix_stack_limit;
 extern u32 matrix_stack_base;
 extern u32 current_matrix;
 void PSMTXIdentity(void *);
-void move_data__6TLobbyFv(u32, void *, s32);
-void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1);
+void move_data__6TLobbyFPCvUl(u32, void *, s32);
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
-s16 scale_axis_value__16TKeyBoardControlFs(s16 x);
 s32 Dolphin_PADRead(void *, void *);
 extern s32 keyboard_pad_status_buffer[];
 extern Pad_803DEA18 TKeyBoardControl_prev_pad_state[4];
-s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0);
-void clamp_axes__16TKeyBoardControlFPv(u8 *arg0);
 void *memmove(void *, const void *, u32);
 s32 PADReset(u32);
-void read_pads__16TKeyBoardControlFv(void);
 }
 
 extern "C" {
 
-void clamp_axes__16TKeyBoardControlFPv(u8 *arg0);
 void set_some_id__FUl(s32 arg0);
 
 #pragma push
 #pragma scheduling off
 typedef char RecoveredGlobal_803DEB74_lbl_8058D8E0_size[sizeof(RecoveredGlobal_803DEB74_lbl_8058D8E0) == 0xD0 ? 1 : -1];
 
-void init_pad_slots_and_read__16TKeyBoardControlFv(void) {
+void TKeyBoardControl::init_pad_slots_and_read() {
     *(s32 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0x30) = TKeyBoardControl__pad_status_buffer;
     *(u8 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0x64) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0x78));
     *(u8 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0x98) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0xF0));
@@ -109,7 +102,7 @@ typedef struct Pad_803DEA18 Pad_803DEA18;
 typedef struct RecoveredGlobal_803DEB74_lbl_8058D8E0 RecoveredGlobal_803DEB74_lbl_8058D8E0;
 #pragma push
 #pragma use_lmw_stmw off
-void read_pads__16TKeyBoardControlFv(void) {
+void TKeyBoardControl::read_pads() {
   u32 diff;
   unsigned short new_var;
   Pad_803DEA18 *pad;
@@ -128,16 +121,16 @@ void read_pads__16TKeyBoardControlFv(void) {
     out = &((Out_803DEA18 *) (&keyboard_control_pad_slots))[i];
     if (pad->err == 0)
     {
-      clamp_axes__16TKeyBoardControlFPv((u8 *) pad);
+      ((TKeyBoardControl *)pad)->clamp_axes();
       diff = old->button ^ (new_var = pad->button);
       cur = new_var;
       released = old->button & diff;
-      out->held = map_pad_buttons__16TKeyBoardControlFUs(cur);
+      out->held = TKeyBoardControl::map_pad_buttons(cur);
       out->notHeld = ~out->held;
-      out->pressed = map_pad_buttons__16TKeyBoardControlFUs(cur & diff);
-      out->released = map_pad_buttons__16TKeyBoardControlFUs(released);
-      out->stickX = scale_axis_value__16TKeyBoardControlFs(pad->stickX);
-      out->stickY = -scale_axis_value__16TKeyBoardControlFs(pad->stickY);
+      out->pressed = TKeyBoardControl::map_pad_buttons(cur & diff);
+      out->released = TKeyBoardControl::map_pad_buttons(released);
+      out->stickX = TKeyBoardControl::scale_axis_value(pad->stickX);
+      out->stickY = -TKeyBoardControl::scale_axis_value(pad->stickY);
       out->substickX = pad->substickX;
       out->substickY = pad->substickY;
       out->trigL = pad->triggerL;
@@ -190,7 +183,7 @@ u8 *TKeyBoardControl__sub_803DEB74(u32 arg0) {
 }
 #pragma pop
 
-s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0) {
+s32 TKeyBoardControl::map_pad_buttons(u16 arg0) {
     s32 r = 0;
     u32 i;
     for (i = 0; i < lbl_805D46E0; i++) {
@@ -202,12 +195,13 @@ s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0) {
 #pragma push
 #pragma scheduling off
 #pragma optimize_for_size off
-s16 scale_axis_value__16TKeyBoardControlFs(s16 x) {
+s16 TKeyBoardControl::scale_axis_value(s16 x) {
     return (x * 128) / 89;
 }
 #pragma pop
 
-void clamp_axes__16TKeyBoardControlFPv(u8 *arg0) {
+void TKeyBoardControl::clamp_axes() {
+    u8 *arg0 = (u8 *)this;
     u8 temp_r0;
     u8 temp_r0_2;
 
@@ -229,12 +223,12 @@ void clamp_axes__16TKeyBoardControlFPv(u8 *arg0) {
 
 extern s32 model_render_flags;
 
-void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void TObjPlayer::init_matrix_stack(s32 arg0, s32 arg1) {
     matrix_stack_base = 0xE0000000;
     current_matrix = 0xE0000000;
     matrix_stack_limit = (arg1 - 1) * 0x30 + 0xE0000000;
     PSMTXIdentity(identity_matrix == 0 ? (u8 *)0xE0000000 : identity_matrix);
-    move_data__6TLobbyFv(matrix_stack_base, identity_matrix, 0x30);
+    move_data__6TLobbyFPCvUl(matrix_stack_base, identity_matrix, 0x30);
 }
 
 void init_light_globals(void) {

@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/TObjBoss5Ctrl.h"
 
 extern "C" {
 
-void * create__13TObjBoss5CtrlFv(void);
 void *TObjBoss5Ctrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_01;
 extern void *boss5_ctrl_instance;
 
-void * create__13TObjBoss5CtrlFv(void) {
+void *TObjBoss5Ctrl::create() {
     void *o;
     o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {

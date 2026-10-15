@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyOnCountOver.h"
 
 struct RecoveredGlobal_801C606C___vt__15TPlyOnCountOver {
     s32 value;
@@ -13,14 +14,14 @@ extern u8 *tl_06;
 u8 *__ct__15TPlyOnCountOverFv(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 u32 get_player_by_client_id(int);
-void run_task__15TPlyOnCountOverFv(u8 *arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801C606C___vt__15TPlyOnCountOver_size[sizeof(RecoveredGlobal_801C606C___vt__15TPlyOnCountOver) == 0x18 ? 1 : -1];
 
-void run_task__15TPlyOnCountOverFv(u8 *arg0) {
+void TPlyOnCountOver::run_task() {
+    u8 *arg0 = (u8 *)this;
     void (*cb)(u32);
     u32 p;
     p = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x1C));

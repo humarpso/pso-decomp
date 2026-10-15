@@ -91,7 +91,7 @@ struct RecoveredGlobal_8014B020___vt__12TObjNpcHFW01 {
 };
 
 extern "C" {
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 fn_8014AAC4(void *);
 extern s32 __vt__12TObjNpcHFW01[];
@@ -109,14 +109,14 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcHHM00__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy__17TObjNpcFemaleTallFPvs(void *, int);
+void destroy__17TObjNpcFemaleTallFs(void *, int);
 
 extern s32 __vt__12TObjNpcHFW01[];
 
 void *__dt__12TObjNpcHFW01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjNpcHFW01;
-        destroy__17TObjNpcFemaleTallFPvs(arg0, 0);
+        destroy__17TObjNpcFemaleTallFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -132,7 +132,7 @@ u8 *TObjNpcHFW01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014B020___vt__12TObjNpcHFW01 *)&__vt__12TObjNpcHFW01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcHFW01__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *TObjNpcHFW01__resource_node;
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) TObjNpcHFW01__texture_handle;
     setup_common__11TObjNpcBaseFv((void *) (arg0));

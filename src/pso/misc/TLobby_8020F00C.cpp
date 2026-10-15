@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
 void push_shop_pool_entry(u8 *arg0, s8 arg1);
-void reset_counter_64__6TLobbyFPv(void* p);
 s32 get_game_play_mode();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
@@ -16,6 +16,6 @@ void push_shop_pool_entry(u8 *arg0, s8 arg1) {
     }
 }
 
-void reset_counter_64__6TLobbyFPv(void* p) { *(s32*)((char*)p + 0x64) = 0; }
+void TLobby::reset_counter_64() { *(s32*)((char*)this + 0x64) = 0; }
 
 }

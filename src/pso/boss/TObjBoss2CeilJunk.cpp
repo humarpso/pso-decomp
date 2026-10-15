@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2CeilJunk.h"
 
 struct RecoveredFields_8003A6F4_arg0 {
  s32 field_0;
@@ -98,20 +99,20 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 rand_signed_unit();
 s32 calc_random_scaled__10TObjPlayerFv();
-s32 spawn_effect__15TObjBoss2TunnelFiPvPv(void *, void *, void *, f32, f32);
+s32 spawn_effect__15TObjBoss2TunnelFlPvPv(void *, void *, void *, f32, f32);
 s32 construct_world_actor_base();
 s32 rand();
 extern RecoveredGlobal_8003A6F4_lbl_80435BD8 TObjBoss2CeilJunk__height_offset_table;
 extern s32 __vt__17TObjBoss2CeilJunk[];
 extern s32 TObjBoss2CeilJunk__name;
 u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, s32 arg2);
-s32 draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, int, void *);
+s32 draw_oriented_shadow__9TObjEneDDFllUl(void *, void *, int, void *);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_ginja_object(s32);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
@@ -123,16 +124,15 @@ extern Holder_8003A1B4 *boss2_tunnel_instance;
 extern s32 lbl_805D4BEC;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_game_mode__6TLobbyFv();
 s32 forward_switch_phase_stats__13TBoss2DeRolLeFi(void *);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, int);
-s32 set_shake_preset__11TCameraCtrlFi(int);
-f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-s32 is_valid_target__9TObjEneDDFPv(void *);
+s32 set_shake_preset__11TCameraCtrlFl(int);
+f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
+s32 is_valid_target__9TObjEneDDFv(void *);
 s32 play_sound_effect(int, void *, int, int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -157,7 +157,8 @@ typedef struct Holder_8003A1B4 Holder_8003A1B4;
 typedef struct Mdl_8003A1B4 Mdl_8003A1B4;
 typedef struct Obj_8003A1B4 Obj_8003A1B4;
 typedef struct Vec_8003A1B4 Vec_8003A1B4;
-void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
+void TObjBoss2CeilJunk::render() {
+    Obj_8003A1B4 *self = (Obj_8003A1B4 *)this;
   float new_var;
   if (self->fA8 == 2)
   {
@@ -166,7 +167,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
     new_var = (0.2f) * t;
     s.y = (1.0f);
     s.x = (s.z = new_var);
-    draw_oriented_shadow__9TObjEneDDFiiiUi(self->f44, self->f9C, 0, &s);
+    draw_oriented_shadow__9TObjEneDDFllUl(self->f44, self->f9C, 0, &s);
   }
   lbl_805D5660 = model_render_flags;
   if (self->fB4 < (1.0f))
@@ -181,7 +182,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
     set_chunk_blend(0x2500);
   }
   push_matrix();
-  set_global_param__8TObjFishFi(lbl_805D4BEC);
+  set_global_param__8TObjFishFl(lbl_805D4BEC);
   post_translate_matrix(self->pos);
   rotate_matrix_y(0, self->f60);
   rotate_matrix_x(0, self->f5C);
@@ -249,12 +250,12 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
             rad = (1e+01f) + TObjBoss2CeilJunk__radius_table[o->fAC];
             for (i = 0; i < n; i++) {
                 pl = get_player_data__10TObjPlayerFi(i);
-                if (is_valid_target__9TObjEneDDFPv(pl) != 0) {
+                if (is_valid_target__9TObjEneDDFv(pl) != 0) {
                     h = *(f32 *)((s8 *)pl + 0xD48) + *(f32 *)((s8 *)pl + 0x3C);
                     if (top > h && bottom < h) {
                         VecCopy__FP3VecPC3Vec(&d, pl + 0x38);
                         subtract_vector(&d, &o->pos);
-                        if (clamp_velocity__15TObjBoss2TunnelFPv(&d) < rad) {
+                        if (clamp_velocity__15TObjBoss2TunnelFv(&d) < rad) {
                             hit = 1;
                             forward_switch_phase_stats__13TBoss2DeRolLeFi(pl);
                         }
@@ -272,7 +273,7 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
                 o->vel.z = (2.0f) * cos_table_lookup(o->f60);
                 o->fA8 = 3;
                 play_sound_effect(0x4003A801, &o->pos, 0, 0);
-                set_shake_preset__11TCameraCtrlFi(0);
+                set_shake_preset__11TCameraCtrlFl(0);
             }
         }
         break;
@@ -320,7 +321,7 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
     temp_f2 = (f32) rand();
     temp_f1 = (3.0517578e-05f) * temp_f2;
     arg0->field_AC = (s32) (*(const volatile f32 *)&lbl_805D85A0 * temp_f1);
-    if (spawn_effect__15TObjBoss2TunnelFiPvPv(&arg0->unknown_1C[0x1C], &arg0->unknown_1C[0x28], arg0->unknown_9C, temp_f1, temp_f2) == 0) {
+    if (spawn_effect__15TObjBoss2TunnelFlPvPv(&arg0->unknown_1C[0x1C], &arg0->unknown_1C[0x28], arg0->unknown_9C, temp_f1, temp_f2) == 0) {
         arg0->field_A8 = 0;
     } else {
         arg0->field_A8 = 2;

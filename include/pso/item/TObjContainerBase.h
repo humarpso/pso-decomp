@@ -19,6 +19,10 @@ struct TObjContainerBase
     s16 m_326;
     u8 _pad328[0x3C];
     u32 m_364;
+    static int check_accuracy_hit();
+    void render();
+    f32 receive_physical_hit();
+    f32 receive_technique_hit(s32 arg1, s32 *arg2);
 };
 
 #endif

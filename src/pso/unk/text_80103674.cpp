@@ -1,6 +1,6 @@
 #include "types.h"
 extern "C" {
-u32 alloc_buffer__11TOBoss4RockFPv(s32 size);
+u32 mem_alloc(s32 size);
 extern u32 item_buffer_temp_mode;
 extern u32 item_buff_buffer;
 extern u32 item_nj_chunk_buffer_table[];
@@ -14,7 +14,7 @@ void fn_80103674(void) {
     item_buffer_temp_mode = 0;
     item_buff_buffer = 0;
     for (i = 0; i != 2; i++) {
-        item_nj_chunk_buffer_table[i] = alloc_buffer__11TOBoss4RockFPv(0x200);
+        item_nj_chunk_buffer_table[i] = mem_alloc(0x200);
     }
 }
 

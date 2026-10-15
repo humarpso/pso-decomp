@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct Obj_803D4540 {
     u8 pad[8];
     u32 flags;
@@ -36,7 +37,6 @@ void set_sound_stream_volume(Obj_803D4540 *o, s32 vol);
 void sndStreamMixParameterEx(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
 extern u8 gcrna_volume_table[];
 extern s32 gcrna_pan_table[];
-void set_stream_channel_pan__6TLobbyFPvii(Obj_803D4540 *o, s32 ch, s32 pan);
 void sndStreamFrq(s32, s32);
 void set_stream_frequency__6TLobbyFPvi(Obj_803D4654 *o, s32 rate);
 }
@@ -62,7 +62,8 @@ inline s32 stat_803D4448(Obj_803D4540 *o) {
     }
     return (o->flags >> 1) & 1;
 }
-void set_stream_channel_pan__6TLobbyFPvii(Obj_803D4540 *o, s32 ch, s32 pan) {
+void TLobby::set_stream_channel_pan(s32 ch, s32 pan) {
+    Obj_803D4540 *o = (Obj_803D4540 *)this;
     if (o == 0) {
         return;
     }

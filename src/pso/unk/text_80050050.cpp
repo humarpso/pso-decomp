@@ -14,7 +14,7 @@ void update_fade_and_expire(u8 *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_chunk_object(int);
 s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
@@ -40,7 +40,7 @@ void draw_three_part_models(u8 *arg0) {
   do
   {
     temp_r30 = (u8 *) (arg0 + var_r31);
-    set_global_param__8TObjFishFi((int) (*((int *) (((s8 *) temp_r30) + 0xA0))));
+    set_global_param__8TObjFishFl((int) (*((int *) (((s8 *) temp_r30) + 0xA0))));
     temp_r4 = *((unsigned int *) (((s8 *) temp_r30) + 0xAC));
     if (temp_r4 == 0U)
     {

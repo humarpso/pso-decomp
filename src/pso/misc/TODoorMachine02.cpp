@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TODoorMachine02.h"
 
 extern "C" {
 extern char lbl_80440F70[];
@@ -96,7 +97,7 @@ extern const f32 lbl_805DB518;
 extern const f32 lbl_805DB51C;
 extern const f32 lbl_805DB520;
 void TODoorMachine02__vt13(u8 *arg0);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -112,7 +113,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 s32 set_chunk_material_color(void *);
@@ -121,10 +122,9 @@ extern s32 lbl_805D5660;
 extern s32 *door_machine02_texture_param_table;
 extern s32 model_render_flags;
 extern const f32 lbl_805DB524;
-void render__15TODoorMachine02Fv(Door_80163408 *arg0);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-void *alloc_buffer__11TOBoss4RockFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+void *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
 s32 is_online_ready__6TLobbyFv();
 extern u8 lbl_80440FD8[];
@@ -133,7 +133,6 @@ extern u8 bm_fs_obj_ki_doa2_a_resource_descriptor[];
 extern s32 enable_v2_features;
 extern u32 door_machine02_model_resource;
 extern s32 *door_machine02_texture_param_table;
-void load_resources__15TODoorMachine02Fv(void);
 }
 
 extern "C" {
@@ -141,8 +140,6 @@ extern "C" {
 void TODoorMachine02__vt15(u8 *arg0);
 void TODoorMachine02__vt18(void);
 void *__dt__15TODoorMachine02Fv(void *arg0, s16 arg1);
-void *create__15TODoorMachine02FPv(void *arg0);
-void free_statics__15TODoorMachine02Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);
@@ -150,10 +147,10 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
-s32 destroy_ancient_door_base__15TODoorAncient01FPvs(void *, s32);
-s32 free__11TOBoss4RockFUi(void*);
-s32 free_if_valid__10TObjPlayerFi(s32);
+s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
+s32 destroy_ancient_door_base__15TODoorAncient01Fs(void *, s32);
+s32 mem_free(void*);
+s32 free_if_valid__10TObjPlayerFl(s32);
 
 void TODoorMachine02__vt18(void) {  }
 
@@ -162,7 +159,7 @@ extern const f32 lbl_805DB510;
 void TODoorMachine02__vt15(u8 *arg0) {
     if (!(*(s32 *)((s8 *)arg0 + 0xD0) & 1) || (is_any_player_within_radius_xz(lbl_805DB510) != 1)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
+        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 8);
         play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
     }
 }
@@ -188,7 +185,8 @@ void TODoorMachine02__vt13(u8 *arg0) {
     }
 }
 
-void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
+void TODoorMachine02::render() {
+    Door_80163408 *arg0 = (Door_80163408 *)this;
     s32 flag;
     Node_80163408 *n;
     if (((VObj_80163408 *)arg0)->m8(arg0->fC0, arg0->fC4) != 0 && is_in_view_depth(arg0, lbl_805DB524) != 0) {
@@ -196,7 +194,7 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
         post_translate_matrix(arg0->f38);
         rotate_matrix_y(0, arg0->f60);
         flag = arg0->fD0 & 1;
-        set_global_param__8TObjFishFi(door_machine02_texture_param_table[arg0->fD0 & 1]);
+        set_global_param__8TObjFishFl(door_machine02_texture_param_table[arg0->fD0 & 1]);
         if (arg0->fAC == 0) {
             n = arg0->model->root;
             post_translate_matrix(n->f8);
@@ -231,7 +229,7 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
     }
 }
 
-void *create__15TODoorMachine02FPv(void *arg0) {
+void *TODoorMachine02::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE4);
     if (o != NULL) {
         o = TODoorMachine02__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -242,11 +240,11 @@ void *create__15TODoorMachine02FPv(void *arg0) {
 extern u32 door_machine02_model_resource;
 extern s32 *door_machine02_texture_param_table;
 
-void free_statics__15TODoorMachine02Fv(void) {
+void TODoorMachine02::free_statics() {
     if ((s32 *) door_machine02_texture_param_table != NULL) {
-        free_if_valid__10TObjPlayerFi(*door_machine02_texture_param_table);
+        free_if_valid__10TObjPlayerFl(*door_machine02_texture_param_table);
         if ((s32 *) door_machine02_texture_param_table != NULL) {
-            free__11TOBoss4RockFUi((void*)door_machine02_texture_param_table);
+            mem_free((void*)door_machine02_texture_param_table);
             door_machine02_texture_param_table = NULL;
         }
     }
@@ -258,18 +256,18 @@ void free_statics__15TODoorMachine02Fv(void) {
 
 extern s32 __vt__15TODoorMachine02[];
 
-void load_resources__15TODoorMachine02Fv(void) {
+void TODoorMachine02::load_resources() {
     void *o;
-    door_machine02_texture_param_table = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
+    door_machine02_texture_param_table = (s32 *)mem_alloc(8);
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
-        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, bm_fs_obj_ki_doa2_a_resource_descriptor, 0, 0, 0);
         }
         door_machine02_model_resource = (u32)o;
         door_machine02_texture_param_table[0] = load_gvm_texture_file(lbl_80440FD8);
     } else {
-        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODoorMachine02_resource_descriptor, 0, 0, 0);
         }
@@ -284,7 +282,7 @@ void *__dt__15TODoorMachine02Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorMachine02;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
+        destroy_ancient_door_base__15TODoorAncient01Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -305,7 +303,7 @@ u8 *TODoorMachine02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB528;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B16C8.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) lbl_805DB51C;
     *(f32 *)((s8 *)arg0 + 0xD8) = (f32) lbl_805DB51C;

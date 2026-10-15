@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCineCtrl.h"
 
 struct RecoveredGlobal_80077FA0___vt__9TCineCtrl {
     s32 value;
@@ -31,30 +32,27 @@ extern const f32 lbl_805D91E4;
 void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
 void update_letterbox_show__9TCineCtrlFPv(u8 *arg0);
 void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
-void run_task__9TCineCtrlFv(Obj_80077F58 *self);
 void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
-void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, u16, s32, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, u16, s32, f32);
 void set_cached_blend_factor(s32, s32);
 extern const f32 TCineCtrl__data_805D91D0;
 extern const f32 lbl_805D91D4;
 extern const f32 lbl_805D91D8;
 extern const f32 lbl_805D91DC;
-void render__9TCineCtrlFv(u8 *arg0);
 }
 
 extern "C" {
 
 void *TCineCtrl__ct(void *arg0);
-void reset__9TCineCtrlFi(s32 arg0);
-void reset_state__9TCineCtrlFi(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 
 extern void *TCineCtrl__instance;
 extern const f32 lbl_805D91E8;
 extern const f32 lbl_805D91EC;
 
-void render__9TCineCtrlFv(u8 *arg0) {
+void TCineCtrl::render() {
+    u8 *arg0 = (u8 *)this;
     VtxList_80077BC0 vl;
     u32 col[4];
     f32 pos[8];
@@ -79,7 +77,7 @@ void render__9TCineCtrlFv(u8 *arg0) {
         vl.pos[6] = TCineCtrl__data_805D91D0;
         vl.pos[7] = *(f32 *)((s8 *)arg0 + 0x20);
         vl.col[3] = *(u32 *)((s8 *)arg0 + 0x24);
-        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&vl, 4U, 0x16, lbl_805D91D8);
+        draw_tri_fan_2d__14TObjCMHairMenuFllf(&vl, 4U, 0x16, lbl_805D91D8);
         vl.pos[0] = TCineCtrl__data_805D91D0;
         vl.pos[1] = lbl_805D91DC - *(f32 *)((s8 *)arg0 + 0x20);
         vl.col[0] = *(u32 *)((s8 *)arg0 + 0x24);
@@ -92,7 +90,7 @@ void render__9TCineCtrlFv(u8 *arg0) {
         vl.pos[6] = TCineCtrl__data_805D91D0;
         vl.pos[7] = lbl_805D91DC;
         vl.col[3] = *(u32 *)((s8 *)arg0 + 0x24);
-        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&vl, 4U, 0x16, lbl_805D91D8);
+        draw_tri_fan_2d__14TObjCMHairMenuFllf(&vl, 4U, 0x16, lbl_805D91D8);
         TCameraCtrl__sub_80068EF0();
     }
 }
@@ -117,7 +115,7 @@ void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0) {
 }
 #pragma pop
 
-void reset_state__9TCineCtrlFi(s32 arg0) {
+void TCineCtrl::reset_state(s32 arg0) {
     if ((void *) TCineCtrl__instance != NULL) {
         *(s32 *)((s8 *)TCineCtrl__instance + 0x2C) = arg0;
         *(f32 *)((s8 *)TCineCtrl__instance + 0x1C) = (f32) lbl_805D91E8;
@@ -152,7 +150,7 @@ void update_letterbox_show__9TCineCtrlFPv(u8 *arg0) {
 }
 #pragma pop
 
-void reset__9TCineCtrlFi(s32 arg0) {
+void TCineCtrl::reset(s32 arg0) {
     if ((void *) TCineCtrl__instance != NULL) {
         *(s32 *)((s8 *)TCineCtrl__instance + 0x2C) = arg0;
         *(f32 *)((s8 *)TCineCtrl__instance + 0x1C) = (f32) TCineCtrl__data_805D91D0;
@@ -172,7 +170,8 @@ extern void * TCineCtrl__instance;
 
 typedef char RecoveredGlobal_80077FA0___vt__9TCineCtrl_size[sizeof(RecoveredGlobal_80077FA0___vt__9TCineCtrl) == 0x18 ? 1 : -1];
 
-void run_task__9TCineCtrlFv(Obj_80077F58 *self) {
+void TCineCtrl::run_task() {
+    Obj_80077F58 *self = (Obj_80077F58 *)this;
     switch (self->state) {
     case 0:
         break;

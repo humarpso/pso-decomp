@@ -50,7 +50,7 @@ s32 begin_effect_render__13TParticleCtrlFv(void);
 s32 end_effect_render__13TParticleCtrlFv(void);
 void quad_sprite_reset_entries(void *);
 void transform_point_by_current_matrix(void *, void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -110,7 +110,7 @@ void render__17TQuadSpriteSclColFv(Self_801E5C24 *self) {
     sh = sw * (lbl_805DC480 / (lbl_805DC480 * lbl_8058D4F8.aspect));
     begin_effect_render__13TParticleCtrlFv();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFi((void *)self->desc->param4);
+    set_global_param__8TObjFishFl((void *)self->desc->param4);
     set_draw_texture_and_color(self->desc->param8, self->desc->param1C);
     one = lbl_805DC484;
     for (i = 0, ci = 0, li = 0; i < self->desc->count; i++, ci += 0x10, li += 0x2C) {

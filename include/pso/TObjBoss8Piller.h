@@ -8,6 +8,9 @@ public:
     virtual ~TObjBoss8Piller();
     virtual void run_task();
     virtual void render();
+public:
+    static void free_held_object();
+    static void load_resource_descriptor();
 };
 
 #endif

@@ -76,6 +76,7 @@ struct RecoveredGlobal_800C7698_lbl_8058D490 {
 };
 
 #include <stddef.h>
+#include "pso/boss/TBoss3Volopt.h"
 struct Stack_800C762C {
     s32 sp8;
     s32 spC;
@@ -88,7 +89,7 @@ struct RecoveredGlobal_800C762C_lbl_8043BCA0 {
 };
 
 extern "C" {
-s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
+s32 render_anim_model__10TObjPlayerFf(void *, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -106,23 +107,22 @@ void TBoss3Volopt__sub_800C762C(s32 arg0, s32 arg1, s32 arg2);
 extern "C" {
 
 void TObjVoloptCage__sub_800C76F0(void);
-s32 query_field_30__12TBoss3VoloptFPvPv(void *arg0, s32 *arg1);
 
-s32 query_field_30__12TBoss3VoloptFPvPv(void *arg0, s32 *arg1) {
+s32 TBoss3Volopt::query_field_30(s32 *arg1) {
     s32 temp_r31;
 
-    if (arg0 == NULL) {
+    if (this == NULL) {
         return 0;
     }
     if (arg1 == NULL) {
         return 0;
     }
-    temp_r31 = *(s32 *)((s8 *)arg0 + 0x30);
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    temp_r31 = *(s32 *)((s8 *)this + 0x30);
+    *(s32 *)((s8 *)this + 0x30) = 0;
     (*(s32 **)&volopt_active_node_cursor) = arg1;
     volopt_active_node_counter = 0;
     ((s32 (*)())collect_active_nodes__12TBoss3VoloptFPv)();
-    *(s32 *)((s8 *)arg0 + 0x30) = temp_r31;
+    *(s32 *)((s8 *)this + 0x30) = temp_r31;
     *(*(s32 **)&volopt_active_node_cursor) = 0;
     return volopt_active_node_counter;
 }
@@ -147,7 +147,7 @@ void render_anim_model_at_pos__12TBoss3VoloptFPv(u8 *arg0) {
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    render_anim_model__10TObjPlayerFf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     pop_matrix();
 }
 

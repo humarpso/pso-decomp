@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor.h"
 
 struct Part_8013AF50 { u8 pad[0x124]; };
 
@@ -15,38 +16,37 @@ struct State_8013AF50 {
 };
 
 extern "C" {
-s32 reset_cursor_parts__11TMainCursorFPv(void *);
-s32 sort_list__11TMainCursorFii(Cur_8013AF50 *, s32);
+s32 reset_cursor_parts__11TMainCursorFv(void *);
+s32 sort_list__11TMainCursorFll(Cur_8013AF50 *, s32);
 s32 publish_target_list__11TMainCursorFPvi(Cur_8013AF50 *, s32);
-State_8013AF50 *get_state__11TMainCursorFPv(s32);
+State_8013AF50 *get_state__11TMainCursorFv(s32);
 s32 publish_nearest_target__11TMainCursorFPv(void *);
 s32 TObjPlayer__sub_801C6DAC(s32);
-void refresh_all_lists__11TMainCursorFi(s32 arg0);
 }
 
 extern "C" {
 
-void* init_lockon__11TMainCursorFPv(void* a0);
-int init__13TLockOnCursorFPvPvPv(void);
+int init__13TLockOnCursorFPvPv(void);
 
     extern unsigned char lbl_804A71C4[];
     extern int lockon_list_clear_task_name;
-void* init_lockon__11TMainCursorFPv(void* a0) { init__13TLockOnCursorFPvPvPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A71C4; *(int*)((char*)a0 + 0x0) = lockon_list_clear_task_name; return a0; }
-void refresh_all_lists__11TMainCursorFi(s32 arg0) {
+void*TMainCursor::init_lockon() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A71C4; *(int*)((char*)this + 0x0) = lockon_list_clear_task_name; return this; }
+void TMainCursor::refresh_all_lists() {
+    s32 arg0 = (s32)this;
     s32 i;
     if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) == 0) {
         return;
     }
-    if (get_state__11TMainCursorFPv(arg0 + 0x1C)->cur == NULL) {
+    if (get_state__11TMainCursorFv(arg0 + 0x1C)->cur == NULL) {
         return;
     }
     for (i = 0; i < 4; i++) {
-        sort_list__11TMainCursorFii(get_state__11TMainCursorFPv(arg0 + 0x1C)->cur, i);
-        publish_target_list__11TMainCursorFPvi(get_state__11TMainCursorFPv(arg0 + 0x1C)->cur, i);
+        sort_list__11TMainCursorFll(get_state__11TMainCursorFv(arg0 + 0x1C)->cur, i);
+        publish_target_list__11TMainCursorFPvi(get_state__11TMainCursorFv(arg0 + 0x1C)->cur, i);
     }
-    publish_nearest_target__11TMainCursorFPv(get_state__11TMainCursorFPv(arg0 + 0x1C)->cur->sub);
+    publish_nearest_target__11TMainCursorFPv(get_state__11TMainCursorFv(arg0 + 0x1C)->cur->sub);
     for (i = 0; i < 4; i++) {
-        reset_cursor_parts__11TMainCursorFPv(&get_state__11TMainCursorFPv(arg0 + 0x1C)->cur->parts[i]);
+        reset_cursor_parts__11TMainCursorFv(&get_state__11TMainCursorFv(arg0 + 0x1C)->cur->parts[i]);
     }
 }
 

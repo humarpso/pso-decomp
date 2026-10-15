@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/item/TObjContainerBase.h"
+#include "pso/misc/TLanguage.h"
+#include "pso/player/TObjPlayer.h"
 
 struct BmlResourceBlock_804B0068 { const char *model_filenames[4]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B0068_size[(sizeof(BmlResourceBlock_804B0068) == 0x20) ? 1 : -1];
@@ -44,10 +47,9 @@ struct Obj_8015C88C {
 extern "C" {
 extern const f32 lbl_805DB398;
 extern const f32 lbl_805DB39C;
-f32 call_vt5_and_get_default_scale__10TObjPlayerFPv(Obj_8015C88C *self);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-u32 *alloc_buffer__11TOBoss4RockFPv(u32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
+u32 *mem_alloc(u32);
 u32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern char lbl_8044083C[];
@@ -62,49 +64,47 @@ extern char lbl_80440920[];
 extern s32 enable_v2_features;
 extern void *ancient_container_resource_bundle;
 extern u32 *ancient_container_fragment_texture_lists;
-void load_container_fragment_textures__9TLanguageFv(void);
 }
 
 extern "C" {
 
 void TLobby__sub_8015C8C4(void);
 int TLobby__sub_8015C8C8(void);
-int check_accuracy_hit__17TObjContainerBaseFv(void);
 int TObjPlayer__sub_8015C884(void);
 
-void load_container_fragment_textures__9TLanguageFv(void) {
+void TLanguage::load_container_fragment_textures() {
     u8 *tbl = (u8 *)&bm_o_container_ancient_resource_bundle;
     s32 state = get_global_state__14TOKeyMachine01Fv();
     void *p;
     if (enable_v2_features == 1 &&
         (state == 0x10 || state == 0x15 || state == 0x16 || state == 0x21)) {
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, tbl + 0x50, 0, 0, 0);
         }
         ancient_container_resource_bundle = p;
-        ancient_container_fragment_texture_lists = alloc_buffer__11TOBoss4RockFPv(0xC);
+        ancient_container_fragment_texture_lists = mem_alloc(0xC);
         ancient_container_fragment_texture_lists[0] = load_gvm_texture_file(lbl_8044083C);
         ancient_container_fragment_texture_lists[1] = load_gvm_texture_file(lbl_80440850);
         ancient_container_fragment_texture_lists[2] = load_gvm_texture_file(lbl_8044086C);
     } else if (enable_v2_features == 1 &&
                (state == 0x11 || state == 0x13 || state == 0x14 || state == 0x20)) {
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, tbl + 0x30, 0, 0, 0);
         }
         ancient_container_resource_bundle = p;
-        ancient_container_fragment_texture_lists = alloc_buffer__11TOBoss4RockFPv(0xC);
+        ancient_container_fragment_texture_lists = mem_alloc(0xC);
         ancient_container_fragment_texture_lists[0] = load_gvm_texture_file(lbl_80440888);
         ancient_container_fragment_texture_lists[1] = load_gvm_texture_file(lbl_804408A4);
         ancient_container_fragment_texture_lists[2] = load_gvm_texture_file(lbl_804408C4);
     } else {
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, tbl + 0x10, 0, 0, 0);
         }
         ancient_container_resource_bundle = p;
-        ancient_container_fragment_texture_lists = alloc_buffer__11TOBoss4RockFPv(0xC);
+        ancient_container_fragment_texture_lists = mem_alloc(0xC);
         ancient_container_fragment_texture_lists[0] = load_gvm_texture_file(lbl_804408E4);
         ancient_container_fragment_texture_lists[1] = load_gvm_texture_file(lbl_80440900);
         ancient_container_fragment_texture_lists[2] = load_gvm_texture_file(lbl_80440920);
@@ -113,14 +113,15 @@ void load_container_fragment_textures__9TLanguageFv(void) {
 
 int TObjPlayer__sub_8015C884(void) { return 1; }
 
-f32 call_vt5_and_get_default_scale__10TObjPlayerFPv(Obj_8015C88C *self) {
+f32 TObjPlayer::call_vt5_and_get_default_scale() {
+    Obj_8015C88C *self = (Obj_8015C88C *)this;
     self->m20(0, lbl_805DB398);
     return lbl_805DB39C;
 }
 
 void TLobby__sub_8015C8C4(void) {  }
 int TLobby__sub_8015C8C8(void) { return 1; }
-int check_accuracy_hit__17TObjContainerBaseFv(void) { return 1; }
+int TObjContainerBase::check_accuracy_hit() { return 1; }
 
 }
 

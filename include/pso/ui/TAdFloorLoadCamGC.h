@@ -13,6 +13,8 @@ struct TAdFloorLoadCamGC
     void* m_34;
     u8 _pad38[0x8];
     void* m_40;
+    static void render();
+    void run_task();
 };
 
 #endif

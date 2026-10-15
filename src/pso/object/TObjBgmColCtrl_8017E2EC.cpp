@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjBgmColCtrl.h"
 
 struct B_8017E410 { u8 pad[0x18]; };
 
@@ -11,7 +12,6 @@ u32 __nw__7TObjectFUl(int);
 u32 __ct__7TObjectFP7TObject(int, int);
 extern u32 TObjBgmColCtrl__instance;
 extern s32 tl_05;
-void create_controller__14TObjBgmColCtrlFv(void);
 s32 __dt__7TObjectFv(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 extern void *__vt__14TObjBgmColCtrl[];
@@ -21,7 +21,6 @@ void *__dt__14TObjBgmColCtrlFv(void *arg0, s16 arg1);
 
 extern "C" {
 
-void run_task__14TObjBgmColCtrlFv(void *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_lobby_theme_music__14TObjBgmColCtrlFv();
 s32 is_active__14TObjBgmColCtrlFv();
@@ -36,11 +35,11 @@ extern s32 lbl_805D5B04;
 extern u32 TObjBgmColCtrl__instance;
 extern s32 TObjBgmColCtrl__current_theme_id;
 
-void run_task__14TObjBgmColCtrlFv(void *arg0) {
+void TObjBgmColCtrl::run_task() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x1C);
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (temp_r4 - 1);
+    temp_r4 = *(s32 *)((s8 *)this + 0x1C);
+    *(s32 *)((s8 *)this + 0x1C) = (s32) (temp_r4 - 1);
     if ((temp_r4 <= 0) && ((get_global_state__14TOKeyMachine01Fv() == 0xF) || (get_player_by_client_id(local_client_id) != 0U)) && (get_quest_bgm_issued_flag() == 0)) {
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             if (is_active__14TObjBgmColCtrlFv() == 0) {
@@ -63,7 +62,7 @@ void run_task__14TObjBgmColCtrlFv(void *arg0) {
         }
     }
 }
-void create_controller__14TObjBgmColCtrlFv(void) {
+void TObjBgmColCtrl::create_controller() {
     u32 temp_r3;
     u32 temp_r3_2;
     u32 var_r0;

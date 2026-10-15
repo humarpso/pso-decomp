@@ -21,8 +21,6 @@ extern "C" {
 void fn_802F105C(void);
 void fn_802F1084(void);
 void init_scene_boss2_tunnel(void);
-void render__13TObjBoss7DustFv(void* p);
-void run_task__13TObjBoss7DustFv(void *arg0);
 int TObjBoss2Tunnel__sub_802F2C4C(void);
 int TObjBoss2Tunnel__sub_802F2C50(void);
 int TObjBoss2Tunnel__sub_802F2C84(void);
@@ -38,14 +36,14 @@ s32 queue_destruction__7TObjectFv();
 void fn_802F105C(void) { TObjBoss7DustCtrl__sub_802F1450(); TObjBoss2Tunnel__sub_802F2C4C(); fn_802F0E24(); }
 void fn_802F1084(void) { TObjBoss2Tunnel__sub_802F2C50(); fn_802F19C0(); create__17TObjBoss7DustCtrlFv(); }
 void init_scene_boss2_tunnel(void) { load_boss7_common_resources(); TObjBoss2Tunnel__sub_802F2C84(); fn_802F1454(); }
-void render__13TObjBoss7DustFv(void* p) { boss7_dust_draw_at((char*)p + 0x24, *(void**)((char*)p + 0x20)); }
+void TObjBoss7Dust::render() { boss7_dust_draw_at((char*)this + 0x24, *(void**)((char*)this + 0x20)); }
 
 extern const f32 lbl_805DEC68;
 
-void run_task__13TObjBoss7DustFv(void *arg0) {
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) - lbl_805DEC68);
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) >= 0x5A) {
+void TObjBoss7Dust::run_task() {
+    *(f32 *)((s8 *)this + 0x2C) = (f32) (*(f32 *)((s8 *)this + 0x2C) - lbl_805DEC68);
+    *(s32 *)((s8 *)this + 0x1C) = (s32) (*(s32 *)((s8 *)this + 0x1C) + 1);
+    if ((s32) *(s32 *)((s8 *)this + 0x1C) >= 0x5A) {
         queue_destruction__7TObjectFv();
     }
 }

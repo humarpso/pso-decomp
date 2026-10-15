@@ -61,7 +61,7 @@ struct Self_8012DE24 {
 
 extern "C" {
 s32 spawn_particle_effect(void *, int);
-s32 draw_icon__10TObjPlayerFPvii(void *, int, void *);
+s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 extern s32 basic_shot_angle_table[];
 void emit_shot_marker_effects(u8 *self);
 }
@@ -72,7 +72,7 @@ void emit_shot_marker_effects(u8 *self) {
     s32 sp8[3];
     s32 i;
     for (i = 0; (u32)i != 5U; i++) {
-        draw_icon__10TObjPlayerFPvii(self, ((struct Self_8012DE24 *)self)->icons[i], sp8);
+        draw_icon__10TObjPlayerFll(self, ((struct Self_8012DE24 *)self)->icons[i], sp8);
         ((VObj_8012DE24 *)self)->m49(sp8, i, basic_shot_angle_table[i], 1);
         if (i == 0) {
             spawn_particle_effect(sp8, 9);

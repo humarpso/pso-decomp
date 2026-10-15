@@ -1,24 +1,21 @@
 #include "types.h"
+#include "pso/ui/TAdMcSelectCursorGC.h"
 
 extern "C" {
 s32 TLobby__sub_803DA16C(void *, s32);
 extern int TAdMcSelectCursorGC__texture_entry;
-void release_cursor_entry__19TAdMcSelectCursorGCFv(void);
 }
 
 extern "C" {
 
 s32 TAdMcSelectCursorGC__sub_8032A6D8(void* p);
-int get_cursor_type__19TAdMcSelectCursorGCFi(int a0);
-u32 get_instance__19TAdMcSelectCursorGCFi(s32 arg0);
-void init_resource__19TAdMcSelectCursorGCFv(void);
 u32 TAdMcSelectCursorGC__ct(u32, s32);
 int TLobby__sub_8023E4B4(void*, void*);
 u32 __nw__7TObjectFUl(s32);
 
 extern u32 TAdMcSelectCursorGC__instance;
 
-u32 get_instance__19TAdMcSelectCursorGCFi(s32 arg0) {
+u32 TAdMcSelectCursorGC::get_instance(s32 arg0) {
     u32 var_r0;
 
     if ((u32) TAdMcSelectCursorGC__instance == 0U) {
@@ -35,7 +32,7 @@ u32 get_instance__19TAdMcSelectCursorGCFi(s32 arg0) {
     extern unsigned char lbl_804ED99C[];
     extern int TAdMcSelectCursorGC__texture_entry;
 
-void release_cursor_entry__19TAdMcSelectCursorGCFv(void) {
+void TAdMcSelectCursorGC::release_cursor_entry() {
     u8 *temp_r4;
     if ((void **) (*(void ** *)&TAdMcSelectCursorGC__texture_entry) != NULL) {
         temp_r4 = (u8 *)(*(*(void ** *)&TAdMcSelectCursorGC__texture_entry));
@@ -45,11 +42,11 @@ void release_cursor_entry__19TAdMcSelectCursorGCFv(void) {
     }
 }
 
-void init_resource__19TAdMcSelectCursorGCFv(void) { TAdMcSelectCursorGC__texture_entry = (int)lbl_804ED99C; TLobby__sub_8023E4B4(lbl_80477118, lbl_804ED99C); }
+void TAdMcSelectCursorGC::init_resource() { TAdMcSelectCursorGC__texture_entry = (int)lbl_804ED99C; TLobby__sub_8023E4B4(lbl_80477118, lbl_804ED99C); }
 
 s32 TAdMcSelectCursorGC__sub_8032A6D8(void* p) { return *(s32*)((char*)p + 0x1c); }
 
     extern int memcard_cursor_instance_table[];
-int get_cursor_type__19TAdMcSelectCursorGCFi(int a0) {  return memcard_cursor_instance_table[a0]; }
+int TAdMcSelectCursorGC::get_cursor_type(int a0) {  return memcard_cursor_instance_table[a0]; }
 
 }

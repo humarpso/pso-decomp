@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #define RAD_TO_ANGLE (32768.0 / 3.141592f)
 
@@ -24,22 +26,14 @@ s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
 u16 angle_difference_abs(s32 a, s32 b);
 s16 angle_diff_s16(s32 a, s32 b);
 void getDateStamp__FP9DateStamp(DS_80142108 *);
-void get_current_date_stamp__23TAdSinglePlyChrSelectGCFPv(DS_80142108 *arg0);
 u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0);
-s32 check_camera_distance__10TObjPlayerFi(s32 arg0);
-s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
-void init_xyz_limits__10TObjPlayerFv(void);
-s32 is_in_range__10TObjPlayerFf(f32 farg0);
-u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1);
-void reset_transform_state__10TObjPlayerFv(void);
 void vsub(void *arg0, void *arg1, void *arg2);
 f32 sin_table_lookup(s32);
 f32 vec_squared_length(void *);
@@ -49,7 +43,8 @@ f64 atan2_float(f32, f32);
 
 extern f32 lbl_805DB158;
 
-s32 check_camera_distance__10TObjPlayerFi(s32 arg0) {
+s32 TObjPlayer::check_camera_distance() {
+    s32 arg0 = (s32)this;
     if (vec_squared_length((void *)arg0) < lbl_805DB158) {
         return 0;
     }
@@ -77,11 +72,11 @@ void calc_circle_offset_pos__10TObjPlayerFiPvPvf(s32 arg0, void *arg1, void *arg
 }
 #pragma pop
 
-s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1) {
+s32 TObjPlayer::calc_angle_to(void *arg1) {
     f32 temp_f3;
 
     temp_f3 = *(f32 *)((s8 *)arg1 + 0);
-    return (s32) (RAD_TO_ANGLE * atan2_float(temp_f3 - *(f32 *)((s8 *)arg0 + 0), *(f32 *)((s8 *)arg1 + 8) - *(f32 *)((s8 *)arg0 + 8)));
+    return (s32) (RAD_TO_ANGLE * atan2_float(temp_f3 - *(f32 *)((s8 *)this + 0), *(f32 *)((s8 *)arg1 + 8) - *(f32 *)((s8 *)this + 8)));
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v) {
@@ -95,9 +90,9 @@ f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v) {
 void fn_80141EB4(void) { set_cached_blend_factor(0, 5); set_cached_blend_factor(1, 6); }
 void setSpriteInverseColorBlend(void) { set_cached_blend_factor(0, 5); set_cached_blend_factor(1, 7); }
 
-void reset_transform_state__10TObjPlayerFv(void) { set_cached_blend_factor(0, 8); set_cached_blend_factor(1, 6); }
+void TObjPlayer::reset_transform_state() { set_cached_blend_factor(0, 8); set_cached_blend_factor(1, 6); }
 
-void init_xyz_limits__10TObjPlayerFv(void) { set_cached_blend_factor(0, 8); set_cached_blend_factor(1, 10); }
+void TObjPlayer::init_xyz_limits() { set_cached_blend_factor(0, 8); set_cached_blend_factor(1, 10); }
 
 u16 angle_difference_abs(s32 a, s32 b) {
     s16 d = (u16)b - (u16)a;
@@ -139,7 +134,7 @@ f32 approach_vector_fixed_distance(const V3_80141FBC *from, const V3_80141FBC *t
     return len;
 }
 
-s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
+s32 TObjPlayer::clamp_s32(s32 arg0, s32 arg1, s32 arg2) {
     s32 var_r3;
 
     var_r3 = arg0;
@@ -152,7 +147,8 @@ s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     return var_r3;
 }
 
-void get_current_date_stamp__23TAdSinglePlyChrSelectGCFPv(DS_80142108 *arg0) {
+void TAdSinglePlyChrSelectGC::get_current_date_stamp() {
+    DS_80142108 *arg0 = (DS_80142108 *)this;
     DS_80142108 d;
     getDateStamp__FP9DateStamp(&d);
     arg0->y = d.y;
@@ -213,7 +209,7 @@ u16 approach_angle_adaptive(s32 a0, s32 b0) {
     return a + r;
 }
 
-u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1) {
+u16 TObjPlayer::lerp_angle_half(u16 arg0, u16 arg1) {
     return (u16) (arg0 + ((s16) ((u16) arg1 - arg0) >> 1));
 }
 
@@ -253,7 +249,7 @@ f32 vec_distance_squared(u8 *arg0, u8 *arg1) {
   return (temp_f1 * temp_f1) + ((temp_f3 * temp_f3) + (((*((f32 *) (((s8 *) arg1) + 4))) - (*new_var)) * ((*((f32 *) (((s8 *) arg1) + 4))) - (*new_var))));
 }
 
-s32 is_in_range__10TObjPlayerFf(f32 farg0) {
+s32 TObjPlayer::is_in_range(f32 farg0) {
     if ((lbl_805DB160 < farg0) && (farg0 < lbl_805DB15C)) {
         return 1;
     }

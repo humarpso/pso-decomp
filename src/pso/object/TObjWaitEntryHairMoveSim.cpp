@@ -171,11 +171,11 @@ extern "C" {
 void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1);
 s32 create__18TObjTailsTailsMoveFPv(void *);
 
-s32 get_display_index__12TCharaMakingFPv(void *);
+s32 get_display_index__12TCharaMakingFv(void *);
 s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0);
 s32 is_level_in_table__24TObjWaitEntryHairMoveSimFPv(Obj_800FE698 *o);
 
-void create_hairmove__10TObjPlayerFPvPvPv(void *, void *, s32);
+void create_hairmove__10TObjPlayerFPvPv(void *, void *, s32);
 void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0);
 }
 
@@ -781,7 +781,7 @@ void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0) {
             if (e->p4 != NULL) {
                 ((void (*)(void *, s32, void *))create__19TObjEZBoneRotPlayerFPvPvPv)(self->pl, v, e->p4);
             } else if (e->p8 != NULL) {
-                create_hairmove__10TObjPlayerFPvPvPv(self->pl, e->p8, e->pc);
+                create_hairmove__10TObjPlayerFPvPv(self->pl, e->p8, e->pc);
             }
         }
     }
@@ -803,7 +803,7 @@ s32 is_level_in_table__24TObjWaitEntryHairMoveSimFPv(Obj_800FE698 *o) {
 s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0) {
     s32 temp_r3;
     s32 var_r0;
-    if (get_display_index__12TCharaMakingFPv((void *) (arg0 + 0x85C)) == 0xE) {
+    if (get_display_index__12TCharaMakingFv((void *) (arg0 + 0x85C)) == 0xE) {
         create__18TObjTailsTailsMoveFPv((void *) (arg0));
         return 0;
     }

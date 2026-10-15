@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void increment_model_node_counter(void);
-int get_player_list__10TObjPlayerFv(void);
 void TObjPlayer__sub_80121208(void* p, s32 v);
 void reset_model_node_counter(void);
 
@@ -14,7 +14,7 @@ void increment_model_node_counter(void) {
 }
 
     extern int model_node_counter;
-int get_player_list__10TObjPlayerFv(void) {  return model_node_counter; }
+int TObjPlayer::get_player_list() {  return model_node_counter; }
 
 void TObjPlayer__sub_80121208(void* p, s32 v) { *(s32*)((char*)p + 0xe0) = v; }
 

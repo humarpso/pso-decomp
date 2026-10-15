@@ -5,7 +5,7 @@ extern "C" {
 void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__13GameListEntryFv(void *);
 void __ct__15TShopWindowBaseFv(void *);
-void set_field_20__12TQuestListVMFPvi(void *, int);
+void set_field_20__12TQuestListVMFl(void *, int);
 
 extern s32 __vt__16TQuestListOnline[];
 extern void *TQuestListOnline__class_name;
@@ -31,7 +31,7 @@ void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     *(u32 *)((s8 *)arg0 + 0x68) = 0;
     *(void **)((s8 *)arg0 + 0x24) = arg3;
     memset(self->f_4C, 0, 28);
-    set_field_20__12TQuestListVMFPvi(arg0, 0);
+    set_field_20__12TQuestListVMFl(arg0, 0);
     TQuestListOnline__instance = arg0;
     return arg0;
 }

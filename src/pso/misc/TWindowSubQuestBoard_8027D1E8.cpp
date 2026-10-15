@@ -11,8 +11,8 @@ extern "C" {
 void TWindowCtrl__sub_8027D1F8(void);
 void TWindowCtrl__sub_8027D214(void);
 int TWindowSubQuestBoard__sub_8027D1DC(void* p);
-u8 get_page_index__20TWindowSubQuestBoardFPv(void* p);
-int is_open__20TWindowSubQuestBoardFPv(void* p);
+u8 get_page_index__20TWindowSubQuestBoardFv(void* p);
+int is_open__20TWindowSubQuestBoardFv(void* p);
 
 extern void *TWindowCtrl__active_window;
 

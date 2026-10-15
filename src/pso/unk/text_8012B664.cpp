@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-f32 get_speed__10TObjPlayerFPv(void *);
-s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
+f32 get_speed__10TObjPlayerFv(void *);
+s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 is_flag_b0_4__10TObjPlayerFPv(void *);
 extern const f32 lbl_805DAEA8;
 extern const f32 lbl_805DAEAC;
@@ -10,14 +11,14 @@ extern const f32 lbl_805DAEB0;
 extern const f32 lbl_805DAEB4;
 extern const f32 lbl_805DAEB8;
 extern const f32 lbl_805DAEBC;
-void update_swing_angle__10TObjPlayerFPv(u8 *self);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void update_swing_angle__10TObjPlayerFPv(u8 *self) {
+void TObjPlayer::update_swing_angle() {
+    u8 *self = (u8 *)this;
     s32 flag;
     s32 ok;
     s32 lo;
@@ -26,20 +27,20 @@ void update_swing_angle__10TObjPlayerFPv(u8 *self) {
     f32 flo;
     f32 fhi;
     if (*(void **)((s8 *)self + 0xF0) != NULL) {
-        speed = get_speed__10TObjPlayerFPv(*(void **)((s8 *)self + 0xF0));
+        speed = get_speed__10TObjPlayerFv(*(void **)((s8 *)self + 0xF0));
         flag = is_flag_b0_4__10TObjPlayerFPv(*(void **)((s8 *)self + 0xF0));
         ok = 1;
-        if (test_action_mask__10TObjPlayerFPvi(*(void **)((s8 *)self + 0xF0), 0x20) != 0) {
+        if (test_action_mask__10TObjPlayerFl(*(void **)((s8 *)self + 0xF0), 0x20) != 0) {
             flo = lbl_805DAEA8;
             lo = 0;
             fhi = lbl_805DAEAC;
             hi = 0x4000;
-        } else if (test_action_mask__10TObjPlayerFPvi(*(void **)((s8 *)self + 0xF0), 0x40) != 0) {
+        } else if (test_action_mask__10TObjPlayerFl(*(void **)((s8 *)self + 0xF0), 0x40) != 0) {
             flo = lbl_805DAEB0;
             lo = 0x4000;
             fhi = lbl_805DAEB4;
             hi = -0x4000;
-        } else if (test_action_mask__10TObjPlayerFPvi(*(void **)((s8 *)self + 0xF0), 0x80) != 0) {
+        } else if (test_action_mask__10TObjPlayerFl(*(void **)((s8 *)self + 0xF0), 0x80) != 0) {
             flo = lbl_805DAEB8;
             lo = -0x4000;
             fhi = lbl_805DAEBC;

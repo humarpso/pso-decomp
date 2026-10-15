@@ -31,6 +31,12 @@ struct TODoorAncient09
     u32 m_dc;
     u32 m_e0;
     u32 m_e4;
+    void play_door_sound();
+    void draw_model();
+    void render();
+    static void *create(void *arg0);
+    static void free_rocks();
+    static void load_resources();
 };
 
 #endif

@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TTecJelin.h"
 struct Stack_802384E0 {
     s32 sp8;
     f32 spC;
@@ -146,26 +147,24 @@ void TTecJelin__vt4(u8 *self, u8 *target);
 s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 apply_technique_to_area_targets(void *);
-s32 is_parents_unqueued__9TTecLukerFUi(u32);
+s32 is_parents_unqueued__9TTecLukerFUl(u32);
 void run_task__9TTecJelinFv(struct Self_802336F0 *self);
 void construct_area_technique_base(void *);
-s32 construct_target_cursor_records__10TObjPlayerFi(void *);
+s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 extern s32 tec_jelin_class_name_ptr;
 extern s32 __vt__9TTecJelin[];
-void init_tech_params__9TTecJelinFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
 s32 play_sound_effect(int, void *, int, int);
-s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 obj_getField1c(void *);
 Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
 s32 obj_getField1c(void *);
-s32 construct_target_cursor_records__10TObjPlayerFi(void *);
-s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 construct_target_cursor_records__10TObjPlayerFv(void *);
+s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 void copy_technique_target_list(void *, void *);
 void init_technique_effect_base(void *, void *, void *, void *);
-void init_tech_params__9TTecJelinFPv(u8 *arg0);
 extern s32 __vt__9TTecJelin[];
 extern s32 tec_jelin_class_name_ptr;
 Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *_w3, void *_w4);
@@ -174,10 +173,7 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
 extern "C" {
 
 void *__dt__9TTecJelinFv(void *arg0, s16 arg1);
-void create__9TTecJelinFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void init_tech_params__9TTecJelinFPv(u8 *arg0);
-void render__9TTecJelinFv(void);
-s32 copy_params__8TTecAntiFPvPv(void *, s32);
+s32 copy_params__8TTecAntiFPUc(void *, s32);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
@@ -185,10 +181,11 @@ void destroy_technique_base__9TTecLukerFPvs(void *, int);
 
 extern const f64 lbl_8044D658;
 
-void init_tech_params__9TTecJelinFPv(u8 *arg0) {
+void TTecJelin::init_tech_params() {
+    u8 *arg0 = (u8 *)this;
     s32 res;
     res = calc_technique_parameters(0xB, *(s16 *)((s8 *)arg0 + 0x78), 0xFFFF);
-    copy_params__8TTecAntiFPvPv(arg0 + 0x88, res);
+    copy_params__8TTecAntiFPUc(arg0 + 0x88, res);
     *(f32 *)((s8 *)arg0 + 0x88) = (f32) (*(s16 *)((s8 *)arg0 + 0xAC) * *(s16 *)((s8 *)arg0 + 0x78));
 }
 
@@ -206,14 +203,14 @@ typedef struct RecoveredGlobal_80238D10_lbl_804CC55C RecoveredGlobal_80238D10_lb
 typedef char RecoveredGlobal_80238D10_lbl_804CC510_size[((sizeof(RecoveredGlobal_80238D10_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80238D10_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
 
-void create__9TTecJelinFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TTecJelin::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x14C);
     if (obj != 0U) {
         construct__9TTecJelinFPviiii((Jelin_80233958 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
-void render__9TTecJelinFv(void) {  }
+void TTecJelin::render() {  }
 
 extern s32 __vt__9TTecJelin[];
 
@@ -228,7 +225,7 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
     if (self->flag != 0) {
         for (i = 0; i < self->count; i++) {
             id = find_entity_by_id(self->entries[i].id);
-            if (is_parents_unqueued__9TTecLukerFUi(id) != 0) {
+            if (is_parents_unqueued__9TTecLukerFUl(id) != 0) {
                 ((VObj_18_4560ce *)(self))->m4(id);
             }
         }
@@ -253,11 +250,11 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
     s32 r;
     init_technique_effect_base(self, _w1, _w2, _w4);
     self->vt = __vt__9TTecJelin;
-    construct_target_cursor_records__10TObjPlayerFi(self->sub);
+    construct_target_cursor_records__10TObjPlayerFv(self->sub);
     self->f0 = tec_jelin_class_name_ptr;
     self->fec = 1;
     copy_technique_target_list(self->sub, _w3);
-    init_tech_params__9TTecJelinFPv((u8 *)self);
+    ((TTecJelin *)self)->init_tech_params();
     VecCopy__FP3VecPC3Vec((Vec_80233958 *)&self->pos, (Vec_80233958 *)_w2);
     if (self->holder != 0) {
         self->holder->eff->scale = self->range;
@@ -267,7 +264,7 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
     case 1:
         r = play_sound_effect(0x4002A315, &self->pos, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, 0x100, 0);
         }
         break;
     case 2:
@@ -278,7 +275,7 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
     case 5:
         r = play_sound_effect(0x4002A315, &self->pos, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, -0x100, 0);
         }
         break;
     }
@@ -292,10 +289,10 @@ Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 
     s32 r;
     construct_area_technique_base(self);
     self->vt = ((s32 *)&__vt__9TTecJelin);
-    construct_target_cursor_records__10TObjPlayerFi(self->sub);
+    construct_target_cursor_records__10TObjPlayerFv(self->sub);
     self->f0 = tec_jelin_class_name_ptr;
     self->fec = 0;
-    init_tech_params__9TTecJelinFPv((u8 *)self);
+    ((TTecJelin *)self)->init_tech_params();
     VecCopy__FP3VecPC3Vec(&self->pos, &self->src_pos);
     if (self->holder != 0) {
         self->holder->eff->scale = self->range;
@@ -305,7 +302,7 @@ Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 
     case 1:
         r = play_sound_effect(0x4002A315, &self->pos, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, 0x100, 0);
         }
         break;
     case 2:
@@ -316,7 +313,7 @@ Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 
     case 5:
         r = play_sound_effect(0x4002A315, &self->pos, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, -0x100, 0);
         }
         break;
     }

@@ -58,7 +58,7 @@ Obj_801A1888 *get_player_by_client_id(s32);
 f32 horizontal_distance_squared(f32 *a, f32 *b);
 s32 is_player_in_range__10TObjRoomIdFPvUsf(Obj_801A1888 *self, u16 id, f32 range);
 s32 check_demo_mode__10TObjPlayerFv();
-void draw_debug_line__10TObjRoomIdFUiiii(void *, int, int, void *);
+void draw_debug_line__10TObjRoomIdFUllll(void *, int, int, void *);
 void TObjMapWarp__sub_80141CB0(Vec_801A18EC *, Vec_801A18EC *, u32, u32);
 void fn_80141CBC(Vec_801A18EC *, Color_801A18EC *, f32);
 void TObjRoomId__sub_80141CF4(Vec_801A18EC *, Color_801A18EC *, f32);
@@ -89,7 +89,7 @@ u8 is_current_room__10TObjRoomIdFPv(void *arg0);
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1);
 s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 void TLobby__sub_801A1FD8(void);
-u16 alloc_actor_ids__6TLobbyFi(s32);
+u16 alloc_actor_ids__6TLobbyFl(s32);
 u16 TLobby__sub_801A20C8(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -97,8 +97,8 @@ void destroy_particle__13TParticleCtrlFPvs(void *, int);
 u16 fn_801A210C(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 is_split_screen();
-void set_state__9TTecLukerFPvi(void* p, s32 v);
-s32 set_state_flags__10TObjPlayerFPvUi(void *, s32);
+void set_state__9TTecLukerFl(void* p, s32 v);
+s32 set_state_flags__10TObjPlayerFUl(void *, s32);
 
 extern s32 __vt__10TObjRoomId[];
 
@@ -124,10 +124,10 @@ void render__10TObjRoomIdFv(RoomId_801A18EC *self) {
         end.z = lbl_805DC08C * self->dir.z + self->pos.z;
         TObjMapWarp__sub_80141CB0(&self->pos, &end, 0xFFFF0000, 0xFFFF0000);
         TObjRoomId__sub_80141CF4(&end, &c2, lbl_805DC088);
-        draw_debug_line__10TObjRoomIdFUiiii(self, 0x13, 0x1C, lbl_804468B8);
-        draw_debug_line__10TObjRoomIdFUiiii(self, 0x13, 0x1D, lbl_804468C4);
-        draw_debug_line__10TObjRoomIdFUiiii(self, 0x13, 0x1E, lbl_804468D0);
-        draw_debug_line__10TObjRoomIdFUiiii(self, 0x13, 0x22, lbl_804468DC);
+        draw_debug_line__10TObjRoomIdFUllll(self, 0x13, 0x1C, lbl_804468B8);
+        draw_debug_line__10TObjRoomIdFUllll(self, 0x13, 0x1D, lbl_804468C4);
+        draw_debug_line__10TObjRoomIdFUllll(self, 0x13, 0x1E, lbl_804468D0);
+        draw_debug_line__10TObjRoomIdFUllll(self, 0x13, 0x22, lbl_804468DC);
     }
 }
 #pragma pop
@@ -231,7 +231,7 @@ void *create__10TObjRoomIdFPv(void *arg0) {
 }
 
 void set_player_room_control_flag(void *arg0) {
-    set_state_flags__10TObjPlayerFPvUi(arg0, 0x02000000);
+    set_state_flags__10TObjPlayerFUl(arg0, 0x02000000);
 }
 
 extern s32 local_client_id;

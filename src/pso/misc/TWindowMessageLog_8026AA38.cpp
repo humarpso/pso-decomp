@@ -20,25 +20,25 @@ s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_window_scrollbar(int, int, void *);
 void render__17TWindowMessageLogFv(u8 *arg0);
-int initialize_subwindow__9TWindowDDFPv(void *);
+int initialize_subwindow__9TWindowDDFv(void *);
 void update_window_entry_list(void *, void *);
 void update_scroll__14TWindowMessageFPv(void *);
 void update_fade_offset__17TWindowMessageLogFPv(void *);
 void update_scroll_animation__17TWindowMessageLogFPv(void *);
-void increment_counter__20TWindowSubStatusDispFPv(void *);
+void increment_counter__20TWindowSubStatusDispFv(void *);
 extern const f32 lbl_805DD254;
 void run_task__17TWindowMessageLogFv(u8 *arg0);
 u8 * __dt__14TWindowMessageFv(void *, s16);
-s32 destroy_allocation__20TWindowSubStatusDispFis(s32, s16);
+s32 destroy_allocation__20TWindowSubStatusDispFls(s32, s16);
 s32 __dl__7TObjectFPv(void *);
 s32 TWindowCtrl__sub_8026AD60();
 extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessageLog;
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1);
-s32 alloc__23TAdSinglePlyChrSelectGCFPv(int, f32, f32);
+s32 alloc__23TAdSinglePlyChrSelectGCFv(int, f32, f32);
 s32 TWindowMessage__ct(void *, void *, int, void *);
 s32 load_chat_history__17TWindowMessageLogFPv(void *);
 s32 TWindowCtrl__sub_8026AD78(void *);
-s32 reset_selection__20TWindowSubStatusDispFPv(int, void *);
+s32 reset_selection__20TWindowSubStatusDispFv(int, void *);
 extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessageLog;
 extern s32 lbl_805D3990;
 extern const f32 lbl_805DD240;
@@ -60,18 +60,18 @@ void run_task__17TWindowMessageLogFv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
     if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD254) {
-        increment_counter__20TWindowSubStatusDispFPv(*(u8 **)((s8 *)arg0 + 0x90));
+        increment_counter__20TWindowSubStatusDispFv(*(u8 **)((s8 *)arg0 + 0x90));
     }
     update_scroll_animation__17TWindowMessageLogFPv(arg0);
     update_scroll__14TWindowMessageFPv(arg0);
-    initialize_subwindow__9TWindowDDFPv(arg0);
+    initialize_subwindow__9TWindowDDFv(arg0);
     update_fade_offset__17TWindowMessageLogFPv(arg0);
     update_window_entry_list(arg0, arg0 + 0x24);
 }
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TWindowMessageLog.value;
-        destroy_allocation__20TWindowSubStatusDispFis(*(s32 *)((s8 *)arg0 + 0x90), 1);
+        destroy_allocation__20TWindowSubStatusDispFls(*(s32 *)((s8 *)arg0 + 0x90), 1);
         TWindowCtrl__sub_8026AD60();
         __dt__14TWindowMessageFv(arg0, 0);
         if (arg1 > 0) {
@@ -97,10 +97,10 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_f1 = temp_f2 - lbl_805DD258;
     stack.spC = lbl_805DD240;
     stack.sp8 = temp_f1;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0xC), (f32) (temp_f1), (f32) (temp_f2));
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((int) (0xC), (f32) (temp_f1), (f32) (temp_f2));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = reset_selection__20TWindowSubStatusDispFPv((int) (temp_r3), (void *) (&stack.sp8));
+        var_r0 = reset_selection__20TWindowSubStatusDispFv((int) (temp_r3), (void *) (&stack.sp8));
     }
     *(s32 *)((s8 *)arg0 + 0x90) = var_r0;
     *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 0x80);

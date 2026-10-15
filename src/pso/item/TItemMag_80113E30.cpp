@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemMag.h"
 
 struct Obj_80113EDC { u8 pad[0x44]; u8 arr[1]; };
 
@@ -12,7 +13,6 @@ struct Mag_801143E8
 };
 
 extern "C" {
-void copy_record__8TItemMagFPvPv(u8 *arg0, u8 *arg1);
 u8 obj_isState7_324(u8 *arg0);
 s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146A4(void *);
@@ -30,11 +30,9 @@ void TItemMag__sub_80113EDC(Obj_80113EDC *self, s16 i, u8 v);
 extern const u8 lbl_805DABC4[3];
 extern const u8 lbl_805DABC0[2];
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
-void add_photon_blast__8TItemMagFPvUc(MagData_80113F64 *data, u8 blast);
 void *memset(void *, s32, u32);
 extern const u8 lbl_805DABC4[3];
 extern const u8 lbl_805DABC0[2];
-s32 get_photon_blast_at_slot__8TItemMagFPvi(Mag_801143E8 *mag, s32 slot);
 }
 
 extern "C" {
@@ -42,40 +40,27 @@ extern "C" {
 void TItemMag__sub_80113E3C(void* p);
 u8 TItemMag__sub_80113E74(void* p);
 f32 TItemMag__sub_80113EEC(void* p);
-void add_clamped_stat__8TItemMagFPvi(void *arg0, s32 arg1);
-void add_stat_clamped__8TItemMagFPvi(s16 *arg0, s32 arg1);
-int check_state_flag_1__8TItemMagFPv(void* p);
-void clear_feed_flags__8TItemMagFPvUi(void* p, u32 v);
-s16 get_item_type__8TItemMagFPv(void* p);
-s32 get_mag_id__8TItemMagFPv(void* p);
-f32 get_stat_f32__8TItemMagFPv(void* p);
-int get_status_flag__8TItemMagFPv(void* p);
-s32 get_sub_value__8TItemMagFi(s32 arg0);
-s16 get_sync__8TItemMagFPv(void* p);
-void init_feed_timer__8TItemMagFPv(void *arg0);
-int is_active__8TItemMagFPv(void* p);
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
-void set_flags__8TItemMagFPvUi(void* p, u32 v);
-int test_flags__8TItemMagFPvUi(void* p, u32 m);
-int get_mag_mind_level__9TItemDataFPv(void*);
+int get_mag_mind_level__9TItemDataFv(void*);
 int test_flags_any(void*, int);
 s16 TObjPlayer__sub_80113D90(void* p);
-int get_level__9TItemDataFPv(void*);
-s16 get_mag_data__10TObjPlayerFPv(void* p);
+int get_level__9TItemDataFv(void*);
+s16 get_mag_data__10TObjPlayerFv(void* p);
 int get_mag_item_data(void* p);
 int get_mag_item_percent(void* p);
 int get_mag_item_stat_percent(void* p);
 int get_mag_level(void* p);
-int get_percent__9TItemDataFPv(void*);
-int get_stat_percent__9TItemDataFPv(void*);
+int get_percent__9TItemDataFv(void*);
+int get_stat_percent__9TItemDataFv(void*);
 int is_growth_inactive__11TItemMagSubFv(void* p);
 void scale_owner_height__11TItemMagSubFf(void* p, f32 v);
 int test_flags__11TItemMagSubFUl(void* p, u32 m);
 
-int get_status_flag__8TItemMagFPv(void* p) { return *(u32*)((char*)p + 0x18c) & 0x10; }
+int TItemMag::get_status_flag() { return *(u32*)((char*)this + 0x18c) & 0x10; }
 void TItemMag__sub_80113E3C(void* p) { *(s8*)((char*)p + 0x0) = -32; }
 
-void copy_record__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
+void TItemMag::copy_record(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
     *(u8 *)((s8 *)arg0 + 0) = (u8) *(u8 *)((s8 *)arg1 + 0);
     *(u8 *)((s8 *)arg0 + 1) = (u8) *(u8 *)((s8 *)arg1 + 1);
     *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
@@ -84,10 +69,11 @@ void copy_record__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
 }
 
 u8 TItemMag__sub_80113E74(void* p) { return *(u8*)((char*)p + 0xe); }
-s16 get_item_type__8TItemMagFPv(void* p) { return *(s16*)((char*)p + 0x0); }
-s16 get_sync__8TItemMagFPv(void* p) { return *(s16*)((char*)p + 0x2); }
-int is_active__8TItemMagFPv(void* p) { return (*(u32*)((char*)p + 0x334) >> 9) & 0x1; }
-s32 get_sub_value__8TItemMagFi(s32 arg0) {
+s16 TItemMag::get_item_type() { return *(s16*)((char*)this + 0x0); }
+s16 TItemMag::get_sync() { return *(s16*)((char*)this + 0x2); }
+int TItemMag::is_active() { return (*(u32*)((char*)this + 0x334) >> 9) & 0x1; }
+s32 TItemMag::get_sub_value() {
+    s32 arg0 = (s32)this;
     return (s32) TItemMag__sub_80113EEC((void*)((void*)(arg0 + 0x4AC)));
 }
 
@@ -103,18 +89,19 @@ f32 TItemMag__sub_80113EEC(void* p) { return *(f32*)((char*)p + 0x3c); }
 
 extern f32 TItemMag__data_805DABA4;
 
-void init_feed_timer__8TItemMagFPv(void *arg0) {
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TItemMag__data_805DABA4;
+void TItemMag::init_feed_timer() {
+    *(f32 *)((s8 *)this + 0x3C) = (f32) TItemMag__data_805DABA4;
 }
 
-s32 get_mag_id__8TItemMagFPv(void* p) { return *(s32*)((char*)p + 0x0); }
-f32 get_stat_f32__8TItemMagFPv(void* p) { return *(f32*)((char*)p + 0x8); }
-int check_state_flag_1__8TItemMagFPv(void* p) { return test_flags_any((char*)p + 0x4, 1); }
-void clear_feed_flags__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x4) &= ~v; }
-void set_flags__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x4) |= v; }
-int test_flags__8TItemMagFPvUi(void* p, u32 m) { return *(u32*)((char*)p + 0x4) & m; }
+s32 TItemMag::get_mag_id() { return *(s32*)((char*)this + 0x0); }
+f32 TItemMag::get_stat_f32() { return *(f32*)((char*)this + 0x8); }
+int TItemMag::check_state_flag_1() { return test_flags_any((char*)this + 0x4, 1); }
+void TItemMag::clear_feed_flags(u32 v) { *(u32*)((char*)this + 0x4) &= ~v; }
+void TItemMag::set_flags(u32 v) { *(u32*)((char*)this + 0x4) |= v; }
+int TItemMag::test_flags(u32 m) { return *(u32*)((char*)this + 0x4) & m; }
 
-void add_photon_blast__8TItemMagFPvUc(MagData_80113F64 *data, u8 blast) {
+void TItemMag::add_photon_blast(u8 blast) {
+    MagData_80113F64 *data = (MagData_80113F64 *)this;
     u8 ord;
     if (blast >= 6) {
         return;
@@ -143,17 +130,17 @@ void add_photon_blast__8TItemMagFPvUc(MagData_80113F64 *data, u8 blast) {
     }
 }
 
-void add_clamped_stat__8TItemMagFPvi(void *arg0, s32 arg1) {
-    *(s16 *)((s8 *)arg0 + 2) = (s16) (*(s16 *)((s8 *)arg0 + 2) + arg1);
-    if (*(s16 *)((s8 *)arg0 + 2) < 0) {
-        *(s16 *)((s8 *)arg0 + 2) = 0;
+void TItemMag::add_clamped_stat(s32 arg1) {
+    *(s16 *)((s8 *)this + 2) = (s16) (*(s16 *)((s8 *)this + 2) + arg1);
+    if (*(s16 *)((s8 *)this + 2) < 0) {
+        *(s16 *)((s8 *)this + 2) = 0;
     }
-    if (*(s16 *)((s8 *)arg0 + 2) > 0x78) {
-        *(s16 *)((s8 *)arg0 + 2) = 0x78;
+    if (*(s16 *)((s8 *)this + 2) > 0x78) {
+        *(s16 *)((s8 *)this + 2) = 0x78;
     }
 }
 
-void add_stat_clamped__8TItemMagFPvi(s16 *arg0, s32 arg1) {
+void TItemMag::add_stat_clamped(s16 *arg0, s32 arg1) {
     *arg0 += arg1;
     if (*arg0 < 0) {
         *arg0 = 0;
@@ -275,7 +262,7 @@ s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1) {
     if (arg1 < 6U) {
         var_r30 = 0;
 loop_2:
-        if ((s32) arg1 == get_photon_blast_at_slot__8TItemMagFPvi((Mag_801143E8 *)(arg0), (s32)(var_r30))) {
+        if ((s32) arg1 == ((TItemMag *)arg0)->get_photon_blast_at_slot((s32)(var_r30))) {
             return 1;
         }
         var_r30 += 1;
@@ -288,7 +275,8 @@ block_5:
     return 0;
 }
 typedef struct Mag_801143E8 Mag_801143E8;
-s32 get_photon_blast_at_slot__8TItemMagFPvi(Mag_801143E8 *mag, s32 slot) {
+s32 TItemMag::get_photon_blast_at_slot(s32 slot) {
+    Mag_801143E8 *mag = (Mag_801143E8 *)this;
   int new_var;
   u8 used[6];
   s32 i;

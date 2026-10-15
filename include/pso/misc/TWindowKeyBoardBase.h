@@ -22,6 +22,9 @@ struct TWindowKeyBoardBase
     u32 m_ac;
     u32 m_b0;
     u32 m_b4;
+    void render();
+    void run_task();
+    s32 *init_text_buffer_holder();
 };
 
 #endif

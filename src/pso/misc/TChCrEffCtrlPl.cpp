@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/TChCrEffCtrlPl.h"
 
 extern "C" {
 
-s32 get_clamped_player_index__14TChCrEffCtrlPlFv(void);
 int TChCrEffCtrlPl__sub_80298F6C(void* p);
 int TAdMultiPlyChrSelectGC__sub_80299454(void*);
 s32 is_selection_confirmed__22TAdMultiPlyChrSelectGCFv();
 
-s32 get_clamped_player_index__14TChCrEffCtrlPlFv(void) {
+s32 TChCrEffCtrlPl::get_clamped_player_index() {
     s32 var_r3;
 
     var_r3 = is_selection_confirmed__22TAdMultiPlyChrSelectGCFv();

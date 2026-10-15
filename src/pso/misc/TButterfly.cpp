@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TButterfly.h"
 
 struct Base_8017E978 { char pad[0x18]; };
 struct VObj_8017E978 : Base_8017E978 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
@@ -33,25 +34,23 @@ void rotate_matrix_y(void *, s32);
 s32 push_matrix_from(void *);
 s32 pop_matrices(s32);
 extern u8 identity_matrix[];
-void run_task__10TButterflyFv(Butterfly_8017EA74 *self);
 }
 
 extern "C" {
 
 void *__dt__10TButterflyFv(void *arg0, s16 arg1);
-void init_motion__10TButterflyFPv(u8 *arg0);
-void render__10TButterflyFv(void *arg0);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-s32 draw_model__10TButterflyFPv(void *);
+s32 draw_model__10TButterflyFv(void *);
 s32 rand();
-s32 set_global_param__8TObjFishFi();
+s32 set_global_param__8TObjFishFl();
 
 extern s32 lbl_80443970;
 
-void init_motion__10TButterflyFPv(u8 *arg0) {
+void TButterfly::init_motion() {
+    u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xA0) = (f32) (0.0f);
@@ -66,11 +65,11 @@ void init_motion__10TButterflyFPv(u8 *arg0) {
 
 extern s32 butterfly_bml_resource;
 
-void render__10TButterflyFv(void *arg0) {
-    if (((VObj_8017E978*)arg0)->m8((4e+02f), (2e+01f)) != 0) {
+void TButterfly::render() {
+    if (((VObj_8017E978*)this)->m8((4e+02f), (2e+01f)) != 0) {
         TObjFish__sub_8001EDB0(butterfly_bml_resource, 0);
-        set_global_param__8TObjFishFi();
-        draw_model__10TButterflyFPv(arg0);
+        set_global_param__8TObjFishFl();
+        draw_model__10TButterflyFv(this);
     }
 }
 
@@ -78,7 +77,8 @@ extern s32 __vt__10TButterfly[];
 
 #pragma push
 #pragma fp_contract on
-void run_task__10TButterflyFv(Butterfly_8017EA74 *self) {
+void TButterfly::run_task() {
+    Butterfly_8017EA74 *self = (Butterfly_8017EA74 *)this;
     f32 target;
     f32 lift;
     target = 3.2f * sin_table_lookup(self->angle) + self->baseY;

@@ -12,6 +12,8 @@ struct TTecZonde
     u8 _padCA[0x66];
     u32 m_130;
     u16 m_134;
+    static void render();
+    void run_task();
 };
 
 #endif

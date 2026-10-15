@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void apply_frame_camera_shake__10TObjPlayerFPv(void *arg0);
-u8 get_slot_count__14TItemProShieldFPv(void *);
+u8 get_slot_count__14TItemProShieldFv(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
 s32 get_player_list__10TObjPlayerFv();
@@ -11,26 +11,26 @@ s32 translate_matrix(s32, f32, f32, f32);
 
 extern const f32 lbl_805DAF58;
 
-void apply_frame_camera_shake__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::apply_frame_camera_shake() {
     s32 temp_r31;
     s32 var_r30;
 
     temp_r31 = get_player_list__10TObjPlayerFv();
-    if (get_slot_count__14TItemProShieldFPv(arg0) != 6) {
-        if (temp_r31 == (s32) *(s32 *)((s8 *)arg0 + 0x21C)) {
-            translate_matrix(0, lbl_805DAF58, *(f32 *)((s8 *)arg0 + 0x224), lbl_805DAF58);
+    if (get_slot_count__14TItemProShieldFv(this) != 6) {
+        if (temp_r31 == (s32) *(s32 *)((s8 *)this + 0x21C)) {
+            translate_matrix(0, lbl_805DAF58, *(f32 *)((s8 *)this + 0x224), lbl_805DAF58);
         }
-        var_r30 = *(s32 *)((s8 *)arg0 + 0x220);
+        var_r30 = *(s32 *)((s8 *)this + 0x220);
     } else {
-        if (temp_r31 == (s32) *(s32 *)((s8 *)arg0 + 0x21C)) {
-            rotate_matrix_x(0, -*(s32 *)((s8 *)arg0 + 0x220));
+        if (temp_r31 == (s32) *(s32 *)((s8 *)this + 0x21C)) {
+            rotate_matrix_x(0, -*(s32 *)((s8 *)this + 0x220));
         }
-        var_r30 = (s32) (*(s32 *)((s8 *)arg0 + 0x220) * 2) / 3;
+        var_r30 = (s32) (*(s32 *)((s8 *)this + 0x220) * 2) / 3;
     }
-    if ((temp_r31 == (s32) *(s32 *)((s8 *)arg0 + 0x20C)) || (temp_r31 == (s32) *(s32 *)((s8 *)arg0 + 0x214))) {
+    if ((temp_r31 == (s32) *(s32 *)((s8 *)this + 0x20C)) || (temp_r31 == (s32) *(s32 *)((s8 *)this + 0x214))) {
         rotate_matrix_z(0, var_r30);
     }
-    if ((temp_r31 == (s32) *(s32 *)((s8 *)arg0 + 0x210)) || (temp_r31 == (s32) *(s32 *)((s8 *)arg0 + 0x218))) {
+    if ((temp_r31 == (s32) *(s32 *)((s8 *)this + 0x210)) || (temp_r31 == (s32) *(s32 *)((s8 *)this + 0x218))) {
         rotate_matrix_z(0, -var_r30);
     }
 }

@@ -29,7 +29,7 @@ s32 play_door_sound(void *);
 u8 is_current_floor_switch_set(int);
 void update_door_switch_state(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
 s32 minimap_render_gate(void *, u32, u16, s32, s32);
 extern s32 switch_doors_force_closed;
 void run_switch_door_task(u8 *arg0);
@@ -73,7 +73,7 @@ void run_switch_door_task(u8 *arg0) {
     if ((s32) switch_doors_force_closed != 0) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 0;
         *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFFFFFFE);
-        clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (8));
+        clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (8));
     } else {
         ((VObj_18 *)(arg0))->m12();
     }

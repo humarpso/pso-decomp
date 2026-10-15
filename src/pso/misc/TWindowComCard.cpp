@@ -11,7 +11,7 @@ struct RecoveredGlobal_80249BA8___vt__14TWindowComCard {
 };
 
 extern "C" {
-s32 draw_default_entry__9TWindowDDFi();
+s32 draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 extern s32 __vt__14TWindowMessage[];
@@ -20,7 +20,7 @@ extern u8 *text_language_group_table;
 s32 get_class_name_text(s32 arg0);
 s32 TWindowSubComCard__sub_8007B070(s32);
 s32 get_keyboard_mode__17TWindowSubComCardFv(void);
-s32 clear_and_init__17TWindowSubComCardFPvPv(int, void *);
+s32 clear_and_init__17TWindowSubComCardFPv(int, void *);
 void *__nw__7TObjectFUl(int);
 extern s32 local_client_id;
 s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0);
@@ -46,10 +46,10 @@ void *get_card_entry__17TWindowSubComCardFi(void *);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
+void destroy_window_base__9TWindowDDFs(void *, int);
 s32 update_com_card_display(s32, s32);
-int initialize_subwindow__9TWindowDDFPv(void*);
-int update_fade__17TWindowSubComCardFPv(void*);
+int initialize_subwindow__9TWindowDDFv(void*);
+int update_fade__17TWindowSubComCardFv(void*);
 
 extern "C" u8 lbl_8044EB28[];
 extern "C" u8 lbl_8044EB30[];
@@ -174,7 +174,7 @@ s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0) {
         return 0;
     }
     if (TWindowSubComCard__sub_8007B070(temp_r3) != 0) {
-        clear_and_init__17TWindowSubComCardFPvPv((int) (temp_r3), (void *) (local_client_id));
+        clear_and_init__17TWindowSubComCardFPv((int) (temp_r3), (void *) (local_client_id));
     }
     temp_r3_2 = ((s32)__nw__7TObjectFUl((int) (0x60)));
     var_r0 = temp_r3_2;
@@ -186,17 +186,17 @@ s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0) {
 
 void render__14TWindowComCardFv(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = draw_default_entry__9TWindowDDFi();
+    temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void run_task__14TWindowComCardFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
+void run_task__14TWindowComCardFv(void* p) { initialize_subwindow__9TWindowDDFv(p); update_fade__17TWindowSubComCardFv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
 void *__dt__14TWindowComCardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowComCard;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -289,13 +289,13 @@ s32 get_status_effect_icon_index(u32 arg0) {
 extern "C" {
 
 void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1);
-s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 
 void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1) {
     s32 temp;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x70) != arg1) {
         *(s32 *)((s8 *)arg0 + 0x70) = arg1;
-        temp = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+        temp = get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
         ((s32 (*)(s32, s32))set_help_mode__14TWindowComCardFPvi)(temp, *(s32 *)((s8 *)arg0 + 0x70));
     }
 }
@@ -324,6 +324,7 @@ void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1) {
 }
 
 #include "types.h"
+#include "pso/misc/TWindowTradeRequest.h"
 
 extern "C" {
 typedef struct Parent_80249ED8 {
@@ -357,7 +358,6 @@ void TWindowComCard__sub_80249E24(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 extern struct Obj054_80249DE4 *TWindowCtrl__active_window;
 extern u16 lbl_805D63FC;
-void close_request_window__19TWindowTradeRequestFv(void);
 }
 
 extern "C" {
@@ -368,12 +368,12 @@ void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1);
 void request_active_window_close(void);
 void update_status_disp__14TWindowComCardFi(s32 arg0);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
-s32 draw_default_entry__9TWindowDDFi();
+void destroy_window_base__9TWindowDDFs(void *, int);
+s32 draw_default_entry__9TWindowDDFl();
 s32 set_flag1e_bit8__11TWindowCtrlFPv(void*);
 
 void update_status_disp__14TWindowComCardFi(s32 arg0) {
-    s8 *tmp = (s8 *)draw_default_entry__9TWindowDDFi();
+    s8 *tmp = (s8 *)draw_default_entry__9TWindowDDFl();
     ((s32 (*)(s32, s32, s32))draw_visible_window_entries)(arg0, arg0 + 0x24, (s32)tmp);
 }
 
@@ -384,15 +384,15 @@ void TWindowComCard__sub_80249E24(u8 *arg0) {
     temp_f1 = *(f32 *)((s8 *)temp_r4 + 0x44);
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x68));
     *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg0 + 0x34);
-    ((s32 (*)(void *, int, f32))initialize_subwindow__9TWindowDDFPv)((void *)(arg0), (int) (temp_r4), (f32) (temp_f1));
-    ((s32 (*)(void *))update_fade__17TWindowSubComCardFPv)((void *) (arg0));
+    ((s32 (*)(void *, int, f32))initialize_subwindow__9TWindowDDFv)((void *)(arg0), (int) (temp_r4), (f32) (temp_f1));
+    ((s32 (*)(void *))update_fade__17TWindowSubComCardFv)((void *) (arg0));
     ((s32 (*)(void *, void *))update_window_entry_list)((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CE964;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -413,14 +413,14 @@ Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *par
     o->x = lbl_805DCBD0 * (f32)o->col + (o->parent->x + o->ofs.x);
     o->y = o->parent->y + o->ofs.y;
     save_position__17TWindowSubComCardFPv(o);
-    ((s32 (*)(s32, s32))set_help_mode__14TWindowComCardFPvi)((s32)((void * (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(o, 0), mode);
+    ((s32 (*)(s32, s32))set_help_mode__14TWindowComCardFPvi)((s32)((void * (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFi)(o, 0), mode);
     return o;
 }
 #pragma pop
 
 extern struct Obj054_80249DE4 *TWindowCtrl__active_window;
 
-void close_request_window__19TWindowTradeRequestFv(void) {
+void TWindowTradeRequest::close_request_window() {
     u8 *temp_r3;
     lbl_805D63FC &= 0xFFFFFFF7;
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPhotonLine.h"
 
 typedef struct Vec_801ACD14 { f32 x, y, z; } Vec_801ACD14;
 
@@ -51,7 +52,7 @@ struct Line_801ACB14 {
 extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 Vec_801ACD14 *VecCopy__FP3VecPC3Vec(Vec_801ACD14 *, const Vec_801ACD14 *);
-void reset_photon_effect__10TObjPlayerFPv(void *);
+void reset_photon_effect__10TObjPlayerFv(void *);
 void *find_entity_by_id(u16);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -76,7 +77,6 @@ void run_task__11TPhotonLineFv(Line_801ACB14 *self);
 extern "C" {
 
 void *__dt__11TPhotonLineFv(void *arg0, s16 arg1);
-void render__11TPhotonLineFv(void);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
@@ -84,7 +84,7 @@ int begin_effect_render__13TParticleCtrlFv(void);
 s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
 int end_effect_render__13TParticleCtrlFv(void);
 
-void render__11TPhotonLineFv(void) { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
+void TPhotonLine::render() { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
 
 extern s32 __vt__11TPhotonLine[];
 
@@ -155,7 +155,7 @@ Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *pa
     self->f350 = find_entity_by_id(arg3);
     init_collision_body_parts(self, lbl_804C37D8, 1);
     refresh_collision_body_centers(self);
-    reset_photon_effect__10TObjPlayerFPv(self);
+    reset_photon_effect__10TObjPlayerFv(self);
     for (i = 0; i < 10; i++) {
         self->f354[i] = 0xFFFF;
     }

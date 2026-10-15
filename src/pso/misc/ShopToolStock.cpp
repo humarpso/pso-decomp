@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct SRock_80224544_8022448C;
 
@@ -131,14 +132,14 @@ s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o);
 extern G_80225550 shop_weapon_stock_buffers;
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
 extern G_80225550 shop_weapon_stock_buffers;
-void clear_slot_field_f10__6TLobbyFii(s32 a, s32 b);
+void clear_slot_field_f10__6TLobbyFll(s32 a, s32 b);
 int get_short_mail_ctrl__6TLobbyFv(void);
 void *TLobby__sub_8022598C(int a0);
 s32 get_lobby_id__6TLobbyFPv(void* p);
 void *find_short_mail_by_id__6TLobbyFUi(u32 id);
 extern unsigned char lbl_80513F70[];
 extern int lobby_short_mail_entry_count;
-s32 move_words__6TLobbyFPvPvi(int, void *, void *);
+s32 move_words__6TLobbyFPUll(int, void *, void *);
 void remove_entry_at__6TLobbyFi(s32 idx);
 extern unsigned char lbl_80513F70[];
 extern s32 lbl_805D6270;
@@ -147,14 +148,14 @@ void clear_lobby_flag__6TLobbyFv(void);
 void clear_all_entries__6TLobbyFPv(void* _w0);
 s32 is_split_screen(void);
 s32 create_named_object(void *);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_alloc(s32);
 extern u8 lbl_8044C478[];
 extern s32 shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
 extern int shop_tool_stock_level;
 void load_tool_random_rel(void);
-s32 free_nodes_with_id__6TLobbyFUi(u32);
-s32 free__11TOBoss4RockFUi(u32);
+s32 free_nodes_with_id__6TLobbyFUl(u32);
+s32 mem_free(u32);
 extern G_80225550 shop_weapon_stock_buffers;
 extern u32 lobby_weapon_random_tables_ptr;
 void free_lobby_resources__6TLobbyFv(void);
@@ -171,17 +172,17 @@ extern Cnt_80224B7C shop_weapon_stock_counts[];
 extern G_80225550 shop_weapon_stock_buffers;
 s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
 s8 roll_weapon_special_channel15(s32);
-s32 pop_byte__6TLobbyFPv(void *);
+s32 pop_byte__6TLobbyFv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
-void reset_counter_64__6TLobbyFPv(void *);
+void reset_counter_64__6TLobbyFv(void *);
 s32 TLobby__sub_80224840(s32 arg0);
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
 void roll_shop_weapon_special(Obj_80224F7C *obj);
 s32 is_split_screen(void);
 s32 create_named_object(void *);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_alloc(s32);
 extern char lbl_8044C7C0[];
 extern char lbl_8044C7D8[];
 extern char lbl_8044C7F0[];
@@ -192,7 +193,7 @@ extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
 void load_weapon_random_tables(void);
 u8 get_entry_field16__9TItemDataFv(void *);
-s32 classify_level_bracket_narrow__6TLobbyFi(s32 arg0);
+s32 classify_level_bracket_narrow__6TLobbyFl(s32 arg0);
 s32 rand();
 extern s32 section_id_favored_grind_table[];
 extern s32 lbl_805D6238;
@@ -200,21 +201,21 @@ extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
 extern const f32 lbl_805DC738;
 void roll_shop_weapon_grind(Item_80225064 *it);
-s32 pop_byte__6TLobbyFPv(void *);
+s32 pop_byte__6TLobbyFv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
-void reset_counter_64__6TLobbyFPv(void *);
-s32 classify_level_bracket_wide__6TLobbyFi(s32 arg0);
+void reset_counter_64__6TLobbyFv(void *);
+s32 classify_level_bracket_wide__6TLobbyFl(s32 arg0);
 s32 rand();
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
 extern s32 shop_weapon_bonus_table[];
 void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
-s32 pop_byte__6TLobbyFPv(void *);
+s32 pop_byte__6TLobbyFv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
-void reset_counter_64__6TLobbyFPv(void *);
-s32 get_level_bracket__6TLobbyFi(s32 arg0);
+void reset_counter_64__6TLobbyFv(void *);
+s32 get_level_bracket__6TLobbyFl(s32 arg0);
 s32 rand();
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
@@ -225,16 +226,15 @@ void generate_shop_technique_pool(s32);
 void generate_shop_rare_tool_pool(s32);
 void generate_shop_common_tool_pool(s32);
 extern u32 lobby_tool_random_rel;
-void generate_shop_inventory__6TLobbyFi(s32 idx);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 void init__9TItemDataFv(void *);
-s32 pop_byte__6TLobbyFPv(void *);
+s32 pop_byte__6TLobbyFv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
-void reset_counter_64__6TLobbyFPv(void *);
+void reset_counter_64__6TLobbyFv(void *);
 void sort_shop_items(s32, s32, s32);
-s32 get_level_tier__6TLobbyFi(s32 arg0);
-s32 level_to_reward__6TLobbyFi(s32 arg0);
+s32 get_level_tier__6TLobbyFl(s32 arg0);
+s32 level_to_reward__6TLobbyFl(s32 arg0);
 s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
 void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
 void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
@@ -257,28 +257,26 @@ void TLobby__sub_80225C44(void* p);
 void TLobby__sub_80225C64(void* p);
 void TLobby__sub_80225C8C(void* p);
 void TLobby__sub_80225CB8(void);
-s32 classify_level_bracket_narrow__6TLobbyFi(s32 arg0);
-s32 classify_level_bracket_wide__6TLobbyFi(s32 arg0);
+s32 classify_level_bracket_narrow__6TLobbyFl(s32 arg0);
+s32 classify_level_bracket_wide__6TLobbyFl(s32 arg0);
 void clear_lobby_flag__6TLobbyFv(void);
-void free_all_rocks__6TLobbyFv(void);
 void* get_com_card_list__6TLobbyFPv(void* p);
-s32 get_level_bracket__6TLobbyFi(s32 arg0);
-s32 get_level_tier__6TLobbyFi(s32 arg0);
+s32 get_level_bracket__6TLobbyFl(s32 arg0);
+s32 get_level_tier__6TLobbyFl(s32 arg0);
 s32 get_lobby_id__6TLobbyFPv(void* p);
 int get_short_mail_ctrl__6TLobbyFv(void);
 int is_flag_set__6TLobbyFPv(void* p);
-s32 level_to_reward__6TLobbyFi(s32 arg0);
-void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1);
+s32 level_to_reward__6TLobbyFl(s32 arg0);
 void try_close__6TLobbyFPv(void* p);
-s32 free_nodes_with_id__6TLobbyFUi(u32);
+s32 free_nodes_with_id__6TLobbyFUl(u32);
 int TLobby__sub_80225A08(void*);
-s32 free__11TOBoss4RockFUi(u32);
+s32 mem_free(u32);
 
 u32 lobby_tool_random_rel;
 int shop_tool_stock_level;
 
     extern int shop_tool_stock_level;
-void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { shop_tool_stock_level = a1; generate_shop_inventory__6TLobbyFi((s32)(a0)); }
+void TLobby::set_6264_and_call_2244B0(int a0, int a1) { shop_tool_stock_level = a1; TLobby::generate_shop_inventory(a0); }
 
 extern s32 shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
@@ -287,7 +285,7 @@ s32 shop_tool_stock_counts[4];
 s32 lbl_80513F00[4];
 s32 shop_tool_flags[4];
 s32 shop_tool_stock_buffers[4];
-void generate_shop_inventory__6TLobbyFi(s32 idx) {
+void TLobby::generate_shop_inventory(s32 idx) {
     if (lobby_tool_random_rel != 0) {
         if (shop_tool_flags[idx] == 0) {
             shop_tool_flags[idx] = 1;
@@ -301,7 +299,7 @@ void generate_shop_inventory__6TLobbyFi(s32 idx) {
     }
 }
 
-void free_all_rocks__6TLobbyFv(void) {
+void TLobby::free_all_rocks() {
     s32 var_r28 = 3;
     s32 *var_r29 = shop_tool_stock_buffers;
     s32 var_r30 = 0;
@@ -309,14 +307,14 @@ void free_all_rocks__6TLobbyFv(void) {
     do {
         u32 v = (u32)var_r29[var_r31];
         if (v != 0U) {
-            free__11TOBoss4RockFUi(v);
+            mem_free(v);
             var_r29[var_r31] = (s32)var_r30;
         }
         var_r28 -= 1;
         var_r31 -= 1;
     } while (var_r28 >= 0);
     if ((u32) lobby_tool_random_rel != 0U) {
-        free_nodes_with_id__6TLobbyFUi(lobby_tool_random_rel);
+        free_nodes_with_id__6TLobbyFUl(lobby_tool_random_rel);
         lobby_tool_random_rel = var_r30;
     }
 }
@@ -329,10 +327,10 @@ void load_tool_random_rel(void) {
     }
     if (is_split_screen() == 1) {
         for (i = 0; i < 4; i++) {
-            ((s32 *)&shop_tool_stock_buffers)[i] = alloc_buffer__11TOBoss4RockFPv(0x168);
+            ((s32 *)&shop_tool_stock_buffers)[i] = mem_alloc(0x168);
         }
     } else {
-        ((s32 *)&shop_tool_stock_buffers)[0] = alloc_buffer__11TOBoss4RockFPv(0x168);
+        ((s32 *)&shop_tool_stock_buffers)[0] = mem_alloc(0x168);
     }
     (*(s32 *)&shop_tool_stock_level) = 0;
 }

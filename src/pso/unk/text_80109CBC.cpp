@@ -5,7 +5,7 @@ struct Eff_80109CBC { u8 pad[0x3C]; s32 f_3C; s32 f_40; };
 
 extern "C" {
 Eff_80109CBC *__ct__14TItemEffNeedleFv(void *, s32, void *, s32, s32);
-s32 get_entity_id__10TObjPlayerFPv(void *);
+s32 get_entity_id__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(u32);
 void spawn_target_needle(s32 a, Obj_80109CBC *p, s32 id, s32 c);
 }
@@ -21,7 +21,7 @@ void spawn_target_needle(s32 a, Obj_80109CBC *p, s32 id, s32 c) {
         }
         if (e != 0) {
             e->f_3C = p->f_188;
-            e->f_40 = get_entity_id__10TObjPlayerFPv(p);
+            e->f_40 = get_entity_id__10TObjPlayerFv(p);
         }
     }
 }

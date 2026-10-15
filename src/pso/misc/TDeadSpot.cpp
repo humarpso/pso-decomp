@@ -79,7 +79,7 @@ struct Mark_800D8314 {
 
 extern "C" {
 s32 calc_random_scaled__10TObjPlayerFv();
-s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 copy_pos__11TNowLoadingFPv(int, void *);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 f32 vec3_add_to(void *, void *);
@@ -90,8 +90,8 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804949F4[];
 u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
 s32 calc_random_scaled__10TObjPlayerFv();
-s32 adjust_to_ground__15TObjBoss2TunnelFiPv(void *, void *);
-s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 adjust_to_ground__15TObjBoss2TunnelFlPv(void *, void *);
+s32 copy_pos__11TNowLoadingFPv(int, void *);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 f32 vec3_add_to(void *, void *);
@@ -160,7 +160,7 @@ s32 draw_particle_strip(void *, s32, s32);
 s32 get_state_flag__9TMainTaskFv();
 s32 queue_destruction__7TObjectFv(void *);
 s32 reset_transform_state__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 lbl_804949D8[];
 
@@ -179,8 +179,8 @@ void place_particle_on_ground__9TDeadSpotFPv(u8 *arg0) {
     stack.sp8 = temp_f1;
     stack.sp10 = *(f32 *)((s8 *)arg0 + 0x28) * cos_table_lookup((int) (temp_r3));
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
-    adjust_to_ground__15TObjBoss2TunnelFiPv((void *) (&stack.sp8), (void *) (&stack.sp8));
-    copy_pos__11TNowLoadingFPvPv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) (&stack.sp8));
+    adjust_to_ground__15TObjBoss2TunnelFlPv((void *) (&stack.sp8), (void *) (&stack.sp8));
+    copy_pos__11TNowLoadingFPv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) (&stack.sp8));
 }
 #pragma pop
 
@@ -230,7 +230,7 @@ void TDeadSpot__sub_800D7E94(u8 *arg0) {
   stack.sp8 = temp_f1;
   stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x28))) * cos_table_lookup((int) temp_r3);
   vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
-  copy_pos__11TNowLoadingFPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x34))), (void *) (&stack.sp8));
+  copy_pos__11TNowLoadingFPv((int) (*((s32 *) (((s8 *) arg0) + 0x34))), (void *) (&stack.sp8));
 }
 
 void *TDeadSpot__sub_800D7F08(void *arg0, s16 arg1) {
@@ -332,7 +332,7 @@ void render__9TDeadSpotFv(u8 *arg0) {
         lbl_805D5660 = model_render_flags;
         reset_transform_state__10TObjPlayerFv();
         setup_alpha_test_render_state(0x8F);
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xB8));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xB8));
         set_texture_num(*(s32 *)((s8 *)arg0 + 0xBC));
         draw_particle_strip(arg0 + 0x1C, 4, 1);
         restore_saved_depth_alpha_state();

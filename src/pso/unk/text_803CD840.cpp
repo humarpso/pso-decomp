@@ -1,6 +1,7 @@
 #include "pso/system/MiddlewareInterruptLock.h"
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct Ent_803CE198 { s32 a; s32 b; u8 pad[8]; };
 
 struct Sub_803CE198 { u8 pad[0x214]; Ent_803CE198 e[1]; };
@@ -85,10 +86,9 @@ struct Obj_803CDB0C {
 };
 
 extern "C" {
-void get_entry_pair__6TLobbyFPviPvPv(Obj_803CE198 *self, s32 i, s32 *a, s32 *b);
 char *strncpy(char *, const char *, u32);
 void *memset(void *, s32, u32);
-void notify_error__6TLobbyFPv(const char *);
+void notify_error__6TLobbyFPCc(const char *);
 s32 TLobby__sub_803CCB98(void *, int, int);
 void close_adxf_handle__6TLobbyFPv(void *);
 void *adxf_open__6TLobbyFUii(const char *, s32);
@@ -109,7 +109,6 @@ void middleware_interrupt_lock_leave(void);
 void middleware_interrupt_lock_enter(void);
 void TLobby__sub_803D3130(Chunk_803CDB0C *, s32, Chunk_803CDB0C *, Chunk_803CDB0C *);
 void *memcpy(void *, const void *, u32);
-s32 demux_stream_chunks__6TLobbyFPv(Obj_803CDB0C *o);
 }
 
 extern "C" {
@@ -118,11 +117,11 @@ extern "C" {
 #pragma inline_depth(4)
 inline s32 check_803CD840(char *msg, s32 id, Ent_803CD840 *e) {
     if (id < 0 || id >= 0x100) {
-        notify_error__6TLobbyFPv(msg + 0x3E8);
+        notify_error__6TLobbyFPCc(msg + 0x3E8);
         return -3;
     }
     if (e == NULL) {
-        notify_error__6TLobbyFPv(msg + 0x420);
+        notify_error__6TLobbyFPCc(msg + 0x420);
         return -3;
     }
     return 0;
@@ -136,12 +135,12 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
         return r;
     }
     if (lobby_adxf_current_file_id >= 0) {
-        notify_error__6TLobbyFPv(msg + 0x56C);
+        notify_error__6TLobbyFPCc(msg + 0x56C);
         return -1;
     }
     lobby_adxf_open_file_handle = adxf_open__6TLobbyFUii(name, arg2);
     if (lobby_adxf_open_file_handle == NULL) {
-        notify_error__6TLobbyFPv(msg + 0x5A4);
+        notify_error__6TLobbyFPCc(msg + 0x5A4);
         return -1;
     }
     lobby_adxf_current_file_id = id;
@@ -189,7 +188,8 @@ static inline s32 parse_803CDB0C(u8 *data, u32 len, Hdr_803CDB0C *h) {
     }
     return 0x10;
 }
-s32 demux_stream_chunks__6TLobbyFPv(Obj_803CDB0C *o) {
+s32 TLobby::demux_stream_chunks() {
+    Obj_803CDB0C *o = (Obj_803CDB0C *)this;
     Stream_803CDB0C *s;
     Stream_803CDB0C **ch;
     s32 n;
@@ -309,7 +309,8 @@ s32 parse_aix_header__6TLobbyFPviPv(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2) {
     return hdr + 8;
 }
 
-void get_entry_pair__6TLobbyFPviPvPv(Obj_803CE198 *self, s32 i, s32 *a, s32 *b) {
+void TLobby::get_entry_pair(s32 i, s32 *a, s32 *b) {
+    Obj_803CE198 *self = (Obj_803CE198 *)this;
     Sub_803CE198 *s = &self->sub;
     if (a != 0) {
         *a = s->e[i].a;

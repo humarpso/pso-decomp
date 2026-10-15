@@ -43,7 +43,7 @@ struct Ctl_80232C50 {
 extern "C" {
 void __dt__7TObjectFv(void *, s32);
 void queue_destruction__7TObjectFv(void *);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 void stop_sound_request(s32);
 void __dl__7TObjectFPv(void *);
 extern Ent_80232E0C grants_effect_emitter_table[];
@@ -161,7 +161,7 @@ Obj_80232E0C *destroy_grants_effect(Obj_80232E0C *arg0, s16 arg1) {
             }
         }
         stop_sound_request(arg0->f20);
-        free__11TOBoss4RockFUi(arg0->items);
+        mem_free(arg0->items);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

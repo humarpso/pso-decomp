@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
 
-u8 is_on_current_screen__11TCameraCtrlFPv(void *arg0);
 s32 pack_flags__13TRaderMapCoreFii();
 
-u8 is_on_current_screen__11TCameraCtrlFPv(void *arg0) {
-    return (u8) ((*(s32 *)((s8 *)arg0 + 0x48) & pack_flags__13TRaderMapCoreFii()) != 0);
+u8 TCameraCtrl::is_on_current_screen() {
+    return (u8) ((*(s32 *)((s8 *)this + 0x48) & pack_flags__13TRaderMapCoreFii()) != 0);
 }
 
 }

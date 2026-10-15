@@ -11,6 +11,10 @@ struct TObjDoaEx01
     u32 m_ac;
     u8 _padB0[0x20];
     u32 m_d0;
+    void render();
+    s32 draw_object_tree(s32 arg1);
+    static void free_resource();
+    static void load_resources();
 };
 
 #endif

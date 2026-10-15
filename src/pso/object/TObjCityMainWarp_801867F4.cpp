@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCityMainWarp.h"
 
 struct RecoveredGlobal_80186AF4_lbl_804FF800 {
     s32 value;
@@ -10,27 +11,23 @@ struct Bits_80186A3C { s32 v[36]; };
 
 extern "C" {
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(s32);
+s32 get_field_3e4__10TObjPlayerFv(s32);
 f32 xz_distance_squared(s32, s32);
 s32 get_player_by_client_id(s32);
 extern s32 local_client_id;
-s32 find_local_player_in_range__16TObjCityMainWarpFif(s32 arg0, f32 farg0);
 s32 get_main_phase();
 extern s32 lbl_805D55C0;
-s32 get_phase_flag__16TObjCityMainWarpFv(void);
-s32 are_all_players_in_range__16TObjCityMainWarpFPv(Obj_80186B34 *arg0);
 extern RecoveredGlobal_80186AF4_lbl_804FF800 lobby_name_string_buffer;
 s32 *TObjCityMainWarp__sub_80186AF4(void);
 extern const Bits_80186A3C city_main_warp_floor_bit_table;
-s32 get_player_floor__6TLobbyFi(s32);
+s32 get_player_floor__6TLobbyFl(s32);
 s32 is_warp_excluded_area(s32);
 s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor);
 s32 is_split_screen();
 s32 get_instance__6TLobbyFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 update_warp_flags_from_story__16TObjCityMainWarpFPv();
-s32 init_visible_mask__16TObjCityMainWarpFPv();
-void update_unlock_flags__16TObjCityMainWarpFv(void);
+s32 update_warp_flags_from_story__16TObjCityMainWarpFv();
+s32 init_visible_mask__16TObjCityMainWarpFv();
 s32 get_story_flag(s32);
 extern s32 TObjCityMainWarp__enabled_destinations;
 extern s32 TObjCityMainWarp__visible_destination_mask;
@@ -40,10 +37,6 @@ void update_main_warp_visible_mask(s32 arg0);
 extern "C" {
 
 void TObjCityMainWarp__sub_80186AB8(void);
-void reset__16TObjCityMainWarpFv(void);
-void set_active_bit__16TObjCityMainWarpFv(s32 _w0);
-void set_flag70_bit10__16TObjCityMainWarpFPv(void* p);
-void update_unlock_flags__16TObjCityMainWarpFv(void);
 s32 get_story_flag(s32);
 int clear_enabled_main_warps(void);
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -51,7 +44,7 @@ s32 is_split_screen();
 
 extern s32 TObjCityMainWarp__visible_destination_mask;
 
-void update_unlock_flags__16TObjCityMainWarpFv(void) {
+void TObjCityMainWarp::update_unlock_flags() {
     s32 var_r31;
     s32 var_r30;
     s32 var_r3;
@@ -112,13 +105,13 @@ void update_main_warp_visible_mask(s32 arg0) {
     }
     switch (arg0) {
     case 0:
-        update_unlock_flags__16TObjCityMainWarpFv();
+        TObjCityMainWarp::update_unlock_flags();
         break;
     case 1:
-        init_visible_mask__16TObjCityMainWarpFPv();
+        init_visible_mask__16TObjCityMainWarpFv();
         break;
     case 2:
-        update_warp_flags_from_story__16TObjCityMainWarpFPv();
+        update_warp_flags_from_story__16TObjCityMainWarpFv();
         break;
     }
     for (i = 11; i < 15; i++) {
@@ -126,7 +119,7 @@ void update_main_warp_visible_mask(s32 arg0) {
     }
 }
 
-void set_active_bit__16TObjCityMainWarpFv(s32 _w0) {
+void TObjCityMainWarp::set_active_bit(s32 _w0) {
     s32 temp_r3;
 
     temp_r3 = get_floor_warp_bit__16TObjCityMainWarpFi((s32)(_w0));
@@ -138,26 +131,27 @@ void set_active_bit__16TObjCityMainWarpFv(s32 _w0) {
 s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor) {
     s32 bit = -1;
     Bits_80186A3C bits = city_main_warp_floor_bit_table;
-    if (is_warp_excluded_area(get_player_floor__6TLobbyFi(floor)) == 0) {
+    if (is_warp_excluded_area(get_player_floor__6TLobbyFl(floor)) == 0) {
         bit = bits.v[floor];
     }
     return bit;
 }
 
 void TObjCityMainWarp__sub_80186AB8(void) {  }
-void reset__16TObjCityMainWarpFv(void) { clear_enabled_main_warps(); update_main_warp_visible_mask((s32)(0)); }
-void set_flag70_bit10__16TObjCityMainWarpFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x10; }
+void TObjCityMainWarp::reset() { clear_enabled_main_warps(); update_main_warp_visible_mask((s32)(0)); }
+void TObjCityMainWarp::set_flag70_bit10() { *(u16*)((char*)this + 0x70) |= 0x10; }
 
 typedef char RecoveredGlobal_80186AF4_lbl_804FF800_size[sizeof(RecoveredGlobal_80186AF4_lbl_804FF800) == 0x20 ? 1 : -1];
 s32 *TObjCityMainWarp__sub_80186AF4(void) {
     return &lobby_name_string_buffer.value;
 }
 
-s32 get_phase_flag__16TObjCityMainWarpFv(void) {
+s32 TObjCityMainWarp::get_phase_flag() {
     return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;
 }
 
-s32 are_all_players_in_range__16TObjCityMainWarpFPv(Obj_80186B34 *arg0) {
+s32 TObjCityMainWarp::are_all_players_in_range() {
+    Obj_80186B34 *arg0 = (Obj_80186B34 *)this;
     s32 r;
     s32 i;
     u8 *p;
@@ -165,7 +159,7 @@ s32 are_all_players_in_range__16TObjCityMainWarpFPv(Obj_80186B34 *arg0) {
     for (i = 0; i < 4; i++) {
         p = (u8 *)get_player_by_client_id(i);
         if (p != 0) {
-            if (((s32 (*)(void *))get_field_3e4__10TObjPlayerFPv)(p) != get_current_floor() || ((f32 (*)(void *, void *))xz_distance_squared)(p + 0x38, arg0->pos) > arg0->range * arg0->range) {
+            if (((s32 (*)(void *))get_field_3e4__10TObjPlayerFv)(p) != get_current_floor() || ((f32 (*)(void *, void *))xz_distance_squared)(p + 0x38, arg0->pos) > arg0->range * arg0->range) {
                 r = 0;
             }
         }
@@ -175,14 +169,15 @@ s32 are_all_players_in_range__16TObjCityMainWarpFPv(Obj_80186B34 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 find_local_player_in_range__16TObjCityMainWarpFif(s32 arg0, f32 farg0) {
+s32 TObjCityMainWarp::find_local_player_in_range(f32 farg0) {
+    s32 arg0 = (s32)this;
     s32 temp_r3;
     s32 temp_r31;
     s32 temp_r3b;
     temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         temp_r31 = get_current_floor();
-        temp_r3b = get_field_3e4__10TObjPlayerFPv(temp_r3);
+        temp_r3b = get_field_3e4__10TObjPlayerFv(temp_r3);
         if ((temp_r3b == temp_r31) && (xz_distance_squared(arg0 + 0x38, temp_r3 + 0x38) < (farg0 * farg0))) {
             return temp_r3;
         }

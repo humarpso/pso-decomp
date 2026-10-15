@@ -9,6 +9,8 @@ struct TWindowQuantity
     void* m_24;
     u8 _pad28[0x3C];
     void* m_64;
+    void set_position(s32 arg1);
+    void run_task();
 };
 
 #endif

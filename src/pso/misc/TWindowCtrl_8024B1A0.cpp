@@ -6,9 +6,9 @@ struct Win_8024B1A0 { u8 pad[0x40]; f32 x; f32 y; f32 w; f32 h; };
 struct Msg_8024B1A0 { f32 x; f32 y; };
 
 extern "C" {
-u8 *get_message_by_type__11TWindowCtrlFci(s8, s32);
-s32 get_flag_bit1__11TWindowCtrlFPv();
-s16 get_field_20__11TWindowCtrlFPv(void *);
+u8 *get_message_by_type__11TWindowCtrlFScl(s8, s32);
+s32 get_flag_bit1__11TWindowCtrlFv();
+s16 get_field_20__11TWindowCtrlFv(void *);
 extern Ctrl_8024B1A0 *TWindowCtrl__active_window;
 extern const f32 lbl_805DCBE0;
 extern const f32 lbl_805DCBE4;
@@ -33,7 +33,7 @@ s8 alloc_nearest_free_slot__11TWindowCtrlFPv(Win_8024B1A0 *arg0) {
     if (TWindowCtrl__active_window == NULL) {
         return 0;
     }
-    if (get_flag_bit1__11TWindowCtrlFPv() != 0) {
+    if (get_flag_bit1__11TWindowCtrlFv() != 0) {
         TWindowCtrl__active_window->flags |= 0x200;
         return 3;
     }
@@ -45,7 +45,7 @@ s8 alloc_nearest_free_slot__11TWindowCtrlFPv(Win_8024B1A0 *arg0) {
     cy = (lbl_805DCBE4 * arg0->h) + arg0->y;
     do {
         if (!(TWindowCtrl__active_window->flags & mask)) {
-            m = (Msg_8024B1A0 *)get_message_by_type__11TWindowCtrlFci((s8)i, get_field_20__11TWindowCtrlFPv(arg0));
+            m = (Msg_8024B1A0 *)get_message_by_type__11TWindowCtrlFScl((s8)i, get_field_20__11TWindowCtrlFv(arg0));
             if (m != NULL) {
                 dx = cx - m->x;
                 dy = cy - m->y;
@@ -87,6 +87,7 @@ u16 get_window_id__11TWindowCtrlFv(void) {
 }
 
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 
 struct Ctrl_8024B328 { u8 pad[0x84]; void *win[4]; };
 
@@ -97,30 +98,28 @@ struct Ctrl_8024B440 { u8 pad[0x84]; void *win[4]; };
 extern "C" {
 s32 acquire_balloon_slot__11TWindowCtrlFPviiPv(s32, u16, s32, s32);
 void open__15TWindowFukidasiFPvPvi(void *, void *, s32);
-s32 open_balloon__11TWindowCtrlFUsPvii(u16 arg0, u8 *arg1, s32 arg2, s32 arg3);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-u16 get_flags__11TWindowCtrlFPv(void *);
+u16 get_flags__11TWindowCtrlFv(void *);
 void TWindow__close(void *);
-void close_windows_by_flags__11TWindowCtrlFUs(u16 arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-u16 get_flags__11TWindowCtrlFPv(void *);
+u16 get_flags__11TWindowCtrlFv(void *);
 void complete_speech_balloon(void *);
 void complete_actor_speech_balloons(u16 arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-u16 get_flags__11TWindowCtrlFPv(void *);
+u16 get_flags__11TWindowCtrlFv(void *);
 s32 is_speech_balloon_ready(void *);
 s32 is_actor_speech_balloon_done(u16 arg0);
 }
 
 extern "C" {
 
-void close_windows_by_flags__11TWindowCtrlFUs(u16 arg0) {
+void TWindowCtrl::close_windows_by_flags(u16 arg0) {
     u32 i;
     void *w;
     if ((*(u32 *)&TWindowCtrl__active_window) != 0) {
         for (i = 0; i < 4; i++) {
             w = ((Ctrl_8024B328 *)(*(u32 *)&TWindowCtrl__active_window))->win[i];
-            if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFPv(w)) {
+            if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFv(w)) {
                 TWindow__close(w);
             }
         }
@@ -133,7 +132,7 @@ void complete_actor_speech_balloons(u16 arg0) {
     if ((*(u32 *)&TWindowCtrl__active_window) != 0) {
         for (i = 0; i < 4; i++) {
             w = ((Ctrl_8024B3B4 *)(*(u32 *)&TWindowCtrl__active_window))->win[i];
-            if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFPv(w)) {
+            if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFv(w)) {
                 complete_speech_balloon(w);
             }
         }
@@ -148,14 +147,14 @@ s32 is_actor_speech_balloon_done(u16 arg0) {
     }
     for (i = 0; i < 4; i++) {
         w = ((Ctrl_8024B440 *)(*(u32 *)&TWindowCtrl__active_window))->win[i];
-        if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFPv(w) && is_speech_balloon_ready(w) == 0) {
+        if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFv(w) && is_speech_balloon_ready(w) == 0) {
             return 0;
         }
     }
     return 1;
 }
 
-s32 open_balloon__11TWindowCtrlFUsPvii(u16 arg0, u8 *arg1, s32 arg2, s32 arg3) {
+s32 TWindowCtrl::open_balloon(u16 arg0, u8 *arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
     if ((u32) (*(u32 *)&TWindowCtrl__active_window) == 0U) {
         return 0;

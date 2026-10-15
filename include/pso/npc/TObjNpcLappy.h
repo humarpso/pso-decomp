@@ -13,6 +13,7 @@ struct TObjNpcLappy
     s16 m_b8;
     u8 _padBA[0x296];
     u32 m_350;
+    void *destroy_npc_lappy_base(s16 arg1);
 };
 
 #endif

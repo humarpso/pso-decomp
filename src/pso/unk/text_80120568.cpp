@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 struct Pair_801205F4 { u8 a; s8 b; };
 
 struct Data_801205F4 { u8 pad[0x27]; u8 flags; };
@@ -162,30 +163,28 @@ struct Player_8012065C : VBase_8012065C {
 };
 
 extern "C" {
-void apply_model_params__10TObjPlayerFPv(void *);
-void set_attribute_entry__10TObjPlayerFPviPv(void *, s32, Pair_801205F4 *);
-void bind_attribute_entries__11TItemWeaponFPv(Self_801205F4 *self);
+void apply_model_params__10TObjPlayerFv(void *);
+void set_attribute_entry__10TObjPlayerFlPv(void *, s32, Pair_801205F4 *);
 void TItemEquipBase__sub_8010A82C(void *);
 void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
 void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 void TItemWeapon__sub_80120568(Pl_80120568 *arg0);
 s32 obj_getField1c(s32);
 s32 test_flags_any(void *, s32);
-s32 get_flag_40__8TItemMagFPv(void *);
-s32 spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
-u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
+s32 get_flag_40__8TItemMagFv(void *);
+s32 spawn_item_timer__13TItemAttackerFlll(void *, void *, s32);
+u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
 s32 create__13TItemEffEquipFPvPvPvPvPv(void *, s32, s32, s32, s32);
 s32 obj_isState7_324(s32);
-s32 get_item_flags__10TObjPlayerFPv(void *);
+s32 get_item_flags__10TObjPlayerFv(void *);
 s32 set_status_flags__10TObjPlayerFPvUi(void *, u32);
 void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
 void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void set_flag_8_if_check_passes__10TObjPlayerFPv();
 extern void *tl_05;
-void apply_equip__11TItemWeaponFPv(Player_8012065C *arg0);
 }
 
 extern "C" {
@@ -199,30 +198,32 @@ void TItemWeapon__sub_80120568(Pl_80120568 *arg0) {
     clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x03000000);
 }
 
-void bind_attribute_entries__11TItemWeaponFPv(Self_801205F4 *self) {
+void TItemWeapon::bind_attribute_entries() {
+    Self_801205F4 *self = (Self_801205F4 *)this;
     s32 i;
-    apply_model_params__10TObjPlayerFPv(self);
+    apply_model_params__10TObjPlayerFv(self);
     if (!(self->data->flags & 8)) {
         for (i = 0; i != 3; i++) {
-            set_attribute_entry__10TObjPlayerFPviPv(self->f0, i, &self->pairs[i]);
+            set_attribute_entry__10TObjPlayerFlPv(self->f0, i, &self->pairs[i]);
         }
     }
 }
-void apply_equip__11TItemWeaponFPv(Player_8012065C *arg0) {
+void TItemWeapon::apply_equip() {
+    Player_8012065C *arg0 = (Player_8012065C *)this;
     if (test_flags_any((u8 *)arg0 + 0x178, 1) != 0) {
-        if (!(get_item_flags__10TObjPlayerFPv(arg0) & 0x20) && reset_key_machine_state__10TObjPlayerFv() != 0) {
+        if (!(get_item_flags__10TObjPlayerFv(arg0) & 0x20) && reset_key_machine_state__10TObjPlayerFv() != 0) {
             set_action_provider_variant__10TObjPlayerFPvs(*(void **)((s8 *)arg0 + 0xF0), arg0->v41());
         }
         clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x100);
-        if (get_flag_40__8TItemMagFPv(arg0) != 0 || obj_isState7_324(*(s32 *)((s8 *)arg0 + 0xF0)) != 0) {
+        if (get_flag_40__8TItemMagFv(arg0) != 0 || obj_isState7_324(*(s32 *)((s8 *)arg0 + 0xF0)) != 0) {
             set_status_flags__10TObjPlayerFPvUi(arg0, 8);
         } else {
-            spawn_item_timer__13TItemAttackerFiii(arg0, (void *)&set_flag_8_if_check_passes__10TObjPlayerFPv, 0x14);
+            spawn_item_timer__13TItemAttackerFlll(arg0, (void *)&set_flag_8_if_check_passes__10TObjPlayerFPv, 0x14);
             create__13TItemEffEquipFPvPvPvPvPv(tl_05, obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0)), 0x30, 0x9D, 0x9E);
-            if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x200) != 0U) {
+            if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x200) != 0U) {
                 create__13TItemEffEquipFPvPvPvPvPv(tl_05, obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0)), 0x23, 0x9D, 0x9E);
             }
-            update_technique_slot__10TTecRaFoieFi(play_sound_effect(0x4000B20A, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0), 0x300, 0);
+            update_technique_slot__10TTecRaFoieFl(play_sound_effect(0x4000B20A, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0), 0x300, 0);
         }
     } else {
         set_action_provider_variant__10TObjPlayerFPvs(*(void **)((s8 *)arg0 + 0xF0), 0);

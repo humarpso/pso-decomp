@@ -5,6 +5,9 @@
 
 struct TAdExNetConfirmGC
 {
+    static s32 is_confirmed();
+    void render();
+    void run_task();
 };
 
 #endif

@@ -8,6 +8,8 @@ public:
     virtual ~TBoss6CrushRock();
     virtual void run_task();
     virtual void render();
+public:
+    static s32 is_falz_alive();
 };
 
 #endif

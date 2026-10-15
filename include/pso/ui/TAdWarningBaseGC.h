@@ -10,6 +10,9 @@ struct TAdWarningBaseGC
     u32 m_24;
     u32 m_28;
     u32 m_2c;
+    int destroy();
+    static void create();
+    static void init_heap();
 };
 
 #endif

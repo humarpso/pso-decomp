@@ -19,19 +19,15 @@ struct V2_80325764 { f32 x, y; };
 struct Obj_803258C4 { s32 f0; u8 pad[0x18 - 4]; void *vt; u8 pad2[4]; s32 f20; s32 f24; u8 pad3[0x1A8 - 0x28]; s32 a[12]; s32 b[12]; };
 
 extern "C" {
-void clear_entries__20TAdChrSelMovePlateGCFPv(T_8032572C *self);
 extern const f32 lbl_805DF60C;
 extern const f32 lbl_805DF610;
 extern const f32 lbl_805DF614;
 extern const f32 lbl_805DF618;
-void init_plate_rects__20TAdChrSelMovePlateGCFPv(T_803257E8 *self);
-void run_task__20TAdChrSelMovePlateGCFv(O_80325824 *arg0);
 extern const f32 lbl_805DF604;
 extern const f32 lbl_805DF608;
 void add_plate_rect__20TAdChrSelMovePlateGCFPvPv(Obj_80325764 *arg0, V2_80325764 *arg1);
 void __ct__7TObjectFP7TObject(void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8();
-void init_plate_rects__20TAdChrSelMovePlateGCFPv(T_803257E8 *self);
 extern u8 __vt__20TAdChrSelMovePlateGC[];
 extern s32 lbl_805D4190;
 extern s32 chr_sel_move_plate_texture;
@@ -40,12 +36,12 @@ Obj_803258C4 *__ct__20TAdChrSelMovePlateGCFv(Obj_803258C4 *arg0);
 
 extern "C" {
 
-void render__20TAdChrSelMovePlateGCFv(void* p);
 int draw_move_plate_quads(void*);
 int get_state_flag__9TMainTaskFv(void*);
 
-void render__20TAdChrSelMovePlateGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { draw_move_plate_quads(p); } }
-void clear_entries__20TAdChrSelMovePlateGCFPv(T_8032572C *self) {
+void TAdChrSelMovePlateGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { draw_move_plate_quads(this); } }
+void TAdChrSelMovePlateGC::clear_entries() {
+    T_8032572C *self = (T_8032572C *)this;
     u32 i;
     for (i = 0; i < self->count; i++) {
         self->arr[i] = 0;
@@ -62,7 +58,8 @@ void add_plate_rect__20TAdChrSelMovePlateGCFPvPv(Obj_80325764 *arg0, V2_80325764
     arg0->count++;
 }
 
-void init_plate_rects__20TAdChrSelMovePlateGCFPv(T_803257E8 *self) {
+void TAdChrSelMovePlateGC::init_plate_rects() {
+    T_803257E8 *self = (T_803257E8 *)this;
     s32 i;
     for (i = 0; i < 12; i++) {
         self->r[i].a = lbl_805DF60C;
@@ -71,7 +68,8 @@ void init_plate_rects__20TAdChrSelMovePlateGCFPv(T_803257E8 *self) {
         self->r[i].d = lbl_805DF618;
     }
 }
-void run_task__20TAdChrSelMovePlateGCFv(O_80325824 *arg0) {
+void TAdChrSelMovePlateGC::run_task() {
+    O_80325824 *arg0 = (O_80325824 *)this;
     u32 i;
     for (i = 0; i < arg0->n; i++) {
         s32 v;
@@ -92,7 +90,7 @@ Obj_803258C4 *__ct__20TAdChrSelMovePlateGCFv(Obj_803258C4 *arg0) {
     chr_sel_move_plate_texture = TAdMultiPlyChrSelectGC__sub_802C6FA8();
     arg0->f24 = -1;
     arg0->f20 = 0;
-    init_plate_rects__20TAdChrSelMovePlateGCFPv((T_803257E8 *)(arg0));
+    ((TAdChrSelMovePlateGC *)arg0)->init_plate_rects();
     for (i = 0; i < 12; i++) {
         arg0->b[i] = 0;
         arg0->a[i] = 0;

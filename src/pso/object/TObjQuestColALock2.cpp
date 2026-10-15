@@ -38,7 +38,7 @@ s32 set_parent__7TObjectFP7TObject(int, int);
 extern s32 tl_00;
 u8 *TObjQuestColALock2__vt14(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
-void reset_photon_effect__10TObjPlayerFPv(s32);
+void reset_photon_effect__10TObjPlayerFv(s32);
 void refresh_collision_body_centers(void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjQuestColBase__ct(void *, s32);
@@ -75,7 +75,7 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__16TObjQuestColBaseFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 s32 check_flag_100__10TObjPlayerFPv();
-s32 update_trigger_state__12TObjQuestColFPvf(void *, f32);
+s32 update_trigger_state__12TObjQuestColFf(void *, f32);
 
 extern void *quest_collision_task_root;
 
@@ -136,7 +136,7 @@ s32 TObjQuestColALock2__vt13(void *arg0) {
             return 0;
         }
         submit_cursor_candidate(arg0, -1);
-        temp_r3_2 = update_trigger_state__12TObjQuestColFPvf(arg0, *(f32 *)((s8 *)arg0 + 0xAC));
+        temp_r3_2 = update_trigger_state__12TObjQuestColFf(arg0, *(f32 *)((s8 *)arg0 + 0xAC));
         if (temp_r3_2 == 1) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
         }
@@ -181,7 +181,7 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + *(f32 *)((s8 *)arg0 + 0x6C));
     refresh_collision_body_centers(arg0);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
-    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    reset_photon_effect__10TObjPlayerFv((s32) arg0);
     *(s32 *)((s8 *)arg0 + 0xC0) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
     if ((s32) *(s32 *)((s8 *)arg0 + 0xC0) < 0) {
         *(s32 *)((s8 *)arg0 + 0xC0) = 0;

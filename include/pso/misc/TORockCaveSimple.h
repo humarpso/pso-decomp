@@ -5,6 +5,7 @@
 
 struct TORockCaveSimple
 {
+    void play_trigger_effect();
 };
 
 #endif

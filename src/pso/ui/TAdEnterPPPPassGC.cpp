@@ -42,9 +42,9 @@ s32 memset(void *, int, int);
 void fn_8032B318(void *, void *);
 extern u8 password_screen_status_line_position[];
 void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
-s32 reset_input_state__22TAdEnterSerialAccessGCFPv(int);
-s32 add_item_rect__12TLevelSelectFPvPv(int, void *);
-s32 set_active__22TAdEnterSerialAccessGCFPv(int);
+s32 reset_input_state__22TAdEnterSerialAccessGCFv(int);
+s32 add_item_rect__12TLevelSelectFPv(int, void *);
+s32 set_active__22TAdEnterSerialAccessGCFv(int);
 s32 create_keyboard_control__22TAdEnterSerialAccessGCFii(void *, int);
 s32 create_default_callback__22TAdEnterSerialAccessGCFv(void *);
 s32 show_message_window__22TAdEnterSerialAccessGCFPvPv(void *, int);
@@ -65,24 +65,24 @@ s8 *TLobby__sub_80146D44(void);
 void init_account_entries__6TLobbyFv(void);
 int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
 void create_parts__14TAdEnterBaseGCFPv(void *);
-void reset__14TAdEnterBaseGCFPvi(void *, int);
+void reset__14TAdEnterBaseGCFi(void *, int);
 void TAdEnterBaseGC__ct(void *);
 extern s32 __vt__17TAdEnterPPPPassGC[];
 extern s32 TAdEnterPPPPassGC__name;
 extern s32 password_entry_dispatch_state;
 T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0);
-char *realloc_buffer__17TWindowSubComCardFPv(u8 *);
-s32 update_keyboard__17TWindowSubComCardFPv(void *);
-s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(int);
-void free__11TOBoss4RockFUi(void *);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+char *realloc_buffer__17TWindowSubComCardFv(u8 *);
+s32 update_keyboard__17TWindowSubComCardFv(void *);
+s32 get_selected_slot__23TAdSinglePlyChrSelectGCFv(int);
+void mem_free(void *);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void free_menu_object(void *);
 void play_sound_effect(int, int, int, int);
-s32 reset_input_state__22TAdEnterSerialAccessGCFPv(int);
-s32 add_item_rect__12TLevelSelectFPvPv(int, void *);
-s32 set_active__22TAdEnterSerialAccessGCFPv(int);
-void set_state_3__22TAdEnterSerialAccessGCFPv(int);
+s32 reset_input_state__22TAdEnterSerialAccessGCFv(int);
+s32 add_item_rect__12TLevelSelectFPv(int, void *);
+s32 set_active__22TAdEnterSerialAccessGCFv(int);
+void set_state_3__22TAdEnterSerialAccessGCFv(int);
 s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, int, char *);
 void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
 s32 strlen(const char *);
@@ -147,10 +147,10 @@ typedef char RecoveredGlobal_803392F4_lbl_80477C20_size[sizeof(RecoveredGlobal_8
 void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     char *buf;
     s32 cur;
-    buf = realloc_buffer__17TWindowSubComCardFPv(password_entry_keyboard_control);
+    buf = realloc_buffer__17TWindowSubComCardFv(password_entry_keyboard_control);
     if ((*(s32 *)((s8 *)arg0 + 0x40) == 0 && TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) ||
-        (*(s32 *)((s8 *)arg0 + 0x40) == 0 && test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)) {
-        free__11TOBoss4RockFUi(buf);
+        (*(s32 *)((s8 *)arg0 + 0x40) == 0 && test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state + 0x160, 2) != 0)) {
+        mem_free(buf);
         set_password__17TAdEnterPPPPassGCFi((s32)&lbl_805DF9EC);
         *(s32 *)((s8 *)arg0 + 0x20) = 2;
         password_entry_dispatch_state = 4;
@@ -158,13 +158,13 @@ void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     }
     *(s32 *)((s8 *)arg0 + 0x3C) = *(s32 *)((s8 *)arg0 + 0x38);
     if (password_entry_keyboard_control != NULL) {
-        if (update_keyboard__17TWindowSubComCardFPv(password_entry_keyboard_control) != 0) {
+        if (update_keyboard__17TWindowSubComCardFv(password_entry_keyboard_control) != 0) {
             if (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0 ||
-                test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0) {
+                test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state + 0x160, 2) != 0) {
                 free_menu_object(password_entry_keyboard_control);
                 *(s32 *)((s8 *)arg0 + 0x38) = 0;
                 if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
-                    set_active__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
+                    set_active__22TAdEnterSerialAccessGCFv(*(s32 *)((s8 *)arg0 + 0x2C));
                 }
             } else if (forward_input__22TAdEnterSerialAccessGCFPv(arg0, 3, buf) == 0) {
                 free_menu_object(password_entry_keyboard_control);
@@ -172,35 +172,35 @@ void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0) {
             } else {
                 *(s32 *)((s8 *)arg0 + 0x38) = 1;
                 if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
-                    set_state_3__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
+                    set_state_3__22TAdEnterSerialAccessGCFv(*(s32 *)((s8 *)arg0 + 0x2C));
                 }
             }
         } else {
             *(s32 *)((s8 *)arg0 + 0x38) = 0;
             if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
-                set_active__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
+                set_active__22TAdEnterSerialAccessGCFv(*(s32 *)((s8 *)arg0 + 0x2C));
             }
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x3C) != (cur = *(s32 *)((s8 *)arg0 + 0x38))) {
         if (cur != 0) {
             if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
-                reset_input_state__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
-                add_item_rect__12TLevelSelectFPvPv(*(s32 *)((s8 *)arg0 + 0x2C), (u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x18);
+                reset_input_state__22TAdEnterSerialAccessGCFv(*(s32 *)((s8 *)arg0 + 0x2C));
+                add_item_rect__12TLevelSelectFPv(*(s32 *)((s8 *)arg0 + 0x2C), (u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x18);
             }
         } else if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
-            reset_input_state__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
-            add_item_rect__12TLevelSelectFPvPv(*(s32 *)((s8 *)arg0 + 0x2C), (u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10);
+            reset_input_state__22TAdEnterSerialAccessGCFv(*(s32 *)((s8 *)arg0 + 0x2C));
+            add_item_rect__12TLevelSelectFPv(*(s32 *)((s8 *)arg0 + 0x2C), (u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10);
         }
     }
-    if (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(*(s32 *)((s8 *)arg0 + 0x2C)) == 1 &&
-        update_keyboard__17TWindowSubComCardFPv(password_entry_keyboard_control) != 0) {
+    if (get_selected_slot__23TAdSinglePlyChrSelectGCFv(*(s32 *)((s8 *)arg0 + 0x2C)) == 1 &&
+        update_keyboard__17TWindowSubComCardFv(password_entry_keyboard_control) != 0) {
         set_password__17TAdEnterPPPPassGCFi((s32)buf);
         *(s32 *)((s8 *)arg0 + 0x20) = 3;
         password_entry_dispatch_state = 4;
     }
     *(s32 *)((s8 *)arg0 + 0x40) = strlen(buf);
-    free__11TOBoss4RockFUi(buf);
+    mem_free(buf);
 }
 
 void open_keyboard_window__17TAdEnterPPPPassGCFPv(u8 *arg0) {
@@ -209,9 +209,9 @@ void open_keyboard_window__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *) (arg0));
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x2C);
     if (temp_r3 != 0U) {
-        reset_input_state__22TAdEnterSerialAccessGCFPv((int) (temp_r3));
-        add_item_rect__12TLevelSelectFPvPv((int) (*(u32 *)((s8 *)arg0 + 0x2C)), (void *) ((u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10));
-        set_active__22TAdEnterSerialAccessGCFPv((int) (*(u32 *)((s8 *)arg0 + 0x2C)));
+        reset_input_state__22TAdEnterSerialAccessGCFv((int) (temp_r3));
+        add_item_rect__12TLevelSelectFPv((int) (*(u32 *)((s8 *)arg0 + 0x2C)), (void *) ((u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10));
+        set_active__22TAdEnterSerialAccessGCFv((int) (*(u32 *)((s8 *)arg0 + 0x2C)));
     }
     (*(s32 *)&password_entry_keyboard_control) = create_keyboard_control__22TAdEnterSerialAccessGCFii((void *) (arg0), (int) (3));
     password_entry_dispatch_state = 1;
@@ -262,7 +262,7 @@ T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0) {
     TAdEnterBaseGC__ct(arg0);
     arg0->vt = __vt__17TAdEnterPPPPassGC;
     arg0->f0 = TAdEnterPPPPassGC__name;
-    reset__14TAdEnterBaseGCFPvi(arg0, 3);
+    reset__14TAdEnterBaseGCFi(arg0, 3);
     password_entry_dispatch_state = 0;
     arg0->f40 = 0;
     if (TLobby__sub_80145A94() != 0) {

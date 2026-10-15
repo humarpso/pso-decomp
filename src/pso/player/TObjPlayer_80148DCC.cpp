@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_80148DCC { char pad[0x18]; };
 struct VObj_80148DCC : Base_80148DCC {
@@ -124,8 +125,8 @@ struct VObj_18_3eea3b : VBase_18_3eea3b {
 extern "C" {
 void obj_clearFlags30(void *, u32);
 void copy_position__20TBoss3VoloptHiraisinFi(s32);
-void update_prev_position__10TObjPlayerFPv(void *);
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+void update_prev_position__10TObjPlayerFv(void *);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 void set_indexed_flags(void *, s32, s32);
 s32 get_register__12TQuestThreadFPvi(void *, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
@@ -138,13 +139,11 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0);
 
 extern "C" {
 
-void update_battle_target__10TObjPlayerFPv(void *arg0);
-void draw_model__10TObjPlayerFPv(u8 *arg0);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_chunk_object(s32);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 render_with_position_override__10TObjPlayerFPvPvi(void *, s32, s32);
+s32 render_with_position_override__10TObjPlayerFPUcl(void *, s32, s32);
 u16 find_nearest_visible_player(void *, s32, f32 *, f32);
 s32 translate_matrix_vec3(s32, void *);
 s32 rotate_matrix_y(s32, s32);
@@ -153,21 +152,21 @@ s32 pop_matrix();
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 s32 get_player_by_client_id(u32);
-s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 draw__16TObjEneRe7BeruraFv(void *);
 
-void update_battle_target__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::update_battle_target() {
     f32 *temp_r5;
 
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 3) {
-        if (((VObj_80148DCC *)arg0)->m17(30) != 0) {
-            temp_r5 = *(f32 **)((s8 *)arg0 + 0x350);
-            *(u16 *)((s8 *)arg0 + 0x338) = find_nearest_visible_player(arg0, 0, temp_r5, *temp_r5);
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 3) {
+        if (((VObj_80148DCC *)this)->m17(30) != 0) {
+            temp_r5 = *(f32 **)((s8 *)this + 0x350);
+            *(u16 *)((s8 *)this + 0x338) = find_nearest_visible_player(this, 0, temp_r5, *temp_r5);
             {
-                u32 tmp338 = (u32) *(u16 *)((s8 *)arg0 + 0x338);
+                u32 tmp338 = (u32) *(u16 *)((s8 *)this + 0x338);
                 if (tmp338 != 0xFFFF) {
-                    *(s32 *)((s8 *)arg0 + 0x2A8) = get_player_by_client_id(tmp338);
+                    *(s32 *)((s8 *)this + 0x2A8) = get_player_by_client_id(tmp338);
                 } else {
-                    *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
+                    *(s32 *)((s8 *)this + 0x2A8) = 0;
                 }
             }
         }
@@ -176,12 +175,13 @@ void update_battle_target__10TObjPlayerFPv(void *arg0) {
 
 extern s32 model_render_flags;
 
-void draw_model__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::draw_model() {
+    u8 *arg0 = (u8 *)this;
     VObj1_80148e54 *self = (VObj1_80148e54 *)arg0;
     if ((self->m8(*(f32 *)((s8 *)arg0 + 0x398), *(f32 *)((s8 *)arg0 + 0x39C)) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x390) == 1)) {
         select_actor_lighting(arg0);
         model_render_flags |= 1;
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix_from(0);
         translate_matrix_vec3(0, arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -189,13 +189,13 @@ void draw_model__10TObjPlayerFPv(u8 *arg0) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x394) != 0) {
             draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
         } else {
-            draw__16TObjEneRe7BeruraFPv(arg0);
+            draw__16TObjEneRe7BeruraFv(arg0);
         }
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
         model_render_flags &= 0xFFFFFFFE;
         restore_scene_lighting();
-        render_with_position_override__10TObjPlayerFPvPvi(arg0, 0, 0);
+        render_with_position_override__10TObjPlayerFPUcl(arg0, 0, 0);
     }
 }
 typedef struct VBase_18_3eea3b VBase_18_3eea3b;
@@ -236,14 +236,14 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
       else
       {
         *((s32 *) (((s8 *) arg0) + 0x390)) = 0;
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1U);
+        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1U);
       }
     }
     temp_r4_2 = *((s32 *) (((s8 *) arg0) + 0x3A4));
     if ((temp_r4_2 > 0) && (get_register__12TQuestThreadFPvi(var_r31, temp_r4_2) != 0))
     {
       *((s32 *) (((s8 *) arg0) + 0x390)) = 0;
-      clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1U);
+      clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1U);
     }
   }
   temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
@@ -263,7 +263,7 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
       break;
   }
   advance_animation_playback((void *) arg0);
-  update_prev_position__10TObjPlayerFPv(arg0);
+  update_prev_position__10TObjPlayerFv(arg0);
   new_var = arg0;
   copy_position__20TBoss3VoloptHiraisinFi((s32) new_var);
   if ((((s32) (*((s32 *) (((s8 *) arg0) + 0x3A8)))) > 0) && (is_not_split_screen__13TRaderMapCoreFv() == 0))

@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
 
 extern "C" {
 
-void set_state_close__22THunterGuildSeqOfflineFv(void);
-s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 set_field_20__12TQuestListVMFl(void *, s32);
 
 struct Base_8021250C { char pad[0x18]; };
 struct VObj_8021250C : Base_8021250C {
@@ -18,11 +18,11 @@ struct VObj_8021250C : Base_8021250C {
 };
 extern struct VObj_8021250C *THunterGuildSeqOffline__active_instance;
 
-void set_state_close__22THunterGuildSeqOfflineFv(void) {
+void THunterGuildSeqOffline::set_state_close() {
     if (THunterGuildSeqOffline__active_instance != NULL) {
         THunterGuildSeqOffline__active_instance->m7(0xC, 1);
         *(s32 *)((s8 *)THunterGuildSeqOffline__active_instance + 0x38) = 0;
-        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__active_instance, 5);
+        set_field_20__12TQuestListVMFl(THunterGuildSeqOffline__active_instance, 5);
     }
 }
 

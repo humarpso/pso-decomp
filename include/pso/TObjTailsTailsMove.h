@@ -8,6 +8,8 @@ class TObjTailsTailsMove : public TObject {
 public:
     virtual ~TObjTailsTailsMove();
     virtual void run_task();
+public:
+    static void *create(void *arg0);
 };
 
 #endif

@@ -1,6 +1,6 @@
 #include "pso/TItemEffFlame.h"
 
-extern "C" void request_destroy__11TBoss4Type2FUi(void*);
+extern "C" void request_destroy__11TBoss4Type2FUl(void*);
 
 #include "types.h"
 
@@ -12,7 +12,7 @@ struct Rec_80108D6C { u8 pad0[0x1C]; Vec_80108D6C pos; u8 pad28[0x4]; };
 struct Photon_80108D6C { u8 pad0[0xA4]; Rec_80108D6C *recs; };
 struct Flame_80108D6C { u8 pad0[0x1C]; void *m_1c; u16 m_20; u8 pad22[2]; s32 m_24; };
 
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 Photon_80108D6C *find_entity_by_id(u16);
 s32 rand();
 extern const f32 lbl_805DAB20;
@@ -34,11 +34,11 @@ void TItemEffFlame::run_task() {
     v.x += lbl_805DAB20 * (lbl_805DAB24 * (f32)rand());
     v.y += lbl_805DAB20 * (lbl_805DAB24 * (f32)rand());
     v.z += lbl_805DAB20 * (lbl_805DAB24 * (f32)rand());
-    copy_pos__11TNowLoadingFPvPv(self->m_1c, &v);
+    copy_pos__11TNowLoadingFPv(self->m_1c, &v);
 }
 
 }
 
 TItemEffFlame::~TItemEffFlame() {
-    request_destroy__11TBoss4Type2FUi(this->m_1c);
+    request_destroy__11TBoss4Type2FUl(this->m_1c);
 }

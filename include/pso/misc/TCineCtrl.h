@@ -9,6 +9,10 @@ struct TCineCtrl
     u32 m_24;
     u8 m_27;
     u32 m_28;
+    void render();
+    static void reset_state(s32 arg0);
+    static void reset(s32 arg0);
+    void run_task();
 };
 
 #endif

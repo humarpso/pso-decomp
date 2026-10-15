@@ -32,6 +32,14 @@ struct TOMine
     u16 m_35c;
     u8 _pad35E[0x12];
     u32 m_370;
+    int get_player_state();
+    int find_target_player();
+    void run_task();
+    void free_sub_objects();
+    void free_parts();
+    void render();
+    static void free_instance();
+    static void load_static_resource();
 };
 
 #endif

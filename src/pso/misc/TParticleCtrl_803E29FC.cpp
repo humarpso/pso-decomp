@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 
 #pragma scheduling off
 
@@ -13,17 +14,15 @@ s32 load_camera_view_matrix();
 s32 setup_render__10TObjPlayerFv();
 s32 setup_blended_textured_draw();
 s32 load_context_texture_obj();
-void setup_particle_draw__13TParticleCtrlFi(s32 arg0);
 s32 GXBegin(int, int, u16);
 void TParticleCtrl__sub_803E2A1C(Particle_803E2A1C *p, s32 n);
 }
 
 extern "C" {
 
-void reset_particles__13TParticleCtrlFv(void);
 s32 TObjPlayer__sub_803E2248();
 
-void reset_particles__13TParticleCtrlFv(void) {
+void TParticleCtrl::reset_particles() {
     TObjPlayer__sub_803E2248();
 }
 
@@ -64,7 +63,7 @@ void TParticleCtrl__sub_803E2A1C(Particle_803E2A1C *p, s32 n) {
 }
 #pragma pop
 
-void setup_particle_draw__13TParticleCtrlFi(s32 arg0) {
+void TParticleCtrl::setup_particle_draw(s32 arg0) {
     load_camera_view_matrix();
     if (arg0 != 0) {
         setup_blended_textured_draw();

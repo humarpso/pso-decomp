@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -67,15 +68,14 @@ struct Seq_802129FC : Base_802129FC {
 };
 
 extern "C" {
-s32 is_visible__17TWindowSubComCardFPv(void *);
-s32 get_status_flag__17TWindowSubComCardFPv(void *);
-s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 is_visible__17TWindowSubComCardFv(void *);
+s32 get_status_flag__17TWindowSubComCardFv(void *);
+s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 create_quest_thread(s32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__quest_result_callbacks;
-void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0);
-s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 set_field_20__12TQuestListVMFl(void *, s32);
 List_80212B88 *TQuestListOffline__ct(void *, s32, Seq_80212B88 *, s32);
 void *__nw__7TObjectFUl(u32);
 List_80212B88 *TQuestListChallenge__ct(void *, s32, Seq_80212B88 *, s32);
@@ -84,12 +84,10 @@ void set_state_close__22THunterGuildSeqOfflineFv(void);
 void set_state_4__22THunterGuildSeqOfflineFv(void);
 void create_quest_list_vm__22THunterGuildSeqOfflineFv(void);
 void set_state_close2__22THunterGuildSeqOfflineFv(void);
-void request_close__22THunterGuildSeqOfflineFv(void);
 extern s32 tl_05;
-void open_quest_list__22THunterGuildSeqOfflineFPv(Seq_80212B88 *self);
 void obj_getField1c(s32);
 void queue_destruction__7TObjectFv(void *);
-void init__22THunterGuildSeqOfflineFPvPvPv(void *, void *, void *);
+void init__22THunterGuildSeqOfflineFPvPv(void *, void *, void *);
 void queue_destruction__19THunterGuildWarningFv();
 void THunterGuildSeqOffline__sub_8021E180();
 void fn_802233F8(void *);
@@ -98,7 +96,6 @@ s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void set_enemy_mode_0__22THunterGuildSeqOfflineFv(void);
 void set_enemy_mode_1__22THunterGuildSeqOfflineFv(void);
 void set_enemy_mode_3__12TQuestListVMFv(void);
 void set_enemy_mode_5__22THunterGuildSeqOfflineFv(void);
@@ -120,36 +117,34 @@ struct VObj_80212858_8021282C : Base_80212858_8021282C {
     virtual void m7(int, int);
 };
 
-void handle_window_input__22THunterGuildSeqOfflineFPv(void *arg0);
-void request_close__22THunterGuildSeqOfflineFv(void);
-void set_enemy_mode_0__22THunterGuildSeqOfflineFv(void);
 int TKeyBoardControl__sub_8000F950(void);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 int clear_counter__6TLobbyFv(void);
-s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 set_field_20__12TQuestListVMFl(void *, s32);
 
     extern int evt2_random_enemies_mode;
-void set_enemy_mode_0__22THunterGuildSeqOfflineFv(void) { clear_counter__6TLobbyFv(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
+void THunterGuildSeqOffline::set_enemy_mode_0() { clear_counter__6TLobbyFv(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
 
 extern struct VObj_80212858_8021282C *THunterGuildSeqOffline__active_instance;
 
-void request_close__22THunterGuildSeqOfflineFv(void) {
+void THunterGuildSeqOffline::request_close() {
     if (THunterGuildSeqOffline__active_instance != NULL) {
         THunterGuildSeqOffline__active_instance->m7(6, 1);
         *(s32 *)((s8 *)THunterGuildSeqOffline__active_instance + 0x38) = 2;
-        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__active_instance, 5);
+        set_field_20__12TQuestListVMFl(THunterGuildSeqOffline__active_instance, 5);
     }
 }
 
 typedef char RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
-void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0) {
+void THunterGuildSeqOffline::handle_cancel_choice() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3_2;
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x2C));
     if (temp_r3 != NULL) {
-        if (is_visible__17TWindowSubComCardFPv(temp_r3) != 0) {
+        if (is_visible__17TWindowSubComCardFv(temp_r3) != 0) {
             temp_r3_2 = get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0x2C));
             if (temp_r3_2 == 0) {
                 TWindow__close(*(u8 **)((s8 *)arg0 + 0x2C));
@@ -159,7 +154,7 @@ void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0) {
                 if ((s32) *(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8) != -1) {
                     *(s32 *)((s8 *)arg0 + 0x34) = create_quest_thread(*(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8));
                 }
-                set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(5));
+                set_field_20__12TQuestListVMFl((void *)(arg0), (s32)(5));
                 return;
             }
             if (temp_r3_2 == 1) {
@@ -167,18 +162,18 @@ void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0) {
                 *(u8 **)((s8 *)arg0 + 0x2C) = NULL;
                 ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
                 *(s32 *)((s8 *)arg0 + 0x38) = 0;
-                set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(5));
+                set_field_20__12TQuestListVMFl((void *)(arg0), (s32)(5));
                 return;
             }
             goto block_8;
         }
 block_8:
-        if (get_status_flag__17TWindowSubComCardFPv(*(u8 **)((s8 *)arg0 + 0x2C)) != 0) {
+        if (get_status_flag__17TWindowSubComCardFv(*(u8 **)((s8 *)arg0 + 0x2C)) != 0) {
             TWindow__close(*(u8 **)((s8 *)arg0 + 0x2C));
             *(u8 **)((s8 *)arg0 + 0x2C) = NULL;
             ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
             *(s32 *)((s8 *)arg0 + 0x38) = 0;
-            set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(5));
+            set_field_20__12TQuestListVMFl((void *)(arg0), (s32)(5));
         }
     }
 }
@@ -203,7 +198,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     case 1:
         o = __nw__7TObjectFUl(0x28);
         if (o != NULL) {
-            init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (void *)set_enemy_mode_0__22THunterGuildSeqOfflineFv);
+            init__22THunterGuildSeqOfflineFPvPv(o, tl_00, (void *)THunterGuildSeqOffline::set_enemy_mode_0);
         }
         obj_getField1c(arg0->f24);
         THunterGuildSeqOffline__sub_8021E180();
@@ -211,7 +206,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     case 2:
         o = __nw__7TObjectFUl(0x28);
         if (o != NULL) {
-            init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (void *)set_enemy_mode_1__22THunterGuildSeqOfflineFv);
+            init__22THunterGuildSeqOfflineFPvPv(o, tl_00, (void *)set_enemy_mode_1__22THunterGuildSeqOfflineFv);
         }
         obj_getField1c(arg0->f24);
         THunterGuildSeqOffline__sub_8021E180();
@@ -219,7 +214,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     case 3:
         o = __nw__7TObjectFUl(0x28);
         if (o != NULL) {
-            init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (void *)set_enemy_mode_3__12TQuestListVMFv);
+            init__22THunterGuildSeqOfflineFPvPv(o, tl_00, (void *)set_enemy_mode_3__12TQuestListVMFv);
         }
         obj_getField1c(arg0->f24);
         THunterGuildSeqOffline__sub_8021E180();
@@ -227,7 +222,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     case 4:
         o = __nw__7TObjectFUl(0x28);
         if (o != NULL) {
-            init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (void *)set_enemy_mode_5__22THunterGuildSeqOfflineFv);
+            init__22THunterGuildSeqOfflineFPvPv(o, tl_00, (void *)set_enemy_mode_5__22THunterGuildSeqOfflineFv);
         }
         obj_getField1c(arg0->f24);
         THunterGuildSeqOffline__sub_8021E180();
@@ -239,7 +234,8 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void open_quest_list__22THunterGuildSeqOfflineFPv(Seq_80212B88 *self) {
+void THunterGuildSeqOffline::open_quest_list() {
+    Seq_80212B88 *self = (Seq_80212B88 *)this;
     List_80212B88 *list;
     if (self->m8() == 0) return;
     switch (get_game_play_mode()) {
@@ -247,9 +243,9 @@ void open_quest_list__22THunterGuildSeqOfflineFPv(Seq_80212B88 *self) {
         list = (List_80212B88 *)__nw__7TObjectFUl(0x5C);
         if (list != NULL) list = TQuestListChallenge__ct(list, tl_05, self, self->player);
         if (list != NULL) {
-            list->accepted = request_close__22THunterGuildSeqOfflineFv;
+            list->accepted = THunterGuildSeqOffline::request_close;
             list->cancelled = set_state_close2__22THunterGuildSeqOfflineFv;
-            set_field_20__12TQuestListVMFPvi(self, 10);
+            set_field_20__12TQuestListVMFl(self, 10);
         }
         break;
     case 1:
@@ -258,7 +254,7 @@ void open_quest_list__22THunterGuildSeqOfflineFPv(Seq_80212B88 *self) {
         if (list != NULL) {
             list->accepted = set_state_4__22THunterGuildSeqOfflineFv;
             list->cancelled = set_state_close__22THunterGuildSeqOfflineFv;
-            set_field_20__12TQuestListVMFPvi(self, 10);
+            set_field_20__12TQuestListVMFl(self, 10);
         }
         break;
     case 0:
@@ -266,29 +262,29 @@ void open_quest_list__22THunterGuildSeqOfflineFPv(Seq_80212B88 *self) {
         list = (List_80212B88 *)__nw__7TObjectFUl(0x58);
         if (list != NULL) list = TQuestListOffline__ct(list, tl_05, self, self->player);
         if (list != NULL) {
-            list->accepted = request_close__22THunterGuildSeqOfflineFv;
+            list->accepted = THunterGuildSeqOffline::request_close;
             list->cancelled = set_state_close2__22THunterGuildSeqOfflineFv;
             list->download = create_quest_list_vm__22THunterGuildSeqOfflineFv;
-            set_field_20__12TQuestListVMFPvi(self, 10);
+            set_field_20__12TQuestListVMFl(self, 10);
         }
         break;
     }
 }
 
-void handle_window_input__22THunterGuildSeqOfflineFPv(void *arg0) {
-    void *temp_r3 = *(void **)((s8 *)arg0 + 0x34);
+void THunterGuildSeqOffline::handle_window_input() {
+    void *temp_r3 = *(void **)((s8 *)this + 0x34);
 
     if (temp_r3 != NULL) {
         if (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) != 1) {
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+            *(u32 *)((s8 *)this + 0x34) = 0U;
             goto block_3;
         }
     } else {
 block_3:
-        if ((((V_A_8021282C *) arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
-            ((V_A_8021282C *) arg0)->m7(0xC, 1);
-            *(s32 *)((s8 *)arg0 + 0x38) = 1;
-            set_field_20__12TQuestListVMFPvi(arg0, 5);
+        if ((((V_A_8021282C *) this)->m8() != 0) && ((TShopWindowBase__sub_80223A48(this) != 0) || (TShopWindowBase__sub_802239EC(this) != 0))) {
+            ((V_A_8021282C *) this)->m7(0xC, 1);
+            *(s32 *)((s8 *)this + 0x38) = 1;
+            set_field_20__12TQuestListVMFl(this, 5);
         }
     }
 }

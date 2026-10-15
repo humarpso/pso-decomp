@@ -76,7 +76,7 @@ void TAdTimeSetGC__sub_802E34A8(void) {  }
 
 }
 
-extern "C" void draw_date_time__23TAdSinglePlyChrSelectGCFPv();
+extern "C" void draw_date_time__23TAdSinglePlyChrSelectGCFv();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E13C8();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E1F8C();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E1FAC();
@@ -214,5 +214,5 @@ void *lbl_804E32A4[150] = {
 };
 void *lbl_804E34FC[6] = {
     (void *)0x0, (void *)0x0, (void *)&TAdSinglePlyChrSelectGC__sub_802E13C8, (void *)&run_task__7TObjectFv,
-    (void *)&draw_date_time__23TAdSinglePlyChrSelectGCFPv, (void *)&render_shadows__7TObjectFv,
+    (void *)&draw_date_time__23TAdSinglePlyChrSelectGCFv, (void *)&render_shadows__7TObjectFv,
 };

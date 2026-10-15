@@ -25,6 +25,19 @@ struct TTecLuker
     u8 _pad100[0x8];
     u32 m_108;
     u32 m_10c;
+    void *destroy(s16 arg1);
+    void set_interaction_latch();
+    void update_player_target();
+    static void apply_all_players();
+    static void create_for_player(int arg0, s32 arg1);
+    void init_fields(s16 arg1);
+    void send_telepipe_packet();
+    void create(void *arg1, void *arg2, void *arg3);
+    void setup_telepipe_field();
+    void send_swapped_telepipe_packet();
+    void byteswap_telepipe_packet();
+    void set_state(s32 v);
+    static s32 is_parents_unqueued(u32 arg0);
 };
 
 #endif

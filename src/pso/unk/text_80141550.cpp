@@ -134,7 +134,7 @@ extern "C" {
 void copy_config__10TObjPlayerFPvPv(void* p, void* q);
 
 void set_ginja_draw_end_callback(void *);
-void set_global_state__10TObjPlayerFi(void *);
+void set_global_state__10TObjPlayerFl(void *);
 void restore_saved_depth_alpha_state();
 void TObjPlayer__sub_801416AC(void);
 struct Cfg_801416AC { u32 a; u8 b; u8 c; u8 pad6[2]; u32 d; u8 e; u8 f; u8 pad_e[2]; u32 g; };
@@ -153,7 +153,7 @@ void TObjPlayer__sub_801416AC(void) {
     depth_buffer_settings.g = 1;
     copy_config__10TObjPlayerFPvPv(&depth_buffer_config_copy, &depth_buffer_settings);
     copy_config__10TObjPlayerFPvPv(&saved_depth_alpha_scene_state, &depth_buffer_settings);
-    set_global_state__10TObjPlayerFi((void *)restore_saved_depth_alpha_state);
+    set_global_state__10TObjPlayerFl((void *)restore_saved_depth_alpha_state);
     set_ginja_draw_end_callback((void *)restore_saved_depth_alpha_state);
 }
 #define depth_buffer_settings (*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)

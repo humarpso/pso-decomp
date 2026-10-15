@@ -7,8 +7,8 @@ struct Hdr_80197E64 { u8 pad0[0x58]; s32 f58; s32 f5C; u8 pad60[0xC]; };
 extern "C" {
 extern s32 TObjSinBoard__texture_buffer;
 bool is_signboard_texture_buffer_missing(void);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
-void *alloc__22TQuestVmDownLoadServerFPv(s32);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(void *);
+void *alloc__22TQuestVmDownLoadServerFv(s32);
 void run_frame__6TLobbyFv(void);
 bool is_signboard_texture_buffer_missing(void);
 void fn_80197FD0(s32, s32);
@@ -16,7 +16,7 @@ s32 TAdPlayerLoadGC__sub_801E1538(Hdr_80197E64 *, void *);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(s32, s32, Stat_80197E64 *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-void load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, s32, void *);
+void load_player_slot__23TAdSinglePlyChrSelectGCFii(s32, s32, void *);
 s32 fn_802432F0(s32);
 void memset(void *, int, int);
 extern s32 memcard_file_099_name;
@@ -56,21 +56,21 @@ void load_memcard_file(void) {
     if (r != 0) {
         return;
     }
-    buf = alloc__22TQuestVmDownLoadServerFPv(stat.blocks << 13);
+    buf = alloc__22TQuestVmDownLoadServerFv(stat.blocks << 13);
     if (buf == 0) {
         return;
     }
     memset(buf, 0, stat.blocks << 13);
-    load_player_slot__23TAdSinglePlyChrSelectGCFPvii(slot, memcard_file_099_name, buf);
+    load_player_slot__23TAdSinglePlyChrSelectGCFii(slot, memcard_file_099_name, buf);
     while (TAdPlayerLoadGC__sub_801E1B50(slot) != 0) {
         run_frame__6TLobbyFv();
     }
     if (TAdPlayerLoadGC__sub_801E1538(&hdr, buf) != 0) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(buf);
         return;
     }
     fn_80197FD0(hdr.f58, hdr.f5C);
-    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+    safe_free__23TAdSinglePlyChrSelectGCFUl(buf);
 }
 
 }

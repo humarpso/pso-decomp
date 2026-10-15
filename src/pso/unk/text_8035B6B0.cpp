@@ -10,8 +10,8 @@ struct Stack_8035B6B0 {
 
 extern "C" {
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, int, void *, f32, f32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, int, void *, f32, f32);
 extern s32 chao_npc_spawn_descriptor[];
 extern s32 bm_ene_npc_chao_resource_descriptor[];
 extern u8 *chao_npc_instance_handle;
@@ -30,7 +30,7 @@ void load_and_spawn_chao_npc(void) {
     Stack_8035B6B0 stack;
     u8 *temp_r5;
     u8 *var_r9;
-    var_r9 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
+    var_r9 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFv(0x440));
     if (var_r9 != NULL) {
         var_r9 = (u8 *)(load_resource_from_descriptor(var_r9, 1, bm_ene_npc_chao_resource_descriptor, 0, 0, 0));
     }
@@ -41,7 +41,7 @@ void load_and_spawn_chao_npc(void) {
     stack.sp14 = *(s32 *)((s8 *)chao_npc_spawn_descriptor + 0xC);
     stack.sp8 = *(s32 *)((s8 *)var_r9 + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)var_r9 + 0x42C));
-    spawn_npc_enemy__6TLobbyFsiiiff((int) (0xB), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)chao_npc_spawn_descriptor + 0)), (void *) (chao_npc_spawn_descriptor), (f32) (lbl_805E0138), (f32) (lbl_805E013C));
+    spawn_npc_enemy__6TLobbyFslllff((int) (0xB), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)chao_npc_spawn_descriptor + 0)), (void *) (chao_npc_spawn_descriptor), (f32) (lbl_805E0138), (f32) (lbl_805E013C));
 }
 
 }

@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/CharacterAppearance.h"
 #include "pso/system/ChunkMaterialState.h"
+#include "pso/misc/TCharaMaking.h"
 
 struct TextureList
 {
@@ -55,7 +56,7 @@ struct CharData_8028DF98 {
 
 extern "C" {
 extern struct ClassAppearance class_appearance_table[19];
-s32 get_display_index__12TCharaMakingFPv(struct Appearance *);
+s32 get_display_index__12TCharaMakingFv(struct Appearance *);
 void build_appearance_texture_names__12TCharaMakingFv(void *, struct Appearance *, struct ClassAppearance *, struct TextureList *);
 void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2, struct Appearance *arg3);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
@@ -94,17 +95,13 @@ f32 calc_character_height(void *p);
 
 extern "C" {
 
-void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0);
-s32 query_state__12TCharaMakingFv(void);
-void setup_from_data__12TCharaMakingFii(s32 arg0, s32 arg1);
-void update_body_parts__12TCharaMakingFPv(u8 *arg0);
 s32 TLobby__sub_803DA16C(void *);
 s32 TObjCMMainMenu__sub_8028EBCC(void*);
 s32 create__12TChCrLoadReqFPv(void *);
 
 extern u32 creation_main_menu_obj;
 
-s32 query_state__12TCharaMakingFv(void) {
+s32 TCharaMaking::query_state() {
     if ((u32) creation_main_menu_obj == 0U) {
         return -1;
     }
@@ -178,7 +175,7 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
 }
 #pragma pop
 
-void setup_from_data__12TCharaMakingFii(s32 arg0, s32 arg1) {
+void TCharaMaking::setup_from_data(s32 arg0, s32 arg1) {
     TCharaMaking__draw_colored_hair(1.0f, arg0, (CharacterAppearanceFields *)arg1, 0);
 }
 
@@ -192,7 +189,8 @@ u8 *get_class_appearance_preset(s32 arg0) {
     return (u8 *)&class_appearance_preset_table.value + (var_r3 * 0x50);
 }
 
-void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {
+void TCharaMaking::free_loaded_buffers() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x8B8) != 0) {
         if (!(*(s32 *)((s8 *)arg0 + 0xCFC) & 1)) {
             TLobby__sub_803DA16C(arg0 + 0xA1C);
@@ -213,7 +211,8 @@ void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {
     }
 }
 
-void update_body_parts__12TCharaMakingFPv(u8 *arg0) {
+void TCharaMaking::update_body_parts() {
+    u8 *arg0 = (u8 *)this;
     validate_player_visual_record((void *)(arg0 + 0x85C));
     *(f32 *)((s8 *)arg0 + 0xD48) = calc_character_height((void *)(arg0 + 0x85C));
     ((s32 (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
@@ -224,8 +223,6 @@ void update_body_parts__12TCharaMakingFPv(u8 *arg0) {
 
 extern "C" {
 
-void clear_flag_bit0__12TCharaMakingFv(void);
-void enable_making__12TCharaMakingFv(void);
 int restore_default_scene(void);
 int set_scene_override(void*);
 
@@ -331,9 +328,9 @@ s32 validate_player_visual_record(void *arg0) {
     return ok;
 }
 
-void clear_flag_bit0__12TCharaMakingFv(void) { restore_default_scene(); model_render_flags = (model_render_flags & 0xfffffffe); }
+void TCharaMaking::clear_flag_bit0() { restore_default_scene(); model_render_flags = (model_render_flags & 0xfffffffe); }
 
-void enable_making__12TCharaMakingFv(void) { model_render_flags = (model_render_flags | 0x1); set_scene_override((void*)31); }
+void TCharaMaking::enable_making() { model_render_flags = (model_render_flags | 0x1); set_scene_override((void*)31); }
 typedef struct Appearance Appearance;
 typedef struct ClassAppearance ClassAppearance;
 typedef struct TextureList TextureList;
@@ -345,7 +342,7 @@ void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2
   struct TextureList *temp_r6;
   ClassAppearance *new_var;
   struct TextureList *temp_r6_2;
-  temp_r4 = get_display_index__12TCharaMakingFPv(arg3) * 0x2C;
+  temp_r4 = get_display_index__12TCharaMakingFv(arg3) * 0x2C;
   new_var = (ClassAppearance *) (((u8 *) class_appearance_table) + temp_r4);
   *arg0 = 0;
   temp_r28 = new_var;

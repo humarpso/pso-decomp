@@ -8,6 +8,9 @@ public:
     virtual ~TObjVoloptShutter();
     virtual void run_task();
     virtual void render();
+public:
+    void update_shutter_slide();
+    void update_shutter_state();
 };
 
 #endif

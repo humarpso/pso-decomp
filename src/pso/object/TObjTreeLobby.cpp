@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/object/TObjTreeLobby.h"
 
 extern "C" {
 extern char lbl_8047A068[];
@@ -63,21 +64,16 @@ struct Obj_803648B8 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjTreeLobby__instance;
 extern s32 tree_lobby_type;
-void load_resources__13TObjTreeLobbyFv(void);
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
-void run_task__13TObjTreeLobbyFv(Obj_803648B8 *self);
 }
 
 extern "C" {
 
-void *create__13TObjTreeLobbyFPv(void *arg0);
-void destroy_static_instance__13TObjTreeLobbyFv(void);
-void render__13TObjTreeLobbyFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
@@ -89,27 +85,27 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 void queue_destruction__7TObjectFv(void *);
 Ctrl_80364B6C *get_player_by_client_id(u16);
-void send_destroy_to_player__13TObjTreeLobbyFPv(Obj_80364B6C *arg0);
 void *TObjTreeLobby__sub_80364BE8(void *arg0, s16 arg1);
 void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 s32 init_map_object_base();
 s32 is_lobby_event_active();
 extern s32 __vt__13TObjTreeLobby[];
 extern s32 TObjTreeLobby__class_name;
 extern s32 lbl_804F2B60[];
 
-void render__13TObjTreeLobbyFv(u8 *arg0) {
+void TObjTreeLobby::render() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -125,7 +121,8 @@ void render__13TObjTreeLobbyFv(u8 *arg0) {
 
 extern void *tl_05;
 
-void run_task__13TObjTreeLobbyFv(Obj_803648B8 *self) {
+void TObjTreeLobby::run_task() {
+    Obj_803648B8 *self = (Obj_803648B8 *)this;
     switch (self->state) {
     case 0:
         if (is_connected__6TLobbyFv() != 0) {
@@ -155,7 +152,7 @@ void run_task__13TObjTreeLobbyFv(Obj_803648B8 *self) {
     }
 }
 
-void *create__13TObjTreeLobbyFPv(void *arg0) {
+void *TObjTreeLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
         o = ((void *(*)(void *, void *, void *))TObjTreeLobby__ct)(o, tl_05, arg0);
@@ -165,16 +162,16 @@ void *create__13TObjTreeLobbyFPv(void *arg0) {
 
 extern u32 TObjTreeLobby__instance;
 
-void destroy_static_instance__13TObjTreeLobbyFv(void) {
+void TObjTreeLobby::destroy_static_instance() {
     if ((u32) TObjTreeLobby__instance != 0U) {
         TLobby__sub_8001FE7C((void*)TObjTreeLobby__instance, 1);
         TObjTreeLobby__instance = 0U;
     }
 }
-void load_resources__13TObjTreeLobbyFv(void) {
+void TObjTreeLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjTreeLobby_resource_descriptor, 0, 0, 0));
@@ -186,7 +183,7 @@ void load_resources__13TObjTreeLobbyFv(void) {
 void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjTreeLobby;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -208,7 +205,8 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) tree_lobby_type;
     return arg0;
 }
-void send_destroy_to_player__13TObjTreeLobbyFPv(Obj_80364B6C *arg0) {
+void TObjTreeLobby::send_destroy_to_player() {
+    Obj_80364B6C *arg0 = (Obj_80364B6C *)this;
     Ctrl_80364B6C *c = get_player_by_client_id(arg0->h20);
     if (c != 0) {
         P_80364B6C sp10;

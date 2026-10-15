@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODoorAncient05.h"
 
 struct VBase_18_4a4f5b { char pad[0x18]; };
 
@@ -34,7 +35,7 @@ struct RecoveredGlobal_8015F048___vt__15TODoorAncient05 {
 };
 
 extern "C" {
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -48,42 +49,40 @@ extern const f32 lbl_805DB428;
 u8 *TODoorAncient05__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void copy_model_node(void *, void *);
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_80440B10[];
 extern u8 door_ancient_567_resource_descriptor[];
 extern void *door_ancient05_bml_resource;
 extern void *TODoorAncient05__switch_texture_lists;
 extern void *door_ancient05_static_model_nodes;
-void load_resources__15TODoorAncient05Fv(void);
 }
 
 extern "C" {
 
 void *__dt__15TODoorAncient05Fv(void *arg0, s16 arg1);
-void reset__15TODoorAncient05Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_ancient_door_base__15TODoorAncient01FPvs(void *, s32);
-s32 free__11TOBoss4RockFUi(void*);
-s32 free_if_valid__10TObjPlayerFi(s32);
+s32 destroy_ancient_door_base__15TODoorAncient01Fs(void *, s32);
+s32 mem_free(void*);
+s32 free_if_valid__10TObjPlayerFl(s32);
 
 extern void *door_ancient05_bml_resource;
 extern void *TODoorAncient05__switch_texture_lists;
 extern void *door_ancient05_static_model_nodes;
 
-void reset__15TODoorAncient05Fv(void) {
+void TODoorAncient05::reset() {
     if (door_ancient05_static_model_nodes != NULL) {
-        free__11TOBoss4RockFUi(door_ancient05_static_model_nodes);
+        mem_free(door_ancient05_static_model_nodes);
         door_ancient05_static_model_nodes = NULL;
     }
     if (TODoorAncient05__switch_texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4));
+        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4));
         if (TODoorAncient05__switch_texture_lists != NULL) {
-            free__11TOBoss4RockFUi(TODoorAncient05__switch_texture_lists);
+            mem_free(TODoorAncient05__switch_texture_lists);
             TODoorAncient05__switch_texture_lists = NULL;
         }
     }
@@ -99,19 +98,19 @@ extern s32 __vt__15TODoorAncient05[];
 #define G591C (*(s32 **)&TODoorAncient05__switch_texture_lists)
 #define G5920 (*(u8 **)&door_ancient05_static_model_nodes)
 #define NODE(p, o) (*(u8 **)((u8 *)(p) + (o)))
-void load_resources__15TODoorAncient05Fv(void) {
+void TODoorAncient05::load_resources() {
     u8 *p;
     s32 *buf;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, door_ancient_567_resource_descriptor, 0, 0, 0);
     }
     G5918 = p;
-    buf = alloc_buffer__11TOBoss4RockFPv(8);
+    buf = mem_alloc(8);
     G591C = buf;
     buf[0] = *(s32 *)(NODE(G5918, 0x42C) + 0xC);
     G591C[1] = load_gvm_texture_file(lbl_80440B10);
-    G5920 = (u8 *)alloc_buffer__11TOBoss4RockFPv(0xA8);
+    G5920 = (u8 *)mem_alloc(0xA8);
     if (G5918 != NULL && G5920 != NULL) {
         copy_model_node(G5920, NODE(NODE(G5918, 0x42C), 8));
         *(s32 *)(G5920 + 0x2C) = 0;
@@ -127,7 +126,7 @@ void *__dt__15TODoorAncient05Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorAncient05;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
+        destroy_ancient_door_base__15TODoorAncient01Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -148,7 +147,7 @@ u8 *TODoorAncient05__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB418);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient05__collision_body.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();
     return arg0;
 }

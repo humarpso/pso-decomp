@@ -17,31 +17,22 @@ struct RecoveredGlobal_803404A4_lbl_8050E208
 struct E_803403F8 { f32 a; f32 b; f32 c; f32 d; f32 e; s32 f; };
 
 extern "C" {
-void set_clamped_page__9TWindowDDFPvi(u8 *arg0, s32 arg1);
 s32 spawn_window__9TWindowDDFv();
-void set_clamped_selection__9TWindowDDFPvi(u8 *arg0, s32 arg1);
-void set_value_f32__9TWindowDDFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805DFC34;
 extern const f32 lbl_805DFC38;
 extern const f32 lbl_805DFC3C;
-void set_quad_corners_scaled__9TWindowDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, void *);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, void *);
 extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, void *, int, int);
 extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
-s32 apply_both_choices__9TWindowDDFii(s32 arg0, s32 arg1);
-s32 apply_both_choices__9TWindowDDFii(s32 arg0, s32 arg1);
 s32 spawn_window__9TWindowDDFv();
-void handle_input__9TWindowDDFPv(u8 *arg0);
 extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC00;
 extern const f32 lbl_805DFC04;
 extern const f32 lbl_805DFC08;
 extern const f32 lbl_805DFC2C;
-void init_layout_constants__9TWindowDDFv(void);
 extern const f32 lbl_805DFC30;
-void reset_entries__9TWindowDDFPvf(E_803403F8 *p, f32 v);
 }
 
 extern "C" {
@@ -49,18 +40,15 @@ extern "C" {
 s32 TWindowDD__sub_80340820(void* p);
 void TWindowDD__sub_80340910(void* p);
 void *TWindowDD__sub_8034094C(void *arg0, s16 arg1);
-void *create__9TWindowDDFv(void);
-void init__9TWindowDDFPv(void* p);
-void set_scale__9TWindowDDFPvii(void *arg0, s32 arg1, s32 arg2);
 void update_draw__9TWindowDDFPv(void* p);
-void *construct_variant_a__9TWindowDDFPv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
-int initialize_subwindow__9TWindowDDFPv(void*);
-int update_fade__17TWindowSubComCardFPv(void*);
+void destroy_window_base__9TWindowDDFs(void *, int);
+int initialize_subwindow__9TWindowDDFv(void*);
+int update_fade__17TWindowSubComCardFv(void*);
 
-void reset_entries__9TWindowDDFPvf(E_803403F8 *p, f32 v) {
+void TWindowDD::reset_entries(f32 v) {
+    E_803403F8 *p = (E_803403F8 *)this;
     s32 i;
     for (i = 0; i < 8; i++) {
         p->a = lbl_805DFC30;
@@ -73,7 +61,8 @@ void reset_entries__9TWindowDDFPvf(E_803403F8 *p, f32 v) {
     }
 }
 
-void set_quad_corners_scaled__9TWindowDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+void TWindowDD::set_quad_corners_scaled(f32 farg0, f32 farg1, f32 farg2) {
+    u8 *arg0 = (u8 *)this;
   f32 temp_f0;
   f32 temp_f1;
   f32 temp_f1_2;
@@ -124,18 +113,19 @@ typedef char RecoveredGlobal_80340508_lbl_8050E208_size[((sizeof(RecoveredGlobal
 #pragma opt_dead_assignments off
 typedef struct RecoveredGlobal_803404A4_lbl_8050E208 RecoveredGlobal_803404A4_lbl_8050E208;
 typedef char RecoveredGlobal_803404A4_lbl_8050E208_size[((sizeof(RecoveredGlobal_803404A4_lbl_8050E208)) == 0x1B0) ? (1) : (-1)];
-s32 apply_both_choices__9TWindowDDFii(s32 arg0, s32 arg1) {
+s32 TWindowDD::apply_both_choices(s32 arg0, s32 arg1) {
   return apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x20), (void *) arg1, (int) 6, (int) 1) | apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x160), (void *) arg1, (int) 6, (int) 1);
 }
 #pragma pop
 
 s32 TWindowDD_check_input_mask(void *input_context, s32 arg1) {
-  return TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (void *) arg1) | test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (void *) arg1);
+  return TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (void *) arg1) | test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (void *) arg1);
 }
 
-void update_draw__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }
+void update_draw__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFv(p); update_fade__17TWindowSubComCardFv(p); }
 
-void set_clamped_page__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
+void TWindowDD::set_clamped_page(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     if (arg1 < 0) {
         *(s32 *)((s8 *)arg0 + 0x64) = 0;
         return;
@@ -151,18 +141,19 @@ s32 TWindowDD__sub_80340820(void* p) { return *(s32*)((char*)p + 0x68); }
 
 #pragma push
 #pragma opt_common_subs off
-void handle_input__9TWindowDDFPv(u8 *arg0) {
+void TWindowDD::handle_input() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r31;
     s32 temp_r3;
     temp_r31 = *(s32 *)((s8 *)arg0 + 0x68);
-    if (apply_both_choices__9TWindowDDFii((s32) ((u8 *)(arg0) + 0x60), 0x10) != 0) {
+    if (TWindowDD::apply_both_choices((s32) ((u8 *)(arg0) + 0x60), 0x10) != 0) {
         *(s32 *)((s8 *)arg0 + 0x68) = (s32) (*(s32 *)((s8 *)arg0 + 0x68) - 1);
-    } else if (apply_both_choices__9TWindowDDFii((s32) ((u8 *)(arg0) + 0x60), 0x20) != 0) {
+    } else if (TWindowDD::apply_both_choices((s32) ((u8 *)(arg0) + 0x60), 0x20) != 0) {
         *(s32 *)((s8 *)arg0 + 0x68) = (s32) (*(s32 *)((s8 *)arg0 + 0x68) + 1);
-    } else if (apply_both_choices__9TWindowDDFii((s32) ((u8 *)(arg0) + 0x60), 0x20000) != 0) {
+    } else if (TWindowDD::apply_both_choices((s32) ((u8 *)(arg0) + 0x60), 0x20000) != 0) {
         *(s32 *)((s8 *)arg0 + 0x68) = 0;
-    } else if (apply_both_choices__9TWindowDDFii((s32) ((u8 *)(arg0) + 0x60), 0x10000) != 0) {
+    } else if (TWindowDD::apply_both_choices((s32) ((u8 *)(arg0) + 0x60), 0x10000) != 0) {
         *(s32 *)((s8 *)arg0 + 0x68) = 2;
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x68);
@@ -197,7 +188,8 @@ void *lbl_804EFBAC[7] = {
 #define TWindowDD__layout_constants ((f32 *)TWindowDD__layout_constants)
 #define lbl_804EFBAC ((s32 *)lbl_804EFBAC)
 
-void set_clamped_selection__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
+void TWindowDD::set_clamped_selection(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 var_r4;
     var_r4 = arg1;
@@ -214,7 +206,7 @@ void set_clamped_selection__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
 void *TWindowDD__sub_8034094C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFBAC;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -226,7 +218,7 @@ struct W_803409A4 { u8 pad0[0x18]; void *p18; u8 pad1c[0x5C - 0x1C]; s32 f5c; s3
 void *construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
 
 #define arg0 ((W_803409A4 *)arg0v)
-void *construct_variant_a__9TWindowDDFPv(void *arg0v) {
+void *TWindowDD::construct_variant_a(void *arg0v) {
     construct_base__9TWindowDDFPvPvsPv(arg0, TWindowDD__layout_constants, 4, TWindowDD__layout_constant_pair);
     arg0->p18 = lbl_804EFBAC;
     arg0->f60 = 1;
@@ -237,15 +229,15 @@ void *construct_variant_a__9TWindowDDFPv(void *arg0v) {
 }
 #undef arg0
 
-void *create__9TWindowDDFv(void) {
+void *TWindowDD::create() {
     void *o = __nw__7TObjectFUl(0x6C);
     if (o != NULL) {
-        o = construct_variant_a__9TWindowDDFPv(o);
+        o = TWindowDD::construct_variant_a(o);
     }
     return o;
 }
 
-void init_layout_constants__9TWindowDDFv(void) {
+void TWindowDD::init_layout_constants() {
     TWindowDD__layout_constant_pair[0] = TWindowDD__data_805DFBFC;
     TWindowDD__layout_constant_pair[1] = lbl_805DFC00;
     TWindowDD__layout_constants[0] = lbl_805DFC04;
@@ -253,19 +245,20 @@ void init_layout_constants__9TWindowDDFv(void) {
     TWindowDD__layout_constants[2] = lbl_805DFC2C;
 }
 
-void init__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }
+void TWindowDD::init() { initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); }
 
 extern s32 lbl_804785D8;
 extern const f32 lbl_805DFC6C;
 
-void set_value_f32__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
+void TWindowDD::set_value_f32(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x6C) = (f32) arg1;
 }
 
-void set_scale__9TWindowDDFPvii(void *arg0, s32 arg1, s32 arg2) {
-    *(f32 *)((s8 *)arg0 + 0x64) = (f32) arg1;
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) arg2;
-    *(f32 *)((s8 *)arg0 + 0x60) = (f32) (lbl_805DFC6C / *(f32 *)((s8 *)arg0 + 0x64));
+void TWindowDD::set_scale(s32 arg1, s32 arg2) {
+    *(f32 *)((s8 *)this + 0x64) = (f32) arg1;
+    *(f32 *)((s8 *)this + 0x68) = (f32) arg2;
+    *(f32 *)((s8 *)this + 0x60) = (f32) (lbl_805DFC6C / *(f32 *)((s8 *)this + 0x64));
 }
 
 }

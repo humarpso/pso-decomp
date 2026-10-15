@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2CeilJunk.h"
 
 extern "C" {
 extern void *lbl_804FE9C8[];
@@ -11,14 +12,13 @@ void TLobby__sub_8003A874(void);
 
 extern "C" {
 
-void *create__17TObjBoss2CeilJunkFPv(void *arg0);
 void TObjBoss2CeilJunk__sub_8003A868(void);
 void *TObjBoss2CeilJunk__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *create__17TObjBoss2CeilJunkFPv(void *arg0) {
+void *TObjBoss2CeilJunk::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
         o = TObjBoss2CeilJunk__ct(o, tl_05, arg0);

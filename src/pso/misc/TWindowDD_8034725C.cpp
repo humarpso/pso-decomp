@@ -29,31 +29,28 @@ struct W_80347B70 {
 };
 
 extern "C" {
-void append_prompt_newline__9TWindowDDFPvPv(s32, void *);
-void show_message_by_count__9TWindowDDFii(s32, void *);
+void append_prompt_newline__9TWindowDDFPl(s32, void *);
+void show_message_by_count__9TWindowDDFll(s32, void *);
 void TWindowDD__sub_8034886C(s32, s32, void *);
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_current_child_index__9TWindowDDFPv(u8 *arg0);
 s32 TWindowDD__sub_803474CC(int, int, int, int, int);
 s32 TWindowDD__sub_80348B70(s32);
 void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80342158(void *);
-s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0);
 s32 TWindowDD__sub_80347FA0(void *, int);
 s32 TWindowDD__sub_80348DD8(void *, int);
 void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1);
-void set_pos_and_data__9TWindowDDFPvf(void *p, f32 v);
+void set_pos_and_data__9TWindowDDFf(void *p, f32 v);
 extern const f32 lbl_805DFB94;
-void set_item_pos__9TWindowDDFPvi(O_80347940 *self, s32 i);
 s32 TWindowDD_is_id_in_range_5AC_5F9(s16 arg0);
 void TWindowDD__sub_80347758(M_80347758 *src, M_80347758 *dst);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-s32 set_field_1c__6TLobbyFPvf(void *, f32);
-s32 init_and_set_field50__9TWindowDDFPvPv(u32, s32);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
+s32 set_field_1c__6TLobbyFf(void *, f32);
+s32 init_and_set_field50__9TWindowDDFPv(u32, s32);
 s32 TWindowDD__sub_803412A0(u32);
 u8 *TWindowDD__sub_8034146C(void *, void *, u32, int, f32);
-u32 update_if_field28_set__9TWindowDDFPv(void *);
-s32 get_cursor_pos__9TWindowDDFPvPv(void *, void *);
+u32 update_if_field28_set__9TWindowDDFv(void *);
+s32 get_cursor_pos__9TWindowDDFPUc(void *, void *);
 extern s32 TWindowDD__data_805DFB50;
 extern const f32 lbl_805DFB60;
 extern const f32 lbl_805DFBDC;
@@ -64,10 +61,10 @@ extern const f32 lbl_805DFBEC;
 extern const f32 lbl_805DFC28;
 void TWindowDD__sub_80347E04(W_80347E04 *arg0, s32 arg1);
 s32 update_state__9TWindowDDFv(void *, u32, u16);
-E_80347CC8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+E_80347CC8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 s32 refresh_status_display__9TWindowDDFv(void *);
-s32 update_position__9TWindowDDFPvi(void *, s32);
-s32 init_and_set_field50__9TWindowDDFPvPv(u32, s32);
+s32 update_position__9TWindowDDFl(void *, s32);
+s32 init_and_set_field50__9TWindowDDFPv(u32, s32);
 extern s32 local_client_id;
 extern u32 TWindowDD__work_buffer;
 extern s32 TWindowDD__data_805DFB50;
@@ -76,37 +73,30 @@ extern const f32 lbl_805DFCD0;
 extern const f32 lbl_805DFCD4;
 void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1);
 s32 TWindowDD__sub_80342158(void *);
-s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0);
 void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1);
 void TWindowDD__sub_80348D90(void *, int);
-void pop_entry__9TWindowDDFPv(void *);
+void pop_entry__9TWindowDDFv(void *);
 s32 TWindowDD__sub_80348DD8(void *, int);
 void update_selection_state__9TWindowDDFPv(W_80347B70 *arg0);
-void init_and_mark_field8C__9TWindowDDFPv(void* p);
-void set_pos_and_data__9TWindowDDFPvf(void *p, f32 v);
+void init_and_mark_field8C__9TWindowDDFv(void* p);
+void set_pos_and_data__9TWindowDDFf(void *p, f32 v);
 extern const f32 TWindowDD__data_805DFB6C;
 extern const f32 TWindowDD__data_805DFB74;
-u8 *init_last_child__9TWindowDDFPv(u8 *arg0);
 }
 
 extern "C" {
 
-s32 classify_id__9TWindowDDFs(s16 arg0);
-s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0);
-s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0);
-s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1);
 void *get_player_by_client_id(u16);
 s32 TWindowDD__sub_803412A0(u32);
-s32 set_first_entry_text__9TWindowDDFPvUi(u32, s32);
+s32 set_first_entry_text__9TWindowDDFUl(u32, s32);
 s32 is_id_in_special_range__9TWindowDDFs(s16);
 s32 TWindowDD__sub_80347238();
 u8 TWindowDD__sub_80347858(s16 arg0);
 void queue_destruction__7TObjectFv(void *);
-void destroy_menu_entry__9TWindowDDFPvi(W_803478DC *arg0, s32 arg1);
 s32 TWindowDD__sub_80348B70(s32);
-s32 init_and_set_field50__9TWindowDDFPvPv(u32, s32);
+s32 init_and_set_field50__9TWindowDDFPv(u32, s32);
 
-s32 classify_id__9TWindowDDFs(s16 arg0) {
+s32 TWindowDD::classify_id(s16 arg0) {
     s32 var_r3;
 
     if (arg0 == 0x2E4) {
@@ -131,7 +121,7 @@ s32 classify_id__9TWindowDDFs(s16 arg0) {
     return var_r3;
 }
 
-s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0) {
+s32 TWindowDD::get_player_battle_flag_state(u16 arg0) {
     s32 temp_r3_2;
     void *temp_r3;
 
@@ -150,7 +140,8 @@ block_5:
     return 0;
 }
 
-void format_type6_message__9TWindowDDFPvPvPv(M_80347758 *arg0, s32 arg1, void *arg2) {
+void TWindowDD::format_type6_message(s32 arg1, void *arg2) {
+    M_80347758 *arg0 = (M_80347758 *)this;
     s32 count;
     s32 n;
     s32 i;
@@ -162,11 +153,11 @@ void format_type6_message__9TWindowDDFPvPvPv(M_80347758 *arg0, s32 arg1, void *a
     }
     for (i = 0; i < n - 1; i++) {
         TWindowDD__sub_8034886C(arg0->a[i], arg1, arg2);
-        show_message_by_count__9TWindowDDFii(arg1, arg2);
+        show_message_by_count__9TWindowDDFll(arg1, arg2);
     }
     TWindowDD__sub_8034886C(arg0->a[n - 1], arg1, arg2);
     if (count > 3) {
-        append_prompt_newline__9TWindowDDFPvPv(arg1, arg2);
+        append_prompt_newline__9TWindowDDFPl(arg1, arg2);
         TWindowDD__sub_8034886C(arg0->a[3], arg1, arg2);
     }
 }
@@ -174,7 +165,7 @@ void format_type6_message__9TWindowDDFPvPvPv(M_80347758 *arg0, s32 arg1, void *a
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2) {
     TWindowDD__sub_80347474((s32)((s32) arg0), (s32)((s32) *(s16 *)((s8 *)arg0 + 4)), (s32)(arg1), (s32)(arg2));
     if ((s16) *(s16 *)((s8 *)arg0 + 0) > 1) {
-        append_prompt_newline__9TWindowDDFPvPv(arg1, (void *) arg2);
+        append_prompt_newline__9TWindowDDFPl(arg1, (void *) arg2);
         TWindowDD__sub_8034886C((s32) *(s16 *)((s8 *)arg0 + 6), arg1, (void *) arg2);
     }
 }
@@ -241,7 +232,7 @@ void TWindowDD__sub_80347758(M_80347758 *src, M_80347758 *dst) {
     dst->f14 = src->f14;
 }
 
-s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0) {
+s32 TWindowDD::is_state_zero_unless_0x2C8(s32 arg0) {
     if ((s16)arg0 == 0x2C8) {
         return 0;
     }
@@ -267,21 +258,24 @@ s32 TWindowDD_is_id_in_range_5AC_5F9(s16 arg0) {
     return var_r3;
 }
 
-void destroy_menu_entry__9TWindowDDFPvi(W_803478DC *arg0, s32 arg1) {
+void TWindowDD::destroy_menu_entry(s32 arg1) {
+    W_803478DC *arg0 = (W_803478DC *)this;
     if (arg0->e[arg0->base + arg1].p != NULL) {
         queue_destruction__7TObjectFv(arg0->e[arg0->base + arg1].p);
         arg0->e[arg0->base + arg1].p = NULL;
     }
 }
 
-void set_item_pos__9TWindowDDFPvi(O_80347940 *self, s32 i) {
+void TWindowDD::set_item_pos(s32 i) {
+    O_80347940 *self = (O_80347940 *)this;
     void *p = self->items[self->base + i];
     if (p != NULL) {
-        set_pos_and_data__9TWindowDDFPvf(p, lbl_805DFB94);
+        set_pos_and_data__9TWindowDDFf(p, lbl_805DFB94);
     }
 }
 
-u8 *init_last_child__9TWindowDDFPv(u8 *arg0) {
+u8 *TWindowDD::init_last_child() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     u8 *var_r31;
     var_r31 = NULL;
@@ -289,8 +283,8 @@ u8 *init_last_child__9TWindowDDFPv(u8 *arg0) {
     if (temp_r0 > 0) {
         var_r31 = ((u8 **)(arg0 + 0x24))[temp_r0 - 1];
         if (var_r31 != NULL) {
-            init_and_mark_field8C__9TWindowDDFPv(var_r31);
-            set_pos_and_data__9TWindowDDFPvf(var_r31, (f32) (TWindowDD__data_805DFB6C));
+            init_and_mark_field8C__9TWindowDDFv(var_r31);
+            set_pos_and_data__9TWindowDDFf(var_r31, (f32) (TWindowDD__data_805DFB6C));
             *(f32 *)((s8 *)var_r31 + 0x38) = (f32) TWindowDD__data_805DFB74;
         }
     }
@@ -300,7 +294,7 @@ u8 *init_last_child__9TWindowDDFPv(u8 *arg0) {
 void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     temp_r3 = TWindowDD__sub_80342158((void *) (arg1));
-    if (is_state_zero_unless_0x2C8__9TWindowDDFs(temp_r3) != 0) {
+    if (TWindowDD::is_state_zero_unless_0x2C8(temp_r3) != 0) {
         TWindowDD__sub_80348DD8((void *) (arg0 + 0xC4), (int) (temp_r3));
         TWindowDD__sub_80347CC8((W_80347CC8 *)((void *) (arg0)), (void *)((void *) (arg0 + 0xC4)));
         *(s32 *)((s8 *)arg0 + 0x98) = 1;
@@ -321,7 +315,7 @@ void update_selection_state__9TWindowDDFPv(W_80347B70 *arg0) {
     if ((s16)v != arg0->cur) {
         switch (arg0->state) {
         case 0:
-            if (is_state_zero_unless_0x2C8__9TWindowDDFs(v) != 0) {
+            if (TWindowDD::is_state_zero_unless_0x2C8(v) != 0) {
                 TWindowDD__sub_80348DD8(arg0->sub, v);
                 arg0->state = 1;
             } else {
@@ -329,10 +323,10 @@ void update_selection_state__9TWindowDDFPv(W_80347B70 *arg0) {
             }
             break;
         case 1:
-            if (is_state_zero_unless_0x2C8__9TWindowDDFs(v) != 0) {
+            if (TWindowDD::is_state_zero_unless_0x2C8(v) != 0) {
                 TWindowDD__sub_80348D90(arg0->sub, v);
             } else {
-                pop_entry__9TWindowDDFPv(arg0->sub);
+                pop_entry__9TWindowDDFv(arg0->sub);
                 arg0->state = 0;
             }
             break;
@@ -352,7 +346,7 @@ void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1) {
     update_state__9TWindowDDFv(arg1, TWindowDD__work_buffer, local_client_id);
     s = arg0->f70;
     if (s != NULL) {
-        e = get_array_entry__20TWindowSubStatusDispFPvi(s, 0);
+        e = get_array_entry__20TWindowSubStatusDispFi(s, 0);
         if (e != NULL) {
             refresh_status_display__9TWindowDDFv(e);
             x = 10.0f + e->f10;
@@ -364,25 +358,25 @@ void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1) {
             }
             s->f38 = lbl_805DFCD4 * TWindowDD__data_805DFB58 + x;
             if (x <= lbl_805DFCD0) {
-                update_position__9TWindowDDFPvi(s, TWindowDD__data_805DFB50);
+                update_position__9TWindowDDFl(s, TWindowDD__data_805DFB50);
             } else {
-                init_and_set_field50__9TWindowDDFPvPv((u32)s, TWindowDD__data_805DFB50);
+                init_and_set_field50__9TWindowDDFPv((u32)s, TWindowDD__data_805DFB50);
             }
         }
     }
 }
 
-s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1) {
+s32 TWindowDD::setup_entry(s32 arg1) {
     s32 var_r31;
     u32 temp_r30;
 
     s32 temp_r4;
     var_r31 = 0;
-    temp_r30 = *(u32 *)((s8 *)arg0 + 0x6C);
+    temp_r30 = *(u32 *)((s8 *)this + 0x6C);
     if ((temp_r30 != 0U) && ((temp_r4 = TWindowDD__sub_80348B70(arg1)) != 0)) {
-        set_first_entry_text__9TWindowDDFPvUi(temp_r30, temp_r4);
+        set_first_entry_text__9TWindowDDFUl(temp_r30, temp_r4);
         TWindowDD__sub_803412A0(temp_r30);
-        init_and_set_field50__9TWindowDDFPvPv(temp_r30, TWindowDD__data_805DFB50);
+        init_and_set_field50__9TWindowDDFPv(temp_r30, TWindowDD__data_805DFB50);
         var_r31 = 1;
     }
     return var_r31;
@@ -394,8 +388,8 @@ void TWindowDD__sub_80347E04(W_80347E04 *arg0, s32 arg1) {
     V2_80347E04 b;
     u32 r;
     u8 *o;
-    get_cursor_pos__9TWindowDDFPvPv(arg0->pages[arg0->cur], &v);
-    r = update_if_field28_set__9TWindowDDFPv(arg0->pages[arg0->cur]);
+    get_cursor_pos__9TWindowDDFPUc(arg0->pages[arg0->cur], &v);
+    r = update_if_field28_set__9TWindowDDFv(arg0->pages[arg0->cur]);
     if (r != 0) {
         if (arg1 == 0) {
             a.x = lbl_805DFBDC;
@@ -408,16 +402,17 @@ void TWindowDD__sub_80347E04(W_80347E04 *arg0, s32 arg1) {
         b.y = a.y;
         o = TWindowDD__sub_8034146C(&a, &b, r, 1, lbl_805DFBE4);
         if (o != NULL) {
-            set_field_1c__6TLobbyFPvf(o, lbl_805DFC28);
+            set_field_1c__6TLobbyFf(o, lbl_805DFC28);
             TWindowDD__sub_803412A0((u32)o);
-            copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(o + 0x40, &v);
-            init_and_set_field50__9TWindowDDFPvPv((u32)o, TWindowDD__data_805DFB50);
+            copy_vec2__28TWindowSubSymbolChatPartsSetFPv(o + 0x40, &v);
+            init_and_set_field50__9TWindowDDFPv((u32)o, TWindowDD__data_805DFB50);
             arg0->f74[arg1] = o;
         }
     }
 }
 
-s32 get_current_child_index__9TWindowDDFPv(u8 *arg0) {
+s32 TWindowDD::get_current_child_index() {
+    u8 *arg0 = (u8 *)this;
     u8 *var_r3;
     var_r3 = (u8 *)(arg0 + (*(s32 *)((s8 *)arg0 + 0x20) * 4));
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x24));

@@ -109,18 +109,18 @@ struct Obj_80188B3C { u8 pad[0x38]; f32 x, y, z; };
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 spawn_item__17TObjContainerItemFPvi(void *, void *);
+s32 spawn_item__17TObjContainerItemFl(void *, void *);
 s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerBase__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void reset_photon_effect__10TObjPlayerFPv(s32);
+void reset_photon_effect__10TObjPlayerFv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_801889B8_lbl_804B63BC forest_box_collision_body_parts;
 extern s32 __vt__21TObjContainerAbeEnemy[];
 extern s32 TObjContainerAbeEnemy__name;
 u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
@@ -153,7 +153,7 @@ s32 unregister_object_by_id(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_container_object__10TObjPlayerFPvs(void *, s32);
+s32 destroy_container_object__10TObjPlayerFs(void *, s32);
 
 void TObjContainerAbeEnemy__vt78(void *arg0) {
     s16 temp_r0;
@@ -176,7 +176,7 @@ void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjContainerAbeEnemy;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_container_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_container_object__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -195,7 +195,7 @@ u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &forest_box_collision_body_parts.value, 1);
-    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    reset_photon_effect__10TObjPlayerFv((s32) arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&forest_box_collision_body_parts.value) + 4));
@@ -213,7 +213,7 @@ void TObjContainerBase__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj_18 *)(arg0))->m77();
-            spawn_item__17TObjContainerItemFPvi((void *) (arg0), (void *) (arg0));
+            spawn_item__17TObjContainerItemFl((void *) (arg0), (void *) (arg0));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             *(s16 *)((s8 *)arg0 + 0x326) = 1;
@@ -272,7 +272,7 @@ void TObjContainerBase__vt79(Obj_80188C8C *self) {
     if (container_breakup_model_archive != 0) {
         switch (self->state) {
         case 0:
-            set_global_param__8TObjFishFi(lbl_805D5B8C);
+            set_global_param__8TObjFishFl(lbl_805D5B8C);
             push_matrix();
             post_translate_matrix(self->pos);
             rotate_matrix_y(0, self->id);

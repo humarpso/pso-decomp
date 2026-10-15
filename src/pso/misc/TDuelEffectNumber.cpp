@@ -28,15 +28,13 @@ s32 get_camera_no__11TCameraCtrlFv(void);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 
 void queue_destruction__7TObjectFv(void *);
-void run_task__17TDuelEffectNumberFv(u8 *arg0);
-void render__17TDuelEffectNumberFv(void *arg0);
 s32 begin_screen_draw(s32);
 s32 set_draw_texture_and_color(s32, s32);
 void fn_8007FFF4(Obj_8007FF28 *self, s32 arg1);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 init_xyz_limits__10TObjPlayerFv();
 s32 reset_transform_state__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 extern s32 lbl_805D63F0;
 
 void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1, f32 farg2) {
@@ -106,20 +104,21 @@ void calc_duel_number_uv(s32 arg0, u8 *arg1, s32 arg2) {
 }
 #pragma pop
 
-void render__17TDuelEffectNumberFv(void *arg0) {
+void TDuelEffectNumber::render() {
     char sp8[0x20];
 
-    ((s32 (*)(void *, void *, s32))calc_duel_number_uv)(arg0, &sp8, *(s32 *)((s8 *)arg0 + 0x24));
+    ((s32 (*)(void *, void *, s32))calc_duel_number_uv)(this, &sp8, *(s32 *)((s8 *)this + 0x24));
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_global_param__8TObjFishFl(lbl_805D63F0);
     set_draw_texture_and_color(6, -1);
-    ((s32 (*)(void *, s32 *))fn_8007FFF4)(arg0, (s32 *)&sp8);
-    ((s32 (*)(void *, s32 *))fn_8007FF28)(arg0, (s32 *)&sp8);
+    ((s32 (*)(void *, s32 *))fn_8007FFF4)(this, (s32 *)&sp8);
+    ((s32 (*)(void *, s32 *))fn_8007FF28)(this, (s32 *)&sp8);
     get_player__20TWindowSubStatusDispFv();
     reset_transform_state__10TObjPlayerFv();
 }
-void run_task__17TDuelEffectNumberFv(u8 *arg0) {
+void TDuelEffectNumber::run_task() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 1);
     if ((f32) *(s32 *)((s8 *)arg0 + 0x28) >= (3e+01f)) {
         queue_destruction__7TObjectFv(arg0);

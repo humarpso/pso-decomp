@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/TLevelSelect.h"
+#include "pso/ui/TAdEnterSerialAccessGC.h"
 struct Obj_802AEBA8 { u8 pad[0xa4]; s32 a4; s32 a8; s32 ac; u8 pad2[0x6bc - 0xb0]; s32 arr[16]; s32 f6fc; s32 f700; };
 
 extern "C" {
-void reset_input_state__22TAdEnterSerialAccessGCFPv(Obj_802AEBA8 *self);
 typedef struct { f32 x, y; } V2_802AEBE4;
 typedef struct { f32 x, y, x2, y2; f32 pad[4]; } Quad_802AEBE4;
 
@@ -19,7 +20,7 @@ typedef struct {
     Quad_802AEBE4 q2[16];
 } Obj_802AEBE4;
 
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 extern const f32 lbl_805DE1D8;
 extern const f32 lbl_805DE1DC;
 
@@ -27,7 +28,8 @@ extern const f32 lbl_805DE1DC;
 
 extern "C" {
 
-void reset_input_state__22TAdEnterSerialAccessGCFPv(Obj_802AEBA8 *self) {
+void TAdEnterSerialAccessGC::reset_input_state() {
+    Obj_802AEBA8 *self = (Obj_802AEBA8 *)this;
     s32 i;
     self->a4 = 0;
     self->a8 = 0;
@@ -37,9 +39,10 @@ void reset_input_state__22TAdEnterSerialAccessGCFPv(Obj_802AEBA8 *self) {
     for (i = 0; i < 16; i++) self->arr[i] = 0;
 }
 
-void add_item_rect__12TLevelSelectFPvPv(Obj_802AEBE4 *self, void *src) {
+void TLevelSelect::add_item_rect(void *src) {
+    Obj_802AEBE4 *self = (Obj_802AEBE4 *)this;
     if (self->count < 16) {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->pts[self->count], src);
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&self->pts[self->count], src);
         self->q0[self->count].x = lbl_805DE1D8 + self->pts[self->count].x;
         self->q0[self->count].y = self->pts[self->count].y;
         self->q0[self->count].x2 = self->q0[self->count].x + (self->w - lbl_805DE1DC);

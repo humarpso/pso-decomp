@@ -10,6 +10,7 @@ struct VObj_18 : VBase_18 {
 };
 
 #include <stddef.h>
+#include "pso/misc/TTecPlayerInfluence.h"
 struct Stack_80237194 {
     s32 sp8;
     s32 spC;
@@ -147,22 +148,19 @@ struct RaBarta_802377FC {
 
 extern "C" {
 void TTecPlayerInfluence__sub_80237258(void* p);
-void run_task__19TTecPlayerInfluenceFv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
-void tick_lifetime__19TTecPlayerInfluenceFPv(u8 *arg0);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
-void render__19TTecPlayerInfluenceFv(u8 *arg0);
 u16 obj_getField1c(void *);
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void __ct__7TEffectFv(void *);
 void init_collision_body_parts(void *, f32 *, s32);
-void *construct_collider_proxy__10TObjPlayerFPv(void *, void *);
+void *construct_collider_proxy__10TObjPlayerFv(void *, void *);
 void *__nw__7TObjectFUl(u32);
-int get_level_tier__10TObjPlayerFi(s32);
+int get_level_tier__10TObjPlayerFl(s32);
 extern s32 __vt__19TTecPlayerInfluence[];
 extern s32 lbl_805D37F0;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
@@ -170,10 +168,10 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_bml_motion(void *, int);
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, void *, int, f32);
-void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
+void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *spawn_particle_effect(void *, int);
 void *create_particle_emitter(void *, int);
-void **alloc_buffer__11TOBoss4RockFPv(int);
+void **mem_alloc(int);
 extern Profile_80237494 rabarta_band_emitter_table[];
 extern Emitter_80237494 lbl_8044DA28;
 extern void *technique_effect_bml;
@@ -182,7 +180,7 @@ extern const f32 lbl_805DC8C0;
 extern const f32 lbl_805DC8C4;
 void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
-void copy_params__8TTecAntiFPvPv(void *, s32);
+void copy_params__8TTecAntiFPUc(void *, s32);
 s32 calc_technique_parameters(s32, s32, s32);
 extern Params_802377FC tech_high_level_linear_power_table;
 extern Scale_802377FC lbl_804CC55C;
@@ -198,10 +196,11 @@ s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
-s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
-void render__19TTecPlayerInfluenceFv(u8 *arg0) {
+void TTecPlayerInfluence::render() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_80237194, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80237194, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80237194, sp10) == 0x8) ? 1 : -1];
@@ -213,7 +212,8 @@ void render__19TTecPlayerInfluenceFv(u8 *arg0) {
     TObjRoomId__sub_80141CF4((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
 }
 
-void tick_lifetime__19TTecPlayerInfluenceFPv(u8 *arg0) {
+void TTecPlayerInfluence::tick_lifetime() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x68) = (s32) (*(s32 *)((s8 *)arg0 + 0x68) + 1);
     if ((f32) *(s32 *)((s8 *)arg0 + 0x68) > *(f32 *)((s8 *)arg0 + 0x70)) {
         queue_destruction__7TObjectFv(arg0);
@@ -224,9 +224,9 @@ void TTecPlayerInfluence__sub_80237258(void* p) { *(f32*)((char*)p + 0xbc) = *(f
 
 extern s32 __vt__19TTecPlayerInfluence[];
 
-void run_task__19TTecPlayerInfluenceFv(void *arg0) {
-    TTecPlayerInfluence__sub_80237258((void*)(arg0));
-    ((VObj_18 *)(arg0))->m4();
+void TTecPlayerInfluence::run_task() {
+    TTecPlayerInfluence__sub_80237258((void*)(this));
+    ((VObj_18 *)(this))->m4();
 }
 
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1) {
@@ -263,7 +263,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
   {
     self->level = level;
   }
-  self->tier = get_level_tier__10TObjPlayerFi(self->level);
+  self->tier = get_level_tier__10TObjPlayerFl(self->level);
   self->f64 = (3.0f);
   self->f70 = (9e+01f);
   self->f3c = (1.0f);
@@ -285,7 +285,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
   p = __nw__7TObjectFUl(0xAC);
   if (p != 0)
   {
-    p = construct_collider_proxy__10TObjPlayerFPv(p, self);
+    p = construct_collider_proxy__10TObjPlayerFv(p, self);
   }
   self->fdc = p;
   if (self->fdc != 0)

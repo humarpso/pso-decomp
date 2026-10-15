@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/misc/TCheckRoomSequence.h"
 
 typedef struct Item_80222FF0 { u8 d[0x14]; } Item_80222FF0;
 
 extern "C" {
-s32 compare_version__6TLobbyFPvPv(Item_80222FF0 *, Item_80222FF0 *);
-s32 compare_greater__6TLobbyFPvPv(Item_80222FF0 *, Item_80222FF0 *);
+s32 compare_version__6TLobbyFPv(Item_80222FF0 *, Item_80222FF0 *);
+s32 compare_greater__6TLobbyFPv(Item_80222FF0 *, Item_80222FF0 *);
 s32 TLobby__sub_8022318C(Item_80222FF0 *, Item_80222FF0 *);
 s32 swap_item_data__6TLobbyFPvPv(Item_80222FF0 *, Item_80222FF0 *);
 void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode);
@@ -12,10 +13,9 @@ void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode);
 
 extern "C" {
 
-s32 get_item_def__18TCheckRoomSequenceFUi(u32 arg0);
 s32 lookup_item_def__9TItemDataFPv();
 
-s32 get_item_def__18TCheckRoomSequenceFUi(u32 arg0) {
+s32 TCheckRoomSequence::get_item_def(u32 arg0) {
     if (arg0 != 0U) {
         return lookup_item_def__9TItemDataFPv();
     }
@@ -33,12 +33,12 @@ void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode) {
                 }
                 break;
             case 1:
-                if (compare_greater__6TLobbyFPvPv(&items[i], &items[j]) != 0) {
+                if (compare_greater__6TLobbyFPv(&items[i], &items[j]) != 0) {
                     swap_item_data__6TLobbyFPvPv(&items[i], &items[j]);
                 }
                 break;
             case 2:
-                if (compare_version__6TLobbyFPvPv(&items[i], &items[j]) != 0) {
+                if (compare_version__6TLobbyFPv(&items[i], &items[j]) != 0) {
                     swap_item_data__6TLobbyFPvPv(&items[i], &items[j]);
                 }
                 break;

@@ -8,6 +8,8 @@ struct TObjBoss5PillarSmoke
     u32 m_1c;
     u32 m_20;
     u32 m_24;
+    static void render();
+    static void run_task();
 };
 
 #endif

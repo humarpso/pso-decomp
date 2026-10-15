@@ -7,10 +7,10 @@ struct RecoveredGlobal_8033ED24_lbl_804EFA88
 };
 
 extern "C" {
-void free_indexed_entry__10TObjPlayerFPv(void *, s32);
+void free_indexed_entry__10TObjPlayerFl(void *, s32);
 extern s32 lbl_805D6DA0;
 void release_indexed_entry__6TLobbyFi(s32 arg0);
-int alloc_buffer__11TOBoss4RockFPv(void *);
+int mem_alloc(void *);
 s32 __ct__7TObjectFP7TObject();
 s32 TLobby__sub_8033EE38(int);
 extern s32 lbl_804EFA88[];
@@ -23,7 +23,7 @@ extern "C" {
 void *destroy_object__6TLobbyFPvs(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 free__11TOBoss4RockFUi(void *);
+s32 mem_free(void *);
 
 extern s32 lbl_804EFA88[];
 extern s32 lbl_805D6DA0;
@@ -32,7 +32,7 @@ void *destroy_object__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFA88;
         if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
-            free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0x1C));
+            mem_free(*(void **)((s8 *)arg0 + 0x1C));
         }
         lbl_805D6DA0 = 0;
         __dt__7TObjectFv(arg0, 0);
@@ -51,7 +51,7 @@ u8 *TLobby__sub_8033ED24(u8 *arg0) {
   __ct__7TObjectFP7TObject();
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_8033ED24_lbl_804EFA88 *)&lbl_804EFA88).value;
   *((s32 *) (((s8 *) arg0) + 0x20)) = 0;
-  *((s32 *) (((s8 *) arg0) + 0x1C)) = alloc_buffer__11TOBoss4RockFPv((void *) 0x240);
+  *((s32 *) (((s8 *) arg0) + 0x1C)) = mem_alloc((void *) 0x240);
   if (((u32) (*((s32 *) (((s8 *) arg0) + 0x1C)))) != 0U)
   {
     var_r30 = 0;
@@ -70,7 +70,7 @@ u8 *TLobby__sub_8033ED24(u8 *arg0) {
 
 void release_indexed_entry__6TLobbyFi(s32 arg0) {
     if (((void *) (*(u8 * *)&lbl_805D6DA0) != NULL) && ((s32) *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6DA0) + 0x20) < 0x10)) {
-        free_indexed_entry__10TObjPlayerFPv((*(u8 * *)&lbl_805D6DA0), arg0);
+        free_indexed_entry__10TObjPlayerFl((*(u8 * *)&lbl_805D6DA0), arg0);
         *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6DA0) + 0x20) = (s32) (*(s32 *)((s8 *)(*(u8 * *)&lbl_805D6DA0) + 0x20) + 1);
     }
 }

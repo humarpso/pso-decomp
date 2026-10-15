@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdExNetConfirmGC.h"
 
 struct Base_8032C504 { char pad[0x18]; };
 struct VObj_8032C504 : Base_8032C504 {
@@ -44,14 +45,12 @@ extern "C" {
 
 int TAdExNetConfirmGC__vt4(void* p);
 void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1);
-void render__17TAdExNetConfirmGCFv(void *arg0);
-void run_task__17TAdExNetConfirmGCFv(void *arg0);
 void TAdWarningBaseGC__vt0(void *, int);
 void __dl__7TObjectFPv(void *);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
-void render__17TAdExNetConfirmGCFv(void *arg0) {
-    struct VObj_8032C504 *o = (struct VObj_8032C504 *)arg0;
+void TAdExNetConfirmGC::render() {
+    struct VObj_8032C504 *o = (struct VObj_8032C504 *)this;
     o->m7();
 }
 
@@ -65,8 +64,8 @@ void TAdExNetConfirmGC__vt5(void) {
 
 int TAdExNetConfirmGC__vt4(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
 
-void run_task__17TAdExNetConfirmGCFv(void *arg0) {
-    struct VObj_8032C594_8032C504 *o = (struct VObj_8032C594_8032C504 *)arg0;
+void TAdExNetConfirmGC::run_task() {
+    struct VObj_8032C594_8032C504 *o = (struct VObj_8032C594_8032C504 *)this;
     o->m6();
 }
 

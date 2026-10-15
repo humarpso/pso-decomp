@@ -7,7 +7,6 @@ u8 is_flag_set__14TBoss6PlotFalzFv(void);
 s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0);
 void TBoss6PlotFalz__sub_802AAC98(void* p);
 s32 get_main_phase();
-int is_ready__14TBoss6PlotFalzFv(void);
 s32 is_split_screen();
 
 extern s32 TBoss6PlotFalz__instance;
@@ -29,6 +28,7 @@ s32 get_next_point__14TBoss6PlotFalzFPvPvPv(void *arg0, s16 *arg1, s16 *arg2) {
 }
 
 #include "types.h"
+#include "pso/boss/TBoss6PlotFalz.h"
 
 extern "C" {
 }
@@ -36,8 +36,6 @@ extern "C" {
 extern "C" {
 
 void TBoss6PlotFalz__sub_802AAC98(void* p);
-u8 is_ending_or_split_screen__14TBoss6PlotFalzFv(void);
-int is_ready__14TBoss6PlotFalzFv(void);
 s32 get_main_phase();
 s32 is_split_screen();
 
@@ -51,7 +49,7 @@ s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0) {
 }
 
 void TBoss6PlotFalz__sub_802AAC98(void* p) { *(s32*)((char*)p + 0x3c8) = 1; }
-u8 is_ending_or_split_screen__14TBoss6PlotFalzFv(void) {
+u8 TBoss6PlotFalz::is_ending_or_split_screen() {
     s32 var_r31;
 
     var_r31 = 0;
@@ -60,6 +58,6 @@ u8 is_ending_or_split_screen__14TBoss6PlotFalzFv(void) {
     }
     return (u8) var_r31;
 }
-int is_ready__14TBoss6PlotFalzFv(void) { return 0; }
+int TBoss6PlotFalz::is_ready() { return 0; }
 
 }

@@ -43,7 +43,7 @@ struct VObj_8018F644 : VBase_8018F644 {
 struct Jung_8018F808 { u8 pad0[0xC8]; s32 fC8; u8 padCC[4]; u32 fD0; s32 fD4; };
 
 extern "C" {
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -52,7 +52,7 @@ extern RecoveredGlobal_8018F9CC_lbl_804B788C TObjDoorJung__collision_desc;
 extern s32 __vt__12TObjDoorJung[];
 extern s32 TObjDoorJung__class_name;
 u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(s32, s32, s32);
+s32 clear_player_status_flag__10TObjPlayerFlUl(s32, s32, s32);
 void set_indexed_flags(void *, int, int);
 u8 is_current_floor_switch_set(int);
 void TObjDoorJung__vt12(Jung_8018F808 *arg0);
@@ -61,13 +61,13 @@ Node_8018F4AC *get_bml_model(void *, int);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(s32, u16);
-void offset_position__6TSceneFPvii(void *, int, int);
+void offset_position__6TSceneFll(void *, int, int);
 void PPCSync();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_object(void *);
 extern s32 TObjDoorJung__child_table[];
 extern s32 actor_frame_tick;
@@ -113,16 +113,16 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 minimap_render_gate(void *, s32, u16, s32, s32);
 s32 __dl__7TObjectFPv(void *);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(s32, s32, s32);
-s32 destroy_ancient_door_base__15TODoorAncient01FPvs(void *, s32);
-s32 destroy_buffers__6TSceneFPvs(void *, s16);
+s32 clear_player_status_flag__10TObjPlayerFlUl(s32, s32, s32);
+s32 destroy_ancient_door_base__15TODoorAncient01Fs(void *, s32);
+s32 destroy_buffers__6TSceneFs(void *, s16);
 
 extern void *TObjDoorJung__resource_handle;
 extern void *TObjDoorJung__door_scene_buffer;
 
 void free_buffers__12TObjDoorJungFv(void) {
     if (TObjDoorJung__door_scene_buffer != NULL) {
-        destroy_buffers__6TSceneFPvs(TObjDoorJung__door_scene_buffer, 1);
+        destroy_buffers__6TSceneFs(TObjDoorJung__door_scene_buffer, 1);
         TObjDoorJung__door_scene_buffer = NULL;
     }
     if (TObjDoorJung__resource_handle != NULL) {
@@ -155,7 +155,7 @@ void render__12TObjDoorJungFv(u8 *arg0) {
         }
         if (actor_frame_tick != lbl_805D5BDC) {
             if (TObjDoorJung__door_scene_buffer != NULL) {
-                offset_position__6TSceneFPvii(TObjDoorJung__door_scene_buffer, 0, -0xA);
+                offset_position__6TSceneFll(TObjDoorJung__door_scene_buffer, 0, -0xA);
             }
             lbl_805D5BDC = actor_frame_tick;
             PPCSync();
@@ -174,7 +174,7 @@ void render__12TObjDoorJungFv(u8 *arg0) {
                 free_children__12TObjDoorJungFPvPv(TObjDoorJung__child_table[j], lbl_805D5BE8);
             }
         }
-        set_global_param__8TObjFishFi((void *)lbl_805D5BD4);
+        set_global_param__8TObjFishFl((void *)lbl_805D5BD4);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -202,13 +202,13 @@ void TObjDoorJung__vt12(Jung_8018F808 *arg0) {
         return;
     }
     arg0->fD0 &= ~1;
-    clear_player_status_flag__10TObjPlayerFPviUi((s32)(arg0), (s32)(0), (s32)(8));
+    clear_player_status_flag__10TObjPlayerFlUl((s32)(arg0), (s32)(0), (s32)(8));
 }
 
 void run_task__12TObjDoorJungFv(u8 *arg0) {
     if ((s32) switch_doors_force_closed != 0) {
         *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFFFFFFE);
-        clear_player_status_flag__10TObjPlayerFPviUi((s32)arg0, 0, 8);
+        clear_player_status_flag__10TObjPlayerFlUl((s32)arg0, 0, 8);
     } else {
         ((VObj_8018F458 *)arg0)->m12();
     }
@@ -226,7 +226,7 @@ void *__dt__12TObjDoorJungFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjDoorJung;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
+        destroy_ancient_door_base__15TODoorAncient01Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -242,7 +242,7 @@ u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     init_collision_body_parts((void *) (arg0), (void *) (&TObjDoorJung__collision_desc.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();
     clamp_state__12TObjDoorJungFPv((void *) (arg0));
     return arg0;

@@ -17,6 +17,7 @@ s32 calc_entry_offset__20TWindowSubStatusDispFv(void) {
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #pragma fp_contract on
 
 struct RecoveredGlobal_8006F23C_lbl_8048C9D8 {
@@ -39,10 +40,8 @@ struct O_8006F134 { u8 pad[0xc0]; E_8006F134 e[4]; s32 pad2; E_8006F134 def; };
 extern "C" {
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 challenge_mode_state;
-s32 get_flag_value_if_set__6TLobbyFv(void);
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 challenge_mode_state;
-s32 get_flagged_table_entry__6TLobbyFi(s32 arg0);
 s32 is_split_screen(void);
 s32 get_instance__6TLobbyFv(void);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot);
@@ -106,7 +105,7 @@ s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot) {
     return slot;
 }
 
-s32 get_flagged_table_entry__6TLobbyFi(s32 arg0) {
+s32 TLobby::get_flagged_table_entry(s32 arg0) {
   u8 *new_var;
   if (is_flag_set__6TLobbyFv() != 0)
   {
@@ -117,7 +116,7 @@ s32 get_flagged_table_entry__6TLobbyFi(s32 arg0) {
   return 0;
 }
 
-s32 get_flag_value_if_set__6TLobbyFv(void) {
+s32 TLobby::get_flag_value_if_set() {
     if (is_flag_set__6TLobbyFv() != 0) {
         return *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x34);
     }

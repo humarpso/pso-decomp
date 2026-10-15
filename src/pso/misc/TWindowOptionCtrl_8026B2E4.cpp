@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowOptionCtrl.h"
 
 extern "C" {
 
-s16 get_option_field_C__17TWindowOptionCtrlFv(void);
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 
-s16 get_option_field_C__17TWindowOptionCtrlFv(void) {
+s16 TWindowOptionCtrl::get_option_field_C() {
     return *(s16 *)((s8 *)(get_global_state__23TAdSinglePlyChrSelectGCFv()) + 0xC);
 }
 

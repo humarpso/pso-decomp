@@ -1,5 +1,6 @@
 #include "types.h"
 #include "dolphin/mtx.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Matrix34 { f32 elements[3][4]; };
 struct ReflectionPlane { f32 origin[3]; f32 normal[3]; };
@@ -9,7 +10,6 @@ s32 matrix_apply_translation(int, f32, f32, f32);
 extern u32 current_matrix;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 extern u32 current_matrix;
-void copy_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
@@ -48,7 +48,7 @@ void rotate_matrix_z(Matrix34* matrix, s32 angle) {
 
 #pragma push
 #pragma peephole off
-void copy_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
+void TObjPlayer::copy_matrix(u32 arg0, u32 arg1) {
     u32 var_r0;
     u32 var_r3;
     if (arg0 == 0U) {

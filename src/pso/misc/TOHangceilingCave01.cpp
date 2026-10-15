@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOHangceilingCave01.h"
 
 extern "C" {
 
@@ -257,24 +258,24 @@ struct Obj_801682E4 { u8 pad0[0xC0]; f32 f0C0; f32 f0C4; f32 f0C8; u8 pad1[0x2C]
 s32 memset(void *, int, int);
 s32 obj_setFlags30(void *, s32);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 void * get_bml_motion(s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 Big_8016775C * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void * alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-s32 free__11TOBoss4RockFUi(void*);
-Buf_8016775C * alloc_buffer__11TOBoss4RockFPv(s32);
-int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
+void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
+s32 mem_free(void*);
+Buf_8016775C * mem_alloc(s32);
+int clear_player_status_flag__10TObjPlayerFlUl(void*, void*, void*);
 int set_indexed_flags(void*, void*, void*);
 s32 unregister_object_by_id(s32 *);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 u32 check_actor_body_contact(void *, void *, f32);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 access_object_saved_state(void *, int);
-s32 destroy__16TOFenceAncient01FPvs(void *, s32);
-s32 init_fields__16TOFenceAncient01FPv();
+s32 destroy__16TOFenceAncient01Fs(void *, s32);
+s32 init_fields__16TOFenceAncient01Fv();
 s32 fn_80166E64(void *);
 s32 fn_80166EA8(void *, int);
 void TOFenceAncient04__vt14(void);
@@ -303,12 +304,11 @@ void reset_state(u8 *arg0);
 void fn_801682E4(Obj_801682E4 *o, s32 arg1);
 void fn_80168398(u8 *arg0);
 void fn_80168488(VO_80168488 *arg0);
-void init_geometry__19TOHangceilingCave01FPv(void *);
 void destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *, int);
 void init_base__27TOHangceilingCave01KeyQuickFPvii(void *);
 void set_scale__27TOHangceilingCave01KeyQuickFPvf(void *, f32);
 void * get_player_by_client_id(s32);
-s32 free_if_valid__10TObjPlayerFi(s32);
+s32 free_if_valid__10TObjPlayerFl(s32);
 s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
@@ -455,7 +455,7 @@ u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
     ((u8 * (*)(void *, s32))init_base__27TOHangceilingCave01KeyQuickFPvii)(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80167C78___vt__27TOHangceilingCave01KeyQuick *)&__vt__27TOHangceilingCave01KeyQuick).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOHangceilingCave01KeyQuick__class_name;
-    init_geometry__19TOHangceilingCave01FPv(arg0);
+    ((TOHangceilingCave01 *)arg0)->init_geometry();
     set_scale__27TOHangceilingCave01KeyQuickFPvf(arg0, lbl_805DB688 + *(f32 *)((s8 *)arg0 + 0x70));
     return arg0;
 }
@@ -519,7 +519,7 @@ void *TOHangceilingCave01Key__ct(void *arg0) {
     init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TOHangceilingCave01Key;
     *(void **)((s8 *)arg0 + 0x0) = TOHangceilingCave01Key__class_name;
-    init_geometry__19TOHangceilingCave01FPv(arg0);
+    ((TOHangceilingCave01 *)arg0)->init_geometry();
     return arg0;
 }
 
@@ -589,7 +589,7 @@ void *TOHangceilingCave01Normal__ct(void *arg0) {
     init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TOHangceilingCave01Normal;
     *(void **)((s8 *)arg0 + 0x0) = TOHangceilingCave01Normal__class_name;
-    init_geometry__19TOHangceilingCave01FPv(arg0);
+    ((TOHangceilingCave01 *)arg0)->init_geometry();
     return arg0;
 }
 
@@ -703,7 +703,7 @@ void fn_80168488(VO_80168488 *arg0) {
     do {
         temp_r3 = (VO_80168488 *)get_player_by_client_id(var_r30);
         if ((temp_r3 != NULL) && (((s32 (*)(void *, void *))fn_80168244)(arg0, temp_r3) == 0)) {
-            if ((get_field_3e4__10TObjPlayerFPv(temp_r3) == get_current_floor()) && (check_actor_body_contact(arg0, temp_r3, lbl_805DB688) != 0U)) {
+            if ((get_field_3e4__10TObjPlayerFv(temp_r3) == get_current_floor()) && (check_actor_body_contact(arg0, temp_r3, lbl_805DB688) != 0U)) {
                 Pair_80168488 t;
                 t.a = 0;
                 t.b = arg0->m79(*(f32 *)((s8 *)arg0 + 0x338));
@@ -727,7 +727,7 @@ bool TOHangceilingCave01__sub_801688C0(u8 *arg0);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 u8 is_current_floor_switch_set(int);
@@ -738,7 +738,6 @@ s32 draw_ginja_model_with_motion(void *, void *, f32);
 extern u8 *TOHangceilingCave01__model_root;
 extern const f32 lbl_805DB674;
 extern const f32 lbl_805DB67C;
-void draw_model__19TOHangceilingCave01FPv(u8 *arg0);
 }
 
 extern "C" {
@@ -861,9 +860,6 @@ f32 TOHangceilingCave01__sub_8016862C(void);
 f32 TOHangceilingCave01__sub_80168634(void);
 void TOHangceilingCave01__sub_8016863C(void);
 void TOHangceilingCave01__sub_80168640(void);
-void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0);
-void destroy_instance__19TOHangceilingCave01Fv(void);
-void init_geometry__19TOHangceilingCave01FPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 bool TOHangceilingCave01__sub_801688C0(u8 *);
 s32 spawn_particle_effect(void *, s32);
@@ -875,28 +871,28 @@ extern const f32 lbl_805DB664;
 extern const f32 lbl_805DB698;
 extern const f32 lbl_805DB69C;
 extern const f32 lbl_805DB6A0;
-s32 free__11TOBoss4RockFUi(void*);
-s32 free_if_valid__10TObjPlayerFi(s32);
+s32 mem_free(void*);
+s32 free_if_valid__10TObjPlayerFl(s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 
 extern const f32 lbl_805DB654;
 extern const f32 lbl_805DB688;
 extern const f32 lbl_805DB690;
 
-void init_geometry__19TOHangceilingCave01FPv(void *arg0) {
+void TOHangceilingCave01::init_geometry() {
     f32 temp_f2;
-    VObj_80168588 *self = (VObj_80168588 *)arg0;
+    VObj_80168588 *self = (VObj_80168588 *)this;
 
-    *(s32 *)((s8 *)arg0 + 0x35C) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    *(u32 *)((s8 *)arg0 + 0x358) = (u32) *(u32 *)((s8 *)arg0 + 0x8C);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x358) >= 3U) {
-        *(u32 *)((s8 *)arg0 + 0x358) = 2U;
+    *(s32 *)((s8 *)this + 0x35C) = (s32) *(s32 *)((s8 *)this + 0x84);
+    *(u32 *)((s8 *)this + 0x358) = (u32) *(u32 *)((s8 *)this + 0x8C);
+    if ((u32) *(u32 *)((s8 *)this + 0x358) >= 3U) {
+        *(u32 *)((s8 *)this + 0x358) = 2U;
     }
-    temp_f2 = lbl_805DB690 + *(f32 *)((s8 *)arg0 + 0x68);
-    *(f32 *)((s8 *)arg0 + 0x350) = (f32) (temp_f2 - lbl_805DB654);
-    ((void (*)(void *, f32, f32))set_scale__27TOHangceilingCave01KeyQuickFPvf)(arg0, lbl_805DB688 + *(f32 *)((s8 *)arg0 + 0x70), temp_f2);
+    temp_f2 = lbl_805DB690 + *(f32 *)((s8 *)this + 0x68);
+    *(f32 *)((s8 *)this + 0x350) = (f32) (temp_f2 - lbl_805DB654);
+    ((void (*)(void *, f32, f32))set_scale__27TOHangceilingCave01KeyQuickFPvf)(this, lbl_805DB688 + *(f32 *)((s8 *)this + 0x70), temp_f2);
     self->v77();
-    *(f32 *)((s8 *)arg0 + 0x354) = (f32) (lbl_805DB654 - *(f32 *)((s8 *)arg0 + 0x6C));
+    *(f32 *)((s8 *)this + 0x354) = (f32) (lbl_805DB654 - *(f32 *)((s8 *)this + 0x6C));
 }
 
 int TOHangceilingCave01__sub_80168624(void) { return 1; }
@@ -914,7 +910,8 @@ void TOHangceilingCave01__sub_80168640(void) {  }
 
 extern const f32 lbl_805DB694;
 
-void draw_model__19TOHangceilingCave01FPv(u8 *arg0) {
+void TOHangceilingCave01::draw_model() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f2;
     s32 temp_r29;
@@ -924,7 +921,7 @@ void draw_model__19TOHangceilingCave01FPv(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)turiten_singo_texture_lists + 8));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 8));
         if (*(void **)((s8 *)arg0 + 0x34) != NULL && *(void **)((s8 *)arg0 + 0xF8) != NULL) {
             draw_ginja_model_with_motion(*(void **)((s8 *)arg0 + 0x34), *(void **)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
         }
@@ -936,7 +933,7 @@ void draw_model__19TOHangceilingCave01FPv(u8 *arg0) {
                 temp_r29 = temp_f2 <= temp_f1;
                 temp_r30 = temp_f2 <= (lbl_805DB674 * temp_f1);
                 temp_r31 = temp_f2 <= (lbl_805DB67C * temp_f1);
-                set_global_param__8TObjFishFi(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
+                set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
                 if (temp_r29 == 1) {
                     draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)TOHangceilingCave01__model_root + 0x2C)) + 4)));
                 }
@@ -946,7 +943,7 @@ void draw_model__19TOHangceilingCave01FPv(u8 *arg0) {
                 if (temp_r31 == 1) {
                     draw_ginja_model((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)TOHangceilingCave01__model_root + 0x2C)) + 0x2C)) + 0x2C)) + 4)));
                 }
-                set_global_param__8TObjFishFi(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
+                set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
                 if (temp_r29 == 0) {
                     draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)TOHangceilingCave01__model_root + 0x2C)) + 4)));
                 }
@@ -958,9 +955,9 @@ void draw_model__19TOHangceilingCave01FPv(u8 *arg0) {
                 }
             } else {
                 if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0x35C))) == 1) {
-                    set_global_param__8TObjFishFi(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
+                    set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
                 } else {
-                    set_global_param__8TObjFishFi(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
+                    set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
                 }
                 draw_ginja_object((void *) (TOHangceilingCave01__model_root));
             }
@@ -970,7 +967,8 @@ void draw_model__19TOHangceilingCave01FPv(u8 *arg0) {
     }
 }
 
-void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0) {
+void TOHangceilingCave01::check_player_trigger() {
+    u8 *arg0 = (u8 *)this;
     if (check_demo_mode__10TObjPlayerFv() == 0) {
         ((VObj_80168834_80168588*)arg0)->m78();
         fn_80168398(arg0);
@@ -1039,12 +1037,12 @@ s32 TOHangceilingCave01__create(u8 *arg0) {
   return 0;
 }
 
-void destroy_instance__19TOHangceilingCave01Fv(void) {
+void TOHangceilingCave01::destroy_instance() {
     if ((void *) turiten_singo_texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
-        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
+        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
+        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
         if ((void *) turiten_singo_texture_lists != NULL) {
-            free__11TOBoss4RockFUi((void*)turiten_singo_texture_lists);
+            mem_free((void*)turiten_singo_texture_lists);
             turiten_singo_texture_lists = NULL;
         }
     }
@@ -1076,12 +1074,12 @@ void load_turiten_singo_resources(void) {
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 19:
     case 20:
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != 0) {
             p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, turiten_singo_resource_descriptor, 0, 0, 0);
         }
         (*(void **)&TOHangceilingCave01__model_archive) = p;
-        (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = ((Buf_80168AA8 *(*)(u32))alloc_buffer__11TOBoss4RockFPv)(0xC);
+        (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = ((Buf_80168AA8 *(*)(u32))mem_alloc)(0xC);
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->b = 0;
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->a = 0;
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->c = TObjFish__sub_8001EDB0((*(void **)&TOHangceilingCave01__model_archive), 0);
@@ -1091,12 +1089,12 @@ void load_turiten_singo_resources(void) {
         hanging_ceiling_motion_index = 0;
         break;
     default:
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != 0) {
             p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, fe_obj_turiten_moto_resource_descriptor, 0, 0, 0);
         }
         (*(void **)&TOHangceilingCave01__model_archive) = p;
-        (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = ((Buf_80168AA8 *(*)(u32))alloc_buffer__11TOBoss4RockFPv)(0xC);
+        (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = ((Buf_80168AA8 *(*)(u32))mem_alloc)(0xC);
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->a = load_gvm_texture_file((void *)lbl_80441858);
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->b = load_gvm_texture_file((void *)lbl_80441874);
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->c = TObjFish__sub_8001EDB0((*(void **)&TOHangceilingCave01__model_archive), 1);

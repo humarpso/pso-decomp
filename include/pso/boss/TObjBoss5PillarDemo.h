@@ -10,6 +10,8 @@ struct TObjBoss5PillarDemo
     u32 m_3c;
     u32 m_40;
     u32 m_44;
+    static void update_active_pillar();
+    static s32 create();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -7,14 +8,6 @@ s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
 int TFontSmallLobby__sub_801C0228(void*);
-int check_flag_4__10TObjPlayerFPv(void* p);
-int clear_flag_4000_callback__10TObjPlayerFPv(void* p);
-int set_flag_4000__10TObjPlayerFPv(void* p);
-int clear_flag_4000__10TObjPlayerFPv(void* p);
-void set_battle_flag__10TObjPlayerFPvi(void* p, s32 v);
-s32 get_anim_id__10TObjPlayerFPv(void* p);
-int check_flag_0x40000000__10TObjPlayerFPv(void* p);
-void clear_flag_0x2__10TObjPlayerFPv(void* p);
 int is_action_active__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE784(void* p, u8 v);
 u8 get_battle_mode__10TObjPlayerFPv(void* p);
@@ -43,27 +36,27 @@ int start_freeze_self__10TObjPlayerFPv(void* p);
 void set_floor__10TObjPlayerFPvi(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
-int unregister_sub__10TObjPlayerFPv(void* p);
-void set_control_role__10TObjPlayerFPvi(void* p, s32 v);
+int unregister_sub__10TObjPlayerFv(void* p);
+void set_control_role__10TObjPlayerFl(void* p, s32 v);
 u8 TObjPlayer__sub_801BEB3C(void* p);
 u8 TObjPlayer__sub_801BEB44(void* p);
 u8 TObjPlayer__sub_801BEB4C(void* p);
-void set_play_time__10TObjPlayerFPvi(void* p, s32 v);
-void reset_entrance_id__10TObjPlayerFPv(void* p);
+void set_play_time__10TObjPlayerFl(void* p, s32 v);
+void reset_entrance_id__10TObjPlayerFv(void* p);
 int TObjPlayer__sub_801BEB68(void* p);
 u8 TObjPlayer__sub_801BEB8C(void* p);
-int query_field374__10TObjPlayerFPv(void* p);
+int query_field374__10TObjPlayerFv(void* p);
 u8 TObjPlayer__sub_801BEBB8(void* p);
-int query_flags_374__10TObjPlayerFPv(void* p);
+int query_flags_374__10TObjPlayerFv(void* p);
 u8 TObjPlayer__sub_801BEBE4(void* p);
-int get_quest_status__10TObjPlayerFPv(void* p);
+int get_quest_status__10TObjPlayerFv(void* p);
 u8 TObjPlayer__sub_801BEC10(void* p);
-int get_field_0x374__10TObjPlayerFPv(void* p);
+int get_field_0x374__10TObjPlayerFv(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
-int is_mounted__15TPlyPhotonChairFPv(void* p);
-int check_flag__10TObjPlayerFPvi(void*, int);
+int is_mounted__15TPlyPhotonChairFv(void* p);
+int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFPvUi(void*, int);
+int set_state_flags__10TObjPlayerFUl(void*, int);
 int unregister_object_by_id(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
@@ -78,17 +71,18 @@ int TObjPlayer__sub_801BEDA8(void*);
 int TObjPlayer__sub_801BEDB0(void*);
 int TObjPlayer__sub_801BEDB8(void*);
 
-void set_flag_200000__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::set_flag_200000() {
+    s32 arg0 = (s32)this;
     TObjPlayer__sub_8011E204((void*)(arg0), 0x200000);
 }
-int check_flag_4__10TObjPlayerFPv(void* p) { return check_flag__10TObjPlayerFPvi(p, 4); }
-void* set_invisible__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
-int clear_flag_4000_callback__10TObjPlayerFPv(void* p) { return set_flag_4000__10TObjPlayerFPv(p); }
-int set_flag_4000__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8011E204(p, 16384); }
-int clear_flag_4000__10TObjPlayerFPv(void* p) { return set_state_flags__10TObjPlayerFPvUi(p, 16384); }
-void set_battle_flag__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x3b4) = v; }
-s32 get_anim_id__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x3b4); }
-int check_flag_0x40000000__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p + 0x334) >> 30) & 0x1; }
-void clear_flag_0x2__10TObjPlayerFPv(void* p) { *(u32*)((char*)p + 0x334) &= 0xfffffffd; }
+int TObjPlayer::check_flag_4() { return check_flag__10TObjPlayerFl(this, 4); }
+void*TObjPlayer::set_invisible() { TFontSmallLobby__sub_801C0228(this); return this; }
+int TObjPlayer::clear_flag_4000_callback() { return set_flag_4000(); }
+int TObjPlayer::set_flag_4000() { return TObjPlayer__sub_8011E204(this, 16384); }
+int TObjPlayer::clear_flag_4000() { return set_state_flags__10TObjPlayerFUl(this, 16384); }
+void TObjPlayer::set_battle_flag(s32 v) { *(s32*)((char*)this + 0x3b4) = v; }
+s32 TObjPlayer::get_anim_id() { return *(s32*)((char*)this + 0x3b4); }
+int TObjPlayer::check_flag_0x40000000() { return (*(u32*)((char*)this + 0x334) >> 30) & 0x1; }
+void TObjPlayer::clear_flag_0x2() { *(u32*)((char*)this + 0x334) &= 0xfffffffd; }
 
 }

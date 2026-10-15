@@ -18,11 +18,11 @@ extern s32 tl_05;
 extern s32 tl_06;
 extern s32 tl_07;
 void TLobby__sub_8020BB18(void);
-void send_or_handle_packet__6TLobbyFPvPvPvPvUi(u32, void *, void *, u32, u32);
+void send_or_handle_packet__6TLobbyFPvPvPvPvUl(u32, void *, void *, u32, u32);
 void archive_pool_free(u32, void *);
 void *archive_pool_alloc(u32, u32);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
-void *alloc__22TQuestVmDownLoadServerFPv(u32);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(void *);
+void *alloc__22TQuestVmDownLoadServerFv(u32);
 void *heap_alloc__5THeapFUl(u32, u32);
 void *memcpy(void *, const void *, unsigned long);
 void *memset(void *, int, unsigned long);
@@ -72,14 +72,14 @@ s32 load_floor_enemy_group_entries__6TLobbyFiPvUi(s32 idx, Src_8020B970 *src, u3
     }
     TLobby__data_80513A40[idx].entry = archive_pool_alloc(TLobby__data_805D6104, sz);
     if ((u32)src & 0x1F) {
-        buf = alloc__22TQuestVmDownLoadServerFPv(sz);
+        buf = alloc__22TQuestVmDownLoadServerFv(sz);
         memcpy(buf, src, sz);
         if (TLobby__data_80513A40[idx].entry != NULL) {
-            send_or_handle_packet__6TLobbyFPvPvPvPvUi(TLobby__data_805D6104, buf, TLobby__data_80513A40[idx].entry, sz, 0);
+            send_or_handle_packet__6TLobbyFPvPvPvPvUl(TLobby__data_805D6104, buf, TLobby__data_80513A40[idx].entry, sz, 0);
         }
-        safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(buf);
     } else if (TLobby__data_80513A40[idx].entry != NULL) {
-        send_or_handle_packet__6TLobbyFPvPvPvPvUi(TLobby__data_805D6104, src, TLobby__data_80513A40[idx].entry, sz, 0);
+        send_or_handle_packet__6TLobbyFPvPvPvPvUl(TLobby__data_805D6104, src, TLobby__data_80513A40[idx].entry, sz, 0);
     }
     return 1;
     }

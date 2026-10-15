@@ -37,7 +37,7 @@ s32 get_bml_model(s32, s32);
 int get_instance_count__9TBoss4UroFv(void);
 void activate_camera_mode(s32);
 void set_scripted_camera_pose(void *, void *, void *);
-void cache_target_and_forward__11TCameraCtrlFii(void *, s32);
+void cache_target_and_forward__11TCameraCtrlFl(void *, s32);
 void construct_world_actor_base(void *, void *);
 void play_sound_effect(s32, void *, s32, s32);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
@@ -51,7 +51,7 @@ void classify_actor_view_detail();
 void draw_three_part_models();
 void update_fade_and_expire();
 void render_shadows__7TObjectFv();
-void reset_motion_fields__10TObjPlayerFPv();
+void reset_motion_fields__10TObjPlayerFv();
 void update_object_view_visibility();
 
 s32 TObjDFDemoF__bml_model_id_table[3] = {0x0, 0x10, 0x11};
@@ -60,7 +60,7 @@ void *lbl_80485840[3] = {(void *) 0xc69c4000, (void *) 0x0, (void *) 0x0};
 void *lbl_8048584C[3] = {(void *) 0x0, (void *) 0x0, (void *) 0x0};
 void *lbl_80485858[3] = {(void *) 0x50000, (void *) 0x0, (void *) 0x3f000000};
 void *three_part_model_translate_offset[3] = {(void *) 0xc69c4000, (void *) 0x0, (void *) 0x0};
-void *__vt__11TObjDFDemoF[14] = {(void *) 0x0, (void *) 0x0, (void *) (&__dt__11TObjDFDemoFFPvs), (void *) (&update_fade_and_expire), (void *) (&draw_three_part_models), (void *) (&render_shadows__7TObjectFv), (void *) (&TLobby__sub_801A1FD8), (void *) (&apply_object_set_data), (void *) (&reset_motion_fields__10TObjPlayerFPv), (void *) (&TParticleCtrl__sub_801A2124), (void *) (&update_object_view_visibility), (void *) (&classify_actor_view_detail), (void *) (&TObjRoomId__sub_801A1E2C), (void *) 0x0};
+void *__vt__11TObjDFDemoF[14] = {(void *) 0x0, (void *) 0x0, (void *) (&__dt__11TObjDFDemoFFPvs), (void *) (&update_fade_and_expire), (void *) (&draw_three_part_models), (void *) (&render_shadows__7TObjectFv), (void *) (&TLobby__sub_801A1FD8), (void *) (&apply_object_set_data), (void *) (&reset_motion_fields__10TObjPlayerFv), (void *) (&TParticleCtrl__sub_801A2124), (void *) (&update_object_view_visibility), (void *) (&classify_actor_view_detail), (void *) (&TObjRoomId__sub_801A1E2C), (void *) 0x0};
 
 void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -109,7 +109,7 @@ Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *arg1) {
   new_var->fb8 = lbl_805D8A28;
   activate_camera_mode(5);
   set_scripted_camera_pose(lbl_80485840, lbl_80485840, lbl_8048584C);
-  cache_target_and_forward__11TCameraCtrlFii(lbl_80485858, 0x392D);
+  cache_target_and_forward__11TCameraCtrlFl(lbl_80485858, 0x392D);
   play_sound_effect(0x3A802, 0, 0, 0);
   queue_event_1D__12TBoss3VoloptFss(0x20, 0xF);
   arg0->f90 = 0;

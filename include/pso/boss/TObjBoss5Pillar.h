@@ -15,6 +15,10 @@ struct TObjBoss5Pillar
     u32 m_40;
     u32 m_44;
     u32 m_48;
+    void render();
+    void update_collapse_state();
+    static void *create_smoke(void *arg0, void *arg1);
+    static void *create(void *arg0);
 };
 
 #endif

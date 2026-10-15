@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDuelResult.h"
 
 struct RecoveredGlobal_801C257C_TLobby__data_80511C80 {
     s32 value;
@@ -14,19 +15,18 @@ s32 *TWindowDuelResult__sub_801C257C(void);
 
 extern "C" {
 
-void *init__17TWindowDuelResultFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__7TObjectFP7TObject(void *);
 void set_and_notify__6TLobbyFi(void *);
 
 extern s32 duel_result_window_dispatch_table[];
 
-void *init__17TWindowDuelResultFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = duel_result_window_dispatch_table;
-    *(void **)((s8 *)arg0 + 0x1C) = arg3;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
+void *TWindowDuelResult::init(void *arg1, void *arg2, void *arg3) {
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = duel_result_window_dispatch_table;
+    *(void **)((s8 *)this + 0x1C) = arg3;
+    *(void **)((s8 *)this + 0x20) = arg2;
     set_and_notify__6TLobbyFi(arg2);
-    return arg0;
+    return this;
 }
 typedef char RecoveredGlobal_801C257C_TLobby__data_80511C80_size[sizeof(RecoveredGlobal_801C257C_TLobby__data_80511C80) == 0x20 ? 1 : -1];
 s32 *TWindowDuelResult__sub_801C257C(void) {

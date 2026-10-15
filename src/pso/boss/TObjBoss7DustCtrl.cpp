@@ -53,7 +53,7 @@ struct RecoveredGlobal_802F1200_lbl_805419E0 {
 extern "C" {
 s32 end_effect_render__13TParticleCtrlFv();
 s32 post_translate_matrix(int);
-s32 draw_trail_strip__10TObjPlayerFPvPvi(int, int, int);
+s32 draw_trail_strip__10TObjPlayerFPvl(int, int, int);
 void boss7_dust_draw_at(s32 *arg0, s32 arg1);
 }
 
@@ -76,7 +76,7 @@ void boss7_dust_draw_at(s32 *arg0, s32 arg1) {
     var_r4 = 6;
     var_r3 = (s32 *)((u8 *)(s32 *)TObjBoss7DustCtrl__transformed_vertices + var_r5);
     var_r5 = 0;
-    draw_trail_strip__10TObjPlayerFPvPvi((int) (var_r3), (int) (6), (int) (0));
+    draw_trail_strip__10TObjPlayerFPvl((int) (var_r3), (int) (6), (int) (0));
     pop_matrix();
 }
 
@@ -165,12 +165,11 @@ void *TObjBoss7DustCtrl__ct(void *arg0) {
 extern "C" {
 
 void TObjBoss7DustCtrl__sub_802F1450(void);
-void create__17TObjBoss7DustCtrlFv(void);
 void* __nw__7TObjectFUl(u32);
 
 extern s32 tl_05;
 
-void create__17TObjBoss7DustCtrlFv(void) {
+void TObjBoss7DustCtrl::create() {
     void* obj = __nw__7TObjectFUl(0x1C);
     if (obj != 0) {
         ((void *(*)(void *, s32))TObjBoss7DustCtrl__ct)(obj, tl_05);

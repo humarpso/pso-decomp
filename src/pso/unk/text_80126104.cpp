@@ -146,10 +146,10 @@ s32 obj_is_hit_receivable(void *);
 void frozen_shooter_freeze_hit(int arg0, u8 *arg1);
 extern const f32 lbl_805DAD70;
 void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o);
-u8 get_slot_count__14TItemProShieldFPv(void *);
-s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
+u8 get_slot_count__14TItemProShieldFv(void *);
+s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
-void draw_status_icon__10TObjPlayerFPvi(void *, void *);
+void draw_status_icon__10TObjPlayerFl(void *, void *);
 void frozen_shooter_marker(Pl_801261BC *arg0);
 }
 
@@ -179,12 +179,12 @@ void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o) {
 void frozen_shooter_marker(Pl_801261BC *arg0) {
     u8 buf[16];
     void *p;
-    draw_status_icon__10TObjPlayerFPvi(arg0, buf);
+    draw_status_icon__10TObjPlayerFl(arg0, buf);
     arg0->f1fc = 0;
     p = buf;
-    if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFv(arg0) != 0) {
         fire_shot_at_target__11TItemWeaponFv(arg0, p, arg0->f188, 0);
-    } else if (get_slot_count__14TItemProShieldFPv(arg0) == 1) {
+    } else if (get_slot_count__14TItemProShieldFv(arg0) == 1) {
         arg0->f1fc = 1;
         fire_shot_at_target__11TItemWeaponFv(arg0, p, arg0->f188, 0);
     } else {

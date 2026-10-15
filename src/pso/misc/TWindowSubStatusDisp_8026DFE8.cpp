@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_8026E110_lbl_804D0948 {
     s32 value;
@@ -17,7 +18,7 @@ s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_item_list_capacity(void *, int, int, int);
 s32 draw_selected_list_entry(void *, int);
 s32 draw_window_scrollbar(void *, int, void *);
-s32 forward_render__20TWindowSubStatusDispFPv(void *, int);
+s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 void render_item_list_window(u8 *arg0);
 u8 * fn_80268384(void *, s32, s32, s16, s32);
 s32 TWindowShop__ct(void *, void *);
@@ -34,10 +35,9 @@ u8 *construct_item_list__20TWindowSubStatusDispFPviis(u8 *arg0, s32 arg1, s32 ar
 extern "C" {
 
 int item_list_window_update(void* p);
-void *deleting_dtor__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
 int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
-void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
+void destroy_item_list_resources__20TWindowSubStatusDispFs(void *, int);
 
 #pragma push
 #pragma fp_contract on
@@ -57,7 +57,7 @@ void render_item_list_window(u8 *arg0) {
     }
     p = *(void **)((s8 *)arg0 + 0x80);
     if (p != NULL) {
-        forward_render__20TWindowSubStatusDispFPv(p, (int) (temp_r3));
+        forward_render__20TWindowSubStatusDispFv(p, (int) (temp_r3));
     }
     p = *(void **)((s8 *)arg0 + 0x84);
     if (p != NULL) {
@@ -70,15 +70,15 @@ int item_list_window_update(void* p) { return update_item_list_window(p); }
 
 extern s32 item_list_window_vtable[];
 
-void *deleting_dtor__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = item_list_window_vtable;
-        destroy_item_list_resources__20TWindowSubStatusDispFPvs(arg0, 0);
+void *TWindowSubStatusDisp::deleting_dtor(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = item_list_window_vtable;
+        destroy_item_list_resources__20TWindowSubStatusDispFs(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 typedef char RecoveredGlobal_8026E110_lbl_804D0948_size[sizeof(RecoveredGlobal_8026E110_lbl_804D0948) == 0x20 ? 1 : -1];
 u8 *ct_helper__20TWindowSubStatusDispFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOChatSensor.h"
 
 struct Stack_8015AF10
 {
@@ -18,21 +19,17 @@ struct Packet_8015AD54 {
 };
 
 extern "C" {
-void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
 u8 is_current_floor_switch_set(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
-void run_task__12TOChatSensorFv(u8 *arg0);
 f32 newton_sqrtf(f32);
 s32 check_demo_mode__10TObjPlayerFv(void);
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DB388;
 extern const f32 lbl_805DB38C;
-void render__12TOChatSensorFv(u8 *arg0);
 void *strncpy(void *, void *, s32);
-void set_trigger_text__12TOChatSensorFPvPv(C_8015ACE4 *arg0, void *arg1);
 s16 get_current_floor(void);
-void send_state__12TOChatSensorFPv(void *);
-void init_packet_type__12TOChatSensorFPv(void *);
+void send_state__12TOChatSensorFv(void *);
+void init_packet_type__12TOChatSensorFv(void *);
 void *__ct__12TQuestThreadFv(void *, void *, u32);
 s32 find_chat_keyword(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
@@ -40,19 +37,17 @@ void set_parent__7TObjectFP7TObject(void *, void *);
 extern void *current_language;
 extern void *quest_mission_manager;
 extern void *tl_00;
-void handle_chat_message__12TOChatSensorFPvPv(u8 *arg0, void *arg1);
 }
 
 extern "C" {
 
-void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
-void init_params__12TOChatSensorFPv(void *arg0);
 f32 horizontal_distance_squared(void *, void *);
 u32 get_player_by_client_id(void *);
 
 extern s32 local_client_id;
 
-void check_player_proximity__12TOChatSensorFPv(u8 *arg0) {
+void TOChatSensor::check_player_proximity() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r3;
 
     temp_r3 = get_player_by_client_id((void *) (local_client_id));
@@ -67,7 +62,8 @@ void check_player_proximity__12TOChatSensorFPv(u8 *arg0) {
 
 extern s32 *chat_sensor_table;
 
-void set_trigger_text__12TOChatSensorFPvPv(C_8015ACE4 *arg0, void *arg1) {
+void TOChatSensor::set_trigger_text(void *arg1) {
+    C_8015ACE4 *arg0 = (C_8015ACE4 *)this;
     s32 i;
     if (arg1 != 0) {
         strncpy(arg0->buf, arg1, 0x1F);
@@ -80,7 +76,8 @@ void set_trigger_text__12TOChatSensorFPvPv(C_8015ACE4 *arg0, void *arg1) {
     }
 }
 
-void handle_chat_message__12TOChatSensorFPvPv(u8 *arg0, void *arg1) {
+void TOChatSensor::handle_chat_message(void *arg1) {
+    u8 *arg0 = (u8 *)this;
     Packet_8015AD54 pkt;
     s32 r;
     u32 mode;
@@ -107,48 +104,49 @@ void handle_chat_message__12TOChatSensorFPvPv(u8 *arg0, void *arg1) {
                     *(s32 *)(arg0 + 0xC8) = 1;
                 }
             } else if (*(u16 *)(arg0 + 0x94) < 0x100) {
-                init_packet_type__12TOChatSensorFPv(&pkt);
+                init_packet_type__12TOChatSensorFv(&pkt);
                 pkt.a = get_current_floor();
                 pkt.b = *(u16 *)(arg0 + 0x94);
                 pkt.c = 1;
-                send_state__12TOChatSensorFPv(&pkt);
+                send_state__12TOChatSensorFv(&pkt);
             }
         }
     }
 }
 
-void init_params__12TOChatSensorFPv(void *arg0) {
+void TOChatSensor::init_params() {
     f32 temp_f0;
     s32 temp_r5;
 
-    *(u32 *)((s8 *)arg0 + 0x90) = (u32) *(u32 *)((s8 *)arg0 + 0x5C);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x90) >= 2U) {
-        *(u32 *)((s8 *)arg0 + 0x90) = 0U;
+    *(u32 *)((s8 *)this + 0x90) = (u32) *(u32 *)((s8 *)this + 0x5C);
+    if ((u32) *(u32 *)((s8 *)this + 0x90) >= 2U) {
+        *(u32 *)((s8 *)this + 0x90) = 0U;
     }
-    *(u32 *)((s8 *)arg0 + 0x98) = (u32) *(u32 *)((s8 *)arg0 + 0x60);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x98) >= 2U) {
-        *(u32 *)((s8 *)arg0 + 0x90) = 0U;
+    *(u32 *)((s8 *)this + 0x98) = (u32) *(u32 *)((s8 *)this + 0x60);
+    if ((u32) *(u32 *)((s8 *)this + 0x98) >= 2U) {
+        *(u32 *)((s8 *)this + 0x90) = 0U;
     }
-    temp_f0 = *(f32 *)((s8 *)arg0 + 0x68);
-    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (temp_f0 * temp_f0);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x90) == 0U) {
-        *(s32 *)((s8 *)arg0 + 0x94) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    temp_f0 = *(f32 *)((s8 *)this + 0x68);
+    *(f32 *)((s8 *)this + 0x9C) = (f32) (temp_f0 * temp_f0);
+    if ((u32) *(u32 *)((s8 *)this + 0x90) == 0U) {
+        *(s32 *)((s8 *)this + 0x94) = (s32) *(s32 *)((s8 *)this + 0x84);
     } else {
-        *(u16 *)((s8 *)arg0 + 0x94) = (u16) *(s32 *)((s8 *)arg0 + 0x84);
-        if ((u16) *(u16 *)((s8 *)arg0 + 0x94) > 0x100U) {
-            *(u16 *)((s8 *)arg0 + 0x94) = 0xFFFF;
+        *(u16 *)((s8 *)this + 0x94) = (u16) *(s32 *)((s8 *)this + 0x84);
+        if ((u16) *(u16 *)((s8 *)this + 0x94) > 0x100U) {
+            *(u16 *)((s8 *)this + 0x94) = 0xFFFF;
         }
     }
-    *(s32 *)((s8 *)arg0 + 0xCC) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    temp_r5 = *(s32 *)((s8 *)arg0 + 0xCC);
+    *(s32 *)((s8 *)this + 0xCC) = (s32) *(s32 *)((s8 *)this + 0x88);
+    temp_r5 = *(s32 *)((s8 *)this + 0xCC);
     if ((temp_r5 != 0) && ((temp_r5 < 0) || ((s32) *chat_sensor_table <= temp_r5))) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+        *(s32 *)((s8 *)this + 0xCC) = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+    *(s32 *)((s8 *)this + 0xC8) = 0;
 }
 
 typedef struct Stack_8015AF10 Stack_8015AF10;
-void render__12TOChatSensorFv(u8 *arg0) {
+void TOChatSensor::render() {
+    u8 *arg0 = (u8 *)this;
   Stack_8015AF10 stack;
   if (check_demo_mode__10TObjPlayerFv() == 1)
   {
@@ -160,13 +158,14 @@ void render__12TOChatSensorFv(u8 *arg0) {
   }
 }
 
-void run_task__12TOChatSensorFv(u8 *arg0) {
+void TOChatSensor::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x90) == 0U) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
         switch (temp_r0) {
         case 0:
-            check_player_proximity__12TOChatSensorFPv((u8 *)((void *) (arg0)));
+            check_player_proximity();
             return;
         case 1:
             if (((u32) *(u32 *)((s8 *)arg0 + 0xC4) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(*(u32 *)((s8 *)arg0 + 0xC4)) == 0)) {
@@ -178,7 +177,7 @@ void run_task__12TOChatSensorFv(u8 *arg0) {
         }
     } else {
         if (is_current_floor_switch_set((int) (*(u16 *)((s8 *)arg0 + 0x94))) == 0) {
-            check_player_proximity__12TOChatSensorFPv((u8 *)((void *) (arg0)));
+            check_player_proximity();
             return;
         }
         *(s32 *)((s8 *)arg0 + 0xA0) = 0;

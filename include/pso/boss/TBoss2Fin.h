@@ -8,6 +8,9 @@ public:
     virtual ~TBoss2Fin();
     virtual void run_task();
     virtual void render();
+public:
+    void init_link_points();
+    static void init_effect_table();
 };
 
 #endif

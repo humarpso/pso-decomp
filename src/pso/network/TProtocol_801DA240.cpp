@@ -54,6 +54,7 @@ struct PktHdr_801DA4A0 {
 };
 
 #include <string.h>
+#include "pso/misc/TLobby.h"
 struct VBase_18_801DA548 { char pad[0x18]; };
 
 struct VObj_18_801DA548 : VBase_18_801DA548 {
@@ -106,7 +107,6 @@ int sprintf(char *, const char *, ...);
 extern char TProtocol__send_trade_list_log_format[];
 void send_trade_list__6TLobbyFPvPv(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src);
 int TLobby__sub_801DF024(void *);
-void send_text_packet_D9__6TLobbyFPvPv(VObj_18_801DA548 *obj, char *str);
 int TLobby__sub_801DF064(void *);
 void send_text_packet_c7__6TLobbyFPvPv(VObj_18_801DA734 *obj, char *str);
 }
@@ -114,7 +114,7 @@ void send_text_packet_c7__6TLobbyFPvPv(VObj_18_801DA734 *obj, char *str);
 extern "C" {
 typedef void (*Fn_801DA240)(char *);
 typedef void (*Fn_801DA5E4)(void *);
-void bswap_cmd_d8_header__6TLobbyFPv(void *);
+void bswap_cmd_d8_header__6TLobbyFv(void *);
 
 void handle_cmd_D5__9TProtocolFR6packet(u8 *arg0, Text_801DA240 *arg1) {
     Text_801DA240 tmp = *arg1;
@@ -185,7 +185,8 @@ void send_trade_list__6TLobbyFPvPv(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src) {
     obj->m8(&pkt, 0x288);
 }
 
-void send_text_packet_D9__6TLobbyFPvPv(VObj_18_801DA548 *obj, char *str) {
+void TLobby::send_text_packet_D9(char *str) {
+    VObj_18_801DA548 *obj = (VObj_18_801DA548 *)this;
     Pkt_801DA548 pkt;
     s32 n;
     memset(&pkt, 0, 0xB0);
@@ -201,7 +202,7 @@ void send_text_packet_D9__6TLobbyFPvPv(VObj_18_801DA548 *obj, char *str) {
 
 void handle_cmd_D8__9TProtocolFR6packet(u8 *arg0, Pkt_801DA5E4 *arg1) {
     Pkt_801DA5E4 tmp = *arg1;
-    bswap_cmd_d8_header__6TLobbyFPv(&tmp);
+    bswap_cmd_d8_header__6TLobbyFv(&tmp);
     Fn_801DA5E4 f = *(Fn_801DA5E4 *)(arg0 + 0xBC54);
     if (f != NULL) {
         f(&tmp);

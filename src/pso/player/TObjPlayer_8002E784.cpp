@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_8002E784 { char pad[0xC]; };
 struct VObj_8002E784 : Base_8002E784 {
@@ -93,16 +94,15 @@ extern "C" {
 extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
 void TObjPlayer__sub_8002EF80(void);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * init_from_model__11TBreakUpMdlFPvi(void *, s32);
 extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002E7C8(void);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * init_from_model__11TBreakUpMdlFPvi(void *, s32);
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 extern u8 *lbl_805D4BA4;
-void create_breakup_model__10TObjPlayerFv(void);
 s32 queue_destruction__7TObjectFv(void *);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 void TObjPlayer__sub_8002E974(u8 *arg0);
@@ -136,8 +136,6 @@ void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit(void);
-void *init_base__10TObjPlayerFPv(void *arg0);
-s32 calc_random_scaled__10TObjPlayerFv(void);
 f32 vec3_add_to(void *, void *);
 extern s32 lbl_804820A8[];
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
@@ -152,7 +150,7 @@ s32 TBoss2Joint__sub_8003688C(s32);
 s32 check_v2_mode__9TObjEneDDFv(void);
 s32 clear_global_flag_400__9TObjEneDDFv();
 s32 TObjLight__sub_801337F8(s32);
-s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
+s32 is_on_current_screen__11TCameraCtrlFv(void *, int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
@@ -160,9 +158,9 @@ void push_matrix(void);
 void pop_matrix(void);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_model_motion(int, void *, f32);
-s32 set_global_state__16TObjEneRe7BeruraFi(void *);
+s32 set_global_state__16TObjEneRe7BeruraFl(void *);
 void TObjPlayer__sub_8002F61C(void);
 extern Vec_8002EFE8 lbl_804359E4;
 extern u8 controller_input_state[];
@@ -184,10 +182,6 @@ struct VObj8002EB88_8002eb88_8002E784 {
 int TObjLight__sub_8002F238(void* p);
 void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1);
 void TObjPlayer__sub_8002EB88(void);
-s32 calc_random_scaled__10TObjPlayerFv(void);
-void clear_target_ref__10TObjPlayerFv(void);
-void *deleting_dtor__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void *init_base__10TObjPlayerFPv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -196,7 +190,7 @@ s32 rand();
 
 extern void *lbl_805D4B8C;
 
-void clear_target_ref__10TObjPlayerFv(void) {
+void TObjPlayer::clear_target_ref() {
     if (lbl_805D4B8C != NULL) {
         ((VObj_8002E784 *)lbl_805D4B8C)->m0(1);
     }
@@ -208,7 +202,7 @@ extern s32 lbl_804820A8[];
 void TObjPlayer__sub_8002E7C8(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x10);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x10);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (init_from_model__11TBreakUpMdlFPvi((void *) temp_r3, *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x58)));
@@ -241,7 +235,7 @@ void TObjPlayer__sub_8002E974(u8 *arg0) {
 void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804820A8;
-        deleting_dtor__10TObjPlayerFPvs((void *)(arg0), (s16)(0));
+        ((TObjPlayer *)arg0)->deleting_dtor((s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -258,7 +252,7 @@ Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002E
     Part_8002EA64 *p;
     Vec_8002EA64 *v;
     s32 i;
-    init_base__10TObjPlayerFPv(arg0);
+    ((TObjPlayer *)arg0)->init_base();
     scale = lbl_805D8240;
     zero = lbl_805D8228;
     arg0->vtbl = lbl_804820A8;
@@ -269,9 +263,9 @@ Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002E
         VecCopy__FP3VecPC3Vec(v, &(*(Src_8002EA64 **)((u8 *)shared_breakup_model + 4))[i].b);
         v->y = lerp__9TDeadSpotFff(lbl_805D8234, lbl_805D8238);
         v->z -= lerp__9TDeadSpotFff(lbl_805D8228, lbl_805D823C);
-        p->unk18 = calc_random_scaled__10TObjPlayerFv();
+        p->unk18 = TObjPlayer::calc_random_scaled();
         p->unk1C = (s32)(scale * rand_signed_unit());
-        p->unk20 = calc_random_scaled__10TObjPlayerFv();
+        p->unk20 = TObjPlayer::calc_random_scaled();
         p->unk28 = 0;
         p->unk24 = zero;
     }
@@ -287,10 +281,10 @@ void TObjPlayer__sub_8002EB88(void) {
 
 extern s32 lbl_804820C0[];
 
-void create_breakup_model__10TObjPlayerFv(void) {
+void TObjPlayer::create_breakup_model() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x10);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x10);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (init_from_model__11TBreakUpMdlFPvi((void *) temp_r3, *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x68)));
@@ -300,24 +294,24 @@ void create_breakup_model__10TObjPlayerFv(void) {
     TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((*(u8 * *)&shared_breakup_model)), (s32)(0x13));
 }
 
-void *deleting_dtor__10TObjPlayerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804820C0;
-        __dt__7TObjectFv(arg0, 0);
+void *TObjPlayer::deleting_dtor(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804820C0;
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern s32 lbl_804820C0[];
 
-void *init_base__10TObjPlayerFPv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804820C0;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
+void *TObjPlayer::init_base() {
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804820C0;
+    *(u32 *)((s8 *)this + 0x1C) = 0;
+    return this;
 }
 
 extern s32 lbl_80435620;
@@ -406,7 +400,7 @@ void TObjPlayer__sub_8002EF80(void) {
     lbl_805D4B90 = lbl_805D8258;
 }
 
-s32 calc_random_scaled__10TObjPlayerFv(void) {
+s32 TObjPlayer::calc_random_scaled() {
     return (s32) (lbl_805D8248 * (lbl_805D8244 * (f32) rand()));
 }
 

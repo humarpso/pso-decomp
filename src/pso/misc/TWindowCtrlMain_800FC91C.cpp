@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TFontSmallHelp.h"
+#include "pso/misc/TFontSmallLobby.h"
+#include "pso/misc/TWindowCtrlMain.h"
 
 struct VBase_18_7b3651 { char pad[0x18]; };
 
@@ -42,29 +45,25 @@ s32 build_status_text__20TWindowSubStatusDispFi(s32 arg0);
 
 extern "C" {
 
-void advance_card_status__15TWindowCtrlMainFi(s32 arg0);
-int get_instance__15TWindowCtrlMainFv(void);
 s32 fn_800FCCC8(s32, s32);
 s32 get_card_status_bits__20TWindowShortListCtrlFv();
 
 void *TFontSmallHelp__sub_800FCC20(void *arg0, s16 arg1);
-void *create__15TFontSmallLobbyFPv(void *arg0);
-void update_help_text__14TFontSmallHelpFPv(void *arg0);
 s32 set_color__14TFontSmallHelpFUl(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__14TFontSmallHelpFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void *fn_800FCC78(void *, void *);
 s32 fn_800FCCF4(s32);
-s32 get_status_index_or_default__20TWindowSubStatusDispFPv(void *, s32);
+s32 get_status_index_or_default__20TWindowSubStatusDispFPUs(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 run_task__14TFontSmallHelpFv(void *);
 s32 set_help_text__14TFontSmallHelpFPCc(void *, u32);
 
     extern int TWindowCtrlMain__instance;
-int get_instance__15TWindowCtrlMainFv(void) {  return TWindowCtrlMain__instance; }
+int TWindowCtrlMain::get_instance() {  return TWindowCtrlMain__instance; }
 
-void advance_card_status__15TWindowCtrlMainFi(s32 arg0) {
+void TWindowCtrlMain::advance_card_status(s32 arg0) {
     s32 var_r4;
 
     var_r4 = get_card_status_bits__20TWindowShortListCtrlFv() + 1;
@@ -124,7 +123,7 @@ s32 build_status_text__20TWindowSubStatusDispFi(s32 arg0) {
     return get_shared_text_buffer();
 }
 
-void *create__15TFontSmallLobbyFPv(void *arg0) {
+void *TFontSmallLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x64);
     if (o != NULL) {
         o = fn_800FCC78(o, arg0);
@@ -132,32 +131,32 @@ void *create__15TFontSmallLobbyFPv(void *arg0) {
     return o;
 }
 
-void update_help_text__14TFontSmallHelpFPv(void *arg0) {
+void TFontSmallHelp::update_help_text() {
     s32 temp_r3_2;
     s32 temp_r4;
     u32 temp_r3_3;
     s32 temp_r3;
 
-    temp_r3 = (s32)get_player_by_client_id(*(s32 *)((s8 *)arg0 + 0x5C));
+    temp_r3 = (s32)get_player_by_client_id(*(s32 *)((s8 *)this + 0x5C));
     if (temp_r3 == 0) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r3_2 = ((s32 (*)(s32))get_card_status_bits__20TWindowShortListCtrlFv)(*(s32 *)((s8 *)arg0 + 0x5C));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x60) != temp_r3_2) {
-        *(s32 *)((s8 *)arg0 + 0x60) = temp_r3_2;
-        temp_r3_3 = (u32)build_status_text__20TWindowSubStatusDispFi(*(s32 *)((s8 *)arg0 + 0x5C));
-        set_help_text__14TFontSmallHelpFPCc(arg0, temp_r3_3);
+    temp_r3_2 = ((s32 (*)(s32))get_card_status_bits__20TWindowShortListCtrlFv)(*(s32 *)((s8 *)this + 0x5C));
+    if ((s32) *(s32 *)((s8 *)this + 0x60) != temp_r3_2) {
+        *(s32 *)((s8 *)this + 0x60) = temp_r3_2;
+        temp_r3_3 = (u32)build_status_text__20TWindowSubStatusDispFi(*(s32 *)((s8 *)this + 0x5C));
+        set_help_text__14TFontSmallHelpFPCc(this, temp_r3_3);
         if (temp_r3_3 != 0U) {
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x60) == 3) {
-                temp_r4 = *(s32 *)((s8 *)arg0 + 0x5C);
-                set_color__14TFontSmallHelpFUl(arg0, get_status_index_or_default__20TWindowSubStatusDispFPv((s8 *)lobby_player_status_records + (temp_r4 * 0x11C) + 4, temp_r4));
+            if ((s32) *(s32 *)((s8 *)this + 0x60) == 3) {
+                temp_r4 = *(s32 *)((s8 *)this + 0x5C);
+                set_color__14TFontSmallHelpFUl(this, get_status_index_or_default__20TWindowSubStatusDispFPUs((s8 *)lobby_player_status_records + (temp_r4 * 0x11C) + 4, temp_r4));
             } else {
-                set_color__14TFontSmallHelpFUl(arg0, fn_800FCCF4(temp_r3));
+                set_color__14TFontSmallHelpFUl(this, fn_800FCCF4(temp_r3));
             }
         }
     }
-    run_task__14TFontSmallHelpFv(arg0);
+    run_task__14TFontSmallHelpFv(this);
 }
 
 extern s32 lbl_8049CA54[];

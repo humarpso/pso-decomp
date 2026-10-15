@@ -1,17 +1,17 @@
 #include "types.h"
+#include "pso/ui/TAdDialingGC.h"
 
 extern "C" {
 
-void init_dialog__12TAdDialingGCFv(void);
 s32 TAdDialingGC__sub_8013ADBC(s32);
-s32 render_status_disp__23TAdSinglePlyChrSelectGCFPvff(f32, f32);
+s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(f32, f32);
 
 extern const f32 TAdDialingGC__data_805DF6EC;
 extern const f32 lbl_805DF6F0;
 
-void init_dialog__12TAdDialingGCFv(void) {
+void TAdDialingGC::init_dialog() {
     TAdDialingGC__sub_8013ADBC(0);
-    render_status_disp__23TAdSinglePlyChrSelectGCFPvff(TAdDialingGC__data_805DF6EC, lbl_805DF6F0);
+    render_status_disp__23TAdSinglePlyChrSelectGCFff(TAdDialingGC__data_805DF6EC, lbl_805DF6F0);
 }
 
 extern const f32 lbl_805DF6F4;
@@ -19,8 +19,7 @@ s32 fn_80145A44(void *);
 s32 call_146CA0_with_5708__6TLobbyFv();
 int sprintf(char *, const char *, ...);
 extern char lbl_804767C8[];
-void draw_dialing_status__12TAdDialingGCFv(void);
-void draw_dialing_status__12TAdDialingGCFv(void) {
+void TAdDialingGC::draw_dialing_status() {
     char a[0x20];
     char c[0x100];
     char b[0x100];
@@ -29,7 +28,7 @@ void draw_dialing_status__12TAdDialingGCFv(void) {
     }
     sprintf(b, lbl_804767C8, a, call_146CA0_with_5708__6TLobbyFv());
     sprintf(c, (char *)TAdDialingGC__sub_8013ADBC(1), b);
-    ((void (*)(void *, f32, f32))render_status_disp__23TAdSinglePlyChrSelectGCFPvff)(c, TAdDialingGC__data_805DF6EC, lbl_805DF6F4);
+    ((void (*)(void *, f32, f32))render_status_disp__23TAdSinglePlyChrSelectGCFff)(c, TAdDialingGC__data_805DF6EC, lbl_805DF6F4);
 }
 
 }

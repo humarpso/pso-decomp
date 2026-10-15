@@ -55,6 +55,20 @@ struct TObjEneMoja {
     f32 techniqueChance;
     f32 jumpChance;
     u8 unknown_398[0x74];
+    static void *create(void *arg0);
+    static void free_resources();
+    s32 calc_technique_level();
+    void select_rare_variant();
+    void update_death_state();
+    void handle_death();
+    static s32 update_technique_state(void *self_800AD3D8);
+    static s32 update_punch_attack(void *self_800ADAAC);
+    void begin_attack();
+    s32 update_approach_state();
+    void update_idle_state();
+    s32 update_freeze_timer();
+    s32 update_action_hold();
+    void run_task();
 };
 typedef char MojaSize[(sizeof(TObjEneMoja)==0x40C)?1:-1];
 #include <stddef.h>

@@ -1,16 +1,16 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
 s32 destroy_ep3_exist__6TLobbyFis(s32 arg0, s16 arg1);
-void *reset_counters__6TLobbyFPv(void *arg0);
 s32 TAdEp3Exist__sub_8036F574();
 s32 __dl__FPv(s32);
-s32 free_if_valid__11TAdEp3ExistFis(s32, s32);
+s32 free_if_valid__11TAdEp3ExistFls(s32, s32);
 
 s32 destroy_ep3_exist__6TLobbyFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        free_if_valid__11TAdEp3ExistFis(arg0, 0);
+        free_if_valid__11TAdEp3ExistFls(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -18,17 +18,17 @@ s32 destroy_ep3_exist__6TLobbyFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-void *reset_counters__6TLobbyFPv(void *arg0) {
+void *TLobby::reset_counters() {
     TAdEp3Exist__sub_8036F574();
-    *(s32 *)((s8 *)arg0 + 0x10) = 0;
-    *(s32 *)((s8 *)arg0 + 0x14) = 0;
-    *(s32 *)((s8 *)arg0 + 0x18) = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    return arg0;
+    *(s32 *)((s8 *)this + 0x10) = 0;
+    *(s32 *)((s8 *)this + 0x14) = 0;
+    *(s32 *)((s8 *)this + 0x18) = 0;
+    *(s32 *)((s8 *)this + 0x1C) = 0;
+    *(s32 *)((s8 *)this + 0x20) = 0;
+    *(s32 *)((s8 *)this + 0x24) = 0;
+    *(s32 *)((s8 *)this + 0x28) = 0;
+    *(s32 *)((s8 *)this + 0x2C) = 0;
+    return this;
 }
 
 }

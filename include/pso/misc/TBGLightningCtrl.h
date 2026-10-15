@@ -10,6 +10,8 @@ struct TBGLightningCtrl
     u32 m_88;
     u8 _pad8C[0x4];
     u32 m_90;
+    static void render();
+    static void destroy_instance();
 };
 
 #endif

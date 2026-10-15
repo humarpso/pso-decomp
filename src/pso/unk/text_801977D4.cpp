@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjRain.h"
 struct Vec_80197904 { f32 x, y, z; };
 
 struct Drop_80197904 {
@@ -46,12 +47,12 @@ extern u8 *TObjRain__streak_line_list[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DBF10;
 extern const f32 lbl_805DBF14;
-void draw_streaks__8TObjRainFPv(struct Rain_801977D4 *self);
 }
 
 extern "C" {
 
-void draw_streaks__8TObjRainFPv(struct Rain_801977D4 *self) {
+void TObjRain::draw_streaks() {
+    struct Rain_801977D4 *self = (struct Rain_801977D4 *)this;
     struct Drop_801977D4 *drop;
     u32 i;
     init_xyz_limits__10TObjPlayerFv();

@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void* init_vtable_and_handler__10TObjPlayerFPv(void* a0);
 int TItemWeapon__ct(void);
 
     extern unsigned char spawn_shoot_particle_9f[];
     extern unsigned char lbl_804A2450[];
     extern const float lbl_805DAD48;
-void* init_vtable_and_handler__10TObjPlayerFPv(void* a0) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A2450; *(int*)((char*)a0 + 0x1f0) = (int)spawn_shoot_particle_9f; *(float*)((char*)a0 + 0x1e4) = lbl_805DAD48; return a0; }
+void*TObjPlayer::init_vtable_and_handler() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A2450; *(int*)((char*)this + 0x1f0) = (int)spawn_shoot_particle_9f; *(float*)((char*)this + 0x1e4) = lbl_805DAD48; return this; }
 
 }

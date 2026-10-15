@@ -5,6 +5,8 @@
 
 struct TObjWarpBoss03
 {
+    int run_task();
+    static void *create(void *arg0);
 };
 
 #endif

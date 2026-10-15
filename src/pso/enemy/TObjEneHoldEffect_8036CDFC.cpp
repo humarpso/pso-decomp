@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneHoldEffect.h"
 struct Vec_8036CF30 { f32 x, y, z; };
 
 struct Hold_8036CF30 {
@@ -23,17 +24,16 @@ struct Hold_8036CE20 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
-void copy_pos__11TNowLoadingFPvPv(void *, Vec_8036CF30 *);
+void copy_pos__11TNowLoadingFPv(void *, Vec_8036CF30 *);
 void *get_player_by_client_id(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void subtract_vector(Vec_8036CF30 *, void *);
 void normalize_vector(Vec_8036CF30 *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805E03B0;
-void render__17TObjEneHoldEffectFv(Hold_8036CF30 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
-void copy_pos__11TNowLoadingFPvPv(void *, Vec_8036CF30 *);
+void copy_pos__11TNowLoadingFPv(void *, Vec_8036CF30 *);
 void *get_player_by_client_id(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void subtract_vector(Vec_8036CF30 *, void *);
@@ -75,9 +75,9 @@ void run_task__17TObjEneHoldEffectFv(Hold_8036CE20 *o) {
             out.x = o->pos.x - lbl_805E03B0 * d.x;
             out.y = o->pos.y;
             out.z = o->pos.z - lbl_805E03B0 * d.z;
-            copy_pos__11TNowLoadingFPvPv(o->x90, &out);
+            copy_pos__11TNowLoadingFPv(o->x90, &out);
         } else {
-            copy_pos__11TNowLoadingFPvPv(o->x90, &o->pos);
+            copy_pos__11TNowLoadingFPv(o->x90, &o->pos);
         }
     }
     if (o->x9c-- < 0) {
@@ -88,7 +88,8 @@ void run_task__17TObjEneHoldEffectFv(Hold_8036CE20 *o) {
 
 #pragma push
 #pragma fp_contract on
-void render__17TObjEneHoldEffectFv(Hold_8036CF30 *o) {
+void TObjEneHoldEffect::render() {
+    Hold_8036CF30 *o = (Hold_8036CF30 *)this;
     void *p = get_player_by_client_id(o->x94);
     if (p != NULL && all_parents_unqueued_for_destruction__7TObjectFv(p) != 0 &&
         obj_testFlags30(p, 0x800) == 0 && o->x90 != NULL &&
@@ -101,7 +102,7 @@ void render__17TObjEneHoldEffectFv(Hold_8036CF30 *o) {
         out.x = o->pos.x - lbl_805E03B0 * d.x;
         out.y = o->pos.y;
         out.z = o->pos.z - lbl_805E03B0 * d.z;
-        copy_pos__11TNowLoadingFPvPv(o->x90, &out);
+        copy_pos__11TNowLoadingFPv(o->x90, &out);
     }
 }
 #pragma pop

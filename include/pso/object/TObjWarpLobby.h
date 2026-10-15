@@ -19,6 +19,9 @@ struct TObjWarpLobby
     u32 m_d4;
     u32 m_d8;
     u32 m_dc;
+    static void release_static();
+    void open_lobby_menu();
+    void render();
 };
 
 #endif

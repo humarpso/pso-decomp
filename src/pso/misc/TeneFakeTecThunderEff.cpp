@@ -84,7 +84,7 @@ s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 set_chunk_material_override_pair(u32, u32);
 s32 set_chunk_material_color(void *);
 s32 draw_chunk_object(s32);
@@ -110,7 +110,7 @@ extern const f32 lbl_805D9A08;
 void TObjPlayer__sub_800A4064(Obj_800A4064 *self);
 f32 newton_sqrtf(f32);
 void init_xyz_limits__10TObjPlayerFv(void);
-s32 draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, int, s32, int);
+s32 draw_transformed_primitive__9TWindowDDFPvPvPv(void *, int, s32, int);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -153,7 +153,7 @@ struct Obj_800A39A8 {
 
 f32 fabs_float(f32);
 f32 rand_signed_unit();
-s32 update_scale__15TObjBoss2TunnelFPv(void *);
+s32 update_scale__15TObjBoss2TunnelFv(void *);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 extern const f32 lbl_805D99F4;
@@ -227,7 +227,7 @@ void build_beam_points__12TTecZondeEffFPv(Obj_800A39A8 *o) {
             p->y = u;
             p->z = v;
             p->x = inv * (u * e1 + v * e2);
-            update_scale__15TObjBoss2TunnelFPv(p);
+            update_scale__15TObjBoss2TunnelFv(p);
             p++;
         }
         break;
@@ -249,7 +249,7 @@ void build_beam_points__12TTecZondeEffFPv(Obj_800A39A8 *o) {
             p->z = u;
             p->x = v;
             p->y = inv * (u * e1 + v * e2);
-            update_scale__15TObjBoss2TunnelFPv(p);
+            update_scale__15TObjBoss2TunnelFv(p);
             p++;
         }
         break;
@@ -271,7 +271,7 @@ void build_beam_points__12TTecZondeEffFPv(Obj_800A39A8 *o) {
             p->x = u;
             p->y = v;
             p->z = inv * (u * e1 + v * e2);
-            update_scale__15TObjBoss2TunnelFPv(p);
+            update_scale__15TObjBoss2TunnelFv(p);
             p++;
         }
         break;
@@ -397,7 +397,7 @@ void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
     p[1].v = vv;
     p[1].color = color;
     init_xyz_limits__10TObjPlayerFv();
-    draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, o->count * 2, TObjPlayer__effect_count, 1);
+    draw_transformed_primitive__9TWindowDDFPvPvPv(verts, o->count * 2, TObjPlayer__effect_count, 1);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
 }

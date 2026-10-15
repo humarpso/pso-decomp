@@ -15,7 +15,7 @@ struct RecoveredGlobal_8018A150_lbl_804B6C24 { s32 value; u8 remaining[0x148]; }
 
 extern "C" {
 u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
-u8 * init_vtable_804AF8D8__14TOAirconCave01FPv(void *);
+u8 * init_vtable_804AF8D8__14TOAirconCave01Fv(void *);
 s32 fn_80156CEC(void *);
 s32 TLazerFenceSw__sub_8018A554(void *, f32);
 extern RecoveredGlobal_8018A150_lbl_804B6C24 lbl_804B6C24;
@@ -34,7 +34,7 @@ extern "C" {
 u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B6C24.value;
-    init_vtable_804AF8D8__14TOAirconCave01FPv(arg0 + 0x340);
+    init_vtable_804AF8D8__14TOAirconCave01Fv(arg0 + 0x340);
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D32E8;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DBD00;

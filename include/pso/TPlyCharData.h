@@ -28,6 +28,8 @@ public:
 public:
     TPlyInventory m_inventory;
     TPlyDispData m_disp_data;
+public:
+    void init_inventory_items();
 };
 
 #endif

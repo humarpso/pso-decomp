@@ -30,7 +30,7 @@ struct Trail_8009F7AC {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 void init_xyz_limits__10TObjPlayerFv(void);
-void draw_trail_strip__10TObjPlayerFPvPvi(void *, s32, s32);
+void draw_trail_strip__10TObjPlayerFPvl(void *, s32, s32);
 extern Vec_8009F7AC camera_pitch_rotated_up_vector;
 extern const f32 canadin_effect_negative_one;
 void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o);
@@ -108,7 +108,7 @@ void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o) {
         }
     }
     init_xyz_limits__10TObjPlayerFv();
-    draw_trail_strip__10TObjPlayerFPvPvi(o->verts, n * 2, 1);
+    draw_trail_strip__10TObjPlayerFPvl(o->verts, n * 2, 1);
 }
 #pragma pop
 
@@ -149,7 +149,7 @@ void push_history_entry__17TObjEneMe1CanadinFPvfPvi(Obj_8009FADC *self, f32 f, c
 extern const f32 canadin_effect_zero;
 extern const f32 canadin_light_width_cutoff;
 s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 scale);
-void *alloc_buffer__11TOBoss4RockFPv(s32);
+void *mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__26TObjEneMe1Canadin_EffLight[];
 extern s32 TObjEneMe1Canadin_EffLight__name;
@@ -165,7 +165,7 @@ extern "C" {
 void *__dt__26TObjEneMe1Canadin_EffLightFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 
 extern s32 __vt__26TObjEneMe1Canadin_EffLight[];
 
@@ -219,9 +219,9 @@ s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 s
 void *__dt__26TObjEneMe1Canadin_EffLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TObjEneMe1Canadin_EffLight;
-        free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0x2C));
+        mem_free(*(void **)((s8 *)arg0 + 0x2C));
         *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-        free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0x28));
+        mem_free(*(void **)((s8 *)arg0 + 0x28));
         *(s32 *)((s8 *)arg0 + 0x28) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -238,8 +238,8 @@ Obj_8009FC44 *TObjEneMe1Canadin_EffLight__ct(Obj_8009FC44 *self, void *parent, s
     self->count = count;
     self->field20 = 0;
     self->field24 = 0;
-    self->buf28 = alloc_buffer__11TOBoss4RockFPv(self->count << 5);
-    self->recs = (Rec_8009FC44 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0x14);
+    self->buf28 = mem_alloc(self->count << 5);
+    self->recs = (Rec_8009FC44 *)mem_alloc(self->count * 0x14);
     for (i = 0; i < self->count; i++) {
         self->recs[i].a = canadin_effect_zero;
         self->recs[i].b = 0;
@@ -271,7 +271,7 @@ extern "C" {
 
 #define VC_B ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 s32 queue_destruction__7TObjectFv(void *);
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
+f32 update_scale__15TObjBoss2TunnelFv(void *);
 s32 fn_8009E1D4(s32, void *);
 u32 __nw__7TObjectFUl(s32);
 s32 construct__12TTecZondeEffFPvPvPvPvf(void *, s32, void *, void *, f32);
@@ -306,7 +306,7 @@ void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
     }
     VC_B(&sp8, arg0 + 0x50);
     subtract_vector(&sp8, arg0 + 0x38);
-    temp_f31 = update_scale__15TObjBoss2TunnelFPv(&sp8);
+    temp_f31 = update_scale__15TObjBoss2TunnelFv(&sp8);
     s32 nw_ret = __nw__7TObjectFUl(0x260);
     if (nw_ret != 0U) {
         construct__12TTecZondeEffFPvPvPvPvf((void *)nw_ret, tl_05, arg0 + 0x38, &sp8, temp_f31);
@@ -353,7 +353,7 @@ void init_xyz_limits__10TObjPlayerFv(void);
 s32 draw_line_list(void *, int, int);
 void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0);
 #define VC_C ((void (*)(void *, const void *))VecCopy__FP3VecPC3Vec)
-f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void subtract_vector(void *, void *);
 extern s32 __vt__30TObjEneMe1Canadin_EffDischarge[];
@@ -392,7 +392,7 @@ Obj_8009FEB8 *TObjEneMe1Canadin_EffDischarge__ct(Obj_8009FEB8 *self, void *paren
     VC_C(&self->dir, &self->end);
     subtract_vector(&self->dir, &self->start);
     self->dir.y = canadin_effect_zero;
-    self->dist = clamp_velocity__15TObjBoss2TunnelFPv(&self->dir);
+    self->dist = clamp_velocity__15TObjBoss2TunnelFv(&self->dir);
     if (self->dist > canadin_discharge_motion_scale) {
         self->duration = canadin_discharge_motion_scale;
         self->remain = self->dist - self->duration;

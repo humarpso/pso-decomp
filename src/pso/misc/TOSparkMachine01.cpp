@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSparkMachine01.h"
 
 struct RecoveredGlobal_80177330_lbl_804B43F0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80177330_lbl_804B43F0_size[sizeof(RecoveredGlobal_80177330_lbl_804B43F0) == 0x10 ? 1 : -1];
@@ -66,12 +67,10 @@ struct Obj_801771F4 : VBase_801771F4 {
 
 extern "C" {
 extern const f32 TOSparkMachine01__data_805DB9EC;
-void run_task__16TOSparkMachine01Fv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80177330_lbl_804B43F0 bm_fe_obj_tank_hikari_resource_descriptor;
 extern u32 TOSparkMachine01__static_resource;
-void load_static_resource__16TOSparkMachine01Fv(void);
 void construct_world_actor_base(void *, s32);
 extern s32 __vt__16TOSparkMachine01[];
 extern s32 lbl_805D3174;
@@ -85,30 +84,26 @@ void *TOSparkMachine01__ct(void *arg0, void *arg1);
 s32 rand(void);
 extern const f32 lbl_805DB9E8;
 extern const f32 TOSparkMachine01__data_805DB9EC;
-void update_spark_toggle__16TOSparkMachine01FPvi(void *arg0, s32 i);
 void begin_effect_render__13TParticleCtrlFv(void *);
 void end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(int);
+void set_global_param__8TObjFishFl(int);
 void draw_ginja_model(int);
-void render__16TOSparkMachine01Fv(Obj_801771F4 *self);
 }
 
 extern "C" {
 
 void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1);
-void *create__16TOSparkMachine01FPv(void *arg0);
-void destroy_static_instance__16TOSparkMachine01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-void update_spark_toggle__16TOSparkMachine01FPvi(void *arg0, s32 i) {
-    Obj_80177088 *self = (Obj_80177088 *)arg0;
+void TOSparkMachine01::update_spark_toggle(s32 i) {
+    Obj_80177088 *self = (Obj_80177088 *)this;
     switch (self->on[i]) {
     case 1:
         self->timer[i] += self->speed;
@@ -127,12 +122,13 @@ void update_spark_toggle__16TOSparkMachine01FPvi(void *arg0, s32 i) {
     }
 }
 
-void run_task__16TOSparkMachine01Fv(u8 *arg0) {
+void TOSparkMachine01::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r31;
     if (TOSparkMachine01__data_805DB9EC < *(f32 *)((s8 *)arg0 + 0x6C)) {
         var_r31 = 0;
         do {
-            update_spark_toggle__16TOSparkMachine01FPvi((void *)(arg0), (s32)(var_r31));
+            update_spark_toggle((s32)(var_r31));
             var_r31 += 1;
         } while (var_r31 < 4);
         return;
@@ -140,10 +136,11 @@ void run_task__16TOSparkMachine01Fv(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 0xA3) = 0;
     *(s8 *)((s8 *)arg0 + 0xA2) = 0;
     *(s8 *)((s8 *)arg0 + 0xA0) = 0;
-    update_spark_toggle__16TOSparkMachine01FPvi((void *)(arg0), (s32)(1));
+    update_spark_toggle((s32)(1));
 }
 
-void render__16TOSparkMachine01Fv(Obj_801771F4 *self) {
+void TOSparkMachine01::render() {
+    Obj_801771F4 *self = (Obj_801771F4 *)this;
     Node_801771F4 *n;
     s32 i;
     Res_801771F4 *r;
@@ -151,7 +148,7 @@ void render__16TOSparkMachine01Fv(Obj_801771F4 *self) {
         push_matrix();
         post_translate_matrix(self->m38);
         rotate_matrix_y(0, self->unk60);
-        set_global_param__8TObjFishFi(self->unk24);
+        set_global_param__8TObjFishFl(self->unk24);
         r = self->res;
         n = r->head;
         begin_effect_render__13TParticleCtrlFv(r);
@@ -171,17 +168,17 @@ void render__16TOSparkMachine01Fv(Obj_801771F4 *self) {
     }
 }
 
-void *create__16TOSparkMachine01FPv(void *arg0) {
+void *TOSparkMachine01::create() {
     void *o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = TOSparkMachine01__ct((void *)(o), (void *)(arg0));
+        o = TOSparkMachine01__ct((void *)(o), (void *)(this));
     }
     return o;
 }
 
 extern u32 TOSparkMachine01__static_resource;
 
-void destroy_static_instance__16TOSparkMachine01Fv(void) {
+void TOSparkMachine01::destroy_static_instance() {
     if ((u32) TOSparkMachine01__static_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOSparkMachine01__static_resource, 1);
         TOSparkMachine01__static_resource = 0U;
@@ -190,10 +187,10 @@ void destroy_static_instance__16TOSparkMachine01Fv(void) {
 
 extern s32 __vt__16TOSparkMachine01[];
 
-void load_static_resource__16TOSparkMachine01Fv(void) {
+void TOSparkMachine01::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fe_obj_tank_hikari_resource_descriptor.value, 0, 0, 0));

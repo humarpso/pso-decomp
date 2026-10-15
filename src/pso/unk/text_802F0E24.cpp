@@ -11,7 +11,7 @@ extern void *lbl_805D6950;
 extern void *lbl_805D6954;
 void fn_802F0E24(void);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 init_heap__13TParticleCtrlFPv(s32);
 s32 load_texture_pvm_file__6TLobbyFPvi(void *, void *);
 extern u8 lbl_80474344[];
@@ -38,7 +38,7 @@ void fn_802F0E24(void) {
 }
 void load_boss7_common_resources(void) {
     void *p;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 5, boss7_common_resource_descriptor, 0, 0, 0);
     }

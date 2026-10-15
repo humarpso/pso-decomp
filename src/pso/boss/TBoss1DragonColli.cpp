@@ -58,11 +58,11 @@ void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void clear_segment_flags__17TBoss1DragonColliFPv(O_8002B3F4 *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
-E_8002B4CC *alloc_buffer__11TOBoss4RockFPv(s32);
+E_8002B4CC *mem_alloc(s32);
 s32 register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
-s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
-s16 alloc_actor_ids__6TLobbyFi(int);
+s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s16 alloc_actor_ids__6TLobbyFl(int);
 extern u8 TBoss1DragonColli_sphere_chain_desc[];
 extern s32 __vt__19TBoss1DragonColli_C[];
 extern s32 TBoss1DragonColli_C__name;
@@ -114,7 +114,7 @@ int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 int pop_matrix(void);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 void render__16TBoss1DragonDemoFv(void);
 
 u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
@@ -188,7 +188,7 @@ void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss1DragonColli_C;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -203,13 +203,13 @@ s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scal
     f32 zero;
     f32 step;
     f32 z;
-    construct_collider_proxy__10TObjPlayerFPv(self, arg1);
+    construct_collider_proxy__10TObjPlayerFv(self, arg1);
     self->vt = ((u8 *)&__vt__19TBoss1DragonColli_C);
     self->f0 = TBoss1DragonColli_C__name;
     VecCopy__FP3VecPC3Vec(self->pos, arg3);
-    self->f1c = alloc_actor_ids__6TLobbyFi(0);
+    self->f1c = alloc_actor_ids__6TLobbyFl(0);
     self->count = arg2;
-    self->elems = alloc_buffer__11TOBoss4RockFPv(self->count * 0x2C);
+    self->elems = mem_alloc(self->count * 0x2C);
     step = lbl_805D8120 * scale;
     e = self->elems;
     zero = lbl_805D8108;
@@ -247,7 +247,7 @@ void render__7TObjectFv();
 void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
-void release_member_90__10TObjPlayerFPv();
+void release_member_90__10TObjPlayerFv();
 void TParticleCtrl__sub_801A2124();
 void update_object_view_visibility();
 void classify_actor_view_detail();
@@ -274,7 +274,7 @@ s32 __vt__19TBoss1DragonColli_C[] = {
     (s32)render_shadows__7TObjectFv,
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,
-    (s32)release_member_90__10TObjPlayerFPv,
+    (s32)release_member_90__10TObjPlayerFv,
     (s32)TParticleCtrl__sub_801A2124,
     (s32)update_object_view_visibility,
     (s32)classify_actor_view_detail,

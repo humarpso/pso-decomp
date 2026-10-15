@@ -24,8 +24,7 @@ extern "C" {
 s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 draw_ui_sprite(int, void *, f32, f32);
-void render__14TChCrEffCtrlPlFv(u8 *arg0);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_clamped_player_index__14TChCrEffCtrlPlFv();
 extern u8 lbl_80477C70[];
@@ -34,18 +33,17 @@ extern s32 TChCrEffCtrlPl__name;
 O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1);
 f32 sin_table_lookup(s32);
 extern const f32 lbl_80477C78[];
-void run_task__14TChCrEffCtrlPlFv(O_803396C8 *self);
 }
 
 extern "C" {
 
-void *create__14TChCrEffCtrlPlFPv(void *arg0);
 void *__nw__7TObjectFUl(int);
 u32 create_message_window__22TWindowSubTradeMessageFPCc();
 
 #pragma push
 #pragma opt_common_subs off
-void render__14TChCrEffCtrlPlFv(u8 *arg0) {
+void TChCrEffCtrlPl::render() {
+    u8 *arg0 = (u8 *)this;
     f32 var_f2;
     set_depth_buffer_settings_1__Fv();
     var_f2 = (2.5f) * *(f32 *)((s8 *)arg0 + 0x2C);
@@ -60,7 +58,8 @@ void render__14TChCrEffCtrlPlFv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void run_task__14TChCrEffCtrlPlFv(O_803396C8 *self) {
+void TChCrEffCtrlPl::run_task() {
+    O_803396C8 *self = (O_803396C8 *)this;
     f32 s;
     f32 v;
     f32 x;
@@ -92,16 +91,16 @@ O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1) {
     arg0->f0 = TChCrEffCtrlPl__name;
     arg0->f1c = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0x8B;
     arg0->f20 = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0xBC;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0->v, lbl_80477C70);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(arg0->v, lbl_80477C70);
     arg0->f2c = 0.0f;
     arg0->f34 = 0;
     return arg0;
 }
 
-void *create__14TChCrEffCtrlPlFPv(void *arg0) {
+void *TChCrEffCtrlPl::create() {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = __ct__14TChCrEffCtrlPlFv((O_80339808 *)(o), (void *)(arg0));
+        o = __ct__14TChCrEffCtrlPlFv((O_80339808 *)(o), (void *)(this));
     }
     return o;
 }

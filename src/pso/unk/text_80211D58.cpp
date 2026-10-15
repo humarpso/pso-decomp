@@ -1,11 +1,11 @@
 #include "types.h"
 extern "C" {
 s32 get_main_phase();
-s32 get_nth_view_player_id__11TCameraCtrlFi(s32);
+s32 get_nth_view_player_id__11TCameraCtrlFl(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_map_id__13TRaderMapCoreFPv();
 u32 get_player_by_client_id(s32);
-void create_instance__19THunterGuildWarningFi(s32);
+void create_instance__19THunterGuildWarningFl(s32);
 s32 is_active__19THunterGuildWarningFv();
 s32 TPlayerBattleCtrl4P__sub_80211B10(s32);
 s32 THunterGuildSeqOffline__sub_80211FEC(s32);
@@ -28,7 +28,7 @@ s32 TLobby__sub_80211D58(s32 arg0) {
             if (get_game_play_mode() == 0) {
                 return 1;
             }
-            player = get_nth_view_player_id__11TCameraCtrlFi(0);
+            player = get_nth_view_player_id__11TCameraCtrlFl(0);
             if ((u16)player != arg0) {
                 return 1;
             }
@@ -43,10 +43,10 @@ s32 TLobby__sub_80211D58(s32 arg0) {
                         switch (kind) {
                         case 1:
                         case 2:
-                            create_instance__19THunterGuildWarningFi(0);
+                            create_instance__19THunterGuildWarningFl(0);
                             break;
                         case 3:
-                            create_instance__19THunterGuildWarningFi(1);
+                            create_instance__19THunterGuildWarningFl(1);
                             break;
                         }
                     }

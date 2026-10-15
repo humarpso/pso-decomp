@@ -25,7 +25,7 @@ void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
 s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str);
 s32 fn_8007F4B8(void *, s32, f32);
 s32 calc_text_width(s8 *);
-void draw_string__14TObjWarpStringFPviff(s8 *, u32, f32, f32);
+void draw_string__14TObjWarpStringFlff(s8 *, u32, f32, f32);
 int sprintf(s8 *, const char *, ...);
 
 extern const char lbl_80438AD8[];
@@ -99,17 +99,17 @@ s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 
 
     x = (f32)(u32)(x0 - calc_text_width(str));
     y = (f32)y0;
-    draw_string__14TObjWarpStringFPviff(str, 0xFF000000, x - 2.0f, y - 2.0f);
-    draw_string__14TObjWarpStringFPviff(str, 0xFF000000, x, y - 2.0f);
+    draw_string__14TObjWarpStringFlff(str, 0xFF000000, x - 2.0f, y - 2.0f);
+    draw_string__14TObjWarpStringFlff(str, 0xFF000000, x, y - 2.0f);
     xr = 2.0f + x;
-    draw_string__14TObjWarpStringFPviff(str, 0xFF000000, xr, y - 2.0f);
-    draw_string__14TObjWarpStringFPviff(str, 0xFF000000, x - 2.0f, y);
-    draw_string__14TObjWarpStringFPviff(str, 0xFF000000, xr, y);
+    draw_string__14TObjWarpStringFlff(str, 0xFF000000, xr, y - 2.0f);
+    draw_string__14TObjWarpStringFlff(str, 0xFF000000, x - 2.0f, y);
+    draw_string__14TObjWarpStringFlff(str, 0xFF000000, xr, y);
     yb = 2.0f + y;
-    draw_string__14TObjWarpStringFPviff(str, 0xFF000000, x - 2.0f, yb);
-    draw_string__14TObjWarpStringFPviff(str, 0xFF000000, x, yb);
-    draw_string__14TObjWarpStringFPviff(str, 0xFF000000, xr, yb);
-    draw_string__14TObjWarpStringFPviff(str, 0xFFFFFFFF, x, y);
+    draw_string__14TObjWarpStringFlff(str, 0xFF000000, x - 2.0f, yb);
+    draw_string__14TObjWarpStringFlff(str, 0xFF000000, x, yb);
+    draw_string__14TObjWarpStringFlff(str, 0xFF000000, xr, yb);
+    draw_string__14TObjWarpStringFlff(str, 0xFFFFFFFF, x, y);
 }
 
 void draw_percent_text(void *arg0, f32 farg0, f32 farg1) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -16,16 +17,13 @@ extern "C" {
 void bswap_telepipe_record(void* p);
 void TLobby__sub_8013A9C0(void* p);
 void bswap_object_source_record(void* p);
-void bswap_6x6B__6TLobbyFPv(void* p);
 void bswap__15disp_data_part2Fv(s32 arg0);
-void bswap_fields__6TLobbyFPv(void* p);
-void bswap_header_3words__6TLobbyFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 
-void bswap_fields__6TLobbyFPv(void* p) { bswap_16__FPUs((void*)((char*)p + 0x2)); bswap_32__FPUl((void*)((char*)p + 0x4)); }
+void TLobby::bswap_fields() { bswap_16__FPUs((void*)((char*)this + 0x2)); bswap_32__FPUl((void*)((char*)this + 0x4)); }
 
-void bswap_header_3words__6TLobbyFPv(void* p) { bswap_32__FPUl((void*)(p)); bswap_32__FPUl((void*)((char*)p + 0x4)); bswap_32__FPUl((void*)((char*)p + 0x8)); }
+void TLobby::bswap_header_3words() { bswap_32__FPUl((void*)(this)); bswap_32__FPUl((void*)((char*)this + 0x4)); bswap_32__FPUl((void*)((char*)this + 0x8)); }
 
 void bswap__15disp_data_part2Fv(s32 arg0) {
     s32 off;
@@ -47,7 +45,7 @@ void TLobby__sub_8013A9C0(void* p) { bswap_32__FPUl((void*)(p)); bswap_32__FPUl(
 
 void bswap_object_source_record(void* p) { bswap_16__FPUs((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x2)); }
 
-void bswap_6x6B__6TLobbyFPv(void* p) { bswap_32__FPUl((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
+void TLobby::bswap_6x6B() { bswap_32__FPUl((void*)(this)); bswap_16__FPUs((void*)((char*)this + 0x4)); bswap_16__FPUs((void*)((char*)this + 0x6)); }
 u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1) {
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
     *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);

@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TTecLuker.h"
 
 extern "C" {
 
-void set_state__9TTecLukerFPvi(void* p, s32 v);
-
-void set_state__9TTecLukerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
+void TTecLuker::set_state(s32 v) { *(s32*)((char*)this + 0x0) = v; }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDelDepth.h"
 
 typedef struct Pair_80316488 { s32 a; s32 b; } Pair_80316488;
 
@@ -31,25 +32,22 @@ typedef struct {
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, int);
-s32 draw__16TObjEneRe7BeruraFPv(int);
+s32 draw__16TObjEneRe7BeruraFv(int);
 s32 get_data__15TObjEneDelDepthFv();
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
-void draw_model_part__15TObjEneDelDepthFPv(u8 *arg0);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
-int find_nearest_enemy_with_flag__15TObjEneDelDepthFPvif(u8 *arg0, s32 arg1, f32 farg0);
 s32 get_bml_model(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, int);
 u8 *get_bml_motion(s32, s32);
-void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
-void init__14TObjEnePanarmsFPvPv(void *, s16);
+void set_field_b8__14TObjEnePanarmsFs(void *, s16);
+void init__14TObjEnePanarmsFPv(void *, s16);
 s32 get_data__15TObjEneDelDepthFv();
 extern E8_80316488 lbl_804E8760[];
 extern E14_80316488 lbl_804E8780[];
 extern const f32 lbl_805DF2EC;
-void set_motion__15TObjEneDelDepthFPvi(Self_80316488 *self, s32 arg1);
 void advance_animation_playback(void *);
 extern f32 TObjEneDelDepth__animation_end_frame;
 extern u8 TObjEneDelDepth__animation_end_frame_initialized;
@@ -57,17 +55,14 @@ extern u8 TObjEneDelDepth__animation_end_frame_initialized;
 
 extern "C" {
 
-s32 conditional_delete__15TObjEneDelDepthFis(s32 arg0, s16 arg1);
 void fn_80316680(void *arg0, s32 arg1);
-int get_flag_bit4__15TObjEneDelDepthFPv(void* p);
-s32 get_type__15TObjEneDelDepthFPv(void* p);
-s32 is_state_complete__15TObjEneDelDepthFPv(void *arg0);
 s32 __dl__FPv();
-f32 get_depth_radius__19TObjEneDelDepthBombFPv(void* p);
+f32 get_depth_radius__19TObjEneDelDepthBombFv(void* p);
 
-int get_flag_bit4__15TObjEneDelDepthFPv(void* p) { return (*(u32*)((char*)p + 0x30) >> 4) & 0x1; }
+int TObjEneDelDepth::get_flag_bit4() { return (*(u32*)((char*)this + 0x30) >> 4) & 0x1; }
 
-int find_nearest_enemy_with_flag__15TObjEneDelDepthFPvif(u8 *arg0, s32 arg1, f32 farg0) {
+int TObjEneDelDepth::find_nearest_enemy_with_flag(s32 arg1, f32 farg0) {
+    u8 *arg0 = (u8 *)this;
     u16 temp_r3;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (void *) (arg1), (f32) (farg0));
@@ -75,7 +70,7 @@ int find_nearest_enemy_with_flag__15TObjEneDelDepthFPvif(u8 *arg0, s32 arg1, f32
     return temp_r3;
 }
 
-s32 get_type__15TObjEneDelDepthFPv(void* p) { return *(s32*)((char*)p + 0x4); }
+s32 TObjEneDelDepth::get_type() { return *(s32*)((char*)this + 0x4); }
 
 extern f32 lbl_805D6AC8;
 extern u8 TObjEneDelDepth__state_complete_flag;
@@ -83,33 +78,35 @@ extern f32 lbl_805DF2E8;
 
 #pragma push
 #pragma fp_contract on
-void draw_model_part__15TObjEneDelDepthFPv(u8 *arg0) {
+void TObjEneDelDepth::draw_model_part() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 4);
     if (temp_r0 != -1) {
         if (temp_r0 < 6) {
-            set_global_param__8TObjFishFi(TObjFish__sub_8001EDB0(get_data__15TObjEneDelDepthFv(), 0));
-            draw__16TObjEneRe7BeruraFPv((int) (*(s32 *)((s8 *)arg0 + 0)));
+            set_global_param__8TObjFishFl(TObjFish__sub_8001EDB0(get_data__15TObjEneDelDepthFv(), 0));
+            draw__16TObjEneRe7BeruraFv((int) (*(s32 *)((s8 *)arg0 + 0)));
             return;
         }
         if (temp_r0 < 0xA) {
-            set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0xC)));
+            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0xC)));
             set_global_flag__10TObjPlayerFv();
             draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 8)), (int) (*(s32 *)((s8 *)arg0 + 0x10)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
             clear_global_state__10TObjPlayerFv();
             return;
         }
         set_global_flag__10TObjPlayerFv();
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0xC)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0xC)));
         draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 8)), (int) (*(s32 *)((s8 *)arg0 + 0x10)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x18)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x18)));
         draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 0x14)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
         clear_global_state__10TObjPlayerFv();
     }
 }
 #pragma pop
 
-void update_animation_frame__15TObjEneDelDepthFPv(Anim_80316364 *a) {
+void TObjEneDelDepth::update_animation_frame() {
+    Anim_80316364 *a = (Anim_80316364 *)this;
     if (a->frame == -1) {
         return;
     }
@@ -132,10 +129,10 @@ void update_animation_frame__15TObjEneDelDepthFPv(Anim_80316364 *a) {
     }
 }
 
-s32 is_state_complete__15TObjEneDelDepthFPv(void *arg0) {
+s32 TObjEneDelDepth::is_state_complete() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 4);
+    temp_r0 = *(s32 *)((s8 *)this + 4);
     if (temp_r0 == -1) {
         return 1;
     }
@@ -143,17 +140,18 @@ s32 is_state_complete__15TObjEneDelDepthFPv(void *arg0) {
         return 0;
     }
     if ((s8) TObjEneDelDepth__state_complete_flag == 0) {
-        f32 temp_f1 = *(f32 *)((s8 *)arg0 + 0x24);
+        f32 temp_f1 = *(f32 *)((s8 *)this + 0x24);
         TObjEneDelDepth__state_complete_flag = 1;
         lbl_805D6AC8 = temp_f1 - lbl_805DF2E8;
     }
-    if (*(f32 *)((s8 *)arg0 + 0x28) == lbl_805D6AC8) {
+    if (*(f32 *)((s8 *)this + 0x28) == lbl_805D6AC8) {
         return 1;
     }
     return 0;
 }
 
-void set_motion__15TObjEneDelDepthFPvi(Self_80316488 *self, s32 arg1) {
+void TObjEneDelDepth::set_motion(s32 arg1) {
+    Self_80316488 *self = (Self_80316488 *)this;
     s32 flag;
     s32 id;
     flag = self->id;
@@ -165,9 +163,9 @@ void set_motion__15TObjEneDelDepthFPvi(Self_80316488 *self, s32 arg1) {
     }
     if (id < 6) {
         if (flag != 0) {
-            init__14TObjEnePanarmsFPvPv(self->obj, (s16)id);
+            init__14TObjEnePanarmsFPv(self->obj, (s16)id);
         } else {
-            set_field_b8__14TObjEnePanarmsFPvs(self->obj, (s16)id);
+            set_field_b8__14TObjEnePanarmsFs(self->obj, (s16)id);
         }
     } else if (id < 0xA) {
         s32 data = get_data__15TObjEneDelDepthFv();
@@ -195,7 +193,7 @@ void set_motion__15TObjEneDelDepthFPvi(Self_80316488 *self, s32 arg1) {
     }
 }
 
-s32 conditional_delete__15TObjEneDelDepthFis(s32 arg0, s16 arg1) {
+s32 TObjEneDelDepth::conditional_delete(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

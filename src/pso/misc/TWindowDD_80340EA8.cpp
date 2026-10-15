@@ -1,25 +1,24 @@
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
 
 extern "C" {
 
 void *TWindowDD__sub_80340F70(void);
 void draw_and_scroll_entry__9TWindowDDFi(s32 arg0);
-void draw_entry_if_visible__9TWindowDDFPvPv(void *arg0, void *arg1);
 void *dt__9TWindowDDFPvs(void *arg0, s16 arg1);
-void init_window__9TWindowDDFPv(void* p);
-s32 calc_inner_rect__9TWindowDDFPvPv(s32, void *);
+s32 calc_inner_rect__9TWindowDDFPUc(s32, void *);
 s32 draw_visible_window_entries(s32, s32, void *, f32);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
-s32 draw__9TWindowDDFPviif(void *, void *, s32, f32);
-void *draw_default_entry__9TWindowDDFi();
-int initialize_subwindow__9TWindowDDFPv(void*);
-int update_fade__17TWindowSubComCardFPv(void*);
+void destroy_window_base__9TWindowDDFs(void *, int);
+s32 draw__9TWindowDDFllf(void *, void *, s32, f32);
+void *draw_default_entry__9TWindowDDFl();
+int initialize_subwindow__9TWindowDDFv(void*);
+int update_fade__17TWindowSubComCardFv(void*);
 
 extern "C" void TWindowDD__sub_80340A78();
-extern "C" void init__9TWindowDDFPv();
+extern "C" void init__9TWindowDDFv();
 extern "C" void render_shadows__7TObjectFv();
 struct W_80340F00 { s32 f0; u8 pad4[0x14]; void *p18; u8 pad1c[0x5C - 0x1C]; s32 f5c; u8 pad60[4]; f32 f64; f32 f68; f32 f6c; };
 void *construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
@@ -27,7 +26,7 @@ extern s32 lbl_805D42D0;
 extern const f32 lbl_805DFC50;
 extern const f32 lbl_805DFC70;
 extern "C" void TWindowDD__sub_80340A78();
-extern "C" void init__9TWindowDDFPv();
+extern "C" void init__9TWindowDDFv();
 extern "C" void render_shadows__7TObjectFv();
 __declspec(section ".data") void *lbl_804EFBC8[2] = {
     (void *)0x0, (void *)0x0,
@@ -37,7 +36,7 @@ void *lbl_804EFBD0[5] = {
     (void *)0x3,
 };
 void *lbl_804EFBE4[7] = {
-    (void *)0x0, (void *)0x0, (void *)&dt__9TWindowDDFPvs, (void *)&init__9TWindowDDFPv,
+    (void *)0x0, (void *)0x0, (void *)&dt__9TWindowDDFPvs, (void *)&init__9TWindowDDFv,
     (void *)&TWindowDD__sub_80340A78, (void *)&render_shadows__7TObjectFv, (void *)0x0,
 };
 
@@ -47,7 +46,7 @@ W_80340F00 *construct_variant_b__9TWindowDDFPv(W_80340F00 *arg0);
 void *dt__9TWindowDDFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFBE4;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -80,9 +79,9 @@ void draw_and_scroll_entry__9TWindowDDFi(s32 arg0) {
     f32 temp_f1;
     void *temp_r3;
 
-    temp_r3 = draw_default_entry__9TWindowDDFi();
-    calc_inner_rect__9TWindowDDFPvPv(arg0, temp_r3);
-    draw_entry_if_visible__9TWindowDDFPvPv((void *)(arg0), (void *)(temp_r3));
+    temp_r3 = draw_default_entry__9TWindowDDFl();
+    calc_inner_rect__9TWindowDDFPUc(arg0, temp_r3);
+    ((TWindowDD *)arg0)->draw_entry_if_visible((void *)(temp_r3));
     temp_f1 = *(f32 *)((s8 *)temp_r3 + 0x14);
     *(f32 *)((s8 *)temp_r3 + 0x14) = (f32) (temp_f1 + lbl_805DFC90);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3, temp_f1);
@@ -90,13 +89,13 @@ void draw_and_scroll_entry__9TWindowDDFi(s32 arg0) {
 
 extern f32 lbl_805DFC94;
 
-void draw_entry_if_visible__9TWindowDDFPvPv(void *arg0, void *arg1) {
+void TWindowDD::draw_entry_if_visible(void *arg1) {
     if ((s32) *(s32 *)((s8 *)arg1 + 0x30) >= 0) {
-        draw__9TWindowDDFPviif(arg0, arg1,
-                               *(s32 *)((s8 *)arg0 + 0x60), lbl_805DFC94);
+        draw__9TWindowDDFllf(this, arg1,
+                               *(s32 *)((s8 *)this + 0x60), lbl_805DFC94);
     }
 }
 
-void init_window__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
+void TWindowDD::init_window() { initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); update_window_entry_list(this, (char*)this + 0x24); }
 
 }

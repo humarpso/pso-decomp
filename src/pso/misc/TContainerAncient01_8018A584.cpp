@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TContainerAncient01.h"
+#include "pso/misc/TContainerAncient01R.h"
 
 struct Base_8018AC68_8018A584 { char pad[0x18]; };
 struct VObj_8018AC68_8018A584 : Base_8018AC68_8018A584 {
@@ -176,10 +178,10 @@ struct Obj_8018B030 : VBase_8018B030 {
 extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *, void *);
 s32 TObjFish__sub_8001EDB0(int, int);
-void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
-void set_field_d8__10TObjPlayerFPvi(void *, void *);
+void set_field_b8__14TObjEnePanarmsFs(void *, s16);
+void set_field_d8__10TObjPlayerFl(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-void reset_photon_effect__10TObjPlayerFPv(void *);
+void reset_photon_effect__10TObjPlayerFv(void *);
 void init_collision_body_parts(void *, void *, int);
 extern s32 TContainerAncient01R__name;
 extern const f32 lbl_805DBD5C;
@@ -191,7 +193,6 @@ s32 check_demo_mode__10TObjPlayerFv();
 u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
 s32 TContainerAncient01__sub_8018A688(void *);
-void check_open_trigger__19TContainerAncient01FPv(void *);
 s32 submit_cursor_candidate(void *, int, f32);
 s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01R__bml_resource;
@@ -209,7 +210,6 @@ void trigger_spawn__19TContainerAncient01FPvPvPv(void *, void *, void *);
 unsigned int __cvt_fp2unsigned(f32);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 TContainerAncient01__data_805DBD34;
-void update_spawning__19TContainerAncient01FPv(u8 *arg0);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern f32 TContainerAncient01__data_805DBD14;
@@ -220,17 +220,15 @@ extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD40;
 extern const f32 TContainerAncient01__data_805DBD44;
 extern const f32 lbl_805DBD48;
-void init_positions__19TContainerAncient01FPv(u8 *arg0);
 void request_box_item_drop(void *, void *, int);
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, int, u32);
 void trigger_spawn__19TContainerAncient01FPvPvPv(void *, void *, void *);
 s32 is_global_state_in_table__19TContainerAncient01Fv();
 void set_flag8__6TLobbyFPv(void *);
 extern s32 TContainerAncient01__open_effect_table[];
-void open_container__19TContainerAncient01FPv(Obj_8018AB44 *arg0);
 s32 obj_testFlags30(void *, s32);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 
 extern const f32 lbl_805DBD18;
@@ -248,13 +246,9 @@ extern s32 lbl_805D586C;
 extern const f32 lbl_805DBD38;
 s32 TContainerAncient01__sub_8018BE90(void);
 int get_table_entry__19TContainerAncient01Fi(int a0);
-void init_table_entries__20TContainerAncient01RFv(void);
 
-void spawn_effect__19TContainerAncient01FPvPvPv(void* p, void* a1, void* a2);
 int spawn_particle_effect(void*, void*);
-void spawn_effect__19TContainerAncient01FPvPvPv(void* p, void* a1, void* a2);
 void advance_animation_playback(void *);
-void spawn_effect__19TContainerAncient01FPvPvPv(void* p, void* a1, void* a2);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 TContainerAncient01__data_805DBD34;
 void TContainerAncient01__sub_8018B48C(u8 *arg0);
@@ -264,31 +258,26 @@ extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD40;
 extern const f32 TContainerAncient01__data_805DBD44;
 extern const f32 lbl_805DBD48;
-void init_state_vectors__19TContainerAncient01FPv(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
 void advance_animation_playback(void *);
 u8 *get_player_by_client_id(int);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD38;
-void update_wait_for_player__19TContainerAncient01FPv(Obj_8018B510 *arg0);
 void request_box_item_drop(void *, void *, int);
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
-void spawn_effect__19TContainerAncient01FPvPvPv(void* p, void* a1, void* a2);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, int, u32);
 s32 is_global_state_in_table__19TContainerAncient01Fv();
 void set_flag8__6TLobbyFPv(void *);
 extern s32 TContainerAncient01__effect_id_table[];
 void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0);
 s32 obj_testFlags30(void *, s32);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 u8 *get_player_by_client_id(int);
 extern const f32 lbl_805DBD18;
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
 void advance_animation_playback(void *);
-void spawn_effect__19TContainerAncient01FPvPvPv(void* p, void* a1, void* a2);
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
-void reset_state__19TContainerAncient01FPv(void* a0);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 TContainerAncient01__data_805DBD20;
@@ -306,7 +295,6 @@ extern "C" {
 int TContainerAncient01__sub_8018ACC0(void);
 f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2);
 void draw__19TContainerAncient01FPv(u8 *arg0);
-void reset_hp__19TContainerAncient01FPv(void* a0);
 void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 arg2);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
@@ -316,7 +304,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 check_demo_mode__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 void *TContainerAncient01R__create(void *arg0);
 void TContainerAncient01R__sub_8018AF74(void);
@@ -359,7 +347,7 @@ extern "C" void apply_action_hold_status();
 extern "C" void apply_anti_technique__10TObjPlayerFv();
 extern "C" void apply_attack_stat_status__10TObjPlayerFv();
 extern "C" void apply_confusion_status__10TObjPlayerFv();
-extern "C" void apply_defense_stat_status__10TObjPlayerFv();
+extern "C" void apply_defense_stat_status__10TObjPlayerFlPv();
 extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
 extern "C" void apply_paralysis__10TObjPlayerFv();
@@ -455,7 +443,7 @@ void *__vt__20TContainerAncient01R[79] = {
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
     (void *)&TObjPlayer__sub_80014890, (void *)&TObjPlayer__sub_8001488C, (void *)&TObjPlayer__sub_80014888, (void *)&TObjPlayer__sub_80014884,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
@@ -472,7 +460,7 @@ void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
     for (i = 0; i < 4; i++) {
         pl = (Player_8018A584 *)get_player_by_client_id(i);
         if (pl != NULL) {
-            if (get_field_3e4__10TObjPlayerFPv(pl) == get_current_floor() && obj_testFlags30(pl, 1) == 0 &&
+            if (get_field_3e4__10TObjPlayerFv(pl) == get_current_floor() && obj_testFlags30(pl, 1) == 0 &&
                 horizontal_distance_squared(self->pos, pl->pos) < range) {
                 Atk_8018A584 atk;
                 atk.type = 0xF;
@@ -485,7 +473,7 @@ void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
     }
 }
 
-void reset_hp__19TContainerAncient01FPv(void* a0) { *(short*)((char*)a0 + 0x326) = 0; *(short*)((char*)a0 + 0xb8) = *(short*)((char*)a0 + 0x326); *(float*)((char*)a0 + 0x2b4) = TContainerAncient01__data_805DBD1C; }
+void TContainerAncient01::reset_hp() { *(short*)((char*)this + 0x326) = 0; *(short*)((char*)this + 0xb8) = *(short*)((char*)this + 0x326); *(float*)((char*)this + 0x2b4) = TContainerAncient01__data_805DBD1C; }
 
 s32 TContainerAncient01__sub_8018A688(void *arg0) {
     Obj_8018A688 *self = (Obj_8018A688 *)arg0;
@@ -531,11 +519,12 @@ s32 TContainerAncient01__sub_8018A688(void *arg0) {
     }
     TContainerAncient01__sub_8018A584((Obj_8018A584 *)self, self->x344);
     if (self->x340 <= self->x2b4) {
-        reset_hp__19TContainerAncient01FPv(self);
+        ((TContainerAncient01 *)self)->reset_hp();
     }
 }
 
-void update_spawning__19TContainerAncient01FPv(u8 *arg0) {
+void TContainerAncient01::update_spawning() {
+    u8 *arg0 = (u8 *)this;
   advance_animation_playback(arg0);
   if ((__cvt_fp2unsigned(*((f32 *) (((s8 *) arg0) + 0x2B4))) % 15) == 0)
   {
@@ -549,8 +538,8 @@ void update_spawning__19TContainerAncient01FPv(u8 *arg0) {
   }
 }
 
-void check_open_trigger__19TContainerAncient01FPv(void *arg0) {
-    Obj_8018A914 *self = (Obj_8018A914 *)arg0;
+void TContainerAncient01::check_open_trigger() {
+    Obj_8018A914 *self = (Obj_8018A914 *)this;
     s32 hit;
     u16 i;
     Player_8018A914 *pl;
@@ -578,7 +567,8 @@ void check_open_trigger__19TContainerAncient01FPv(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void init_positions__19TContainerAncient01FPv(u8 *arg0) {
+void TContainerAncient01::init_positions() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x33C) = (f32) (TContainerAncient01__data_805DBD3C + (*(f32 *)((s8 *)arg0 + 0x68) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     *(f32 *)((s8 *)arg0 + 0x340) = (f32) (lbl_805DBD40 + (*(f32 *)((s8 *)arg0 + 0x6C) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     *(f32 *)((s8 *)arg0 + 0x344) = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)((s8 *)arg0 + 0x70) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
@@ -605,8 +595,8 @@ void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 ar
     if (arg2 != 0) {
         temp_r4 = *(s16 *)((s8 *)arg0 + 0x338);
         if ((*(s16 *)((s8 *)arg0 + 0x32C) - temp_r4) <= 0) {
-            reset_hp__19TContainerAncient01FPv((void*)(arg0));
-            open_container__19TContainerAncient01FPv((Obj_8018AB44 *)(arg0));
+            ((TContainerAncient01 *)arg0)->reset_hp();
+            ((TContainerAncient01 *)arg0)->open_container();
             *(s32 *)((s8 *)arg0 + 0x360) = 1;
         }
     } else if ((*(s16 *)((s8 *)arg0 + 0x32C) - *(s16 *)((s8 *)arg0 + 0x338)) <= 0) {
@@ -617,10 +607,11 @@ void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 ar
 extern const f32 TContainerAncient01__data_805DBD10;
 extern f32 TContainerAncient01__data_805DBD14;
 
-void open_container__19TContainerAncient01FPv(Obj_8018AB44 *arg0) {
+void TContainerAncient01::open_container() {
+    Obj_8018AB44 *arg0 = (Obj_8018AB44 *)this;
     if (arg0->f360 == 0) {
         arg0->f360 = 1;
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
+        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1);
         trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(TContainerAncient01__open_effect_table[0]));
         trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(TContainerAncient01__open_effect_table[1]));
         if (is_global_state_in_table__19TContainerAncient01Fv() == 0) {
@@ -665,7 +656,7 @@ s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1) {
 
 void draw__19TContainerAncient01FPv(u8 *arg0) {
     if (((VObj8018AD04_8018A584 *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -689,10 +680,10 @@ void update_state_machine__19TContainerAncient01FPv(u8 *arg0) {
             temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
             switch (temp_r0) {
             case 0:
-                ((s32 (*)(void *))check_open_trigger__19TContainerAncient01FPv)((void *) (arg0));
+                ((TContainerAncient01 *)arg0)->check_open_trigger();
                 break;
             case 1:
-                update_spawning__19TContainerAncient01FPv((u8 *)((void *) (arg0)));
+                ((TContainerAncient01 *)arg0)->update_spawning();
                 break;
             case 2:
                 TContainerAncient01__sub_8018A688((void *) (arg0));
@@ -701,7 +692,7 @@ void update_state_machine__19TContainerAncient01FPv(u8 *arg0) {
                 *(s16 *)((s8 *)arg0 + 0x326) = 0;
                 *(s16 *)((s8 *)arg0 + 0xB8) = (s16) *(s16 *)((s8 *)arg0 + 0x326);
                 *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
-                ((s32 (*)(void *))check_open_trigger__19TContainerAncient01FPv)((void *) (arg0));
+                ((TContainerAncient01 *)arg0)->check_open_trigger();
                 break;
             }
             temp_f1 = *(f32 *)((s8 *)arg0 + 0x2B4);
@@ -740,7 +731,7 @@ void *TContainerAncient01R__create(void *arg0) {
 
 void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__bml_resource = 0; }
 
-void init_table_entries__20TContainerAncient01RFv(void) {
+void TContainerAncient01R::init_table_entries() {
     TContainerAncient01R__bml_resource = TContainerAncient01__sub_8018BE90();
     TContainerAncient01__open_effect_table[0] = get_table_entry__19TContainerAncient01Fi(0);
     TContainerAncient01__open_effect_table[1] = get_table_entry__19TContainerAncient01Fi(1);
@@ -771,30 +762,29 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
     self->x34 = get_bml_model(TContainerAncient01R__bml_resource, 0);
     self->x24 = TObjFish__sub_8001EDB0(TContainerAncient01R__bml_resource, 0);
     self->animTbl = (void *)TContainerAncient01__anim_table;
-    set_field_d8__10TObjPlayerFPvi(self, self->animTbl);
+    set_field_d8__10TObjPlayerFl(self, self->animTbl);
     self->xdc = ((Res_8018B030 *)TContainerAncient01R__bml_resource)->x430;
     self->anim = 0;
     set_animation__10TObjPlayerFPvs(self, self->anim);
-    set_field_b8__14TObjEnePanarmsFPvs(self, self->anim);
+    set_field_b8__14TObjEnePanarmsFs(self, self->anim);
     self->flags |= 0x60000000;
     init_collision_body_parts(self, (void *)&TContainerAncient01__collision_body_parts, 1);
-    reset_photon_effect__10TObjPlayerFPv(self);
+    reset_photon_effect__10TObjPlayerFv(self);
     VecCopy__FP3VecPC3Vec(&self->pos74, &self->pos);
     c = (Coll_8018B030 *)&TContainerAncient01__collision_body_parts;
     self->pos74.y = c->y * lbl_805DBD5C + self->pos74.y;
     VecCopy__FP3VecPC3Vec(&self->pos2fc, &self->pos74);
     self->state = 0;
-    init_positions__19TContainerAncient01FPv((u8 *)self);
+    ((TContainerAncient01 *)self)->init_positions();
     return self;
 }
 #pragma pop
 
 void TContainerAncient01__vt4(void *arg0, s16 *arg1, s32 arg2);
-void reset_state__19TContainerAncient01FPv(void* a0);
 
     extern const float TContainerAncient01__data_805DBD1C;
 
-void spawn_effect__19TContainerAncient01FPvPvPv(void* p, void* a1, void* a2) { spawn_particle_effect(a1, a2); }
+void TContainerAncient01::spawn_effect(void* p, void* a1, void* a2) { spawn_particle_effect(a1, a2); }
 
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
     u16 i;
@@ -802,7 +792,7 @@ void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
     for (i = 0; i < 4; i++) {
         pl = (Player_8018B180 *)get_player_by_client_id(i);
         if (pl != NULL) {
-            if (get_field_3e4__10TObjPlayerFPv(pl) == get_current_floor() && obj_testFlags30(pl, 1) == 0 &&
+            if (get_field_3e4__10TObjPlayerFv(pl) == get_current_floor() && obj_testFlags30(pl, 1) == 0 &&
                 horizontal_distance_squared(self->pos, pl->pos) < range) {
                 Atk_8018B180 atk;
                 atk.type = 0xF;
@@ -815,7 +805,7 @@ void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
     }
 }
 
-void reset_state__19TContainerAncient01FPv(void* a0) { *(short*)((char*)a0 + 0x326) = 0; *(short*)((char*)a0 + 0xb8) = *(short*)((char*)a0 + 0x326); *(float*)((char*)a0 + 0x2b4) = TContainerAncient01__data_805DBD1C; }
+void TContainerAncient01::reset_state() { *(short*)((char*)this + 0x326) = 0; *(short*)((char*)this + 0xb8) = *(short*)((char*)this + 0x326); *(float*)((char*)this + 0x2b4) = TContainerAncient01__data_805DBD1C; }
 
 void TContainerAncient01__sub_8018B284(Obj_8018B284 *self) {
     u32 period;
@@ -843,22 +833,22 @@ void TContainerAncient01__sub_8018B284(Obj_8018B284 *self) {
         }
     }
     if (TContainerAncient01__data_805DBD20 == self->f2B4 || lbl_805DBD24 == self->f2B4 || lbl_805DBD28 == self->f2B4) {
-        spawn_effect__19TContainerAncient01FPvPvPv(self, self->f350, (void *)0x7D);
+        TContainerAncient01::spawn_effect(self, self->f350, (void *)0x7D);
     }
     if (lbl_805DBD2C == self->f2B4) {
-        spawn_effect__19TContainerAncient01FPvPvPv(self, self->f344, (void *)0x7E);
+        TContainerAncient01::spawn_effect(self, self->f344, (void *)0x7E);
     }
     period = (u32)(lbl_805DBD30 / (f32)self->f36C);
     phase = (u32)(t = self->f2B4) % period;
     if (lbl_805DBD28 < t && t < TContainerAncient01__data_805DBD34 && phase == 0) {
-        spawn_effect__19TContainerAncient01FPvPvPv(self, self->f350, (void *)0x7E);
+        TContainerAncient01::spawn_effect(self, self->f350, (void *)0x7E);
     }
     if (TContainerAncient01__data_805DBD34 < self->f2B4 && phase == 0) {
-        spawn_effect__19TContainerAncient01FPvPvPv(self, self->f344, (void *)0x7E);
+        TContainerAncient01::spawn_effect(self, self->f344, (void *)0x7E);
     }
     TContainerAncient01__sub_8018B180((Obj_8018B180 *)self, self->f340);
     if (self->f33C <= self->f2B4) {
-        reset_state__19TContainerAncient01FPv(self);
+        ((TContainerAncient01 *)self)->reset_state();
     }
 }
 
@@ -866,7 +856,7 @@ void TContainerAncient01__sub_8018B48C(u8 *arg0) {
   advance_animation_playback(arg0);
   if (((__cvt_fp2unsigned(*((f32 *) (((s8 *) arg0) + 0x2B4))) & 0xFFFFFFFF) % 15) == 0)
   {
-    spawn_effect__19TContainerAncient01FPvPvPv((void*)(arg0), (void*)(arg0 + 0x344), (void*)((void *) 0x7D));
+    TContainerAncient01::spawn_effect((void*)(arg0), (void*)(arg0 + 0x344), (void*)((void *) 0x7D));
   }
   if (TContainerAncient01__data_805DBD34 <= (*((f32 *) (((s8 *) arg0) + 0x2B4))))
   {
@@ -880,7 +870,8 @@ void TContainerAncient01__sub_8018B48C(u8 *arg0) {
 #pragma fp_contract on
 typedef char RecoveredGlobal_8018B5D0_TContainerAncient01__data_804B6DC0_size[sizeof(RecoveredGlobal_8018B5D0_TContainerAncient01__data_804B6DC0) == 0x2C ? 1 : -1];
 
-void update_wait_for_player__19TContainerAncient01FPv(Obj_8018B510 *arg0) {
+void TContainerAncient01::update_wait_for_player() {
+    Obj_8018B510 *arg0 = (Obj_8018B510 *)this;
     s32 flag;
     u16 i;
     u8 *p;
@@ -905,7 +896,8 @@ void update_wait_for_player__19TContainerAncient01FPv(Obj_8018B510 *arg0) {
     }
 }
 
-void init_state_vectors__19TContainerAncient01FPv(u8 *arg0) {
+void TContainerAncient01::init_state_vectors() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x338) = (f32) (TContainerAncient01__data_805DBD3C + (*(f32 *)((s8 *)arg0 + 0x68) - TContainerAncient01__data_805DBD10));
     *(f32 *)((s8 *)arg0 + 0x33C) = (f32) (lbl_805DBD40 + (*(f32 *)((s8 *)arg0 + 0x6C) - TContainerAncient01__data_805DBD10));
     *(f32 *)((s8 *)arg0 + 0x340) = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)((s8 *)arg0 + 0x70) - TContainerAncient01__data_805DBD10));
@@ -934,9 +926,9 @@ void TContainerAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
 void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0) {
     if (arg0->f35C == 0) {
         arg0->f35C = 1;
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
-        spawn_effect__19TContainerAncient01FPvPvPv((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[0]));
-        spawn_effect__19TContainerAncient01FPvPvPv((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[1]));
+        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1);
+        TContainerAncient01::spawn_effect((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[0]));
+        TContainerAncient01::spawn_effect((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[1]));
         if (is_global_state_in_table__19TContainerAncient01Fv() == 0) {
             request_box_item_drop(arg0, arg0->pos, 1);
         }

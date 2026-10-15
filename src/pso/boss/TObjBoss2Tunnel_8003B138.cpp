@@ -156,7 +156,7 @@ typedef struct Vec_8003B6E8 {
 } Vec_8003B6E8;
 
 extern "C" {
-s32 create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *, s32, s32);
+s32 create_particle__20TAdLoadQuestPrtTxtGCFPvll(void *, s32, s32);
 void enable__13TParticleCtrlFPv(void *);
 extern Rec_8003C108 boss2_tunnel_particle_pos_table[];
 extern const f32 lbl_805D85B0;
@@ -170,7 +170,7 @@ s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_object(s32);
 extern Vec_8003B2EC boss2_tunnel_render_zero_vec[];
 extern s32 boss2_tunnel_model_index_table[];
@@ -183,8 +183,8 @@ s32 check_flag_or_state__15TObjBoss2TunnelFi(s32 arg0);
 s32 is_flag_set__15TObjBoss2TunnelFv(s32 _w0);
 void TObjBoss2Tunnel__sub_8007DEE4(void *, f32, f32, f32, f32, f32);
 f32 fabs_float(f32);
-f32 update_position__15TObjBoss2TunnelFPv(void *);
-s32 advance_phase__15TObjBoss2TunnelFPv(void *, f32 *);
+f32 update_position__15TObjBoss2TunnelFv(void *);
+s32 advance_phase__15TObjBoss2TunnelFv(void *, f32 *);
 void set_global_flag_100__15TObjBoss2TunnelFv(void);
 struct S_8003C2E4;
 void copy_ring_buffer_window__15TObjBoss2TunnelFPv(S_8003C2E4 *o);
@@ -249,7 +249,7 @@ void render__15TObjBoss2TunnelFv(u8 *arg0) {
         saved = f->c;
         f->c = f[TObjBoss2Tunnel__sub_8003C21C(o, lbl_805D4BEC)].c;
     }
-    set_global_param__8TObjFishFi(lbl_805D4BEC);
+    set_global_param__8TObjFishFl(lbl_805D4BEC);
     if (o->f24 == 0 || o->f24 == 1) {
         push_matrix();
         translate_matrix(0, (0.0f), (0.0f), -o->f60);
@@ -398,9 +398,9 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
         if (check_flag_or_state__15TObjBoss2TunnelFi(o) == 0) {
             o->f64 = 3;
             tmp = fabs_float(o->f98);
-            TObjBoss2Tunnel__sub_8007DEE4(o->f68, (0.1f), (-0.1f), o->f98, -update_position__15TObjBoss2TunnelFPv(o->f68), (2.0f));
+            TObjBoss2Tunnel__sub_8007DEE4(o->f68, (0.1f), (-0.1f), o->f98, -update_position__15TObjBoss2TunnelFv(o->f68), (2.0f));
         } else {
-            if (advance_phase__15TObjBoss2TunnelFPv(o->f68, &tmp) != 0) {
+            if (advance_phase__15TObjBoss2TunnelFv(o->f68, &tmp) != 0) {
                 o->f64 = 2;
             }
             o->f98 = tmp * o->f94;
@@ -413,7 +413,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
         }
         break;
     case 3:
-        if (advance_phase__15TObjBoss2TunnelFPv(o->f68, &tmp) != 0) {
+        if (advance_phase__15TObjBoss2TunnelFv(o->f68, &tmp) != 0) {
             o->f98 = (0.0f);
             o->f64 = 0;
         } else {
@@ -630,7 +630,7 @@ void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o) {
     for (i = 0; i < 4; i++) {
         p = o->ptr[i];
         if (p == 0) {
-            r = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&boss2_tunnel_particle_pos_table[i], 0x171, 1);
+            r = create_particle__20TAdLoadQuestPrtTxtGCFPvll(&boss2_tunnel_particle_pos_table[i], 0x171, 1);
             if (r != 0) {
                 enable__13TParticleCtrlFPv((void *)r);
                 o->ptr[i] = r;
@@ -713,15 +713,15 @@ extern s32 lbl_804834D4[];
 
 extern "C" {
 
-s32 update_all__8TFogCtrlFii(s32, s32);
+s32 update_all__8TFogCtrlFll(s32, s32);
 
 void enable_fog__15TObjBoss2TunnelFPv(void *arg0) {
-    update_all__8TFogCtrlFii((s32)(*(s32 *)((s8 *)arg0 + 0xB0)), (s32)(1));
+    update_all__8TFogCtrlFll((s32)(*(s32 *)((s8 *)arg0 + 0xB0)), (s32)(1));
     TObjBoss2Tunnel__global_flags |= 4;
 }
 
 void enable_fog__15TObjBoss2TunnelFv(void) {
-    update_all__8TFogCtrlFii((s32)(0xB), (s32)(1));
+    update_all__8TFogCtrlFll((s32)(0xB), (s32)(1));
     TObjBoss2Tunnel__global_flags |= 2;
 }
 
@@ -773,6 +773,7 @@ void init_queue_from_start__15TObjBoss2TunnelFPv(Obj_8003C374 *self) {
 #define __ct__7TObjectFP7TObject ((void (*)(void *))__ct__7TObjectFP7TObject)
 
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 struct Tunnel_8003C45C {
     s32 name;
@@ -813,12 +814,11 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern s32 *lbl_805D4C04;
 extern s32 *lbl_805D4C08;
-void update_fade_out_and_destroy__15TObjBoss2TunnelFPv(u8 *arg0);
 void TObjBoss2Tunnel__sub_8003C5F8(void);
 void TObjBoss2Tunnel__sub_8003C610(void);
 u8 *TObjBoss2RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 *arg4);
-void reset_floats__15TObjBoss2TunnelFPv(void *a0);
-s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0);
+void reset_floats__15TObjBoss2TunnelFv(void *a0);
+s32 reset_floats__15TObjBoss2TunnelFl(s32 arg0);
 extern u8 boss2_tunnel_raft_splash_offsets[];
 extern u8 lbl_80483578[];
 extern s32 __vt__15TObjBoss2Tunnel[];
@@ -831,22 +831,16 @@ extern "C" {
 void TObjBoss2Tunnel__sub_8003C648(void);
 void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1);
 void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1);
-void clear_global_flag_3000__15TObjBoss2TunnelFv(void);
-void clear_target_flags__15TObjBoss2TunnelFv(void);
-void *create__15TObjBoss2TunnelFv(void);
-void set_global_flag_200__15TObjBoss2TunnelFv(void);
-void set_global_flag_400__15TObjBoss2TunnelFv(void);
-void set_global_flag_800__15TObjBoss2TunnelFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void dt__15TObjBoss2TunnelFis(void *, int);
+void dt__15TObjBoss2TunnelFls(void *, int);
 
 extern s32 __vt__15TObjBoss2Tunnel[];
 
 void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss2Tunnel;
-        dt__15TObjBoss2TunnelFis((s8 *)arg0 + 0x68, -1);
+        dt__15TObjBoss2TunnelFls((s8 *)arg0 + 0x68, -1);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -861,7 +855,7 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
     s32 j;
     __ct__7TObjectFP7TObject(arg0);
     self->vt = ((s32 *)&__vt__15TObjBoss2Tunnel);
-    reset_floats__15TObjBoss2TunnelFi((s32)self->sub68);
+    reset_floats__15TObjBoss2TunnelFl((s32)self->sub68);
     self->name = lbl_805D2708;
     self->i24 = 0;
     TObjBoss2Tunnel__global_flags = 0;
@@ -877,7 +871,7 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
     self->f54 = (0.0f);
     self->i58 = 0;
     self->i64 = 0;
-    reset_floats__15TObjBoss2TunnelFPv(self->sub68);
+    reset_floats__15TObjBoss2TunnelFv(self->sub68);
     self->f94 = (1.0f);
     self->f98 = (0.0f);
     self->iB0 = 0x21;
@@ -903,7 +897,7 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
     return self;
 }
 
-void set_global_flag_200__15TObjBoss2TunnelFv(void) {
+void TObjBoss2Tunnel::set_global_flag_200() {
     TObjBoss2Tunnel__global_flags |= 0x200;
 }
 
@@ -915,7 +909,7 @@ s32 is_active__15TObjBoss2TunnelFv(void) {
     return TObjBoss2Tunnel__global_flags & 1;
 }
 
-void clear_global_flag_3000__15TObjBoss2TunnelFv(void) {
+void TObjBoss2Tunnel::clear_global_flag_3000() {
     TObjBoss2Tunnel__global_flags &= 0xFFFFCFFF;
 }
 
@@ -929,11 +923,11 @@ void TObjBoss2Tunnel__sub_8003C610(void) {
     (*(u32 *)&TObjBoss2Tunnel__global_flags) &= ~0x2000;
 }
 
-void set_global_flag_800__15TObjBoss2TunnelFv(void) {
+void TObjBoss2Tunnel::set_global_flag_800() {
     TObjBoss2Tunnel__global_flags |= 0x800;
 }
 
-void set_global_flag_400__15TObjBoss2TunnelFv(void) {
+void TObjBoss2Tunnel::set_global_flag_400() {
     TObjBoss2Tunnel__global_flags |= 0x400;
 }
 
@@ -941,7 +935,7 @@ void TObjBoss2Tunnel__sub_8003C648(void) {  }
 
 extern void *tl_02;
 
-void *create__15TObjBoss2TunnelFv(void) {
+void *TObjBoss2Tunnel::create() {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
         o = TObjBoss2Tunnel__ct((void *)(o), (void *)(tl_02));
@@ -952,7 +946,7 @@ void *create__15TObjBoss2TunnelFv(void) {
 extern s32 *lbl_805D4C04;
 extern s32 *lbl_805D4C08;
 
-void clear_target_flags__15TObjBoss2TunnelFv(void) {
+void TObjBoss2Tunnel::clear_target_flags() {
     s32 *temp_r3;
     s32 *temp_r3_2;
 
@@ -969,7 +963,8 @@ extern s32 lbl_804835D8[];
 
 #pragma push
 #pragma opt_common_subs off
-void update_fade_out_and_destroy__15TObjBoss2TunnelFPv(u8 *arg0) {
+void TObjBoss2Tunnel::update_fade_out_and_destroy() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0x1E) {

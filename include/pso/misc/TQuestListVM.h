@@ -32,6 +32,33 @@ struct TQuestListVM
     u32 m_23b8;
     u32 m_23bc;
     u32 m_23c0;
+    s32 update_load_status();
+    void close_windows();
+    static void set_enemy_mode_3();
+    static void load_vm();
+    s32 handle_click();
+    s32 invoke_callback_and_queue_destruction();
+    s32 close_and_destroy();
+    s32 close();
+    void update_close();
+    void load_downloaded_quest();
+    void handle_confirm_window();
+    static void poll_quest_download(void *p);
+    static void update_lobby_selection(void *arg0_);
+    static s32 build_download_list(void *p);
+    void process_download_entry();
+    void load_selected_player_slot();
+    static void scan_memcard_quest_files(void *arg0);
+    s32 load_quest_vm();
+    s32 init();
+    void set_field_20(s32 v);
+    s32 get_quest_id();
+    static int get_instance();
+    static void reset();
+    u32 decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3);
+    static int get_data();
+    void set_selected_entry(void* a1);
+    static void poll_download();
 };
 
 #endif

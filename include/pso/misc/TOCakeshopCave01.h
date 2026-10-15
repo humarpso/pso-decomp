@@ -13,6 +13,12 @@ struct TOCakeshopCave01
     void* m_38;
     u8 _pad3C[0x24];
     u32 m_60;
+    void update_blink_state(void *arg1);
+    void run_task();
+    void render();
+    void *create();
+    static void close_dialog_window();
+    static void load_resource_instance();
 };
 
 #endif

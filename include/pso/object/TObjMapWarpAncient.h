@@ -19,6 +19,9 @@ struct TObjMapWarpAncient
     u32 m_110;
     u32 m_114;
     u32 m_118;
+    void render();
+    void run_task();
+    static void free_globals();
 };
 
 #endif

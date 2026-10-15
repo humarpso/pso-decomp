@@ -14,6 +14,8 @@ public:
     virtual ~TItemShootGun();
     virtual void render();
     virtual void hook();
+public:
+    static u32 create(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 };
 
 #endif

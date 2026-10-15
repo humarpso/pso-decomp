@@ -136,19 +136,17 @@ u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0);
-s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
-s32 update_active_game_effect__10TObjPlayerFPv(void *);
-s32 draw_status_icon__10TObjPlayerFPvi(void *, void *);
+s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
+s32 update_active_game_effect__10TObjPlayerFv(void *);
+s32 draw_status_icon__10TObjPlayerFl(void *, void *);
 void deliver_srank_marker(u8 *arg0);
 extern const f32 lbl_805DAE60;
 extern const f32 lbl_805DAE64;
-s32 send_srank_stat_extra__10TObjPlayerFPvUii(void *arg0, u32 arg1, s32 arg2);
-s32 get_extended_state__10TObjPlayerFPv(void *);
+s32 get_extended_state__10TObjPlayerFv(void *);
 s32 get_captured_target_collider_index(s32);
 u16 get_uid__10TObjPlayerFPv(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
-s32 send_srank_stat_extra__10TObjPlayerFPvUii(void *arg0, u32 arg1, s32 arg2);
 s32 resolve_hittable_target(s32, s32);
 void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0);
 }
@@ -171,6 +169,7 @@ u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0) {
 #include "types.h"
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Pl_8012A470 Pl_8012A470;
 void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0) {
@@ -180,7 +179,7 @@ void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0) {
   u16 uid;
   s32 r;
   s32 v;
-  st = get_extended_state__10TObjPlayerFPv(arg0->f0);
+  st = get_extended_state__10TObjPlayerFv(arg0->f0);
   if (st != 0)
   {
     for (i = 0; i != get_captured_target_count((((((((((((st & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF); i++)
@@ -190,14 +189,14 @@ void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0) {
       r = resolve_hittable_target(uid, v = (s16) ((unsigned long long) get_captured_target_collider_index(e)));
       if (r != 0)
       {
-        send_srank_stat_extra__10TObjPlayerFPvUii(arg0, r, v);
+        ((TObjPlayer *)arg0)->send_srank_stat_extra(r, v);
       }
     }
   }
 }
 
-s32 send_srank_stat_extra__10TObjPlayerFPvUii(void *arg0, u32 arg1, s32 arg2) {
-    Self_8012A508 *self = (Self_8012A508 *)arg0;
+s32 TObjPlayer::send_srank_stat_extra(u32 arg1, s32 arg2) {
+    Self_8012A508 *self = (Self_8012A508 *)this;
     VObj_8012A508 *obj = (VObj_8012A508 *)arg1;
     u32 f;
     Param_8012A508 t1;
@@ -231,7 +230,7 @@ void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 f
             case 1:
             case 2:
                 if (arg3 == 2) {
-                    send_srank_stat_extra__10TObjPlayerFPvUii((void *)(arg0), (u32)(arg2), (s32)(arg4));
+                    ((TObjPlayer *)arg0)->send_srank_stat_extra((u32)(arg2), (s32)(arg4));
                 } else {
                     deliver_hit__11TItemWeaponFPviPviif(arg0, f, arg2, arg3, arg4, farg0);
                 }
@@ -267,21 +266,21 @@ void deliver_srank_marker(u8 *arg0) {
         }
         goto block_7;
       }
-      if (is_mode_two_and_ready__10TObjPlayerFPv((void *) arg0) != 0)
+      if (is_mode_two_and_ready__10TObjPlayerFv((void *) arg0) != 0)
       {
         send_srank_stat_extra_to_locks((Pl_8012A470 *)((void *) arg0));
         return;
       }
-      update_active_game_effect__10TObjPlayerFPv((void *) arg0);
+      update_active_game_effect__10TObjPlayerFv((void *) arg0);
       return;
     }
     block_7:
-    update_active_game_effect__10TObjPlayerFPv((void *) arg0);
+    update_active_game_effect__10TObjPlayerFv((void *) arg0);
     return;
   }
   if ((new_var = temp_r3) & 2)
   {
-    draw_status_icon__10TObjPlayerFPvi((void *) arg0, (void *) (&sp8));
+    draw_status_icon__10TObjPlayerFl((void *) arg0, (void *) (&sp8));
     PSO_VCALL_VObj_18_24931d_m49(arg0, &sp8, 0, 0, 1);
   }
 }

@@ -43,14 +43,14 @@ typedef struct {
     f32 f358;
 } Ene_80092B10;
 
-void update_player_state__9TObjEneDDFPv(void *, Vec_80092B10 *, s32);
+void update_player_state__9TObjEneDDFv(void *, Vec_80092B10 *, s32);
 void toggle_particle_effect__10TObjPlayerFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 rotate_matrix_y(int, int);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(int);
+void set_global_param__8TObjFishFl(int);
 s32 draw_model_motion(int, Motion_80092B10 *, f32);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
@@ -68,10 +68,10 @@ void TObjEneRe7Berura__vt104(Ene_80092B10 *self) {
     if (self->v.m8(TObjEneRe7Berura__data_805D9724, lbl_805D9728) != 0) {
         if (self->f326 != 0xB) {
             Vec_80092B10 v = re7_berura_init_vec;
-            update_player_state__9TObjEneDDFPv(self, &v, 0);
+            update_player_state__9TObjEneDDFv(self, &v, 0);
         }
         toggle_particle_effect__10TObjPlayerFv();
-        set_global_param__8TObjFishFi(self->f24);
+        set_global_param__8TObjFishFl(self->f24);
         push_matrix();
         post_translate_matrix(self->f38);
         rotate_matrix_y(0, self->f60);

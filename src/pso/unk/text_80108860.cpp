@@ -16,7 +16,7 @@ struct VObj_18_7128e8 : VBase_18_7128e8 {
 extern "C" {
 u16 obj_getField1c(void *);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
-void set_owner_id__13TParticleCtrlFPvUs(void *, u16);
+void set_owner_id__13TParticleCtrlFUs(void *, u16);
 void spawn_equip_particle_effect(u8 *arg0, s32 arg1);
 }
 
@@ -27,7 +27,7 @@ void spawn_equip_particle_effect(u8 *arg0, s32 arg1) {
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     *(s32 *)((s8 *)arg0 + 0x20) = spawn_continuous_particle_effect_with_flags(((VObj_18_7128e8 *)(temp_r3))->m7(), arg1, 0x10);
     if ((u32) *(s32 *)((s8 *)arg0 + 0x20) != 0U) {
-        set_owner_id__13TParticleCtrlFPvUs((void *) *(s32 *)((s8 *)arg0 + 0x20), obj_getField1c(*(u8 **)((s8 *)arg0 + 0x1C)));
+        set_owner_id__13TParticleCtrlFUs((void *) *(s32 *)((s8 *)arg0 + 0x20), obj_getField1c(*(u8 **)((s8 *)arg0 + 0x1C)));
     }
 }
 

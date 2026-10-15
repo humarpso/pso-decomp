@@ -13,6 +13,10 @@ struct TOSwitchItem
     u32 m_ec;
     u32 m_f0;
     u32 m_f4;
+    void update_anim();
+    void render();
+    static void *create(void *arg0);
+    u8 get_field_ec();
 };
 
 #endif

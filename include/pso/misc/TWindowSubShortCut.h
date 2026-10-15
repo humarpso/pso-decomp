@@ -16,6 +16,15 @@ struct TWindowSubShortCut
     u32 m_38;
     u32 m_3c;
     void* m_40;
+    int is_shortcut_active();
+    s32 open_confirm_message();
+    s32 open_confirm_prompt();
+    s32 open_menu();
+    static void render();
+    void run_task();
+    void set_flag1e_bit80();
+    void close_and_clear_flag();
+    void free_icon();
 };
 
 #endif

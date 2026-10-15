@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
 void TWindowCtrl__sub_8026AD60(void);
 void TWindowCtrl__sub_8026AD78(s32 arg0);
-s32 get_field44__11TWindowCtrlFv(void);
 
 extern void *TWindowCtrl__active_window;
 
-s32 get_field44__11TWindowCtrlFv(void) {
+s32 TWindowCtrl::get_field44() {
     if ((void *) TWindowCtrl__active_window == NULL) {
         return 0;
     }

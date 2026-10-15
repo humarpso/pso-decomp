@@ -17,6 +17,10 @@ struct TOCapsuleAncient01
     u8 _padD0[0x10];
     u32 m_e0;
     u32 m_e4;
+    void render();
+    static void *create(void *arg0);
+    static void destroy_static_instance();
+    static void load_resource_instance();
 };
 
 #endif

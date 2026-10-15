@@ -22,7 +22,7 @@ extern "C" {
 s8 get_current_floor(void);
 s32 place_on_ground__5TItemFPvsPvi(Item_801057A8 *, s32, f32 *, s32);
 s32 is_active_battle_player__10TObjPlayerFv(void);
-Item_801057A8 *dispatch_item_by_type__6TLobbyFPv(void *);
+Item_801057A8 *dispatch_item_by_type__6TLobbyFv(void *);
 s32 TLobby__sub_8011AED8(s32, s32, void *, f32, f32);
 Item_801057A8 *spawn_dropped_item_from_msg(Msg_801057A8 *arg0, s32 arg1);
 }
@@ -43,7 +43,7 @@ Item_801057A8 *spawn_dropped_item_from_msg(Msg_801057A8 *arg0, s32 arg1) {
             ok = 1;
         }
         if (ok != 0) {
-            item = dispatch_item_by_type__6TLobbyFPv(arg0->item);
+            item = dispatch_item_by_type__6TLobbyFv(arg0->item);
             if (item != NULL) {
                 item->x = arg0->x;
                 item->z = arg0->z;

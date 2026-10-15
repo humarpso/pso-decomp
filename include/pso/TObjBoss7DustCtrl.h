@@ -8,6 +8,8 @@ class TObjBoss7DustCtrl : public TObject {
 public:
     virtual ~TObjBoss7DustCtrl();
     virtual void run_task();
+public:
+    static void create();
 };
 
 #endif

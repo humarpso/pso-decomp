@@ -11,13 +11,13 @@ typedef char armor_size_check[(sizeof(TItemEffArmorParticle) == 0x2C) ? 1 : -1];
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 obj_testFlags30(int, int);
-s32 copy_pos__11TNowLoadingFPvPv(int, void *);
-s32 clear_active_flag__13TParticleCtrlFPv(int);
+s32 copy_pos__11TNowLoadingFPv(int, void *);
+s32 clear_active_flag__13TParticleCtrlFv(int);
 s32 enable__13TParticleCtrlFPv(int);
 u32 find_item_by_id(int);
 s32 get_item_system_generation();
 s8 TObjPlayer__sub_80102C30();
-s32 get_flag_40__8TItemMagFPv(int);
+s32 get_flag_40__8TItemMagFv(int);
 void *get_player_by_client_id(u16);
 }
 
@@ -37,8 +37,8 @@ void TItemEffArmorParticle::run_task() {
             if (item != 0U) {
                 if (TObjPlayer__sub_80102C30() == 2) {
                     if (obj_testFlags30((int)player, 0x800) == 0) {
-                        if (get_flag_40__8TItemMagFPv((int)item) == 0) {
-                            clear_active_flag__13TParticleCtrlFPv((int)m_20);
+                        if (get_flag_40__8TItemMagFv((int)item) == 0) {
+                            clear_active_flag__13TParticleCtrlFv((int)m_20);
                         } else {
                             goto enable_particle;
                         }
@@ -47,7 +47,7 @@ void TItemEffArmorParticle::run_task() {
                         enable__13TParticleCtrlFPv((int)m_20);
                     }
                     active = 1;
-                    copy_pos__11TNowLoadingFPvPv((int)m_20, (void *)(player + 0x2FC));
+                    copy_pos__11TNowLoadingFPv((int)m_20, (void *)(player + 0x2FC));
                 }
             }
         }
@@ -79,7 +79,7 @@ extern "C" {
 
 void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
 u32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
-s32 set_owner_id__13TParticleCtrlFPvUs(u32, u16);
+s32 set_owner_id__13TParticleCtrlFUs(u32, u16);
 void *get_player_by_client_id(u16);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 disallow_rendering__7TObjectFv(void *);
@@ -104,7 +104,7 @@ void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 
         *(u32 *)((s8 *)arg0 + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) temp_r3)->m7(), arg4, 0x10);
         p = *(u32 *)((s8 *)arg0 + 0x20);
         if (p != 0U) {
-            set_owner_id__13TParticleCtrlFPvUs(p, *(u16 *)((s8 *)arg0 + 0x24));
+            set_owner_id__13TParticleCtrlFUs(p, *(u16 *)((s8 *)arg0 + 0x24));
         }
     } else {
         *(u32 *)((s8 *)arg0 + 0x20) = 0U;

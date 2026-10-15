@@ -11,19 +11,19 @@ extern "C" {
 #include "types.h"
 
 extern "C" {
-s32 init_forward__10TObjPlayerFPv(void *);
-s32 reset_id_entry__10TObjPlayerFPv(void *);
+s32 init_forward__10TObjPlayerFv(void *);
+s32 reset_id_entry__10TObjPlayerFv(void *);
 s32 __construct_array(void *, void *, void *, int, int);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 int TObjPlayer__sub_801AA6E4(void* a0 = 0, void* a1 = 0);
 void* TObjPlayer__sub_801AA66C(void* p, void* a1);
 void TObjPlayer__sub_801AA64C(O_801AA64C *p);
 void* TObjPlayer__sub_801AA61C(void* p);
-s16 get_hp__10TObjPlayerFPv(void* p);
-u16 get_section_id__10TObjPlayerFPv(void* p);
-void set_field_2__10TObjPlayerFPvs(void* p, s16 v);
-void set_type__10TObjPlayerFPvs(void* p, s16 v);
-u16 get_entity_type__10TObjPlayerFPv(void* p);
+s16 get_hp__10TObjPlayerFv(void* p);
+u16 get_section_id__10TObjPlayerFv(void* p);
+void set_field_2__10TObjPlayerFs(void* p, s16 v);
+void set_type__10TObjPlayerFs(void* p, s16 v);
+u16 get_entity_type__10TObjPlayerFv(void* p);
 
 }
 
@@ -45,9 +45,9 @@ extern "C" {
 extern "C" {
 
 s32 init_arrays__10TObjPlayerFi(s32 arg0) {
-    init_forward__10TObjPlayerFPv((void *) (arg0 + 4));
+    init_forward__10TObjPlayerFv((void *) (arg0 + 4));
     __construct_array((void *) (arg0 + 8), (void *) (&TObjPlayer__sub_801AA61C), (void *) (&TObjPlayer__sub_801AA584), (int) (4), (int) (4));
-    reset_id_entry__10TObjPlayerFPv((void *) (arg0));
+    reset_id_entry__10TObjPlayerFv((void *) (arg0));
     return arg0;
 }
 

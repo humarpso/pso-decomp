@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 void* TObjPlayer__sub_80363C5C(void*);
@@ -18,12 +19,11 @@ s32 run_and_return_arg__10TObjPlayerFi(s32);
 extern "C" {
 
 void *TObjPlayer__sub_80363C04(void *arg0, s16 arg1);
-void reset_id_array_global__10TObjPlayerFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
     extern int player_item_id_list;
-void reset_id_array_global__10TObjPlayerFv(void) { reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); }
+void TObjPlayer::reset_id_array_global() { reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); }
 
 extern s32 lbl_804F29F8[];
 
@@ -60,10 +60,9 @@ void* TObjPlayer__sub_80363C5C(void* a0) { __ct__7TObjectFP7TObject(); *(int*)((
 
 extern "C" {
 
-void create_cleanup_object__10TObjPlayerFPv(void *arg0);
 void *__nw__7TObjectFUl(int);
 
-void create_cleanup_object__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::create_cleanup_object(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
@@ -78,10 +77,9 @@ void create_cleanup_object__10TObjPlayerFPv(void *arg0) {
 
 extern "C" {
 
-void free_static_buffer__10TObjPlayerFv(void);
 void __dl__FPv(void*);
 
-void free_static_buffer__10TObjPlayerFv(void) {
+void TObjPlayer::free_static_buffer() {
     if ((u32) player_item_id_list != 0U) {
         __dl__FPv((void*)player_item_id_list);
         player_item_id_list = 0U;
@@ -146,13 +144,12 @@ void TObjPlayer__sub_80363D4C(void);
 
 extern "C" {
 
-void alloc_and_run_object__10TObjPlayerFv(void);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 
-void alloc_and_run_object__10TObjPlayerFv(void) {
+void TObjPlayer::alloc_and_run_object() {
     void *o;
 
-    o = alloc__23TAdSinglePlyChrSelectGCFPv(0xB4);
+    o = alloc__23TAdSinglePlyChrSelectGCFv(0xB4);
     if (o != NULL) {
         o = run_and_return_arg__10TObjPlayerFi(o);
     }
@@ -200,19 +197,18 @@ void TObjPlayer__sub_80363D4C(void) {
 extern "C" {
 
 void *TObjPlayer__sub_80363EC4(void *arg0, s16 arg1);
-void apply_loaded_item__10TObjPlayerFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 get_model_ids__9TItemLoadFUcPvPv(s32, void **, s32 *);
-s32 submit_computer_command__10TObjPlayerFPv(s32, s32, s32, s32);
+s32 get_model_ids__9TItemLoadFUcPlPl(s32, void **, s32 *);
+s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 
-void apply_loaded_item__10TObjPlayerFv(void) {
+void TObjPlayer::apply_loaded_item() {
     void *spC;
     s32 sp8;
 
-    get_model_ids__9TItemLoadFUcPvPv(5, &spC, &sp8);
+    get_model_ids__9TItemLoadFUcPlPl(5, &spC, &sp8);
     if (spC != NULL) {
-        submit_computer_command__10TObjPlayerFPv(*(s32 *)((s8 *)spC + 0x2C), 2, 2, 0xB);
+        submit_computer_command__10TObjPlayerFv(*(s32 *)((s8 *)spC + 0x2C), 2, 2, 0xB);
     }
 }
 
@@ -253,9 +249,7 @@ void* init_vtable_804F2A10__10TObjPlayerFPv(void* a0) { __ct__7TObjectFP7TObject
 
 extern "C" {
 
-void push_id_to_list__10TObjPlayerFi(s32 arg0);
-
-void push_id_to_list__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::push_id_to_list(s32 arg0) {
     if ((s32) *(s32 *)((s8 *)lbl_805D6FB8 + 0xB0) == 0) {
         reset_id_array__10TObjPlayerFPv(lbl_805D6FB8);
     }
@@ -295,7 +289,6 @@ struct RecoveredGlobal_803640F8_lbl_8058D4C0 {
 struct Rec_80364028 { f32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
-void copy_gauge_warn_vec__10TObjPlayerFv(void);
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
@@ -311,17 +304,14 @@ s32 set_chunk_blend(s32);
 extern Rec_80364028 lbl_80479FF8;
 extern s32 model_render_flags;
 extern const f32 lbl_805E0288;
-void set_model_fade_alpha__10TObjPlayerFf(f32 farg0);
 }
 
 extern "C" {
 
-void spawn_cleanup_helper__10TObjPlayerFPv(void *arg0);
-void warn_if_gauge_low__10TObjPlayerFv(void);
 s32 set_chunk_blend(s32);
 void *__nw__7TObjectFUl(int);
 
-void spawn_cleanup_helper__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::spawn_cleanup_helper(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
@@ -331,15 +321,15 @@ void spawn_cleanup_helper__10TObjPlayerFPv(void *arg0) {
 
 extern const f32 lbl_805E0288;
 
-void warn_if_gauge_low__10TObjPlayerFv(void) {
+void TObjPlayer::warn_if_gauge_low() {
     if (*(f32 *)((s8 *)lbl_805D6FB8 + 0x2C) < lbl_805E0288) {
         set_chunk_blend(0x2500);
-        copy_gauge_warn_vec__10TObjPlayerFv();
+        TObjPlayer::copy_gauge_warn_vec();
     }
 }
 typedef char RecoveredGlobal_803640C8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640C8_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
-void set_model_fade_alpha__10TObjPlayerFf(f32 farg0) {
+void TObjPlayer::set_model_fade_alpha(f32 farg0) {
     if (farg0 < lbl_805E0288) {
         model_render_flags |= 0x24;
         set_chunk_material_override_pair(-1, 0x800);
@@ -351,7 +341,7 @@ void set_model_fade_alpha__10TObjPlayerFf(f32 farg0) {
     *(f32 *)((u8 *)lbl_805D6FB8 + 0x2C) = farg0;
 }
 
-void copy_gauge_warn_vec__10TObjPlayerFv(void) {
+void TObjPlayer::copy_gauge_warn_vec() {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C));
 }
 typedef char RecoveredGlobal_8036414C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8036414C_lbl_8058D4C0) == 0x10 ? 1 : -1];
@@ -388,10 +378,9 @@ void TObjPlayer__sub_80364198(void) {
 
 extern "C" {
 
-void free_global_805D6FB8__10TObjPlayerFv(void);
 void __dl__FPv(void*);
 
-void free_global_805D6FB8__10TObjPlayerFv(void) {
+void TObjPlayer::free_global_805D6FB8() {
     if ((u32) lbl_805D6FB8 != 0U) {
         __dl__FPv((void*)lbl_805D6FB8);
         lbl_805D6FB8 = 0U;
@@ -406,13 +395,12 @@ void free_global_805D6FB8__10TObjPlayerFv(void) {
 
 extern "C" {
 
-void alloc_and_init_object_b4__10TObjPlayerFv(void);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 
-void alloc_and_init_object_b4__10TObjPlayerFv(void) {
+void TObjPlayer::alloc_and_init_object_b4() {
     void *o;
 
-    o = alloc__23TAdSinglePlyChrSelectGCFPv(0xB4);
+    o = alloc__23TAdSinglePlyChrSelectGCFv(0xB4);
     if (o != NULL) {
         o = run_and_return_arg__10TObjPlayerFi(o);
     }

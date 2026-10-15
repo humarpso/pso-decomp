@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Base_802A7328_802A7290 { char pad[0x8]; };
 struct VObj_802A7328_802A7290 : Base_802A7328_802A7290 {
@@ -88,27 +89,22 @@ s32 player_motion_provider1_get_actions(s32 arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_802A7848(void *, s32);
 s32 TLobby__sub_802A7868(void *, s32, s32);
 s32 load_action_motion_pairs(void *, s32, s32, s32);
-s32 forward_801C210C__10TObjPlayerFPv(void *, s32);
-s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void free__11TOBoss4RockFUi(void*);
+s32 forward_801C210C__10TObjPlayerFv(void *, s32);
+void mem_free(void*);
 extern s32 player_action_motion_buffer;
 void TLobby__sub_802A7640(void);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_alloc(s32);
 extern s32 player_action_motion_buffer;
-void alloc_boss4rock_buffer__6TLobbyFv(void);
 void TLobby__sub_802A7640(void);
 int set_photon_chair_flag__6TLobbyFi(int);
 void TLobby__sub_802A769C(void);
-void alloc_boss4rock_buffer__6TLobbyFv(void);
 int set_photon_chair_flag__6TLobbyFi(int);
-void enable_and_refresh__6TLobbyFv(void);
 s32 TLobby__sub_802A7AF8(s32, s32 *);
 s32 free__10TObjPlayerFPv(void *);
 extern s32 lbl_804DDBF0[];
 void *__dt__6TLobbyFPvs(void *arg0, s16 arg1);
 void TLobby__sub_802A7B50(void *);
 extern s32 lbl_804DDBF0[];
-void *ct_variant__6TLobbyFPv(void *arg0);
 void* TLobby__sub_802A7780(void* p);
 void* TLobby__sub_802A7788(void* p);
 extern s32 player_action_motion_buffer;
@@ -116,8 +112,8 @@ int TLobby__sub_802A7790(void);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
 void player_motion_provider1_set_attack_interpolation(u8 *arg0);
-s32 sub_802a7290_fwd__10TObjPlayerFPv(void *);
-s32 is_handle_valid__10TObjPlayerFPv(void *);
+s32 sub_802a7290_fwd__10TObjPlayerFv(void *);
+s32 is_handle_valid__10TObjPlayerFv(void *);
 s32 load_action_motion_pairs(void *, s32, s32, s32);
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 }
@@ -125,20 +121,17 @@ s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 extern "C" {
 
 void TLobby__sub_802A7318(void* p);
-s32 calc_cell_offset__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
-s32 get_valid_child__6TLobbyFPv(void *arg0);
-s32 validate_handle__6TLobbyFPv(s32 *arg0);
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 void TObjSeabedSuisoBrakable__vt17(void);
 
-s32 get_valid_child__6TLobbyFPv(void *arg0) {
-    if (is_valid_player_motion_variant((void*)(*(s32 *)((s8 *)arg0 + 4))) != 0) {
-        return *(s32 *)((s8 *)arg0 + 4);
+s32 TLobby::get_valid_child() {
+    if (is_valid_player_motion_variant((void*)(*(s32 *)((s8 *)this + 4))) != 0) {
+        return *(s32 *)((s8 *)this + 4);
     }
     return 0;
 }
-s32 validate_handle__6TLobbyFPv(s32 *arg0) {
+s32 TLobby::validate_handle(s32 *arg0) {
     if (TLobby__sub_802A7278((void*)(*arg0)) != 0) {
         return *arg0;
     }
@@ -148,8 +141,8 @@ void TLobby__sub_802A7318(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*
 
 extern s32 player_action_motion_buffer;
 
-s32 calc_cell_offset__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
-    struct VObj_802A7328_802A7290 *o = (struct VObj_802A7328_802A7290 *)arg0;
+s32 TLobby::calc_cell_offset(s32 arg1, s32 arg2) {
+    struct VObj_802A7328_802A7290 *o = (struct VObj_802A7328_802A7290 *)this;
     return player_action_motion_buffer + ((arg2 + (arg1 * o->m73())) << 0xE);
 }
 typedef char RecoveredGlobal_802A7444_lbl_804DDBD8_size[sizeof(RecoveredGlobal_802A7444_lbl_804DDBD8) == 0x18 ? 1 : -1];
@@ -184,23 +177,23 @@ s32 player_motion_provider1_get_actions(s32 arg0, s32 arg1, s32 arg2) {
     }
     return 0;
 }
-s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 TLobby::handle_message(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
-    if (TLobby__sub_802A7868(arg0, arg2, arg3) != 0) {
+    if (TLobby__sub_802A7868(this, arg2, arg3) != 0) {
         return 1;
     }
-    forward_801C210C__10TObjPlayerFPv(arg0, arg2);
-    TLobby__sub_802A7848(arg0, arg3);
-    temp_r3 = load_action_motion_pairs(arg0, arg1, arg2, arg3);
+    forward_801C210C__10TObjPlayerFv(this, arg2);
+    TLobby__sub_802A7848(this, arg3);
+    temp_r3 = load_action_motion_pairs(this, arg1, arg2, arg3);
     if (temp_r3 != 0) {
-        ((VObj_802A752C_802A7290 *)arg0)->m12();
+        ((VObj_802A752C_802A7290 *)this)->m12();
     }
     return temp_r3;
 }
 
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1) {
-    s32 a = is_handle_valid__10TObjPlayerFPv(arg0);
-    s32 b = sub_802a7290_fwd__10TObjPlayerFPv(arg0);
+    s32 a = is_handle_valid__10TObjPlayerFv(arg0);
+    s32 b = sub_802a7290_fwd__10TObjPlayerFv(arg0);
     s32 r = load_action_motion_pairs(arg0, arg1, a, b);
     if (r != 0) {
         ((VObj_802A75C8 *)arg0)->m12();
@@ -210,15 +203,15 @@ s32 TLobby__sub_802A75C8(void *arg0, s32 arg1) {
 
 void TLobby__sub_802A7640(void) {
     if ((u32) (*(u32 *)&player_action_motion_buffer) != 0U) {
-        free__11TOBoss4RockFUi((void*)(*(u32 *)&player_action_motion_buffer));
+        mem_free((void*)(*(u32 *)&player_action_motion_buffer));
         (*(u32 *)&player_action_motion_buffer) = 0U;
     }
 }
-void alloc_boss4rock_buffer__6TLobbyFv(void) {
-    player_action_motion_buffer = alloc_buffer__11TOBoss4RockFPv(0x100000);
+void TLobby::alloc_boss4rock_buffer() {
+    player_action_motion_buffer = mem_alloc(0x100000);
 }
 void TLobby__sub_802A769C(void) { TLobby__sub_802A7640(); set_photon_chair_flag__6TLobbyFi(0); }
-void enable_and_refresh__6TLobbyFv(void) { set_photon_chair_flag__6TLobbyFi(1); alloc_boss4rock_buffer__6TLobbyFv(); }
+void TLobby::enable_and_refresh() { set_photon_chair_flag__6TLobbyFi(1); TLobby::alloc_boss4rock_buffer(); }
 void *__dt__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 8) = lbl_804DDBF0;
@@ -229,10 +222,10 @@ void *__dt__6TLobbyFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *ct_variant__6TLobbyFPv(void *arg0) {
-    TLobby__sub_802A7B50(arg0);
-    *(s32 **)((s8 *)arg0 + 0x8) = lbl_804DDBF0;
-    return arg0;
+void *TLobby::ct_variant() {
+    TLobby__sub_802A7B50(this);
+    *(s32 **)((s8 *)this + 0x8) = lbl_804DDBF0;
+    return this;
 }
 void* TLobby__sub_802A7780(void* p) { return (char*)p + 0xc; }
 void* TLobby__sub_802A7788(void* p) { return (char*)p + 0xc; }

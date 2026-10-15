@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOBarrierEnergy01.h"
 
 extern "C" {
 
@@ -15,8 +16,6 @@ struct BarrierObj_80157F30 : BarrierBase_80157F30 {
     virtual s32 m8(f32, f32);
 };
 
-void *create__17TOBarrierEnergy01FPv(void *arg0);
-void render__17TOBarrierEnergy01Fv(u8 *arg0);
 void *TOBarrierEnergy01__ct(void *, void *, void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
@@ -27,21 +26,22 @@ s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern u8 *TOBarrierEnergy01__texture_lists;
 extern s32 barrier_energy_model;
 
-void render__17TOBarrierEnergy01Fv(u8 *arg0) {
+void TOBarrierEnergy01::render() {
+    u8 *arg0 = (u8 *)this;
     if (((BarrierObj_80157F30*)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         begin_effect_render__13TParticleCtrlFv();
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
         end_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)TOBarrierEnergy01__texture_lists + 8));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)TOBarrierEnergy01__texture_lists + 8));
         draw_ginja_object(barrier_energy_model);
         pop_matrix();
     }
@@ -49,7 +49,7 @@ void render__17TOBarrierEnergy01Fv(u8 *arg0) {
 
 extern void *tl_05;
 
-void *create__17TOBarrierEnergy01FPv(void *arg0) {
+void *TOBarrierEnergy01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
         o = TOBarrierEnergy01__ct(o, tl_05, arg0);

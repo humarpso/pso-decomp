@@ -28,6 +28,13 @@ struct TObjVoloptCage
     u32 m_37c;
     u8 _pad380[0x10];
     u32 m_390;
+    void update_state();
+    void run_task();
+    void update_breakup();
+    void update_collision_state();
+    static void destroy();
+    static void init_break_model();
+    void render();
 };
 
 #endif

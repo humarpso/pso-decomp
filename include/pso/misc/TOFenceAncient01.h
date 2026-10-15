@@ -15,6 +15,11 @@ struct TOFenceAncient01
     u32 m_bc;
     u8 _padC0[0x10];
     u32 m_d0;
+    void *destroy(s16 arg1);
+    void *init_fields();
+    static void *create(void *arg0);
+    static void free_resources();
+    static void load_resources();
 };
 
 #endif

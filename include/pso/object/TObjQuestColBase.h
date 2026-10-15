@@ -12,6 +12,9 @@ struct TObjQuestColBase
     u32 m_b0;
     u32 m_b4;
     u32 m_b8;
+    s32 is_within_range(f32 farg0);
+    void update_room_id_check();
+    void run_task();
 };
 
 #endif

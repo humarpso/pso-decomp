@@ -7,6 +7,8 @@ class TObjNewFloorWin : public TObject {
 public:
     virtual ~TObjNewFloorWin();
     virtual void run_task();
+public:
+    void open_window();
 };
 
 #endif

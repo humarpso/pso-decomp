@@ -33,6 +33,8 @@ struct TAdLdQuestPrtGC
     u32 m_bc;
     u32 m_c0;
     u32 m_c4;
+    static void render();
+    int get_abs();
 };
 
 #endif

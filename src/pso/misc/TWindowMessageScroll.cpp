@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageScroll.h"
 
 struct RecoveredGlobal_8035D694___vt__20TWindowMessageScroll {
     s32 value;
@@ -7,11 +8,10 @@ struct RecoveredGlobal_8035D694___vt__20TWindowMessageScroll {
 
 extern "C" {
 s32 fn_80244994(void *);
-s32 update_fade__17TWindowSubComCardFPv(void *);
-s32 initialize_subwindow__9TWindowDDFPv(void *);
+s32 update_fade__17TWindowSubComCardFv(void *);
+s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 update_window_entry_list(void *, void *);
 s32 retire_scrolled_lines__14TWindowMessageFPv(f32);
-void run_task__20TWindowMessageScrollFv(u8 *arg0);
 s32 TWindowMessageQuest__ct(void *, void *);
 extern s32 __vt__20TWindowMessageScroll[];
 extern s32 TWindowMessageScroll__class_name;
@@ -28,17 +28,18 @@ s32 TLobby__sub_80269DA4(s32 a0 = 0, s32 a1 = 0);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowMessageQuestFv(void *, int);
 s32 __nw__7TObjectFUl(s32 a0 = 0);
-void set_timer__6TLobbyFPvf(void* p, f32 v);
+void set_timer__6TLobbyFf(void* p, f32 v);
 
 extern s32 __vt__20TWindowMessageScroll[];
 
-void run_task__20TWindowMessageScrollFv(u8 *arg0) {
+void TWindowMessageScroll::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x6C);
     *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x94));
     retire_scrolled_lines__14TWindowMessageFPv((f32) (temp_f1));
-    initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    update_fade__17TWindowSubComCardFPv((void *) (arg0));
+    initialize_subwindow__9TWindowDDFv((void *) (arg0));
+    update_fade__17TWindowSubComCardFv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
     if ((fn_80244994((void *) (arg0)) != 0) && (*(f32 *)((s8 *)arg0 + 0x80) <= *(f32 *)((s8 *)arg0 + 0x6C))) {
         **(s32 **)((s8 *)arg0 + 0x98) = 1;

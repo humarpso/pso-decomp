@@ -14,7 +14,7 @@ struct Pt_802437C4 { f32 x, y; };
 
 extern "C" {
 s32 is_split_screen();
-u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 s32 fn_80244994();
 void create__18TWindowEffectLightFPvPvPv(void *, s32, s32);
 extern const f32 lbl_805DCA2C;
@@ -39,15 +39,15 @@ void spawn_action_palette_slot_light(Win_802437C4 *arg0, s32 arg1) {
     switch (arg1) {
     case 1:
         kind = 0;
-        e = (Ent_802437C4 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
+        e = (Ent_802437C4 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 2);
         break;
     case 2:
         kind = 2;
-        e = (Ent_802437C4 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 4);
+        e = (Ent_802437C4 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 4);
         break;
     case 3:
         kind = 1;
-        e = (Ent_802437C4 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);
+        e = (Ent_802437C4 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 6);
         break;
         return;
     default:

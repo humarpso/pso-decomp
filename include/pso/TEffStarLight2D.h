@@ -6,6 +6,9 @@
 class TEffStarLight2D : public TObject {
 public:
     virtual ~TEffStarLight2D();
+public:
+    void copy_from_subobject(void* a1);
+    void copy_from(void* q);
 };
 
 #endif

@@ -13,6 +13,10 @@ struct TWindowSubAreaMapDisp
     u32 m_6c;
     u32 m_70;
     u32 m_74;
+    void update_manual_scroll();
+    void render();
+    void run_task();
+    void update_visibility();
 };
 
 #endif

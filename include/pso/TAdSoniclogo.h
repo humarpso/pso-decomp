@@ -8,6 +8,8 @@ public:
     virtual void render();
     virtual ~TAdSoniclogo();
     virtual void run_task();
+public:
+    static void request_destroy();
 };
 
 #endif

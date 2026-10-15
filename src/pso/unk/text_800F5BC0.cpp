@@ -11,7 +11,7 @@ void scroll_strip_uvs(Provider_800F5BC0 *arg0, s16 arg1, s16 arg2);
 extern "C" {
 
 s32 __dl__FPv(void *);
-s32 free__11TOBoss4RockFUi(s32);
+s32 mem_free(s32);
 
 void scroll_strip_uvs(Provider_800F5BC0 *arg0, s16 arg1, s16 arg2) {
     s32 i;
@@ -44,9 +44,9 @@ void scroll_strip_uvs(Provider_800F5BC0 *arg0, s16 arg1, s16 arg2) {
 
 void *destroy_buffer_pair(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0xC));
+        mem_free(*(s32 *)((s8 *)arg0 + 0xC));
         *(s32 *)((s8 *)arg0 + 0xC) = 0;
-        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 8));
+        mem_free(*(s32 *)((s8 *)arg0 + 8));
         *(s32 *)((s8 *)arg0 + 8) = 0;
         if (arg1 > 0) {
             __dl__FPv(arg0);

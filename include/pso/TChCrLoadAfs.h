@@ -20,6 +20,8 @@ public:
     s32 state_30;
     s32 timer;
 
+public:
+    void *create(void *arg1, void *arg2);
 };
 
 #include <stddef.h>

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdTrialAgreementGC.h"
 
 struct Base_80335648 { char pad[0x18]; };
 struct VObj_80335648 : Base_80335648 {
@@ -20,26 +21,24 @@ extern "C" {
 void TAdTrialAgreementGC__vt4(void* p);
 int TAdTrialAgreementGC__vt5(void* p);
 void TAdTrialAgreementGC__vt6(void);
-void render__19TAdTrialAgreementGCFv(void *arg0);
-void wait_for_load__19TAdTrialAgreementGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 int TKeyBoardControl__sub_8000F9CC(void*);
-int close_window__14TAdScrollWinGCFPv(void*);
+int close_window__14TAdScrollWinGCFv(void*);
 s32 render_tick__Fv();
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
-void render__19TAdTrialAgreementGCFv(void *arg0) {
-    struct VObj_80335648 *o = (struct VObj_80335648 *)arg0;
+void TAdTrialAgreementGC::render() {
+    struct VObj_80335648 *o = (struct VObj_80335648 *)this;
     o->m10();
 }
 
 void TAdTrialAgreementGC__vt6(void) { TKeyBoardControl__sub_8000F9CC((void*)0); }
 int TAdTrialAgreementGC__vt5(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
-void TAdTrialAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { close_window__14TAdScrollWinGCFPv(*(void**)((char*)p + 0x38)); *(int*)((char*)p + 0x38) = 0; } }
-void wait_for_load__19TAdTrialAgreementGCFv(void) {
+void TAdTrialAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { close_window__14TAdScrollWinGCFv(*(void**)((char*)p + 0x38)); *(int*)((char*)p + 0x38) = 0; } }
+void TAdTrialAgreementGC::wait_for_load() {
 loop_1:
-    if ((probe_card_slot__15TAdPlayerLoadGCFi(0) != 0) && (TAdPlayerLoadGC__sub_801E1B50(0) != 0)) {
+    if ((probe_card_slot__15TAdPlayerLoadGCFv(0) != 0) && (TAdPlayerLoadGC__sub_801E1B50(0) != 0)) {
         render_tick__Fv();
         goto loop_1;
     }

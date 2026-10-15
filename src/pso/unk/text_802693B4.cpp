@@ -8,12 +8,12 @@ struct Win_80269454 { u8 pad[0x5c]; u32 f5c; u8 pad2[0xc]; f32 f6c; u8 pad3[0xc]
 struct Win_802693B4 { u8 pad[0x6c]; f32 f6c; u8 pad2[0x84 - 0x70]; f32 f84; u8 pad3[4]; u32 count; };
 
 extern "C" {
-Entry_80269454 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-void *get_field_20__17TWindowSubComCardFPv(void *);
-void reset_float_field__15TWindowHelpItemFPv(void *);
+Entry_80269454 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+void *get_field_20__17TWindowSubComCardFv(void *);
+void reset_float_field__15TWindowHelpItemFv(void *);
 void complete_reveal__14TWindowMessageFPv(Win_80269454 *self);
-Entry_80269454 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-void *get_field_20__17TWindowSubComCardFPv(void *);
+Entry_80269454 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+void *get_field_20__17TWindowSubComCardFv(void *);
 s32 is_window_reveal_complete();
 s32 is_message_window_ready(struct Win_802693B4 *arg0);
 }
@@ -30,8 +30,8 @@ s32 is_message_window_ready(struct Win_802693B4 *arg0) {
         return 0;
     }
     for (i = 0; i < arg0->count; i++) {
-        e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
-        if (get_field_20__17TWindowSubComCardFPv(e) != 0 && !(e->flags & 0x10)) {
+        e = get_array_entry__20TWindowSubStatusDispFi(arg0, i);
+        if (get_field_20__17TWindowSubComCardFv(e) != 0 && !(e->flags & 0x10)) {
             return 0;
         }
     }
@@ -45,14 +45,14 @@ void complete_reveal__14TWindowMessageFPv(Win_80269454 *self) {
     self->f5c = 0x01000000;
     self->f6c = self->f84;
     for (i = 0; i < self->count; i++) {
-        e = get_array_entry__20TWindowSubStatusDispFPvi(self, i);
+        e = get_array_entry__20TWindowSubStatusDispFi(self, i);
         lines = self->lines;
-        if (get_field_20__17TWindowSubComCardFPv(e) != 0) {
+        if (get_field_20__17TWindowSubComCardFv(e) != 0) {
             if (lines[i].flags & 8) {
                 lines[i].flags &= ~8;
                 e->flags &= ~8;
             }
-            reset_float_field__15TWindowHelpItemFPv(e);
+            reset_float_field__15TWindowHelpItemFv(e);
         }
     }
 }

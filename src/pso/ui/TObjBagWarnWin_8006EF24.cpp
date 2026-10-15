@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjBagWarnWin.h"
 
 extern "C" {
 extern u8 *text_language_group_table;
@@ -7,11 +8,10 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
 
 extern "C" {
 
-void *create__14TObjBagWarnWinFPv(void *arg0);
 void *__ct__14TObjBagWarnWinFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *create__14TObjBagWarnWinFPv(void *arg0) {
+void *TObjBagWarnWin::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xA4);
     if (o != NULL) {
         o = __ct__14TObjBagWarnWinFv(o, arg0);

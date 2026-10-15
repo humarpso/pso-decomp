@@ -15,6 +15,17 @@ struct TObjEnemyCustom
     u32 m_380;
     u8 _pad384[0x4];
     u32 m_388;
+    static void update_camera_if_active();
+    void draw();
+    void update_knockback_state();
+    void update_state_machine();
+    void update();
+    int update_gigue();
+    void update_wander_state();
+    void update_state();
+    void dispatch_state();
+    static void init_globals();
+    static void reset_instance();
 };
 
 #endif

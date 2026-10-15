@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 
-void submit_card_password__17TWindowSubComCardFi(s32 arg0);
 s32 strncmp(void *, void *, s32);
 s32 TWindowSubComCard__sub_80225E80(void *, void *);
 s32 memset(void *, s32, s32);
 s32 strncpy(void *, s32, s32);
 
-void submit_card_password__17TWindowSubComCardFi(s32 arg0) {
+void TWindowSubComCard::submit_card_password(s32 arg0) {
     char sp1C[0x11];
     char sp8[0x11];
 

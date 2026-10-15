@@ -1,5 +1,9 @@
 #pragma defer_codegen on
 #include "types.h"
+#include "pso/misc/TNpcPlayer.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdMultiConfirmGC.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 struct Obj_802E0CB0 {
     u8 pad0[0x38]; f32 x, y, z; u8 pad44[0x5C - 0x44]; s32 rx, ry, rz;
@@ -44,9 +48,6 @@ extern "C" {
 
 void TAdMultiConfirmGC__sub_802E03D0(void* p);
 void TAdMultiConfirmGC__sub_802E0448(void* p);
-int reset_cursor__17TAdMultiConfirmGCFPv(void* p);
-int set_cursor_index_1__17TAdMultiConfirmGCFPv(void* p);
-int set_cursor_index_2__17TAdMultiConfirmGCFPv(void* p);
 
 typedef struct Stack_802E0468 Stack_802E0468;
 
@@ -60,26 +61,21 @@ s32 push_matrix_from();
 s32 push_matrix();
 s32 pop_matrix();
 s32 clear_flag_bit0__12TCharaMakingFv();
-void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1);
 s32 enable_making__12TCharaMakingFv();
-s32 get_chara_making_data__14TAdPlyStatusGCFPv(int);
-u32 get_field_498__14TAdPlyStatusGCFPv(int);
-u32 get_field_49c__14TAdPlyStatusGCFPv(int);
-s32 get_field_4a0__14TAdPlyStatusGCFPv(int);
-s32 get_field_4a4__14TAdPlyStatusGCFPv(int);
-s32 get_item_ptr__10TObjPlayerFPvi(void *, int);
-s32 get_status_data__14TAdPlyStatusGCFPv(int);
-s32 get_status_sub__14TAdPlyStatusGCFPv(int);
-s32 set_global_param__8TObjFishFi();
-void update_chara_making__10TObjPlayerFPv(u8 *arg0);
-void update_chara_making__10TObjPlayerFPv(u8 *arg0);
-void update_chara_making_if_state3__10TObjPlayerFPv(void* p);
+s32 get_chara_making_data__14TAdPlyStatusGCFv(int);
+u32 get_field_498__14TAdPlyStatusGCFv(int);
+u32 get_field_49c__14TAdPlyStatusGCFv(int);
+s32 get_field_4a0__14TAdPlyStatusGCFv(int);
+s32 get_field_4a4__14TAdPlyStatusGCFv(int);
+s32 get_item_ptr__10TObjPlayerFl(void *, int);
+s32 get_status_data__14TAdPlyStatusGCFv(int);
+s32 get_status_sub__14TAdPlyStatusGCFv(int);
+s32 set_global_param__8TObjFishFl();
 }
 
 extern "C" {
 
-void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1);
-int draw_model_with_callback__10TObjPlayerFPv(void*);
+int draw_model_with_callback__10TObjPlayerFv(void*);
 int set_motion_interpolation_flag(void*);
 
 }
@@ -96,8 +92,8 @@ struct RecoveredGlobal_802E0784_lbl_804E2F78 {
 };
 
 extern "C" {
-s32 set_field_dc__10TObjPlayerFPvi(void *, int);
-s32 set_field_d8__10TObjPlayerFPvi(void *, void *);
+s32 set_field_dc__10TObjPlayerFl(void *, int);
+s32 set_field_d8__10TObjPlayerFl(void *, void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 extern RecoveredGlobal_802E0784_lbl_804E2F78 lbl_804E2F78;
 extern u8 *TAdMultiPlyChrSelectGC__resource_bundle;
@@ -111,7 +107,7 @@ typedef char RecoveredGlobal_802E0784_lbl_804E2F78_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 s32 copy_player_visual_record(void *, void *);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 advance_animation_playback(void *);
 u8 *get_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
@@ -119,7 +115,6 @@ u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 void *init_appearance_load_request__10TNpcPlayerFPvPvii(void *, void *, void *, int);
 s32 is_unloaded__12TChCrLoadAfsFPv(void *);
 void set_load_state__14TAdPlyStatusGCFPvi(void *, int);
-void update_model_load__10TNpcPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -140,7 +135,7 @@ struct RecoveredGlobal_802E0B60_lbl_804E3008 {
 
 extern "C" {
 s32 __dt__10TObjMotionFv(void *, int);
-s32 free__11TOBoss4RockFUi(int);
+s32 mem_free(int);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802E0B60_lbl_804E2F68 multi_chr_select_player_slot_table;
 extern RecoveredGlobal_802E0B60_lbl_804E3008 multi_chr_select_player_actor_ops;
@@ -155,13 +150,11 @@ typedef char RecoveredGlobal_802E0B60_lbl_804E3008_size[sizeof(RecoveredGlobal_8
 }
 
 extern "C" {
-s32 close_window__14TAdPlyStatusGCFPvi(u32, s32);
-void set_index_and_close_status__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
+s32 close_window__14TAdPlyStatusGCFl(u32, s32);
 }
 
 extern "C" {
 
-void set_status_value__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
 s32 set_status_index__14TAdPlyStatusGCFii(void *, s32);
 
 }
@@ -286,21 +279,21 @@ void fn_802E0CB0(Obj_802E0CB0 *o) {
 }
 #pragma pop
 
-void set_index_and_close_status__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
-    *(s32 *)((s8 *)arg0 + 0x104) = arg1;
-    ((s32 (*)(void *, s32))fn_802E0CB0)(arg0, *(s32 *)((s8 *)arg0 + 0x104));
+void TAdMultiPlyChrSelectGC::set_index_and_close_status(s32 arg1) {
+    *(s32 *)((s8 *)this + 0x104) = arg1;
+    ((s32 (*)(void *, s32))fn_802E0CB0)(this, *(s32 *)((s8 *)this + 0x104));
     u32 temp_r3 = ((u32)get_index__14TAdPlyStatusGCFv());
     if (temp_r3 != 0U) {
-        close_window__14TAdPlyStatusGCFPvi(temp_r3, arg1);
+        close_window__14TAdPlyStatusGCFl(temp_r3, arg1);
     }
 }
 
-void set_status_value__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
+void TAdMultiPlyChrSelectGC::set_status_value(s32 arg1) {
     void *temp_r3;
-    *(s32 *)((s8 *)arg0 + 0x110) = arg1;
+    *(s32 *)((s8 *)this + 0x110) = arg1;
     temp_r3 = get_index__14TAdPlyStatusGCFv();
     if (temp_r3 != 0U) {
-        set_status_index__14TAdPlyStatusGCFii(temp_r3, *(s32 *)((s8 *)arg0 + 0x110));
+        set_status_index__14TAdPlyStatusGCFii(temp_r3, *(s32 *)((s8 *)this + 0x110));
     }
 }
 
@@ -317,7 +310,7 @@ u8 *fn_802E0B60(u8 *arg0, s16 arg1) {
         }
         temp_r3 = *(u32 *)((s8 *)arg0 + 0xE0);
         if (temp_r3 != 0U) {
-            free__11TOBoss4RockFUi((int) (temp_r3));
+            mem_free((int) (temp_r3));
             *(u32 *)((s8 *)arg0 + 0xE0) = 0U;
         }
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x170);
@@ -337,7 +330,8 @@ u8 *fn_802E0B60(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
+void TNpcPlayer::update_model_load() {
+    u8 *arg0 = (u8 *)this;
     void *p;
     void *idx;
     s32 t;
@@ -365,7 +359,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
         switch (F(0x104, s32)) {
         case 0:
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
-            p = alloc__23TAdSinglePlyChrSelectGCFPv(0x4AC);
+            p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
                 p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, 0);
             }
@@ -374,7 +368,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
             break;
         case 1:
             copy_player_visual_record(arg0 + 0x120, get_entry__23TAdSinglePlyChrSelectGCFi(F(0x110, s32)) + 0x370);
-            p = alloc__23TAdSinglePlyChrSelectGCFPv(0x4AC);
+            p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
                 p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, 0);
             }
@@ -383,7 +377,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
             break;
         case 2:
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
-            p = alloc__23TAdSinglePlyChrSelectGCFPv(0x4AC);
+            p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
                 p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, 0);
             }
@@ -394,7 +388,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
         case 4:
         case 5:
             copy_player_visual_record(arg0 + 0x120, get_char_table_entry__23TAdSinglePlyChrSelectGCFi(F(0x10C, s32)) + 0x370);
-            p = alloc__23TAdSinglePlyChrSelectGCFPv(0x4AC);
+            p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
                 p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, F(0x10C, s32));
             }
@@ -432,12 +426,12 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
             F(0x118, s32) = F(0x118, s32) + 1;
             t = F(0x118, s32);
             if (t == 0x384 || t == 0x708) {
-                set_cursor_index_1__17TAdMultiConfirmGCFPv(arg0);
+                TAdMultiConfirmGC::set_cursor_index_1(arg0);
             } else if (t == 0x546) {
-                set_cursor_index_2__17TAdMultiConfirmGCFPv(arg0);
+                TAdMultiConfirmGC::set_cursor_index_2(arg0);
             }
             if (F(0x118, s32) == 0x8CA) {
-                reset_cursor__17TAdMultiConfirmGCFPv(arg0);
+                TAdMultiConfirmGC::reset_cursor(arg0);
                 F(0x118, s32) = 0;
             }
             advance_animation_playback(arg0);
@@ -452,8 +446,8 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
 }
 
 void fn_802E0784(u8 *arg0) {
-    set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (&lbl_804E2F78.value));
-    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (*(s32 *)((s8 *)TAdMultiPlyChrSelectGC__resource_bundle + 0x430)));
+    set_field_d8__10TObjPlayerFl((void *) (arg0), (void *) (&lbl_804E2F78.value));
+    set_field_dc__10TObjPlayerFl((void *) (arg0), (int) (*(s32 *)((s8 *)TAdMultiPlyChrSelectGC__resource_bundle + 0x430)));
     set_cursor_index__17TAdMultiConfirmGCFPvi((void *) (arg0), (int) (0));
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
 }
@@ -474,47 +468,48 @@ void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1) {
     }
 }
 
-void update_chara_making_if_state3__10TObjPlayerFPv(void* p) { if (*(int*)((char*)p + 0xfc) == 3) { update_chara_making__10TObjPlayerFPv((u8 *)(p)); } }
+void TObjPlayer::update_chara_making_if_state3() { if (*(int*)((char*)this + 0xfc) == 3) { update_chara_making(); } }
 
-void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::update_chara_making() {
+    u8 *arg0 = (u8 *)this;
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    get_status_sub__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
-    set_global_param__8TObjFishFi();
-    draw_model_with_arg__10TObjPlayerFPvPv((void*)((void *) (arg0)), (void*)((int) (get_field_4a4__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170))))));
-    get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3A));
+    get_status_sub__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
+    set_global_param__8TObjFishFl();
+    draw_model_with_arg((void*)((int) (get_field_4a4__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170))))));
+    get_item_ptr__10TObjPlayerFl((void *) (arg0), (int) (0x3A));
     push_matrix_from();
-    get_status_data__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
-    set_global_param__8TObjFishFi();
-    get_field_4a0__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
+    get_status_data__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
+    set_global_param__8TObjFishFl();
+    get_field_4a0__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
     ((s32 (*)())play_phase_transition_sound__10TObjPlayerFi)();
     pop_matrix();
-    if (get_field_49c__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170))) != 0U) {
-        get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3B));
+    if (get_field_49c__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170))) != 0U) {
+        get_item_ptr__10TObjPlayerFl((void *) (arg0), (int) (0x3B));
         push_matrix_from();
-        get_chara_making_data__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
-        set_global_param__8TObjFishFi();
+        get_chara_making_data__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
+        set_global_param__8TObjFishFl();
         enable_making__12TCharaMakingFv();
-        get_field_49c__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
+        get_field_49c__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
         ((s32 (*)())play_phase_transition_sound__10TObjPlayerFi)();
         clear_flag_bit0__12TCharaMakingFv();
         pop_matrix();
     }
-    if (get_field_498__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170))) != 0U) {
-        get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3B));
+    if (get_field_498__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170))) != 0U) {
+        get_item_ptr__10TObjPlayerFl((void *) (arg0), (int) (0x3B));
         push_matrix_from();
-        get_chara_making_data__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
-        set_global_param__8TObjFishFi();
+        get_chara_making_data__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170)));
+        set_global_param__8TObjFishFl();
         enable_making__12TCharaMakingFv();
-        TObjPlayer__sub_802E0580((void *)((void *) (arg0)), (int)((int) (get_field_498__14TAdPlyStatusGCFPv((int) (*(s32 *)((s8 *)arg0 + 0x170))))), (void *)((void *) (arg0 + 0x120)));
+        TObjPlayer__sub_802E0580((void *)((void *) (arg0)), (int)((int) (get_field_498__14TAdPlyStatusGCFv((int) (*(s32 *)((s8 *)arg0 + 0x170))))), (void *)((void *) (arg0 + 0x120)));
         clear_flag_bit0__12TCharaMakingFv();
         pop_matrix();
     }
     pop_matrix();
 }
 
-void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1) { *(void**)((char*)p + 0x34) = a1; set_motion_interpolation_flag(p); draw_model_with_callback__10TObjPlayerFPv(p); }
+void TObjPlayer::draw_model_with_arg(void* a1) { *(void**)((char*)this + 0x34) = a1; set_motion_interpolation_flag(this); draw_model_with_callback__10TObjPlayerFv(this); }
 
 void TObjPlayer__sub_802E0580(void * _w0, int _w1, void * _w2) {
     ((s32 (*)(f32))TObjPlayer__sub_802E0468)(lbl_805DE8A8);
@@ -549,11 +544,11 @@ bool fn_802E0454(u8 *arg0) {
 
 void TAdMultiConfirmGC__sub_802E0448(void* p) { *(s32*)((char*)p + 0x11c) = 1; }
 
-int reset_cursor__17TAdMultiConfirmGCFPv(void* p) { return ((int (*)(void *, int))set_cursor_index__17TAdMultiConfirmGCFPvi)(p, 0); }
+int TAdMultiConfirmGC::reset_cursor(void* p) { return ((int (*)(void *, int))set_cursor_index__17TAdMultiConfirmGCFPvi)(p, 0); }
 
-int set_cursor_index_1__17TAdMultiConfirmGCFPv(void* p) { return ((int (*)(void *, int))set_cursor_index__17TAdMultiConfirmGCFPvi)(p, 1); }
+int TAdMultiConfirmGC::set_cursor_index_1(void* p) { return ((int (*)(void *, int))set_cursor_index__17TAdMultiConfirmGCFPvi)(p, 1); }
 
-int set_cursor_index_2__17TAdMultiConfirmGCFPv(void* p) { return ((int (*)(void *, int))set_cursor_index__17TAdMultiConfirmGCFPvi)(p, 2); }
+int TAdMultiConfirmGC::set_cursor_index_2(void* p) { return ((int (*)(void *, int))set_cursor_index__17TAdMultiConfirmGCFPvi)(p, 2); }
 
 void TAdMultiConfirmGC__sub_802E03D0(void* p) { *(s32*)((char*)p + 0x118) = 0; }
 

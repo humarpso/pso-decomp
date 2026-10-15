@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 extern "C" {
 void xfree__FPv(void *);
@@ -6,13 +7,11 @@ s32 TObjPlayer__sub_80084694();
 extern u8 *boss2_tunnel_snapshot_buffer;
 extern u8 *TObjBoss2Tunnel__snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
-void free_buffers__15TObjBoss2TunnelFv(void);
 }
 
 extern "C" {
 
-s32 save_snapshot__15TObjBoss2TunnelFv(void);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 s32 verify_snapshot_checksum__15TObjBoss2TunnelFv();
 s32 load_snapshot__15TObjBoss2TunnelFv();
 
@@ -20,7 +19,7 @@ s32 save_screen_snapshot();
 s32 memcard_check_snapshot(s32, s32 *);
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 
-s32 save_snapshot__15TObjBoss2TunnelFv(void) {
+s32 TObjBoss2Tunnel::save_snapshot() {
     s32 sp8;
 
     memcard_check_snapshot(1, &sp8);
@@ -30,7 +29,7 @@ s32 save_snapshot__15TObjBoss2TunnelFv(void) {
         }
         save_screen_snapshot();
 loop_4:
-        if (probe_card_slot__15TAdPlayerLoadGCFi(1) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFv(1) == 0) {
             TObjBoss2Tunnel__snapshot_saved_flag = 0;
             return -5;
         }
@@ -47,7 +46,7 @@ block_9:
     TObjBoss2Tunnel__snapshot_saved_flag = 0;
     return sp8;
 }
-void free_buffers__15TObjBoss2TunnelFv(void) {
+void TObjBoss2Tunnel::free_buffers() {
     TObjBoss2Tunnel__snapshot_saved_flag = 0;
     if ((void *) boss2_tunnel_snapshot_buffer != NULL) {
         xfree__FPv(boss2_tunnel_snapshot_buffer);

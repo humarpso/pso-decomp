@@ -16,6 +16,25 @@ struct TWindowSubItem
     u32 m_38;
     u32 m_3c;
     u32 m_40;
+    void set_displayed_item(s32 arg1);
+    void use_selected_item();
+    void close_windows(s32 arg1);
+    void exec_item_command(s32 arg1, s32 arg2);
+    void set_cursor_row_for_mode(s32 arg1);
+    static void draw_slot(s32 arg1, s32 arg2, s32 arg3);
+    static void add_meseta_purpose_actions(s32 arg0, s32 arg1);
+    s32 create_count_input(s32 arg1);
+    s32 create_menu_window();
+    static void render();
+    void run_task();
+    void set_flag60_bit10();
+    void clear_flag_and_release();
+    void reset_selected();
+    void set_field_74(s16 v);
+    s32 get_selected_entry();
+    void refresh();
+    void clear_selected_and_update_entry();
+    s32 get_cursor_pos();
 };
 
 #endif

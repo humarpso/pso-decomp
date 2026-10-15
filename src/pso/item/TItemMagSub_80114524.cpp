@@ -1,10 +1,10 @@
 #include "types.h"
 
 extern "C" {
-s32 get_percent__9TItemDataFPv(void *);
-s32 get_stat_percent__9TItemDataFPv(void *);
-s32 get_mag_mind_level__9TItemDataFPv(void *);
-s32 get_level__9TItemDataFPv(void *);
+s32 get_percent__9TItemDataFv(void *);
+s32 get_stat_percent__9TItemDataFv(void *);
+s32 get_mag_mind_level__9TItemDataFv(void *);
+s32 get_level__9TItemDataFv(void *);
 s16 get_mag_total_level(void *mag);
 }
 
@@ -27,7 +27,7 @@ void initialize_mag_item_data(void *arg0) {
 }
 
 s16 get_mag_total_level(void *mag) {
-    return get_stat_percent__9TItemDataFPv(mag) + get_percent__9TItemDataFPv(mag) + get_mag_mind_level__9TItemDataFPv(mag) + get_level__9TItemDataFPv(mag);
+    return get_stat_percent__9TItemDataFv(mag) + get_percent__9TItemDataFv(mag) + get_mag_mind_level__9TItemDataFv(mag) + get_level__9TItemDataFv(mag);
 }
 
 void update_mag_node_oscillation_state(void *arg0) {

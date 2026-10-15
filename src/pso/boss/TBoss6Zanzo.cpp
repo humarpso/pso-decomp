@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type1.h"
+#include "pso/boss/TBoss6Zanzo.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -30,19 +32,18 @@ void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void copy_trail_buffer__11TBoss6ZanzoFPvPvPv(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
-void set_effect_points__11TBoss6Type1FPvPvPv(Ef_803204B8 *o, f32 *a, u32 *b);
+void copy4__18TAdChrMoveEffectGCFPv(void *, void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__FPv(void *);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__11TBoss6Zanzo[];
 Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1);
 s32 check_demo_mode__10TObjPlayerFv();
 void copy_trail_buffer__11TBoss6ZanzoFPvPvPv(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-u8 *alloc_buffer__11TOBoss4RockFPv(s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+u8 *mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__11TBoss6Zanzo[];
 extern s32 TBoss6Zanzo__name;
@@ -52,14 +53,14 @@ Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3
 extern "C" {
 
 s32 fn_803204B0(void* p);
-void render__11TBoss6ZanzoFv(void* p);
 int TBoss6Zanzo__sub_803205C4(void*);
 int restore_saved_depth_alpha_state(void);
 int set_depth_buffer_settings_1__Fv(void*);
 
 s32 fn_803204B0(void* p) { return *(s32*)((char*)p + 0x4); }
 
-void set_effect_points__11TBoss6Type1FPvPvPv(Ef_803204B8 *o, f32 *a, u32 *b) {
+void TBoss6Type1::set_effect_points(f32 *a, u32 *b) {
+    Ef_803204B8 *o = (Ef_803204B8 *)this;
     Ent_803204B8 *p;
     Ent_803204B8 *end;
     f32 *a2 = a;
@@ -69,7 +70,7 @@ void set_effect_points__11TBoss6Type1FPvPvPv(Ef_803204B8 *o, f32 *a, u32 *b) {
     end = p + o->count;
     for (; p < end; p++, a2 += 3, b2++) {
         VecCopy__FP3VecPC3Vec(&p->v, a2);
-        copy4__18TAdChrMoveEffectGCFPvPv(p, b2);
+        copy4__18TAdChrMoveEffectGCFPv(p, b2);
     }
 }
 
@@ -93,7 +94,7 @@ void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1) {
     *(ByteBlock_C *)((s32) arg0 + 4) = *(const ByteBlock_C *)((s32) arg1 + 4);
 }
 
-void render__11TBoss6ZanzoFv(void* p) { set_depth_buffer_settings_1__Fv(p); TBoss6Zanzo__sub_803205C4(p); restore_saved_depth_alpha_state(); }
+void TBoss6Zanzo::render() { set_depth_buffer_settings_1__Fv(this); TBoss6Zanzo__sub_803205C4(this); restore_saved_depth_alpha_state(); }
 
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0) {
     Src_80320534 *base;
@@ -113,12 +114,12 @@ Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1) {
     Src_80320950 *end;
     if (arg0 != 0) {
         arg0->vt = __vt__11TBoss6Zanzo;
-        free__11TOBoss4RockFUi(arg0->last->p);
+        mem_free(arg0->last->p);
         __dl__FPv(arg0->last);
         for (p = arg0->arr, end = p + arg0->n; p < end; p++) {
-            free__11TOBoss4RockFUi(p->p);
+            mem_free(p->p);
         }
-        free__11TOBoss4RockFUi(arg0->arr);
+        mem_free(arg0->arr);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -140,14 +141,14 @@ Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3
     if (arg0->m < 2) {
         arg0->m = 2;
     }
-    arg0->arr = (Src_803209F0 *)alloc_buffer__11TOBoss4RockFPv(arg0->m * 8);
+    arg0->arr = (Src_803209F0 *)mem_alloc(arg0->m * 8);
     for (p = arg0->arr, end = p + arg0->m; p < end; p++) {
         p->a = 0;
-        p->p = alloc_buffer__11TOBoss4RockFPv(arg0->n * 0x10);
+        p->p = mem_alloc(arg0->n * 0x10);
     }
-    arg0->last = (Src_803209F0 *)alloc__23TAdSinglePlyChrSelectGCFPv(8);
+    arg0->last = (Src_803209F0 *)alloc__23TAdSinglePlyChrSelectGCFv(8);
     arg0->last->a = 0;
-    arg0->last->p = alloc_buffer__11TOBoss4RockFPv(arg0->n * 0x10);
+    arg0->last->p = mem_alloc(arg0->n * 0x10);
     return arg0;
 }
 

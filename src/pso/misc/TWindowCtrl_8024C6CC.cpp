@@ -16,11 +16,7 @@ void TWindowCtrl__sub_8024C74C(void* p);
 void TWindowCtrl__sub_8024C75C(void* p);
 int TWindowCtrl__sub_8024C7D4(void* p);
 int TWindowCtrl__sub_8024C7E0(void* p);
-int is_enabled__11TWindowCtrlFPv(void* p);
 int TWindowCtrl__sub_8024C7F8(void* p);
-int is_visible__11TWindowCtrlFPv(void* p);
-s16 get_field_20__11TWindowCtrlFPv(void* p);
-s16 get_width__11TWindowCtrlFPv(void* p);
 
 void TWindowCtrl__sub_8024C6CC(void* p) { *(u16*)((char*)p + 0x1c) |= 0x40; }
 void TWindowCtrl__sub_8024C6DC(void* p) { *(u16*)((char*)p + 0x1c) &= 0xffffffbf; }
@@ -65,11 +61,7 @@ void TWindowCtrl__sub_8024C74C(void* p);
 void TWindowCtrl__sub_8024C75C(void* p);
 int TWindowCtrl__sub_8024C7D4(void* p);
 int TWindowCtrl__sub_8024C7E0(void* p);
-int is_enabled__11TWindowCtrlFPv(void* p);
 int TWindowCtrl__sub_8024C7F8(void* p);
-int is_visible__11TWindowCtrlFPv(void* p);
-s16 get_field_20__11TWindowCtrlFPv(void* p);
-s16 get_width__11TWindowCtrlFPv(void* p);
 
 bool TWindowCtrl__sub_8024C7C4(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x3C) != 0;
@@ -78,6 +70,7 @@ bool TWindowCtrl__sub_8024C7C4(u8 *arg0) {
 }
 
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
@@ -95,18 +88,14 @@ void TWindowCtrl__sub_8024C74C(void* p);
 void TWindowCtrl__sub_8024C75C(void* p);
 int TWindowCtrl__sub_8024C7D4(void* p);
 int TWindowCtrl__sub_8024C7E0(void* p);
-int is_enabled__11TWindowCtrlFPv(void* p);
 int TWindowCtrl__sub_8024C7F8(void* p);
-int is_visible__11TWindowCtrlFPv(void* p);
-s16 get_field_20__11TWindowCtrlFPv(void* p);
-s16 get_width__11TWindowCtrlFPv(void* p);
 
 int TWindowCtrl__sub_8024C7D4(void* p) { return (*(u16*)((char*)p + 0x1c) >> 1) & 0x1; }
 int TWindowCtrl__sub_8024C7E0(void* p) { return (*(u16*)((char*)p + 0x1c) >> 2) & 0x1; }
-int is_enabled__11TWindowCtrlFPv(void* p) { return (*(u16*)((char*)p + 0x1c) >> 3) & 0x1; }
+int TWindowCtrl::is_enabled() { return (*(u16*)((char*)this + 0x1c) >> 3) & 0x1; }
 int TWindowCtrl__sub_8024C7F8(void* p) { return (*(u16*)((char*)p + 0x1c) >> 4) & 0x1; }
-int is_visible__11TWindowCtrlFPv(void* p) { return *(u16*)((char*)p + 0x1c) & 0x1; }
-s16 get_field_20__11TWindowCtrlFPv(void* p) { return *(s16*)((char*)p + 0x20); }
-s16 get_width__11TWindowCtrlFPv(void* p) { return *(s16*)((char*)p + 0x20); }
+int TWindowCtrl::is_visible() { return *(u16*)((char*)this + 0x1c) & 0x1; }
+s16 TWindowCtrl::get_field_20() { return *(s16*)((char*)this + 0x20); }
+s16 TWindowCtrl::get_width() { return *(s16*)((char*)this + 0x20); }
 
 }

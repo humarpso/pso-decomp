@@ -7,7 +7,7 @@ void TLobby__sub_8001FE7C(void *, int);
 extern u32 labo_design_object_table[];
 void free_object_table(void);
 void *load_resource_from_descriptor(void *, s32, s32, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern Ent_803653A4 lbl_804F2C08[];
 extern u32 labo_design_object_table[];
 void fn_803653A4(void);
@@ -34,7 +34,7 @@ void fn_803653A4(void) {
     e = lbl_804F2C08;
     if (e != NULL) {
         while (e->id != -1) {
-            p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+            p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
             if (p != NULL) {
                 p = load_resource_from_descriptor(p, 5, e->arg, 0, 0, 0);
             }

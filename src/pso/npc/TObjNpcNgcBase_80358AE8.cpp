@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcNgcBase.h"
 struct RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8
 {
   u32 value;
@@ -163,13 +164,11 @@ extern s32 tl_04;
 s32 TObjNpcNgcBase__sub_80359148(s32 arg0);
 s32 TLobby__sub_8001FE7C(void *, s32);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
-void free_shared_resources__14TObjNpcNgcBaseFv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern Rec_803592B8 npc_delta_w_body_model_names[];
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
-void load_resources__14TObjNpcNgcBaseFv(void);
 }
 
 extern "C" {
@@ -540,7 +539,7 @@ s32 TObjNpcNgcBase__create(s32 arg0) {
   }
   return 0;
 }
-void free_shared_resources__14TObjNpcNgcBaseFv(void) {
+void TObjNpcNgcBase::free_shared_resources() {
     s32 i;
     for (i = 0xd; i >= 0; i--) {
         if (((void * *)&TObjNpcNgcBase__data_805439A8)[i] != 0) {
@@ -549,7 +548,7 @@ void free_shared_resources__14TObjNpcNgcBaseFv(void) {
         }
     }
 }
-void load_resources__14TObjNpcNgcBaseFv(void) {
+void TObjNpcNgcBase::load_resources() {
     Rec_803592B8 *p;
     s32 i;
     void *obj;
@@ -573,7 +572,7 @@ void load_resources__14TObjNpcNgcBaseFv(void) {
     }
     if (p != NULL) {
         while (p->idx != -1) {
-            obj = (void *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+            obj = (void *)alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
             if (obj != NULL) {
                 obj = load_resource_from_descriptor(obj, 1, p->data, 0, 0, 0);
             }

@@ -31,6 +31,19 @@ struct TObjEneDellBiter
     u32 m_484;
     u8 _pad488[0x34];
     u32 m_4bc;
+    static void step_demo_script();
+    void update_state(s32 arg1);
+    s32 check_low_hp_transition();
+    void spawn_front_particle();
+    void update_attack_effect();
+    void init_target_offsets();
+    void update_particle_emitters();
+    void set_effect_pos_above_self();
+    void init_params();
+    static void set_min_clamped_entry_value(s32 arg0, f32 farg0);
+    static void destroy_static_instance();
+    static void load_resources();
+    void *init_instance(void *arg1, void *arg2, void *arg3, void *arg4);
 };
 
 #endif

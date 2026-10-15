@@ -34,11 +34,11 @@ void clear_segment_flags__17TBoss8DragonColliFPv(O_802F310C *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void clear_segment_flags__17TBoss8DragonColliFPv(O_802F310C *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
-E_802F31E4 *alloc_buffer__11TOBoss4RockFPv(s32);
+E_802F31E4 *mem_alloc(s32);
 s32 register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
-s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
-s16 alloc_actor_ids__6TLobbyFi(int);
+s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s16 alloc_actor_ids__6TLobbyFl(int);
 extern u8 boss8_collision_segment_desc[];
 extern s32 lbl_804E4BB4[];
 extern s32 lbl_805D4000;
@@ -102,7 +102,7 @@ int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 int pop_matrix(void);
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void destroy_particle_controller__10TObjPlayerFs(void *, int);
 
 u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_802F2F68, sp8) == 0x0) ? 1 : -1];
@@ -169,7 +169,7 @@ void *destroy__17TBoss8DragonColliFPvs(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E4BB4;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -183,13 +183,13 @@ s32 init_collision_segments__17TBoss8DragonColliFiPviPvf(int arg0, void *arg1, i
     f32 zero;
     f32 step;
     f32 z;
-    construct_collider_proxy__10TObjPlayerFPv(self, arg1);
+    construct_collider_proxy__10TObjPlayerFv(self, arg1);
     self->vt = ((u8 *)&lbl_804E4BB4);
     self->f0 = lbl_805D4000;
     VecCopy__FP3VecPC3Vec(self->pos, arg3);
-    self->f1c = alloc_actor_ids__6TLobbyFi(0);
+    self->f1c = alloc_actor_ids__6TLobbyFl(0);
     self->count = arg2;
-    self->elems = alloc_buffer__11TOBoss4RockFPv(self->count * 0x2C);
+    self->elems = mem_alloc(self->count * 0x2C);
     step = lbl_805DED38 * scale;
     e = self->elems;
     zero = lbl_805DED20;
@@ -217,7 +217,7 @@ void render__7TObjectFv();
 void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
-void release_member_90__10TObjPlayerFPv();
+void release_member_90__10TObjPlayerFv();
 void TParticleCtrl__sub_801A2124();
 void update_object_view_visibility();
 void classify_actor_view_detail();
@@ -244,7 +244,7 @@ s32 lbl_804E4BB4[] = {
     (s32)render_shadows__7TObjectFv,
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,
-    (s32)release_member_90__10TObjPlayerFPv,
+    (s32)release_member_90__10TObjPlayerFv,
     (s32)TParticleCtrl__sub_801A2124,
     (s32)update_object_view_visibility,
     (s32)classify_actor_view_detail,

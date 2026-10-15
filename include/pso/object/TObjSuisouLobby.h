@@ -17,6 +17,10 @@ struct TObjSuisouLobby
     u8 _padCC[0x8];
     u32 m_d4;
     u32 m_d8;
+    void update_particle();
+    void *create();
+    static void destroy_instance();
+    static void load_resources();
 };
 
 #endif

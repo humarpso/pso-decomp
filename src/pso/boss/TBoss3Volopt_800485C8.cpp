@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 struct RecoveredGlobal_8004885C_lbl_80484888 {
     s32 value;
@@ -16,9 +17,8 @@ void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D4D14;
 extern const f32 lbl_805D8850;
 extern const f32 lbl_805D8854;
-void fade_out_and_finish__12TBoss3VoloptFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+void copy_xyz__10TObjPlayerFPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_80484888[];
 extern u8 *tl_07;
@@ -40,8 +40,6 @@ extern "C" {
 
 void TBoss3Volopt__sub_800485C8(void);
 void *TBoss3Volopt__sub_80048804(void *arg0, s16 arg1);
-void *ct__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2);
-void *dt__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -50,26 +48,26 @@ void TBoss3Volopt__sub_800485C8(void) {  }
 
 extern s32 lbl_80484870[];
 
-void *dt__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484870;
-        __dt__7TObjectFv(arg0, 0);
+void *TBoss3Volopt::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_80484870;
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern void *tl_05;
 extern s32 lbl_80484870[];
 
-void *ct__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0, tl_05);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484870;
-    *(void **)((s8 *)arg0 + 0x1C) = arg1;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
-    return arg0;
+void *TBoss3Volopt::ct(void *arg1, void *arg2) {
+    __ct__7TObjectFP7TObject(this, tl_05);
+    *(s32 **)((s8 *)this + 0x18) = lbl_80484870;
+    *(void **)((s8 *)this + 0x1C) = arg1;
+    *(void **)((s8 *)this + 0x20) = arg2;
+    return this;
 }
 
 extern s32 lbl_80484888[];
@@ -116,7 +114,7 @@ u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4,
     *(s32 *)((s8 *)arg0 + 0x20) = arg3;
     *(f32 *)((s8 *)arg0 + 0x24) = farg0;
     if (arg4 != NULL) {
-        copy_xyz__10TObjPlayerFPvPv(arg0 + 0x38, arg4);
+        copy_xyz__10TObjPlayerFPv(arg0 + 0x38, arg4);
     } else {
         *(s32 *)((s8 *)arg0 + 0x38) = 0;
         *(s32 *)((s8 *)arg0 + 0x3C) = 0;
@@ -127,7 +125,8 @@ u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4,
     return arg0;
 }
 
-void fade_out_and_finish__12TBoss3VoloptFPv(u8 *arg0) {
+void TBoss3Volopt::fade_out_and_finish() {
+    u8 *arg0 = (u8 *)this;
   s32 (*temp_r12)();
   const f32 *new_var;
   if (!arg0)
@@ -158,17 +157,12 @@ extern "C" {
 extern u32 TBoss3Volopt__fade_active_flag;
 extern const f32 lbl_805D8850;
 extern const f32 lbl_805D8858;
-void update_fade_out__12TBoss3VoloptFPv(u8 *arg0);
 }
 
 extern "C" {
 
 void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1);
 void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1);
-void *destroy_task_object__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
-void *init_fade__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2);
-void *init_fade_color__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2);
-void *init_object__12TBoss3VoloptFPvPv(void *arg0, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -177,7 +171,7 @@ extern s32 lbl_804848A0[];
 void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848A0;
-        destroy_task_object__12TBoss3VoloptFPvs((void *)(arg0), (s16)(0));
+        ((TBoss3Volopt *)arg0)->destroy_task_object((s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -187,38 +181,39 @@ void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1) {
 
 extern s32 lbl_804999E8[];
 
-void *destroy_task_object__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999E8;
-        __dt__7TObjectFv(arg0, 0);
+void *TBoss3Volopt::destroy_task_object(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804999E8;
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern void *tl_fade;
 extern const f32 lbl_805D8858;
 extern s32 lbl_804848A0[];
 
-void *init_fade_color__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    init_object__12TBoss3VoloptFPvPv((void *)(arg0), (void *)(tl_fade));
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848A0;
-    *(void **)((s8 *)arg0 + 0x24) = arg2;
-    *(f32 *)((s8 *)arg0 + 0x1C) = lbl_805D8858;
-    *(u8 *)((s8 *)arg0 + 0x20) = 255;
-    *(u8 *)((s8 *)arg0 + 0x21) = 255;
-    *(u8 *)((s8 *)arg0 + 0x22) = 255;
+void *TBoss3Volopt::init_fade_color(void *arg1, void *arg2) {
+    init_object((void *)(tl_fade));
+    *(s32 **)((s8 *)this + 0x18) = lbl_804848A0;
+    *(void **)((s8 *)this + 0x24) = arg2;
+    *(f32 *)((s8 *)this + 0x1C) = lbl_805D8858;
+    *(u8 *)((s8 *)this + 0x20) = 255;
+    *(u8 *)((s8 *)this + 0x21) = 255;
+    *(u8 *)((s8 *)this + 0x22) = 255;
     lbl_805D4D14 = 0;
-    return arg0;
+    return this;
 }
 
 extern s32 lbl_804848B8[];
 
 #pragma push
 #pragma opt_common_subs off
-void update_fade_out__12TBoss3VoloptFPv(u8 *arg0) {
+void TBoss3Volopt::update_fade_out() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)();
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) + lbl_805D8850);
     if (*(f32 *)((s8 *)arg0 + 0x1C) >= lbl_805D8858) {
@@ -237,7 +232,7 @@ void update_fade_out__12TBoss3VoloptFPv(u8 *arg0) {
 void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848B8;
-        destroy_task_object__12TBoss3VoloptFPvs((void *)(arg0), (s16)(0));
+        ((TBoss3Volopt *)arg0)->destroy_task_object((s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -250,24 +245,24 @@ extern const f32 lbl_805D8854;
 extern s32 lbl_804848B8[];
 extern u32 TBoss3Volopt__fade_active_flag;
 
-void *init_fade__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    init_object__12TBoss3VoloptFPvPv((void *)((void *)(arg0)), (void *)((void *)(tl_fade)));
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848B8;
-    *(void **)((s8 *)arg0 + 0x24) = arg2;
-    *(f32 *)((s8 *)arg0 + 0x1C) = lbl_805D8854;
-    *(u8 *)((s8 *)arg0 + 0x20) = 255;
-    *(u8 *)((s8 *)arg0 + 0x21) = 255;
-    *(u8 *)((s8 *)arg0 + 0x22) = 255;
+void *TBoss3Volopt::init_fade(void *arg1, void *arg2) {
+    init_object((void *)((void *)(tl_fade)));
+    *(s32 **)((s8 *)this + 0x18) = lbl_804848B8;
+    *(void **)((s8 *)this + 0x24) = arg2;
+    *(f32 *)((s8 *)this + 0x1C) = lbl_805D8854;
+    *(u8 *)((s8 *)this + 0x20) = 255;
+    *(u8 *)((s8 *)this + 0x21) = 255;
+    *(u8 *)((s8 *)this + 0x22) = 255;
     TBoss3Volopt__fade_active_flag = 0;
-    return arg0;
+    return this;
 }
 
 extern s32 lbl_804999E8[];
 
-void *init_object__12TBoss3VoloptFPvPv(void *arg0, void *) {
-    ((void (*)(void *))__ct__7TObjectFP7TObject)(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999E8;
-    return arg0;
+void *TBoss3Volopt::init_object(void *) {
+    ((void (*)(void *))__ct__7TObjectFP7TObject)(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804999E8;
+    return this;
 }
 
 }

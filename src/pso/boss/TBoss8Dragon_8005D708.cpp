@@ -41,7 +41,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(void *, void *, f32);
 extern s32 current_scene_light;
 extern u32 model_render_flags;
@@ -61,7 +61,7 @@ void TBoss8Dragon__sub_8005D708(void *p) {
     f32 f;
     s32 idx;
     if (((VObj_8005D708 *)p)->m8(lbl_805D8D4C, lbl_805D8D50) != 0) {
-        set_global_param__8TObjFishFi(o->f24);
+        set_global_param__8TObjFishFl(o->f24);
         push_matrix();
         post_translate_matrix((u8 *)p + 0x38);
         rotate_matrix_y(0, o->f60);

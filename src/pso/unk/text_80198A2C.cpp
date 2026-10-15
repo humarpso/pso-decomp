@@ -69,7 +69,7 @@ s32 queue_destruction__7TObjectFv(void *);
 void *spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 spawn_particle_effect(void *, int);
-s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 copy_pos__11TNowLoadingFPv(void *, void *);
 s32 play_sound_effect(int, void *, int, int);
 extern Vec_80198A2C boss3_volopt_init_vec;
 extern Sys_80198A2C gogo_ball_configuration;
@@ -127,7 +127,7 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
         }
         self->pos.y = (0.001f) * (f32)(self->timer * self->timer) + self->pos.y;
         if (self->effect != NULL) {
-            copy_pos__11TNowLoadingFPvPv(self->effect, &self->pos);
+            copy_pos__11TNowLoadingFPv(self->effect, &self->pos);
         }
     }
 }
@@ -164,7 +164,7 @@ struct RecoveredGlobal_80198CF8_lbl_804B8DE8 {
 };
 
 extern "C" {
-s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
+s32 is_on_current_screen__11TCameraCtrlFv(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 extern RecoveredGlobal_80198DCC_lbl_8050E208 controller_input_state;
 void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2);
@@ -235,7 +235,7 @@ void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp10 = arg1;
     stack.sp14 = *(f32 *)((s8 *)arg0 + 0);
     stack.sp18 = *(f32 *)((s8 *)arg0 + 8);
-    if (is_on_current_screen__11TCameraCtrlFPv((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4)) != 0) {
+    if (is_on_current_screen__11TCameraCtrlFv((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4)) != 0) {
         play_sound_effect((int) (0x4001A311), (void *) (arg0), (int) (0), (int) (0));
         stack.sp1C = 1;
     } else {
@@ -258,7 +258,7 @@ struct Vec_80198E84 { f32 x; f32 y; f32 z; s32 w; u8 pad10[2]; s16 f12; };
 
 extern "C" {
 void TLobby__sub_8001FE7C(s32, int, void *, f32);
-void free_if_valid__10TObjPlayerFi(int);
+void free_if_valid__10TObjPlayerFl(int);
 extern s32 lobby_gvm_texture_handles[];
 extern Vec_80198E84 gogo_ball_sync_state[];
 extern s32 gogo_ball_bml_resource;
@@ -279,7 +279,7 @@ void fn_80198E84(void) {
     TLobby__sub_8001FE7C(gogo_ball_bml_resource, 1, gogo_ball_sync_state, (63.0f));
     gogo_ball_bml_resource = 0;
     for (i = 0; i < 9; i++) {
-        free_if_valid__10TObjPlayerFi(lobby_gvm_texture_handles[i]);
+        free_if_valid__10TObjPlayerFl(lobby_gvm_texture_handles[i]);
         lobby_gvm_texture_handles[i] = 0;
     }
 }
@@ -297,7 +297,7 @@ struct Pair_80198F14 { s32 a; s32 b; };
 
 extern "C" {
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 load_gvm_texture_file(char *);
 extern char lbl_80446088[];
 extern char lbl_80446098[];
@@ -327,7 +327,7 @@ void load_lobby_textures__9TLanguageFv(void) {
     c->f18 = 0;
     p->a = 0;
     p->b = 0;
-    obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    obj = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (obj != 0) {
         obj = load_resource_from_descriptor(obj, 5, language_lobby_texture_descriptor, 0, 0, 0);
     }
@@ -402,7 +402,7 @@ void clear_status_flags__12TWindowTimerFv(void);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 draw_shadow_quad__10TObjPlayerFPvii(void *, int, int);
+s32 draw_shadow_quad__10TObjPlayerFll(void *, int, int);
 s32 rotate_matrix_y(int, s32);
 s32 rotate_matrix_z(int, int);
 s32 translate_matrix(int, f32, f32, f32);
@@ -449,7 +449,7 @@ u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4)
 void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1);
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
+s32 is_on_current_screen__11TCameraCtrlFv(void *, int);
 extern void *tl_04;
 
 extern "C" u8 lbl_80445FF0[];
@@ -542,7 +542,7 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
     void *o;
 
     pad = (u8 *)controller_input_state + 0x20;
-    if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) != 0 && TWindowShortListCtrl__check_controller_button(pad, 0x400) != 0) {
+    if (is_on_current_screen__11TCameraCtrlFv(pad, 0x10000) != 0 && TWindowShortListCtrl__check_controller_button(pad, 0x400) != 0) {
         set_timer_value__12TWindowTimerFii(1, 0);
         set_timer_value__12TWindowTimerFii(0, 0);
     }
@@ -668,16 +668,16 @@ void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *
     col.a = 1.0f;
     set_chunk_material_color(&col);
     begin_effect_render__13TParticleCtrlFv();
-    draw_shadow_quad__10TObjPlayerFPvii(&fx, 0, 0x22);
+    draw_shadow_quad__10TObjPlayerFll(&fx, 0, 0x22);
     fx.a = 0.0f;
     fx.b = 0.0f;
-    draw_shadow_quad__10TObjPlayerFPvii(&fx, 0, 0x26);
+    draw_shadow_quad__10TObjPlayerFll(&fx, 0, 0x26);
     fx.a = -5.0f;
     fx.b = -5.0f;
-    draw_shadow_quad__10TObjPlayerFPvii(&fx, 0, 0x2A);
+    draw_shadow_quad__10TObjPlayerFll(&fx, 0, 0x2A);
     fx.a = 0.0f;
     fx.b = -5.0f;
-    draw_shadow_quad__10TObjPlayerFPvii(&fx, 0, 0x2E);
+    draw_shadow_quad__10TObjPlayerFll(&fx, 0, 0x2E);
     end_effect_render__13TParticleCtrlFv();
     set_chunk_material_color((void *)chunk_material_color_half_alpha_f32);
     pop_matrix();
@@ -878,7 +878,7 @@ s32 translate_matrix_vec3(int, void *);
 f32 vec_squared_length(void *);
 s32 push_matrix_from(void *);
 void pop_matrices(s32);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 void set_chunk_material_override_pair(s32, s32);
 s32 set_chunk_material_color(void *);
 s32 draw_chunk_object(s32);
@@ -949,7 +949,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     if (lobby_gvm_texture_handles != 0 && gogo_ball_bml_resource != 0) {
         switch (gogo_ball_configuration.kind) {
         case 0:
-            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[0]);
+            set_global_param__8TObjFishFl(lobby_gvm_texture_handles[0]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 3));
             set_cull_mode_front__8TObjFishFv();
@@ -957,7 +957,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             set_cull_none__8TObjFishFv();
             break;
         case 1:
-            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[1]);
+            set_global_param__8TObjFishFl(lobby_gvm_texture_handles[1]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
             set_cull_mode_front__8TObjFishFv();
@@ -965,7 +965,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             set_cull_none__8TObjFishFv();
             break;
         case 2:
-            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[2]);
+            set_global_param__8TObjFishFl(lobby_gvm_texture_handles[2]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
             set_cull_mode_front__8TObjFishFv();
@@ -973,7 +973,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             set_cull_none__8TObjFishFv();
             break;
         case 3:
-            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[3]);
+            set_global_param__8TObjFishFl(lobby_gvm_texture_handles[3]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
             set_cull_mode_front__8TObjFishFv();
@@ -981,7 +981,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             set_cull_none__8TObjFishFv();
             break;
         case 6:
-            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[6]);
+            set_global_param__8TObjFishFl(lobby_gvm_texture_handles[6]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 2));
             set_cull_mode_front__8TObjFishFv();
@@ -1083,14 +1083,14 @@ struct Timer_8019A104 {
 
 extern "C" {
 s32 bswap_32__FPUl(s32);
-s32 read_be16_field2__10TObjPlayerFPv();
+s32 read_be16_field2__10TObjPlayerFv();
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0);
 void TWindowTimer__sub_8019A6F8(void* p);
 int set_timer_value__12TWindowTimerFii(int a0, int a1);
 int close_timer_window__11TWindowCtrlFv(void*);
 int TWindowTimer__sub_8019A770(void* p);
 u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
-void reset_photon_effect__10TObjPlayerFPv(s32);
+void reset_photon_effect__10TObjPlayerFv(s32);
 s32 initialize_linked_object_reference(void *, s32);
 extern s32 lbl_804B8E18[];
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
@@ -1099,8 +1099,8 @@ void add_gogo_ball_three_point_score(s32 i);
 void add_gogo_ball_one_point_score(s32 i);
 void init_6x40_walk_packet(void *cmd);
 Player_8019A098 *get_player_by_client_id(s32);
-void calc_movement_target__10TObjPlayerFPviPvPv(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
-void sync_from_lobby__10TNpcPlayerFPv(void *p);
+void calc_movement_target__10TObjPlayerFlPfPf(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
+void sync_from_lobby__10TNpcPlayerFv(void *p);
 extern s32 local_client_id;
 void TWindowTimer__sub_8019A098(void);
 void rotate_vec_xz(void *, void *, s32);
@@ -1108,7 +1108,7 @@ void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1);
 s32 obj_getField1c(void *);
 s32 get_clock_frames__6TLobbyFv();
 void update_best_time__12TWindowTimerFPv(void *arg0);
-void open__11TWindowCtrlFiii(s32, void *, int);
+void open__11TWindowCtrlFlll(s32, void *, int);
 void vec3_add_to(void *, void *);
 extern u8 lbl_8044613C[];
 extern s32 local_client_id;
@@ -1118,7 +1118,7 @@ void TWindowTimer__sub_8019A098(void);
 void add_gogo_ball_three_point_score(s32 i);
 void add_gogo_ball_one_point_score(s32 i);
 Player_8019A098 *get_player_by_client_id(s32);
-void open__11TWindowCtrlFiii(s32, void *, int);
+void open__11TWindowCtrlFlll(s32, void *, int);
 f32 atan2_float(f32, f32);
 extern u8 lbl_80446148[];
 extern const f64 lbl_80446150[];
@@ -1135,7 +1135,7 @@ s32 unregister_object_by_id(s32 *);
 s32 bswap_32__FPUl(s32);
 s32 clear_obj_links(void *);
 s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
-s32 read_be16_field2__10TObjPlayerFPv();
+s32 read_be16_field2__10TObjPlayerFv();
 
 void update_best_time__12TWindowTimerFPv(void *arg0) {
     if ((*(s16 *)((s8 *)gogo_ball_sync_state + 0x12) == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x354) <= (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14))) {
@@ -1161,7 +1161,7 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
         p.y += ((Tbl_80199F14 *)&gogo_ball_configuration)->yofs;
         spawn_particle_effect_with_flags(&p, 0x45, 0x40);
         spawn_particle_effect_with_flags(&p, 0x46, 0x40);
-        open__11TWindowCtrlFiii(obj_getField1c(self), lbl_8044613C, 0x1B);
+        open__11TWindowCtrlFlll(obj_getField1c(self), lbl_8044613C, 0x1B);
         queue_destruction__7TObjectFv(self);
         return;
     }
@@ -1193,11 +1193,11 @@ void TWindowTimer__sub_8019A098(void) {
     p = get_player_by_client_id(local_client_id);
     if (p != 0) {
         pkt.id = local_client_id;
-        calc_movement_target__10TObjPlayerFPviPvPv(p, p->area, &x, &z);
+        calc_movement_target__10TObjPlayerFlPfPf(p, p->area, &x, &z);
         pkt.x = x;
         pkt.z = z;
         pkt.flag = 0;
-        sync_from_lobby__10TNpcPlayerFPv(&pkt);
+        sync_from_lobby__10TNpcPlayerFv(&pkt);
     }
 }
 
@@ -1243,7 +1243,7 @@ void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
         }
     }
     if ((ST.flags & 2 || ST.flags & 1 || ST.flags & 0x20 || ST.flags & 0x10) && !(ST.flags & 8) && !(ST.flags & 4)) {
-        open__11TWindowCtrlFiii(obj_getField1c(self), lbl_80446148, 0x1B);
+        open__11TWindowCtrlFlll(obj_getField1c(self), lbl_80446148, 0x1B);
     }
     if (!(ST.flags & 0x33) && self->f360 != 0) {
         self->f360 = 0;
@@ -1251,7 +1251,7 @@ void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
     len = ((f32 (*)(void *))vector_length)(&self->vel);
     if ((0.0f) == len) {
         if (self->f358 == 0) {
-            open__11TWindowCtrlFiii(((s32 (*)(void *, s32))obj_getField1c)(self, self->f35C++), (void *)&lbl_805DBF94, 0x1B);
+            open__11TWindowCtrlFlll(((s32 (*)(void *, s32))obj_getField1c)(self, self->f35C++), (void *)&lbl_805DBF94, 0x1B);
         }
         self->f358 = 1;
     } else {
@@ -1338,7 +1338,7 @@ u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x378) = 1;
     *(s32 *)((s8 *)arg0 + 0x37C) = 0x40107;
     initialize_linked_object_reference(arg0, (s32) (arg0 + 0x364));
-    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    reset_photon_effect__10TObjPlayerFv((s32) arg0);
     *(s32 *)((s8 *)arg0 + 0x35C) = 0;
     *(s16 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x10) = 0;
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x18) = 0;
@@ -1351,7 +1351,7 @@ void send_gogo_ball__12TWindowTimerFi(s32 arg0) {
     TLobby__send_and_handle_60((void *) (arg0));
 }
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0) {
-    read_be16_field2__10TObjPlayerFPv();
+    read_be16_field2__10TObjPlayerFv();
     bswap_32__FPUl(arg0 + 4);
     bswap_32__FPUl(arg0 + 8);
     bswap_32__FPUl(arg0 + 0xC);

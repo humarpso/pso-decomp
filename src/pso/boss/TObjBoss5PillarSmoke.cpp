@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5PillarSmoke.h"
 
 extern "C" {
 
-void run_task__20TObjBoss5PillarSmokeFv(void);
-void render__20TObjBoss5PillarSmokeFv(void);
-
-void render__20TObjBoss5PillarSmokeFv(void) {  }
-void run_task__20TObjBoss5PillarSmokeFv(void) {  }
+void TObjBoss5PillarSmoke::render() {  }
+void TObjBoss5PillarSmoke::run_task() {  }
 
 }

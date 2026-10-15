@@ -8,6 +8,10 @@ public:
     virtual ~TAdMultiOkGC();
     virtual void run_task();
     virtual void render();
+public:
+    void draw_entry(int arg1);
+    void update_entry_animation(int arg1);
+    void handle_player_buttons(int arg1);
 };
 
 #endif

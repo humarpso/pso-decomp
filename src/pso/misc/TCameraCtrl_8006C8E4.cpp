@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -27,10 +28,10 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TCameraCtrl__sub_8006CC30(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void set_target_pos__11TCameraCtrlFPvPv(void *, void *);
+void set_target_pos__11TCameraCtrlFPv(void *, void *);
 V_8006CC7C get_target_position__11TCameraCtrlFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void debug_printf_at(s32, const char *, ...);
@@ -42,18 +43,17 @@ extern "C" {
 
 void TCameraCtrl__sub_8006C928(void);
 void *__dt_deleting_6__11TCameraCtrlFPvs(void *arg0, s16 arg1);
-void *init_subobject__11TCameraCtrlFPv(void *arg0);
 void TCameraCtrl__sub_800686BC(void *, int);
 int TCameraCtrl__sub_80068714(void);
 void __dl__7TObjectFPv(void *);
 
 extern s32 lbl_80488D70[];
 
-void *init_subobject__11TCameraCtrlFPv(void *arg0) {
-    ((void (*)(void *))TCameraCtrl__sub_80068714)(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488D70;
-    *(u32 *)((s8 *)arg0 + 0x38) = 4;
-    return arg0;
+void *TCameraCtrl::init_subobject() {
+    ((void (*)(void *))TCameraCtrl__sub_80068714)(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_80488D70;
+    *(u32 *)((s8 *)this + 0x38) = 4;
+    return this;
 }
 
 void TCameraCtrl__sub_8006C928(void) {  }
@@ -82,7 +82,7 @@ void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self) {
     s16 sx = controller_input_state.pad.sx;
     s16 sy = controller_input_state.pad.sy;
     f32 r;
-    if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x100) != 0) {
+    if (is_on_current_screen__11TCameraCtrlFv(pad, 0x100) != 0) {
         debug_printf_at(0xC0014, lbl_80438500, (s32)(lbl_80438518 * (f64)self->x54 + lbl_80438510));
         if (TWindowShortListCtrl__check_controller_button(pad, 0x20000) != 0) {
             self->x54 += 0xB6;
@@ -93,12 +93,12 @@ void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self) {
     }
     ((void (*)(void *))get_target_position__11TCameraCtrlFv)(&v);
     VecCopy__FP3VecPC3Vec(&target, &v);
-    set_target_pos__11TCameraCtrlFPvPv(self, &target);
-    if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x200) != 0) {
-        if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10) != 0) {
+    set_target_pos__11TCameraCtrlFPv(self, &target);
+    if (is_on_current_screen__11TCameraCtrlFv(pad, 0x200) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(pad, 0x10) != 0) {
             self->dist -= (2.0f);
         }
-        if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x20) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(pad, 0x20) != 0) {
             self->dist += (2.0f);
         }
         if (self->dist < 20.0f) {
@@ -108,7 +108,7 @@ void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self) {
             self->dist = 400.0f;
         }
     }
-    if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x400) != 0) {
+    if (is_on_current_screen__11TCameraCtrlFv(pad, 0x400) != 0) {
         self->yaw += sx * 3;
         self->pitch += sy * 3;
     }

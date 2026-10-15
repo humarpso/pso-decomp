@@ -26,8 +26,8 @@ struct Recon_8031D994 {
 };
 
 extern "C" {
-s32 get_field_0c__10TObjPlayerFPv(int);
-f32 get_pos_x__10TObjPlayerFPv(int);
+s32 get_field_0c__10TObjPlayerFv(int);
+f32 get_pos_x__10TObjPlayerFv(int);
 f32 fabs_float(f32);
 f32 cos_table_lookup();
 f32 vec3_dot(void *, void *);
@@ -40,7 +40,7 @@ void enemy_set_target_id(void *, u16);
 s32 collect_enemy_target_candidates(void *, void *, f32);
 void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
-s32 is_below_child_limit__12TObjEneReconFPvUs(void *, u16);
+s32 is_below_child_limit__12TObjEneReconFUs(void *, u16);
 extern const f32 lbl_805DF420;
 void retarget__12TObjEneReconFPv(Recon_8031D898 *o);
 void queue_destruction__7TObjectFv(void *);
@@ -48,7 +48,7 @@ void enemy_set_target_id(void *, u16);
 s32 collect_enemy_target_candidates(void *, void *, f32);
 void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
-s32 is_below_child_limit__12TObjEneReconFPvUs(void *, u16);
+s32 is_below_child_limit__12TObjEneReconFUs(void *, u16);
 extern const f32 lbl_805DF420;
 void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o);
 }
@@ -66,7 +66,7 @@ void retarget__12TObjEneReconFPv(Recon_8031D898 *o) {
         queue_destruction__7TObjectFv(o);
         return;
     }
-    if (is_below_child_limit__12TObjEneReconFPvUs(p, o->target) != 0) {
+    if (is_below_child_limit__12TObjEneReconFUs(p, o->target) != 0) {
         o->f470 = 0;
         transition_enemy_state(o, 3);
         return;
@@ -74,7 +74,7 @@ void retarget__12TObjEneReconFPv(Recon_8031D898 *o) {
     n = collect_enemy_target_candidates(o, hits, lbl_805DF420);
     for (i = 0; i < n; i++) {
         id = hits[i].id;
-        if (id != o->target && is_below_child_limit__12TObjEneReconFPvUs(p, id) != 0) {
+        if (id != o->target && is_below_child_limit__12TObjEneReconFUs(p, id) != 0) {
             o->f470 = 0;
             enemy_set_target_id(o, id);
             transition_enemy_state(o, 3);
@@ -96,7 +96,7 @@ void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o) {
         queue_destruction__7TObjectFv(o);
         return;
     }
-    if (is_below_child_limit__12TObjEneReconFPvUs(p, o->target) != 0) {
+    if (is_below_child_limit__12TObjEneReconFUs(p, o->target) != 0) {
         o->f46C = 0;
         transition_enemy_state(o, 2);
         return;
@@ -104,7 +104,7 @@ void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o) {
     n = collect_enemy_target_candidates(o, hits, lbl_805DF420);
     for (i = 0; i < n; i++) {
         id = hits[i].id;
-        if (id != o->target && is_below_child_limit__12TObjEneReconFPvUs(p, id) != 0) {
+        if (id != o->target && is_below_child_limit__12TObjEneReconFUs(p, id) != 0) {
             o->f46C = 0;
             enemy_set_target_id(o, id);
             transition_enemy_state(o, 2);
@@ -117,9 +117,9 @@ void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o) {
 
 s32 TObjEneRecon__sub_8031DA90(u8 *arg0) {
     f32 temp_f31;
-    if ((*(f32 *)((s8 *)arg0 + 0x3AC) < (TObjEneRecon__data_805DF3D4 + get_pos_x__10TObjPlayerFPv((int) (TObjEneRecon__attack_params)))) && (fabs_float((f32) (*(f32 *)((s8 *)arg0 + 0x448) - *(f32 *)((s8 *)arg0 + 0x398))) < lbl_805DF3CC)) {
+    if ((*(f32 *)((s8 *)arg0 + 0x3AC) < (TObjEneRecon__data_805DF3D4 + get_pos_x__10TObjPlayerFv((int) (TObjEneRecon__attack_params)))) && (fabs_float((f32) (*(f32 *)((s8 *)arg0 + 0x448) - *(f32 *)((s8 *)arg0 + 0x398))) < lbl_805DF3CC)) {
         temp_f31 = vec3_dot((void *) (arg0 + 0x44C), (void *) (arg0 + 0x3A0));
-        get_field_0c__10TObjPlayerFPv((int) (*(s32 *)((s8 *)arg0 + 0x318)));
+        get_field_0c__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x318)));
         if (temp_f31 >= cos_table_lookup()) {
             return 1;
         }

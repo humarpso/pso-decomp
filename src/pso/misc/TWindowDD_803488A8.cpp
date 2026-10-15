@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
 
 struct Src_80348A9C { f32 x; f32 y; };
 
@@ -17,7 +18,6 @@ extern const f32 lbl_805DFCE0;
 extern const f32 lbl_805DFCE4;
 f32 TWindowDD__sub_80348AD4(f32 farg0, f32 farg1);
 extern Src_80348A9C TWindowDD__data_805434E8[][8];
-void copy_point_table__9TWindowDDFPvi(Dst_80348A9C *self, s32 idx);
 extern s32 *TWindowDD__player_name_buffers;
 extern s32 *TWindowDD__data_805D6E28;
 extern s16 *lbl_805D6E34;
@@ -26,7 +26,6 @@ extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFB5C;
 extern const f32 lbl_805DFCD4;
 extern const f32 TWindowDD__data_805DFCD8;
-void calc_inner_rect__9TWindowDDFPvPv(u8 *arg0, u8 *arg1);
 extern const f32 TWindowDD__data_805DFB20;
 extern const f32 TWindowDD__data_805DFCD8;
 void TWindowDD__sub_803489B8(A_803489B8 *arg0, B_803489B8 *arg1, s32 arg2);
@@ -36,22 +35,18 @@ extern "C" {
 
 typedef struct { char pad[0xBC]; } Buf;
 
-void append_string__9TWindowDDFiiPv(s32 arg0, s32 arg1, s32 *arg2);
-void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 get_draw_count__9TWindowDDFPv(void **arg0);
-s32 get_entry__9TWindowDDFi(s32 arg0);
-s32 reset_entries__9TWindowDDFPvf(Buf *, s32);
-s32 can_append_chars__9TWindowDDFiPv(s32, s32 *);
-s32 draw_transformed_primitive__9TWindowDDFPvPvPvPv(Buf *, s32, s32, s32);
+s32 reset_entries__9TWindowDDFf(Buf *, s32);
+s32 can_append_chars__9TWindowDDFlPl(s32, s32 *);
+s32 draw_transformed_primitive__9TWindowDDFPvPvPv(Buf *, s32, s32, s32);
 s32 strlen();
 s32 strncpy(s32, s32, s32);
 
-void append_string__9TWindowDDFiiPv(s32 arg0, s32 arg1, s32 *arg2) {
+void TWindowDD::append_string(s32 arg0, s32 arg1, s32 *arg2) {
     s32 temp_r31;
 
     if (arg0 != 0) {
         temp_r31 = strlen();
-        if (can_append_chars__9TWindowDDFiPv(temp_r31, arg2) != 0) {
+        if (can_append_chars__9TWindowDDFlPl(temp_r31, arg2) != 0) {
             strncpy(arg1 + *arg2, arg0, temp_r31);
             *arg2 += temp_r31;
         }
@@ -60,17 +55,17 @@ void append_string__9TWindowDDFiiPv(s32 arg0, s32 arg1, s32 *arg2) {
 
 extern s32 lbl_805D63F0;
 
-void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+void TWindowDD::draw(s32 arg1, s32 arg2, f32 farg0) {
     Buf sp8;
     s32 temp_r31;
 
-    temp_r31 = get_draw_count__9TWindowDDFPv((void **)(lbl_805D63F0));
-    TWindowDD__sub_80348AD4(*(f32 *)((s8 *)arg0 + 0x54), farg0);
-    reset_entries__9TWindowDDFPvf(&sp8, -1);
-    copy_point_table__9TWindowDDFPvi((Dst_80348A9C *)(&sp8), (s32)(arg2));
+    temp_r31 = TWindowDD::get_draw_count((void **)(lbl_805D63F0));
+    TWindowDD__sub_80348AD4(*(f32 *)((s8 *)this + 0x54), farg0);
+    reset_entries__9TWindowDDFf(&sp8, -1);
+    ((TWindowDD *)(&sp8))->copy_point_table((s32)(arg2));
     TWindowDD__sub_80348A2C((void *)(arg1), (void *)(&sp8));
     TWindowDD__sub_803489B8((A_803489B8 *)(arg1), (B_803489B8 *)(&sp8), (s32)(0));
-    draw_transformed_primitive__9TWindowDDFPvPvPvPv(&sp8, 8, temp_r31, 1);
+    draw_transformed_primitive__9TWindowDDFPvPvPv(&sp8, 8, temp_r31, 1);
 }
 
 #pragma push
@@ -136,7 +131,8 @@ void TWindowDD__sub_80348A2C(void *arg0, void *arg1) {
   *((f32 *) new_var2) = temp_f4;
 }
 
-void copy_point_table__9TWindowDDFPvi(Dst_80348A9C *self, s32 idx) {
+void TWindowDD::copy_point_table(s32 idx) {
+    Dst_80348A9C *self = (Dst_80348A9C *)this;
     s32 i;
     Src_80348A9C *s = TWindowDD__data_805434E8[idx];
     for (i = 0; i < 8; i++) {
@@ -154,7 +150,7 @@ f32 TWindowDD__sub_80348AD4(f32 farg0, f32 farg1) {
 }
 #pragma pop
 
-s32 get_draw_count__9TWindowDDFPv(void **arg0) {
+s32 TWindowDD::get_draw_count(void **arg0) {
     return **(s32 **)((s8 *)(*(void **)((s8 *)(*arg0) + 0x20)) + 0xC);
 }
 
@@ -163,7 +159,8 @@ extern s32 twindowdd_entry_count;
 
 #pragma push
 #pragma fp_contract on
-void calc_inner_rect__9TWindowDDFPvPv(u8 *arg0, u8 *arg1) {
+void TWindowDD::calc_inner_rect(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
     f32 y0;
     f32 ky;
     f32 x0;
@@ -202,7 +199,7 @@ s32 TWindowDD__sub_80348B70(s16 arg0) {
     return TWindowDD__data_805D6E28[lbl_805D6E34[arg0]];
 }
 
-s32 get_entry__9TWindowDDFi(s32 arg0) {
+s32 TWindowDD::get_entry(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= (s32) twindowdd_entry_count)) {
         return 0;
     }

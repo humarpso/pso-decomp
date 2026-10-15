@@ -12,6 +12,10 @@ struct TAdAgreementBaseGC
     u32 m_2c;
     u32 m_30;
     u32 m_34;
+    static void check_main_task_state(void *self);
+    static void draw_agreement_text();
+    static void create_agreement_callback();
+    void update_state();
 };
 
 #endif

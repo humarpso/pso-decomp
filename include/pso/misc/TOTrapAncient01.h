@@ -31,6 +31,11 @@ struct TOTrapAncient01
     u32 m_348;
     u8 _pad34C[0xC];
     void* m_358;
+    void release_trapped_player();
+    void *create();
+    static void release_static_resource();
+    static void load_resources();
+    static s32 check_trigger_flag(s32 arg0, s32 arg1);
 };
 
 #endif

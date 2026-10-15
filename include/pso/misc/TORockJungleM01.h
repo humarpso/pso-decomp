@@ -22,6 +22,8 @@ struct TORockJungleM01
     u8 _padD4[0x4];
     u32 m_d8;
     u32 m_dc;
+    void run_task();
+    static void *create(void *arg0);
 };
 
 #endif

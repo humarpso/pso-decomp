@@ -18,7 +18,7 @@ s32 TLobby__sub_8036B1AC(s32);
 void send_slot_entity__6TLobbyFPvUsi(void *arg0, u16 arg1, s32 arg2);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 free__11TOBoss4RockFUi(s32);
+s32 mem_free(s32);
 extern s32 lbl_804F3640[];
 extern u32 slot_entity_dispatcher_instance;
 void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1);
@@ -28,7 +28,7 @@ void create_singleton__6TLobbyFPv(void *arg0);
 void TLobby__sub_8036B50C(void);
 void TLobby__sub_8036B510(void);
 void queue_destruction__7TObjectFv(void *);
-void *alloc_buffer__11TOBoss4RockFPv(s32);
+void *mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *);
 s32 TLobby__sub_8036B1AC(s32);
 extern s32 lbl_804F3640[];
@@ -92,7 +92,7 @@ void TLobby__sub_8036B340(Obj_8036B340 *arg0) {
 void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F3640;
-        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0x1C));
+        mem_free(*(s32 *)((s8 *)arg0 + 0x1C));
         (*(s32 *)&slot_entity_dispatcher_instance) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -106,7 +106,7 @@ Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1) {
     s32 i;
     __ct__7TObjectFP7TObject(arg0);
     arg0->vt = ((s32 *)&lbl_804F3640);
-    arg0->buf = (Ent_8036B424 *)alloc_buffer__11TOBoss4RockFPv(0xF0);
+    arg0->buf = (Ent_8036B424 *)mem_alloc(0xF0);
     if (arg0->buf != 0) {
         for (i = 0; i != 4; i++) {
             TLobby__sub_8036B1AC((s32)&arg0->buf[i]);

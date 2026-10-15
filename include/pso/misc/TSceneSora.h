@@ -11,6 +11,11 @@ struct TSceneSora
     u32 m_90;
     u32 m_94;
     u32 m_98;
+    void render();
+    void run_task();
+    static void create_instance();
+    static void load_sky_resources();
+    void render_reflections();
 };
 
 #endif

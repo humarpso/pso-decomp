@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 void init_6x04_packet(u8 *arg0);
@@ -6,20 +7,18 @@ void init_6x04_packet(u8 *arg0);
 
 extern "C" {
 
-void finalize_and_send_60__6TLobbyFPv(void* p);
-void* init_6x05_switch_changed__6TLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 void TOKeyAncient01__vt23(void);
 void TOKey__sub_8016AC88(void);
 void TOKey__sub_8016AC8C(void);
 void TOKey__sub_8016AC90(void);
 int bswap_16__FPUs(void*);
-void bswap_6x05_switch_flag__5TOKeyFPv(void* p);
-int read_be16_field2__10TObjPlayerFPv(void*);
-void set_type__14TOKeyAncient01FPv(void* p);
+void bswap_6x05_switch_flag__5TOKeyFv(void* p);
+int read_be16_field2__10TObjPlayerFv(void*);
+void set_type__14TOKeyAncient01Fv(void* p);
 
-void finalize_and_send_60__6TLobbyFPv(void* p) { bswap_6x05_switch_flag__5TOKeyFPv(p); TLobby__send_and_handle_60(p); }
-void* init_6x05_switch_changed__6TLobbyFPv(void* p) { init_6x04_packet((u8 *)((void*)(p))); *(unsigned char*)(p) = 5; *(unsigned char*)((char*)p + 0x1) = 3; return p; }
+void TLobby::finalize_and_send_60() { bswap_6x05_switch_flag__5TOKeyFv(this); TLobby__send_and_handle_60(this); }
+void*TLobby::init_6x05_switch_changed() { init_6x04_packet((u8 *)((void*)(this))); *(unsigned char*)(this) = 5; *(unsigned char*)((char*)this + 0x1) = 3; return this; }
 
 void init_6x04_packet(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 6) = 0;

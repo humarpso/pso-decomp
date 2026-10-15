@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardHard.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -29,13 +30,11 @@ void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_802600
 
 extern "C" {
 
-void release_keyboard__19TWindowKeyBoardHardFPv(void* p);
-void render__19TWindowKeyBoardHardFv(void *arg0);
 int TWindowKeyBoardHard__sub_8025CC48(void*);
-s32 draw_default_entry__9TWindowDDFi(void *);
-s32 is_key_active__19TWindowKeyBoardHardFPv();
+s32 draw_default_entry__9TWindowDDFl(void *);
+s32 is_key_active__19TWindowKeyBoardHardFv();
 
-void release_keyboard__19TWindowKeyBoardHardFPv(void* p) { void* m = *(void**)((char*)p + 0x70); if (m) TWindowKeyBoardHard__sub_8025CC48(m); }
+void TWindowKeyBoardHard::release_keyboard() { void* m = *(void**)((char*)this + 0x70); if (m) TWindowKeyBoardHard__sub_8025CC48(m); }
 
 void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_80260020 *ctx) {
     s32 flags;
@@ -64,11 +63,11 @@ void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_802600
     }
 }
 
-void render__19TWindowKeyBoardHardFv(void *arg0) {
+void TWindowKeyBoardHard::render() {
     s32 temp;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x68) > 0) && (is_key_active__19TWindowKeyBoardHardFPv() == 0)) {
-        temp = draw_default_entry__9TWindowDDFi(arg0);
-        draw_status_text__19TWindowKeyBoardHardFPvPv((Win_80260020 *)(arg0), (Ctx_80260020 *)(temp));
+    if (((s32) *(s32 *)((s8 *)this + 0x68) > 0) && (is_key_active__19TWindowKeyBoardHardFv() == 0)) {
+        temp = draw_default_entry__9TWindowDDFl(this);
+        draw_status_text__19TWindowKeyBoardHardFPvPv((Win_80260020 *)(this), (Ctx_80260020 *)(temp));
     }
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
 
 struct RecoveredGlobal_8034B008_lbl_80478B78 {
     s32 value;
@@ -24,7 +25,6 @@ s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1);
 extern G_8034AF68 lbl_804F0070;
 extern H_8034AF68 *TWindowDD__ws_data_base;
 extern H_8034AF68 *TWindowDD__ws_data_table;
-void init_ws_data_tables__9TWindowDDFv(void);
 extern Ent_8034B050 lbl_804F0040[4];
 extern s32 TWindowDD__window_mode;
 extern s8 lbl_805D6E90;
@@ -32,14 +32,13 @@ extern s32 lbl_805DFD84;
 extern s32 lbl_805DFD88;
 extern s32 lbl_805DFD8C;
 extern s32 lbl_805DFD90;
-s32 lookup_item_category__9TWindowDDFi(s32 arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8034B008_lbl_80478B78_size[sizeof(RecoveredGlobal_8034B008_lbl_80478B78) == 0x30 ? 1 : -1];
 
-void init_ws_data_tables__9TWindowDDFv(void) {
+void TWindowDD::init_ws_data_tables() {
     H_8034AF68 *a = TWindowDD__ws_data_base;
     H_8034AF68 *b;
     s32 i;
@@ -67,9 +66,9 @@ void init_ws_data_tables__9TWindowDDFv(void) {
 }
 
 s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1) {
-    return *(s32 *)((s8 *)((u8 *)(((u8 *)(&word_select_type_state_table.value) + (lookup_item_category__9TWindowDDFi((s32)((void *) (arg1))) * 8))) + (arg0 * 4)) + 0);
+    return *(s32 *)((s8 *)((u8 *)(((u8 *)(&word_select_type_state_table.value) + (TWindowDD::lookup_item_category((s32)((void *) (arg1))) * 8))) + (arg0 * 4)) + 0);
 }
-s32 lookup_item_category__9TWindowDDFi(s32 arg0) {
+s32 TWindowDD::lookup_item_category(s32 arg0) {
     s32 r;
     s32 i;
     s32 j;

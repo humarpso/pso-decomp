@@ -77,7 +77,7 @@ void calc_velocity_toward_destination(void *, Vec_800C7168, Vec_800C7168);
 void VecCopy__FP3VecPC3Vec(Vec_800C6EF8 *, Vec_800C6EF8 *);
 f32 get_scale_factor__10TObjPlayerFv(void);
 Hit_800C7168 *csnVector(void *, void *, s32);
-void scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
+void scale_velocity__19TObjGyaranzoMissileFf(void *, f32);
 s32 project_actor_to_ground(void *, void *, int);
 s32 rand(void);
 void vec3_add_to(void *, void *);
@@ -100,13 +100,13 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
 extern "C" {
 
 void call_player_preserving_field__15TObjEnemyCustomFPv(void *arg0);
-s32 call_vt78__10TObjPlayerFPv();
+s32 call_vt78__10TObjPlayerFv();
 
 void call_player_preserving_field__15TObjEnemyCustomFPv(void *arg0) {
     s16 temp_r31;
 
     temp_r31 = *(s16 *)((s8 *)arg0 + 0x326);
-    call_vt78__10TObjPlayerFPv();
+    call_vt78__10TObjPlayerFv();
     *(s16 *)((s8 *)arg0 + 0x326) = temp_r31;
 }
 
@@ -234,6 +234,7 @@ BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius) {
 }
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -296,7 +297,7 @@ struct VObj_18 : VBase_18 {
     virtual s32 m56();
 };
 extern "C" {
-s32 update_if_active__15TObjEneMe1GiGueFPv(void *, int);
+s32 update_if_active__15TObjEneMe1GiGueFl(void *, int);
 f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805DA080;
 void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0);
@@ -304,16 +305,15 @@ void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0);
 
 extern "C" {
 
-u8 find_target_in_range__10TObjPlayerFPvf(void *arg0, f32 farg0);
 s32 get_player_by_client_id(u16);
 
-u8 find_target_in_range__10TObjPlayerFPvf(void *arg0, f32 farg0) {
-    if (obj_testFlags30(arg0, 0x10) != 0) {
-        return ((u8 (*)(void *, f32))select_nearest_target__10TObjPlayerFPvf)(arg0, farg0);
+u8 TObjPlayer::find_target_in_range(f32 farg0) {
+    if (obj_testFlags30(this, 0x10) != 0) {
+        return ((u8 (*)(void *, f32))select_nearest_target__10TObjPlayerFPvf)(this, farg0);
     }
-    *(u16 *)((s8 *)arg0 + 0x338) = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(arg0, 0, farg0);
-    *(s32 *)((s8 *)arg0 + 0x2A8) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x338));
-    return (u8) (*(s32 *)((s8 *)arg0 + 0x2A8) != 0);
+    *(u16 *)((s8 *)this + 0x338) = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(this, 0, farg0);
+    *(s32 *)((s8 *)this + 0x2A8) = get_player_by_client_id(*(u16 *)((s8 *)this + 0x338));
+    return (u8) (*(s32 *)((s8 *)this + 0x2A8) != 0);
 }
 
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1) {
@@ -329,7 +329,7 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
     Vec_800C7168 out;
     Vec_800C7168 dir;
     Vec_800C7168 tmp;
-    scale_velocity__19TObjGyaranzoMissileFPvf(&v, farg0 + farg1);
+    scale_velocity__19TObjGyaranzoMissileFf(&v, farg0 + farg1);
     vec3_add_to(&a, &v);
     hit = csnVector(&self->base, &a, -1);
     if (hit != NULL) {
@@ -373,7 +373,7 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
 
 void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0) {
     if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805DA080) {
-        update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (8));
+        update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), (int) (8));
         return;
     }
     ((VObj_18 *)(arg0))->m56();

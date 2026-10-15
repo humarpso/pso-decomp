@@ -9,6 +9,8 @@ struct TObjSinBoard
     u32 m_5c;
     u32 m_60;
     u32 m_64;
+    void render();
+    static void run_task();
 };
 
 #endif

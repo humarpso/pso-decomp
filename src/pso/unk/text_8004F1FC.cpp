@@ -2,12 +2,12 @@
 
 extern "C" {
 s32 clear_render_callback__8TObjFishFv(int);
-s32 set_draw_callback_list__8TObjFishFPv(int);
+s32 set_draw_callback_list__8TObjFishFv(int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
@@ -29,9 +29,9 @@ void fn_8004F1FC(u8 *arg0) {
         var_r31 = 0;
         do {
             temp_r30 = arg0 + var_r31;
-            set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)temp_r30 + 0xC8)));
+            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)temp_r30 + 0xC8)));
             if (var_r29 == 0) {
-                set_draw_callback_list__8TObjFishFPv((int) (*(s32 *)((s8 *)arg0 + 0x100)));
+                set_draw_callback_list__8TObjFishFv((int) (*(s32 *)((s8 *)arg0 + 0x100)));
             }
             draw_model_motion((int) (*(s32 *)((s8 *)temp_r30 + 0xC4)), (int) (*(s32 *)((s8 *)temp_r30 + 0xCC)), (f32) (*(f32 *)((s8 *)arg0 + 0xFC)));
             if (var_r29 == 0) {

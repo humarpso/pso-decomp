@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCamera.h"
 struct V3_8017F624 { s32 x; s32 y; s32 z; };
 
 struct Vec_8017F6C0 { f32 x, y, z; };
@@ -8,12 +9,11 @@ struct Obj_8017F6C0 { u8 pad[0x38]; Vec_8017F6C0 pos; };
 struct Out_8017F6C0 { f32 x, y; };
 
 extern "C" {
-void get_camera_ctrl__9TObjEneDDFPv(void *, void *);
+void get_camera_ctrl__9TObjEneDDFv(void *, void *);
 extern s32 camera_slot_id_table[];
 extern V3_8017F624 camera_slot_zero_vec_table[];
 extern V3_8017F624 camera_slot_positions[];
 extern s32 TObjCamera__camera_slot_scan_index;
-void update_camera_slots__10TObjCameraFv(void);
 void matrix_mult_vec(s32, Vec_8017F6C0 *, Vec_8017F6C0 *);
 void project_world_to_screen(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
 extern Vec_8017F6C0 lbl_804FF610;
@@ -24,12 +24,12 @@ s32 TObjCamera__vt8(Obj_8017F6C0 *o, f32 r, f32 d);
 
 extern "C" {
 
-void update_camera_slots__10TObjCameraFv(void) {
+void TObjCamera::update_camera_slots() {
     s32 i;
     for (i = 0; i < 8; i++) {
         if (TObjCamera__camera_slot_scan_index == camera_slot_id_table[i]) {
             V3_8017F624 v = camera_slot_zero_vec_table[0];
-            get_camera_ctrl__9TObjEneDDFPv(&v, &camera_slot_positions[i]);
+            get_camera_ctrl__9TObjEneDDFv(&v, &camera_slot_positions[i]);
         }
     }
     TObjCamera__camera_slot_scan_index += 1;

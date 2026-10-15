@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerEnemy.h"
 
 struct Base18 { char pad[0x18]; };
 
@@ -118,11 +119,11 @@ struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f32
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 request_box_item_drop(void *, void *, int);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerItem__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, void *, void *);
 s32 get_container_param(int);
@@ -136,7 +137,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
@@ -158,13 +159,12 @@ extern "C" {
 
 void TObjContainerEnemy__vt78(void *arg0);
 void *__dt__18TObjContainerEnemyFv(void *arg0, s16 arg1);
-void *create__18TObjContainerEnemyFPv(void *arg0);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_container_object__10TObjPlayerFPvs(void *, s32);
+s32 destroy_container_object__10TObjPlayerFs(void *, s32);
 
 void TObjContainerEnemy__vt78(void *arg0) {
     s16 temp_r0;
@@ -182,7 +182,7 @@ void TObjContainerEnemy__vt78(void *arg0) {
 
 extern void *tl_05;
 
-void *create__18TObjContainerEnemyFPv(void *arg0) {
+void *TObjContainerEnemy::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
         o = TObjContainerEnemy__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -197,7 +197,7 @@ void *__dt__18TObjContainerEnemyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjContainerEnemy;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_container_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_container_object__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -215,7 +215,7 @@ u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&forest_box_collision_body_parts.value), (int) (1));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&forest_box_collision_body_parts.value) + 4));
@@ -227,13 +227,13 @@ void TObjContainerItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             ((VObj18 *) arg0)->m77();
             request_box_item_drop((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
-            clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
+            clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (1));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
+        clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (1));
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
@@ -271,7 +271,7 @@ void TObjContainerItem__vt79(struct Box_80189A50 *self) {
     if (lbl_805D5B78 != 0) {
         switch (self->state) {
         case 0:
-            set_global_param__8TObjFishFi(lbl_805D5B7C);
+            set_global_param__8TObjFishFl(lbl_805D5B7C);
             push_matrix();
             post_translate_matrix(self->pos);
             rotate_matrix_y(0, self->rot);

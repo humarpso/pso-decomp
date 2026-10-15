@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowKeyBoardHard.h"
 
 extern "C" {
 u16 to_be_uint16_t__FUs(u16);
@@ -7,7 +9,6 @@ extern void *TLobby__protocol_instance;
 extern s32 deferred_packet_buffer;
 extern s32 deferred_packet_buffer_used;
 extern s32 lbl_805D5D04;
-void drain_deferred_packets__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -15,14 +16,12 @@ extern "C" {
 void buffer_reset(void);
 void copy_packet__FP6packet(void *arg0);
 void set_fresh_card_flag(void *arg0);
-void set_card_window_flags__19TWindowKeyBoardHardFPvii(void *arg0, s32 arg1, s32 arg2);
-s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2);
 void *get_character_save_record();
 s32 memcpy(s32, void *, u16);
 s32 memset(s32, s32, s32);
 u16 to_be_uint16_t__FUs(u16);
 
-s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2) {
+s32 TWindowKeyBoardHard::test_card_flag(s32 arg1, s32 arg2) {
     void *temp_r3;
 
     temp_r3 = get_character_save_record();
@@ -32,7 +31,7 @@ s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2) {
     return (*(s32 *)((s8 *)temp_r3 + 0x10) & arg2) ? 1 : 0;
 }
 
-void set_card_window_flags__19TWindowKeyBoardHardFPvii(void *arg0, s32 arg1, s32 arg2) {
+void TWindowKeyBoardHard::set_card_window_flags(void *arg0, s32 arg1, s32 arg2) {
     void *temp_r3;
 
     temp_r3 = get_character_save_record();
@@ -51,7 +50,7 @@ void set_fresh_card_flag(void *arg0) {
 extern s32 deferred_packet_buffer;
 extern s32 deferred_packet_buffer_used;
 
-void drain_deferred_packets__6TLobbyFv(void) {
+void TLobby::drain_deferred_packets() {
     deferred_packet_buffer_used = 0;
     lbl_805D5D04 = 2;
     s32 i;
@@ -95,16 +94,16 @@ void buffer_reset(void) {
 extern "C" {
 
 void TLobby__sub_801A5478(void);
-int free__11TOBoss4RockFUi(void*);
+int mem_free(void*);
 
     extern s32 deferred_packet_buffer;
-void TLobby__sub_801A5478(void) { free__11TOBoss4RockFUi((void*)(deferred_packet_buffer)); deferred_packet_buffer = 0; }
+void TLobby__sub_801A5478(void) { mem_free((void*)(deferred_packet_buffer)); deferred_packet_buffer = 0; }
 
 }
 
 extern "C" {
 
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_alloc(s32);
 s32 memset(s32, s32, s32);
 extern s32 deferred_packet_buffer;
 extern s32 deferred_packet_buffer_used;
@@ -115,7 +114,7 @@ void alloc_work_buffer(void) {
     deferred_packet_buffer_used = 0;
     lbl_805D5D00 = 0;
     lbl_805D5D04 = 0;
-    deferred_packet_buffer = alloc_buffer__11TOBoss4RockFPv(0x10000);
+    deferred_packet_buffer = mem_alloc(0x10000);
     memset(deferred_packet_buffer, 0, 0x10000);
 }
 
@@ -143,7 +142,7 @@ void append_command_to_batch_buffer(S_801A5544 *arg0, u8 *arg1);
 extern "C" {
 
 void TLobby__sub_801A54E8(u8 *arg0);
-void clear_send_buffer__7TPacketFPv(void* p);
+void clear_send_buffer__7TPacketFv(void* p);
 
 void TLobby__sub_801A54E8(u8 *arg0) {
     s32 temp_r4;

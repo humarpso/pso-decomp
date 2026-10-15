@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TSceneSora.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Vec_8029EFFC { f32 x, y, z; };
 
@@ -36,7 +38,7 @@ s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_effect_state__10TObjPlayerFi(s32);
+s32 set_global_effect_state__10TObjPlayerFl(s32);
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
 s32 load_current_pos_matrix(int);
@@ -48,9 +50,6 @@ extern s32 current_matrix;
 extern const f32 lbl_805DDDA0;
 extern const f32 lbl_805DDDA4;
 extern const f32 lbl_805DDDA8;
-void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
-void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
-void clear_state_if_flag80__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_8029EE2C(void);
 void set_id__6TSceneFi(void *f);
 void set_active_scene__6TSceneFi(void *f);
@@ -70,7 +69,7 @@ void copy_reflection_vec__10TSceneSoraFPv(Vec_8029EFFC *);
 void TScene__sub_8029F5D8();
 void TScene__sub_8029F5E4(f32);
 void TScene__sub_8029F5EC();
-void copy_efb_to_texture__10TObjPlayerFPv(s32);
+void copy_efb_to_texture__10TObjPlayerFv(s32);
 f32 vec_squared_length(Vec_8029EFFC *);
 void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
 void normalize_vector(Vec_8029EFFC *);
@@ -88,29 +87,27 @@ extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
 extern const f32 lbl_805DDDAC;
 extern const f32 lbl_805DDDB0;
-void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o);
 }
 
 extern "C" {
 
 void TSceneSora__sub_8029F3E4(void);
-void clear_state_if_flag80__10TObjPlayerFi(s32 arg0);
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
-s32 set_global_effect_state__10TObjPlayerFi(s32);
+s32 set_global_effect_state__10TObjPlayerFl(s32);
 
 extern s32 model_render_flags;
 
-void clear_state_if_flag80__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::clear_state_if_flag80(s32 arg0) {
     if (arg0 & 0x80) {
         set_ginja_post_tev_stage_count(0);
         set_ginja_post_texgen_count(0);
-        set_global_effect_state__10TObjPlayerFi(0);
+        set_global_effect_state__10TObjPlayerFl(0);
         model_render_flags &= 0xFFF7FFFF;
     }
 }
 
-void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
+void TObjPlayer::setup_projection_texture(s32 arg0, s32 arg1, s32 arg2) {
     u8 sp10[0x30];
     f32 spC;
     f32 sp8;
@@ -135,12 +132,13 @@ void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
             model_render_flags |= 0x80000;
             set_ginja_post_tev_stage_count((s32)((int) (1)));
             set_ginja_post_texgen_count((s32)((int) (1)));
-            set_global_effect_state__10TObjPlayerFi((s32)((int) (1)));
+            set_global_effect_state__10TObjPlayerFl((s32)((int) (1)));
         }
     }
 }
 
-void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
+void TSceneSora::render_reflections() {
+    Sora_8029EFFC *o = (Sora_8029EFFC *)this;
     Cam_8029EFFC c3;
     Cam_8029EFFC c2;
     Cam_8029EFFC c1;
@@ -263,14 +261,14 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     if (TSceneSora__instance != 0) {
         TSceneSora__sky_active_flag = 1;
     }
-    copy_efb_to_texture__10TObjPlayerFPv(o->f1C);
+    copy_efb_to_texture__10TObjPlayerFv(o->f1C);
     set_scene_flag__10TSceneSoraFi(o->f1C + 0x1C);
 }
 
 void TSceneSora__sub_8029F3E4(void) {  }
 int set_scene_callbacks__6TSceneFv(void) {
-    set_id__6TSceneFi((void *)setup_projection_texture__10TObjPlayerFiii);
-    set_active_scene__6TSceneFi((void *)clear_state_if_flag80__10TObjPlayerFi);
+    set_id__6TSceneFi((void *)TObjPlayer::setup_projection_texture);
+    set_active_scene__6TSceneFi((void *)TObjPlayer::clear_state_if_flag80);
     return set_instance__6TSceneFi((void *)TObjPlayer__sub_8029EE2C);
 }
 

@@ -14,6 +14,12 @@ struct TWindowEffectParty
     void* m_28;
     u8 _pad2C[0x4];
     u32 m_30;
+    static void render();
+    void run_task();
+    s32 step_toward_target(f32 farg0, f32 farg1);
+    void calc_effect_position(void *arg1);
+    static void set_slot_position(s32 arg0, s32 arg1, void *arg2);
+    static void *create(void *owner, s32 from, s32 to, u32 kind);
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Rec_8023E638 {
     s32 a;
@@ -12,8 +13,8 @@ typedef struct List_8023E638 {
 } List_8023E638;
 
 extern "C" {
-void safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
-s32 alloc__22TQuestVmDownLoadServerFPv(s32);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
+s32 alloc__22TQuestVmDownLoadServerFv(s32);
 void prs_decompress_buffer(s32, s32);
 s32 set_stream_and_load_file__6TLobbyFi(void *);
 s32 sprintf(char *, const char *, ...);
@@ -22,7 +23,7 @@ extern char texture_prs_filename_format[];
 extern char texture_prs_stream_filename_buffer[];
 s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 void prs_decompress_buffer(s32, s32);
-s32 update_lobby_scene__6TSceneFPv(void *);
+s32 update_lobby_scene__6TSceneFv(void *);
 s32 read_disc_file(void *, s32);
 s32 sprintf(char *, const char *, ...);
 s32 TLobby__sub_803CC53C();
@@ -47,18 +48,17 @@ extern "C" {
 s32 fn_8023E734(u32 arg0);
 s32 free_texture_if_valid(u32 arg0);
 void init_buffers(void);
-s32 notify_fish_if_valid__10TObjPlayerFUi(u32 arg0);
 int TLobby__sub_803DA16C();
 s32 load_texture_list();
 s32 memset(s32, s32, s32);
-int set_global_param__8TObjFishFi();
+int set_global_param__8TObjFishFl();
 s32 xmalloc__FUl(s32);
 
-s32 notify_fish_if_valid__10TObjPlayerFUi(u32 arg0) {
+s32 TObjPlayer::notify_fish_if_valid(u32 arg0) {
     if (arg0 == 0U) {
         return 0;
     }
-    set_global_param__8TObjFishFi();
+    set_global_param__8TObjFishFl();
     return 1;
 }
 
@@ -68,14 +68,14 @@ s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1) {
     sprintf(texture_prs_stream_filename_buffer, texture_prs_filename_format, arg0);
     h = set_stream_and_load_file__6TLobbyFi(texture_prs_stream_filename_buffer);
     if (h == 0) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi(h);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(h);
         return 0;
     }
-    buf = alloc__22TQuestVmDownLoadServerFPv(0x100000);
+    buf = alloc__22TQuestVmDownLoadServerFv(0x100000);
     prs_decompress_buffer(h, buf);
     load_gvm_texture_archive(buf, arg1);
-    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
-    safe_free__23TAdSinglePlyChrSelectGCFUi(h);
+    safe_free__23TAdSinglePlyChrSelectGCFUl(buf);
+    safe_free__23TAdSinglePlyChrSelectGCFUl(h);
     return 1;
 }
 
@@ -84,7 +84,7 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
     s32 b;
     s32 c;
     sprintf(texture_prs_disc_filename_buffer, texture_prs_filename_format, arg0);
-    if (update_lobby_scene__6TSceneFPv(texture_prs_disc_filename_buffer) != -1) {
+    if (update_lobby_scene__6TSceneFv(texture_prs_disc_filename_buffer) != -1) {
         a = adxf_open__6TLobbyFUii(texture_prs_disc_filename_buffer, 0);
         b = TLobby__sub_803CC53C();
         close_adxf_handle__6TLobbyFPv(a);

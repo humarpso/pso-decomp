@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct TexObj_803E224C { u32 dummy[8]; } TexObj_803E224C;
 
@@ -45,11 +46,9 @@ extern "C" {
 s32 GXClearVtxDesc();
 s32 Dolphin_GXSetVtxDesc(int, int);
 s32 GXSetVtxAttrFmt(int, int, int, int, int);
-void setup_vertex_format__10TObjPlayerFv(void);
 s32 GXClearVtxDesc();
 s32 Dolphin_GXSetVtxDesc(int, int);
 s32 GXSetVtxAttrFmt(int, int, int, int, int);
-void setup_vtx_desc__10TObjPlayerFv(void);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevColorIn(int, int, int, int, int);
 s32 GXSetTevColorOp(int, int, int, int, int, int);
@@ -59,16 +58,12 @@ void set_tev_stage_mode(s32 arg0);
 s32 apply_cached_blend_mode(s32 arg0);
 s32 TObjPlayer__sub_803E24E0(void);
 s32 apply_cached_blend_mode(s32 arg0);
-s32 apply_blend_mode_1__10TObjPlayerFv(void);
 s32 GXSetNumTexGens(s32 arg0);
-s32 set_num_tex_gens_zero__10TObjPlayerFv(void);
 s32 GXSetNumTexGens(s32 arg0);
 s32 GXSetTexCoordGen2(int, int, int, int, int, int);
-void setup_tex_gen__10TObjPlayerFv(void);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 GXSetNumTevStages(void *);
-void set_tev_passclr__10TObjPlayerFv(void);
 void Dolphin_GXInitTexObj(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8);
 void GXInitTexObjCI(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8, u32);
 void GXLoadTexObj(TexObj_803E224C *, s32);
@@ -84,10 +79,8 @@ extern const f32 lbl_805E1070;
 void draw_projected_line_strip__10TObjPlayerFPvii(Vtx_803E26A4 *v, s32 n, s32 mode);
 void GXSetNumChans(u8);
 void GXSetChanCtrl(int, int, int, int, int, int, int);
-s32 setup_color_channels__10TObjPlayerFi(int arg0);
 void GXBegin(int, int, u16);
 s32 load_screen_space_matrix__10TObjPlayerFv();
-void setup_render__10TObjPlayerFv(void);
 void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
 void load_context_texture_obj(void);
@@ -99,28 +92,27 @@ extern "C" {
 
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
-void setup_render__10TObjPlayerFv(void);
 void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
 
 void setup_opaque_color_draw(void) {
     TObjPlayer__sub_803E24E0();
-    setup_vertex_format__10TObjPlayerFv();
+    TObjPlayer::setup_vertex_format();
 }
 
 void TObjPlayer__sub_803E21DC(void) {
-    apply_blend_mode_1__10TObjPlayerFv();
-    setup_vertex_format__10TObjPlayerFv();
+    TObjPlayer::apply_blend_mode_1();
+    TObjPlayer::setup_vertex_format();
 }
 
-void setup_render__10TObjPlayerFv(void) {
+void TObjPlayer::setup_render() {
     TObjPlayer__sub_803E24E0();
-    setup_vtx_desc__10TObjPlayerFv();
+    TObjPlayer::setup_vtx_desc();
 }
 
 void setup_blended_textured_draw(void) {
-    apply_blend_mode_1__10TObjPlayerFv();
-    setup_vtx_desc__10TObjPlayerFv();
+    TObjPlayer::apply_blend_mode_1();
+    TObjPlayer::setup_vtx_desc();
 }
 
 void TObjPlayer__sub_803E2248(void) {
@@ -161,17 +153,17 @@ void load_context_texture_obj(void) {
     GXLoadTexObj(&context_texture_obj, 0);
 }
 
-void setup_vertex_format__10TObjPlayerFv(void) {
+void TObjPlayer::setup_vertex_format() {
     GXClearVtxDesc();
     Dolphin_GXSetVtxDesc((int) (9), (int) (1));
     Dolphin_GXSetVtxDesc((int) (0xB), (int) (1));
     GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
-    setup_color_channels__10TObjPlayerFi((int)((int) (1)));
-    set_tev_passclr__10TObjPlayerFv();
-    set_num_tex_gens_zero__10TObjPlayerFv();
+    TObjPlayer::setup_color_channels(1);
+    TObjPlayer::set_tev_passclr();
+    TObjPlayer::set_num_tex_gens_zero();
 }
-void setup_vtx_desc__10TObjPlayerFv(void) {
+void TObjPlayer::setup_vtx_desc() {
     GXClearVtxDesc();
     Dolphin_GXSetVtxDesc((int) (9), (int) (1));
     Dolphin_GXSetVtxDesc((int) (0xB), (int) (1));
@@ -179,15 +171,15 @@ void setup_vtx_desc__10TObjPlayerFv(void) {
     GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xD), (int) (1), (int) (4), (int) (0));
-    setup_color_channels__10TObjPlayerFi((int)((int) (1)));
+    TObjPlayer::setup_color_channels(1);
     set_tev_stage_mode((s32)((int) (1)));
-    setup_tex_gen__10TObjPlayerFv();
+    TObjPlayer::setup_tex_gen();
 }
 
 #pragma push
 #pragma scheduling off
 
-s32 setup_color_channels__10TObjPlayerFi(int arg0) {
+s32 TObjPlayer::setup_color_channels(int arg0) {
     GXSetNumChans(arg0);
     GXSetChanCtrl(4, 0, 0, 1, 0, 0, 2);
     if (arg0 == 2) {
@@ -200,12 +192,12 @@ s32 TObjPlayer__sub_803E24E0(void) { return apply_cached_blend_mode(0x0); }
 
 #pragma push
 #pragma scheduling off
-s32 apply_blend_mode_1__10TObjPlayerFv(void) { return apply_cached_blend_mode(0x1); }
+s32 TObjPlayer::apply_blend_mode_1() { return apply_cached_blend_mode(0x1); }
 #pragma pop
 
 #pragma push
 #pragma scheduling off
-void set_tev_passclr__10TObjPlayerFv(void) {
+void TObjPlayer::set_tev_passclr() {
     GXSetNumTevStages((void *)((int) (1)));
     GXSetTevOrder((int) (0), (int) (0xFF), (int) (0xFF), (int) (4));
     GXSetTevOp((int) (0), (int) (4));
@@ -236,10 +228,10 @@ void set_tev_stage_mode(s32 arg0) {
 
 #pragma push
 #pragma scheduling off
-s32 set_num_tex_gens_zero__10TObjPlayerFv(void) { return GXSetNumTexGens(0x0); }
+s32 TObjPlayer::set_num_tex_gens_zero() { return GXSetNumTexGens(0x0); }
 #pragma push
 #pragma scheduling off
-void setup_tex_gen__10TObjPlayerFv(void) {
+void TObjPlayer::setup_tex_gen() {
     GXSetNumTexGens((s32)(1U));
     GXSetTexCoordGen2((int) (0), (int) (1), (int) (4), (int) (0x3C), (int) (0), (int) (0x7D));
 }
@@ -299,7 +291,7 @@ void draw_textured_vertices__10TObjPlayerFPvii(Vtx_803E2810 *v, s32 n, s32 mode)
     if (mode != 0) {
         setup_blended_textured_draw();
     } else {
-        setup_render__10TObjPlayerFv();
+        TObjPlayer::setup_render();
     }
     load_context_texture_obj();
     GXBegin(0x98, 4, n);

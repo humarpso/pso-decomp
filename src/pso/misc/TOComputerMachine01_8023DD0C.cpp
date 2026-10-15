@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Ent_8023DD0C { u8 type; u8 pad[3]; u32 f4; };
 
@@ -38,7 +39,6 @@ void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void DVDConvertEntrynumToPath(void *);
 void set_draw_texture_and_color(s32, s32);
-void draw_compass_sprite__10TObjPlayerFPviiif(Self_8023E0FC *self, s32 idx, s32 color, s32 flags, f32 z);
 }
 
 extern "C" {
@@ -181,7 +181,8 @@ void TObjPlayer__sub_8023E034(void **arg0) {
 }
 #pragma push
 #pragma fp_contract on
-void draw_compass_sprite__10TObjPlayerFPviiif(Self_8023E0FC *self, s32 idx, s32 color, s32 flags, f32 z) {
+void TObjPlayer::draw_compass_sprite(s32 idx, s32 color, s32 flags, f32 z) {
+    Self_8023E0FC *self = (Self_8023E0FC *)this;
     Vtx_8023E0FC v[4];
     Info_8023E0FC info;
     s32 i;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowEffectParty.h"
 
 extern "C" {
 f32 atan2_float(f64, f64);
@@ -7,27 +8,24 @@ f32 cos_table_lookup(s32);
 extern const f64 lbl_8044ECF0;
 extern const f32 lbl_805DCCB8;
 extern const f32 lbl_805DCCBC;
-s32 step_toward_target__18TWindowEffectPartyFPvff(u8 *arg0, f32 farg0, f32 farg1);
 void *__nw__7TObjectFUl(u32);
 void *TWindowEffectParty__ct(void *, void *, u16, u16, s32);
 extern s32 local_client_id;
-void *create__18TWindowEffectPartyFPviiUi(void *owner, s32 from, s32 to, u32 kind);
 }
 
 extern "C" {
 
-void calc_effect_position__18TWindowEffectPartyFPvPv(void *arg0, void *arg1);
-void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2);
 void *TWindowCtrl__sub_8024FB80(s8);
 s32 get_window_layout_position(s32);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, s32);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 
 extern s32 local_client_id;
 extern f32 lbl_805DCCC0;
 
 #pragma fp_contract on
-s32 step_toward_target__18TWindowEffectPartyFPvff(u8 *arg0, f32 farg0, f32 farg1) {
+s32 TWindowEffectParty::step_toward_target(f32 farg0, f32 farg1) {
+    u8 *arg0 = (u8 *)this;
   f32 temp_f4;
   f32 temp_f5;
   s32 temp_r31;
@@ -45,9 +43,9 @@ s32 step_toward_target__18TWindowEffectPartyFPvff(u8 *arg0, f32 farg0, f32 farg1
   return 0;
 }
 
-void calc_effect_position__18TWindowEffectPartyFPvPv(void *arg0, void *arg1) {
-    *(f32 *)((s8 *)arg1 + 0) = (f32) *(f32 *)((s8 *)arg0 + 0x20);
-    *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x24);
+void TWindowEffectParty::calc_effect_position(void *arg1) {
+    *(f32 *)((s8 *)arg1 + 0) = (f32) *(f32 *)((s8 *)this + 0x20);
+    *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)this + 0x24);
     *(f32 *)((s8 *)arg1 + 8) = (f32) (lbl_805DCCC0 / get_scale__15TWindowCtrlMainFv(local_client_id));
 }
 
@@ -56,12 +54,12 @@ extern const f32 lbl_805DCCC8;
 extern const f32 lbl_805DCCCC;
 extern const f32 lbl_805DCCD0;
 
-void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2) {
+void TWindowEffectParty::set_slot_position(s32 arg0, s32 arg1, void *arg2) {
     void *temp_r3;
     (void)arg0;
 
     if (arg1 <= 0) {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg2, get_window_layout_position(0x1C));
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(arg2, get_window_layout_position(0x1C));
         *(f32 *)((s8 *)arg2 + 0) = (f32) (*(f32 *)((s8 *)arg2 + 0) + lbl_805DCCC4);
         *(f32 *)((s8 *)arg2 + 4) = (f32) (*(f32 *)((s8 *)arg2 + 4) + lbl_805DCCC8);
         return;
@@ -72,7 +70,7 @@ void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2
         *(f32 *)((s8 *)arg2 + 4) = (f32) (lbl_805DCCD0 + *(f32 *)((s8 *)temp_r3 + 0x34));
     }
 }
-void *create__18TWindowEffectPartyFPviiUi(void *owner, s32 from, s32 to, u32 kind) {
+void *TWindowEffectParty::create(void *owner, s32 from, s32 to, u32 kind) {
     s32 id;
     u16 b;
     u16 a;

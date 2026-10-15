@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 
 extern "C" {
 
-void init__22TQuestVmDownLoadServerFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4);
-int create_message_and_menu__17TWindowSubComCardFPvUiiUiUi(void*, void*, void*, void*, void*);
-int close_windows__17TWindowSubComCardFPv(void*);
+int create_message_and_menu__17TWindowSubComCardFUllUlUl(void*, void*, void*, void*, void*);
+int close_windows__17TWindowSubComCardFv(void*);
 
-void init__22TQuestVmDownLoadServerFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__17TWindowSubComCardFPv(p); create_message_and_menu__17TWindowSubComCardFPvUiiUiUi(p, a1, a2, a3, a4); }
+void TQuestVmDownLoadServer::init(void* a1, void* a2, void* a3, void* a4) { close_windows__17TWindowSubComCardFv(this); create_message_and_menu__17TWindowSubComCardFUllUlUl(this, a1, a2, a3, a4); }
 
 }

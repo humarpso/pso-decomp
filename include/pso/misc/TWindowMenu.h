@@ -25,6 +25,13 @@ struct TWindowMenu
     u32 m_80;
     u32 m_84;
     u32 m_88;
+    void set_active_flag();
+    void confirm_selection();
+    void select_next_item();
+    void move_cursor_prev();
+    void run_task();
+    void copy_position(void* q);
+    s32 is_locked(s32 arg1);
 };
 
 #endif

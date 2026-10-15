@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TMovie.h"
 struct MovieFrameInfo {
     u32 field_00;
     u8 pad_C[0x4];
@@ -43,7 +44,7 @@ extern "C" {
 s32 TMovie__sub_80143C94(int, int, int);
 s32 flush_and_reset__6TMovieFv();
 s32 flush_framebuffer(void *, void *, void *);
-s32 copy__6TMovieFPvPv(void *, void *);
+s32 copy__6TMovieFPv(void *, void *);
 extern s32 (*TMovie__decode_frame_callback)(void **, u32 *);
 extern s32 (*lbl_805D6B3C)(void **);
 
@@ -59,7 +60,8 @@ extern void (*lbl_805D6B9C)(Iface_80143FB0 *, void *);
 extern void (*lbl_805D6BA0)(Iface_80143FB0 *);
 extern void (*lbl_805D6BA4)(Iface_80143FB0 *);
 
-void init_sfd_player__6TMovieFPvii(Movie_80143FB0 *o, s32 arg1, s32 arg2) {
+void TMovie::init_sfd_player(s32 arg1, s32 arg2) {
+    Movie_80143FB0 *o = (Movie_80143FB0 *)this;
     Info_80143FB0 *info = &o->info;
     Iface_80143FB0 *f;
 
@@ -101,7 +103,8 @@ void init_sfd_player__6TMovieFPvii(Movie_80143FB0 *o, s32 arg1, s32 arg2) {
     f->vt->f2C(f, get_lobby_data__6TLobbyFv());
 }
 
-s32 decode_frame__6TMovieFPv(u8 *arg0) {
+s32 TMovie::decode_frame() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(MovieFrameInfo, field_00) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(MovieFrameInfo, field_08) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(MovieFrameInfo, field_0c) == 0xC) ? 1 : -1];
@@ -121,7 +124,7 @@ s32 decode_frame__6TMovieFPv(u8 *arg0) {
         } else {
             flush_framebuffer((void *) (arg0), (void *) (*(void ***)((s8 *)arg0 + 4)), (void *) (&frame.field_00));
         }
-        copy__6TMovieFPvPv((void *) (arg0 + 0x5C), (void *) (&frame.field_00));
+        copy__6TMovieFPv((void *) (arg0 + 0x5C), (void *) (&frame.field_00));
         lbl_805D6B3C(*(void ***)((s8 *)arg0 + 4));
     }
     temp_r3 = (void **)(*(void ***)((s8 *)arg0 + 4));

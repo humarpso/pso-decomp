@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct S_803DC83C { u8 pad[0x77]; u8 f; };
 
@@ -14,11 +15,10 @@ void set_ginja_post_tev_stage_count(s32 x);
 extern "C" {
 
 void set_ginja_draw_end_callback(s32 arg0);
-void set_global_effect_state__10TObjPlayerFi(s32 arg0);
 
 extern s32 lbl_805D76E0;
 
-void set_global_effect_state__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::set_global_effect_state(s32 arg0) {
     lbl_805D76E0 = arg0;
 }
 

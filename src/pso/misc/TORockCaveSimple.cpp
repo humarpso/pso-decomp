@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TORockCaveSimple.h"
 
 struct Base1_80175024 { char pad[0x18]; };
 struct VObj1_80175024 : Base1_80175024 {
@@ -11,7 +12,6 @@ extern "C" {
 
 void *TORockCaveSimple__ct(void *arg0);
 void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1);
-void play_trigger_effect__16TORockCaveSimpleFPv(u8 *arg0);
 s32 post_translate_matrix(void *);
 void TORockCave__ct(void *);
 s32 draw_ginja_object(s32);
@@ -20,15 +20,16 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__10TORockCaveFv(void *, int);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
-void play_trigger_effect__16TORockCaveSimpleFPv(u8 *arg0) {
+void TORockCaveSimple::play_trigger_effect() {
+    u8 *arg0 = (u8 *)this;
     VObj1_80175024 *self = (VObj1_80175024 *)arg0;
     if (self->m8(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }

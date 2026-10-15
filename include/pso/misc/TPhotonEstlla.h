@@ -32,6 +32,9 @@ struct TPhotonEstlla
     u32 m_198;
     u32 m_19c;
     u32 m_1a0;
+    void spawn_line();
+    void render();
+    void run_task();
 };
 
 #endif

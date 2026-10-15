@@ -8,6 +8,9 @@ public:
     virtual ~TObjRain();
     virtual void run_task();
     virtual void render();
+public:
+    void draw_streaks();
+    void init_drops();
 };
 
 #endif

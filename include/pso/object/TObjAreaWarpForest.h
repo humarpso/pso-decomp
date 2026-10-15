@@ -19,6 +19,11 @@ struct TObjAreaWarpForest
     u32 m_d0;
     u32 m_d4;
     u32 m_d8;
+    void render();
+    void run_task();
+    void render_if_active();
+    void *init(void *, void *);
+    void *alloc_and_init();
 };
 
 #endif

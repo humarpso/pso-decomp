@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestColBase.h"
 
 struct VBase_18_551843 { char pad[0x18]; };
 
@@ -83,8 +84,7 @@ struct RecoveredFields_80196DB4_arg0
 
 extern "C" {
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void run_task__16TObjQuestColBaseFPv(u8 *arg0);
-u8 * destroy_particle_controller__10TObjPlayerFPvs(void *, s16);
+u8 * destroy_particle_controller__10TObjPlayerFs(void *, s16);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
 extern s32 TObjQuestColBase__instance_count;
@@ -94,9 +94,8 @@ extern RecoveredGlobal_80196C60_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
-void update_room_id_check__16TObjQuestColBaseFPv(u8 *arg0);
-u16 alloc_actor_ids__6TLobbyFi(u16);
-s32 construct_collider_proxy__10TObjPlayerFPv(void *);
+u16 alloc_actor_ids__6TLobbyFl(u16);
+s32 construct_collider_proxy__10TObjPlayerFv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
 extern s32 quest_col_base_class_name;
 extern u16 quest_collision_next_id;
@@ -107,13 +106,13 @@ u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern "C" {
 
 void TObjQuestColBase__sub_80196CC4(void);
-s32 is_within_range__16TObjQuestColBaseFif(s32 arg0, f32 farg0);
 u32 get_player_by_client_id(s32);
 f32 xyz_distance_squared(s32, s32);
 
 extern s32 local_client_id;
 
-s32 is_within_range__16TObjQuestColBaseFif(s32 arg0, f32 farg0) {
+s32 TObjQuestColBase::is_within_range(f32 farg0) {
+    s32 arg0 = (s32)this;
     u32 temp_r3;
 
     temp_r3 = get_player_by_client_id(local_client_id);
@@ -124,14 +123,16 @@ s32 is_within_range__16TObjQuestColBaseFif(s32 arg0, f32 farg0) {
 }
 
 typedef char RecoveredGlobal_80196C60_lbl_804A7438_size[sizeof(RecoveredGlobal_80196C60_lbl_804A7438) == 0x10 ? 1 : -1];
-void update_room_id_check__16TObjQuestColBaseFPv(u8 *arg0) {
+void TObjQuestColBase::update_room_id_check() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBEF8, lbl_805DBEFC) != 0) {
         TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * *(f32 *)((s8 *)arg0 + 0xAC)));
     }
 }
 
 void TObjQuestColBase__sub_80196CC4(void) {  }
-void run_task__16TObjQuestColBaseFPv(u8 *arg0) {
+void TObjQuestColBase::run_task() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB8));
     if ((temp_r3 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) == 0)) {
@@ -145,7 +146,7 @@ u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TObjQuestColBase.value;
         TObjQuestColBase__instance_count -= 1;
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -160,14 +161,14 @@ typedef char RecoveredGlobal_80196DB4___vt__16TObjQuestColBase_size[((sizeof(Rec
 #define PSO_VCALL_VObj_18_1a504b_m5(_self, _arg0) (((VObj_18_1a504b *)(_self))->m5((_arg0)))
 u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
   u16 temp_r6;
-  construct_collider_proxy__10TObjPlayerFPv((void *) arg0);
+  construct_collider_proxy__10TObjPlayerFv((void *) arg0);
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_0 = quest_col_base_class_name;
   PSO_VCALL_VObj_18_1a504b_m5(arg0, arg2);
   temp_r6 = -1;
   if (((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C == temp_r6)
   {
-    ((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C = alloc_actor_ids__6TLobbyFi(0);
+    ((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C = alloc_actor_ids__6TLobbyFl(0);
   }
   temp_r6 = quest_collision_next_id;
   quest_collision_next_id = temp_r6 + 1;

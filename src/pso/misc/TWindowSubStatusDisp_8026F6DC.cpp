@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Disp_8026F9F4 { u8 p0[0x20]; s16 id; u8 p1[0x42]; void *windows[5]; };
 
@@ -12,13 +13,13 @@ void * get_player_by_client_id();
 void *__nw__7TObjectFUl(int);
 s32 fn_80244994(void *);
 void TWindow__close(void *);
-s32 set_field_1c__6TLobbyFPvf(void *, f32);
+s32 set_field_1c__6TLobbyFf(void *, f32);
 void *get_card_name_ptr__14TWindowComCardFPv(void *p);
 s32 get_status_effect_icon_index(u32 arg0);
 void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1);
 void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1);
 void *TWindowComCard__sub_80249ED8(void *, void *, void *, s32, s32, s32);
-f32 get_scale__20TWindowSubStatusDispFPv(void *p);
+f32 get_scale__20TWindowSubStatusDispFv(void *p);
 extern const f32 lbl_805DD38C;
 extern const f32 lbl_805DD398;
 void update_status_icons__14TWindowComCardFPvPv(Disp_8026F9F4 *arg0, void *arg1);
@@ -95,33 +96,29 @@ struct Vec2_80270394 { f32 x; f32 y; };
 struct Rect_80270394 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
 
 s16 obj_getS16_2BA(void *);
-s16 get_field_2b8__14TItemProShieldFPv(int);
-s32 is_inactive__10TObjPlayerFPv(void *);
-s32 get_sub_value__8TItemMagFi();
+s16 get_field_2b8__14TItemProShieldFv(int);
+s32 is_inactive__10TObjPlayerFv(void *);
+s32 get_sub_value__8TItemMagFv();
 s32 get_photon_blast_chain(Slots_80270060 *);
 void * get_player_by_client_id();
 s32 TLobby__sub_801C19D0(void *);
-u8 get_rule_field_a__6TLobbyFPv(void *);
+u8 get_rule_field_a__6TLobbyFv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-void * get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-s32 clear_visible_flag__20TWindowSubStatusDispFPv(void *);
-s32 set_flag0_bit2__15TWindowHelpItemFPv(void *);
-u32 get_field_20__17TWindowSubComCardFPv(void *);
+void * get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+s32 clear_visible_flag__20TWindowSubStatusDispFv(void *);
+s32 set_flag0_bit2__15TWindowHelpItemFv(void *);
+u32 get_field_20__17TWindowSubComCardFv(void *);
 s32 TWindowSubComCard__sub_802452DC(s32);
 s32 TWindowSubComCard__sub_80245320(Rect_80270394 *, u8 *);
 s32 TWindowSubComCard__sub_802454E4(s32);
 s32 TWindowSubComCard__sub_80245558(u8 *, Vec2_80270394 *, Vec2_80270394 *);
-s32 get_width__11TWindowCtrlFPv();
+s32 get_width__11TWindowCtrlFv();
 s32 apply_context_transform_to_rect(u8 *, Rect_80270394 *);
 s32 start_text_color_transition(void *, s32, f32);
 s32 set_text_entry_string(void *, s32, s32);
 s32 set_sprite_uv_from_pixels(s32, f32, f32);
-void start_hp_text_color_transition__20TWindowSubStatusDispFPv(u8 *arg0);
-void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
-void update_status_entry__20TWindowSubStatusDispFi(s32 arg0);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
 s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0);
-void update_hp_tp_level__20TWindowSubStatusDispFPv(u8 *arg0);
 void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1);
 void update_lockon_window(u8 *arg0);
 s32 update_photon_blast_player_marker(s32 arg0, s32 arg1);
@@ -129,7 +126,7 @@ s32 rand(void);
 s32 strcmp(s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 begin_screen_draw(s32);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(Rect_80270394 *, f32);
@@ -167,19 +164,20 @@ extern "C" {
 s32 get_photon_blast_chain(Slots_80270060 *);
 }
 
-void start_hp_text_color_transition__20TWindowSubStatusDispFPv(u8 *arg0) {
+void TWindowSubStatusDisp::start_hp_text_color_transition() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(((s32)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)(4))));
+    temp_r3 = (u8 *)(((s32)get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(4))));
     *(f32 *)((s8 *)temp_r3 + 0x20) = (f32) (*(const f32 *)&lbl_805DD388);
     *(f32 *)((s8 *)temp_r3 + 0x24) = (f32) (*(const f32 *)&lbl_805DD388);
     start_text_color_transition((void *)(temp_r3), (s32)(0xFF008CFCU), (*(const f32 *)&lbl_805DD38C));
 }
 
-void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0) {
+void TWindowSubStatusDisp::init_gauge_entry() {
     VObj3_8026f71c_more_8026f8cc_0 *temp_r3;
     f32 temp_f0;
 
-    temp_r3 = (VObj3_8026f71c_more_8026f8cc_0 *) get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)(3));
+    temp_r3 = (VObj3_8026f71c_more_8026f8cc_0 *) get_array_entry__20TWindowSubStatusDispFi((void *)(this), (s32)(3));
     temp_f0 = lbl_805DD388;
     *(f32 *)((s8 *)temp_r3 + 0x20) = temp_f0;
     *(f32 *)((s8 *)temp_r3 + 0x24) = temp_f0;
@@ -187,14 +185,15 @@ void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0) {
     start_text_color_transition(temp_r3, 0xFF00FF15, lbl_805DD38C);
 }
 
-void update_status_entry__20TWindowSubStatusDispFi(s32 arg0) {
+void TWindowSubStatusDisp::update_status_entry() {
+    s32 arg0 = (s32)this;
     void *temp_r31;
     VObj_8026F77C_more_8026f8cc_0 *temp_r3;
 
-    get_width__11TWindowCtrlFPv();
+    get_width__11TWindowCtrlFv();
     temp_r3 = (VObj_8026F77C_more_8026f8cc_0 *) get_player_by_client_id();
     if (temp_r3 != NULL) {
-        temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)(2));
+        temp_r31 = get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(2));
         *(s32 *)((s8 *)temp_r31 + 0x20) = temp_r3->m14() + 1;
     }
 }
@@ -205,13 +204,13 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
     void *temp_r30;
     void *temp_r3;
 
-    get_width__11TWindowCtrlFPv();
+    get_width__11TWindowCtrlFv();
     temp_r3 = get_player_by_client_id();
     if (temp_r3 == NULL) {
-        start_hp_text_color_transition__20TWindowSubStatusDispFPv((u8 *)(arg0));
+        ((TWindowSubStatusDisp *)arg0)->start_hp_text_color_transition();
         return 0xFF008CFC;
     }
-    temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)(4));
+    temp_r30 = get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(4));
     *(f32 *)((s8 *)temp_r30 + 0x20) = (f32) obj_getS16_2BA(temp_r3);
     *(f32 *)((s8 *)temp_r30 + 0x24) = (f32) *(s16 *)((s8 *)temp_r3 + 0x32E);
     if (*(f32 *)((s8 *)temp_r30 + 0x24) > (lbl_805DD390 * *(f32 *)((s8 *)temp_r30 + 0x20))) {
@@ -230,14 +229,14 @@ s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 var_r4;
     u8 *temp_r31;
     u8 *temp_r3;
-    get_width__11TWindowCtrlFPv();
+    get_width__11TWindowCtrlFv();
     temp_r3 = (u8 *)(((u8 *)get_player_by_client_id()));
     if (temp_r3 == NULL) {
-        init_gauge_entry__20TWindowSubStatusDispFPv((void *) (arg0));
+        ((TWindowSubStatusDisp *)arg0)->init_gauge_entry();
         return 0xFF00FF15;
     }
-    temp_r31 = (u8 *)(((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 3)));
-    *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) get_field_2b8__14TItemProShieldFPv((int) (temp_r3));
+    temp_r31 = (u8 *)(((u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 3)));
+    *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) get_field_2b8__14TItemProShieldFv((int) (temp_r3));
     if (*(f32 *)((s8 *)temp_r31 + 0x24) > (f32) *(s16 *)((s8 *)temp_r3 + 0x32C)) {
         *(s32 *)((s8 *)arg0 + 0x60) = 4;
     }
@@ -289,7 +288,7 @@ void update_status_icons__14TWindowComCardFPvPv(Disp_8026F9F4 *arg0, void *arg1)
                 w = TWindowComCard__sub_80249ED8(w, arg0, arg1, 0, name, arg0->id);
             }
             arg0->windows[j] = w;
-            set_field_1c__6TLobbyFPvf(arg0->windows[j], lbl_805DD38C + get_scale__20TWindowSubStatusDispFPv(arg0));
+            set_field_1c__6TLobbyFf(arg0->windows[j], lbl_805DD38C + get_scale__20TWindowSubStatusDispFv(arg0));
         } else {
             TWindowComCard__sub_80249D7C((u8 *)w, 0);
             set_selected_index__14TWindowComCardFPvi(arg0->windows[j], name);
@@ -316,7 +315,7 @@ void update_status_icons__14TWindowComCardFPvPv(Disp_8026F9F4 *arg0, void *arg1)
                     w = TWindowComCard__sub_80249ED8(w, arg0, arg1, count, name, arg0->id);
                 }
                 arg0->windows[j] = w;
-                set_field_1c__6TLobbyFPvf(arg0->windows[j], lbl_805DD398 + ((f32)k + get_scale__20TWindowSubStatusDispFPv(arg0)));
+                set_field_1c__6TLobbyFf(arg0->windows[j], lbl_805DD398 + ((f32)k + get_scale__20TWindowSubStatusDispFv(arg0)));
             } else {
                 TWindowComCard__sub_80249D7C((u8 *)w, count);
                 set_selected_index__14TWindowComCardFPvi(arg0->windows[j], name);
@@ -343,14 +342,15 @@ void apply_random_shake(u8 *arg0) {
 extern int fold_flush_0;
 #pragma pop
 
-void update_hp_tp_level__20TWindowSubStatusDispFPv(u8 *arg0) {
+void TWindowSubStatusDisp::update_hp_tp_level() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r31;
     s32 temp_r31_2;
-    temp_r31 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 6);
+    temp_r31 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFi)(arg0, 6);
     *(s32 *)((s8 *)temp_r31 + 0x2C) = ((s32 (*)(void *))update_hp_entry__20TWindowSubStatusDispFPv)((void *) (arg0));
-    temp_r31_2 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 7);
+    temp_r31_2 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFi)(arg0, 7);
     *(s32 *)((s8 *)temp_r31_2 + 0x2C) = update_hp_gauge__20TWindowSubStatusDispFi((s32) arg0);
-    update_status_entry__20TWindowSubStatusDispFi((s32) arg0);
+    update_status_entry();
 }
 
 void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
@@ -360,25 +360,25 @@ void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
 
     temp_r30 = ((VObj_8026ff0c * (*)(s32))get_player_by_client_id)(arg1);
     if (temp_r30 == NULL) {
-        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        set_flag0_bit2__15TWindowHelpItemFv(arg0);
         return;
     }
     temp_r29 = (u8 *)temp_r30 + 0x85C;
     if (temp_r29 == NULL) {
-        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        set_flag0_bit2__15TWindowHelpItemFv(arg0);
         return;
     }
     temp_r31 = temp_r30->m10();
     if (temp_r31 == 0) {
-        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        set_flag0_bit2__15TWindowHelpItemFv(arg0);
         return;
     }
-    if (is_inactive__10TObjPlayerFPv(temp_r30) == 0) {
-        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+    if (is_inactive__10TObjPlayerFv(temp_r30) == 0) {
+        set_flag0_bit2__15TWindowHelpItemFv(arg0);
         return;
     }
-    clear_visible_flag__20TWindowSubStatusDispFPv(arg0);
-    if ((get_field_20__17TWindowSubComCardFPv(arg0) == 0U) || (strcmp(get_field_20__17TWindowSubComCardFPv(arg0), temp_r31) != 0)) {
+    clear_visible_flag__20TWindowSubStatusDispFv(arg0);
+    if ((get_field_20__17TWindowSubComCardFv(arg0) == 0U) || (strcmp(get_field_20__17TWindowSubComCardFv(arg0), temp_r31) != 0)) {
         set_text_entry_string(arg0, temp_r31, 0x20);
     }
     if (temp_r30->m31() != 0) {
@@ -390,8 +390,8 @@ void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
 
 void update_lockon_window(u8 *arg0) {
     s32 temp_r31;
-    temp_r31 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 1);
-    ((void (*)(void *, s32))update_for_player_index__13TWindowLockOnFPvi)((void *) temp_r31, ((s32 (*)(void *))get_width__11TWindowCtrlFPv)((void *) (arg0)));
+    temp_r31 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFi)(arg0, 1);
+    ((void (*)(void *, s32))update_for_player_index__13TWindowLockOnFPvi)((void *) temp_r31, ((s32 (*)(void *))get_width__11TWindowCtrlFv)((void *) (arg0)));
 }
 
 s32 update_photon_blast_player_marker(s32 arg0, s32 arg1) {
@@ -434,7 +434,7 @@ s32 update_photon_blast_player_marker(s32 arg0, s32 arg1) {
             set_sprite_uv_from_pixels(arg0, lbl_805DD3C0, lbl_805DD3AC);
             break;
         default:
-            if (get_rule_field_a__6TLobbyFPv(lobby_rule_settings) == 1 && (p = ((u8 * (*)(u32))get_player_by_client_id)(key)) != 0) {
+            if (get_rule_field_a__6TLobbyFv(lobby_rule_settings) == 1 && (p = ((u8 * (*)(u32))get_player_by_client_id)(key)) != 0) {
                 key = TLobby__sub_801C19D0(p + 0x828) - 1;
             }
             set_sprite_uv_from_pixels(arg0, lbl_805DD3B0 * key, lbl_805DD3C4);
@@ -446,11 +446,11 @@ s32 update_photon_blast_player_marker(s32 arg0, s32 arg1) {
 void update_status_help_item(s32 arg0) {
     s32 var_r31;
 
-    var_r31 = get_width__11TWindowCtrlFPv();
+    var_r31 = get_width__11TWindowCtrlFv();
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         var_r31 = 0;
     }
-    update_photon_blast_player_marker((s32)(((s32 (*)(s32, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 0)), (s32)(var_r31));
+    update_photon_blast_player_marker((s32)(((s32 (*)(s32, s32))get_array_entry__20TWindowSubStatusDispFi)(arg0, 0)), (s32)(var_r31));
 }
 
 #pragma push
@@ -480,9 +480,9 @@ void draw_background__19TWindowSimpleStatusFv(u8 *arg0, u8 *arg1) {
     f32 scale;
     f32 f;
 
-    get_width__11TWindowCtrlFPv();
+    get_width__11TWindowCtrlFv();
     if (((u32 (*)(void))get_player_by_client_id)() != 0) {
-        f = get_sub_value__8TItemMagFi();
+        f = get_sub_value__8TItemMagFv();
     } else {
         f = lbl_805DD388;
     }
@@ -493,7 +493,7 @@ void draw_background__19TWindowSimpleStatusFv(u8 *arg0, u8 *arg1) {
     size.y = lbl_805DD3E8;
     scale = lbl_805DD3EC / *(f32 *)((s8 *)arg0 + 0x54);
     begin_screen_draw(1);
-    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_global_param__8TObjFishFl(lbl_805D63F0);
     set_draw_texture_and_color(0xB, *(s32 *)((s8 *)arg1 + 0x34));
     r.x0 = pos.x;
     r.y0 = pos.y;

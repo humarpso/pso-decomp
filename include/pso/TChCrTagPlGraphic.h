@@ -6,6 +6,10 @@
 class TChCrTagPlGraphic : public TChCrTag {
 public:
     virtual ~TChCrTagPlGraphic();
+public:
+    static void *create(void *arg0);
+    static void create_matching_tags();
+    void draw_class_illustration();
 };
 
 #endif

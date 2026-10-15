@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyOnCreated.h"
 
 struct RecoveredGlobal_801C6178___vt__13TPlyOnCreated {
     s32 value;
@@ -15,19 +16,18 @@ u8 *__ct__13TPlyOnCreatedFv(u8 *arg0, s16 arg1, s32 arg2);
 
 extern "C" {
 
-void run_task__13TPlyOnCreatedFv(void *arg0);
 u32 get_player_by_client_id(u16);
 s32 queue_destruction__7TObjectFv(void *);
 
-void run_task__13TPlyOnCreatedFv(void *arg0) {
+void TPlyOnCreated::run_task() {
     s32 (*temp_r12)();
 
-    if (get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x1C)) != 0U) {
-        temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x20);
+    if (get_player_by_client_id(*(u16 *)((s8 *)this + 0x1C)) != 0U) {
+        temp_r12 = *(s32 (**)())((s8 *)this + 0x20);
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(this);
     }
 }
 typedef char RecoveredGlobal_801C6178___vt__13TPlyOnCreated_size[sizeof(RecoveredGlobal_801C6178___vt__13TPlyOnCreated) == 0x18 ? 1 : -1];

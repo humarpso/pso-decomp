@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODragonflyMachine01.h"
 
 struct DfBase_801651B0 { char pad[0x18]; };
 struct DfV_801651B0 : DfBase_801651B0 {
@@ -46,8 +47,8 @@ extern const f32 lbl_805DB5C8;
 extern const f32 lbl_805DB5CC;
 u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1);
 O_80165434 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-O_80165434 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-void spawn_attack__16TObjEneMe3StelthFsiiiff(s16, int, int, void *, f32, f32);
+O_80165434 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+void spawn_attack__16TObjEneMe3StelthFslllff(s16, int, int, void *, f32, f32);
 extern s32 dragonfly_machine_attack_effect_params[];
 extern char TODragonflyMachine01__attack_effect_descriptor[];
 extern u32 TODragonflyMachine01__model_resource;
@@ -55,73 +56,68 @@ extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
 extern const f32 lbl_805DB5B0;
 extern const f32 lbl_805DB5B4;
-void create_attack_effect__20TODragonflyMachine01Fv(void);
 }
 
 extern "C" {
 
 void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1);
-void *create__20TODragonflyMachine01FPv(void *arg0);
 void play_cave01_key_sound(void *arg0);
-void run_task__20TODragonflyMachine01Fv(void *arg0);
-void unload_static_data__20TODragonflyMachine01Fv(void);
-void update_timer__20TODragonflyMachine01Fv(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 f32 sin_table_lookup(s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonflyMachine01__sub_80164F50(void *);
-s32 move_toward_target__11TODragonflyFPv(void *);
+s32 move_toward_target__11TODragonflyFv(void *);
 s32 TODragonfly__sub_80164990(void *);
 s32 TODragonfly__sub_80164A90(void *);
-s32 update_idle__11TODragonflyFi(void *);
+s32 update_idle__11TODragonflyFv(void *);
 s32 rotate_matrix_y(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TODragonflyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 update_anim_phase__17TOBarrierEnergy01FPv(void *);
+s32 update_anim_phase__17TOBarrierEnergy01Fv(void *);
 
 extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
 
-void update_timer__20TODragonflyMachine01Fv(void) {
+void TODragonflyMachine01::update_timer() {
     if ((s32) lbl_805D599C == 6) {
         rotate_matrix_y(0, lbl_805D59A0);
     }
     lbl_805D599C += 1;
 }
 
-void run_task__20TODragonflyMachine01Fv(void *arg0) {
+void TODragonflyMachine01::run_task() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (*(s32 *)((s8 *)arg0 + 0xFC) + *(s32 *)((s8 *)arg0 + 0xF8));
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0xFC)));
+    *(s32 *)((s8 *)this + 0xFC) = (s32) (*(s32 *)((s8 *)this + 0xFC) + *(s32 *)((s8 *)this + 0xF8));
+    *(f32 *)((s8 *)this + 0xF0) = (f32) (*(f32 *)((s8 *)this + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)this + 0xFC)));
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        ((DfV_801651B0 *)arg0)->vf12();
+        ((DfV_801651B0 *)this)->vf12();
         return;
     }
-    update_anim_phase__17TOBarrierEnergy01FPv(arg0);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
+    update_anim_phase__17TOBarrierEnergy01Fv(this);
+    temp_r0 = *(s32 *)((s8 *)this + 0xAC);
     switch (temp_r0) {
     case 0:
-        TODragonflyMachine01__sub_80164F50(arg0);
-        update_idle__11TODragonflyFi(arg0);
+        TODragonflyMachine01__sub_80164F50(this);
+        update_idle__11TODragonflyFv(this);
         return;
     case 1:
-        TODragonfly__sub_80164A90(arg0);
+        TODragonfly__sub_80164A90(this);
         return;
     case 2:
-        TODragonflyMachine01__sub_80164F50(arg0);
-        TODragonfly__sub_80164990(arg0);
+        TODragonflyMachine01__sub_80164F50(this);
+        TODragonfly__sub_80164990(this);
         return;
     case 3:
-        move_toward_target__11TODragonflyFPv(arg0);
+        move_toward_target__11TODragonflyFv(this);
         return;
     }
 }
 
-void *create__20TODragonflyMachine01FPv(void *arg0) {
+void *TODragonflyMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x108);
     if (o != NULL) {
         o = TODragonflyMachine01__ct((u8 *)(o), (int)(arg0));
@@ -131,7 +127,7 @@ void *create__20TODragonflyMachine01FPv(void *arg0) {
 
 extern u32 TODragonflyMachine01__model_resource;
 
-void unload_static_data__20TODragonflyMachine01Fv(void) {
+void TODragonflyMachine01::unload_static_data() {
     if ((u32) TODragonflyMachine01__model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TODragonflyMachine01__model_resource, 1);
         TODragonflyMachine01__model_resource = 0U;
@@ -140,11 +136,11 @@ void unload_static_data__20TODragonflyMachine01Fv(void) {
 
 extern s32 __vt__20TODragonflyMachine01[];
 
-void create_attack_effect__20TODragonflyMachine01Fv(void) {
+void TODragonflyMachine01::create_attack_effect() {
     T4_80165434 sp8;
     O_80165434 *o;
     s32 z = 0;
-    o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (o != NULL) {
         o = load_resource_from_descriptor(o, 1, TODragonflyMachine01__attack_effect_descriptor, 0, 0, 0);
     }
@@ -156,7 +152,7 @@ void create_attack_effect__20TODragonflyMachine01Fv(void) {
     sp8.v[2] = dragonfly_machine_attack_effect_params[2];
     sp8.v[3] = dragonfly_machine_attack_effect_params[3];
     sp8.v[0] = o->f430;
-    spawn_attack__16TObjEneMe3StelthFsiiiff(0x38, o->sub->a, o->sub->b, &sp8, lbl_805DB5B0, lbl_805DB5B4);
+    spawn_attack__16TObjEneMe3StelthFslllff(0x38, o->sub->a, o->sub->b, &sp8, lbl_805DB5B0, lbl_805DB5B4);
 }
 
 void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1) {

@@ -12,6 +12,8 @@ public:
 
     virtual ~TQuestThreadBoard();
     virtual void run_task();
+public:
+    static void destroy_board();
 };
 
 #endif

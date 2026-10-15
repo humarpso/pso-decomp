@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -18,12 +19,11 @@ void TLobby__sub_802A0F70(void);
 extern "C" {
 
 int TObjPlayer__sub_802A1018(void);
-void free_dialog_global__6TLobbyFv(void);
 void TLobby__sub_803DA16C(void*);
 
 extern u32 lbl_805D6630;
 
-void free_dialog_global__6TLobbyFv(void) {
+void TLobby::free_dialog_global() {
     if ((u32) lbl_805D6630 != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D6630);
         lbl_805D6630 = 0U;

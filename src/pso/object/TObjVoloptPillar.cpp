@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjVoloptPillar.h"
 
 struct S_8004A574 {
     s32 f0;
@@ -78,9 +79,9 @@ struct Self_8004A1CC {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 horizontal_distance__10TObjPlayerFPvPv(void *, void *);
+f32 horizontal_distance__10TObjPlayerFPUc(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
-void construct_collider_proxy__10TObjPlayerFPv(void *, s32);
+void construct_collider_proxy__10TObjPlayerFv(void *, s32);
 extern u8 volopt_pillar_collision_body[];
 extern s32 __vt__16TObjVoloptPillar[];
 extern u8 boss3_volopt_spawn_pos[];
@@ -102,7 +103,7 @@ void rotate_matrix_x(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void draw_chunk_object(s32);
 extern s32 volopt_pillar_chunk_model_handle;
 extern s32 volopt_pillar_secondary_chunk_model;
@@ -114,7 +115,6 @@ extern const f32 lbl_805D88C0;
 extern const f32 lbl_805D88C4;
 extern const f32 TObjVoloptPillar__data_805D88C8;
 extern const f32 lbl_805D88CC;
-void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0);
 s32 obj_is_hit_receivable(void *);
 f32 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv();
@@ -123,9 +123,9 @@ s32 TObjVoloptPillar__sub_80048118(s32);
 f32 TBoss3Volopt__sub_8004812C(s32);
 void TBoss3Volopt__sub_8004885C(void *, Vec_8004A1CC *, s32, s32, s32, f32, f32);
 void fn_80049FD8(void *);
-void set_shake_preset__11TCameraCtrlFi(s32);
+void set_shake_preset__11TCameraCtrlFl(s32);
 void init_all_slots__10TObjPlayerFv(void *);
-void check_object_collisions__10TObjPlayerFPv(void *);
+void check_object_collisions__10TObjPlayerFv(void *);
 void play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(u32);
 void matrix_mult_vec(s32, void *, void *);
@@ -151,10 +151,9 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self);
 extern "C" {
 
 void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1);
-void cache_target_values__16TObjVoloptPillarFv(void);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void destroy_particle_controller__10TObjPlayerFs(void *, int);
 
 extern u8 *boss3_volopt_resources;
 extern s32 volopt_pillar_chunk_model_handle;
@@ -163,19 +162,20 @@ extern s32 volopt_pillar_texture_param_a;
 extern s32 volopt_pillar_texture_param_b;
 
 #pragma fp_contract on
-void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
+void TObjVoloptPillar::render() {
+    Obj_8004A0AC *arg0 = (Obj_8004A0AC *)this;
     f32 s;
     if (arg0->m8(lbl_805D88B8, lbl_805D88BC) != 0) {
         select_actor_lighting(arg0);
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
         post_translate_matrix(&arg0->f38);
-        set_global_param__8TObjFishFi(volopt_pillar_texture_param_a);
+        set_global_param__8TObjFishFl(volopt_pillar_texture_param_a);
         draw_chunk_object(volopt_pillar_chunk_model_handle);
         pop_matrix();
         push_matrix();
         translate_matrix(0, arg0->f38, arg0->fb8, arg0->f40);
-        set_global_param__8TObjFishFi(volopt_pillar_texture_param_b);
+        set_global_param__8TObjFishFl(volopt_pillar_texture_param_b);
         draw_chunk_object(volopt_pillar_secondary_chunk_model);
         pop_matrix();
         restore_scene_lighting();
@@ -216,7 +216,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                 fl->f18 |= 2;
                 init_all_slots__10TObjPlayerFv(fl);
             }
-            check_object_collisions__10TObjPlayerFPv(self);
+            check_object_collisions__10TObjPlayerFv(self);
             if (self->fa4->f18 & 0x80000) {
                 for (i = 0; i < 0x10; i++) {
                     bp = get_battle_param__10TObjPlayerFi(i);
@@ -257,7 +257,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                     TBoss3Volopt__sub_8004885C(p, &pos, 0x11E, 0xF, 0, lbl_805D88DC, lbl_805D88BC);
                 }
             }
-            set_shake_preset__11TCameraCtrlFi(1);
+            set_shake_preset__11TCameraCtrlFl(1);
             play_sound_effect(0x4003AD09, &self->pos, 0, 0);
         }
         break;
@@ -275,7 +275,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
     }
 }
 
-void cache_target_values__16TObjVoloptPillarFv(void) {
+void TObjVoloptPillar::cache_target_values() {
     volopt_pillar_chunk_model_handle = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x178);
     volopt_pillar_texture_param_a = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x17C);
     volopt_pillar_secondary_chunk_model = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x158);
@@ -288,7 +288,7 @@ void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjVoloptPillar;
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -299,12 +299,12 @@ void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1) {
 #pragma fp_contract on
 S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2) {
     f32 d;
-    construct_collider_proxy__10TObjPlayerFPv(o, tl_04);
+    construct_collider_proxy__10TObjPlayerFv(o, tl_04);
     o->vt = ((u8 *)&__vt__16TObjVoloptPillar);
     o->f0 = lbl_805D2760;
     init_collision_body_parts(o, volopt_pillar_collision_body, 1);
     VecCopy__FP3VecPC3Vec(o->v38, pos);
-    d = horizontal_distance__10TObjPlayerFPvPv(o->v38, boss3_volopt_spawn_pos);
+    d = horizontal_distance__10TObjPlayerFPUc(o->v38, boss3_volopt_spawn_pos);
     if (d < lbl_805D88E4) {
         o->f3c = TObjVoloptPillar__data_805D88C8;
     } else {

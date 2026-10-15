@@ -17,6 +17,10 @@ struct TObjComputer
     u32 m_bc;
     u8 _padC0[0x4];
     u32 m_c4;
+    s32 draw_model();
+    void render();
+    void *create();
+    static void free_resources();
 };
 
 #endif

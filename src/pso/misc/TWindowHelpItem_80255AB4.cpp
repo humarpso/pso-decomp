@@ -37,10 +37,10 @@ extern u32 lbl_805D3910;
 extern TWindowHelpItem::CallbackWords __ptmf_null;
 extern const f32 lbl_805DCE10;
 void construct_base__9TWindowDDFPvPvsPv(void *self, void *vt, s16 idx, void *pos);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *dst, void *src);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *dst, void *src);
 void save_position__17TWindowSubComCardFPv(void *self);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(u32 size);
-void *init__21TWindowSubComCardListFPviii(void *p, s32 a, s32 b, s32 c);
+void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
+void *init__21TWindowSubComCardListFiii(void *p, s32 a, s32 b, s32 c);
 s32 dispatch_item_help__15TWindowHelpItemFv(void *);
 void call_if_split_screen(void *self, s32 idx);
 
@@ -50,12 +50,8 @@ extern "C" {
 
 void TWindowHelpItem__sub_80255B20(u8 *arg0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
-void *dt__15TWindowHelpItemFPvs(void *arg0, s16 arg1);
-void set_flag0_bit20__15TWindowHelpItemFPv(void* p);
-void update_cursor_selection__15TWindowHelpItemFPv(void *arg0);
-void update_display__15TWindowHelpItemFPv(u8 *arg0);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 invoke_callback_pmf__15TWindowHelpItemFPv(void *);
+s32 invoke_callback_pmf__15TWindowHelpItemFv(void *);
 s32 dispatch_item_help__15TWindowHelpItemFv(void *);
 s32 handle_list_page_flip_input(s32);
 s32 setup_window_draw_context(void *, void *);
@@ -65,35 +61,35 @@ s32 update_window_entry_list(void *, void *);
 s32 draw_list_page_indicator(int, int);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
+void destroy_window_base__9TWindowDDFs(void *, int);
 s32 fn_80244994(void *);
 s32 toggle_help_window_on_button(void *, s16);
 s32 decay_page_arrow_offset(s32);
-s16 get_field_2F8__20TWindowSubStatusDispFPv(void* p);
-s16 get_item_type__20TWindowSubStatusDispFPv(void* p);
-s16 get_stat__20TWindowSubStatusDispFPv(void* p);
-s16 get_value__20TWindowSubStatusDispFPv(void* p);
-s32 initialize_subwindow__9TWindowDDFPv(void *);
-s32 is_confirmed__18TWindowInputNumberFPv();
-s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
-void set_flag60_bit4__13TWindowSubMagFPv(void* p);
-s32 update_fade__17TWindowSubComCardFPv(void *);
+s16 get_field_2F8__20TWindowSubStatusDispFv(void* p);
+s16 get_item_type__20TWindowSubStatusDispFv(void* p);
+s16 get_stat__20TWindowSubStatusDispFv(void* p);
+s16 get_value__20TWindowSubStatusDispFv(void* p);
+s32 initialize_subwindow__9TWindowDDFv(void *);
+s32 is_confirmed__18TWindowInputNumberFv();
+s32 set_entry_state__20TWindowSubStatusDispFSc(s32 a0 = 0, s32 a1 = 0);
+void set_flag60_bit4__13TWindowSubMagFv(void* p);
+s32 update_fade__17TWindowSubComCardFv(void *);
 
-void update_cursor_selection__15TWindowHelpItemFPv(void *arg0) {
-    *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) | 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xA4) != -1) {
-        *(s32 *)((s8 *)arg0 + 0x68) = (s32) *(s32 *)((s8 *)arg0 + 0x70);
-        *(s32 *)((s8 *)arg0 + 0x9C) = (s32) *(s32 *)((s8 *)arg0 + 0xA4);
+void TWindowHelpItem::update_cursor_selection() {
+    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 1);
+    if ((s32) *(s32 *)((s8 *)this + 0xA4) != -1) {
+        *(s32 *)((s8 *)this + 0x68) = (s32) *(s32 *)((s8 *)this + 0x70);
+        *(s32 *)((s8 *)this + 0x9C) = (s32) *(s32 *)((s8 *)this + 0xA4);
         return;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xA0) != -1) {
-        *(s32 *)((s8 *)arg0 + 0x68) = (s32) *(s32 *)((s8 *)arg0 + 0x6C);
-        *(s32 *)((s8 *)arg0 + 0x9C) = (s32) *(s32 *)((s8 *)arg0 + 0xA0);
+    if ((s32) *(s32 *)((s8 *)this + 0xA0) != -1) {
+        *(s32 *)((s8 *)this + 0x68) = (s32) *(s32 *)((s8 *)this + 0x6C);
+        *(s32 *)((s8 *)this + 0x9C) = (s32) *(s32 *)((s8 *)this + 0xA0);
         return;
     }
-    *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) & 0xFE);
-    *(s32 *)((s8 *)arg0 + 0x68) = 0;
-    *(s32 *)((s8 *)arg0 + 0x9C) = -1;
+    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) & 0xFE);
+    *(s32 *)((s8 *)this + 0x68) = 0;
+    *(s32 *)((s8 *)this + 0x9C) = -1;
 }
 
 void TWindowHelpItem__sub_80255B20(u8 *arg0) {
@@ -109,7 +105,8 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0) {
     }
 }
 
-void update_display__15TWindowHelpItemFPv(u8 *arg0) {
+void TWindowHelpItem::update_display() {
+    u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
@@ -121,10 +118,10 @@ void update_display__15TWindowHelpItemFPv(u8 *arg0) {
         } else {
             decay_page_arrow_offset(*(s32 *)((s8 *)arg0 + 0x64));
         }
-        invoke_callback_pmf__15TWindowHelpItemFPv(arg0);
+        invoke_callback_pmf__15TWindowHelpItemFv(arg0);
     }
-    initialize_subwindow__9TWindowDDFPv(arg0);
-    update_fade__17TWindowSubComCardFPv(arg0);
+    initialize_subwindow__9TWindowDDFv(arg0);
+    update_fade__17TWindowSubComCardFv(arg0);
     update_window_entry_list(arg0, arg0 + 0x24);
     if (!(*(u8 *)((s8 *)arg0 + 0x60) & 8)) {
         toggle_help_window_on_button(arg0, *(s16 *)((s8 *)arg0 + 0x20));
@@ -133,16 +130,16 @@ void update_display__15TWindowHelpItemFPv(u8 *arg0) {
 
 extern s32 TWindowHelpItem__object_vtable[];
 
-void *dt__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = TWindowHelpItem__object_vtable;
-        delete_if_allocated(*(void **)((s8 *)arg0 + 0x64), 1);
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+void *TWindowHelpItem::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = TWindowHelpItem__object_vtable;
+        delete_if_allocated(*(void **)((s8 *)this + 0x64), 1);
+        destroy_window_base__9TWindowDDFs(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }
@@ -152,12 +149,12 @@ TWindowHelpItem::TWindowHelpItem(void *pos, u16 idx) {
     construct_base__9TWindowDDFPvPvsPv(self, __vt__15TWindowHelpItem, idx, pos);
     self->m_vtable18 = ((s32 *)&TWindowHelpItem__object_vtable);
     self->m_00 = lbl_805D3910;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)self + 0x30, pos);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((u8 *)self + 0x30, pos);
     save_position__17TWindowSubComCardFPv(self);
     self->m_60 = 0;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0xc);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0xc);
     if (p != 0) {
-        p = init__21TWindowSubComCardListFPviii(p, 0, 3, self->m_20);
+        p = init__21TWindowSubComCardListFiii(p, 0, 3, self->m_20);
     }
     self->m_64 = (u32)p;
     self->m_68 = 0;
@@ -179,6 +176,6 @@ s32 get_help_text_string(s32 arg0) {
 }
 
 s32 TWindowHelpItem__sub_80255DDC(void* p) { return *(s32*)((char*)p + 0x1c); }
-void set_flag0_bit20__15TWindowHelpItemFPv(void* p) { *(u16*)((char*)p + 0x0) |= 0x20; }
+void TWindowHelpItem::set_flag0_bit20() { *(u16*)((char*)this + 0x0) |= 0x20; }
 
 }

@@ -12,7 +12,7 @@ struct RecoveredGlobal_8019DBB4_lbl_804B90FC {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019DBB4_lbl_80446470 lbl_80446470;
 extern RecoveredGlobal_8019DBB4_lbl_804B90FC forest_warp_resource_descriptor;
@@ -28,7 +28,7 @@ typedef char RecoveredGlobal_8019DBB4_lbl_804B90FC_size[sizeof(RecoveredGlobal_8
 void load_forest_warp_resources(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &forest_warp_resource_descriptor.value, 0, 0, 0));

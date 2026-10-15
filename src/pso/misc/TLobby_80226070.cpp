@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TTecRaFoie.h"
 
 struct Ent_80226294 { u32 flags; u8 pad4[4]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1a[0xE]; };
 
@@ -14,10 +16,6 @@ void update_music_stream_gain(s32 user);
 }
 
 extern "C" {
-void reset_global__6TLobbyFv(void);
-void set_and_notify__6TLobbyFi(int a0);
-void close_option_window__6TLobbyFv(void);
-void init_layout_positions__6TLobbyFv(void);
 void TLobby__sub_8022614C(s32 arg0);
 int init_sound_mode__6TLobbyFPv(void *);
 extern int lbl_805D6280;
@@ -28,36 +26,35 @@ extern s32 lbl_805D627C;
 extern s32 lbl_805D6290;
 extern s32 lobby_layout_start_position;
 
-void set_and_notify__6TLobbyFi(int a0) { lbl_805D6284 = a0; update_music_stream_gain((s32)((void*)(lbl_805D6280))); }
+void TLobby::set_and_notify(int a0) { lbl_805D6284 = a0; update_music_stream_gain((s32)((void*)(lbl_805D6280))); }
 
-void reset_global__6TLobbyFv(void) { lobby_layout_offset_c = 0; TLobby__sub_8022614C(lbl_805D6294); }
+void TLobby::reset_global() { lobby_layout_offset_c = 0; TLobby__sub_8022614C(lbl_805D6294); }
 
-void close_option_window__6TLobbyFv(void) { lbl_805D6284 = 0; update_music_stream_gain((s32)((void*)(lbl_805D6280))); }
+void TLobby::close_option_window() { lbl_805D6284 = 0; update_music_stream_gain((s32)((void*)(lbl_805D6280))); }
 
-void init_layout_positions__6TLobbyFv(void) {
+void TLobby::init_layout_positions() {
     lbl_805D627C = -0x50;
     lobby_layout_start_position = -0x5A;
     if (((int (*)(void))init_sound_mode__6TLobbyFPv)() == 1) {
         lbl_805D627C -= 0x32;
     }
     lbl_805D6290 = -0xA;
-    close_option_window__6TLobbyFv();
-    reset_global__6TLobbyFv();
+    TLobby::close_option_window();
+    TLobby::reset_global();
 }
 }
 
 extern "C" {
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
-s32 set_mode__6TLobbyFi(int);
+s32 set_mode__6TLobbyFl(int);
 s32 OSSetSoundMode(int);
-void set_sound_output_mode__6TLobbyFi(s32 arg0);
 extern Ent_80226294 lbl_805145F0[];
 extern u32 lbl_805DC748;
 extern s32 lbl_805D62B0;
 void release_sound_with_fade(s32 idx);
 void stop_sound_request(s32 idx);
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
-s32 set_mode__6TLobbyFi(int);
+s32 set_mode__6TLobbyFl(int);
 u32 OSGetSoundMode();
 extern s8 lbl_805D3708;
 s32 TLobby__sub_80227D38();
@@ -66,7 +63,7 @@ extern s32 lbl_805D62B0;
 extern u32 lbl_805DC748;
 void TLobby__sub_8022644C(void);
 void set_cue_stream_gain(s32, s32);
-void set_menu_index_main__6TLobbyFPv(void);
+void set_menu_index_main__6TLobbyFPUc(void);
 extern s32 lbl_805D629C;
 extern s32 lbl_805D62A0;
 extern s32 lbl_805D62A8;
@@ -78,14 +75,12 @@ extern "C" {
 
 int TLobby__sub_80226308(void* p);
 void TTecRaFoie__sub_80226254(void);
-int get_lobby_data__6TLobbyFv(void);
-void update_technique_slot__10TTecRaFoieFi(s32 arg0);
 s32 set_sound_slot_pitch();
 
-int get_lobby_data__6TLobbyFv(void) {  return lbl_805D6280; }
+int TLobby::get_lobby_data() {  return lbl_805D6280; }
 
 void TLobby__sub_8022614C(s32 arg0) {
-    set_menu_index_main__6TLobbyFPv();
+    set_menu_index_main__6TLobbyFPUc();
     lbl_805D6294 = arg0;
     lbl_805D629C = lbl_805D6290 + lbl_805D6294 + lobby_layout_offset_c;
     lbl_805D62A0 = lbl_805D6290 + lobby_layout_offset_c;
@@ -113,7 +108,7 @@ void TTecRaFoie__sub_80226254(void) {  }
 
 extern s32 lbl_805D62B0;
 
-void update_technique_slot__10TTecRaFoieFi(s32 arg0) {
+void TTecRaFoie::update_technique_slot(s32 arg0) {
     if (((s32) lbl_805D62B0 != 0) && (arg0 >= 0) && (arg0 < 0x28)) {
         set_sound_slot_pitch();
     }
@@ -134,20 +129,20 @@ int init_sound_mode__6TLobbyFPv(void *) {
     u8 *p;
     if (OSGetSoundMode() == 0U) {
         lbl_805D3708 = 1;
-        set_mode__6TLobbyFi(0);
+        set_mode__6TLobbyFl(0);
     } else {
-        set_mode__6TLobbyFi(1);
+        set_mode__6TLobbyFl(1);
         lbl_805D3708 = 0;
         p = get_global_state__23TAdSinglePlyChrSelectGCFv();
         if (p != NULL && p != NULL && *(s16 *)((s8 *)p + 0xE) != 0) {
             lbl_805D3708 = 2;
-            set_mode__6TLobbyFi(2);
+            set_mode__6TLobbyFl(2);
         }
     }
     return lbl_805D3708;
 }
 
-void set_sound_output_mode__6TLobbyFi(s32 arg0) {
+void TLobby::set_sound_output_mode(s32 arg0) {
     s32 var_r30;
     u8 *temp_r3;
     temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
@@ -171,7 +166,7 @@ void set_sound_output_mode__6TLobbyFi(s32 arg0) {
         var_r30 = 0;
         break;
     }
-    set_mode__6TLobbyFi((int) (var_r30));
+    set_mode__6TLobbyFl((int) (var_r30));
 }
 void TLobby__sub_8022644C(void) {
     s32 i;

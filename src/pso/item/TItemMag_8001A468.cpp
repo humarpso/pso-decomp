@@ -67,6 +67,7 @@ void TObjPlayer__sub_8001A4CC(s32 arg0, s8 arg1) {
 #pragma pop
 
 #include <stddef.h>
+#include "pso/player/TObjPlayer.h"
 struct Stack_8001A8F0 {
     s32 sp8;
     s32 spC;
@@ -116,25 +117,21 @@ s32 publish_light_direction_color(int, void *, void *);
 extern Color_8001A6A8 player_light_color_rgba_table[];
 extern Light_8001A6A8 player_light_direction_color_table[];
 extern s8 player_light_index;
-int publish_light_color__10TObjPlayerFPv(void *p);
 }
 
 extern "C" {
 
 void TObjPlayer__sub_8001A860(void);
 void TObjPlayer__sub_8001A864(void* p);
-void *destroy_base__10TObjPlayerFPvs(void *arg0, s16 arg1);
-s32 get_flag890_state__10TObjPlayerFPv(void *arg0);
-void update_flag890_state__10TObjPlayerFi(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 get_ending_scene_active();
 
-s32 get_flag890_state__10TObjPlayerFPv(void *arg0) {
+s32 TObjPlayer::get_flag890_state() {
     s32 temp_r4;
     s32 var_r3;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x890);
+    temp_r4 = *(s32 *)((s8 *)this + 0x890);
     var_r3 = 0;
     if (temp_r4 & 0x20) {
         var_r3 = 0;
@@ -153,7 +150,7 @@ extern s8 player_light_index;
 extern s32 lbl_805D49E8;
 extern s32 game_difficulty_selection;
 
-int publish_light_color__10TObjPlayerFPv(void *p) {
+int TObjPlayer::publish_light_color(void *p) {
     ColorF_8001A6A8 c;
     c.r = player_light_color_rgba_table[player_light_index].r / 255.0f;
     c.g = player_light_color_rgba_table[player_light_index].g / 255.0f;
@@ -173,30 +170,30 @@ int TObjPlayer__sub_8001A77C(void *p) {
     set_active_camera_pose_from_params(&sp20);
 }
 
-void update_flag890_state__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::update_flag890_state(s32 arg0) {
     if (((s32) game_difficulty_selection != 3) && (get_ending_scene_active() == 0)) {
         s32 temp;
         player_light_index = (s8) arg0;
-        temp = get_flag890_state__10TObjPlayerFPv((void *)(lbl_805D49E0));
+        temp = ((TObjPlayer *)lbl_805D49E0)->get_flag890_state();
         lbl_805D49E8 = temp;
         TObjPlayer__sub_8001A4CC(temp, (s8) arg0);
     }
 }
 
 void TObjPlayer__sub_8001A860(void) {  }
-void TObjPlayer__sub_8001A864(void* p) { TObjPlayer__sub_8001A77C((void *)(p)); publish_light_color__10TObjPlayerFPv((void *)(p)); }
+void TObjPlayer__sub_8001A864(void* p) { TObjPlayer__sub_8001A77C((void *)(p)); TObjPlayer::publish_light_color((void *)(p)); }
 
 extern s32 lbl_80480938[];
 
-void *destroy_base__10TObjPlayerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80480938;
-        __dt__7TObjectFv(arg0, 0);
+void *TObjPlayer::destroy_base(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_80480938;
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 typedef char RecoveredGlobal_8001A8F0_lbl_8043455C_size[sizeof(RecoveredGlobal_8001A8F0_lbl_8043455C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001A8F0_lbl_80480938_size[sizeof(RecoveredGlobal_8001A8F0_lbl_80480938) == 0x18 ? 1 : -1];

@@ -16,6 +16,28 @@ struct TAdDialingGC
     u8 _pad6A[0x36];
     u32 m_a0;
     u32 m_a4;
+    static void select_dial_image(void *self, s32 x);
+    void render();
+    void run_task();
+    void update_dial_state();
+    void update_state();
+    void update_dial_state(s32 arg1);
+    void update_selection();
+    void update_state_display();
+    void show_guide_button();
+    void update();
+    static void update_dialing_display(int _w0);
+    void update_status_message();
+    void handle_state();
+    void update_status_display();
+    static int refresh_display();
+    static void init_dialog();
+    static void draw_dialing_status();
+    void draw_if_flag_set();
+    void render_if_flag_set();
+    static void create();
+    static void close();
+    static void open();
 };
 
 #endif

@@ -17,6 +17,13 @@ struct TWindowSubMagPhoton
     s16 m_62;
     u8 _pad64[0xC];
     u32 m_70;
+    void handle_cancel();
+    void play_open_sound();
+    void update_selection_input();
+    s32 draw_cursor(int arg1);
+    void run_task();
+    void update_photon_selection();
+    void get_cursor_origin(void *xy);
 };
 
 #endif

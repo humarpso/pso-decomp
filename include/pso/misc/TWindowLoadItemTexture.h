@@ -15,6 +15,8 @@ struct TWindowLoadItemTexture
     u8 _pad68[0x4];
     u32 m_6c;
     u32 m_70;
+    void *create(void *arg1);
+    void run_task();
 };
 
 #endif

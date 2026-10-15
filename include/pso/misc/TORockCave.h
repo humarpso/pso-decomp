@@ -5,6 +5,9 @@
 
 struct TORockCave
 {
+    void draw_model();
+    static void free_instances();
+    static void load_resources();
 };
 
 #endif

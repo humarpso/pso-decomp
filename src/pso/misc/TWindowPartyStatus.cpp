@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TWindowPartyStatus.h"
 struct Stack_8030C0C4 {
     f32 sp8;
     f32 spC;
@@ -18,7 +19,7 @@ struct RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus {
 };
 
 extern "C" {
-s32 draw_default_entry__9TWindowDDFi();
+s32 draw_default_entry__9TWindowDDFl();
 s32 draw_visible_window_entries(void *, void *, int);
 extern s32 __vt__14TWindowMessage[];
 void render__18TWindowPartyStatusFv(s32 arg0);
@@ -27,7 +28,7 @@ s32 TWindowSubComCard__sub_80245320(void *, void *);
 s32 TWindowSubComCard__sub_802454E4(int);
 s32 TWindowSubComCard__sub_80245558(void *, void *, void *);
 s32 apply_context_transform_to_rect(void *, void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -40,7 +41,6 @@ extern const f32 lbl_805DF1F8;
 extern const f32 lbl_805DF1FC;
 extern const f32 lbl_805DF200;
 extern const f32 lbl_805DF204;
-void draw_background__18TWindowPartyStatusFPvPv(u8 *arg0, u8 *arg1);
 s32 get_window_layout_position(int);
 s32 TWindowSimpleStatus__ct(void *, int, void *, void *);
 extern s32 __vt__18TWindowPartyStatus[];
@@ -52,8 +52,6 @@ u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2);
 extern "C" {
 
 void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1);
-void draw__18TWindowPartyStatusFPv(void* p);
-void run_task__18TWindowPartyStatusFv(s32 arg0);
 s32 update_status_icons__14TWindowComCardFPvPv(void *, int);
 s32 get_window_layout_position(int);
 s32 update_window_entry_list(void *, void *);
@@ -62,17 +60,18 @@ void __dt__19TWindowSimpleStatusFv(void *, int);
 int update_hp_entry__20TWindowSubStatusDispFPv(void*);
 s32 apply_random_shake(void *);
 s32 update_lockon_window();
-s32 initialize_subwindow__9TWindowDDFPv(void *);
-s32 update_fade__17TWindowSubComCardFPv(void *);
-int update_status_entry__20TWindowSubStatusDispFi(void*);
+s32 initialize_subwindow__9TWindowDDFv(void *);
+s32 update_fade__17TWindowSubComCardFv(void *);
+int update_status_entry__20TWindowSubStatusDispFv(void*);
 s32 update_status_help_item(void *);
 
-void draw__18TWindowPartyStatusFPv(void* p) { update_hp_entry__20TWindowSubStatusDispFPv(p); update_status_entry__20TWindowSubStatusDispFi(p); }
+void TWindowPartyStatus::draw() { update_hp_entry__20TWindowSubStatusDispFPv(this); update_status_entry__20TWindowSubStatusDispFv(this); }
 
 }
 extern "C" {
 
-void draw_background__18TWindowPartyStatusFPvPv(u8 *arg0, u8 *arg1) {
+void TWindowPartyStatus::draw_background(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_8030C0C4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8030C0C4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8030C0C4, sp10) == 0x8) ? 1 : -1];
@@ -87,7 +86,7 @@ void draw_background__18TWindowPartyStatusFPvPv(u8 *arg0, u8 *arg1) {
     f32 temp_f6;
     temp_f31 = lbl_805DF1EC / *(f32 *)((s8 *)arg0 + 0x54);
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFi((void *) (lbl_805D63F0));
+    set_global_param__8TObjFishFl((void *) (lbl_805D63F0));
     set_draw_texture_and_color((int) (0xB), (int) (*(s32 *)((s8 *)arg1 + 0x34)));
     temp_f2 = *(f32 *)((s8 *)arg1 + 0x10);
     stack.sp8 = temp_f2;
@@ -111,18 +110,19 @@ void draw_background__18TWindowPartyStatusFPvPv(u8 *arg0, u8 *arg1) {
 
 void render__18TWindowPartyStatusFv(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = draw_default_entry__9TWindowDDFi();
-    draw_background__18TWindowPartyStatusFPvPv((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));
+    temp_r3 = draw_default_entry__9TWindowDDFl();
+    ((TWindowPartyStatus *)arg0)->draw_background((u8 *)((int) (temp_r3)));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void run_task__18TWindowPartyStatusFv(s32 arg0) {
+void TWindowPartyStatus::run_task() {
+    s32 arg0 = (s32)this;
     update_lockon_window();
-    draw__18TWindowPartyStatusFPv((void*)((void *) (arg0)));
+    draw();
     update_status_help_item((void *) (arg0));
     update_status_icons__14TWindowComCardFPvPv((void *) (arg0), (int) (get_window_layout_position((int) (0xAC))));
-    initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    update_fade__17TWindowSubComCardFPv((void *) (arg0));
+    initialize_subwindow__9TWindowDDFv((void *) (arg0));
+    update_fade__17TWindowSubComCardFv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
     apply_random_shake((void *) (arg0));
 }

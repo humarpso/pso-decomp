@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TWindowKeyBoardSoft.h"
 struct Stack_803E68D0 {
     s32 sp14;
     s32 sp18;
@@ -38,42 +39,14 @@ struct S_803E6610 { s32 idx; s32 rest; };
 
 extern "C" {
 extern Fn_803E6610 keyboard_soft_dispatch_fn_table[];
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x1c__19TWindowKeyBoardSoftFv(void);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x13__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x27__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x25__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x24__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x23__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x28__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x26__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
 void TWindowKeyBoardSoft__sub_803E67D4(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x22__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x20__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x10__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0f__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
-void dispatch_request_0x14__19TWindowKeyBoardSoftFii(s32 a, s32 b);
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
 void TWindowKeyBoardSoft__sub_803E6868(s32 a, s32 b);
 }
 
 extern "C" {
 
-s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *p) {
-    S_803E6610 *arg0 = (S_803E6610 *)p;
+s32 TWindowKeyBoardSoft::dispatch_by_index() {
+    S_803E6610 *arg0 = (S_803E6610 *)this;
     s32 i = arg0->idx;
     void *rest = &arg0->rest;
     if (i <= 0 || (u32)i > 0x3F) {
@@ -82,60 +55,60 @@ s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *p) {
     return keyboard_soft_dispatch_fn_table[i - 1](rest);
 }
 
-void dispatch_request_0x28__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x28(s32 a, s32 b) {
     Req_803E6668 req;
     req.id = 0x28;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x27__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x27(s32 a, s32 b) {
     Req_803E669C req;
     req.id = 0x27;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x26__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x26(s32 a, s32 b) {
     Req_803E66D0 req;
     req.id = 0x26;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x25__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x25(s32 a, s32 b) {
     Req_803E6704 req;
     req.id = 0x25;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x24__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x24(s32 a, s32 b) {
     Req_803E6738 req;
     req.id = 0x24;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x23__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x23(s32 a, s32 b) {
     Req_803E676C req;
     req.id = 0x23;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x22__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x22(s32 a, s32 b) {
     Req_803E67A0 req;
     req.id = 0x22;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
 void TWindowKeyBoardSoft__sub_803E67D4(s32 a, s32 b) {
@@ -143,21 +116,21 @@ void TWindowKeyBoardSoft__sub_803E67D4(s32 a, s32 b) {
     req.id = 0x21;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x20__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x20(s32 a, s32 b) {
     Req_803E6808 req;
     req.id = 0x20;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x1c__19TWindowKeyBoardSoftFv(void) {
+void TWindowKeyBoardSoft::dispatch_request_0x1c() {
     s32 sp8;
     sp8 = 0x1C;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&sp8);
+    ((TWindowKeyBoardSoft *)(&sp8))->dispatch_by_index();
 }
 
 void TWindowKeyBoardSoft__sub_803E6868(s32 a, s32 b) {
@@ -165,18 +138,18 @@ void TWindowKeyBoardSoft__sub_803E6868(s32 a, s32 b) {
     req.id = 0x15;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x14__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x14(s32 a, s32 b) {
     Req_803E689C req;
     req.id = 0x14;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
-void dispatch_request_0x13__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2) {
+void TWindowKeyBoardSoft::dispatch_request_0x13(s32 arg0, s32 arg1, s32 arg2) {
     typedef char sp14_offset[(offsetof(Stack_803E68D0, sp14) == 0x0) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_803E68D0, sp18) == 0x4) ? 1 : -1];
     typedef char sp1C_offset[(offsetof(Stack_803E68D0, sp1C) == 0x8) ? 1 : -1];
@@ -186,21 +159,21 @@ void dispatch_request_0x13__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 ar
     stack.sp18 = arg0;
     stack.sp1C = arg1;
     stack.sp20 = arg2;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv((void *) (&stack.sp14));
+    ((TWindowKeyBoardSoft *)(&stack.sp14))->dispatch_by_index();
 }
-void dispatch_request_0x10__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0x10(s32 a, s32 b) {
     Req_803E6908 req;
     req.id = 0x10;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
-void dispatch_request_0f__19TWindowKeyBoardSoftFii(s32 a, s32 b) {
+void TWindowKeyBoardSoft::dispatch_request_0f(s32 a, s32 b) {
     Req_803E693C req;
     req.id = 0xf;
     req.a = a;
     req.b = b;
-    dispatch_by_index__19TWindowKeyBoardSoftFPv(&req);
+    ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
 }
 
 }

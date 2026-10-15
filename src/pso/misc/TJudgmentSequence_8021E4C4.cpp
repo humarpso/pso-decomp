@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TJudgmentSequence.h"
 
 struct Base_8021E524_8021E4C4 { char pad[0x18]; };
 struct VObj_8021E524_8021E4C4 : Base_8021E524_8021E4C4 {
@@ -23,13 +24,12 @@ extern "C" {
 int get_judgment_shop_slot_flags(int a0);
 void TShopGetItemWindow__vt4(void *arg0);
 void TShopGetItemWindow__vt5(void *arg0);
-void *create__17TJudgmentSequenceFPv(void *arg0);
 void *TJudgmentSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *create__17TJudgmentSequenceFPv(void *arg0) {
+void *TJudgmentSequence::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x34);
     if (o != NULL) {
         o = TJudgmentSequence__ct(o, tl_05, arg0);

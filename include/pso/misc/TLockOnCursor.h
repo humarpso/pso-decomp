@@ -25,6 +25,29 @@ struct TLockOnCursor
     void* m_510;
     u8 _pad514[0xC];
     void* m_520;
+    static s32 free_if_owned(s32 arg0, s16 arg1);
+    void run_task();
+    static void free_cursor_resources();
+    void *init(void *arg1, void *arg2);
+    int render_part();
+    void update_cursor_pos();
+    int set_flag_8_bit0();
+    int update_ring();
+    int is_bit1_set();
+    int is_inactive();
+    int update_ring_sub();
+    int test_flag_1_at_8();
+    s32 get_target();
+    s32 release_target();
+    s32 cleanup_field();
+    s32 cleanup_field_3c();
+    void reset_state();
+    void *destroy(s16 arg1);
+    void *init_vtable();
+    void*init_cursor();
+    void*init_forward();
+    void*cleanup();
+    void reset_fields();
 };
 
 #endif

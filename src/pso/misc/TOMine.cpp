@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOMine.h"
 
 struct Base18_80170f64_80170EEC { char pad[0x18]; };
 struct VObj_80170f64_80170EEC : Base18_80170f64_80170EEC {
@@ -55,16 +56,12 @@ struct Obj_80171278 { s32 f00; u8 pad0[0x14]; u32 vptr; u8 pad1[0x14]; u32 flags
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_801711D0_lbl_804B2F2C mine_resource_desc;
 extern u32 lbl_805D5A50;
-void load_static_resource__6TOMineFv(void);
 u16 find_nearest_visible_player(void *, int, f32);
-s32 update_trigger__10TOMineTrapFPv(void *);
+s32 update_trigger__10TOMineTrapFv(void *);
 s32 get_player_by_client_id(int);
-int find_target_player__6TOMineFPv(u8 *arg0);
-void free_sub_objects__6TOMineFPv(void* p);
-void free_parts__6TOMineFPv(void* p);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(int, int);
@@ -77,7 +74,6 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DB854;
 extern const f32 lbl_805DB858;
-void render__6TOMineFPv(VObj_801710E4 *arg0);
 void construct_actor_base__10TObjPlayerFPvPv(void *);
 void obj_setFlags30(void *, u32);
 extern s32 __vt__6TOMine[];
@@ -89,16 +85,11 @@ Obj_80171278 *TOMine__ct(Obj_80171278 *arg0);
 extern "C" {
 
 void *__dt__6TOMineFv(void *arg0, s16 arg1);
-void free_instance__6TOMineFv(void);
-void free_parts__6TOMineFPv(void* p);
-void free_sub_objects__6TOMineFPv(void* p);
-int get_player_state__6TOMineFPv(void* p);
-void run_task__6TOMineFPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-s32 follow_target__10TOMineTrapFPv(void *);
+s32 follow_target__10TOMineTrapFv(void *);
 s32 TOMineTrap__sub_80170BEC(void *);
 s32 TOMineTrap__sub_80170CD4(void *);
-s32 update_float_height__10TOMineTrapFPv(void *);
+s32 update_float_height__10TOMineTrapFv(void *);
 s32 detonate__10TOMineTrapFPv(void *);
 int draw_ginja_object(void*);
 s32 submit_cursor_candidate(void *, int);
@@ -107,12 +98,13 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
-int set_global_param__8TObjFishFi(void*);
+int set_global_param__8TObjFishFl(void*);
 
-int get_player_state__6TOMineFPv(void* p) { return submit_target_to_player_cursor(p); }
+int TOMine::get_player_state() { return submit_target_to_player_cursor(this); }
 
 typedef struct RecoveredFields_80170F0C_arg0 RecoveredFields_80170F0C_arg0;
-int find_target_player__6TOMineFPv(u8 *arg0) {
+int TOMine::find_target_player() {
+    u8 *arg0 = (u8 *)this;
   u16 temp_r3;
   unsigned short new_var;
   ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C = find_nearest_visible_player((void *) arg0, (int) 0, (f32) ((RecoveredFields_80170F0C_arg0 *) arg0)->field_34C);
@@ -121,24 +113,25 @@ int find_target_player__6TOMineFPv(u8 *arg0) {
   if (temp_r3 != new_var)
   {
     ((RecoveredFields_80170F0C_arg0 *) arg0)->field_2A8 = get_player_by_client_id((int) temp_r3);
-    update_trigger__10TOMineTrapFPv((void *) arg0);
+    update_trigger__10TOMineTrapFv((void *) arg0);
   }
   return ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C;
 }
 
-void run_task__6TOMineFPv(u8 *arg0) {
+void TOMine::run_task() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;
 
     if (check_demo_mode__10TObjPlayerFv() != 1) {
         ((VObj_80170f64_80170EEC *) arg0)->m77();
-        update_float_height__10TOMineTrapFPv((void *) (arg0));
+        update_float_height__10TOMineTrapFv((void *) (arg0));
         temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
         switch (temp_r0) {
         case 2:
         case 0:
-            find_target_player__6TOMineFPv((u8 *)((void *)((void *) (arg0))));
+            find_target_player();
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x334));
             VecCopy__FP3VecPC3Vec((void *) (*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C), (void *) (arg0 + 0x334));
             return;
@@ -157,7 +150,7 @@ void run_task__6TOMineFPv(u8 *arg0) {
                 TOMineTrap__sub_80170BEC((void *) (arg0));
                 break;
             case 2:
-                follow_target__10TOMineTrapFPv((void *) (arg0));
+                follow_target__10TOMineTrapFv((void *) (arg0));
                 break;
             }
             submit_cursor_candidate((void *) (arg0), (int) (-1));
@@ -169,25 +162,26 @@ void run_task__6TOMineFPv(u8 *arg0) {
     }
 }
 
-void free_sub_objects__6TOMineFPv(void* p) { set_global_param__8TObjFishFi(*(void**)((char*)p + 0x378)); draw_ginja_object(*(void**)((char*)p + 0x374)); }
+void TOMine::free_sub_objects() { set_global_param__8TObjFishFl(*(void**)((char*)this + 0x378)); draw_ginja_object(*(void**)((char*)this + 0x374)); }
 
-void free_parts__6TOMineFPv(void* p) { set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); draw_ginja_object(*(void**)((char*)p + 0x34)); }
+void TOMine::free_parts() { set_global_param__8TObjFishFl(*(void**)((char*)this + 0x24)); draw_ginja_object(*(void**)((char*)this + 0x34)); }
 
 extern u32 lbl_805D5A50;
 
-void render__6TOMineFPv(VObj_801710E4 *arg0) {
+void TOMine::render() {
+    VObj_801710E4 *arg0 = (VObj_801710E4 *)this;
     s32 t;
     if (*(s16 *)((s8 *)arg0 + 0x326) == 3 && arg0->m8(lbl_805DB854, lbl_805DB858) != 0) {
         push_matrix();
         post_translate_matrix((u8 *) arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x370));
-        free_parts__6TOMineFPv((void*)(arg0));
+        free_parts();
         begin_effect_render__13TParticleCtrlFv();
         t = model_render_flags;
         lbl_805D5660 = t;
         model_render_flags = t | 0x20;
         ((void (*)(void *, s32)) set_chunk_material_color)((u8 *) arg0 + 0x360, t);
-        free_sub_objects__6TOMineFPv((void*)(arg0));
+        free_sub_objects();
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
@@ -195,7 +189,7 @@ void render__6TOMineFPv(VObj_801710E4 *arg0) {
     }
 }
 
-void free_instance__6TOMineFv(void) {
+void TOMine::free_instance() {
     if ((u32) lbl_805D5A50 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D5A50, 1);
         lbl_805D5A50 = 0U;
@@ -204,10 +198,10 @@ void free_instance__6TOMineFv(void) {
 
 extern s32 __vt__6TOMine[];
 
-void load_static_resource__6TOMineFv(void) {
+void TOMine::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &mine_resource_desc.value, 0, 0, 0));

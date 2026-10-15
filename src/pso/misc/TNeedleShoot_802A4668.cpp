@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNeedleShoot.h"
 
 struct Base_802A4668 { char pad[0x18]; };
 struct VObj_802A4668 : Base_802A4668 {
@@ -13,7 +14,6 @@ struct VObj_802A4668 : Base_802A4668 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_wall_hit__12TNeedleShootFPv(void *, f32, f32);
-void update_position__12TNeedleShootFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -26,7 +26,8 @@ void TNeedleShoot__sub_802A4668(void *arg0) {
 }
 #pragma push
 #pragma fp_contract on
-void update_position__12TNeedleShootFPv(u8 *arg0) {
+void TNeedleShoot::update_position() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f2;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg0 + 0x6C));

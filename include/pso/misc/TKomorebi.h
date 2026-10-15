@@ -15,6 +15,10 @@ struct TKomorebi
     u32 m_60;
     u32 m_64;
     void* m_68;
+    void render();
+    static void run_task();
+    static void free_static();
+    static void load_resources();
 };
 
 #endif

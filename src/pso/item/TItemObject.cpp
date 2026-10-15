@@ -1,20 +1,20 @@
 #include "types.h"
+#include "pso/item/TItemObject.h"
 
 extern "C" {
 
-void copy_and_register_item_data__11TItemObjectFPv(void *arg0);
 s32 is_item_stackable(s32 arg0, s32 arg1);
 int get_sorted_item_registry_entry(int a0);
 int get_item_registry_count(void);
-void copy_to_item_data__5TItemFPvPv(void *, void *);
-void get_item_use_result__9TItemDataFPv(void *);
+void copy_to_item_data__5TItemFPv(void *, void *);
+void get_item_use_result__9TItemDataFv(void *);
 u8 *find_item_by_id(s32 id);
 
-void copy_and_register_item_data__11TItemObjectFPv(void *arg0) {
+void TItemObject::copy_and_register_item_data() {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPvPv(arg0, &sp8);
-    get_item_use_result__9TItemDataFPv(&sp8);
+    copy_to_item_data__5TItemFPv(this, &sp8);
+    get_item_use_result__9TItemDataFv(&sp8);
 }
 
 s32 is_item_stackable(s32 arg0, s32 arg1) {

@@ -8,6 +8,10 @@ public:
     virtual ~TObjBoss5FloorGrass();
     virtual void run_task();
     virtual void render();
+public:
+    static void *create();
+    static void render();
+    static void run_task();
 };
 
 #endif

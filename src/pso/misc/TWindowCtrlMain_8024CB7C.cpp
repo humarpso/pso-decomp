@@ -1,5 +1,6 @@
 #include "pso/misc/WindowControlState.h"
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain.h"
 
 struct Ent_8024CCDC { u8 p0[8]; f32 f8; f32 fC; u8 p10[0xC]; };
 struct RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 {
@@ -20,9 +21,7 @@ s32 is_split_screen(void);
 extern s32 TWindowCtrlMain__display_flags;
 extern s32 TWindowCtrlMain__window_task_root;
 extern WindowControlState TWindowCtrlMain__viewport_states[6];
-void update_fade_alphas__15TWindowCtrlMainFv(void);
 s32 TWindowCtrlMain__sub_8024CD5C(s32 viewport_index);
-void set_value__15TWindowCtrlMainFii(s32 arg0, s32 arg1);
 s32 TWindowCtrlMain__sub_8024CDB0(void* p);
 s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0);
 s32 TWindowCtrlMain__sub_8024CE24(void);
@@ -40,7 +39,7 @@ struct Quad_8024CE68 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
 void draw_color_lines(void *, int, int, f32);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
@@ -69,27 +68,31 @@ void TWindowCtrlMain__sub_8024CB8C() {
     TWindowCtrlMain__display_flags &= ~1;
 }
 
-f32 get_field_18__15TWindowCtrlMainFv(s32 viewport_index) {
+f32 TWindowCtrlMain::get_field_18() {
+    s32 viewport_index = (s32)this;
     return get_window_control_state(viewport_index)->field18;
 }
 
-f32 get_ctrl_field14__15TWindowCtrlMainFv(s32 viewport_index) {
+f32 TWindowCtrlMain::get_ctrl_field14() {
+    s32 viewport_index = (s32)this;
     return get_window_control_state(viewport_index)->field14;
 }
 
-f32 get_field10__15TWindowCtrlMainFv(s32 viewport_index) {
+f32 TWindowCtrlMain::get_field10() {
+    s32 viewport_index = (s32)this;
     return get_window_control_state(viewport_index)->field10;
 }
 
-f32 get_position_z__15TWindowCtrlMainFv(s32 viewport_index) {
+f32 TWindowCtrlMain::get_position_z() {
+    s32 viewport_index = (s32)this;
     return get_window_control_state(viewport_index)->field0C;
 }
 
-void set_field18__15TWindowCtrlMainFf(f32 value, s32 viewport_index) {
+void TWindowCtrlMain::set_field18(f32 value, s32 viewport_index) {
     get_window_control_state(viewport_index)->field18 = value;
 }
 
-void set_depth__15TWindowCtrlMainFf(f32 value, s32 viewport_index) {
+void TWindowCtrlMain::set_depth(f32 value, s32 viewport_index) {
     get_window_control_state(viewport_index)->field0C = value;
 }
 
@@ -99,7 +102,7 @@ WindowControlState* get_window_control_state(s32 viewport_index) {
     }
     return TWindowCtrlMain__viewport_states;
 }
-void update_fade_alphas__15TWindowCtrlMainFv(void) {
+void TWindowCtrlMain::update_fade_alphas() {
     s32 i;
     for (i = 0; i < 4; i++) {
         Ent_8024CCDC *e = &((Ent_8024CCDC *)&TWindowCtrlMain__viewport_states)[i];
@@ -122,7 +125,7 @@ void update_fade_alphas__15TWindowCtrlMainFv(void) {
 s32 TWindowCtrlMain__sub_8024CD5C(s32 viewport_index) {
     return get_window_control_state(viewport_index)->field04;
 }
-void set_value__15TWindowCtrlMainFii(s32 arg0, s32 arg1) {
+void TWindowCtrlMain::set_value(s32 arg0, s32 arg1) {
     get_window_control_state(arg0)->field04 = arg1;
 }
 s32 TWindowCtrlMain__sub_8024CDB0(void* p) { return TWindowCtrlMain__sub_8024CDD0((s32)(p)); }
@@ -224,7 +227,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     draw_strip_swap_color__15TWindowCtrlMainFPviif(&poly, 4, 22, -10.0f);
 
     begin_screen_draw(1);
-    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_global_param__8TObjFishFl(lbl_805D63F0);
     a = (s32)(255.0f * alpha) << 24;
     set_draw_texture_and_color(11, a | 0xFFFFFF);
 

@@ -5,6 +5,8 @@
 
 struct TAdPsoPassSaveGC
 {
+    void render();
+    void run_task();
 };
 
 #endif

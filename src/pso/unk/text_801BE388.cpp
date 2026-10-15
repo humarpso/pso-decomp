@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_801BE388_lbl_8050EA40 {
     s32 value;
@@ -6,16 +7,15 @@ struct RecoveredGlobal_801BE388_lbl_8050EA40 {
 };
 
 extern "C" {
-u8 get_rule_field_0__6TLobbyFPv(void *);
+u8 get_rule_field_0__6TLobbyFv(void *);
 extern RecoveredGlobal_801BE388_lbl_8050EA40 lobby_rule_settings;
-s8 get_rule_field_0__10TObjPlayerFv(void);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801BE388_lbl_8050EA40_size[sizeof(RecoveredGlobal_801BE388_lbl_8050EA40) == 0x30 ? 1 : -1];
-s8 get_rule_field_0__10TObjPlayerFv(void) {
-    return get_rule_field_0__6TLobbyFPv(&lobby_rule_settings.value);
+s8 TObjPlayer::get_rule_field_0() {
+    return get_rule_field_0__6TLobbyFv(&lobby_rule_settings.value);
 }
 
 }

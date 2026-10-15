@@ -1,18 +1,19 @@
 #include "types.h"
+#include "pso/misc/TWindowSimpleStatus.h"
 
 struct SS_802705D8 { u8 pad0[0x18]; void *vt; u8 pad1c[0x64 - 0x1c]; void *w[4]; };
 
 struct SS_80270668 { s32 f0; u8 pad4[0x14]; void *vt; s16 f1c; s16 f1e; s16 f20; u8 pad22[0x36]; f32 f58; u8 pad5c[4]; s32 f60; s32 w[5]; };
 
 extern "C" {
-s32 draw_default_entry__9TWindowDDFi();
+s32 draw_default_entry__9TWindowDDFl();
 s32 draw_background__19TWindowSimpleStatusFv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 extern s32 __vt__14TWindowMessage[];
 void render__19TWindowSimpleStatusFv(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void TWindow__close(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
+void destroy_window_base__9TWindowDDFs(void *, int);
 extern u8 __vt__19TWindowSimpleStatus[];
 u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1);
 void *construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
@@ -24,35 +25,34 @@ SS_80270668 *TWindowSimpleStatus__ct(SS_80270668 *arg0, void *arg1, s32 arg2, vo
 
 extern "C" {
 
-void * create__19TWindowSimpleStatusFPvPv(void *arg0, void *arg1);
-void run_task__19TWindowSimpleStatusFv(s32 arg0);
 s32 update_status_icons__14TWindowComCardFPvPv(s32, s32);
 s32 get_window_layout_position(s32);
 s32 update_window_entry_list(s32, s32);
 void *__nw__7TObjectFUl(int);
 s32 apply_random_shake(s32);
-s32 update_hp_tp_level__20TWindowSubStatusDispFPv();
+s32 update_hp_tp_level__20TWindowSubStatusDispFv();
 s32 update_lockon_window(s32);
-s32 initialize_subwindow__9TWindowDDFPv(s32);
-s32 update_fade__17TWindowSubComCardFPv(s32);
+s32 initialize_subwindow__9TWindowDDFv(s32);
+s32 update_fade__17TWindowSubComCardFv(s32);
 s32 update_status_help_item(s32);
 
 }
 extern "C" {
 void render__19TWindowSimpleStatusFv(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = draw_default_entry__9TWindowDDFi();
+    temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_background__19TWindowSimpleStatusFv((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void run_task__19TWindowSimpleStatusFv(s32 arg0) {
-    update_hp_tp_level__20TWindowSubStatusDispFPv();
+void TWindowSimpleStatus::run_task() {
+    s32 arg0 = (s32)this;
+    update_hp_tp_level__20TWindowSubStatusDispFv();
     update_lockon_window(arg0);
     update_status_help_item(arg0);
     update_status_icons__14TWindowComCardFPvPv(arg0, get_window_layout_position(0x1D));
-    initialize_subwindow__9TWindowDDFPv(arg0);
-    update_fade__17TWindowSubComCardFPv(arg0);
+    initialize_subwindow__9TWindowDDFv(arg0);
+    update_fade__17TWindowSubComCardFv(arg0);
     update_window_entry_list(arg0, arg0 + 0x24);
     apply_random_shake(arg0);
 }
@@ -69,7 +69,7 @@ u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1) {
                 arg0->w[i] = NULL;
             }
         }
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -91,11 +91,11 @@ SS_80270668 *TWindowSimpleStatus__ct(SS_80270668 *arg0, void *arg1, s32 arg2, vo
     return arg0;
 }
 
-void * create__19TWindowSimpleStatusFPvPv(void *arg0, void *arg1) {
+void *TWindowSimpleStatus::create(void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {
-        o = TWindowSimpleStatus__ct((SS_80270668 *)(o), (void *)(arg0), (s32)(arg1), (void *)(lbl_804D0CB0));
+        o = TWindowSimpleStatus__ct((SS_80270668 *)(o), (void *)(this), (s32)(arg1), (void *)(lbl_804D0CB0));
     }
     return o;
 }

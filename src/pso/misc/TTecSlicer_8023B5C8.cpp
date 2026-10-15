@@ -156,10 +156,8 @@ s32 normalize_vector(s32);
 f32 horizontal_distance_squared(s32, s32);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 get_next_captured_target(s32, s32, s32, s32, s32);
-s32 set_flags__10TObjPlayerFPvUi(s32, s32);
+s32 set_flags__10TObjPlayerFUl(s32, s32);
 extern f32 lbl_805DC958;
-void update__10TTecSlicerFi(s32 arg0);
-void update__10TTecSlicerFi(s32 arg0);
 s32 test_flags_any(void *, s32);
 u32 get_player_by_client_id(u16);
 s32 __ct__14TSlicerHistoryFv(void *, void *, s32, void *, s32);
@@ -172,33 +170,30 @@ s32 queue_destruction__7TObjectFv(s32);
 void run_task__10TTecSlicerFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-void dt__10TTecSlicerFis(void *, int);
+void dt__10TTecSlicerFls(void *, int);
 s32 queue_destruction__7TObjectFv(s32);
 extern s32 __vt__10TTecSlicer[];
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-void advance_position__10TTecSlicerFPv(u8 *arg0);
 int has_valid_handle__10TObjPlayerFPv(void *);
-s16 get_remain_count__10TTecSlicerFPv(void *);
+s16 get_remain_count__10TTecSlicerFv(void *);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 extern RecoveredGlobal_8023B770_lbl_8044DC20 TTecSlicer__launch_angle_table;
-void init_launch_angles__10TTecSlicerFPvPvi(s32 *arg0, s32 *arg1, s32 arg2);
-s32 spawn_item_timer__13TItemAttackerFiii(int, void *, int);
+s32 spawn_item_timer__13TItemAttackerFlll(int, void *, int);
 u32 get_player_by_client_id(u16);
 u32 __nw__7TObjectFUl(s32);
-void destroy_if_set__10TTecSlicerFUi(u32);
+void destroy_if_set__10TTecSlicerFv(u32);
 
 extern const f32 lbl_805DC954;
 void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
 f32 horizontal_distance_squared(s32, s32);
 s32 resolve_hittable_target(int, int);
-void deliver_target_hit__10TTecSlicerFPv(u8 *arg0);
 u32 query_game_join_id__10TObjPlayerFv(s32);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 notify_fish_if_valid__10TObjPlayerFUi(u32);
+s32 notify_fish_if_valid__10TObjPlayerFUl(u32);
 s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
@@ -213,26 +208,23 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC95C;
 extern const f32 lbl_805DC960;
-void render__10TTecSlicerFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void disallow_rendering__7TObjectFv(void *);
-s32 set_flags__10TObjPlayerFPvUi(s32, s32);
-void init_forward__10TObjPlayerFPv(void *);
+s32 set_flags__10TObjPlayerFUl(s32, s32);
+void init_forward__10TObjPlayerFv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_item_by_id(s32);
-void set_item_count__6TLobbyFPvs(void *, s32);
+void set_item_count__6TLobbyFs(void *, s32);
 s32 pop_free_id__6TLobbyFv(void);
 f32 *get_weapon_range_record(s32, s32);
-s32 get_extended_state__10TObjPlayerFPv(s32);
+s32 get_extended_state__10TObjPlayerFv(s32);
 s8 get_captured_target_collider_index(s32);
 s32 get_uid__10TObjPlayerFPv(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
 void construct_world_actor_base(void *, s32);
 void fn_8023B590(void *, s32, s32);
-void reset_fields_1e__10TTecSlicerFPv(void* p);
 void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
-void init_launch_angles__10TTecSlicerFPvPvi(s32 *arg0, s32 *arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vector_length(void *);
@@ -247,13 +239,13 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4);
 
 extern "C" {
 
-void reset_fields_1e__10TTecSlicerFPv(void* p);
 u32 csnVector(s32, s32, s32);
 s32 queue_destruction__7TObjectFv(s32);
 
-void reset_fields_1e__10TTecSlicerFPv(void* p) { *(u8*)((char*)p + 0x1e) = 0; *(u8*)((char*)p + 0x1f) = 0; }
+void TTecSlicer::reset_fields_1e() { *(u8*)((char*)this + 0x1e) = 0; *(u8*)((char*)this + 0x1f) = 0; }
 
-void deliver_target_hit__10TTecSlicerFPv(u8 *arg0) {
+void TTecSlicer::deliver_target_hit() {
+    u8 *arg0 = (u8 *)this;
     f32 dist;
     f32 range;
     s32 temp_r3;
@@ -279,7 +271,8 @@ void destroy_on_collision__10TTecSlicerFi(s32 arg0, s32 _w1) {
 
 #pragma push
 #pragma fp_contract on
-void advance_position__10TTecSlicerFPv(u8 *arg0) {
+void TTecSlicer::advance_position() {
+    u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x44), (s32)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((*(f32 *)((s8 *)arg0 + 0x90) * *(f32 *)((s8 *)arg0 + 0xB4)) + *(f32 *)((s8 *)arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x94) * *(f32 *)((s8 *)arg0 + 0xB4)) + *(f32 *)((s8 *)arg0 + 0x3C));
@@ -304,7 +297,7 @@ void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused
     self->mid.z = t;
 }
 
-void init_launch_angles__10TTecSlicerFPvPvi(s32 *arg0, s32 *arg1, s32 arg2) {
+void TTecSlicer::init_launch_angles(s32 *arg0, s32 *arg1, s32 arg2) {
   s32 *var_r29;
   s32 *var_r30;
   s32 *var_r3;
@@ -317,7 +310,7 @@ void init_launch_angles__10TTecSlicerFPvPvi(s32 *arg0, s32 *arg1, s32 arg2) {
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_60 = var_r31;
   var_r3 = (s32 *) var_r29;
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_5C = -0x4000;
-  var_r31 = (s32) get_remain_count__10TTecSlicerFPv(var_r3);
+  var_r31 = (s32) get_remain_count__10TTecSlicerFv(var_r3);
   var_r3 = (s32 *) var_r30;
   temp_r0 = has_valid_handle__10TObjPlayerFPv(var_r3) * 3;
   var_r3 = (s32 *) (&TTecSlicer__launch_angle_table.value);
@@ -326,11 +319,12 @@ void init_launch_angles__10TTecSlicerFPvPvi(s32 *arg0, s32 *arg1, s32 arg2) {
   pop_matrix();
 }
 
-void update__10TTecSlicerFi(s32 arg0) {
+void TTecSlicer::update() {
+    s32 arg0 = (s32)this;
     if (horizontal_distance_squared(arg0 + 0x38, arg0 + 0xA8) < lbl_805DC958) {
-        deliver_target_hit__10TTecSlicerFPv((u8 *)(arg0));
+        deliver_target_hit();
         if (get_next_captured_target(arg0 + 0xC8, arg0 + 0xA8, arg0 + 0xC4, arg0 + 0xC6, arg0 + 0xBC) == 0) {
-            set_flags__10TObjPlayerFPvUi(arg0 + 0xC0, 1);
+            set_flags__10TObjPlayerFUl(arg0 + 0xC0, 1);
         } else {
             VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0xA8);
             subtract_vector(arg0 + 0x90, arg0 + 0x38);
@@ -354,7 +348,7 @@ s32 TTecSlicer::create(u16 *arg0) {
                 var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)temp_r3), (void *)((void *) ((u8 *)(temp_r3) + 0x38)), (int)((int) (*(s32 *)((s8 *)temp_r3 + 0x60))));
             }
             var_r31 = var_r0;
-            spawn_item_timer__13TItemAttackerFiii((int) (var_r0), (void *) (&destroy_if_set__10TTecSlicerFUi), (int) (0x5A));
+            spawn_item_timer__13TItemAttackerFlll((int) (var_r0), (void *) (&destroy_if_set__10TTecSlicerFv), (int) (0x5A));
         }
     }
     return var_r31;
@@ -362,7 +356,8 @@ s32 TTecSlicer::create(u16 *arg0) {
 
 extern "C" {
 
-void render__10TTecSlicerFv(u8 *arg0) {
+void TTecSlicer::render() {
+    u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 ||
         ((VObj_18_8023B900 *)arg0)->m8(lbl_805DC95C, lbl_805DC960) == 0 ||
         query_game_join_id__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x118)) == 0U) {
@@ -374,7 +369,7 @@ void render__10TTecSlicerFv(u8 *arg0) {
         set_chunk_material_color(arg0 + 0x128);
     }
     if (*(u32 *)((s8 *)arg0 + 0x24) != 0U && *(u32 *)((s8 *)arg0 + 0x110) != 0U) {
-        notify_fish_if_valid__10TObjPlayerFUi(*(u32 *)((s8 *)arg0 + 0x24));
+        notify_fish_if_valid__10TObjPlayerFUl(*(u32 *)((s8 *)arg0 + 0x24));
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
@@ -411,9 +406,9 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
         __ct__14TSlicerHistoryFv(new_obj, arg0, *(s32 *)((s8 *)arg0 + 0x24), var_r31, *(s32 *)((s8 *)arg0 + 0x118));
     }
     if (test_flags_any(arg0 + 0xC0, 1) == 0) {
-        update__10TTecSlicerFi((s32)(arg0));
+        ((TTecSlicer *)arg0)->update();
     }
-    advance_position__10TTecSlicerFPv((u8 *)(arg0));
+    ((TTecSlicer *)arg0)->advance_position();
     if ((u32) *(u32 *)((s8 *)arg0 + 0x124) != 0U) {
         copy_position__15TEffStarLight2DFPv(*(void **)((s8 *)arg0 + 0x124), arg0 + 0x38);
     }
@@ -431,8 +426,8 @@ void *__dt__10TTecSlicerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTecSlicer;
         if (*(void **)((s8 *)arg0 + 0x124) != NULL) { queue_destruction__7TObjectFv((s32)((void *)(*(void **)((s8 *)arg0 + 0x124)))); }
-        dt__10TTecSlicerFis((s8 *)arg0 + 0xE8, -1);
-        dt__10TTecSlicerFis((s8 *)arg0 + 0xC8, -1);
+        dt__10TTecSlicerFls((s8 *)arg0 + 0xE8, -1);
+        dt__10TTecSlicerFls((s8 *)arg0 + 0xC8, -1);
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -452,12 +447,12 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     s32 e;
     construct_world_actor_base(self, tl_05);
     self->vt = __vt__10TTecSlicer;
-    init_forward__10TObjPlayerFPv(self->fwd);
-    reset_fields_1e__10TTecSlicerFPv(self->fc8);
-    reset_fields_1e__10TTecSlicerFPv(self->fe8);
+    init_forward__10TObjPlayerFv(self->fwd);
+    ((TTecSlicer *)(self->fc8))->reset_fields_1e();
+    ((TTecSlicer *)(self->fe8))->reset_fields_1e();
     self->f0 = lbl_805D3828;
     disallow_rendering__7TObjectFv(self);
-    set_item_count__6TLobbyFPvs(self, pop_free_id__6TLobbyFv());
+    set_item_count__6TLobbyFs(self, pop_free_id__6TLobbyFv());
     self->f110 = init->f8;
     self->f24 = init->f4;
     self->f114 = init->f0;
@@ -476,17 +471,17 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     }
     self->f10c = (s32)arg2;
     self->f108 = find_item_by_id(self->f118);
-    init_launch_angles__10TTecSlicerFPvPvi((s32 *)self, (s32 *)self->f10c, init->f28);
+    TTecSlicer::init_launch_angles((s32 *)self, (s32 *)self->f10c, init->f28);
     set_launch_midpoint__10TTecSlicerFPvPvPvPv((Obj_8023B72C *)self, (void *)self->f10c, &init->a, &init->b);
     self->fb8 = *get_weapon_range_record(self->f108, 0);
     self->fb4 = lbl_805DC964;
     VecCopy__FP3VecPC3Vec((s32)self + 0x9C, (s32)self + 0x38);
     VecCopy__FP3VecPC3Vec((s32)self + 0xA8, (s32)self + 0x38);
     self->fbc = lbl_805DC950;
-    ext = get_extended_state__10TObjPlayerFPv(self->f10c);
+    ext = get_extended_state__10TObjPlayerFv(self->f10c);
     if (ext != 0) {
         if (get_captured_target_count(ext) == 0) {
-            set_flags__10TObjPlayerFPvUi((s32)self->fwd, 1);
+            set_flags__10TObjPlayerFUl((s32)self->fwd, 1);
         } else {
             for (i = 0; i != get_captured_target_count(ext); i++) {
                 e = get_captured_target_entry(ext, i);

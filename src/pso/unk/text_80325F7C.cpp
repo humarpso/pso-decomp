@@ -25,10 +25,10 @@ typedef struct Wing_80326074 {
 extern "C" {
 void TBoss8Dragon__sub_80063FB8(s32, void *, f32);
 s32 get_instance_count__12TBoss8DragonFv(void);
-void update_scale__15TObjBoss2TunnelFPv(void *);
+void update_scale__15TObjBoss2TunnelFv(void *);
 Ctl_80325F7C *get_player_by_client_id(s32);
-void get_wing_position__26TBoss5GryphonLightningWingFii(void *, void *);
-void copy_position__12TBoss8DragonFii(void *, void *);
+void get_wing_position__26TBoss5GryphonLightningWingFl(void *, void *);
+void copy_position__12TBoss8DragonFl(void *, void *);
 void TObjPlayer__sub_80325D58(void *, void *, void *, void *);
 void project_point_onto_line(void *, void *, void *);
 extern const f32 lbl_805DF630;
@@ -36,9 +36,9 @@ extern const f32 lbl_805DF638;
 void fn_80325F7C(void *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 Hit_80326074 *csnVecterUnder(void *, s32);
-void update_scale__15TObjBoss2TunnelFPv(void *);
-void get_wing_position__26TBoss5GryphonLightningWingFii(void *, void *);
-void copy_position__12TBoss8DragonFii(void *, void *);
+void update_scale__15TObjBoss2TunnelFv(void *);
+void get_wing_position__26TBoss5GryphonLightningWingFl(void *, void *);
+void copy_position__12TBoss8DragonFl(void *, void *);
 void update_wing_segments(void *);
 s32 rand(void);
 void vec3_add_to(void *, void *);
@@ -69,8 +69,8 @@ void fn_80325F7C(void *arg0) {
         do {
             c = get_player_by_client_id(i);
             if (c != 0) {
-                copy_position__12TBoss8DragonFii(arg0, &pos);
-                get_wing_position__26TBoss5GryphonLightningWingFii(arg0, &wing);
+                copy_position__12TBoss8DragonFl(arg0, &pos);
+                get_wing_position__26TBoss5GryphonLightningWingFl(arg0, &wing);
                 ray.o.x = pos.x;
                 ray.o.y = c->pos.y;
                 ray.o.z = pos.z;
@@ -81,7 +81,7 @@ void fn_80325F7C(void *arg0) {
                 dir.x = ray.d.x;
                 dir.y = ray.d.y;
                 dir.z = ray.d.z;
-                update_scale__15TObjBoss2TunnelFPv(&dir);
+                update_scale__15TObjBoss2TunnelFv(&dir);
                 TObjPlayer__sub_80325D58(arg0, &pos, &dir, &hit);
                 TBoss8Dragon__sub_80063FB8(inst, &hit, lbl_805DF638);
             }
@@ -100,24 +100,24 @@ void rebuild_lightning_segments(Wing_80326074 *self) {
     f32 len;
     s32 i;
     f32 r;
-    get_wing_position__26TBoss5GryphonLightningWingFii(self, &p);
+    get_wing_position__26TBoss5GryphonLightningWingFl(self, &p);
     p.x += self->vel.x;
     p.y += self->vel.y;
     p.z += self->vel.z;
     p.y = lbl_805DF63C;
     hit = csnVecterUnder(&p, 0x16EF);
     if (hit == NULL || (h = hit->pos[1]) > lbl_805D8D48) {
-        get_wing_position__26TBoss5GryphonLightningWingFii(self, &p);
+        get_wing_position__26TBoss5GryphonLightningWingFl(self, &p);
         self->vel.x *= lbl_805DF640;
         self->vel.y *= lbl_805DF640;
         self->vel.z *= lbl_805DF640;
     } else {
         p.y = h;
     }
-    copy_position__12TBoss8DragonFii(self, &q);
+    copy_position__12TBoss8DragonFl(self, &q);
     VecCopy__FP3VecPC3Vec(&d, &p);
     subtract_vector(&d, &q);
-    len = ((f32 (*)(void *))update_scale__15TObjBoss2TunnelFPv)(&d) / (f32)(self->n - 1);
+    len = ((f32 (*)(void *))update_scale__15TObjBoss2TunnelFv)(&d) / (f32)(self->n - 1);
     d.x *= len;
     d.y *= len;
     d.z *= len;

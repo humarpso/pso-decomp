@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6GravBall.h"
 
 struct P_80323348 { u8 pad[0x30]; u32 flags; };
 
@@ -22,7 +23,6 @@ extern "C" {
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 s32 is_state_1f__14TBoss6PlotFalzFUi();
-void clear_player_grav_flags__14TBoss6GravBallFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
@@ -35,7 +35,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF574;
-s32 clamp_to_ground__14TBoss6GravBallFPv(Obj_803237A0 *arg0);
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -43,10 +42,10 @@ f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
-int destroy_part__14TBoss6GravBallFii(void*, void*);
-s32 create_emitter__14TBoss6GravBallFii(void *, int);
+int destroy_part__14TBoss6GravBallFl(void*, void*);
+s32 create_emitter__14TBoss6GravBallFl(void *, int);
 u16 obj_getField1c(void *);
-s32 is_active__14TBoss6PlotFalzFPv(void *);
+s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void vec3_add_to(void *, void *);
@@ -64,10 +63,10 @@ f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
-int destroy_part__14TBoss6GravBallFii(void*, void*);
-s32 create_emitter__14TBoss6GravBallFii(void *, int);
+int destroy_part__14TBoss6GravBallFl(void*, void*);
+s32 create_emitter__14TBoss6GravBallFl(void *, int);
 u16 obj_getField1c(void *);
-s32 is_active__14TBoss6PlotFalzFPv(void *);
+s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void vec3_add_to(void *, void *);
@@ -83,12 +82,11 @@ void TBoss6GravBall__sub_80323544(u8 *self);
 
 extern "C" {
 
-void update_lifetime__14TBoss6GravBallFPv(void *arg0);
-int destroy_part__14TBoss6GravBallFii(void*, void*);
-void init_parts__14TBoss6GravBallFPv(void* p);
+int destroy_part__14TBoss6GravBallFl(void*, void*);
+void init_parts__14TBoss6GravBallFv(void* p);
 void render__14TBoss6GravBallFv(void);
 
-void clear_player_grav_flags__14TBoss6GravBallFv(void) {
+void TBoss6GravBall::clear_player_grav_flags() {
     s32 n = get_game_mode__6TLobbyFv();
     s32 i;
     for (i = 0; i < n; i++) {
@@ -113,8 +111,8 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
     for (i = 0; i < n; i++) {
         pl = (PL_803233AC *)get_player_data__10TObjPlayerFi(i);
         id = obj_getField1c(pl) + 5;
-        if (is_active__14TBoss6PlotFalzFPv(pl) == 0) {
-            destroy_part__14TBoss6GravBallFii(self, (void *)id);
+        if (is_active__14TBoss6PlotFalzFv(pl) == 0) {
+            destroy_part__14TBoss6GravBallFl(self, (void *)id);
             continue;
         }
         flag = 0;
@@ -123,7 +121,7 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
         v.y = TBoss6GravBall__data_805DF550;
         d = vector_length(&v);
         if (d > lbl_805DF554) {
-            destroy_part__14TBoss6GravBallFii(self, (void *)id);
+            destroy_part__14TBoss6GravBallFl(self, (void *)id);
             continue;
         }
         if (d <= TBoss6GravBall__data_805DF558) {
@@ -142,7 +140,7 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
             pl->flags |= 0x20000;
-            create_emitter__14TBoss6GravBallFii(self, id);
+            create_emitter__14TBoss6GravBallFl(self, id);
         }
     }
 }
@@ -163,8 +161,8 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
     for (i = 0; i < n; i++) {
         pl = (PL_80323544 *)get_player_data__10TObjPlayerFi(i);
         id = obj_getField1c(pl) + 5;
-        if (is_active__14TBoss6PlotFalzFPv(pl) == 0) {
-            destroy_part__14TBoss6GravBallFii(self, (void *)id);
+        if (is_active__14TBoss6PlotFalzFv(pl) == 0) {
+            destroy_part__14TBoss6GravBallFl(self, (void *)id);
             continue;
         }
         flag = 1;
@@ -180,7 +178,7 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
         if (d > TBoss6GravBall__data_805DF558) {
             f32 s;
             if (*(u32 *)(self + 0xC0) & 1) {
-                destroy_part__14TBoss6GravBallFii(self, (void *)id);
+                destroy_part__14TBoss6GravBallFl(self, (void *)id);
                 continue;
             }
             s = lbl_805DF564 * (*(f32 *)(self + 0xBC) * (lbl_805DF568 - d / lbl_805DF56C));
@@ -197,7 +195,7 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
             pl->flags |= 0x20000;
-            create_emitter__14TBoss6GravBallFii(self, id);
+            create_emitter__14TBoss6GravBallFl(self, id);
         }
     }
 }
@@ -214,10 +212,11 @@ void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0) {
     } else {
         VecCopy__FP3VecPC3Vec(&arg0->pos, lbl_80476684);
     }
-    clamp_to_ground__14TBoss6GravBallFPv((Obj_803237A0 *)(arg0));
+    ((TBoss6GravBall *)arg0)->clamp_to_ground();
 }
 
-s32 clamp_to_ground__14TBoss6GravBallFPv(Obj_803237A0 *arg0) {
+s32 TBoss6GravBall::clamp_to_ground() {
+    Obj_803237A0 *arg0 = (Obj_803237A0 *)this;
     Vec_803237A0 v = arg0->pos;
     if (project_actor_to_ground(arg0, &v, 0) == 0) {
         queue_destruction__7TObjectFv((void *)(arg0));
@@ -232,13 +231,13 @@ s32 clamp_to_ground__14TBoss6GravBallFPv(Obj_803237A0 *arg0) {
     return 0;
 }
 
-void update_lifetime__14TBoss6GravBallFPv(void *arg0) {
+void TBoss6GravBall::update_lifetime(void *) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4) + 1;
-    *(s32 *)((s8 *)arg0 + 0xB4) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)this + 0xB4) + 1;
+    *(s32 *)((s8 *)this + 0xB4) = temp_r0;
     if (temp_r0 > 0x1E) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((void *)(this));
     }
 }
 

@@ -8,6 +8,8 @@ public:
     virtual ~TAdGameStartBackGC();
     virtual void run_task();
     virtual void render();
+public:
+    void render_background_status();
 };
 
 #endif

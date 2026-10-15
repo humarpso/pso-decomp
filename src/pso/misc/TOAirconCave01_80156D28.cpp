@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOAirconCave01.h"
 
 struct RecoveredGlobal_80156D70_lbl_8050BEC0 {
     s32 value;
@@ -28,8 +29,6 @@ void TOAirconCave01__sub_80156D70(u8 *arg0);
 extern "C" {
 
 void TOAirconCave01__sub_80156D28(void);
-void *destroy__14TOAirconCave01FPvs(void *arg0, s16 arg1);
-void *init_vtable_804AF8D8__14TOAirconCave01FPv(void *arg0);
 s32 TObjPlayer__sub_800D96D0(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
 s32 __dl__FPv(void *);
@@ -60,24 +59,24 @@ void TOAirconCave01__sub_80156D70(u8 *arg0) {
     set_color_blend_mode(1, 4, 5, 0);
 }
 
-void *destroy__14TOAirconCave01FPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x14) = lbl_804AF8D8;
-        TObjPlayer__sub_800D96D0((s32)arg0, 0);
+void *TOAirconCave01::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x14) = lbl_804AF8D8;
+        TObjPlayer__sub_800D96D0((s32)this, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            __dl__FPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern s32 lbl_804AF8D8[];
 
-void *init_vtable_804AF8D8__14TOAirconCave01FPv(void *arg0) {
-    TObjPlayer__sub_800D9718(arg0);
-    *(s32 **)((s8 *)arg0 + 0x14) = lbl_804AF8D8;
-    fn_80156CEC(arg0);
-    return arg0;
+void *TOAirconCave01::init_vtable_804AF8D8() {
+    TObjPlayer__sub_800D9718(this);
+    *(s32 **)((s8 *)this + 0x14) = lbl_804AF8D8;
+    fn_80156CEC(this);
+    return this;
 }
 
 }

@@ -3,6 +3,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/boss/TBoss8Dragon.h"
 struct Stack_802F2D8C {
     s8 sp8;
     s8 sp9;
@@ -29,9 +30,8 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 restore_player_cameras();
 u8 *get_scripted_camera_playback();
-void run_task__16TBoss8DragonDemoFv(u8 *arg0);
 s32 activate_camera_mode(int);
-s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
+s32 cache_target_and_forward__11TCameraCtrlFl(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_802F2D8C___vt__16TBoss8DragonDemo __vt__16TBoss8DragonDemo;
 extern s32 lbl_805D3FF8;
@@ -41,18 +41,15 @@ extern RecoveredGlobal_802F2CC4_lbl_804E4A44 lbl_804E4A44;
 extern const f32 lbl_805DE9F4;
 void TBoss8DragonDemo__sub_802F2CC4(void);
 void TBoss8DragonColli__sub_802F3074(void *c);
-void update_colli_parts__12TBoss8DragonFPv(Obj_8002B118 *self);
 }
 
 extern "C" {
 
 f32 TBoss8DragonDemo__sub_802F2CB4(void* p);
 f32 TBoss8DragonDemo__sub_802F2CBC(void* p);
-int copy_position__16TBoss8DragonDemoFPv(void* p);
-void render__16TBoss8DragonDemoFv(void);
 int VecCopy__FP3VecPC3Vec(void*);
 
-int copy_position__16TBoss8DragonDemoFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x78); }
+int TBoss8DragonDemo::copy_position() { return VecCopy__FP3VecPC3Vec((char*)this + 0x78); }
 f32 TBoss8DragonDemo__sub_802F2CB4(void* p) { return *(f32*)((char*)p + 0x5c); }
 f32 TBoss8DragonDemo__sub_802F2CBC(void* p) { return *(f32*)((char*)p + 0x54); }
 
@@ -62,9 +59,10 @@ void TBoss8DragonDemo__sub_802F2CC4(void) {
     *(f32 *)((s8 *)(&lbl_804E4A44.value) + 0x10) = (f32) lbl_805DE9F4;
 }
 
-void render__16TBoss8DragonDemoFv(void) {  }
+void TBoss8DragonDemo::render() {  }
 
-void run_task__16TBoss8DragonDemoFv(u8 *arg0) {
+void TBoss8DragonDemo::run_task() {
+    u8 *arg0 = (u8 *)this;
     if ((*(u16 *)((s8 *)(get_scripted_camera_playback()) + 2) & 1) || ((s32) **(s32 **)((s8 *)arg0 + 0x24) == 0)) {
         restore_player_cameras();
         queue_destruction__7TObjectFv((void *) (arg0));
@@ -91,10 +89,11 @@ u8 *__ct__16TBoss8DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     stack.spC = *(f32 *)((s8 *)arg0 + 0x20);
     stack.sp10 = *(f32 *)((s8 *)arg0 + 0x1C);
     activate_camera_mode((int) (5));
-    cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x3333));
+    cache_target_and_forward__11TCameraCtrlFl((void *) (&stack.sp8), (int) (0x3333));
     return arg0;
 }
-void update_colli_parts__12TBoss8DragonFPv(Obj_8002B118 *self) {
+void TBoss8Dragon::update_colli_parts() {
+    Obj_8002B118 *self = (Obj_8002B118 *)this;
     s32 i;
     for (i = 0; i < 3; i++) {
         TBoss8DragonColli__sub_802F3074(self->colli[i]);

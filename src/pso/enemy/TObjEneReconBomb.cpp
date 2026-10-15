@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneReconBomb.h"
 
 struct Vec_8031B618 { f32 x, y, z; };
 
@@ -76,19 +77,18 @@ s16 obj_getField1c(int);
 f32 horizontal_distance_squared(void *, void *);
 s32 fn_8031B618(Obj_8031B618 *arg0);
 VObj_8031B808 *get_player_data__10TObjPlayerFi(s32);
-s32 is_valid_and_active__10TObjPlayerFUi(void *);
+s32 is_valid_and_active__10TObjPlayerFUl(void *);
 u32 csnVector(void *, void *, int);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 project_actor_to_ground(void *, void *, void *);
 s32 play_sound_effect(s32, void *, int, int);
 s32 TObjEneRecon__sub_8031C250(u32);
-s32 remap_area_sound_id__14TObjEneRecoboxFUi(u32);
+s32 remap_area_sound_id__14TObjEneRecoboxFUl(u32);
 s32 vec3_add_to(void *, void *);
 extern s32 lbl_805D5868;
 extern const f32 lbl_805DF3AC;
 extern const f32 lbl_805DF3B0;
 extern const f32 lbl_805DF3B4;
-void run_task__16TObjEneReconBombFv(Obj_8031B808 *arg0);
 }
 
 extern "C" {
@@ -104,14 +104,13 @@ s32 rotate_matrix_x(int, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_chunk_object(int);
 s32 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 Ctrl_8031B618 *get_player_by_client_id(s32);
 s32 fn_8031B618(Obj_8031B618 *arg0);
 extern u32 recon_bomb_bml_resource;
-void render__16TObjEneReconBombFv(u8 *arg0);
 }
 
 extern "C" {
@@ -150,7 +149,8 @@ s32 fn_8031B618(Obj_8031B618 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void render__16TObjEneReconBombFv(u8 *arg0) {
+void TObjEneReconBomb::render() {
+    u8 *arg0 = (u8 *)this;
     struct { f32 x, y, z; } sc;
     s32 spC;
     s32 sp8;
@@ -168,7 +168,7 @@ void render__16TObjEneReconBombFv(u8 *arg0) {
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
     rotate_matrix_zyx((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
-    set_global_param__8TObjFishFi((int) (temp_r30));
+    set_global_param__8TObjFishFl((int) (temp_r30));
     draw_chunk_object((int) (temp_r31));
     pop_matrix();
     push_matrix();
@@ -190,7 +190,8 @@ void render__16TObjEneReconBombFv(u8 *arg0) {
 }
 #pragma pop
 
-void run_task__16TObjEneReconBombFv(Obj_8031B808 *arg0) {
+void TObjEneReconBomb::run_task() {
+    Obj_8031B808 *arg0 = (Obj_8031B808 *)this;
     Vec_8031B808 pos;
     s32 i;
     VObj_8031B808 *pl;
@@ -237,12 +238,12 @@ void run_task__16TObjEneReconBombFv(Obj_8031B808 *arg0) {
         break;
     case 3:
     default:
-        play_sound_effect(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003A80B), &arg0->pos, 0, 0);
+        play_sound_effect(remap_area_sound_id__14TObjEneRecoboxFUl(0x4003A80B), &arg0->pos, 0, 0);
         spawn_particle_effect_with_flags(&arg0->pos, 0x45, 0x40);
         spawn_particle_effect_with_flags(&arg0->pos, 0x46, 0x40);
         for (i = 0; i < lbl_805D5868; i++) {
             pl = get_player_data__10TObjPlayerFi(i);
-            if (is_valid_and_active__10TObjPlayerFUi(pl) != 0 && pl != 0 && (u16)obj_getField1c((int)pl) < 0x1000 && pl->m31() == 0) {
+            if (is_valid_and_active__10TObjPlayerFUl(pl) != 0 && pl != 0 && (u16)obj_getField1c((int)pl) < 0x1000 && pl->m31() == 0) {
                 if (horizontal_distance_squared((u8 *)pl + 0x2FC, &arg0->pos2) <= arg0->range * arg0->range) {
                     P_8031B808 d;
                     d.a = 0;

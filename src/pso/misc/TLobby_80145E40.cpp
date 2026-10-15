@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 TLobby__sub_803F5678(void *);
@@ -8,15 +9,13 @@ s32 TLobby__sub_80145EE4(void);
 extern "C" {
 
 int TLobby__sub_80145E40(void);
-s32 is_state_active__6TLobbyFv(void);
-s32 is_status_zero__6TLobbyFv(void);
 s32 TLobby__sub_803F517C(u8 *);
 s32 TLobby__sub_803F5678(void *);
 
     extern unsigned short lbl_805D56CC;
 int TLobby__sub_80145E40(void) {  return (lbl_805D56CC & 0x1); }
 
-s32 is_status_zero__6TLobbyFv(void) {
+s32 TLobby::is_status_zero() {
     u8 sp8;
 
     if ((TLobby__sub_803F517C(&sp8) == 0) && (sp8 == 0)) {
@@ -25,7 +24,7 @@ s32 is_status_zero__6TLobbyFv(void) {
     return 0;
 }
 
-s32 is_state_active__6TLobbyFv(void) {
+s32 TLobby::is_state_active() {
     u8 sp8;
 
     if (TLobby__sub_803F5678((void *) (&sp8)) != 0) {

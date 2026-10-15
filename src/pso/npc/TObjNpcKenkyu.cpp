@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcKenkyu.h"
 
 struct RecoveredGlobal_80289400_lbl_804D3190 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80289400_lbl_804D3190_size[sizeof(RecoveredGlobal_80289400_lbl_804D3190) == 0x10 ? 1 : -1];
@@ -95,13 +96,12 @@ struct RecoveredGlobal_802894A8___vt__13TObjNpcKenkyu {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80289400_lbl_804D3190 bm_npc_kenkyu_resource_descriptor;
 extern u32 TObjNpcKenkyu__static_model;
-void load_shared_resource__13TObjNpcKenkyuFv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__13TObjNpcKenkyu[];
@@ -114,17 +114,16 @@ extern "C" {
 
 void * TObjNpcSoutokufu__create(void *arg0);
 void *__dt__13TObjNpcKenkyuFv(void *arg0, s16 arg1);
-void free_static_model__13TObjNpcKenkyuFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcSoutokufu__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
+void destroy_npc_lappy_base__12TObjNpcLappyFs(void *, int);
 
 extern u32 TObjNpcKenkyu__static_model;
 
-void free_static_model__13TObjNpcKenkyuFv(void) {
+void TObjNpcKenkyu::free_static_model() {
     if ((u32) TObjNpcKenkyu__static_model != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcKenkyu__static_model, 1);
         TObjNpcKenkyu__static_model = 0U;
@@ -133,10 +132,10 @@ void free_static_model__13TObjNpcKenkyuFv(void) {
 
 extern s32 __vt__13TObjNpcKenkyu[];
 
-void load_shared_resource__13TObjNpcKenkyuFv(void) {
+void TObjNpcKenkyu::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_npc_kenkyu_resource_descriptor.value, 0, 0, 0));
@@ -147,7 +146,7 @@ void load_shared_resource__13TObjNpcKenkyuFv(void) {
 void *__dt__13TObjNpcKenkyuFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjNpcKenkyu;
-        destroy_npc_lappy_base__12TObjNpcLappyFPvs(arg0, 0);
+        destroy_npc_lappy_base__12TObjNpcLappyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -163,7 +162,7 @@ u8 *TObjNpcKenkyu__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802894A8___vt__13TObjNpcKenkyu *)&__vt__13TObjNpcKenkyu).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcKenkyu__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), (int) (0));
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));

@@ -1,7 +1,9 @@
 #include "types.h"
+#include "pso/TItemMenuCtrl.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void add_angle_clamped__10TObjPlayerFPvii(s32 *arg0, s32 arg1, s32 arg2);
 void advance_angle_wrap(s32 *arg0, s32 arg1);
 s32 is_split_screen(void);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
@@ -11,13 +13,11 @@ u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void approach_value__20TItemEffOrgaFlowShotFPvff(f32 *arg0, f32 farg0, f32 farg1);
-int set_menu_flags__13TItemMenuCtrlFPv(void* p);
-int decrement_packed_timer__15TObjBoss2TunnelFPvi(void*);
-int decrement_timer__17TItemEffectWeaponFPv(void* p);
-int set_flags__10TObjPlayerFPvUi(void*);
+int decrement_packed_timer__15TObjBoss2TunnelFPUll(void*);
+int decrement_timer__17TItemEffectWeaponFv(void* p);
+int set_flags__10TObjPlayerFUl(void*);
 
-int set_menu_flags__13TItemMenuCtrlFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x1c); }
+int TItemMenuCtrl::set_menu_flags() { return set_flags__10TObjPlayerFUl((char*)this + 0x1c); }
 
 extern const f32 lbl_805DABE8;
 
@@ -38,7 +38,7 @@ u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2) {
 }
 #pragma pop
 
-void approach_value__20TItemEffOrgaFlowShotFPvff(f32 *arg0, f32 farg0, f32 farg1) {
+void TItemEffOrgaFlowShot::approach_value(f32 *arg0, f32 farg0, f32 farg1) {
     *arg0 += farg0;
     if (farg0 > lbl_805DABE8) {
         if (*arg0 > farg1) {
@@ -49,7 +49,7 @@ void approach_value__20TItemEffOrgaFlowShotFPvff(f32 *arg0, f32 farg0, f32 farg1
     }
 }
 
-void add_angle_clamped__10TObjPlayerFPvii(s32 *arg0, s32 arg1, s32 arg2) {
+void TObjPlayer::add_angle_clamped(s32 *arg0, s32 arg1, s32 arg2) {
     *arg0 += arg1;
     if (arg1 > 0) {
         if ((s32) *arg0 > arg2) {

@@ -20,12 +20,12 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-void set_owner_id__13TParticleCtrlFPvUs(u32, u16);
-u32 *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+void set_owner_id__13TParticleCtrlFUs(u32, u16);
+u32 *mem_alloc(s32);
+s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 get_level_tier__10TObjPlayerFi(s32);
+s32 get_level_tier__10TObjPlayerFl(s32);
 extern Profile_80232EC0 grants_effect_emitter_table[];
 extern void *lbl_804CC888[];
 Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *self, u8 *src, s32 level, void *parent);
@@ -46,19 +46,19 @@ Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *se
     } else if (level >= 0x1E) {
         self->level = 0x1E;
     }
-    self->tier = get_level_tier__10TObjPlayerFi(self->level);
-    self->emitters = alloc_buffer__11TOBoss4RockFPv(grants_effect_emitter_table[self->tier].count * 4);
+    self->tier = get_level_tier__10TObjPlayerFl(self->level);
+    self->emitters = mem_alloc(grants_effect_emitter_table[self->tier].count * 4);
     for (i = 0; i < grants_effect_emitter_table[self->tier].count; i++) {
         self->emitters[i] = spawn_continuous_particle_effect_with_flags(self->pos, grants_effect_emitter_table[self->tier].parts[i].id, 0x10);
         if (self->emitters[i] != 0) {
-            set_owner_id__13TParticleCtrlFPvUs(self->emitters[i], self->owner);
+            set_owner_id__13TParticleCtrlFUs(self->emitters[i], self->owner);
         }
     }
     switch (self->tier) {
     case 0:
         self->sound = play_sound_effect(0x4002A90C, self->pos, 0, 0);
         if (self->sound >= 0) {
-            update_technique_slot__10TTecRaFoieFi(self->sound, 0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(self->sound, 0x100, 0);
         }
         break;
     case 1:
@@ -68,19 +68,19 @@ Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *se
     case 3:
         self->sound = play_sound_effect(0x4002A90C, self->pos, 0, 0);
         if (self->sound >= 0) {
-            update_technique_slot__10TTecRaFoieFi(self->sound, -0x180, 0);
+            update_technique_slot__10TTecRaFoieFl(self->sound, -0x180, 0);
         }
         break;
     case 4:
         self->sound = play_sound_effect(0x4002A90C, self->pos, 0, 0);
         if (self->sound >= 0) {
-            update_technique_slot__10TTecRaFoieFi(self->sound, -0x250, 0);
+            update_technique_slot__10TTecRaFoieFl(self->sound, -0x250, 0);
         }
         break;
     case 5:
         self->sound = play_sound_effect(0x4002A90C, self->pos, 0, 0);
         if (self->sound >= 0) {
-            update_technique_slot__10TTecRaFoieFi(self->sound, -0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(self->sound, -0x100, 0);
         }
         break;
     }

@@ -3,11 +3,11 @@
 extern "C" {
 
 void TItemEffEquip__sub_801088F8(u32 arg0);
-s32 release_effect__13TItemEffEquipFPv();
+s32 release_effect__13TItemEffEquipFv();
 
 void TItemEffEquip__sub_801088F8(u32 arg0) {
     if (arg0 != 0U) {
-        release_effect__13TItemEffEquipFPv();
+        release_effect__13TItemEffEquipFv();
     }
 }
 

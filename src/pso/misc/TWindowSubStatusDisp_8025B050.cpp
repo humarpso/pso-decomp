@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Win_8025B0D0 {
     u16 flags; u8 pad2[6];
@@ -19,13 +20,12 @@ void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 void apply_context_transform_to_rect(void *, void *);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
 void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1);
-void update_palette_sprite__20TWindowSubStatusDispFv(void);
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
 void set_sprite_dimensions(void* p, f32 a, f32 b);
 void set_sprite_uv_bounds(void* p, f32 a, f32 b, f32 c, f32 d);
@@ -34,12 +34,12 @@ s32 destroy__20TWindowSubStatusDispFPvs(void *, s16);
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 
 void *window_uv_sprite_part_vtable[6] = {
     0, 0,
     (void *)TWindowSubStatusDisp__sub_8025B2DC,
-    (void *)update_palette_sprite__20TWindowSubStatusDispFv,
+    (void *)TWindowSubStatusDisp::update_palette_sprite,
     (void *)draw_window_uv_sprite_part,
     0,
 };
@@ -107,7 +107,7 @@ void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) {
     } else {
         begin_screen_draw(0);
     }
-    set_global_param__8TObjFishFi(*arg0->p30);
+    set_global_param__8TObjFishFl(*arg0->p30);
     set_draw_texture_and_color(arg0->i34, arg0->i2C);
     w = arg0->f10;
     lo = (0.5f) - len;
@@ -131,7 +131,7 @@ void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) {
 }
 #pragma pop
 
-void update_palette_sprite__20TWindowSubStatusDispFv(void) {  }
+void TWindowSubStatusDisp::update_palette_sprite() {  }
 
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -147,8 +147,8 @@ void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *)((void *) (arg0)), (void *)((int) (arg2)));
     *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 8), (void *) (arg1 + 4));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) *(f32 *)((s8 *)arg1 + 0x14);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg1 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) *(f32 *)((s8 *)arg1 + 0x1C);
@@ -164,8 +164,8 @@ u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2)
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *)(arg0), (void *)((void *) (arg2)));
     *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 8), (void *) (arg1 + 4));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg1 + 0x14) / 256.0f);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg1 + 0x18) / 256.0f);
     {

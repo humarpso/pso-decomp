@@ -5,7 +5,7 @@ extern "C" {
 u32 baranz_launcher_create_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void baranz_launcher_node_callback(void* p);
 s32 spawn_slot_emitter__18TItemShootParticleFPvii(u32, s32, s32);
-u32 spawn_shoot_particle__10TObjPlayerFUiiif(void *, s32, s32, f32);
+u32 spawn_shoot_particle__10TObjPlayerFUlllf(void *, s32, s32, f32);
 u32 create_shoot_model__10TObjPlayerFUiiif();
 int get_player_list__10TObjPlayerFv(void*);
 int rotate_matrix_y(void*, void*);
@@ -17,7 +17,7 @@ u32 baranz_launcher_create_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     void *temp_r4;
 
     temp_r31 = create_shoot_model__10TObjPlayerFUiiif();
-    temp_r30 = spawn_shoot_particle__10TObjPlayerFUiiif(arg0, arg1, arg2, farg0);
+    temp_r30 = spawn_shoot_particle__10TObjPlayerFUlllf(arg0, arg1, arg2, farg0);
     if ((temp_r31 != 0U) && (temp_r30 != 0U)) {
         temp_r4 = *(void **)((s8 *)arg0 + 0x188);
         if (temp_r4 != NULL) {

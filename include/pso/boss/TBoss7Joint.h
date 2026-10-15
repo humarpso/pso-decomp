@@ -25,6 +25,15 @@ struct TBoss7Joint
     u8 _pad3BC[0x4];
     u32 m_3c0;
     u32 m_3c4;
+    void store_position();
+    void run_task();
+    s32 init_params();
+    static int get_state();
+    void read_state();
+    void byteswap_action_packet();
+    void update_and_send_60();
+    void broadcast_state();
+    int is_part_active();
 };
 
 #endif

@@ -22,6 +22,7 @@ struct TObjContainerNoItem
     s16 m_326;
     u8 _pad328[0x3C];
     u32 m_364;
+    static void *create(void *arg0);
 };
 
 #endif

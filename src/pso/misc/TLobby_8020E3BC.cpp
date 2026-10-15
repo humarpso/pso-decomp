@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
 void TLobby__sub_8020E3BC(void);
 void TLobby__sub_8020E3C0(void);
-int get_matching_object__6TLobbyFv(void);
-int get_object_count__6TLobbyFv(void);
 s32 Dolphin_ARAlloc(s32);
 
 void TLobby__sub_8020E3BC(void) {  }
@@ -19,9 +18,9 @@ void TLobby__sub_8020E3C0(void) {
 }
 
     extern int TLobby__data_805D6114;
-int get_matching_object__6TLobbyFv(void) {  return TLobby__data_805D6114; }
+int TLobby::get_matching_object() {  return TLobby__data_805D6114; }
 
     extern int TLobby__data_805D610C;
-int get_object_count__6TLobbyFv(void) {  return TLobby__data_805D610C; }
+int TLobby::get_object_count() {  return TLobby__data_805D610C; }
 
 }

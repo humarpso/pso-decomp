@@ -15,6 +15,8 @@ struct TOTrapChainSaw
     u32 m_ec;
     u8 _padF0[0x4];
     u32 m_f4;
+    static f32 scale_by_level(f32 farg0);
+    void update_demo();
 };
 
 #endif

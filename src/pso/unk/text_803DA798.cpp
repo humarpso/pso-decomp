@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/object/TObjFish.h"
 struct RecoveredFields_803DA84C_arg0 {
     u8 unknown_0[0x14];
     u32 field_14;
@@ -45,12 +46,12 @@ struct B_803DAE1C { u32 a; u32 b; Obj_803DAD84 *c; };
 extern "C" {
 extern s32 record_array_ptr;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
-void release_empty_ref_entry__10TObjPlayerFPv(void *);
+void release_empty_ref_entry__10TObjPlayerFv(void *);
 s32 fn_803DB20C(void *);
 extern u8 *current_render_context;
 s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1);
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 find_table_index_by_id__10TObjPlayerFUi(u32);
+s32 find_table_index_by_id__10TObjPlayerFUl(u32);
 extern u8 *current_render_context;
 extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803DAD28(u32 arg0);
@@ -61,7 +62,7 @@ extern u8 *current_render_context;
 s32 set_texture_num(s32 i);
 extern s32 record_array_ptr;
 void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j);
-void move_data__6TLobbyFv();
+void move_data__6TLobbyFPCvUl();
 void DCFlushRange(void *, void *);
 void TObjPlayer__sub_803DA808(void *arg0, s32 arg1, void *arg2);
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -74,9 +75,9 @@ s32 TObjPlayer__sub_803DB244(void);
 extern S_803DA7E0 lbl_8058D470;
 s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2);
 s32 TObjPlayer__sub_803DA104(int);
-s32 find_table_index_by_id__10TObjPlayerFUi(u32);
+s32 find_table_index_by_id__10TObjPlayerFUl(u32);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, void *);
-s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
+s32 find_record_index__10TObjPlayerFUlUl(u32 arg0, u32 arg1);
 void TObjPlayer__sub_803DAD24(void);
 extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3);
@@ -100,11 +101,10 @@ s32 TObjPlayer__sub_803DAE1C(s32 arg0, s32 arg1, u32 arg2);
 extern "C" {
 
 void TObjPlayer__sub_803DAD24(void);
-s32 set_global_param__8TObjFishFi(s32 arg0);
 
 extern u8 *current_render_context;
 
-s32 set_global_param__8TObjFishFi(s32 arg0) {
+s32 TObjFish::set_global_param(s32 arg0) {
     *(s32 *)((s8 *)current_render_context + 0x20) = arg0;
     return 1;
 }
@@ -140,7 +140,7 @@ void TObjPlayer__sub_803DA7E0(void) {
 #pragma pop
 
 void TObjPlayer__sub_803DA808(void *arg0, s32 arg1, void *arg2) {
-    move_data__6TLobbyFv();
+    move_data__6TLobbyFPCvUl();
     DCFlushRange(arg0, arg2);
 }
 
@@ -183,13 +183,13 @@ s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3) {
     s32 idx;
     s32 r;
     s32 slot;
-    idx = find_table_index_by_id__10TObjPlayerFUi(arg0);
+    idx = find_table_index_by_id__10TObjPlayerFUl(arg0);
     if (TObjPlayer__sub_803DA104(arg2) != 0) {
         if (idx < 0) {
             *arg3 = -1;
             return 0;
         }
-        r = find_record_index__10TObjPlayerFUiUi(arg0, arg1);
+        r = find_record_index__10TObjPlayerFUlUl(arg0, arg1);
         if (r < 0) {
             slot = find_free_slot__10TObjPlayerFPvPv(&sp8, NULL);
             if (slot < 0) {
@@ -308,7 +308,7 @@ s32 TObjPlayer__sub_803DAD28(u32 arg0) {
     s32 temp_r3;
     u8 *var_r3;
     u8 *var_r4;
-    temp_r3 = find_table_index_by_id__10TObjPlayerFUi(arg0);
+    temp_r3 = find_table_index_by_id__10TObjPlayerFUl(arg0);
     if (temp_r3 < 0) {
         var_r3 = (u8 *)((void *)-1);
         return -1;
@@ -381,7 +381,7 @@ s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1) {
             *(s32 *)((s8 *)current_render_context + 0x14) = -1;
         }
     }
-    release_empty_ref_entry__10TObjPlayerFPv(arg0);
+    release_empty_ref_entry__10TObjPlayerFv(arg0);
     return 1;
 }
 #pragma pop

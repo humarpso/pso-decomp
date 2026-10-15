@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/TChCrEffTag.h"
 
 extern "C" {
 
 void *create_TChCrEffTag(void *arg0);
-void set_eff_tag__11TChCrEffTagFi(int a0);
 void *__ct__11TChCrEffTagFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
     extern int TChCrEffTag__selected_heading;
-void set_eff_tag__11TChCrEffTagFi(int a0) { TChCrEffTag__selected_heading = a0; }
+void TChCrEffTag::set_eff_tag(int a0) { TChCrEffTag__selected_heading = a0; }
 
 void *create_TChCrEffTag(void *arg0) {
     void *o = __nw__7TObjectFUl(0x2C);

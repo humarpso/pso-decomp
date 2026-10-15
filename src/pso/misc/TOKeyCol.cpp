@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyCol.h"
 
 struct TOKeyBase8016_8016C7FC { char pad[0x18]; };
 struct TOKeyCol8016_8016C7FC : TOKeyBase8016_8016C7FC {
@@ -32,8 +33,7 @@ struct VObj_18 : VBase_18 {
     virtual s32 m17();
 };
 extern "C" {
-s32 send_switch_changed__8TOKeyColFPvi(void *, int);
-void run_task__8TOKeyColFv(u8 *arg0);
+s32 send_switch_changed__8TOKeyColFl(void *, int);
 }
 
 extern "C" {
@@ -44,43 +44,42 @@ void TOKeyCol__vt15(void);
 void TOKeyCol__vt16(void);
 void TOKeyCol__vt17(void);
 void *__dt__8TOKeyColFv(void *arg0, s16 arg1);
-void *create__8TOKeyColFPv(void *arg0);
-void render__8TOKeyColFv(void);
 s32 TOKey__ct();
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 init_switch_id__5TOKeyFPv(void *);
+s32 init_switch_id__5TOKeyFv(void *);
 
 void TOKeyCol__vt17(void) {  }
 void TOKeyCol__vt16(void) {  }
 void TOKeyCol__vt15(void) {  }
 void TOKeyCol__vt14(void) {  }
 
-void run_task__8TOKeyColFv(u8 *arg0) {
+void TOKeyCol::run_task() {
+    u8 *arg0 = (u8 *)this;
     ((VObj_18 *)(arg0))->m12();
     if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
-            send_switch_changed__8TOKeyColFPvi((void *) (arg0), (int) (1));
+            send_switch_changed__8TOKeyColFl((void *) (arg0), (int) (1));
             ((VObj_18 *)(arg0))->m16();
             *(s32 *)((s8 *)arg0 + 0xD4) = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
-            send_switch_changed__8TOKeyColFPvi((void *) (arg0), (int) (0));
+            send_switch_changed__8TOKeyColFl((void *) (arg0), (int) (0));
             ((VObj_18 *)(arg0))->m17();
             *(s32 *)((s8 *)arg0 + 0xD4) = 0;
         }
     }
 }
 
-void render__8TOKeyColFv(void) {  }
+void TOKeyCol::render() {  }
 
 extern void *tl_05;
 
-void *create__8TOKeyColFPv(void *arg0) {
+void *TOKeyCol::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
         o = TOKeyCol__ct((void *)(o), (s32)(tl_05), (s32)(arg0));
@@ -112,7 +111,7 @@ void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOKeyCol;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyCol__name;
     ((TOKeyCol8016_8016C7FC *)arg0)->ct(arg2);
-    init_switch_id__5TOKeyFPv(arg0);
+    init_switch_id__5TOKeyFv(arg0);
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB758;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB75C;
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (lbl_805DB760 + *(f32 *)((s8 *)arg0 + 0x68));

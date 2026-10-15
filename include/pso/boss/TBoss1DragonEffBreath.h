@@ -10,6 +10,8 @@ struct TBoss1DragonEffBreath
     void* m_28;
     u8 _pad2C[0x8];
     u32 m_34;
+    static void render();
+    void run_task();
 };
 
 #endif

@@ -70,6 +70,7 @@ struct TObjEneNanoDrago {
 
     void update_growth_state();
     void update_circling_state();
+    static void *create(void *arg0);
 };
 
 #endif

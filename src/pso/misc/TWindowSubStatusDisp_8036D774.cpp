@@ -3,6 +3,7 @@
 struct Desc_8036D774 { f32 *pos; u32 *col; s32 a; s32 n; };
 
 #include <stddef.h>
+#include "pso/misc/TWindowSubStatusDisp.h"
 struct Stack_8036D88C {
     f32 sp8;
     f32 spC;
@@ -26,13 +27,12 @@ struct Stack_8036D994 {
 };
 
 extern "C" {
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern s32 TBGMulti__textures;
-void draw_bottom_bar__20TWindowSubStatusDispFv(void);
 s32 TCameraCtrl__sub_80068EF0();
 s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 set_depth_buffer_settings_2__Fv();
@@ -40,22 +40,18 @@ s32 restore_saved_depth_alpha_state();
 s32 reset_transform_state__10TObjPlayerFv();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-void draw_bottom_bar__20TWindowSubStatusDispFv(void);
 extern s32 TBGMulti__textures;
 extern s32 split_screen_hud_animation_frame;
-void draw_split_screen_hud__20TWindowSubStatusDispFv(void);
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(Desc_8036D774 *, int, int, f32);
-void draw_split_screen_dividers__20TWindowSubStatusDispFv(void);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern s32 TBGMulti__textures;
-void draw_tiled_background__20TWindowSubStatusDispFv(void);
 s32 reset_transform_state__10TObjPlayerFv();
 s32 init_xyz_limits__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -67,7 +63,7 @@ void TWindowSubStatusDisp__sub_8036D994(void);
 
 extern "C" {
 
-void draw_split_screen_dividers__20TWindowSubStatusDispFv(void) {
+void TWindowSubStatusDisp::draw_split_screen_dividers() {
     f32 verts[8];
     Desc_8036D774 d;
     u32 cols[4];
@@ -99,12 +95,12 @@ void draw_split_screen_dividers__20TWindowSubStatusDispFv(void) {
     draw_strip_swap_color__15TWindowCtrlMainFPviif(&d, 4, 0x16, (-2.0f));
 }
 
-void draw_tiled_background__20TWindowSubStatusDispFv(void) {
+void TWindowSubStatusDisp::draw_tiled_background() {
     s32 i;
     s32 j;
     f32 buf[8];
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFi((void *) (TBGMulti__textures));
+    set_global_param__8TObjFishFl((void *) (TBGMulti__textures));
     set_draw_texture_and_color((int) (0), (int) (-1));
     i = 0;
     buf[4] = 0.5f;
@@ -138,7 +134,7 @@ void TWindowSubStatusDisp__sub_8036D994(void) {
     if (split_screen_hud_animation_frame <= 0x1E) {
         init_xyz_limits__10TObjPlayerFv();
         begin_screen_draw((int) (1));
-        set_global_param__8TObjFishFi((void *) (TBGMulti__textures));
+        set_global_param__8TObjFishFl((void *) (TBGMulti__textures));
         set_draw_texture_and_color((int) (0), (int) (-1));
         i = 0;
         buf[0] = 0.0f;
@@ -161,12 +157,12 @@ void TWindowSubStatusDisp__sub_8036D994(void) {
 }
 #pragma pop
 
-void draw_bottom_bar__20TWindowSubStatusDispFv(void) {
+void TWindowSubStatusDisp::draw_bottom_bar() {
   s32 var_r31;
   f32 buffer_8[8];
   f32 temp_f31;
   begin_screen_draw((int) 1);
-  set_global_param__8TObjFishFi((void *) TBGMulti__textures);
+  set_global_param__8TObjFishFl((void *) TBGMulti__textures);
   set_draw_texture_and_color((int) 0, (int) (-1));
   var_r31 = 0;
   ;
@@ -188,17 +184,17 @@ void draw_bottom_bar__20TWindowSubStatusDispFv(void) {
   while (var_r31 < 0xA);
   get_player__20TWindowSubStatusDispFv();
 }
-void draw_split_screen_hud__20TWindowSubStatusDispFv(void) {
+void TWindowSubStatusDisp::draw_split_screen_hud() {
     s32 var_r3;
     if ((u32) (*(u32 *)&TBGMulti__textures) != 0U) {
         set_depth_buffer_settings_2__Fv();
         reset_transform_state__10TObjPlayerFv();
         begin_effect_render__13TParticleCtrlFv();
         restore_full_screen_view__11TCameraCtrlFv();
-        draw_bottom_bar__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::draw_bottom_bar();
         TWindowSubStatusDisp__sub_8036D994();
-        draw_tiled_background__20TWindowSubStatusDispFv();
-        draw_split_screen_dividers__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::draw_tiled_background();
+        TWindowSubStatusDisp::draw_split_screen_dividers();
         TCameraCtrl__sub_80068EF0();
         end_effect_render__13TParticleCtrlFv();
         restore_saved_depth_alpha_state();

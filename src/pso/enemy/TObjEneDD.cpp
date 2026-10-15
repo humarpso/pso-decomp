@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 struct Base_800BA0D8_800B9FE8 { char pad[0x18]; };
 struct VObj_800BA0D8_800B9FE8 : Base_800BA0D8_800B9FE8 {
@@ -48,13 +49,12 @@ extern "C" {
 
 void TObjEneDD__vt93(void *arg0);
 u8 TObjEneDD__vt96(void *arg0);
-f32 calc_elapsed_scaled__9TObjEneDDFv(void);
 f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern f32 lbl_805D9E98;
 extern f32 lbl_805D9E9C;
 
-f32 calc_elapsed_scaled__9TObjEneDDFv(void) {
+f32 TObjEneDD::calc_elapsed_scaled() {
     return lbl_805D9E98 * (calc_boss4_scale__10TObjPlayerFi() - lbl_805D9E9C);
 }
 

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/npc/TObjNpcHosa2.h"
 
 extern "C" {
 extern char lbl_80474CB8[];
@@ -104,13 +105,12 @@ struct RecoveredGlobal_802FED58___vt__12TObjNpcHosa2 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 
 extern u32 TObjNpcHosa2__shared_model_resource;
-void load_shared_resource__12TObjNpcHosa2Fv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__12TObjNpcHosa2[];
@@ -122,14 +122,13 @@ u8 *TObjNpcHosa2__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern "C" {
 
 void *__dt__12TObjNpcHosa2Fv(void *arg0, s16 arg1);
-void close_dialog_window__12TObjNpcHosa2Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
+void destroy_npc_lappy_base__12TObjNpcLappyFs(void *, int);
 
 extern u32 TObjNpcHosa2__shared_model_resource;
 
-void close_dialog_window__12TObjNpcHosa2Fv(void) {
+void TObjNpcHosa2::close_dialog_window() {
     if ((u32) TObjNpcHosa2__shared_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcHosa2__shared_model_resource, 1);
         TObjNpcHosa2__shared_model_resource = 0U;
@@ -138,10 +137,10 @@ void close_dialog_window__12TObjNpcHosa2Fv(void) {
 
 extern s32 __vt__12TObjNpcHosa2[];
 
-void load_shared_resource__12TObjNpcHosa2Fv(void) {
+void TObjNpcHosa2::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &npc_hosa2_resource_descriptor, 0, 0, 0));
@@ -152,7 +151,7 @@ void load_shared_resource__12TObjNpcHosa2Fv(void) {
 void *__dt__12TObjNpcHosa2Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjNpcHosa2;
-        destroy_npc_lappy_base__12TObjNpcLappyFPvs(arg0, 0);
+        destroy_npc_lappy_base__12TObjNpcLappyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -165,7 +164,7 @@ u8 *TObjNpcHosa2__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802FED58___vt__12TObjNpcHosa2 *)&__vt__12TObjNpcHosa2).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcHosa2__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcHosa2__shared_model_resource)), (int) (0));
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcHosa2__shared_model_resource)), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));

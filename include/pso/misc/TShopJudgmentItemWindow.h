@@ -24,6 +24,17 @@ struct TShopJudgmentItemWindow
     u32 m_16c;
     u32 m_170;
     u32 m_174;
+    void invoke_callback_174_and_destroy();
+    void invoke_callback_16C_and_destroy();
+    void invoke_callback_170_and_destroy();
+    void update();
+    void handle_equip_prompt();
+    void create_result_windows();
+    void handle_input();
+    static s32 build_item_list(void *arg0);
+    void close();
+    static void open_default(s32 a);
+    void add_list_entry(s32 arg1, s32 arg2);
 };
 
 #endif

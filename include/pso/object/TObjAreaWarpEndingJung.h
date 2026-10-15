@@ -11,6 +11,8 @@ struct TObjAreaWarpEndingJung
     u32 m_60;
     u8 _pad64[0x28];
     u32 m_8c;
+    void render();
+    void run_task();
 };
 
 #endif

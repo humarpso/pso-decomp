@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -32,7 +34,7 @@ s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-int set_global_effect_state__10TObjPlayerFi(void*);
+int set_global_effect_state__10TObjPlayerFl(void*);
 int set_ginja_post_texgen_count(void*);
 int set_ginja_post_tev_stage_count(void*);
 s32 load_current_pos_matrix(int);
@@ -44,15 +46,13 @@ extern const f32 lbl_805DFAC8;
 extern const f32 lbl_805DFACC;
 extern const f32 lbl_805DFAD0;
 void setup_projection_tex_matrix__10TObjPlayerFv(void);
-void copy_node_record__10TObjPlayerFii(s32 arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8033EE38(void *);
-void clear_item_list__6TLobbyFPv(O_8033EC40 *arg0);
 s32 set_depth_buffer_settings_id__FUl(int);
 s32 set_depth_buffer_settings_1__Fv();
-s32 set_tev_direct__13TParticleCtrlFi(int);
+s32 set_tev_direct__13TParticleCtrlFl(int);
 s32 play_indirect_effect_recipe(int, int, int);
-s32 get_object__13TParticleCtrlFPv(int);
+s32 get_object__13TParticleCtrlFv(int);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
 void setup_projection_tex_matrix__10TObjPlayerFv(void);
@@ -60,7 +60,7 @@ s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-int set_global_param__8TObjFishFi(void);
+int set_global_param__8TObjFishFl(void);
 s32 draw_ginja_object(int);
 s32 set_material_alpha_compare_reference(int);
 void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self);
@@ -68,20 +68,19 @@ void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self);
 
 extern "C" {
 
-void free_indexed_entry__10TObjPlayerFPv(void *arg0, s32 _w1);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
 int get_shared_capture_texture_list(void);
 int set_ginja_post_texgen_count(void*);
 int set_ginja_post_tev_stage_count(void*);
 int load_list_texture(int, int, int, int);
-int set_global_effect_state__10TObjPlayerFi(void*);
-int set_global_param__8TObjFishFi(void);
+int set_global_effect_state__10TObjPlayerFl(void*);
+int set_global_param__8TObjFishFl(void);
 
-void init_particle_effect__10TObjPlayerFv(void) { get_shared_capture_texture_list(); set_global_param__8TObjFishFi(); load_list_texture(0, 0, 0, 2); }
+void init_particle_effect__10TObjPlayerFv(void) { get_shared_capture_texture_list(); set_global_param__8TObjFishFl(); load_list_texture(0, 0, 0, 2); }
 
     extern int model_render_flags;
-void reset_effects__10TObjPlayerFv(void) { set_ginja_post_tev_stage_count((void*)0); set_ginja_post_texgen_count((void*)0); set_global_effect_state__10TObjPlayerFi((void*)0); model_render_flags = (model_render_flags & 0xfff7ffff); }
+void reset_effects__10TObjPlayerFv(void) { set_ginja_post_tev_stage_count((void*)0); set_ginja_post_texgen_count((void*)0); set_global_effect_state__10TObjPlayerFl((void*)0); model_render_flags = (model_render_flags & 0xfff7ffff); }
 
 void setup_projection_tex_matrix__10TObjPlayerFv(void) {
     u8 sp10[0x30];
@@ -107,19 +106,20 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
         (*(s32 *)&model_render_flags) |= 0x80000;
         set_ginja_post_tev_stage_count((void*)((int) (1)));
         set_ginja_post_texgen_count((void*)((int) (1)));
-        set_global_effect_state__10TObjPlayerFi((void*)((int) (1)));
+        set_global_effect_state__10TObjPlayerFl((void*)((int) (1)));
     }
 }
 
-void free_indexed_entry__10TObjPlayerFPv(void *arg0, s32 _w1) {
+void TObjPlayer::free_indexed_entry(s32 _w1) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
+    temp_r0 = *(s32 *)((s8 *)this + 0x20);
     if (temp_r0 < 0x10) {
-        copy_node_record__10TObjPlayerFii((s32)(*(s32 *)((s8 *)arg0 + 0x1C) + (temp_r0 * 0x24)), (s32)(_w1));
+        ((TObjPlayer *)(*(s32 *)((s8 *)this + 0x1C) + (temp_r0 * 0x24)))->copy_node_record((s32)(_w1));
     }
 }
-void copy_node_record__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void TObjPlayer::copy_node_record(s32 arg1) {
+    s32 arg0 = (s32)this;
     *(ByteBlock_C *)(arg0) = *(const ByteBlock_C *)(arg1);
     *(ByteBlock_C *)(arg0 + 0xC) = *(const ByteBlock_C *)(arg1 + 0xC);
     *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
@@ -132,7 +132,7 @@ void copy_node_record__10TObjPlayerFii(s32 arg0, s32 arg1) {
 void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self) {
     s32 i;
     for (i = 0; i < self->n; i++) {
-        get_object__13TParticleCtrlFPv(self->items[i].obj);
+        get_object__13TParticleCtrlFv(self->items[i].obj);
         set_material_alpha_compare_reference(self->items[i].scene);
         set_depth_buffer_settings_1__Fv();
         set_depth_buffer_settings_id__FUl(3);
@@ -142,15 +142,16 @@ void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self) {
         play_indirect_effect_recipe(self->items[i].obj, 1, 1);
         ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(self);
         ((void (*)(void *))setup_projection_tex_matrix__10TObjPlayerFv)(self);
-        ((void (*)(s32))set_global_param__8TObjFishFi)(self->items[i].p18);
+        ((void (*)(s32))set_global_param__8TObjFishFl)(self->items[i].p18);
         draw_ginja_object(self->items[i].p1C);
         pop_matrix();
-        set_tev_direct__13TParticleCtrlFi(1);
+        set_tev_direct__13TParticleCtrlFl(1);
         ((void (*)(void *))reset_effects__10TObjPlayerFv)(self);
     }
 }
 
-void clear_item_list__6TLobbyFPv(O_8033EC40 *arg0) {
+void TLobby::clear_item_list() {
+    O_8033EC40 *arg0 = (O_8033EC40 *)this;
     s32 i;
     if (arg0->items == 0) {
         queue_destruction__7TObjectFv(arg0);

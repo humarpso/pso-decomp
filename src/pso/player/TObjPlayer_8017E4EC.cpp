@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Vec_8017E550 { f32 x, y, z; };
 
@@ -29,7 +30,6 @@ void create_bgm_col_zones(void);
 
 extern "C" {
 
-void set_camera_mode__10TObjPlayerFi(s32 arg0);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 get_quest_bgm_issued_flag();
 s32 play_area_music(s32);
@@ -37,7 +37,7 @@ s32 play_area_music(s32);
 extern s32 area_music_filename_table[];
 extern s32 bgm_zone_category;
 
-void set_camera_mode__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::set_camera_mode(s32 arg0) {
     if ((get_quest_bgm_issued_flag() == 0) && (is_not_split_screen__13TRaderMapCoreFv() != 1) && (arg0 != (s32) bgm_zone_category)) {
         bgm_zone_category = arg0;
         play_area_music(area_music_filename_table[arg0]);

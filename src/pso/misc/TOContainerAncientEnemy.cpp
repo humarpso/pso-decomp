@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOContainerAncientEnemy.h"
 
 struct Base_8015B8E8 { char pad[0x18]; };
 struct VObj_8015B8E8 : Base_8015B8E8 {
@@ -232,13 +233,12 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
-void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, int, void *);
 extern RecoveredGlobal_8015BD68_lbl_804B00C8 TOContainerAncientEnemy__collision_body_params;
@@ -247,23 +247,20 @@ extern s32 lbl_805D2F08;
 extern s32 tl_05;
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1);
 void submit_cursor_candidate(Obj_8015BCC0 *self, s32 x);
-void submit_cursor_candidate_if_idle__23TOContainerAncientEnemyFPv(Obj_8015BCC0 *self);
-void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80440830[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DB3A0;
-void draw_debug_event_no__23TOContainerAncientEnemyFPv(Obj_80188814 *self);
 s32 get_current_floor();
 void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
-void byteswap_and_send__6TLobbyFi(void *, int);
-void init_packet_67_04__6TLobbyFPv(void *);
+void byteswap_and_send__6TLobbyFv(void *, int);
+void init_packet_67_04__6TLobbyFv(void *);
 extern s32 local_client_id;
 extern const f32 lbl_805DB39C;
-f32 open_and_send__23TOContainerAncientEnemyFPv(O_8015BAE0 *arg0);
-s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 s32 spawn_particle_effect(void *, int);
 s32 construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
 s32 play_container_break_sound(void *);
@@ -277,28 +274,28 @@ extern Ref_8015B94C *ancient_container_fragment_texture_lists;
 extern "C" {
 
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
-void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s32 arg2);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_container_object__10TObjPlayerFPvs(void *, s32);
+s32 destroy_container_object__10TObjPlayerFs(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 
-void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s32 arg2) {
+void TOContainerAncientEnemy::check_and_destroy(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
-            ((VObj_8015B8E8 *)arg0)->m77();
+            ((VObj_8015B8E8 *)this)->m77();
         }
-        *(s16 *)((s8 *)arg0 + 0x326) = 1;
-        set_flag8__6TLobbyFPv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        *(s16 *)((s8 *)this + 0x326) = 1;
+        set_flag8__6TLobbyFPv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 
 extern s32 __vt__23TOContainerAncientEnemy[];
 
-void spawn_break_debris__23TOContainerAncientEnemyFPv(Obj_8015B94C *self) {
+void TOContainerAncientEnemy::spawn_break_debris() {
+    Obj_8015B94C *self = (Obj_8015B94C *)this;
     extern const u32 ancient_container_resource_bundle;
     void *o;
     if (self->f326 != 1) {
@@ -316,7 +313,7 @@ void spawn_break_debris__23TOContainerAncientEnemyFPv(Obj_8015B94C *self) {
         b.f38 = self->y;
         b.f40 = get_bml_model((void *)ancient_container_resource_bundle, 2);
         b.f44 = TObjFish__sub_8001EDB0((void *)ancient_container_resource_bundle, 2);
-        if (check_value_equals__13TQuestColCtrlFPvi(self, lbl_805D2F10) != 0) {
+        if (check_value_equals__13TQuestColCtrlFPll(self, lbl_805D2F10) != 0) {
             a.f44 = ancient_container_fragment_texture_lists->a;
             b.f44 = ancient_container_fragment_texture_lists->b;
         }
@@ -334,7 +331,8 @@ void spawn_break_debris__23TOContainerAncientEnemyFPv(Obj_8015B94C *self) {
     }
 }
 
-f32 open_and_send__23TOContainerAncientEnemyFPv(O_8015BAE0 *arg0) {
+f32 TOContainerAncientEnemy::open_and_send() {
+    O_8015BAE0 *arg0 = (O_8015BAE0 *)this;
     s16 sp8;
     s32 r4;
     Pk_8015BAE0 pk;
@@ -342,25 +340,27 @@ f32 open_and_send__23TOContainerAncientEnemyFPv(O_8015BAE0 *arg0) {
         sp8 = 1;
         access_object_saved_state(arg0, &sp8, 0);
         send_object_state_update(arg0, &sp8);
-        init_packet_67_04__6TLobbyFPv(&pk);
+        init_packet_67_04__6TLobbyFv(&pk);
         pk.id = arg0->id;
         pk.a = get_current_floor();
         r4 = arg0->f84;
         pk.b = r4;
         pk.c = local_client_id;
-        byteswap_and_send__6TLobbyFi(&pk, r4);
+        byteswap_and_send__6TLobbyFv(&pk, r4);
     }
     return lbl_805DB39C;
 }
 
-void draw_debug_event_no__23TOContainerAncientEnemyFPv(Obj_80188814 *self) {
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+void TOContainerAncientEnemy::draw_debug_event_no() {
+    Obj_80188814 *self = (Obj_80188814 *)this;
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     debug_printf_at(0x130020, lbl_80440830, self->id);
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DB3A0);
 }
 
-void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0) {
+void TOContainerAncientEnemy::draw_model() {
+    u8 *arg0 = (u8 *)this;
     extern u32 ancient_container_resource_bundle;
     u8 *temp_r31;
     u8 *temp_r31_2;
@@ -371,7 +371,7 @@ void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0) {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
@@ -395,7 +395,8 @@ void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0) {
     }
 }
 
-void submit_cursor_candidate_if_idle__23TOContainerAncientEnemyFPv(Obj_8015BCC0 *self) {
+void TOContainerAncientEnemy::submit_cursor_candidate_if_idle() {
+    Obj_8015BCC0 *self = (Obj_8015BCC0 *)this;
     switch (self->a326) {
     case 0:
         if (self->a364 != 0) {
@@ -410,7 +411,7 @@ void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TOContainerAncientEnemy;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_container_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_container_object__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -427,7 +428,7 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&TOContainerAncientEnemy__collision_body_params.value), (int) (1));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&TOContainerAncientEnemy__collision_body_params.value) + 4));

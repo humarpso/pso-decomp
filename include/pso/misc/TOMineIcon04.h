@@ -26,6 +26,7 @@ struct TOMineIcon04
     u8 _pad35E[0x16];
     u32 m_374;
     u32 m_378;
+    void *create();
 };
 
 #endif

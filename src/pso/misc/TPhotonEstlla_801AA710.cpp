@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TPhotonEstlla.h"
 struct Stack_801AA930 {
     f32 sp8;
     f32 spC;
@@ -45,7 +46,7 @@ struct Self_801AA818 {
 };
 
 extern "C" {
-s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
 s32 advance_animation_playback(void *);
 u8 *find_entity_by_id(u16);
 s32 begin_photon_summon_camera(void *, int);
@@ -60,7 +61,6 @@ extern const f32 lbl_805DC144;
 extern const f32 lbl_805DC148;
 extern const f32 lbl_805DC14C;
 extern const f32 lbl_805DC150;
-void run_task__13TPhotonEstllaFv(u8 *arg0);
 u8 *find_entity_by_id(u16);
 s32 TPhotonLine__ct(void *, void *, void *, u16);
 u32 __nw__7TObjectFUl(int);
@@ -72,10 +72,9 @@ extern const Packet_801AA710 photon_estlla_line_packet_init;
 extern u8 identity_matrix[];
 extern const f32 lbl_805DC138;
 extern const f32 lbl_805DC13C;
-void spawn_line__13TPhotonEstllaFPv(Self_801AA710 *self);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
-s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
@@ -84,7 +83,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 translate_matrix(int, f32, f32, f32);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 s32 set_global_flag__10TObjPlayerFv();
@@ -98,12 +97,12 @@ extern void *estlla_photon_blast_model;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__13TPhotonEstllaFv(Self_801AA818 *self);
 }
 
 extern "C" {
 
-void spawn_line__13TPhotonEstllaFPv(Self_801AA710 *self) {
+void TPhotonEstlla::spawn_line() {
+    Self_801AA710 *self = (Self_801AA710 *)this;
     Owner_801AA710 *owner;
     Vec_801AA710 forward;
     Vec_801AA710 direction;
@@ -130,11 +129,12 @@ void spawn_line__13TPhotonEstllaFPv(Self_801AA710 *self) {
     }
 }
 
-void render__13TPhotonEstllaFv(Self_801AA818 *self) {
+void TPhotonEstlla::render() {
+    Self_801AA818 *self = (Self_801AA818 *)this;
     if (self->started != 0) {
         scroll_strip_uvs(estlla_photon_blast_model, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(self->f24);
+        set_global_param__8TObjFishFl(self->f24);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
@@ -147,7 +147,7 @@ void render__13TPhotonEstllaFv(Self_801AA818 *self) {
         set_global_flag__10TObjPlayerFv();
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
-        draw__16TObjEneRe7BeruraFPv(self);
+        draw__16TObjEneRe7BeruraFv(self);
         clear_global_state__10TObjPlayerFv();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -159,7 +159,8 @@ void render__13TPhotonEstllaFv(Self_801AA818 *self) {
     }
 }
 
-void run_task__13TPhotonEstllaFv(u8 *arg0) {
+void TPhotonEstlla::run_task() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_801AA930, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801AA930, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_801AA930, sp10) == 0x8) ? 1 : -1];
@@ -184,7 +185,7 @@ void run_task__13TPhotonEstllaFv(u8 *arg0) {
     if (((s32) *(s32 *)((s8 *)arg0 + 0x1A0) == 0x64) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1)) {
         begin_photon_summon_camera((void *) (arg0), (int) (0));
         *(s32 *)((s8 *)arg0 + 0x1A0) = 0;
-        set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
+        set_field_b8__14TObjEnePanarmsFs((void *) (arg0), (int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (1));
     }
     *(s16 *)((s8 *)arg0 + 0x190) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
@@ -194,7 +195,7 @@ void run_task__13TPhotonEstllaFv(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if (lbl_805DC144 == (f32) *(s32 *)((s8 *)arg0 + 0x1A0)) {
-        spawn_line__13TPhotonEstllaFPv((Self_801AA710 *)((void *) (arg0)));
+        spawn_line();
     }
     if ((f32) *(s32 *)((s8 *)arg0 + 0x1A0) > lbl_805DC148) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x180);

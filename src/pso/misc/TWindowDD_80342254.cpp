@@ -18,7 +18,7 @@ s32 TWindowDD__sub_80347C50();
 s32 play_se__9TWindowDDFv();
 s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
-s32 test_input_flag_4__9TWindowDDFPv(void *);
+s32 test_input_flag_4__9TWindowDDFv(void *);
 s32 TWindowDD__sub_803484C4(void *);
 void TWindowDD__sub_80342428(u8 *arg0);
 s32 __nw__7TObjectFUl(int);
@@ -26,8 +26,8 @@ s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
 u8 TWindowDD__sub_80342268(O_80342268 *self);
 u8 TWindowDD__sub_80342254(O_80342254 *self);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
-s32 reset_fields__9TWindowDDFPv(void *, void *);
-s32 load_element_list__9TWindowDDFPv(void *);
+s32 reset_fields__9TWindowDDFv(void *, void *);
+s32 load_element_list__9TWindowDDFv(void *);
 extern s32 lbl_805D42E0;
 extern const f32 TWindowDD__data_805DFCA8;
 s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2);
@@ -37,16 +37,16 @@ extern "C" {
 
 void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
-void free__11TOBoss4RockFUi(void *);
-s32 get_field_68__9TWindowDDFPv(void* p);
+void destroy_window_base__9TWindowDDFs(void *, int);
+void mem_free(void *);
+s32 get_field_68__9TWindowDDFv(void* p);
 int spawn_window__9TWindowDDFv(void);
 
 extern "C" {
 void TWindowDD__sub_80341500();
 }
 extern "C" {
-void handle_scroll_input__9TWindowDDFPv();
+void handle_scroll_input__9TWindowDDFv();
 }
 extern "C" {
 void render_shadows__7TObjectFv();
@@ -65,7 +65,7 @@ void *lbl_804EFC7C[5] = {
     (void *)0x3,
 };
 void *lbl_804EFC90[6] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__9TWindowDDFPvs, (void *)&handle_scroll_input__9TWindowDDFPv,
+    (void *)0x0, (void *)0x0, (void *)&destroy__9TWindowDDFPvs, (void *)&handle_scroll_input__9TWindowDDFv,
     (void *)&TWindowDD__sub_80341500, (void *)&render_shadows__7TObjectFv,
 };
 #define TWindowDD__data_804EFC50 (*(RecoveredGlobal_80342384_TWindowDD__data_804EFC50 *)TWindowDD__data_804EFC50)
@@ -82,8 +82,8 @@ u8 TWindowDD__sub_80342268(O_80342268 *self) {
 void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFC90;
-        if (*(void **)((s8 *)arg0 + 0x80) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0x80)); *(s32 *)((s8 *)arg0 + 0x80) = 0; }
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        if (*(void **)((s8 *)arg0 + 0x80) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0x80)); *(s32 *)((s8 *)arg0 + 0x80) = 0; }
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -106,8 +106,8 @@ s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2) {
     arg0->f84 = TWindowDD__data_805DFCA8;
     arg0->f60 = 0;
     arg0->f70 = arg1;
-    reset_fields__9TWindowDDFPv(arg0, (void *)v);
-    load_element_list__9TWindowDDFPv(arg0);
+    reset_fields__9TWindowDDFv(arg0, (void *)v);
+    load_element_list__9TWindowDDFv(arg0);
     arg0->f5c = 0x01000000;
     return a0;
 #undef arg0
@@ -131,7 +131,7 @@ void TWindowDD__sub_80342428(u8 *arg0) {
   u8 *new_var;
   TWindowDD__sub_80347C50();
   update_selection_state__9TWindowDDFPv((void *) arg0);
-  if (test_input_flag_4__9TWindowDDFPv((void *) arg0))
+  if (test_input_flag_4__9TWindowDDFv((void *) arg0))
   {
     play_sound__9TWindowDDFv();
     if (((s32) (*((s32 *) (((s8 *) arg0) + 0xB0)))) == 0xA)

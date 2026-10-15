@@ -77,6 +77,15 @@ struct TObjEneLappy : LappyObjectHeader
     u16 m_384;
     u8 _pad386[0x10];
     u16 m_396;
+    void play_walk_sound();
+    void update_hurt();
+    void update_attacking();
+    void update_moving();
+    static void update_idle_state(void *ov);
+    static void *create(void *arg0);
+    static void load_resources();
+    static int is_lying_down();
+    void set_param(s32 v);
 };
 
 #endif

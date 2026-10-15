@@ -36,7 +36,6 @@ u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void destroy_and_flag__21TItemReverseTechPart2Fv(void);
 s32 queue_destruction__7TObjectFv();
 
 extern void *TItemReverseTechPart1__instance;
@@ -129,7 +128,7 @@ u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void destroy_and_flag__21TItemReverseTechPart2Fv(void) {
+void TItemReverseTechPart2::destroy_and_flag() {
     queue_destruction__7TObjectFv();
     if ((void *) TItemReverseTechPart1__instance != NULL) {
         *(s32 *)((s8 *)TItemReverseTechPart1__instance + 0x1C) = 1;

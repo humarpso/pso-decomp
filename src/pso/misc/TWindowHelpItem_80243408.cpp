@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem.h"
 
 struct Base_80243464 { char pad[0x18]; };
 struct VObj_80243464 : Base_80243464 {
@@ -27,10 +28,10 @@ struct UV_80243630 { f32 u; f32 v; };
 
 extern "C" {
 u32 get_player_by_client_id(s32);
-s8 clamp_char_at__10TObjPlayerFPvi(u32, s32);
+s8 clamp_char_at__10TObjPlayerFl(u32, s32);
 s32 get_help_value__15TWindowHelpItemFv(void);
-void clear_visible_flag__20TWindowSubStatusDispFPv(void *);
-void set_flag0_bit2__15TWindowHelpItemFPv(void *);
+void clear_visible_flag__20TWindowSubStatusDispFv(void *);
+void set_flag0_bit2__15TWindowHelpItemFv(void *);
 void draw_right_aligned_number(void *);
 extern const f32 lbl_805DCA28;
 extern const f32 lbl_805DCA2C;
@@ -46,19 +47,18 @@ void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index);
 
 extern "C" {
 
-void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1);
 s32 get_help_value__15TWindowHelpItemFv(void);
 void *find_item_by_id();
 s32 get_palette_consumable_count();
 s32 set_sprite_uv_from_pixels(s32, f32, f32);
-s32 test_card_flag_2__12TBoss8DragonFPv(s32);
+s32 test_card_flag_2__12TBoss8DragonFv(s32);
 
 extern f32 lbl_805DCA1C;
 extern f32 lbl_805DCA20;
 extern f32 lbl_805DCA24;
 
-void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1) {
-    if (test_card_flag_2__12TBoss8DragonFPv(arg1) != 0) {
+void TWindowHelpItem::set_help_text(s32 arg0, s32 arg1) {
+    if (test_card_flag_2__12TBoss8DragonFv(arg1) != 0) {
         set_sprite_uv_from_pixels(arg0, lbl_805DCA1C, lbl_805DCA20);
         return;
     }
@@ -83,7 +83,7 @@ void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32
     s32 v;
     u32 p;
     if (arg2 != 4) {
-        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        set_flag0_bit2__15TWindowHelpItemFv(arg0);
         return;
     }
     if (arg3 >= 0xD) {
@@ -91,16 +91,16 @@ void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32
         if (p == 0) {
             v = 0;
         } else {
-            v = clamp_char_at__10TObjPlayerFPvi(p + 0x7C4, arg3 - 0xD);
+            v = clamp_char_at__10TObjPlayerFl(p + 0x7C4, arg3 - 0xD);
         }
     } else {
         v = ((s32 (*)(u16, s32))get_help_value__15TWindowHelpItemFv)(arg3, arg4);
     }
     if (v <= 0) {
-        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        set_flag0_bit2__15TWindowHelpItemFv(arg0);
         return;
     }
-    clear_visible_flag__20TWindowSubStatusDispFPv(arg0);
+    clear_visible_flag__20TWindowSubStatusDispFv(arg0);
     *(s32 *)((s8 *)arg0 + 0x1C) = *(s32 *)((s8 *)arg1 + 0x2C);
     *(s32 *)((s8 *)arg0 + 0x20) = v;
     draw_right_aligned_number(arg0);

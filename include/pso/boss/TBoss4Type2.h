@@ -77,6 +77,38 @@ struct TBoss4Type2
     u32 m_460;
     u32 m_464;
     void* m_468;
+    void check_state_transition();
+    void calc_target_position();
+    void apply_packed_state(u32 arg1);
+    void send_darkfalz_code(s32 arg1, s32 arg2, s32 arg3);
+    void send_state_to_target(s32 arg1);
+    void calc_scaled_field(s32 arg1, s32 arg2);
+    void set_motion_index(s32 arg1);
+    static u8 is_active();
+    void scroll_strips();
+    static void request_destroy(u32 arg0);
+    void set_param_ptr(s32 arg1);
+    void copy_vec3(void* q);
+    void set_flags(u32 v);
+    void advance_offset();
+    void *destroy(s16 arg1);
+    static void *create_zanzo(void *arg0, void *arg1);
+    void spawn_bishi_around_players();
+    void apply_resta_heal();
+    void set_grid_pos(void *arg1);
+    void calc_grid_target_position();
+    void send_attack_code(s32 arg1, s32 arg2);
+    void draw_hanger();
+    void set_attack_pattern_by_index(s32 arg1);
+    void update_phase_timer();
+    void init_hanger();
+    void advance_afterimage();
+    void update_main();
+    void set_state3_unless_2or3();
+    static s32 create(s32 arg0);
+    static s32 pick_weighted_random(s32 n, f32 *w, s32 *t);
+    void update_effect_timeline();
+    void update_particle_emitters();
 };
 
 #endif

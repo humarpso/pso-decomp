@@ -1,10 +1,10 @@
 #include "types.h"
 
 extern "C" {
-u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+u32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 u32 prs_decompress(int, int, int, int);
 s32 destroy_ep3_exist__6TLobbyFis(int, int);
-u32 reset_counters__6TLobbyFPv();
+u32 reset_counters__6TLobbyFv();
 u32 prs_decompress_alloc(s32 arg0, s32 arg1);
 }
 
@@ -27,11 +27,11 @@ u32 prs_decompress_alloc(s32 arg0, s32 arg1) {
   var_r28 = arg0;
   var_r29 = arg1;
   var_r3 = 0x30U;
-  var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv((int) 0x30);
+  var_r31 = alloc__23TAdSinglePlyChrSelectGCFv((int) 0x30);
   phi_r30 = saved_reg_r30;
   if (var_r31 != 0U)
   {
-    var_r31 = reset_counters__6TLobbyFPv();
+    var_r31 = reset_counters__6TLobbyFv();
   }
   if (var_r31 != 0U)
   {

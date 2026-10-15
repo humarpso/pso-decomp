@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TDLGraph.h"
 
 struct RecoveredGlobal_8007F77C___vt__8TDLGraph {
     s32 value;
@@ -25,26 +26,21 @@ extern u8 lbl_80438AAC[];
 extern const f32 lbl_805D92CC;
 extern const f32 lbl_805D92D0;
 extern const f32 lbl_805D92D4;
-void render__8TDLGraphFv(TDLGraph_8007F66C *self);
 void queue_destruction__7TObjectFv(s32);
 void fn_8007ECF0(s32, s32, s32);
 void create__8TDLGraphFv(void);
 extern s32 TDLGraph__graph_object;
-void update_graph__8TDLGraphFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-void reset__8TDLGraphFPv(void *arg0);
-void run_task__8TDLGraphFv(void);
-void set_graph_param__8TDLGraphFPvi(void* p, s32 v);
-
-void reset__8TDLGraphFPv(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    fn_8007F5A4((TDLGraph_8007F66C *)(arg0));
+void TDLGraph::reset() {
+    *(s32 *)((s8 *)this + 0x3C) = 0;
+    fn_8007F5A4((TDLGraph_8007F66C *)(this));
 }
 
-void render__8TDLGraphFv(TDLGraph_8007F66C *self) {
+void TDLGraph::render() {
+    TDLGraph_8007F66C *self = (TDLGraph_8007F66C *)this;
     reset_transform_state__10TObjPlayerFv();
     restore_full_screen_view__11TCameraCtrlFv();
     fn_8007F27C(self, lbl_80438AA4, lbl_80438AAC);
@@ -55,12 +51,12 @@ void render__8TDLGraphFv(TDLGraph_8007F66C *self) {
     self->frame++;
 }
 
-void run_task__8TDLGraphFv(void) {  }
-void set_graph_param__8TDLGraphFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x20) = v; }
+void TDLGraph::run_task() {  }
+void TDLGraph::set_graph_param(s32 v) { *(s32*)((char*)this + 0x20) = v; }
 typedef char RecoveredGlobal_8007F77C___vt__8TDLGraph_size[sizeof(RecoveredGlobal_8007F77C___vt__8TDLGraph) == 0x18 ? 1 : -1];
 
 #define G ((u32) TDLGraph__graph_object)
-void update_graph__8TDLGraphFii(s32 arg0, s32 arg1) {
+void TDLGraph::update_graph(s32 arg0, s32 arg1) {
     if (arg0 < 0 || arg1 <= 0) {
         return;
     }

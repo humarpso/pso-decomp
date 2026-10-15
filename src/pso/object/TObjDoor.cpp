@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/object/TObjDoor.h"
 
 extern "C" {
 
-void reset_instance__8TObjDoorFv(void);
-
 extern s32 TObjDoor__data_805D5BC8;
 
-void reset_instance__8TObjDoorFv(void) {
+void TObjDoor::reset_instance() {
     TObjDoor__data_805D5BC8 = 0;
 }
 

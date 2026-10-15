@@ -27,13 +27,10 @@ extern const f32 lbl_805DF0A0;
 u8 *__ct__18TAdGameStartBackGCFv(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805DF07C;
 extern const f32 lbl_805DF080;
-void run_task__18TAdGameStartBackGCFv(u8 *arg0);
 }
 
 extern "C" {
 
-void render__18TAdGameStartBackGCFv(void* p);
-void render_background_status__18TAdGameStartBackGCFPv(u8 *arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
 s32 set_draw_texture_and_color(int, int);
@@ -41,20 +38,21 @@ s32 get_player__20TWindowSubStatusDispFv();
 int get_state_flag__9TMainTaskFv(void*);
 int init_xyz_limits__10TObjPlayerFv(void);
 int reset_transform_state__10TObjPlayerFv(void);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 
 extern s32 game_start_background_texture_list;
 extern const f32 lbl_805DF078;
 
-void render_background_status__18TAdGameStartBackGCFPv(u8 *arg0) {
+void TAdGameStartBackGC::render_background_status() {
+    u8 *arg0 = (u8 *)this;
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFi((void *) (game_start_background_texture_list));
+    set_global_param__8TObjFishFl((void *) (game_start_background_texture_list));
     set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x78) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x3C), (f32) (lbl_805DF078));
     get_player__20TWindowSubStatusDispFv();
 }
 
-void render__18TAdGameStartBackGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { init_xyz_limits__10TObjPlayerFv(); render_background_status__18TAdGameStartBackGCFPv((u8 *)(p)); reset_transform_state__10TObjPlayerFv(); } }
+void TAdGameStartBackGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { init_xyz_limits__10TObjPlayerFv(); render_background_status(); reset_transform_state__10TObjPlayerFv(); } }
 
 #pragma push
 #pragma fp_contract on
@@ -62,7 +60,8 @@ typedef char RecoveredGlobal_803074FC___vt__18TAdGameStartBackGC_size[sizeof(Rec
 
 #pragma push
 #pragma fp_contract on
-void run_task__18TAdGameStartBackGCFv(u8 *arg0) {
+void TAdGameStartBackGC::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     f32 temp_f2_2;
     f32 temp_f2_3;

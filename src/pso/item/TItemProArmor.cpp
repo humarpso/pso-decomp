@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemProArmor.h"
 
 struct Base_8011620C_80115D6C { char pad[0x18]; };
 
@@ -137,8 +138,6 @@ void clamp_slot_counts__13TItemProArmorFPv(u8 *arg0);
 void * TItemProArmor__sub_80117650(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_instance__13TItemProArmorFPv(u8 *arg0);
-void * init_item_object__13TItemProArmorFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_item_grinder(u8 *arg0);
@@ -154,17 +153,15 @@ s32 lookup_item_pmt_record(void *);
 u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2);
 s32 TItemProArmorParticle__ct(int, int, void *);
 extern s32 tl_05;
-s32 create_armor_object__13TItemProArmorFi(s32 arg0);
-void set_flags__10TObjPlayerFPvUi(void *, u32);
-u8 get_slot_count__14TItemProShieldFPv(void *);
-void init_effect_flags__13TItemProArmorFPv(TItemProArmor_8011781C *self);
-s32 get_id__13TItemProArmorFPv(void *);
+void set_flags__10TObjPlayerFUl(void *, u32);
+u8 get_slot_count__14TItemProShieldFv(void *);
+s32 get_id__13TItemProArmorFv(void *);
 void *fn_80107DA4(void *, void *, s32);
-u8 get_slot_count__14TItemProShieldFPv(void *);
+u8 get_slot_count__14TItemProShieldFv(void *);
 void *init_vtable__13TItemProArmorFPv(void *arg0);
 void *ct__13TItemProArmorFPv(void *arg0);
-void *construct_timer_event__10TObjPlayerFPv(void *, void *, s32, s32);
-void *init_item_timer_event__10TObjPlayerFPv(void *, void *, s32, s32);
+void *construct_timer_event__10TObjPlayerFv(void *, void *, s32, s32);
+void *init_item_timer_event__10TObjPlayerFv(void *, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
 void *__nw__15TItemHeapObjectFUl(int);
 void TItemProArmor__vt42(Armor_80117954 *self);
@@ -184,18 +181,18 @@ void *ct__13TItemProArmorFPv(void *arg0);
 void *init_vtable__13TItemProArmorFPv(void *arg0);
 void update_armor__13TItemProArmorFPv(void* p);
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
-s32 set_bswapped_field_8__9TItemDataFPvs(void *, u8);
-s32 set_dfp_bonus__9TItemDataFPvs(void *, u8);
+s32 set_bswapped_field_8__9TItemDataFs(void *, u8);
+s32 set_dfp_bonus__9TItemDataFs(void *, u8);
 void TItemObject__ct(void *);
 s32 get_tool_pmt_amount_byte(void *);
 void TItemTimerEvent__ct(void *);
 s32 refresh_owner_stats__5TItemFPv();
-int spawn_appearance_effect__10TObjPlayerFi(void);
+int spawn_appearance_effect__10TObjPlayerFl(void);
 s32 add_weapon_grind(s32, s32);
 void __dt__11TItemObjectFv(void *, int);
 void __dt__14TItemEquipBaseFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
-int get_flag_40__8TItemMagFPv(void*);
+int get_flag_40__8TItemMagFv(void*);
 s32 get_item_field_6__10TObjPlayerFPv(s32);
 int obj_getField1c(void*);
 
@@ -207,7 +204,8 @@ void *TItemProArmor__sub_80117650(void *arg0, void * _w1, void * _w2) {
     return arg0;
 }
 
-u8 *create_instance__13TItemProArmorFPv(u8 *arg0) {
+u8 *TItemProArmor::create_instance() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
@@ -245,10 +243,10 @@ void *TItemProArmor__sub_80117730(void *arg0, s16 arg1) {
 
 extern void *lbl_8049FF88[];
 
-void *init_item_object__13TItemProArmorFPv(void *arg0, void * _w1, void * _w2) {
-    TItemObject__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_8049FF88;
-    return arg0;
+void *TItemProArmor::init_item_object(void * _w1, void * _w2) {
+    TItemObject__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = (s32 *)lbl_8049FF88;
+    return this;
 }
 
 u8 *create_item_grinder(u8 *arg0) {
@@ -258,20 +256,21 @@ u8 *create_item_grinder(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_item_object__13TItemProArmorFPv((void *)((void *)(temp_r3)), (void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TItemProArmor *)temp_r3)->init_item_object((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
     return NULL;
 }
 
-void init_effect_flags__13TItemProArmorFPv(TItemProArmor_8011781C *self) {
-    switch (get_slot_count__14TItemProShieldFPv(self)) {
+void TItemProArmor::init_effect_flags() {
+    TItemProArmor_8011781C *self = (TItemProArmor_8011781C *)this;
+    switch (get_slot_count__14TItemProShieldFv(self)) {
     case 0x23:
-        set_flags__10TObjPlayerFPvUi(self->flags178, 2);
+        set_flags__10TObjPlayerFUl(self->flags178, 2);
         break;
     case 0x33:
-        set_flags__10TObjPlayerFPvUi(self->flags178, 0x200);
+        set_flags__10TObjPlayerFUl(self->flags178, 0x200);
         break;
     }
     switch (self->param->variant) {
@@ -308,22 +307,22 @@ void clamp_slot_counts__13TItemProArmorFPv(u8 *arg0) {
 
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1) {
     *(u8 *)((s8 *)arg1 + 5) = (u8) *(u8 *)((s8 *)arg0 + 0x192);
-    set_dfp_bonus__9TItemDataFPvs(arg1, *(u8 *)((s8 *)arg0 + 0x193));
-    set_bswapped_field_8__9TItemDataFPvs(arg1, *(u8 *)((s8 *)arg0 + 0x194));
+    set_dfp_bonus__9TItemDataFs(arg1, *(u8 *)((s8 *)arg0 + 0x193));
+    set_bswapped_field_8__9TItemDataFs(arg1, *(u8 *)((s8 *)arg0 + 0x194));
 }
 
 typedef void *(*Ctor4_80117954)(void *, void *, s32, s32);
 extern "C" {
-void run_task__5TItemFPv();
-void dispatch_state__5TItemFPv();
-void render__5TItemFPv();
+void run_task__5TItemFv();
+void dispatch_state__5TItemFv();
+void render__5TItemFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
-void release_member_90__10TObjPlayerFPv();
+void release_member_90__10TObjPlayerFv();
 void TItemObject__vt7();
 void TItem__sub_80100B8C();
 void classify_actor_view_detail();
-void register_attack__5TItemFPv();
+void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFPvi();
 void TItemObject__vt12();
 void TItem__sub_801005E0();
@@ -340,7 +339,7 @@ void TItem__sub_80100694();
 void TItem__sub_80100690();
 void TItem__sub_8010068C();
 void TItem__sub_80100688();
-void destroy__5TItemFPv();
+void destroy__5TItemFv();
 void TItem__sub_801007A8();
 void TItemObject__vt29();
 void TItem__sub_80100680();
@@ -356,21 +355,21 @@ void TItem__sub_801005E4();
 void TItem__sub_801005D8();
 void TObjPlayer__sub_80102BD8();
 void TParticleCtrl__sub_801A2124();
-void set_attach_slot__14TItemEquipBaseFPvc();
-void equip__14TItemEquipBaseFPv();
-void unequip__14TItemEquipBaseFPv();
+void set_attach_slot__14TItemEquipBaseFSc();
+void equip__14TItemEquipBaseFv();
+void unequip__14TItemEquipBaseFv();
 void add_equip_stats__14TItemEquipBaseFPvi();
 void remove_equip_stats__14TItemEquipBaseFPvi();
-void subtract_item_stat_bonus__14TItemEquipBaseFPviiPv();
-void subtract_equip_stats__14TItemEquipBaseFPviPvPv();
-void update_equip__14TItemEquipBaseFPv();
-void update_pickup_flag__5TItemFi();
+void subtract_item_stat_bonus__14TItemEquipBaseFllPs();
+void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();
+void update_equip__14TItemEquipBaseFv();
+void update_pickup_flag__5TItemFl();
 void TItemEquipBase__sub_8010A77C();
 void ret_80100664();
 void ret_8010065C();
 void ret_80100654();
 void TItemEquipBase__sub_8010A940();
-void release__14TItemEquipBaseFPv();
+void release__14TItemEquipBaseFv();
 void TItemEquipBase__sub_8010A93C();
 void TItemEquipBase__sub_8010A938();
 void TItemEquipBase__sub_8010A788();
@@ -380,16 +379,16 @@ void *lbl_8049FF88[46] = {
     0,
     0,
     (void *)TItemProArmor__sub_80117730,
-    (void *)run_task__5TItemFPv,
-    (void *)dispatch_state__5TItemFPv,
-    (void *)render__5TItemFPv,
+    (void *)run_task__5TItemFv,
+    (void *)dispatch_state__5TItemFv,
+    (void *)render__5TItemFv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
-    (void *)release_member_90__10TObjPlayerFPv,
+    (void *)release_member_90__10TObjPlayerFv,
     (void *)TItemObject__vt7,
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
-    (void *)register_attack__5TItemFPv,
+    (void *)register_attack__5TItemFv,
     (void *)try_pick_up_item__5TItemFPvi,
     (void *)TItemObject__vt12,
     (void *)TItem__sub_801005E0,
@@ -406,7 +405,7 @@ void *lbl_8049FF88[46] = {
     (void *)TItem__sub_80100690,
     (void *)TItem__sub_8010068C,
     (void *)TItem__sub_80100688,
-    (void *)destroy__5TItemFPv,
+    (void *)destroy__5TItemFv,
     (void *)TItem__sub_801007A8,
     (void *)TItemObject__vt29,
     (void *)TItem__sub_80100680,
@@ -429,35 +428,35 @@ void *__vt__13TItemProArmor[51] = {
     0,
     0,
     (void *)__dt__13TItemProArmorFv,
-    (void *)run_task__5TItemFPv,
-    (void *)dispatch_state__5TItemFPv,
-    (void *)render__5TItemFPv,
+    (void *)run_task__5TItemFv,
+    (void *)dispatch_state__5TItemFv,
+    (void *)render__5TItemFv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
-    (void *)release_member_90__10TObjPlayerFPv,
+    (void *)release_member_90__10TObjPlayerFv,
     (void *)TParticleCtrl__sub_801A2124,
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
-    (void *)register_attack__5TItemFPv,
+    (void *)register_attack__5TItemFv,
     (void *)try_pick_up_item__5TItemFPvi,
     (void *)clamp_slot_counts__13TItemProArmorFPv,
     (void *)TItem__sub_801005E0,
     (void *)TItemProArmor__vt14,
     (void *)TItem__sub_80100678,
     (void *)write_item_data__13TItemProArmorFPvPv,
-    (void *)set_attach_slot__14TItemEquipBaseFPvc,
-    (void *)equip__14TItemEquipBaseFPv,
-    (void *)unequip__14TItemEquipBaseFPv,
+    (void *)set_attach_slot__14TItemEquipBaseFSc,
+    (void *)equip__14TItemEquipBaseFv,
+    (void *)unequip__14TItemEquipBaseFv,
     (void *)add_equip_stats__14TItemEquipBaseFPvi,
     (void *)remove_equip_stats__14TItemEquipBaseFPvi,
-    (void *)subtract_item_stat_bonus__14TItemEquipBaseFPviiPv,
-    (void *)subtract_equip_stats__14TItemEquipBaseFPviPvPv,
+    (void *)subtract_item_stat_bonus__14TItemEquipBaseFllPs,
+    (void *)subtract_equip_stats__14TItemEquipBaseFlPUcPUc,
     (void *)TItem__sub_80100690,
     (void *)TItem__sub_8010068C,
     (void *)TItem__sub_80100688,
-    (void *)update_equip__14TItemEquipBaseFPv,
+    (void *)update_equip__14TItemEquipBaseFv,
     (void *)TItem__sub_801007A8,
-    (void *)update_pickup_flag__5TItemFi,
+    (void *)update_pickup_flag__5TItemFl,
     (void *)TItem__sub_80100680,
     (void *)TItemEquipBase__sub_8010A77C,
     (void *)TItem__sub_80100674,
@@ -473,7 +472,7 @@ void *__vt__13TItemProArmor[51] = {
     (void *)TItemProArmor__vt42,
     (void *)TItemEquipBase__sub_8010A940,
     (void *)update_armor__13TItemProArmorFPv,
-    (void *)release__14TItemEquipBaseFPv,
+    (void *)release__14TItemEquipBaseFv,
     (void *)TItemEquipBase__sub_8010A93C,
     (void *)TItemEquipBase__sub_8010A938,
     (void *)TItemEquipBase__sub_8010A788,
@@ -484,53 +483,53 @@ void TItemProArmor__vt42(Armor_80117954 *self) {
     if (self->owner == NULL) {
         return;
     }
-    switch (get_slot_count__14TItemProShieldFPv(self)) {
+    switch (get_slot_count__14TItemProShieldFv(self)) {
     case 27:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            init_item_timer_event__10TObjPlayerFPv(o, self->owner, get_id__13TItemProArmorFPv(self), 150);
+            init_item_timer_event__10TObjPlayerFv(o, self->owner, get_id__13TItemProArmorFv(self), 150);
         }
         break;
     case 28:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            construct_timer_event__10TObjPlayerFPv(o, self->owner, get_id__13TItemProArmorFPv(self), 300);
+            construct_timer_event__10TObjPlayerFv(o, self->owner, get_id__13TItemProArmorFv(self), 300);
         }
         break;
     case 32:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 300);
+            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 300);
         }
         break;
     case 33:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 240);
+            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 240);
         }
         break;
     case 34:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 210);
+            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 210);
         }
         break;
     case 43:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 150);
+            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 150);
         }
         break;
     case 49:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)init_vtable__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 150);
+            ((Ctor4_80117954)init_vtable__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 150);
         }
         break;
     case 45:
         o = __nw__7TObjectFUl(0x24);
         if (o != NULL) {
-            fn_80107DA4(o, self->owner, get_id__13TItemProArmorFPv(self));
+            fn_80107DA4(o, self->owner, get_id__13TItemProArmorFv(self));
         }
         break;
     }
@@ -542,7 +541,7 @@ void TItemProArmor__vt14(void *arg0) {
     }
 }
 
-void update_armor__13TItemProArmorFPv(void* p) { if (get_flag_40__8TItemMagFPv(p) == 0) { obj_getField1c(*(void**)((char*)p + 0xf0)); spawn_appearance_effect__10TObjPlayerFi(); } }
+void update_armor__13TItemProArmorFPv(void* p) { if (get_flag_40__8TItemMagFv(p) == 0) { obj_getField1c(*(void**)((char*)p + 0xf0)); spawn_appearance_effect__10TObjPlayerFl(); } }
 
 typedef char RecoveredGlobal_80117B98___vt__13TItemProArmor_size[sizeof(RecoveredGlobal_80117B98___vt__13TItemProArmor) == 0xCC ? 1 : -1];
 u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2) {
@@ -560,7 +559,7 @@ u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     if ((u8) *(u8 *)((s8 *)arg0 + 0x192) > 4U) {
         *(u8 *)((s8 *)arg0 + 0x192) = 4U;
     }
-    init_effect_flags__13TItemProArmorFPv((TItemProArmor_8011781C *)((void *)((void *) (arg0))));
+    ((TItemProArmor *)arg0)->init_effect_flags();
     return arg0;
 }
 
@@ -569,7 +568,8 @@ u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2) {
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
 #pragma optimize_for_size off
-s32 create_armor_object__13TItemProArmorFi(s32 arg0) {
+s32 TItemProArmor::create_armor_object() {
+    s32 arg0 = (s32)this;
   s32 temp_r3;
   s32 temp_r3_2;
   s32 var_r0;

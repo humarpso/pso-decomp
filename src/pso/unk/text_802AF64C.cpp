@@ -8,7 +8,7 @@ struct Cam_802AF64C { u8 pad[0x178]; Vec_802AF64C v178; u8 pad2[0x190 - 0x184]; 
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 copy_pos__11TNowLoadingFPv(void *, void *);
 s32 vec3_add_to(void *, void *);
 s32 rotate_matrix_zyx(s32, s32, s32, s32);
 s32 rotate_vector_by_matrix(s32, void *, void *);
@@ -37,7 +37,7 @@ void fn_802AF64C(Obj_802AF64C *arg0) {
     vec3_add_to(&v, &camera_ctrl_instance->v178);
     VecCopy__FP3VecPC3Vec(&arg0->pos, &v);
     if (arg0->x90 != NULL) {
-        copy_pos__11TNowLoadingFPvPv(arg0->x90, &arg0->pos);
+        copy_pos__11TNowLoadingFPv(arg0->x90, &arg0->pos);
     }
 }
 

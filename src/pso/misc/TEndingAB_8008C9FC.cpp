@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TEndingAB.h"
 
 extern "C" {
 s32 set_depth_buffer_settings_2__Fv();
@@ -9,21 +10,18 @@ s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(s32, s32);
 extern s32 TEndingAB__fade_sequence_state;
 extern const f32 lbl_805D9580;
-void draw_overlay__9TEndingABFPv(u8 *arg0);
 extern s32 game_difficulty_selection;
 extern s32 ending_ab_wall_texture_list;
-s32 set_global_param__8TObjFishFi(s32);
-void set_fish_global_param__9TEndingABFv(void);
+s32 set_global_param__8TObjFishFl(s32);
 }
 
 extern "C" {
 
-void advance_fade_sequence__9TEndingABFPv(void *arg0);
-s32 update_flag890_state__10TObjPlayerFi(s32);
+s32 update_flag890_state__10TObjPlayerFl(s32);
 
 extern s32 TEndingAB__fade_sequence_state;
 
-void advance_fade_sequence__9TEndingABFPv(void *arg0) {
+void TEndingAB::advance_fade_sequence() {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;
@@ -34,58 +32,59 @@ void advance_fade_sequence__9TEndingABFPv(void *arg0) {
 
     switch ((s32) TEndingAB__fade_sequence_state) {
     case 1:
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
-        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3;
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0xEC);
+        temp_r3 = *(s32 *)((s8 *)this + 0x1C) + 1;
+        *(s32 *)((s8 *)this + 0x1C) = temp_r3;
+        temp_r4 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 > (s32) ((temp_r4 * 3) - temp_r4)) {
             TEndingAB__fade_sequence_state = 2;
-            update_flag890_state__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
-            *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
+            update_flag890_state__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x24));
+            *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
             return;
         }
         break;
     case 2:
-        temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
-        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3_2;
-        if (temp_r3_2 > (s32) (*(s32 *)((s8 *)arg0 + 0xEC) * 0xD)) {
+        temp_r3_2 = *(s32 *)((s8 *)this + 0x1C) + 1;
+        *(s32 *)((s8 *)this + 0x1C) = temp_r3_2;
+        if (temp_r3_2 > (s32) (*(s32 *)((s8 *)this + 0xEC) * 0xD)) {
             TEndingAB__fade_sequence_state = 3;
             return;
         }
         break;
     case 3:
-        temp_r3_3 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
-        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3_3;
-        temp_r4_2 = *(s32 *)((s8 *)arg0 + 0xEC);
+        temp_r3_3 = *(s32 *)((s8 *)this + 0x1C) + 1;
+        *(s32 *)((s8 *)this + 0x1C) = temp_r3_3;
+        temp_r4_2 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3_3 > (s32) ((temp_r4_2 * 0xE) - temp_r4_2)) {
             TEndingAB__fade_sequence_state = 4;
-            update_flag890_state__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
-            *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
+            update_flag890_state__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x24));
+            *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
             return;
         }
         break;
     case 4:
-        temp_r3_4 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
-        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3_4;
-        if (temp_r3_4 > (s32) (*(s32 *)((s8 *)arg0 + 0xEC) * 0x18)) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+        temp_r3_4 = *(s32 *)((s8 *)this + 0x1C) + 1;
+        *(s32 *)((s8 *)this + 0x1C) = temp_r3_4;
+        if (temp_r3_4 > (s32) (*(s32 *)((s8 *)this + 0xEC) * 0x18)) {
+            *(s32 *)((s8 *)this + 0x1C) = 0;
             TEndingAB__fade_sequence_state = 1;
-            temp_r0 = *(s32 *)((s8 *)arg0 + 0x28) + 1;
-            *(s32 *)((s8 *)arg0 + 0x28) = temp_r0;
+            temp_r0 = *(s32 *)((s8 *)this + 0x28) + 1;
+            *(s32 *)((s8 *)this + 0x28) = temp_r0;
             if (temp_r0 > 5) {
-                *(s32 *)((s8 *)arg0 + 0x28) = 5;
+                *(s32 *)((s8 *)this + 0x28) = 5;
                 TEndingAB__fade_sequence_state = 5;
                 return;
             }
         }
         break;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0x28) = 5;
+        *(s32 *)((s8 *)this + 0x28) = 5;
         break;
     }
 }
 #pragma push
 #pragma fp_contract on
-void draw_overlay__9TEndingABFPv(u8 *arg0) {
+void TEndingAB::draw_overlay() {
+    u8 *arg0 = (u8 *)this;
     switch ((s32) TEndingAB__fade_sequence_state) {
     case 1:
     case 3:
@@ -119,17 +118,17 @@ void draw_overlay__9TEndingABFPv(u8 *arg0) {
 }
 #pragma pop
 
-void set_fish_global_param__9TEndingABFv(void) {
+void TEndingAB::set_fish_global_param() {
     switch (game_difficulty_selection) {
     case 0:
     case 1:
-        set_global_param__8TObjFishFi(ending_ab_wall_texture_list);
+        set_global_param__8TObjFishFl(ending_ab_wall_texture_list);
         break;
     case 2:
-        set_global_param__8TObjFishFi(ending_ab_wall_texture_list);
+        set_global_param__8TObjFishFl(ending_ab_wall_texture_list);
         break;
     case 3:
-        set_global_param__8TObjFishFi(ending_ab_wall_texture_list);
+        set_global_param__8TObjFishFl(ending_ab_wall_texture_list);
         break;
     }
 }

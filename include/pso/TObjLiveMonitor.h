@@ -8,6 +8,8 @@ public:
     virtual ~TObjLiveMonitor();
     virtual void run_task();
     virtual void render();
+public:
+    static void *create(void *arg0);
 };
 
 #endif

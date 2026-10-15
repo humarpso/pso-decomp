@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
@@ -209,14 +210,13 @@ void set_section_id__6TLobbyFPvUc(u8 *arg0, u8 arg1) {
 }
 
 extern "C" {
-s32 set_clamped_index__6TLobbyFPvs(void *, s32);
-s32 set_volume__6TLobbyFPvUc(void *, s32);
-s32 set_clamped_value_1c__6TLobbyFPvi(void *, s32);
-s32 set_validated_field_0x11__6TLobbyFPvUc(void *, s32);
+s32 set_clamped_index__6TLobbyFs(void *, s32);
+s32 set_volume__6TLobbyFUc(void *, s32);
+s32 set_clamped_value_1c__6TLobbyFl(void *, s32);
+s32 set_validated_field_0x11__6TLobbyFUc(void *, s32);
 
-void reset_settings_to_default__6TLobbyFPv(u8 *arg0);
-
-void reset_settings_to_default__6TLobbyFPv(u8 *arg0) {
+void TLobby::reset_settings_to_default() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 var_ctr;
     s32 var_r4;
@@ -236,10 +236,10 @@ void reset_settings_to_default__6TLobbyFPv(u8 *arg0) {
     ((s32 (*)(void *, s32)) set_clamped_field_c__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D7904)(arg0));
     ((s32 (*)(void *, s32)) set_field_d__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D78FC)(arg0));
     ((s32 (*)(void *, s32)) set_field_0xE__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D78F4)(arg0));
-    set_volume__6TLobbyFPvUc(arg0, 0);
-    set_validated_field_0x11__6TLobbyFPvUc(arg0, 0xFF);
-    set_clamped_index__6TLobbyFPvs(arg0, 0);
-    set_clamped_value_1c__6TLobbyFPvi(arg0, 0xA);
+    set_volume__6TLobbyFUc(arg0, 0);
+    set_validated_field_0x11__6TLobbyFUc(arg0, 0xFF);
+    set_clamped_index__6TLobbyFs(arg0, 0);
+    set_clamped_value_1c__6TLobbyFl(arg0, 0xA);
     *(s8 *)((s8 *)arg0 + 0x12) = 0;
     for (var_r4 = 0; var_r4 < 4; var_r4++) {
         *(arg0 + var_r4 + 0x20) = 0x14;

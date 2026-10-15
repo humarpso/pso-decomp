@@ -15,6 +15,9 @@ struct TObjGbAdvance
     void* m_98;
     u8 _pad9C[0x18];
     u32 m_b4;
+    static void free_shared_data();
+    static void load_resource_instance();
+    void render();
 };
 
 #endif

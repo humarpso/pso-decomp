@@ -31,7 +31,7 @@ int TObjBoss1Rock__sub_8002E3D0(void);
 void *__nw__7TObjectFUl(int);
 int create_instance__14TObjBoss1FloorFv(void*);
 int load_dragon_ground_assets(void);
-int forward_floor_2CB44__6TLobbyFPv(void* p);
+int forward_floor_2CB44__6TLobbyFv(void* p);
 int free_char_select__6TLobbyFv(void);
 int free_resources__12TBoss8DragonFv(void);
 void *get_instance__12TBoss1DragonFv(void);

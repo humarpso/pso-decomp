@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObjCMAssignMenu.h"
+#include "pso/misc/TLobby.h"
 
 struct V2_802A5208 { f32 x; f32 y; };
 
@@ -7,7 +9,7 @@ struct Tag_802A5208 { u8 pad0[0x24]; f32 t; };
 extern "C" {
 void draw_ui_sprite(s32, void *, f32, f32);
 void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 extern V2_802A5208 lbl_80466720[];
 extern V2_802A5208 lbl_80466728[];
 extern V2_802A5208 lbl_80466730[];
@@ -23,23 +25,22 @@ extern const f32 lbl_805DDFD4;
 extern const f32 lbl_805DDFD8;
 extern const f32 lbl_805DDFDC;
 extern const f32 lbl_805DDFE0;
-void draw_frame__16TObjCMAssignMenuFPv(Tag_802A5208 *self);
 }
 
 extern "C" {
 
-void free_dialing_gc__6TLobbyFv(void);
 void TLobby__sub_803DA16C(void*);
 
 extern u32 lbl_805D6668;
 
-void free_dialing_gc__6TLobbyFv(void) {
+void TLobby::free_dialing_gc() {
     if ((u32) lbl_805D6668 != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D6668);
         lbl_805D6668 = 0U;
     }
 }
-void draw_frame__16TObjCMAssignMenuFPv(Tag_802A5208 *self) {
+void TObjCMAssignMenu::draw_frame() {
+    Tag_802A5208 *self = (Tag_802A5208 *)this;
     f32 a;
     a = lbl_805DDFC8;
     if (self->t < lbl_805DDFCC) {
@@ -61,7 +62,7 @@ void draw_frame__16TObjCMAssignMenuFPv(Tag_802A5208 *self) {
     V2_802A5208 base = lbl_80466758[0];
     V2_802A5208 cur;
     for (; base.y <= lbl_805DDFE0; base.y += lbl_805DDFDC) {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&cur, &base);
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&cur, &base);
         draw_ui_sprite(0x81, &cur, lbl_805DDFD0, a);
         cur.x += lbl_805DDFD4;
         draw_ui_sprite_scaled(0x82, &cur, &scale, lbl_805DDFD0, a);

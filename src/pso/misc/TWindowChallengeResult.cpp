@@ -22,7 +22,7 @@ struct Win_80246DCC {
 
 s32 get_shared_text_buffer(void);
 s32 get_camera_id__11TCameraCtrlFv(void);
-Entry_80246DCC *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+Entry_80246DCC *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 void append_padded_number(s32, s32);
 void text_builder_append(const char *);
 void text_builder_reset(void);
@@ -42,8 +42,8 @@ void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1);
 void init_subwindow__22TWindowChallengeResultFPv(void* p);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
-int initialize_subwindow__9TWindowDDFPv(void*);
+void destroy_window_base__9TWindowDDFs(void *, int);
+int initialize_subwindow__9TWindowDDFv(void*);
 
 extern "C" void fn_80246CE8();
 extern "C" u8 lbl_8044E790[];
@@ -77,12 +77,12 @@ void *lbl_804CE2B8[6] = {
 };
 #define lbl_804CE2B8 ((s32 *)lbl_804CE2B8)
 
-void init_subwindow__22TWindowChallengeResultFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
+void init_subwindow__22TWindowChallengeResultFPv(void* p) { initialize_subwindow__9TWindowDDFv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
 void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CE2B8;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -99,13 +99,13 @@ Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2,
     self->vt = lbl_804CE2B8;
     self->f0 = lbl_805D3898;
     for (i = 0; i < 3; i++) {
-        e = get_array_entry__20TWindowSubStatusDispFPvi(self, i * 2);
+        e = get_array_entry__20TWindowSubStatusDispFi(self, i * 2);
         set_text_entry_string(e, (s32) lbl_804CE2AC[i], 0);
         refresh_status_display__9TWindowDDFv(e);
         e->f8 = lbl_805DCB60 - e->f10;
     }
-    set_text_entry_string(get_array_entry__20TWindowSubStatusDispFPvi(self, 1), arg1, 0x20);
-    e = get_array_entry__20TWindowSubStatusDispFPvi(self, 3);
+    set_text_entry_string(get_array_entry__20TWindowSubStatusDispFi(self, 1), arg1, 0x20);
+    e = get_array_entry__20TWindowSubStatusDispFi(self, 3);
     text_builder_reset();
     m = arg2 / 3600;
     arg2 = arg2 % 3600;
@@ -121,7 +121,7 @@ Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2,
         append_padded_number(arg2, 2);
     }
     set_text_entry_string(e, get_shared_text_buffer(), 0x20);
-    e = get_array_entry__20TWindowSubStatusDispFPvi(self, 5);
+    e = get_array_entry__20TWindowSubStatusDispFi(self, 5);
     e->f20 = arg3;
     draw_right_aligned_number();
     e->f8 = lbl_805DCB60 + e->f10;

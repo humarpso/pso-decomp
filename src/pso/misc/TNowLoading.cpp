@@ -1,6 +1,8 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNowLoading.h"
 struct Stack_8001D19C {
     f32 sp8;
     f32 spC;
@@ -29,17 +31,15 @@ typedef struct TNowLoading_8001D3A8 {
 } TNowLoading_8001D3A8;
 
 extern "C" {
-s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 copy_pos__11TNowLoadingFPv(int, void *);
 extern RecoveredGlobal_8001D19C_lbl_804FF5E8 lbl_804FF5E8;
 extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D7EC0;
-void run_task__11TNowLoadingFv(u8 *arg0);
 void run_frame__6TLobbyFv(void);
 void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 void TLobby__sub_8001D9DC(void);
 extern s32 aram_dma_pending;
-s32 aram_read_sync__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TLoadingCur__ct(void *, void *, void *);
 s32 direction_to_rotation_xz(void *, void *, void *);
@@ -55,13 +55,11 @@ void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 void TLobby__sub_8001D9DC(void);
 extern s32 aram_dma_pending;
-s32 aram_dma_blocking__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void DCFlushRange(void *, u32);
 void run_frame__6TLobbyFv(void);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 void TLobby__sub_8001D9DC(void);
 extern s32 aram_dma_pending;
-s32 aram_transfer_sync__6TLobbyFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -69,19 +67,19 @@ extern "C" {
 void TNowLoading__sub_8001D4D0(void);
 void TNowLoading__sub_8001D4D4(void);
 void *__dt__11TNowLoadingFv(void *arg0, s16 arg1);
-void render__11TNowLoadingFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-void render__11TNowLoadingFv(void) {  }
+void TNowLoading::render() {  }
 
 extern s32 __vt__11TNowLoading[];
 
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_8001D19C_lbl_804FF5E8_size[sizeof(RecoveredGlobal_8001D19C_lbl_804FF5E8) == 0x28 ? 1 : -1];
-void run_task__11TNowLoadingFv(u8 *arg0) {
+void TNowLoading::run_task() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_8001D19C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8001D19C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001D19C, sp10) == 0x8) ? 1 : -1];
@@ -100,19 +98,19 @@ void run_task__11TNowLoadingFv(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0x34) = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8));
         temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
         if (temp_r3 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((int) (temp_r3), (void *) (arg0 + 0x2C));
+            copy_pos__11TNowLoadingFPv((int) (temp_r3), (void *) (arg0 + 0x2C));
         }
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x20);
         if (temp_r3_2 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((int) (temp_r3_2), (void *) (arg0 + 0x2C));
+            copy_pos__11TNowLoadingFPv((int) (temp_r3_2), (void *) (arg0 + 0x2C));
         }
         temp_r3_3 = *(u32 *)((s8 *)arg0 + 0x24);
         if (temp_r3_3 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((int) (temp_r3_3), (void *) (arg0 + 0x2C));
+            copy_pos__11TNowLoadingFPv((int) (temp_r3_3), (void *) (arg0 + 0x2C));
         }
         temp_r3_4 = *(u32 *)((s8 *)arg0 + 0x28);
         if (temp_r3_4 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((int) (temp_r3_4), (void *) (arg0 + 0x2C));
+            copy_pos__11TNowLoadingFPv((int) (temp_r3_4), (void *) (arg0 + 0x2C));
         }
     } else {
         stack.sp8 = (lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0);
@@ -120,19 +118,19 @@ void run_task__11TNowLoadingFv(u8 *arg0) {
         stack.sp10 = (lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8);
         temp_r3_5 = *(u32 *)((s8 *)arg0 + 0x1C);
         if (temp_r3_5 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((int) (temp_r3_5), (void *) (&stack.sp8));
+            copy_pos__11TNowLoadingFPv((int) (temp_r3_5), (void *) (&stack.sp8));
         }
         temp_r3_6 = *(u32 *)((s8 *)arg0 + 0x20);
         if (temp_r3_6 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((int) (temp_r3_6), (void *) (&stack.sp8));
+            copy_pos__11TNowLoadingFPv((int) (temp_r3_6), (void *) (&stack.sp8));
         }
         temp_r3_7 = *(u32 *)((s8 *)arg0 + 0x24);
         if (temp_r3_7 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((int) (temp_r3_7), (void *) (&stack.sp8));
+            copy_pos__11TNowLoadingFPv((int) (temp_r3_7), (void *) (&stack.sp8));
         }
         temp_r3_8 = *(u32 *)((s8 *)arg0 + 0x28);
         if (temp_r3_8 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((int) (temp_r3_8), (void *) (&stack.sp8));
+            copy_pos__11TNowLoadingFPv((int) (temp_r3_8), (void *) (&stack.sp8));
         }
     }
 }
@@ -194,7 +192,7 @@ TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Ve
 void TNowLoading__sub_8001D4D0(void) {  }
 void TNowLoading__sub_8001D4D4(void) {  }
 
-s32 aram_dma_blocking__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 TLobby::aram_dma_blocking(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x20];
     s32 len;
     len = (arg3 + 0x1F) & ~0x1F;
@@ -208,7 +206,7 @@ s32 aram_dma_blocking__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return 1;
 }
 
-s32 aram_read_sync__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 TLobby::aram_read_sync(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x20];
     s32 len;
     len = (arg3 + 0x1F) & ~0x1F;
@@ -222,7 +220,7 @@ s32 aram_read_sync__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     DCInvalidateRange((void *)arg2, len);
     return 1;
 }
-s32 aram_transfer_sync__6TLobbyFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
+s32 TLobby::aram_transfer_sync(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x20];
     s32 len;
     if (arg2 == 0 && arg1 == 0) {

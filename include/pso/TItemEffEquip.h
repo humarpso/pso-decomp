@@ -11,6 +11,9 @@ public:
 public:
     virtual ~TItemEffEquip();
     virtual void run_task();
+public:
+    static void create(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+    void release_effect();
 };
 
 #endif

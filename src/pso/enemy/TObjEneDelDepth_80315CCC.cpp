@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDelDepth.h"
 
 struct Stack_80315D60 {
     f32 sp8;
@@ -9,7 +10,6 @@ struct Stack_80315D60 {
 
 extern "C" {
 extern const f32 TObjEneDelDepth__data_805DF258;
-void setup_draw_material_default__15TObjEneDelDepthFf(f32 farg0);
 s32 set_chunk_material_override_pair(s32, s32);
 s32 set_chunk_material_color(void *);
 s32 set_chunk_blend(s32);
@@ -20,13 +20,10 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 extern const f32 lbl_805DF2E0;
-void setup_draw_material__15TObjEneDelDepthFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 }
 
 extern "C" {
 
-int get_data__15TObjEneDelDepthFv(void);
-void reset_globals__15TObjEneDelDepthFv(void);
 s32 set_chunk_blend(s32);
 s32 set_chunk_material_override_pair(s32, s32);
 
@@ -37,7 +34,7 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 
-void reset_globals__15TObjEneDelDepthFv(void) {
+void TObjEneDelDepth::reset_globals() {
     model_render_flags &= 0xFFFF77DF;
     set_chunk_material_override_pair(0xFF00, 0);
     set_chunk_blend(0x2500);
@@ -49,11 +46,11 @@ void reset_globals__15TObjEneDelDepthFv(void) {
 
     extern int TObjEneDelDepth__shared_resource;
 
-void setup_draw_material_default__15TObjEneDelDepthFf(f32 farg0) {
-    setup_draw_material__15TObjEneDelDepthFffff(farg0, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258);
+void TObjEneDelDepth::setup_draw_material_default(f32 farg0) {
+    TObjEneDelDepth::setup_draw_material(farg0, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258);
 }
 
-void setup_draw_material__15TObjEneDelDepthFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
+void TObjEneDelDepth::setup_draw_material(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     Stack_80315D60 stack;
     lbl_805D5660 = model_render_flags;
     lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -68,6 +65,6 @@ void setup_draw_material__15TObjEneDelDepthFffff(f32 farg0, f32 farg1, f32 farg2
     set_chunk_material_color((void *) (&stack.sp8));
 }
 
-int get_data__15TObjEneDelDepthFv(void) {  return TObjEneDelDepth__shared_resource; }
+int TObjEneDelDepth::get_data() {  return TObjEneDelDepth__shared_resource; }
 
 }

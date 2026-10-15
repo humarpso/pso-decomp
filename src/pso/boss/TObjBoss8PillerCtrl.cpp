@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss8PillerCtrl.h"
 
 struct RecoveredGlobal_8035C22C_lbl_804799DC {
     s32 value;
@@ -48,13 +49,12 @@ void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self);
 extern "C" {
 
 void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1);
-void render__19TObjBoss8PillerCtrlFv(void);
 void __dl__7TObjectFPv(void *);
 void __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 void TObjBoss8PillerCtrl__sub_8035C034(void * _w0, void * _w1) {  }
-void render__19TObjBoss8PillerCtrlFv(void) {  }
+void TObjBoss8PillerCtrl::render() {  }
 
 extern s32 __vt__19TObjBoss8PillerCtrl[];
 

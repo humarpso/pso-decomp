@@ -9,9 +9,9 @@ s32 rotate_matrix_z(s32, s32);
 s32 add_actor_tp(s32, s16);
 s32 play_particle_effect_once__10TObjPlayerFv();
 s32 spawn_cane_effect__10TObjPlayerFiUii(s32, s32, s32);
-s32 is_mode_two_and_ready__10TObjPlayerFPv(s32);
-s32 update_active_game_effect__10TObjPlayerFPv(s32);
-s32 get_attack_stage__11TItemWeaponFPv();
+s32 is_mode_two_and_ready__10TObjPlayerFv(s32);
+s32 update_active_game_effect__10TObjPlayerFv(s32);
+s32 get_attack_stage__11TItemWeaponFv();
 s32 get_player_list__10TObjPlayerFv();
 s32 psycho_wand_roll_extra(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -39,14 +39,14 @@ void psycho_wand_update_tp_spend(void *arg0) {
 extern s32 tl_05;
 
 void psycho_wand_marker(s32 arg0) {
-    if (get_attack_stage__11TItemWeaponFPv() == 0) {
+    if (get_attack_stage__11TItemWeaponFv() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
-    if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFv(arg0) != 0) {
         psycho_wand_roll_extra(arg0);
         return;
     }
-    update_active_game_effect__10TObjPlayerFPv(arg0);
+    update_active_game_effect__10TObjPlayerFv(arg0);
 }
 
 extern const f32 lbl_805DAEC8;

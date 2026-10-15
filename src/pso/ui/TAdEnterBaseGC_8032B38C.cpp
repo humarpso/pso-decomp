@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdEnterBaseGC.h"
 
 struct RecoveredGlobal_8032B390_lbl_80477198 {
     s32 value;
@@ -27,14 +28,12 @@ extern "C" {
 void *TAdEnterBaseGC__ct(void *arg0);
 s32 TAdPsoPassSaveGC__sub_8032B584(void);
 void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1);
-void reset__14TAdEnterBaseGCFPvi(void* a0, int a1);
-void run_task__14TAdEnterBaseGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-void run_task__14TAdEnterBaseGCFv(void) {  }
+void TAdEnterBaseGC::run_task() {  }
 
     extern int password_entry_keyboard_control;
     extern int TAdEnterBaseGC__entry_mode;
@@ -73,7 +72,7 @@ void create_parts__14TAdEnterBaseGCFPv(u8 *arg0) {
     *(u32 *)((s8 *)arg0 + 0x2C) = var_r0_2;
 }
 
-void reset__14TAdEnterBaseGCFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x24) = 0; *(int*)((char*)a0 + 0x20) = 0; TAdEnterBaseGC__entry_mode = a1; *(int*)((char*)a0 + 0x38) = 0; *(int*)((char*)a0 + 0x3c) = 0; *(int*)((char*)a0 + 0x28) = 0; *(int*)((char*)a0 + 0x2c) = 0; *(int*)((char*)a0 + 0x30) = 0; *(int*)((char*)a0 + 0x34) = 0; password_entry_keyboard_control = 0; }
+void TAdEnterBaseGC::reset(int a1) { *(int*)((char*)this + 0x24) = 0; *(int*)((char*)this + 0x20) = 0; TAdEnterBaseGC__entry_mode = a1; *(int*)((char*)this + 0x38) = 0; *(int*)((char*)this + 0x3c) = 0; *(int*)((char*)this + 0x28) = 0; *(int*)((char*)this + 0x2c) = 0; *(int*)((char*)this + 0x30) = 0; *(int*)((char*)this + 0x34) = 0; password_entry_keyboard_control = 0; }
 
 extern s32 __vt__14TAdEnterBaseGC[];
 
@@ -98,7 +97,7 @@ void *TAdEnterBaseGC__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdEnterBaseGC;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D41E0;
-    reset__14TAdEnterBaseGCFPvi((void*)(arg0), (int)(0));
+    ((TAdEnterBaseGC *)arg0)->reset((int)(0));
     return arg0;
 }
 

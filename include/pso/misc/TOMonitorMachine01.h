@@ -17,6 +17,11 @@ struct TOMonitorMachine01
     u32 m_84;
     u8 _pad88[0x24];
     u32 m_ac;
+    void run_task();
+    void render();
+    void *create();
+    static void reset_static_state();
+    static void load_resources();
 };
 
 #endif

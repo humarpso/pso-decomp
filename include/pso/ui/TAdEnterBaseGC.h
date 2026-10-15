@@ -5,6 +5,9 @@
 
 struct TAdEnterBaseGC
 {
+    static void render();
+    static void run_task();
+    void reset(int a1);
 };
 
 #endif

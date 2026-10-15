@@ -1,20 +1,20 @@
 #include "pso/item/TItemTexLoad.h"
 
 extern "C" {
-void tmp_buf_release__6TLobbyFi(void*);
-s32 tmp_buf_use_req__6TLobbyFPv(void*);
+void tmp_buf_release__6TLobbyFv(void*);
+s32 tmp_buf_use_req__6TLobbyFPCc(void*);
 void prs_decompress_alloc(void*, s32, s32);
 void load_gvm_texture_archive(s32, void*);
 s32 close_adxf_handle__6TLobbyFPv(s32);
 s32 free_texture_if_valid(void*);
 s32 TLobby__sub_803CC53C(int);
-s32 read_checked_align__6TLobbyFiii(int, int, int);
+s32 read_checked_align__6TLobbyFlll(int, int, int);
 u32 adxf_open_afs__6TLobbyFii(int, int);
 s32* lookup_item_pmt_record(void*);
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_803CC4C0(s32);
-void free__11TOBoss4RockFUi(void*);
-void* alloc_buffer__11TOBoss4RockFPv(u32);
+void mem_free(void*);
+void* mem_alloc(u32);
 void TObjPlayer__sub_803DD5E8(void*, void*, void*, int);
 char* strncpy(char*, const char*, u32);
 void TLobby__sub_801E3E9C(s32, const char*, void*, s32);
@@ -27,11 +27,11 @@ char* item_texture_filename_buffer;
 
 void TItemTexLoad::load_texture_archive() {
     char t[12] = "ItemTexLoad";
-    s32 r = tmp_buf_use_req__6TLobbyFPv(&t);
+    s32 r = tmp_buf_use_req__6TLobbyFPCc(&t);
     if (r != 0) {
         prs_decompress_alloc(m_archive_buffer, r, 0x40000);
         load_gvm_texture_archive(r, &m_texture_list);
-        tmp_buf_release__6TLobbyFi(&t);
+        tmp_buf_release__6TLobbyFv(&t);
         m_state = 2;
     } else {
         unload_texture();
@@ -62,7 +62,7 @@ s32 TItemTexLoad::load_texture(s32 index) {
                 unload_texture();
                 return 0;
             }
-            read_checked_align__6TLobbyFiii(m_archive_handle, r, (int)m_archive_buffer);
+            read_checked_align__6TLobbyFlll(m_archive_handle, r, (int)m_archive_buffer);
         }
         return 1;
     }
@@ -119,7 +119,7 @@ void TItemTexLoad::run_task() {
 
 TItemTexLoad::~TItemTexLoad() {
     unload_texture();
-    free__11TOBoss4RockFUi(m_archive_buffer);
+    mem_free(m_archive_buffer);
     m_archive_buffer = nullptr;
 }
 
@@ -130,7 +130,7 @@ TItemTexLoad::TItemTexLoad(TObject* parent) : TObject(parent) {
     m_texture_list.count = 1;
     m_texture_index = -1;
     m_state = 0;
-    m_archive_buffer = alloc_buffer__11TOBoss4RockFPv(0x4800);
+    m_archive_buffer = mem_alloc(0x4800);
 }
 
 TItemTexLoad* TItemTexLoad::create(TObject* parent) {
@@ -138,15 +138,15 @@ TItemTexLoad* TItemTexLoad::create(TObject* parent) {
 }
 
 void TItemTexLoad::free_textures() {
-    free__11TOBoss4RockFUi(item_texture_filename_buffer);
+    mem_free(item_texture_filename_buffer);
     item_texture_filename_buffer = 0;
-    free__11TOBoss4RockFUi(item_texture_afs_work_buffer);
+    mem_free(item_texture_afs_work_buffer);
     item_texture_afs_work_buffer = 0;
 }
 
 extern "C" void load_item_kt_afs(void) {
-    item_texture_afs_work_buffer = alloc_buffer__11TOBoss4RockFPv(0x40C);
-    item_texture_filename_buffer = (char*)alloc_buffer__11TOBoss4RockFPv(0x1C);
+    item_texture_afs_work_buffer = mem_alloc(0x40C);
+    item_texture_filename_buffer = (char*)mem_alloc(0x1C);
     strncpy(item_texture_filename_buffer, item_kt_archive_filename, 0x1C);
     TLobby__sub_801E3E9C(0xB8, item_kt_archive_filename, item_texture_afs_work_buffer, 0);
 }

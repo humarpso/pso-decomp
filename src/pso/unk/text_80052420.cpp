@@ -84,7 +84,7 @@ s16 obj_getS16_32C(VObj_80052420 *);
 s32 TBoss4Type3__sub_8005254C(s32);
 void send_6x2F_change_player_hp(s32, s32, s16);
 VObj_80052420 *get_player_by_client_id(u16);
-void calc_photon_blast_charge__10TObjPlayerFv(VObj_80052420 *, u32);
+void calc_photon_blast_charge__10TObjPlayerFPvl(VObj_80052420 *, u32);
 u32 drain_player_hp(s32 arg0, u32 arg1);
 }
 
@@ -108,7 +108,7 @@ u32 drain_player_hp(s32 arg0, u32 arg1) {
     }
     v -= n;
     send_6x2F_change_player_hp(0xFFFF, arg0, v);
-    calc_photon_blast_charge__10TObjPlayerFv(p, n);
+    calc_photon_blast_charge__10TObjPlayerFPvl(p, n);
     p->m73();
     return n;
 }

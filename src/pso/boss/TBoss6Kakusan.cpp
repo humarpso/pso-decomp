@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss6Kakusan.h"
+#include "pso/boss/TBoss6Type1.h"
 
 struct RecoveredGlobal_80322994___vt__13TBoss6Kakusan { s32 value; u8 remaining[0x14]; };
 
@@ -55,11 +57,10 @@ struct VObj_80322438 : Base_80322438 {
 
 extern "C" {
 u8 *__nw__7TObjectFUl(s32);
-u8 *create_kakusan__11TBoss6Type1FiPvPvsf(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
+u8 *dispatch_shared_handler_a__6TLobbyFl(s32);
 u32 create_particle_emitter(void *, int);
-s32 set_flags__11TBoss4Type2FPvUi(int, int);
+s32 set_flags__11TBoss4Type2FUl(int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
 extern s32 __vt__13TBoss6Kakusan[];
@@ -73,16 +74,15 @@ extern const f32 TBoss6Kakusan__data_805DF518;
 extern const f32 lbl_805DF52C;
 extern const f32 lbl_805DF530;
 extern const f32 lbl_805DF534;
-s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
-s32 query_teammate_state__9TObjEneDDFPv();
+void copy_vec3__11TBoss4Type2FPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
+s32 query_teammate_state__9TObjEneDDFv();
 void direction_to_rotation_xz(void *, void *, void *);
 u32 get_player_by_client_id(s32);
-s32 is_active__14TBoss6PlotFalzFPv();
+s32 is_active__14TBoss6PlotFalzFv();
 int TBoss6Kakusan__sub_8032263C(void);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -94,12 +94,10 @@ extern s32 boss6_kakusan_homing_end_frame;
 extern u8 TBoss6Kakusan__homing_end_frame_initialized;
 extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF538;
-s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0);
-void run_task__13TBoss6KakusanFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
-s32 rand_vary_count__14TBoss6PlotFalzFif(int, f32);
+s32 rand_vary_count__14TBoss6PlotFalzFlf(int, f32);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
@@ -108,18 +106,16 @@ extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF520;
 extern const f32 lbl_805DF524;
 extern const f32 lbl_805DF528;
-void check_beam_player_hits__13TBoss6KakusanFPv(u8 *arg0);
 }
 
 extern "C" {
 
 int TBoss6Kakusan__sub_8032263C(void);
 void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1);
-void render__13TBoss6KakusanFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void render__15TAdLdQuestPrtGCFv(void);
-void request_destroy__11TBoss4Type2FUi(void *);
+void request_destroy__11TBoss4Type2FUl(void *);
 
 #pragma push
 #pragma opt_propagation off
@@ -128,7 +124,8 @@ typedef struct Hit_80322438 Hit_80322438;
 typedef struct VObj_80322438 VObj_80322438;
 typedef struct Vec_80322438 Vec_80322438;
 #define PSO_VCALL_VObj_80322438_m21(_self, _arg0, _arg1, _arg2, _arg3, _arg4) (((VObj_80322438 *)(_self))->m21((_arg0), (_arg1), (_arg2), (_arg3), (_arg4)))
-void check_beam_player_hits__13TBoss6KakusanFPv(u8 *arg0) {
+void TBoss6Kakusan::check_beam_player_hits() {
+    u8 *arg0 = (u8 *)this;
   Vec_80322438 dir;
   Vec_80322438 p;
   Vec_80322438 q;
@@ -185,7 +182,7 @@ void check_beam_player_hits__13TBoss6KakusanFPv(u8 *arg0) {
     }
     if (found != 0)
     {
-      h.f = (f32) rand_vary_count__14TBoss6PlotFalzFif(*((s32 *) (((s8 *) arg0) + 0x1C)), lbl_805DF528);
+      h.f = (f32) rand_vary_count__14TBoss6PlotFalzFlf(*((s32 *) (((s8 *) arg0) + 0x1C)), lbl_805DF528);
       s32 z = 0;
       h.a = z;
       h.c = z;
@@ -198,7 +195,8 @@ void check_beam_player_hits__13TBoss6KakusanFPv(u8 *arg0) {
 
 int TBoss6Kakusan__sub_8032263C(void) { return 0; }
 
-s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0) {
+s32 TBoss6Kakusan::is_out_of_range() {
+    Obj_80322644 *arg0 = (Obj_80322644 *)this;
     if (arg0->pos.y < lbl_805DF52C || arg0->pos.y > lbl_805DF530) {
         return 1;
     }
@@ -207,11 +205,12 @@ s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0) {
     return vector_length(&v) > lbl_805DF534;
 }
 
-void render__13TBoss6KakusanFv(void) {  }
+void TBoss6Kakusan::render() {  }
 
 extern s32 __vt__13TBoss6Kakusan[];
 
-void run_task__13TBoss6KakusanFv(u8 *arg0) {
+void TBoss6Kakusan::run_task() {
+    u8 *arg0 = (u8 *)this;
     Vec_803226C0 v;
     Vec_803226C0 w;
     Vec_803226C0 b;
@@ -219,7 +218,7 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
     f32 speed;
     u8 *pl;
     if (check_demo_mode__10TObjPlayerFv() != 0) return;
-    if (query_teammate_state__9TObjEneDDFPv() != 0) return;
+    if (query_teammate_state__9TObjEneDDFv() != 0) return;
     VecCopy__FP3VecPC3Vec(arg0 + 0x48, arg0 + 0x30);
     if ((s8)boss6_kakusan_homing_start_initialized == 0) {
         TBoss6Kakusan__homing_start_frame = 7;
@@ -233,7 +232,7 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
         speed = vector_length(arg0 + 0x3C);
         if (!(speed <= TBoss6Kakusan__data_805DF51C)) {
             pl = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x20));
-            if (is_active__14TBoss6PlotFalzFPv() != 0) {
+            if (is_active__14TBoss6PlotFalzFv() != 0) {
                 VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
                 v.y += lbl_805DF538;
                 subtract_vector(&v, arg0 + 0x30);
@@ -258,25 +257,25 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
     }
     vec3_add_to(arg0 + 0x30, arg0 + 0x3C);
     if (*(void **)((s8 *)arg0 + 0x54) != NULL) {
-        copy_pos__11TNowLoadingFPvPv(*(void **)((s8 *)arg0 + 0x54), arg0 + 0x30);
+        copy_pos__11TNowLoadingFPv(*(void **)((s8 *)arg0 + 0x54), arg0 + 0x30);
         VecCopy__FP3VecPC3Vec(&a, arg0 + 0x30);
         subtract_vector(&a, arg0 + 0x48);
         direction_to_rotation_xz(&a, &b.x, &b.z);
         *(s32 *)&b.y = 0;
-        copy_vec3__11TBoss4Type2FPvPv(*(void **)((s8 *)arg0 + 0x54), &b);
+        copy_vec3__11TBoss4Type2FPv(*(void **)((s8 *)arg0 + 0x54), &b);
     }
-    if (is_out_of_range__13TBoss6KakusanFPv((Obj_80322644 *)arg0) != 0 || ((int (*)(void *))TBoss6Kakusan__sub_8032263C)(arg0) != 0) {
+    if (is_out_of_range() != 0 || ((int (*)(void *))TBoss6Kakusan__sub_8032263C)(arg0) != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    check_beam_player_hits__13TBoss6KakusanFPv((u8 *)(arg0));
+    check_beam_player_hits();
     *(s32 *)((s8 *)arg0 + 0x2C) += 1;
 }
 
 void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TBoss6Kakusan;
-        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x54)); *(s32 *)((s8 *)arg0 + 0x54) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x54)); *(s32 *)((s8 *)arg0 + 0x54) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -304,26 +303,26 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x30), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x48), (void *) (arg0 + 0x30));
-    temp_f2 = *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2B)) + 4);
+    temp_f2 = *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFl(0x2B)) + 4);
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) temp_f2;
     if (TBoss6Kakusan__data_805DF518 == temp_f2) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 0x14;
     }
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2F)) + 0x10);
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFl(0x2F)) + 0x10);
     if (*(f32 *)((s8 *)arg0 + 0x28) < TBoss6Kakusan__data_805DF518) {
         *(f32 *)((s8 *)arg0 + 0x28) = (f32) TBoss6Kakusan__data_805DF518;
     }
     *(u32 *)((s8 *)arg0 + 0x54) = create_particle_emitter((void *) (arg0 + 0x30), (int) (0x214));
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x54);
     if (temp_r3 != 0U) {
-        set_flags__11TBoss4Type2FPvUi((int) (temp_r3), (int) (0x40));
+        set_flags__11TBoss4Type2FUl((int) (temp_r3), (int) (0x40));
     }
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     return arg0;
 }
 #pragma pop
 
-u8 *create_kakusan__11TBoss6Type1FiPvPvsf(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0) {
+u8 *TBoss6Type1::create_kakusan(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x58));

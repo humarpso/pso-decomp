@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSwitchItem.h"
 
 struct Stack_80177DC0 {
     f32 sp8;
@@ -73,20 +74,18 @@ s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA10;
 extern const f32 lbl_805DBA14;
-void render__12TOSwitchItemFv(u8 *arg0);
 s32 TOKey__ct(void *);
-void update_anim__12TOSwitchItemFPv(void *arg0);
 extern s32 __vt__12TOSwitchItem[];
 extern s32 lbl_805D3180;
 u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2);
-u8 get_field_ed__10TObjPlayerFPv(int);
-s32 copy_item_data_and_process__5TItemFPv(int);
+u8 get_field_ed__10TObjPlayerFv(int);
+s32 copy_item_data_and_process__5TItemFv(int);
 u8 *get_sorted_item_registry_entry(s32);
 s32 get_item_registry_count();
 s8 TObjPlayer__sub_80102C30(u8 *);
-u8 get_field_ec__12TOSwitchItemFPv(int);
+u8 get_field_ec__12TOSwitchItemFv(int);
 f32 horizontal_distance_squared(Pos_80177E24 *, Pos_80177E24 *);
-s32 is_state_ec1_ed3__10TObjPlayerFPv(int);
+s32 is_state_ec1_ed3__10TObjPlayerFv(int);
 void run_task__12TOSwitchItemFv(u8 *arg0);
 }
 
@@ -96,27 +95,26 @@ void TOSwitchItem__sub_80178080(void);
 void TOSwitchItem__sub_80178084(void);
 void TOSwitchItem__vt24(void);
 void *__dt__12TOSwitchItemFv(void *arg0, s16 arg1);
-void *create__12TOSwitchItemFPv(void *arg0);
-void update_anim__12TOSwitchItemFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 init_switch_id__5TOKeyFPv();
+s32 init_switch_id__5TOKeyFv();
 
-void update_anim__12TOSwitchItemFPv(void *arg0) {
+void TOSwitchItem::update_anim() {
     f32 temp_f0;
 
-    init_switch_id__5TOKeyFPv();
-    temp_f0 = *(f32 *)((s8 *)arg0 + 0x68);
-    *(f32 *)((s8 *)arg0 + 0xE8) = (f32) (temp_f0 * temp_f0);
-    *(s32 *)((s8 *)arg0 + 0xF0) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xF0) >= 8) {
-        *(s32 *)((s8 *)arg0 + 0xF0) = 0;
+    init_switch_id__5TOKeyFv();
+    temp_f0 = *(f32 *)((s8 *)this + 0x68);
+    *(f32 *)((s8 *)this + 0xE8) = (f32) (temp_f0 * temp_f0);
+    *(s32 *)((s8 *)this + 0xF0) = (s32) *(s32 *)((s8 *)this + 0x88);
+    if ((s32) *(s32 *)((s8 *)this + 0xF0) >= 8) {
+        *(s32 *)((s8 *)this + 0xF0) = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0xF4) = (s32) (*(s32 *)((s8 *)arg0 + 0x8C) + 1);
+    *(s32 *)((s8 *)this + 0xF4) = (s32) (*(s32 *)((s8 *)this + 0x8C) + 1);
 }
 
-void render__12TOSwitchItemFv(u8 *arg0) {
+void TOSwitchItem::render() {
+    u8 *arg0 = (u8 *)this;
     Stack_80177DC0 stack;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         stack.sp8 = lbl_805DBA10;
@@ -152,38 +150,38 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
                 var_r30 += 1;
                 break;
             case 1:
-                if (get_field_ec__12TOSwitchItemFPv((int) (temp_r27)) == 0) {
+                if (get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 0) {
                     var_r30 += 1;
                 }
                 break;
             case 2:
-                if ((get_field_ec__12TOSwitchItemFPv((int) (temp_r27)) == 1) && (get_field_ed__10TObjPlayerFPv((int) (temp_r27)) == 1)) {
+                if ((get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 1) && (get_field_ed__10TObjPlayerFv((int) (temp_r27)) == 1)) {
                     var_r30 += 1;
                 }
                 break;
             case 3:
-                if ((get_field_ec__12TOSwitchItemFPv((int) (temp_r27)) == 1) && (get_field_ed__10TObjPlayerFPv((int) (temp_r27)) == 2)) {
+                if ((get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 1) && (get_field_ed__10TObjPlayerFv((int) (temp_r27)) == 2)) {
                     var_r30 += 1;
                 }
                 break;
             case 4:
-                if (is_state_ec1_ed3__10TObjPlayerFPv((int) (temp_r27)) == 1) {
+                if (is_state_ec1_ed3__10TObjPlayerFv((int) (temp_r27)) == 1) {
                     var_r30 += 1;
                 }
                 break;
             case 5:
-                if (get_field_ec__12TOSwitchItemFPv((int) (temp_r27)) == 2) {
+                if (get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 2) {
                     var_r30 += 1;
                 }
                 break;
             case 6:
-                if (get_field_ec__12TOSwitchItemFPv((int) (temp_r27)) == 3) {
+                if (get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 3) {
                     var_r30 += ((VObj_18_1753c2 *)(temp_r27))->m34();
                 }
                 break;
             case 7:
-                if (get_field_ec__12TOSwitchItemFPv((int) (temp_r27)) == 4) {
-                    var_r30 += copy_item_data_and_process__5TItemFPv((int) (temp_r27));
+                if (get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 4) {
+                    var_r30 += copy_item_data_and_process__5TItemFv((int) (temp_r27));
                 }
                 break;
             }
@@ -201,7 +199,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     }
 }
 
-void *create__12TOSwitchItemFPv(void *arg0) {
+void *TOSwitchItem::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
         o = TOSwitchItem__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -230,7 +228,7 @@ u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801780E0___vt__12TOSwitchItem *)&__vt__12TOSwitchItem).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3180;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    update_anim__12TOSwitchItemFPv((void *) (arg0));
+    ((TOSwitchItem *)arg0)->update_anim();
     *(s32 *)((s8 *)arg0 + 0xEC) = 0;
     return arg0;
 }

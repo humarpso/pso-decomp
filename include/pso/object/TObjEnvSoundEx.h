@@ -12,6 +12,8 @@ struct TObjEnvSoundEx
     u8 _pad94[0x8];
     u32 m_9c;
     u32 m_a0;
+    s32 init_sound_params();
+    static void render();
 };
 
 #endif

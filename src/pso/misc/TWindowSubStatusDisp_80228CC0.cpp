@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
 extern char *text_builder_write_cursor;
 extern char text_builder_buffer[];
-void append_comma__20TWindowSubStatusDispFv(void);
 extern char *text_builder_write_cursor;
 extern char text_builder_buffer[];
 void append_text_space(void);
@@ -14,12 +14,11 @@ s32 text_builder_append(void *);
 extern s32 lbl_8044CB60[];
 extern s32 lbl_805DC790;
 extern s32 lbl_805DC794;
-void append_play_time__20TWindowSubStatusDispFUi(u32 arg0);
 }
 
 extern "C" {
 
-void append_play_time__20TWindowSubStatusDispFUi(u32 arg0) {
+void TWindowSubStatusDisp::append_play_time(u32 arg0) {
     u32 h = arg0 / 3600U;
     u32 rem = arg0 % 3600U;
     if (h > 99U) {
@@ -35,7 +34,7 @@ void append_play_time__20TWindowSubStatusDispFUi(u32 arg0) {
     append_padded_number(rem, 2);
 }
 
-void append_comma__20TWindowSubStatusDispFv(void) {
+void TWindowSubStatusDisp::append_comma() {
     if (text_builder_write_cursor != text_builder_buffer) {
         *text_builder_write_cursor++ = 0x2c;
         *text_builder_write_cursor = 0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss7Joint.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -202,31 +203,28 @@ extern "C" {
 void TBoss7Joint__vt61(void* p);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 set_player_state_default__12TBoss8DragonFPv(void *);
+s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-void store_position__11TBoss7JointFPv(void *arg0);
 extern const f32 lbl_805DEBB8;
-void run_task__11TBoss7JointFv(u8 *arg0);
-void initialize_enemy_state__9TObjEneDDFPv(void *, s32);
+void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_common_from__9TObjEneDDFPvPv(void *, void *);
 u8 * TObjEneDD__ct(void *);
 extern s32 __vt__11TBoss7Joint[];
 extern s32 lbl_805D3FC0;
 u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5);
-s32 register_object__6TLobbyFPv(int);
-s32 dispatch_shared_handler_b__6TLobbyFPv(int);
-s32 register_boss__6TLobbyFPv(int);
+s32 register_object__6TLobbyFl(int);
+s32 dispatch_shared_handler_b__6TLobbyFl(int);
+s32 register_boss__6TLobbyFl(int);
 s32 fn_8002B630(void *, void *);
-s32 reset_hp__9TObjEneDDFPv(void *, int, int, int);
-s32 check_state_flag_2__9TObjEneDDFPv(void *);
-s32 transform_part_positions__9TObjEneDDFPv(void *);
+s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
+s32 check_state_flag_2__9TObjEneDDFv(void *);
+s32 transform_part_positions__9TObjEneDDFv(void *);
 s32 init_position_vectors__9TObjEneDDFPv();
 s32 initialize_linked_object_reference(void *, void *);
 s32 TBoss7Joint_get_shell_max_hp();
 extern s32 lbl_80473FB8[];
 extern s32 lbl_804E45C8[];
 extern const f32 lbl_805DEBBC;
-s32 init_params__11TBoss7JointFPv(void *arg0);
 }
 
 extern "C" {
@@ -245,7 +243,6 @@ void TBoss7Joint__vt59(void);
 void TBoss7Joint__vt60(u8 *arg0);
 void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
-void store_position__11TBoss7JointFPv(void *arg0);
 s32 init_boss_stats__11TBoss7JointFPv(void *);
 s32 clear_attack_receipts(void *);
 void TObjEneDD__vt0(void *, int);
@@ -254,13 +251,13 @@ s32 apply_damage_and_set_effect__8TObjFishFPvi(int, int, int);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void clear_obj_links(void *);
-u32 is_part_active__11TBoss7JointFPv(void *, int);
+u32 is_part_active__11TBoss7JointFv(void *, int);
 s32 set_flag_800__11TBoss7JointFPv(int);
 
-void store_position__11TBoss7JointFPv(void *arg0) {
-    struct VOff_802EE9A4_arg0_802EE9A4 *self = (struct VOff_802EE9A4_arg0_802EE9A4 *)arg0;
-    VecCopy__FP3VecPC3Vec(self->f_2FC, (void *)((char *)arg0 + 56));
-    VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 116), self->f_2FC);
+void TBoss7Joint::store_position() {
+    struct VOff_802EE9A4_arg0_802EE9A4 *self = (struct VOff_802EE9A4_arg0_802EE9A4 *)this;
+    VecCopy__FP3VecPC3Vec(self->f_2FC, (void *)((char *)this + 56));
+    VecCopy__FP3VecPC3Vec((void *)((char *)this + 116), self->f_2FC);
 }
 
 extern const f32 lbl_805DEBB0;
@@ -272,7 +269,7 @@ void TBoss7Joint__vt60(u8 *arg0) {
 
     temp_r4 = *(s16 *)((s8 *)arg0 + 0x32C);
     temp_r31 = *(s16 *)((s8 *)arg0 + 0x2B8) - temp_r4;
-    if (is_part_active__11TBoss7JointFPv((void *) (arg0), (int) (temp_r4)) != 0U) {
+    if (is_part_active__11TBoss7JointFv((void *) (arg0), (int) (temp_r4)) != 0U) {
         TObjFish__sub_802EC468((void *) (arg0 + 0x38), (f32) (lbl_805DEBB0), (f32) (lbl_805DEBB4));
         apply_damage_and_set_effect__8TObjFishFPvi((int) (*(s32 *)((s8 *)arg0 + 0x10)), (int) (temp_r31), (int) (*(u16 *)((s8 *)arg0 + 0x2D4)));
     } else {
@@ -289,14 +286,15 @@ void TBoss7Joint__vt60(u8 *arg0) {
 
 extern s32 __vt__11TBoss7Joint[];
 
-void run_task__11TBoss7JointFv(u8 *arg0) {
+void TBoss7Joint::run_task() {
+    u8 *arg0 = (u8 *)this;
     if (check_demo_mode__10TObjPlayerFv() == 0) {
         VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x3C0))));
         ((VObj_18 *)(arg0))->m81();
-        store_position__11TBoss7JointFPv((void *) (arg0));
+        store_position();
         ((VObj_18 *)(arg0))->m86();
         if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {
-            set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
+            set_player_state_default__12TBoss8DragonFv((void *) (arg0));
             add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEBB8));
         }
     }
@@ -317,21 +315,21 @@ void *__dt__11TBoss7JointFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802EEC60___vt__11TBoss7Joint_size[sizeof(RecoveredGlobal_802EEC60___vt__11TBoss7Joint) == 0x1A4 ? 1 : -1];
 
 #pragma opt_common_subs off
-s32 init_params__11TBoss7JointFPv(void *arg0) {
-    ((s32 (*)(void *))init_position_vectors__9TObjEneDDFPv)(arg0);
-    fn_8002B630(&((J_802EEB88 *)arg0)->sub, lbl_80473FB8);
-    initialize_linked_object_reference(arg0, &((J_802EEB88 *)arg0)->sub);
-    transform_part_positions__9TObjEneDDFPv(arg0);
-    reset_hp__9TObjEneDDFPv(arg0, register_boss__6TLobbyFPv(0x10), dispatch_shared_handler_b__6TLobbyFPv(0xF), register_object__6TLobbyFPv(0x10));
-    *(s16 *)((s8 *)arg0 + 0x32C) = 0x4E20;
-    *(s16 *)((s8 *)arg0 + 0x2B8) = 0x4E20;
-    check_state_flag_2__9TObjEneDDFPv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x350) = lbl_804E45C8;
-    *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x2B8);
-    *(f32 *)((s8 *)arg0 + 0x37C) = lbl_805DEBBC;
-    ((VObj_18_444bc5 *)(arg0))->m94();
-    *(s32 *)((s8 *)arg0 + 0x3BC) = 0;
-    return *(s32 *)((s8 *)arg0 + 0x3C4) = TBoss7Joint_get_shell_max_hp();
+s32 TBoss7Joint::init_params() {
+    ((s32 (*)(void *))init_position_vectors__9TObjEneDDFPv)(this);
+    fn_8002B630(&((J_802EEB88 *)this)->sub, lbl_80473FB8);
+    initialize_linked_object_reference(this, &((J_802EEB88 *)this)->sub);
+    transform_part_positions__9TObjEneDDFv(this);
+    reset_hp__9TObjEneDDFv(this, register_boss__6TLobbyFl(0x10), dispatch_shared_handler_b__6TLobbyFl(0xF), register_object__6TLobbyFl(0x10));
+    *(s16 *)((s8 *)this + 0x32C) = 0x4E20;
+    *(s16 *)((s8 *)this + 0x2B8) = 0x4E20;
+    check_state_flag_2__9TObjEneDDFv(this);
+    *(s32 **)((s8 *)this + 0x350) = lbl_804E45C8;
+    *(s16 *)((s8 *)this + 0x33E) = *(s16 *)((s8 *)this + 0x2B8);
+    *(f32 *)((s8 *)this + 0x37C) = lbl_805DEBBC;
+    ((VObj_18_444bc5 *)(this))->m94();
+    *(s32 *)((s8 *)this + 0x3BC) = 0;
+    return *(s32 *)((s8 *)this + 0x3C4) = TBoss7Joint_get_shell_max_hp();
 }
 
 u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5) {
@@ -343,8 +341,8 @@ u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5) 
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
     *(s32 *)((s8 *)arg0 + 0x3C0) = arg4;
     *(s32 *)((s8 *)arg0 + 0x3B8) = arg5;
-    initialize_enemy_state__9TObjEneDDFPv(arg0, 0x49);
-    init_params__11TBoss7JointFPv((void *)((void *) (arg0)));
+    initialize_enemy_state__9TObjEneDDFv(arg0, 0x49);
+    ((TBoss7Joint *)arg0)->init_params();
     return arg0;
 }
 

@@ -30,7 +30,6 @@ void *__ct__20TItemReverseTechCtrlFv(void *arg0) {
 
 extern "C" {
 
-void *create__20TItemReverseTechCtrlFPv(void *arg0);
 void *__nw__7TObjectFUl(int);
 
 extern "C" void TItemReverseTech__sub_8011A55C();
@@ -54,7 +53,7 @@ void *lbl_804A0468[9] = {
     (void *)&TItemReverseTech__sub_8011A55C,
 };
 
-void *create__20TItemReverseTechCtrlFPv(void *arg0) {
+void *TItemReverseTechCtrl::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
         o = __ct__20TItemReverseTechCtrlFv(o, arg0);

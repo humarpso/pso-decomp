@@ -29,9 +29,8 @@ struct Txt_802A37A0 {
 extern "C" {
 extern const f32 lbl_805DDF3C;
 extern const f32 lbl_805DDF40;
-void run_task__17TAdSelectTxtSubGCFv(u8 *arg0);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 int TObjNpcHosa__sub_802A39B0(void);
 extern s32 __vt__17TAdSelectTxtSubGC[];
 extern s32 ad_select_txt_sub_gc_class_name;
@@ -49,21 +48,21 @@ extern "C" {
 
 void * TObjNpcHosa__create(void *arg0);
 int TObjNpcHosa__sub_802A39B0(void);
-void render__17TAdSelectTxtSubGCFv(void* p);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcHosa__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 int set_cached_blend_factor(void*, void*);
 int get_state_flag__9TMainTaskFv(void*);
-int render_status__20TWindowSubStatusDispFPv(void*);
+int render_status__20TWindowSubStatusDispFv(void*);
 
-void render__17TAdSelectTxtSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status__20TWindowSubStatusDispFPv(p); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+void TAdSelectTxtSubGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status__20TWindowSubStatusDispFv(this); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 
     extern int ad_select_text_texture_handle;
 
 #pragma push
 #pragma fp_contract on
-void run_task__17TAdSelectTxtSubGCFv(u8 *arg0) {
+void TAdSelectTxtSubGC::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     f32 temp_f2_2;
     f32 temp_f2_3;
@@ -95,7 +94,7 @@ Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_
     arg0->f0 = ad_select_txt_sub_gc_class_name;
     arg0->f7c = src->f0;
     arg0->f1c = src->f4;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->f64, src->v8);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&arg0->f64, src->v8);
     arg0->f80 = src->f10;
     arg0->f84 = -1;
     arg0->f74 = lbl_805DDF3C;

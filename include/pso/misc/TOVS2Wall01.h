@@ -23,6 +23,18 @@ struct TOVS2Wall01
     u32 m_354;
     u8 _pad358[0x4];
     u32 m_35c;
+    void spawn_debris(s32 arg1);
+    void release();
+    int interact_player_neg1();
+    void run_task();
+    void render();
+    void *create();
+    static void release_model();
+    static void load_resources();
+    void *destroy(s16 arg1);
+    void byteswap_hit_packet();
+    void update_and_send();
+    void*init();
 };
 
 #endif

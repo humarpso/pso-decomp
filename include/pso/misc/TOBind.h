@@ -22,6 +22,11 @@ struct TOBind
     u32 m_c4;
     u32 m_c8;
     u32 m_cc;
+    void run_task();
+    void render();
+    static void *create(void *arg0);
+    static void free_static_model();
+    static void load_static_resource();
 };
 
 #endif

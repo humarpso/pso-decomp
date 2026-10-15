@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOHangerMachine01.h"
 
 struct Base { char pad[0x18]; };
 
@@ -33,7 +34,6 @@ struct RecoveredGlobal_8016904C___vt__17TOHangerMachine01 {
 };
 
 extern "C" {
-void run_task__17TOHangerMachine01Fv(u8 *arg0);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
@@ -42,16 +42,14 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 extern const f32 lbl_805DB6A8;
-void render__17TOHangerMachine01Fv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80168F94_lbl_804B26C8 bm_fs_obj_hanger_moto_resource_descriptor;
 extern u32 TOHangerMachine01__bml_resource;
-void load_shared_resource__17TOHangerMachine01Fv(void);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, int);
@@ -69,32 +67,31 @@ extern "C" {
 
 void TOHangerMachine01__sub_80169168(void);
 void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1);
-void *create__17TOHangerMachine01FPv(void *arg0);
-void free_static_model__17TOHangerMachine01Fv(void);
-s32 is_valid_slot__17TOHangerMachine01FiUs(int arg0, u16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void TOHangceilingCave01KeyQuick__sub_80168D30(void);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_key_base__5TOKeyFPvs(void *, s32);
+s32 destroy_key_base__5TOKeyFs(void *, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 void set_scale__27TOHangceilingCave01KeyQuickFPvf(void* p, f32 v);
 
-void run_task__17TOHangerMachine01Fv(u8 *arg0) {
+void TOHangerMachine01::run_task() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0xC8) = (s32) (*(s32 *)((s8 *)arg0 + 0xC8) + 0x888);
 }
 
 #pragma push
 #pragma fp_contract on
-void render__17TOHangerMachine01Fv(u8 *arg0) {
+void TOHangerMachine01::render() {
+    u8 *arg0 = (u8 *)this;
     u8 *p;
     if (((VObj *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         p = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
         post_translate_matrix((void *) (p + 8));
         draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
@@ -142,7 +139,7 @@ void render__17TOHangerMachine01Fv(u8 *arg0) {
 }
 #pragma pop
 
-void *create__17TOHangerMachine01FPv(void *arg0) {
+void *TOHangerMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xCC);
     if (o != NULL) {
         o = TOHangerMachine01__ct((u8 *)(o), (s32)(arg0));
@@ -152,7 +149,7 @@ void *create__17TOHangerMachine01FPv(void *arg0) {
 
 extern u32 TOHangerMachine01__bml_resource;
 
-void free_static_model__17TOHangerMachine01Fv(void) {
+void TOHangerMachine01::free_static_model() {
     if ((u32) TOHangerMachine01__bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOHangerMachine01__bml_resource, 1);
         TOHangerMachine01__bml_resource = 0U;
@@ -161,10 +158,10 @@ void free_static_model__17TOHangerMachine01Fv(void) {
 
 extern s32 __vt__17TOHangerMachine01[];
 
-void load_shared_resource__17TOHangerMachine01Fv(void) {
+void TOHangerMachine01::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_hanger_moto_resource_descriptor.value, 0, 0, 0));
@@ -177,7 +174,7 @@ void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOHangerMachine01;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -201,12 +198,12 @@ u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     init_collision_body_parts((void *) (arg0), (void *) (&hanger_machine01_collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0xC8) = 0;
     return arg0;
 }
 
-s32 is_valid_slot__17TOHangerMachine01FiUs(int arg0, u16 arg1) {
+s32 TOHangerMachine01::is_valid_slot(int arg0, u16 arg1) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         return 1;
     }

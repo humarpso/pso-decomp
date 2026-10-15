@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 struct Vec_80108164 { f32 x, y, z; };
 
 struct Base_80108164 { u8 pad[0x18]; };
@@ -102,13 +103,12 @@ void play_sound_effect(u32, void *, s32, s32);
 f32 xyz_distance(Vec_80108164 *, Vec_80108164 *);
 Player_80108164 *get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(u32);
-Quest_80108164 *get_quest_id__12TQuestListVMFPv(Player_80108164 *);
+Quest_80108164 *get_quest_id__12TQuestListVMFv(Player_80108164 *);
 extern const f32 lbl_805DAB04;
 extern const f32 lbl_805DAB08;
-void spawn_appearance_effect__10TObjPlayerFi(s32 idx);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 create_particle_emitter(void *, s32);
-void get_item_params__9TItemLoadFPvPvPv(void *, void *, void *);
+void get_item_params__9TItemLoadFPlPlPl(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, s32);
 void construct_actor_light_task(void *, void *, void *, s32, u8 *, f32, s32);
@@ -133,7 +133,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     self->vt = __vt__13TItemEffArmor;
     self->f0 = TItemEffArmor__class_name;
     self->f24 = lbl_805DAAF8;
-    get_item_params__9TItemLoadFPvPvPv(self->f70, self->f78, self->f74);
+    get_item_params__9TItemLoadFPlPlPl(self->f70, self->f78, self->f74);
     self->f28 = a;
     self->f58 = b;
     self->f6C = obj;
@@ -153,10 +153,10 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     return self;
 }
 
-void spawn_appearance_effect__10TObjPlayerFi(s32 idx) {
+void TObjPlayer::spawn_appearance_effect(s32 idx) {
     Player_80108164 *p = get_player_by_client_id(idx);
     if (p != 0) {
-        Quest_80108164 *q = get_quest_id__12TQuestListVMFPv(p);
+        Quest_80108164 *q = get_quest_id__12TQuestListVMFv(p);
         if (q != 0) {
             f32 v = q->f10;
             Vec_80108164 a;

@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3.h"
 
 extern "C" {
 
-void reset_timer__11TBoss4Type3FPv(void* p);
-
-void reset_timer__11TBoss4Type3FPv(void* p) { *(s32*)((char*)p + 0x1c) = 0; }
+void TBoss4Type3::reset_timer() { *(s32*)((char*)this + 0x1c) = 0; }
 
 }

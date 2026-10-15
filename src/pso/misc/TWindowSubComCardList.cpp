@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
+#include "pso/misc/TWindowSubCustomEquip.h"
 
 struct Win_802758C8 {
     u8 pad0[0x20];
@@ -38,7 +40,7 @@ void get_technique_name(u16);
 s32 weapon_has_extra_attack();
 u8 *get_player_by_client_id(s32);
 u8 get_cast_technique_level(void *, s16);
-s32 validate_and_clear_slot__10TObjPlayerFPv(void *, s16);
+s32 validate_and_clear_slot__10TObjPlayerFv(void *, s16);
 void append_text_space();
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append();
@@ -47,18 +49,18 @@ u8 *calc_technique_parameters(u16, u8, s32);
 s32 get_palette_consumable_count(u16, s32);
 void get_help_text_string(s32);
 void toggle_help_window_on_button(s32, s32);
-void send_and_handle__6TLobbyFPvii(s32, s32, s32);
+void send_and_handle__6TLobbyFii(s32, s32, s32);
 extern s32 current_language;
 void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
 s32 get_card_entry__17TWindowSubComCardFi(s32);
 s32 count_active_cards__17TWindowSubComCardFv(void);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-s32 set_flag70_bit10__16TObjCityMainWarpFPv(void *);
-s32 set_selected_index__17TWindowSubComCardFPvs(void *, s32);
-s32 set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
+s32 set_flag70_bit10__16TObjCityMainWarpFv(void *);
+s32 set_selected_index__17TWindowSubComCardFs(void *, s32);
+s32 set_scroll_target__17TWindowSubComCardFff(void *, f32, f32);
 void TWindowMenu__ct(void *, s32, s32, void *);
-s32 set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
-void *init__21TWindowSubComCardListFPviii(void *, s32, s8, s32);
+s32 set_flag70_bit100__17TWindowOptionCtrlFv(void *);
+void *init__21TWindowSubComCardListFiii(void *, s32, s8, s32);
 s32 TWindowSubComCardList__sub_80275360(void *);
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 extern s32 __vt__21TWindowSubComCardList[];
@@ -69,13 +71,13 @@ extern const f32 lbl_805DD544;
 extern const f32 lbl_805DD548;
 u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1);
 s32 count_leading_active__17TWindowSubComCardFPvi(s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-s32 set_flag70_bit10__16TObjCityMainWarpFPv(void *);
-s32 set_selected_index__17TWindowSubComCardFPvs(void *, s32);
-s32 set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
+s32 set_flag70_bit10__16TObjCityMainWarpFv(void *);
+s32 set_selected_index__17TWindowSubComCardFs(void *, s32);
+s32 set_scroll_target__17TWindowSubComCardFff(void *, f32, f32);
 void TWindowMenu__ct(void *, s32, s32, void *);
-s32 set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
-void *init__21TWindowSubComCardListFPviii(void *, s32, s8, s32);
+s32 set_flag70_bit100__17TWindowOptionCtrlFv(void *);
+void *init__21TWindowSubComCardListFiii(void *, s32, s8, s32);
 s32 TWindowSubComCardList__sub_80275360(void *);
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 extern s32 __vt__21TWindowSubComCardList[];
@@ -87,19 +89,18 @@ extern const f32 lbl_805DD548;
 u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3, s8 arg4);
 void *__nw__7TObjectFUl(u32);
 s32 TWindow__close(void *);
-s32 set_field_1c__6TLobbyFPvf(void *);
+s32 set_field_1c__6TLobbyFf(void *);
 s32 TWindowSubEquip__sub_80263AF8(void *, s32);
 void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
-s32 is_active__22TWindowSubCustomSelectFPv(void *);
+s32 is_active__22TWindowSubCustomSelectFv(void *);
 s32 fn_80275D90(void *);
-s32 is_selected__21TWindowSubCustomEquipFPv(s32);
+s32 is_selected__21TWindowSubCustomEquipFv(s32);
 s32 TWindowSubCustomEquip__sub_80275DA8(s32);
-s32 clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(s32);
-s32 get_cursor_pos__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
-s32 toggle_action_binding__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
-Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFPv(void *);
+s32 clear_flag_and_set_entry_state__21TWindowSubCustomEquipFv(s32);
+s32 get_cursor_pos__21TWindowSubCustomEquipFPv(s32, Ev_802758C8 *);
+s32 toggle_action_binding__21TWindowSubCustomEquipFPv(s32, Ev_802758C8 *);
+Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFv(void *);
 void *TWindowSubCustomSelect__ct(void *, s32);
-void update_customize_state__21TWindowSubCustomEquipFPv(Self_80275A8C *self);
 }
 
 extern "C" {
@@ -107,7 +108,6 @@ extern "C" {
 void TWindowSubCustomEquip__sub_80275A88(void);
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1);
 void render__21TWindowSubComCardListFv(u8 *arg0);
-void run_task__21TWindowSubComCardListFv(void *arg0);
 s32 handle_list_page_flip_input(s32);
 s32 TWindowSubComCardList__sub_80275360(void *);
 s32 draw_window_frame(void *, s32);
@@ -118,11 +118,11 @@ void __dl__7TObjectFPv(void *);
 void __dt__11TWindowMenuFv(void *, int);
 void delete_if_allocated(void *, int);
 s32 draw_card_list_selection(void *, s32);
-s32 forward_render__20TWindowSubStatusDispFPv(s32, s32);
-s32 is_visible__17TWindowSubComCardFPv(void *);
-s32 render_selected_entry__17TWindowSubComCardFPvi(void *, s32);
+s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
+s32 is_visible__17TWindowSubComCardFv(void *);
+s32 render_selected_entry__17TWindowSubComCardFl(void *, s32);
 s32 run_task__11TWindowMenuFv();
-s32 set_selected_index__17TWindowSubComCardFPvs(void *, s32);
+s32 set_selected_index__17TWindowSubComCardFs(void *, s32);
 
 void render__21TWindowSubComCardListFv(u8 *arg0) {
     s32 temp_r3;
@@ -130,21 +130,21 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    render_selected_entry__17TWindowSubComCardFPvi(arg0, temp_r3);
+    render_selected_entry__17TWindowSubComCardFl(arg0, temp_r3);
     draw_card_list_selection(arg0, temp_r3);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x88) != 0U) {
-        forward_render__20TWindowSubStatusDispFPv(*(s32 *)((s8 *)arg0 + 0x88), temp_r3);
+        forward_render__20TWindowSubStatusDispFv(*(s32 *)((s8 *)arg0 + 0x88), temp_r3);
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x8C) != 0U) {
         draw_list_page_indicator(*(s32 *)((s8 *)arg0 + 0x8C), temp_r3);
     }
 }
 
-void run_task__21TWindowSubComCardListFv(void *arg0) {
+void TWindowSubComCardList::run_task() {
     run_task__11TWindowMenuFv();
-    if ((is_visible__17TWindowSubComCardFPv(arg0) == 0) && (handle_list_page_flip_input(*(s32 *)((s8 *)arg0 + 0x8C)) != 0)) {
-        set_selected_index__17TWindowSubComCardFPvs(arg0, 0);
-        TWindowSubComCardList__sub_80275360(arg0);
+    if ((is_visible__17TWindowSubComCardFv(this) == 0) && (handle_list_page_flip_input(*(s32 *)((s8 *)this + 0x8C)) != 0)) {
+        set_selected_index__17TWindowSubComCardFs(this, 0);
+        TWindowSubComCardList__sub_80275360(this);
     }
 }
 
@@ -172,20 +172,20 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     if (n <= 0) {
         n = 1;
     }
-    list = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
+    list = alloc__23TAdSinglePlyChrSelectGCFv(0xC);
     if (list != NULL) {
-        list = init__21TWindowSubComCardListFPviii(list, 0, n, local_client_id);
+        list = init__21TWindowSubComCardListFiii(list, 0, n, local_client_id);
     }
     *(void **)(arg0 + 0x8C) = list;
     *(s32 *)(arg0 + 0x90) = 0;
     *(s32 *)(arg0 + 0x94) = get_card_entry__17TWindowSubComCardFi(0);
     *(s32 *)(arg0 + 0x98) = 0xD2;
     *(s8 *)(arg0 + 0x9C) = 0;
-    set_flag70_bit100__17TWindowOptionCtrlFPv(arg0);
-    set_selected_index__17TWindowSubComCardFPvs(arg0, 0);
+    set_flag70_bit100__17TWindowOptionCtrlFv(arg0);
+    set_selected_index__17TWindowSubComCardFs(arg0, 0);
     TWindowSubComCardList__sub_80275360(arg0);
-    set_flag70_bit10__16TObjCityMainWarpFPv(arg0);
-    set_scroll_target__17TWindowSubComCardFPvff(arg0, lbl_805DD544, lbl_805DD548);
+    set_flag70_bit10__16TObjCityMainWarpFv(arg0);
+    set_scroll_target__17TWindowSubComCardFff(arg0, lbl_805DD544, lbl_805DD548);
     return arg0;
 }
 
@@ -199,20 +199,20 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     if (n <= 0) {
         n = 1;
     }
-    list = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
+    list = alloc__23TAdSinglePlyChrSelectGCFv(0xC);
     if (list != NULL) {
-        list = init__21TWindowSubComCardListFPviii(list, 0, n, local_client_id);
+        list = init__21TWindowSubComCardListFiii(list, 0, n, local_client_id);
     }
     *(void **)(arg0 + 0x8C) = list;
     *(s32 *)(arg0 + 0x90) = arg2;
     *(s32 *)(arg0 + 0x94) = 0;
     *(s32 *)(arg0 + 0x98) = arg3;
     *(s8 *)(arg0 + 0x9C) = arg4;
-    set_flag70_bit100__17TWindowOptionCtrlFPv(arg0);
-    set_selected_index__17TWindowSubComCardFPvs(arg0, 0);
+    set_flag70_bit100__17TWindowOptionCtrlFv(arg0);
+    set_selected_index__17TWindowSubComCardFs(arg0, 0);
     TWindowSubComCardList__sub_80275360(arg0);
-    set_flag70_bit10__16TObjCityMainWarpFPv(arg0);
-    set_scroll_target__17TWindowSubComCardFPvff(arg0, lbl_805DD544, lbl_805DD548);
+    set_flag70_bit10__16TObjCityMainWarpFv(arg0);
+    set_scroll_target__17TWindowSubComCardFff(arg0, lbl_805DD544, lbl_805DD548);
     return arg0;
 }
 
@@ -244,7 +244,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
         text_builder_append();
         break;
     case 3:
-        if (validate_and_clear_slot__10TObjPlayerFPv(pl + 0x428, ev->id) != 0) {
+        if (validate_and_clear_slot__10TObjPlayerFv(pl + 0x428, ev->id) != 0) {
             break;
         }
         get_technique_name(ev->id);
@@ -274,11 +274,12 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
     case 7:
         break;
     }
-    send_and_handle__6TLobbyFPvii(self->lobby, get_shared_text_buffer(), 0x82);
+    send_and_handle__6TLobbyFii(self->lobby, get_shared_text_buffer(), 0x82);
 }
 
 void TWindowSubCustomEquip__sub_80275A88(void) {  }
-void update_customize_state__21TWindowSubCustomEquipFPv(Self_80275A8C *self) {
+void TWindowSubCustomEquip::update_customize_state() {
+    Self_80275A8C *self = (Self_80275A8C *)this;
     Ev_802758C8 ev;
     void *p;
     switch (self->state) {
@@ -288,15 +289,15 @@ void update_customize_state__21TWindowSubCustomEquipFPv(Self_80275A8C *self) {
             TWindow__close(self->f2c);
             self->f2c = NULL;
         }
-        clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(self->f28);
+        clear_flag_and_set_entry_state__21TWindowSubCustomEquipFv(self->f28);
         self->state = 2;
     case 2:
-        get_cursor_pos__21TWindowSubCustomEquipFPvPv(self->f28, &ev);
+        get_cursor_pos__21TWindowSubCustomEquipFPv(self->f28, &ev);
         update_customize_help_text((Win_802758C8 *)self, &ev);
         if (TWindowSubCustomEquip__sub_80275DA8(self->f28) != 0) {
             self->f24->v7();
             self->state = 5;
-        } else if (is_selected__21TWindowSubCustomEquipFPv(self->f28) != 0) {
+        } else if (is_selected__21TWindowSubCustomEquipFv(self->f28) != 0) {
             self->state = 3;
         }
         break;
@@ -307,16 +308,16 @@ void update_customize_state__21TWindowSubCustomEquipFPv(Self_80275A8C *self) {
         }
         self->f2c = p;
         TWindowSubEquip__sub_80263AF8(self->f24, 1);
-        set_field_1c__6TLobbyFPvf(self->f2c);
+        set_field_1c__6TLobbyFf(self->f2c);
         self->state = 4;
     case 4:
-        update_customize_help_text((Win_802758C8 *)self, calc_equip_index__21TWindowSubCustomEquipFPv(self->f2c));
+        update_customize_help_text((Win_802758C8 *)self, calc_equip_index__21TWindowSubCustomEquipFv(self->f2c));
         if (fn_80275D90(self->f2c) != 0) {
             self->state = 1;
         }
-        if (is_active__22TWindowSubCustomSelectFPv(self->f2c) != 0) {
-            Ev_802758C8 *e = calc_equip_index__21TWindowSubCustomEquipFPv(self->f2c);
-            toggle_action_binding__21TWindowSubCustomEquipFPvPv(self->f28, e);
+        if (is_active__22TWindowSubCustomSelectFv(self->f2c) != 0) {
+            Ev_802758C8 *e = calc_equip_index__21TWindowSubCustomEquipFv(self->f2c);
+            toggle_action_binding__21TWindowSubCustomEquipFPv(self->f28, e);
             self->state = 1;
         }
         break;

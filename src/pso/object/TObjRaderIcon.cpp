@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjRaderIcon.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -26,15 +27,12 @@ extern s32 lbl_805D3418;
 u8 *TObjRaderIcon__ct(u8 *arg0, s32 arg1, s32 arg2);
 void add_radar_scaled_gate(void *, u32, u16, s32, s32, f32);
 u8 is_current_floor_switch_set(u16);
-void run_task__13TObjRaderIconFv(Icon_80197110 *arg0);
-void initialize_from_placement__13TObjRaderIconFv(u8 *arg0);
 }
 
 extern "C" {
 
 void *TObjRaderIcon__create(void *arg0);
 void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1);
-void render__13TObjRaderIconFv(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -49,11 +47,12 @@ void *TObjRaderIcon__create(void *arg0) {
     return o;
 }
 
-void render__13TObjRaderIconFv(void) {  }
+void TObjRaderIcon::render() {  }
 
 extern s32 __vt__13TObjRaderIcon[];
 
-void run_task__13TObjRaderIconFv(Icon_80197110 *arg0) {
+void TObjRaderIcon::run_task() {
+    Icon_80197110 *arg0 = (Icon_80197110 *)this;
     s32 all;
     s32 i;
     switch (arg0->f90) {
@@ -76,7 +75,8 @@ void run_task__13TObjRaderIconFv(Icon_80197110 *arg0) {
     }
 }
 
-void initialize_from_placement__13TObjRaderIconFv(u8 *arg0) {
+void TObjRaderIcon::initialize_from_placement() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     *(s32 *)((s8 *)arg0 + 0x90) = 0;
     *(s32 *)((s8 *)arg0 + 0x94) = 1;
@@ -127,7 +127,7 @@ u8 *TObjRaderIcon__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019733C___vt__13TObjRaderIcon *)&__vt__13TObjRaderIcon).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3418;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    initialize_from_placement__13TObjRaderIconFv((u8 *)((void *) (arg0)));
+    ((TObjRaderIcon *)arg0)->initialize_from_placement();
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }

@@ -39,7 +39,7 @@ void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *arg0);
 void handle_confirm__26TShopEquipmentGearSequenceFPv(void *arg0);
 void open_gear_shop__26TShopEquipmentGearSequenceFPv(struct VObj_8021B288 *arg0);
 void try_close__26TShopEquipmentGearSequenceFPv(void *arg0);
-s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -61,7 +61,7 @@ struct VObj_8021B288 : Base_8021B288 {
 void open_gear_shop__26TShopEquipmentGearSequenceFPv(struct VObj_8021B288 *arg0) {
     if (arg0 != NULL) {
         arg0->m4(0x1B, 1);
-        set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(7));
+        set_field_20__12TQuestListVMFl((void *)(arg0), (s32)(7));
         lbl_805D6218 = 0x1A;
         lbl_805D621C = 2;
     }
@@ -71,7 +71,7 @@ void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *arg0) {
     struct VObj_8021B2E8 *o = (struct VObj_8021B2E8 *)arg0;
     if (o != NULL) {
         o->m4(0x1A, 1);
-        set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(2));
+        set_field_20__12TQuestListVMFl((void *)(arg0), (s32)(2));
     }
 }
 
@@ -81,7 +81,7 @@ extern s32 lbl_805D621C;
 void handle_confirm__26TShopEquipmentGearSequenceFPv(void *arg0) {
     if ((((VObj_8021B338*)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_8021B338*)arg0)->m4(lbl_805D6218, 1);
-        set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(lbl_805D621C));
+        set_field_20__12TQuestListVMFl((void *)(arg0), (s32)(lbl_805D621C));
     }
 }
 

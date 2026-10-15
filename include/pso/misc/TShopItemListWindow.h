@@ -22,6 +22,11 @@ struct TShopItemListWindow
     u32 m_54;
     u8 _pad58[0x168];
     u32 m_1c0;
+    s32 handle_confirm();
+    s32 update();
+    static s32 handle_tool_list_select(void *p);
+    s32 check_purchase_eligibility();
+    static void build_item_list(void *p);
 };
 
 #endif

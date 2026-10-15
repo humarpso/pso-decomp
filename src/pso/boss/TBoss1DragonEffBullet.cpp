@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss1Dragon.h"
+#include "pso/boss/TBoss1DragonEffBullet.h"
 
 struct RecoveredGlobal_8002BCE0_lbl_80435410 {
     s32 value;
@@ -36,9 +38,8 @@ s32 isV2Mode__12TBoss1DragonFv(void);
 extern RecoveredGlobal_8002BCE0_lbl_80435410 lbl_80435410;
 extern RecoveredGlobal_8002BCE0_lbl_8043541C lbl_8043541C;
 extern s32 *dragon_fireball_particle_ids;
-void select_fireball_particle_table__12TBoss1DragonFv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
+f32 update_scale__15TObjBoss2TunnelFv(void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 subtract_vector(void *, void *);
@@ -51,28 +52,27 @@ s32 apply_fireball_impact_damage__12TBoss1DragonFPvi(int, void *);
 s32 get_instance__12TBoss1DragonFv();
 s32 spawn_particle_effect_with_flags(void *, int, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 copy_pos__11TNowLoadingFPv(int, void *);
 s32 play_sound_effect(int, void *, int, int);
 extern s32 *dragon_fireball_particle_ids;
 extern const f32 lbl_805D8140;
-void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *arg0);
 }
 
 extern "C" {
 
 void *__dt__21TBoss1DragonEffBulletFv(void *arg0, s16 arg1);
-void render__21TBoss1DragonEffBulletFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-void render__21TBoss1DragonEffBulletFv(void) {  }
+void TBoss1DragonEffBullet::render() {  }
 
 extern s32 __vt__21TBoss1DragonEffBullet[];
 
 #pragma push
 #pragma fp_contract on
-void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *arg0) {
+void TBoss1DragonEffBullet::run_task() {
+    struct RecoveredFields_8002B9D0_arg0 *arg0 = (struct RecoveredFields_8002B9D0_arg0 *)this;
     f32 temp_f0;
     f32 temp_f1;
     f32 var_f2;
@@ -101,11 +101,11 @@ void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *a
         }
         temp_r3 = (u8 *)(arg0->field_44);
         if (temp_r3 != NULL) {
-            copy_pos__11TNowLoadingFPvPv((s32) temp_r3, &arg0->field_1C);
+            copy_pos__11TNowLoadingFPv((s32) temp_r3, &arg0->field_1C);
         }
         temp_r3_2 = (u8 *)(arg0->field_48);
         if (temp_r3_2 != NULL) {
-            copy_pos__11TNowLoadingFPvPv((s32) temp_r3_2, &arg0->field_1C);
+            copy_pos__11TNowLoadingFPv((s32) temp_r3_2, &arg0->field_1C);
         }
         return;
     case 1:
@@ -164,7 +164,7 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg3));
     subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
-    *(f32 *)((s8 *)arg0 + 0x40) = update_scale__15TObjBoss2TunnelFPv((void *) (arg0 + 0x28));
+    *(f32 *)((s8 *)arg0 + 0x40) = update_scale__15TObjBoss2TunnelFv((void *) (arg0 + 0x28));
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8144;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
@@ -174,7 +174,7 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
-void select_fireball_particle_table__12TBoss1DragonFv(void) {
+void TBoss1Dragon::select_fireball_particle_table() {
     s32 temp_r3;
     temp_r3 = isV2Mode__12TBoss1DragonFv();
     switch (temp_r3) {

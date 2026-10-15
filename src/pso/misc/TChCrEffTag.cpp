@@ -20,20 +20,19 @@ extern RecoveredGlobal_8029AA74_lbl_804652A4 lbl_804652A4;
 extern s32 TChCrEffTag__selected_heading;
 extern const f32 lbl_805DDC90;
 extern const f32 lbl_805DDC94;
-void refresh_label__11TChCrEffTagFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void render__11TChCrEffTagFv(void* p);
 int restore_saved_depth_alpha_state(void);
 int draw_chcr_tag_heading_frame(void*);
 int draw_chcr_tag_frame(void*);
 int set_depth_buffer_settings_1__Fv(void*);
 
-void render__11TChCrEffTagFv(void* p) { set_depth_buffer_settings_1__Fv(p); draw_chcr_tag_frame(p); draw_chcr_tag_heading_frame(p); restore_saved_depth_alpha_state(); }
+void TChCrEffTag::render() { set_depth_buffer_settings_1__Fv(this); draw_chcr_tag_frame(this); draw_chcr_tag_heading_frame(this); restore_saved_depth_alpha_state(); }
 typedef char RecoveredGlobal_8029AA74_lbl_804652A4_size[sizeof(RecoveredGlobal_8029AA74_lbl_804652A4) == 0x34 ? 1 : -1];
-void refresh_label__11TChCrEffTagFPv(u8 *arg0) {
+void TChCrEffTag::refresh_label() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_8029AA74, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8029AA74, spC) == 0x4) ? 1 : -1];
     Stack_8029AA74 stack;
@@ -56,7 +55,7 @@ void refresh_label__11TChCrEffTagFPv(u8 *arg0) {
 }
 
 extern "C" {
-s32 get_creation_sprite_id__14TObjCMMainMenuFi(int);
+s32 get_creation_sprite_id__14TObjCMMainMenuFl(int);
 extern const f32 lbl_805DDC98,lbl_805DDC9C,lbl_805DDCA0,lbl_805DDCA4,lbl_805DDCA8;
 }
 #pragma push
@@ -71,12 +70,12 @@ void TChCrEffTag::run_task()
   s32 temp_r0;
   if (((s32) heading) != ((s32) TChCrEffTag__selected_heading))
   {
-    refresh_label__11TChCrEffTagFPv((u8*)this);
+    refresh_label();
   }
   temp_r0 = heading;
   if (temp_r0 >= 0)
   {
-    targetWidth = (f32) (lbl_805DDC98 + ((f32) get_creation_sprite_id__14TObjCMMainMenuFi((int) ((s32*)&lbl_804652A4)[temp_r0])));
+    targetWidth = (f32) (lbl_805DDC98 + ((f32) get_creation_sprite_id__14TObjCMMainMenuFl((int) ((s32*)&lbl_804652A4)[temp_r0])));
   }
   width = width;
   temp_f2 = width;

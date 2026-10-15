@@ -15,16 +15,16 @@ extern u32 local_client_id;
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
 void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1);
-void tmp_buf_release__6TLobbyFi(char *);
-void *tmp_buf_use_req__6TLobbyFPv(char *);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
-void *alloc__22TQuestVmDownLoadServerFPv(void);
+void tmp_buf_release__6TLobbyFv(char *);
+void *tmp_buf_use_req__6TLobbyFPCc(char *);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(void *);
+void *alloc__22TQuestVmDownLoadServerFv(void);
 void pump_frames__6TLobbyFv(void);
-s32 get_resource_file_size__6TLobbyFPv(char *);
-void load_sct_file__8TGStreamFii(char *, void *);
-void debug_print__6TLobbyFii(const char *, ...);
+s32 get_resource_file_size__6TLobbyFv(char *);
+void load_sct_file__8TGStreamFll(char *, void *);
+void debug_print__6TLobbyFle(const char *, ...);
 void change_file_extension__6TLobbyFPvPvPv(s32, char *, char *);
-s32 compare_file_extension__6TLobbyFPvPv(char *, char *);
+s32 compare_file_extension__6TLobbyFPCc(char *, char *);
 char *strncpy(char *, const char *, u32);
 s32 load_gvm_texture_archive(void *, s32);
 extern char texture_pvm_not_found_format[];
@@ -34,7 +34,7 @@ extern char lbl_805DC448[4];
 s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1);
 void run_frame__6TLobbyFv(void);
 void pump_frames__6TLobbyFv(void);
-void debug_print__6TLobbyFii(const char *, ...);
+void debug_print__6TLobbyFle(const char *, ...);
 s32 load_texture_list(s32 **);
 extern char pso_texture_load_error_format[];
 s32 pso_load_texture__6TLobbyFPv(s32 **arg0);
@@ -52,7 +52,7 @@ int bswap_16__FPUs(void*);
 s32 bswap_32__FPUl(s32 *);
 s32 append_command_to_batch_buffer(void *, s32);
 s32 get_main_phase();
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 s32 send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
 
 extern u32 local_client_id;
@@ -157,7 +157,7 @@ void update_players__6TLobbyFi(s32 arg0) {
     lbl_805D5E50 = 0;
 }
 
-void bswap_switch_activate_token__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void bswap_switch_activate_token__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1) {
     char path[0x40];
     void *buf;
@@ -166,33 +166,33 @@ s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1) {
     s32 ret;
     pump_frames__6TLobbyFv();
     strncpy(path, name, 0x40);
-    if (compare_file_extension__6TLobbyFPvPv(path, lbl_805DC448) != 0) {
+    if (compare_file_extension__6TLobbyFPCc(path, lbl_805DC448) != 0) {
         change_file_extension__6TLobbyFPvPvPv(0, path, lbl_805DC448);
     }
-    size = get_resource_file_size__6TLobbyFPv(path);
+    size = get_resource_file_size__6TLobbyFv(path);
     if (size <= 0) {
-        debug_print__6TLobbyFii(texture_pvm_not_found_format, name);
+        debug_print__6TLobbyFle(texture_pvm_not_found_format, name);
         return -1;
     }
     allocated = 0;
     if (((size + 0x7FF) / 2048) * 2048 > 0x40000) {
-        buf = alloc__22TQuestVmDownLoadServerFPv();
+        buf = alloc__22TQuestVmDownLoadServerFv();
         if (buf == NULL) {
             return -1;
         }
         allocated = 1;
     } else {
-        buf = tmp_buf_use_req__6TLobbyFPv(lbl_804497C4);
+        buf = tmp_buf_use_req__6TLobbyFPCc(lbl_804497C4);
     }
-    load_sct_file__8TGStreamFii(path, buf);
+    load_sct_file__8TGStreamFll(path, buf);
     ret = load_gvm_texture_archive(buf, arg1);
     if (allocated != 0) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(buf);
     } else {
-        tmp_buf_release__6TLobbyFi(lbl_804497C4);
+        tmp_buf_release__6TLobbyFv(lbl_804497C4);
     }
     if (ret < 0) {
-        debug_print__6TLobbyFii(texture_pvm_load_error_format, name);
+        debug_print__6TLobbyFle(texture_pvm_load_error_format, name);
     }
     return ret;
 }
@@ -208,7 +208,7 @@ s32 pso_load_texture__6TLobbyFPv(s32 **arg0) {
         }
         if (r == -1) {
             ret = -1;
-            debug_print__6TLobbyFii(pso_texture_load_error_format, **arg0);
+            debug_print__6TLobbyFle(pso_texture_load_error_format, **arg0);
             break;
         }
         run_frame__6TLobbyFv();

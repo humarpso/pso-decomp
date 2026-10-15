@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void * construct_nug2000_bazooka__10TObjPlayerFPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_nug2000_bazooka__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -18,20 +17,21 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern s32 lbl_804E71F8[];
 
-void *construct_nug2000_bazooka__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
-    TItemWeapon__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E71F8;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 2);
-    return arg0;
+void *TObjPlayer::construct_nug2000_bazooka(s32 _w1, void * _w2) {
+    TItemWeapon__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804E71F8;
+    set_status_flags__10TObjPlayerFPvUi(this, 2);
+    return this;
 }
-u8 *create_nug2000_bazooka__10TObjPlayerFPv(u8 *arg0) {
+u8 *TObjPlayer::create_nug2000_bazooka() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)construct_nug2000_bazooka__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TObjPlayer *)temp_r3)->construct_nug2000_bazooka((s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }

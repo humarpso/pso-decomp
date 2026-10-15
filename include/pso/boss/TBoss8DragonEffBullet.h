@@ -18,6 +18,8 @@ struct TBoss8DragonEffBullet
     u32 m_4c;
     u32 m_50;
     u32 m_54;
+    static void render();
+    void run_task();
 };
 
 #endif

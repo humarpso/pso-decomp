@@ -30,7 +30,7 @@ void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
 extern Vec_80232934 lbl_8044D5A8;
@@ -71,7 +71,7 @@ void grants_flash_render(Obj_80232934 *arg0) {
     post_translate_matrix(arg0->f20);
     scale_matrix(0, arg0->pos.x, arg0->pos.y, arg0->pos.z);
     translate_matrix(0, lbl_805DC844, lbl_805DC848, lbl_805DC844);
-    set_global_param__8TObjFishFi(lbl_804CC868);
+    set_global_param__8TObjFishFl(lbl_804CC868);
     get_bml_model(technique_effect_bml, 10);
     draw_ginja_object();
     pop_matrix();

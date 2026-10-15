@@ -10,7 +10,7 @@ void free_buffer__6TLobbyFv(void);
 void init_graph__6TLobbyFv(void);
 u32 create__8TDLGraphFv();
 int queue_destruction__7TObjectFv(void*);
-s32 set_graph_param__8TDLGraphFPvi(s32, s32);
+s32 set_graph_param__8TDLGraphFl(s32, s32);
 void xfree__FPv(void*);
 void alloc_buffer__6TLobbyFv(void);
 s32 xmalloc__FUl(s32);
@@ -20,13 +20,13 @@ void send_data__6TLobbyFi(s32 arg0);
 void update_alloc_size__6TLobbyFv(void);
 s32 load_from_aram_sync__16TAdWarningBaseGCFi(void*);
 u32 TAdWarningBaseGC__sub_8032D020();
-s32 update_graph__8TDLGraphFii(s32, s32);
+s32 update_graph__8TDLGraphFll(s32, s32);
 s32 read_disc_file(s32, u32);
 s32 TLobby__sub_801F34F8();
 int GBAInit(void*);
 s32 GBAGetProcessStatus(s32, u8 *);
 u32 get_alloc_size__16TAdWarningBaseGCFv();
-u32 update_lobby_scene__6TSceneFPv();
+u32 update_lobby_scene__6TSceneFv();
 
 extern u32 gba_download_data_buffer;
 extern u32 gba_download_graph;
@@ -47,7 +47,7 @@ void init_graph__6TLobbyFv(void) {
         temp_r3 = create__8TDLGraphFv();
         gba_download_graph = temp_r3;
         if (temp_r3 != 0U) {
-            set_graph_param__8TDLGraphFPvi(temp_r3, 2);
+            set_graph_param__8TDLGraphFl(temp_r3, 2);
         }
     }
 }
@@ -92,7 +92,7 @@ void gba_joyboot_transfer_callback(s32 arg0, s32 arg1) {
 void send_data__6TLobbyFi(s32 arg0) {
     u32 temp_r3;
 
-    temp_r3 = update_lobby_scene__6TSceneFPv();
+    temp_r3 = update_lobby_scene__6TSceneFv();
     gba_download_data_size = temp_r3;
     if (temp_r3 > 0x40000U) {
         gba_download_data_size = 0U;
@@ -132,7 +132,7 @@ u8 get_selected_slot__6TLobbyFv(void) {
             return 0U;
         }
         if ((u32) gba_download_graph != 0U) {
-            update_graph__8TDLGraphFii(sp8 + 1, 0x65);
+            update_graph__8TDLGraphFll(sp8 + 1, 0x65);
         }
         return sp8;
     }
@@ -142,6 +142,8 @@ u8 get_selected_slot__6TLobbyFv(void) {
 }
 
 #include "pso/network/GbaJoybootState.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdWarningBaseGC.h"
 
 struct DateStamp_8032C9A8 { s32 days; s32 mins; s32 ticks; };
 
@@ -168,16 +170,13 @@ extern s32 TLobby__data_805D6CCC;
 extern s32 gba_joyboot_send_buffer;
 extern u8 *TLobby__gba_joyboot_send_buffer;
 extern u8 gba_joyboot_status;
-s32 start_gba_joyboot__6TLobbyFv(void);
 void TLobby__sub_8032CDD0(void* p);
 extern s32 TLobby__data_805D6CCC;
 extern s32 gba_joyboot_send_buffer;
 extern u8 *TLobby__gba_joyboot_send_buffer;
 extern u8 gba_joyboot_status;
-void set_send_buffer__6TLobbyFPvi(u8 *arg0, s32 arg1);
 extern u8 *TLobby__gba_joyboot_send_buffer;
 extern const u8 lbl_805DF7A0[4];
-void calc_joyboot_checksum__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -185,7 +184,6 @@ extern "C" {
 void TLobby__sub_8032CDC0(void);
 void TLobby__sub_8032CDD0(void* p);
 void TLobby__sub_8032CDEC(void);
-int destroy__16TAdWarningBaseGCFv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
     extern unsigned char lbl_805D6CD9;
@@ -216,7 +214,7 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
-void calc_joyboot_checksum__6TLobbyFv(void) {
+void TLobby::calc_joyboot_checksum() {
     u8 *q;
     s32 i;
     u8 *data = TLobby__gba_joyboot_send_buffer;
@@ -235,7 +233,7 @@ void calc_joyboot_checksum__6TLobbyFv(void) {
     data[k] = c;
 }
 
-s32 start_gba_joyboot__6TLobbyFv(void) {
+s32 TLobby::start_gba_joyboot() {
     if (GBAJoyBootAsync(3, 0, 4, TLobby__gba_joyboot_send_buffer, gba_joyboot_send_buffer, &gba_joyboot_status, gba_joyboot_transfer_callback) == 0) {
         TLobby__data_805D6CCC = 3;
         return 1;
@@ -258,12 +256,12 @@ void update_gba_joyboot_transfer(void) {
     case 1:
         TLobby__sub_8032C9A8(*(u16 *)&lbl_805D6CDA - 1, lbl_805D6CD9);
         TLobby__sub_8032CDC0();
-        calc_joyboot_checksum__6TLobbyFv();
+        TLobby::calc_joyboot_checksum();
         TLobby__data_805434A8[0].phase = 2;
         break;
     case 2:
         if (TLobby__data_805434A8[0].device_present != 0) {
-            start_gba_joyboot__6TLobbyFv();
+            TLobby::start_gba_joyboot();
             if (TLobby__sub_801F34F8() != 1) {
                 TLobby__data_805434A8[0].phase = 3;
             }
@@ -286,7 +284,7 @@ void update_gba_joyboot_transfer(void) {
 #pragma push
 #pragma optimization_level 1
 #pragma dont_inline on
-void set_send_buffer__6TLobbyFPvi(u8 *arg0, s32 arg1) {
+void TLobby::set_send_buffer(u8 *arg0, s32 arg1) {
     TLobby__gba_joyboot_send_buffer = arg0;
     gba_joyboot_send_buffer = arg1;
     gba_joyboot_status = 0;
@@ -303,6 +301,6 @@ void TLobby__sub_8032CDD0(void* p) { *(s16*)((char*)p + 0x0) = 0; *(s16*)((char*
     extern int TAdWarningBaseGC__aram_alloc_size;
 void TLobby__sub_8032CDEC(void) { TAdWarningBaseGC__aram_alloc_size = 0; warning_aram_load_done_flag = 0; }
 
-int destroy__16TAdWarningBaseGCFv(void* p) { return queue_destruction__7TObjectFv(p); }
+int TAdWarningBaseGC::destroy() { return queue_destruction__7TObjectFv(this); }
 
 }

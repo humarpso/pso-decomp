@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjBgmColCtrl.h"
 
 struct Names_8017E1E4 { const char *name[2]; };
 
@@ -16,14 +17,11 @@ extern char lbl_804438F8[];
 extern char lbl_80443904[];
 extern u32 TLobby__event_theme_id;
 extern u32 TObjBgmColCtrl__current_theme_id;
-void play_lobby_theme_music__14TObjBgmColCtrlFv(void);
 }
 
 extern "C" {
 
-void render__14TObjBgmColCtrlFv(void);
-
-void play_lobby_theme_music__14TObjBgmColCtrlFv(void) {
+void TObjBgmColCtrl::play_lobby_theme_music() {
     Names_8017E1E4 names = lbl_80443898[0];
     const char *name;
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
@@ -66,6 +64,6 @@ void play_lobby_theme_music__14TObjBgmColCtrlFv(void) {
     }
 }
 
-void render__14TObjBgmColCtrlFv(void) {  }
+void TObjBgmColCtrl::render() {  }
 
 }

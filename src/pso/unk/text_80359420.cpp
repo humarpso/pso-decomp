@@ -97,7 +97,7 @@ struct O_803594B4 { u8 pad[0x1c]; s32 idx; E_803594B4 e[2]; };
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern RecoveredGlobal_80359420___vt__14TObjNpcNgcBase __vt__14TObjNpcNgcBase;
@@ -114,7 +114,7 @@ u8 *TObjNpcNgcBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjNpcNgcBase.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcNgcBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) (arg3), (int) (0));
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *) (arg3), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));

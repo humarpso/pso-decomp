@@ -26,6 +26,11 @@ struct TBoss3VoloptMonitor
     s16 m_38c;
     s16 m_38e;
     s16 m_390;
+    void update_state();
+    static void release();
+    static void load_resources();
+    static void *create(void *arg0);
+    void set_flags_30();
 };
 
 #endif

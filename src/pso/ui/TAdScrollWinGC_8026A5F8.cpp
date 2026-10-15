@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdScrollWinGC.h"
 
 struct RecoveredGlobal_8026A6DC_lbl_805187D8 {
     s32 value;
@@ -7,25 +9,24 @@ struct RecoveredGlobal_8026A6DC_lbl_805187D8 {
 
 extern "C" {
 void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0);
-int send_and_handle__6TLobbyFPvii(void *, int, int);
+int send_and_handle__6TLobbyFii(void *, int, int);
 s32 update_scroll_position__17TWindowMessageLogFPv(void *);
 void append_line__17TWindowMessageLogFPvi(u8 *arg0, s32 arg1);
 s32 heap_free__5THeapFPv(s32, void *);
 u8 *heap_alloc__5THeapFUl(s32, s32);
-s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
+s32 measure_string_len__20TWindowSubStatusDispFv(void *);
 s32 strncpy(int, void *, int);
 extern s32 current_language;
 extern s32 TAdScrollWinGC__chat_log_heap;
 extern u8 *chat_last_line_buffer;
 void cache_last_chat_line(u32 arg0);
 s32 heap_free__5THeapFPv(s32, void *);
-s32 move_words__6TLobbyFPvPvi(int, void *, void *);
+s32 move_words__6TLobbyFPUll(int, void *, void *);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 chat_log_lines;
 extern s32 TAdScrollWinGC__chat_log_heap;
 void chat_log_remove_line(s32 arg0);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 chat_log_lines;
 void chat_log_remove_line(s32 arg0);
-s32 find_free_chat_log_slot__6TLobbyFv(void);
 s32 strlen();
 void chat_log_add_line(s32 arg0);
 s32 chat_text_lacks_language_tag(const char *text);
@@ -34,18 +35,17 @@ s32 chat_text_lacks_language_tag(const char *text);
 extern "C" {
 
 void TAdScrollWinGC__sub_8026A5F8(void* a0);
-void advance_scroll__14TAdScrollWinGCFPvf(void* p, f32 v);
 void fn_8026A61C(void* p, f32 v);
 
     extern const float lbl_805DD240;
 void TAdScrollWinGC__sub_8026A5F8(void* a0) { *(float*)((char*)a0 + 0x84) = lbl_805DD240; *(float*)((char*)a0 + 0x6c) = lbl_805DD240; *(float*)((char*)a0 + 0x94) = lbl_805DD240; }
 
-void advance_scroll__14TAdScrollWinGCFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x94) += v; }
+void TAdScrollWinGC::advance_scroll(f32 v) { *(f32*)((char*)this + 0x94) += v; }
 
 void fn_8026A61C(void* p, f32 v) { *(f32*)((char*)p + 0x94) += v; }
 
 void append_line__17TWindowMessageLogFPvi(u8 *arg0, s32 arg1) {
-    send_and_handle__6TLobbyFPvii(arg0, arg1, 0x502);
+    send_and_handle__6TLobbyFii(arg0, arg1, 0x502);
     update_scroll_position__17TWindowMessageLogFPv((void *) (arg0));
 }
 
@@ -58,7 +58,7 @@ void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0) {
 
 typedef char RecoveredGlobal_8026A6DC_lbl_805187D8_size[sizeof(RecoveredGlobal_8026A6DC_lbl_805187D8) == 0x78 ? 1 : -1];
 
-s32 find_free_chat_log_slot__6TLobbyFv(void) {
+s32 TLobby::find_free_chat_log_slot() {
     s32 i;
     for (i = 0; i < 30; i++) {
         if (((char * *)&chat_log_lines)[i] == 0) {
@@ -78,7 +78,7 @@ void chat_log_remove_line(s32 arg0) {
         heap_free__5THeapFPv((s32)((void *) (TAdScrollWinGC__chat_log_heap)), (void *)((int) (temp_r4)));
         *temp_r31 = 0U;
         if (arg0 < 0x1D) {
-            move_words__6TLobbyFPvPvi((int) (temp_r31), (void *) ((u8 *)&chat_log_lines.value + ((arg0 + 1) * 4)), (void *) ((0x1D - arg0) & 0x3FFFFFFF));
+            move_words__6TLobbyFPUll((int) (temp_r31), (void *) ((u8 *)&chat_log_lines.value + ((arg0 + 1) * 4)), (void *) ((0x1D - arg0) & 0x3FFFFFFF));
         }
         *(s32 *)((s8 *)(&chat_log_lines.value) + 0x74) = 0;
     }
@@ -106,7 +106,7 @@ void cache_last_chat_line(u32 arg0) {
     }
     if (arg0 != 0U) {
         temp_r31 = chat_text_lacks_language_tag((const char *)((void *) (arg0)));
-        var_r30 = measure_string_len__20TWindowSubStatusDispFPv((void *) (arg0)) + 1;
+        var_r30 = measure_string_len__20TWindowSubStatusDispFv((void *) (arg0)) + 1;
         if (temp_r31 != 0) {
             var_r30 += 2;
         }
@@ -139,14 +139,14 @@ void chat_log_add_line(s32 arg0) {
     s32 var_r28;
     s32 var_r30;
     temp_r29 = strlen();
-    var_r30 = find_free_chat_log_slot__6TLobbyFv();
+    var_r30 = TLobby::find_free_chat_log_slot();
     var_r28 = (s32) heap_alloc__5THeapFUl(TAdScrollWinGC__chat_log_heap, temp_r29 + 1);
     if (var_r28 == 0) {
         do {
             chat_log_remove_line((s32) (0));
             var_r28 = (s32) heap_alloc__5THeapFUl(TAdScrollWinGC__chat_log_heap, temp_r29 + 1);
         } while (var_r28 == 0);
-        var_r30 = find_free_chat_log_slot__6TLobbyFv();
+        var_r30 = TLobby::find_free_chat_log_slot();
     }
     temp_r30 = var_r30 * 4;
     *(s32 *)((s8 *)((u8 *)(&chat_log_lines.value) + temp_r30) + 0) = var_r28;

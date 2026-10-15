@@ -7,10 +7,10 @@ u32 get_player_by_client_id(s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 s32 obj_testFlags30(u32, s32);
 void* get_window_layout_position(s32);
-void* set_window_mode_4__6TLobbyFPvii(void*, void*, s32);
-s32 set_field_1c__6TLobbyFPvf(void*, f32);
+void* set_window_mode_4__6TLobbyFPvll(void*, void*, s32);
+s32 set_field_1c__6TLobbyFf(void*, f32);
 void* TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 send_and_handle__6TLobbyFPvii(void*, void*, s32);
+s32 send_and_handle__6TLobbyFii(void*, void*, s32);
 s32 TWindow__close(u32);
 s32 mark_solo_win_closing__6TLobbyFv();
 s32 queue_destruction__7TObjectFv(void*);
@@ -41,10 +41,10 @@ s32 TObjSoloPlayWin::can_start_win_timer() {
     return 0;
 }
 void TObjSoloPlayWin::open_result_window() {
-    m_result_window = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3E), solo_play_result_window_extent, 1);
+    m_result_window = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0x3E), solo_play_result_window_extent, 1);
     if (m_result_window != 0) {
-        set_field_1c__6TLobbyFPvf(m_result_window, solo_play_result_window_depth);
-        send_and_handle__6TLobbyFPvii(m_result_window, TQuestVmDownLoadServer__sub_8006EF6C(0x5F), 2);
+        set_field_1c__6TLobbyFf(m_result_window, solo_play_result_window_depth);
+        send_and_handle__6TLobbyFii(m_result_window, TQuestVmDownLoadServer__sub_8006EF6C(0x5F), 2);
     }
 }
 void TObjSoloPlayWin::update_close_timer() {

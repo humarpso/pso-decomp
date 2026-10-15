@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TItemLoad.h"
 
 struct Base_801104C4_80110010 { char pad[0x18]; };
 struct VObj_801104C4_80110010 : Base_801104C4_80110010 {
@@ -23,13 +24,11 @@ struct Load_8011006C { void *buf; s32 f4; s32 f8; s32 fC; s32 f10; void *f14; };
 extern "C" {
 s32 TItemLoad__sub_801107E4(void *p);
 extern u32 TItemLoad__completed_model_load_task_root;
-s32 has_resource_id__9TItemLoadFi(s32 id);
 s32 TItemLoad__sub_801107E4(void *p);
 void *TItemLoad__sub_801107EC(void *p);
 extern u32 TItemLoad__completed_model_load_task_root;
-void *find_node_by_id__9TItemLoadFi(s32 id);
 Parm_8011029C *lookup_item_pmt_record(void *);
-void init__9TItemLoadFPvPvPvPvPv(void *, void *, s32, s32, s32);
+void init__9TItemLoadFPvPvPvPv(void *, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
 extern s16 lbl_8043E4C0[];
 extern s16 lbl_8043E4C8[];
@@ -40,8 +39,7 @@ s32 TItemLoad__sub_801107E4(void *p);
 extern u32 TItemLoad__completed_model_load_task_root;
 extern void *TItemLoad__model_load_task_root;
 extern s32 *TItemLoad__model_slot_in_use;
-void release_resource_by_id__9TItemLoadFi(s32 id);
-void *alloc_buffer__11TOBoss4RockFPv(u32);
+void *mem_alloc(u32);
 void TLobby__sub_801E3E9C(s32, s32, void *, s32);
 extern s32 lbl_8049F43C[];
 Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count);
@@ -50,18 +48,13 @@ Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 
 extern "C" {
 
 void *TItemLoad__sub_80110010(void *arg0, s16 arg1);
-void get_data_entry__9TItemLoadFiPv(s32 arg0, s32 *arg1);
-void get_item_params__9TItemLoadFPvPvPv(s32 *arg0, s32 *arg1, s32 *arg2);
-void get_model_ids__9TItemLoadFUcPvPv(u8 arg0, s32 *arg1, s32 *arg2);
-void lookup_item_data__9TItemLoadFiPv(s32 arg0, s32 *arg1);
-void update__9TItemLoadFv(void);
 s32 TItemLoad__sub_801107F4(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 __dl__FPv(void *);
-s32 free__11TOBoss4RockFUi(s32);
-s32 free_texture__9TItemLoadFPv(s32 *);
+s32 mem_free(s32);
+s32 free_texture__9TItemLoadFv(s32 *);
 s32 set_parent__7TObjectFP7TObject(void *, u32);
 s32 update_all__9TItemLoadFv();
 
@@ -70,8 +63,8 @@ extern s32 lbl_8049F43C[];
 void *TItemLoad__sub_80110010(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 *)((s8 *)arg0 + 0x14) = (s32)lbl_8049F43C;
-        free_texture__9TItemLoadFPv((s32 *)arg0);
-        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0));
+        free_texture__9TItemLoadFv((s32 *)arg0);
+        mem_free(*(s32 *)((s8 *)arg0 + 0));
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -84,7 +77,7 @@ extern s32 TItemLoad__bml_resource;
 Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count) {
     s32 n = (count + 1) * 2;
     self->f14 = lbl_8049F43C;
-    self->buf = alloc_buffer__11TOBoss4RockFPv((n + 0x116) & ~3);
+    self->buf = mem_alloc((n + 0x116) & ~3);
     self->f8 = arg2;
     self->f4 = 0;
     self->fC = 0;
@@ -93,7 +86,7 @@ Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 
     return self;
 }
 
-s32 has_resource_id__9TItemLoadFi(s32 id) {
+s32 TItemLoad::has_resource_id(s32 id) {
     Node_801100F0 *n;
     if (TItemLoad__completed_model_load_task_root != 0) {
         for (n = ((Node_801100F0 *)TItemLoad__completed_model_load_task_root)->child; n != NULL; n = n->next) {
@@ -105,7 +98,7 @@ s32 has_resource_id__9TItemLoadFi(s32 id) {
     return 0;
 }
 
-void get_data_entry__9TItemLoadFiPv(s32 arg0, s32 *arg1) {
+void TItemLoad::get_data_entry(s32 arg0, s32 *arg1) {
     if (arg1 != NULL) {
         *arg1 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
     }
@@ -113,7 +106,7 @@ void get_data_entry__9TItemLoadFiPv(s32 arg0, s32 *arg1) {
 
 extern s32 TItemLoad__bml_resource;
 
-void lookup_item_data__9TItemLoadFiPv(s32 arg0, s32 *arg1) {
+void TItemLoad::lookup_item_data(s32 arg0, s32 *arg1) {
     if (arg1 != NULL) {
         *arg1 = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0));
     }
@@ -121,7 +114,7 @@ void lookup_item_data__9TItemLoadFiPv(s32 arg0, s32 *arg1) {
 
 extern s32 TItemLoad__bml_resource;
 
-void get_item_params__9TItemLoadFPvPvPv(s32 *arg0, s32 *arg1, s32 *arg2) {
+void TItemLoad::get_item_params(s32 *arg0, s32 *arg1, s32 *arg2) {
     if ((arg0 != NULL) && (arg1 != NULL) && (arg2 != NULL)) {
         *arg0 = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(1));
         *arg1 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
@@ -131,7 +124,7 @@ void get_item_params__9TItemLoadFPvPvPv(s32 *arg0, s32 *arg1, s32 *arg2) {
 
 extern s32 TItemLoad__bml_resource;
 
-void get_model_ids__9TItemLoadFUcPvPv(u8 arg0, s32 *arg1, s32 *arg2) {
+void TItemLoad::get_model_ids(u8 arg0, s32 *arg1, s32 *arg2) {
     if ((arg1 != NULL) && (arg2 != NULL)) {
         *arg1 = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0 + 2));
         *arg2 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
@@ -161,7 +154,7 @@ s32 request_item_model_load(u8 *item) {
                             TItemLoad__model_slot_in_use[i] = 1;
                             obj = __nw__7TObjectFUl(0x44);
                             if (obj != NULL) {
-                                init__9TItemLoadFPvPvPvPvPv(obj, TItemLoad__model_load_task_root, i, a, b);
+                                init__9TItemLoadFPvPvPvPv(obj, TItemLoad__model_load_task_root, i, a, b);
                             }
                             return i;
                         }
@@ -173,7 +166,7 @@ s32 request_item_model_load(u8 *item) {
     return -1;
 }
 
-void *find_node_by_id__9TItemLoadFi(s32 id) {
+void *TItemLoad::find_node_by_id(s32 id) {
     Node_8011038C *n;
     if (TItemLoad__completed_model_load_task_root != 0) {
         for (n = ((Node_8011038C *)TItemLoad__completed_model_load_task_root)->child; n != NULL; n = n->next) {
@@ -185,7 +178,7 @@ void *find_node_by_id__9TItemLoadFi(s32 id) {
     return NULL;
 }
 
-void release_resource_by_id__9TItemLoadFi(s32 id) {
+void TItemLoad::release_resource_by_id(s32 id) {
     Node_801103F4 *roots[2] = { (Node_801103F4 *)TItemLoad__completed_model_load_task_root, (Node_801103F4 *)TItemLoad__model_load_task_root };
     s32 i;
     Node_801103F4 *n;
@@ -204,7 +197,7 @@ void release_resource_by_id__9TItemLoadFi(s32 id) {
     }
 }
 
-void update__9TItemLoadFv(void) {
+void TItemLoad::update() {
     void *temp_r31;
 
     update_all__9TItemLoadFv();

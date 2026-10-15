@@ -32,6 +32,15 @@ struct TOKurage
     u8 m_102;
     u8 _pad103[0x1];
     void* m_104;
+    void check_player_distance();
+    void update_state();
+    void debug_print_ranges();
+    void init();
+    void run_task();
+    void render();
+    static void *create(void *arg0);
+    static void destroy_static_instance();
+    static void load_static_resource();
 };
 
 #endif

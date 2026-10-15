@@ -23,7 +23,7 @@ extern V2_80293D84 lbl_80464ED8[6];
 extern const f32 lbl_805DD9E0;
 extern const f32 lbl_805DD9E4;
 void fn_80293D84(void *arg0, void *arg1, u32 color, f32 scale, f32 alpha);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void fn_80293D84(void *arg0, void *arg1, u32 color, f32 scale, f32 alpha);
 extern f32 lbl_80464F10[];
 extern f32 lbl_80464F18[];
@@ -70,7 +70,7 @@ void fn_80293E58(void *arg0, f32 scale) {
     V2_80293E58 p;
     f32 s = lbl_805DD9E8 * scale;
     s32 odd = 1;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p, lbl_80464F10);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&p, lbl_80464F10);
     limX = lbl_80464F18[0];
     stepX = lbl_805DD9F0;
     startX = lbl_80464F10[0];

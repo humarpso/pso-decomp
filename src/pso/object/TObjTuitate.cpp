@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjTuitate.h"
 
 struct FadeBase_8019ADA0 { char pad[0x14]; };
 
@@ -61,20 +62,19 @@ void rotate_matrix_y(int, int);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(void);
+void set_global_param__8TObjFishFl(void);
 void draw_ginja_object(void);
 extern u32 TObjTuitate__bml_resource;
 extern const f32 lbl_805DBFA8;
 extern const f32 lbl_805DBFAC;
 extern const f32 lbl_805DBFC0;
-void render__11TObjTuitateFv(Obj_8019ADA0 *self);
-s32 activate_and_dispatch__10TObjPlayerFPv(void *);
-s32 init_and_activate__10TObjPlayerFPv(void *);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 activate_and_dispatch__10TObjPlayerFv(void *);
+s32 init_and_activate__10TObjPlayerFv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFPv();
-s32 create__10TObjMapCsnFi(void *);
+s32 construct_collider_proxy__10TObjPlayerFv();
+s32 create__10TObjMapCsnFl(void *);
 extern s32 TObjTuitate__collision_parts[];
 extern s32 __vt__11TObjTuitate[];
 extern s32 TObjTuitate__class_name;
@@ -89,7 +89,6 @@ extern "C" {
 void *TObjTuitate__create(void *arg0);
 void *__dt__11TObjTuitateFv(void *arg0, s16 arg1);
 void fn_8019B09C(void);
-int run_task__11TObjTuitateFv(void* p);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
 int update_obstruction_fade(void*);
@@ -97,10 +96,11 @@ void TObjPlayer__sub_800D7C58(void *, int);
 void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-void render__11TObjTuitateFv(Obj_8019ADA0 *self) {
+void TObjTuitate::render() {
+    Obj_8019ADA0 *self = (Obj_8019ADA0 *)this;
     u8 *arg0 = (u8 *)self;
     Vec_8019ADA0 v;
     s32 fading;
@@ -123,7 +123,7 @@ void render__11TObjTuitateFv(Obj_8019ADA0 *self) {
         ((Fade_8019ADA0 *)(arg0 + 0xAC))->begin();
     }
     TObjFish__sub_8001EDB0((*(s32 *)&TObjTuitate__bml_resource), 0);
-    set_global_param__8TObjFishFi();
+    set_global_param__8TObjFishFl();
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
@@ -136,7 +136,7 @@ void render__11TObjTuitateFv(Obj_8019ADA0 *self) {
     set_cull_none__8TObjFishFv();
 }
 
-int run_task__11TObjTuitateFv(void* p) { return update_obstruction_fade((char*)p + 0xac); }
+int TObjTuitate::run_task() { return update_obstruction_fade((char*)this + 0xac); }
 
 extern s32 __vt__11TObjTuitate[];
 
@@ -147,7 +147,7 @@ void *__dt__11TObjTuitateFv(void *arg0, s16 arg1) {
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xAC, -1);
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -163,21 +163,21 @@ void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2) {
     struct CopyStack_8019AF6C { u8 bytes[0x3C]; };
     CopyStack_8019AF6C copy_storage_8019AF6C;
     s32 temp_r4;
-    construct_collider_proxy__10TObjPlayerFPv();
+    construct_collider_proxy__10TObjPlayerFv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjTuitate;
-    init_and_activate__10TObjPlayerFPv((void *) ((u8 *)arg0 + 0xAC));
+    init_and_activate__10TObjPlayerFv((void *) ((u8 *)arg0 + 0xAC));
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTuitate__class_name;
     ((VObj_18_1a504b *)(arg0))->m5((s32)arg2);
     init_collision_body_parts((void *) (arg0), (void *) (TObjTuitate__collision_parts), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     temp_r4 = (s32)arg2 - 4;
     *(ByteBlock_3C *)(copy_storage_8019AF6C.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
     (*(f32 *)(copy_storage_8019AF6C.bytes + 0x24)) = lbl_805DBFB4;
     (*(f32 *)(copy_storage_8019AF6C.bytes + 0x28)) = lbl_805DBFAC;
     (*(f32 *)(copy_storage_8019AF6C.bytes + 0x2C)) = lbl_805DBFBC;
-    *(s32 *)((s8 *)arg0 + 0xC8) = create__10TObjMapCsnFi((void *) ((copy_storage_8019AF6C.bytes)));
-    activate_and_dispatch__10TObjPlayerFPv((void *) ((u8 *)arg0 + 0xAC));
+    *(s32 *)((s8 *)arg0 + 0xC8) = create__10TObjMapCsnFl((void *) ((copy_storage_8019AF6C.bytes)));
+    activate_and_dispatch__10TObjPlayerFv((void *) ((u8 *)arg0 + 0xAC));
     return arg0;
 }
 #pragma pop

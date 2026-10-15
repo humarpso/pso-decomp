@@ -91,9 +91,9 @@ struct RecoveredGlobal_8014CF50___vt__12TObjNpcNFW01 {
 };
 
 extern "C" {
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
-s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
+s32 construct_female_base__17TObjNpcFemaleBaseFv(void *);
 extern s32 __vt__12TObjNpcNFW01[];
 extern s32 TObjNpcNFW01__name;
 extern s32 *TObjNpcNFW01__shared_object_resource;
@@ -109,14 +109,14 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcNHW00__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *, int);
+void destroy_npc_female_base__17TObjNpcFemaleBaseFs(void *, int);
 
 extern s32 __vt__12TObjNpcNFW01[];
 
 void *__dt__12TObjNpcNFW01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjNpcNFW01;
-        destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(arg0, 0);
+        destroy_npc_female_base__17TObjNpcFemaleBaseFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -128,11 +128,11 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014CF50___vt__12TObjNpcNFW01_size[sizeof(RecoveredGlobal_8014CF50___vt__12TObjNpcNFW01) == 0x178 ? 1 : -1];
 u8 *TObjNpcNFW01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_female_base__17TObjNpcFemaleBaseFPv((void *) (arg0));
+    construct_female_base__17TObjNpcFemaleBaseFv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014CF50___vt__12TObjNpcNFW01 *)&__vt__12TObjNpcNFW01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcNFW01__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *TObjNpcNFW01__shared_object_resource;
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) TObjNpcNFW01__texture_gvm;
     setup_common__11TObjNpcBaseFv((void *) (arg0));

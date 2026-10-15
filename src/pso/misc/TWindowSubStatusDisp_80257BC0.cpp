@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_80256BDC_lbl_804CF918 {
     s32 value;
@@ -80,7 +81,7 @@ struct Pos_80257784 { f32 x, y; };
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80256C40(void *, void *, void *, f32);
 #define draw_status_gauge_bar ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar)
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 begin_screen_draw(s32, f32, f32, f32);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 set_draw_texture_and_color(s32, s32);
@@ -175,41 +176,39 @@ struct Bar_8025799C {
 };
 
 s32 __dl__FPv(void *);
-void * alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-void free__11TOBoss4RockFUi(void *);
-void ** alloc_buffer__11TOBoss4RockFPv(u32);
-void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
+void mem_free(void *);
+void ** mem_alloc(u32);
+void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(u32, s32, s32, s32);
 #define destroy__20TWindowSubStatusDispFPvs ((s32 (*)(s32, s32 *))destroy__20TWindowSubStatusDispFPvs)
 #define TWindowSubStatusDisp__sub_80256BDC ((int (*)(void*, int))TWindowSubStatusDisp__sub_80256BDC)
 #define calc_bar_width__20TWindowSubStatusDispFPv ((s32 (*)())calc_bar_width__20TWindowSubStatusDispFPv)
 #define step_gauge_bar_width ((void (*)(void *))step_gauge_bar_width)
 #define TWindowSubStatusDisp__sub_80257298 ((s32 (*)(void *, s16))TWindowSubStatusDisp__sub_80257298)
-void* init_from__20TWindowSubStatusDispFPvPvi(void* a0, void* a1, int a2);
+void* init_from__20TWindowSubStatusDispFPvi(void* a0, void* a1, int a2);
 u32 update_text_color_transition(void);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
-void copy4__18TAdChrMoveEffectGCFPvPv(void* p, void* q);
-void update_disp_value__20TWindowSubStatusDispFPv(void *arg0);
+void copy4__18TAdChrMoveEffectGCFPv(void* p, void* q);
+void update_disp_value__20TWindowSubStatusDispFv(void *arg0);
 void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
 u8 * init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
 void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list);
-void destroy_all_items__20TWindowSubStatusDispFPv(List_80257CB8 *arg0);
 void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
 void TWindowSubStatusDisp__sub_80258050(void);
 void TWindowSubStatusDisp__sub_80258054(void);
-void * deleting_destructor__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
 void * init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(void *, void *, s32);
-void * reset_entry__20TWindowSubStatusDispFPvii(void *, void *, s32);
+void * reset_entry__20TWindowSubStatusDispFii(void *, void *, s32);
 void * TWindowSubStatusDisp__sub_80259D3C(void *, void *, s32);
-void * init_layout_entry_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
+void * init_layout_entry_scaled__20TWindowSubStatusDispFPUcl(void *, void *, s32);
 void * TWindowHelpItem__sub_8025A594(void *, void *, s32);
 void * TWindowHelpItem__sub_8025A95C(void *, void *, s32);
 void * construct_text_entry(void *, void *, s32);
 void * init_part_direct__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void * init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
-void * init_fields__17TWindowSubComCardFPvii(void *, void *, s32);
-void * init_state__20TWindowSubStatusDispFPvii(void *, void *, s32);
+void * init_fields__17TWindowSubComCardFii(void *, void *, s32);
+void * init_state__20TWindowSubStatusDispFii(void *, void *, s32);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF948[];
@@ -240,7 +239,8 @@ void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list) {
     }
 }
 
-void destroy_all_items__20TWindowSubStatusDispFPv(List_80257CB8 *arg0) {
+void TWindowSubStatusDisp::destroy_all_items() {
+    List_80257CB8 *arg0 = (List_80257CB8 *)this;
     Elem_80257CB8 **p;
     u32 n;
     n = arg0->count;
@@ -253,7 +253,7 @@ void destroy_all_items__20TWindowSubStatusDispFPv(List_80257CB8 *arg0) {
             }
             p--;
         }
-        free__11TOBoss4RockFUi(arg0->items);
+        mem_free(arg0->items);
         arg0->count = 0;
         arg0->items = 0;
     }
@@ -277,7 +277,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
         self->items = NULL;
         return;
     }
-    self->items = alloc_buffer__11TOBoss4RockFPv(self->count * 4);
+    self->items = mem_alloc(self->count * 4);
     out = self->items;
     while (rows-- != 0) {
         cols = desc->cols;
@@ -285,7 +285,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
         while (cols-- != 0) {
             switch (*rec) {
             case 0:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x18);
                 if (o != NULL) {
                     o = init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(o, rec, arg2);
                 }
@@ -293,15 +293,15 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
                 rec += 0x14 / 4;
                 break;
             case 1:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x28);
                 if (o != NULL) {
-                    o = ((Ctor_80257D44)init_from__20TWindowSubStatusDispFPvPvi)(o, rec, arg2);
+                    o = ((Ctor_80257D44)init_from__20TWindowSubStatusDispFPvi)(o, rec, arg2);
                 }
                 *out = o;
                 rec += 0x24 / 4;
                 break;
             case 2:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x68);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x68);
                 if (o != NULL) {
                     o = ((Ctor_80257D44)init_layout_entry_copy__20TWindowSubStatusDispFPvPv)(o, rec, arg2);
                 }
@@ -309,7 +309,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
                 rec += 0x2C / 4;
                 break;
             case 3:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x2C);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x2C);
                 if (o != NULL) {
                     o = construct_text_entry(o, rec, arg2);
                 }
@@ -317,7 +317,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
                 rec += 0x1C / 4;
                 break;
             case 4:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x24);
                 if (o != NULL) {
                     o = TWindowSubStatusDisp__sub_80259D3C(o, rec, arg2);
                 }
@@ -325,15 +325,15 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
                 rec += 0x1C / 4;
                 break;
             case 5:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x30);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x30);
                 if (o != NULL) {
-                    o = init_layout_entry_scaled__20TWindowSubStatusDispFPvPvi(o, rec, arg2);
+                    o = init_layout_entry_scaled__20TWindowSubStatusDispFPUcl(o, rec, arg2);
                 }
                 *out = o;
                 rec += 0x1C / 4;
                 break;
             case 6:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x38);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x38);
                 if (o != NULL) {
                     o = init_part_scaled__20TWindowSubStatusDispFPvPvi(o, rec, arg2);
                 }
@@ -341,7 +341,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
                 rec += 0x30 / 4;
                 break;
             case 7:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x38);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x38);
                 if (o != NULL) {
                     o = init_part_direct__20TWindowSubStatusDispFPvPvi(o, rec, arg2);
                 }
@@ -349,23 +349,23 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
                 rec += 0x38 / 4;
                 break;
             case 8:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x38);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x38);
                 if (o != NULL) {
-                    o = reset_entry__20TWindowSubStatusDispFPvii(o, rec, arg2);
+                    o = reset_entry__20TWindowSubStatusDispFii(o, rec, arg2);
                 }
                 *out = o;
                 rec += 1;
                 break;
             case 9:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x28);
                 if (o != NULL) {
-                    o = init_fields__17TWindowSubComCardFPvii(o, rec, arg2);
+                    o = init_fields__17TWindowSubComCardFii(o, rec, arg2);
                 }
                 *out = o;
                 rec += 1;
                 break;
             case 10:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x14);
                 if (o != NULL) {
                     o = TWindowHelpItem__sub_8025A95C(o, rec, arg2);
                 }
@@ -373,7 +373,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
                 rec += 0xC / 4;
                 break;
             case 11:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x24);
                 if (o != NULL) {
                     o = TWindowHelpItem__sub_8025A594(o, rec, arg2);
                 }
@@ -381,9 +381,9 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
                 rec += 0xC / 4;
                 break;
             case 12:
-                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
+                o = alloc__23TAdSinglePlyChrSelectGCFv(0x28);
                 if (o != NULL) {
-                    o = init_state__20TWindowSubStatusDispFPvii(o, rec, arg2);
+                    o = init_state__20TWindowSubStatusDispFii(o, rec, arg2);
                 }
                 *out = o;
                 rec += 1;
@@ -398,15 +398,15 @@ void TWindowSubStatusDisp__sub_80258050(void) {  }
 
 void TWindowSubStatusDisp__sub_80258054(void) {  }
 
-void *deleting_destructor__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 4) = lbl_804CF998;
-        destroy__20TWindowSubStatusDispFPvs((s32)arg0, 0);
+void *TWindowSubStatusDisp::deleting_destructor(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 4) = lbl_804CF998;
+        destroy__20TWindowSubStatusDispFPvs((s32)this, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            __dl__FPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }

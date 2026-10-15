@@ -10,6 +10,9 @@ struct TObjEnvSoundGlobal
     u8 _pad3C[0x58];
     u32 m_94;
     u32 m_98;
+    s32 setup_sound();
+    static void render();
+    void run_task();
 };
 
 #endif

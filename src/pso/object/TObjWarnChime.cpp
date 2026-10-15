@@ -3,7 +3,7 @@
 extern "C" {
 void play_sound_effect(s32, s32, s32, s32);
 s16 obj_getS16_32C(void*);
-s16 get_field_2b8__14TItemProShieldFPv(void*);
+s16 get_field_2b8__14TItemProShieldFv(void*);
 u32 find_revival_item__10TObjPlayerFv(void*);
 void* get_player_by_client_id(s32);
 s32 should_update__11TCameraCtrlFv();
@@ -36,7 +36,7 @@ void TObjWarnChime::update_player_hp_ratios() {
             continue;
         }
         cur = obj_getS16_32C(p);
-        max = get_field_2b8__14TItemProShieldFPv(p);
+        max = get_field_2b8__14TItemProShieldFv(p);
         if (0.0f == cur) {
             m_player_hp_ratios[i] = 1.0f;
             continue;

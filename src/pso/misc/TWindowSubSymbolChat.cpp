@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChat.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -14,36 +15,31 @@ s32 *copy_chat_entry__20TWindowSubSymbolChatFPvPv(s32 *arg0, s32 *arg1);
 
 extern "C" {
 
-s32 compute_total_height__20TWindowSubSymbolChatFv(void);
-s32 calc_remaining_slots__20TWindowSubSymbolChatFv(void);
-void* get_keyboard_ptr__20TWindowSubSymbolChatFPv(void* p);
-unsigned char get_global_4e54__20TWindowSubSymbolChatFv(void);
-void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0);
-s32 commit__20TWindowSubSymbolChatFi(s32 arg0, s32 * _w1);
-s32 refresh_parts__20TWindowSubSymbolChatFPv();
-s32 update_layout__20TWindowSubSymbolChatFPv(void);
+s32 refresh_parts__20TWindowSubSymbolChatFv();
+s32 update_layout__20TWindowSubSymbolChatFv(void);
 
-s32 compute_total_height__20TWindowSubSymbolChatFv(void) {
+s32 TWindowSubSymbolChat::compute_total_height() {
     s32 temp_r31;
 
     s32 temp_r3;
-    temp_r31 = calc_remaining_slots__20TWindowSubSymbolChatFv();
-    temp_r3 = update_layout__20TWindowSubSymbolChatFPv();
+    temp_r31 = TWindowSubSymbolChat::calc_remaining_slots();
+    temp_r3 = update_layout__20TWindowSubSymbolChatFv();
     return temp_r3 + temp_r31;
 }
-s32 calc_remaining_slots__20TWindowSubSymbolChatFv(void) {
-    return 0xC - refresh_parts__20TWindowSubSymbolChatFPv();
+s32 TWindowSubSymbolChat::calc_remaining_slots() {
+    return 0xC - refresh_parts__20TWindowSubSymbolChatFv();
 }
-void* get_keyboard_ptr__20TWindowSubSymbolChatFPv(void* p) { return (char*)p + 0x4; }
+void*TWindowSubSymbolChat::get_keyboard_ptr() { return (char*)this + 0x4; }
 
     extern unsigned char pending_symbol_chat_count;
-unsigned char get_global_4e54__20TWindowSubSymbolChatFv(void) {  return pending_symbol_chat_count; }
+unsigned char TWindowSubSymbolChat::get_global_4e54() {  return pending_symbol_chat_count; }
 
-void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0) {
+void TWindowSubSymbolChat::set_flag_bit1(s32 *arg0) {
     *arg0 |= 1;
 }
 
-s32 commit__20TWindowSubSymbolChatFi(s32 arg0, s32 * _w1) {
+s32 TWindowSubSymbolChat::commit(s32 * _w1) {
+    s32 arg0 = (s32)this;
     copy_chat_entry__20TWindowSubSymbolChatFPvPv((s32 *)(arg0), (s32 *)(_w1));
     return arg0;
 }

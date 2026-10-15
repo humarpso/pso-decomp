@@ -25,6 +25,8 @@ struct TODoorFourLightBase
     u32 m_d4;
     u8 _padD8[0x20];
     u32 m_f8;
+    void clamp_light_index();
+    void render_lights();
 };
 
 #endif

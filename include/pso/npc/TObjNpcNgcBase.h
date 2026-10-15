@@ -9,6 +9,8 @@ struct TObjNpcNgcBase
     u32 m_24;
     u8 _pad28[0xC];
     u32 m_34;
+    static void free_shared_resources();
+    static void load_resources();
 };
 
 #endif

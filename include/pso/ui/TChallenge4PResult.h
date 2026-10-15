@@ -24,6 +24,18 @@ public:
     TItemData reward_items[3];
     s32 reward_available[3];
 
+public:
+    static void create(int arg0, s32 arg1);
+    static void clear_slot_entries();
+    void set_entry_item(void *arg1, s32 arg2);
+    void close_window();
+    void init_timer();
+    void init_result_state();
+    void init();
+    int queue_destruction();
+    void update_wait_input();
+    void handle_result_code();
+    void update_input();
 };
 
 #include <stddef.h>

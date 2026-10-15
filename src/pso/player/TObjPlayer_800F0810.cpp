@@ -11,6 +11,7 @@ struct RecoveredGlobal_800F08AC_lbl_805010D0 {
 };
 
 #include <stddef.h>
+#include "pso/player/TObjPlayer.h"
 struct Stack_800F09E8 {
     f32 sp8;
     f32 spC;
@@ -30,17 +31,12 @@ struct RecoveredGlobal_800F09E8_lbl_804976B0 {
 extern "C" {
 s32 set_chunk_material_override_pair(s32, s32);
 extern s32 model_render_flags;
-void set_alt_model_flag__10TObjPlayerFv(void);
 extern RecoveredGlobal_800F08AC_lbl_80501080 lbl_80501080;
 extern RecoveredGlobal_800F08AC_lbl_805010D0 lbl_805010D0;
 s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800F083C(void);
 s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
-void clear_alt_model_flag__10TObjPlayerFv(void);
-s32 draw__16TObjEneRe7BeruraFPv(void *);
-void set_alt_model_flag__10TObjPlayerFv(void);
-void update_lights__10TObjPlayerFv(void);
-void draw_with_alt_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
+s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 is_split_screen();
 s32 is_split_screen__10TObjPlayerFv(void);
 s32 is_split_screen__10TObjPlayerFv(void);
@@ -48,7 +44,7 @@ s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 draw_shadow_quad__10TObjPlayerFPvii(void *, int, int);
+s32 draw_shadow_quad__10TObjPlayerFll(void *, int, int);
 s32 set_cached_blend_factor(int, int);
 extern RecoveredGlobal_800F09E8_lbl_804976B0 blob_shadow_rect_desc;
 extern s32 blob_shadow_texture_list;
@@ -61,39 +57,37 @@ void draw_blob_shadow(s32 arg0);
 extern "C" {
 
 void TObjPlayer__sub_800F083C(void);
-void clear_alt_model_flag__10TObjPlayerFv(void);
-void update_lights__10TObjPlayerFv(void);
 int init_directional_light__9TObjLightFv(void*);
 int TObjLight__sub_801337F8(void*);
 s32 set_chunk_material_override_pair(s32, s32);
 
     extern int current_scene_light;
-void update_lights__10TObjPlayerFv(void) { init_directional_light__9TObjLightFv((void*)(current_scene_light)); TObjLight__sub_801337F8((void*)(current_scene_light)); }
+void TObjPlayer::update_lights() { init_directional_light__9TObjLightFv((void*)(current_scene_light)); TObjLight__sub_801337F8((void*)(current_scene_light)); }
 
 void TObjPlayer__sub_800F083C(void) {  }
 
 extern s32 model_render_flags;
 
-void clear_alt_model_flag__10TObjPlayerFv(void) {
+void TObjPlayer::clear_alt_model_flag() {
     model_render_flags &= 0xFFFFF7FF;
     set_chunk_material_override_pair(0xFF00, 0);
 }
-void set_alt_model_flag__10TObjPlayerFv(void) { (*(int *)&model_render_flags) = ((*(int *)&model_render_flags) | 0x800); set_chunk_material_override_pair((s32)((void*)-513), (s32)((void*)0)); }
+void TObjPlayer::set_alt_model_flag() { (*(int *)&model_render_flags) = ((*(int *)&model_render_flags) | 0x800); set_chunk_material_override_pair((s32)((void*)-513), (s32)((void*)0)); }
 s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1) {
     *(s32 *)((s8 *)(&lbl_805010D0.value) + 4) = arg1;
     *(s32 *)((s8 *)(&lbl_80501080.value) + 0x30) = arg0;
     return &lbl_80501080.value;
 }
-void draw_with_alt_model__10TObjPlayerFPvi(void *arg0, s32 arg1) {
+void TObjPlayer::draw_with_alt_model(s32 arg1) {
     s32 temp_r31;
-    temp_r31 = *(s32 *)((s8 *)arg0 + 0x34);
-    set_alt_model_flag__10TObjPlayerFv();
+    temp_r31 = *(s32 *)((s8 *)this + 0x34);
+    TObjPlayer::set_alt_model_flag();
     TObjPlayer__sub_800F083C();
-    *(s32 *)((s8 *)arg0 + 0x34) = ((s32)TObjPlayer__sub_800F08AC(temp_r31, arg1));
-    draw__16TObjEneRe7BeruraFPv(arg0);
-    update_lights__10TObjPlayerFv();
-    clear_alt_model_flag__10TObjPlayerFv();
-    *(s32 *)((s8 *)arg0 + 0x34) = temp_r31;
+    *(s32 *)((s8 *)this + 0x34) = ((s32)TObjPlayer__sub_800F08AC(temp_r31, arg1));
+    draw__16TObjEneRe7BeruraFv(this);
+    TObjPlayer::update_lights();
+    TObjPlayer::clear_alt_model_flag();
+    *(s32 *)((s8 *)this + 0x34) = temp_r31;
 }
 s32 is_split_screen__10TObjPlayerFv(void) {
     return is_split_screen() ? 1 : 0;
@@ -129,16 +123,16 @@ block_2:
         set_cached_blend_factor((int) (0), (int) (8));
         set_cached_blend_factor((int) (1), (int) (6));
         begin_effect_render__13TParticleCtrlFv();
-        draw_shadow_quad__10TObjPlayerFPvii((void *) (&stack.sp8), (int) (0), (int) (0x20));
+        draw_shadow_quad__10TObjPlayerFll((void *) (&stack.sp8), (int) (0), (int) (0x20));
         stack.sp8 = lbl_805DA7FC;
         stack.spC = lbl_805DA7FC;
-        draw_shadow_quad__10TObjPlayerFPvii((void *) (&stack.sp8), (int) (0), (int) (0x24));
+        draw_shadow_quad__10TObjPlayerFll((void *) (&stack.sp8), (int) (0), (int) (0x24));
         stack.sp8 = lbl_805DA7F8;
         stack.spC = lbl_805DA7F8;
-        draw_shadow_quad__10TObjPlayerFPvii((void *) (&stack.sp8), (int) (0), (int) (0x28));
+        draw_shadow_quad__10TObjPlayerFll((void *) (&stack.sp8), (int) (0), (int) (0x28));
         stack.sp8 = lbl_805DA7FC;
         stack.spC = lbl_805DA7F8;
-        draw_shadow_quad__10TObjPlayerFPvii((void *) (&stack.sp8), (int) (0), (int) (0x2C));
+        draw_shadow_quad__10TObjPlayerFll((void *) (&stack.sp8), (int) (0), (int) (0x2C));
         end_effect_render__13TParticleCtrlFv();
         restore_saved_depth_alpha_state();
     }

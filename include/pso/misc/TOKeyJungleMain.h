@@ -16,6 +16,7 @@ struct TOKeyJungleMain
     u8 _padCC[0x4];
     u32 m_d0;
     u32 m_d4;
+    static void init_key_slots(void* _w0);
 };
 
 #endif

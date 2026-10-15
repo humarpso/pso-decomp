@@ -7,6 +7,8 @@ typedef struct Anim_80242B30 {
 } Anim_80242B30;
 
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Stack_80242938 {
     f32 sp8;
     f32 spC;
@@ -17,33 +19,25 @@ extern "C" {
 extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
 extern f32 lbl_805DCA0C;
-f32 calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv(s16 *arg0);
 extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
 extern f32 lbl_805DCA0C;
-f32 calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv(s16 *arg0);
-f32 calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv(s16 *arg0);
-f32 calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv(s16 *arg0);
 extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
-s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 *arg1);
-f32 update_scale__15TObjBoss2TunnelFPv(void *, f32);
+f32 update_scale__15TObjBoss2TunnelFv(void *, f32);
 u8 *get_player_by_client_id(s32);
-s32 is_active__12TBoss3VoloptFPv(int);
+s32 is_active__12TBoss3VoloptFv(int);
 u8 *get_pad_rumble_effect_slots();
 extern const f32 lbl_805DCA00;
-void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 void TAdSinglePlyChrSelectGC__sub_80242B24(void* p);
 void TLobby__sub_80242918(void);
-void clear_flag_bit2__6TLobbyFv(void);
-s32 get_id__6TLobbyFPv(void* p);
-void* get_sub_disp_ptr__20TWindowSubStatusDispFPv(void* p);
+void* get_sub_disp_ptr__20TWindowSubStatusDispFv(void* p);
 
-s32 get_id__6TLobbyFPv(void* p) { return *(s32*)((char*)p + 0x0); }
+s32 TLobby::get_id() { return *(s32*)((char*)this + 0x0); }
 
 extern u16 lbl_805D63FC;
 
@@ -53,13 +47,13 @@ void TLobby__sub_80242918(void) {
 
 extern u16 lbl_805D63FC;
 
-void clear_flag_bit2__6TLobbyFv(void) {
+void TLobby::clear_flag_bit2() {
     lbl_805D63FC &= 0xFFFFFFFB;
 }
 
 #pragma push
 #pragma fp_contract on
-void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 arg1) {
+void TAdSinglePlyChrSelectGC::accumulate_rumble_strength(s16 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80242938, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80242938, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80242938, sp10) == 0x8) ? 1 : -1];
@@ -75,13 +69,13 @@ void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 ar
         var_r30 = (u8 *)(get_pad_rumble_effect_slots());
         var_r29 = 0;
         do {
-            if ((is_active__12TBoss3VoloptFPv((int) (var_r30)) != 0) && ((temp_r3_2 = *(u8 *)((s8 *)var_r30 + 0), (((temp_r3_2 & 0x10) == 0) == 0)) || (arg1 == (s16) *(s16 *)((s8 *)var_r30 + 2)))) {
+            if ((is_active__12TBoss3VoloptFv((int) (var_r30)) != 0) && ((temp_r3_2 = *(u8 *)((s8 *)var_r30 + 0), (((temp_r3_2 & 0x10) == 0) == 0)) || (arg1 == (s16) *(s16 *)((s8 *)var_r30 + 2)))) {
                 if (temp_r3_2 & 2) {
                     stack.sp8 = *(f32 *)((s8 *)var_r30 + 4) - *(f32 *)((s8 *)temp_r3 + 0x38);
                     stack.spC = *(f32 *)((s8 *)var_r30 + 8) - *(f32 *)((s8 *)temp_r3 + 0x3C);
                     temp_f1 = *(f32 *)((s8 *)var_r30 + 0xC);
                     stack.sp10 = temp_f1 - *(f32 *)((s8 *)temp_r3 + 0x40);
-                    var_r3 = (s16) -((lbl_805DCA00 * update_scale__15TObjBoss2TunnelFPv((void *) (&stack.sp8), (f32) (temp_f1))) - (f32) *(s16 *)((s8 *)var_r30 + 0x10));
+                    var_r3 = (s16) -((lbl_805DCA00 * update_scale__15TObjBoss2TunnelFv((void *) (&stack.sp8), (f32) (temp_f1))) - (f32) *(s16 *)((s8 *)var_r30 + 0x10));
                     if (var_r3 < 0xA) {
                         var_r3 = 0xA;
                     }
@@ -97,7 +91,7 @@ void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 ar
 }
 #pragma pop
 
-f32 calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv(s16 *arg0) {
+f32 TAdSinglePlyChrSelectGC::calc_rumble_strength(s16 *arg0) {
   float new_var;
   s16 temp_r3;
   temp_r3 = *arg0;
@@ -113,7 +107,7 @@ f32 calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv(s16 *arg0) {
   return new_var * (*(const f32 *)&lbl_805DCA0C);
 }
 
-f32 calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv(s16 *arg0) {
+f32 TAdSinglePlyChrSelectGC::calc_rumble_intensity(s16 *arg0) {
   s16 temp_r0;
   float new_var;
   temp_r0 = *arg0;
@@ -130,7 +124,8 @@ f32 calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv(s16 *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_80242B24(void* p) { *(s16*)((char*)p + 0x0) = 0; }
-s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 *arg1) {
+s32 TAdSinglePlyChrSelectGC::update_rumble_pattern(s16 *arg1) {
+    Anim_80242B30 *o = (Anim_80242B30 *)this;
     if (*arg1 <= 0) {
         o->a = lbl_805DCA04;
         o->b = lbl_805DCA08;
@@ -139,7 +134,7 @@ s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 
     }
     switch (o->state) {
     case 1:
-        o->a += calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv(arg1);
+        o->a += TAdSinglePlyChrSelectGC::calc_rumble_intensity(arg1);
         if (o->a >= lbl_805DCA08) {
             o->state = 2;
             o->a -= lbl_805DCA08;
@@ -149,7 +144,7 @@ s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 
     case 0:
     case 2:
     case 3:
-        o->b += calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv(arg1);
+        o->b += TAdSinglePlyChrSelectGC::calc_rumble_strength(arg1);
         if (o->b >= lbl_805DCA08) {
             o->state = 1;
             o->b -= lbl_805DCA08;

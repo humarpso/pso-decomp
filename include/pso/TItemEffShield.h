@@ -7,6 +7,8 @@ class TItemEffShield : public TObject {
 public:
     virtual ~TItemEffShield();
     virtual void run_task();
+public:
+    void spawn_recipe_particles();
 };
 
 #endif

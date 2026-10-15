@@ -40,6 +40,28 @@ struct TObjEneMe1Canadin
     u32 m_4b8;
     u8 _pad4BC[0xC];
     u16 m_4c8;
+    void update_by_state(s32 arg1);
+    void update_walk_animation(s32 arg1);
+    void run_task(s32 arg1);
+    void move(s32 arg1);
+    void action(s32 arg1);
+    void handle_state(s32 arg1);
+    void pack_color_rgba();
+    void reset_map_core(void * _w1);
+    s32 try_trigger_action();
+    void advance_state_4_to_5();
+    s32 check_target();
+    static void update_move(void* p);
+    void update_angle();
+    void update_hover_height();
+    void set_target_speed_z();
+    void update_position_with_offset();
+    void update_by_field_0x354();
+    void copy_pos();
+    void run_task();
+    void setup_enemy();
+    void *init(void *arg1, void *arg2, void *arg3);
+    static void *create(void *arg0);
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Stack_800EBE74 {
     f32 sp8;
@@ -19,15 +20,12 @@ extern int chunk_polygon_flags_or_mask;
 extern int chunk_polygon_flags_and_mask;
 extern int model_render_flags;
 extern const f32 lbl_805DA6F8;
-void push_material_color_override__10TObjPlayerFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, int, f32);
-int find_nearest_enemy_with_flag__10TObjPlayerFPvf(u8 *arg0, f32 farg0);
 }
 
 extern "C" {
 
-void init_render_globals__10TObjPlayerFv(void);
-s32 get_attack_target__15TObjEneSlimeOneFPv(void* p);
+s32 get_attack_target__15TObjEneSlimeOneFv(void* p);
 
     extern int lbl_805D5660;
     extern int lbl_805D5664;
@@ -35,13 +33,13 @@ s32 get_attack_target__15TObjEneSlimeOneFPv(void* p);
     extern int chunk_polygon_flags_or_mask;
     extern int chunk_polygon_flags_and_mask;
     extern int model_render_flags;
-void init_render_globals__10TObjPlayerFv(void) { chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
+void TObjPlayer::init_render_globals() { chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
 
 void TObjPlayer__sub_800EBE48(f32 farg0) {
-    push_material_color_override__10TObjPlayerFffff(farg0, lbl_805DA6B4, lbl_805DA6B4, lbl_805DA6B4);
+    TObjPlayer::push_material_color_override(farg0, lbl_805DA6B4, lbl_805DA6B4, lbl_805DA6B4);
 }
 
-void push_material_color_override__10TObjPlayerFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
+void TObjPlayer::push_material_color_override(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     Stack_800EBE74 stack;
     (*(s32 *)&lbl_805D5660) = (*(s32 *)&model_render_flags);
     (*(s32 *)&lbl_805D5664) = (*(s32 *)&chunk_polygon_flags_and_mask);
@@ -54,7 +52,8 @@ void push_material_color_override__10TObjPlayerFffff(f32 farg0, f32 farg1, f32 f
     stack.sp14 = farg3;
     set_chunk_material_color((void *) (&stack.sp8));
 }
-int find_nearest_enemy_with_flag__10TObjPlayerFPvf(u8 *arg0, f32 farg0) {
+int TObjPlayer::find_nearest_enemy_with_flag(f32 farg0) {
+    u8 *arg0 = (u8 *)this;
     u16 temp_r3;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (int) (0), (f32) (farg0));

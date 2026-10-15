@@ -10,6 +10,8 @@ public:
 public:
     virtual ~TBoss6EffHyoui();
     virtual void run_task();
+public:
+    void *create(void *arg1, void *arg2);
 };
 
 #endif

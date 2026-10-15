@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSoundBalance.h"
 
 struct RecoveredGlobal_80270C98_lbl_8050E208 {
     s32 value;
@@ -13,26 +14,23 @@ struct RecoveredGlobal_80270ACC_lbl_8050E208 {
 struct State_80270DCC { u8 pad[4]; s16 f4; s8 f6; };
 
 extern "C" {
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 update_fade__17TWindowSubComCardFPv(void *);
-s32 initialize_subwindow__9TWindowDDFPv(void *);
+s32 update_fade__17TWindowSubComCardFv(void *);
+s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 update_window_entry_list(void *, void *);
-s32 is_active__17TWindowOptionCtrlFPv();
-s32 handle_cancel__19TWindowSoundBalanceFPv(void *);
-void play_open_sound__19TWindowSoundBalanceFPv(void *arg0);
+s32 is_active__17TWindowOptionCtrlFv();
+s32 handle_cancel__19TWindowSoundBalanceFv(void *);
 s32 TWindowSoundBalance__sub_8027095C(void *);
 extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
-void run_task__19TWindowSoundBalanceFv(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
-void handle_lr_input__19TWindowSoundBalanceFPv(u8 *arg0);
 State_80270DCC *get_global_state__23TAdSinglePlyChrSelectGCFv();
 u32 calc_text_width();
-u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-s32 get_field_20__17TWindowSubComCardFPv();
+u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+s32 get_field_20__17TWindowSubComCardFv();
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, s32, s32);
 s32 refresh_status_display__9TWindowDDFv(u8 *);
 s32 TWindowSoundBalance__sub_80270748(void *, s32);
@@ -44,13 +42,13 @@ extern const f32 lbl_805DD414;
 extern const f32 lbl_805DD418;
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1);
 s16 obj_getS16_2BA(void *);
-s16 get_field_2b8__14TItemProShieldFPv(void *);
-s32 get_sub_value__8TItemMagFi(void *);
-u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-void update_status_entry__20TWindowSubStatusDispFi(void *);
+s16 get_field_2b8__14TItemProShieldFv(void *);
+s32 get_sub_value__8TItemMagFv(void *);
+u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+void update_status_entry__20TWindowSubStatusDispFv(void *);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
 u8 *get_player_by_client_id();
-s32 get_width__11TWindowCtrlFPv();
+s32 get_width__11TWindowCtrlFv();
 s32 draw_right_aligned_number(void *);
 s32 set_status_entry_target(void *, s32);
 s32 update_hp_entry__20TWindowSubStatusDispFPv(void *);
@@ -61,26 +59,26 @@ void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0);
 extern "C" {
 
 void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1);
-void play_open_sound__19TWindowSoundBalanceFPv(void *arg0);
 void render__19TWindowSoundBalanceFv(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 draw_window_frame(s32, void *);
 s32 draw_visible_window_entries(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
-s32 apply_balance__19TWindowSoundBalanceFPvPv(s32, void *, f32, f32);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
-void *draw_default_entry__9TWindowDDFi();
+s32 apply_balance__19TWindowSoundBalanceFPv(s32, void *, f32, f32);
+void destroy_window_base__9TWindowDDFs(void *, int);
+void *draw_default_entry__9TWindowDDFl();
 
-void play_open_sound__19TWindowSoundBalanceFPv(void *arg0) {
+void TWindowSoundBalance::play_open_sound() {
     play_sound_effect(0x52D01, 0, 0, 0);
-    *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) | 1);
+    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 1);
 }
 
 extern const f32 lbl_805DD40C;
 extern const f32 lbl_805DD410;
 
 typedef char RecoveredGlobal_80270ACC_lbl_8050E208_size[sizeof(RecoveredGlobal_80270ACC_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void handle_lr_input__19TWindowSoundBalanceFPv(u8 *arg0) {
+void TWindowSoundBalance::handle_lr_input() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r30;
     temp_r30 = (u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x20;
     if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30), (int) (0x30), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x30), (int) (6), (int) (1)) != 0)) {
@@ -105,41 +103,42 @@ void render__19TWindowSoundBalanceFv(s32 arg0) {
     f32 temp_f2;
     void *temp_r3;
 
-    temp_r3 = draw_default_entry__9TWindowDDFi();
+    temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     temp_f2 = *(f32 *)((s8 *)temp_r3 + 0x10);
     *(f32 *)((s8 *)temp_r3 + 0x10) = (f32) (temp_f2 + lbl_805DD40C);
     temp_f1 = *(f32 *)((s8 *)temp_r3 + 0x18);
     *(f32 *)((s8 *)temp_r3 + 0x18) = (f32) (temp_f1 - lbl_805DD410);
-    apply_balance__19TWindowSoundBalanceFPvPv(arg0, temp_r3, temp_f1, temp_f2);
+    apply_balance__19TWindowSoundBalanceFPv(arg0, temp_r3, temp_f1, temp_f2);
 }
 
 extern s32 __vt__19TWindowSoundBalance[];
 
 typedef char RecoveredGlobal_80270C98_lbl_8050E208_size[sizeof(RecoveredGlobal_80270C98_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void run_task__19TWindowSoundBalanceFv(s32 arg0) {
+void TWindowSoundBalance::run_task() {
+    s32 arg0 = (s32)this;
     u8 *temp_r31;
-    if (is_active__17TWindowOptionCtrlFPv() == 0) {
-        handle_lr_input__19TWindowSoundBalanceFPv((u8 *)((void *) (arg0)));
+    if (is_active__17TWindowOptionCtrlFv() == 0) {
+        handle_lr_input();
         TWindowSoundBalance__sub_8027095C((void *) (arg0));
         temp_r31 = (u8 *)&controller_input_state.value + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
-            play_open_sound__19TWindowSoundBalanceFPv((void *) (arg0));
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
+            play_open_sound();
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
-            handle_cancel__19TWindowSoundBalanceFPv((void *) (arg0));
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
+            handle_cancel__19TWindowSoundBalanceFv((void *) (arg0));
         }
     }
-    initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    update_fade__17TWindowSubComCardFPv((void *) (arg0));
+    initialize_subwindow__9TWindowDDFv((void *) (arg0));
+    update_fade__17TWindowSubComCardFv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSoundBalance;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -158,12 +157,12 @@ u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     *(s8 *)((s8 *)arg0 + 0x61) = 0;
     *(s16 *)((s8 *)arg0 + 0x62) = 1;
     *(s16 *)((s8 *)arg0 + 0x64) = 1;
-    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-    get_field_20__17TWindowSubComCardFPv();
+    e = get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
+    get_field_20__17TWindowSubComCardFv();
     *(f32 *)((s8 *)e + 8) = lbl_805DD414 - lbl_805DD418 * calc_text_width();
     refresh_status_display__9TWindowDDFv(e);
-    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
-    get_field_20__17TWindowSubComCardFPv();
+    e = get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
+    get_field_20__17TWindowSubComCardFv();
     *(f32 *)((s8 *)e + 8) = lbl_805DD414 - lbl_805DD418 * calc_text_width();
     refresh_status_display__9TWindowDDFv(e);
     st = get_global_state__23TAdSinglePlyChrSelectGCFv();

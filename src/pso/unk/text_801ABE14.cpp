@@ -23,14 +23,14 @@ struct Stack_801ABE14 { f32 x, y, z; };
 extern "C" {
 u8 *photon_base_ct(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFPvs(void *, s32);
-void set_field_dc__10TObjPlayerFPvi(void *, s32);
-void set_field_d8__10TObjPlayerFPvi(void *, s32);
+s32 set_field_b8__14TObjEnePanarmsFs(void *, s32);
+void set_field_dc__10TObjPlayerFl(void *, s32);
+void set_field_d8__10TObjPlayerFl(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 init_collision_body_parts(void *, void *, int);
 s32 refresh_collision_body_centers(void *);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 begin_photon_summon_camera(void *, int);
 s32 spawn_photon_blast_opening_effects(int, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
@@ -57,7 +57,7 @@ extern "C" void destroy__12TPhotonGollaFPvs();
 extern "C" void enter_scene__10TSceneSoraFi();
 extern "C" void render__12TPhotonGollaFPv();
 extern "C" void render_shadows__7TObjectFv();
-extern "C" void reset_movement__10TObjPlayerFPv();
+extern "C" void reset_movement__10TObjPlayerFv();
 extern "C" void run_task__12TPhotonGollaFPv();
 extern "C" void update_if_active__10TSceneSoraFPv();
 extern "C" void update_object_view_visibility();
@@ -80,7 +80,7 @@ void *lbl_804C35C8[11] = {
 void *lbl_804C35F4[17] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__12TPhotonGollaFPvs, (void *)&run_task__12TPhotonGollaFPv,
     (void *)&render__12TPhotonGollaFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_movement__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&reset_movement__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&enter_scene__10TSceneSoraFi, (void *)&update_if_active__10TSceneSoraFPv,
     (void *)0x0,
 };
@@ -96,7 +96,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     *(u16 *)((s8 *)arg0 + 0x158) = *(u16 *)((s8 *)arg1 + 0xC);
     init_collision_body_parts(arg0, (u8 *)lbl_804C35C8, 1);
     refresh_collision_body_centers(arg0);
-    reset_photon_effect__10TObjPlayerFPv(arg0);
+    reset_photon_effect__10TObjPlayerFv(arg0);
     *(s32 *)((s8 *)arg0 + 0x1A8) = 0;
     *(u8 **)((s8 *)arg0 + 0x1A4) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x158));
     e = *(u8 **)((s8 *)arg0 + 0x1A4);
@@ -107,11 +107,11 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x48);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x4C);
-    set_field_d8__10TObjPlayerFPvi(arg0, (s32) lbl_804C35A8);
-    set_field_dc__10TObjPlayerFPvi(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    set_field_d8__10TObjPlayerFl(arg0, (s32) lbl_804C35A8);
+    set_field_dc__10TObjPlayerFl(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_field_b8__14TObjEnePanarmsFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     *(s16 *)((s8 *)arg0 + 0x1B8) = 1;
     *(s32 *)((s8 *)arg0 + 0x1BC) = *(s32 *)((s8 *)arg1 + 0x10);
     *(s32 *)((s8 *)arg0 + 0x1C0) = *(s32 *)((s8 *)arg1 + 0x14);
@@ -142,7 +142,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     }
     *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
     if (*(s32 *)((s8 *)arg0 + 0x1BC) == 0) {
-        set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
+        set_field_b8__14TObjEnePanarmsFs(arg0, 0);
         begin_photon_summon_camera(arg0, 5);
         *(s32 *)((s8 *)arg0 + 0x1BC) = 1;
         *(s16 *)((s8 *)arg0 + 0x1B8) = 0;

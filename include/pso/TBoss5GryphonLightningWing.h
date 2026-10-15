@@ -8,6 +8,9 @@ public:
     virtual ~TBoss5GryphonLightningWing();
     virtual void run_task();
     virtual void render();
+public:
+    static void render();
+    void get_wing_position(s32 arg1);
 };
 
 #endif

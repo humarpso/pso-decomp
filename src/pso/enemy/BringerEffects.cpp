@@ -44,10 +44,10 @@ void queue_destruction__7TObjectFv(void *);
 void update_projectile_motion__17TObjEneDf2BringerFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void *csnVector(void *, void *, s32);
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
+f32 update_scale__15TObjBoss2TunnelFv(void *);
 void create_timed_particle_emitter(void *, s32, s32, s32);
 void TObjEneDf2Bringer__sub_8009A11C(void* p);
-void update_enemy_collision_flags__10TObjPlayerFPv(void *);
+void update_enemy_collision_flags__10TObjPlayerFv(void *);
 void subtract_vector(void *, void *);
 extern u8 lbl_8043A164[];
 extern s32 lbl_8043A16C[];
@@ -63,7 +63,7 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void __dl__7TObjectFPv(void *);
-void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
+void destroy_enemy_object__10TObjPlayerFs(void *, int);
 s32 fill_value_array(int);
 
 #pragma push
@@ -88,7 +88,7 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
         VecCopy__FP3VecPC3Vec(&v, *(void **)((u8 *)res + 4));
         VecCopy__FP3VecPC3Vec(&d, &self->pos);
         subtract_vector(&d, &v);
-        step = update_scale__15TObjBoss2TunnelFPv(&d);
+        step = update_scale__15TObjBoss2TunnelFv(&d);
         hit = 1;
     }
     f32 inc = 16.0f;
@@ -105,7 +105,7 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
     VecCopy__FP3VecPC3Vec(&self->pos, &v);
     self->col->f10 = 2.5f;
     self->col->fC = 0.5f * step;
-    update_enemy_collision_flags__10TObjPlayerFPv(self);
+    update_enemy_collision_flags__10TObjPlayerFv(self);
     if (self->col->flags & 0x200000) {
         TObjEneDf2Bringer__sub_8009A11C((void*)(self));
         return;
@@ -140,7 +140,7 @@ extern s32 lbl_8048FE08[];
 void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048FE08;
-        destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_enemy_object__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -188,7 +188,7 @@ struct RecoveredGlobal_8009A398_lbl_8048FE64 {
 };
 
 extern "C" {
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
+f32 update_scale__15TObjBoss2TunnelFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 bringer_tp_absorb_effect_name;
 u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3);
@@ -206,7 +206,7 @@ u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x40), (void *) (arg0 + 0x34));
     subtract_vector((void *) (arg0 + 0x40), (void *) (arg0 + 0x28));
-    *(f32 *)((s8 *)arg0 + 0x4C) = update_scale__15TObjBoss2TunnelFPv((void *) (arg0 + 0x40));
+    *(f32 *)((s8 *)arg0 + 0x4C) = update_scale__15TObjBoss2TunnelFv((void *) (arg0 + 0x40));
     *(f32 *)((s8 *)arg0 + 0x50) = (f32) 0.0f;
     return arg0;
 }
@@ -220,7 +220,7 @@ void rotate_matrix_y(u32, s32);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 f32 post_translate_matrix(void);
-void draw_trail_strip__10TObjPlayerFPvPvi(s32, s32, s32);
+void draw_trail_strip__10TObjPlayerFPvl(s32, s32, s32);
 void draw_trail_pair__10TObjPlayerFPv(u8 *arg0);
 }
 
@@ -230,8 +230,8 @@ void draw_trail_pair__10TObjPlayerFPv(u8 *arg0) {
     push_matrix();
     ((f32 (*)(void *))post_translate_matrix)(arg0 + 0x20);
     rotate_matrix_y(0U, *(s32 *)((s8 *)arg0 + 0x34));
-    draw_trail_strip__10TObjPlayerFPvPvi((s32) (arg0 + 0x40), 6, *(f32 *)((s8 *)arg0 + 0x2C) < 1.0f);
-    draw_trail_strip__10TObjPlayerFPvPvi((s32) (arg0 + 0xA0), 6, *(f32 *)((s8 *)arg0 + 0x2C) < 1.0f);
+    draw_trail_strip__10TObjPlayerFPvl((s32) (arg0 + 0x40), 6, *(f32 *)((s8 *)arg0 + 0x2C) < 1.0f);
+    draw_trail_strip__10TObjPlayerFPvl((s32) (arg0 + 0xA0), 6, *(f32 *)((s8 *)arg0 + 0x2C) < 1.0f);
     pop_matrix();
 }
 
@@ -404,7 +404,7 @@ struct RecoveredGlobal_8009AA64_lbl_8048FE94 { s32 value; u8 remaining[0x18]; };
 extern "C" {
 s32 obj_getField1c(void *);
 s32 is_player_entity_id();
-s32 is_alive__9TObjEneDDFPv(void *);
+s32 is_alive__9TObjEneDDFv(void *);
 s32 obj_isState2_324(void *);
 s32 is_vec_xz_cross_negative(void *, void *);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
@@ -471,7 +471,7 @@ void update_bringer_rush_effect(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if (is_alive__9TObjEneDDFPv((void *) (*(u8 **)((s8 *)arg0 + 0x1C))) == 0) {
+    if (is_alive__9TObjEneDDFv((void *) (*(u8 **)((s8 *)arg0 + 0x1C))) == 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }

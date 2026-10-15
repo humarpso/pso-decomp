@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 struct Stack_800D8F78 {
     s32 sp8;
@@ -18,42 +19,39 @@ void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
 s32 remap_area_sound_id(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
-void play_area_variant_sound__12TBoss3VoloptFi(s32 arg0);
 void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
-s32 remap_area_sound_id__12TBoss3VoloptFi(int);
+s32 remap_area_sound_id__12TBoss3VoloptFl(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8D88(s32 arg0);
 void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
-s32 remap_area_sound_id__12TBoss3VoloptFi(int);
+s32 remap_area_sound_id__12TBoss3VoloptFl(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
-void play_area_sound_effect__12TBoss3VoloptFi(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int, f32);
 s32 remap_area_sound_id(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805DA3C0;
-void play_area_se_with_particle__12TBoss3VoloptFi(s32 arg0);
 }
 
 extern "C" {
 
-void create_breakup_mdl__12TBoss3VoloptFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 TBreakUpMdl__ct(void*, s32, s32, s32, s32, s32, s32);
 void* __nw__7TObjectFUl(s32);
 
 extern s32 tl_05;
 
-void create_breakup_mdl__12TBoss3VoloptFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void TBoss3Volopt::create_breakup_mdl(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     void* obj = __nw__7TObjectFUl(0x54);
     if (obj != 0) {
         TBreakUpMdl__ct(obj, tl_05, arg0, arg1, arg2, arg3, arg4);
     }
 }
 
-void play_area_variant_sound__12TBoss3VoloptFi(s32 arg0) {
+void TBoss3Volopt::play_area_variant_sound() {
+    s32 arg0 = (s32)this;
     s32 temp_r3;
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     switch (temp_r3) {
@@ -83,12 +81,13 @@ void play_area_variant_sound__12TBoss3VoloptFi(s32 arg0) {
         play_sound_effect((int) (0x4003AD3F), (void *) (arg0), (int) (0), (int) (0));
         return;
     default:
-        play_sound_effect((int) (remap_area_sound_id((int) (0x4003AD06), (int) (0x1E))), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (::remap_area_sound_id((int) (0x4003AD06), (int) (0x1E))), (void *) (arg0), (int) (0), (int) (0));
         return;
     }
 }
 
-void play_area_se_with_particle__12TBoss3VoloptFi(s32 arg0) {
+void TBoss3Volopt::play_area_se_with_particle() {
+    s32 arg0 = (s32)this;
     Vec_800D8C48 v;
     f32 y;
     switch (get_global_state__14TOKeyMachine01Fv()) {
@@ -118,7 +117,7 @@ void play_area_se_with_particle__12TBoss3VoloptFi(s32 arg0) {
         play_sound_effect(0x4003AD3F, (void *)arg0, 0, 0);
         break;
     default:
-        play_sound_effect(remap_area_sound_id(0x4003AD06, 0x1E), (void *)arg0, 0, 0);
+        play_sound_effect(::remap_area_sound_id(0x4003AD06, 0x1E), (void *)arg0, 0, 0);
         break;
     }
     VecCopy__FP3VecPC3Vec(&v, (void *)arg0);
@@ -147,13 +146,14 @@ void TBoss3Volopt__sub_800D8D88(s32 arg0) {
         play_sound_effect(0x4003A359, (void *)arg0, 0, 0);
         break;
     default:
-        play_sound_effect(remap_area_sound_id__12TBoss3VoloptFi(0x4003AB20), (void *)arg0, 0, 0);
+        play_sound_effect(remap_area_sound_id__12TBoss3VoloptFl(0x4003AB20), (void *)arg0, 0, 0);
         break;
     }
     spawn_particles_at__12TBoss3VoloptFi(arg0);
 }
 
-void play_area_sound_effect__12TBoss3VoloptFi(s32 arg0) {
+void TBoss3Volopt::play_area_sound_effect() {
+    s32 arg0 = (s32)this;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 23:
     case 24:
@@ -173,7 +173,7 @@ void play_area_sound_effect__12TBoss3VoloptFi(s32 arg0) {
         play_sound_effect(0x4003A359, (void *)arg0, 0, 0);
         break;
     default:
-        play_sound_effect(remap_area_sound_id__12TBoss3VoloptFi(0x4003AB37), (void *)arg0, 0, 0);
+        play_sound_effect(remap_area_sound_id__12TBoss3VoloptFl(0x4003AB37), (void *)arg0, 0, 0);
         break;
     }
     spawn_particles_at__12TBoss3VoloptFi(arg0);

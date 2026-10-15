@@ -14,8 +14,8 @@ void free_window__6TLobbyFv(void);
 s32 adjust_appraisal_percentages(s32);
 s32 roll_item_grind_bonus__6TLobbyFPv(s32);
 s32 adjust_appraisal_special(s32);
-s32 is_slot_match__6TLobbyFPv();
-void free_nodes_with_id__6TLobbyFUi(void*);
+s32 is_slot_match__6TLobbyFv();
+void free_nodes_with_id__6TLobbyFUl(void*);
 
 extern u32 item_appraisal_rules;
 extern s32 item_appraisal_favored_weapon;
@@ -24,7 +24,7 @@ extern s32 item_appraisal_score;
 void update_all__6TLobbyFi(s32 arg0) {
     if ((u32) item_appraisal_rules != 0U) {
         item_appraisal_score = 0;
-        item_appraisal_favored_weapon = is_slot_match__6TLobbyFPv();
+        item_appraisal_favored_weapon = is_slot_match__6TLobbyFv();
         adjust_appraisal_special(arg0);
         roll_item_grind_bonus__6TLobbyFPv(arg0);
         adjust_appraisal_percentages(arg0);
@@ -35,7 +35,7 @@ extern u32 item_appraisal_rules;
 
 void free_window__6TLobbyFv(void) {
     if ((u32) item_appraisal_rules != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)item_appraisal_rules);
+        free_nodes_with_id__6TLobbyFUl((void*)item_appraisal_rules);
         item_appraisal_rules = 0U;
     }
 }

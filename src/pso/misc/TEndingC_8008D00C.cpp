@@ -30,6 +30,7 @@ typedef char TEndingC_timing_rate_offset[offsetof(TEndingC, timing_rate) == 0x90
 typedef char TEndingC_fade_in_ticks_offset[offsetof(TEndingC, fade_in_ticks) == 0x94 ? 1 : -1];
 typedef char TEndingC_fade_out_ticks_offset[offsetof(TEndingC, fade_out_ticks) == 0x98 ? 1 : -1];
 #include "types.h"
+#include "pso/enemy/TObjEneBalClaw.h"
 
 struct RecoveredGlobal_8008D3D4___vt__8TEndingC { s32 value; u8 remaining[0x14]; };
 
@@ -65,7 +66,7 @@ s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(s32);
 s32 set_draw_texture_and_color(s32, s32, f32);
 s32 get_player__20TWindowSubStatusDispFv();
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 
 extern s32 TEndingC__wall_texture_list_entry[];
 extern const f32 lbl_805D95C0;
@@ -75,7 +76,7 @@ extern const f32 lbl_805D95C8;
 }
 
 void TEndingC::render() {
-    set_global_param__8TObjFishFi(TEndingC__wall_texture_list_entry);
+    set_global_param__8TObjFishFl(TEndingC__wall_texture_list_entry);
     begin_screen_draw(1);
     set_draw_texture_and_color(1, ((s32) (lbl_805D95C0 * primary_opacity) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
     draw_textured_quad_at_depth(render_geometry + 0x0, lbl_805D95C4);
@@ -392,8 +393,7 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-s32 update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
-void clear_flag_in_state7__14TObjEneBalClawFPv(u8 *arg0);
+s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 }
 
 extern "C" {
@@ -412,16 +412,17 @@ void TEndingPic__sub_8008D5AC(void) { TEndingPic__animation_state = 1; }
     extern int ending_frame_counter;
 int TEnding__sub_8008D5B8(void) {  return ending_frame_counter; }
 
-void clear_flag_in_state7__14TObjEneBalClawFPv(u8 *arg0) {
+void TObjEneBalClaw::clear_flag_in_state7() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x374) == 7) {
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
-        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
+        update_if_active__15TObjEneMe1GiGueFl(arg0, 0);
     }
 }
 
 s32 TObjEneBalClaw__vt37(s32 arg0) {
     if (update_movement_status__10TObjPlayerFv() != 0) {
-        clear_flag_in_state7__14TObjEneBalClawFPv((u8 *)(arg0));
+        ((TObjEneBalClaw *)arg0)->clear_flag_in_state7();
         return 1;
     }
     return 0;
@@ -429,7 +430,7 @@ s32 TObjEneBalClaw__vt37(s32 arg0) {
 
 s32 TObjEneBalClaw__vt34(s32 arg0) {
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
-        clear_flag_in_state7__14TObjEneBalClawFPv((u8 *)(arg0));
+        ((TObjEneBalClaw *)arg0)->clear_flag_in_state7();
         return 1;
     }
     return 0;

@@ -27,7 +27,7 @@ void update_selection_value__15TWindowMainMenuFPv(Obj_80263DBC *o);
 s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2);
 s32 open_menu_with_entry__15TWindowMainMenuFPvs(void *, s16);
 void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1);
-s32 close_submenu__15TWindowMainMenuFPvPv(void *, u32);
+s32 close_submenu__15TWindowMainMenuFPv(void *, u32);
 void destroy_submenu__15TWindowMainMenuFPv(void* p);
 s32 reset_equip_slots__10TObjPlayerFPv(s32);
 
@@ -58,7 +58,7 @@ s32 close_active_submenu__15TWindowMainMenuFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x48) = 0x1F;
     TWindowMainMenu__sub_80263D7C((Obj_80263D7C *)arg0);
     update_selection_value__15TWindowMainMenuFPv((Obj_80263DBC *)arg0);
-    close_submenu__15TWindowMainMenuFPvPv(arg0, *(u32 *)((s8 *)arg0 + 0x5C));
+    close_submenu__15TWindowMainMenuFPv(arg0, *(u32 *)((s8 *)arg0 + 0x5C));
     return 1;
 }
 
@@ -86,7 +86,7 @@ void close_and_clear_flags__15TWindowMainMenuFPv(void *arg0);
 void open__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
 s32 populate_menu__15TWindowMainMenuFPvPv(void *, s32);
-s32 close__15TWindowMainMenuFPv(void *);
+s32 close__15TWindowMainMenuFv(void *);
 void close_child_window__15TWindowMainMenuFPv(void* p);
 
 s32 init_parts__10TObjPlayerFPv();
@@ -100,7 +100,7 @@ void close_and_clear_flags__15TWindowMainMenuFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (temp_r4 & ~5);
     ((s32 (*)(void *, s32))close_child_window__15TWindowMainMenuFPv)(arg0, temp_r4);
     destroy_submenu__15TWindowMainMenuFPv(arg0);
-    close__15TWindowMainMenuFPv(arg0);
+    close__15TWindowMainMenuFv(arg0);
     if (get_player_by_client_id((s32)(*(s32 *)((s8 *)arg0 + 0x54))) != 0U) {
         init_parts__10TObjPlayerFPv();
     }
@@ -164,7 +164,7 @@ void close_child_window__15TWindowMainMenuFPv(void* p);
 void destroy_submenu__15TWindowMainMenuFPv(void* p);
 void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
 void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0);
-u32 create_message_window__6TLobbyFiiUis(u32, s32 *, s32, s32);
+u32 create_message_window__6TLobbyFllUls(u32, s32 *, s32, s32);
 
 u32 get_window_layout_position(s32);
 int TWindow__close(void*);
@@ -172,8 +172,8 @@ s32 call_if_split_screen(u32, s32);
 s32 toggle_help_window_on_button(s32, s32);
 int queue_destruction__7TObjectFv(void*);
 s32 select_main_menu_item_10(s32);
-s32 send_and_handle__6TLobbyFPvii(u32, s32, s32);
-s32 set_field_1c__6TLobbyFPvf(u32, f32);
+s32 send_and_handle__6TLobbyFii(u32, s32, s32);
+s32 set_field_1c__6TLobbyFf(u32, f32);
 s32 test_keyboard_card_flag4(s32);
 
 void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0) {
@@ -263,11 +263,11 @@ void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x48) = arg1;
         if ((u32) *(u32 *)((s8 *)arg0 + 0x24) == 0U) {
             u32 tmp = get_window_layout_position(0x1B);
-            *(u32 *)((s8 *)arg0 + 0x24) = create_message_window__6TLobbyFiiUis(tmp, lbl_8044F2E0, 1, *(s32 *)((s8 *)arg0 + 0x54));
-            set_field_1c__6TLobbyFPvf(*(u32 *)((s8 *)arg0 + 0x24), lbl_805DD13C);
+            *(u32 *)((s8 *)arg0 + 0x24) = create_message_window__6TLobbyFllUls(tmp, lbl_8044F2E0, 1, *(s32 *)((s8 *)arg0 + 0x54));
+            set_field_1c__6TLobbyFf(*(u32 *)((s8 *)arg0 + 0x24), lbl_805DD13C);
             call_if_split_screen(*(u32 *)((s8 *)arg0 + 0x24), *(s32 *)((s8 *)arg0 + 0x54));
         }
-        send_and_handle__6TLobbyFPvii(*(u32 *)((s8 *)arg0 + 0x24), select_main_menu_item_10(arg1), 0x80);
+        send_and_handle__6TLobbyFii(*(u32 *)((s8 *)arg0 + 0x24), select_main_menu_item_10(arg1), 0x80);
     }
 }
 
@@ -276,10 +276,11 @@ void destroy_submenu__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char
 }
 
 #include "types.h"
+#include "pso/misc/TWindowMainMenu1P.h"
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void set_scale_f__15TWindowSubEquipFPv(void *);
+void set_scale_f__15TWindowSubEquipFv(void *);
 void destroy_submenu__15TWindowMainMenuFPv(void *);
 s32 TWindowSubAreaMap__ct(int, void *, int);
 s32 TWindowSubComCard__ct(int, void *, int);
@@ -305,21 +306,20 @@ void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1);
 
 extern "C" {
 
-void create_char_select_slot__17TWindowMainMenu1PFPv(void *arg0);
 void *__nw__7TObjectFUl(int);
-void set_scale_f__15TWindowSubEquipFPv(void *);
+void set_scale_f__15TWindowSubEquipFv(void *);
 void destroy_submenu__15TWindowMainMenuFPv(void *);
 void *construct_character_select_transition(void *, void *, void *);
 
-void create_char_select_slot__17TWindowMainMenu1PFPv(void *arg0) {
+void TWindowMainMenu1P::create_char_select_slot() {
     void *o;
-    destroy_submenu__15TWindowMainMenuFPv(arg0);
-    set_scale_f__15TWindowSubEquipFPv(arg0);
+    destroy_submenu__15TWindowMainMenuFPv(this);
+    set_scale_f__15TWindowSubEquipFv(this);
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        o = construct_character_select_transition(o, arg0, *(void **)((s8 *)arg0 + 0x54));
+        o = construct_character_select_transition(o, this, *(void **)((s8 *)this + 0x54));
     }
-    *(void **)((s8 *)arg0 + 0x20) = o;
+    *(void **)((s8 *)this + 0x20) = o;
 }
 void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1) {
     s32 temp_r3;
@@ -362,7 +362,7 @@ void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1) {
     s32 var_r0_9;
     *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (*(s32 *)((s8 *)arg0 + 0x4C) | 4);
     destroy_submenu__15TWindowMainMenuFPv((void *) (arg0));
-    set_scale_f__15TWindowSubEquipFPv((void *) (arg0));
+    set_scale_f__15TWindowSubEquipFv((void *) (arg0));
     switch (arg1) {
     case 25:
         temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x2C)));

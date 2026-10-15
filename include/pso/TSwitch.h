@@ -8,6 +8,9 @@ public:
     virtual ~TSwitch();
     virtual void run_task();
     virtual void render();
+public:
+    static void render();
+    static void run_task();
 };
 
 #endif

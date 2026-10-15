@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKey.h"
 
 struct Base_8016A004_80169EE4 { char pad[0x18]; };
 struct VObj_8016A004_80169EE4 : Base_8016A004_80169EE4 {
@@ -27,34 +28,25 @@ struct Self_8016A310 { u8 pad[0x38]; u8 pos[0xCC - 0x38]; f32 range; };
 struct Obj_8016A280 { u8 pad[0x38]; u8 pos[0xCC - 0x38]; f32 radius; };
 
 extern "C" {
-void init_6x05_switch_changed__6TLobbyFPv(void*);
-void finalize_and_send_60__6TLobbyFPv(void*);
+void init_6x05_switch_changed__6TLobbyFv(void*);
+void finalize_and_send_60__6TLobbyFv(void*);
 s32 get_current_floor();
-void send_switch_on__5TOKeyFv(void* key);
 s32 get_player_by_client_id(u32);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 f32 xyz_distance_squared(void *, void *);
 extern s32 local_client_id;
-s32 is_local_player_in_range__5TOKeyFPv(Self_8016A310 *self);
 s32 get_player_data__10TObjPlayerFi(int);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 f32 xyz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
-s32 is_any_player_in_range__5TOKeyFPv(Obj_8016A280 *arg0);
 }
 
 extern "C" {
 
 void TOKey__sub_80169FB0(void* p);
-void *destroy_key_object__5TOKeyFPvs(void *arg0, s16 arg1);
 void handle_6x05_write_switch_flag(void *arg0);
-void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1);
-void *init__5TOKeyFPv(void *arg0);
-s32 is_confirm_pressed__5TOKeyFPv(void *arg0);
-s32 set_ready_if_pressed__5TOKeyFPv(void *arg0);
-void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_current_floor();
 void *find_entity_by_id(u16);
@@ -64,53 +56,53 @@ s32 set_floor_switch_flag(u16, s32);
 s32 set_current_floor_switch(u16);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void __dl__7TObjectFPv(void *);
-s32 bswap_6x05_switch_flag__5TOKeyFPv();
-s32 calc_angle_to__10TObjPlayerFPvPv(s32, void *);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+s32 bswap_6x05_switch_flag__5TOKeyFv();
+s32 calc_angle_to__10TObjPlayerFPv(s32, void *);
+void destroy_key_base__5TOKeyFs(void *, int);
 s32 update_object_view_visibility();
 void init_map_object_base(void *);
 s32 start_camera_pan__10TObjPlayerFPvs(s32, s32, s32);
 
 extern s32 lbl_804B27D8[];
 
-void *destroy_key_object__5TOKeyFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B27D8;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+void *TOKey::destroy_key_object(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804B27D8;
+        destroy_key_base__5TOKeyFs(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern s32 lbl_804B27D8[];
 
-void *init__5TOKeyFPv(void *arg0) {
-    init_map_object_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B27D8;
-    *(u32 *)((s8 *)arg0 + 0xD0) = -1;
-    *(u32 *)((s8 *)arg0 + 0xC8) = 0;
-    *(u32 *)((s8 *)arg0 + 0xAC) = 0;
-    *(u32 *)((s8 *)arg0 + 0xCC) = 0;
-    *(u32 *)((s8 *)arg0 + 0xD4) = 0;
-    *(u32 *)((s8 *)arg0 + 0xD8) = 0;
-    TOKey__sub_80169FB0((void*)((void *)((char *)arg0 + 152)));
-    *(u32 *)((s8 *)arg0 + 0xDC) = 0;
-    *(u32 *)((s8 *)arg0 + 0xE0) = 1;
-    return arg0;
+void *TOKey::init() {
+    init_map_object_base(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804B27D8;
+    *(u32 *)((s8 *)this + 0xD0) = -1;
+    *(u32 *)((s8 *)this + 0xC8) = 0;
+    *(u32 *)((s8 *)this + 0xAC) = 0;
+    *(u32 *)((s8 *)this + 0xCC) = 0;
+    *(u32 *)((s8 *)this + 0xD4) = 0;
+    *(u32 *)((s8 *)this + 0xD8) = 0;
+    TOKey__sub_80169FB0((void*)((void *)((char *)this + 152)));
+    *(u32 *)((s8 *)this + 0xDC) = 0;
+    *(u32 *)((s8 *)this + 0xE0) = 1;
+    return this;
 }
 
 void TOKey__sub_80169FB0(void* p) { *(s32*)((char*)p + 0x0) = 1; }
-s32 set_ready_if_pressed__5TOKeyFPv(void *arg0) {
+s32 TOKey::set_ready_if_pressed() {
     if (update_object_view_visibility() == 1) {
-        *(s32 *)((s8 *)arg0 + 0xE4) = 1;
+        *(s32 *)((s8 *)this + 0xE4) = 1;
         return 1;
     }
     return 0;
 }
 
-void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1) {
+void TOKey::handle_switch_trigger(void *arg1) {
     s32 temp_r0;
 
     if ((*(u8 *)((s8 *)arg1 + 0xB) & 2) && ((s8) *(u8 *)((s8 *)arg1 + 0xA) == get_current_floor())) {
@@ -121,15 +113,15 @@ void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1) {
     } else {
         clear_current_floor_switch(*(u16 *)((s8 *)arg1 + 8));
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD4);
+    temp_r0 = *(s32 *)((s8 *)this + 0xD4);
     switch (temp_r0) {
     case 0:
-        ((VObj_8016A004_80169EE4 *)arg0)->m16();
-        *(s32 *)((s8 *)arg0 + 0xD4) = 1;
+        ((VObj_8016A004_80169EE4 *)this)->m16();
+        *(s32 *)((s8 *)this + 0xD4) = 1;
         return;
     case 1:
-        ((VObj_8016A004_80169EE4 *)arg0)->m17();
-        *(s32 *)((s8 *)arg0 + 0xD4) = 0;
+        ((VObj_8016A004_80169EE4 *)this)->m17();
+        *(s32 *)((s8 *)this + 0xD4) = 0;
         return;
     }
 }
@@ -137,7 +129,7 @@ void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1) {
 void handle_6x05_write_switch_flag(void *arg0) {
     void *temp_r3;
 
-    bswap_6x05_switch_flag__5TOKeyFPv();
+    bswap_6x05_switch_flag__5TOKeyFv();
     temp_r3 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 2));
     if (temp_r3 != NULL) {
         ((VObj_8016A0E0_80169EE4 *)temp_r3)->m25(arg0);
@@ -153,7 +145,8 @@ void handle_6x05_write_switch_flag(void *arg0) {
     clear_floor_switch_flag(*(u16 *)((s8 *)arg0 + 8), *(s8 *)((s8 *)arg0 + 0xA));
 }
 
-void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
+void TOKey::trigger_camera_pan(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r3;
 
@@ -161,7 +154,7 @@ void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
     if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1))) {
         temp_r3 = get_player_by_client_id((u16)((u16)arg1));
         if (temp_r3 != 0) {
-            start_camera_pan__10TObjPlayerFPvs(temp_r3, 0xC, calc_angle_to__10TObjPlayerFPvPv(temp_r3 + 0x38, arg0 + 0x38));
+            start_camera_pan__10TObjPlayerFPvs(temp_r3, 0xC, calc_angle_to__10TObjPlayerFPv(temp_r3 + 0x38, arg0 + 0x38));
             *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)arg0 + 0xD8);
             *(s32 *)((s8 *)arg0 + 0xE0) = 1;
         }
@@ -170,24 +163,25 @@ void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
 
 extern s8 controller_input_state[];
 
-void send_switch_on__5TOKeyFv(void* key) {
+void TOKey::send_switch_on() {
     SwitchPacket packet;
-    init_6x05_switch_changed__6TLobbyFPv(&packet);
-    packet.object=*(u16*)((u8*)key+0x1c);
+    init_6x05_switch_changed__6TLobbyFv(&packet);
+    packet.object=*(u16*)((u8*)this+0x1c);
     packet.zero=0;
-    packet.switchId=*(s32*)((u8*)key+0xc8);
+    packet.switchId=*(s32*)((u8*)this+0xc8);
     packet.area=((s8)get_current_floor());
     packet.flags=1;
-    finalize_and_send_60__6TLobbyFPv(&packet);
+    finalize_and_send_60__6TLobbyFv(&packet);
 }
 
-s32 is_any_player_in_range__5TOKeyFPv(Obj_8016A280 *arg0) {
+s32 TOKey::is_any_player_in_range() {
+    Obj_8016A280 *arg0 = (Obj_8016A280 *)this;
     u8 *p;
     s32 i;
     for (i = 0; i < lbl_805D586C; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
-            if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
+            if (get_field_3e4__10TObjPlayerFv(p) == get_current_floor()) {
                 if (xyz_distance_squared(p + 0x38, arg0->pos) < arg0->radius * arg0->radius) {
                     return 1;
                 }
@@ -197,10 +191,11 @@ s32 is_any_player_in_range__5TOKeyFPv(Obj_8016A280 *arg0) {
     return 0;
 }
 
-s32 is_local_player_in_range__5TOKeyFPv(Self_8016A310 *self) {
+s32 TOKey::is_local_player_in_range() {
+    Self_8016A310 *self = (Self_8016A310 *)this;
     u8 *p = (u8 *)((void *)get_player_by_client_id(local_client_id));
     if (p != 0) {
-        if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
+        if (get_field_3e4__10TObjPlayerFv(p) == get_current_floor()) {
             if (xyz_distance_squared(p + 0x38, self->pos) < self->range * self->range) {
                 return 1;
             }
@@ -209,17 +204,17 @@ s32 is_local_player_in_range__5TOKeyFPv(Self_8016A310 *self) {
     return 0;
 }
 
-s32 is_confirm_pressed__5TOKeyFPv(void *arg0) {
+s32 TOKey::is_confirm_pressed() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
+    temp_r0 = *(s32 *)((s8 *)this + 0xD0);
     if (temp_r0 == 2) {
         return 0;
     }
-    if ((temp_r0 == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0xD4) == 1)) {
+    if ((temp_r0 == 0) && ((s32) *(s32 *)((s8 *)this + 0xD4) == 1)) {
         return 0;
     }
-    if ((is_local_player_in_range__5TOKeyFPv((Self_8016A310 *)(arg0)) != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0)) {
+    if ((is_local_player_in_range() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0)) {
         return 1;
     }
     return 0;

@@ -7,5 +7,7 @@ public:
     virtual void render();
     virtual ~TAdADXlogo();
     virtual void run_task();
+public:
+    static void destroy();
 };
 #endif

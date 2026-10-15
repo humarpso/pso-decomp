@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Q_803D98E4 { f32 x, y, z, w; };
 
@@ -25,13 +27,10 @@ extern u32 current_matrix;
 s32 pop_matrices(s32 arg0);
 f32 PSMTXConcat(int, int, int);
 extern u32 current_matrix;
-void concat_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 f32 PSMTXConcat(int, int, int);
 extern u32 current_matrix;
-void concat_matrix__11TCameraCtrlFUiUi(u32 arg0, u32 arg1);
 s32 TObjPlayer__sub_803DB244();
-s32 is_gvm_load_ok__10TObjPlayerFv(void);
-void move_data__6TLobbyFv(void *, void *, int);
+void move_data__6TLobbyFPCvUl(void *, void *, int);
 extern u32 current_matrix;
 extern u32 matrix_stack_limit;
 s32 push_matrix_from(void *src);
@@ -39,11 +38,9 @@ void TObjPlayer__sub_803D9C60(u32 *p);
 f32 PSMTXConcat(int, int, int);
 void PSMTXQuat(void *, void *);
 extern u32 current_matrix;
-void concat_quaternion_rotation__10TObjPlayerFPv(f32 *arg0);
 f32 PSMTXConcat(int, int, int);
 void PSMTXQuat(void *, void *);
 extern u32 current_matrix;
-void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0);
 s32 fn_803DA12C(u8 *, s32, s32, s32);
 extern G_803D9DA8 lbl_8058D470;
 s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1);
@@ -51,12 +48,12 @@ void PSMTXRotRad(Matrix34*, char, f32);
 f32 PSMTXConcat(int, int, int);
 extern u32 current_matrix;
 void rotate_matrix_x(Matrix34* matrix, s32 angle);
-void move_data__6TLobbyFv(void *, void *, int);
+void move_data__6TLobbyFPCvUl(void *, void *, int);
 void TObjPlayer__sub_803D9C60(u32 *p);
 extern G_803D9DA8 lbl_8058D470;
 u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, int);
-s32 find_record_index__10TObjPlayerFUiUi(int, int);
+s32 find_record_index__10TObjPlayerFUlUl(int, int);
 s32 TObjPlayer__sub_803DAD24(int, int);
 extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3);
@@ -78,7 +75,7 @@ void rotate_matrix_x(Matrix34* matrix, s32 angle) {
 
 #pragma push
 #pragma scheduling off
-void concat_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
+void TObjPlayer::concat_matrix(u32 arg0, u32 arg1) {
     u32 var_r3;
     u32 var_r4;
     var_r3 = arg0;
@@ -96,7 +93,7 @@ void concat_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
 #pragma push
 #pragma peephole off
 #pragma fp_contract on
-void concat_matrix__11TCameraCtrlFUiUi(u32 arg0, u32 arg1) {
+void TCameraCtrl::concat_matrix(u32 arg0, u32 arg1) {
     u32 var_r4;
     u32 var_r5;
     var_r4 = arg1;
@@ -119,7 +116,7 @@ s32 push_matrix_from(void *src) {
     if (next > matrix_stack_limit) {
         return 0;
     }
-    move_data__6TLobbyFv((void *)next, (src == 0) ? (void *)current_matrix : src, 0x30);
+    move_data__6TLobbyFPCvUl((void *)next, (src == 0) ? (void *)current_matrix : src, 0x30);
     current_matrix = next;
     return 1;
 }
@@ -138,7 +135,8 @@ s32 pop_matrices(s32 arg0) {
 }
 #pragma pop
 
-void concat_quaternion_rotation__10TObjPlayerFPv(f32 *arg0) {
+void TObjPlayer::concat_quaternion_rotation() {
+    f32 *arg0 = (f32 *)this;
     u8 sp18[0x30];
     Q_803D98E4 q;
     q.w = arg0[0];
@@ -149,7 +147,8 @@ void concat_quaternion_rotation__10TObjPlayerFPv(f32 *arg0) {
     PSMTXConcat(current_matrix, (int)sp18, current_matrix);
 }
 
-void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0) {
+void TObjPlayer::apply_quat_rotation(f32 farg0) {
+    f32 *arg0 = (f32 *)this;
     u8 sp18[0x30];
     Q_803D993C q;
     q.w = farg0;
@@ -193,7 +192,7 @@ u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2) {
         TObjPlayer__sub_803D9C60(&tag);
         switch (tag) {
         case 0x54525647:
-            move_data__6TLobbyFv(arg0, p + 2, 8);
+            move_data__6TLobbyFPCvUl(arg0, p + 2, 8);
             return p + 4;
         case 0x58494247: {
             u32 len;
@@ -224,7 +223,7 @@ s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1) {
 
 #pragma push
 #pragma peephole off
-s32 is_gvm_load_ok__10TObjPlayerFv(void) {
+s32 TObjPlayer::is_gvm_load_ok() {
     if (TObjPlayer__sub_803DB244() == 0) {
         return 1;
     }
@@ -251,7 +250,7 @@ s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
         j = arg1 - 1;
         temp_r29 = ((Tbl_803D9E38 *)temp_r6)->arr[j].p;
         *(s32 *)((s8 *)arg2 + 0) = *(s32 *)((s8 *)(*(s32 **)((s8 *)temp_r29 + 0xC)) + 0);
-        temp_r3_2 = find_record_index__10TObjPlayerFUiUi((int) (*(s32 *)((s8 *)arg2 + 0)), (int) (*(u32 *)((s8 *)arg3 + 0)));
+        temp_r3_2 = find_record_index__10TObjPlayerFUlUl((int) (*(s32 *)((s8 *)arg2 + 0)), (int) (*(u32 *)((s8 *)arg3 + 0)));
         if (temp_r3_2 < 0) {
             if (find_free_slot__10TObjPlayerFPvPv((void *) (&sp8), (int) (0)) < 0) {
                 return -1;

@@ -11,6 +11,9 @@ struct TObjBgmCol
     u32 m_90;
     u8 _pad94[0x8];
     u32 m_9c;
+    s32 check();
+    void run_task();
+    s32 is_within_distance(f32 farg0);
 };
 
 #endif

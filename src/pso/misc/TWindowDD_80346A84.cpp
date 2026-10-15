@@ -3,15 +3,13 @@
 extern "C" {
 s32 TWindowDD__sub_80346F30(u8 *arg0);
 s32 TWindowDD__sub_80346F30(u8 *arg0);
-s32 get_word_select_context__9TWindowDDFPv();
+s32 get_word_select_context__9TWindowDDFv();
 s32 TWindowDD__sub_80346DB8(s32 arg0);
-s32 get_entry__9TWindowDDFi(s32 entry_index);
-s32 get_element_ptr__9TWindowDDFi(s32 arg0);
+s32 get_entry__9TWindowDDFl(s32 entry_index);
 }
 
 extern "C" {
 
-void render__9TWindowDDFv(void);
 void ws_data_load(void);
 void *load_encrypted_archive_data(s32 *);
 
@@ -20,7 +18,7 @@ extern s32 TWindowDD__word_select_lists;
 extern s32 TWindowDD__ws_data_base;
 extern s32 window_dd_element_count;
 
-s32 get_element_ptr__9TWindowDDFi(s32 arg0) {
+s32 TWindowDD::get_element_ptr(s32 arg0) {
     if (arg0 == -1) {
         return 0;
     }
@@ -163,7 +161,7 @@ s32 TWindowDD__sub_80346DB8(s32 arg0) {
   s32 var_r3;
   var_r30 = arg0;
   var_r31 = 0;
-  temp_r3 = get_word_select_context__9TWindowDDFPv();
+  temp_r3 = get_word_select_context__9TWindowDDFv();
   switch (temp_r3)
   {
     case 0:
@@ -198,13 +196,13 @@ s32 TWindowDD__sub_80346DB8(s32 arg0) {
   return var_r3;
 }
 
-void render__9TWindowDDFv(void) {  }
+void TWindowDD::render() {  }
 
 s16 TWindowDD_read_indexed_value(s32 entry_index, s32 value_index) {
     s16 result;
     TWindowDDValueList *entry;
     result = -1;
-    entry = (TWindowDDValueList *)get_entry__9TWindowDDFi(entry_index);
+    entry = (TWindowDDValueList *)get_entry__9TWindowDDFl(entry_index);
     if (entry != NULL) {
         if ((value_index < 0) || (value_index >= entry->count)) {
             result = -1;
@@ -219,7 +217,7 @@ s16 TWindowDD_read_resolved_value(s32 entry_id, s32 value_index) {
     s16 result;
     TWindowDDValueList *entry;
     result = -1;
-    entry = (TWindowDDValueList *)get_element_ptr__9TWindowDDFi(entry_id);
+    entry = (TWindowDDValueList *)TWindowDD::get_element_ptr(entry_id);
     if (entry != NULL) {
         if ((value_index < 0) || (value_index >= entry->count)) {
             result = -1;

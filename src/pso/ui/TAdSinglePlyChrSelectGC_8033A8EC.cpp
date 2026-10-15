@@ -33,11 +33,11 @@ extern s32 lbl_805D6D88;
 extern s32 single_ply_quest_download_server;
 void init_logo_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void noop__23TAdSinglePlyChrSelectGCFv(void);
-int safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
+int safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 void free_buffer__23TAdSinglePlyChrSelectGCFPv(void* p);
 int memset(void*, void*, void*);
 void clear_buffer(void* p);
-u32 alloc__22TQuestVmDownLoadServerFPv(s32);
+u32 alloc__22TQuestVmDownLoadServerFv(s32);
 void alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 extern s32 lbl_805D6D90;
 void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0);
@@ -55,7 +55,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B9E0(void *);
 u8 * create_check_memory_card__23TAdSinglePlyChrSelectGCFPvPvPv(void *, void *, void *);
 void start_check_memory_card__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
+s32 send_and_handle__6TLobbyFii(s32, s32, s32);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 int request_queued_main_phase(void*);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
@@ -72,21 +72,21 @@ s32 TWindow__close(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int update_layout_height__17TWindowSubComCardFPvf(void*, float);
-int check_room_seq_4__16TAdChrSelASlotGCFii(void*, void*);
+int check_room_seq_4__16TAdChrSelASlotGCFl(void*, void*);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void*, void*, void*, void*);
     extern unsigned char lbl_80477D58[];
     extern const float lbl_805DFA30;
 void init_warp__23TAdSinglePlyChrSelectGCFPv(void* a0);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int update_layout_height__17TWindowSubComCardFPvf(void*, float);
-int check_room_seq_4__16TAdChrSelASlotGCFii(void*, void*);
+int check_room_seq_4__16TAdChrSelASlotGCFl(void*, void*);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void*, void*, void*, void*);
 extern unsigned char lbl_80477D58[];
 extern const float lbl_805DFA30;
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
-s32 is_visible__17TWindowSubComCardFPv(int);
-s32 init__22THunterGuildSeqOfflineFPvPvPv(u32, int, void *);
+s32 is_visible__17TWindowSubComCardFv(int);
+s32 init__22THunterGuildSeqOfflineFPvPv(u32, int, void *);
 u32 __nw__7TObjectFUl(int);
 s32 get_selected_menu_value(int);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
@@ -95,17 +95,17 @@ int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 extern s32 tl_fade;
 void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(int, void *, int);
-s32 query_memcard_capacity__15TAdPlayerLoadGCFi(int, int);
+s32 query_memcard_capacity__15TAdPlayerLoadGCFl(int, int);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
 extern u8 lbl_804C89BC[];
 extern s32 lbl_805D6D90;
 void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0);
 s32 get_instance__15TAdPlayerLoadGCFv(void);
-s32 init__22THunterGuildSeqOfflineFPvPvPv(u32, int, void *);
-s32 get_load_result__15TAdPlayerLoadGCFv(s32);
+s32 init__22THunterGuildSeqOfflineFPvPv(u32, int, void *);
+s32 get_load_result__15TAdPlayerLoadGCFPv(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 u32 __nw__7TObjectFUl(int);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
@@ -118,9 +118,9 @@ void handle_player_load__23TAdSinglePlyChrSelectGCFPv(O_8033AB04 *arg0);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdSinglePlyChrSelectGC__sub_8001C5F0(void);
 s32 get_instance__15TAdPlayerLoadGCFv(void);
-s32 get_load_result__15TAdPlayerLoadGCFv(s32);
+s32 get_load_result__15TAdPlayerLoadGCFPv(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 void check_ready__23TAdSinglePlyChrSelectGCFv(void);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
@@ -157,7 +157,7 @@ s32 TCameraCtrl__ct(u32, s32);
 s32 run_load_callback_table(void *, int);
 s32 init_menu_scene_lights(void *, int);
 s32 reset_controller_input_state();
-s32 reset_settings_to_default__6TLobbyFPv(void *);
+s32 reset_settings_to_default__6TLobbyFv(void *);
 s32 set_copy_clear_color_argb(int, int, int);
 s32 render_tick__Fv();
 s32 set_and_notify__6TLobbyFi(int);
@@ -175,7 +175,7 @@ extern s32 tl_camera;
 extern s32 lbl_805D6D90;
 void init_single_player_char_select_scene(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+u32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(int, int);
 u32 init_char_slots__23TAdSinglePlyChrSelectGCFi();
@@ -188,7 +188,7 @@ s32 init_and_register__23TAdSinglePlyChrSelectGCFi(int);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
 s32 get_character_save_record(int);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
-s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
+s32 send_and_handle__6TLobbyFii(s32, s32, s32);
 void init_warp__23TAdSinglePlyChrSelectGCFPv(void* a0);
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
 void seed_character_select_serial_rng(s32);
@@ -196,9 +196,9 @@ s32 memcpy(int, void *, int);
 extern s32 lbl_805D6D90;
 void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 int queue_destruction__7TObjectFv(void*);
-s32 init__22THunterGuildSeqOfflineFPvPvPv(u32, int, void *);
+s32 init__22THunterGuildSeqOfflineFPvPv(u32, int, void *);
 u32 __nw__7TObjectFUl(int);
-s32 update_window_mode_from_progress__6TLobbyFiPv(s32 *, s32 *);
+s32 update_window_mode_from_progress__6TLobbyFPv(s32 *, s32 *);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 
 s32 get_field_44__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -228,12 +228,12 @@ void init_logo_state__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     single_ply_quest_download_server = 0xFFFF;
 }
 void noop__23TAdSinglePlyChrSelectGCFv(void) {  }
-void free_buffer__23TAdSinglePlyChrSelectGCFPv(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { safe_free__23TAdSinglePlyChrSelectGCFUi(*(void**)((char*)p + 0x20)); *(int*)((char*)p + 0x20) = 0; *(int*)((char*)p + 0x1c) = 0; } }
+void free_buffer__23TAdSinglePlyChrSelectGCFPv(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { safe_free__23TAdSinglePlyChrSelectGCFUl(*(void**)((char*)p + 0x20)); *(int*)((char*)p + 0x20) = 0; *(int*)((char*)p + 0x1c) = 0; } }
 void clear_buffer(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { memset(*(void**)((char*)p + 0x20), (void*)0, *(void**)((char*)p + 0x1c)); } }
 void alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x20) == 0U) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 0x16000;
-        *(u32 *)((s8 *)arg0 + 0x20) = alloc__22TQuestVmDownLoadServerFPv(*(s32 *)((s8 *)arg0 + 0x1C));
+        *(u32 *)((s8 *)arg0 + 0x20) = alloc__22TQuestVmDownLoadServerFv(*(s32 *)((s8 *)arg0 + 0x1C));
     }
 }
 void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0) {
@@ -245,7 +245,7 @@ void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0) {
 int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
 void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0) {
-    if (is_visible__17TWindowSubComCardFPv(arg0->f3c) != 0) {
+    if (is_visible__17TWindowSubComCardFv(arg0->f3c) != 0) {
         switch (get_selected_menu_value(arg0->f3c)) {
         case 0:
             arg0->f2c = 0;
@@ -258,7 +258,7 @@ void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0) {
             close_window__23TAdSinglePlyChrSelectGCFPv(arg0);
             u32 o = __nw__7TObjectFUl(0x28);
             if (o != 0U) {
-                init__22THunterGuildSeqOfflineFPvPvPv(o, tl_fade, (void *)TAdSinglePlyChrSelectGC__sub_8033B244);
+                init__22THunterGuildSeqOfflineFPvPv(o, tl_fade, (void *)TAdSinglePlyChrSelectGC__sub_8033B244);
             }
             break;
         }
@@ -267,7 +267,7 @@ void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0) {
 
 void handle_player_load__23TAdSinglePlyChrSelectGCFPv(O_8033AB04 *arg0) {
     u32 p;
-    if (probe_card_slot__15TAdPlayerLoadGCFi(arg0->f24) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFv(arg0->f24) == 0) {
         arg0->f2C = 0;
         ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
         return;
@@ -276,13 +276,13 @@ void handle_player_load__23TAdSinglePlyChrSelectGCFPv(O_8033AB04 *arg0) {
     case 0:
         switch (TAdPlayerLoadGC__sub_801E1B50(arg0->f24)) {
         case 0:
-            switch (get_load_result__15TAdPlayerLoadGCFv(arg0->f24)) {
+            switch (get_load_result__15TAdPlayerLoadGCFPv(arg0->f24)) {
             case 0:
                 arg0->f2C = 0xE;
                 close_window__23TAdSinglePlyChrSelectGCFPv(arg0);
                 p = __nw__7TObjectFUl(0x28);
                 if (p != 0) {
-                    init__22THunterGuildSeqOfflineFPvPvPv(p, tl_fade, (void *)TAdSinglePlyChrSelectGC__sub_8033B244);
+                    init__22THunterGuildSeqOfflineFPvPv(p, tl_fade, (void *)TAdSinglePlyChrSelectGC__sub_8033B244);
                 }
                 break;
             default:
@@ -316,7 +316,7 @@ void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0) {
     case -1:
         break;
     default:
-        if (arg0->f28 <= query_memcard_capacity__15TAdPlayerLoadGCFi(arg0->f24, 0)) {
+        if (arg0->f28 <= query_memcard_capacity__15TAdPlayerLoadGCFl(arg0->f24, 0)) {
             arg0->f2c = 7;
         } else {
             arg0->f2c = 0xA;
@@ -329,7 +329,7 @@ void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0) {
-    if (probe_card_slot__15TAdPlayerLoadGCFi(arg0->f24) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFv(arg0->f24) == 0) {
         arg0->f2C = 0;
         ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
         return;
@@ -338,7 +338,7 @@ void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0) {
     case 0:
         switch (TAdPlayerLoadGC__sub_801E1B50(arg0->f24)) {
         case 0:
-            switch (get_load_result__15TAdPlayerLoadGCFv(arg0->f24)) {
+            switch (get_load_result__15TAdPlayerLoadGCFPv(arg0->f24)) {
             case 0:
                 arg0->f2C = 6;
                 arg0->f24 = get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
@@ -379,7 +379,7 @@ void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     case 0:
         seed_character_select_serial_rng(get_field_118__22TAdEnterSerialAccessGCFv());
         src = *(s32 *)((s8 *)arg0 + 0x20);
-        obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
+        obj = alloc__23TAdSinglePlyChrSelectGCFv(0x1156C);
         if (obj != 0U) {
             obj = init_char_slots__23TAdSinglePlyChrSelectGCFi();
         }
@@ -387,7 +387,7 @@ void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
         decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(obj);
         if (init_and_register__23TAdSinglePlyChrSelectGCFi(obj) == 0) {
             lbl_805D6D90 &= ~1;
-            send_and_handle__6TLobbyFPvii(*(s32 *)((s8 *)arg0 + 0x38), TQuestVmDownLoadServer__sub_8006EF6C(0x6D), 1);
+            send_and_handle__6TLobbyFii(*(s32 *)((s8 *)arg0 + 0x38), TQuestVmDownLoadServer__sub_8006EF6C(0x6D), 1);
             *(s32 *)((s8 *)arg0 + 0x2C) = 0xB;
             init_warp__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
             if (obj != 0U) {
@@ -398,7 +398,7 @@ void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
             if (r != 7) {
                 *(s32 *)((s8 *)arg0 + 0x2C) = 0xC;
                 lbl_805D6D90 &= ~1;
-                send_and_handle__6TLobbyFPvii(*(s32 *)((s8 *)arg0 + 0x38), TQuestVmDownLoadServer__sub_8006EF6C(0xA), 1);
+                send_and_handle__6TLobbyFii(*(s32 *)((s8 *)arg0 + 0x38), TQuestVmDownLoadServer__sub_8006EF6C(0xA), 1);
                 if (r == 6) {
                     init_warp__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
                 } else {
@@ -425,7 +425,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *arg0) {
             queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)arg0 + 0x40)));
             *(void **)((s8 *)arg0 + 0x40) = 0;
             *(s32 *)((s8 *)arg0 + 0x2C) = 2;
-            *(s32 *)((s8 *)arg0 + 0x38) = update_window_mode_from_progress__6TLobbyFiPv(lbl_80477D48, lbl_80477D50);
+            *(s32 *)((s8 *)arg0 + 0x38) = update_window_mode_from_progress__6TLobbyFPv(lbl_80477D48, lbl_80477D50);
             lbl_805D6D90 |= 1;
             return;
         }
@@ -437,7 +437,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *arg0) {
             close_window__23TAdSinglePlyChrSelectGCFPv(arg0);
             o = __nw__7TObjectFUl(0x28);
             if (o != 0U) {
-                init__22THunterGuildSeqOfflineFPvPvPv(o, tl_fade, (void *)TAdSinglePlyChrSelectGC__sub_8033B244);
+                init__22THunterGuildSeqOfflineFPvPv(o, tl_fade, (void *)TAdSinglePlyChrSelectGC__sub_8033B244);
             }
         }
     } else {
@@ -455,9 +455,9 @@ void start_check_memory_card__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x2C) = 1;
 }
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2) {
-    send_and_handle__6TLobbyFPvii(*(s32 *)((s8 *)arg0 + 0x38), TQuestVmDownLoadServer__sub_8006EF6C(arg1), 1);
+    send_and_handle__6TLobbyFii(*(s32 *)((s8 *)arg0 + 0x38), TQuestVmDownLoadServer__sub_8006EF6C(arg1), 1);
     if (arg2 != -1) {
-        send_and_handle__6TLobbyFPvii(*(s32 *)((s8 *)arg0 + 0x38), TQuestVmDownLoadServer__sub_8006EF6C(arg2), 8);
+        send_and_handle__6TLobbyFii(*(s32 *)((s8 *)arg0 + 0x38), TQuestVmDownLoadServer__sub_8006EF6C(arg2), 8);
     }
 }
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p) { return request_queued_main_phase(p); }
@@ -523,7 +523,7 @@ void init_single_player_char_select_scene(void) {
     lbl_805D6D90 = 0;
     play_area_music(lbl_80477D90);
     set_and_notify__6TLobbyFi(-900);
-    reset_settings_to_default__6TLobbyFPv(lobby_rule_settings);
+    reset_settings_to_default__6TLobbyFv(lobby_rule_settings);
     render_tick__Fv();
 }
 
@@ -536,8 +536,8 @@ void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         }
     }
 }
-void init_warp__23TAdSinglePlyChrSelectGCFPv(void* a0) { close_window__23TAdSinglePlyChrSelectGCFPv((void *)(a0)); *(int*)((char*)a0 + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFii(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)a0 + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); update_layout_height__17TWindowSubComCardFPvf((void*)(*(int*)((char*)a0 + 0x3c)), lbl_805DFA30); }
-void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0) { close_window__23TAdSinglePlyChrSelectGCFPv((void *)(a0)); *(int*)((char*)a0 + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFii(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)a0 + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)13))), (void*)6, (void*)0); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)a0 + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); update_layout_height__17TWindowSubComCardFPvf((void*)(*(int*)((char*)a0 + 0x3c)), lbl_805DFA30); }
+void init_warp__23TAdSinglePlyChrSelectGCFPv(void* a0) { close_window__23TAdSinglePlyChrSelectGCFPv((void *)(a0)); *(int*)((char*)a0 + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)a0 + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); update_layout_height__17TWindowSubComCardFPvf((void*)(*(int*)((char*)a0 + 0x3c)), lbl_805DFA30); }
+void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0) { close_window__23TAdSinglePlyChrSelectGCFPv((void *)(a0)); *(int*)((char*)a0 + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)a0 + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)13))), (void*)6, (void*)0); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)a0 + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); update_layout_height__17TWindowSubComCardFPvf((void*)(*(int*)((char*)a0 + 0x3c)), lbl_805DFA30); }
 
 typedef char RecoveredGlobal_8033B264_lbl_804EF728_size[sizeof(RecoveredGlobal_8033B264_lbl_804EF728) == 0x198 ? 1 : -1];
 typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033B264_main_task) == 0x34 ? 1 : -1];
@@ -550,6 +550,7 @@ typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033
 #pragma push
 
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 class Sel_8033B640 {
 public:
@@ -602,12 +603,10 @@ extern void *lbl_804EF8C0[];
 extern s32 tl_01;
 u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
 void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void free_buffer__23TAdSinglePlyChrSelectGCFPv(void *);
 extern void* lbl_804EF8C0[];
-void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1);
 void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0);
 s32 TWindow__close(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -622,7 +621,6 @@ s32 find_card_file__15TAdPlayerLoadGCFiPv(void *, void *);
 extern u8 lbl_804C88C0[];
 extern char pso_system_card_filename[];
 extern u8 lbl_804C89BC[];
-s32 has_no_save_files__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 }
 
 extern "C" {
@@ -670,7 +668,8 @@ void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {
     }
 }
 
-void dispatch_state__23TAdSinglePlyChrSelectGCFPv(Sel_8033B640 *arg0) {
+void TAdSinglePlyChrSelectGC::dispatch_state() {
+    Sel_8033B640 *arg0 = (Sel_8033B640 *)this;
     static SelFn_8033B640 table[15] = {
         &Sel_8033B640::s0, &Sel_8033B640::s1, &Sel_8033B640::s2,
         &Sel_8033B640::s3, &Sel_8033B640::s4, &Sel_8033B640::s5,
@@ -681,16 +680,16 @@ void dispatch_state__23TAdSinglePlyChrSelectGCFPv(Sel_8033B640 *arg0) {
     (arg0->*table[arg0->state])();
 }
 
-void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = (s32*)lbl_804EF8C0;
-        free_buffer__23TAdSinglePlyChrSelectGCFPv(arg0);
-        __dt__7TObjectFv(arg0, 0);
+void *TAdSinglePlyChrSelectGC::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = (s32*)lbl_804EF8C0;
+        free_buffer__23TAdSinglePlyChrSelectGCFPv(this);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
@@ -737,8 +736,8 @@ u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 0x3C) == 1);
 }
 
-s32 has_no_save_files__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if (find_card_file__15TAdPlayerLoadGCFiPv(arg0, ((u8 *)&pso_system_card_filename)) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(arg0, lbl_804C88C0) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(arg0, lbl_804C89BC) != 0) {
+s32 TAdSinglePlyChrSelectGC::has_no_save_files() {
+    if (find_card_file__15TAdPlayerLoadGCFiPv(this, ((u8 *)&pso_system_card_filename)) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(this, lbl_804C88C0) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(this, lbl_804C89BC) != 0) {
         return 0;
     }
     return 1;

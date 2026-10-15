@@ -19,6 +19,11 @@ struct TLazerFenceSw
     u32 m_104;
     u8 _pad108[0xC];
     u32 m_114;
+    void draw_laser_beam();
+    void render();
+    void run_task();
+    void *create();
+    static void load_resources();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjWarpJung.h"
 
 extern "C" {
 void free_children__12TObjDoorJungFPvPv(void *, u16);
@@ -10,14 +11,12 @@ s32 TObjWarpJung__sub_801A0404(s32 arg0);
 
 extern "C" {
 
-void render_warp__12TObjWarpJungFPv(void* a0);
-s32 update_warp_display__12TObjWarpJungFv(void);
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, u16, s32);
 int draw_ginja_object(void);
 int get_bml_model(void*, void*);
 
     extern int TObjWarpJung__beam_bml_resource;
-void render_warp__12TObjWarpJungFPv(void* a0) { get_bml_model((void*)(TObjWarpJung__beam_bml_resource), a0); draw_ginja_object(); }
+void TObjWarpJung::render_warp(void* a0) { get_bml_model((void*)(TObjWarpJung__beam_bml_resource), a0); draw_ginja_object(); }
 
 extern s32 actor_frame_tick;
 extern s32 lbl_805D5CB4;
@@ -45,7 +44,7 @@ s32 TObjWarpJung__sub_801A0404(s32 arg0) {
     return 1;
 }
 
-s32 update_warp_display__12TObjWarpJungFv(void) {
+s32 TObjWarpJung::update_warp_display() {
     if ((s32) actor_frame_tick != (s32) lbl_805D5CB4) {
         lbl_805D5CB4 = actor_frame_tick;
         if ((s32) lbl_805D5CC4 >= 0) {

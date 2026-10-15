@@ -7,6 +7,7 @@ struct TOContainerAncientItemCommon
 {
     u8 _pad1C[0x30A];
     u16 m_326;
+    s32 create();
 };
 
 #endif

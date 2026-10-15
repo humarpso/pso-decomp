@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 struct Base_8031D780 { char pad[0x18]; };
 struct VObj_8031D780 : Base_8031D780 {
@@ -31,29 +32,29 @@ struct VObj_8031D780 : Base_8031D780 {
 
 extern "C" {
 
-void spawn_trap_a__12TObjEneReconFi(s32 arg0);
-void spawn_trap_b__12TObjEneReconFi(s32 arg0);
 u16 TObjEneRecon__sub_8031D878(void *arg0);
 void TObjEneRecon__vt102(void *arg0, f32 farg0);
 s32 play_persistent_sound(s32, s32, s32, s32, s32);
 s32 spawn_part__14TObjEneEpsilonFi(void *, f32);
-s32 select_and_apply_target__14TObjEneEpsilonFPvf(void *, f32);
-s32 remap_area_sound_id__14TObjEneRecoboxFUi(s32);
+s32 select_and_apply_target__14TObjEneEpsilonFf(void *, f32);
+s32 remap_area_sound_id__14TObjEneRecoboxFUl(s32);
 
 void TObjEneRecon__vt102(void *arg0, f32 farg0) {
     if (((VObj_8031D780 *)arg0)->m97() != 0) {
-        select_and_apply_target__14TObjEneEpsilonFPvf(arg0, farg0);
+        select_and_apply_target__14TObjEneEpsilonFf(arg0, farg0);
         return;
     }
     spawn_part__14TObjEneEpsilonFi(arg0, farg0);
 }
 
-void spawn_trap_a__12TObjEneReconFi(s32 arg0) {
-    play_persistent_sound((s32)(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003AD07)), (s32)(arg0), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
+void TObjEneRecon::spawn_trap_a() {
+    s32 arg0 = (s32)this;
+    play_persistent_sound((s32)(remap_area_sound_id__14TObjEneRecoboxFUl(0x4003AD07)), (s32)(arg0), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
 }
 
-void spawn_trap_b__12TObjEneReconFi(s32 arg0) {
-    play_persistent_sound((s32)(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003B206)), (s32)(arg0), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
+void TObjEneRecon::spawn_trap_b() {
+    s32 arg0 = (s32)this;
+    play_persistent_sound((s32)(remap_area_sound_id__14TObjEneRecoboxFUl(0x4003B206)), (s32)(arg0), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
 }
 
 u16 TObjEneRecon__sub_8031D878(void *arg0) {

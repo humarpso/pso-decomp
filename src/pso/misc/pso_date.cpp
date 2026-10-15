@@ -33,7 +33,6 @@ void prepare_ginja_model(void *);
 void end_ginja_model_draw();
 void draw_ginja_model_lists();
 extern void *model_draw_context;
-void draw_ginja_model_tree__10TObjPlayerFPvPv(void *arg0, void *arg1);
 extern const Tbl_801E2B24 date_month_start_days[] = {
     {{0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334}}
 };
@@ -74,6 +73,7 @@ int getDateStamp(DateStamp* out) {
 }
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -88,12 +88,12 @@ int VISetBlack(int);
 void fn_801E2C50(void) {  }
 void reset_system(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 0); }
 void system_reset(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 1); }
-void draw_ginja_model_tree__10TObjPlayerFPvPv(void *arg0, void *arg1) {
+void TObjPlayer::draw_ginja_model_tree(void *arg1) {
     bind_motion_blend_channels(arg1);
     void *g = model_draw_context;
     *(void (**)())((s8 *)g + 0xC) = draw_ginja_model_lists;
     prepare_ginja_model(g);
-    render_model_tree__10TObjPlayerFPv(arg0);
+    render_model_tree__10TObjPlayerFPv(this);
     end_ginja_model_draw();
 }
 

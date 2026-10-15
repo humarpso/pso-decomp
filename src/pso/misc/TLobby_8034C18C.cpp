@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -10,18 +11,15 @@ struct Big_8034C1D0 { u32 a; Body_8034C1D0 b; };
 extern "C" {
 extern s32 info_board_state_flags;
 extern u32 information_board_response_buffer;
-void *get_info_board_ptr__6TLobbyFv(void);
 s32 TLobby__sub_8034C1D0(u32 dst, s32 src);
 }
 
 extern "C" {
 
-void init_once__6TLobbyFi(s32 arg0);
-
 extern s32 info_board_state_flags;
 extern u32 information_board_response_buffer;
 
-void init_once__6TLobbyFi(s32 arg0) {
+void TLobby::init_once(s32 arg0) {
     if (!(info_board_state_flags & 2) && (information_board_response_buffer != 0U)) {
         info_board_state_flags |= 2;
         TLobby__sub_8034C1D0((u32)(information_board_response_buffer), (s32)(arg0));
@@ -32,7 +30,7 @@ s32 TLobby__sub_8034C1D0(u32 dst, s32 src) {
     *(Big_8034C1D0 *)dst = *(Big_8034C1D0 *)src;
 }
 
-void *get_info_board_ptr__6TLobbyFv(void) {
+void *TLobby::get_info_board_ptr() {
     void *p;
     if (!(info_board_state_flags & 2)) {
         return NULL;

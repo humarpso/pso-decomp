@@ -18,26 +18,23 @@ extern s32 __vt__12TChCrLoadReq[];
 extern void *lbl_805D3B60;
 u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1);
 void TLobby__sub_8028D738(s32, s32);
-s32 get_display_index__12TCharaMakingFPv(void *);
+s32 get_display_index__12TCharaMakingFv(void *);
 extern u8 class_appearance_table[];
-void reset_request__12TChCrLoadReqFPv(Rq_8028D214 *arg0);
 }
 
 extern "C" {
 
 void *TChCrLoadReq__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1);
-void copy__12TChCrLoadReqFPvPv(void* p, void* q);
-void *create__12TChCrLoadReqFPv(void *arg0);
 void * create_ch_cr_load_req(void *arg0, void *arg1);
-s32 request_texture_loads__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 request_texture_loads__23TAdSinglePlyChrSelectGCFv(void *);
 s32 request_model_loads__23TAdSinglePlyChrSelectGCFPv(void *);
 void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFv(void *);
 
 }
 
@@ -50,9 +47,9 @@ void TChCrLoadReq::update_load_progress() {
         }
     } else {
 block_3:
-        if (try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(arg0) != 0) {
+        if (try_claim_load_slot__23TAdSinglePlyChrSelectGCFv(arg0) != 0) {
             request_model_loads__23TAdSinglePlyChrSelectGCFPv(arg0);
-            request_texture_loads__23TAdSinglePlyChrSelectGCFPv(arg0);
+            request_texture_loads__23TAdSinglePlyChrSelectGCFv(arg0);
             *(s32 *)((s8 *)arg0 + 0x60) = 1;
         }
     }
@@ -86,11 +83,12 @@ void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1) {
 extern s32 __vt__12TChCrLoadReq[];
 extern void *lbl_805D3B60;
 
-void reset_request__12TChCrLoadReqFPv(Rq_8028D214 *arg0) {
+void TChCrLoadReq::reset_request() {
+    Rq_8028D214 *arg0 = (Rq_8028D214 *)this;
     s32 i;
     s32 t;
     arg0->f58 = (s32)((u8 *)arg0->f48 + 8);
-    t = get_display_index__12TCharaMakingFPv(arg0->f38) * 0x2C;
+    t = get_display_index__12TCharaMakingFv(arg0->f38) * 0x2C;
     arg0->f5c = class_appearance_table + t;
     TLobby__sub_8028D738(arg0->f40, t);
     arg0->f44[0] = 0;
@@ -109,12 +107,12 @@ void *TChCrLoadReq__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject((void *)(arg0), (void *)(arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TChCrLoadReq;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D3B60;
-    copy__12TChCrLoadReqFPvPv((void*)((void *)((char *)arg0 + 56)), (void*)(arg2));
-    reset_request__12TChCrLoadReqFPv((Rq_8028D214 *)(arg0));
+    ((TChCrLoadReq *)((char *)arg0 + 56))->copy((void*)(arg2));
+    ((TChCrLoadReq *)arg0)->reset_request();
     return arg0;
 }
 
-void copy__12TChCrLoadReqFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(u32*)((char*)p + 0x8) = *(u32*)((char*)q + 0x8); *(u32*)((char*)p + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)p + 0x10) = *(u32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(u32*)((char*)p + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)p + 0x1c) = *(u32*)((char*)q + 0x1c); }
+void TChCrLoadReq::copy(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)this + 0x4) = *(u32*)((char*)q + 0x4); *(u32*)((char*)this + 0x8) = *(u32*)((char*)q + 0x8); *(u32*)((char*)this + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)this + 0x10) = *(u32*)((char*)q + 0x10); *(u32*)((char*)this + 0x14) = *(u32*)((char*)q + 0x14); *(u32*)((char*)this + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)this + 0x1c) = *(u32*)((char*)q + 0x1c); }
 
 u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject((void *)((void *) (arg0)), (void *)((void *) (arg1)));
@@ -128,7 +126,7 @@ u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (arg1 + 0xCF4);
     *(s32 *)((s8 *)arg0 + 0x50) = (s32) (arg1 + 0xB88);
     *(s32 *)((s8 *)arg0 + 0x54) = (s32) (arg1 + 0xA1C);
-    reset_request__12TChCrLoadReqFPv((Rq_8028D214 *)((void *) (arg0)));
+    ((TChCrLoadReq *)arg0)->reset_request();
     return arg0;
 }
 
@@ -141,7 +139,7 @@ void * create_ch_cr_load_req(void *arg0, void *arg1) {
     return o;
 }
 
-void *create__12TChCrLoadReqFPv(void *arg0) {
+void *TChCrLoadReq::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
         o = TChCrLoadReq__sub_8028D360((u8 *)(o), (s32)(arg0));

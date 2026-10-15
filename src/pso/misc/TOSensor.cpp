@@ -58,8 +58,8 @@ void play_persistent_sound(int, void *, void *, int, int);
 void TOSensor__sub_80175514(u8 *arg0);
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
-void finalize_and_send_60__6TLobbyFPv(void *);
-void init_6x05_switch_changed__6TLobbyFPv(void *);
+void finalize_and_send_60__6TLobbyFv(void *);
+void init_6x05_switch_changed__6TLobbyFv(void *);
 void TOSensor__sub_8017546C(u8 *arg0);
 void TOSensor__sub_80175514(u8 *arg0);
 extern s32 local_client_id;
@@ -170,13 +170,13 @@ void update_switch_state__8TOSensorFPv(Obj_801755BC *self) {
         if (self->m13() == 1) {
             Pkt_801755BC pkt;
             self->m16();
-            init_6x05_switch_changed__6TLobbyFPv(&pkt);
+            init_6x05_switch_changed__6TLobbyFv(&pkt);
             pkt.object = self->id;
             pkt.zero = local_client_id;
             pkt.switchId = self->switchId;
             pkt.area = get_current_floor();
             pkt.flags = 1;
-            finalize_and_send_60__6TLobbyFPv(&pkt);
+            finalize_and_send_60__6TLobbyFv(&pkt);
         }
     } else {
         self->m14();
@@ -281,6 +281,7 @@ void TOSensorAncient01__vt14(u8 *arg0) {
 }
 
 #include "types.h"
+#include "pso/misc/TOSensorAncient01.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -315,14 +316,14 @@ struct Obj_80175D0C { u8 pad[0x42C]; Model_80175D0C *model; };
 struct Buf_80175D0C { s32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
-s32 init_switch_id__5TOKeyFPv(void *);
+s32 init_switch_id__5TOKeyFv(void *);
 extern s32 __vt__17TOSensorAncient01[];
 extern s32 TOSensorAncient01_class_name;
 extern u32 sensor_ancient01_model_resource;
 u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-void *alloc_buffer__11TOBoss4RockFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+void *mem_alloc(s32);
 s32 load_gvm_texture_file(const void *);
 extern u32 sensor_ancient01_model_resource;
 extern void *ancient_sensor_resource_pair_table;
@@ -330,23 +331,20 @@ extern s32 lbl_805D5A90;
 extern s32 lbl_805D5A94;
 extern s32 lbl_805D5A98;
 extern s32 sensor_texture_table_index;
-void load_resources__17TOSensorAncient01Fv(void);
 }
 
 extern "C" {
 
 void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1);
-void *create__17TOSensorAncient01FPv(void *arg0);
-void destroy__17TOSensorAncient01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 free__11TOBoss4RockFUi(void*);
-s32 free_if_valid__10TObjPlayerFi(s32);
+s32 mem_free(void*);
+s32 free_if_valid__10TObjPlayerFl(s32);
 
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 void draw_ginja_model(s32);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
@@ -355,7 +353,8 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 struct Pair_80175994 { s32 a; s32 b; };
 
-void render__17TOSensorAncient01Fv(u8 *arg0) {
+void TOSensorAncient01::render() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r30;
     u8 *temp_r30_2;
     u8 *temp_r30_3;
@@ -370,7 +369,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)((s8 *)arg0 + 0x8C) * 8)));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)((s8 *)arg0 + 0x8C) * 8)));
         temp_r30 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
         post_translate_matrix((void *) (temp_r30 + 8));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30 + 4));
@@ -379,7 +378,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         temp_r30_2 = (u8 *)(*(u8 **)((s8 *)temp_r30 + 0x2C));
         if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (3e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
-            set_global_param__8TObjFishFi(tbl[sensor_texture_table_index].b);
+            set_global_param__8TObjFishFl(tbl[sensor_texture_table_index].b);
         }
         post_translate_matrix((void *) (temp_r30_2 + 8));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_2 + 4));
@@ -388,7 +387,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         temp_r30_3 = (u8 *)(*(u8 **)((s8 *)temp_r30_2 + 0x30));
         if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (6e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
-            set_global_param__8TObjFishFi(tbl[sensor_texture_table_index].b);
+            set_global_param__8TObjFishFl(tbl[sensor_texture_table_index].b);
         }
         post_translate_matrix((void *) (temp_r30_3 + 8));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_3 + 4));
@@ -397,7 +396,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         temp_r30_4 = (u8 *)(*(u8 **)((s8 *)temp_r30_3 + 0x30));
         if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (9e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
-            set_global_param__8TObjFishFi(tbl[sensor_texture_table_index].b);
+            set_global_param__8TObjFishFl(tbl[sensor_texture_table_index].b);
         }
         post_translate_matrix((void *) (temp_r30_4 + 8));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_4 + 4));
@@ -437,7 +436,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
 
 extern void *tl_05;
 
-void *create__17TOSensorAncient01FPv(void *arg0) {
+void *TOSensorAncient01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
         o = TOSensorAncient01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -448,13 +447,13 @@ void *create__17TOSensorAncient01FPv(void *arg0) {
 extern u32 sensor_ancient01_model_resource;
 extern void *ancient_sensor_resource_pair_table;
 
-void destroy__17TOSensorAncient01Fv(void) {
+void TOSensorAncient01::destroy() {
     if ((void *) ancient_sensor_resource_pair_table != NULL) {
-        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 0));
-        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 0xC));
-        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 8));
+        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 0));
+        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 0xC));
+        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 8));
         if ((void *) ancient_sensor_resource_pair_table != NULL) {
-            free__11TOBoss4RockFUi((void*)ancient_sensor_resource_pair_table);
+            mem_free((void*)ancient_sensor_resource_pair_table);
             ancient_sensor_resource_pair_table = NULL;
         }
     }
@@ -472,14 +471,14 @@ extern const char lbl_80442A00[];
 extern const char lbl_80442A18[];
 }
 
-void load_resources__17TOSensorAncient01Fv(void) {
+void TOSensorAncient01::load_resources() {
     void *p;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, &TOSensorAncient01__resource_descriptor, 0, 0, 0);
     }
     sensor_ancient01_model_resource = (u32)p;
-    ancient_sensor_resource_pair_table = alloc_buffer__11TOBoss4RockFPv(0x10);
+    ancient_sensor_resource_pair_table = mem_alloc(0x10);
     ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->b = ((Obj_80175D0C *)sensor_ancient01_model_resource)->model->c;
     ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->a = load_gvm_texture_file(lbl_804429E8);
     ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->d = load_gvm_texture_file(lbl_80442A00);
@@ -514,7 +513,7 @@ u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 *)&__vt__17TOSensorAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOSensorAncient01_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    init_switch_id__5TOKeyFPv((void *) (arg0));
+    init_switch_id__5TOKeyFv((void *) (arg0));
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x8C);
     if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0x8C) = 0;

@@ -20,6 +20,13 @@ struct TObjLazerFence4
     u8 _padB0[0x8];
     u16 m_b8;
     u16 m_ba;
+    void run_task();
+    void init_models();
+    void draw();
+    void draw_model();
+    void reset_if_door_closed();
+    void render();
+    void *create();
 };
 
 #endif

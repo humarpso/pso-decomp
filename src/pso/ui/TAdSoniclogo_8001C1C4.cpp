@@ -12,24 +12,23 @@ extern int TAdSoniclogo__state;
 extern void *tl_00;
 void *__nw__7TObjectFUl(u32 size);
 void request_exit__5TLogoFv(void);
-void init__22THunterGuildSeqOfflineFPvPvPv(void *a, void *b, void *c);
-void run_task__12TAdSoniclogoFv(Obj_8001C21C *self);
+void init__22THunterGuildSeqOfflineFPvPv(void *a, void *b, void *c);
 }
 
 extern "C" {
 
-void request_destroy__12TAdSoniclogoFv(void);
 int queue_destruction__7TObjectFv(void);
 
     extern int TAdSoniclogo__state;
-void request_destroy__12TAdSoniclogoFv(void) { queue_destruction__7TObjectFv(); TAdSoniclogo__state = 1; }
+void TAdSoniclogo::request_destroy() { queue_destruction__7TObjectFv(); TAdSoniclogo__state = 1; }
 
 }
 
 void TAdSoniclogo::render() {
     render_logo_with_default(sonic_logo_object, 16, -1, lbl_805D7E78);
 }
-void run_task__12TAdSoniclogoFv(Obj_8001C21C *self) {
+void TAdSoniclogo::run_task() {
+    Obj_8001C21C *self = (Obj_8001C21C *)this;
     switch (TAdSoniclogo__state) {
     case 0:
         break;
@@ -39,7 +38,7 @@ void run_task__12TAdSoniclogoFv(Obj_8001C21C *self) {
             TAdSoniclogo__state = 2;
             p = __nw__7TObjectFUl(0x28);
             if (p != 0) {
-                init__22THunterGuildSeqOfflineFPvPvPv(p, tl_00, (void *)request_exit__5TLogoFv);
+                init__22THunterGuildSeqOfflineFPvPv(p, tl_00, (void *)request_exit__5TLogoFv);
             }
         }
         break;

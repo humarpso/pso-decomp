@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_801BE210_801BE1C0 { char pad[0x18]; };
 struct VObj_801BE210_801BE1C0 : Base_801BE210_801BE1C0 {
@@ -77,19 +78,13 @@ void TObjPlayer__vt66(void *arg0, s32 arg1);
 int TObjPlayer__vt74(void* p);
 int TObjPlayer__vt75(void* p);
 int TObjPlayer__vt77(void);
-u8 check_camera_mode__10TObjPlayerFv(void);
-int check_flag_at_41c__10TObjPlayerFPv(void* p);
-int check_stat_flag_41c__10TObjPlayerFPv(void* p);
-int clamp_stat_41c__10TObjPlayerFPv(void* p);
 s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1);
-int is_ready__10TObjPlayerFPv(void* p);
-int set_flag_41c_bit1__10TObjPlayerFPv(void* p);
 s32 is_quest_active();
 int subtract_photon_blast_charge(void*);
 int add_photon_blast_chain_charge(void*);
 s32 __dl__FPv(s32);
 s32 __dt__12TPlyCharDataFv(s32, s32);
-int set_flags__10TObjPlayerFPvUi(void*, int);
+int set_flags__10TObjPlayerFUl(void*, int);
 
 s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
@@ -110,16 +105,16 @@ int TObjPlayer__vt74(void* p) { return subtract_photon_blast_charge((char*)p + 0
 int TObjPlayer__vt75(void* p) { return add_photon_blast_chain_charge((char*)p + 0x4ac); }
 
 int TObjPlayer__vt77(void) { return 0; }
-u8 check_camera_mode__10TObjPlayerFv(void) {
+u8 TObjPlayer::check_camera_mode() {
     return (u8) (is_quest_active() == 1);
 }
 void TObjPlayer__sub_801BE2C0(void* p, s32 v) { *(s32*)((char*)p + 0x370) = v; }
 s32 TObjPlayer__sub_801BE2C8(void* p) { return *(s32*)((char*)p + 0x370); }
 int TObjPlayer__sub_801BE2D0(void* p) { return (*(u32*)((char*)p + 0x890) >> 3) & 0x1; }
-int is_ready__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }
-int check_stat_flag_41c__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x41c, 32); }
-int check_flag_at_41c__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x41c, 4); }
-int set_flag_41c_bit1__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x41c, 2); }
-int clamp_stat_41c__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x41c, 8); }
+int TObjPlayer::is_ready() { return (*(u32*)((char*)this + 0x890) >> 4) & 0x1; }
+int TObjPlayer::check_stat_flag_41c() { return set_flags__10TObjPlayerFUl((char*)this + 0x41c, 32); }
+int TObjPlayer::check_flag_at_41c() { return set_flags__10TObjPlayerFUl((char*)this + 0x41c, 4); }
+int TObjPlayer::set_flag_41c_bit1() { return set_flags__10TObjPlayerFUl((char*)this + 0x41c, 2); }
+int TObjPlayer::clamp_stat_41c() { return set_flags__10TObjPlayerFUl((char*)this + 0x41c, 8); }
 
 }

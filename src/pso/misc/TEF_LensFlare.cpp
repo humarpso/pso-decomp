@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TEF_LensFlare.h"
 
 struct Base_8008194C_80081278 { char pad[0x50]; };
 struct VObj_8008194C_80081278 : Base_8008194C_80081278 {
@@ -40,7 +41,6 @@ extern "C" {
 void TEF_LensFlare__sub_80081944(void);
 void TEF_LensFlare__sub_80081948(void);
 void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1);
-void dispatch_vt1__13TEF_LensFlareFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
@@ -71,8 +71,8 @@ u8 *TEF_LensFlare__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void TEF_LensFlare__sub_80081944(void) {  }
 void TEF_LensFlare__sub_80081948(void) {  }
 
-void dispatch_vt1__13TEF_LensFlareFPv(void *arg0) {
-    struct VObj_8008194C_80081278 *o = (struct VObj_8008194C_80081278 *)*(void **)((s8 *)arg0 + 0x1C);
+void TEF_LensFlare::dispatch_vt1() {
+    struct VObj_8008194C_80081278 *o = (struct VObj_8008194C_80081278 *)*(void **)((s8 *)this + 0x1C);
     o->m1();
 }
 

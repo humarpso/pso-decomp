@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void enlarge_flight_cutter_slicer(void *arg0);
-void setup_item_render__10TObjPlayerFPv(u8 *arg0);
 s32 scale_current_matrix(void *);
-u8 get_slot_count__14TItemProShieldFPv();
+u8 get_slot_count__14TItemProShieldFv();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
@@ -21,12 +21,13 @@ void enlarge_flight_cutter_slicer(void *arg0) {
     }
 }
 
-void setup_item_render__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::setup_item_render() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3_2;
     s32 temp_r3_3;
     u8 temp_r3;
 
-    temp_r3 = get_slot_count__14TItemProShieldFPv();
+    temp_r3 = get_slot_count__14TItemProShieldFv();
     switch ((s32) temp_r3) {
     case 5:
         temp_r3_2 = get_player_list__10TObjPlayerFv();

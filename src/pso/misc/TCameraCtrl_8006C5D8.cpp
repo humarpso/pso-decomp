@@ -19,7 +19,7 @@ extern G_8006C668 TCameraCtrl__camera_banks;
 void xfree__FPv(void *);
 void free_entries__11TCameraCtrlFv(void);
 s32 load_relocatable_file(s32, void *);
-s32 update_lobby_scene__6TSceneFPv(s32);
+s32 update_lobby_scene__6TSceneFv(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 void *xmalloc__FUl(s32);
 extern Bank_8006C6CC camera_path_bank_table[];
@@ -38,8 +38,8 @@ int TCameraCtrl__sub_80068714(void);
 void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void *get_params__11TCameraCtrlFPv(u32);
-void *init_subobject__11TCameraCtrlFPv(void *);
+void *get_params__11TCameraCtrlFv(u32);
+void *init_subobject__11TCameraCtrlFv(void *);
 
     extern unsigned char lbl_80488B68[];
     extern int TCameraCtrl__saved_projection_angle;
@@ -76,7 +76,7 @@ void load_camera_banks__11TCameraCtrlFv(void) {
         return;
     }
     for (j = 0; j < n; j++) {
-        sz = update_lobby_scene__6TSceneFPv(b->entries[j].id);
+        sz = update_lobby_scene__6TSceneFv(b->entries[j].id);
         if (sz <= -1) {
             return;
         }
@@ -90,7 +90,7 @@ void load_camera_banks__11TCameraCtrlFv(void) {
 void *TCameraCtrl__vt10(void) {
     void *o = __nw__7TObjectFUl(0x6C);
     if (o != NULL) {
-        o = init_subobject__11TCameraCtrlFPv(o);
+        o = init_subobject__11TCameraCtrlFv(o);
     }
     return o;
 }
@@ -103,7 +103,7 @@ void update__11TCameraCtrlFPv(void *arg0) {
     void *temp_r3;
 
     if ((u32) camera_ctrl_instance != 0U) {
-        temp_r31 = get_params__11TCameraCtrlFPv(camera_ctrl_instance);
+        temp_r31 = get_params__11TCameraCtrlFv(camera_ctrl_instance);
         temp_r3 = get_player_by_client_id(0);
         if (temp_r3 != NULL) {
             *(f32 *)((s8 *)arg0 + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);

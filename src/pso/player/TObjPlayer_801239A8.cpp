@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void update_claw_weapon_trails(void* p);
-void *set_vtable_mode1__10TObjPlayerFPv(void *arg0);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void TItemWeapon__ct(void *);
@@ -13,11 +13,11 @@ void update_claw_weapon_trails(void* p) { draw_weapon_at_joint(p, (void*)49); up
 
 extern s32 lbl_804A1C38[];
 
-void *set_vtable_mode1__10TObjPlayerFPv(void *arg0) {
-    TItemWeapon__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A1C38;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 1);
-    return arg0;
+void *TObjPlayer::set_vtable_mode1() {
+    TItemWeapon__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804A1C38;
+    set_status_flags__10TObjPlayerFPvUi(this, 1);
+    return this;
 }
 
 }

@@ -10,6 +10,7 @@ struct Stack_80351DA8 {
 };
 
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
 
 #pragma opt_lifetimes off
 struct Stack_80351A80 {
@@ -43,14 +44,13 @@ extern const f32 lbl_805D8D48;
 s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 s32 queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(int, void *, int, int);
-s32 get_wing_position__26TBoss5GryphonLightningWingFii(s32, s32 *);
+s32 get_wing_position__26TBoss5GryphonLightningWingFl(s32, s32 *);
 s32 update_wing_segments(void *);
 s32 spawn_gryphon_lightning(void *);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 extern const f32 lbl_805DFED4;
 void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0);
 extern s32 TLobby__event_theme_id;
-s32 get_filtered_event_theme__6TLobbyFv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss5GryphonLightning__ct(f32);
 extern u8 __vt__26TBoss5GryphonLightningWing[];
@@ -64,10 +64,9 @@ extern "C" {
 void TLobby__sub_80351DF8(void);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 u8 is_lobby_event_active(void);
-void render__26TBoss5GryphonLightningWingFv(void);
 s32 TBoss8Dragon__sub_80063FB8(s32, s32 *, f32);
 s32 get_instance_count__12TBoss8DragonFv();
-s32 get_wing_position__26TBoss5GryphonLightningWingFii(s32, s32 *);
+s32 get_wing_position__26TBoss5GryphonLightningWingFl(s32, s32 *);
 
 extern f32 lbl_805DFED0;
 
@@ -77,12 +76,12 @@ void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0) {
 
     temp_r3 = get_instance_count__12TBoss8DragonFv();
     if (temp_r3 != 0) {
-        get_wing_position__26TBoss5GryphonLightningWingFii(arg0, &sp8);
+        get_wing_position__26TBoss5GryphonLightningWingFl(arg0, &sp8);
         TBoss8Dragon__sub_80063FB8(temp_r3, &sp8, lbl_805DFED0);
     }
 }
 
-void render__26TBoss5GryphonLightningWingFv(void) {  }
+void TBoss5GryphonLightningWing::render() {  }
 
 #pragma push
 #pragma opt_common_subs off
@@ -99,7 +98,7 @@ void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
     update_wing_segments((void *) (arg0));
     apply_lightning_effect__26TBoss5GryphonLightningWingFi((s32)((void *) (arg0)));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) == (s32) *(s32 *)((s8 *)arg0 + 0x98)) {
-        get_wing_position__26TBoss5GryphonLightningWingFii((s32)((void *) (arg0)), (s32 *)((void *) (&stack.sp8)));
+        get_wing_position__26TBoss5GryphonLightningWingFl((s32)((void *) (arg0)), (s32 *)((void *) (&stack.sp8)));
         play_sound_effect((int) (0x40032516), (void *) (&stack.sp8), (int) (0), (int) (0));
     }
     spawn_gryphon_lightning((void *) (arg0));
@@ -164,7 +163,7 @@ void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
 
 void TLobby__sub_80351DF8(void) {  }
 
-s32 get_filtered_event_theme__6TLobbyFv(void) {
+s32 TLobby::get_filtered_event_theme() {
     switch (TLobby__event_theme_id) {
     case 1: case 3: case 4: case 5: case 7: case 8: case 9: case 10: case 11: case 12: case 13:
         return TLobby__event_theme_id;
@@ -173,7 +172,7 @@ s32 get_filtered_event_theme__6TLobbyFv(void) {
 }
 
 u8 is_lobby_event_active(void) {
-    return (u8) (get_filtered_event_theme__6TLobbyFv() != 0);
+    return (u8) (TLobby::get_filtered_event_theme() != 0);
 }
 
 }

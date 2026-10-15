@@ -14,6 +14,11 @@ struct TObjKabochaLobby
     u32 m_60;
     u8 _pad64[0x64];
     u32 m_c8;
+    void render();
+    void run_task();
+    static void *create(void *arg0);
+    static void unload_static_data();
+    static void load_resources();
 };
 
 #endif

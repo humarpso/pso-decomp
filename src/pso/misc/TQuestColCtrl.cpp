@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestColCtrl.h"
 
 struct Obj_8019601C { u8 pad[0x6]; u16 id; };
 
@@ -8,12 +9,10 @@ struct Obj_80195F50 : Base_80195F50 { virtual ~Obj_80195F50(); };
 
 extern "C" {
 int run_tasks__7TObjectFv(void*);
-void run_task__13TQuestColCtrlFv(void);
 s32 TQuestColCtrl__sub_80196EC0();
 extern u32 quest_collision_task_root;
 extern u32 quest_collision_task_root;
 int run_tasks__7TObjectFv(void*);
-void run_task__13TQuestColCtrlFv(void);
 void *__nw__7TObjectFUl(int);
 void *TObjQuestColApcINW__ct(void *self, void *parent, void *arg);
 extern u32 quest_collision_task_root;
@@ -28,15 +27,14 @@ void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1);
 extern "C" {
 
 void *TQuestColCtrl__ct(void *arg0);
-void render__13TQuestColCtrlFv(void);
 void __ct__7TObjectFP7TObject(void *);
 
-void render__13TQuestColCtrlFv(void) {  }
+void TQuestColCtrl::render() {  }
 
 extern s32 __vt__13TQuestColCtrl[];
 extern void *lbl_805D3404;
 
-void run_task__13TQuestColCtrlFv(void) {
+void TQuestColCtrl::run_task() {
     TQuestColCtrl__sub_80196EC0();
     if ((u32) quest_collision_task_root != 0U) {
         run_tasks__7TObjectFv((void*)((void*)quest_collision_task_root));

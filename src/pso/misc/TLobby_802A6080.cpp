@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Chip_802A60CC {
     u8 pad0[0x18];
@@ -33,7 +34,6 @@ extern "C" {
 
 void TObjSuisoChip__vt6(void);
 void TObjSuisoChip__vt8(void* p);
-int get_max_players__6TLobbyFv(void);
 s32 TObjChip__vt6();
 int TObjChip__vt8(void*, void*);
 int free_buffer__15TWindowSnapShotFPv(void*);
@@ -47,10 +47,10 @@ s32 get_buffer_size__15TWindowSnapShotFPv(void* p);
 int get_width__15TWindowSnapShotFv(void);
 s32 init__15TWindowSnapShotFPvi();
 s32 open_stream__15TWindowSnapShotFPvi(void *, s32);
-int reset__15TWindowSnapShotFPv(void*);
+int reset__15TWindowSnapShotFv(void*);
 void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
 
-int get_max_players__6TLobbyFv(void) { return 8; }
+int TLobby::get_max_players() { return 8; }
 
 void TObjSuisoChip__vt6(void) {
     TObjChip__vt6();

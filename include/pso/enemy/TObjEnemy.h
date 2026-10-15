@@ -29,6 +29,9 @@ struct TObjEnemy {
     u32 variant;
     u32 state36C;
     void* control;
+    static s32 apply_by_index(s16 arg0);
+    int apply_player_54a00();
+    s32 mask_sub_flags(s32 arg1);
 };
 typedef char EnemyBaseSize[(sizeof(TObjEnemy)==0x374)?1:-1];
 #endif

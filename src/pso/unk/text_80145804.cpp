@@ -32,12 +32,12 @@ void release_menu_font__6TLobbyFv(void);
 void load_font_texture__6TLobbyFv(void);
 s32 set_stream_and_load_file__6TLobbyFi(void *);
 void *TNECFontEORFunction__ct(void *);
-void *alloc_buffer__11TOBoss4RockFPv(u32);
+void *mem_alloc(u32);
 void *__nw__7TObjectFUl(u32);
-void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
+void set_render_rect__10TObjPlayerFllll(void *, int, int, int, int);
 void set_texture_name(void *, void *, u32, u32);
-void set_global_param__8TObjFishFi(void *);
-void set_entry_index__9TLanguageFii(u32, int);
+void set_global_param__8TObjFishFl(void *);
+void set_entry_index__9TLanguageFll(u32, int);
 void load_texture_list(void *);
 extern u8 lbl_8043F3D8[];
 extern TexList_80145804 menu_font_texture_list[];
@@ -80,7 +80,7 @@ void load_menu_font(void) {
     menu_font_glyph_data = set_stream_and_load_file__6TLobbyFi(lbl_8043F3D8);
     release_menu_font__6TLobbyFv();
     for (i = 0; i < 2; i++) {
-        set_render_rect__10TObjPlayerFPviiii(lbl_8050C048 + i, 0, 0x208, 0x100, 0x100);
+        set_render_rect__10TObjPlayerFllll(lbl_8050C048 + i, 0, 0x208, 0x100, 0x100);
         set_texture_name(lbl_8050C090 + i, lbl_8050C048 + i, i + 0xDCF28, 0x08800000);
     }
     load_texture_list(menu_font_texture_list);
@@ -88,17 +88,17 @@ void load_menu_font(void) {
         *(menu_font_glyph_pixel_buffers + m) = menu_font_texture_list[0].ents[m].obj->img->pixels;
         clear_words_80145804(*(menu_font_glyph_pixel_buffers + m), 0x2000);
     }
-    lbl_805D56B4 = (s16 *)alloc_buffer__11TOBoss4RockFPv(0x100);
+    lbl_805D56B4 = (s16 *)mem_alloc(0x100);
     clear_words_80145804((u32 *)lbl_805D56B4, 0x40);
     lbl_805D56B4[0] = 0xFFF;
     lbl_805D56B4[1] = 0x3FFF;
     lbl_805D56B4[2] = 0x5FFF;
     lbl_805D56B4[3] = 0x7FFF;
-    set_global_param__8TObjFishFi(menu_font_texture_list);
+    set_global_param__8TObjFishFl(menu_font_texture_list);
     for (i = 0; i < 2; i++) {
-        set_entry_index__9TLanguageFii(i, 0);
+        set_entry_index__9TLanguageFll(i, 0);
     }
-    g = (Glyph_80145804 *)alloc_buffer__11TOBoss4RockFPv(0xB40);
+    g = (Glyph_80145804 *)mem_alloc(0xB40);
     menu_font_glyph_table = g;
     for (i = 0; i < 2; i++) {
         v = 0;

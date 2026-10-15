@@ -76,7 +76,7 @@ s32 poll_keyboard_port(s32, s32 *);
 void TKeyBoardControl__sub_801327DC(s32 arg0, u8 arg1);
 int is_key_held__16TKeyBoardControlFPv(void* p);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-s32 request_close__19TWindowSubTradeMainFPv(void *);
+s32 request_close__19TWindowSubTradeMainFv(void *);
 s32 window_request_show(void *);
 s32 is_player_input_active(int);
 s32 TKeyBoardControl__sub_8025EC04(int);
@@ -129,15 +129,15 @@ void set_flag60_bit200__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit2__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit8__16TKeyBoardControlFPv(void* p);
 s32 export_keyboard_text(s32, s32);
-s32 measure_text_overflow__19TWindowKeyBoardSoftFPv(s32);
+s32 measure_text_overflow__19TWindowKeyBoardSoftFv(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 alloc_buffer__11TOBoss4RockFPv();
-int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
-int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
-int is_keyboard_active__17TWindowSubComCardFPv(void* p);
-int update_keyboard__17TWindowSubComCardFPv(void* p);
+s32 mem_alloc();
+int get_field_6c__19TWindowKeyBoardSoftFv(void*);
+int get_keyboard_field_6c__15TWindowMakeTeamFv(void* p);
+int is_keyboard_active__17TWindowSubComCardFv(void* p);
+int update_keyboard__17TWindowSubComCardFv(void* p);
 
 extern s32 __vt__16TKeyBoardControl[];
 
@@ -160,7 +160,7 @@ void run_task__16TKeyBoardControlFv(u8 *arg0) {
     } else if (((s32)is_key_held__16TKeyBoardControlFPv((void*)((int) (*(s32 *)((s8 *)arg0 + 0x24))))) == 0) {
         *(u16 *)((s8 *)arg0 + 0x1C) = (u16) (*(u16 *)((s8 *)arg0 + 0x1C) | 1);
         if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != 0U) {
-            request_close__19TWindowSubTradeMainFPv(*(void **)((s8 *)arg0 + 0x28));
+            request_close__19TWindowSubTradeMainFv(*(void **)((s8 *)arg0 + 0x28));
         }
     }
 }

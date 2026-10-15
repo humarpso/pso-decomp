@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -151,34 +152,32 @@ struct VObj_800C3A00_800C38D0 : Base_800C3A00_800C38D0 {
 
 extern "C" {
 
-void dispatch_action__9TObjEneDDFPvi(void *arg0, s32 arg1);
-void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
-void noop__9TObjEneDDFv(void);
 s32 advance_animation_playback();
-s32 play_area_se_with_particle__12TBoss3VoloptFi(void *);
-s32 play_area_sound_effect__12TBoss3VoloptFi(void *);
+s32 play_area_se_with_particle__12TBoss3VoloptFv(void *);
+s32 play_area_sound_effect__12TBoss3VoloptFv(void *);
 s32 transition_enemy_state(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-s32 clear_child_flags__16TObjEneRe2FlowerFPv(void *);
+s32 clear_child_flags__16TObjEneRe2FlowerFv(void *);
 s32 enemy_clear_target(void *);
-s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
+s32 get_flag_11__16TObjEneRe2FlowerFv(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 
-void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
+void TObjEneDD::handle_state(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
         ((V_En_800c38d0 *) arg0)->m93();
-        clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
+        clear_child_flags__16TObjEneRe2FlowerFv(arg0);
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) | 8);
         set_field_378__9TObjEneDDFPvi(arg0, 2);
         enemy_clear_target(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3F4);
-        if (get_flag_11__16TObjEneRe2FlowerFPv(arg0) != 0) {
-            play_area_se_with_particle__12TBoss3VoloptFi(arg0 + 0x38);
+        if (get_flag_11__16TObjEneRe2FlowerFv(arg0) != 0) {
+            play_area_se_with_particle__12TBoss3VoloptFv(arg0 + 0x38);
             return;
         }
-        play_area_sound_effect__12TBoss3VoloptFi(arg0 + 0x38);
+        play_area_sound_effect__12TBoss3VoloptFv(arg0 + 0x38);
         return;
     case 3:
         if (((V_Sub_800c38d0 *) (arg0 + 0x3F4))->m5() != 0) {
@@ -197,19 +196,19 @@ void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
-void dispatch_action__9TObjEneDDFPvi(void *arg0, s32 arg1) {
+void TObjEneDD::dispatch_action(s32 arg1) {
     switch (arg1) {
     case 4:
-        ((VObj_800C3A00_800C38D0 *)arg0)->m93();
+        ((VObj_800C3A00_800C38D0 *)this)->m93();
         return;
     case 3:
-        transition_enemy_state((void *)(arg0), (s32)(1));
+        transition_enemy_state((void *)(this), (s32)(1));
     case 5:
     case 0:
         return;
     }
 }
 
-void noop__9TObjEneDDFv(void) {  }
+void TObjEneDD::noop() {  }
 
 }

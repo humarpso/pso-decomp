@@ -104,28 +104,25 @@ struct Item_801D51A0 {
 };
 
 extern "C" {
-u8 get_field_ed__10TObjPlayerFPv(void *);
-u8 get_field_ec__12TOSwitchItemFPv(void *);
-s32 reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
-void *get_owner_if_alive__10TObjPlayerFPv(void *);
-s32 is_item_valid__9TItemListFi(void *);
+u8 get_field_ed__10TObjPlayerFv(void *);
+u8 get_field_ec__12TOSwitchItemFv(void *);
+s32 reduce_item_amount__6TLobbyFlll(s32, void *, void *, s32);
+void *get_owner_if_alive__10TObjPlayerFv(void *);
+s32 is_item_valid__9TItemListFl(void *);
 extern u8 *item_reduce_target_player;
 extern u8 item_reduce_owner_match_field_ec;
 extern u8 reduce_owner_match_id;
-void reduce_owner_matched_items__6TLobbyFPv(void *arg0);
-u8 get_field_ec__12TOSwitchItemFPv(void *);
-s32 reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
-void *get_owner_if_alive__10TObjPlayerFPv(void *);
-s32 is_item_valid__9TItemListFi(void *);
+u8 get_field_ec__12TOSwitchItemFv(void *);
+s32 reduce_item_amount__6TLobbyFlll(s32, void *, void *, s32);
+void *get_owner_if_alive__10TObjPlayerFv(void *);
+s32 is_item_valid__9TItemListFl(void *);
 extern u8 *item_reduce_target_player;
 extern u8 item_reduce_owner_match_field_ec;
-void reduce_child_item_amounts__6TLobbyFPv(void *arg0);
-s32 get_field_d8__10TObjPlayerFPv(void *);
-void *get_owner_if_alive__10TObjPlayerFPv(void *);
-s32 is_item_valid__9TItemListFi(void *);
+s32 get_field_d8__10TObjPlayerFv(void *);
+void *get_owner_if_alive__10TObjPlayerFv(void *);
+s32 is_item_valid__9TItemListFl(void *);
 extern s32 *TObjPlayer__owner_field_write_cursor;
 extern s32 inventory_walk_visit_count;
-void collect_owner_fields_recursive__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
@@ -137,12 +134,14 @@ TPlyItem::~TPlyItem() {
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void *TPlyItem__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void init_items__9TItemListFPv(void *);
+void init_items__9TItemListFv(void *);
 
 extern s32 __vt__8TPlyItem[];
 extern void *lbl_805D356C;
@@ -150,63 +149,63 @@ extern void *lbl_805D356C;
 void *TPlyItem__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TPlyItem;
-    init_items__9TItemListFPv((void *)((char *)arg0 + 32));
+    init_items__9TItemListFv((void *)((char *)arg0 + 32));
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D356C;
     *(u16 *)((s8 *)arg0 + 0x1C) = 0;
     *(u16 *)((s8 *)arg0 + 0x1E) = 0;
     return arg0;
 }
-void reduce_owner_matched_items__6TLobbyFPv(void *arg0) {
-    Item_801D5004 *self = (Item_801D5004 *)arg0;
+void TLobby::reduce_owner_matched_items() {
+    Item_801D5004 *self = (Item_801D5004 *)this;
     VObj_801D5004 *owner;
     Item_801D5004 *it;
     u8 *lobby;
     for (it = self->child; it != NULL; it = it->next) {
-        if (is_item_valid__9TItemListFi(it) != 0) {
-            owner = (VObj_801D5004 *)get_owner_if_alive__10TObjPlayerFPv(it);
-            if (owner != NULL && item_reduce_owner_match_field_ec == get_field_ec__12TOSwitchItemFPv(owner) &&
-                reduce_owner_match_id == get_field_ed__10TObjPlayerFPv(owner)) {
+        if (is_item_valid__9TItemListFl(it) != 0) {
+            owner = (VObj_801D5004 *)get_owner_if_alive__10TObjPlayerFv(it);
+            if (owner != NULL && item_reduce_owner_match_field_ec == get_field_ec__12TOSwitchItemFv(owner) &&
+                reduce_owner_match_id == get_field_ed__10TObjPlayerFv(owner)) {
                 if (item_reduce_owner_match_field_ec == 3) {
                     lobby = item_reduce_target_player;
-                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
+                    reduce_item_amount__6TLobbyFlll(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
                 } else {
-                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(item_reduce_target_player + 0xD00), item_reduce_target_player, it, 1);
+                    reduce_item_amount__6TLobbyFlll(*(s32 *)(item_reduce_target_player + 0xD00), item_reduce_target_player, it, 1);
                 }
             }
         }
-        reduce_child_item_amounts__6TLobbyFPv((void *)(it));
+        ((TLobby *)it)->reduce_child_item_amounts();
     }
 }
-void reduce_child_item_amounts__6TLobbyFPv(void *arg0) {
-    Item_801D50E0 *self = (Item_801D50E0 *)arg0;
+void TLobby::reduce_child_item_amounts() {
+    Item_801D50E0 *self = (Item_801D50E0 *)this;
     VObj_801D50E0 *owner;
     Item_801D50E0 *it;
     u8 *lobby;
     for (it = self->child; it != NULL; it = it->next) {
-        if (is_item_valid__9TItemListFi(it) != 0) {
-            owner = (VObj_801D50E0 *)get_owner_if_alive__10TObjPlayerFPv(it);
-            if (owner != NULL && item_reduce_owner_match_field_ec == get_field_ec__12TOSwitchItemFPv(owner)) {
+        if (is_item_valid__9TItemListFl(it) != 0) {
+            owner = (VObj_801D50E0 *)get_owner_if_alive__10TObjPlayerFv(it);
+            if (owner != NULL && item_reduce_owner_match_field_ec == get_field_ec__12TOSwitchItemFv(owner)) {
                 if (item_reduce_owner_match_field_ec == 3) {
                     lobby = item_reduce_target_player;
-                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
+                    reduce_item_amount__6TLobbyFlll(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
                 } else {
-                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(item_reduce_target_player + 0xD00), item_reduce_target_player, it, 1);
+                    reduce_item_amount__6TLobbyFlll(*(s32 *)(item_reduce_target_player + 0xD00), item_reduce_target_player, it, 1);
                 }
             }
         }
-        reduce_child_item_amounts__6TLobbyFPv(it);
+        ((TLobby *)it)->reduce_child_item_amounts();
     }
 }
-void collect_owner_fields_recursive__10TObjPlayerFPv(void *arg0) {
-    Item_801D51A0 *self = (Item_801D51A0 *)arg0;
+void TObjPlayer::collect_owner_fields_recursive() {
+    Item_801D51A0 *self = (Item_801D51A0 *)this;
     Item_801D51A0 *it;
     void *owner;
     for (it = self->child; it != NULL; it = it->next) {
-        if (is_item_valid__9TItemListFi(it) != 0 && (owner = get_owner_if_alive__10TObjPlayerFPv(it)) != NULL) {
-            *TObjPlayer__owner_field_write_cursor++ = get_field_d8__10TObjPlayerFPv(owner);
+        if (is_item_valid__9TItemListFl(it) != 0 && (owner = get_owner_if_alive__10TObjPlayerFv(it)) != NULL) {
+            *TObjPlayer__owner_field_write_cursor++ = get_field_d8__10TObjPlayerFv(owner);
             inventory_walk_visit_count++;
         }
-        collect_owner_fields_recursive__10TObjPlayerFPv(it);
+        ((TObjPlayer *)it)->collect_owner_fields_recursive();
     }
 }
 

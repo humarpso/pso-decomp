@@ -20,6 +20,8 @@ struct TObjEneSlimeWaterBomb
     u32 m_38c;
     u8 _pad390[0x4];
     u32 m_394;
+    void render();
+    void *create(void *arg1);
 };
 
 #endif

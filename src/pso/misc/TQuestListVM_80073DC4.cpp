@@ -1,37 +1,36 @@
 #include "types.h"
+#include "pso/TObjNewFloorWin.h"
+#include "pso/misc/TQuestListVM.h"
 
 struct TObjNewFloorWin_80073DCC { u8 pad[0x1C]; s32 state; void *window; s32 timer24; s32 timer28; };
 
 extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 fn_800740DC();
-s32 set_flag_40__16TAdChrSelASlotGCFPv(u32);
+s32 set_flag_40__16TAdChrSelASlotGCFv(u32);
 s32 TObjNewFloorWin__sub_8007410C();
 s32 close_active_window__11TWindowCtrlFv();
 s32 ensure_initialized__11TWindowCtrlFv();
 s32 calc_window_size__17TWindowSubComCardFPv(u32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, void *, s32, s32);
 u32 create_window_menu(s32);
-u32 check_room_seq_4__16TAdChrSelASlotGCFii(s32);
+u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32);
 s32 get_window_layout_position(s32);
 s32 sprintf(void *, const char *, ...);
 extern char lbl_80438660[];
-void open_window__15TObjNewFloorWinFPv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
-void open_window__15TObjNewFloorWinFPv(u8 *arg0);
 void TWindow__close(void *);
 s32 TWindowCtrlMain__sub_8024CE58();
-void run_task__15TObjNewFloorWinFv(TObjNewFloorWin_80073DCC *self);
 }
 
 extern "C" {
 
-void set_field_20__12TQuestListVMFPvi(void* p, s32 v);
-int get_status_flag__17TWindowSubComCardFPv(void* p);
+int get_status_flag__17TWindowSubComCardFv(void* p);
 
-void set_field_20__12TQuestListVMFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x20) = v; }
+void TQuestListVM::set_field_20(s32 v) { *(s32*)((char*)this + 0x20) = v; }
 
-void run_task__15TObjNewFloorWinFv(TObjNewFloorWin_80073DCC *self) {
+void TObjNewFloorWin::run_task() {
+    TObjNewFloorWin_80073DCC *self = (TObjNewFloorWin_80073DCC *)this;
     switch (self->state) {
     case 0:
         if (self->window == NULL) {
@@ -42,7 +41,7 @@ void run_task__15TObjNewFloorWinFv(TObjNewFloorWin_80073DCC *self) {
                 }
                 return;
             } else {
-                open_window__15TObjNewFloorWinFPv((u8 *)self);
+                open_window();
                 self->state = 1;
             }
         }
@@ -64,11 +63,12 @@ void run_task__15TObjNewFloorWinFv(TObjNewFloorWin_80073DCC *self) {
     }
 }
 
-void open_window__15TObjNewFloorWinFPv(u8 *arg0) {
+void TObjNewFloorWin::open_window() {
+    u8 *arg0 = (u8 *)this;
     s32 pos;
     pos = get_window_layout_position(0x3D);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x4C) < 0) {
-        *(u32 *)((s8 *)arg0 + 0x20) = ((u32 (*)(s32, s32, s32)) check_room_seq_4__16TAdChrSelASlotGCFii)(pos, 1, *(s32 *)((s8 *)arg0 + 0x4C));
+        *(u32 *)((s8 *)arg0 + 0x20) = ((u32 (*)(s32, s32, s32)) check_room_seq_4__16TAdChrSelASlotGCFl)(pos, 1, *(s32 *)((s8 *)arg0 + 0x4C));
     } else {
         *(u32 *)((s8 *)arg0 + 0x20) = ((u32 (*)(s32, s32, s32)) create_window_menu)(pos, 1, *(s32 *)((s8 *)arg0 + 0x4C));
     }
@@ -76,7 +76,7 @@ void open_window__15TObjNewFloorWinFPv(u8 *arg0) {
         sprintf(arg0 + 0x2C, lbl_80438660, TQuestVmDownLoadServer__sub_8006EF6C(0x67), TObjNewFloorWin__sub_8007410C());
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)arg0 + 0x20), arg0 + 0x2C, 0, 0);
         calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0x20));
-        set_flag_40__16TAdChrSelASlotGCFPv(*(u32 *)((s8 *)arg0 + 0x20));
+        set_flag_40__16TAdChrSelASlotGCFv(*(u32 *)((s8 *)arg0 + 0x20));
         fn_800740DC();
         close_active_window__11TWindowCtrlFv();
         ensure_initialized__11TWindowCtrlFv();

@@ -56,9 +56,9 @@ extern "C" {
 void sub_8028B940__12TChCrLoadAfsFv(void);
 void sub_8028B944__12TChCrLoadAfsFv(void);
 s32 TLobby__sub_803CC53C(u32);
-s32 read_checked_align__6TLobbyFiii(u32, s32, u32);
+s32 read_checked_align__6TLobbyFlll(u32, s32, u32);
 u32 adxf_open_afs__6TLobbyFii(s32, s32);
-u32 alloc__22TQuestVmDownLoadServerFPv(s32);
+u32 alloc__22TQuestVmDownLoadServerFv(s32);
 
 void sub_8028B940__12TChCrLoadAfsFv(void) {  }
 void sub_8028B944__12TChCrLoadAfsFv(void) {  }
@@ -123,7 +123,6 @@ struct Ld_8028BE00 {
 
 extern "C" {
 extern Te_8028BFA4 player_class_texture_archive_table[];
-void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 f32 TLobby__sub_8028C50C(f32);
@@ -131,15 +130,14 @@ s32 strcmp(const char *, const char *);
 extern Te_8028BFA4 player_class_texture_archive_table[];
 extern const f32 lbl_805DD920;
 s32 find_player_texture_name_ordinal(u8 *arg0);
-int safe_free__23TAdSinglePlyChrSelectGCFUi(int);
-void set_render_rect__10TObjPlayerFPviiii(void *, s32, s32, s32, s32);
+int safe_free__23TAdSinglePlyChrSelectGCFUl(int);
+void set_render_rect__10TObjPlayerFllll(void *, s32, s32, s32, s32);
 void set_texture_name(void *, void *, s32, s32);
 s32 load_texture_list(void *);
-void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0);
 }
 
 extern "C" {
-int adxf_stop__6TLobbyFPv(int);
+int adxf_stop__6TLobbyFv(int);
 }
 
 #include "types.h"
@@ -147,37 +145,36 @@ int adxf_stop__6TLobbyFPv(int);
 extern "C" {
 
 void *TChCrLoadAfs__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-void * create__12TChCrLoadAfsFPvPvPv(void *arg0, void *arg1, void *arg2);
-void start_download__12TChCrLoadAfsFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
-void start_download__12TChCrLoadAfsFv(void *arg0) {
+void TChCrLoadAfs::start_download() {
     s32 temp_r3_2;
     u32 temp_r3;
     u32 temp_r3_3;
 
     if (try_begin_load__12TChCrLoadAfsFPv() != 0) {
-        temp_r3 = adxf_open_afs__6TLobbyFii(*(s32 *)((s8 *)arg0 + 0x20), *(s32 *)((s8 *)arg0 + 0x24));
-        *(u32 *)((s8 *)arg0 + 0x1C) = temp_r3;
+        temp_r3 = adxf_open_afs__6TLobbyFii(*(s32 *)((s8 *)this + 0x20), *(s32 *)((s8 *)this + 0x24));
+        *(u32 *)((s8 *)this + 0x1C) = temp_r3;
         if (temp_r3 == 0U) {
-            *(s32 *)((s8 *)arg0 + 0x2C) = 3;
+            *(s32 *)((s8 *)this + 0x2C) = 3;
             return;
         }
-        temp_r3_2 = TLobby__sub_803CC53C(*(u32 *)((s8 *)arg0 + 0x1C));
-        temp_r3_3 = alloc__22TQuestVmDownLoadServerFPv(temp_r3_2 << 0xB);
-        *(u32 *)((s8 *)arg0 + 0x28) = temp_r3_3;
+        temp_r3_2 = TLobby__sub_803CC53C(*(u32 *)((s8 *)this + 0x1C));
+        temp_r3_3 = alloc__22TQuestVmDownLoadServerFv(temp_r3_2 << 0xB);
+        *(u32 *)((s8 *)this + 0x28) = temp_r3_3;
         if (temp_r3_3 == 0U) {
-            *(s32 *)((s8 *)arg0 + 0x2C) = 3;
+            *(s32 *)((s8 *)this + 0x2C) = 3;
             return;
         }
-        read_checked_align__6TLobbyFiii(*(u32 *)((s8 *)arg0 + 0x1C), temp_r3_2, *(u32 *)((s8 *)arg0 + 0x28));
-        *(s32 *)((s8 *)arg0 + 0x2C) = 1;
+        read_checked_align__6TLobbyFlll(*(u32 *)((s8 *)this + 0x1C), temp_r3_2, *(u32 *)((s8 *)this + 0x28));
+        *(s32 *)((s8 *)this + 0x2C) = 1;
     }
 }
 }
 
 #include "types.h"
+#include "pso/misc/TChCrLoadAfsTextureReq.h"
 
 class Afs_8028BA64 {
 public:
@@ -213,13 +210,13 @@ void TChCrLoadAfs::run_task() {
 TChCrLoadAfs::~TChCrLoadAfs() {
     u32 handle = load_handle;
     if (handle != 0) {
-        if (TLobby__sub_803CC4C0((int)handle) == 2) adxf_stop__6TLobbyFPv((int)load_handle);
+        if (TLobby__sub_803CC4C0((int)handle) == 2) adxf_stop__6TLobbyFv((int)load_handle);
         close_adxf_handle__6TLobbyFPv((int)load_handle);
         load_handle = 0;
     }
     u32 buffer = buffer_address;
     if (buffer != 0) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi((int)buffer);
+        safe_free__23TAdSinglePlyChrSelectGCFUl((int)buffer);
         buffer_address = 0;
     }
     release_load_slot__12TChCrLoadAfsFPv(this);
@@ -244,11 +241,11 @@ void *TChCrLoadAfs__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     return arg0;
 }
 
-void * create__12TChCrLoadAfsFPvPvPv(void *arg0, void *arg1, void *arg2) {
+void *TChCrLoadAfs::create(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = TChCrLoadAfs__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
+        o = TChCrLoadAfs__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2));
     }
     return o;
 }
@@ -295,7 +292,8 @@ s32 find_player_texture_name_ordinal(u8 *arg0) {
     return 0;
 }
 
-void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0) {
+void TChCrLoadAfsTextureReq::update_loading(void *) {
+    Ld_8028BE00 *arg0 = (Ld_8028BE00 *)this;
     s32 retry;
     s32 i;
     retry = 0;
@@ -320,7 +318,7 @@ void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0) {
     if (retry != 0) {
         close_adxf_handle__6TLobbyFPv(arg0->f60);
         arg0->f60 = 0;
-        safe_free__23TAdSinglePlyChrSelectGCFUi(arg0->bufs[arg0->f5c]);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(arg0->bufs[arg0->f5c]);
         arg0->bufs[arg0->f5c] = 0;
         arg0->f2c = 1;
         return;
@@ -332,7 +330,7 @@ void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0) {
         return;
     }
     for (i = 0; i < arg0->f58; i++) {
-        set_render_rect__10TObjPlayerFPviiii(&arg0->rects[i], arg0->bufs[i], 0, 0, 0);
+        set_render_rect__10TObjPlayerFllll(&arg0->rects[i], arg0->bufs[i], 0, 0, 0);
         set_texture_name(&arg0->f30->ents[i], &arg0->rects[i], 0, 0x40000000);
     }
     if (load_texture_list(arg0->f30) != -1) {
@@ -341,7 +339,8 @@ void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0) {
     }
 }
 
-void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0) {
+void TChCrLoadAfsTextureReq::start_read(void *) {
+    Cl_8028BFA4 *arg0 = (Cl_8028BFA4 *)this;
     s32 n;
     u32 t;
     void *buf;
@@ -351,10 +350,10 @@ void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0) {
         arg0->f20 = 0;
         arg0->f24 = 0;
         n = TLobby__sub_803CC53C((u32)(arg0->f60));
-        buf = ((void *)alloc__22TQuestVmDownLoadServerFPv((s32)(n << 11)));
+        buf = ((void *)alloc__22TQuestVmDownLoadServerFv((s32)(n << 11)));
         arg0->bufs[arg0->f5c] = buf;
         if (buf != NULL) {
-            read_checked_align__6TLobbyFiii((u32)(arg0->f60), (s32)(n), (u32)(arg0->bufs[arg0->f5c]));
+            read_checked_align__6TLobbyFlll((u32)(arg0->f60), (s32)(n), (u32)(arg0->bufs[arg0->f5c]));
             arg0->f2c = 2;
         }
     }

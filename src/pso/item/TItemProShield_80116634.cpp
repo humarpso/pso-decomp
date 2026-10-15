@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemProShield.h"
 
 struct Base_8011620C_80115D6C { char pad[0x18]; };
 
@@ -98,8 +99,8 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TItemProShield__sub_80116744(u8 *arg0);
 void add_actor_hp(s32, s16);
-s16 get_field_2b8__14TItemProShieldFPv(s32);
-s32 get_slot_count__14TItemProShieldFPv(void *);
+s16 get_field_2b8__14TItemProShieldFv(s32);
+s32 get_slot_count__14TItemProShieldFv(void *);
 u8 get_tool_pmt_amount_byte(void *);
 extern s32 game_difficulty_selection;
 void apply_mate_hp_recovery(Obj_80116634 *arg0);
@@ -113,9 +114,9 @@ void apply_to_equip_slot__14TItemProShieldFPv(void *arg0);
 s32 apply_transform_action__8TItemMagFPvUc(s32, s32);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
-s32 activate_d04_slot__10TObjPlayerFPv(s32);
+s32 activate_d04_slot__10TObjPlayerFv(s32);
 void free_obj_heap__10TObjPlayerFPv(void *);
-s32 get_slot_count__14TItemProShieldFPv(void *);
+s32 get_slot_count__14TItemProShieldFv(void *);
 
 extern void *item_hp_recovery_vtable[];
 
@@ -123,7 +124,7 @@ typedef struct Obj_80116634 Obj_80116634;
 void apply_mate_hp_recovery(Obj_80116634 *arg0) {
   u8 (*new_var2)(void *);
   s32 t;
-  new_var2 = (u8 (*)(void *)) get_slot_count__14TItemProShieldFPv;
+  new_var2 = (u8 (*)(void *)) get_slot_count__14TItemProShieldFv;
   if (new_var2(arg0) != 2)
   {
     int new_var;
@@ -134,7 +135,7 @@ void apply_mate_hp_recovery(Obj_80116634 *arg0) {
   }
   else
   {
-    add_actor_hp(arg0->f0, get_field_2b8__14TItemProShieldFPv(arg0->f0));
+    add_actor_hp(arg0->f0, get_field_2b8__14TItemProShieldFv(arg0->f0));
   }
 }
 
@@ -174,9 +175,9 @@ u8 *TItemProShield__sub_80116744(u8 *arg0) {
 void apply_to_equip_slot__14TItemProShieldFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = activate_d04_slot__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0xF0));
+    temp_r3 = activate_d04_slot__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0xF0));
     if (temp_r3 != 0) {
-        apply_transform_action__8TItemMagFPvUc(temp_r3, get_slot_count__14TItemProShieldFPv(arg0));
+        apply_transform_action__8TItemMagFPvUc(temp_r3, get_slot_count__14TItemProShieldFv(arg0));
     }
 }
 
@@ -197,17 +198,14 @@ void *TItemProShield__sub_801167E8(void *arg0, s16 arg1) {
 
 extern "C" {
 s32 obj_getField1c(void *);
-int get_type_id__10TObjPlayerFPv();
+int get_type_id__10TObjPlayerFv();
 s32 TObjPlayer__sub_80116620(s32, s32);
-s32 find_by_pos__11TMainCursorFiss(s32, s32, s32);
+s32 find_by_pos__11TMainCursorFss(s32, s32, s32);
 s32 is_current_room__10TObjRoomIdFPv(void *);
 s32 send_6x33_revive_player(s32, s32);
 void apply_moon_atomizer(void *arg0);
-void * init__14TItemProShieldFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create__14TItemProShieldFPv(u8 *arg0);
-void * init_item_object__14TItemProShieldFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_moon_atomizer_item(u8 *arg0);
@@ -241,22 +239,23 @@ void free_obj_heap__10TObjPlayerFPv(void *);
 
 extern void *item_mag_transform_vtable[];
 
-void *init__14TItemProShieldFPv(void *arg0, void * _w1, void * _w2) {
-    TItemObject__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_mag_transform_vtable;
-    return arg0;
+void *TItemProShield::init(void * _w1, void * _w2) {
+    TItemObject__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = (s32 *)item_mag_transform_vtable;
+    return this;
 }
 
 extern void *item_moon_atomizer_vtable[];
 
-u8 *create__14TItemProShieldFPv(u8 *arg0) {
+u8 *TItemProShield::create() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init__14TItemProShieldFPv((void *)((void *)(temp_r3)), (void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TItemProShield *)temp_r3)->init((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
@@ -272,12 +271,12 @@ void apply_moon_atomizer(void *arg0) {
     if (is_current_room__10TObjRoomIdFPv(*(void **)((s8 *)arg0 + 0xF0)) != 0) {
         temp_r424 = (u32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF0)) + 0x424);
         if (temp_r424 != 0U) {
-            temp_r3 = find_by_pos__11TMainCursorFiss(temp_r424, 4, 9);
+            temp_r3 = find_by_pos__11TMainCursorFss(temp_r424, 4, 9);
             if (temp_r3 != 0) {
                 TObjPlayer__sub_80116620(temp_r3 + 0x9C, 0);
-                if ((u16) get_type_id__10TObjPlayerFPv() != 0xffffU) {
+                if ((u16) get_type_id__10TObjPlayerFv() != 0xffffU) {
                     TObjPlayer__sub_80116620(temp_r3 + 0x9C, 0);
-                    temp_r31 = get_type_id__10TObjPlayerFPv();
+                    temp_r31 = get_type_id__10TObjPlayerFv();
                     send_6x33_revive_player(obj_getField1c(*(void **)((s8 *)arg0 + 0xF0)), temp_r31);
                 }
             }
@@ -299,10 +298,10 @@ void *TItemProShield__sub_80116970(void *arg0, s16 arg1) {
 
 extern void *item_moon_atomizer_vtable[];
 
-void *init_item_object__14TItemProShieldFPv(void *arg0, void * _w1, void * _w2) {
-    TItemObject__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_moon_atomizer_vtable;
-    return arg0;
+void *TItemProShield::init_item_object(void * _w1, void * _w2) {
+    TItemObject__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = (s32 *)item_moon_atomizer_vtable;
+    return this;
 }
 
 u8 *create_moon_atomizer_item(u8 *arg0) {
@@ -312,7 +311,7 @@ u8 *create_moon_atomizer_item(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_item_object__14TItemProShieldFPv((void *)((void *)(temp_r3)), (void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TItemProShield *)temp_r3)->init_item_object((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
@@ -323,7 +322,7 @@ void dispatch_state_action__14TItemProShieldFPv(void *arg0) {
     u8 temp_r3;
     struct VObj_80116A5C_80116634 *obj;
 
-    temp_r3 = ((u8 (*)())get_slot_count__14TItemProShieldFPv)();
+    temp_r3 = ((u8 (*)())get_slot_count__14TItemProShieldFv)();
     switch ((s32) temp_r3) {
     case 0:
         obj = *(struct VObj_80116A5C_80116634 **)((s8 *)arg0 + 0xF0);
@@ -547,30 +546,30 @@ void TObjPlayer__sub_80102BD0();
 void TObjPlayer__sub_80102BD8();
 void apply_object_set_data();
 void classify_actor_view_detail();
-void destroy__5TItemFPv();
-void dispatch_state__5TItemFPv();
+void destroy__5TItemFv();
+void dispatch_state__5TItemFv();
 void load_encoded_value__11TItemObjectFv();
-void register_attack__5TItemFPv();
-void release_member_90__10TObjPlayerFPv();
-void render__5TItemFPv();
+void register_attack__5TItemFv();
+void release_member_90__10TObjPlayerFv();
+void render__5TItemFv();
 void ret_8010064C();
 void ret_8010066C();
-void run_task__5TItemFPv();
+void run_task__5TItemFv();
 void try_pick_up_item__5TItemFPvi();
 void *item_hp_recovery_vtable[46] = {
     0,
     0,
     (void *)&TItemProShield__sub_801166B0,
-    (void *)&run_task__5TItemFPv,
-    (void *)&dispatch_state__5TItemFPv,
-    (void *)&render__5TItemFPv,
+    (void *)&run_task__5TItemFv,
+    (void *)&dispatch_state__5TItemFv,
+    (void *)&render__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&release_member_90__10TObjPlayerFv,
     (void *)&TItemObject__vt7,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
-    (void *)&register_attack__5TItemFPv,
+    (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
     (void *)&TItemObject__vt12,
     (void *)&TItem__sub_801005E0,
@@ -587,7 +586,7 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&TItem__sub_80100690,
     (void *)&TItem__sub_8010068C,
     (void *)&TItem__sub_80100688,
-    (void *)&destroy__5TItemFPv,
+    (void *)&destroy__5TItemFv,
     (void *)&TItem__sub_801007A8,
     (void *)&TItemObject__vt29,
     (void *)&TItem__sub_80100680,
@@ -609,16 +608,16 @@ void *item_mag_transform_vtable[46] = {
     0,
     0,
     (void *)&TItemProShield__sub_801167E8,
-    (void *)&run_task__5TItemFPv,
-    (void *)&dispatch_state__5TItemFPv,
-    (void *)&render__5TItemFPv,
+    (void *)&run_task__5TItemFv,
+    (void *)&dispatch_state__5TItemFv,
+    (void *)&render__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&release_member_90__10TObjPlayerFv,
     (void *)&TItemObject__vt7,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
-    (void *)&register_attack__5TItemFPv,
+    (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
     (void *)&TItemObject__vt12,
     (void *)&TItem__sub_801005E0,
@@ -635,7 +634,7 @@ void *item_mag_transform_vtable[46] = {
     (void *)&TItem__sub_80100690,
     (void *)&TItem__sub_8010068C,
     (void *)&TItem__sub_80100688,
-    (void *)&destroy__5TItemFPv,
+    (void *)&destroy__5TItemFv,
     (void *)&TItem__sub_801007A8,
     (void *)&TItemObject__vt29,
     (void *)&TItem__sub_80100680,
@@ -657,16 +656,16 @@ void *item_moon_atomizer_vtable[46] = {
     0,
     0,
     (void *)&TItemProShield__sub_80116970,
-    (void *)&run_task__5TItemFPv,
-    (void *)&dispatch_state__5TItemFPv,
-    (void *)&render__5TItemFPv,
+    (void *)&run_task__5TItemFv,
+    (void *)&dispatch_state__5TItemFv,
+    (void *)&render__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&release_member_90__10TObjPlayerFv,
     (void *)&TItemObject__vt7,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
-    (void *)&register_attack__5TItemFPv,
+    (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
     (void *)&TItemObject__vt12,
     (void *)&TItem__sub_801005E0,
@@ -683,7 +682,7 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&TItem__sub_80100690,
     (void *)&TItem__sub_8010068C,
     (void *)&TItem__sub_80100688,
-    (void *)&destroy__5TItemFPv,
+    (void *)&destroy__5TItemFv,
     (void *)&TItem__sub_801007A8,
     (void *)&TItemObject__vt29,
     (void *)&TItem__sub_80100680,
@@ -705,16 +704,16 @@ void *item_status_cure_vtable[46] = {
     0,
     0,
     (void *)&TItemProShield__sub_80116AD0,
-    (void *)&run_task__5TItemFPv,
-    (void *)&dispatch_state__5TItemFPv,
-    (void *)&render__5TItemFPv,
+    (void *)&run_task__5TItemFv,
+    (void *)&dispatch_state__5TItemFv,
+    (void *)&render__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&release_member_90__10TObjPlayerFv,
     (void *)&TItemObject__vt7,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
-    (void *)&register_attack__5TItemFPv,
+    (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
     (void *)&TItemObject__vt12,
     (void *)&TItem__sub_801005E0,
@@ -731,7 +730,7 @@ void *item_status_cure_vtable[46] = {
     (void *)&TItem__sub_80100690,
     (void *)&TItem__sub_8010068C,
     (void *)&TItem__sub_80100688,
-    (void *)&destroy__5TItemFPv,
+    (void *)&destroy__5TItemFv,
     (void *)&TItem__sub_801007A8,
     (void *)&TItemObject__vt29,
     (void *)&TItem__sub_80100680,
@@ -753,16 +752,16 @@ void *item_sol_atomizer_vtable[46] = {
     0,
     0,
     (void *)&item_object_variant_deleting_dtor_80116BEC,
-    (void *)&run_task__5TItemFPv,
-    (void *)&dispatch_state__5TItemFPv,
-    (void *)&render__5TItemFPv,
+    (void *)&run_task__5TItemFv,
+    (void *)&dispatch_state__5TItemFv,
+    (void *)&render__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&release_member_90__10TObjPlayerFv,
     (void *)&TItemObject__vt7,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
-    (void *)&register_attack__5TItemFPv,
+    (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
     (void *)&TItemObject__vt12,
     (void *)&TItem__sub_801005E0,
@@ -779,7 +778,7 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&TItem__sub_80100690,
     (void *)&TItem__sub_8010068C,
     (void *)&TItem__sub_80100688,
-    (void *)&destroy__5TItemFPv,
+    (void *)&destroy__5TItemFv,
     (void *)&TItem__sub_801007A8,
     (void *)&TItemObject__vt29,
     (void *)&TItem__sub_80100680,
@@ -801,16 +800,16 @@ void *item_star_atomizer_vtable[46] = {
     0,
     0,
     (void *)&item_object_variant_deleting_dtor_80116CFC,
-    (void *)&run_task__5TItemFPv,
-    (void *)&dispatch_state__5TItemFPv,
-    (void *)&render__5TItemFPv,
+    (void *)&run_task__5TItemFv,
+    (void *)&dispatch_state__5TItemFv,
+    (void *)&render__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&release_member_90__10TObjPlayerFv,
     (void *)&TItemObject__vt7,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
-    (void *)&register_attack__5TItemFPv,
+    (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
     (void *)&TItemObject__vt12,
     (void *)&TItem__sub_801005E0,
@@ -827,7 +826,7 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&TItem__sub_80100690,
     (void *)&TItem__sub_8010068C,
     (void *)&TItem__sub_80100688,
-    (void *)&destroy__5TItemFPv,
+    (void *)&destroy__5TItemFv,
     (void *)&TItem__sub_801007A8,
     (void *)&TItemObject__vt29,
     (void *)&TItem__sub_80100680,

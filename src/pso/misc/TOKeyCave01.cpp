@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOKeyCave01.h"
+#include "pso/misc/TOKeyCol.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -67,14 +69,13 @@ struct VObj_8016C280 : VBase_8016C280 {
 
 extern "C" {
 s32 is_split_screen();
-s32 is_any_player_in_range__5TOKeyFPv(void *);
-s32 is_local_player_in_range__5TOKeyFPv(void *);
+s32 is_any_player_in_range__5TOKeyFv(void *);
+s32 is_local_player_in_range__5TOKeyFv(void *);
 s32 TOKeyCol__vt13(u8 *arg0);
-s32 send_switch_changed__11TOKeyCave01FPvi(void *, int);
-void run_task__11TOKeyCave01Fv(u8 *arg0);
+s32 send_switch_changed__11TOKeyCave01Fl(void *, int);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-u8 *alloc_buffer__11TOBoss4RockFPv(s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+u8 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
 s32 is_global_state_in_table__19TContainerAncient01Fv();
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -85,11 +86,10 @@ extern RecoveredGlobal_8016C474_lbl_804B2BD0 fs_obj_key_jungle_resource_descript
 extern u32 TOKeyCave01__resource_bundle;
 extern s32 *TOKeyCave01__texture_lists;
 extern s32 key_cave_render_state;
-void load_resources__11TOKeyCave01Fv(void);
 s32 get_main_phase(void);
 u8 * TOKey__ct(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
-s32 init_switch_id__5TOKeyFPv(void *);
+s32 init_switch_id__5TOKeyFv(void *);
 extern s32 __vt__11TOKeyCave01[];
 extern s32 TOKeyCave01__class_name;
 extern u32 TOKeyCave01__resource_bundle;
@@ -100,18 +100,17 @@ extern const f32 lbl_805DB74C;
 extern const f32 lbl_805DB750;
 extern const f32 lbl_805DB754;
 u8 *TOKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void init_6x05_switch_changed__6TLobbyFPv(void *);
-void finalize_and_send_60__6TLobbyFPv(void *);
+void init_6x05_switch_changed__6TLobbyFv(void *);
+void finalize_and_send_60__6TLobbyFv(void *);
 s32 get_current_floor();
 extern s32 local_client_id;
-void send_switch_changed__8TOKeyColFPvi(Self_8016C79C *self, s32 flags);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 int set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -119,7 +118,6 @@ extern s32 lbl_805D5660;
 extern s32 *TOKeyCave01__texture_lists;
 extern s32 key_cave_render_state;
 extern s32 model_render_flags;
-void render__11TOKeyCave01Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -127,14 +125,12 @@ extern "C" {
 void TOKeyCave01__vt14(void *arg0);
 void TOKeyCol__vt23(void);
 void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1);
-void *create__11TOKeyCave01FPv(void *arg0);
-void free_objects__11TOKeyCave01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 free__11TOBoss4RockFUi(void*);
-s32 free_if_valid__10TObjPlayerFi(s32);
+s32 mem_free(void*);
+s32 free_if_valid__10TObjPlayerFl(s32);
 
 extern f32 lbl_805DB744;
 extern f32 lbl_805DB748;
@@ -153,32 +149,34 @@ void TOKeyCave01__vt14(void *arg0) {
 
 extern void *tl_05;
 
-void run_task__11TOKeyCave01Fv(u8 *arg0) {
+void TOKeyCave01::run_task() {
+    u8 *arg0 = (u8 *)this;
     ((VObj_18 *)(arg0))->m12();
     if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
-            send_switch_changed__11TOKeyCave01FPvi((void *) (arg0), (int) (1));
+            send_switch_changed__11TOKeyCave01Fl((void *) (arg0), (int) (1));
             ((VObj_18 *)(arg0))->m16();
             *(s32 *)((s8 *)arg0 + 0xD4) = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
-            send_switch_changed__11TOKeyCave01FPvi((void *) (arg0), (int) (0));
+            send_switch_changed__11TOKeyCave01Fl((void *) (arg0), (int) (0));
             ((VObj_18 *)(arg0))->m17();
             *(s32 *)((s8 *)arg0 + 0xD4) = 0;
         }
     }
 }
 
-void render__11TOKeyCave01Fv(u8 *arg0) {
+void TOKeyCave01::render() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r4;
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     if (((VObj_8016C280 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
-        set_global_param__8TObjFishFi((int) TOKeyCave01__texture_lists[*(s32 *)((s8 *)arg0 + 0xD4)]);
+        set_global_param__8TObjFishFl((int) TOKeyCave01__texture_lists[*(s32 *)((s8 *)arg0 + 0xD4)]);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -219,7 +217,7 @@ void render__11TOKeyCave01Fv(u8 *arg0) {
     }
 }
 
-void *create__11TOKeyCave01FPv(void *arg0) {
+void *TOKeyCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
         o = TOKeyCave01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -230,11 +228,11 @@ void *create__11TOKeyCave01FPv(void *arg0) {
 extern u32 TOKeyCave01__resource_bundle;
 extern s32 *TOKeyCave01__texture_lists;
 
-void free_objects__11TOKeyCave01Fv(void) {
+void TOKeyCave01::free_objects() {
     if ((s32 *) TOKeyCave01__texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFi(*TOKeyCave01__texture_lists);
+        free_if_valid__10TObjPlayerFl(*TOKeyCave01__texture_lists);
         if ((s32 *) TOKeyCave01__texture_lists != NULL) {
-            free__11TOBoss4RockFUi((void*)TOKeyCave01__texture_lists);
+            mem_free((void*)TOKeyCave01__texture_lists);
             TOKeyCave01__texture_lists = NULL;
         }
     }
@@ -246,7 +244,7 @@ void free_objects__11TOKeyCave01Fv(void) {
 
 extern s32 __vt__11TOKeyCave01[];
 
-void load_resources__11TOKeyCave01Fv(void) {
+void TOKeyCave01::load_resources() {
     s32 temp_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;
@@ -254,25 +252,25 @@ void load_resources__11TOKeyCave01Fv(void) {
     u8 *var_r0_2;
     temp_r31 = get_global_state__14TOKeyMachine01Fv();
     if ((is_global_state_in_table__19TContainerAncient01Fv() == 1) || (temp_r31 == 0x1C) || (temp_r31 == 0x1D)) {
-        temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
+        temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFv(0x440));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &fs_obj_key_jungle_resource_descriptor.value, 0, 0, 0));
         }
         (*(u8 * *)&TOKeyCave01__resource_bundle) = var_r0;
-        (*(u8 * *)&TOKeyCave01__texture_lists) = alloc_buffer__11TOBoss4RockFPv(8);
+        (*(u8 * *)&TOKeyCave01__texture_lists) = mem_alloc(8);
         *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = load_gvm_texture_file((void *) (&lbl_80441BE8.value));
         *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 0xC);
         key_cave_render_state = 1;
         return;
     }
-    temp_r3_2 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
+    temp_r3_2 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFv(0x440));
     var_r0_2 = (u8 *)(temp_r3_2);
     if (var_r0_2 != NULL) {
         var_r0_2 = (u8 *)(load_resource_from_descriptor(temp_r3_2, 1, &bm_fs_obj_do_doa_panel_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TOKeyCave01__resource_bundle) = var_r0_2;
-    (*(u8 * *)&TOKeyCave01__texture_lists) = alloc_buffer__11TOBoss4RockFPv(8);
+    (*(u8 * *)&TOKeyCave01__texture_lists) = mem_alloc(8);
     *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = load_gvm_texture_file((void *) (&lbl_80441C04.value));
     *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 0xC);
     key_cave_render_state = 0;
@@ -294,7 +292,7 @@ u8 *TOKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016C5F8___vt__11TOKeyCave01 *)&__vt__11TOKeyCave01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyCave01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    init_switch_id__5TOKeyFPv((void *) (arg0));
+    init_switch_id__5TOKeyFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *TOKeyCave01__texture_lists;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 8);
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB74C;
@@ -339,29 +337,30 @@ s32 TOKeyCol__vt13(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
-            var_r3 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
+            var_r3 = is_any_player_in_range__5TOKeyFv((void *) (arg0));
         } else {
-            var_r3 = is_local_player_in_range__5TOKeyFPv((void *) (arg0));
+            var_r3 = is_local_player_in_range__5TOKeyFv((void *) (arg0));
         }
         if (((s32) *(s32 *)((s8 *)arg0 + 0xD4) == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;
     case 1:
-        var_r31 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
+        var_r31 = is_any_player_in_range__5TOKeyFv((void *) (arg0));
         break;
     }
     return var_r31;
 }
-void send_switch_changed__8TOKeyColFPvi(Self_8016C79C *self, s32 flags) {
+void TOKeyCol::send_switch_changed(s32 flags) {
+    Self_8016C79C *self = (Self_8016C79C *)this;
     Pkt_8016C79C pkt;
-    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    init_6x05_switch_changed__6TLobbyFv(&pkt);
     pkt.object = self->id;
     pkt.zero = local_client_id;
     pkt.switchId = self->switchId;
     pkt.area = get_current_floor();
     pkt.flags = flags;
-    finalize_and_send_60__6TLobbyFPv(&pkt);
+    finalize_and_send_60__6TLobbyFv(&pkt);
 }
 
 }

@@ -17,6 +17,12 @@ struct TCheckRoomSequence
     u32 m_40;
     u32 m_44;
     u32 m_48;
+    void set_ready_flag();
+    void set_position(f32 a, f32 b);
+    static int get_room_data(int a0);
+    static int get_room_table_entry(int a0);
+    static void *create(void *arg0);
+    static s32 get_item_def(u32 arg0);
 };
 
 #endif

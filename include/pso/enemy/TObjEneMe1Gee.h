@@ -48,6 +48,11 @@ struct TObjEneMe1Gee
     u32 m_47c;
     u8 _pad480[0xC];
     u16 m_48c;
+    static void load_resources();
+    void draw_model();
+    void update_missile();
+    static void cache_result_805D6660();
+    static void queue_debug_text(s32 arg0, char *arg1);
 };
 
 #endif

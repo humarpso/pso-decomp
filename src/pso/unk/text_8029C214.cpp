@@ -29,26 +29,26 @@ struct Copy_8029C214 { u32 w[15]; };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 activate_and_dispatch__10TObjPlayerFPv(void *);
-s32 init_and_activate__10TObjPlayerFPv(void *);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 activate_and_dispatch__10TObjPlayerFv(void *);
+s32 init_and_activate__10TObjPlayerFv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCave__ct(void *);
-s32 create__10TObjMapCsnFi(void *);
+s32 create__10TObjMapCsnFl(void *);
 s32 get_jungle_rock_texture_resource(s32 a);
-u8 *get_model__15TORockJungleS01Fi(s32 arg0);
+u8 *get_model__15TORockJungleS01Fl(s32 arg0);
 extern "C" void TAdRayGC__sub_8029C054();
-extern "C" void update_near_fade__12TBoss8DragonFPv();
+extern "C" void update_near_fade__12TBoss8DragonFv();
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void draw_model__10TORockCaveFPv();
+extern "C" void draw_model__10TORockCaveFv();
 extern "C" void TORockJungleL01__sub_8029C030();
 extern "C" void TObjPlayer__sub_80019568();
 extern "C" void TObjRoomId__sub_801A1E2C();
 extern "C" void TParticleCtrl__sub_801A2124();
 extern "C" void apply_object_set_data();
 extern "C" void classify_actor_view_detail();
-extern "C" void destroy__15TORockJungleL01FPvs();
+extern "C" void destroy__15TORockJungleL01Fs();
 extern "C" u8 lbl_80465788[];
 extern "C" u8 lbl_8046579C[];
 extern "C" u8 lbl_804657B4[];
@@ -56,7 +56,7 @@ extern "C" u8 lbl_804657C8[];
 extern "C" u8 lbl_804657E0[];
 extern "C" u8 lbl_804657F4[];
 extern "C" u8 bm_o_rock_jungle_motion_names[];
-extern "C" void release_member_90__10TObjPlayerFPv();
+extern "C" void release_member_90__10TObjPlayerFv();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void update_object_view_visibility();
 extern void *bm_o_rock_jungle_model_names[6];
@@ -91,30 +91,30 @@ void *rock_jungle_vec3_table[9] = {
     (void *)0x41400000,
 };
 void *lbl_804DC448[16] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__15TORockJungleL01FPvs, (void *)&TORockJungleL01__sub_8029C030,
-    (void *)&draw_model__10TORockCaveFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&update_near_fade__12TBoss8DragonFPv, (void *)&TAdRayGC__sub_8029C054,
+    (void *)0x0, (void *)0x0, (void *)&destroy__15TORockJungleL01Fs, (void *)&TORockJungleL01__sub_8029C030,
+    (void *)&draw_model__10TORockCaveFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&update_near_fade__12TBoss8DragonFv, (void *)&TAdRayGC__sub_8029C054,
 };
 #define rock_jungle_collision_body_parts (*(Inner_8029C214 *)rock_jungle_collision_body_parts)
 u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     TORockCave__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804DC448;
-    init_and_activate__10TObjPlayerFPv(arg0 + 0xB4);
+    init_and_activate__10TObjPlayerFv(arg0 + 0xB4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3D44;
     ((VObj_8029C214 *)(arg0))->m5(arg1);
-    *(u8 **)((s8 *)arg0 + 0x34) = get_model__15TORockJungleS01Fi(4);
+    *(u8 **)((s8 *)arg0 + 0x34) = get_model__15TORockJungleS01Fl(4);
     *(s32 *)((s8 *)arg0 + 0x24) = get_jungle_rock_texture_resource(4);
     *(f32 *)((s8 *)arg0 + 0xB0) = lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
     ((s32 (*)(void *, void *, int, f32))init_collision_body_parts)(arg0, &rock_jungle_collision_body_parts.v, 1, lbl_805DDD1C);
     refresh_collision_body_centers(arg0);
-    reset_photon_effect__10TObjPlayerFPv(arg0);
+    reset_photon_effect__10TObjPlayerFv(arg0);
     {
         Copy_8029C214 c = *(Copy_8029C214 *)arg1;
         VecCopy__FP3VecPC3Vec((u8 *)&c + 0x24, rock_jungle_vec3_table);
-        *(s32 *)((s8 *)arg0 + 0xD4) = create__10TObjMapCsnFi(&c);
+        *(s32 *)((s8 *)arg0 + 0xD4) = create__10TObjMapCsnFl(&c);
     }
-    activate_and_dispatch__10TObjPlayerFPv(arg0 + 0xB4);
+    activate_and_dispatch__10TObjPlayerFv(arg0 + 0xB4);
     return arg0;
 }
 

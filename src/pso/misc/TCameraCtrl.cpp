@@ -174,11 +174,11 @@ u8 TCameraCtrl__sub_8006A5DC(void);
 void select_camera_controller(s32 arg0);
 s32 is_split_screen();
 s32 apply_camera_controller_pose(int);
-s32 resolve_anchor_obstruction__11TCameraCtrlFPv(void *, int);
-s32 clamp_to_target_obstruction__11TCameraCtrlFPv(void *, int);
-s32 update_target_smoothing__11TCameraCtrlFPv(void *);
-s32 update_position__11TCameraCtrlFPv(void *);
-s32 update_pose_smoothing__11TCameraCtrlFPv(void *);
+s32 resolve_anchor_obstruction__11TCameraCtrlFv(void *, int);
+s32 clamp_to_target_obstruction__11TCameraCtrlFv(void *, int);
+s32 update_target_smoothing__11TCameraCtrlFv(void *);
+s32 update_position__11TCameraCtrlFv(void *);
+s32 update_pose_smoothing__11TCameraCtrlFv(void *);
 void update_shake__11TCameraCtrlFv(void *p);
 s32 get_camera_no__11TCameraCtrlFv();
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
@@ -191,7 +191,7 @@ void select_active_controller__11TCameraCtrlFc(s8 arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(void *);
 s32 is_split_screen();
-void set_target__11TCameraCtrlFPvUi(Ctrl_8006A410 *, void *);
+void set_target__11TCameraCtrlFUl(Ctrl_8006A410 *, void *);
 s32 *get_character_select_request_buffer(void);
 s32 is_boss_area(void);
 extern u8 *camera_ctrl_instance;
@@ -290,7 +290,7 @@ void reset_cameras_to_actor(void *actor, s32 arg1) {
     {
       *((void **) (((s8 *) camera_ctrl_instance) + 0x90)) = actor;
     }
-    set_target__11TCameraCtrlFPvUi(c, actor);
+    set_target__11TCameraCtrlFUl(c, actor);
     c->m6(actor);
     if (is_split_screen() != 0)
     {
@@ -312,7 +312,7 @@ void reset_cameras_to_actor(void *actor, s32 arg1) {
   c = ((Ctrl_8006A410 **) (&camera_controller_registry))[view];
   if (c != 0)
   {
-    set_target__11TCameraCtrlFPvUi(c, actor);
+    set_target__11TCameraCtrlFUl(c, actor);
     c->m6(actor);
   }
   if (camera_ctrl_instance != 0)
@@ -472,31 +472,31 @@ void update_active_controller__11TCameraCtrlFPv(u8 *arg0) {
     }
     if (var_r27 != 0)
     {
-      update_position__11TCameraCtrlFPv((void *) arg0);
+      update_position__11TCameraCtrlFv((void *) arg0);
     }
     else
     {
       if ((*((s32 *) (((s8 *) temp_r30) + 0x38))) & 1)
       {
-        resolve_anchor_obstruction__11TCameraCtrlFPv((void *) arg0, (int) temp_r30);
+        resolve_anchor_obstruction__11TCameraCtrlFv((void *) arg0, (int) temp_r30);
       }
       temp_r3 = *((s32 *) (((s8 *) temp_r30) + 0x38));
       if (temp_r3 & 4)
       {
-        update_pose_smoothing__11TCameraCtrlFPv((void *) arg0);
+        update_pose_smoothing__11TCameraCtrlFv((void *) arg0);
       }
       else
         if (temp_r3 & 8)
       {
-        update_target_smoothing__11TCameraCtrlFPv((void *) arg0);
+        update_target_smoothing__11TCameraCtrlFv((void *) arg0);
       }
       else
       {
-        update_position__11TCameraCtrlFPv((void *) arg0);
+        update_position__11TCameraCtrlFv((void *) arg0);
       }
       if ((*((s32 *) (((s8 *) temp_r30) + 0x38))) & 1)
       {
-        clamp_to_target_obstruction__11TCameraCtrlFPv((void *) arg0, (int) temp_r30);
+        clamp_to_target_obstruction__11TCameraCtrlFv((void *) arg0, (int) temp_r30);
       }
       update_shake__11TCameraCtrlFv((void *) arg0);
     }
@@ -730,10 +730,10 @@ extern RecoveredGlobal_8006ABAC_lbl_804FF61C camera_pitch_rotated_up_vector;
 extern RecoveredGlobal_8006ABAC_lbl_8058D490 identity_matrix;
 void calc_rotated_axes__11TCameraCtrlFPv(u8 *arg0);
 struct V3_8006AD34 { f32 x, y, z; };
-u8 *get_target__11TCameraCtrlFPv(void *);
+u8 *get_target__11TCameraCtrlFv(void *);
 s32 reset_view_flags__11TCameraCtrlFv(void *);
 s32 cycle_spectate_target__11TCameraCtrlFv(void *);
-s32 render__15TObjBoss2TunnelFPvPv(void *, void *);
+s32 render__15TObjBoss2TunnelFPv(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv();
 void vector_length(void *);
 f32 vec_squared_length(void *);
@@ -758,7 +758,7 @@ void reset_split_flag__11TCameraCtrlFPv(void *arg0);
 void set_target__11TCameraCtrlFii(int a0, int a1);
 void set_target_coords__11TCameraCtrlFii(int a0, int a1);
 int reset_to_local_player__11TCameraCtrlFv(void*);
-int set_fixed_position_and_target__11TCameraCtrlFPvPv(void*);
+int set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void*);
 s32 get_state_flag__9TMainTaskFv();
 s32 is_split_screen();
 
@@ -918,7 +918,7 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
         }
     }
     if (G != NULL) {
-        t = get_target__11TCameraCtrlFPv(arg0);
+        t = get_target__11TCameraCtrlFv(arg0);
         v.x = (((f32 *)t)[0] + GF(0x184)) - GF(0x178);
         v.y = (((f32 *)t)[1] + GF(0x188)) - GF(0x17C);
         v.z = (((f32 *)t)[2] + GF(0x18C)) - GF(0x180);
@@ -935,15 +935,15 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
     }
     if (is_split_screen() != 0) {
         if (TCameraCtrl__view_state[0] == 5) {
-            render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
+            render__15TObjBoss2TunnelFPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
             for (i = 1; i < 4; i++) {
                 copy_view_params__11TCameraCtrlFii(&TCameraCtrl__view_matrices[i], &TCameraCtrl__view_matrices[0]);
             }
         } else {
-            render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
+            render__15TObjBoss2TunnelFPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
         }
     } else {
-        render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, TCameraCtrl__view_matrix);
+        render__15TObjBoss2TunnelFPv(lbl_804FF5E8, TCameraCtrl__view_matrix);
     }
     calc_rotated_axes__11TCameraCtrlFPv(arg0);
 }
@@ -1116,6 +1116,6 @@ int TCameraCtrl__sub_8006B370(f32 farg0) {
 }
 
 int reset_battle_camera__11TCameraCtrlFPv(void* p) { return reset_to_local_player__11TCameraCtrlFv(p); }
-int TCameraCtrl__sub_8006B3B8(void* p) { return set_fixed_position_and_target__11TCameraCtrlFPvPv(p); }
+int TCameraCtrl__sub_8006B3B8(void* p) { return set_fixed_position_and_target__11TCameraCtrlFPUcPUc(p); }
 
 }

@@ -40,9 +40,8 @@ s32 get_player_by_client_id(int);
 s32 update_radar_auto_discovery(void *, int, void *);
 s32 gather_player_markers__13TRaderMapCoreFv(void *);
 s32 update_follow_projection__13TRaderMapCoreFv(void *, void *);
-s32 update_pan_zoom_input__13TRaderMapCoreFPv();
-s32 update_target__13TRaderMapCoreFPv(void *);
-void advance_scroll__13TRaderMapCoreFPv(void *arg0);
+s32 update_pan_zoom_input__13TRaderMapCoreFv();
+s32 update_target__13TRaderMapCoreFv(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u32 TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__view_mode;
@@ -79,16 +78,15 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent);
 
 extern "C" {
 
-void advance_scroll__13TRaderMapCoreFPv(void *arg0);
 f32 sin_table_lookup(s32);
 
 extern const f32 TRaderMapCore__data_805DC534;
 extern const f32 lbl_805DC59C;
 extern const f32 lbl_805DC5A0;
 
-void advance_scroll__13TRaderMapCoreFPv(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x198) = (s32) (*(s32 *)((s8 *)arg0 + 0x198) + 0x888);
-    *(f32 *)((s8 *)arg0 + 0x19C) = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x198)));
+void TRaderMapCore::advance_scroll() {
+    *(s32 *)((s8 *)this + 0x198) = (s32) (*(s32 *)((s8 *)this + 0x198) + 0x888);
+    *(f32 *)((s8 *)this + 0x19C) = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(*(s32 *)((s8 *)this + 0x198)));
 }
 void run_task__13TRaderMapCoreFv(u8 *arg0) {
     s32 temp_r3;
@@ -102,13 +100,13 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
         }
         switch ((s32) TRaderMapCore__view_mode) {
         case 0:
-            update_target__13TRaderMapCoreFPv(arg0);
+            update_target__13TRaderMapCoreFv(arg0);
             break;
         case 1:
-            update_target__13TRaderMapCoreFPv(arg0);
+            update_target__13TRaderMapCoreFv(arg0);
             break;
         case 2:
-            update_pan_zoom_input__13TRaderMapCoreFPv();
+            update_pan_zoom_input__13TRaderMapCoreFv();
             break;
         }
         gather_player_markers__13TRaderMapCoreFv((void *) (arg0));
@@ -128,7 +126,7 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
         } else {
             update_radar_auto_discovery((void *) (arg0), (int) (0), (void *) (arg0 + *(s32 *)((s8 *)arg0 + 0x134) * 0x28 + 0x94));
         }
-        advance_scroll__13TRaderMapCoreFPv((void *) (arg0));
+        ((TRaderMapCore *)arg0)->advance_scroll();
     }
 }
 typedef char RecoveredGlobal_801FB430___vt__13TRaderMapCore_size[sizeof(RecoveredGlobal_801FB430___vt__13TRaderMapCore) == 0x34 ? 1 : -1];

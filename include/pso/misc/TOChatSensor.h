@@ -16,6 +16,18 @@ struct TOChatSensor
     u32 m_c4;
     u32 m_c8;
     u32 m_cc;
+    static void dispatch_chat_message_to_children(s32 arg0);
+    static void destroy_global();
+    void check_player_proximity();
+    void set_trigger_text(void *arg1);
+    void handle_chat_message(void *arg1);
+    void init_params();
+    void render();
+    void run_task();
+    void send_state();
+    void swap_state_endian();
+    void init_packet_type();
+    void send_switch_states();
 };
 
 #endif

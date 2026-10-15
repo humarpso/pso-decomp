@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_802ED928 { char pad[0x18]; };
 struct VObj_802ED928 : Base_802ED928 {
@@ -121,9 +122,9 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 get_speed__10TObjPlayerFPv(void *);
-s32 query_teammate_state__9TObjEneDDFPv();
-s32 update_lobby_state__9TObjEneDDFPv(void *);
+s32 get_speed__10TObjPlayerFv(void *);
+s32 query_teammate_state__9TObjEneDDFv();
+s32 update_lobby_state__9TObjEneDDFv(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 TObjEneDD__sub_800BBA0C(void *);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
@@ -138,10 +139,9 @@ s32 advance_action_sequence__8TObjFishFPv(void *);
 s32 TObjPlayer__sub_802ECAA4(void *);
 s32 TObjPlayer__sub_802ECB10();
 s32 flee_if_disturbed__8TObjFishFPv(void *);
-s32 sync_position_vectors__8TObjFishFi(void *);
-void update_or_dispatch__10TObjPlayerFPv(void *arg0);
+s32 sync_position_vectors__8TObjFishFv(void *);
 void TObjPlayer__sub_802ED984(void);
-s32 apply_with_callback__10TObjPlayerFPvif(int, int);
+s32 apply_with_callback__10TObjPlayerFlf(int, int);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
@@ -157,16 +157,15 @@ void TObjPlayer__sub_802ED988(u8 *arg0);
 extern "C" {
 
 void TObjPlayer__sub_802ED984(void);
-void update_or_dispatch__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_802ECAA4(void *);
 s32 TObjPlayer__sub_802ECB10();
 
-void update_or_dispatch__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::update_or_dispatch() {
     if (TObjPlayer__sub_802ECB10() != 0) {
-        TObjPlayer__sub_802ECAA4(arg0);
+        TObjPlayer__sub_802ECAA4(this);
         return;
     }
-    ((VObj_802ED928*)arg0)->m85(*(s16 *)((s8 *)arg0 + 0x326), 9);
+    ((VObj_802ED928*)this)->m85(*(s16 *)((s8 *)this + 0x326), 9);
 }
 
 void TObjPlayer__sub_802ED984(void) {  }
@@ -194,7 +193,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         }
     }
     if ((is_main_phase_15__9TObjEneDDFv() != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x6AC) == 0)) {
-        if (update_lobby_state__9TObjEneDDFPv((void *) (arg0)) != 0) {
+        if (update_lobby_state__9TObjEneDDFv((void *) (arg0)) != 0) {
             *(s32 *)((s8 *)arg0 + 0x6B8) = 0;
         } else {
             *(s32 *)((s8 *)arg0 + 0x6B8) = 1;
@@ -215,7 +214,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
             break;
         }
     }
-    temp_r30 = query_teammate_state__9TObjEneDDFPv();
+    temp_r30 = query_teammate_state__9TObjEneDDFv();
     ((VObj_18 *)(arg0))->m39();
     ((VObj_18 *)(arg0))->m40();
     if (temp_r30 == 0) {
@@ -233,7 +232,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
                     ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 2);
                 }
             } else {
-                update_or_dispatch__10TObjPlayerFPv((void *) (arg0));
+                ((TObjPlayer *)arg0)->update_or_dispatch();
             }
             if (((VObj_18 *)(arg0))->m30() != 0) {
                 ((VObj_18 *)(arg0))->m60();
@@ -250,7 +249,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
     }
     TObjEneDD__sub_800BBA0C((void *) (arg0));
     ((VObj_18 *)(arg0))->m86();
-    sync_position_vectors__8TObjFishFi((void *) (arg0));
+    sync_position_vectors__8TObjFishFv((void *) (arg0));
     flee_if_disturbed__8TObjFishFPv((void *) (arg0));
     TParticleCtrl__sub_802EC550((void *) (arg0));
     if (temp_r30 == 0) {
@@ -265,8 +264,8 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         rotate_matrix_by_node_angles((void *) (arg0 + 0x5C), (int) (1));
         scale_current_matrix((void *) (lbl_804E3BF0));
         TObjPlayer__sub_802E8234((void *) (arg0));
-        get_speed__10TObjPlayerFPv((void *) (arg0));
-        apply_with_callback__10TObjPlayerFPvif((int) (*(u32 *)((s8 *)arg0 + 0x7AC)), (int) (*(s32 *)((s8 *)arg0 + 0xF8)));
+        get_speed__10TObjPlayerFv((void *) (arg0));
+        apply_with_callback__10TObjPlayerFlf((int) (*(u32 *)((s8 *)arg0 + 0x7AC)), (int) (*(s32 *)((s8 *)arg0 + 0xF8)));
         pop_matrix();
         clear_global_state__10TObjPlayerFv();
         fn_802E79B0((void *) (arg0));

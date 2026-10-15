@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct T_803374C4 { u8 b[8]; void *p; };
 
@@ -14,7 +15,6 @@ s32 get_total_materials_used(s32 arg0);
 u8 get_material_limit_for_class(s32 arg0);
 s32 get_total_materials_used(s32 arg0);
 u8 get_material_limit_for_class(s32 arg0);
-s32 can_use_more_materials__10TObjPlayerFv(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -34,7 +34,8 @@ s32 try_add_item_count__10TObjPlayerFiiiUc(s32 arg0, s32 arg1, s32 arg2, u8 arg3
     return 1;
 }
 
-s32 can_use_more_materials__10TObjPlayerFv(s32 arg0, s32 arg1) {
+s32 TObjPlayer::can_use_more_materials(s32 arg1) {
+    s32 arg0 = (s32)this;
     s32 t = get_total_materials_used(arg0);
     if ((u8)t >= get_material_limit_for_class(arg1)) {
         return 1;

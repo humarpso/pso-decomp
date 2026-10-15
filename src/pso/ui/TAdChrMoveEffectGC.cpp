@@ -23,17 +23,15 @@ struct E_8034923C {
 struct O_8034923C { u8 pad0[0x1C]; s32 n; s32 active; E_8034923C e[16]; };
 
 extern "C" {
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32);
-void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
+void draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, int, int, f32);
+void copy4__18TAdChrMoveEffectGCFPv(void *, void *);
 extern const f32 lbl_805DFCE8;
 extern const f32 lbl_805DFCEC;
 void fn_80348E34(u8 *arg0);
 void copy_effect_data__18TAdChrMoveEffectGCFPvPv(S_803491F8 *arg0, S_803491F8 *arg1);
-void reset_effect_entries__18TAdChrMoveEffectGCFPv(void *arg0);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
-void run_task__18TAdChrMoveEffectGCFv(O_8034923C *self);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
+void copy4__18TAdChrMoveEffectGCFPv(void *, void *);
 }
 
 extern "C" {
@@ -61,23 +59,23 @@ void fn_80348E34(u8 *arg0) {
                 desc.col = col;
                 desc.a = 0;
                 desc.n = 4;
-                copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(pos, e + 0x44);
+                copy_vec2__28TWindowSubSymbolChatPartsSetFPv(pos, e + 0x44);
                 src = e + 0x4C;
-                copy4__18TAdChrMoveEffectGCFPvPv(desc.col, src);
+                copy4__18TAdChrMoveEffectGCFPv(desc.col, src);
                 desc.col[3] = *(u8 *)((s8 *)e + 0x50);
                 desc.pos[2] = *(f32 *)((s8 *)e + 0x44);
                 desc.pos[3] = *(f32 *)((s8 *)e + 0x48) + *(f32 *)((s8 *)e + 0x40);
-                copy4__18TAdChrMoveEffectGCFPvPv(desc.col + 4, src);
+                copy4__18TAdChrMoveEffectGCFPv(desc.col + 4, src);
                 desc.col[7] = *(u8 *)((s8 *)e + 0x50);
                 desc.pos[4] = *(f32 *)((s8 *)e + 0x44) + *(f32 *)((s8 *)e + 0x3C);
                 desc.pos[5] = *(f32 *)((s8 *)e + 0x48) + *(f32 *)((s8 *)e + 0x40);
-                copy4__18TAdChrMoveEffectGCFPvPv(desc.col + 8, src);
+                copy4__18TAdChrMoveEffectGCFPv(desc.col + 8, src);
                 desc.col[11] = *(u8 *)((s8 *)e + 0x50);
                 desc.pos[6] = *(f32 *)((s8 *)e + 0x44) + *(f32 *)((s8 *)e + 0x3C);
                 desc.pos[7] = *(f32 *)((s8 *)e + 0x48);
-                copy4__18TAdChrMoveEffectGCFPvPv(desc.col + 12, src);
+                copy4__18TAdChrMoveEffectGCFPv(desc.col + 12, src);
                 desc.col[15] = *(u8 *)((s8 *)e + 0x50);
-                draw_tri_fan_2d__14TObjCMHairMenuFPviif(&desc, 4, 7, lbl_805DFCEC * (f32)i + lbl_805DFCE8);
+                draw_tri_fan_2d__14TObjCMHairMenuFllf(&desc, 4, 7, lbl_805DFCEC * (f32)i + lbl_805DFCE8);
             }
         }
     }
@@ -91,6 +89,7 @@ void fn_80348E34(u8 *arg0) {
 #pragma push
 
 #include "types.h"
+#include "pso/ui/TAdChrMoveEffectGC.h"
 
 struct E_803490AC { u32 flags; u8 pad[0x34]; };
 
@@ -109,25 +108,21 @@ struct C4_803490D8 { u8 b[4]; };
 struct P_803490D8 { V2_803490D8 a; V2_803490D8 b; C4_803490D8 c; C4_803490D8 d; V2_803490D8 e; };
 
 extern "C" {
-void clear_entries__18TAdChrMoveEffectGCFPv(O_803490AC *self);
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
-void reset_effect_entries__18TAdChrMoveEffectGCFPv(void *arg0);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
+void copy4__18TAdChrMoveEffectGCFPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
+void copy4__18TAdChrMoveEffectGCFPv(void *, void *);
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
 extern V2_803490D8 chr_move_effect_pos_table[];
 extern C4_803490D8 lbl_804786E8[];
 extern u8 lbl_804786F0[];
-void setup_move_effect_params__18TAdChrMoveEffectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 void *TAdChrMoveEffectGC__ct(void *arg0);
 void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1);
-void render__18TAdChrMoveEffectGCFv(void* p);
 void __ct__7TObjectFP7TObject(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
@@ -135,26 +130,27 @@ int set_cached_blend_factor(void*, void*);
 
 int get_state_flag__9TMainTaskFv(void*);
 
-void render__18TAdChrMoveEffectGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); ((int (*)(void*))fn_80348E34)(p); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+void TAdChrMoveEffectGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); ((int (*)(void*))fn_80348E34)(this); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 
 extern s32 __vt__18TAdChrMoveEffectGC[];
 extern u32 lbl_805D6E78;
 
-void reset_effect_entries__18TAdChrMoveEffectGCFPv(void *arg0) {
+void TAdChrMoveEffectGC::reset_effect_entries() {
     E_80349038 *e;
     s32 i;
-    ((E_80349038 *)arg0)->f1C = 0;
+    ((E_80349038 *)this)->f1C = 0;
     for (i = 0; i < 16; i++) {
-        e = (E_80349038 *)((u8 *)arg0 + i * 0x38);
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(e->v44, e->v24);
-        copy4__18TAdChrMoveEffectGCFPvPv(e->v4C, e->v34);
+        e = (E_80349038 *)((u8 *)this + i * 0x38);
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(e->v44, e->v24);
+        copy4__18TAdChrMoveEffectGCFPv(e->v4C, e->v34);
         *(u8 *)&e->f50 = e->v34[3];
         e->f54 = 0;
         e->f58 = 0;
     }
 }
 
-void clear_entries__18TAdChrMoveEffectGCFPv(O_803490AC *self) {
+void TAdChrMoveEffectGC::clear_entries() {
+    O_803490AC *self = (O_803490AC *)this;
     s32 i;
     self->n = 0;
     for (i = 0; i < 16; i++) {
@@ -163,14 +159,14 @@ void clear_entries__18TAdChrMoveEffectGCFPv(O_803490AC *self) {
 }
 
 struct W_80349194;
-void setup_move_effect_params__18TAdChrMoveEffectGCFPvii(void *arg0, s32 arg1, s32 arg2) {
+void TAdChrMoveEffectGC::setup_move_effect_params(s32 arg1, s32 arg2) {
     P_803490D8 p;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.a, &chr_move_effect_pos_table[arg1]);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.b, &chr_move_effect_pos_table[arg2]);
-    copy4__18TAdChrMoveEffectGCFPvPv(&p.c, arg1 < 3 ? &lbl_804786E8[0] : &lbl_804786E8[1]);
-    copy4__18TAdChrMoveEffectGCFPvPv(&p.d, arg2 < 3 ? &lbl_804786E8[0] : &lbl_804786E8[1]);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.e, lbl_804786F0);
-    TAdChrMoveEffectGC__sub_80349194((W_80349194 *)arg0, &p);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&p.a, &chr_move_effect_pos_table[arg1]);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&p.b, &chr_move_effect_pos_table[arg2]);
+    copy4__18TAdChrMoveEffectGCFPv(&p.c, arg1 < 3 ? &lbl_804786E8[0] : &lbl_804786E8[1]);
+    copy4__18TAdChrMoveEffectGCFPv(&p.d, arg2 < 3 ? &lbl_804786E8[0] : &lbl_804786E8[1]);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&p.e, lbl_804786F0);
+    TAdChrMoveEffectGC__sub_80349194((W_80349194 *)this, &p);
 }
 
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1) {
@@ -178,7 +174,7 @@ void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1) {
     for (i = 0; i < 16; i++) {
         copy_effect_data__18TAdChrMoveEffectGCFPvPv((S_803491F8 *)(&arg0->e[i]), (S_803491F8 *)(arg1));
     }
-    reset_effect_entries__18TAdChrMoveEffectGCFPv((void *)(arg0));
+    ((TAdChrMoveEffectGC *)arg0)->reset_effect_entries();
     arg0->f20 = 1;
 }
 
@@ -196,7 +192,8 @@ void copy_effect_data__18TAdChrMoveEffectGCFPvPv(S_803491F8 *arg0, S_803491F8 *a
 
 #pragma push
 #pragma fp_contract on
-void run_task__18TAdChrMoveEffectGCFv(O_8034923C *self) {
+void TAdChrMoveEffectGC::run_task() {
+    O_8034923C *self = (O_8034923C *)this;
     s32 i;
     f32 dx;
     f32 dy;
@@ -213,7 +210,7 @@ void run_task__18TAdChrMoveEffectGCFv(O_8034923C *self) {
     if (++self->n < 0x11) {
         self->e[self->n].flags |= 1;
     } else if (self->n > 0x28) {
-        reset_effect_entries__18TAdChrMoveEffectGCFPv(self);
+        reset_effect_entries();
     }
     for (i = 0; i < 16; i++) {
         if (self->e[i].flags & 1) {
@@ -223,8 +220,8 @@ void run_task__18TAdChrMoveEffectGCFv(O_8034923C *self) {
                 vx = -dx / 30.0f * (f32)self->e[i].cnt + dx;
                 vy = -dy / 30.0f * (f32)self->e[i].cnt + dy;
                 if (self->e[i].cnt == 0) {
-                    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->e[i].cur, &self->e[i].start);
-                    copy4__18TAdChrMoveEffectGCFPvPv(self->e[i].curcol, self->e[i].col0);
+                    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&self->e[i].cur, &self->e[i].start);
+                    copy4__18TAdChrMoveEffectGCFPv(self->e[i].curcol, self->e[i].col0);
                 } else {
                     self->e[i].cur.x += vx;
                     self->e[i].cur.y += vy;
@@ -240,8 +237,8 @@ void run_task__18TAdChrMoveEffectGCFv(O_8034923C *self) {
                 self->e[i].f2C = self->e[i].curcol[3] / 5;
                 self->e[i].cnt++;
             } else {
-                copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->e[i].cur, &self->e[i].end);
-                copy4__18TAdChrMoveEffectGCFPvPv(self->e[i].curcol, self->e[i].col1);
+                copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&self->e[i].cur, &self->e[i].end);
+                copy4__18TAdChrMoveEffectGCFPv(self->e[i].curcol, self->e[i].col1);
                 t = self->e[i].col1[3] / 10;
                 self->e[i].f2C = (self->e[i].f2C > t) ? self->e[i].f2C - t : 0;
             }

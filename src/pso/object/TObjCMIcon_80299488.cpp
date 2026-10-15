@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjCMIcon.h"
 
 struct RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 {
     s32 value;
@@ -45,10 +46,7 @@ void TObjCMIcon__sub_8029957C(void* p, void* q);
 extern RecoveredGlobal_8029951C_lbl_8046518C lbl_8046518C;
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
 extern f32 TObjCMIcon__horizontal_scroll_offset;
-void init_icon_table__10TObjCMIconFv(void);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
-void reset_icon_flags__10TObjCMIconFv(void);
-void reset_icon_flags__10TObjCMIconFv(void);
 void TObjCMIcon__sub_802994B0(s32 arg0);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 s32 TObjCMIcon__sub_80299598(s32 arg0, s32 arg1);
@@ -57,13 +55,13 @@ extern f32 TObjCMIcon__horizontal_scroll_offset;
 void set_depth_buffer_settings_1__Fv(void);
 void set_depth_buffer_settings_id__FUl(u32);
 f32 get_scale__14TObjCMMainMenuFv(void);
-s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
+s32 get_creation_sprite_id__14TObjCMMainMenuFl(s32);
 void draw_ui_sprite(s32, void *, f32, f32);
 void restore_saved_depth_alpha_state(void);
 extern f32 cm_icon_screen_position[];
 extern Grp_802995A0 TObjCMIcon__icon_group_table[];
 void render__10TObjCMIconFv(s32 self);
-s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
+s32 get_creation_sprite_id__14TObjCMMainMenuFl(s32);
 s32 TObjCMIcon__sub_80299598(s32 arg0, s32 arg1);
 extern Grp_802995A0 TObjCMIcon__icon_group_table[];
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
@@ -82,7 +80,7 @@ void TObjCMIcon__sub_8029957C(void* p, void* q);
 
 typedef char RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0_size[sizeof(RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0) == 0x58 ? 1 : -1];
 
-void reset_icon_flags__10TObjCMIconFv(void) {
+void TObjCMIcon::reset_icon_flags() {
     s32 i;
     Ent_80299488 *p = ((Ent_80299488 *)&TObjCMIcon__icon_entries);
     for (i = 0; i < 7; i++) {
@@ -100,13 +98,13 @@ typedef char RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0_size[sizeof(Reco
 
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1) {
     s32 i;
-    reset_icon_flags__10TObjCMIconFv();
+    TObjCMIcon::reset_icon_flags();
     for (i = 0; i < arg0; i++) {
         TObjCMIcon__sub_802994B0((s32)(arg1[i]));
     }
 }
 
-void init_icon_table__10TObjCMIconFv(void) {
+void TObjCMIcon::init_icon_table() {
     s32 *var_r30;
     s32 var_r29;
     var_r29 = 0;
@@ -171,7 +169,7 @@ void render__10TObjCMIconFv(s32 self) {
         for (n = 0; n < g->n; n++) {
             s = TObjCMIcon__sub_80299598(self, g->ids[n]);
             draw_ui_sprite(s, &pos, z, depth);
-            pos.x += (f32)(get_creation_sprite_id__14TObjCMMainMenuFi(s) + 4);
+            pos.x += (f32)(get_creation_sprite_id__14TObjCMMainMenuFl(s) + 4);
         }
     }
     restore_saved_depth_alpha_state();
@@ -212,7 +210,7 @@ void run_task__10TObjCMIconFv(s32 arg0) {
             s32 j;
             p->b += lbl_805DDC4C * (x - p->b);
             for (j = 0; j < g->n; j++) {
-                x += (f32)(get_creation_sprite_id__14TObjCMMainMenuFi(TObjCMIcon__sub_80299598(arg0, g->ids[j])) + 4);
+                x += (f32)(get_creation_sprite_id__14TObjCMMainMenuFl(TObjCMIcon__sub_80299598(arg0, g->ids[j])) + 4);
             }
             x += lbl_805DDC50;
         }

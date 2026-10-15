@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowChoiceSetting.h"
+#include "pso/misc/TWindowFukidasi.h"
 
 typedef struct Balloon_8024966C {
     u8 pad0[0xC];
@@ -13,10 +15,9 @@ typedef struct Ctrl_8024966C {
 } Ctrl_8024966C;
 
 extern "C" {
-Balloon_8024966C *find_balloon_overlap_for__15TWindowFukidasiFii(Balloon_8024966C *, Balloon_8024966C *);
-s32 get_visible_flag__15TWindowFukidasiFPv(Balloon_8024966C *);
+Balloon_8024966C *find_balloon_overlap_for__15TWindowFukidasiFl(Balloon_8024966C *, Balloon_8024966C *);
+s32 get_visible_flag__15TWindowFukidasiFv(Balloon_8024966C *);
 void TWindowFukidasi__sub_80249788(void* p);
-void hide__15TWindowFukidasiFPv(void* p);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 void resolve_chat_balloon_overlaps(void);
 }
@@ -24,16 +25,13 @@ void resolve_chat_balloon_overlaps(void);
 extern "C" {
 
 void TWindowFukidasi__sub_80249788(void* p);
-void draw_resolved_window__15TWindowFukidasiFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void hide__15TWindowFukidasiFPv(void* p);
-int is_selected__20TWindowChoiceSettingFPv(void* p);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 s32 find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(s32, s32, s32, s32);
-s16 get_field_74__17TWindowSubComCardFPv(void* p);
-int is_open__17TWindowSubComCardFPv(void* p);
+s16 get_field_74__17TWindowSubComCardFv(void* p);
+int is_open__17TWindowSubComCardFv(void* p);
 
-int is_selected__20TWindowChoiceSettingFPv(void* p) { return (*(u16*)((char*)p + 0x70) >> 5) & 0x1; }
-void draw_resolved_window__15TWindowFukidasiFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+int TWindowChoiceSetting::is_selected() { return (*(u16*)((char*)this + 0x70) >> 5) & 0x1; }
+void TWindowFukidasi::draw_resolved_window(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(arg0, arg1, arg2, *(s32 *)((s8 *)(TWindowCtrlMain__sub_8024CDD0(arg3)) + 0x14));
 }
 
@@ -45,7 +43,7 @@ void resolve_chat_balloon_overlaps(void) {
         p = ((Ctrl_8024966C *)TWindowCtrlMain__sub_8024CDD0(i))->head;
         if (p != NULL) {
             while (p != NULL) {
-                hide__15TWindowFukidasiFPv(p);
+                ((TWindowFukidasi *)p)->hide();
                 p = p->next;
             }
         }
@@ -54,18 +52,18 @@ void resolve_chat_balloon_overlaps(void) {
         p = ((Ctrl_8024966C *)TWindowCtrlMain__sub_8024CDD0(i))->head;
         if (p != NULL) {
             while (p->next != NULL) {
-                q = find_balloon_overlap_for__15TWindowFukidasiFii(p, p->next);
+                q = find_balloon_overlap_for__15TWindowFukidasiFl(p, p->next);
                 while (q != NULL) {
-                    if (get_visible_flag__15TWindowFukidasiFPv(p) != 0) {
+                    if (get_visible_flag__15TWindowFukidasiFv(p) != 0) {
                         TWindowFukidasi__sub_80249788(q);
-                    } else if (get_visible_flag__15TWindowFukidasiFPv(q) != 0) {
+                    } else if (get_visible_flag__15TWindowFukidasiFv(q) != 0) {
                         TWindowFukidasi__sub_80249788(p);
                     } else if (p->rise > q->rise) {
                         TWindowFukidasi__sub_80249788(p);
                     } else {
                         TWindowFukidasi__sub_80249788(q);
                     }
-                    q = find_balloon_overlap_for__15TWindowFukidasiFii(p, q->next);
+                    q = find_balloon_overlap_for__15TWindowFukidasiFl(p, q->next);
                 }
                 p = p->next;
             }
@@ -74,6 +72,6 @@ void resolve_chat_balloon_overlaps(void) {
 }
 
 void TWindowFukidasi__sub_80249788(void* p) { *(u32*)((char*)p + 0x2c) |= 0x400; }
-void hide__15TWindowFukidasiFPv(void* p) { *(u32*)((char*)p + 0x2c) &= 0xfffffbff; }
+void TWindowFukidasi::hide() { *(u32*)((char*)this + 0x2c) &= 0xfffffbff; }
 
 }

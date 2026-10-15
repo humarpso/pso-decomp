@@ -8,7 +8,7 @@ void TAdRicoRingCtrl__sub_8001B4A0(TAdRicoRingCtrl *, f32);
 s32 get_end_text_font_loaded_flag();
 u32 __cvt_fp2unsigned(f32);
 void destroy_keyboard_objects();
-void init__22THunterGuildSeqOfflineFPvPvPv(void *, TObject *, void *);
+void init__22THunterGuildSeqOfflineFPvPv(void *, TObject *, void *);
 void stop_audio_streams__6TLobbyFv();
 void cleanup_game_objects__9TMainTaskFv();
 void set_current_floor_area(s32);
@@ -17,7 +17,7 @@ void __ct__10TEndingPicFv(void *, TObject *);
 void __ct__9TEndingABFv(void *, TObject *);
 void __ct__8TEndingCFv(void *, TObject *);
 TAdRicoRingCtrl *TAdRicoRingCtrl__ct(void *, TObject *);
-void start_fade_all__15TAdRicoRingCtrlFPvf(TAdRicoRingCtrl *, f32);
+void start_fade_all__15TAdRicoRingCtrlFf(TAdRicoRingCtrl *, f32);
 void __ct__10TAdEndTextFv(void *, TObject *);
 extern u32 ending_frame_counter;
 extern s32 ending_scene_active;
@@ -55,7 +55,7 @@ void TEnding::run_task() {
             if (ticks > timing_rate * 10) {
                 void *child = TObject::operator new(0x28);
                 if (child != NULL)
-                    init__22THunterGuildSeqOfflineFPvPvPv(child, tl_fade, (void *)destroy_keyboard_objects);
+                    init__22THunterGuildSeqOfflineFPvPv(child, tl_fade, (void *)destroy_keyboard_objects);
                 phase = 2;
             }
         }
@@ -90,7 +90,7 @@ TEnding::TEnding() : TObject(tl_window) {
     if (ring != NULL) ring = TAdRicoRingCtrl__ct(ring, this);
     ring_controller = ring;
     if (ring_controller != NULL)
-        start_fade_all__15TAdRicoRingCtrlFPvf(ring_controller, lbl_805D9578 * (f32)timing_rate);
+        start_fade_all__15TAdRicoRingCtrlFf(ring_controller, lbl_805D9578 * (f32)timing_rate);
     void *text = TObject::operator new(0x197C);
     if (text != NULL) __ct__10TAdEndTextFv(text, this);
 }

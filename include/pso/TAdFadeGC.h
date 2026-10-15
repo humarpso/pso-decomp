@@ -8,6 +8,9 @@ public:
     virtual ~TAdFadeGC();
     virtual void run_task();
     virtual void render();
+public:
+    void draw_fade();
+    void start_fade(void *arg1);
 };
 
 #endif

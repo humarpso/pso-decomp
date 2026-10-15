@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_802290E0_lbl_80515BC8 {
     s8 value;
@@ -9,7 +10,7 @@ extern "C" {
 u8 * fn_80228E98(s32, void *);
 extern u8 *text_builder_write_cursor;
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
-u32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, u32);
+u32 strnlen__19TWindowKeyBoardSoftFPScUl(void *, u32);
 void strncpy(s32, s32, s32);
 extern u8 *text_builder_write_cursor;
 void text_builder_append(u8 *arg0);
@@ -19,7 +20,6 @@ void text_builder_reset(void);
 s8 *parse_text_control_codes(s8 *, s32 *, s32);
 extern s32 current_language;
 extern u8 *text_builder_write_cursor;
-s8 *copy_message_page_text__20TWindowSubStatusDispFPv(s8 *s);
 }
 
 extern "C" {
@@ -28,7 +28,8 @@ void TWindowSubStatusDisp__sub_80228F5C(s32 arg0) {
     text_builder_write_cursor = fn_80228E98(arg0, text_builder_write_cursor);
 }
 
-s8 *copy_message_page_text__20TWindowSubStatusDispFPv(s8 *s) {
+s8 *TWindowSubStatusDisp::copy_message_page_text() {
+    s8 *s = (s8 *)this;
     s32 sjis;
     s8 *d;
     sjis = 0;
@@ -67,7 +68,7 @@ s8 *copy_message_page_text__20TWindowSubStatusDispFPv(s8 *s) {
 
 void text_builder_append(u8 *arg0) {
   s32 temp_r3;
-  temp_r3 = strnlen__19TWindowKeyBoardSoftFPvUi(arg0, 0xFFU);
+  temp_r3 = strnlen__19TWindowKeyBoardSoftFPScUl(arg0, 0xFFU);
   strncpy((*(s32 *)&text_builder_write_cursor), (s32) arg0, temp_r3);
   *(((s8 *) (*(s32 *)&text_builder_write_cursor)) - (-temp_r3)) = 0;
   (*(s32 *)&text_builder_write_cursor) += temp_r3;

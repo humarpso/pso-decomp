@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_80071820_lbl_804FF820 {
     s32 value;
@@ -17,7 +18,7 @@ s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
 s32 get_valid_slot__6TLobbyFi(int);
 u32 get_character_save_record(u32);
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
-s32 decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int);
+s32 decode_obfuscated_string__6TLobbyFPvi(void *, void *, int);
 extern RecoveredGlobal_80071820_lbl_804FF820 lbl_804FF820;
 extern s32 lbl_805D2858;
 s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0);
@@ -41,23 +42,20 @@ s32 TWindowSubStatusDisp__sub_800718D0(void);
 
 extern "C" {
 
-s32 get_status_index__20TWindowSubStatusDispFi(int arg0);
-s32 get_status_index_or_default__20TWindowSubStatusDispFPv(u16 *arg0);
-s32 *get_status_window__20TWindowSubStatusDispFi(int arg0);
 s32 TLobby__sub_80071654(u16);
 u32 get_character_save_record(u32);
 
-s32 get_status_index__20TWindowSubStatusDispFi(int arg0) {
+s32 TWindowSubStatusDisp::get_status_index(int arg0) {
     u32 temp_r3;
 
     temp_r3 = get_character_save_record((u16)arg0);
     if (temp_r3 == 0U) {
         return -1;
     }
-    return get_status_index_or_default__20TWindowSubStatusDispFPv((u16 *)(temp_r3 + 0x21C4));
+    return TWindowSubStatusDisp::get_status_index_or_default((u16 *)(temp_r3 + 0x21C4));
 }
 
-s32 get_status_index_or_default__20TWindowSubStatusDispFPv(u16 *arg0) {
+s32 TWindowSubStatusDisp::get_status_index_or_default(u16 *arg0) {
     if (arg0 == NULL) {
         return -1;
     }
@@ -66,7 +64,7 @@ s32 get_status_index_or_default__20TWindowSubStatusDispFPv(u16 *arg0) {
 
 extern s32 lbl_805D285C;
 
-s32 *get_status_window__20TWindowSubStatusDispFi(int arg0) {
+s32 *TWindowSubStatusDisp::get_status_window(int arg0) {
     u32 temp_r3;
 
     temp_r3 = get_character_save_record((u16)arg0);
@@ -81,7 +79,7 @@ s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0) {
     if (arg0 == 0U) {
         return &lbl_805D2858;
     }
-    decode_obfuscated_string__6TLobbyFPvPvi((void *) (&lbl_804FF820.value), (void *) (arg0 + 0xD8), (int) (0xC));
+    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_804FF820.value), (void *) (arg0 + 0xD8), (int) (0xC));
     return &lbl_804FF820.value;
 }
 

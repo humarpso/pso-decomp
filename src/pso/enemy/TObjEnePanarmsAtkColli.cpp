@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnePanarmsAtkColli.h"
 struct Entry_800E31C4 { s32 id; u8 data[0xC]; };
 
 struct Vec_800E31C4 { f32 x; f32 y; f32 z; };
@@ -473,18 +474,17 @@ struct Obj_800E37E4 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
+s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
-void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0);
-s32 set_flag_0x100__23TObjEneMe3ShinowaMirageFPv();
+s32 set_flag_0x100__23TObjEneMe3ShinowaMirageFv();
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 extern const f32 lbl_805DA5BC;
 extern const f32 lbl_805DA5C0;
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
 void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1);
-u8 *dispatch_shared_handler_a__6TLobbyFPv(int);
-void set_param__12TObjEneLappyFPvi(void *, int);
-s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
+u8 *dispatch_shared_handler_a__6TLobbyFl(int);
+void set_param__12TObjEneLappyFl(void *, int);
+s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 void initialize__9TObjEnemyFPv(void *, void *);
 int play_sound_effect(void *, void *, void *, void *);
 extern s32 TObjEnePanarmsAtkColli__type_index_table[];
@@ -496,12 +496,12 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, voi
 extern "C" {
 
 void *__dt__22TObjEnePanarmsAtkColliFv(void *arg0, s16 arg1);
-void * create__22TObjEnePanarmsAtkColliFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
-void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0) {
+void TObjEnePanarmsAtkColli::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0_2;
     if (--*(s32 *)((s8 *)arg0 + 0x380) < 0) {
         queue_destruction__7TObjectFv((void *)(arg0));
@@ -516,17 +516,17 @@ void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0) {
         ((void (*)(void *))fn_800E35C8)(arg0);
         return;
     case 1:
-        play_persistent_sound(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BA2A), arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BA2A), arg0, arg0 + 0x38, 0, 0);
         ((void (*)(void *))fn_800E3428)(arg0);
         return;
     }
 }
 
-void * create__22TObjEnePanarmsAtkColliFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *TObjEnePanarmsAtkColli::create(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x390);
     if (o != NULL) {
-        o = TObjEnePanarmsAtkColli__ct((Obj_800E37E4 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        o = TObjEnePanarmsAtkColli__ct((Obj_800E37E4 *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
     return o;
 }
@@ -564,8 +564,8 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, voi
     self->type = (s32)arg4;
     self->f384 = 0;
     self->f388 = 0;
-    set_param__12TObjEneLappyFPvi(self, 0x15);
-    self->f38C = ((f32 *)dispatch_shared_handler_a__6TLobbyFPv(0x31))[TObjEnePanarmsAtkColli__type_index_table[self->type]];
+    set_param__12TObjEneLappyFl(self, 0x15);
+    self->f38C = ((f32 *)dispatch_shared_handler_a__6TLobbyFl(0x31))[TObjEnePanarmsAtkColli__type_index_table[self->type]];
     if (self->f38C < 0.0f) {
         self->f38C = 0.0f;
     }
@@ -576,7 +576,7 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, voi
     normalize_vector(&self->scale);
     switch (self->type) {
     case 0:
-        play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(self, 0x4003BC2B), &self->pos, 0, 0);
+        play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(self, 0x4003BC2B), &self->pos, 0, 0);
         self->f378 = (5.0f);
         self->f37C = (1.0416666f);
         self->f380 = 0xC;
@@ -611,7 +611,7 @@ void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1) {
     {
       new_var = ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 & 0xFFFFFDFF;
       ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 = (s32) new_var;
-      set_flag_0x100__23TObjEneMe3ShinowaMirageFPv();
+      set_flag_0x100__23TObjEneMe3ShinowaMirageFv();
       ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C = (f32) lbl_805DA5C0;
       ((RecoveredFields_800E3970_arg0 *) arg0)->field_48 = (f32) lbl_805DA5C0;
       *((f32 *) (((s8 *) ((RecoveredFields_800E3970_arg0 *) arg0)->field_A4) + 0x20)) = (f32) lbl_805DA5C0;

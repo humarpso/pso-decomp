@@ -5,6 +5,7 @@
 
 struct TObjTradeCollision
 {
+    static void render();
 };
 
 #endif

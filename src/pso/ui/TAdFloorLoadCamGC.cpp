@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdFloorLoadCamGC.h"
 
 struct Vec_8034BE5C { f32 x, y, z; };
 
@@ -21,7 +22,7 @@ extern void *lbl_805D4340;
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void copy_vec_to_default__11TCameraCtrlFPv(void *);
+void copy_vec_to_default__11TCameraCtrlFPUc(void *);
 void set_active_camera_pose(void *, void *);
 void activate_camera_mode(int);
 f32 sin_table_lookup(s32);
@@ -30,7 +31,6 @@ f32 vec_squared_length(void *);
 void normalize_vector(void *);
 extern Pad_8034BE5C controller_physical_port_bank;
 extern const f32 lbl_805DFDB8;
-void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s);
 }
 
 extern "C" {
@@ -39,7 +39,6 @@ void *__dt__17TAdFloorLoadCamGCFv(void *arg0, s16 arg1);
 u16 fn_8034BE30(void* p);
 void fn_8034BE38(void* p);
 void fn_8034BE48(void* p);
-void render__17TAdFloorLoadCamGCFv(void);
 void TCameraCtrl__sub_800687C8(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -47,7 +46,7 @@ void __dt__7TObjectFv(void *, int);
 u16 fn_8034BE30(void* p) { return *(u16*)((char*)p + 0x24); }
 void fn_8034BE38(void* p) { *(u32*)((char*)p + 0x334) &= 0xbfffffff; }
 void fn_8034BE48(void* p) { *(u32*)((char*)p + 0x334) |= 0x40000000; }
-void render__17TAdFloorLoadCamGCFv(void) {  }
+void TAdFloorLoadCamGC::render() {  }
 
 extern s32 __vt__17TAdFloorLoadCamGC[];
 
@@ -69,7 +68,8 @@ extern const f32 lbl_805DFDC0 = 0.4f;
 }
 #pragma push
 #pragma fp_contract on
-void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s) {
+void TAdFloorLoadCamGC::run_task() {
+    Cam_8034BE5C *s = (Cam_8034BE5C *)this;
     Vec_8034BE5C up;
     f32 x;
     f32 y;
@@ -115,7 +115,7 @@ void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s) {
     } else {
         normalize_vector(&up);
     }
-    copy_vec_to_default__11TCameraCtrlFPv(&up);
+    copy_vec_to_default__11TCameraCtrlFPUc(&up);
     set_active_camera_pose(&s->pos, &s->target);
 }
 #pragma pop

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSwitchTimer.h"
 
 struct Stack_801783BC {
     f32 sp8;
@@ -33,7 +34,6 @@ extern const f32 lbl_805DBA18;
 extern const f32 lbl_805DBA1C;
 extern const f32 lbl_805DBA20;
 extern const f32 lbl_805DBA24;
-void render__13TOSwitchTimerFv(s32 arg0);
 u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
 void clear_floor_switch_flag(u16, s16);
 void __dl__7TObjectFPv(s32);
@@ -50,15 +50,14 @@ extern "C" {
 
 void TOSwitchTimer__sub_80178584(void);
 void TOSwitchTimer__sub_80178588(void);
-void *create__13TOSwitchTimerFPv(void *arg0);
-void run_task__13TOSwitchTimerFv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 send_switch_states__12TOChatSensorFPv(void *);
+s32 send_switch_states__12TOChatSensorFv(void *);
 u8 is_current_floor_switch_set(u16);
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 
-void render__13TOSwitchTimerFv(s32 arg0) {
+void TOSwitchTimer::render() {
+    s32 arg0 = (s32)this;
     Stack_801783BC stack;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         stack.sp8 = lbl_805DBA18;
@@ -69,41 +68,41 @@ void render__13TOSwitchTimerFv(s32 arg0) {
     }
 }
 
-void run_task__13TOSwitchTimerFv(void *arg0) {
+void TOSwitchTimer::run_task() {
     s32 temp_r0;
     s32 temp_r3_2;
     u32 temp_r3;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x90);
+    temp_r0 = *(s32 *)((s8 *)this + 0x90);
     switch (temp_r0) {
     case 0:
-        temp_r3 = is_current_floor_switch_set(*(u16 *)((s8 *)arg0 + 0xA8));
-        if ((s32) *(u8 *)((s8 *)arg0 + 0xB0) != (s32) temp_r3) {
-            *(u8 *)((s8 *)arg0 + 0xB0) = temp_r3;
+        temp_r3 = is_current_floor_switch_set(*(u16 *)((s8 *)this + 0xA8));
+        if ((s32) *(u8 *)((s8 *)this + 0xB0) != (s32) temp_r3) {
+            *(u8 *)((s8 *)this + 0xB0) = temp_r3;
             if (temp_r3 == 1) {
-                *(s32 *)((s8 *)arg0 + 0x90) = 1;
-                *(s32 *)((s8 *)arg0 + 0x94) = 0;
-                if ((u32) *(u32 *)((s8 *)arg0 + 0x98) == 0U) {
-                    *(u8 *)((s8 *)arg0 + 0xB0) = 0U;
+                *(s32 *)((s8 *)this + 0x90) = 1;
+                *(s32 *)((s8 *)this + 0x94) = 0;
+                if ((u32) *(u32 *)((s8 *)this + 0x98) == 0U) {
+                    *(u8 *)((s8 *)this + 0xB0) = 0U;
                 }
             }
         }
         return;
     case 1:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x9C) == 1) {
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x94) < (s32) *(s32 *)((s8 *)arg0 + 0xA4)) {
-                if ((*(s32 *)((s8 *)arg0 + 0x94) % 30) == 0) {
+        if ((s32) *(s32 *)((s8 *)this + 0x9C) == 1) {
+            if ((s32) *(s32 *)((s8 *)this + 0x94) < (s32) *(s32 *)((s8 *)this + 0xA4)) {
+                if ((*(s32 *)((s8 *)this + 0x94) % 30) == 0) {
                     play_sound_effect(0x53218, 0, 0, 0);
                 }
             } else {
-                play_persistent_sound(0x53218, arg0, 0, 0, 0);
+                play_persistent_sound(0x53218, this, 0, 0, 0);
             }
         }
-        temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x94);
-        *(s32 *)((s8 *)arg0 + 0x94) = (s32) (temp_r3_2 + 1);
-        if (temp_r3_2 == (s32) *(s32 *)((s8 *)arg0 + 0xA0)) {
-            send_switch_states__12TOChatSensorFPv(arg0);
-            *(s32 *)((s8 *)arg0 + 0x90) = 0;
+        temp_r3_2 = *(s32 *)((s8 *)this + 0x94);
+        *(s32 *)((s8 *)this + 0x94) = (s32) (temp_r3_2 + 1);
+        if (temp_r3_2 == (s32) *(s32 *)((s8 *)this + 0xA0)) {
+            send_switch_states__12TOChatSensorFv(this);
+            *(s32 *)((s8 *)this + 0x90) = 0;
         }
         break;
     }
@@ -111,7 +110,7 @@ void run_task__13TOSwitchTimerFv(void *arg0) {
 
 extern void *tl_05;
 
-void *create__13TOSwitchTimerFPv(void *arg0) {
+void *TOSwitchTimer::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
         o = TOSwitchTimer__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));

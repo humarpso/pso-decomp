@@ -2,6 +2,7 @@
 #include "pso/object/ObjectFactoryTables.h"
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct QuestEnemyRow_8020C1F0 { u16 type; s16 flags; u8 reserved[8]; s16 room; u8 tail[58]; };
 
@@ -22,7 +23,6 @@ extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
 extern s32 TLobby__current_floor_enemy_set_count;
 s32 is_room_enemy_set_cleared(s32 floor, s16 room);
 s32 get_enemy_factory_child_count(s32 arg0, s16 *arg1);
-s32 find_floor_object_factory__6TLobbyFiPv(s32 arg0, s16 *arg1);
 s32 get_current_floor(void);
 extern Ent_8020C07C *TLobby__data_805D610C;
 extern s32 TLobby__current_floor_object_set_count;
@@ -31,7 +31,6 @@ s32 get_current_floor(void);
 extern QuestSavedEnemyFloor_8020C1F0 TLobby__floor_enemy_group_table[];
 extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
 extern s32 TLobby__current_floor_enemy_set_count;
-s32 count_quest_enemies_flag8__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -47,7 +46,7 @@ s32 get_enemy_factory_child_count(s32 arg0, s16 *arg1) {
     return 0;
 }
 
-s32 find_floor_object_factory__6TLobbyFiPv(s32 arg0, s16 *arg1) {
+s32 TLobby::find_floor_object_factory(s32 arg0, s16 *arg1) {
     Ent_8020C030 *base = floor_object_factory_tables[arg0];
     Ent_8020C030 *p = base;
     for (; base != 0 && p->type != -1; p++) {
@@ -71,7 +70,7 @@ void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set) {
     }
 }
 
-s32 count_quest_enemies_flag8__6TLobbyFv(void) {
+s32 TLobby::count_quest_enemies_flag8() {
     s32 n = 0;
     s32 i;
     s32 j;

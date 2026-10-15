@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/TObjRainCtrl.h"
 
 extern "C" {
 
-void create__12TObjRainCtrlFv(void);
 s32 TObjRainCtrl__ct(void *, s32);
 void *__nw__7TObjectFUl(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern s32 tl_particle;
 
-void create__12TObjRainCtrlFv(void) {
+void TObjRainCtrl::create() {
     void *temp_r3;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 0) {

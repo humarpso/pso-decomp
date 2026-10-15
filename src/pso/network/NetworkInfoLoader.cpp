@@ -59,8 +59,8 @@ s32 request_network_info_exists(s32 arg0);
 s32 get_network_config_mode(void);
 extern NetworkInfoLoadState network_info_load_state;
 s32 take_network_info_exists_result(s32 *arg0, s32 *arg1);
-s32 get_or_set_channel_flag__15TAdPlayerLoadGCFii(s32 arg0, s32 arg1);
-s32 take_network_info_poll_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
+s32 get_or_set_channel_flag__15TAdPlayerLoadGCFll(s32 arg0, s32 arg1);
+s32 take_network_info_poll_result__15TAdPlayerLoadGCFlPl(s32 arg0, s32 *arg1);
 s32 request_card_open__15TAdPlayerLoadGCFiPv(s32 arg0, const char *arg1);
 
 extern NetworkInfoLoadState network_info_load_state;
@@ -89,14 +89,14 @@ void OSFreeToHeap(s32 heap, void *p);
 extern s32 __OSCurrHeap;
 void *memset(void *, int, u32);
 void *memcpy(void *, const void *, u32);
-s32 get_or_set_channel_flag__15TAdPlayerLoadGCFii(s32 arg0, s32 arg1);
-s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
-s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
-s32 queue_network_request__15TAdPlayerLoadGCFiiii(s32 arg0, Save_803F3F64 *arg1, s32 arg2, s32 arg3);
-s32 finish_load_slot_state3__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
-s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 arg0, const char *arg1);
-void unmount_card__15TAdPlayerLoadGCFi(s32 chan);
-s32 take_network_info_load_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
+s32 get_or_set_channel_flag__15TAdPlayerLoadGCFll(s32 arg0, s32 arg1);
+s32 close_card_slot__15TAdPlayerLoadGCFl(s32 arg0);
+s32 finish_load_slot_state4__15TAdPlayerLoadGCFlPl(s32 arg0, s32 *arg1);
+s32 queue_network_request__15TAdPlayerLoadGCFllll(s32 arg0, Save_803F3F64 *arg1, s32 arg2, s32 arg3);
+s32 finish_load_slot_state3__15TAdPlayerLoadGCFlPl(s32 arg0, s32 *arg1);
+s32 begin_card_file_request__15TAdPlayerLoadGCFlPCc(s32 arg0, const char *arg1);
+void unmount_card__15TAdPlayerLoadGCFl(s32 chan);
+s32 take_network_info_load_result__15TAdPlayerLoadGCFlPl(s32 arg0, s32 *arg1);
 s32 TAdPlayerLoadGC__sub_803F3998(s32 arg0);
 void init_network_config_defaults(void);
 s32 get_network_config_backup_mode(void);
@@ -143,7 +143,7 @@ void update_network_info_load(void) {
         }
         s->phase = 4;
     case 4:
-        network_info_load_state.card_result = take_network_info_load_result__15TAdPlayerLoadGCFiPv(get_network_config_card_channel(), &network_info_load_state.card_detail);
+        network_info_load_state.card_result = take_network_info_load_result__15TAdPlayerLoadGCFlPl(get_network_config_card_channel(), &network_info_load_state.card_detail);
         if (network_info_load_state.card_result < 0) {
             network_info_load_state.result = -200;
             s->phase = 27;
@@ -154,22 +154,22 @@ void update_network_info_load(void) {
         }
         s->phase = 7;
     case 7:
-        get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 1);
-        network_info_load_state.file_handle = begin_card_file_request__15TAdPlayerLoadGCFiPv(get_network_config_card_channel(), "sega_network_information");
+        get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 1);
+        network_info_load_state.file_handle = begin_card_file_request__15TAdPlayerLoadGCFlPCc(get_network_config_card_channel(), "sega_network_information");
         if (network_info_load_state.file_handle < 0) {
-            get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
+            get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
             network_info_load_state.card_result = network_info_load_state.file_handle;
-            unmount_card__15TAdPlayerLoadGCFi(get_network_config_card_channel());
+            unmount_card__15TAdPlayerLoadGCFl(get_network_config_card_channel());
             network_info_load_state.result = -204;
             s->phase = 27;
             break;
         }
         s->phase = 8;
     case 8:
-        network_info_load_state.card_result = finish_load_slot_state3__15TAdPlayerLoadGCFiPv(get_network_config_card_channel(), &network_info_load_state.card_detail);
+        network_info_load_state.card_result = finish_load_slot_state3__15TAdPlayerLoadGCFlPl(get_network_config_card_channel(), &network_info_load_state.card_detail);
         if (network_info_load_state.card_result < 0) {
-            get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
-            unmount_card__15TAdPlayerLoadGCFi(get_network_config_card_channel());
+            get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
+            unmount_card__15TAdPlayerLoadGCFl(get_network_config_card_channel());
             network_info_load_state.result = -204;
             s->phase = 27;
             break;
@@ -177,19 +177,19 @@ void update_network_info_load(void) {
         if (network_info_load_state.card_result == 200) {
             break;
         }
-        get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
+        get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
         s->phase = 9;
     case 9:
-        get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 1);
+        get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 1);
         if ((void *)(&network_info_load_state)[0].caller_buffer == NULL) {
             if (TAdPlayerLoadGC__network_config_buffer != NULL) {
                 OSFreeToHeap(__OSCurrHeap, TAdPlayerLoadGC__network_config_buffer);
             }
             TAdPlayerLoadGC__network_config_buffer = (Save_803F3F64 *)OSAllocFromHeap(__OSCurrHeap, get_network_info_file_size());
             if (TAdPlayerLoadGC__network_config_buffer == NULL) {
-                close_card_slot__15TAdPlayerLoadGCFi(network_info_load_state.file_handle);
-                get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
-                unmount_card__15TAdPlayerLoadGCFi(get_network_config_card_channel());
+                close_card_slot__15TAdPlayerLoadGCFl(network_info_load_state.file_handle);
+                get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
+                unmount_card__15TAdPlayerLoadGCFl(get_network_config_card_channel());
                 network_info_load_state.result = -4;
                 s->phase = 27;
                 break;
@@ -197,7 +197,7 @@ void update_network_info_load(void) {
         } else {
             TAdPlayerLoadGC__network_config_buffer = (Save_803F3F64 *)network_info_load_state.caller_buffer;
         }
-        network_info_load_state.card_result = queue_network_request__15TAdPlayerLoadGCFiiii(network_info_load_state.file_handle, TAdPlayerLoadGC__network_config_buffer, get_network_info_file_size(), 0);
+        network_info_load_state.card_result = queue_network_request__15TAdPlayerLoadGCFllll(network_info_load_state.file_handle, TAdPlayerLoadGC__network_config_buffer, get_network_info_file_size(), 0);
         if (network_info_load_state.card_result < 0) {
             if ((void *)(&network_info_load_state)[0].caller_buffer == NULL) {
                 if (TAdPlayerLoadGC__network_config_buffer != NULL) {
@@ -207,29 +207,29 @@ void update_network_info_load(void) {
                 network_info_load_state.caller_buffer = 0;
             }
             TAdPlayerLoadGC__network_config_buffer = NULL;
-            close_card_slot__15TAdPlayerLoadGCFi(network_info_load_state.file_handle);
-            get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
-            unmount_card__15TAdPlayerLoadGCFi(get_network_config_card_channel());
+            close_card_slot__15TAdPlayerLoadGCFl(network_info_load_state.file_handle);
+            get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
+            unmount_card__15TAdPlayerLoadGCFl(get_network_config_card_channel());
             network_info_load_state.result = -205;
             s->phase = 27;
             break;
         }
         s->phase = 10;
     case 10:
-        network_info_load_state.card_result = finish_load_slot_state4__15TAdPlayerLoadGCFiPv(get_network_config_card_channel(), &network_info_load_state.card_detail);
+        network_info_load_state.card_result = finish_load_slot_state4__15TAdPlayerLoadGCFlPl(get_network_config_card_channel(), &network_info_load_state.card_detail);
         if (network_info_load_state.card_result == 0) {
             if (TAdPlayerLoadGC__network_config_buffer->size <= 0 || (u32)TAdPlayerLoadGC__network_config_buffer->size > 0x23B8) {
-                close_card_slot__15TAdPlayerLoadGCFi(network_info_load_state.file_handle);
-                get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
-                unmount_card__15TAdPlayerLoadGCFi(get_network_config_card_channel());
+                close_card_slot__15TAdPlayerLoadGCFl(network_info_load_state.file_handle);
+                get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
+                unmount_card__15TAdPlayerLoadGCFl(get_network_config_card_channel());
                 network_info_load_state.result = -30;
                 s->phase = 27;
             } else {
                 network_info_load_state.card_result = get_network_info_card_key(get_network_config_card_channel(), key);
                 if (network_info_load_state.card_result != 0) {
-                    close_card_slot__15TAdPlayerLoadGCFi(network_info_load_state.file_handle);
-                    get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
-                    unmount_card__15TAdPlayerLoadGCFi(get_network_config_card_channel());
+                    close_card_slot__15TAdPlayerLoadGCFl(network_info_load_state.file_handle);
+                    get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
+                    unmount_card__15TAdPlayerLoadGCFl(get_network_config_card_channel());
                     network_info_load_state.result = -31;
                     s->phase = 27;
                 } else {
@@ -238,9 +238,9 @@ void update_network_info_load(void) {
                     sum = calc_crc32(TAdPlayerLoadGC__network_config_buffer, 0x8000);
                     if (sum != crc) {
                         init_network_config_defaults();
-                        close_card_slot__15TAdPlayerLoadGCFi(network_info_load_state.file_handle);
-                        get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
-                        unmount_card__15TAdPlayerLoadGCFi(get_network_config_card_channel());
+                        close_card_slot__15TAdPlayerLoadGCFl(network_info_load_state.file_handle);
+                        get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
+                        unmount_card__15TAdPlayerLoadGCFl(get_network_config_card_channel());
                         network_info_load_state.result = -32;
                         s->phase = 27;
                     } else {
@@ -249,9 +249,9 @@ void update_network_info_load(void) {
                         network_info_load_state.card_result = decode_network_info_payload(key, TAdPlayerLoadGC__network_info_payload_buffer, TAdPlayerLoadGC__network_config_buffer->size, ((NetworkInfoConfig *)lobby_net_config_buffer));
                         if (network_info_load_state.card_result != 0) {
                             init_network_config_defaults();
-                            close_card_slot__15TAdPlayerLoadGCFi(network_info_load_state.file_handle);
-                            get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
-                            unmount_card__15TAdPlayerLoadGCFi(get_network_config_card_channel());
+                            close_card_slot__15TAdPlayerLoadGCFl(network_info_load_state.file_handle);
+                            get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
+                            unmount_card__15TAdPlayerLoadGCFl(get_network_config_card_channel());
                             network_info_load_state.result = -33;
                             s->phase = 27;
                         } else {
@@ -286,9 +286,9 @@ void update_network_info_load(void) {
             network_info_load_state.caller_buffer = 0;
         }
         TAdPlayerLoadGC__network_config_buffer = NULL;
-        close_card_slot__15TAdPlayerLoadGCFi(network_info_load_state.file_handle);
-        get_or_set_channel_flag__15TAdPlayerLoadGCFii(get_network_config_card_channel(), 0);
-        unmount_card__15TAdPlayerLoadGCFi(get_network_config_card_channel());
+        close_card_slot__15TAdPlayerLoadGCFl(network_info_load_state.file_handle);
+        get_or_set_channel_flag__15TAdPlayerLoadGCFll(get_network_config_card_channel(), 0);
+        unmount_card__15TAdPlayerLoadGCFl(get_network_config_card_channel());
         break;
     }
 }
@@ -355,10 +355,10 @@ void update_network_info_exists(void) {
     s = &network_info_load_state;
     switch (s->phase) {
     case 1:
-        get_or_set_channel_flag__15TAdPlayerLoadGCFii(s->card_channel, 1);
+        get_or_set_channel_flag__15TAdPlayerLoadGCFll(s->card_channel, 1);
         network_info_load_state.card_result = request_card_open__15TAdPlayerLoadGCFiPv(s->card_channel, "sega_network_information");
         if (network_info_load_state.card_result < 0) {
-            get_or_set_channel_flag__15TAdPlayerLoadGCFii(s->card_channel, 0);
+            get_or_set_channel_flag__15TAdPlayerLoadGCFll(s->card_channel, 0);
             network_info_load_state.result = -209;
             s->phase = 27;
             break;
@@ -366,18 +366,18 @@ void update_network_info_exists(void) {
         s->phase = 2;
     case 2:
         t = &network_info_load_state;
-        network_info_load_state.card_result = take_network_info_poll_result__15TAdPlayerLoadGCFiPv(t->card_channel, &t->card_detail);
+        network_info_load_state.card_result = take_network_info_poll_result__15TAdPlayerLoadGCFlPl(t->card_channel, &t->card_detail);
         switch (network_info_load_state.card_result) {
         case 0:
         case -102:
-            get_or_set_channel_flag__15TAdPlayerLoadGCFii(t->card_channel, 0);
+            get_or_set_channel_flag__15TAdPlayerLoadGCFll(t->card_channel, 0);
             network_info_load_state.result = 0;
             s->phase = 25;
             break;
         case 200:
             break;
         default:
-            get_or_set_channel_flag__15TAdPlayerLoadGCFii(t->card_channel, 0);
+            get_or_set_channel_flag__15TAdPlayerLoadGCFll(t->card_channel, 0);
             network_info_load_state.result = -209;
             s->phase = 27;
             break;

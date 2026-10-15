@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 
 extern "C" {
-void render__19TWindowMessageYesNoFv(void);
 void *__nw__7TObjectFUl(int);
 void *TWindowMessageYesNo__ct(void *, void *, void *, void *, void *);
 }
@@ -10,40 +10,39 @@ extern "C" {
 
 void *TWindowMessageYesNo__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
-void run_task__19TWindowMessageYesNoFv(void* p);
 s32 create_window_menu(s32, s32, s32);
-int confirm_selection__11TWindowMenuFPv(void*);
-s32 reparent_to_main_ctrl__17TWindowSubComCardFi(void *);
+int confirm_selection__11TWindowMenuFv(void*);
+s32 reparent_to_main_ctrl__17TWindowSubComCardFv(void *);
 s32 get_selected_menu_value(s32);
 s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
-int is_child_visible__17TWindowSubComCardFPv(void* a0 = 0);
+int is_child_visible__17TWindowSubComCardFv(void* a0 = 0);
 int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int clear_trade_flag__19TWindowSubTradeMainFPv(void*);
-int close__17TWindowSubComCardFPv(void* p);
-void forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(void* p, void* a1, void* a2);
+int clear_trade_flag__19TWindowSubTradeMainFv(void*);
+int close__17TWindowSubComCardFv(void* p);
+void forward_slot_selection__16TAdChrSelASlotGCFPvPv(void* p, void* a1, void* a2);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-void free_member__17TWindowSubComCardFPv(void* p);
-s32 get_status_flag__17TWindowSubComCardFPv(s32);
-void notify_trade_main__17TWindowSubComCardFPv(void* p);
-void notify_warp_flag70__19TWindowSubShortMailFPv(void* p);
+void free_member__17TWindowSubComCardFv(void* p);
+s32 get_status_flag__17TWindowSubComCardFv(s32);
+void notify_trade_main__17TWindowSubComCardFv(void* p);
+void notify_warp_flag70__19TWindowSubShortMailFv(void* p);
 int queue_destruction__7TObjectFv(void*);
-int set_flag70_bit10__16TObjCityMainWarpFPv(void*);
-int set_flag_40__16TAdChrSelASlotGCFPv(void*);
-int set_selected_index__17TWindowSubComCardFPvs(void*);
+int set_flag70_bit10__16TObjCityMainWarpFv(void*);
+int set_flag_40__16TAdChrSelASlotGCFv(void*);
+int set_selected_index__17TWindowSubComCardFs(void*);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
-void update_card_slot__17TWindowSubComCardFPv(void* p);
+void update_card_slot__17TWindowSubComCardFv(void* p);
 
-void render__19TWindowMessageYesNoFv(void) {  }
+void TWindowMessageYesNo::render() {  }
 
-void run_task__19TWindowMessageYesNoFv(void* p) { if (is_child_visible__17TWindowSubComCardFPv(p) != 0) { confirm_selection__11TWindowMenuFPv(*(void**)((char*)p + 0x28)); } }
+void TWindowMessageYesNo::run_task() { if (is_child_visible__17TWindowSubComCardFv(this) != 0) { confirm_selection__11TWindowMenuFv(*(void**)((char*)this + 0x28)); } }
 
 extern s32 __vt__19TWindowMessageYesNo[];
 
-void * create__19TWindowMessageYesNoFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *TWindowMessageYesNo::create(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {

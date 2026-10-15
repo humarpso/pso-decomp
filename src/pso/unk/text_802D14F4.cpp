@@ -32,7 +32,7 @@ s32 queue_destruction__7TObjectFv(void *);
 Hit_802D14F4 *csnVecterUnder(void *, int);
 u32 csnVector(void *, void *, int);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
-s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 copy_pos__11TNowLoadingFPv(void *, void *);
 s32 enable__13TParticleCtrlFPv(void *);
 void *find_entity_by_id(int);
 s32 TObjEneBm9Mericarol__sub_802CED40(void *);
@@ -111,7 +111,7 @@ void fn_802D14F4(u8 *arg0) {
                 enable__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0x110));
             }
         } else {
-            copy_pos__11TNowLoadingFPvPv(*(void **)((s8 *)arg0 + 0x110), arg0 + 0xB4);
+            copy_pos__11TNowLoadingFPv(*(void **)((s8 *)arg0 + 0x110), arg0 + 0xB4);
         }
         if (*(void **)((s8 *)arg0 + 0x114) == NULL) {
             r2.x = 0;
@@ -122,7 +122,7 @@ void fn_802D14F4(u8 *arg0) {
                 enable__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0x114));
             }
         } else {
-            copy_pos__11TNowLoadingFPvPv(*(void **)((s8 *)arg0 + 0x114), arg0 + 0xB4);
+            copy_pos__11TNowLoadingFPv(*(void **)((s8 *)arg0 + 0x114), arg0 + 0xB4);
         }
         break;
     }

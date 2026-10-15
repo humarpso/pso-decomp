@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem.h"
 #pragma readonly_strings on
 
 struct RecoveredGlobal_8025A594_lbl_804CF9F8 {
@@ -31,11 +32,11 @@ typedef struct Win_8025A354 {
 typedef struct Vec2_8025A354 { f32 x, y; } Vec2_8025A354;
 
 extern "C" {
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
 u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2);
-s32 free__11TOBoss4RockFUi(s32);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_free(s32);
+s32 mem_alloc(s32);
 s32 strncpy(s32, u32, s32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 int TWindowHelpItem__sub_8025A600(void* p);
@@ -46,23 +47,16 @@ u32 calc_text_width(void *);
 void text_builder_reset();
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(void *);
-void draw_number_value__15TWindowHelpItemFv(void *entry, f32 *pos, s32 value, s32 color, s32 percent);
 }
 
 extern "C" {
 
 int TWindowHelpItem__sub_8025A600(void* p);
 void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1);
-void set_compare_color__15TWindowHelpItemFPvi(void *arg0, s32 arg1);
-void set_flag4_and_field1c__15TWindowHelpItemFPvi(void *arg0, s32 arg1);
-void set_flag8_and_field20__15TWindowHelpItemFPvi(void *arg0, s32 arg1);
-void set_flag_0x10__15TWindowHelpItemFPvi(u16 *arg0, s32 arg1);
-void set_help_text__15TWindowHelpItemFPvUi(void *arg0, u32 arg1);
 void tick_display_timer__15TWindowHelpItemFPv(void *arg0);
-void update_visible_flags__15TWindowHelpItemFPv(u16 *arg0);
 s32 __dl__FPv(void *);
 s32 destroy__20TWindowSubStatusDispFPvs(void *, s16);
-s32 measure_string_len__20TWindowSubStatusDispFPv(u32);
+s32 measure_string_len__20TWindowSubStatusDispFv(u32);
 
 void *lbl_804CF9F8[6] = {
     0, 0,
@@ -72,7 +66,8 @@ void *lbl_804CF9F8[6] = {
     0,
 };
 
-void update_visible_flags__15TWindowHelpItemFPv(u16 *arg0) {
+void TWindowHelpItem::update_visible_flags() {
+    u16 *arg0 = (u16 *)this;
     s32 temp_r3;
     u16 temp_r0;
 
@@ -80,15 +75,15 @@ void update_visible_flags__15TWindowHelpItemFPv(u16 *arg0) {
     temp_r3 = temp_r0 & 4;
     if ((temp_r3 != 0) || (temp_r0 & 8)) {
         if (temp_r3 == 0) {
-            set_flag4_and_field1c__15TWindowHelpItemFPvi((void *)(arg0), (s32)(0));
+            set_flag4_and_field1c((s32)(0));
         }
         if (!(*arg0 & 8)) {
-            set_flag8_and_field20__15TWindowHelpItemFPvi((void *)(arg0), (s32)(0));
+            set_flag8_and_field20((s32)(0));
         }
     }
 }
 
-void draw_number_value__15TWindowHelpItemFv(void *entry, f32 *pos, s32 value, s32 color, s32 percent) {
+void TWindowHelpItem::draw_number_value(void *entry, f32 *pos, s32 value, s32 color, s32 percent) {
     f32 xy[2];
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(value);
@@ -100,7 +95,7 @@ void draw_number_value__15TWindowHelpItemFv(void *entry, f32 *pos, s32 value, s3
     draw_window_text(xy, (void *)get_shared_text_buffer(), color, 0, 1000000.0f);
 }
 
-void set_flag_0x10__15TWindowHelpItemFPvi(u16 *arg0, s32 arg1) {
+void TWindowHelpItem::set_flag_0x10(u16 *arg0, s32 arg1) {
     if (arg1 != 0) {
         *arg0 |= 0x10;
         return;
@@ -108,42 +103,42 @@ void set_flag_0x10__15TWindowHelpItemFPvi(u16 *arg0, s32 arg1) {
     *arg0 &= 0xFFFFFFEF;
 }
 
-void set_flag8_and_field20__15TWindowHelpItemFPvi(void *arg0, s32 arg1) {
-    *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 8);
-    *(s32 *)((s8 *)arg0 + 0x20) = arg1;
+void TWindowHelpItem::set_flag8_and_field20(s32 arg1) {
+    *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 8);
+    *(s32 *)((s8 *)this + 0x20) = arg1;
 }
 
-void set_compare_color__15TWindowHelpItemFPvi(void *arg0, s32 arg1) {
+void TWindowHelpItem::set_compare_color(s32 arg1) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
     if (temp_r0 == arg1) {
-        *(s32 *)((s8 *)arg0 + 0x10) = -1;
+        *(s32 *)((s8 *)this + 0x10) = -1;
         return;
     }
     if (temp_r0 > arg1) {
-        *(s32 *)((s8 *)arg0 + 0x10) = 0xFF77E8FF;
+        *(s32 *)((s8 *)this + 0x10) = 0xFF77E8FF;
     } else {
-        *(s32 *)((s8 *)arg0 + 0x10) = 0xFFDD8C41;
+        *(s32 *)((s8 *)this + 0x10) = 0xFFDD8C41;
     }
-    *(s32 *)((s8 *)arg0 + 0x14) = 0x1E;
-    set_flag4_and_field1c__15TWindowHelpItemFPvi((void *)(arg0), (s32)(arg1));
+    *(s32 *)((s8 *)this + 0x14) = 0x1E;
+    set_flag4_and_field1c((s32)(arg1));
 }
 
-void set_flag4_and_field1c__15TWindowHelpItemFPvi(void *arg0, s32 arg1) {
-    *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 4);
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
+void TWindowHelpItem::set_flag4_and_field1c(s32 arg1) {
+    *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 4);
+    *(s32 *)((s8 *)this + 0x1C) = arg1;
 }
 
-void set_help_text__15TWindowHelpItemFPvUi(void *arg0, u32 arg1) {
+void TWindowHelpItem::set_help_text(u32 arg1) {
     s32 temp_r3;
 
-    free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0x18));
-    *(s32 *)((s8 *)arg0 + 0x18) = 0;
+    mem_free(*(s32 *)((s8 *)this + 0x18));
+    *(s32 *)((s8 *)this + 0x18) = 0;
     if (arg1 != 0U) {
-        temp_r3 = measure_string_len__20TWindowSubStatusDispFPv(arg1);
-        *(s32 *)((s8 *)arg0 + 0x18) = alloc_buffer__11TOBoss4RockFPv(temp_r3 + 1);
-        strncpy(*(s32 *)((s8 *)arg0 + 0x18), arg1, temp_r3 + 1);
+        temp_r3 = measure_string_len__20TWindowSubStatusDispFv(arg1);
+        *(s32 *)((s8 *)this + 0x18) = mem_alloc(temp_r3 + 1);
+        strncpy(*(s32 *)((s8 *)this + 0x18), arg1, temp_r3 + 1);
     }
 }
 
@@ -164,7 +159,7 @@ void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *
     draw_window_text(&pos, (void *)":", -1, 0, 100000.0f);
     pos.x += 64.0f;
     if (self->flags & 4) {
-        draw_number_value__15TWindowHelpItemFv((void *)(self), (f32 *)(&pos), (s32)(self->cur), (s32)(self->value10), (s32)(TWindowHelpItem__sub_8025A600((void*)(self))));
+        TWindowHelpItem::draw_number_value((void *)(self), (f32 *)(&pos), (s32)(self->cur), (s32)(self->value10), (s32)(TWindowHelpItem__sub_8025A600((void*)(self))));
     }
     if (self->flags & 8) {
         draw_window_text(&pos, (void *)"\tJ\x81\xA8", -1, 0, 100000.0f);
@@ -178,7 +173,7 @@ void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *
         } else {
             color = 0xFFDD8C41;
         }
-        draw_number_value__15TWindowHelpItemFv((void *)(self), (f32 *)(&pos), (s32)(self->next), (s32)(color), (s32)(TWindowHelpItem__sub_8025A600((void*)(self))));
+        TWindowHelpItem::draw_number_value((void *)(self), (f32 *)(&pos), (s32)(self->next), (s32)(color), (s32)(TWindowHelpItem__sub_8025A600((void*)(self))));
     }
 }
 
@@ -197,7 +192,7 @@ void tick_display_timer__15TWindowHelpItemFPv(void *arg0) {
 void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void ***)((s8 *)arg0 + 4) = lbl_804CF9F8;
-        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0x18));
+        mem_free(*(s32 *)((s8 *)arg0 + 0x18));
         destroy__20TWindowSubStatusDispFPvs((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -210,7 +205,7 @@ typedef char RecoveredGlobal_8025A594_lbl_804CF9F8_size[sizeof(RecoveredGlobal_8
 u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *) (arg0), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025A594_lbl_804CF9F8 *)&lbl_804CF9F8).value;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 8), (void *) (arg1 + 4));
     *(s32 *)((s8 *)arg0 + 0x10) = -1;
     *(s32 *)((s8 *)arg0 + 0x14) = 0;
     *(s32 *)((s8 *)arg0 + 0x18) = 0;

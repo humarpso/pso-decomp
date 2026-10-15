@@ -1,12 +1,13 @@
 #include "types.h"
+#include "pso/misc/TMovie.h"
 
 extern "C" {
-bool is_playback_finished__6TMovieFPv(u8 *arg0);
 }
 
 extern "C" {
 
-bool is_playback_finished__6TMovieFPv(u8 *arg0) {
+bool TMovie::is_playback_finished() {
+    u8 *arg0 = (u8 *)this;
     void **temp_r3;
     u8 *temp_r4;
     temp_r3 = (void **)(*(void ***)((s8 *)arg0 + 4));

@@ -8,6 +8,9 @@ public:
     virtual ~TAdSelectTxtGC();
     virtual void run_task();
     virtual void render();
+public:
+    void reset_state();
+    static void render();
 };
 
 #endif

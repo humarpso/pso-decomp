@@ -21,7 +21,7 @@ struct Pkt_801DA054 { u8 cmd; u8 flag; u16 size; struct Cfg_801DA054 cfg; };
 extern "C" {
 s32 bswap__13packet_headerFv(void *);
 void handle_cmd_DA__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
-s32 bswap_packet_header__9TProtocolFPv(void *);
+s32 bswap_packet_header__9TProtocolFv(void *);
 s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
 s32 memset(void *, int, int);
 void handle_cmd_9F__9TProtocolFR6packet(u8 *arg0);
@@ -38,7 +38,7 @@ void handle_cmd_9F__9TProtocolFR6packet(u8 *arg0) {
     pkt.cmd = 0x9F;
     pkt.size = 0x24;
     __as__16TPlyClientConfigFRC16TPlyClientConfig(&pkt.cfg, arg0 + 0x3FAC);
-    bswap_packet_header__9TProtocolFPv(&pkt);
+    bswap_packet_header__9TProtocolFv(&pkt);
     ((VObj_18 *)(arg0))->m8((s8 *)&pkt, 0x24);
 }
 

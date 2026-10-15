@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void init_sub_objects__6TLobbyFv(void);
-int rebuild_entry__6TLobbyFPv(void);
-int init_sub_state__6TLobbyFPv(void);
+int rebuild_entry__6TLobbyFv(void);
+int init_sub_state__6TLobbyFv(void);
 
-void init_sub_objects__6TLobbyFv(void) { init_sub_state__6TLobbyFPv(); rebuild_entry__6TLobbyFPv(); }
+void TLobby::init_sub_objects() { init_sub_state__6TLobbyFv(); rebuild_entry__6TLobbyFv(); }
 
 }

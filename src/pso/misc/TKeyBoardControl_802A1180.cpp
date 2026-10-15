@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
 
 struct RecoveredGlobal_802A1180_main_task {
     s32 value;
@@ -36,7 +37,6 @@ extern "C" {
 
 void TKeyBoardControl__sub_802A12B8(void);
 void TKeyBoardControl__sub_802A12BC(void);
-void update_menu_scene__16TKeyBoardControlFv(void);
 s32 init_fresh_character_card();
 s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
@@ -84,7 +84,7 @@ void update_movie_phase(void) {
     render_tick__Fv();
 }
 
-void update_menu_scene__16TKeyBoardControlFv(void) {
+void TKeyBoardControl::update_menu_scene() {
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
     TKeyBoardControl__sub_8000F90C(2);

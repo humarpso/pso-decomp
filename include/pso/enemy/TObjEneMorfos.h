@@ -37,6 +37,25 @@ struct TObjEneMorfos
     u8 _pad428[0x6C];
     u32 m_494;
     void* m_498;
+    static int get_instance();
+    void draw_body();
+    static void record_camera_path_point();
+    void state_death(s32 arg1);
+    void state_patrol(s32 arg1);
+    void state_appear(s32 arg1);
+    void handle_event_transition(s32 ev);
+    void play_sound_in_band();
+    void init_target_offsets();
+    void set_hover_target_position();
+    s32 approach_value(s32 arg1, s32 arg2);
+    s32 try_enter_low_hp_state();
+    s32 check_low_hp_trigger();
+    void init_instance();
+    static void unload_static_data();
+    void *create();
+    static s32 snap_to_ground(s32 arg0, s32 arg1);
+    void update_ground_probe();
+    static u8 check_value_in_range(void *arg0, u16 arg1, u16 arg2, u16 arg3);
 };
 
 #endif

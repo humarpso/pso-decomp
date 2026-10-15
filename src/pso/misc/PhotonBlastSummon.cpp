@@ -25,7 +25,7 @@ struct Ent_801A710C { u32 a; f32 b; s32 c; };
 extern "C" {
 s32 select_active_controller__11TCameraCtrlFc(int);
 s32 set_scripted_camera_pose(int, int, void *);
-s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
+s32 cache_target_and_forward__11TCameraCtrlFl(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void begin_photon_summon_camera(u8 *arg0, s8 arg1);
@@ -41,7 +41,7 @@ extern "C" {
 
 void queue_deferred_photon_blast_support(void);
 void queue_photon_blast_support(void);
-void reset_state_block__10TObjPlayerFPv(void* a0);
+void reset_state_block__10TObjPlayerFv(void* a0);
 void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2);
 extern u32 lbl_805D5D20;
 void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate);
@@ -140,7 +140,7 @@ void begin_photon_summon_camera(u8 *arg0, s8 arg1) {
     if ((*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 4) || (*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 8)) {
         select_active_controller__11TCameraCtrlFc((int) (5));
     }
-    cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x4222));
+    cache_target_and_forward__11TCameraCtrlFl((void *) (&stack.sp8), (int) (0x4222));
     temp_r3 = (long) (arg0 + 0x38);
     set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));
     *(s32 *)((s8 *)arg0 + 0xFC) = 1;
@@ -217,7 +217,7 @@ void VecCopy__FP3VecPC3Vec(Vec_801A73B0 *, const Vec_801A73B0 *);
 void set_active_camera_pose_from_params(struct PbCameraParams_801A73B0 *);
 void approach_vector_fixed_distance(Vec_801A73B0 *, Vec_801A73B0 *, Vec_801A73B0 *, f32);
 void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self);
-void get_camera_ctrl__9TObjEneDDFPv(Vec_801A7578 *, Vec_801A7578 *);
+void get_camera_ctrl__9TObjEneDDFv(Vec_801A7578 *, Vec_801A7578 *);
 extern Vec_801A7578 lbl_80446A44;
 extern struct Reg_801A7578 photon_blast_joint_origins[];
 extern s32 photon_blast_joint_index;
@@ -290,7 +290,7 @@ void publish_photon_blast_joint_origins(void) {
         struct Node_801A7578 *node = &photon_blast_joint_origins->list[i];
         if (photon_blast_joint_index == node->id) {
             Vec_801A7578 origin = lbl_80446A44;
-            get_camera_ctrl__9TObjEneDDFPv(&origin, &node->pos);
+            get_camera_ctrl__9TObjEneDDFv(&origin, &node->pos);
         }
     }
     photon_blast_joint_index += 1;
@@ -336,9 +336,9 @@ extern "C" {
 extern s32 photon_blast_joint_index;
 
 void publish_photon_blast_joint_origins();
-int set_global_state__16TObjEneRe7BeruraFi(void*);
+int set_global_state__16TObjEneRe7BeruraFl(void*);
 void set_photon_blast_joint_callback__10TObjPlayerFPv(PhotonDrawOwner_801A7638 *self);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void update_photon_blast_attachments(struct Self_801A7680 *self);
 }
@@ -349,18 +349,18 @@ void apply_all_default__8TFogCtrlFv(void);
 int clear_render_context__10TObjPlayerFv(void);
 void free_photon__10TObjPlayerFPv(void* p);
 int update_all_default__8TFogCtrlFv(void);
-int apply_all__8TFogCtrlFii(void*, void*);
-int free__11TOBoss4RockFUi(void*);
-int set_global_state__16TObjEneRe7BeruraFi(void*);
-int update_all__8TFogCtrlFi(void*);
+int apply_all__8TFogCtrlFll(void*, void*);
+int mem_free(void*);
+int set_global_state__16TObjEneRe7BeruraFl(void*);
+int update_all__8TFogCtrlFl(void*);
 
-int clear_render_context__10TObjPlayerFv(void) { return set_global_state__16TObjEneRe7BeruraFi((void*)(0)); }
+int clear_render_context__10TObjPlayerFv(void) { return set_global_state__16TObjEneRe7BeruraFl((void*)(0)); }
 
 void set_photon_blast_joint_callback__10TObjPlayerFPv(PhotonDrawOwner_801A7638 *self) {
     photon_blast_joint_index=0;
     photon_blast_joint_origins[0].list=(Node_801A7578 *)self->bindings;
     photon_blast_joint_origins[0].count=self->binding_count;
-    set_global_state__16TObjEneRe7BeruraFi((void*)publish_photon_blast_joint_origins);
+    set_global_state__16TObjEneRe7BeruraFl((void*)publish_photon_blast_joint_origins);
 }
 
 void update_photon_blast_attachments(struct Self_801A7680 *self) {
@@ -373,18 +373,18 @@ void update_photon_blast_attachments(struct Self_801A7680 *self) {
         e = &self->effects[i];
         if (e->obj != NULL) {
             if (e->flag >= 0) {
-                copy_pos__11TNowLoadingFPvPv(e->obj, &e->pos);
+                copy_pos__11TNowLoadingFPv(e->obj, &e->pos);
             } else {
-                copy_pos__11TNowLoadingFPvPv(e->obj, &self->pos);
+                copy_pos__11TNowLoadingFPv(e->obj, &self->pos);
             }
         }
     }
 }
 
-void free_photon__10TObjPlayerFPv(void* p) { void* m = *(void**)((char*)p + 0x148); if (m) free__11TOBoss4RockFUi(m); }
+void free_photon__10TObjPlayerFPv(void* p) { void* m = *(void**)((char*)p + 0x148); if (m) mem_free(m); }
 
-int update_all_default__8TFogCtrlFv(void) { return update_all__8TFogCtrlFi((void*)(0)); }
-void apply_all_default__8TFogCtrlFv(void) { apply_all__8TFogCtrlFii((void*)63, (void*)0); }
+int update_all_default__8TFogCtrlFv(void) { return update_all__8TFogCtrlFl((void*)(0)); }
+void apply_all_default__8TFogCtrlFv(void) { apply_all__8TFogCtrlFll((void*)63, (void*)0); }
 
 }
 

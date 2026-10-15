@@ -2,10 +2,10 @@
 
 extern "C" {
 s32 enemy_clear_target(void *);
-s32 is_valid_target__9TObjEneDDFPv(s32);
+s32 is_valid_target__9TObjEneDDFv(s32);
 s32 enemy_check_target_valid(void *arg0);
 s32 enemy_clear_target(void *);
-s32 is_alive__9TObjEneDDFPv(s32);
+s32 is_alive__9TObjEneDDFv(s32);
 u32 find_entity_by_id(u32);
 s32 enemy_has_live_target(void *arg0);
 }
@@ -23,7 +23,7 @@ s32 enemy_has_live_target(void *arg0) {
         enemy_clear_target(arg0);
         return 0;
     }
-    return is_alive__9TObjEneDDFPv(*(s32 *)((s8 *)arg0 + 0x390));
+    return is_alive__9TObjEneDDFv(*(s32 *)((s8 *)arg0 + 0x390));
 }
 #pragma pop
 
@@ -36,7 +36,7 @@ s32 enemy_check_target_valid(void *arg0) {
         enemy_clear_target(arg0);
         return 0;
     }
-    return is_valid_target__9TObjEneDDFPv(*(s32 *)((s8 *)arg0 + 0x390));
+    return is_valid_target__9TObjEneDDFv(*(s32 *)((s8 *)arg0 + 0x390));
 }
 
 }

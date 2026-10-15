@@ -12,12 +12,12 @@ struct VObj : VObjBase {
 };
 
 extern "C" {
-s32 set_hp_clamped__10TObjPlayerFPvs(s32, s32);
+s32 set_hp_clamped__10TObjPlayerFs(s32, s32);
 s32 obj_getS16_32E(s32);
 s32 obj_getS16_32C();
-u16 get_id__13TItemProArmorFPv();
-s32 set_facing__10TObjPlayerFPvs(s32, s32);
-void *get_equip_field_d04__10TObjPlayerFPv(s32, s32);
+u16 get_id__13TItemProArmorFv();
+s32 set_facing__10TObjPlayerFs(s32, s32);
+void *get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_player_by_client_id(s32);
 s32 set_technique_level_entry(s32, s16, u8);
 void set_item_owner_technique_level(void *arg0, s16 arg1, s16 arg2);
@@ -35,13 +35,13 @@ void set_item_owner_technique_level(void *arg0, s16 arg1, s16 arg2) {
     void *temp_r3;
     void *temp_r3_2;
     if ((arg1 >= 0) && (arg1 < 0x13) && (arg2 >= 0) && (arg2 <= 0x1D)) {
-        temp_r30 = get_player_by_client_id((u16) get_id__13TItemProArmorFPv());
+        temp_r30 = get_player_by_client_id((u16) get_id__13TItemProArmorFv());
         if (temp_r30 != 0) {
             temp_r29 = obj_getS16_32C();
             temp_r28 = obj_getS16_32E(temp_r30);
             temp_r31 = 9;
             do {
-                temp_r3 = get_equip_field_d04__10TObjPlayerFPv(temp_r30, temp_r31);
+                temp_r3 = get_equip_field_d04__10TObjPlayerFv(temp_r30, temp_r31);
                 if (temp_r3 != NULL) {
                     ((VObj*)temp_r3)->m21(1);
                 }
@@ -50,14 +50,14 @@ void set_item_owner_technique_level(void *arg0, s16 arg1, s16 arg2) {
             set_technique_level_entry(temp_r30 + 0x428, arg1, (u8) arg2);
             temp_r31 = 9;
             do {
-                temp_r3_2 = get_equip_field_d04__10TObjPlayerFPv(temp_r30, temp_r31);
+                temp_r3_2 = get_equip_field_d04__10TObjPlayerFv(temp_r30, temp_r31);
                 if (temp_r3_2 != NULL) {
                     ((VObj*)temp_r3_2)->m20(1);
                 }
                 temp_r31 += 1;
             } while (temp_r31 != 0xD);
-            set_hp_clamped__10TObjPlayerFPvs(temp_r30, temp_r29);
-            set_facing__10TObjPlayerFPvs(temp_r30, temp_r28);
+            set_hp_clamped__10TObjPlayerFs(temp_r30, temp_r29);
+            set_facing__10TObjPlayerFs(temp_r30, temp_r28);
         }
     }
 }

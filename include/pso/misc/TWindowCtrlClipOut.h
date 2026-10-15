@@ -5,6 +5,7 @@
 
 struct TWindowCtrlClipOut
 {
+    void render();
 };
 
 #endif

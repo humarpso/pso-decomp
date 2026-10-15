@@ -1,10 +1,10 @@
 #include "pso/ui/TAdGuideButtonGC.h"
 extern "C" {
-s32 render_status_disp__23TAdSinglePlyChrSelectGCFPvff(const char *, f32, f32, f32);
+s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(const char *, f32, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 u32 TAdMultiPlyChrSelectGC__sub_802C6FA8();
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void set_global_param__8TObjFishFi(u32);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
+void set_global_param__8TObjFishFl(u32);
 void begin_screen_draw(s32);
 void set_draw_texture_and_color(s32, s32);
 void draw_textured_quad_at_depth(void *, f32);
@@ -22,12 +22,12 @@ TAdGuideButtonGC *guide_button_instance;
 #pragma push
 #pragma fp_contract on
 void TAdGuideButtonGC::draw_label(int style, const char *text) {
-    render_status_disp__23TAdSinglePlyChrSelectGCFPvff(text, 22.0f + quads[0].x0, 1.0f + quads[0].y0, 22.0f);
+    render_status_disp__23TAdSinglePlyChrSelectGCFff(text, 22.0f + quads[0].x0, 1.0f + quads[0].y0, 22.0f);
 }
 #pragma pop
 void TAdGuideButtonGC::draw_quad(int style) {
     if (guide_button_texture_handle != 0) {
-        set_global_param__8TObjFishFi(guide_button_texture_handle);
+        set_global_param__8TObjFishFl(guide_button_texture_handle);
         begin_screen_draw(1);
         set_draw_texture_and_color(0,-1);
         draw_textured_quad_at_depth(quads,0.5f);
@@ -43,8 +43,8 @@ void TAdGuideButtonGC::render() {
 void TAdGuideButtonGC::setup_button(GuideButtonSpec *spec) {
     s32 i;
     this->kind = spec->kind;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&this->from, &spec->from);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&this->to, &spec->to);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&this->from, &spec->from);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&this->to, &spec->to);
     this->alpha_step = spec->alpha_step;
     this->duration = spec->duration;
     this->label = spec->label;

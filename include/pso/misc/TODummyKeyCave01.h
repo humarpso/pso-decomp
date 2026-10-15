@@ -31,6 +31,9 @@ struct TODummyKeyCave01
     u32 m_c8;
     u32 m_cc;
     u32 m_d0;
+    void render();
+    void run_task();
+    static void *create(void *arg0);
 };
 
 #endif

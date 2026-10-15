@@ -12,7 +12,7 @@ struct S_8004F5F8 {
 extern "C" {
 void fn_8004AA04(void *);
 void restore_player_cameras();
-void request_destroy__11TBoss4Type2FUi(void *);
+void request_destroy__11TBoss4Type2FUl(void *);
 void init_state_1__8TObjFishFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, s32);
 void __dl__7TObjectFPv(void *);
@@ -33,7 +33,7 @@ S_8004F5F8 *fn_8004F5F8(S_8004F5F8 *o, s16 flag) {
         }
         for (i = 0; i < 2; i++) {
             if (o->ptr[i] != 0) {
-                request_destroy__11TBoss4Type2FUi(o->ptr[i]);
+                request_destroy__11TBoss4Type2FUl(o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }

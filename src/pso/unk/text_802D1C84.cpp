@@ -222,7 +222,7 @@ extern "C" {
 extern u32 lbl_80540BC8[];
 extern void *lbl_805D6880;
 void TLobby__sub_803DA16C(void *);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 void fn_802D1C84(void);
 }
 
@@ -234,14 +234,14 @@ void fn_802D1C84(void) {
         TLobby__sub_803DA16C(p);
     }
     if (lbl_805D6880 != 0) {
-        free__11TOBoss4RockFUi(lbl_805D6880);
+        mem_free(lbl_805D6880);
         lbl_805D6880 = 0;
     }
 }
 
-void *alloc_buffer__11TOBoss4RockFPv(s32);
+void *mem_alloc(s32);
 void pso_load_texture__6TLobbyFPv(void *, void *);
-void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
+void set_render_rect__10TObjPlayerFllll(void *, int, int, int, int);
 void set_texture_name(void *, void *, int, int);
 
 u32 lbl_80540B98[9];
@@ -249,7 +249,7 @@ u32 lbl_80540BBC[3];
 __declspec(section ".data") u32 lbl_80540BC8[2];
 
 void fn_802D1CC8(void) {
-    set_render_rect__10TObjPlayerFPviiii(lbl_80540B98, (int)(lbl_805D6880 = alloc_buffer__11TOBoss4RockFPv(0x800)), 0x902, 0x20, 0x20);
+    set_render_rect__10TObjPlayerFllll(lbl_80540B98, (int)(lbl_805D6880 = mem_alloc(0x800)), 0x902, 0x20, 0x20);
     set_texture_name(lbl_80540BBC, lbl_80540B98, 0x18696, 0x40800000);
     lbl_80540BC8[0] = (u32)lbl_80540BBC;
     lbl_80540BC8[1] = 1;

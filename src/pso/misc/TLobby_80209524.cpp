@@ -1,22 +1,22 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void *free_boss4rock__6TLobbyFPvs(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
-s32 free__11TOBoss4RockFUi(s32);
+s32 mem_free(s32);
 
-void *free_boss4rock__6TLobbyFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 4));
-        __dl__FPv(*(void **)((s8 *)arg0 + 0));
-        *(s32 *)((s8 *)arg0 + 8) = 0;
-        *(s32 *)((s8 *)arg0 + 0xC) = 0;
+void *TLobby::free_boss4rock(s16 arg1) {
+    if (this != NULL) {
+        mem_free(*(s32 *)((s8 *)this + 4));
+        __dl__FPv(*(void **)((s8 *)this + 0));
+        *(s32 *)((s8 *)this + 8) = 0;
+        *(s32 *)((s8 *)this + 0xC) = 0;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            __dl__FPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }

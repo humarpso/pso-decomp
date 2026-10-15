@@ -12,6 +12,7 @@ struct TOBoss4Tower
     void* m_38;
     u8 _pad3C[0x24];
     u32 m_60;
+    void render();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TBreakUpMdl.h"
 
 struct RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00_size[sizeof(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00) == 0x10 ? 1 : -1];
@@ -129,14 +130,13 @@ struct Bringer_80097100 : VObj_18_26a62c {
 };
 
 extern "C" {
-f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
-f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_by_node_angles(void *, int);
@@ -144,38 +144,33 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
-s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805D97C8;
-void init_alpha__11TBreakUpMdlFPvif(u8 *arg0, s32 arg1, f32 farg0);
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *);
-void *alloc_buffer__11TOBoss4RockFPv(int);
+void *mem_alloc(int);
 extern const f32 lbl_805D97CC;
 void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 void draw_ginja_model(s32);
 void set_chunk_material_override_pair(u32, u32);
 void set_chunk_material_color(Color_8009680C *);
@@ -184,15 +179,11 @@ extern Color_8009680C breakup_default_color;
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
 extern const f32 lbl_805D97C8;
-void render__11TBreakUpMdlFv(BreakUp_8009680C *self);
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D97CC;
-void run_task__11TBreakUpMdlFv(BreakUp_8009693C *self);
 f32 rand_signed_unit(void);
-f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-void init_alpha__11TBreakUpMdlFPvif(u8 *arg0, s32 arg1, f32 farg0);
-void copy__11TBreakUpMdlFPvPv(void* p, void* q);
-void *alloc_buffer__11TOBoss4RockFPv(int);
+f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
+void *mem_alloc(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 s32 matrix_mult_vec(int, int, int);
@@ -208,7 +199,7 @@ extern s32 TBreakUpMdl__class_name;
 extern const f32 lbl_805D97D0;
 extern const f32 lbl_805D97D4;
 u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);
-s32 update_player_state__9TObjEneDDFPv(void *, void *, int);
+s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 int get_target_info__9TObjEneDDFPv(void*);
 s32 toggle_particle_effect__10TObjPlayerFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -216,7 +207,7 @@ void rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 s32 draw_model_motion(s32, void *, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
@@ -232,21 +223,21 @@ extern "C" {
 void TObjEneDf2Bringer__vt103(void* p);
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1);
-void copy__11TBreakUpMdlFPvPv(void* p, void* q);
 int TObjEneDf2Bringer__sub_800994F8(void*);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 int get_target_info__9TObjEneDDFPv(void*);
 
 extern s32 __vt__11TBreakUpMdl[];
 
-void render__11TBreakUpMdlFv(BreakUp_8009680C *self) {
+void TBreakUpMdl::render() {
+    BreakUp_8009680C *self = (BreakUp_8009680C *)this;
     Part_8009680C *part;
     s32 i;
     if (self->texlist != 0) {
-        set_global_param__8TObjFishFi(self->texlist);
+        set_global_param__8TObjFishFl(self->texlist);
     }
     lbl_805D5660 = model_render_flags;
     if (self->alpha < lbl_805D97C8) {
@@ -274,7 +265,8 @@ void render__11TBreakUpMdlFv(BreakUp_8009680C *self) {
 
 #pragma push
 #pragma fp_contract on
-void run_task__11TBreakUpMdlFv(BreakUp_8009693C *self) {
+void TBreakUpMdl::run_task() {
+    BreakUp_8009693C *self = (BreakUp_8009693C *)this;
     Part_8009693C *p;
     s32 i;
     f32 gravity;
@@ -298,7 +290,8 @@ void run_task__11TBreakUpMdlFv(BreakUp_8009693C *self) {
 
 #pragma push
 #pragma fp_contract on
-void init_alpha__11TBreakUpMdlFPvif(u8 *arg0, s32 arg1, f32 farg0) {
+void TBreakUpMdl::init_alpha(s32 arg1, f32 farg0) {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) ((farg0 * (f32) arg1) + lbl_805D97C8);
 }
 #pragma pop
@@ -306,7 +299,7 @@ void init_alpha__11TBreakUpMdlFPvif(u8 *arg0, s32 arg1, f32 farg0) {
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBreakUpMdl;
-        free__11TOBoss4RockFUi((void *)(*(void **)((s8 *)arg0 + 0x34)));
+        mem_free((void *)(*(void **)((s8 *)arg0 + 0x34)));
         *(s32 *)((s8 *)arg0 + 0x34) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -331,15 +324,15 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
     self->f0 = TBreakUpMdl__class_name;
     self->model = arg2;
     if (arg3 == NULL) {
-        copy__11TBreakUpMdlFPvPv(&self->f38, breakup_default_param_row);
+        ((TBreakUpMdl *)(&self->f38))->copy(breakup_default_param_row);
     } else {
-        copy__11TBreakUpMdlFPvPv(&self->f38, arg3);
+        ((TBreakUpMdl *)(&self->f38))->copy(arg3);
     }
     self->f24 = arg4;
     self->count = self->model->count;
     base = self->f4C;
     scale = self->f50;
-    self->parts = (Part_80096AD8 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0x28);
+    self->parts = (Part_80096AD8 *)mem_alloc(self->count * 0x28);
     push_matrix_from((u32)&identity_matrix);
     post_translate_matrix(arg5);
     rotate_matrix_y(0, arg6);
@@ -347,7 +340,7 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
         part = &self->parts[i];
         matrix_mult_vec(0, (int)self->model->segs[i].a, (int)part);
         rotate_vector_by_matrix(0, self->model->segs[i].b, part->vel);
-        clamp_velocity__15TObjBoss2TunnelFPv(part->vel);
+        clamp_velocity__15TObjBoss2TunnelFv(part->vel);
         part->vel[1] = scale * (lbl_805D97D0 * (f32)rand()) + base;
         part->f18 = 0;
         part->f1c = arg6;
@@ -355,7 +348,7 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
         part->f24 = (s32)(lbl_805D97D4 * rand_signed_unit());
     }
     pop_matrix();
-    init_alpha__11TBreakUpMdlFPvif(arg0, self->f38, self->f3C);
+    ((TBreakUpMdl *)arg0)->init_alpha(self->f38, self->f3C);
     self->f30 = self->f40;
     return arg0;
 }
@@ -363,7 +356,8 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
 
 #pragma push
 #pragma fp_contract on
-s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
+s32 TBreakUpMdl::collect_node_positions(u8 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     s32 temp_r30;
     s32 temp_r4;
@@ -380,12 +374,12 @@ s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
             temp_r4 = (long) (temp_r31 + 4);
             matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
             VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
-            clamp_velocity__15TObjBoss2TunnelFPv(temp_r31 + 0x10);
+            clamp_velocity__15TObjBoss2TunnelFv(temp_r31 + 0x10);
             var_r29 += 1;
             *(s32 *)temp_r31 = *(s32 *)((s8 *)var_r28 + 4);
         }
         if (!(temp_r30 & 0x10)) {
-            var_r29 = collect_node_positions__11TBreakUpMdlFPvPvi(arg0, *(u8 **)((s8 *)var_r28 + 0x2C), var_r29);
+            var_r29 = collect_node_positions(*(u8 **)((s8 *)var_r28 + 0x2C), var_r29);
         }
         pop_matrix();
         var_r28 = (u8 *)(*(u8 **)((s8 *)var_r28 + 0x30));
@@ -396,7 +390,8 @@ s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
 
 #pragma push
 #pragma fp_contract on
-s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
+s32 TBreakUpMdl::build_node_records(u8 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     s32 temp_r30;
     s32 temp_r4;
@@ -415,12 +410,12 @@ s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
             temp_r4 = (long) (temp_r31 + 4);
             matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
             VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
-            clamp_velocity__15TObjBoss2TunnelFPv(temp_r31 + 0x10);
+            clamp_velocity__15TObjBoss2TunnelFv(temp_r31 + 0x10);
             var_r29 += 1;
             *(s32 *)temp_r31 = *(s32 *)((s8 *)var_r28 + 4);
         }
         if (!(temp_r30 & 0x10)) {
-            var_r29 = build_node_records__11TBreakUpMdlFPvPvi(arg0, *(u8 **)((s8 *)var_r28 + 0x2C), var_r29);
+            var_r29 = build_node_records(*(u8 **)((s8 *)var_r28 + 0x2C), var_r29);
         }
         pop_matrix();
         var_r28 = (u8 *)(*(u8 **)((s8 *)var_r28 + 0x30));
@@ -432,7 +427,7 @@ s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0xC) = TBreakUpMdl__vtable;
-        free__11TOBoss4RockFUi((void *)(*(s32 *)((s8 *)arg0 + 4)));
+        mem_free((void *)(*(s32 *)((s8 *)arg0 + 4)));
         *(s32 *)((s8 *)arg0 + 4) = 0;
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -444,7 +439,7 @@ void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1) {
 void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1) {
     s32 i;
     arg0->count = count_active_segments__15TObjBoss2TunnelFPv(arg1);
-    arg0->segs = (Seg_80096EBC *)alloc_buffer__11TOBoss4RockFPv(arg0->count * 0x1C);
+    arg0->segs = (Seg_80096EBC *)mem_alloc(arg0->count * 0x1C);
     for (i = 0; i < arg0->count; i++) {
         arg0->segs[i].a = 0;
         arg0->segs[i].x = lbl_805D97CC;
@@ -459,7 +454,7 @@ u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     bind_motion_context(arg2, farg0);
     push_matrix_from((u32) &identity_matrix.value);
-    collect_node_positions__11TBreakUpMdlFPvPvi((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));
+    ((TBreakUpMdl *)arg0)->collect_node_positions((u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
     return arg0;
 }
@@ -470,7 +465,7 @@ u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     bind_motion_context(arg2, farg0);
     push_matrix_from((u32) &(*(RecoveredGlobal_80096FD8_lbl_8058D490 *)&identity_matrix).value);
-    collect_node_positions__11TBreakUpMdlFPvPvi((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));
+    ((TBreakUpMdl *)arg0)->collect_node_positions((u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
     return arg0;
 }
@@ -481,12 +476,12 @@ u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0xC) = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     push_matrix_from((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&identity_matrix).value);
-    build_node_records__11TBreakUpMdlFPvPvi((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));
+    ((TBreakUpMdl *)arg0)->build_node_records((u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
     *(s32 *)((s8 *)arg0 + 8) = 0;
     return arg0;
 }
 
-void copy__11TBreakUpMdlFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
+void TBreakUpMdl::copy(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)this + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }
 
 }

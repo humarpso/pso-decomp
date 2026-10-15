@@ -8,6 +8,9 @@ public:
     virtual ~TDuelEffectNumber();
     virtual void run_task();
     virtual void render();
+public:
+    void render_pair(f32 f);
+    void render_number_default(f32 farg0);
 };
 
 #endif

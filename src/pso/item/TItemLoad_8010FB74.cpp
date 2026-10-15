@@ -1,31 +1,32 @@
 #include "types.h"
+#include "pso/TItemLoad.h"
 
 extern "C" {
 
-void update_load_state__9TItemLoadFPv(u8 *arg0);
-void update_ring__9TItemLoadFi(s32 arg0);
 s32 test_flags_any(void *, int);
-s32 clear_flags__11TAdRicoRingFPvUi(s32, s32);
-s32 free_texture__9TItemLoadFPv();
-s32 get_ring_lobby__9TItemLoadFPv();
-s32 set_flags__10TObjPlayerFPvUi(s32, s32);
+s32 clear_flags__11TAdRicoRingFUl(s32, s32);
+s32 free_texture__9TItemLoadFv();
+s32 get_ring_lobby__9TItemLoadFv();
+s32 set_flags__10TObjPlayerFUl(s32, s32);
 
-void update_ring__9TItemLoadFi(s32 arg0) {
+void TItemLoad::update_ring() {
+    s32 arg0 = (s32)this;
     s32 temp_r3;
 
-    temp_r3 = get_ring_lobby__9TItemLoadFPv();
+    temp_r3 = get_ring_lobby__9TItemLoadFv();
     if (temp_r3 != 2) {
         if (temp_r3 == 3) {
-            clear_flags__11TAdRicoRingFPvUi(arg0 + 0x1C, 1);
+            clear_flags__11TAdRicoRingFUl(arg0 + 0x1C, 1);
         } else {
-            set_flags__10TObjPlayerFPvUi(arg0 + 0x1C, 1);
+            set_flags__10TObjPlayerFUl(arg0 + 0x1C, 1);
         }
-        update_load_state__9TItemLoadFPv((u8 *)(arg0));
+        update_load_state();
     }
 }
 
-void update_load_state__9TItemLoadFPv(u8 *arg0) {
-    free_texture__9TItemLoadFPv();
+void TItemLoad::update_load_state() {
+    u8 *arg0 = (u8 *)this;
+    free_texture__9TItemLoadFv();
     if (test_flags_any(arg0 + 0x1C, 1) != 0) {
         *(s32 *)((s8 *)arg0 + 0x18) = 1;
         return;

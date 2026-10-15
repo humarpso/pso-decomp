@@ -40,6 +40,8 @@ struct TOTrapAncient02R
     u32 m_360;
     u32 m_364;
     u32 m_368;
+    void calc_trap_count();
+    static void *create(void *arg0);
 };
 
 #endif

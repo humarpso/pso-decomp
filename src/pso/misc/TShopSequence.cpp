@@ -15,7 +15,7 @@ s32 obj_getField1c(u32);
 u32 create_message_window__24TMessageWindowControllerFlll(void *, s32, s32, s32);
 u32 create_window__24TMessageWindowControllerFll(void *, s32, s32);
 u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * __ct__24TMessageWindowControllerFv(void *);
 u8 * __ct__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_802238D8___vt__13TShopSequence __vt__13TShopSequence;
@@ -40,8 +40,8 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32);
 s32 activate_body_collision__10TObjPlayerFPv();
 s32 deactivate_body_collision__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
-s32 suppress_slot__11TWindowCtrlFi(u16);
-s32 unsuppress_slot__11TWindowCtrlFi(u16);
+s32 suppress_slot__11TWindowCtrlFv(u16);
+s32 unsuppress_slot__11TWindowCtrlFv(u16);
 s32 clear_lobby_flag__10TObjPlayerFPv(u32);
 s32 close__24TMessageWindowControllerFv(void *);
 int display_message__24TMessageWindowControllerFPCcl(void*);
@@ -103,7 +103,7 @@ void close_window__13TShopSequenceFPv(void *arg0) {
     s32 var_r31;
 
     if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-        unsuppress_slot__11TWindowCtrlFi(obj_getField1c(*(u32 *)((s8 *)arg0 + 0x24)));
+        unsuppress_slot__11TWindowCtrlFv(obj_getField1c(*(u32 *)((s8 *)arg0 + 0x24)));
         if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
             var_r31 = 0;
             do {
@@ -130,7 +130,7 @@ void restore_player_state__13TShopSequenceFPv(void *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        suppress_slot__11TWindowCtrlFi(obj_getField1c(*(u32 *)((s8 *)arg0 + 0x24)));
+        suppress_slot__11TWindowCtrlFv(obj_getField1c(*(u32 *)((s8 *)arg0 + 0x24)));
     }
 }
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1) {
@@ -153,7 +153,7 @@ u8 *TShopSequence__ct(u8 *arg0) {
     __ct__15TShopWindowBaseFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TShopSequence.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TShopSequence__class_name;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x210);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x210);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (__ct__24TMessageWindowControllerFv((void *) temp_r3));

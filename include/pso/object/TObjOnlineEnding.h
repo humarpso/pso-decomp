@@ -15,6 +15,12 @@ struct TObjOnlineEnding
     u8 _padA8[0xA0];
     u32 m_148;
     u32 m_14c;
+    static s16 get_card_window_value();
+    static int get_instance();
+    static void*get_attack_entry(int a0);
+    void close_window();
+    void create_result_window();
+    static void *create(void *arg0);
 };
 
 #endif

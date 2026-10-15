@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemTimerEvent.h"
 
 struct Base_8011E140_8011DA9C { char pad[0x18]; };
 struct VObj_8011E140_8011DA9C : Base_8011E140_8011DA9C {
@@ -26,10 +27,8 @@ u32 get_player_by_client_id(u16);
 void TItemTimerEvent__vt1(void *arg0);
 void fn_8011085C(void *, s32);
 extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
-void clear_timer_slot__15TItemTimerEventFUs(u16 arg0);
 void fn_801108C8(void *, s32);
 extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
-void start_event_by_index__15TItemTimerEventFUs(u16 arg0);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 __ct__15TItemHeapObjectFP7TObject(void *);
 extern s32 __vt__15TItemTimerEvent[];
@@ -52,39 +51,34 @@ void *TItemTimerEvent__sub_8011DFB8(void *arg0, s16 arg1);
 void *TItemTimerEvent__sub_8011E010(void *arg0, s16 arg1);
 void *TItemTimerEvent__vt0(void *arg0, s16 arg1);
 void TItemTimerEvent__vt4(void *arg0);
-void check_battle_ctrl__15TItemTimerEventFi(int arg0);
-void clear_active__15TItemTimerEventFv(void);
-void notify_if_active__15TItemTimerEventFi(int arg0);
-void tick_hp_drain__15TItemTimerEventFPv(void *arg0);
-void update_timer__15TItemTimerEventFPv(void *arg0);
-s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
+s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 is_item_area_enabled();
 s32 TObjectV8047c128_subtract_hp(s32, s32);
 u32 get_player_by_client_id(u16);
 void __dt__15TItemHeapObjectFv(void *, int);
 s32 fn_8011E1D4();
 void __dl__15TItemHeapObjectFPv(void *);
-s32 get_field_3e0__12TBoss3VoloptFPv(s32);
+s32 get_field_3e0__12TBoss3VoloptFv(s32);
 s32 obj_isState3_324(s32);
 s32 obj_testFlags30(s32, s32);
-s32 set_flag_10000__10TObjPlayerFPv();
+s32 set_flag_10000__10TObjPlayerFv();
 
 void TItemTimerEvent__sub_8011DA9C(void *arg0) {
-    if (test_action_mask__10TObjPlayerFPvi(*(s32 *)((s8 *)arg0 + 0x28), 0x1C) != 0) {
+    if (test_action_mask__10TObjPlayerFl(*(s32 *)((s8 *)arg0 + 0x28), 0x1C) != 0) {
         *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
     }
 }
 
-void tick_hp_drain__15TItemTimerEventFPv(void *arg0) {
-    get_field_3e0__12TBoss3VoloptFPv(*(s32 *)((s8 *)arg0 + 0x28));
-    if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)((s8 *)arg0 + 0x28)) == 0) && (obj_testFlags30(*(s32 *)((s8 *)arg0 + 0x28), 0x800) == 0)) {
-        TObjectV8047c128_subtract_hp(*(s32 *)((s8 *)arg0 + 0x28), 1);
+void TItemTimerEvent::tick_hp_drain() {
+    get_field_3e0__12TBoss3VoloptFv(*(s32 *)((s8 *)this + 0x28));
+    if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)((s8 *)this + 0x28)) == 0) && (obj_testFlags30(*(s32 *)((s8 *)this + 0x28), 0x800) == 0)) {
+        TObjectV8047c128_subtract_hp(*(s32 *)((s8 *)this + 0x28), 1);
     }
 }
 
-void update_timer__15TItemTimerEventFPv(void *arg0) {
-    if (test_action_mask__10TObjPlayerFPvi(*(s32 *)((s8 *)arg0 + 0x28), 0x1C) != 0) {
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
+void TItemTimerEvent::update_timer() {
+    if (test_action_mask__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x28), 0x1C) != 0) {
+        *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
     }
 }
 
@@ -262,33 +256,33 @@ void *TItemTimerEvent__sub_8011E010(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void clear_timer_slot__15TItemTimerEventFUs(u16 arg0) {
+void TItemTimerEvent::clear_timer_slot(u16 arg0) {
     if (((void *) (*(u8 * *)&item_timer_event_instance) != NULL) && (arg0 < 0xCU)) {
         fn_8011085C((*(u8 * *)&item_timer_event_instance), (s32) arg0);
     }
 }
 
-void start_event_by_index__15TItemTimerEventFUs(u16 arg0) {
+void TItemTimerEvent::start_event_by_index(u16 arg0) {
     if (((void *) (*(u8 * *)&item_timer_event_instance) != NULL) && (arg0 < 0xCU)) {
         fn_801108C8((*(u8 * *)&item_timer_event_instance), (s32) arg0);
     }
 }
 
-void check_battle_ctrl__15TItemTimerEventFi(int arg0) {
+void TItemTimerEvent::check_battle_ctrl(int arg0) {
     if (get_player_by_client_id(arg0) != 0U) {
         fn_8011E1D4();
     }
 }
 
-void notify_if_active__15TItemTimerEventFi(int arg0) {
+void TItemTimerEvent::notify_if_active(int arg0) {
     if (get_player_by_client_id(arg0) != 0U) {
-        set_flag_10000__10TObjPlayerFPv();
+        set_flag_10000__10TObjPlayerFv();
     }
 }
 
 extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 
-void clear_active__15TItemTimerEventFv(void) {
+void TItemTimerEvent::clear_active() {
     if (item_timer_event_instance != NULL) {
         item_timer_event_instance->m0(1);
     }

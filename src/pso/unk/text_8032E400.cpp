@@ -14,7 +14,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 f32 atan2_float(f32, f32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void copy_pos__14TItemAttackColFPvPv(void *, void *);
+void copy_pos__14TItemAttackColFPv(void *, void *);
 void TItemWpnCardEffect__ct(void *);
 extern const f64 lbl_804773A8[];
 extern u8 lbl_804EDD44[];
@@ -28,7 +28,7 @@ Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Re
     arg0->vt = lbl_804EDD44;
     arg0->f34 = obj_getField1c(arg2->owner);
     arg0->f60 = arg5;
-    copy_pos__14TItemAttackColFPvPv(arg0->col, arg2);
+    copy_pos__14TItemAttackColFPv(arg0->col, arg2);
     VecCopy__FP3VecPC3Vec(&arg0->pos, arg3);
     VecCopy__FP3VecPC3Vec(&arg0->rpos, &arg2->owner->recs[arg2->idx].pos);
     arg0->f58 = lbl_804773A8[0] * atan2_float(arg3->x, arg3->z);

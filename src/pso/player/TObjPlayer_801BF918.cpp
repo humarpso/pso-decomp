@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 void zero_vec3(void* a0);
@@ -13,9 +14,6 @@ void* TObjPlayer__sub_801BF934(void* p);
 void TObjPlayer__sub_801BF93C(void* p, s16 v);
 void TObjPlayer__sub_801BF954(void* p, s32 v);
 s32 TObjPlayer__sub_801BF95C(void* p);
-s16 get_action_id__10TObjPlayerFPv(void* p);
-s32 get_lock_timer__10TObjPlayerFPv(void* p);
-void* get_sub_object__10TObjPlayerFPv(void* p);
 s32 is_timer_running();
 s32 TObjPlayer__sub_801BF640();
 f32 TObjPlayer__sub_801BF6B0(void* p);
@@ -31,30 +29,30 @@ int TObjPlayer__sub_801BF840(void* p);
 int TObjPlayer__sub_801BF8AC(void* p);
 int TObjPlayer__sub_801BF8CC(void* p);
 void TObjPlayer__sub_801BF914(void);
-int check_flag_2__10TObjPlayerFPv(void* p);
-int clear_fields__20TWindowSubStatusDispFPv(void*);
-int clear_id__10TObjPlayerFPv(void*);
-int get_enabled__11TMainCursorFPv(void*);
-int get_type__11TMainCursorFPv(void*);
-void* reset_sub_status_disp__10TObjPlayerFPv(void* p);
-void set_action_id__10TObjPlayerFPvs(void* p, s16 v);
-void set_anim_state__10TObjPlayerFPvi(void* p, s32 v);
-void set_anim_state__10TObjPlayerFPvs(void* p, s16 v);
-int set_flag_4__10TObjPlayerFPv(void* p);
-int set_flags__10TObjPlayerFPvUi(void*, int);
-void set_state__10TObjPlayerFPvs(void* p, s16 v);
-int test_flag_16__10TObjPlayerFPv(void* p);
-int update_main_cursor__10TObjPlayerFPv(void* p);
+int check_flag_2__10TObjPlayerFv(void* p);
+int clear_fields__20TWindowSubStatusDispFv(void*);
+int clear_id__10TObjPlayerFv(void*);
+int get_enabled__11TMainCursorFv(void*);
+int get_type__11TMainCursorFv(void*);
+void* reset_sub_status_disp__10TObjPlayerFv(void* p);
+void set_action_id__10TObjPlayerFs(void* p, s16 v);
+void set_anim_state__10TObjPlayerFl(void* p, s32 v);
+void set_anim_state__10TObjPlayerFs(void* p, s16 v);
+int set_flag_4__10TObjPlayerFv(void* p);
+int set_flags__10TObjPlayerFUl(void*, int);
+void set_state__10TObjPlayerFs(void* p, s16 v);
+int test_flag_16__10TObjPlayerFv(void* p);
+int update_main_cursor__10TObjPlayerFv(void* p);
 
 u8 TObjPlayer__sub_801BF918(u8 *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 4) == 2);
 }
 
-s16 get_action_id__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
+s16 TObjPlayer::get_action_id() { return *(s16*)((char*)this + 0x2); }
 void* TObjPlayer__sub_801BF934(void* p) { return (char*)p + 0xc; }
 void TObjPlayer__sub_801BF93C(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-void* get_sub_object__10TObjPlayerFPv(void* p) { return (char*)p + 0x8; }
-s32 get_lock_timer__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x4); }
+void*TObjPlayer::get_sub_object() { return (char*)this + 0x8; }
+s32 TObjPlayer::get_lock_timer() { return *(s32*)((char*)this + 0x4); }
 void TObjPlayer__sub_801BF954(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 s32 TObjPlayer__sub_801BF95C(void* p) { return *(s32*)((char*)p + 0x0); }
 

@@ -5,6 +5,8 @@
 
 struct TWindowAddition
 {
+    void *destroy_window(s16 arg1);
+    void *construct_with_parent(void *arg1);
 };
 
 #endif

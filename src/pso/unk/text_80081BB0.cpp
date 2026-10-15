@@ -27,7 +27,7 @@ struct VObj_80081EA4 : VBase_80081EA4 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 queue_destruction__10TObjPlayerFPv(void *);
+s32 queue_destruction__10TObjPlayerFv(void *);
 s32 update_freeze_shell_timer(void *);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -48,7 +48,7 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
-s32 set_position_xy__10TObjPlayerFPvff(s32, f32, f32);
+s32 set_position_xy__10TObjPlayerFff(s32, f32, f32);
 s32 spawn_particle_effect(void *, s32);
 u32 find_active_entity_by_id(u16);
 extern s32 freeze_shell_bml_resource;
@@ -65,7 +65,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi();
+s32 set_global_param__8TObjFishFl();
 s32 draw_ginja_object(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
@@ -100,7 +100,7 @@ s32 freeze_shell_hold(void *arg0) {
     p = spawn_particle_effect((u8 *)arg0 + 0x38, 0x33);
     if (p != 0) {
         attach_particle_model(p, get_bml_model(freeze_shell_bml_resource, 0), TObjFish__sub_8001EDB0(freeze_shell_bml_resource, 1), get_bml_motion(freeze_shell_bml_resource, 0), 0, lbl_805D9384);
-        set_position_xy__10TObjPlayerFPvff(p, *(f32 *)((s8 *)arg0 + 0x68), *(f32 *)((s8 *)arg0 + 0x6C));
+        set_position_xy__10TObjPlayerFff(p, *(f32 *)((s8 *)arg0 + 0x68), *(f32 *)((s8 *)arg0 + 0x6C));
     }
     *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805D9378;
 }
@@ -164,7 +164,7 @@ void freeze_shell_update(void *arg0) {
         update_freeze_shell_timer(arg0);
         return;
     case 3:
-        queue_destruction__10TObjPlayerFPv(arg0);
+        queue_destruction__10TObjPlayerFv(arg0);
         return;
     }
 }
@@ -178,7 +178,7 @@ void freeze_shell_draw(u8 *arg0) {
     }
     if (ok != 0) {
         TObjFish__sub_8001EDB0((s32)((void *)freeze_shell_bml_resource), (s32)(1));
-        set_global_param__8TObjFishFi();
+        set_global_param__8TObjFishFl();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));

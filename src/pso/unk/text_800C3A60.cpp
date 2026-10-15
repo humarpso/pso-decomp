@@ -1,15 +1,15 @@
 #include "types.h"
 
 extern "C" {
-s32 get_flag_11__16TObjEneRe2FlowerFPv();
-s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, void *);
+s32 get_flag_11__16TObjEneRe2FlowerFv();
+s32 copy_target_state__14TObjEnePanarmsFPv(void *, void *);
 s32 fn_800C3A60(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
 s32 fn_800C3A60(s32 arg0, s32 arg1) {
-    if (get_flag_11__16TObjEneRe2FlowerFPv() != 0) {
+    if (get_flag_11__16TObjEneRe2FlowerFv() != 0) {
         switch (arg1) {
         case 0x4003A10E:
             return 0x4003A339;
@@ -31,7 +31,7 @@ s32 fn_800C3A60(s32 arg0, s32 arg1) {
             return 0x40039942;
         }
     }
-    return copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (void *) (arg1));
+    return copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (void *) (arg1));
 }
 
 }

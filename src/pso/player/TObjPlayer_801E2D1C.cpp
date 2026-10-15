@@ -1,27 +1,24 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct G_801E2DE4 { u8 pad[0xC]; void (*draw)(); };
 
 extern "C" {
-void render_matrix_chain__10TObjPlayerFPv(void *arg0);
 void bind_motion_context(s32);
 void prepare_ginja_model(G_801E2DE4 *);
 void end_ginja_model_draw();
 void draw_ginja_model_lists();
 extern void *model_draw_context;
-void draw_ginja_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
 }
 
 extern "C" {
 
-void render_matrix_chain__10TObjPlayerFPv(void *arg0);
-void render_model_tree__10TObjPlayerFPv(void *arg0);
 s32 GXLoadNrmMtxImm(s32 *, s32);
 s32 GXLoadPosMtxImm(s32, s32);
 extern s32 (*model_node_callback)(void *);
 s32 PSMTXInverse(s32, s32 *);
 s32 PSMTXTranspose(s32 *, s32 *);
-s32 apply_motion_node_transform__10TObjPlayerFPv(void *);
+s32 apply_motion_node_transform__10TObjPlayerFv(void *);
 s32 compose_motion_node_matrix(void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -29,7 +26,7 @@ s32 pop_matrix();
 extern void *model_draw_context;
 extern s32 current_matrix;
 
-void render_model_tree__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::render_model_tree(void *arg0) {
     s32 sp38[12];
     s32 sp8[12];
     void *var_r31;
@@ -37,7 +34,7 @@ void render_model_tree__10TObjPlayerFPv(void *arg0) {
     var_r31 = arg0;
     do {
         push_matrix();
-        apply_motion_node_transform__10TObjPlayerFPv(var_r31);
+        apply_motion_node_transform__10TObjPlayerFv(var_r31);
         if (((s32 (*)(void *)) model_node_callback) != NULL) {
             model_node_callback(var_r31);
         }
@@ -49,7 +46,7 @@ void render_model_tree__10TObjPlayerFPv(void *arg0) {
             (*(s32 (**)(u32, void *))((s8 *)model_draw_context + 0xC))(*(u32 *)((s8 *)var_r31 + 4), model_draw_context);
         }
         if ((u32) *(u32 *)((s8 *)var_r31 + 0x2C) != 0U) {
-            render_model_tree__10TObjPlayerFPv((void *)(*(void **)((s8 *)var_r31 + 0x2C)));
+            TObjPlayer::render_model_tree((void *)(*(void **)((s8 *)var_r31 + 0x2C)));
         }
         pop_matrix();
         var_r31 = *(void **)((s8 *)var_r31 + 0x30);
@@ -59,17 +56,17 @@ void render_model_tree__10TObjPlayerFPv(void *arg0) {
 extern void *model_draw_context;
 extern s32 current_matrix;
 
-void draw_ginja_model__10TObjPlayerFPvi(void *arg0, s32 arg1) {
+void TObjPlayer::draw_ginja_model(s32 arg1) {
     G_801E2DE4 *g;
     bind_motion_context(arg1);
     g = (G_801E2DE4 *)model_draw_context;
     g->draw = draw_ginja_model_lists;
     prepare_ginja_model(g);
-    render_matrix_chain__10TObjPlayerFPv(arg0);
+    TObjPlayer::render_matrix_chain(this);
     end_ginja_model_draw();
 }
 
-void render_matrix_chain__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::render_matrix_chain(void *arg0) {
     s32 sp38[12];
     s32 sp8[12];
     void *var_r31;
@@ -89,7 +86,7 @@ void render_matrix_chain__10TObjPlayerFPv(void *arg0) {
             (*(s32 (**)(u32, void *))((s8 *)model_draw_context + 0xC))(*(u32 *)((s8 *)var_r31 + 4), model_draw_context);
         }
         if ((u32) *(u32 *)((s8 *)var_r31 + 0x2C) != 0U) {
-            render_matrix_chain__10TObjPlayerFPv((void *)(*(void **)((s8 *)var_r31 + 0x2C)));
+            TObjPlayer::render_matrix_chain((void *)(*(void **)((s8 *)var_r31 + 0x2C)));
         }
         pop_matrix();
         var_r31 = *(void **)((s8 *)var_r31 + 0x30);

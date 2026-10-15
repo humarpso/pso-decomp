@@ -19,6 +19,11 @@ struct TORevlightCave01
     u8 _padC0[0x8];
     u32 m_c8;
     u32 m_cc;
+    static void *create(void *arg0);
+    static void release_static_instance();
+    static void load_shared_resource();
+    void run_task();
+    void render();
 };
 
 #endif

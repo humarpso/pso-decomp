@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecSifta.h"
 
 struct RecoveredGlobal_8023B17C___vt__9TTecSifta {
     s32 value;
@@ -66,33 +67,31 @@ struct Sifta_8023AF94 {
 
 extern "C" {
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFi(void *);
+s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 int TTecSifta__sub_8023AC88(void* p);
-void update_effect_params__9TTecSiftaFPv(u8 *arg0);
 extern s32 __vt__9TTecSifta[];
 extern s32 lbl_805D3820;
 extern const f32 lbl_805DC940;
 u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 void play_sifta_cast_sound(Obj_8023ACA8 *arg0);
 s32 obj_getField1c(int);
 s32 is_split_screen();
-s32 is_script_controlled__10TObjPlayerFPv(void *);
+s32 is_script_controlled__10TObjPlayerFv(void *);
 void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1);
 s32 queue_destruction__7TObjectFv();
 u32 find_entity_by_id(int);
-s32 is_parents_unqueued__9TTecLukerFUi(u32);
+s32 is_parents_unqueued__9TTecLukerFUl(u32);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFi(void *);
+s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 int TTecSifta__sub_8023AC88(void* p);
 void play_sifta_cast_sound(Obj_8023ACA8 *arg0);
-void update_effect_params__9TTecSiftaFPv(u8 *arg0);
 void copy_technique_target_list(void *, void *);
 extern s32 __vt__9TTecSifta[];
 extern s32 lbl_805D3820;
@@ -104,12 +103,8 @@ extern "C" {
 
 int TTecSifta__sub_8023AC88(void* p);
 void *__dt__9TTecSiftaFv(void *arg0, s16 arg1);
-void create__9TTecSiftaFPvPvPv(void *arg0, void *arg1, void *arg2);
-void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void render__9TTecSiftaFv(void);
-void update_effect_params__9TTecSiftaFPv(u8 *arg0);
 void TObjPlayer__sub_8023AC84(void);
-s32 copy_params__8TTecAntiFPvPv(void *, s32);
+s32 copy_params__8TTecAntiFPUc(void *, s32);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
@@ -127,7 +122,7 @@ void play_sifta_cast_sound(Obj_8023ACA8 *arg0) {
     case 1:
         r = play_sound_effect(0x4002AD14, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, 0x100, 0);
         }
         break;
     case 2:
@@ -138,28 +133,29 @@ void play_sifta_cast_sound(Obj_8023ACA8 *arg0) {
     case 5:
         r = play_sound_effect(0x4002AD14, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, -0x100, 0);
         }
         break;
     }
 }
 
-void update_effect_params__9TTecSiftaFPv(u8 *arg0) {
+void TTecSifta::update_effect_params() {
+    u8 *arg0 = (u8 *)this;
     s32 res;
     res = calc_technique_parameters(0xD, *(s16 *)((s8 *)arg0 + 0xA4), 0xFFFF);
-    copy_params__8TTecAntiFPvPv(arg0 + 0x74, res);
+    copy_params__8TTecAntiFPUc(arg0 + 0x74, res);
     *(f32 *)((s8 *)arg0 + 0x74) = (f32) (*(s16 *)((s8 *)arg0 + 0x98) * *(s16 *)((s8 *)arg0 + 0xA4));
 }
 
-void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void TTecSifta::create_instance(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecSifta__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        TTecSifta__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
-void create__9TTecSiftaFPvPvPv(void *arg0, void *arg1, void *arg2) {
+void TTecSifta::create(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
@@ -171,7 +167,7 @@ extern s32 __vt__9TTecSifta[];
 
 void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1) {
     HitInfo_8023AE8C h;
-    if (is_script_controlled__10TObjPlayerFPv(arg1) == 0) {
+    if (is_script_controlled__10TObjPlayerFv(arg1) == 0) {
         h.type = 9;
         h.power = arg0->power;
         if (is_split_screen() == 0) {
@@ -211,7 +207,7 @@ void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
                     target = find_entity_by_id(self->targets[i].id);
-                    if (is_parents_unqueued__9TTecLukerFUi(target) != 0) {
+                    if (is_parents_unqueued__9TTecLukerFUl(target) != 0) {
                         ((VObj_8023AF94 *)self)->m5(target);
                     }
                 }
@@ -234,11 +230,11 @@ void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4)
     u32 t;
     TTecPlayerInfluence__ct(arg0, arg1, arg2, arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecSifta;
-    construct_target_cursor_records__10TObjPlayerFi(arg0 + 0xE0);
+    construct_target_cursor_records__10TObjPlayerFv(arg0 + 0xE0);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3820;
     *(s32 *)((s8 *)arg0 + 0x13C) = 1;
     copy_technique_target_list(arg0 + 0xE0, arg3);
-    update_effect_params__9TTecSiftaFPv(arg0);
+    ((TTecSifta *)arg0)->update_effect_params();
     temp_r3 = *(u8 **)((s8 *)arg0 + 0xDC);
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = lbl_805DC940 + *(f32 *)((s8 *)arg0 + 0x7C);
@@ -261,10 +257,10 @@ u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023B17C___vt__9TTecSifta *)&__vt__9TTecSifta).value;
-    construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xE0));
+    construct_target_cursor_records__10TObjPlayerFv((void *) (arg0 + 0xE0));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3820;
     *(s32 *)((s8 *)arg0 + 0x13C) = 0;
-    update_effect_params__9TTecSiftaFPv((u8 *)((void *) (arg0)));
+    ((TTecSifta *)arg0)->update_effect_params();
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (lbl_805DC940 + *(f32 *)((s8 *)arg0 + 0x7C));
@@ -278,6 +274,6 @@ u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
-void render__9TTecSiftaFv(void) {  }
+void TTecSifta::render() {  }
 
 }

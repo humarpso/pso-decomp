@@ -91,9 +91,9 @@ struct RecoveredGlobal_8014A998___vt__17TObjNpcFemaleTall {
 };
 
 extern "C" {
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
-s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
+s32 construct_female_base__17TObjNpcFemaleBaseFv(void *);
 extern s32 __vt__17TObjNpcFemaleTall[];
 extern s32 TObjNpcFemaleTall__name;
 extern u8 *TObjNpcFemaleTall__instance;
@@ -105,14 +105,14 @@ extern "C" {
 void TObjNpcFemaleTall__sub_8014AA28(void *arg0, s32 arg1);
 void *__dt__17TObjNpcFemaleTallFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *, int);
+void destroy_npc_female_base__17TObjNpcFemaleBaseFs(void *, int);
 
 extern s32 __vt__17TObjNpcFemaleTall[];
 
 void *__dt__17TObjNpcFemaleTallFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjNpcFemaleTall;
-        destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(arg0, 0);
+        destroy_npc_female_base__17TObjNpcFemaleBaseFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -122,11 +122,11 @@ void *__dt__17TObjNpcFemaleTallFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8014A998___vt__17TObjNpcFemaleTall_size[sizeof(RecoveredGlobal_8014A998___vt__17TObjNpcFemaleTall) == 0x178 ? 1 : -1];
 u8 *TObjNpcFemaleTall__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_female_base__17TObjNpcFemaleBaseFPv((void *) (arg0));
+    construct_female_base__17TObjNpcFemaleBaseFv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014A998___vt__17TObjNpcFemaleTall *)&__vt__17TObjNpcFemaleTall).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcFemaleTall__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcFemaleTall__instance + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcFemaleTall__instance + 0x42C)) + 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));

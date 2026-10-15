@@ -1,13 +1,14 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void handle_move_input__10TObjPlayerFPv(u8 *arg0);
 s32 scale_current_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 s32 get_player_list__10TObjPlayerFv();
 
-void handle_move_input__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::handle_move_input() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
 
     temp_r3 = get_player_list__10TObjPlayerFv();

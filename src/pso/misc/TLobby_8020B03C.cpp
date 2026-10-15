@@ -4,15 +4,15 @@ extern "C" {
 
 void free_data_60F0__6TLobbyFv(void);
 s32 init_handle__6TLobbyFi(s32 arg0);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
-u32 alloc__22TQuestVmDownLoadServerFPv();
+void safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
+u32 alloc__22TQuestVmDownLoadServerFv();
 
 extern u32 TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
 
 void free_data_60F0__6TLobbyFv(void) {
     if ((u32) TLobby__map_set_file_buffer != 0U) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)TLobby__map_set_file_buffer);
+        safe_free__23TAdSinglePlyChrSelectGCFUl((void*)TLobby__map_set_file_buffer);
         TLobby__map_set_file_buffer = 0U;
         TLobby__map_set_file_buffer_size = 0;
     }
@@ -24,7 +24,7 @@ extern s32 TLobby__map_set_file_buffer_size;
 s32 init_handle__6TLobbyFi(s32 arg0) {
     u32 temp_r3;
 
-    temp_r3 = alloc__22TQuestVmDownLoadServerFPv();
+    temp_r3 = alloc__22TQuestVmDownLoadServerFv();
     TLobby__map_set_file_buffer = temp_r3;
     if (temp_r3 != 0U) {
         TLobby__map_set_file_buffer_size = arg0;
@@ -66,6 +66,7 @@ void clear_map_set_data(void) {
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8020B118_lbl_8044BBF0 { char value[0x13]; };
 typedef char RecoveredGlobal_8020B118_lbl_8044BBF0_size[sizeof(RecoveredGlobal_8020B118_lbl_8044BBF0) == 0x13 ? 1 : -1];
@@ -98,20 +99,16 @@ extern s32 map_object_id_counter;
 extern s32 map_set_enemy_id_counter;
 extern s32 TLobby__map_set_file_buffer_size;
 extern s16 TLobby__data_805D6134;
-void load_set_gsl_files__6TLobbyFv(void);
 extern s32 TLobby__data_80513CC8[];
-s32 sum_floor_enemy_counts__6TLobbyFv(void);
 extern s32 TLobby__data_80513C80[];
 s32 TLobby__sub_8020B308(void);
 extern struct Floor_8020B260 TLobby__floor_enemy_group_table[];
-s32 set_room_group_flags__6TLobbyFissi(s32 floor, s16 room, s16 group, s32 bits);
 extern struct Floor_8020B260 TLobby__floor_enemy_group_table[];
-s32 set_flags_on_matching_entries__6TLobbyFissi(s32 arg0, s16 arg1, s16 arg2, s32 arg3);
 }
 
 extern "C" {
 
-void load_set_gsl_files__6TLobbyFv(void) {
+void TLobby::load_set_gsl_files() {
     map_set_data_handle_a = 0;
     map_set_data_handle_b = 0;
     map_set_object_id_counter = 0;
@@ -142,7 +139,7 @@ void load_set_gsl_files__6TLobbyFv(void) {
     }
 }
 
-s32 set_flags_on_matching_entries__6TLobbyFissi(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
+s32 TLobby::set_flags_on_matching_entries(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
     Grp_8020B1E4 *g = &((Grp_8020B1E4 *)&TLobby__floor_enemy_group_table)[arg0];
     Ent_8020B1E4 *e;
     s32 n = 0;
@@ -161,7 +158,7 @@ s32 set_flags_on_matching_entries__6TLobbyFissi(s32 arg0, s16 arg1, s16 arg2, s3
     return n;
 }
 
-s32 set_room_group_flags__6TLobbyFissi(s32 floor, s16 room, s16 group, s32 bits) {
+s32 TLobby::set_room_group_flags(s32 floor, s16 room, s16 group, s32 bits) {
     struct Floor_8020B260 *t = &TLobby__floor_enemy_group_table[floor];
     s32 n = 0;
     struct Entry_8020B260 *e;
@@ -180,7 +177,7 @@ s32 set_room_group_flags__6TLobbyFissi(s32 floor, s16 room, s16 group, s32 bits)
     return n;
 }
 
-s32 sum_floor_enemy_counts__6TLobbyFv(void) {
+s32 TLobby::sum_floor_enemy_counts() {
     s32 sum = 0;
     s32 i;
     for (i = 0; i < 18; i++) sum += TLobby__data_80513CC8[i];

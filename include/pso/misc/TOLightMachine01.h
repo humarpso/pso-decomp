@@ -21,6 +21,11 @@ struct TOLightMachine01
     u32 m_a4;
     u32 m_a8;
     u32 m_ac;
+    void run_task();
+    void render();
+    static void *create(void *arg0);
+    static void destroy_instance();
+    static void load_assets();
 };
 
 #endif

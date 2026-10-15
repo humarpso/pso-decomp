@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayerSet.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -35,20 +36,17 @@ extern "C" {
 
 void *TObjQuestCol2__create(void *arg0);
 void *__dt__13TObjPlayerSetFv(void *arg0, s16 arg1);
-void *create__13TObjPlayerSetFPv(void *arg0);
-void render__13TObjPlayerSetFv(void);
-void run_task__13TObjPlayerSetFv(void);
 void *TObjQuestCol2__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-void render__13TObjPlayerSetFv(void) {  }
-void run_task__13TObjPlayerSetFv(void) {  }
+void TObjPlayerSet::render() {  }
+void TObjPlayerSet::run_task() {  }
 
 extern void *tl_06;
 
-void *create__13TObjPlayerSetFPv(void *arg0) {
+void *TObjPlayerSet::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
         o = TObjPlayerSet__ct((u8 *)(o), (s32)(tl_06), (s32)(arg0));

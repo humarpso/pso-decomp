@@ -22,6 +22,7 @@ struct TContainerAncient01R
     void* m_2fc;
     u8 _pad300[0x26];
     u16 m_326;
+    static void init_table_entries();
 };
 
 #endif

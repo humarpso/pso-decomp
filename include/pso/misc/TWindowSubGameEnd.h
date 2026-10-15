@@ -9,6 +9,8 @@ struct TWindowSubGameEnd
     u32 m_20;
     u32 m_24;
     u32 m_28;
+    static void render();
+    void run_task();
 };
 
 #endif

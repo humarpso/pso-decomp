@@ -11,6 +11,9 @@ struct TObjEvtCollision
     u8 _pad88[0x28];
     u32 m_b0;
     u32 m_b4;
+    s32 is_any_player_in_range(f32 farg0);
+    static void render();
+    void run_task();
 };
 
 #endif

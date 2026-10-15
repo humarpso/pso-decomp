@@ -1,16 +1,16 @@
 #include "types.h"
+#include "pso/misc/TTecDeband.h"
+#include "pso/object/TObjLight.h"
 
 struct Obj_8022F42C { u8 pad[0xA6]; s16 state; };
 
 extern "C" {
-s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-void play_state_sound__10TTecDebandFPv(Obj_8022F42C *arg0);
 }
 
 extern "C" {
 
-void *destroy__9TObjLightFPvs(void *arg0, s16 arg1);
 u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
 void stop_sound_request(void *);
@@ -19,20 +19,20 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int spawn_support_tec_range_effect(void*);
-int init_params__10TTecDebandFPv(void* p);
+int init_params__10TTecDebandFv(void* p);
 
 extern s32 lbl_804CC74C[];
 
-void *destroy__9TObjLightFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CC74C;
-        stop_sound_request(*(void **)((s8 *)arg0 + 0x30));
-        __dt__7TObjectFv(arg0, 0);
+void *TObjLight::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804CC74C;
+        stop_sound_request(*(void **)((s8 *)this + 0x30));
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern s32 lbl_804CC74C[];
@@ -46,14 +46,15 @@ u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x30) = play_sound_effect((int) (0x4002BB1F), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;
 }
-void play_state_sound__10TTecDebandFPv(Obj_8022F42C *arg0) {
+void TTecDeband::play_state_sound() {
+    Obj_8022F42C *arg0 = (Obj_8022F42C *)this;
     s32 r;
     switch (arg0->state) {
     case 0:
     case 1:
         r = play_sound_effect(0x4002AA16, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, 0x100, 0);
         }
         break;
     case 2:
@@ -64,7 +65,7 @@ void play_state_sound__10TTecDebandFPv(Obj_8022F42C *arg0) {
     case 5:
         r = play_sound_effect(0x4002AA16, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, -0x100, 0);
         }
         break;
     }

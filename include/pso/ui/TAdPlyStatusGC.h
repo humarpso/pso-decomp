@@ -20,6 +20,19 @@ struct TAdPlyStatusGC
     u32 m_64;
     u32 m_68;
     u32 m_6c;
+    s32 get_field_498();
+    void*get_chara_making_data();
+    s32 get_field_49c();
+    s32 get_field_4a0();
+    void*get_status_data();
+    s32 get_field_4a4();
+    void*get_status_sub();
+    static void set_status_param(int a0, int a1);
+    static int get_index();
+    static void set_status_index(int a0, int a1);
+    void close_window(s32 arg1);
+    static u32 get_instance(s32 arg0, s32 arg1);
+    static int get_player_index();
 };
 
 #endif

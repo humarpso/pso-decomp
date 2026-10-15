@@ -3,7 +3,7 @@
 extern "C" {
 s32 get_hold_effect_size_by_type__6TLobbyFv();
 s32 is_action_id_none(s16);
-s32 is_in_view__17TObjEneHoldEffectFPv(s32);
+s32 is_in_view__17TObjEneHoldEffectFv(s32);
 s32 fn_800FD7C0(void *);
 
 s32 validate_6xAB(G_ClientIDHeader *packet) {
@@ -34,17 +34,17 @@ s32 validate_6x56_set_player_position_and_angle(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
-    return (u32) __cntlzw(is_in_view__17TObjEneHoldEffectFPv((s32)packet + 8)) >> 5;
+    return (u32) __cntlzw(is_in_view__17TObjEneHoldEffectFv((s32)packet + 8)) >> 5;
 }
 
 s32 validate_6x55_intra_map_warp(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
-    if (is_in_view__17TObjEneHoldEffectFPv((s32)packet + 8) != 0) {
+    if (is_in_view__17TObjEneHoldEffectFv((s32)packet + 8) != 0) {
         return 0;
     }
-    return (u32) __cntlzw(is_in_view__17TObjEneHoldEffectFPv((s32)packet + 0x14)) >> 5;
+    return (u32) __cntlzw(is_in_view__17TObjEneHoldEffectFv((s32)packet + 0x14)) >> 5;
 }
 
 s32 validate_6x53(G_ClientIDHeader *packet) {

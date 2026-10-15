@@ -15,7 +15,7 @@ struct RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic {
 };
 
 extern "C" {
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 u8 * __ct__8TChCrTagFv(void *, s32);
 extern const TChCrTagPlGraphic__data_804664A4 TChCrTagPlGraphic__data_804664A4;
 extern RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic __vt__17TChCrTagPlGraphic;
@@ -32,17 +32,16 @@ s32 TChCrTagPlGraphic__vt4(u8 *arg0);
 
 extern "C" {
 
-void *create__17TChCrTagPlGraphicFPv(void *arg0);
 void render__17TChCrTagPlGraphicFv(void* p);
 void run_task__17TChCrTagPlGraphicFv(void* p);
 int TChCrTagPlGraphic__sub_802A3230(void*);
 int update_fade__8TChCrTagFPv(void*);
 void *__nw__7TObjectFUl(int);
 int restore_saved_depth_alpha_state(void);
-int draw_class_illustration__17TChCrTagPlGraphicFPv(void*);
+int draw_class_illustration__17TChCrTagPlGraphicFv(void*);
 int set_depth_buffer_settings_1__Fv(void*);
 
-void render__17TChCrTagPlGraphicFv(void* p) { set_depth_buffer_settings_1__Fv(p); draw_class_illustration__17TChCrTagPlGraphicFPv(p); restore_saved_depth_alpha_state(); }
+void render__17TChCrTagPlGraphicFv(void* p) { set_depth_buffer_settings_1__Fv(p); draw_class_illustration__17TChCrTagPlGraphicFv(p); restore_saved_depth_alpha_state(); }
 
 void run_task__17TChCrTagPlGraphicFv(void* p) { update_fade__8TChCrTagFPv(p); TChCrTagPlGraphic__sub_802A3230(p); }
 
@@ -80,11 +79,11 @@ u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2) {
     temp_r5 = (u8 *)&TChCrTagPlGraphic__data_804664A4.value + (*(s32 *)((s8 *)arg0 + 0x20) * 0x18);
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)temp_r5 + 4);
     *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)temp_r5 + 0);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x48, temp_r5 + 8);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(arg0 + 0x48, temp_r5 + 8);
     return arg0;
 }
 
-void *create__17TChCrTagPlGraphicFPv(void *arg0) {
+void *TChCrTagPlGraphic::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
         o = __ct__17TChCrTagPlGraphicFv((u8 *)(o), (s32)(tl_03), (s32)(arg0));
@@ -95,12 +94,12 @@ void *create__17TChCrTagPlGraphicFPv(void *arg0) {
 struct Ent_802A3534 { f32 a; f32 b; u8 pad[0x10]; };
 extern f32 tag_player_graphic_match_value_table[];
 
-void create_matching_tags__17TChCrTagPlGraphicFv(void) {
+void TChCrTagPlGraphic::create_matching_tags() {
     s32 i, j;
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 12; j++) {
             if (((Ent_802A3534 *)&TChCrTagPlGraphic__data_804664A4)[j].b == tag_player_graphic_match_value_table[i]) {
-                create__17TChCrTagPlGraphicFPv((void *)j);
+                TChCrTagPlGraphic::create((void *)j);
             }
         }
     }

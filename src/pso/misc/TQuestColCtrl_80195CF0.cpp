@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestColCtrl.h"
 
 struct Obj_80195CF0 { u8 pad0[6]; u16 f6; u8 pad8[4]; Obj_80195CF0 *next; u8 pad10[4]; Obj_80195CF0 *child; };
 
@@ -6,7 +7,7 @@ struct Obj_80195DE0 { u8 pad0[6]; u16 f6; u8 pad8[4]; Obj_80195DE0 *next; u8 pad
 
 extern "C" {
 u16 obj_getField1c(void *);
-s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 extern s32 TObjQuestCol__class_name;
 extern s32 TObjQuestColA__class_name;
 extern s32 obj_quest_col_alock_class_name;
@@ -16,7 +17,7 @@ extern s32 lbl_805D3400;
 extern u32 quest_collision_task_root;
 Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0);
 void queue_destruction__7TObjectFv(void *);
-s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 extern s32 TObjQuestCol__class_name;
 extern s32 TObjQuestColA__class_name;
 extern s32 obj_quest_col_alock_class_name;
@@ -24,12 +25,10 @@ extern s32 obj_quest_col_apc_class_name;
 extern s32 lbl_805D33FC;
 extern s32 lbl_805D3400;
 extern u32 quest_collision_task_root;
-void delete_by_param__13TQuestColCtrlFi(s32 arg0);
 }
 
 extern "C" {
 
-void init__13TQuestColCtrlFv(void);
 s32 TQuestColCtrl__ct(s32, s32);
 u32 __ct__7TObjectFP7TObject(s32, s32);
 u32 __nw__7TObjectFUl(s32);
@@ -44,12 +43,12 @@ Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0) {
     while ((*(Obj_80195CF0 * *)&quest_collision_task_root)->child != 0 && next != 0) {
         cur = next;
         next = cur->next;
-        if ((check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestCol__class_name) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestColA__class_name) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, obj_quest_col_alock_class_name) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, obj_quest_col_apc_class_name) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33FC) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D3400) != 0)
+        if ((check_value_equals__13TQuestColCtrlFPll(cur, TObjQuestCol__class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, TObjQuestColA__class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, obj_quest_col_alock_class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, obj_quest_col_apc_class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, lbl_805D33FC) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, lbl_805D3400) != 0)
             && arg0 == obj_getField1c(cur)) {
             return cur;
         }
@@ -57,7 +56,7 @@ Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0) {
     return 0;
 }
 
-void delete_by_param__13TQuestColCtrlFi(s32 arg0) {
+void TQuestColCtrl::delete_by_param(s32 arg0) {
     Obj_80195DE0 *next;
     Obj_80195DE0 *cur;
     if (arg0 < 0) {
@@ -67,12 +66,12 @@ void delete_by_param__13TQuestColCtrlFi(s32 arg0) {
     while ((*(Obj_80195DE0 * *)&quest_collision_task_root)->child != 0 && next != 0) {
         cur = next;
         next = cur->next;
-        if ((check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestCol__class_name) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestColA__class_name) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, obj_quest_col_alock_class_name) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, obj_quest_col_apc_class_name) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33FC) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D3400) != 0)
+        if ((check_value_equals__13TQuestColCtrlFPll(cur, TObjQuestCol__class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, TObjQuestColA__class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, obj_quest_col_alock_class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, obj_quest_col_apc_class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, lbl_805D33FC) != 0
+             || check_value_equals__13TQuestColCtrlFPll(cur, lbl_805D3400) != 0)
             && cur->f6 == arg0) {
             queue_destruction__7TObjectFv(cur);
             return;
@@ -80,7 +79,7 @@ void delete_by_param__13TQuestColCtrlFi(s32 arg0) {
     }
 }
 
-void init__13TQuestColCtrlFv(void) {
+void TQuestColCtrl::init() {
     u32 var_r3;
 
     var_r3 = __nw__7TObjectFUl(0x1C);

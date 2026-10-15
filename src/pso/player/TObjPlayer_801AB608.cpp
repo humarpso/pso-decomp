@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/player/TObjPlayer.h"
 struct Stack_801ABBAC {
     s32 sp8;
     f32 spC;
@@ -95,13 +96,13 @@ typedef struct Golla_801AB868 {
 } Golla_801AB868;
 
 extern "C" {
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
+u8 * alloc_tables__6TLobbyFll(void *, s32, s32);
 extern u8 *photon_blast_shared_resource;
 extern u32 farlla_photon_blast_model_buffers;
 void create_farlla_photon_blast_model(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
 s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
@@ -118,7 +119,7 @@ extern const f32 lbl_805DC1A8;
 void run_task__12TPhotonGollaFPv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
-s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
@@ -127,7 +128,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 s32 set_global_flag__10TObjPlayerFv();
@@ -187,12 +188,11 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0);
 extern "C" {
 
 void TObjPlayer__sub_801AB688(void* a0);
-void destroy_buffers__10TObjPlayerFv(void);
 s32 destroy_buffer_pair(void*, s32);
 
 extern u32 farlla_photon_blast_model_buffers;
 
-void destroy_buffers__10TObjPlayerFv(void) {
+void TObjPlayer::destroy_buffers() {
     if ((u32) farlla_photon_blast_model_buffers != 0U) {
         destroy_buffer_pair((void*)farlla_photon_blast_model_buffers, 1);
     }
@@ -204,10 +204,10 @@ void destroy_buffers__10TObjPlayerFv(void) {
 void create_farlla_photon_blast_model(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x14);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x14);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (alloc_tables__6TLobbyFPvii((void *) temp_r3, *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 8), 0));
+        var_r0 = (long) (alloc_tables__6TLobbyFll((void *) temp_r3, *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 8), 0));
     }
     (*(s32 *)&farlla_photon_blast_model_buffers) = var_r0;
 }
@@ -340,7 +340,7 @@ void render__12TPhotonGollaFPv(Self_801ABAA0 *self) {
     if (self->started != 0) {
         scroll_strip_uvs(golla_photon_blast_buffer_pair, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(self->f24);
+        set_global_param__8TObjFishFl(self->f24);
         push_matrix();
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->f60);
@@ -353,7 +353,7 @@ void render__12TPhotonGollaFPv(Self_801ABAA0 *self) {
         set_global_flag__10TObjPlayerFv();
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
-        draw__16TObjEneRe7BeruraFPv(self);
+        draw__16TObjEneRe7BeruraFv(self);
         clear_global_state__10TObjPlayerFv();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -389,7 +389,7 @@ void run_task__12TPhotonGollaFPv(u8 *arg0) {
     if ((lbl_805DC1A8 == (f32) *(s32 *)((s8 *)arg0 + 0x1C8)) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1)) {
         begin_photon_summon_camera((void *) (arg0), (int) (5));
         *(s32 *)((s8 *)arg0 + 0x1C8) = 0;
-        set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
+        set_field_b8__14TObjEnePanarmsFs((void *) (arg0), (int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (2));
     }
     *(s16 *)((s8 *)arg0 + 0x1B8) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);

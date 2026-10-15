@@ -1,19 +1,18 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct Ent_801FB798 { s32 a; char *name; };
 
 extern "C" {
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 extern u32 TRaderMapCore__data_805D5F4C;
-s32 apply_compass_param__13TRaderMapCoreFv(void);
 s32 get_current_floor();
-s32 free_nodes_with_id__6TLobbyFUi(int);
+s32 free_nodes_with_id__6TLobbyFUl(int);
 s32 save_floor_discovery__13TRaderMapCoreFiPv(int, int);
 s32 free_statics__13TRaderMapCoreFv();
 s32 TLobby__sub_803DA16C(int);
 extern u8 *TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__render_mode;
-void unload_floor_map__13TRaderMapCoreFv(void);
 s32 get_current_floor();
 void copy_name(const char *);
 u8 *create_named_object(char *);
@@ -33,12 +32,10 @@ extern s32 lbl_805D5F38;
 extern s32 TRaderMapCore__render_mode;
 extern const char lbl_805DC5AC[2];
 extern const char lbl_805DC5B0[3];
-void load_map_resources__13TRaderMapCoreFv(void);
 }
 
 extern "C" {
 
-void create__13TRaderMapCoreFv(void);
 s32 TRaderMapCore__ct(void *, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 u32 __nw__7TObjectFUl(s32);
@@ -47,7 +44,7 @@ s32 is_ready__6TLobbyFv();
 extern s32 tl_radermap;
 extern s32 tl_clipout;
 
-void create__13TRaderMapCoreFv(void) {
+void TRaderMapCore::create() {
     void *obj;
     if ((is_not_split_screen__13TRaderMapCoreFv() != 1) || (is_ready__6TLobbyFv() != 1)) {
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -60,7 +57,7 @@ void create__13TRaderMapCoreFv(void) {
     }
 }
 
-void unload_floor_map__13TRaderMapCoreFv(void) {
+void TRaderMapCore::unload_floor_map() {
     u32 temp_r3;
     u8 *temp_r31;
     temp_r31 = (u8 *)(TRaderMapCore__floor_map_resource);
@@ -75,13 +72,13 @@ void unload_floor_map__13TRaderMapCoreFv(void) {
         }
     }
     if ((void *) TRaderMapCore__floor_map_resource != NULL) {
-        free_nodes_with_id__6TLobbyFUi((int) (TRaderMapCore__floor_map_resource));
+        free_nodes_with_id__6TLobbyFUl((int) (TRaderMapCore__floor_map_resource));
         TRaderMapCore__floor_map_resource = NULL;
     }
     TRaderMapCore__render_mode = 0;
 }
 
-void load_map_resources__13TRaderMapCoreFv(void) {
+void TRaderMapCore::load_map_resources() {
     char buf[32];
     Ent_801FB798 *e;
     s32 status;
@@ -108,9 +105,9 @@ void load_map_resources__13TRaderMapCoreFv(void) {
     TRaderMapCore__render_mode = 1;
 }
 
-s32 apply_compass_param__13TRaderMapCoreFv(void) {
+s32 TRaderMapCore::apply_compass_param() {
     if ((u32) TRaderMapCore__data_805D5F4C != 0U) {
-        set_global_param__8TObjFishFi((s32) TRaderMapCore__data_805D5F4C);
+        set_global_param__8TObjFishFl((s32) TRaderMapCore__data_805D5F4C);
         return 1;
     }
     return -1;

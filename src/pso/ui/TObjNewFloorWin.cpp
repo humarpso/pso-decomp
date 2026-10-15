@@ -18,7 +18,7 @@ void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2);
 int fn_800740DC(void* p);
 void __ct__7TObjectFP7TObject(void *);
 int close_active_window__11TWindowCtrlFv(void*);
-void set_flag_40__16TAdChrSelASlotGCFPv(void* p);
+void set_flag_40__16TAdChrSelASlotGCFv(void* p);
 
 extern s32 __vt__15TObjNewFloorWin[];
 extern void *TObjNewFloorWin__class_name;

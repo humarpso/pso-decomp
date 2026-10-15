@@ -154,44 +154,44 @@ struct WordSelectWindowState {
 struct WindowPosition { f32 x, y; };
 
 extern "C" {
-s32 free_child__9TWindowDDFPv(int);
+s32 free_child__9TWindowDDFv(int);
 s32 apply_input__9TWindowDDFPvPv(int, int);
-s32 update__9TWindowDDFPvi(int, int, int);
+s32 update__9TWindowDDFl(int, int, int);
 void TWindowDD__sub_803434F4(u8 *arg0);
 s32 TWindowDD__sub_80342428(void *);
 s32 handle_input__9TWindowDDFi(void *);
-s32 enter_state_19__9TWindowDDFPv(void *);
-s32 enter_state_18__9TWindowDDFPv(void *);
+s32 enter_state_19__9TWindowDDFv(void *);
+s32 enter_state_18__9TWindowDDFv(void *);
 s32 enter_state_16__9TWindowDDFPv(void *);
 s32 update_state__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80342800(void *);
 s32 update__9TWindowDDFi(void *);
 s32 TWindowDD__sub_803429B0(void *);
-s32 enter_state_9__9TWindowDDFPv(void *);
-s32 update_dispatch__9TWindowDDFi(void *);
-s32 update_layout__9TWindowDDFPv(void *);
-s32 update_transition__9TWindowDDFPv(void *);
+s32 enter_state_9__9TWindowDDFv(void *);
+s32 update_dispatch__9TWindowDDFv(void *);
+s32 update_layout__9TWindowDDFv(void *);
+s32 update_transition__9TWindowDDFv(void *);
 s32 TWindowDD__sub_80342D14(void *);
-s32 update__9TWindowDDFPv(void *);
+s32 update__9TWindowDDFv(void *);
 s32 handle_confirm_input__9TWindowDDFPv(void *);
 void run_state__9TWindowDDFPv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s16 TWindowDD__sub_8034214C(int);
-void destroy_menu_entry__9TWindowDDFPvi(void *, int);
+void destroy_menu_entry__9TWindowDDFl(void *, int);
 void TWindowDD__sub_80347980(void *);
 s32 *get_entry__9TWindowDDFii(void *, s32);
 void update__9TWindowDDFPvPv(void *, void *);
 void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0);
-void set_pos_and_data__9TWindowDDFPvf(void *, f32);
-void set_item_pos__9TWindowDDFPvi(void *, int);
-u8 *init_last_child__9TWindowDDFPv(void *);
+void set_pos_and_data__9TWindowDDFf(void *, f32);
+void set_item_pos__9TWindowDDFl(void *, int);
+u8 *init_last_child__9TWindowDDFv(void *);
 void TWindowDD__sub_80347CC8(void *, void *);
-void setup_entry__9TWindowDDFPvi(void *, s32);
+void setup_entry__9TWindowDDFl(void *, s32);
 s32 *get_entry__9TWindowDDFii(void *, s32);
 void TWindowDD__sub_80347F48(void *);
-void init_entry_field_64__9TWindowDDFii(void *, int);
+void init_entry_field_64__9TWindowDDFl(void *, int);
 void TWindowDD__sub_80347FA0(void *, int);
-void pop_entry__9TWindowDDFPv(void *);
+void pop_entry__9TWindowDDFv(void *);
 extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFB74;
 extern const f32 lbl_805DFB7C;
@@ -205,42 +205,42 @@ s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
-s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
+s32 get_word_select_context__9TWindowDDFv(u8 *arg0);
 extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
-s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
+s32 get_word_select_context__9TWindowDDFv(u8 *arg0);
 extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
-s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
+s32 get_word_select_context__9TWindowDDFv(u8 *arg0);
 extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
-s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
+s32 get_word_select_context__9TWindowDDFv(u8 *arg0);
 extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
-void set_pos_and_data__9TWindowDDFPvf(void *, f32);
+void set_pos_and_data__9TWindowDDFf(void *, f32);
 s32 build_player_word_lists__9TWindowDDFv();
 s32 TWindowDD__sub_80347A4C(void *, int);
 u8 *TWindowDD__sub_80347AD4(void *, s32, s32);
-void setup_entry__9TWindowDDFPvi(void *, s32);
+void setup_entry__9TWindowDDFl(void *, s32);
 s32 TWindowDD__sub_80347E04(void *, int);
 s32 *get_entry__9TWindowDDFii(void *, s32);
 void TWindowDD__sub_80347F48(void *);
-void init_entry_field_64__9TWindowDDFii(void *, int);
+void init_entry_field_64__9TWindowDDFl(void *, int);
 void TWindowDD__sub_80347FA0(void *, int);
 s32 dispatch_state__9TWindowDDFv(void *, int, int, int);
-s32 reset_index__9TWindowDDFPv(void *);
+s32 reset_index__9TWindowDDFv(void *);
 extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFB6C;
 extern const f32 TWindowDD__data_805DFB74;
@@ -251,29 +251,29 @@ extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC0C;
 extern const f32 TWindowDD__data_805DFC10;
 void TWindowDD__sub_803435A0(u8 *arg0);
-s32 format_type6_message__9TWindowDDFPvPvPv(DD_803461CC *, char *, s32 *);
+s32 format_type6_message__9TWindowDDFlPv(DD_803461CC *, char *, s32 *);
 s32 TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
 s32 TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
-s32 append_prompt_newline__9TWindowDDFPvPv(char *, s32 *);
-s32 maybe_scroll__9TWindowDDFPvPv(char *, s32 *);
-s32 append_char__9TWindowDDFciPv(s32, char *, s32 *);
+s32 append_prompt_newline__9TWindowDDFPl(char *, s32 *);
+s32 maybe_scroll__9TWindowDDFPv(char *, s32 *);
+s32 append_char__9TWindowDDFSclPl(s32, char *, s32 *);
 s32 TWindowDD__sub_8034886C(s32, char *, s32 *);
 s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1);
-List_803467CC *get_element_ptr__9TWindowDDFi(s16);
-List_803467CC *get_entry__9TWindowDDFi(s32, s16);
+List_803467CC *get_element_ptr__9TWindowDDFl(s16);
+List_803467CC *get_entry__9TWindowDDFl(s32, s16);
 extern s32 TWindowDD__window_mode;
 extern u32 TWindowDD__word_select_lists;
 void build_item_list__9TWindowDDFPv(u8 *arg0);
-s32 format_type6_message__9TWindowDDFPvPvPv(DD_803461CC *, char *, s32 *);
+s32 format_type6_message__9TWindowDDFlPv(DD_803461CC *, char *, s32 *);
 s32 TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
 s32 TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
-s32 append_prompt_newline__9TWindowDDFPvPv(char *, s32 *);
-s32 append_char__9TWindowDDFciPv(s32, char *, s32 *);
+s32 append_prompt_newline__9TWindowDDFPl(char *, s32 *);
+s32 append_char__9TWindowDDFSclPl(s32, char *, s32 *);
 s32 TWindowDD__sub_8034886C(s32, char *, s32 *);
 s32 TWindowDD__sub_80347758(DD_803461CC *, DD_803461CC *);
 s32 TWindowDD__sub_803474CC(DD_803461CC *, s32, char *, char *, s32 *);
-s32 append_string__9TWindowDDFiiPv(char *, char *, s32 *);
-s32 show_message_by_count__9TWindowDDFii(char *, s32 *);
+s32 append_string__9TWindowDDFllPl(char *, char *, s32 *);
+s32 show_message_by_count__9TWindowDDFll(char *, s32 *);
 s32 get_player_battle_flag_state__9TWindowDDFUs(u16);
 s32 clamp_range_2C9_552__9TWindowDDFs(s16);
 s32 clamp_range_5FA_682__9TWindowDDFs(s16);
@@ -286,18 +286,18 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
 s32 TWindowDD__sub_8034694C(DD_803461CC *, s32, char *, char *, char *, s32 *);
 s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
 s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
-s32 apply_both_choices__9TWindowDDFii(void *, int);
+s32 apply_both_choices__9TWindowDDFll(void *, int);
 s32 TWindowDD_check_input_mask(void *, int);
-s32 set_clamped_page__9TWindowDDFPvi(int, int);
+s32 set_clamped_page__9TWindowDDFl(int, int);
 s32 TWindowDD__sub_80340820(int);
-s32 handle_input__9TWindowDDFPv(int);
+s32 handle_input__9TWindowDDFv(int);
 s32 TWindowDD__sub_80340910(int);
-s32 set_clamped_selection__9TWindowDDFPvi(int, int);
-s32 set_value_f32__9TWindowDDFPvi(int, int);
+s32 set_clamped_selection__9TWindowDDFl(int, int);
+s32 set_value_f32__9TWindowDDFl(int, int);
 s32 TWindowDD__sub_80341AE0(int);
 s32 TWindowDD__sub_80341AF8(int);
 s32 TWindowDD__sub_8034217C(int);
-s32 get_cursor_index__9TWindowDDFPv(int);
+s32 get_cursor_index__9TWindowDDFv(int);
 void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0);
 void TWindowDD__sub_803434F4(u8 *arg0);
 void run_state__9TWindowDDFPv(u8 *arg0);
@@ -306,8 +306,8 @@ s32 spawn_window__9TWindowDDFv();
 s32 play_se__9TWindowDDFv();
 s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
-s32 test_input_flag_4__9TWindowDDFPv(void *);
-s32 set_state__9TWindowDDFPv(void *);
+s32 test_input_flag_4__9TWindowDDFv(void *);
+s32 set_state__9TWindowDDFv(void *);
 s32 TWindowDD__sub_803484C4(void *);
 void run_task__9TWindowDDFv(u8 *arg0);
 void copy_chat_entry__9TWindowDDFPvPv(R_80343BC0 *arg0, R_80343BC0 *arg1);
@@ -315,12 +315,12 @@ void __ct__7TObjectFP7TObject(void *);
 void build_item_list__9TWindowDDFPv(u8 *arg0);
 void *get_player_by_client_id(s32);
 s32 get_current_floor(void);
-s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s16 get_stat_by_key_state__10TObjPlayerFv(void *);
 s32 is_boss_area(void);
-s32 check_all_ready__9TWindowDDFi(s32);
+s32 check_all_ready__9TWindowDDFl(s32);
 s32 is_room_free_of_active_enemies(s32, s32);
 s32 build_player_word_lists__9TWindowDDFv();
-void init_item_slots__9TWindowDDFPv(void *);
+void init_item_slots__9TWindowDDFv(void *);
 s32 TWindowDD__sub_80340F70(void);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
@@ -330,7 +330,7 @@ s32 TWindowDD__sub_8034146C(V2_80343C64 *arg0, V2_80343C64 *arg1, s32 arg2, s32 
 s32 TWindowDD__sub_80348B70(s16 arg0);
 void TWindowDD__sub_803412A0(s32);
 void update_state__9TWindowDDFv(void);
-void update_position__9TWindowDDFPvi(u8 *arg0, s32 arg1);
+void update_position__9TWindowDDFl(u8 *arg0, s32 arg1);
 s32 create__9TWindowDDFv(void);
 extern char lbl_8047863C[];
 extern char lbl_80478644[];
@@ -362,8 +362,8 @@ extern const f32 lbl_805DFBF8;
 extern const f32 lbl_805DFCB8;
 Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2);
 void* __nw__7TObjectFUl(u32 size);
-void set_field_1c__6TLobbyFPvf(NumberWindow* window, f32 order);
-void set_flag60_bit10__14TWindowSubItemFPv(NumberWindow* window);
+void set_field_1c__6TLobbyFf(NumberWindow* window, f32 order);
+void set_flag60_bit10__14TWindowSubItemFv(NumberWindow* window);
 s32 TWindowDD__sub_80341AE0(int);
 extern s32 local_client_id;
 extern const f32 TWindowDD__data_805DFB6C;
@@ -376,17 +376,17 @@ extern "C" {
 void *__dt__9TWindowDDFv(void *arg0, s16 arg1);
 void free_buffers__9TWindowDDFv(void);
 s32 update_close_flag__9TWindowDDFPv(void *arg0);
-void free_nodes_with_id__6TLobbyFUi(void*);
-s32 get_current_child_index__9TWindowDDFPv();
-void close_all_windows__9TWindowDDFPv(void *);
+void free_nodes_with_id__6TLobbyFUl(void*);
+s32 get_current_child_index__9TWindowDDFv();
+void close_all_windows__9TWindowDDFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 classify_id__9TWindowDDFs();
 s32 clear_window_dd_nodes();
-void free__11TOBoss4RockFUi(void*);
+void mem_free(void*);
 
 s32 update_close_flag__9TWindowDDFPv(void *arg0) {
-    get_current_child_index__9TWindowDDFPv();
+    get_current_child_index__9TWindowDDFv();
     if (classify_id__9TWindowDDFs() != 7) {
         *(s32 *)((s8 *)arg0 + 0xB8) = 1;
         return 1;
@@ -412,8 +412,8 @@ void open_numeric_parameter_input__9TWindowDDFPviii(WordSelectWindowState* self,
     }
     self->numberWindow = window;
     if (self->numberWindow) {
-        set_field_1c__6TLobbyFPvf(self->numberWindow, lbl_805DFC28);
-        set_flag60_bit10__14TWindowSubItemFPv(self->numberWindow);
+        set_field_1c__6TLobbyFf(self->numberWindow, lbl_805DFC28);
+        set_flag60_bit10__14TWindowSubItemFv(self->numberWindow);
         TWindowDD__sub_80341AE0((int)(self->pages[self->activePage]));
     }
 }
@@ -425,11 +425,11 @@ void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0) {
     entry = get_entry__9TWindowDDFii(arg0, arg0->ids[arg0->depth]);
     TWindowDD__sub_80347980(arg0);
     if (*entry & 8) {
-        destroy_menu_entry__9TWindowDDFPvi(arg0, 0);
+        destroy_menu_entry__9TWindowDDFl(arg0, 0);
     } else if ((child = arg0->child[arg0->depth]) != NULL) {
         update__9TWindowDDFPvPv(arg0, child);
     }
-    destroy_menu_entry__9TWindowDDFPvi(arg0, 1);
+    destroy_menu_entry__9TWindowDDFl(arg0, 1);
     arg0->depth--;
     if (*entry & 4) {
         arg0->fBC--;
@@ -455,7 +455,7 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
     s32 id;
     prev = get_entry__9TWindowDDFii(arg0, arg0->fB0);
     entry = get_entry__9TWindowDDFii(arg0, arg0->ids[arg0->depth]);
-    w = init_last_child__9TWindowDDFPv(arg0);
+    w = init_last_child__9TWindowDDFv(arg0);
     if (w != NULL) {
         if (*entry & 1) {
             *(f32 *)((s8 *)w + 0x38) = lbl_805DFB7C;
@@ -474,23 +474,23 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
     child = arg0->child[arg0->depth];
     if (child != NULL) {
         if (*entry & 8) {
-            set_item_pos__9TWindowDDFPvi(arg0, 0);
+            set_item_pos__9TWindowDDFl(arg0, 0);
             TWindowDD__sub_80347FA0(arg0, 1);
         } else if (*entry & 1) {
-            set_pos_and_data__9TWindowDDFPvf(child, TWindowDD__data_805DFC10);
+            set_pos_and_data__9TWindowDDFf(child, TWindowDD__data_805DFC10);
             *(f32 *)((s8 *)child + 0x38) = lbl_805DFB88;
             TWindowDD__sub_80347F48(arg0);
         } else {
-            set_pos_and_data__9TWindowDDFPvf(child, lbl_805DFB80);
+            set_pos_and_data__9TWindowDDFf(child, lbl_805DFB80);
             *(f32 *)((s8 *)child + 0x38) = lbl_805DFB88;
-            init_entry_field_64__9TWindowDDFii(arg0, 1);
+            init_entry_field_64__9TWindowDDFl(arg0, 1);
         }
         if (*prev & 2) {
-            pop_entry__9TWindowDDFPv(arg0->fC4);
+            pop_entry__9TWindowDDFv(arg0->fC4);
             TWindowDD__sub_80347CC8(arg0, arg0->fC4);
         }
     }
-    set_item_pos__9TWindowDDFPvi(arg0, 1);
+    set_item_pos__9TWindowDDFl(arg0, 1);
     if (!(*entry & 2)) {
         TWindowDD__sub_80347FA0(arg0, 3);
     }
@@ -503,8 +503,8 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
     if (id == -1) {
         TWindowDD__sub_80347FA0(arg0, 2);
     } else {
-        setup_entry__9TWindowDDFPvi(arg0, id);
-        init_entry_field_64__9TWindowDDFii(arg0, 2);
+        setup_entry__9TWindowDDFl(arg0, id);
+        init_entry_field_64__9TWindowDDFl(arg0, 2);
     }
     arg0->fAC = 2;
 }
@@ -517,7 +517,7 @@ void TWindowDD__sub_803434F4(u8 *arg0) {
     var_r31 = (u8 *)(arg0);
     var_r3 = (u8 *)(var_r31 + (*(s32 *)((s8 *)arg0 + 0x20) * 4));
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x24));
-    free_child__9TWindowDDFPv((int) (var_r3));
+    free_child__9TWindowDDFv((int) (var_r3));
     var_r3 = (u8 *)(var_r31);
     var_r4 = (u8 *)(var_r31 + (*(s32 *)((s8 *)var_r31 + 0x20) * 4));
     var_r4 = (u8 *)(*(u8 **)((s8 *)var_r4 + 0x24));
@@ -530,7 +530,7 @@ void TWindowDD__sub_803434F4(u8 *arg0) {
     *(s32 *)((s8 *)var_r31 + 0x20) = (s32) (var_r4 + 1);
     var_r4 = (u8 *)(var_r31 + (*(s32 *)((s8 *)var_r31 + 0x20) * 4));
     var_r4 = (u8 *)(*(u8 **)((s8 *)var_r4 + 0x24));
-    update__9TWindowDDFPvi((int) (var_r3), (int) (var_r4), (int) (var_r5));
+    update__9TWindowDDFl((int) (var_r3), (int) (var_r4), (int) (var_r5));
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB4));
     *(u8 **)((s8 *)var_r31 + 0xB0) = var_r3;
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x8C));
@@ -557,7 +557,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
     }
     *(s32 *)((s8 *)arg0 + 0xB8) = 0;
     if (*(s32 *)((s8 *)arg0 + 0xB4) == 1 || *(s32 *)((s8 *)arg0 + 0xB4) == 2 || *(s32 *)((s8 *)arg0 + 0xB4) == 8 || *(s32 *)((s8 *)arg0 + 0xB4) == 0xF || *(s32 *)((s8 *)arg0 + 0xB4) == 0x11) {
-        reset_index__9TWindowDDFPv((void *) (arg0 + 0xC4));
+        reset_index__9TWindowDDFv((void *) (arg0 + 0xC4));
     }
     temp_r29 = get_entry__9TWindowDDFii(arg0, *(s32 *)((s8 *)arg0 + 0xB0));
     temp_r31 = get_entry__9TWindowDDFii(arg0, *(s32 *)((s8 *)arg0 + 0xB4));
@@ -575,7 +575,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
     }
     temp_r3_2 = TWindowDD__sub_80347AD4(arg0, 1, *(s32 *)((s8 *)arg0 + 0x8C));
     if (temp_r3_2 != NULL) {
-        set_pos_and_data__9TWindowDDFPvf(temp_r3_2, TWindowDD__data_805DFB6C);
+        set_pos_and_data__9TWindowDDFf(temp_r3_2, TWindowDD__data_805DFB6C);
         if (*(s32 *)((s8 *)temp_r31 + 0) & 1) {
             *(f32 *)((s8 *)temp_r3_2 + 0x38) = (f32) lbl_805DFB7C;
             temp_r3_3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x80));
@@ -600,15 +600,15 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
         if (temp_r3_5 & 1) {
             *(s32 *)((s8 *)arg0 + 0x90) = dispatch_state__9TWindowDDFv((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0xB4)), (int) (*(s32 *)((s8 *)arg0 + 0x8C)), (int) (0));
             if ((temp_r3 = TWindowDD__sub_80347AD4(arg0, 2, *(s32 *)((s8 *)arg0 + 0x90))) != NULL) {
-                set_pos_and_data__9TWindowDDFPvf(temp_r3, TWindowDD__data_805DFC10);
+                set_pos_and_data__9TWindowDDFf(temp_r3, TWindowDD__data_805DFC10);
             }
             TWindowDD__sub_80347F48((void *) (arg0));
         } else {
             *(s32 *)((s8 *)arg0 + 0x90) = dispatch_state__9TWindowDDFv((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0xB4)), (int) (*(s32 *)((s8 *)arg0 + 0x8C)), (int) (0));
             if ((temp_r3 = TWindowDD__sub_80347AD4(arg0, 2, *(s32 *)((s8 *)arg0 + 0x90))) != NULL) {
-                set_pos_and_data__9TWindowDDFPvf(temp_r3, lbl_805DFB80);
+                set_pos_and_data__9TWindowDDFf(temp_r3, lbl_805DFB80);
             }
-            init_entry_field_64__9TWindowDDFii((void *) (arg0), (int) (1));
+            init_entry_field_64__9TWindowDDFl((void *) (arg0), (int) (1));
         }
     } else {
         TWindowDD__sub_80347FA0((void *) (arg0), (int) (1));
@@ -616,8 +616,8 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
     if ((s16) *(s16 *)((s8 *)temp_r31 + 4) == -1) {
         TWindowDD__sub_80347FA0((void *) (arg0), (int) (2));
     } else {
-        setup_entry__9TWindowDDFPvi((void *) (arg0), *(s16 *)((s8 *)temp_r31 + 4));
-        init_entry_field_64__9TWindowDDFii((void *) (arg0), (int) (2));
+        setup_entry__9TWindowDDFl((void *) (arg0), *(s16 *)((s8 *)temp_r31 + 4));
+        init_entry_field_64__9TWindowDDFl((void *) (arg0), (int) (2));
     }
     *(s32 *)((s8 *)arg0 + 0xAC) = 1;
 }
@@ -631,22 +631,22 @@ void run_state__9TWindowDDFPv(u8 *arg0) {
         return;
     case 1:
     case 2:
-        update__9TWindowDDFPv((void *) (arg0));
+        update__9TWindowDDFv((void *) (arg0));
         return;
     case 3:
         TWindowDD__sub_80342D14((void *) (arg0));
         return;
     case 5:
-        update_transition__9TWindowDDFPv((void *) (arg0));
+        update_transition__9TWindowDDFv((void *) (arg0));
         return;
     case 6:
-        update_layout__9TWindowDDFPv((void *) (arg0));
+        update_layout__9TWindowDDFv((void *) (arg0));
         return;
     case 7:
-        update_dispatch__9TWindowDDFi((void *) (arg0));
+        update_dispatch__9TWindowDDFv((void *) (arg0));
         return;
     case 8:
-        enter_state_9__9TWindowDDFPv((void *) (arg0));
+        enter_state_9__9TWindowDDFv((void *) (arg0));
         return;
     case 9:
         TWindowDD__sub_803429B0((void *) (arg0));
@@ -664,10 +664,10 @@ void run_state__9TWindowDDFPv(u8 *arg0) {
         enter_state_16__9TWindowDDFPv((void *) (arg0));
         return;
     case 17:
-        enter_state_18__9TWindowDDFPv((void *) (arg0));
+        enter_state_18__9TWindowDDFv((void *) (arg0));
         return;
     case 18:
-        enter_state_19__9TWindowDDFPv((void *) (arg0));
+        enter_state_19__9TWindowDDFv((void *) (arg0));
         return;
     case 20:
         handle_input__9TWindowDDFi((void *) (arg0));
@@ -688,24 +688,24 @@ void run_task__9TWindowDDFv(u8 *arg0) {
     s32 done;
     if (w->x80 != 0) {
         if (w->xB0 == 0) {
-            set_clamped_page__9TWindowDDFPvi(w->x80, 2);
+            set_clamped_page__9TWindowDDFl(w->x80, 2);
         } else if (w->xC4 > 1) {
-            set_clamped_page__9TWindowDDFPvi(w->x80, 0);
+            set_clamped_page__9TWindowDDFl(w->x80, 0);
         } else {
-            set_clamped_page__9TWindowDDFPvi(w->x80, 1);
+            set_clamped_page__9TWindowDDFl(w->x80, 1);
         }
     }
     cur = w->subs[w->idx];
     if (w->x7C != 0 && cur != NULL) {
-        set_value_f32__9TWindowDDFPvi(w->x7C, TWindowDD__sub_8034217C((int)cur));
+        set_value_f32__9TWindowDDFl(w->x7C, TWindowDD__sub_8034217C((int)cur));
     }
     switch (w->xA8) {
     case 2:
         break;
     case 1:
-        handle_input__9TWindowDDFPv(w->x80);
+        handle_input__9TWindowDDFv(w->x80);
         done = 0;
-        if (test_input_flag_4__9TWindowDDFPv(w) != 0) {
+        if (test_input_flag_4__9TWindowDDFv(w) != 0) {
             if (w->x80 != 0) {
                 switch (TWindowDD__sub_80340820(w->x80)) {
                 case 0:
@@ -720,7 +720,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
                     break;
                 case 2:
                     play_se__9TWindowDDFv();
-                    set_state__9TWindowDDFPv(w);
+                    set_state__9TWindowDDFv(w);
                     break;
                 }
             }
@@ -728,7 +728,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
             play_se__9TWindowDDFv();
             done = 1;
             w->x94 |= 2;
-        } else if (apply_both_choices__9TWindowDDFii(w->input, 0x40) != 0) {
+        } else if (apply_both_choices__9TWindowDDFll(w->input, 0x40) != 0) {
             spawn_window__9TWindowDDFv();
             done = 1;
         }
@@ -747,7 +747,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
             if (w->xB8 != 1 && TWindowDD_check_input_mask(w->input, 0x80) != 0) {
                 spawn_window__9TWindowDDFv();
                 w->xA8 = 1;
-                set_clamped_selection__9TWindowDDFPvi(w->x80, get_cursor_index__9TWindowDDFPv((int)w->subs[w->idx]));
+                set_clamped_selection__9TWindowDDFl(w->x80, get_cursor_index__9TWindowDDFv((int)w->subs[w->idx]));
                 TWindowDD__sub_80341AE0((int)cur);
                 copy_chat_entry__9TWindowDDFPvPv((R_80343BC0 *)(&w->xE0), (R_80343BC0 *)(&w->xC4));
                 if (w->xE0 > 0) {
@@ -792,7 +792,7 @@ void copy_chat_entry__9TWindowDDFPvPv(R_80343BC0 *arg0, R_80343BC0 *arg1) {
 void *__dt__9TWindowDDFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TWindowDD;
-        close_all_windows__9TWindowDDFPv(arg0);
+        close_all_windows__9TWindowDDFv(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -836,10 +836,10 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
     {
       floor = get_current_floor();
       s32 r;
-      v = get_stat_by_key_state__10TObjPlayerFPv(p);
+      v = get_stat_by_key_state__10TObjPlayerFv(p);
       if (is_boss_area() != 0)
       {
-        r = check_all_ready__9TWindowDDFi(floor);
+        r = check_all_ready__9TWindowDDFl(floor);
       }
       else
       {
@@ -853,8 +853,8 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
   }
   build_player_word_lists__9TWindowDDFv();
   self->fC0 = arg2;
-  init_item_slots__9TWindowDDFPv(self->fC4);
-  init_item_slots__9TWindowDDFPv(self->fE0);
+  init_item_slots__9TWindowDDFv(self->fC4);
+  init_item_slots__9TWindowDDFv(self->fE0);
   self->f7C = TWindowDD__sub_80340F70();
   {
     s32 i;
@@ -937,7 +937,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
     if (p != 0)
     {
       TWindowDD__sub_803412A0((s32) p);
-      update_position__9TWindowDDFPvi(p, 0);
+      update_position__9TWindowDDFl(p, 0);
       ((Win_80343C64 *) p)->f30 = lbl_805DFB60;
       ((Win_80343C64 *) p)->f40 = lbl_805DFB60;
       ((Win_80343C64 *) p)->f34 = lbl_805DFBF4;
@@ -967,47 +967,47 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
 void free_buffers__9TWindowDDFv(void) {
     clear_window_dd_nodes();
     if ((u32) TWindowDD__word_select_lists != 0U) {
-        free__11TOBoss4RockFUi((void*)TWindowDD__word_select_lists);
+        mem_free((void*)TWindowDD__word_select_lists);
         TWindowDD__word_select_lists = 0U;
     }
     if ((u32) lbl_805D6E20 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D6E20);
+        mem_free((void*)lbl_805D6E20);
         lbl_805D6E20 = 0U;
     }
     if ((u32) TWindowDD__player_name_buffers != 0U) {
-        free__11TOBoss4RockFUi((void*)TWindowDD__player_name_buffers);
+        mem_free((void*)TWindowDD__player_name_buffers);
         TWindowDD__player_name_buffers = 0U;
     }
     if ((u32) window_dd_buffer_b != 0U) {
-        free__11TOBoss4RockFUi((void*)window_dd_buffer_b);
+        mem_free((void*)window_dd_buffer_b);
         window_dd_buffer_b = 0U;
     }
     if ((u32) window_dd_buffer_a != 0U) {
-        free__11TOBoss4RockFUi((void*)window_dd_buffer_a);
+        mem_free((void*)window_dd_buffer_a);
         window_dd_buffer_a = 0U;
     }
     if ((u32) TWindowDD__work_buffer != 0U) {
-        free__11TOBoss4RockFUi((void*)TWindowDD__work_buffer);
+        mem_free((void*)TWindowDD__work_buffer);
         TWindowDD__work_buffer = 0U;
     }
     if ((u32) TWindowDD__ws_data_buffer != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)TWindowDD__ws_data_buffer);
+        free_nodes_with_id__6TLobbyFUl((void*)TWindowDD__ws_data_buffer);
         TWindowDD__ws_data_buffer = 0U;
     }
     if ((u32) lbl_805D6E5C != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E5C);
+        free_nodes_with_id__6TLobbyFUl((void*)lbl_805D6E5C);
         lbl_805D6E5C = 0U;
     }
     if ((u32) lbl_805D6E58 != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E58);
+        free_nodes_with_id__6TLobbyFUl((void*)lbl_805D6E58);
         lbl_805D6E58 = 0U;
     }
     if ((u32) lbl_805D6E54 != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E54);
+        free_nodes_with_id__6TLobbyFUl((void*)lbl_805D6E54);
         lbl_805D6E54 = 0U;
     }
     if ((u32) lbl_805D6E50 != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E50);
+        free_nodes_with_id__6TLobbyFUl((void*)lbl_805D6E50);
         lbl_805D6E50 = 0U;
     }
 }
@@ -1017,7 +1017,7 @@ s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
         if (v == -0x1E) {
-            switch (get_word_select_context__9TWindowDDFPv(arg0)) {
+            switch (get_word_select_context__9TWindowDDFv(arg0)) {
             case 1:
                 v = 0x10;
                 break;
@@ -1104,7 +1104,7 @@ s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
         if (v == -0x1E) {
-            switch (get_word_select_context__9TWindowDDFPv(arg0)) {
+            switch (get_word_select_context__9TWindowDDFv(arg0)) {
             case 1:
                 v = 0x10;
                 break;
@@ -1191,7 +1191,7 @@ s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
         if (v == -0x1E) {
-            switch (get_word_select_context__9TWindowDDFPv(arg0)) {
+            switch (get_word_select_context__9TWindowDDFv(arg0)) {
             case 1:
                 v = 0x10;
                 break;
@@ -1296,13 +1296,13 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
         }
         for (m = 0; m < n; m++) {
             if (m == 1) {
-                append_char__9TWindowDDFciPv(0x20, arg1, &pos);
+                append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
             }
             TWindowDD__sub_8034886C(arg0->ids[m], arg1, &pos);
         }
-        append_char__9TWindowDDFciPv(0x3F, arg1, &pos);
+        append_char__9TWindowDDFSclPl(0x3F, arg1, &pos);
         if (arg0->count > 2) {
-            append_prompt_newline__9TWindowDDFPvPv(arg1, &pos);
+            append_prompt_newline__9TWindowDDFPl(arg1, &pos);
             TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
         }
         break;
@@ -1322,21 +1322,21 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
             TWindowDD__sub_8034886C(id, arg1, &pos);
         } else if (id == 0x2C7) {
             TWindowDD__sub_8034886C(id, arg1, &pos);
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[0xA58 / 4], arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[0xA58 / 4], arg1, &pos);
             k = 2;
         } else if (id >= 0x68C && id <= 0x697) {
             TWindowDD__sub_8034886C(id, arg1, &pos);
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[0xA4C / 4], arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[0xA4C / 4], arg1, &pos);
             k = 1;
         } else if (id == 0x698) {
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[0xA4C / 4], arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[0xA4C / 4], arg1, &pos);
             k = 1;
         }
         if (n > 1) {
             i = arg0->ids[1];
-            show_message_by_count__9TWindowDDFii(arg1, &pos);
+            show_message_by_count__9TWindowDDFll(arg1, &pos);
             if (k == 0) {
                 TWindowDD__sub_8034886C(i, arg1, &pos);
             } else {
@@ -1346,11 +1346,11 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
                 } else {
                     p = &TWindowDD__data_805D6E40[0];
                 }
-                append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[p->list[i - 0x5AC]], arg1, &pos);
+                append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[p->list[i - 0x5AC]], arg1, &pos);
             }
         }
         if (n > 2) {
-            show_message_by_count__9TWindowDDFii(arg1, &pos);
+            show_message_by_count__9TWindowDDFll(arg1, &pos);
             TWindowDD__sub_80347474(arg0, arg0->ids[2], arg1, &pos);
         }
         if (n > 3) {
@@ -1367,8 +1367,8 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
             mode = 0;
             i = get_player_battle_flag_state__9TWindowDDFUs(arg2);
         } else if (k == 0x2C7) {
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[0xA58 / 4], arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[0xA58 / 4], arg1, &pos);
             mode = 2;
             if (get_player_battle_flag_state__9TWindowDDFUs(arg2) == 2) {
                 i = 3;
@@ -1376,8 +1376,8 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
                 i = 1;
             }
         } else if (k >= 0x68C && k <= 0x697) {
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[0xA4C / 4], arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[0xA4C / 4], arg1, &pos);
             mode = 1;
             i = get_player_battle_flag_state__9TWindowDDFUs(k - 0x68C);
         } else {
@@ -1406,7 +1406,7 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
         if (n > 1) {
             s32 found;
             s32 j;
-            show_message_by_count__9TWindowDDFii(arg1, &pos);
+            show_message_by_count__9TWindowDDFll(arg1, &pos);
             found = 1;
             k = arg0->ids[1];
             for (j = 0; j < TWindowDD__data_805D6E44[3].n; j++) {
@@ -1418,19 +1418,19 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
             if (found != 0) {
                 switch (mode) {
                 case 0:
-                    append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[0x1A8C / 4], arg1, &pos);
+                    append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[0x1A8C / 4], arg1, &pos);
                     break;
                 case 1:
-                    append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[0x1A94 / 4], arg1, &pos);
+                    append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[0x1A94 / 4], arg1, &pos);
                     break;
                 case 2:
-                    append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[0x1A90 / 4], arg1, &pos);
+                    append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[0x1A90 / 4], arg1, &pos);
                     break;
                 case 3:
-                    append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[0x1A98 / 4], arg1, &pos);
+                    append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[0x1A98 / 4], arg1, &pos);
                     break;
                 }
-                show_message_by_count__9TWindowDDFii(arg1, &pos);
+                show_message_by_count__9TWindowDDFll(arg1, &pos);
             }
             if (i == 0) {
                 TWindowDD__sub_80347474(arg0, k, arg1, &pos);
@@ -1453,7 +1453,7 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
         break;
     }
     case 6:
-        format_type6_message__9TWindowDDFPvPvPv(arg0, arg1, &pos);
+        format_type6_message__9TWindowDDFlPv(arg0, arg1, &pos);
         break;
     }
     arg1[pos++] = 0;
@@ -1483,14 +1483,14 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
         s32 i;
         for (i = 0; i < n; i++) {
             if (i == 1) {
-                append_char__9TWindowDDFciPv(0x20, arg1, &pos);
+                append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
             }
             TWindowDD__sub_8034886C(arg0->ids[i], arg1, &pos);
         }
         }
-        append_char__9TWindowDDFciPv(0x3F, arg1, &pos);
+        append_char__9TWindowDDFSclPl(0x3F, arg1, &pos);
         if (arg0->count > 2) {
-            append_prompt_newline__9TWindowDDFPvPv(arg1, &pos);
+            append_prompt_newline__9TWindowDDFPl(arg1, &pos);
             TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
         }
         break;
@@ -1516,12 +1516,12 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
             s1 = (char *)TWindowDD__sub_80348B70(0x2C4);
         } else if (id4 == 0x2C7) {
             TWindowDD__sub_8034886C(id4, arg1, &pos);
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
             k = 2;
             s1 = TWindowDD__data_805D6E28[0x2A6];
         } else if (id4 >= 0x68C && id4 <= 0x697) {
             TWindowDD__sub_8034886C(id4, arg1, &pos);
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
             k = 1;
             s1 = TWindowDD__data_805D6E28[0x2A3];
         } else if (id4 == 0x698) {
@@ -1547,15 +1547,15 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
                     TWindowDD__sub_8034694C(arg0, id1, s1, s2, arg1, &pos);
                 }
             } else {
-                append_string__9TWindowDDFiiPv(s1, arg1, &pos);
-                show_message_by_count__9TWindowDDFii(arg1, &pos);
-                append_string__9TWindowDDFiiPv(s2, arg1, &pos);
+                append_string__9TWindowDDFllPl(s1, arg1, &pos);
+                show_message_by_count__9TWindowDDFll(arg1, &pos);
+                append_string__9TWindowDDFllPl(s2, arg1, &pos);
             }
         } else {
-            append_string__9TWindowDDFiiPv(s1, arg1, &pos);
+            append_string__9TWindowDDFllPl(s1, arg1, &pos);
         }
         if (n > 2) {
-            show_message_by_count__9TWindowDDFii(arg1, &pos);
+            show_message_by_count__9TWindowDDFll(arg1, &pos);
             TWindowDD__sub_80347474(arg0, arg0->ids[2], arg1, &pos);
         }
         if (n > 3) {
@@ -1576,7 +1576,7 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
             s1 = (char *)TWindowDD__sub_80348B70(id);
         } else if (id == 0x2C7) {
             TWindowDD__sub_8034886C(id, arg1, &pos);
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
             mode = 2;
             {
             s32 st = get_player_battle_flag_state__9TWindowDDFUs(arg2);
@@ -1588,7 +1588,7 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
             s1 = TWindowDD__data_805D6E28[0x2A6];
         } else if (id >= 0x68C && id <= 0x697) {
             TWindowDD__sub_8034886C(id, arg1, &pos);
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
             mode = 1;
             kind = get_player_battle_flag_state__9TWindowDDFUs(id - 0x68C);
             s1 = TWindowDD__data_805D6E28[0x2A3];
@@ -1650,13 +1650,13 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
                     }
                 } else {
                     TWindowDD__sub_803474CC(arg0, arg0->ids[0], s1, arg1, &pos);
-                    show_message_by_count__9TWindowDDFii(arg1, &pos);
-                    append_string__9TWindowDDFiiPv(s3, arg1, &pos);
+                    show_message_by_count__9TWindowDDFll(arg1, &pos);
+                    append_string__9TWindowDDFllPl(s3, arg1, &pos);
                 }
-                show_message_by_count__9TWindowDDFii(arg1, &pos);
+                show_message_by_count__9TWindowDDFll(arg1, &pos);
             } else {
                 TWindowDD__sub_803474CC(arg0, arg0->ids[0], s1, arg1, &pos);
-                show_message_by_count__9TWindowDDFii(arg1, &pos);
+                show_message_by_count__9TWindowDDFll(arg1, &pos);
             }
             if (kind == 0) {
                 TWindowDD__sub_80347474(arg0, id, arg1, &pos);
@@ -1674,7 +1674,7 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
                 TWindowDD__sub_803474CC(arg0, id, TWindowDD__data_805D6E28[pp->list[clamp_range_5FA_682__9TWindowDDFs(id)]], arg1, &pos);
             }
         } else if (arg0->ids[0] == 0x2C7) {
-            append_string__9TWindowDDFiiPv(s1, arg1, &pos);
+            append_string__9TWindowDDFllPl(s1, arg1, &pos);
         } else {
             TWindowDD__sub_80347474(arg0, arg0->ids[0], arg1, &pos);
         }
@@ -1685,7 +1685,7 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
         break;
     }
     case 6:
-        format_type6_message__9TWindowDDFPvPvPv(arg0, arg1, &pos);
+        format_type6_message__9TWindowDDFlPv(arg0, arg1, &pos);
         break;
     }
     arg1[pos++] = 0;
@@ -1716,14 +1716,14 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
         {
         for (i = 0; i < n; i++) {
             if (i == 1) {
-                append_char__9TWindowDDFciPv(0x20, arg1, &pos);
+                append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
             }
             TWindowDD__sub_8034886C(arg0->ids[i], arg1, &pos);
         }
         }
-        append_char__9TWindowDDFciPv(0x3F, arg1, &pos);
+        append_char__9TWindowDDFSclPl(0x3F, arg1, &pos);
         if (arg0->count > 2) {
-            append_prompt_newline__9TWindowDDFPvPv(arg1, &pos);
+            append_prompt_newline__9TWindowDDFPl(arg1, &pos);
             TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
         }
         break;
@@ -1745,36 +1745,36 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
         }
         k = 0;
         if (id == 711) {
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(0xA60 / 4)], arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(0xA60 / 4)], arg1, &pos);
             k = 2;
         } else if (id >= 1676 && id <= 1687) {
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(0xA54 / 4)], arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(0xA54 / 4)], arg1, &pos);
             k = 2;
         } else if (id == 1688) {
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(0xA54 / 4)], arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(0xA54 / 4)], arg1, &pos);
             k = 2;
         }
         if (n > 1) {
             i = arg0->ids[1];
-            show_message_by_count__9TWindowDDFii(arg1, &pos);
+            show_message_by_count__9TWindowDDFll(arg1, &pos);
             if (k == 0) {
                 TWindowDD__sub_8034886C(i, arg1, &pos);
             } else {
-                append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(TWindowDD__data_805D6E40->list[i - 1452])], arg1, &pos);
+                append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(TWindowDD__data_805D6E40->list[i - 1452])], arg1, &pos);
             }
         }
         if (n > 2) {
-            show_message_by_count__9TWindowDDFii(arg1, &pos);
+            show_message_by_count__9TWindowDDFll(arg1, &pos);
             switch (TWindowDD__data_805D6E48[clamp_range_2C9_552__9TWindowDDFs(arg0->ids[2])]) {
             case 1:
-                append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(0x19E4 / 4)], arg1, &pos);
-                append_char__9TWindowDDFciPv(0x20, arg1, &pos);
+                append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(0x19E4 / 4)], arg1, &pos);
+                append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
                 break;
             case 2:
-                append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(0x19E8 / 4)], arg1, &pos);
-                append_char__9TWindowDDFciPv(0x20, arg1, &pos);
+                append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(0x19E8 / 4)], arg1, &pos);
+                append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
                 break;
             }
             TWindowDD__sub_80347474(arg0, arg0->ids[2], arg1, &pos);
@@ -1794,12 +1794,12 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
             kind = 0;
         } else if (id == 711) {
             kind = 2;
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(0xA60 / 4)], arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(0xA60 / 4)], arg1, &pos);
         } else if (id >= 1676 && id <= 1687) {
             kind = 1;
-            append_char__9TWindowDDFciPv(0x2C, arg1, &pos);
-            append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(0xA54 / 4)], arg1, &pos);
+            append_char__9TWindowDDFSclPl(0x2C, arg1, &pos);
+            append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(0xA54 / 4)], arg1, &pos);
         } else {
             kind = 3;
             arg1[0] = fn_80228C54(arg1[0]);
@@ -1807,7 +1807,7 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
         if (n > 1) {
             s32 notfound;
             char *str;
-            show_message_by_count__9TWindowDDFii(arg1, &pos);
+            show_message_by_count__9TWindowDDFll(arg1, &pos);
             b = arg0->ids[1];
             notfound = 1;
             for (i = 0; i < TWindowDD__data_805D6E44[0].n; i++) {
@@ -1819,17 +1819,17 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
             if (notfound != 0) {
                 switch (kind) {
                 case 0:
-                    append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(6012 / 4)], arg1, &pos);
+                    append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(6012 / 4)], arg1, &pos);
                     break;
                 case 1:
                 case 2:
-                    append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(6016 / 4)], arg1, &pos);
+                    append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(6016 / 4)], arg1, &pos);
                     break;
                 case 3:
-                    append_string__9TWindowDDFiiPv(TWindowDD__data_805D6E28[(6020 / 4)], arg1, &pos);
+                    append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(6020 / 4)], arg1, &pos);
                     break;
                 }
-                show_message_by_count__9TWindowDDFii(arg1, &pos);
+                show_message_by_count__9TWindowDDFll(arg1, &pos);
             }
             str = 0;
             if (kind == 2) {
@@ -1853,7 +1853,7 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
         break;
     }
     case 6:
-        format_type6_message__9TWindowDDFPvPvPv(arg0, arg1, &pos);
+        format_type6_message__9TWindowDDFlPv(arg0, arg1, &pos);
         break;
     }
     arg1[pos++] = 0;
@@ -1884,9 +1884,9 @@ s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1) {
             TWindowDD__sub_8034886C(arg0->ids[i], arg1, &pos);
         }
         }
-        append_char__9TWindowDDFciPv(0x3F, arg1, &pos);
+        append_char__9TWindowDDFSclPl(0x3F, arg1, &pos);
         if (arg0->count > 2) {
-            append_prompt_newline__9TWindowDDFPvPv(arg1, &pos);
+            append_prompt_newline__9TWindowDDFPl(arg1, &pos);
             TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
         }
         break;
@@ -1898,13 +1898,13 @@ s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1) {
         s32 i;
         for (i = 0; i < n; i++) {
             if (i != 2) {
-                maybe_scroll__9TWindowDDFPvPv(arg1, &pos);
+                maybe_scroll__9TWindowDDFPv(arg1, &pos);
             }
             TWindowDD__sub_80347474(arg0, arg0->ids[i], arg1, &pos);
         }
         }
         if (arg0->count > 3) {
-            append_prompt_newline__9TWindowDDFPvPv(arg1, &pos);
+            append_prompt_newline__9TWindowDDFPl(arg1, &pos);
             TWindowDD__sub_8034886C(arg0->ids[3], arg1, &pos);
         }
         break;
@@ -1913,13 +1913,13 @@ s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1) {
             TWindowDD__sub_80347474(arg0, arg0->ids[2], arg1, &pos);
         }
         if (n > 1) {
-            maybe_scroll__9TWindowDDFPvPv(arg1, &pos);
+            maybe_scroll__9TWindowDDFPv(arg1, &pos);
             TWindowDD__sub_8034886C(arg0->ids[1], arg1, &pos);
         }
         if (n > 3) {
             TWindowDD__sub_8034886C(arg0->ids[3], arg1, &pos);
         }
-        append_prompt_newline__9TWindowDDFPvPv(arg1, &pos);
+        append_prompt_newline__9TWindowDDFPl(arg1, &pos);
         TWindowDD__sub_8034886C(arg0->ids[0], arg1, &pos);
         break;
     case 5:
@@ -1927,14 +1927,14 @@ s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1) {
         s32 i;
         for (i = 0; i < n; i++) {
             if (i != 2) {
-                maybe_scroll__9TWindowDDFPvPv(arg1, &pos);
+                maybe_scroll__9TWindowDDFPv(arg1, &pos);
             }
             TWindowDD__sub_80347474(arg0, arg0->ids[i], arg1, &pos);
         }
         }
         break;
     case 6:
-        format_type6_message__9TWindowDDFPvPvPv(arg0, arg1, &pos);
+        format_type6_message__9TWindowDDFlPv(arg0, arg1, &pos);
         break;
     }
     arg1[pos++] = 0;
@@ -1947,7 +1947,7 @@ s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
         if (v == -0x1E) {
-            switch (get_word_select_context__9TWindowDDFPv(arg0)) {
+            switch (get_word_select_context__9TWindowDDFv(arg0)) {
             case 1:
                 v = 0x10;
                 break;
@@ -2036,7 +2036,7 @@ s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(TWindowDD__sub_80346DB8((s32) arg0), arg3);
         if (var_r31 == -0x1E) {
-            switch (((int (*)(u8 *)) get_word_select_context__9TWindowDDFPv)(arg0)) {
+            switch (((int (*)(u8 *)) get_word_select_context__9TWindowDDFv)(arg0)) {
             case 1:
                 var_r31 = 0x10;
                 break;
@@ -2133,11 +2133,11 @@ void build_item_list__9TWindowDDFPv(u8 *arg0) {
     }
     sel = NULL;
     idx = *(s16 *)(arg0 + 0x1C) - 0x7F;
-    entry = get_entry__9TWindowDDFi(kind, *(s16 *)(arg0 + 0x1C));
+    entry = get_entry__9TWindowDDFl(kind, *(s16 *)(arg0 + 0x1C));
     if (entry != NULL && idx >= 0 && idx < entry->count) {
-        sel = get_element_ptr__9TWindowDDFi(entry->items[idx]);
+        sel = get_element_ptr__9TWindowDDFl(entry->items[idx]);
     }
-    extra = get_element_ptr__9TWindowDDFi(id);
+    extra = get_element_ptr__9TWindowDDFl(id);
     n = 0;
     a = BUF_803467CC->a;
     b = BUF_803467CC->b;

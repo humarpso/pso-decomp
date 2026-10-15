@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
 
-int get_mode__11TCameraCtrlFv(void);
-
     extern int TCameraCtrl__fixed_npc_camera_active;
-int get_mode__11TCameraCtrlFv(void) {  return TCameraCtrl__fixed_npc_camera_active; }
+int TCameraCtrl::get_mode() {  return TCameraCtrl__fixed_npc_camera_active; }
 
 }

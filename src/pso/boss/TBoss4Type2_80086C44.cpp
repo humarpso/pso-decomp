@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2.h"
 
 struct Ent_800868C4 { u8 data[0x98]; };
 
@@ -13,11 +14,9 @@ void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
 
 extern "C" {
 
-void request_destroy__11TBoss4Type2FUi(u32 arg0);
-
 int queue_destruction__7TObjectFv();
 
-void request_destroy__11TBoss4Type2FUi(u32 arg0) {
+void TBoss4Type2::request_destroy(u32 arg0) {
     if (arg0 != 0U) {
         queue_destruction__7TObjectFv();
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjButterflyLobby.h"
 
 struct ButterflyLobbyBase_80350958 { char pad[0x18]; };
 struct ButterflyLobbyVObj_80350958 : ButterflyLobbyBase_80350958 {
@@ -33,10 +34,8 @@ struct Butterfly_80350BC4 {
 extern "C" {
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
-void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
-void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0);
 s32 rand();
 f32 sin_table_lookup(int);
 void rotate_vector_by_matrix(int, void *, void *);
@@ -44,14 +43,11 @@ s32 rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 void pop_matrices(int);
 extern u8 identity_matrix[];
-void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o);
 }
 
 extern "C" {
 
-void init_params__18TObjButterflyLobbyFPv(u8 *arg0);
 void render__18TObjButterflyLobbyFPv(u8 *arg0);
-void render__18TObjButterflyLobbyFv(void *arg0);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_x(int, int);
@@ -62,7 +58,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rand();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 lobby_butterfly_bml_resource;
 
@@ -81,7 +77,8 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
     pop_matrix();
 }
 
-void init_params__18TObjButterflyLobbyFPv(u8 *arg0) {
+void TObjButterflyLobby::init_params() {
+    u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x98, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0xA4) = 0.0f;
     *(f32 *)((s8 *)arg0 + 0xA8) = 0.0f;
@@ -94,13 +91,14 @@ void init_params__18TObjButterflyLobbyFPv(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0xBE) = 0;
 }
 
-void render__18TObjButterflyLobbyFv(void *arg0) {
-    if ((((ButterflyLobbyVObj_80350958*)arg0)->m8(400.0f, 20.0f) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x90) != 0)) {
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xC8));
-        render__18TObjButterflyLobbyFPv((u8 *)(arg0));
+void TObjButterflyLobby::render() {
+    if ((((ButterflyLobbyVObj_80350958*)this)->m8(400.0f, 20.0f) != 0) && ((s32) *(s32 *)((s8 *)this + 0x90) != 0)) {
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)this + 0xC8));
+        render__18TObjButterflyLobbyFPv((u8 *)(this));
     }
 }
-void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0) {
+void TObjButterflyLobby::update_fade() {
+    Obj_80350AE4 *arg0 = (Obj_80350AE4 *)this;
     switch (arg0->state) {
     case 0:
         if (is_connected__6TLobbyFv() != 0) {
@@ -134,9 +132,10 @@ void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0) {
 
 struct Obj_80350AE4;
 #define FRND() (3.0517578125e-05f * (f32)rand())
-void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o) {
+void TObjButterflyLobby::run_task() {
+    Butterfly_80350BC4 *o = (Butterfly_80350BC4 *)this;
     f32 base;
-    update_fade__18TObjButterflyLobbyFPv((Obj_80350AE4 *)o);
+    update_fade();
     base = 3.2f * sin_table_lookup(o->phase) + o->baseY;
     if (o->rising == 0) {
         o->tilt = 5.0f * (base - o->pos.y);
@@ -293,7 +292,7 @@ void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o) {
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 s32 construct_world_actor_base();
 s32 is_lobby_event_active();
 extern s32 __vt__18TObjButterflyLobby[];
@@ -305,7 +304,6 @@ extern "C" {
 
 void *TObjButterflyLobby__create(void *arg0);
 void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1);
-void destroy_instance__18TObjButterflyLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -331,7 +329,7 @@ u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjButterflyLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4360;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
-    copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
+    copy_xyz__10TObjPlayerFPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
     if (is_lobby_event_active() != 0) {
         *(s32 *)((s8 *)arg0 + 0x90) = 0;
@@ -346,7 +344,7 @@ u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
         *(s32 *)((s8 *)arg0 + 0xC4) = get_bml_model((void *) (lobby_butterfly_bml_resource), (int) (1));
         *(s32 *)((s8 *)arg0 + 0xC8) = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), (int) (1));
     }
-    init_params__18TObjButterflyLobbyFPv((u8 *) (arg0));
+    ((TObjButterflyLobby *)arg0)->init_params();
     return arg0;
 }
 
@@ -358,7 +356,7 @@ void *TObjButterflyLobby__create(void *arg0) {
     return o;
 }
 
-void destroy_instance__18TObjButterflyLobbyFv(void) {
+void TObjButterflyLobby::destroy_instance() {
     if ((u32) lobby_butterfly_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)lobby_butterfly_bml_resource, 1);
         lobby_butterfly_bml_resource = 0U;

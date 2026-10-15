@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemDrop.h"
 
 struct Hdr_800F9C00 { u32 dataOff; u32 count; u8 pad8[8]; u32 rootOff; };
 
@@ -15,8 +16,6 @@ u8 *apply_rel_relocations(Obj_800F9C00 *arg0);
 
 extern "C" {
 
-void *ct_object__9TItemDropFPv(void *arg0);
-void *construct__9TItemDropFPv(void *arg0);
 void __ct__7TObjectFP7TObject(void *, s32);
 
 extern s32 lbl_8049C658[];
@@ -42,16 +41,16 @@ u8 *apply_rel_relocations(Obj_800F9C00 *arg0) {
     return arg0->root;
 }
 
-void *ct_object__9TItemDropFPv(void *arg0) {
-    ((void (*)(void *))__ct__7TObjectFP7TObject)(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049C658;
-    return arg0;
+void *TItemDrop::ct_object() {
+    ((void (*)(void *))__ct__7TObjectFP7TObject)(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_8049C658;
+    return this;
 }
 
-void *construct__9TItemDropFPv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0, 0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049C658;
-    return arg0;
+void *TItemDrop::construct() {
+    __ct__7TObjectFP7TObject(this, 0);
+    *(s32 **)((s8 *)this + 0x18) = lbl_8049C658;
+    return this;
 }
 
 }

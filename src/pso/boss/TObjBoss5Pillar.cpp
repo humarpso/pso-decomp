@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5Pillar.h"
 
 struct RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar {
     s32 value;
@@ -33,13 +34,11 @@ u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 void queue_destruction__7TObjectFv(void *);
 void fn_8028AE1C(void *);
 void *create_smoke__15TObjBoss5PillarFPvPv(Pillar_8028B488 *, void *);
-void update_collapse_state__15TObjBoss5PillarFPv(Pillar_8028B488 *arg0);
 }
 
 extern "C" {
 
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
-void render__15TObjBoss5PillarFPv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 TObjBoss5PillarDemo__sub_8028ADB0(int);
 s32 draw_ginja_model_with_motion(int, int, f32);
@@ -50,14 +49,15 @@ void __dt__7TObjectFv(void *, int);
 s32 fn_8028ADDC(int);
 s32 is_any_teammate_in_state__10TObjPlayerFv();
 void queue_destruction__7TObjectFv(void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 
 extern s32 boss5_common_texture_list;
 
-void render__15TObjBoss5PillarFPv(u8 *arg0) {
+void TObjBoss5Pillar::render() {
+    u8 *arg0 = (u8 *)this;
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
         push_matrix();
-        set_global_param__8TObjFishFi((void *) (boss5_common_texture_list));
+        set_global_param__8TObjFishFl((void *) (boss5_common_texture_list));
         post_translate_matrix((void *) (arg0 + 0x2C));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 3) {
             fn_8028ADDC((int) (*(s32 *)((s8 *)arg0 + 0x48)));
@@ -71,7 +71,8 @@ void render__15TObjBoss5PillarFPv(u8 *arg0) {
 
 extern s32 __vt__15TObjBoss5Pillar[];
 
-void update_collapse_state__15TObjBoss5PillarFPv(Pillar_8028B488 *arg0) {
+void TObjBoss5Pillar::update_collapse_state() {
+    Pillar_8028B488 *arg0 = (Pillar_8028B488 *)this;
     u32 last;
     switch (arg0->state) {
     case 0:

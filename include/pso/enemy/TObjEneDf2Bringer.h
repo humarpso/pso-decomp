@@ -36,6 +36,14 @@ struct TObjEneDf2Bringer
     u32 m_494;
     u8 _pad498[0x10];
     u32 m_4a8;
+    void exec(s32 arg1);
+    void handle_state(s32 arg1);
+    s32 check_stage_advance();
+    void init_enemy();
+    static void set_entry_value_clamped(s32 arg0, f32 farg0);
+    static void free_resources();
+    void *create();
+    static void load_resources();
 };
 
 #endif

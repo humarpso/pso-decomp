@@ -9,6 +9,8 @@ struct TObjNpcKenkyu2
     u32 m_24;
     u8 _pad28[0xC];
     u32 m_34;
+    static void free_static_model();
+    static void load_shared_resource();
 };
 
 #endif

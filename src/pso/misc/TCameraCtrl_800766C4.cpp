@@ -1,10 +1,8 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
 
-short get_screen_height__11TCameraCtrlFv(void);
-short get_screen_width__11TCameraCtrlFv(void);
-s32 should_update__11TCameraCtrlFv(void);
 s32 is_quest_active();
 u32 get_player_by_client_id(s32);
 s32 check_player_state_flag_2__6TLobbyFPv();
@@ -12,14 +10,14 @@ s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_split_screen();
 
     extern short TCameraCtrl__viewport_y;
-short get_screen_width__11TCameraCtrlFv(void) {  return TCameraCtrl__viewport_y; }
+short TCameraCtrl::get_screen_width() {  return TCameraCtrl__viewport_y; }
 
     extern short TCameraCtrl__viewport_x;
-short get_screen_height__11TCameraCtrlFv(void) {  return TCameraCtrl__viewport_x; }
+short TCameraCtrl::get_screen_height() {  return TCameraCtrl__viewport_x; }
 
 extern s32 local_client_id;
 
-s32 should_update__11TCameraCtrlFv(void) {
+s32 TCameraCtrl::should_update() {
     s32 temp_r3;
 
     if (is_split_screen() == 0) {

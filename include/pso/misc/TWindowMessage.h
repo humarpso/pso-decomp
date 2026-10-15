@@ -19,6 +19,7 @@ struct TWindowMessage
     u8 _pad80[0x8];
     u32 m_88;
     u32 m_8c;
+    void draw();
 };
 
 #endif

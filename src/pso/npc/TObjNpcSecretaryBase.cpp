@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/npc/TObjNpcSecretaryBase.h"
 
 extern "C" {
 extern char lbl_8043FEA0[];
@@ -104,12 +105,11 @@ struct RecoveredGlobal_8014D69C___vt__20TObjNpcSecretaryBase {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u32 TObjNpcSecretaryBase__static_model_resource;
-void load_static_data__20TObjNpcSecretaryBaseFv(void);
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
-s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
+s32 construct_female_base__17TObjNpcFemaleBaseFv(void *);
 extern s32 __vt__20TObjNpcSecretaryBase[];
 extern s32 TObjNpcSecretaryBase__name;
 extern u32 TObjNpcSecretaryBase__static_model_resource;
@@ -120,17 +120,16 @@ extern "C" {
 
 void * TObjNpcSoldierBase__create(void *arg0);
 void *__dt__20TObjNpcSecretaryBaseFv(void *arg0, s16 arg1);
-void free_static_data__20TObjNpcSecretaryBaseFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcSoldierBase__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *, int);
+void destroy_npc_female_base__17TObjNpcFemaleBaseFs(void *, int);
 
 extern u32 TObjNpcSecretaryBase__static_model_resource;
 
-void free_static_data__20TObjNpcSecretaryBaseFv(void) {
+void TObjNpcSecretaryBase::free_static_data() {
     if ((u32) TObjNpcSecretaryBase__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcSecretaryBase__static_model_resource, 1);
         TObjNpcSecretaryBase__static_model_resource = 0U;
@@ -139,10 +138,10 @@ void free_static_data__20TObjNpcSecretaryBaseFv(void) {
 
 extern s32 __vt__20TObjNpcSecretaryBase[];
 
-void load_static_data__20TObjNpcSecretaryBaseFv(void) {
+void TObjNpcSecretaryBase::load_static_data() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &secretary_body_resource_descriptor, 0, 0, 0));
@@ -153,7 +152,7 @@ void load_static_data__20TObjNpcSecretaryBaseFv(void) {
 void *__dt__20TObjNpcSecretaryBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TObjNpcSecretaryBase;
-        destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(arg0, 0);
+        destroy_npc_female_base__17TObjNpcFemaleBaseFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -165,11 +164,11 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014D69C___vt__20TObjNpcSecretaryBase_size[sizeof(RecoveredGlobal_8014D69C___vt__20TObjNpcSecretaryBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcSecretaryBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_female_base__17TObjNpcFemaleBaseFPv((void *) (arg0));
+    construct_female_base__17TObjNpcFemaleBaseFv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014D69C___vt__20TObjNpcSecretaryBase *)&__vt__20TObjNpcSecretaryBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcSecretaryBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcSecretaryBase__static_model_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcSecretaryBase__static_model_resource) + 0x42C)) + 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));

@@ -14,6 +14,10 @@ public:
     u8 unknown064[0xC0 - 0x64];
     f32 field_c0;
     f32 field_c4;
+public:
+    static void *create(void *arg0);
+    static void unload_static_data();
+    static void load_shared_resource();
 };
 typedef char TOSignCave01_render_parameter_offset[offsetof(TOSignCave01, render_parameter) == 0x24 ? 1 : -1];
 typedef char TOSignCave01_model_offset[offsetof(TOSignCave01, model) == 0x34 ? 1 : -1];

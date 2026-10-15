@@ -9,6 +9,7 @@ struct TObjMistCtrl
     void* m_38;
     u8 _pad3C[0x54];
     u32 m_90;
+    int run_task();
 };
 
 #endif

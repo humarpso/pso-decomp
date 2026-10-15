@@ -12,6 +12,8 @@ public:
     s32 m_1C;
     u32 m_20;
     u32 m_24;
+public:
+    void *create();
 };
 
 #endif

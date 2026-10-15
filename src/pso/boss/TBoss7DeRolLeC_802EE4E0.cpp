@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss7DeRolLeC.h"
 
 struct RecoveredGlobal_802EE4E0_lbl_804E3C5C {
     s32 value;
@@ -27,11 +28,10 @@ u8 * TLobby__sub_8001FE7C(void *, s16);
 void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
 extern u8 *lbl_805D6918;
-void run_exit_callbacks__14TBoss7DeRolLeCFv(void);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void run_load_callback_table(void *, int);
-u8 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
+u8 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void init_all_slots__11TWindowCtrlFv();
 extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
 extern s32 lbl_804E3D1C[];
@@ -53,14 +53,13 @@ void TObjPlayer__sub_802EE574(void);
 
 extern "C" {
 
-void *create__14TBoss7DeRolLeCFPv(void *arg0);
 void *TBoss7DeRolLeC__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
 typedef char RecoveredGlobal_802EE4E0_lbl_804E3C5C_size[sizeof(RecoveredGlobal_802EE4E0_lbl_804E3C5C) == 0x4C ? 1 : -1];
-void run_exit_callbacks__14TBoss7DeRolLeCFv(void) {
+void TBoss7DeRolLeC::run_exit_callbacks() {
     call_funcs_reverse__6TLobbyFPvUi((s32) &lbl_804E3C5C.value, 0x30U);
     if ((void *) lbl_805D6918 != NULL) {
         TLobby__sub_8001FE7C(lbl_805D6918, 1);
@@ -68,7 +67,7 @@ void run_exit_callbacks__14TBoss7DeRolLeCFv(void) {
     }
 }
 
-void *create__14TBoss7DeRolLeCFPv(void *arg0) {
+void *TBoss7DeRolLeC::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x7D4);
     if (o != NULL) {
         o = TBoss7DeRolLeC__ct(o, tl_04, arg0);
@@ -78,7 +77,7 @@ void *create__14TBoss7DeRolLeCFPv(void *arg0) {
 void TObjPlayer__sub_802EE574(void) {
     s32 i;
     u8 *p;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, lbl_804E3D1C, 0, 0, 0);
     }
@@ -92,7 +91,7 @@ void TObjPlayer__sub_802EE574(void) {
     lbl_805D6934 = 0;
     boss7_joint_state = 0;
     run_load_callback_table(&lbl_804E3C5C.value, 0x30);
-    lbl_805D693C = collect_and_count__12TBoss3VoloptFUii(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D6918 + 0x42C)) + 8), 0x4D);
+    lbl_805D693C = collect_and_count__12TBoss3VoloptFUll(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D6918 + 0x42C)) + 8), 0x4D);
     lbl_805D6940 = *(s32 *)((s8 *)lbl_805D693C + 0x2C);
     for (i = 0; i < 11; i++) {
         Light_802EE574 *l = &boss7_derolle_light_pool[i];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjGbAdvance.h"
 
 struct VObjBase { char pad[0x18]; };
 struct VObj : VObjBase {
@@ -15,7 +16,6 @@ struct VObj : VObjBase {
 
 extern "C" {
 
-void render__13TObjGbAdvanceFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -23,16 +23,17 @@ s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFi();
+s32 set_global_param__8TObjFishFl();
 
 extern s32 TObjGbAdvance__data_805D5B74;
 extern const f32 lbl_805DBCDC;
 extern const f32 lbl_805DBCE0;
 
-void render__13TObjGbAdvanceFv(u8 *arg0) {
+void TObjGbAdvance::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj*)arg0)->m8(lbl_805DBCDC, lbl_805DBCE0) != 0) {
         TObjFish__sub_8001EDB0(TObjGbAdvance__data_805D5B74, 0);
-        set_global_param__8TObjFishFi();
+        set_global_param__8TObjFishFl();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));

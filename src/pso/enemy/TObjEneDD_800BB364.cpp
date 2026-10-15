@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 struct RecoveredGlobal_800BB45C_lbl_80500B98 {
     s32 value;
@@ -9,7 +10,6 @@ struct Ent_800BB484 { s16 id; f32 dist; };
 
 extern "C" {
 extern RecoveredGlobal_800BB45C_lbl_80500B98 enemy_target_candidate_table;
-void collect_target_candidates__9TObjEneDDFif(s32 arg0, f32 farg0);
 typedef struct Ent_800BB388 {
     u8 pad0[0x30];
     s32 flags30;
@@ -22,14 +22,14 @@ Ent_800BB388 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv(void);
 u32 csnLookAt(void *, void *);
-s32 is_alive__9TObjEneDDFPv(void *);
+s32 is_alive__9TObjEneDDFv(void *);
 s32 get_enemy_count__9TObjEneDDFv(void);
 f32 horizontal_distance_squared(void *, void *);
 
 u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range);
 u16 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv(void);
-s32 is_alive__9TObjEneDDFPv(void *);
+s32 is_alive__9TObjEneDDFv(void *);
 s32 TBoss8Dragon__sub_800BB650(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 TObjEneDD__data_805D9E8C;
@@ -38,13 +38,11 @@ s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0);
 
 extern "C" {
 
-void set_squared_value__9TObjEneDDFf(f32 farg0);
-
 extern "C" {
 Ent_800BB388 *get_player_data__10TObjPlayerFi(s32);
 }
 
-void set_squared_value__9TObjEneDDFf(f32 farg0) {
+void TObjEneDD::set_squared_value(f32 farg0) {
     ((s32 (*)(f32))enemy_nearest_visible_enemy_sq)(farg0 * farg0);
 }
 u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range) {
@@ -60,7 +58,7 @@ u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range) {
     count = get_enemy_count__9TObjEneDDFv();
     for (i = 0; i < count; i++) {
         p = get_player_data__10TObjPlayerFi(base + i);
-        if (p != self && !(p->flags30 & 0x01000000) && is_alive__9TObjEneDDFPv(p) != 0) {
+        if (p != self && !(p->flags30 & 0x01000000) && is_alive__9TObjEneDDFv(p) != 0) {
             d = horizontal_distance_squared(self->f2FC, p->pos);
             if (d < range && csnLookAt(self->f2FC, p->f2FC) == 0) {
                 best = obj_getField1c(p);
@@ -71,7 +69,7 @@ u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range) {
     return best;
 }
 typedef char RecoveredGlobal_800BB45C_lbl_80500B98_size[sizeof(RecoveredGlobal_800BB45C_lbl_80500B98) == 0x20 ? 1 : -1];
-void collect_target_candidates__9TObjEneDDFif(s32 arg0, f32 farg0) {
+void TObjEneDD::collect_target_candidates(s32 arg0, f32 farg0) {
     collect_enemy_target_candidates((s32)(arg0), (Ent_800BB484 *)(&enemy_target_candidate_table.value), farg0);
 }
 s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0) {
@@ -89,7 +87,7 @@ s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0) {
     if (farg0 > TObjEneDD__data_805D9E8C) {
         for (s32 i = 0; i < cnt; i++) {
             p = ((u8 *)get_player_data__10TObjPlayerFi((s32)(i)));
-            if (is_alive__9TObjEneDDFPv(p) != 0) {
+            if (is_alive__9TObjEneDDFv(p) != 0) {
                 d = horizontal_distance_squared((void *)(arg0 + 0x38), p + 0x38);
                 if (d < farg0) {
                     out[n].id = obj_getField1c(p);
@@ -101,7 +99,7 @@ s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0) {
     } else {
         for (s32 i = 0; i < cnt; i++) {
             p = ((u8 *)get_player_data__10TObjPlayerFi((s32)(i)));
-            if (is_alive__9TObjEneDDFPv(p) != 0) {
+            if (is_alive__9TObjEneDDFv(p) != 0) {
                 d = horizontal_distance_squared((void *)(arg0 + 0x38), p + 0x38);
                 out[n].id = obj_getField1c(p);
                 out[n].dist = d;

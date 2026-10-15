@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 
@@ -22,7 +23,7 @@ extern s32 lbl_805D35A0[2];
 extern const f32 lbl_805DC458;
 extern const f32 lbl_805DC45C;
 
-void reset_emitter_table__13TParticleCtrlFv(void) {
+void TParticleCtrl::reset_emitter_table() {
     s32 i;
     for (i = 0; i < 0x6C; i++) {
         *(s32 *)(lbl_804C5820[i].data + 4) = 0;
@@ -33,8 +34,7 @@ void reset_emitter_table__13TParticleCtrlFv(void) {
     }
 }
 
-void create_quad_sprites__13TParticleCtrlFv(void)
-{
+void TParticleCtrl::create_quad_sprites() {
     s32 index = 0;
     ParticleDefinition *definitions = lbl_804C5820;
     void **sprites = TParticleCtrl__data_80511F70;

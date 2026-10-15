@@ -78,6 +78,8 @@ public:
     virtual void run_task();
     virtual void render();
     virtual void render_shadows();
+public:
+    static s32 get_state_flag();
 };
 
 #endif

@@ -15,6 +15,9 @@ struct TEneParticleCtrl
     void* m_b4;
     u8 _padB8[0x8];
     u32 m_c0;
+    void set_param();
+    void free_particle_ctrl();
+    void*get_field_38_ptr();
 };
 
 #endif

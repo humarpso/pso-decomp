@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TEffIndirectCtrl.h"
 
 struct RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 {
     s32 value;
@@ -51,13 +52,12 @@ s32 update_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
 f32 sin_table_lookup(s32);
 void deform_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
 void queue_destruction__7TObjectFv(void *);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *arg0, s32 arg1);
 s32 get_indirect_source_pixels(u8 arg0);
 s32 get_indirect_source_id(u8 arg0);
 u8 *get_indirect_recipe(u8);
-void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
+void set_render_rect__10TObjPlayerFllll(void *, int, int, int, int);
 void set_texture_name(void *, void *, void *, s32);
 void load_texture_list(void *);
 extern s32 __vt__16TEffIndirectCtrl[];
@@ -73,8 +73,6 @@ void deform_indirect_texture_scroll(u8 *p, u32 px, u32 py, u8 amp, u32 phase);
 extern "C" {
 
 void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1);
-void copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *arg0, s32 arg1);
-void render__16TEffIndirectCtrlFv(void);
 s32 DCFlushRange(s32, s32);
 void TLobby__sub_803DA16C(void *);
 void __dl__7TObjectFPv(void *);
@@ -82,11 +80,11 @@ void __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 memcpy(s32, s32, s32);
 
-void render__16TEffIndirectCtrlFv(void) {  }
+void TEffIndirectCtrl::render() {  }
 
-void copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *arg0, s32 arg1) {
-    memcpy(*(s32 *)((s8 *)arg0 + 0x1C), arg1, 0x1000);
-    DCFlushRange((s32)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)(0x1000));
+void TEffIndirectCtrl::copy_and_flush_texture(s32 arg1) {
+    memcpy(*(s32 *)((s8 *)this + 0x1C), arg1, 0x1000);
+    DCFlushRange((s32)(*(s32 *)((s8 *)this + 0x1C)), (s32)(0x1000));
 }
 
 extern s32 __vt__16TEffIndirectCtrl[];
@@ -111,8 +109,8 @@ Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent)
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = ((s32 *)&__vt__16TEffIndirectCtrl);
     self->f0 = TEffIndirectCtrl__name;
-    self->f28 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
-    self->f2c = (P2C_802A8B58 *)alloc__23TAdSinglePlyChrSelectGCFPv(8);
+    self->f28 = alloc__23TAdSinglePlyChrSelectGCFv(0x24);
+    self->f2c = (P2C_802A8B58 *)alloc__23TAdSinglePlyChrSelectGCFv(8);
     {
     void *obj = self;
     if (self->f2c == NULL || self->f28 == NULL) {
@@ -137,11 +135,11 @@ Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent)
     tex = (u8 *)get_indirect_source_id(self->f24) + k * 1000;
     self->f2c->a = self->f30;
     self->f2c->b = 1;
-    set_render_rect__10TObjPlayerFPviiii(self->f28, 0, 1, 0x40, 0x40);
+    set_render_rect__10TObjPlayerFllll(self->f28, 0, 1, 0x40, 0x40);
     set_texture_name(self->f30, self->f28, tex, 0x8800000);
     load_texture_list(self->f2c);
     self->f1c = *(u32 *)(*(u8 **)(*(u8 **)((u8 *)self->f2c->a + 8) + 0xC) + 0x20);
-    copy_and_flush_texture__16TEffIndirectCtrlFPvi(self, get_indirect_source_pixels(self->f24));
+    ((TEffIndirectCtrl *)self)->copy_and_flush_texture(get_indirect_source_pixels(self->f24));
     return self;
 }
 

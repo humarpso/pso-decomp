@@ -1,22 +1,23 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe2Flower.h"
 
 extern "C" {
 s32 obj_isState2_324(void *);
 u8 *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv();
-s32 is_valid_target__9TObjEneDDFPv(void *);
+s32 is_valid_target__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805D9FF4;
-u8 *find_target_in_range__16TObjEneRe2FlowerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-int get_flag_11__16TObjEneRe2FlowerFPv(void* p);
+int get_flag_11__16TObjEneRe2FlowerFv(void* p);
 void TObjEneRe2Flower__sub_800C3BA8(void);
 
 void TObjEneRe2Flower__sub_800C3BA8(void) {  }
-u8 *find_target_in_range__16TObjEneRe2FlowerFPv(u8 *arg0) {
+u8 *TObjEneRe2Flower::find_target_in_range() {
+    u8 *arg0 = (u8 *)this;
     s32 n;
     u8 *result;
     u8 *p;
@@ -25,12 +26,12 @@ u8 *find_target_in_range__16TObjEneRe2FlowerFPv(u8 *arg0) {
     n = get_game_mode__6TLobbyFv();
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (is_valid_target__9TObjEneDDFPv(p) != 0 && obj_isState2_324(p) == 0) {
+        if (is_valid_target__9TObjEneDDFv(p) != 0 && obj_isState2_324(p) == 0) {
             result = p;
             break;
         }
     }
-    if (is_valid_target__9TObjEneDDFPv(result) != 0 && horizontal_distance_squared(arg0 + 0x38, result + 0x38) < lbl_805D9FF4) {
+    if (is_valid_target__9TObjEneDDFv(result) != 0 && horizontal_distance_squared(arg0 + 0x38, result + 0x38) < lbl_805D9FF4) {
         return result;
     }
     return NULL;

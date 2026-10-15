@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct B_80068018 { u8 pad[0x18]; };
 
@@ -65,7 +66,7 @@ extern "C" {
 extern G_80068018 controller_input_state;
 extern s32 lbl_80488838[];
 O_80068018 *construct_derived__11TCameraCtrlFPv(O_80068018 *self);
-Vec_8006835C *get_target__11TCameraCtrlFPv(void *);
+Vec_8006835C *get_target__11TCameraCtrlFv(void *);
 void direction_to_pitch_yaw(void *, void *, void *);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32, void *);
 void TCameraCtrl__sub_801E32D8(f32, f32);
@@ -83,7 +84,6 @@ extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8F94;
 extern const f32 lbl_805D8F98;
 extern const f32 lbl_805D8F9C;
-void post_update_view__11TCameraCtrlFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv(void);
 extern Flags_8006835C TCameraCtrl__view_state;
@@ -93,8 +93,8 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 f32 fabs_float();
 s32 get_camera_mode__11TCameraCtrlFv();
-Vec_8006835C *get_position_ptr__10TObjPlayerFPv(void *);
-Vec_8006835C *get_target_ptr__11TCameraCtrlFPv(void *);
+Vec_8006835C *get_position_ptr__10TObjPlayerFv(void *);
+Vec_8006835C *get_target_ptr__11TCameraCtrlFv(void *);
 Hit_8006809C *csnVector(void *, void *, s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 vec3_dot(void *, void *);
@@ -112,7 +112,6 @@ extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8F88;
 extern const f32 lbl_805D8F8C;
 extern const f32 lbl_805D8F90;
-s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_80488A28[];
 extern const f32 TCameraCtrl__data_805D8F80;
@@ -127,7 +126,6 @@ void *TCameraCtrl__sub_80067FC0(void *arg0, s16 arg1);
 void TCameraCtrl__sub_80068354(void);
 void TCameraCtrl__sub_80068358(void);
 void *TCameraCtrl__sub_800686BC(void *arg0, s16 arg1);
-void set_target_pos__11TCameraCtrlFPvPv(void* p, void* q);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -153,11 +151,12 @@ O_80068018 *construct_derived__11TCameraCtrlFPv(O_80068018 *self) {
     return self;
 }
 
-void set_target_pos__11TCameraCtrlFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x48) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4c) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x50) = *(f32*)((char*)q + 0x8); }
+void TCameraCtrl::set_target_pos(void* q) { *(f32*)((char*)this + 0x48) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4c) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x50) = *(f32*)((char*)q + 0x8); }
 
 #pragma push
 #pragma fp_contract on
-s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self) {
+s32 TCameraCtrl::predict_obstruction() {
+    Cam_8006809C *self = (Cam_8006809C *)this;
     Vec_8006835C dir;
     Vec_8006835C probe;
     Vec_8006835C d;
@@ -171,8 +170,8 @@ s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self) {
     if (self->obj == NULL) {
         return 0;
     }
-    tgt = get_target_ptr__11TCameraCtrlFPv(self->obj);
-    pos = get_position_ptr__10TObjPlayerFPv(self->obj);
+    tgt = get_target_ptr__11TCameraCtrlFv(self->obj);
+    pos = get_position_ptr__10TObjPlayerFv(self->obj);
     d.x = pos->x - tgt->x;
     d.y = pos->y - tgt->y;
     d.z = pos->z - tgt->z;
@@ -237,7 +236,7 @@ void TCameraCtrl__sub_80068358(void) {  }
 
 extern s32 lbl_80488A28[];
 
-void post_update_view__11TCameraCtrlFv(void) {
+void TCameraCtrl::post_update_view() {
     Vec_8006835C e;
     Vec_8006835C d;
     Vec_8006835C *t;
@@ -254,7 +253,7 @@ void post_update_view__11TCameraCtrlFv(void) {
         d.z = TCameraCtrl__data_805D8F80;
     }
     direction_to_pitch_yaw(&d, camera_ctrl_instance->f190, camera_ctrl_instance->f194);
-    t = get_target__11TCameraCtrlFPv(camera_ctrl_instance);
+    t = get_target__11TCameraCtrlFv(camera_ctrl_instance);
     e.x = camera_ctrl_instance->target.x + t->x;
     e.y = camera_ctrl_instance->target.y + t->y;
     e.z = camera_ctrl_instance->target.z + t->z;

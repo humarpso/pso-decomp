@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOExplosiveMachine.h"
 
 struct Base1_80166568 { char pad[0x18]; };
 struct VObj1_80166568 : Base1_80166568 {
@@ -54,10 +55,9 @@ struct VObj_80166814 : VBase_80166814 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80166614_lbl_804B1AA0 explosive_machine_resource_desc;
 extern u32 explosive_machine_model_archive;
-void load_shared_resource__18TOExplosiveMachineFv(void);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 extern char __vt__18TOExplosiveMachine[];
@@ -73,19 +73,14 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0);
 s32 is_any_player_within_radius_xz(f32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DB600;
-s32 check_trigger__18TOExplosiveMachineFPv(void *arg0);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_persistent_sound(int, void *, void *, int, int);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DB604;
-s32 update_trigger__18TOExplosiveMachineFPv(void *arg0);
 }
 
 extern "C" {
 
-void destroy_static_lobby__18TOExplosiveMachineFv(void);
-void explode__18TOExplosiveMachineFPv(u8 *arg0);
-void update__18TOExplosiveMachineFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
@@ -93,15 +88,16 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 check_demo_mode__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
-void explode__18TOExplosiveMachineFPv(u8 *arg0) {
+void TOExplosiveMachine::explode() {
+    u8 *arg0 = (u8 *)this;
     VObj1_80166568 *self = (VObj1_80166568 *)arg0;
     if (self->m8(*(f32 *)((s8 *)arg0 + 0x90), *(f32 *)((s8 *)arg0 + 0x94)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
@@ -109,7 +105,7 @@ void explode__18TOExplosiveMachineFPv(u8 *arg0) {
 
 extern u32 explosive_machine_model_archive;
 
-void destroy_static_lobby__18TOExplosiveMachineFv(void) {
+void TOExplosiveMachine::destroy_static_lobby() {
     if ((u32) explosive_machine_model_archive != 0U) {
         TLobby__sub_8001FE7C((void*)explosive_machine_model_archive, 1);
         explosive_machine_model_archive = 0U;
@@ -118,10 +114,10 @@ void destroy_static_lobby__18TOExplosiveMachineFv(void) {
 
 extern const f32 lbl_805DB608;
 
-void load_shared_resource__18TOExplosiveMachineFv(void) {
+void TOExplosiveMachine::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &explosive_machine_resource_desc.value, 0, 0, 0));
@@ -160,66 +156,66 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0) {
     return arg0;
 }
 
-s32 check_trigger__18TOExplosiveMachineFPv(void *arg0) {
-    switch (*(s32 *)((s8 *)arg0 + 0xC8)) {
+s32 TOExplosiveMachine::check_trigger() {
+    switch (*(s32 *)((s8 *)this + 0xC8)) {
     case 0:
         break;
     case 1:
         if (is_any_player_within_radius_xz(lbl_805DB600) == 1) {
-            ((VObj_80166778 *)arg0)->m12();
+            ((VObj_80166778 *)this)->m12();
         }
         break;
     case 2:
-        if (is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0xCC)) == 1) {
-            ((VObj_80166778 *)arg0)->m12();
+        if (is_current_floor_switch_set(*(s32 *)((s8 *)this + 0xCC)) == 1) {
+            ((VObj_80166778 *)this)->m12();
         }
         break;
     }
 }
 
-s32 update_trigger__18TOExplosiveMachineFPv(void *arg0) {
+s32 TOExplosiveMachine::update_trigger() {
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
+    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
     switch (temp_r0) {
     case 0:
         break;
     case 1:
         if (is_any_player_within_radius_xz((f32) (lbl_805DB604)) != 1) {
-            ((VObj_80166814 *)(arg0))->m13();
+            ((VObj_80166814 *)(this))->m13();
         }
         break;
     case 2:
-        if (is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0xCC)) != 1) {
-            ((VObj_80166814 *)(arg0))->m13();
+        if (is_current_floor_switch_set(*(s32 *)((s8 *)this + 0xCC)) != 1) {
+            ((VObj_80166814 *)(this))->m13();
         }
         break;
     }
-    play_persistent_sound((int) (0x4004C10F), (void *) (arg0), (void *) ((u8 *)arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((int) (0x4004C10F), (void *) (this), (void *) ((u8 *)this + 0x38), (int) (0), (int) (0));
 }
 
-void update__18TOExplosiveMachineFPv(void *arg0) {
+void TOExplosiveMachine::update() {
     f32 temp_f0;
     f32 temp_f1;
     s32 temp_r0;
 
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        ((V_A_801668cc_80166568 *)arg0)->m14();
+        ((V_A_801668cc_80166568 *)this)->m14();
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
+    temp_r0 = *(s32 *)((s8 *)this + 0xAC);
     switch (temp_r0) {
     case 0:
-        check_trigger__18TOExplosiveMachineFPv((void *)(arg0));
+        check_trigger();
         break;
     case 1:
-        update_trigger__18TOExplosiveMachineFPv((void *)(arg0));
+        update_trigger();
         break;
     }
-    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) + lbl_805DB608);
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0xB4);
-    temp_f0 = *(f32 *)((s8 *)arg0 + 0xB0);
+    *(f32 *)((s8 *)this + 0xB0) = (f32) (*(f32 *)((s8 *)this + 0xB0) + lbl_805DB608);
+    temp_f1 = *(f32 *)((s8 *)this + 0xB4);
+    temp_f0 = *(f32 *)((s8 *)this + 0xB0);
     if (temp_f1 < temp_f0) {
-        *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (temp_f0 - temp_f1);
+        *(f32 *)((s8 *)this + 0xB0) = (f32) (temp_f0 - temp_f1);
     }
 }
 

@@ -11,7 +11,7 @@ s32 TWindowDD__sub_80347C50();
 s32 play_se__9TWindowDDFv();
 s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
-s32 test_input_flag_4__9TWindowDDFPv(void *);
+s32 test_input_flag_4__9TWindowDDFv(void *);
 void TWindowDD__sub_80342800(u8 *arg0);
 s16 TWindowDD__sub_80342158(int);
 void TWindowDD__sub_803428C4(u8 *arg0);
@@ -25,7 +25,7 @@ s32 update_selection_state__9TWindowDDFPv(void *);
 s32 play_se__9TWindowDDFv();
 s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
-s32 test_input_flag_4__9TWindowDDFPv(void *);
+s32 test_input_flag_4__9TWindowDDFv(void *);
 void TWindowDD__sub_803429B0(u8 *arg0);
 }
 
@@ -42,7 +42,7 @@ s32 TWindowDD__sub_80347C50();
 s32 TWindowDD__sub_803482B0(void *);
 s32 play_se__9TWindowDDFv();
 s32 play_sound__9TWindowDDFv();
-s32 test_input_flag_4__9TWindowDDFPv(void *);
+s32 test_input_flag_4__9TWindowDDFv(void *);
 s32 update_close_flag__9TWindowDDFPv(void *);
 
 void enter_state_16__9TWindowDDFPv(void *arg0) {
@@ -55,7 +55,7 @@ void enter_state_16__9TWindowDDFPv(void *arg0) {
     case 0:
         TWindowDD__sub_80347C50();
         update_selection_state__9TWindowDDFPv(arg0);
-        if (test_input_flag_4__9TWindowDDFPv((void *)(arg0)) != 0) {
+        if (test_input_flag_4__9TWindowDDFv((void *)(arg0)) != 0) {
             play_sound__9TWindowDDFv();
             var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
         } else if (TWindowDD__sub_803482B0((void *)(arg0)) != 0) {
@@ -76,7 +76,7 @@ void enter_state_16__9TWindowDDFPv(void *arg0) {
 void update_state__9TWindowDDFPv(void *arg0) {
     TWindowDD__sub_80347C50();
     update_selection_state__9TWindowDDFPv(arg0);
-    if (test_input_flag_4__9TWindowDDFPv((void *)(arg0)) != 0) {
+    if (test_input_flag_4__9TWindowDDFv((void *)(arg0)) != 0) {
         play_sound__9TWindowDDFv();
         *(s32 *)((s8 *)arg0 + 0xB4) = 0xF;
         TWindowDD__sub_803435A0((void *)(arg0));
@@ -96,7 +96,7 @@ void TWindowDD__sub_80342800(u8 *arg0) {
     var_r3 = (u8 *)(var_r31);
     update_selection_state__9TWindowDDFPv((void *)((int) (var_r3)));
     var_r3 = (u8 *)(var_r31);
-    if (test_input_flag_4__9TWindowDDFPv((void *)((int) (var_r3))) != 0) {
+    if (test_input_flag_4__9TWindowDDFv((void *)((int) (var_r3))) != 0) {
         play_sound__9TWindowDDFv();
         var_r3 = (u8 *)(var_r31 + (*(s32 *)((s8 *)var_r31 + 0x20) * 4));
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x24));
@@ -144,7 +144,7 @@ void TWindowDD__sub_803428C4(u8 *arg0) {
 
 void update__9TWindowDDFi(s32 arg0) {
     TWindowDD__sub_80347C50();
-    if (test_input_flag_4__9TWindowDDFPv((void *)(arg0)) != 0) {
+    if (test_input_flag_4__9TWindowDDFv((void *)(arg0)) != 0) {
         play_sound__9TWindowDDFv();
         TWindowDD__sub_803428C4((u8 *)(arg0));
         TWindowDD__sub_803435A0((void *)(arg0));
@@ -162,7 +162,7 @@ void TWindowDD__sub_803429B0(u8 *arg0) {
     switch (*(s32 *)((s8 *)arg0 + 0xB8)) {
     case 0:
         ((s32 (*)())update_selection_state__9TWindowDDFPv)();
-        if (test_input_flag_4__9TWindowDDFPv(arg0) != 0) {
+        if (test_input_flag_4__9TWindowDDFv(arg0) != 0) {
             play_sound__9TWindowDDFv();
             var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
         } else if (TWindowDD__sub_803482B0(arg0) != 0) {

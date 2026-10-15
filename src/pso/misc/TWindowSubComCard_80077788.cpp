@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -33,17 +34,13 @@ struct Out_800778B4 { s32 a; s32 b; };
 extern "C" {
 void __dl__FPv(void*);
 extern s32 lbl_805D4E5C;
-void release__17TWindowSubComCardFv(void);
 extern s32 lbl_805D4E58;
-s32 get_chr_select__17TWindowSubComCardFv(void);
 u8 * copy_struct28__17TWindowSubComCardFii(s32 arg0, s32 arg1);
-s32 find_value_by_key__17TWindowSubComCardFPvUs(S_80077840 *arr, u16 key);
 void set_value_by_key(S_80077814 *arr, u16 key, s32 val);
 void TLobby__sub_80077798(S_80077798 *src, DO_80077798 *dst);
 void TWindowSubComCard__sub_80077980(S_80077980 *arr);
 u32 find_table_entry_id(Tbl_800777C4 *t, u16 a, u32 b);
 u8 * copy_struct28__17TWindowSubComCardFii(s32 arg0, s32 arg1);
-s32 find_value_by_key__17TWindowSubComCardFPvUs(S_80077840 *arr, u16 key);
 void TWindowSubComCard__sub_80077980(S_80077980 *arr);
 u32 find_table_entry_id(Tbl_800777C4 *t, u16 a, u32 b);
 void TWindowSubComCard__sub_800778B4(Out_800778B4 *arg0, Tbl_800777C4 *arg1);
@@ -53,11 +50,10 @@ extern "C" {
 
 int fn_80077788(void);
 int fn_80077790(void);
-s32 get_com_count__17TWindowSubComCardFv(void);
 int get_localized_text_entry(void*, void*);
 int bswap_32__FPUl(void*);
-int byteswap_entry__20TWindowSubSymbolChatFPv(void*);
-int is_initialized__20TWindowSubSymbolChatFPv(void* p);
+int byteswap_entry__20TWindowSubSymbolChatFv(void*);
+int is_initialized__20TWindowSubSymbolChatFv(void* p);
 
 int fn_80077788(void) { return 0; }
 int fn_80077790(void) { return 0; }
@@ -102,7 +98,8 @@ void set_value_by_key(S_80077814 *arr, u16 key, s32 val) {
     }
 }
 
-s32 find_value_by_key__17TWindowSubComCardFPvUs(S_80077840 *arr, u16 key) {
+s32 TWindowSubComCard::find_value_by_key(u16 key) {
+    S_80077840 *arr = (S_80077840 *)this;
     s32 i;
     for (i = 0; i < 5; i++) {
         if (arr->key == key) {
@@ -113,16 +110,16 @@ s32 find_value_by_key__17TWindowSubComCardFPvUs(S_80077840 *arr, u16 key) {
     return 0;
 }
 
-s32 get_com_count__17TWindowSubComCardFv(void) {
+s32 TWindowSubComCard::get_com_count() {
     return lbl_805D4E5C;
 }
-void release__17TWindowSubComCardFv(void) {
+void TWindowSubComCard::release() {
     if ((u32) (*(u32 *)&lbl_805D4E5C) != 0U) {
         __dl__FPv((void*)(*(u32 *)&lbl_805D4E5C));
         (*(u32 *)&lbl_805D4E5C) = 0U;
     }
 }
-s32 get_chr_select__17TWindowSubComCardFv(void) {
+s32 TWindowSubComCard::get_chr_select() {
     return lbl_805D4E58;
 }
 
@@ -143,7 +140,7 @@ void TWindowSubComCard__sub_800778B4(Out_800778B4 *arg0, Tbl_800777C4 *arg1) {
     while (i < n) {
         if (e->a == 0) {
             id = dst->a = e->b;
-            k = find_value_by_key__17TWindowSubComCardFPvUs(tmp, id);
+            k = ((TWindowSubComCard *)tmp)->find_value_by_key(id);
             dst->b = (u16) find_table_entry_id(arg1, id, k);
             dst++;
         }

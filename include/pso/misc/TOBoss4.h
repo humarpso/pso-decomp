@@ -5,6 +5,8 @@
 
 struct TOBoss4
 {
+    static void free_instance();
+    static void load_static_resource();
 };
 
 #endif

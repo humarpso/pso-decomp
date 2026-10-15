@@ -2,7 +2,6 @@
 
 extern "C" {
 s32 TBoss8Dragon__sub_802F3C94(void *arg0, s32 arg1);
-u16 get_part_count_plus__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void clear_boss8_dragon_leader_part(void);
     extern void* boss8_dragon_leader_part;
 void clear_boss8_dragon_leader_part(void);
@@ -11,25 +10,20 @@ void TBoss8Dragon__sub_802F3C74(void);
 void *__nw__7TObjectFUl(int);
 void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1);
 void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1);
-void *ct__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 extern s32 lbl_804E4BF0[];
 extern void *boss8_dragon_leader_part;
-void *ct__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, void *arg2);
-void *dt__12TBoss8DragonFPvs(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 extern s32 lbl_804E4BF0[];
 extern void *boss8_dragon_leader_part;
-void *dt__12TBoss8DragonFPvs(void *arg0, s16 arg1);
 void TBoss8Dragon__sub_802F3B54(void);
 void TBoss8Dragon__sub_802F3B54(void);
 void TBoss8Dragon__sub_802F3B50(void);
 void TBoss8Dragon__sub_802F3B50(void);
 s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4);
 void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
-u16 get_part_count_plus__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 s32 TBoss8Dragon__sub_802F3C94(void *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4);
@@ -41,6 +35,7 @@ extern "C" {
 extern "C" {
 
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 extern "C" {
 s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4) {
@@ -50,7 +45,7 @@ s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 
     TBoss4DarkFalz__sub_8004B4F0((void *) (arg4), (void *) (arg0 + 0x1C));
     *(s16 *)((s8 *)arg4 + 0) = TBoss8Dragon__sub_802F3C94((void *)((void *) (arg0)), (s32)((void *) (arg3)));
     *(s16 *)((s8 *)arg4 + 2) = 0;
-    *(s16 *)((s8 *)arg4 + 6) = get_part_count_plus__12TBoss8DragonFPvi((void *)((void *) (arg0)), (s32)((void *) (arg3)));
+    *(s16 *)((s8 *)arg4 + 6) = ((TBoss8Dragon *)arg0)->get_part_count_plus((s32)((void *) (arg3)));
     if (arg1 != 0U) {
         VecCopy__FP3VecPC3Vec((void *) (arg4 + 0x10), (void *) (arg1));
     }
@@ -63,35 +58,35 @@ void TBoss8Dragon__sub_802F3B50(void) {  }
 
 void TBoss8Dragon__sub_802F3B54(void) {  }
 
-void *dt__12TBoss8DragonFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E4BF0;
-        if (boss8_dragon_leader_part == arg0) {
+void *TBoss8Dragon::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804E4BF0;
+        if (boss8_dragon_leader_part == this) {
             boss8_dragon_leader_part = NULL;
         }
-        __dt__7TObjectFv(arg0, 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
-void *ct__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E4BF0;
+void *TBoss8Dragon::ct(void *arg1, void *arg2) {
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804E4BF0;
     if (boss8_dragon_leader_part == NULL) {
-        boss8_dragon_leader_part = arg0;
+        boss8_dragon_leader_part = this;
     }
-    TBoss4DarkFalz__sub_8004B4F0((void *)((char *)arg0 + 28), arg2);
-    return arg0;
+    TBoss4DarkFalz__sub_8004B4F0((void *)((char *)this + 28), arg2);
+    return this;
 }
 
 void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x5C);
     if (o != NULL) {
-        o = ct__12TBoss8DragonFPvPvPv((void *)(o), (void *)(arg0), (void *)(arg1));
+        o = ((TBoss8Dragon *)o)->ct((void *)(arg0), (void *)(arg1));
     }
     return o;
 }
@@ -100,8 +95,8 @@ void TBoss8Dragon__sub_802F3C74(void) {  }
 
 void clear_boss8_dragon_leader_part(void) { boss8_dragon_leader_part = 0; }
 
-u16 get_part_count_plus__12TBoss8DragonFPvi(void *arg0, s32 arg1) {
-    return (u16) (*(u16 *)((s8 *)arg0 + 0x22) + arg1);
+u16 TBoss8Dragon::get_part_count_plus(s32 arg1) {
+    return (u16) (*(u16 *)((s8 *)this + 0x22) + arg1);
 }
 
 s32 TBoss8Dragon__sub_802F3C94(void *arg0, s32 arg1) {

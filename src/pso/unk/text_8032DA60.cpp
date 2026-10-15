@@ -2,7 +2,7 @@
 struct T_8032DA60 { u8 pad0[0x70]; void *f70; void *f74; s32 f78; };
 
 extern "C" {
-s32 start_guardianna_hit_card__10TObjPlayerFiPvi(s32, void *, s32);
+s32 start_guardianna_hit_card__10TObjPlayerFlPUll(s32, void *, s32);
 void start_guardianna_wall_card();
 void config_guardianna_attack_collider(void *self, T_8032DA60 *p);
 }
@@ -11,7 +11,7 @@ extern "C" {
 
 void config_guardianna_attack_collider(void *self, T_8032DA60 *p) {
     p->f78 = 0x176;
-    p->f74 = (void *)start_guardianna_hit_card__10TObjPlayerFiPvi;
+    p->f74 = (void *)start_guardianna_hit_card__10TObjPlayerFlPUll;
     p->f70 = (void *)start_guardianna_wall_card;
 }
 

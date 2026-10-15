@@ -10,7 +10,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_cane_weapon(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
-void set_atp__10TObjPlayerFPvs(void *, s16);
+void set_atp__10TObjPlayerFs(void *, s16);
 extern RecoveredGlobal_801301D0_lbl_804A68C8 lbl_804A68C8;
 extern const f32 lbl_805DAFFC;
 u8 *construct_cane_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
@@ -25,7 +25,7 @@ u8 *construct_cane_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DAFFC;
     *(s32 *)((s8 *)arg0 + 0x1FC) = 0;
     if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 4U) {
-        set_atp__10TObjPlayerFPvs(arg0, -1);
+        set_atp__10TObjPlayerFs(arg0, -1);
     }
     return arg0;
 }

@@ -24,6 +24,10 @@ struct TOKeyGenericSw
     u32 m_f0;
     u32 m_f4;
     u32 m_f8;
+    void render();
+    static void *create(void *arg0);
+    static void free_shared_resources();
+    static void load_resources();
 };
 
 #endif

@@ -16,8 +16,8 @@ struct Ctx_80290B3C {
 };
 
 extern "C" {
-void *construct__9TItemDropFPv(void *p);
-void *destroy__9TItemDropFPvs(void *p, s16 flag);
+void *construct__9TItemDropFv(void *p);
+void *destroy__9TItemDropFs(void *p, s16 flag);
 u32 relocate_data_block_pointers(u32 arg0, u32 arg1);
 }
 
@@ -31,7 +31,7 @@ u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     u32 i;
     u32 n;
     u32 r;
-    construct__9TItemDropFPv(&c);
+    construct__9TItemDropFv(&c);
     c.base = arg0;
     c.size = arg1;
     h = (Hdr_80290B3C *)(c.base + c.size) - 1;
@@ -44,7 +44,7 @@ u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     }
     r = h->end + c.base;
     c.result = r;
-    destroy__9TItemDropFPvs(&c, -1);
+    destroy__9TItemDropFs(&c, -1);
     return r;
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowQuantity.h"
 
 struct Quantity_8026D000 {
     s32 f0;
@@ -15,12 +16,11 @@ struct Quantity_8026D000 {
 extern "C" {
 s32 setup_window_draw_context(void *, void *);
 s32 draw_visible_window_entries(void *, void *, int);
-void set_position__15TWindowQuantityFPvi(void *arg0, s32 arg1);
 void render__15TWindowQuantityFv(s32 arg0);
 s32 get_camera_id__11TCameraCtrlFv(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 calc_text_width(void);
-u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 void save_position__17TWindowSubComCardFPv(void *);
 void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
 void set_text_entry_string(void *, s32, s32);
@@ -42,34 +42,32 @@ extern "C" {
 
 void *create_window_quantity(void *arg0);
 void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1);
-void run_task__15TWindowQuantityFv(void* p);
-void set_position__15TWindowQuantityFPvi(void *arg0, s32 arg1);
 int update_window_entry_list(void*, void*);
 s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
-int initialize_subwindow__9TWindowDDFPv(void*);
+void destroy_window_base__9TWindowDDFs(void *, int);
+int initialize_subwindow__9TWindowDDFv(void*);
 
-void set_position__15TWindowQuantityFPvi(void *arg0, s32 arg1) {
-    draw_window_tab(arg1, arg1 + 0x10, 3, *(f32 *)((s8 *)arg0 + 0x60));
+void TWindowQuantity::set_position(s32 arg1) {
+    draw_window_tab(arg1, arg1 + 0x10, 3, *(f32 *)((s8 *)this + 0x60));
 }
 
 void render__15TWindowQuantityFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = setup_window_draw_context((void *)(arg0), (void *) (arg0 + 0x64));
-    set_position__15TWindowQuantityFPvi((void *)((void *) (arg0)), (s32)((int) (temp_r3)));
+    ((TWindowQuantity *)arg0)->set_position((s32)((int) (temp_r3)));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void run_task__15TWindowQuantityFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
+void TWindowQuantity::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list(this, (char*)this + 0x24); }
 
 extern s32 __vt__15TWindowQuantity[];
 
 void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TWindowQuantity;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -89,8 +87,8 @@ void *TWindowQuantity__ct(void *arg0, void *arg1) {
     id = TQuestVmDownLoadServer__sub_8006EF6C(1);
     n = (f32)calc_text_width();
     self->f60 = TWindowSubStatusDisp__sub_802877A4(lbl_805DD2D0 + (lbl_805DD2D4 + n));
-    e0 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-    e1 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    e0 = get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
+    e1 = get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
     set_text_entry_string(e0, id, 0);
     *(f32 *)(e1 + 8) = lbl_805DD2D0 + (lbl_805DD2D4 + (lbl_805DD2D8 + n));
     self->f38 = get_base_y__20TWindowSubStatusDispFf(self->f60);

@@ -11,6 +11,8 @@ public:
     virtual void render();
     s32 m_state;
     s32 m_frameCount;
+public:
+    void render_by_state();
 };
 
 typedef char TAdLoadQuestLineGCFrameOffset[(offsetof(TAdLoadQuestLineGC, m_frameCount) == 0x20) ? 1 : -1];

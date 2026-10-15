@@ -1,19 +1,18 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2.h"
 
 extern "C" {
 s32 world_to_grid_pos__11TBoss6Type2FPvPvPv(s32, u8 *, u8 *);
 void send_6xAD_olga_flow_subordinate_boss_actions(void *);
 void TBoss6Type2__sub_803570C8(void *);
-void send_6xAD_grid_positions__11TBoss6Type2FUcii(u8 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2);
-s32 send_subordinate_actions__11TBoss6Type2Fiiiii(s32, s32, s32, s32, s32);
 
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2) {
-    send_subordinate_actions__11TBoss6Type2Fiiiii(0, arg0, arg1, arg2, arg0);
+    TBoss6Type2::send_subordinate_actions(0, arg0, arg1, arg2, arg0);
 }
 
 struct Pkt_80356F28 { u8 b[0x40]; };
@@ -27,7 +26,7 @@ extern const f32 lbl_805E001C;
 extern const f32 lbl_805E0020;
 extern const f32 lbl_805E0024;
 
-void send_6xAD_grid_positions__11TBoss6Type2FUcii(u8 arg0, s32 arg1, s32 arg2) {
+void TBoss6Type2::send_6xAD_grid_positions(u8 arg0, s32 arg1, s32 arg2) {
     u8 a;
     u8 b;
     u8 buf[0x44];
@@ -49,7 +48,7 @@ void send_6xAD_grid_positions__11TBoss6Type2FUcii(u8 arg0, s32 arg1, s32 arg2) {
     send_6xAD_olga_flow_subordinate_boss_actions((void *)(buf));
 }
 
-s32 send_subordinate_actions__11TBoss6Type2Fiiiii(s32 kind, s32 ids, s32 n, s32 force, s32 unused) {
+s32 TBoss6Type2::send_subordinate_actions(s32 kind, s32 ids, s32 n, s32 force, s32 unused) {
     Pkt_80356F28 pkt;
     s32 i;
 

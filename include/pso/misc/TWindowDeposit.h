@@ -9,6 +9,8 @@ struct TWindowDeposit
     void* m_24;
     u8 _pad28[0x3C];
     void* m_64;
+    void render_status(s32 arg1);
+    void run_task();
 };
 
 #endif

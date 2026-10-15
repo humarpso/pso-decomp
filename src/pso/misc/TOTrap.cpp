@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrap.h"
 
 struct Base_A_80178BC0 { char pad[0x18]; };
 struct V_A_80178BC0 : Base_A_80178BC0 {
@@ -204,10 +205,9 @@ struct Obj_80178E10 { u8 pad0[0x2A8]; u8 *target; u8 pad1[0x7A]; s16 state; u8 p
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
-void update_trap_state__6TOTrapFPv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 obj_getField1c(u32);
-s32 check_player_flag1__6TLobbyFPv(s32);
+s32 check_player_flag1__6TLobbyFv(s32);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 s32 send_code_45_1__10TObjPlayerFi(s32);
@@ -215,26 +215,22 @@ s32 get_player_by_client_id(u32);
 extern const f32 TOTrap__data_805DBA3C;
 f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1);
 s32 submit_cursor_candidate(void *, s32);
-void submit_cursor_and_notify__6TOTrapFPv(u8 *arg0);
 extern u32 trap_scale_factor_table[];
 extern s32 game_difficulty_selection;
-f32 scale_by_table_value__6TOTrapFf(f32 farg0);
 s32 fn_80171314(void *);
-s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s32 get_stat_by_key_state__10TObjPlayerFv(void *);
 s32 get_player_by_client_id(u32);
-s32 is_any_player_matching_stat__6TOTrapFPv(void *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
-s32 calc_attach_pos__10TObjPlayerFPv();
+s32 calc_attach_pos__10TObjPlayerFv();
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 f32 horizontal_distance_squared(void *, void *);
 void send_6x2C_impose_hold(void *, void *, s32, int, f32);
 s32 get_player_by_client_id(u32);
 void TOTrap__vt79(Obj_80178CF8 *self);
-s32 calc_attach_pos__10TObjPlayerFPv();
+s32 calc_attach_pos__10TObjPlayerFv();
 u16 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 s32 get_player_by_client_id(u32);
-void find_target_player__6TOTrapFPv(Obj_80178E10 *arg0);
 }
 
 extern "C" {
@@ -257,20 +253,18 @@ struct VObj_80178EF8_80178BC0 : Base_80178EF8_80178BC0 {
 
 void TOTrap__sub_80178BC0(void);
 void TOTrap__vt80(void *arg0);
-void play_sounds__6TOTrapFi(s32 arg0);
-void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2);
 s32 spawn_particle_effect(s32, s32);
 s32 refresh_collision_body_centers(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 get_player_by_client_id(u32);
-s32 calc_attach_pos__10TObjPlayerFPv();
-s32 check_player_flag1__6TLobbyFPv(s32);
+s32 calc_attach_pos__10TObjPlayerFv();
+s32 check_player_flag1__6TLobbyFv(s32);
 s32 obj_getField1c(u32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 send_code_45_1__10TObjPlayerFi(s32);
 s32 set_flag8__6TLobbyFPv(void *);
 
-f32 scale_by_table_value__6TOTrapFf(f32 farg0) {
+f32 TOTrap::scale_by_table_value(f32 farg0) {
     u32 v[4];
     v[0] = trap_scale_factor_table[0];
     v[1] = trap_scale_factor_table[1];
@@ -283,13 +277,13 @@ void TOTrap__sub_80178BC0(void) {  }
 
 extern const f32 TOTrap__data_805DBA38;
 
-s32 is_any_player_matching_stat__6TOTrapFPv(void *arg0) {
+s32 TOTrap::is_any_player_matching_stat() {
     s32 i;
     void *p;
     for (i = 0; i < 4; i++) {
         p = ((void *)get_player_by_client_id((u32)(i)));
         if (p != 0) {
-            if (((s16)get_stat_by_key_state__10TObjPlayerFPv(p) == (s16)get_stat_by_key_state__10TObjPlayerFPv(arg0)) && (fn_80171314(p) != 0)) {
+            if (((s16)get_stat_by_key_state__10TObjPlayerFv(p) == (s16)get_stat_by_key_state__10TObjPlayerFv(this)) && (fn_80171314(p) != 0)) {
                 return 1;
             }
         }
@@ -300,7 +294,7 @@ s32 is_any_player_matching_stat__6TOTrapFPv(void *arg0) {
 void TOTrap__vt80(void *arg0) {
     s32 temp_r31;
 
-    calc_attach_pos__10TObjPlayerFPv();
+    calc_attach_pos__10TObjPlayerFv();
     refresh_collision_body_centers(arg0);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x84) < 0) {
         u32 p;
@@ -310,7 +304,7 @@ void TOTrap__vt80(void *arg0) {
             u32 v = (u16) obj_getField1c(p);
             if (v < 0x1000U) {
                 temp_r31 = get_player_by_client_id(v);
-                if ((is_locally_controlled__10TObjPlayerFPv(temp_r31) != 0) && (check_player_flag1__6TLobbyFPv(temp_r31) != 0)) {
+                if ((is_locally_controlled__10TObjPlayerFPv(temp_r31) != 0) && (check_player_flag1__6TLobbyFv(temp_r31) != 0)) {
                     send_code_45_1__10TObjPlayerFi(temp_r31);
                 }
             }
@@ -321,7 +315,7 @@ void TOTrap__vt80(void *arg0) {
 
 void TOTrap__vt79(Obj_80178CF8 *self) {
     u8 *pl;
-    calc_attach_pos__10TObjPlayerFPv();
+    calc_attach_pos__10TObjPlayerFv();
     self->idx = find_nearest_visible_player(self, 0, self->x334);
     if (self->idx != 0xFFFF) {
         pl = (u8 *)get_player_by_client_id(self->idx);
@@ -342,13 +336,15 @@ void TOTrap__vt79(Obj_80178CF8 *self) {
     }
 }
 
-void submit_cursor_and_notify__6TOTrapFPv(u8 *arg0) {
+void TOTrap::submit_cursor_and_notify() {
+    u8 *arg0 = (u8 *)this;
     submit_cursor_candidate((void *)((void *) (arg0)), (s32)((int) (-1)));
     ((VObj_18_f90cfc *)(arg0))->m77();
 }
 
-void find_target_player__6TOTrapFPv(Obj_80178E10 *arg0) {
-    calc_attach_pos__10TObjPlayerFPv();
+void TOTrap::find_target_player() {
+    Obj_80178E10 *arg0 = (Obj_80178E10 *)this;
+    calc_attach_pos__10TObjPlayerFv();
     arg0->idx = find_nearest_visible_player(arg0, 0, arg0->range);
     if (arg0->idx != (u16)0xFFFF) {
         arg0->target = (u8 *)get_player_by_client_id(arg0->idx);
@@ -365,18 +361,19 @@ void find_target_player__6TOTrapFPv(Obj_80178E10 *arg0) {
     }
 }
 
-void play_sounds__6TOTrapFi(s32 arg0) {
+void TOTrap::play_sounds() {
+    s32 arg0 = (s32)this;
     spawn_particle_effect(arg0 + 0x2FC, 0x45);
     spawn_particle_effect(arg0 + 0x2FC, 0x46);
 }
 
-void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2) {
+void TOTrap::trigger(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 4) {
         if (arg2 == 1) {
-            ((VObj_80178EF8_80178BC0 *)arg0)->m83();
+            ((VObj_80178EF8_80178BC0 *)this)->m83();
         }
-        set_flag8__6TLobbyFPv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        set_flag8__6TLobbyFPv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 
@@ -396,7 +393,7 @@ f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1) {
       if (temp_r3 < 0x1000U)
       {
         temp_r3_2 = get_player_by_client_id((u32)((int) ((s32) temp_r3)));
-        if (((temp_r3_2 != 0) && (is_locally_controlled__10TObjPlayerFPv((int)((int) temp_r3_2)) != 0)) && (check_player_flag1__6TLobbyFPv((s32)((int) ((long long) temp_r3_2))) != 0))
+        if (((temp_r3_2 != 0) && (is_locally_controlled__10TObjPlayerFPv((int)((int) temp_r3_2)) != 0)) && (check_player_flag1__6TLobbyFv((s32)((int) ((long long) temp_r3_2))) != 0))
         {
           send_code_45_1__10TObjPlayerFi((s32)((int) temp_r3_2));
         }
@@ -406,7 +403,8 @@ f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1) {
   return TOTrap__data_805DBA3C;
 }
 
-void update_trap_state__6TOTrapFPv(u8 *arg0) {
+void TOTrap::update_trap_state() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((VObj_18 *)(arg0))->m86();

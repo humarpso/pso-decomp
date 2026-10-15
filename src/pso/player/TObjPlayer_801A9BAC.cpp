@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -12,7 +13,6 @@ typedef struct SA9_801a9bac {
 } SA9_801a9bac;
 
 void update_and_destroy__10TObjPlayerFPv(u8 *arg0);
-void update_target__10TObjPlayerFPv(void *arg0);
 s32 deliver_photon_blast_results_delayed(void *);
 s32 step_photon_blast_sequence(void *);
 s32 get_player_by_client_id(u16);
@@ -46,13 +46,13 @@ void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void update_target__10TObjPlayerFPv(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x38) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x3C));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x4C) != 0) {
-        step_photon_blast_sequence(arg0);
+void TObjPlayer::update_target() {
+    *(s32 *)((s8 *)this + 0x38) = get_player_by_client_id(*(u16 *)((s8 *)this + 0x3C));
+    if ((s32) *(s32 *)((s8 *)this + 0x4C) != 0) {
+        step_photon_blast_sequence(this);
         return;
     }
-    update_and_destroy__10TObjPlayerFPv((u8 *)(arg0));
+    update_and_destroy__10TObjPlayerFPv((u8 *)(this));
 }
 
 }

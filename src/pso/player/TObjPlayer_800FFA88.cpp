@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Self_800FFB38 {
     u8 pad[0x20];
@@ -12,8 +13,6 @@ extern const f32 lbl_805DAA6C;
 extern const f32 lbl_805DAA70;
 extern const f32 lbl_805DAA74;
 extern const f32 lbl_805DAA78;
-s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1);
-s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32);
 void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self);
@@ -21,14 +20,12 @@ void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self);
 
 extern "C" {
 
-s32 get_item_ptr__10TObjPlayerFPvi(void *arg0, s32 arg1);
-
-s32 get_item_ptr__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    return *(s32 *)((s8 *)arg0 + 0xE0) + (arg1 * 0x30);
+s32 TObjPlayer::get_item_ptr(s32 arg1) {
+    return *(s32 *)((s8 *)this + 0xE0) + (arg1 * 0x30);
 }
 #pragma push
 #pragma fp_contract on
-s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1) {
+s32 TObjPlayer::interpolate_along_curve(void *arg1) {
     f32 temp_f1;
     f32 temp_f2;
     f32 temp_f31;
@@ -39,7 +36,7 @@ s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     }
     temp_f2 = temp_f1 - lbl_805DAA6C;
     temp_f31 = temp_f2 / lbl_805DAA70;
-    *(f32 *)((s8 *)arg1 + 0) = (lbl_805DAA74 * temp_f31) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x28) + (s32) (lbl_805DAA78 * temp_f31), lbl_805DAA70, temp_f2) + *(f32 *)((s8 *)arg1 + 0);
+    *(f32 *)((s8 *)arg1 + 0) = (lbl_805DAA74 * temp_f31) * sin_table_lookup(*(s32 *)((s8 *)this + 0x28) + (s32) (lbl_805DAA78 * temp_f31), lbl_805DAA70, temp_f2) + *(f32 *)((s8 *)arg1 + 0);
     return 1;
 }
 #pragma pop
@@ -75,7 +72,7 @@ void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self) {
             v[0] = TAdSinglePlyChrSelectGC__sub_80141EA0(p[0]);
             v[1] = TAdSinglePlyChrSelectGC__sub_80141EA0(p[1]);
             v[2] = TAdSinglePlyChrSelectGC__sub_80141EA0(p[2]);
-            if (interpolate_along_curve__10TObjPlayerFPvPv(self, v) != 0) {
+            if (((TObjPlayer *)self)->interpolate_along_curve(v) != 0) {
                 p[0] = TAdSinglePlyChrSelectGC__sub_80141E8C(v[0]);
                 p[1] = TAdSinglePlyChrSelectGC__sub_80141E8C(v[1]);
                 p[2] = TAdSinglePlyChrSelectGC__sub_80141E8C(v[2]);

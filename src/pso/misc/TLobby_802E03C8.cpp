@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-unsigned char get_trade_mode__6TLobbyFv(void);
-
     extern unsigned char TLobby__trade_partner_client_id;
-unsigned char get_trade_mode__6TLobbyFv(void) {  return TLobby__trade_partner_client_id; }
+unsigned char TLobby::get_trade_mode() {  return TLobby__trade_partner_client_id; }
 
 }

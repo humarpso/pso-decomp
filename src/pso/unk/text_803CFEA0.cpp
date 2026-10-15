@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
 struct RecoveredGlobal_803CFEA0_lbl_8047DAE4 {
@@ -27,19 +28,15 @@ extern "C" {
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-s32 get_handle_field_20__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DB30;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-s32 get_field10_or_report__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-s32 get_handle_field_1c__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-s32 get_handle_value_checked__6TLobbyFPv(S_803D0014 *arg0);
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
@@ -53,13 +50,13 @@ extern char lbl_8047DAB8[];
 extern char dvd_default_path_buffer[];
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-s32 get_dvd_file_size__6TLobbyFPv(const char *name);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
-s32 get_handle_field_20__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::get_handle_field_20() {
+    u8 *arg0 = (u8 *)this;
     if (arg0 == NULL) {
         if (((s32 (*)(s32, s32 *, s32)) lbl_805D760C) != NULL) {
             lbl_805D760C(lbl_805D7608, &lbl_8047DAE4.value, 0);
@@ -68,7 +65,8 @@ s32 get_handle_field_20__6TLobbyFPv(u8 *arg0) {
     }
     return *(s32 *)((s8 *)arg0 + 0x20);
 }
-s32 get_field10_or_report__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::get_field10_or_report() {
+    u8 *arg0 = (u8 *)this;
     if (arg0 == NULL) {
         if (((s32 (*)(s32, s32 *, s32)) lbl_805D760C) != NULL) {
             lbl_805D760C(lbl_805D7608, &lbl_8047DB30.value, 0);
@@ -78,7 +76,8 @@ s32 get_field10_or_report__6TLobbyFPv(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x10);
 }
 
-s32 get_handle_value_checked__6TLobbyFPv(S_803D0014 *arg0) {
+s32 TLobby::get_handle_value_checked() {
+    S_803D0014 *arg0 = (S_803D0014 *)this;
     if (arg0 == 0) {
         if ((*(RecoveredCallback_803D0014 *)&lbl_805D760C) != 0) {
             (*(RecoveredCallback_803D0014 *)&lbl_805D760C)(lbl_805D7608, &(*(G_803D0014 *)&lbl_8047DAE4).value, 0);
@@ -88,7 +87,8 @@ s32 get_handle_value_checked__6TLobbyFPv(S_803D0014 *arg0) {
     return arg0->f;
 }
 
-s32 get_handle_field_1c__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::get_handle_field_1c() {
+    u8 *arg0 = (u8 *)this;
     if (arg0 == NULL) {
         if (((s32 (*)(s32, s32 *, s32)) lbl_805D760C) != NULL) {
             lbl_805D760C(lbl_805D7608, &lbl_8047DAE4.value, 0);
@@ -116,7 +116,7 @@ s32 TLobby__sub_803D0654(struct File_803D0654 *arg0, s32 arg1, s32 arg2) {
     return arg0->pos;
 }
 typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
-s32 get_dvd_file_size__6TLobbyFPv(const char *name) {
+s32 TLobby::get_dvd_file_size(const char *name) {
     char *msg = lbl_8047DAB8;
     s32 size;
     u32 len;

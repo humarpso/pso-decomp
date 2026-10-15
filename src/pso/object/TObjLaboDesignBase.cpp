@@ -62,10 +62,10 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
 void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, int, int);
-s32 construct_collider_proxy__10TObjPlayerFPv();
-s32 create__10TObjMapCsnFi(void *, f32, f32);
+s32 construct_collider_proxy__10TObjPlayerFv();
+s32 create__10TObjMapCsnFl(void *, f32, f32);
 void* get_labo_design_entry(int a0);
 int get_labo_design_object(int a0);
 extern s32 __vt__18TObjLaboDesignBase[];
@@ -101,10 +101,10 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void destroy_particle_controller__10TObjPlayerFs(void *, int);
 s32 end_effect_render__13TParticleCtrlFv();
 void queue_destruction__7TObjectFv(void *);
-s32 set_global_param__8TObjFishFi();
+s32 set_global_param__8TObjFishFl();
 
 extern void *tl_05;
 
@@ -308,7 +308,7 @@ void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1) {
 
 void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     TObjFish__sub_8001EDB0((int) (*(s32 *)((s8 *)arg0 + 0xAC)), (int) (0));
-    set_global_param__8TObjFishFi();
+    set_global_param__8TObjFishFl();
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -346,7 +346,7 @@ void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xBC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xBC)); *(s32 *)((s8 *)arg0 + 0xBC) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -360,14 +360,14 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     CopyStack_80365210 copy_storage_80365210;
     s32 temp_r0;
     s32 temp_r4;
-    construct_collider_proxy__10TObjPlayerFPv();
+    construct_collider_proxy__10TObjPlayerFv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80365210___vt__18TObjLaboDesignBase *)&__vt__18TObjLaboDesignBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjLaboDesignBase_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0xB0) = arg3;
     *(s32 *)((s8 *)arg0 + 0xAC) = ((s32)get_labo_design_object((int) (*(s32 *)((s8 *)arg0 + 0xB0))));
     init_collision_body_parts((void *) (arg0), (int) (((s32)get_labo_design_entry((int) (*(s32 *)((s8 *)arg0 + 0xB0))))), (int) (1));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805E02A0;
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805E02A4;
     *(s32 *)((s8 *)arg0 + 0xBC) = 0;
@@ -378,7 +378,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         (*(f32 *)(copy_storage_80365210.bytes + 0x24)) = lbl_805E02A8;
         (*(f32 *)(copy_storage_80365210.bytes + 0x28)) = lbl_805E02AC;
         (*(f32 *)(copy_storage_80365210.bytes + 0x2C)) = lbl_805E02B0;
-        *(s32 *)((s8 *)arg0 + 0xBC) = create__10TObjMapCsnFi((void *) ((copy_storage_80365210.bytes)), (f32) (lbl_805E02AC), (f32) (lbl_805E02A8));
+        *(s32 *)((s8 *)arg0 + 0xBC) = create__10TObjMapCsnFl((void *) ((copy_storage_80365210.bytes)), (f32) (lbl_805E02AC), (f32) (lbl_805E02A8));
     }
     return arg0;
 }

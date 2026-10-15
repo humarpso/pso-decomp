@@ -8,6 +8,9 @@ public:
     virtual ~TAdMultiPlayerNoGC();
     virtual void run_task();
     virtual void render();
+public:
+    void render_status();
+    static void run_task();
 };
 
 #endif

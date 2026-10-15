@@ -37,9 +37,9 @@ void fn_8030B370(O_8030B370 *o) {
 extern "C" {
 s32 is_split_screen();
 s32 TObjPlayer__sub_80084500();
-s32 render_live_monitor_screen__10TObjPlayerFPv(void *);
+s32 render_live_monitor_screen__10TObjPlayerFv(void *);
 void update_camera__15TObjLiveMonitorFPv(void* p);
-s32 get_table_entry__18TObjLiveCameraCtrlFi(int);
+s32 get_table_entry__18TObjLiveCameraCtrlFl(int);
 s32 TObjLiveMonitor__sub_8030C050();
 s32 push_matrix();
 s32 pop_matrix();
@@ -53,13 +53,13 @@ int run_task__15TObjLiveMonitorFv(void* p);
 
 void render__15TObjLiveMonitorFv(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = get_table_entry__18TObjLiveCameraCtrlFi((int) (0));
+    temp_r3 = get_table_entry__18TObjLiveCameraCtrlFl((int) (0));
     if ((temp_r3 != 0) && (TObjLiveMonitor__sub_8030C050() != 0)) {
         update_camera__15TObjLiveMonitorFPv((void *) (temp_r3));
     } else if (is_split_screen() == 0) {
         TObjPlayer__sub_80084500();
     } else {
-        render_live_monitor_screen__10TObjPlayerFPv((void *) (arg0));
+        render_live_monitor_screen__10TObjPlayerFv((void *) (arg0));
     }
     push_matrix();
     draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x1C)));
@@ -112,10 +112,9 @@ void *__ct__15TObjLiveMonitorFv(void *arg0) {
 
 extern "C" {
 
-void *create__15TObjLiveMonitorFPv(void *arg0);
 void *__nw__7TObjectFUl(int);
 
-void *create__15TObjLiveMonitorFPv(void *arg0) {
+void *TObjLiveMonitor::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
         o = ((void *(*)(void *, void *))__ct__15TObjLiveMonitorFv)(o, arg0);
@@ -148,7 +147,7 @@ struct RecoveredGlobal_8030B708___vt__14TObjLiveCamera {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8030B658_lbl_804E76C0 bm_obj_boss8_monitor_resource_descriptor;
 extern int live_monitor_shared_resource;
 void load_static_resource__14TObjLiveCameraFv(void);
@@ -176,7 +175,7 @@ void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(live_moni
 void load_static_resource__14TObjLiveCameraFv(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_boss8_monitor_resource_descriptor.value, 0, 0, 0));
@@ -230,16 +229,17 @@ void fn_8030B7B4(void);
 void fn_8030B7B8(void);
 int call_null__12TBoss8DragonFv(void);
 int update_single_screen__11TCameraCtrlFv(void*);
-int get_global_part_count__12TBoss8DragonFi(void*);
+int get_global_part_count__12TBoss8DragonFl(void*);
 
 void fn_8030B7B4(void) {  }
 void fn_8030B7B8(void) {  }
 void update_camera__15TObjLiveMonitorFPv(void* p) { void* m = *(void**)((char*)p + 0x50); if (m) update_single_screen__11TCameraCtrlFv(m); }
-int call_null__12TBoss8DragonFv(void) { return get_global_part_count__12TBoss8DragonFi((void*)(0)); }
+int call_null__12TBoss8DragonFv(void) { return get_global_part_count__12TBoss8DragonFl((void*)(0)); }
 
 }
 
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 extern "C" {
 s32 angle_diff_s16(int);
@@ -261,7 +261,6 @@ extern const f32 lbl_805DF1C8;
 extern const f32 lbl_805DF1CC;
 extern const f32 lbl_805DF1D0;
 extern const f32 lbl_805DF1D4;
-void update_live_camera__12TBoss8DragonFPv(u8 *arg0);
 f32 calc_random_ratio__10TObjPlayerFv(void *);
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(s32);
@@ -282,13 +281,11 @@ extern const f32 lbl_805DF1A8;
 extern const f32 lbl_805DF1AC;
 extern const f32 lbl_805DF1B0;
 extern const f32 lbl_805DF1B4;
-void choose_next_camera_shot__12TBoss8DragonFPv(u8 *arg0);
 }
 
 extern "C" {
 
 int TBoss8Dragon__sub_8030B80C(void);
-void update_toggle_state__12TBoss8DragonFPv(void *arg0);
 s32 TBoss8Dragon__sub_802F3638();
 s32 TObjPlayer__sub_80082CBC(void *);
 s32 TObjPlayer__sub_80082CCC(void *);
@@ -319,7 +316,8 @@ void TBoss8Dragon__sub_8030B818(u8 *arg0, int _w1) {
 
 #pragma push
 #pragma fp_contract on
-void choose_next_camera_shot__12TBoss8DragonFPv(u8 *arg0) {
+void TBoss8Dragon::choose_next_camera_shot() {
+    u8 *arg0 = (u8 *)this;
     f32 r;
     u8 *p;
     if (*(s16 *)((s8 *)arg0 + 0x1E) < 0) {
@@ -380,7 +378,8 @@ void choose_next_camera_shot__12TBoss8DragonFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void update_live_camera__12TBoss8DragonFPv(u8 *arg0) {
+void TBoss8Dragon::update_live_camera() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     u32 temp_r3_4;
     u8 *temp_r3;
@@ -436,19 +435,19 @@ void update_live_camera__12TBoss8DragonFPv(u8 *arg0) {
 }
 #pragma pop
 
-void update_toggle_state__12TBoss8DragonFPv(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x4C) >= TBoss8Dragon__sub_802F3638()) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 1) {
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x50) != 0U) {
-                TObjPlayer__sub_80082CBC(*(void **)((s8 *)arg0 + 0x50));
+void TBoss8Dragon::update_toggle_state() {
+    if ((s32) *(s32 *)((s8 *)this + 0x4C) >= TBoss8Dragon__sub_802F3638()) {
+        if ((s32) *(s32 *)((s8 *)this + 0x20) == 1) {
+            if ((u32) *(u32 *)((s8 *)this + 0x50) != 0U) {
+                TObjPlayer__sub_80082CBC(*(void **)((s8 *)this + 0x50));
             }
-            *(s32 *)((s8 *)arg0 + 0x20) = 0;
+            *(s32 *)((s8 *)this + 0x20) = 0;
         }
-    } else if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 0) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x50) != 0U) {
-            TObjPlayer__sub_80082CCC(*(void **)((s8 *)arg0 + 0x50));
+    } else if ((s32) *(s32 *)((s8 *)this + 0x20) == 0) {
+        if ((u32) *(u32 *)((s8 *)this + 0x50) != 0U) {
+            TObjPlayer__sub_80082CCC(*(void **)((s8 *)this + 0x50));
         }
-        *(s32 *)((s8 *)arg0 + 0x20) = 1;
+        *(s32 *)((s8 *)this + 0x20) = 1;
     }
 }
 

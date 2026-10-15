@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 typedef struct Ctrl_8024B8A0 {
     u8 pad0[0x1E];
     s16 timer;
@@ -8,14 +9,14 @@ typedef struct Ctrl_8024B8A0 {
 
 extern "C" {
 f32 cos_table_lookup(s32);
-void update_pulse_color__11TWindowCtrlFPv(Ctrl_8024B8A0 *o);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void update_pulse_color__11TWindowCtrlFPv(Ctrl_8024B8A0 *o) {
+void TWindowCtrl::update_pulse_color() {
+    Ctrl_8024B8A0 *o = (Ctrl_8024B8A0 *)this;
     f32 t;
     f32 a;
     t = (u32)o->timer % 100;

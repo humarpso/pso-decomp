@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcMaleBase.h"
 
 struct RecoveredGlobal_8014B9A4_lbl_804AA0D0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8014B9A4_lbl_804AA0D0_size[sizeof(RecoveredGlobal_8014B9A4_lbl_804AA0D0) == 0x10 ? 1 : -1];
@@ -95,11 +96,10 @@ struct RecoveredGlobal_8014BA4C___vt__15TObjNpcMaleBase {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8014B9A4_lbl_804AA0D0 bm_n_ebm_i_body_resource_descriptor;
 extern u32 TObjNpcMaleBase__shared_bml_archive;
-void load_shared_resource__15TObjNpcMaleBaseFv(void);
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__15TObjNpcMaleBase[];
@@ -112,17 +112,16 @@ extern "C" {
 
 void * TObjNpcMaleChild__create(void *arg0);
 void *__dt__15TObjNpcMaleBaseFv(void *arg0, s16 arg1);
-void free_static_data__15TObjNpcMaleBaseFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcMaleChild__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
+void destroy_npc_lappy_base__12TObjNpcLappyFs(void *, int);
 
 extern u32 TObjNpcMaleBase__shared_bml_archive;
 
-void free_static_data__15TObjNpcMaleBaseFv(void) {
+void TObjNpcMaleBase::free_static_data() {
     if ((u32) TObjNpcMaleBase__shared_bml_archive != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcMaleBase__shared_bml_archive, 1);
         TObjNpcMaleBase__shared_bml_archive = 0U;
@@ -131,10 +130,10 @@ void free_static_data__15TObjNpcMaleBaseFv(void) {
 
 extern s32 __vt__15TObjNpcMaleBase[];
 
-void load_shared_resource__15TObjNpcMaleBaseFv(void) {
+void TObjNpcMaleBase::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_ebm_i_body_resource_descriptor.value, 0, 0, 0));
@@ -145,7 +144,7 @@ void load_shared_resource__15TObjNpcMaleBaseFv(void) {
 void *__dt__15TObjNpcMaleBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjNpcMaleBase;
-        destroy_npc_lappy_base__12TObjNpcLappyFPvs(arg0, 0);
+        destroy_npc_lappy_base__12TObjNpcLappyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -161,7 +160,7 @@ u8 *TObjNpcMaleBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014BA4C___vt__15TObjNpcMaleBase *)&__vt__15TObjNpcMaleBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcMaleBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleBase__shared_bml_archive) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleBase__shared_bml_archive) + 0x42C)) + 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdVIConfigGC.h"
 
 struct Elem_80125628 { u8 pad[0x1c]; u8 f1c[0x2c - 0x1c]; };
 
@@ -18,16 +19,14 @@ void spawn_nug2000_hit_explosion(s32 arg0, s32 arg1);
 
 extern "C" {
 
-void apply_config_if_valid__13TAdVIConfigGCFii(s32 arg0, s32 arg1);
-void set_field_2c__13TAdVIConfigGCFPvi(void* p, s32 v);
 void TAdYesNoBaseGC__vt4(void);
 void TAdYesNoBaseGC__vt5(void);
 u32 find_item_by_id(void);
 s32 spawn_fire_explosion_at(u32 a0 = 0, s32 a1 = 0);
 
-void set_field_2c__13TAdVIConfigGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x2c) = v; }
+void TAdVIConfigGC::set_field_2c(s32 v) { *(s32*)((char*)this + 0x2c) = v; }
 
-void apply_config_if_valid__13TAdVIConfigGCFii(s32 arg0, s32 arg1) {
+void TAdVIConfigGC::apply_config_if_valid(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();
     if (temp_r3 != 0U) {
         spawn_fire_explosion_at(temp_r3, arg1);

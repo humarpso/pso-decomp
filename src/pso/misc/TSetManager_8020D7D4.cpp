@@ -2,13 +2,13 @@
 
 extern "C" {
 void TSetManager__sub_8020D7D4(void);
-extern "C" void apply_floor_set_rows__11TSetManagerFPv();
-extern "C" void update_decoration_spawning__11TSetManagerFPv();
+extern "C" void apply_floor_set_rows__11TSetManagerFv();
+extern "C" void update_decoration_spawning__11TSetManagerFv();
 void *set_manager_task_pmf_table[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&apply_floor_set_rows__11TSetManagerFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&apply_floor_set_rows__11TSetManagerFv,
 };
 void *lbl_804C9454[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&update_decoration_spawning__11TSetManagerFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&update_decoration_spawning__11TSetManagerFv,
 };
 void *lbl_804C9460[6] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_dac7f3
 {
@@ -20,14 +21,12 @@ struct E_801BDC98 { u8 b[0x42C]; };
 extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv();
 u8 *get_player_by_client_id(s32);
-s32 init_select_txt__10TObjPlayerFPv(int);
-s32 copy_lobby_header__10TObjPlayerFPvi(int, int);
+s32 init_select_txt__10TObjPlayerFv(int);
+s32 copy_lobby_header__10TObjPlayerFl(int, int);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
-void refresh_player_lobby_headers__10TObjPlayerFv(void);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
-s32 check_flag_at_428__10TObjPlayerFPv(void *);
-void create__10TObjPlayerFUii(u16, void *);
-void create_active_players__10TObjPlayerFv(void);
+s32 check_flag_at_428__10TObjPlayerFv(void *);
+void create__10TObjPlayerFUll(u16, void *);
 }
 
 extern "C" {
@@ -39,21 +38,21 @@ typedef struct VObj_18_dac7f3 VObj_18_dac7f3;
 typedef char RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70_size[((sizeof(RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70)) == 0x3210) ? (1) : (-1)];
 #define PSO_VCALL_VObj_18_dac7f3_m0(_self, _arg0) (((VObj_18_dac7f3 *)(_self))->m0((_arg0)))
 
-void create_active_players__10TObjPlayerFv(void) {
+void TObjPlayer::create_active_players() {
     s32 i;
     E_801BDC98 *p;
     i = 0;
     p = ((E_801BDC98 *)&TObjPlayer__char_data_array);
     do {
-        if (check_flag_at_428__10TObjPlayerFPv(p) != 0) {
-            create__10TObjPlayerFUii(i, p);
+        if (check_flag_at_428__10TObjPlayerFv(p) != 0) {
+            create__10TObjPlayerFUll(i, p);
         }
         i++;
         p++;
     } while (i < 12);
 }
 
-void refresh_player_lobby_headers__10TObjPlayerFv(void) {
+void TObjPlayer::refresh_player_lobby_headers() {
   s32 var_r31;
   u8 *temp_r3;
   s32 *var_r29;
@@ -61,13 +60,13 @@ void refresh_player_lobby_headers__10TObjPlayerFv(void) {
   var_r29 = &TObjPlayer__char_data_array.value;
   do
   {
-    init_select_txt__10TObjPlayerFPv((int) var_r29);
+    init_select_txt__10TObjPlayerFv((int) var_r29);
     temp_r3 = (u8 *) get_player_by_client_id(var_r31);
     if (temp_r3 != 0)
     {
       if (is_locally_controlled__10TObjPlayerFPv() != 0)
       {
-        copy_lobby_header__10TObjPlayerFPvi((int) var_r29, (int) temp_r3);
+        copy_lobby_header__10TObjPlayerFl((int) var_r29, (int) temp_r3);
       }
       if (temp_r3 != 0)
       {

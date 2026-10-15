@@ -7,6 +7,7 @@ struct TWindowCost
 {
     u8 _pad1C[0x8];
     void* m_24;
+    void run_task();
 };
 
 #endif

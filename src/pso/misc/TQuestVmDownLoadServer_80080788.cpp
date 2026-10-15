@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 
 extern "C" {
 
-void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void* p);
-
-void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void* p) { *(u16*)((char*)p + 0x4) &= 0xfffffffb; }
+void TQuestVmDownLoadServer::clear_flag4_bit4() { *(u16*)((char*)this + 0x4) &= 0xfffffffb; }
 
 }

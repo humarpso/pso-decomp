@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemEffPG.h"
 
 struct PgBase_8034FF4C { char pad[0x18]; };
 struct PgV_8034FF4C : PgBase_8034FF4C {
@@ -23,20 +24,17 @@ u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2);
 extern "C" {
 
 void *__dt__10TItemEffPGFv(void *arg0, s16 arg1);
-void create__10TItemEffPGFPvPv(void *arg0, void *arg1);
-void* init_params__10TItemEffPGFPv(void* a0);
-void run_task__10TItemEffPGFv(void *arg0);
 s32 check_hits__14TItemAttackColFPv(void *);
 s32 TItemEffPG__begin_visual_fade(void *);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_attack_collision__14TItemAttackColFPvs(void *, int);
+void destroy_attack_collision__14TItemAttackColFs(void *, int);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 has_game_join_id();
 s32 queue_destruction__7TObjectFv(void *);
 
-void run_task__10TItemEffPGFv(void *arg0) {
+void TItemEffPG::run_task() {
     f32 temp_f1;
     f32 temp_f1_2;
     s32 var_r31;
@@ -45,29 +43,29 @@ void run_task__10TItemEffPGFv(void *arg0) {
     if (has_game_join_id() == 0) {
         var_r31 = 0;
     }
-    if (((PgV_8034FF4C *)arg0)->vf05() == 0) {
+    if (((PgV_8034FF4C *)this)->vf05() == 0) {
         var_r31 = 0;
     }
     if (var_r31 != 0) {
-        temp_f1 = *(f32 *)((s8 *)arg0 + 0x40);
-        if (temp_f1 < *(f32 *)((s8 *)arg0 + 0xC4)) {
-            *(f32 *)((s8 *)arg0 + 0x40) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0xC8));
-            temp_f1_2 = *(f32 *)((s8 *)arg0 + 0xC4);
-            if (temp_f1_2 < *(f32 *)((s8 *)arg0 + 0x40)) {
-                *(f32 *)((s8 *)arg0 + 0x40) = temp_f1_2;
+        temp_f1 = *(f32 *)((s8 *)this + 0x40);
+        if (temp_f1 < *(f32 *)((s8 *)this + 0xC4)) {
+            *(f32 *)((s8 *)this + 0x40) = (f32) (temp_f1 + *(f32 *)((s8 *)this + 0xC8));
+            temp_f1_2 = *(f32 *)((s8 *)this + 0xC4);
+            if (temp_f1_2 < *(f32 *)((s8 *)this + 0x40)) {
+                *(f32 *)((s8 *)this + 0x40) = temp_f1_2;
             }
         }
-        check_hits__14TItemAttackColFPv(arg0);
+        check_hits__14TItemAttackColFPv(this);
         return;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x14) == 0U) {
-        queue_destruction__7TObjectFv(arg0);
-        disallow_rendering__7TObjectFv(arg0);
+    if ((u32) *(u32 *)((s8 *)this + 0x14) == 0U) {
+        queue_destruction__7TObjectFv(this);
+        disallow_rendering__7TObjectFv(this);
         return;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xD0) != 0U) {
-        TItemEffPG__begin_visual_fade(*(void **)((s8 *)arg0 + 0xD0));
-        *(u32 *)((s8 *)arg0 + 0xD0) = 0U;
+    if ((u32) *(u32 *)((s8 *)this + 0xD0) != 0U) {
+        TItemEffPG__begin_visual_fade(*(void **)((s8 *)this + 0xD0));
+        *(u32 *)((s8 *)this + 0xD0) = 0U;
     }
 }
 
@@ -76,7 +74,7 @@ extern s32 __vt__10TItemEffPG[];
 void *__dt__10TItemEffPGFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TItemEffPG;
-        destroy_attack_collision__14TItemAttackColFPvs(arg0, 0);
+        destroy_attack_collision__14TItemAttackColFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -106,7 +104,7 @@ u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     return arg0;
 }
 
-void create__10TItemEffPGFPvPv(void *arg0, void *arg1) {
+void TItemEffPG::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
@@ -117,6 +115,6 @@ void create__10TItemEffPGFPvPv(void *arg0, void *arg1) {
     extern const float lbl_805DFE14;
     extern const float lbl_805DFE1C;
     extern const float lbl_805DFE20;
-void* init_params__10TItemEffPGFPv(void* a0) { TObjPlayer__sub_802E451C(); *(int*)((char*)a0 + 0x10) = 10; *(float*)((char*)a0 + 0x28) = lbl_805DFE14; *(float*)((char*)a0 + 0x2c) = lbl_805DFE1C; *(float*)((char*)a0 + 0x30) = lbl_805DFE20; return a0; }
+void*TItemEffPG::init_params() { TObjPlayer__sub_802E451C(); *(int*)((char*)this + 0x10) = 10; *(float*)((char*)this + 0x28) = lbl_805DFE14; *(float*)((char*)this + 0x2c) = lbl_805DFE1C; *(float*)((char*)this + 0x30) = lbl_805DFE20; return this; }
 
 }

@@ -21,6 +21,9 @@ struct TObjAreaWarpQuest
     u32 m_d4;
     u32 m_d8;
     u32 m_dc;
+    void render();
+    void run_task();
+    s32 get_dest_area();
 };
 
 #endif

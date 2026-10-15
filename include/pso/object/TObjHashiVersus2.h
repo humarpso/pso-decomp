@@ -12,6 +12,8 @@ struct TObjHashiVersus2
     u32 m_34;
     u8 _pad38[0x90];
     u32 m_c8;
+    static void free_static_data();
+    static void load_shared_resource();
 };
 
 #endif

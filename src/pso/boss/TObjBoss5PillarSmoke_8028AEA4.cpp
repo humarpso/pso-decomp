@@ -21,13 +21,13 @@ struct Smoke_8028AF6C {
 extern "C" {
 void __dt__7TObjectFv(void *, s32);
 void queue_destruction__7TObjectFv(void *);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__20TObjBoss5PillarSmoke[];
 Smoke_8028AEA4 *__dt__20TObjBoss5PillarSmokeFv(Smoke_8028AEA4 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-void **alloc_buffer__11TOBoss4RockFPv(s32);
+void **mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80450CD0[];
 extern s32 __vt__20TObjBoss5PillarSmoke[];
@@ -51,8 +51,8 @@ Smoke_8028AEA4 *__dt__20TObjBoss5PillarSmokeFv(Smoke_8028AEA4 *arg0, s16 arg1) {
                 arg0->a[i] = NULL;
             }
         }
-        free__11TOBoss4RockFUi(arg0->b);
-        free__11TOBoss4RockFUi(arg0->a);
+        mem_free(arg0->b);
+        mem_free(arg0->a);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -79,8 +79,8 @@ Smoke_8028AF6C *TObjBoss5PillarSmoke__ct(Smoke_8028AF6C *arg0, void *arg1, Node_
         queue_destruction__7TObjectFv(arg0);
         return arg0;
     }
-    arg0->a = alloc_buffer__11TOBoss4RockFPv(arg0->count * 4);
-    arg0->b = alloc_buffer__11TOBoss4RockFPv(arg0->count * 4);
+    arg0->a = mem_alloc(arg0->count * 4);
+    arg0->b = mem_alloc(arg0->count * 4);
     for (i = 0; i < arg0->count; i++) {
         arg0->a[i] = spawn_continuous_particle_effect_with_flags(lbl_80450CD0, 0x213, 0x40);
         arg0->b[i] = spawn_continuous_particle_effect_with_flags(lbl_80450CD0, 0x214, 0x40);

@@ -6,6 +6,11 @@
 class TPlayerFootStamp : public TObject {
 public:
     virtual ~TPlayerFootStamp();
+public:
+    static void *create(void *arg0, void *arg1);
+    static void free_instance();
+    void render();
+    void run_task();
 };
 
 #endif

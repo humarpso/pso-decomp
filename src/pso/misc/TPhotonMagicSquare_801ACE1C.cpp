@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPhotonMagicSquare.h"
 struct Color_801ACE1C { f32 a, r, g, b; };
 
 struct Vec_801ACE1C { f32 x, y, z; };
@@ -33,7 +34,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 set_chunk_material_color(void *);
 s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
@@ -41,17 +42,17 @@ s32 clear_global_state__10TObjPlayerFv();
 extern Color_801ACE1C chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void render__18TPhotonMagicSquareFv(Self_801ACE1C *self);
 }
 
 extern "C" {
 
-void render__18TPhotonMagicSquareFv(Self_801ACE1C *self) {
+void TPhotonMagicSquare::render() {
+    Self_801ACE1C *self = (Self_801ACE1C *)this;
     begin_effect_render__13TParticleCtrlFv();
     push_matrix();
     post_translate_matrix(&self->vB8);
     rotate_matrix_y(0, self->f60);
-    set_global_param__8TObjFishFi(self->f24);
+    set_global_param__8TObjFishFl(self->f24);
     scale_current_matrix(&self->v68);
     Color_801ACE1C saved = self->color;
     if ((self->fB0 % self->fCC) == 0) {
@@ -97,7 +98,8 @@ void queue_destruction__7TObjectFv(void *);
 
 #pragma push
 #pragma fp_contract on
-void run_task__18TPhotonMagicSquareFv(Self_801ACF24 *self) {
+void TPhotonMagicSquare::run_task() {
+    Self_801ACF24 *self = (Self_801ACF24 *)this;
     if (self->fB0 > self->fC4) {
         self->fB4 = 1;
     }

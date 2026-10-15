@@ -30,13 +30,13 @@ extern "C" {
 
 void TObjEneRecon__vt87(void *arg0);
 s32 TObjEneDD__vt86(void *);
-s32 clamp_min_height__12TObjEneReconFPv(void *);
+s32 clamp_min_height__12TObjEneReconFv(void *);
 
 void TObjEneRecon__vt87(void *arg0) {
     struct VObj_8031DCCC *o = (struct VObj_8031DCCC *)arg0;
     o->m86();
     TObjEneDD__vt86(arg0);
-    clamp_min_height__12TObjEneReconFPv(arg0);
+    clamp_min_height__12TObjEneReconFv(arg0);
 }
 
 }

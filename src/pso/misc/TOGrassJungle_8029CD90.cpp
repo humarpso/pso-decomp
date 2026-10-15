@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOGrassJungle.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -40,7 +41,6 @@ struct VObj_8029CD90 : Base_8029CD90 {
 
 void TOKeyJungleMain__vt20(s32 arg0);
 void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1);
-void render__13TOGrassJungleFv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
@@ -51,16 +51,17 @@ s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 TOGrassJungle__bml_resource;
 extern s32 TOGrassJungle__grass_gvm_texture;
 extern const f32 lbl_805DDD30;
 extern const f32 lbl_805DDD34;
 
-void render__13TOGrassJungleFv(u8 *arg0) {
+void TOGrassJungle::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_8029CD90 *)arg0)->m8(lbl_805DDD30, lbl_805DDD34) == 1) {
-        set_global_param__8TObjFishFi(TOGrassJungle__grass_gvm_texture);
+        set_global_param__8TObjFishFl(TOGrassJungle__grass_gvm_texture);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));

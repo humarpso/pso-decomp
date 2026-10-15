@@ -15,6 +15,8 @@ struct TBoss5GryphonTornado
     u32 m_50;
     u32 m_54;
     u32 m_58;
+    static void render();
+    void run_task();
 };
 
 #endif

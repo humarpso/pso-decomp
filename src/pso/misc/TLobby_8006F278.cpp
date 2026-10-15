@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8006F5B0_lbl_8048C9D8 { s32 value; u8 remaining[0x744]; };
 typedef char RecoveredGlobal_8006F5B0_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006F5B0_lbl_8048C9D8) == 0x748 ? 1 : -1];
@@ -8,30 +9,27 @@ struct G_8006F2CC { u8 pad[0x28]; s32 x28; };
 extern "C" {
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 is_flag_set__6TLobbyFv();
-void advance_state_if_flag_set__6TLobbyFv(void);
 }
 
 extern "C" {
 
-s32 calc_challenge_time_limit__6TLobbyFv(void);
-s32 get_valid_slot__6TLobbyFi(int);
 s32 is_flag_set__6TLobbyFv();
 
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 
-s32 calc_challenge_time_limit__6TLobbyFv(void) {
+s32 TLobby::calc_challenge_time_limit() {
     s32 var_r3;
 
     if (is_flag_set__6TLobbyFv() == 0) {
         return 0x12C;
     }
-    var_r3 = get_valid_slot__6TLobbyFi(*(s32 *)((s8 *)(&challenge_mode_state) + 0x10));
+    var_r3 = TLobby::get_valid_slot(*(s32 *)((s8 *)(&challenge_mode_state) + 0x10));
     if ((var_r3 < 0x3C) || (var_r3 > 0xE10)) {
         var_r3 = 0x12C;
     }
     return var_r3;
 }
-void advance_state_if_flag_set__6TLobbyFv(void) {
+void TLobby::advance_state_if_flag_set() {
     if (is_flag_set__6TLobbyFv() != 0) {
         switch ((*(G_8006F2CC *)&challenge_mode_state).x28) {
         case 0:
@@ -98,11 +96,8 @@ extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 TLobby__sub_8006F5B0(s32 arg0);
 s32 strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F848_lbl_804FF800 lobby_name_string_buffer;
-void set_name_string__6TLobbyFi(s32 arg0);
 s32 decode_slot__6TLobbyFUi(u32 id);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
-s32 get_valid_slot__6TLobbyFi(int id);
-void encode_name_xor__6TLobbyFPvPvi(u8 *dst, u8 *src, s32 n);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 s16 TLobby__sub_80071640(int);
 u32 get_character_save_record(int);
@@ -116,17 +111,14 @@ u32 *TWindowSubStatusDisp__sub_8006F134(void *, s32);
 u32 get_character_save_record(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 TLobby__sub_8006F38C(s32 arg0);
-void decode_obfuscated_string__6TLobbyFPvPvi(void *arg0, void *arg1, int arg2);
 }
 
 extern "C" {
 
-s32 check_challenge_time_range__6TLobbyFi(s32 arg0);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
-s32 calc_challenge_time_limit__6TLobbyFv();
 
-s32 check_challenge_time_range__6TLobbyFi(s32 arg0) {
-    if ((arg0 < calc_challenge_time_limit__6TLobbyFv()) || (arg0 > 0x8C9F)) {
+s32 TLobby::check_challenge_time_range(s32 arg0) {
+    if ((arg0 < TLobby::calc_challenge_time_limit()) || (arg0 > 0x8C9F)) {
         return 1;
     }
     return 0;
@@ -189,10 +181,10 @@ void TLobby__sub_8006F48C(void) {
         return;
     }
     if (TBL_8006F48C.count > 0) {
-        decode_obfuscated_string__6TLobbyFPvPvi((void *)(cur), (void *)(win->name), (int)(12));
+        ((TLobby *)cur)->decode_obfuscated_string((void *)(win->name), (int)(12));
         for (i = 0; i < TBL_8006F48C.count; i++) {
             e = &TBL_8006F48C.entries[i];
-            decode_obfuscated_string__6TLobbyFPvPvi((void *)(key), (void *)(e), (int)(12));
+            ((TLobby *)key)->decode_obfuscated_string((void *)(e), (int)(12));
             if (strncmp(key, cur, 12) == 0) {
                 strncpy(win->name, e->name, 11);
                 win->term = 0;
@@ -230,7 +222,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
         var_r28 = 1;
         goto block_12;
     }
-    temp_r3_4 = get_valid_slot__6TLobbyFi((int)((int) (temp_r3_3)));
+    temp_r3_4 = TLobby::get_valid_slot(temp_r3_3);
     if (is_id_out_of_range__6TLobbyFi((s32)((int) (temp_r3_4))) != 0) {
         *(s32 *)((s8 *)temp_r3_2 + temp_r30) = 0;
         return 0;
@@ -246,13 +238,14 @@ block_12:
     return 1;
 }
 typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
-void set_name_string__6TLobbyFi(s32 arg0) {
+void TLobby::set_name_string() {
+    s32 arg0 = (s32)this;
     strncpy((void *) (&lobby_name_string_buffer.value), (void *) (arg0), (int) (0x1F));
     *(s8 *)((s8 *)(&lobby_name_string_buffer.value) + 0x1F) = 0;
 }
 
-void decode_obfuscated_string__6TLobbyFPvPvi(void *arg0, void *arg1, int arg2) {
-    u8 *dst = (u8 *)arg0;
+void TLobby::decode_obfuscated_string(void *arg1, int arg2) {
+    u8 *dst = (u8 *)this;
     u8 *src = (u8 *)arg1;
     s32 n = arg2;
     u8 c;
@@ -277,7 +270,7 @@ void decode_obfuscated_string__6TLobbyFPvPvi(void *arg0, void *arg1, int arg2) {
     *dst = 0;
 }
 
-void encode_name_xor__6TLobbyFPvPvi(u8 *dst, u8 *src, s32 n) {
+void TLobby::encode_name_xor(u8 *dst, u8 *src, s32 n) {
     u8 c;
     s32 i;
     if (n < 1) {
@@ -300,7 +293,7 @@ void encode_name_xor__6TLobbyFPvPvi(u8 *dst, u8 *src, s32 n) {
     *dst = 0;
 }
 
-s32 get_valid_slot__6TLobbyFi(int id) {
+s32 TLobby::get_valid_slot(int id) {
     s32 slot;
     if (id == 0) {
         return 0;
@@ -327,9 +320,7 @@ s32 mix_seed_checked__6TLobbyFi(s32 arg0) {
 
 extern "C" {
 
-s32 get_slot_clamped__6TLobbyFv(void);
-
-s32 get_slot_clamped__6TLobbyFv(void) {
+s32 TLobby::get_slot_clamped() {
     s32 var_r3;
 
     var_r3 = ((s32 (*)())decode_slot__6TLobbyFUi)();
@@ -344,14 +335,14 @@ s32 get_slot_clamped__6TLobbyFv(void) {
 extern "C" {
 
 s32 decode_slot__6TLobbyFUi(u32 arg0);
-s32 count_set_bits__6TLobbyFUi(u32);
+s32 count_set_bits__6TLobbyFUl(u32);
 
 s32 decode_slot__6TLobbyFUi(u32 arg0) {
     s32 temp_r3;
     u32 temp_r31;
 
     temp_r31 = arg0 >> 0x10U;
-    temp_r3 = count_set_bits__6TLobbyFUi(temp_r31);
+    temp_r3 = count_set_bits__6TLobbyFUl(temp_r31);
     if ((temp_r3 < 4) || (temp_r3 > 0xC)) {
         return -1;
     }
@@ -363,7 +354,6 @@ s32 decode_slot__6TLobbyFUi(u32 arg0) {
 extern "C" {
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
-void mark_solo_win_closing__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -394,7 +384,7 @@ u16 TLobby__sub_8006FAE4(void) {
     var_r29 = 0;
 loop_1:
     var_r30 = (u16) (s32) (lbl_805D9100 * (lbl_805D9104 * (f32) rand()));
-    temp_r3 = ((s32 (*)(u16))count_set_bits__6TLobbyFUi)(var_r30);
+    temp_r3 = ((s32 (*)(u16))count_set_bits__6TLobbyFUl)(var_r30);
     if ((temp_r3 < 4) || (temp_r3 > 0xC)) {
         var_r29 += 1;
         var_r30 = 0x3938;
@@ -404,7 +394,7 @@ loop_1:
     }
     return var_r30;
 }
-void mark_solo_win_closing__6TLobbyFv(void) {
+void TLobby::mark_solo_win_closing() {
     if (is_flag_set__6TLobbyFv() != 0) {
         *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x30) = 1;
     }

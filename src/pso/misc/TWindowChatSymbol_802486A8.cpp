@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowChatSymbol.h"
 
 struct RecoveredGlobal_80248700_lbl_804CE7A0 {
     s32 value;
@@ -23,13 +24,11 @@ extern "C" {
 
 void TWindowChatSymbol__sub_80248774(void);
 void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1);
-void apply_symbol_from_card__17TWindowChatSymbolFPv(void *arg0);
-void *destroy__17TWindowChatSymbolFPvs(void *arg0, s16 arg1);
 s32 get_selected_menu_value(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
+void destroy_window_base__9TWindowDDFs(void *, int);
 s32 set_from_key__20TWindowSubSymbolChatFii(s32, s32);
 
 extern s32 __vt__17TWindowChatSymbol[];
@@ -37,7 +36,7 @@ extern s32 __vt__17TWindowChatSymbol[];
 void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowChatSymbol;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -58,23 +57,23 @@ u8 *TWindowChatSymbol__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TWindowChatSymbol__sub_80248774(void) {  }
-void apply_symbol_from_card__17TWindowChatSymbolFPv(void *arg0) {
-    set_from_key__20TWindowSubSymbolChatFii(*(s32 *)((s8 *)arg0 + 0x20), get_selected_menu_value(*(s32 *)((s8 *)arg0 + 0x1C)));
+void TWindowChatSymbol::apply_symbol_from_card() {
+    set_from_key__20TWindowSubSymbolChatFii(*(s32 *)((s8 *)this + 0x20), get_selected_menu_value(*(s32 *)((s8 *)this + 0x1C)));
 }
 
 extern s32 lbl_804CE7D0[];
 
-void *destroy__17TWindowChatSymbolFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CE7D0;
-        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x20)); *(s32 *)((s8 *)arg0 + 0x20) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x1C)); *(s32 *)((s8 *)arg0 + 0x1C) = 0; }
-        __dt__7TObjectFv(arg0, 0);
+void *TWindowChatSymbol::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804CE7D0;
+        if (*(void **)((s8 *)this + 0x20) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x20)); *(s32 *)((s8 *)this + 0x20) = 0; }
+        if (*(void **)((s8 *)this + 0x1C) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x1C)); *(s32 *)((s8 *)this + 0x1C) = 0; }
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }

@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
 
-s32 get_global_state__14TOKeyMachine01Fv(void);
-
 extern s32 current_floor_area_type;
 
-s32 get_global_state__14TOKeyMachine01Fv(void) {
+s32 TOKeyMachine01::get_global_state() {
     return current_floor_area_type;
 }
 

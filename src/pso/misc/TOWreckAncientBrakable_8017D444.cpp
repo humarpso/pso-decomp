@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOWreckAncientBrakable.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -36,7 +37,6 @@ extern Param_8017D448 TOWreckAncientBrakable__debris_param_table;
 extern u8 identity_matrix[];
 extern void *wreck_ancient_brakable_bml_resource;
 extern s32 tl_05;
-void spawn_debris__22TOWreckAncientBrakableFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -44,7 +44,8 @@ extern "C" {
 void TOWreckAncientBrakable__sub_8017D444(void);
 
 void TOWreckAncientBrakable__sub_8017D444(void) {  }
-void spawn_debris__22TOWreckAncientBrakableFPv(u8 *arg0) {
+void TOWreckAncientBrakable::spawn_debris() {
+    u8 *arg0 = (u8 *)this;
     Vec_8017D448 tmp;
     Arr_8017D448 arr = TOWreckAncientBrakable__debris_table;
     Param_8017D448 p = TOWreckAncientBrakable__debris_param_table;

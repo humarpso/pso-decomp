@@ -1,13 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss4Uro.h"
 
 extern "C" {
 
-int get_instance_count__9TBoss4UroFv(void);
-s32 get_phase__9TBoss4UroFPv(void* p);
-
-s32 get_phase__9TBoss4UroFPv(void* p) { return *(s32*)((char*)p + 0x37c); }
+s32 TBoss4Uro::get_phase() { return *(s32*)((char*)this + 0x37c); }
 
     extern int darkfalz_dat_resource;
-int get_instance_count__9TBoss4UroFv(void) {  return darkfalz_dat_resource; }
+int TBoss4Uro::get_instance_count() {  return darkfalz_dat_resource; }
 
 }

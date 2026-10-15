@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
 
 struct RecoveredGlobal_80307A74_main_task {
     s32 value;
@@ -20,7 +21,6 @@ s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 s32 func_803DCDFC__Fv();
 extern unsigned char main_task[];
-void run_main_frame__16TKeyBoardControlFv(void);
 s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 load_ending_font__10TAdEndTextFv();
@@ -51,7 +51,7 @@ int render_tick__Fv(void);
     extern int ending_sequence_active;
 void cleanup__10TAdEndTextFv(void) { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(main_task); TLobby__sub_800FC3CC(); free_keyboard_soft_resources__6TLobbyFv(); free_resources__10TAdEndTextFv(); render_tick__Fv(); }
 typedef char RecoveredGlobal_80307A74_main_task_size[sizeof(RecoveredGlobal_80307A74_main_task) == 0x34 ? 1 : -1];
-void run_main_frame__16TKeyBoardControlFv(void) {
+void TKeyBoardControl::run_main_frame() {
     s32 *var_r3;
     func_803DCDFC__Fv();
     controller_stuff__Fv();

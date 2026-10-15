@@ -1,20 +1,21 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonShockWave.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 lbl_80437F40[];
 extern void *gryphon_shockwave_particle_ids_ptr;
-void set_default_on_state0__12TBoss8DragonFPv(void *self);
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 get_flag_bit6__12TBoss8DragonFPv(s32);
+s32 get_flag_bit6__12TBoss8DragonFv(s32);
 s32 TBoss8Dragon__sub_80064114(s32, void *);
 s32 get_instance_count__12TBoss8DragonFv();
 s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
 s32 spawn_particle_effect_with_flags(void *, s32, s32);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-s32 copy_pos__11TNowLoadingFPvPv(u32, void *);
+s32 copy_pos__11TNowLoadingFPv(u32, void *);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, s32, s32, void *, f32);
 s32 spawn_gryphon_tornado(s32, s32, void *, u16);
@@ -22,7 +23,6 @@ extern s32 boss5_gryphon_bml_resource;
 extern s32 boss5_gryphon_texture_list;
 extern void *gryphon_shockwave_particle_ids_ptr;
 extern const f32 lbl_805D8EE8;
-void run_task__22TBoss5GryphonShockWaveFv(u8 *arg0);
 }
 
 extern "C" {
@@ -30,7 +30,6 @@ extern "C" {
 u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
 void TBoss8Dragon__sub_80066A4C(void);
 void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1);
-void render__22TBoss5GryphonShockWaveFv(void);
 s32 vec3_add_to(void *, s32);
 s32 subtract_vector(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -38,18 +37,19 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
+f32 update_scale__15TObjBoss2TunnelFv(void *);
 
-void render__22TBoss5GryphonShockWaveFv(void) {  }
+void TBoss5GryphonShockWave::render() {  }
 
 extern s32 __vt__22TBoss5GryphonShockWave[];
 
-void run_task__22TBoss5GryphonShockWaveFv(u8 *arg0) {
+void TBoss5GryphonShockWave::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r30;
     s32 temp_r3;
     s32 temp_r3_2;
-    if (get_flag_bit6__12TBoss8DragonFPv(*(s32 *)((s8 *)arg0 + 0x38)) != 0) {
+    if (get_flag_bit6__12TBoss8DragonFv(*(s32 *)((s8 *)arg0 + 0x38)) != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -63,7 +63,7 @@ void run_task__22TBoss5GryphonShockWaveFv(u8 *arg0) {
             *(u32 *)((s8 *)arg0 + 0x3C) = spawn_continuous_particle_effect_with_flags(arg0 + 0x2C, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 0), 0x40);
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
-            copy_pos__11TNowLoadingFPvPv(*(u32 *)((s8 *)arg0 + 0x3C), arg0 + 0x2C);
+            copy_pos__11TNowLoadingFPv(*(u32 *)((s8 *)arg0 + 0x3C), arg0 + 0x2C);
         }
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x20);
         *(s32 *)((s8 *)arg0 + 0x20) = (s32) (temp_r3 + 1);
@@ -123,7 +123,7 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     VecCopy__FP3VecPC3Vec(sp8, arg0 + 0x2C);
     subtract_vector(sp8, arg4);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (lbl_805D8EF0 * update_scale__15TObjBoss2TunnelFPv(sp8));
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (lbl_805D8EF0 * update_scale__15TObjBoss2TunnelFv(sp8));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x24) < 0x1E) {
         *(s32 *)((s8 *)arg0 + 0x24) = 0x1E;
     }
@@ -133,8 +133,8 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
 }
 
 void TBoss8Dragon__sub_80066A4C(void) {  }
-void set_default_on_state0__12TBoss8DragonFPv(void *self) {
-    switch (TBoss8Dragon__sub_8005D700(self)) {
+void TBoss8Dragon::set_default_on_state0() {
+    switch (TBoss8Dragon__sub_8005D700(this)) {
     case 0:
         gryphon_shockwave_particle_ids_ptr = lbl_80437F40;
         break;

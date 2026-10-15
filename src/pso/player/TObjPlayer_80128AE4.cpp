@@ -31,6 +31,7 @@ void TObjPlayer__sub_80128A74(s32 a, u32 b, s32 c, s32 d) {
 }
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -40,7 +41,7 @@ s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_80128A70(void);
 void TObjPlayer__sub_80128BD0(void);
 
-void notify_hit_target__10TObjPlayerFUiUiUiUi(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
+void TObjPlayer::notify_hit_target(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
     if ((arg1 != 0U) && (arg3 != 0U)) {
         clear_rico_ring_flag__10TObjPlayerFUi(arg1);
         spawn_particle_effect(arg3, 0x45);

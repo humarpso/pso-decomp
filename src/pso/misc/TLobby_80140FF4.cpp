@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
@@ -7,14 +8,13 @@ void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
 extern "C" {
 
 void* TLobby__sub_80141030(void* p);
-void create_map_csn_ctrl__6TLobbyFv(void);
 void *TMapCsnCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 extern void *map_csn_ctrl_instance;
 
-void create_map_csn_ctrl__6TLobbyFv(void) {
+void TLobby::create_map_csn_ctrl() {
     void *o;
     o = __nw__7TObjectFUl(0x81C);
     if (o != NULL) {

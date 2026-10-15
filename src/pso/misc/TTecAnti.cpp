@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/misc/TTecAnti.h"
 
 struct Obj_8022ACB4 { u8 pad[0xA6]; s16 state; };
 extern "C" {
-s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 void play_anti_cast_sound(void *p) {
     Obj_8022ACB4 *arg0 = (Obj_8022ACB4 *)p;
@@ -12,7 +13,7 @@ void play_anti_cast_sound(void *p) {
     case 1:
         r = play_sound_effect(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, 0x100, 0);
         }
         break;
     case 2:
@@ -23,7 +24,7 @@ void play_anti_cast_sound(void *p) {
     case 5:
         r = play_sound_effect(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, -0x100, 0);
         }
         break;
     }
@@ -131,13 +132,11 @@ struct Anti_8022AEF8 {
 };
 
 extern "C" {
-void copy_params__8TTecAntiFPvPv(u8 *arg0, u8 *arg1);
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFi(void *);
+s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 void play_anti_cast_sound(void *);
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void *);
-void copy_params__8TTecAntiFPvPv(u8 *arg0, u8 *arg1);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 extern s32 __vt__8TTecAnti[];
 extern RecoveredGlobal_8022B288_lbl_804CC1CC technique_param_table;
@@ -147,22 +146,22 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 S_8022B3E8 *copy_technique_target_list(S_8022B3E8 *d, S_8022B3E8 *s);
 void VecCopy__FP3VecPC3Vec(Vec_8022AE10 *, const Vec_8022AE10 *);
 void *create_timed_particle_emitter_with_flags(Vec_8022AE10 *, s32, s32, s32, s32);
-void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
+void set_owner_id__13TParticleCtrlFUs(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern AntiRow_8022AE10 TTecAnti__self_effect_rows[];
 extern s32 lbl_804CC0E8[];
 Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 int queue_destruction__7TObjectFv(void*);
 u32 find_entity_by_id(int);
-s32 is_parents_unqueued__9TTecLukerFUi();
-s32 is_valid_and_active__10TObjPlayerFUi(int);
+s32 is_parents_unqueued__9TTecLukerFUl();
+s32 is_valid_and_active__10TObjPlayerFUl(int);
 void deliver_technique_to_party_targets(void *);
 void run_task__8TTecAntiFv(Anti_8022B150 *self);
 s32 obj_getField1c(int);
 s32 is_split_screen();
 void *spawn_particle_effect_with_flags(void *, int, int);
-void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
-s32 is_script_controlled__10TObjPlayerFPv(void *);
+void set_owner_id__13TParticleCtrlFUs(void *, s32);
+s32 is_script_controlled__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(int);
 Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 int construct_delayed_point_sound(void *, void *, int, int, void *);
@@ -176,9 +175,6 @@ extern "C" {
 int TTecAnti__sub_8022AD74(void* p);
 void *__dt__8TTecAntiFPvs(void *arg0, s16 arg1);
 void *__dt__8TTecAntiFv(void *arg0, s16 arg1);
-void create__8TTecAntiFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-int queue_destruction__8TTecAntiFPv(void* p);
-void render__8TTecAntiFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 void __dt__7TObjectFv(void *, int);
@@ -188,7 +184,7 @@ int queue_destruction__7TObjectFv(void*);
 
 int TTecAnti__sub_8022AD74(void* p) { return spawn_support_tec_range_effect(p); }
 void TTecAnti__sub_8022AD94(void * _w0) {  }
-int queue_destruction__8TTecAntiFPv(void* p) { return queue_destruction__7TObjectFv(p); }
+int TTecAnti::queue_destruction() { return queue_destruction__7TObjectFv(this); }
 
 extern s32 lbl_804CC0E8[];
 
@@ -215,12 +211,12 @@ Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, con
         if (row->flags & 1) {
             p = create_timed_particle_emitter_with_flags(&self->ground, row->c, row->a, row->b, 0x10);
             if (p != NULL) {
-                set_owner_id__13TParticleCtrlFPvUs(p, actor);
+                set_owner_id__13TParticleCtrlFUs(p, actor);
             }
         } else {
             p = create_timed_particle_emitter_with_flags(&self->body, row->c, row->a, row->b, 0x10);
             if (p != NULL) {
-                set_owner_id__13TParticleCtrlFPvUs(p, actor);
+                set_owner_id__13TParticleCtrlFUs(p, actor);
             }
         }
     }
@@ -232,7 +228,7 @@ void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl) {
     void *o;
     hit.type = 7;
     hit.power = self->power;
-    if (is_script_controlled__10TObjPlayerFPv(pl) != 0) {
+    if (is_script_controlled__10TObjPlayerFv(pl) != 0) {
         return;
     }
     pl->m21(self->caster, hit, 0, 0x10, self->level);
@@ -249,11 +245,11 @@ void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl) {
     } else if (self->xAC != 0) {
         o = spawn_particle_effect_with_flags(pl->x2FC, 0x1F8, 0x10);
         if (o != NULL) {
-            set_owner_id__13TParticleCtrlFPvUs(o, obj_getField1c((int)pl));
+            set_owner_id__13TParticleCtrlFUs(o, obj_getField1c((int)pl));
         }
         o = spawn_particle_effect_with_flags(pl->x2FC, 0x1FF, 0x10);
         if (o != NULL) {
-            set_owner_id__13TParticleCtrlFPvUs(o, obj_getField1c((int)pl));
+            set_owner_id__13TParticleCtrlFUs(o, obj_getField1c((int)pl));
         }
     }
     if (self->xAC != 0) {
@@ -264,7 +260,7 @@ void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl) {
     }
 }
 
-void create__8TTecAntiFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void TTecAnti::create(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
@@ -301,7 +297,7 @@ void run_task__8TTecAntiFv(Anti_8022B150 *self) {
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
                     target = find_entity_by_id(self->targets[i].id);
-                    if ((is_parents_unqueued__9TTecLukerFUi() != 0) && (is_valid_and_active__10TObjPlayerFUi(target) != 0)) {
+                    if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl(target) != 0)) {
                         ((VObj_8022B150 *)self)->m5(target);
                     }
                 }
@@ -320,11 +316,11 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8022B288___vt__8TTecAnti *)&__vt__8TTecAnti).value;
-    construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xE0));
+    construct_target_cursor_records__10TObjPlayerFv((void *) (arg0 + 0xE0));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3790;
     *(s32 *)((s8 *)arg0 + 0x13C) = 1;
     copy_technique_target_list((S_8022B3E8 *)((void *)((void *) (arg0 + 0xE0))), (S_8022B3E8 *)((void *)((void *) (arg3))));
-    copy_params__8TTecAntiFPvPv((u8 *)((void *) (arg0 + 0x74)), (u8 *)((void *) ((u8 *)&technique_param_table.value + 0x2C0)));
+    ((TTecAnti *)(arg0 + 0x74))->copy_params((u8 *)((void *) ((u8 *)&technique_param_table.value + 0x2C0)));
     TTecAnti__sub_8022AD94((void *)((void *) (arg0)));
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
@@ -341,7 +337,8 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     return arg0;
 }
 
-void copy_params__8TTecAntiFPvPv(u8 *arg0, u8 *arg1) {
+void TTecAnti::copy_params(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0) = (f32) *(f32 *)((s8 *)arg1 + 0);
     *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
     *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
@@ -367,6 +364,6 @@ S_8022B3E8 *copy_technique_target_list(S_8022B3E8 *d, S_8022B3E8 *s) {
     return d;
 }
 
-void render__8TTecAntiFv(void) {  }
+void TTecAnti::render() {  }
 
 }

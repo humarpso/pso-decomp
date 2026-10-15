@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 struct RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 {
     s32 value;
@@ -22,12 +23,10 @@ struct O_80065FD4 { u16 a; u16 b; u32 c[4]; };
 extern "C" {
 void bswap_16__FPUs(u16 *);
 s32 bswap_32__FPUl(s32);
-void byteswap_record__12TBoss8DragonFPv(O_80065FD4 *p);
 }
 
 extern "C" {
 
-void fill_follow_camera_params__12TBoss8DragonFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
 s32 *TBoss8Dragon__sub_80065F08(void);
 void TBoss8Dragon__sub_80065F1C(void);
@@ -37,21 +36,15 @@ void TBoss8Dragon__sub_80065F28(void);
 void TBoss8Dragon__sub_80065F2C(void);
 void TBoss8Dragon__sub_80065F30(void);
 void TBoss8Dragon__sub_80065F34(void);
-void send_spawn_params_packet__12TBoss8DragonFPv(void* p);
-void byteswap_action_packet__12TBoss8DragonFPv(void *arg0);
-void send_boss_actions__12TBoss8DragonFPv(void* p);
 void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-void bswap_boss_actions__12TBoss8DragonFi(s32 arg0);
 void fn_800660B8(u8 *arg0);
-int get_instance_count__12TBoss8DragonFv(void);
-void init_color__12TBoss8DragonFPv(void* p);
 int TLobby__send_and_handle_60(void*);
-int init_packet_9a__10TObjPlayerFPv(void);
+int init_packet_9a__10TObjPlayerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 bswap_32__FPUl(s32);
-s32 read_be16_field2__10TObjPlayerFPv(void *);
+s32 read_be16_field2__10TObjPlayerFv(void *);
 
 extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
@@ -70,7 +63,8 @@ typedef char RecoveredGlobal_80065EA0_lbl_80487CCC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80065EA0_lbl_80487CD8_size[sizeof(RecoveredGlobal_80065EA0_lbl_80487CD8_80065C90) == 0x354 ? 1 : -1];
 
 typedef char RecoveredGlobal_80065DB4_lbl_804FF5B4_size[sizeof(RecoveredGlobal_80065DB4_lbl_804FF5B4_80065C90) == 0xC ? 1 : -1];
-void fill_follow_camera_params__12TBoss8DragonFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
+void TBoss8Dragon::fill_follow_camera_params(u8 *arg1, u8 *arg2) {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     *(f32 *)((s8 *)arg1 + 0) = (f32) lbl_805D8D5C;
     *(f32 *)((s8 *)arg2 + 0) = (f32) lbl_805D8D5C;
@@ -105,7 +99,7 @@ void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
         VecCopy__FP3VecPC3Vec(arg1, &lbl_80487CD8.value);
         return;
     }
-    fill_follow_camera_params__12TBoss8DragonFPvPvPv((u8 *)((u8 *)((*(u8 * *)&boss5_gryphon_instance))), (u8 *)((u8 *)(arg0)), (u8 *)((u8 *)(arg1)));
+    ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)((u8 *)(arg0)), (u8 *)((u8 *)(arg1)));
 }
 
 typedef char RecoveredGlobal_80065F08_lbl_80437938_size[sizeof(RecoveredGlobal_80065F08_lbl_80437938_80065C90) == 0xC ? 1 : -1];
@@ -113,7 +107,7 @@ s32 *TBoss8Dragon__sub_80065F08(void) {
     return &lbl_80437938.value;
 }
 
-int get_instance_count__12TBoss8DragonFv(void) {  return boss5_gryphon_instance; }
+int TBoss8Dragon::get_instance_count() {  return boss5_gryphon_instance; }
 
 void TBoss8Dragon__sub_80065F1C(void) {  }
 void TBoss8Dragon__sub_80065F20(void) {  }
@@ -122,20 +116,21 @@ void TBoss8Dragon__sub_80065F28(void) {  }
 void TBoss8Dragon__sub_80065F2C(void) {  }
 void TBoss8Dragon__sub_80065F30(void) {  }
 void TBoss8Dragon__sub_80065F34(void) {  }
-void init_color__12TBoss8DragonFPv(void* p) { *(u8*)((char*)p + 0x0) = 160; *(u8*)((char*)p + 0x1) = 10; }
+void TBoss8Dragon::init_color() { *(u8*)((char*)this + 0x0) = 160; *(u8*)((char*)this + 0x1) = 10; }
 
-void send_spawn_params_packet__12TBoss8DragonFPv(void* p) { byteswap_action_packet__12TBoss8DragonFPv((void *)((void *)((void*)((void*)(p))))); TLobby__send_and_handle_60(p); }
+void TBoss8Dragon::send_spawn_params_packet() { byteswap_action_packet(); TLobby__send_and_handle_60(this); }
 
-void byteswap_action_packet__12TBoss8DragonFPv(void *arg0) {
-    read_be16_field2__10TObjPlayerFPv((void *)(arg0));
-    byteswap_record__12TBoss8DragonFPv((O_80065FD4 *)((void *)((void *)((void *)((char *)arg0 + 20)))));
-    bswap_32__FPUl((s32)((void *)((char *)arg0 + 4)));
-    bswap_32__FPUl((s32)((void *)((char *)arg0 + 8)));
-    bswap_32__FPUl((s32)((void *)((char *)arg0 + 12)));
-    bswap_32__FPUl((s32)((void *)((char *)arg0 + 16)));
+void TBoss8Dragon::byteswap_action_packet() {
+    read_be16_field2__10TObjPlayerFv((void *)(this));
+    ((TBoss8Dragon *)((char *)this + 20))->byteswap_record();
+    bswap_32__FPUl((s32)((void *)((char *)this + 4)));
+    bswap_32__FPUl((s32)((void *)((char *)this + 8)));
+    bswap_32__FPUl((s32)((void *)((char *)this + 12)));
+    bswap_32__FPUl((s32)((void *)((char *)this + 16)));
 }
 
-void byteswap_record__12TBoss8DragonFPv(O_80065FD4 *p) {
+void TBoss8Dragon::byteswap_record() {
+    O_80065FD4 *p = (O_80065FD4 *)this;
     s32 i;
     bswap_16__FPUs(&p->a);
     bswap_16__FPUs(&p->b);
@@ -144,10 +139,11 @@ void byteswap_record__12TBoss8DragonFPv(O_80065FD4 *p) {
     }
 }
 
-void send_boss_actions__12TBoss8DragonFPv(void* p) { bswap_boss_actions__12TBoss8DragonFi((s32)((s32)((void*)(p)))); TLobby__send_and_handle_60(p); }
+void TBoss8Dragon::send_boss_actions() { bswap_boss_actions(); TLobby__send_and_handle_60(this); }
 
-void bswap_boss_actions__12TBoss8DragonFi(s32 arg0) {
-    read_be16_field2__10TObjPlayerFPv((void *)(arg0));
+void TBoss8Dragon::bswap_boss_actions() {
+    s32 arg0 = (s32)this;
+    read_be16_field2__10TObjPlayerFv((void *)(arg0));
     bswap_32__FPUl(arg0 + 4);
     bswap_32__FPUl(arg0 + 8);
     bswap_32__FPUl(arg0 + 0xC);

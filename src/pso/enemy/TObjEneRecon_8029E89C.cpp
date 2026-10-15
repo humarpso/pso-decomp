@@ -42,7 +42,7 @@ u32 get_player_by_client_id(u32);
 s32 fn_8029E7BC(s32, s32 *);
 u32 get_state__10TSceneSoraFPv(void*);
 s32 is_state_active__14TOKeyMachine01Fv();
-s32 reset_ind_tev_stages__13TParticleCtrlFv();
+s32 reset_ind_tev_stages__13TParticleCtrlFPv();
 
 extern u16 scene_sora_reflect_active;
 
@@ -134,7 +134,7 @@ s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1) {
 
 void update_particle_if_active__12TObjEneReconFv(void) {
     if (((u32) scene_sora_instance != 0U) && (get_state__10TSceneSoraFPv((void*)scene_sora_instance) != 0U)) {
-        reset_ind_tev_stages__13TParticleCtrlFv();
+        reset_ind_tev_stages__13TParticleCtrlFPv();
     }
 }
 
@@ -145,7 +145,7 @@ void update_particle_if_active__12TObjEneReconFv(void) {
 extern "C" {
 
 void notify_scene__12TObjEneReconFi(s32 arg0);
-s32 play_particle__13TParticleCtrlFPvis(u32, s32, s32);
+s32 play_particle__13TParticleCtrlFls(u32, s32, s32);
 
 extern u32 scene_sora_instance;
 
@@ -154,7 +154,7 @@ void notify_scene__12TObjEneReconFi(s32 arg0) {
     if ((u32) scene_sora_instance != 0U) {
         temp_r31 = get_state__10TSceneSoraFPv((void*)scene_sora_instance);
         if (temp_r31 != 0U) {
-            play_particle__13TParticleCtrlFPvis(temp_r31, 0, arg0);
+            play_particle__13TParticleCtrlFls(temp_r31, 0, arg0);
         }
     }
 }
@@ -162,25 +162,24 @@ void notify_scene__12TObjEneReconFi(s32 arg0) {
 }
 
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 extern "C" {
 
-void alloc_if_valid_state__12TObjEneReconFv(void);
-void destroy_instance__12TObjEneReconFv(void);
 void __dl__FPv(void*);
-u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-s32 init_render_target__10TObjPlayerFPv();
+u32 alloc__23TAdSinglePlyChrSelectGCFv(s32);
+s32 init_render_target__10TObjPlayerFv();
 s32 is_state_active__14TOKeyMachine01Fv();
-s32 reset_lobby_subobject__10TObjPlayerFPv(void*);
+s32 reset_lobby_subobject__10TObjPlayerFv(void*);
 
 extern u32 scene_sora_instance;
 extern u32 scene_sora_recon_object;
 
-void destroy_instance__12TObjEneReconFv(void) {
+void TObjEneRecon::destroy_instance() {
     scene_sora_instance = 0;
     if (is_state_active__14TOKeyMachine01Fv() != 0) {
         if ((u32) scene_sora_recon_object != 0U) {
-            reset_lobby_subobject__10TObjPlayerFPv((void*)scene_sora_recon_object);
+            reset_lobby_subobject__10TObjPlayerFv((void*)scene_sora_recon_object);
         }
         if ((u32) scene_sora_recon_object != 0U) {
             __dl__FPv((void*)scene_sora_recon_object);
@@ -193,15 +192,15 @@ extern s32 lbl_805D65F0;
 extern u32 scene_sora_instance;
 extern u32 scene_sora_recon_object;
 
-void alloc_if_valid_state__12TObjEneReconFv(void) {
+void TObjEneRecon::alloc_if_valid_state() {
     u32 temp_r3;
 
     if (is_state_active__14TOKeyMachine01Fv() != 0) {
         scene_sora_instance = 0;
-        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv(0x28);
         scene_sora_recon_object = temp_r3;
         if (temp_r3 != 0U) {
-            init_render_target__10TObjPlayerFPv();
+            init_render_target__10TObjPlayerFv();
             lbl_805D65F0 = scene_sora_recon_object + 0x1C;
         }
     }

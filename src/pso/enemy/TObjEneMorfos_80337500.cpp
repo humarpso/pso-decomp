@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMorfos.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -37,7 +38,6 @@ struct O_80337644 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVecterUnder(s32, s32);
-s32 snap_to_ground__13TObjEneMorfosFii(s32 arg0, s32 arg1);
 f32 xz_distance_squared(void *, void *);
 void subtract_vector(void *, void *);
 extern P_80337500 lbl_80477B70[];
@@ -48,8 +48,7 @@ void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *a
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s16 obj_getField1c(void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
-void construct_collider_proxy__10TObjPlayerFPv(void *, s32);
-s32 snap_to_ground__13TObjEneMorfosFii(s32 arg0, s32 arg1);
+void construct_collider_proxy__10TObjPlayerFv(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 lbl_804EF130[];
@@ -62,11 +61,10 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 find_entity_by_id(u16);
-s32 is_valid_and_active__10TObjPlayerFUi(void *);
+s32 is_valid_and_active__10TObjPlayerFUl(void *);
 void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
-s32 snap_to_ground__13TObjEneMorfosFii(s32 arg0, s32 arg1);
 void vec3_add_to(void *, void *);
 extern s32 lbl_805D586C;
 extern const f32 morfos_projectile_speed;
@@ -78,7 +76,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0);
 extern "C" {
 
 void *__dt__13TObjEneMorfosFPvs(void *arg0, s16 arg1);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 
@@ -97,7 +95,7 @@ void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *a
     }
 }
 
-s32 snap_to_ground__13TObjEneMorfosFii(s32 arg0, s32 arg1) {
+s32 TObjEneMorfos::snap_to_ground(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(csnVecterUnder(arg1, 0x16EF));
     if (temp_r3 == NULL) {
@@ -116,7 +114,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
     Vec_80337644 v = arg0->pos;
     vec3_add_to(&arg0->pos, &arg0->vel);
     if (arg0->fE0 != 0) {
-        copy_pos__11TNowLoadingFPvPv(arg0->fE0, &arg0->pos);
+        copy_pos__11TNowLoadingFPv(arg0->fE0, &arg0->pos);
     }
     arg0->fDC += morfos_projectile_speed;
     if (arg0->fF0 != 0) {
@@ -124,7 +122,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
         arg0->fF4++;
         if (arg0->fF4 > 4) {
             arg0->fF4 = 0;
-            snap_to_ground__13TObjEneMorfosFii((s32)arg0, (s32)&arg0->pos2);
+            TObjEneMorfos::snap_to_ground((s32)arg0, (s32)&arg0->pos2);
         }
     }
     if (arg0->fDC >= lbl_805DF98C) {
@@ -139,7 +137,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
     if (k != 0) {
         for (i = 0; i < lbl_805D586C; i++) {
             p = get_player_data__10TObjPlayerFi(i);
-            if (is_valid_and_active__10TObjPlayerFUi(p) != 0 && fabs_float(arg0->pos.y - *(f32 *)(p + 0x300)) < lbl_805DF990) {
+            if (is_valid_and_active__10TObjPlayerFUl(p) != 0 && fabs_float(arg0->pos.y - *(f32 *)(p + 0x300)) < lbl_805DF990) {
                 hit_target_in_range__13TObjEneMorfosFPvPvPv((O_80337500 *)arg0, (V_80337500 *)p, (V_80337500 *)k);
             }
         }
@@ -150,7 +148,7 @@ void *__dt__13TObjEneMorfosFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EF130;
         if (*(void **)((s8 *)arg0 + 0xE0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0)); }
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -159,7 +157,7 @@ void *__dt__13TObjEneMorfosFPvs(void *arg0, s16 arg1) {
 }
 O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s32 arg2, void *arg3) {
     Ang_80337824 a;
-    construct_collider_proxy__10TObjPlayerFPv(arg0, tl_06);
+    construct_collider_proxy__10TObjPlayerFv(arg0, tl_06);
     arg0->vt = ((u8 *)&lbl_804EF130);
     VecCopy__FP3VecPC3Vec((void *)(&arg0->pos), (int)(arg1));
     arg0->fDC = lbl_805DF994;
@@ -172,7 +170,7 @@ O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s3
     arg0->vel.z = morfos_projectile_speed * cos_table_lookup(arg2);
     arg0->fE0 = spawn_particle_effect_with_rotation(arg1, &a, 0x213, 2);
     VecCopy__FP3VecPC3Vec((void *)(&arg0->pos2), (int)(&arg0->pos));
-    snap_to_ground__13TObjEneMorfosFii((s32)(arg0), (s32)(&arg0->pos2));
+    TObjEneMorfos::snap_to_ground((s32)(arg0), (s32)(&arg0->pos2));
     arg0->fF4 = 0;
     return arg0;
 }

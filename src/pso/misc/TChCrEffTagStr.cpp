@@ -14,13 +14,11 @@ s32 draw_creation_sprite_offset(s32, void *, f32 *, f32, f32, f32, f32, f32);
 extern const f32 lbl_805DDCB8;
 extern const f32 lbl_805DDCBC;
 extern const f32 lbl_805DDCC0;
-void render__14TChCrEffTagStrFv(u8 *arg0);
 s32 queue_destruction__7TObjectFv();
 extern const f32 lbl_805DDCB8;
 extern const f32 lbl_805DDCC4;
 extern const f32 lbl_805DDCC8;
 extern const f32 lbl_805DDCCC;
-void run_task__14TChCrEffTagStrFv(u8 *arg0);
 }
 
 extern "C" {
@@ -28,7 +26,7 @@ extern "C" {
 void TChCrEffTagStr__sub_8029AED0(void* p);
 void *__ct__14TChCrEffTagStrFv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__7TObjectFP7TObject(void *);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 
 void TChCrEffTagStr__sub_8029AED0(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 
@@ -38,7 +36,8 @@ extern const f32 lbl_805DDCCC;
 
 #pragma push
 #pragma fp_contract on
-void render__14TChCrEffTagStrFv(u8 *arg0) {
+void TChCrEffTagStr::render() {
+    u8 *arg0 = (u8 *)this;
     Stack_8029AEDC stack;
     f32 temp_f2;
     f32 temp_f3;
@@ -54,7 +53,8 @@ void render__14TChCrEffTagStrFv(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void run_task__14TChCrEffTagStrFv(u8 *arg0) {
+void TChCrEffTagStr::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f2;
@@ -90,7 +90,7 @@ void *__ct__14TChCrEffTagStrFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TChCrEffTagStr;
     *(void **)((s8 *)arg0 + 0x0) = TChCrEffTagStr__name;
     *(void **)((s8 *)arg0 + 0x20) = arg2;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *)((char *)arg0 + 40), arg3);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *)((char *)arg0 + 40), arg3);
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     *(f32 *)((s8 *)arg0 + 0x24) = lbl_805DDCCC;
     return arg0;

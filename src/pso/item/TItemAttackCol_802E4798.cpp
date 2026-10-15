@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemAttackCol.h"
 
 struct Hit_802E4798 { u8 *obj; s32 idx; };
 
@@ -18,12 +19,11 @@ extern "C" {
 s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30(void *, u32);
 u16 obj_getField1c(void *);
-s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s16 get_stat_by_key_state__10TObjPlayerFv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
-void copy_pos__14TItemAttackColFPvPv(void* p, void* q);
 s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1);
 s32 queue_destruction__7TObjectFv(void *);
-s32 apply_status_effect__10TObjPlayerFi(void *);
+s32 apply_status_effect__10TObjPlayerFl(void *);
 s32 TObjPlayer__sub_801542F4(void *);
 s32 TObjPlayer__sub_8015431C(void *);
 s32 reset_global_table();
@@ -35,8 +35,6 @@ void check_hits__14TItemAttackColFPv(u8 *arg0);
 
 extern "C" {
 
-void copy_pos__14TItemAttackColFPvPv(void* p, void* q);
-void *destroy_attack_collision__14TItemAttackColFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -53,7 +51,7 @@ s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
     }
     ok = 1;
     if (is_technique_ready__8TTecCtrlFv() == 0 && obj_testFlags30(arg1->obj, 0x60000000) == 0x20000000
-        && *(s16 *)((s8 *)arg0 + 0xAA) != get_stat_by_key_state__10TObjPlayerFPv(arg1->obj)) {
+        && *(s16 *)((s8 *)arg0 + 0xAA) != get_stat_by_key_state__10TObjPlayerFv(arg1->obj)) {
         ok = 0;
     }
     if (obj_testFlags30(arg1->obj, 0x04000000) != 0
@@ -70,7 +68,7 @@ s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
             e++;
         }
         if (obj_is_hit_receivable(arg1->obj) != 0) {
-            copy_pos__14TItemAttackColFPvPv(e, arg1);
+            ((TItemAttackCol *)e)->copy_pos(arg1);
             *(s32 *)((s8 *)arg0 + 0xA0) += 1;
             return 1;
         }
@@ -78,7 +76,7 @@ s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
     return 0;
 }
 
-void copy_pos__14TItemAttackColFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
+void TItemAttackCol::copy_pos(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)this + 0x4) = *(u32*)((char*)q + 0x4); }
 
 extern s32 lbl_804E355C[];
 
@@ -91,7 +89,7 @@ void check_hits__14TItemAttackColFPv(u8 *arg0) {
         TObjPlayer__sub_8015431C(arg0 + 0x1C);
     }
     if (*(s32 *)((s8 *)arg0 + 0xBC) != 0) {
-        apply_status_effect__10TObjPlayerFi(arg0 + 0x1C);
+        apply_status_effect__10TObjPlayerFl(arg0 + 0x1C);
     }
     for (i = 0; i != get_instance__16TObjOnlineEndingFv(); i++) {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
@@ -108,15 +106,15 @@ void check_hits__14TItemAttackColFPv(u8 *arg0) {
     reset_global_table();
 }
 
-void *destroy_attack_collision__14TItemAttackColFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E355C;
-        __dt__7TObjectFv(arg0, 0);
+void *TItemAttackCol::destroy_attack_collision(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804E355C;
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }

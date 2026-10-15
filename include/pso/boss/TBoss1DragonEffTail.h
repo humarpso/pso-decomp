@@ -18,6 +18,10 @@ struct TBoss1DragonEffTail
     u32 m_b8;
     u32 m_bc;
     void* m_c0;
+    static void render();
+    void enable();
+    void disable();
+    int is_visible();
 };
 
 #endif

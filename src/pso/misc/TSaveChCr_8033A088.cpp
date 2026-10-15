@@ -17,7 +17,6 @@ struct RecoveredGlobal_8033A184_lbl_804EF658 {
 
 extern "C" {
 extern TSaveChCrStateActions lbl_804EF658[];
-void set_state__9TSaveChCrFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -37,7 +36,6 @@ void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 poll_memcard_status(void *);
-void create_backgrounds__9TSaveChCrFPv(void *arg0);
 extern RecoveredGlobal_8033A34C___vt__9TSaveChCr __vt__9TSaveChCr;
 extern s32 TSaveChCr__name;
 u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2);
@@ -46,45 +44,43 @@ u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2);
 extern "C" {
 
 int TSaveChCr__sub_8033A138(void);
-void close_window__9TSaveChCrFPv(void *arg0);
-void *create__9TSaveChCrFPv(void *arg0);
-void save_character__9TSaveChCrFPv(void* p);
 int load_character_from_card__23TAdSinglePlyChrSelectGCFi(void*);
 s32 TWindow__close(void *);
 void *__nw__7TObjectFUl(int);
 int begin_action_from_char_select__10TObjPlayerFv(void*);
 
-void close_window__9TSaveChCrFPv(void *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
-        *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
-        *(s32 *)((s8 *)arg0 + 0x38) = 7;
+void TSaveChCr::close_window() {
+    if ((u32) *(u32 *)((s8 *)this + 0x3C) != 0U) {
+        TWindow__close(*(void **)((s8 *)this + 0x3C));
+        *(u32 *)((s8 *)this + 0x3C) = 0U;
+        *(s32 *)((s8 *)this + 0x38) = 7;
     }
 }
 
-void create_backgrounds__9TSaveChCrFPv(void *arg0) {
+void TSaveChCr::create_backgrounds() {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = __ct__9TAdBackGCFv(o, arg0);
+        o = __ct__9TAdBackGCFv(o, this);
     }
-    *(void **)((s8 *)arg0 + 0x30) = o;
+    *(void **)((s8 *)this + 0x30) = o;
     o2 = __nw__7TObjectFUl(0x28);
     if (o2 != NULL) {
-        o2 = __ct__12TAdBackTxtGCFv(o2, arg0);
+        o2 = __ct__12TAdBackTxtGCFv(o2, this);
     }
-    *(void **)((s8 *)arg0 + 0x34) = o2;
+    *(void **)((s8 *)this + 0x34) = o2;
 }
 
 int TSaveChCr__sub_8033A138(void) { return load_character_from_card__23TAdSinglePlyChrSelectGCFi((void*)(0)); }
-void save_character__9TSaveChCrFPv(void* p) { begin_action_from_char_select__10TObjPlayerFv(p); load_character_from_card__23TAdSinglePlyChrSelectGCFi((void*)1); }
+void TSaveChCr::save_character() { begin_action_from_char_select__10TObjPlayerFv(this); load_character_from_card__23TAdSinglePlyChrSelectGCFi((void*)1); }
 
 extern void *tl_03;
 
 typedef char MemberActionStorage_8033A184_size[sizeof(MemberActionStorage_8033A184) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8033A184_lbl_804EF658_size[sizeof(RecoveredGlobal_8033A184_lbl_804EF658) == 0x78 ? 1 : -1];
-void set_state__9TSaveChCrFPvi(u8 *arg0, s32 arg1) {
+void TSaveChCr::set_state(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     MemberActionStorage_8033A184 member_action;
     typedef char sp8_offset[(offsetof(Stack_8033A184, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8033A184, spC) == 0x4) ? 1 : -1];
@@ -112,7 +108,7 @@ void TSaveChCr::run_task() {
   card_status = poll_memcard_status(this);
   if (card_status & 1)
   {
-    set_state__9TSaveChCrFPvi((u8 *)this, 0);
+    set_state(0);
   }
   entry = &lbl_804EF658[state_index];
   TSaveChCrStateAction action = (*entry).task;
@@ -149,12 +145,12 @@ u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x2C) = poll_memcard_status(arg0);
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    create_backgrounds__9TSaveChCrFPv(arg0);
-    set_state__9TSaveChCrFPvi((u8 *)(arg0), (s32)(0));
+    ((TSaveChCr *)arg0)->create_backgrounds();
+    ((TSaveChCr *)arg0)->set_state((s32)(0));
     return arg0;
 }
 
-void *create__9TSaveChCrFPv(void *arg0) {
+void *TSaveChCr::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x40);
     if (o != NULL) {
         o = TSaveChCr__ct((u8 *)(o), (u8 *)(tl_03), (s32)(arg0));

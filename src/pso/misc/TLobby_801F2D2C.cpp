@@ -177,18 +177,18 @@ void set_lobby_id__6TLobbyFi(int a0);
 void sync_quest_register_and_send__6TLobbyFPv(void* p);
 int test_flag_16__6TLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
-int test_action_mask__10TObjPlayerFPvi(void*, int);
+int test_action_mask__10TObjPlayerFl(void*, int);
 s32 TWindow__close(s32);
 int VecCopy__FP3VecPC3Vec(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int check_technique_flag__10TObjPlayerFPv(void*);
-s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void*);
+s32 clear_flag4_bit4__22TQuestVmDownLoadServerFv(void*);
 int has_item_flag_4096__10TObjPlayerFPv(void*);
 s32 queue_destruction__7TObjectFv(s32);
-int read_be16_field2__10TObjPlayerFPv(void*);
-s32 set_flag_4__9TObjLukerFPv(void*);
-int set_flags__10TObjPlayerFPvUi(void*, int);
+int read_be16_field2__10TObjPlayerFv(void*);
+s32 set_flag_4__9TObjLukerFv(void*);
+int set_flags__10TObjPlayerFUl(void*, int);
 
     extern unsigned char* TLobby__quest_data_base;
     extern int TLobby__quest_script_pc;
@@ -379,7 +379,7 @@ s32 *TObjItemOKWindow__sub_801F3268(void) {
 
 void clear_quest_vm_flag__6TLobbyFv(void) {
     if ((u32) quest_mission_manager != 0U) {
-        clear_flag4_bit4__22TQuestVmDownLoadServerFPv((void*)quest_mission_manager);
+        clear_flag4_bit4__22TQuestVmDownLoadServerFv((void*)quest_mission_manager);
     }
 }
 
@@ -387,31 +387,31 @@ extern u32 quest_mission_manager;
 
 void free_luker_object__6TLobbyFv(void) {
     if ((u32) quest_mission_manager != 0U) {
-        set_flag_4__9TObjLukerFPv((void*)quest_mission_manager);
+        set_flag_4__9TObjLukerFv((void*)quest_mission_manager);
     }
 }
 
 void set_flag_80000__6TLobbyFi(s32 arg0) {
-    test_action_mask__10TObjPlayerFPvi((void*)(arg0), 0x80000);
+    test_action_mask__10TObjPlayerFl((void*)(arg0), 0x80000);
 }
 void set_flag_40000__6TLobbyFPv(void *arg0) {
-    test_action_mask__10TObjPlayerFPvi(arg0, 0x40000);
+    test_action_mask__10TObjPlayerFl(arg0, 0x40000);
 }
 void TLobby__sub_801F3314(s32 arg0) {
-    test_action_mask__10TObjPlayerFPvi((void*)(arg0), 0x10000);
+    test_action_mask__10TObjPlayerFl((void*)(arg0), 0x10000);
 }
 void set_flag_8000__6TLobbyFi(s32 arg0) {
-    test_action_mask__10TObjPlayerFPvi((void*)(arg0), 0x8000);
+    test_action_mask__10TObjPlayerFl((void*)(arg0), 0x8000);
 }
-int check_flag_24576__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 24576); }
-int TLobby__sub_801F3384(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 1024); }
-int TLobby__sub_801F33A8(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 512); }
-int TLobby__sub_801F33CC(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 256); }
-int TLobby__sub_801F33F0(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 224); }
-int test_flag_16__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 16); }
-int set_flag_4__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 4); }
+int check_flag_24576__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFl(p, 24576); }
+int TLobby__sub_801F3384(void* p) { return test_action_mask__10TObjPlayerFl(p, 1024); }
+int TLobby__sub_801F33A8(void* p) { return test_action_mask__10TObjPlayerFl(p, 512); }
+int TLobby__sub_801F33CC(void* p) { return test_action_mask__10TObjPlayerFl(p, 256); }
+int TLobby__sub_801F33F0(void* p) { return test_action_mask__10TObjPlayerFl(p, 224); }
+int test_flag_16__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFl(p, 16); }
+int set_flag_4__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFl(p, 4); }
 
-int TLobby__sub_801F345C(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 2); }
+int TLobby__sub_801F345C(void* p) { return test_action_mask__10TObjPlayerFl(p, 2); }
 
 int fn_801F3480(void* p) { return has_item_flag_4096__10TObjPlayerFPv(p); }
 int fn_801F34A0(void* p) { return check_technique_flag__10TObjPlayerFPv(p); }
@@ -438,7 +438,7 @@ void bswap_4x32__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)
 void TLobby__sub_801F3568(void) { camera_capture_flags = (camera_capture_flags | 0x10); }
 
 void sync_quest_register_and_send__6TLobbyFPv(void* p) { bswap_header__6TLobbyFPv((void*)((void*)((void*)(p)))); TLobby__send_and_handle_60(p); }
-void bswap_header__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
+void bswap_header__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void build_6x77_sync_quest_register(void* p) { *(u8*)((char*)p + 0x0) = 119; *(u8*)((char*)p + 0x1) = 3; }
 
     extern int warning_aram_load_done_flag;
@@ -470,7 +470,7 @@ void bswap_entry_words__6TLobbyFi(s32 arg0) {
 }
 #pragma pop
 
-int TLobby__sub_801F3694(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x10, 2); }
+int TLobby__sub_801F3694(void* p) { return set_flags__10TObjPlayerFUl((char*)p + 0x10, 2); }
 
     extern int lobby_online_ready_flag;
 void TLobby__sub_801F36BC(void) { lobby_online_ready_flag = 1; }

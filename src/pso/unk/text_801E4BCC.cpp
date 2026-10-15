@@ -13,7 +13,7 @@ struct Wave_801E4BCC {
 
 extern "C" {
 s32 calc_gx_tile_index(s32 x, s32 y, s16 w);
-void reload_texture__10TObjPlayerFPviUiPv(s32, void *, u32, s32);
+void reload_texture__10TObjPlayerFlUlPv(s32, void *, u32, s32);
 void distort_texture_wave_image(Wave_801E4BCC *wave);
 }
 
@@ -58,7 +58,7 @@ void distort_texture_wave_image(Wave_801E4BCC *wave) {
             out[calc_gx_tile_index(x, y, wave->width)] = color;
         }
     }
-    reload_texture__10TObjPlayerFPviUiPv(0, wave->output + 0x20, 0x40000000, 0);
+    reload_texture__10TObjPlayerFlUlPv(0, wave->output + 0x20, 0x40000000, 0);
 }
 
 }

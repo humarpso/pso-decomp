@@ -67,6 +67,31 @@ public:
     const char** message_table;
     s32 phase;
     s32 phase_state;
+public:
+    s32 get_state();
+    void set_battle_mode(s32 v);
+    s32 close_windows_on_button();
+    void close_player_windows();
+    void create_result_windows();
+    static u8 is_battle_mode_active();
+    static void reset_ctrl_to_default();
+    static void init();
+    static int init_ctrl_default(void* p);
+    static void notify_lobby(void* p, void* a1, void* a2);
+    void reset_score_counters();
+    s32 set_state();
+    static void update_players();
+    void start_match();
+    u8 is_battle_decided();
+    static s32 check_all_players_flag();
+    static void remove_player(void *arg0, u16 arg1, s32 arg2);
+    void apply_rule_configuration(s32 arg1);
+    void set_score(s32 v);
+    static void update_all_players();
+    void shuffle_order();
+    static void update();
+    static void reset_random_enemies_mode();
+    static void init_instance_with_text(s32 arg0, s32 arg1);
 };
 #include <stddef.h>
 typedef char BattleCtrlSize[(sizeof(TPlayerBattleCtrl4P)==0x2A0)?1:-1];

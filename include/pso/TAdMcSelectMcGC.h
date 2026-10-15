@@ -6,6 +6,10 @@
 class TAdMcSelectMcGC : public TObject {
 public:
     virtual ~TAdMcSelectMcGC();
+public:
+    void draw_status_window();
+    void render();
+    void run_task();
 };
 
 #endif

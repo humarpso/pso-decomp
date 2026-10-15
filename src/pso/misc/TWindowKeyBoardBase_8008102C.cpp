@@ -1,15 +1,16 @@
 #include "types.h"
+#include "pso/misc/TEF_LensFlare.h"
+#include "pso/misc/TWindowKeyBoardBase.h"
 
 extern "C" {
-s32 *init_text_buffer_holder__19TWindowKeyBoardBaseFPv(s32 *arg0);
 s32 is_split_screen(void);
 u8 * TEF_LensFlare__ct(void *, s32, s32);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 u8 *TEF_LensFlare__create(s32 arg0);
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
-s32 free__11TOBoss4RockFUi(u32);
-s16 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_free(u32);
+s16 *mem_alloc(s32);
 u32 __cvt_fp2unsigned(f32);
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
 }
@@ -17,18 +18,17 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
 extern "C" {
 
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1);
-int is_player_near__13TEF_LensFlareFif(s32 arg0, f32 farg0);
 f32 horizontal_distance_squared(s32, s32);
 u32 get_player_by_client_id(s32);
 s32 __dl__FPv(u32 *);
-s32 free__11TOBoss4RockFUi(u32);
+s32 mem_free(u32);
 
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     s16 *temp_r3;
     u32 temp_r3_2;
     temp_r3 = (s16 *)(*(s16 **)((s8 *)arg0 + 0));
     if (temp_r3 != NULL) {
-        free__11TOBoss4RockFUi((u32)((int) (temp_r3)));
+        mem_free((u32)((int) (temp_r3)));
     }
     if (arg2 == 0) {
         *(u32 *)((s8 *)arg0 + 0x14) = arg1;
@@ -37,7 +37,7 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     }
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x14);
     if (temp_r3_2 != 0) {
-        *(s16 **)((s8 *)arg0 + 0) = alloc_buffer__11TOBoss4RockFPv((temp_r3_2 + 1) * 2);
+        *(s16 **)((s8 *)arg0 + 0) = mem_alloc((temp_r3_2 + 1) * 2);
         **(s16 **)((s8 *)arg0 + 0) = 0;
     } else {
         *(s16 **)((s8 *)arg0 + 0) = NULL;
@@ -51,7 +51,7 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *arg0 != 0U) {
-            free__11TOBoss4RockFUi(*arg0);
+            mem_free(*arg0);
         }
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -62,13 +62,15 @@ u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1) {
 
 extern s32 local_client_id;
 
-s32 *init_text_buffer_holder__19TWindowKeyBoardBaseFPv(s32 *arg0) {
+s32 *TWindowKeyBoardBase::init_text_buffer_holder() {
+    s32 *arg0 = (s32 *)this;
     *arg0 = 0;
     init_keyboard_text_buffer((u8 *)(arg0), (u32)(0U), (u32)(0U));
     return arg0;
 }
 
-int is_player_near__13TEF_LensFlareFif(s32 arg0, f32 farg0) {
+int TEF_LensFlare::is_player_near(f32 farg0) {
+    s32 arg0 = (s32)this;
     u32 temp_r3;
 
     temp_r3 = get_player_by_client_id(local_client_id);

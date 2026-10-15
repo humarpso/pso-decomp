@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Owner_8022CDE8 {
     u8 pad0[0x424];
@@ -41,46 +42,46 @@ typedef struct Params_8022C738 { u8 pad0[0x12]; s16 f12; u8 pad14[0x20 - 0x14]; 
 typedef struct LightData_8022C738 { u8 pad0[0x1C]; f32 f1C; u8 pad20[4]; } LightData_8022C738;
 
 extern "C" {
-void reset_slots__10TObjPlayerFPv(void *);
-Cursor_8022CDE8 *find_by_pos__11TMainCursorFiss(u32, int, s16);
+void reset_slots__10TObjPlayerFv(void *);
+Cursor_8022CDE8 *find_by_pos__11TMainCursorFss(u32, int, s16);
 void *TObjPlayer__sub_80116620(void *, int);
-u16 get_type_id__10TObjPlayerFPv(void *);
-s32 get_obj_id__10TObjPlayerFPv(void *);
-void set_slot_type_state__10TObjPlayerFiiss(void *, int, u16, s32);
-void set_tech_level__10TObjPlayerFPvs(void *, s16);
-s32 get_target__13TLockOnCursorFPv(void *);
+u16 get_type_id__10TObjPlayerFv(void *);
+s32 get_obj_id__10TObjPlayerFv(void *);
+void set_slot_type_state__10TObjPlayerFllss(void *, int, u16, s32);
+void set_tech_level__10TObjPlayerFs(void *, s16);
+s32 get_target__13TLockOnCursorFv(void *);
 void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-void construct_target_cursor_records__10TObjPlayerFi(void *);
+void construct_target_cursor_records__10TObjPlayerFv(void *);
 Ent_8022D27C *find_entity_by_id(u16);
 void get_hand_joint_position__10TObjPlayerFPvi(void *, void *);
 Target_8022D27C *get_technique_data__10TObjPlayerFPv(void *);
-s16 get_section_clamped__10TObjPlayerFPv(void *);
+s16 get_section_clamped__10TObjPlayerFv(void *);
 u8 get_cast_technique_level(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 void create__8TTecAntiFPvPvPvPv(void *, void *, void *, int);
-void create__9TTecBartaFPvPvPvPv(void *, void *, void *, int);
-void create_ex__9TTecBartaFPvPvPvPv(void *, void *, int, int);
-void create__10TTecDebandFiiii(void *, void *, void *, int);
+void create__9TTecBartaFPvPvPv(void *, void *, void *, int);
+void create_ex__9TTecBartaFPvPvPv(void *, void *, int, int);
+void create__10TTecDebandFllll(void *, void *, void *, int);
 void create_ex__8TTecFoieFPvPvPvPv(void *, void *, void *, int);
 void create__8TTecFoieFPvPvPvPv(void *, void *, int, int);
-void create__11TTecGiBartaFPvPvPvPv(void *, void *, void *, int);
-void create_ex__11TTecGiBartaFPvPvPvPv(void *, void *, int, int);
+void create__11TTecGiBartaFPvPvPv(void *, void *, void *, int);
+void create_ex__11TTecGiBartaFPvPvPv(void *, void *, int, int);
 void create__10TTecGiFoieFPvPvPv(void *, void *, int);
-void create__11TTecGiZondeFPvPvPvPv(void *, void *, void *, int);
+void create__11TTecGiZondeFPvPvPv(void *, void *, void *, int);
 void create__10TTecGrantsFPvPvPvPv(void *, void *, void *, int);
 void create_tec_jelin__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
-void create__9TTecLukerFPvPvPvPv(void *, void *, void *, int);
-void create__9TTecMegidFiiii(void *, void *, void *, int);
-void create_ex__9TTecMegidFiiii(void *, void *, int, int);
-void create__11TTecRaBartaFPvPvPv(void *, void *, int);
-void create_ex__10TTecRaFoieFPvPvPvPv(void *, void *, void *, int);
-void create__11TTecRaZondeFPvPvPv(void *, void *, int);
+void create__9TTecLukerFPvPvPv(void *, void *, void *, int);
+void create__9TTecMegidFllll(void *, void *, void *, int);
+void create_ex__9TTecMegidFllll(void *, void *, int, int);
+void create__11TTecRaBartaFPvPv(void *, void *, int);
+void create_ex__10TTecRaFoieFPvPvPv(void *, void *, void *, int);
+void create__11TTecRaZondeFPvPv(void *, void *, int);
 void create__9TTecRestaFPvPvPvPv(void *, void *, void *, int);
 void create__12TTecReverserFPvPvPvPv(void *, void *, void *, int);
-void create_instance__9TTecSiftaFPvPvPvPv(void *, void *, void *, int);
+void create_instance__9TTecSiftaFPvPvPv(void *, void *, void *, int);
 void create_tec_zarua__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
 void create_tec_zonde__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
 void matrix_mult_vec(int, void *, void *);
@@ -129,8 +130,6 @@ void create_technique_charge_light(u32 kind, void *owner);
 
 extern "C" {
 
-s32 get_level_tier__10TObjPlayerFi(s32 arg0);
-
 extern "C" void __dt__8TTecCtrlFv();
 extern "C" void render__8TTecCtrlFv();
 extern "C" void render_shadows__7TObjectFv();
@@ -159,7 +158,7 @@ void *__vt__8TTecCtrl[6] = {
     (void *)&render__8TTecCtrlFv, (void *)&render_shadows__7TObjectFv,
 };
 
-s32 get_level_tier__10TObjPlayerFi(s32 arg0) {
+s32 TObjPlayer::get_level_tier(s32 arg0) {
     s32 temp_r0;
 
     temp_r0 = arg0 / 5;
@@ -181,11 +180,11 @@ s32 get_level_tier__10TObjPlayerFi(s32 arg0) {
     }
 }
 #define ONE_SLOT()                                                                       \
-    if (get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, 0)) != 0xFFFF) { \
-        set_slot_type_state__10TObjPlayerFiiss(slots, 0,                                                \
-            get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, 0)),           \
-            get_obj_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, 0)));           \
-        set_tech_level__10TObjPlayerFPvs(slots, 1);                                      \
+    if (get_type_id__10TObjPlayerFv(TObjPlayer__sub_80116620(c->list, 0)) != 0xFFFF) { \
+        set_slot_type_state__10TObjPlayerFllss(slots, 0,                                                \
+            get_type_id__10TObjPlayerFv(TObjPlayer__sub_80116620(c->list, 0)),           \
+            get_obj_id__10TObjPlayerFv(TObjPlayer__sub_80116620(c->list, 0)));           \
+        set_tech_level__10TObjPlayerFs(slots, 1);                                      \
     }
 
 #pragma push
@@ -265,8 +264,8 @@ void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner) 
     if (slots == NULL) {
         return;
     }
-    reset_slots__10TObjPlayerFPv(owner->slots);
-    c = find_by_pos__11TMainCursorFiss(owner->f424, 3, kind);
+    reset_slots__10TObjPlayerFv(owner->slots);
+    c = find_by_pos__11TMainCursorFss(owner->f424, 3, kind);
     if (c == NULL) {
         return;
     }
@@ -289,15 +288,15 @@ void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner) 
     case 7: {
         int n = 0;
         int i;
-        for (i = 0; i < get_target__13TLockOnCursorFPv(c->list); i++) {
-            if (get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)) != 0xFFFF) {
-                set_slot_type_state__10TObjPlayerFiiss(slots, n,
-                    get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)),
-                    get_obj_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)));
+        for (i = 0; i < get_target__13TLockOnCursorFv(c->list); i++) {
+            if (get_type_id__10TObjPlayerFv(TObjPlayer__sub_80116620(c->list, n)) != 0xFFFF) {
+                set_slot_type_state__10TObjPlayerFllss(slots, n,
+                    get_type_id__10TObjPlayerFv(TObjPlayer__sub_80116620(c->list, n)),
+                    get_obj_id__10TObjPlayerFv(TObjPlayer__sub_80116620(c->list, n)));
                 n++;
             }
         }
-        set_tech_level__10TObjPlayerFPvs(slots, n);
+        set_tech_level__10TObjPlayerFs(slots, n);
         break;
     }
     case 9:
@@ -311,13 +310,13 @@ void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner) 
     case 16: {
         int i;
         int n = 0;
-        for (i = 0; i < get_target__13TLockOnCursorFPv(c->list); i++) {
-            set_slot_type_state__10TObjPlayerFiiss(slots, n,
-                get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)),
-                get_obj_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)));
+        for (i = 0; i < get_target__13TLockOnCursorFv(c->list); i++) {
+            set_slot_type_state__10TObjPlayerFllss(slots, n,
+                get_type_id__10TObjPlayerFv(TObjPlayer__sub_80116620(c->list, n)),
+                get_obj_id__10TObjPlayerFv(TObjPlayer__sub_80116620(c->list, n)));
             n++;
         }
-        set_tech_level__10TObjPlayerFPvs(slots, n);
+        set_tech_level__10TObjPlayerFs(slots, n);
         break;
     }
     case 17:
@@ -361,7 +360,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
     Target_8022D27C *targets;
     s32 i;
     Ent_8022D27C *ent;
-    construct_target_cursor_records__10TObjPlayerFi(&list);
+    construct_target_cursor_records__10TObjPlayerFv(&list);
     ofs.x = lbl_805DC7D8;
     ofs.y = lbl_805DC7D8;
     ofs.z = lbl_805DC7E4;
@@ -390,7 +389,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
     if (targets == NULL) {
         return;
     }
-    n = get_section_clamped__10TObjPlayerFPv(td);
+    n = get_section_clamped__10TObjPlayerFv(td);
     push_matrix_from(identity_matrix);
     rotate_matrix_y(0, pl->rotY);
     matrix_mult_vec(0, &ofs, &ofs);
@@ -416,26 +415,26 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
         if (n == 0) {
             return;
         }
-        create_ex__10TTecRaFoieFPvPvPvPv(pl, &hand, &list, get_cast_technique_level(td, 2));
+        create_ex__10TTecRaFoieFPvPvPv(pl, &hand, &list, get_cast_technique_level(td, 2));
         break;
     case 3:
         if (n != 0) {
             AIM_8022D27C()
-            create__9TTecBartaFPvPvPvPv(pl, &pl->pos, &aim, get_cast_technique_level(td, 3));
+            create__9TTecBartaFPvPvPv(pl, &pl->pos, &aim, get_cast_technique_level(td, 3));
         } else {
-            create_ex__9TTecBartaFPvPvPvPv(pl, &pl->pos, pl->rotY, get_cast_technique_level(td, 3));
+            create_ex__9TTecBartaFPvPvPv(pl, &pl->pos, pl->rotY, get_cast_technique_level(td, 3));
         }
         break;
     case 4:
         if (n != 0) {
             AIM_8022D27C()
-            create__11TTecGiBartaFPvPvPvPv(pl, &hand, &aim, get_cast_technique_level(td, 4));
+            create__11TTecGiBartaFPvPvPv(pl, &hand, &aim, get_cast_technique_level(td, 4));
         } else {
-            create_ex__11TTecGiBartaFPvPvPvPv(pl, &hand, pl->rotY, get_cast_technique_level(td, 4));
+            create_ex__11TTecGiBartaFPvPvPv(pl, &hand, pl->rotY, get_cast_technique_level(td, 4));
         }
         break;
     case 5:
-        create__11TTecRaBartaFPvPvPv(pl, &hand, get_cast_technique_level(td, 5));
+        create__11TTecRaBartaFPvPv(pl, &hand, get_cast_technique_level(td, 5));
         break;
     case 6:
         COLLECT_8022D27C()
@@ -449,10 +448,10 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
         if (n == 0) {
             return;
         }
-        create__11TTecGiZondeFPvPvPvPv(pl, &hand, &list, get_cast_technique_level(td, 7));
+        create__11TTecGiZondeFPvPvPv(pl, &hand, &list, get_cast_technique_level(td, 7));
         break;
     case 8:
-        create__11TTecRaZondeFPvPvPv(pl, &hand, get_cast_technique_level(td, 8));
+        create__11TTecRaZondeFPvPv(pl, &hand, get_cast_technique_level(td, 8));
         break;
     case 9:
         COLLECT_8022D27C()
@@ -463,7 +462,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
         break;
     case 10:
         COLLECT_8022D27C()
-        create__10TTecDebandFiiii(pl, &hand, &list, get_cast_technique_level(td, 10));
+        create__10TTecDebandFllll(pl, &hand, &list, get_cast_technique_level(td, 10));
         break;
     case 11:
         COLLECT_8022D27C()
@@ -475,13 +474,13 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
         break;
     case 13:
         COLLECT_8022D27C()
-        create_instance__9TTecSiftaFPvPvPvPv(pl, &hand, &list, get_cast_technique_level(td, 13));
+        create_instance__9TTecSiftaFPvPvPv(pl, &hand, &list, get_cast_technique_level(td, 13));
         break;
     case 14:
         if (is_split_screen() != 0) {
-            create__9TTecLukerFPvPvPvPv(pl, &hand, &ofs, 0);
+            create__9TTecLukerFPvPvPv(pl, &hand, &ofs, 0);
         } else if (local_client_id == obj_getField1c(pl)) {
-            create__9TTecLukerFPvPvPvPv(pl, &hand, &ofs, 0);
+            create__9TTecLukerFPvPvPv(pl, &hand, &ofs, 0);
         }
         break;
     case 15:
@@ -502,9 +501,9 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
     case 18:
         if (n != 0) {
             AIM_8022D27C()
-            create__9TTecMegidFiiii(pl, &hand, &aim, get_cast_technique_level(td, 18));
+            create__9TTecMegidFllll(pl, &hand, &aim, get_cast_technique_level(td, 18));
         } else {
-            create_ex__9TTecMegidFiiii(pl, &hand, pl->rotY, get_cast_technique_level(td, 18));
+            create_ex__9TTecMegidFllll(pl, &hand, pl->rotY, get_cast_technique_level(td, 18));
         }
         break;
     }

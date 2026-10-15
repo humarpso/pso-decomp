@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_8025A0A4_lbl_804CF9E0 {
     s32 value;
@@ -29,7 +30,6 @@ extern const f32 lbl_805DCF64;
 void set_status_entry_target(void *arg0, s32 arg1);
 extern s32 lbl_804CF9E0[];
 extern const f32 lbl_805DCF58;
-u8 *init_layout_entry_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 extern s32 lbl_804CF9C8[];
 u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2);
@@ -61,18 +61,15 @@ extern "C" {
 
 void TWindowSubStatusDisp__sub_80259CE0(void);
 void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1);
-void set_all_values__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1);
 void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1);
-void* reset_entry__20TWindowSubStatusDispFPvii(void* a0, int a1, int a2);
-void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 farg0);
 s32 __dl__FPv(void *);
-s32 deleting_destructor__20TWindowSubStatusDispFPvs(void *, s32);
+s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 f32 fabs_float(f32, f32);
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 
     extern unsigned char lbl_804CF9B0[];
     extern const float lbl_805DCF14;
-void* reset_entry__20TWindowSubStatusDispFPvii(void* a0, int a1, int a2) { reset_entry__20TWindowSubStatusDispFPv(a0, a2); *(int*)((char*)a0 + 0x4) = (int)lbl_804CF9B0; *(float*)((char*)a0 + 0x14) = lbl_805DCF14; *(unsigned char*)((char*)a0 + 0x1c) = 51; *(unsigned char*)((char*)a0 + 0x1d) = 51; *(int*)((char*)a0 + 0x20) = 0; *(int*)((char*)a0 + 0x24) = 0; *(int*)((char*)a0 + 0x28) = -1; *(int*)((char*)a0 + 0x2c) = -1; *(int*)((char*)a0 + 0x30) = -1; *(int*)((char*)a0 + 0x34) = -1; *(int*)((char*)a0 + 0x18) = 0; return a0; }
+void*TWindowSubStatusDisp::reset_entry(int a1, int a2) { reset_entry__20TWindowSubStatusDispFPv(this, a2); *(int*)((char*)this + 0x4) = (int)lbl_804CF9B0; *(float*)((char*)this + 0x14) = lbl_805DCF14; *(unsigned char*)((char*)this + 0x1c) = 51; *(unsigned char*)((char*)this + 0x1d) = 51; *(int*)((char*)this + 0x20) = 0; *(int*)((char*)this + 0x24) = 0; *(int*)((char*)this + 0x28) = -1; *(int*)((char*)this + 0x2c) = -1; *(int*)((char*)this + 0x30) = -1; *(int*)((char*)this + 0x34) = -1; *(int*)((char*)this + 0x18) = 0; return this; }
 
 void draw_right_aligned_number(void *arg0) {
     s32 n;
@@ -196,7 +193,7 @@ extern s32 lbl_804CF9C8[];
 void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 4) = lbl_804CF9C8;
-        deleting_destructor__20TWindowSubStatusDispFPvs(arg0, 0);
+        deleting_destructor__20TWindowSubStatusDispFs(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -222,21 +219,22 @@ u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2) {
     return arg0;
 }
 
-void set_all_values__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1) {
+void TWindowSubStatusDisp::set_all_values(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) arg1;
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) arg1;
     *(s32 *)((s8 *)arg0 + 0x20) = arg1;
     *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805DCF58;
 }
 
-void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 farg0) {
+void TWindowSubStatusDisp::set_animated_target(s32 arg1, f32 farg0) {
     f32 temp_f2;
     f32 var_f31;
 
-    if (*(f32 *)((s8 *)arg0 + 0x28) != (f32) arg1) {
-        *(f32 *)((s8 *)arg0 + 0x28) = (f32) arg1;
-        temp_f2 = *(f32 *)((s8 *)arg0 + 0x28);
-        var_f31 = temp_f2 - *(f32 *)((s8 *)arg0 + 0x24);
+    if (*(f32 *)((s8 *)this + 0x28) != (f32) arg1) {
+        *(f32 *)((s8 *)this + 0x28) = (f32) arg1;
+        temp_f2 = *(f32 *)((s8 *)this + 0x28);
+        var_f31 = temp_f2 - *(f32 *)((s8 *)this + 0x24);
         var_f31 = var_f31 / farg0;
         if (fabs_float(var_f31, temp_f2) < lbl_805DCF5C) {
             if (var_f31 > lbl_805DCF58) {
@@ -245,7 +243,7 @@ void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 
                 var_f31 = lbl_805DCF60;
             }
         }
-        *(f32 *)((s8 *)arg0 + 0x2C) = var_f31;
+        *(f32 *)((s8 *)this + 0x2C) = var_f31;
     }
 }
 
@@ -309,7 +307,8 @@ void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_8025A0A4_lbl_804CF9E0_size[sizeof(RecoveredGlobal_8025A0A4_lbl_804CF9E0) == 0x18 ? 1 : -1];
-u8 *init_layout_entry_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
+u8 *TWindowSubStatusDisp::init_layout_entry_scaled(u8 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     TWindowSubStatusDisp__sub_80259D3C((u8 *)(arg0), (u8 *)(arg1), (s32)(arg2));
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025A0A4_lbl_804CF9E0 *)&lbl_804CF9E0).value;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(s32 *)((s8 *)arg0 + 0x20);

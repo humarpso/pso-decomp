@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjRaderCol.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -38,15 +39,12 @@ extern s32 local_client_id;
 extern "C" {
 
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
-void render__12TObjRaderColFv(void);
-void run_task__12TObjRaderColFv(void *arg0);
-void check_local_player_in_range__12TObjRaderColFPv(void *);
 s32 block_region_by_id__13TRaderMapCoreFs(s16);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
-void render__12TObjRaderColFv(void) {  }
+void TObjRaderCol::render() {  }
 
 void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0) {
     s32 found;
@@ -77,7 +75,7 @@ void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0) {
 }
 
 #define arg0 ((Col_8019750C *)arg0_)
-void check_local_player_in_range__12TObjRaderColFPv(void *arg0_) {
+void TObjRaderCol::check_local_player_in_range(void *arg0_) {
     Ply_8019750C *p = get_player_by_client_id(local_client_id);
     if (p != 0) {
         if (test_flag_2000000__10TObjPlayerFPv(p) != 0) {
@@ -100,21 +98,21 @@ void check_local_player_in_range__12TObjRaderColFPv(void *arg0_) {
 }
 #undef arg0
 
-void run_task__12TObjRaderColFv(void *arg0) {
+void TObjRaderCol::run_task() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x98);
+    temp_r0 = *(s32 *)((s8 *)this + 0x98);
     switch (temp_r0) {
     case 0:
-        block_region_by_id__13TRaderMapCoreFs((s16) *(s32 *)((s8 *)arg0 + 0x94));
-        *(s32 *)((s8 *)arg0 + 0x98) = 1;
+        block_region_by_id__13TRaderMapCoreFs((s16) *(s32 *)((s8 *)this + 0x94));
+        *(s32 *)((s8 *)this + 0x98) = 1;
         return;
     case 1:
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-            check_any_player_in_range__12TObjRaderColFPv((Col_8019750C *)((void *)(arg0)));
+            check_any_player_in_range__12TObjRaderColFPv((Col_8019750C *)((void *)(this)));
             return;
         }
-        check_local_player_in_range__12TObjRaderColFPv(arg0);
+        TObjRaderCol::check_local_player_in_range(this);
         return;
     }
 }

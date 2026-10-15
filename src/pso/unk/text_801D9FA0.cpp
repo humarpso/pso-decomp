@@ -25,7 +25,7 @@ struct Pkt_801D9FA0 {
 };
 
 extern "C" {
-void bswap_packet__9TProtocolFPv(void *);
+void bswap_packet__9TProtocolFv(void *);
 void *memset(void *, int, int);
 void fn_801D9FA0(VObj_18_801D9FA0 *obj, s16 a, s16 c, s16 d, u32 *src);
 }
@@ -46,7 +46,7 @@ void fn_801D9FA0(VObj_18_801D9FA0 *obj, s16 a, s16 c, s16 d, u32 *src) {
     for (i = 0; i < 8; i++) {
         pkt.data[i] = src[i];
     }
-    bswap_packet__9TProtocolFPv(&pkt);
+    bswap_packet__9TProtocolFv(&pkt);
     obj->m8(&pkt, 0x2C);
 }
 

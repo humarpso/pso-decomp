@@ -9,7 +9,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_soul_eater_weapon(u8 *arg0);
-u8 get_slot_count__14TItemProShieldFPv(void *);
+u8 get_slot_count__14TItemProShieldFv(void *);
 u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_8012D354_lbl_804A5838 lbl_804A5838;
@@ -23,7 +23,7 @@ u8 *construct_soul_eater_weapon(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A5838.value;
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
-    if (get_slot_count__14TItemProShieldFPv(arg0) == 1) {
+    if (get_slot_count__14TItemProShieldFv(arg0) == 1) {
         set_status_flags__10TObjPlayerFPvUi(arg0, 0x22);
     }
     return arg0;

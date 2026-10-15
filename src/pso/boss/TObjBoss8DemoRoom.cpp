@@ -4,7 +4,6 @@
 
 extern "C" {
 
-void render__17TObjBoss8DemoRoomFv(void);
 void run_task__17TObjBoss8DemoRoomFv(s32 arg0);
 u32 TBoss8Dragon__sub_802F3348(s32);
 s32 TBoss8Dragon__sub_802FCCBC();
@@ -14,12 +13,12 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 queue_destruction__7TObjectFv(s32);
 s32 reset_transform_state__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern void *TObjBoss8DemoRoom__shared_resource_object;
 
-void render__17TObjBoss8DemoRoomFv(void) {
-    set_global_param__8TObjFishFi(*(s32 *)((s8 *)(*(void **)((s8 *)TObjBoss8DemoRoom__shared_resource_object + 0x42C)) + 0xC));
+void TObjBoss8DemoRoom::render() {
+    set_global_param__8TObjFishFl(*(s32 *)((s8 *)(*(void **)((s8 *)TObjBoss8DemoRoom__shared_resource_object + 0x42C)) + 0xC));
     push_matrix();
     draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)TObjBoss8DemoRoom__shared_resource_object + 0x42C)) + 8));
     reset_transform_state__10TObjPlayerFv();

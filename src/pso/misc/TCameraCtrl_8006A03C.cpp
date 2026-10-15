@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct O_8006A044 { u8 pad[0x1c0]; s32 id; f32 v; };
 
@@ -12,27 +13,24 @@ s32 queue_event_1D__12TBoss3VoloptFss(s32, s32, void *);
 void TCameraCtrl__sub_8006A044(s32 id, f32 v);
 s32 obj_testFlags30(u32, s32);
 s32 is_split_screen();
-s32 get_field_3e4__10TObjPlayerFPv(u32);
+s32 get_field_3e4__10TObjPlayerFv(u32);
 s32 reset_cameras_to_actor(u32, s32);
 s32 is_quest_active();
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s32 refresh_equipment_slot__10TObjPlayerFv(u32);
 u32 get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern Sel_8006A13C TCameraCtrl__view_state;
 extern Big_8006A13C controller_input_state;
 extern s32 local_client_id;
-void cycle_spectate_target__11TCameraCtrlFv(void);
 }
 
 extern "C" {
 
-void* get_params__11TCameraCtrlFPv(void* p);
-void set_shake_preset__11TCameraCtrlFi(s32 arg0);
 s32 queue_event_1D__12TBoss3VoloptFss(s32, s32, void *);
 
-void* get_params__11TCameraCtrlFPv(void* p) { return (char*)p + 0x20; }
+void*TCameraCtrl::get_params() { return (char*)this + 0x20; }
 
 extern void *camera_ctrl_instance;
 extern const f32 lbl_805D8FE8;
@@ -49,7 +47,7 @@ void TCameraCtrl__sub_8006A044(s32 id, f32 v) {
     }
 }
 
-void set_shake_preset__11TCameraCtrlFi(s32 arg0) {
+void TCameraCtrl::set_shake_preset(s32 arg0) {
     void *p;
 
     if ((void *) camera_ctrl_instance != NULL) {
@@ -75,7 +73,7 @@ void set_shake_preset__11TCameraCtrlFi(s32 arg0) {
         }
     }
 }
-void cycle_spectate_target__11TCameraCtrlFv(void) {
+void TCameraCtrl::cycle_spectate_target() {
     void *pad;
     u32 q;
     u32 pl;
@@ -86,9 +84,9 @@ void cycle_spectate_target__11TCameraCtrlFv(void) {
         return;
     }
     pad = controller_input_state.unk70;
-    if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x20000) == 0 ||
+    if (is_on_current_screen__11TCameraCtrlFv(pad, 0x20000) == 0 ||
         TWindowShortListCtrl__check_controller_button(pad, 0x10) == 0 ||
-        is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) == 0 ||
+        is_on_current_screen__11TCameraCtrlFv(pad, 0x10000) == 0 ||
         (pl = get_player_by_client_id(local_client_id)) == 0 ||
         (tries = 0, TCameraCtrl__view_state.busy != 0) ||
         get_global_state__14TOKeyMachine01Fv() == 0xB ||
@@ -113,7 +111,7 @@ void cycle_spectate_target__11TCameraCtrlFv(void) {
         }
         q = get_player_by_client_id(slot);
         if (q != 0) {
-            if (get_field_3e4__10TObjPlayerFPv(q) == get_field_3e4__10TObjPlayerFPv(pl) && obj_testFlags30(q, 0x02000000) == 0) {
+            if (get_field_3e4__10TObjPlayerFv(q) == get_field_3e4__10TObjPlayerFv(pl) && obj_testFlags30(q, 0x02000000) == 0) {
                 TCameraCtrl__view_state.slot = slot;
                 reset_cameras_to_actor(q, 0);
                 for (i = 0; i < 4; i++) {

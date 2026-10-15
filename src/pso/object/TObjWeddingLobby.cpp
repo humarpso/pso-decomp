@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/object/TObjWeddingLobby.h"
 
 extern "C" {
 extern char lbl_80479940[];
@@ -50,18 +51,16 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_object();
 s32 draw_ginja_model_with_motion(int, int, f32);
 extern u32 TObjWeddingLobby__resource_bundle;
 extern u32 wedding_lobby_type;
-void render__16TObjWeddingLobbyFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjWeddingLobby__resource_bundle;
 extern u32 wedding_lobby_type;
-void load_resources__16TObjWeddingLobbyFv(void);
 s32 init_map_object_base(void *, void *);
 s32 get_filtered_event_theme__6TLobbyFv();
 extern s32 __vt__16TObjWeddingLobby[];
@@ -72,31 +71,29 @@ s32 check_demo_mode__10TObjPlayerFv();
 s32 get_filtered_event_theme__6TLobbyFv();
 void TObjWeddingLobby__sub_8035BC20(void);
 extern u32 TObjWeddingLobby__resource_bundle;
-void run_task__16TObjWeddingLobbyFv(Obj_8035BCE8 *self);
 }
 
 extern "C" {
 
 void TObjWeddingLobby__sub_8035BC20(void);
 void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1);
-void *create__16TObjWeddingLobbyFPv(void *arg0);
-void release__16TObjWeddingLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 
 void TObjWeddingLobby__sub_8035BC20(void) {  }
 
 extern void *tl_05;
 
-void render__16TObjWeddingLobbyFv(u8 *arg0) {
+void TObjWeddingLobby::render() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     s32 temp_r31;
     s32 temp_r3;
     if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) wedding_lobby_type != 0U)) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi((void *) (wedding_lobby_type));
+        set_global_param__8TObjFishFl((void *) (wedding_lobby_type));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -112,7 +109,8 @@ void render__16TObjWeddingLobbyFv(u8 *arg0) {
     }
 }
 
-void run_task__16TObjWeddingLobbyFv(Obj_8035BCE8 *self) {
+void TObjWeddingLobby::run_task() {
+    Obj_8035BCE8 *self = (Obj_8035BCE8 *)this;
     f32 last;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((void (*)(Obj_8035BCE8 *))TObjWeddingLobby__sub_8035BC20)(self);
@@ -153,7 +151,7 @@ void run_task__16TObjWeddingLobbyFv(Obj_8035BCE8 *self) {
     }
 }
 
-void *create__16TObjWeddingLobbyFPv(void *arg0) {
+void *TObjWeddingLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
         o = TObjWeddingLobby__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -163,7 +161,7 @@ void *create__16TObjWeddingLobbyFPv(void *arg0) {
 
 extern u32 TObjWeddingLobby__resource_bundle;
 
-void release__16TObjWeddingLobbyFv(void) {
+void TObjWeddingLobby::release() {
     if ((u32) TObjWeddingLobby__resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)TObjWeddingLobby__resource_bundle, 1);
         TObjWeddingLobby__resource_bundle = 0U;
@@ -172,10 +170,10 @@ void release__16TObjWeddingLobbyFv(void) {
 
 extern s32 __vt__16TObjWeddingLobby[];
 
-void load_resources__16TObjWeddingLobbyFv(void) {
+void TObjWeddingLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &wedding_lobby_resource_descriptor, 0, 0, 0));
@@ -187,7 +185,7 @@ void load_resources__16TObjWeddingLobbyFv(void) {
 void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjWeddingLobby;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -25,6 +25,14 @@ struct TObjEneRe7BeruraPunch
     void* m_f8;
     u8 _padFC[0x10];
     u32 m_10c;
+    void snap_to_ground();
+    void reset();
+    void run_task();
+    void init();
+    int is_patrol_active();
+    void render();
+    void update_velocity_and_snap();
+    void launch(s32 arg1, s32 arg2);
 };
 
 #endif

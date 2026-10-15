@@ -168,9 +168,9 @@ void *__vt__13TBoss6MagMine[11] = {
 };
 void vec3_add_to(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv(void *);
-void copy_pos__11TNowLoadingFPvPv(void *, void *);
-s32 query_teammate_state__9TObjEneDDFPv();
-void update_collisions__10TObjPlayerFPv(void *);
+void copy_pos__11TNowLoadingFPv(void *, void *);
+s32 query_teammate_state__9TObjEneDDFv();
+void update_collisions__10TObjPlayerFv(void *);
 void submit_cursor_candidate(void *, int);
 void add_radar_scaled_marker(void *, int, int, int, f32);
 s32 is_boss_active__14TBoss6PlotFalzFv();
@@ -181,26 +181,26 @@ s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv(void);
 void play_sound_effect(int, Vec_80368C14 *, int, int);
-s32 is_active__14TBoss6PlotFalzFPv(void *);
+s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
 void explode__13TBoss6MagMineFPv(Mine_80368C14 *o);
-s32 rand_vary_count__14TBoss6PlotFalzFif(int, f32);
+s32 rand_vary_count__14TBoss6PlotFalzFlf(int, f32);
 u32 get_hp__14TBoss6PlotFalzFv();
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 int TBoss6PlotFalz__sub_8036964C(void);
 void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
-u8 *dispatch_shared_handler_a__6TLobbyFPv(int);
-s32 register_object__6TLobbyFPv(int);
-s32 dispatch_shared_handler_b__6TLobbyFPv(int);
-s32 register_boss__6TLobbyFPv(int);
-s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
-s32 reset_photon_effect__12TBoss3VoloptFPv(void *);
+s32 add_flags_2e4__10TObjPlayerFUl(void *, int);
+u8 *dispatch_shared_handler_a__6TLobbyFl(int);
+s32 register_object__6TLobbyFl(int);
+s32 dispatch_shared_handler_b__6TLobbyFl(int);
+s32 register_boss__6TLobbyFl(int);
+s32 exchange_object_state__6TLobbyFls(void *, void *, int);
+s32 reset_photon_effect__12TBoss3VoloptFv(void *);
 u32 create_particle_emitter(void *, int);
-void set_flags__11TBoss4Type2FPvUi(void *, u32);
-s32 set_param__12TObjEneLappyFPvi(void *, int);
+void set_flags__11TBoss4Type2FUl(void *, u32);
+s32 set_param__12TObjEneLappyFl(void *, int);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
 void initialize__9TObjEnemyFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -214,15 +214,15 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv(void);
-s32 is_active__14TBoss6PlotFalzFPv(void *);
+s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
 s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void TBoss4DarkFalz__sub_8004B4F0(void *, s32);
 s32 get_next_point__14TBoss6PlotFalzFPvPvPv(u32, void *, void *);
-s32 get_phase__8TObjFishFPv();
-s32 get_mag_mine_ptr__11TBoss6Type1FPv(u32);
+s32 get_phase__8TObjFishFv();
+s32 get_mag_mine_ptr__11TBoss6Type1Fv(u32);
 u32 get_hp__14TBoss6PlotFalzFv();
 s32 create__13TBoss6MagMineFi(s32 arg0);
 void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1);
@@ -259,9 +259,9 @@ void __dt__9TObjEnemyFv(void *, int);
 s32 __nw__7TObjectFUl(s32);
 s32 clear_global_state__10TObjPlayerFv();
 int queue_destruction__7TObjectFv(void*);
-void request_destroy__11TBoss4Type2FUi(void *);
+void request_destroy__11TBoss4Type2FUl(void *);
 s32 set_global_flag__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 update_camera_target__14TBoss6PlotFalzFv();
 
 void TBoss6MagMine__sub_8036897C(void *arg0) {
@@ -288,7 +288,7 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)((s8 *)arg0 + 0x374), 2);
     temp_r30 = get_bml_model(*(s32 *)((s8 *)arg0 + 0x374), 2);
     temp_r31_2 = get_bml_motion(*(s32 *)((s8 *)arg0 + 0x374), 0);
-    set_global_param__8TObjFishFi(temp_r31);
+    set_global_param__8TObjFishFl(temp_r31);
     TBoss6PlotFalz__sub_802AC008(*(f32 *)((s8 *)arg0 + 0x3A8), 0.0f);
     draw_model_motion(temp_r30, temp_r31_2, *(f32 *)((s8 *)arg0 + 0x398));
     update_camera_target__14TBoss6PlotFalzFv();
@@ -331,7 +331,7 @@ void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
         ((VObj_18_5673ef *)(arg1))->m45();
         return;
     default:
-        temp_r3_2 = rand_vary_count__14TBoss6PlotFalzFif((int) (*(s32 *)((s8 *)arg0 + 0x39C)), (f32) (0.1f));
+        temp_r3_2 = rand_vary_count__14TBoss6PlotFalzFlf((int) (*(s32 *)((s8 *)arg0 + 0x39C)), (f32) (0.1f));
         stack.sp8 = 1;
         stack.sp10 = 1;
         stack.sp14 = (f32) temp_r3_2;
@@ -346,7 +346,7 @@ void explode__13TBoss6MagMineFPv(Mine_80368C14 *o) {
     s32 i;
     for (i = 0; i < n; i++) {
         u8 *pl = (u8 *)get_player_data__10TObjPlayerFi(i);
-        if (is_active__14TBoss6PlotFalzFPv(pl) != 0 && is_locally_controlled__10TObjPlayerFPv(pl) != 0) {
+        if (is_active__14TBoss6PlotFalzFv(pl) != 0 && is_locally_controlled__10TObjPlayerFPv(pl) != 0) {
             Vec_80368C14 v = o->pos;
             subtract_vector(&v, pl + 0x38);
             v.y = 0.0f;
@@ -367,7 +367,7 @@ s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_) {
     n = get_game_mode__6TLobbyFv();
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (is_active__14TBoss6PlotFalzFPv(p) != 0) {
+        if (is_active__14TBoss6PlotFalzFv(p) != 0) {
             ((void (*)(Vec_80368C14 *, Vec_80368C14 *))VecCopy__FP3VecPC3Vec)(&d, &((P_80368CE4 *)p)->pos);
             subtract_vector(&d, &arg0->home);
             d.y = 0.0f;
@@ -480,7 +480,7 @@ void TBoss6MagMine__sub_80368FA0(TBoss6MagMine_80368FA0 *self) {
     if (is_boss_active__14TBoss6PlotFalzFv() == 0) {
         self->state = 4;
     }
-    if (query_teammate_state__9TObjEneDDFPv() != 0) {
+    if (query_teammate_state__9TObjEneDDFv() != 0) {
         return;
     }
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->prev, &self->pos);
@@ -497,7 +497,7 @@ void TBoss6MagMine__sub_80368FA0(TBoss6MagMine_80368FA0 *self) {
     }
     copy_pos__13TBoss6MagMineFi((s32)self);
     if (self->state == 2) {
-        update_collisions__10TObjPlayerFPv(self);
+        update_collisions__10TObjPlayerFv(self);
         submit_cursor_candidate(self, -1);
     }
     if (self->state != 0) {
@@ -521,14 +521,14 @@ void TBoss6MagMine__sub_80368FA0(TBoss6MagMine_80368FA0 *self) {
         break;
     }
     if (self->f3B0 != 0) {
-        copy_pos__11TNowLoadingFPvPv(self->f3B0, &self->pos);
+        copy_pos__11TNowLoadingFPv(self->f3B0, &self->pos);
     }
 }
 
 void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F322C;
-        if (*(void **)((s8 *)arg0 + 0x3B0) != NULL) { request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x3B0)); *(s32 *)((s8 *)arg0 + 0x3B0) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3B0) != NULL) { request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x3B0)); *(s32 *)((s8 *)arg0 + 0x3B0) = 0; }
         free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
@@ -551,12 +551,12 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)self + 0) = lbl_805D44B0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x40);
     VecCopy__FP3VecPC3Vec(arg0 + 0x384, arg2 + 0x4C);
-    add_flags_2e4__10TObjPlayerFPvUi(self, 8);
+    add_flags_2e4__10TObjPlayerFUl(self, 8);
     ((VObj_18_aa4667 *)(self))->m79(arg2);
-    if (exchange_object_state__6TLobbyFPvis(self, &key, 1) != 0) {
+    if (exchange_object_state__6TLobbyFls(self, &key, 1) != 0) {
         key.a = 0;
         key.c = 0;
-        exchange_object_state__6TLobbyFPvis(self, &key, 0);
+        exchange_object_state__6TLobbyFls(self, &key, 0);
     }
     *(s32 *)((s8 *)self + 0x374) = get_fish_count__8TObjFishFv();
     *(s32 *)((s8 *)self + 0x24) = 0;
@@ -566,11 +566,11 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)self + 0x308) = *(f32 *)((s8 *)self + 0x30C) = *(f32 *)((s8 *)self + 0x310) = 0.0f;
     *(s32 *)((s8 *)self + 0x2A8) = 0;
-    bind_enemy_combat_stats(self, register_boss__6TLobbyFPv(0x2D), dispatch_shared_handler_b__6TLobbyFPv(0x2D), register_object__6TLobbyFPv(0x2D));
+    bind_enemy_combat_stats(self, register_boss__6TLobbyFl(0x2D), dispatch_shared_handler_b__6TLobbyFl(0x2D), register_object__6TLobbyFl(0x2D));
     *(s16 *)((s8 *)self + 0x33E) = *(s16 *)((s8 *)self + 0x32C);
-    reset_photon_effect__12TBoss3VoloptFPv(self);
-    set_param__12TObjEneLappyFPvi(self, 0);
-    d = dispatch_shared_handler_a__6TLobbyFPv(0x2D);
+    reset_photon_effect__12TBoss3VoloptFv(self);
+    set_param__12TObjEneLappyFl(self, 0);
+    d = dispatch_shared_handler_a__6TLobbyFl(0x2D);
     *(s32 *)((s8 *)self + 0x39C) = (s32) *(f32 *)((s8 *)d + 4);
     if ((f32) *(s32 *)((s8 *)self + 0x39C) <= 0.0f) {
         *(s32 *)((s8 *)self + 0x39C) = 0x14;
@@ -595,7 +595,7 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)self + 0x380) *= 4.166667f;
     *(u32 *)((s8 *)self + 0x3B0) = create_particle_emitter(self + 0x38, 0x146);
     if (*(u32 *)((s8 *)self + 0x3B0) != 0U) {
-        set_flags__11TBoss4Type2FPvUi(*(void **)((s8 *)self + 0x3B0), 0x40);
+        set_flags__11TBoss4Type2FUl(*(void **)((s8 *)self + 0x3B0), 0x40);
     }
     return arg0;
 }
@@ -621,10 +621,10 @@ void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1) {
     Params_80369598 p;
     u32 boss;
     boss = get_hp__14TBoss6PlotFalzFv();
-    if (boss == 0 || get_phase__8TObjFishFPv() != 6) {
+    if (boss == 0 || get_phase__8TObjFishFv() != 6) {
         return;
     }
-    TBoss4DarkFalz__sub_8004B4F0(&p, get_mag_mine_ptr__11TBoss6Type1FPv(boss));
+    TBoss4DarkFalz__sub_8004B4F0(&p, get_mag_mine_ptr__11TBoss6Type1Fv(boss));
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.a, arg0);
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.b, arg1);
     p.f8 = 1;

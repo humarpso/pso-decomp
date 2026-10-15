@@ -13,8 +13,8 @@ struct BattleIntroWindowSize { f32 x, y; };
 
 extern "C" {
 void *get_window_layout_position(s32);
-void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
-void set_score__19TPlayerBattleCtrl4PFPvi(void *, int);
+void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
+void set_score__19TPlayerBattleCtrl4PFl(void *, int);
 extern const BattleIntroWindowSize lbl_80475B60;
 s32 lbl_805D6AB0;
 void open_intro_window__19TPlayerBattleCtrl4PFv(BattleIntroWindowState *self);
@@ -26,10 +26,10 @@ void initialize_battle__19TPlayerBattleCtrl4PFv(void* p);
 void show_intro_text__19TPlayerBattleCtrl4PFv(void *arg0);
 int set_split_screen_battle_phase(void*, void*);
 int init_battle__19TPlayerBattleCtrl4PFPv(void*);
-void send_and_handle__6TLobbyFPvii(void *, void *, int);
-void set_score__19TPlayerBattleCtrl4PFPvi(void *, int);
+void send_and_handle__6TLobbyFii(void *, void *, int);
+void set_score__19TPlayerBattleCtrl4PFl(void *, int);
 void *destroy__19TPlayerBattleCtrl4PFs(void *arg0, s16 arg1);
-s32 close_player_windows__19TPlayerBattleCtrl4PFPv(void *);
+s32 close_player_windows__19TPlayerBattleCtrl4PFv(void *);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
@@ -98,10 +98,10 @@ void *lbl_804E7D4C[7] = {
 }
 void TPlayerBattleCtrl4P::show_intro_text() {
     if (*(void **)((s8 *)((void *)this) + 0x20) != NULL) {
-        send_and_handle__6TLobbyFPvii(*(void **)((s8 *)((void *)this) + 0x20), (void *)((char *)((void *)this) + 56), 128);
+        send_and_handle__6TLobbyFii(*(void **)((s8 *)((void *)this) + 0x20), (void *)((char *)((void *)this) + 56), 128);
     }
     *(u32 *)((s8 *)((void *)this) + 0x240) = 240;
-    set_score__19TPlayerBattleCtrl4PFPvi(((void *)this), 2);
+    set_score__19TPlayerBattleCtrl4PFl(((void *)this), 2);
 }
 extern "C" {
 
@@ -109,11 +109,11 @@ extern "C" {
 void TPlayerBattleCtrl4P::open_intro_window() {
     if (((BattleIntroWindowState *)this)->intro_window == NULL) {
         BattleIntroWindowSize size = lbl_80475B60;
-        ((BattleIntroWindowState *)this)->intro_window = set_window_mode_4__6TLobbyFPvii(
+        ((BattleIntroWindowState *)this)->intro_window = set_window_mode_4__6TLobbyFPvll(
             get_window_layout_position(0x52), &size, 1);
     }
     lbl_805D6AB0 = 0;
-    set_score__19TPlayerBattleCtrl4PFPvi((void *)(((BattleIntroWindowState *)this)), (int)(1));
+    set_score__19TPlayerBattleCtrl4PFl((void *)(((BattleIntroWindowState *)this)), (int)(1));
 }
 extern "C" {
 
@@ -187,7 +187,7 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::destroy(s16 should_free) {
             TWindow__close(*(void **)((s8 *)((void *)this) + 0x24));
             *(u32 *)((s8 *)((void *)this) + 0x24) = 0U;
         }
-        close_player_windows__19TPlayerBattleCtrl4PFPv(((void *)this));
+        close_player_windows__19TPlayerBattleCtrl4PFv(((void *)this));
         TPlayerBattleCtrl4P__instance = 0;
         __dt__7TObjectFv(((void *)this), 0);
         if (should_free > 0) {

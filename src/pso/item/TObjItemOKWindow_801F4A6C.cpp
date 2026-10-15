@@ -28,12 +28,12 @@ s32 fn_801F4C98(void);
 void set_status_flag_80__12TQuestThreadFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void align_menu_entry_positions(void *);
-void set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
+void set_scroll_target__17TWindowSubComCardFff(void *, f32, f32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, s32, s32);
 void *init_shop_judgment_window(void *);
-void *check_room_seq_4__16TAdChrSelASlotGCFii(void *, s32);
-void send_and_handle__6TLobbyFPvii(void *, void *, s32);
-void *update_window_mode_from_progress__6TLobbyFiPv(void *, Pos_801F4B10 *);
+void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
+void send_and_handle__6TLobbyFii(void *, void *, s32);
+void *update_window_mode_from_progress__6TLobbyFPv(void *, Pos_801F4B10 *);
 void *get_window_layout_position(s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_8044A638[];
@@ -56,10 +56,10 @@ Self_801F4B10 *TObjItemOKWindow__ct(Self_801F4B10 *self, void *parent) {
     self->name = TObjItemOKWindow__class_name;
     self->win60 = init_shop_judgment_window(get_window_layout_position(0x57));
     if (self->win60 != NULL) {
-        set_scroll_target__17TWindowSubComCardFPvff(self->win60, lbl_805DC4E0, lbl_805DC4E4);
+        set_scroll_target__17TWindowSubComCardFff(self->win60, lbl_805DC4E0, lbl_805DC4E4);
         align_menu_entry_positions(self->win60);
     }
-    self->win5C = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x56), 1);
+    self->win5C = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x56), 1);
     if (self->win5C != NULL) {
         n = fn_801F4C98();
         if (n != 0) {
@@ -70,14 +70,14 @@ Self_801F4B10 *TObjItemOKWindow__ct(Self_801F4B10 *self, void *parent) {
         self->term = 0;
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win5C, self->buf, 0x81, 0);
     }
-    set_scroll_target__17TWindowSubComCardFPvff(self->win5C, lbl_805DC4EC, lbl_805DC4F0);
+    set_scroll_target__17TWindowSubComCardFff(self->win5C, lbl_805DC4EC, lbl_805DC4F0);
     align_menu_entry_positions(self->win5C);
     set_status_flag_80__12TQuestThreadFPv(self->win5C);
     pos.x = lbl_805DC4F4;
     pos.y = lbl_805DC4F8;
-    self->win64 = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0x55), &pos);
+    self->win64 = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x55), &pos);
     if (self->win64 != NULL) {
-        send_and_handle__6TLobbyFPvii(self->win64, TQuestVmDownLoadServer__sub_8006EF6C(0x48), 0x81);
+        send_and_handle__6TLobbyFii(self->win64, TQuestVmDownLoadServer__sub_8006EF6C(0x48), 0x81);
     }
     return self;
 }

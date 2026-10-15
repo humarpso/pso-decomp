@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNeedleShoot.h"
 
 struct Vec_802A47C8 {
     f32 x, y, z;
@@ -42,7 +43,7 @@ extern "C" {
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
 void init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__10TObjPlayerFPv(void *, void *);
+void *construct_collider_proxy__10TObjPlayerFv(void *, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(Vec_802A47C8 *);
@@ -64,7 +65,6 @@ extern "C" {
 int TNeedleShoot__vt4(void* p);
 void TNeedleShoot__vt7(void);
 void *__dt__12TNeedleShootFv(void *arg0, s16 arg1);
-int queue_destruction__12TNeedleShootFPv(void* p);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -127,7 +127,7 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
     self->f54 = 0x40007;
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__10TObjPlayerFPv(p, self);
+        p = construct_collider_proxy__10TObjPlayerFv(p, self);
     }
     self->f68 = p;
     if (self->f68 != NULL) {
@@ -137,7 +137,7 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
 }
 
 int TNeedleShoot__vt4(void* p) { return queue_destruction__7TObjectFv(p); }
-int queue_destruction__12TNeedleShootFPv(void* p) { return queue_destruction__7TObjectFv(p); }
+int TNeedleShoot::queue_destruction() { return queue_destruction__7TObjectFv(this); }
 void TNeedleShoot__vt7(void) {  }
 
 }

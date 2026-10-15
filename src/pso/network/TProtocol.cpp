@@ -144,13 +144,13 @@ void TProtocol::send_room_change(int idx) {
 	}
 }
 
-extern "C" void *alloc__23TAdSinglePlyChrSelectGCFPv(size_t);
+extern "C" void *alloc__23TAdSinglePlyChrSelectGCFv(size_t);
 
 void TProtocol::send_pso_data_long2(char flags, long_game_command &packet, size_t size) {
 	const int header_size = sizeof(packet_header);
 	const int command_size = sizeof(long_game_command);
 	if (m_connected) {
-		TRecvPsoDataLong *tmp = (TRecvPsoDataLong *)alloc__23TAdSinglePlyChrSelectGCFPv(sizeof(TRecvPsoDataLong));
+		TRecvPsoDataLong *tmp = (TRecvPsoDataLong *)alloc__23TAdSinglePlyChrSelectGCFv(sizeof(TRecvPsoDataLong));
 		u8 *pkt = as(u8 *, tmp);
 		int packet_size;
 		int cmd_count;
@@ -280,7 +280,7 @@ void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
 void destroy__9TProtocolFis(void *, int);
-void init_char_data__9TProtocolFi(void *);
+void init_char_data__9TProtocolFv(void *);
 void validate_player_visual_record(void *);
 
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *char_data, void *challenge, void *choice_search_config,
@@ -289,7 +289,7 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *ch
         validate_player_visual_record(char_data + 0x370);
         copy_player_data__9TProtocolFPvPv(self->char_data, char_data);
         Join_801DC1E4 tmp;
-        init_char_data__9TProtocolFi(&tmp);
+        init_char_data__9TProtocolFv(&tmp);
         memset(&tmp, 0, sizeof(tmp));
         tmp.command = 0x98;
         tmp.flags = 3;
@@ -351,7 +351,7 @@ void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
 void destroy__9TProtocolFis(void *, int);
-void init_char_data__9TProtocolFi(void *);
+void init_char_data__9TProtocolFv(void *);
 void validate_player_visual_record(void *);
 
 void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *char_data, void *challenge, void *choice_search_config,
@@ -360,7 +360,7 @@ void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *ch
         validate_player_visual_record(char_data + 0x370);
         copy_player_data__9TProtocolFPvPv(self->char_data, char_data);
         Join_801DC34C tmp;
-        init_char_data__9TProtocolFi(&tmp);
+        init_char_data__9TProtocolFv(&tmp);
         memset(&tmp, 0, sizeof(tmp));
         tmp.command = 0x61;
         tmp.flags = 3;
@@ -1347,13 +1347,11 @@ extern "C" void bswap_cmd_AB__9TProtocolFPv(void *p) {
 
 extern "C" {
 
-void bswap_packet__9TProtocolFPv(void* p);
-int bswap_packet_header__9TProtocolFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int bswap__13packet_headerFv(void*);
 
-void bswap_packet__9TProtocolFPv(void* p) { bswap__13packet_headerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_16__FPUs((char*)p + 0x8); bswap_16__FPUs((char*)p + 0xa); { int i; for (i = 0; i < 8; i++) { bswap_32__FPUl((char*)p + 0xc + i * 4); } } }
-int bswap_packet_header__9TProtocolFPv(void* p) { return bswap__13packet_headerFv(p); }
+void TProtocol::bswap_packet() { bswap__13packet_headerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_16__FPUs((char*)this + 0x8); bswap_16__FPUs((char*)this + 0xa); { int i; for (i = 0; i < 8; i++) { bswap_32__FPUl((char*)this + 0xc + i * 4); } } }
+int TProtocol::bswap_packet_header() { return bswap__13packet_headerFv(this); }
 
 }

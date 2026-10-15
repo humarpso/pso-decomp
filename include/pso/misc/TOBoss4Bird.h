@@ -30,6 +30,9 @@ struct TOBoss4Bird
     u32 m_dc;
     u32 m_e0;
     u32 m_e4;
+    void run_task();
+    void render();
+    static void *create(void *arg0);
 };
 
 #endif

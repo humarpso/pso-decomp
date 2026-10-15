@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 struct Stack_800B9D94 {
     s32 sp8;
@@ -26,21 +27,11 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 extern const f32 TObjEneDD__data_805D9E8C;
 extern const f32 lbl_805D9E90;
-void draw_oriented_shadow__9TObjEneDDFiiiUi(s32 arg0, s32 arg1, s32 arg2, u32 arg3);
 int bind_enemy_combat_stats(void*);
-void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self);
 }
 
 extern "C" {
 
-void clear_global_flag_400__9TObjEneDDFv(void);
-int get_camera_ctrl__9TObjEneDDFPv(void* p);
-int initialize_enemy_state__9TObjEneDDFPv(void* p);
-void reset_hp__9TObjEneDDFPv(void* p);
-int update_camera_sequence__9TObjEneDDFPv(void* p);
-int update_player_state__9TObjEneDDFPv(void* p);
-int update_primary_light__9TObjEneDDFPv(void* p);
-int update_secondary_light__9TObjEneDDFPv(void* p);
 int transform_to_view__11TCameraCtrlFii(void*);
 int apply_split_screen_view_matrix__11TCameraCtrlFv(void*);
 int is_local_client_floor_leader(void*);
@@ -49,10 +40,10 @@ int select_actor_lighting(void*);
 int bind_enemy_combat_stats(void*);
 s32 get_main_phase();
 int is_any_teammate_in_state__10TObjPlayerFv(void*);
-int query_teammate_state__9TObjEneDDFPv(void* p);
-int render_with_position_override__10TObjPlayerFPvPvi(void*);
-int set_param__12TObjEneLappyFPvi(void*);
-int update_lobby_state__9TObjEneDDFPv(void* p);
+int query_teammate_state__9TObjEneDDFv(void* p);
+int render_with_position_override__10TObjPlayerFPUcl(void*);
+int set_param__12TObjEneLappyFl(void*);
+int update_lobby_state__9TObjEneDDFv(void* p);
 
     extern int model_render_flags;
 
@@ -62,11 +53,12 @@ void TObjEneDD__vt97(u8 *arg0) {
     }
 }
 
-void clear_global_flag_400__9TObjEneDDFv(void) { model_render_flags = (model_render_flags & 0xfffffbff); }
+void TObjEneDD::clear_global_flag_400() { model_render_flags = (model_render_flags & 0xfffffbff); }
 
-int update_player_state__9TObjEneDDFPv(void* p) { return render_with_position_override__10TObjPlayerFPvPvi(p); }
+int TObjEneDD::update_player_state() { return render_with_position_override__10TObjPlayerFPUcl(this); }
 
-void draw_oriented_shadow__9TObjEneDDFiiiUi(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
+void TObjEneDD::draw_oriented_shadow(s32 arg1, s32 arg2, u32 arg3) {
+    s32 arg0 = (s32)this;
     Stack_800B9D94 stack;
     direction_to_rotation_xz((void *) (arg1), (void *) (&stack.sp8), (void *) (&stack.sp10));
     push_matrix();
@@ -83,10 +75,11 @@ void draw_oriented_shadow__9TObjEneDDFiiiUi(s32 arg0, s32 arg1, s32 arg2, u32 ar
     pop_matrix();
 }
 
-int update_primary_light__9TObjEneDDFPv(void* p) { return restore_scene_lighting(p); }
-int update_secondary_light__9TObjEneDDFPv(void* p) { return select_actor_lighting(p); }
+int TObjEneDD::update_primary_light() { return restore_scene_lighting(this); }
+int TObjEneDD::update_secondary_light() { return select_actor_lighting(this); }
 
-void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self) {
+void TObjEneDD::reload_stats_keep_hp_tp() {
+    Obj_800B9E84 *self = (Obj_800B9E84 *)this;
     s16 a = self->a;
     s16 c = self->c;
     s16 b = self->b;
@@ -98,9 +91,9 @@ void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self) {
     self->d = d;
 }
 
-void reset_hp__9TObjEneDDFPv(void* p) { bind_enemy_combat_stats(p); *(short*)((char*)p + 0x33e) = *(short*)((char*)p + 0x32c); }
-int get_camera_ctrl__9TObjEneDDFPv(void* p) { return transform_to_view__11TCameraCtrlFii(p); }
-int update_camera_sequence__9TObjEneDDFPv(void* p) { return apply_split_screen_view_matrix__11TCameraCtrlFv(p); }
-int initialize_enemy_state__9TObjEneDDFPv(void* p) { return set_param__12TObjEneLappyFPvi(p); }
+void TObjEneDD::reset_hp() { bind_enemy_combat_stats(this); *(short*)((char*)this + 0x33e) = *(short*)((char*)this + 0x32c); }
+int TObjEneDD::get_camera_ctrl() { return transform_to_view__11TCameraCtrlFii(this); }
+int TObjEneDD::update_camera_sequence() { return apply_split_screen_view_matrix__11TCameraCtrlFv(this); }
+int TObjEneDD::initialize_enemy_state() { return set_param__12TObjEneLappyFl(this); }
 
 }

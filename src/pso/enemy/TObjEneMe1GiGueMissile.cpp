@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1GiGueMissile.h"
 
 struct RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile {
     s32 value;
@@ -16,12 +17,11 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 draw_model_motion(void *, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern int TObjEneMe1GiGue_barrier_count;
-void render__22TObjEneMe1GiGueMissileFv(u8 *arg0);
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 u8 * TNeedleShoot__ct(void *, s32, void *, void *);
@@ -32,11 +32,10 @@ u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0
 int queue_destruction__7TObjectFv(void*);
 u32 find_entity_by_id(int);
 s32 TObjPlayer__sub_802A445C(void *, int);
-s32 update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
-s32 update_position__12TNeedleShootFPv(void *);
+s32 update_lifetime__22TObjEneMe1GiGueMissileFv(void *);
+s32 update_position__12TNeedleShootFv(void *);
 extern const f32 lbl_805DE6DC;
 extern const f32 lbl_805DE6E0;
-void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0);
 }
 
 extern "C" {
@@ -46,8 +45,6 @@ void TObjEneMe1GiGueMissile__vt7(void* p, void* a1);
 void TObjEneMe1GiGue__sub_802CE4E8(void);
 void TObjEneMe1GiGue__sub_802CE4EC(void);
 void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1);
-void create__22TObjEneMe1GiGueMissileFiiiff(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
-void explode__22TObjEneMe1GiGueMissileFPvPv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
 u32 __nw__7TObjectFUl(s32);
@@ -77,7 +74,7 @@ extern const f32 lbl_805DE6D8;
 
 #pragma push
 #pragma opt_common_subs off
-void explode__22TObjEneMe1GiGueMissileFPvPv(void *self, void *pos) {
+void TObjEneMe1GiGueMissile::explode(void *pos) {
     void *fx;
     VEnt_802CE088 *p;
     s32 i;
@@ -90,10 +87,10 @@ void explode__22TObjEneMe1GiGueMissileFPvPv(void *self, void *pos) {
         if (p != NULL && horizontal_distance_squared((u8 *)p + 0x38, pos) <= lbl_805DE6D4) {
             Hit_802CE088 h;
             h.kind = 0;
-            h.power = *(f32 *)((s8 *)self + 0xC0);
+            h.power = *(f32 *)((s8 *)this + 0xC0);
             {
                 Hit_802CE088 h1 = h;
-                if (p->m21(*(void **)((s8 *)self + 0x1C), &h1, 0, -1, -1) > lbl_805DE6D8) {
+                if (p->m21(*(void **)((s8 *)this + 0x1C), &h1, 0, -1, -1) > lbl_805DE6D8) {
                     obj_setFlags30(p, 0x600);
                 }
             }
@@ -107,11 +104,11 @@ void explode__22TObjEneMe1GiGueMissileFPvPv(void *self, void *pos) {
 }
 #pragma pop
 
-void TObjEneMe1GiGueMissile__vt4(void* p) { explode__22TObjEneMe1GiGueMissileFPvPv(p, (char*)p + 0x6c); queue_destruction__7TObjectFv(p); }
+void TObjEneMe1GiGueMissile__vt4(void* p) { ((TObjEneMe1GiGueMissile *)p)->explode((char*)p + 0x6c); queue_destruction__7TObjectFv(p); }
 
-void TObjEneMe1GiGueMissile__vt7(void* p, void* a1) { explode__22TObjEneMe1GiGueMissileFPvPv(p, (char*)a1 + 0x38); queue_destruction__7TObjectFv(p); }
+void TObjEneMe1GiGueMissile__vt7(void* p, void* a1) { ((TObjEneMe1GiGueMissile *)p)->explode((char*)a1 + 0x38); queue_destruction__7TObjectFv(p); }
 
-void create__22TObjEneMe1GiGueMissileFiiiff(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void TObjEneMe1GiGueMissile::create(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     void *temp_r3;
     temp_r3 = (void *) __nw__7TObjectFUl(0xC4);
     if ((u32) temp_r3 != 0U) {
@@ -132,7 +129,8 @@ void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
+void TObjEneMe1GiGueMissile::render() {
+    u8 *arg0 = (u8 *)this;
   s32 temp_r31;
   if (((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) == 0)
   {
@@ -145,7 +143,7 @@ void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
   temp_r31 = (int) (*((s32 *) (((s8 *) arg0) + 0xA4)));
   rotate_matrix_y((int) 0, temp_r31);
   rotate_matrix_x((int) 0, (int) (*((s32 *) (((s8 *) arg0) + 0xA0))));
-  set_global_param__8TObjFishFi((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) + 0x42C)))) + 0x1C))));
+  set_global_param__8TObjFishFl((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) + 0x42C)))) + 0x1C))));
   set_global_flag__10TObjPlayerFv();
   temp_r31 = get_bml_motion((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 5);
   draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
@@ -158,7 +156,8 @@ typedef char RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile_size[sizeof
 
 #pragma push
 #pragma opt_common_subs off
-void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
+void TObjEneMe1GiGueMissile::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x34)));
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
@@ -170,8 +169,8 @@ void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
     if (temp_f1 >= lbl_805DE6E0) {
         *(f32 *)((s8 *)arg0 + 0xBC) = (f32) (temp_f1 - lbl_805DE6E0);
     }
-    update_position__12TNeedleShootFPv((void *) (arg0));
-    update_lifetime__22TObjEneMe1GiGueMissileFPv((void *) (arg0));
+    update_position__12TNeedleShootFv((void *) (arg0));
+    update_lifetime__22TObjEneMe1GiGueMissileFv((void *) (arg0));
     TObjPlayer__sub_802A445C((void *) (arg0), (int) (1));
 }
 #pragma pop

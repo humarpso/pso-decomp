@@ -16,6 +16,12 @@ struct TObjStendGlassLobby
     u32 m_c8;
     u8 _padCC[0x4];
     u32 m_d0;
+    void render();
+    void run_task();
+    void update_state();
+    static void *create(void *arg0);
+    static void free_static_model();
+    static void load_resources();
 };
 
 #endif

@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/object/TObjTombstone.h"
 struct Stack_8007643C {
     u8 sp8;
     u8 sp9;
@@ -35,19 +36,16 @@ struct T_80076390 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 reset_entries_and_format_name__13TObjTombstoneFPv(void *);
-void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 construct_collider_proxy__10TObjPlayerFPv();
+s32 reset_entries_and_format_name__13TObjTombstoneFv(void *);
+s32 construct_collider_proxy__10TObjPlayerFv();
 extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern const char* TObjTombstone__class_name;
 extern s32 TObjTombstone__shared_resource_object;
 u8 *TObjTombstone__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3);
-s32 copy_record__13TObjTombstoneFPvi(void *arg0, s32 arg1);
 }
 
 extern "C" {
 
-void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -56,11 +54,12 @@ s32 fn_80074E04(s32, void *);
 extern s32 TObjTombstone__shared_resource_object;
 extern const f32 TObjTombstone__data_805D9174;
 
-void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+void TObjTombstone::setup(s32 arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(TObjTombstone__shared_resource_object, 0);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TObjTombstone__shared_resource_object, 0);
     *(s32 *)((s8 *)arg0 + 0xAC) = arg1;
-    copy_record__13TObjTombstoneFPvi((void *)(arg0 + 0xC0), (s32)(arg2));
+    TObjTombstone::copy_record((void *)(arg0 + 0xC0), (s32)(arg2));
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xD0);
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0xAC) << 0xD);
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) TObjTombstone__data_805D9174;
@@ -73,7 +72,7 @@ void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 
 #define dst ((T_80076390 *)arg0)
 #define src ((T_80076390 *)arg1)
-s32 copy_record__13TObjTombstoneFPvi(void *arg0, s32 arg1) {
+s32 TObjTombstone::copy_record(void *arg0, s32 arg1) {
     dst->b0 = src->b0;
     dst->b1 = src->b1;
     dst->b2 = src->b2;
@@ -96,7 +95,7 @@ u8 *TObjTombstone__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     typedef char spA_offset[(offsetof(Stack_8007643C, spA) == 0x2) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_8007643C, sp18) == 0x10) ? 1 : -1];
     Stack_8007643C stack;
-    construct_collider_proxy__10TObjPlayerFPv();
+    construct_collider_proxy__10TObjPlayerFv();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TObjTombstone.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTombstone__class_name;
     if ((u32) (*(u32 *)&TObjTombstone__shared_resource_object) == 0U) {
@@ -106,8 +105,8 @@ u8 *TObjTombstone__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     stack.sp9 = *(u8 *)((s8 *)arg3 + 1);
     stack.spA = *(u8 *)((s8 *)arg3 + 2);
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp18), (void *) (arg3 + 4));
-    setup__13TObjTombstoneFPvii((u8 *)((void *) (arg0)), (s32)((void *) (arg2)), (s32)((void *) (&stack.sp8)));
-    reset_entries_and_format_name__13TObjTombstoneFPv((void *) (arg0));
+    ((TObjTombstone *)arg0)->setup((s32)((void *) (arg2)), (s32)((void *) (&stack.sp8)));
+    reset_entries_and_format_name__13TObjTombstoneFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x234) = 0;
     return arg0;
 }

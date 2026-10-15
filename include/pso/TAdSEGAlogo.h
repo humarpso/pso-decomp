@@ -8,6 +8,9 @@ public:
     virtual void render();
     virtual ~TAdSEGAlogo();
     virtual void run_task();
+public:
+    static void destroy_and_mark_done();
+    static void request_destroy();
 };
 
 #endif

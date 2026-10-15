@@ -28,9 +28,9 @@ struct Wave_80081A30 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *construct_texture_wave(void *, void *);
-void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
+void init_image_buffer__23TAdSinglePlyChrSelectGCFPUcl(void *, void *, s32);
 s32 TScene__sub_80081B24(void);
 extern u8 lbl_8048E168[];
 extern void *TEF_PvrWave__class_name;
@@ -50,12 +50,12 @@ Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *p
     self->vtable = lbl_8048E168;
     self->name = TEF_PvrWave__class_name;
     self->index = index;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x54);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x54);
     if (p != NULL) {
         p = construct_texture_wave(p, &self->tex);
     }
     self->wave = p;
-    init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(self->wave, image, size);
+    init_image_buffer__23TAdSinglePlyChrSelectGCFPUcl(self->wave, image, size);
     list = ((Scene_80081A30 *)TScene__sub_80081B24())->texList;
     self->saved.c = list->entries[index].c;
     self->saved.b = list->entries[index].b;

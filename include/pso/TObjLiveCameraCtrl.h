@@ -14,6 +14,8 @@ public:
     s32 slot_index;
     TObject *camera_object;
 
+public:
+    static s32 get_table_entry(s32 arg0);
 };
 
 #include <stddef.h>

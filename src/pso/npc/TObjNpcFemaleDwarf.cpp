@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcFemaleFat.h"
 
 struct RecoveredGlobal_8014A368_lbl_804A8C70 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8014A368_lbl_804A8C70_size[sizeof(RecoveredGlobal_8014A368_lbl_804A8C70) == 0x10 ? 1 : -1];
@@ -95,13 +96,12 @@ struct RecoveredGlobal_8014A238___vt__18TObjNpcFemaleDwarf {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8014A368_lbl_804A8C70 bm_n_efw_i_body_resource_descriptor;
 extern u32 TObjNpcFemaleFat__static_model;
-void load_static_resource__16TObjNpcFemaleFatFv(void);
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
-s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
+s32 construct_female_base__17TObjNpcFemaleBaseFv(void *);
 extern s32 __vt__18TObjNpcFemaleDwarf[];
 extern s32 TObjNpcFemaleDwarf__name;
 extern u8 *TObjNpcFemaleDwarf__static_data;
@@ -112,20 +112,19 @@ extern "C" {
 
 void * TObjNpcFemaleFat__create(void *arg0);
 void *__dt__18TObjNpcFemaleDwarfFv(void *arg0, s16 arg1);
-void free_static_model__16TObjNpcFemaleFatFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcFemaleFat__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *, int);
+void destroy_npc_female_base__17TObjNpcFemaleBaseFs(void *, int);
 
 extern s32 __vt__18TObjNpcFemaleDwarf[];
 
 void *__dt__18TObjNpcFemaleDwarfFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjNpcFemaleDwarf;
-        destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(arg0, 0);
+        destroy_npc_female_base__17TObjNpcFemaleBaseFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -137,11 +136,11 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014A238___vt__18TObjNpcFemaleDwarf_size[sizeof(RecoveredGlobal_8014A238___vt__18TObjNpcFemaleDwarf) == 0x178 ? 1 : -1];
 u8 *TObjNpcFemaleDwarf__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_female_base__17TObjNpcFemaleBaseFPv((void *) (arg0));
+    construct_female_base__17TObjNpcFemaleBaseFv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014A238___vt__18TObjNpcFemaleDwarf *)&__vt__18TObjNpcFemaleDwarf).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcFemaleDwarf__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcFemaleDwarf__static_data + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcFemaleDwarf__static_data + 0x42C)) + 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
@@ -164,16 +163,16 @@ void * TObjNpcFemaleFat__create(void *arg0) {
 
 extern u32 TObjNpcFemaleFat__static_model;
 
-void free_static_model__16TObjNpcFemaleFatFv(void) {
+void TObjNpcFemaleFat::free_static_model() {
     if ((u32) TObjNpcFemaleFat__static_model != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcFemaleFat__static_model, 1);
         TObjNpcFemaleFat__static_model = 0U;
     }
 }
-void load_static_resource__16TObjNpcFemaleFatFv(void) {
+void TObjNpcFemaleFat::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_efw_i_body_resource_descriptor.value, 0, 0, 0));

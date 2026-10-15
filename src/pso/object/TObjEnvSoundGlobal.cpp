@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjEnvSoundEx.h"
+#include "pso/object/TObjEnvSoundGlobal.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -42,9 +44,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_801902D8_lbl_804B7A70 environment_sound_tables_by_area;
 extern const f32 lbl_805DBE18;
 extern const f32 lbl_805DBE1C;
-s32 setup_sound__18TObjEnvSoundGlobalFPv(u8 *arg0);
 void play_persistent_sound(s32, void *, f32 *, s32, s32);
-void run_task__18TObjEnvSoundGlobalFv(Obj_801903B4 *self);
 f32 xz_distance_squared(void *, void *);
 void play_persistent_sound(s32, void *, f32 *, s32, s32);
 extern u8 *camera_ctrl_instance;
@@ -56,7 +56,6 @@ extern "C" {
 void * TObjEnvSoundEx__create(void *arg0);
 void *__dt__18TObjEnvSoundGlobalFv(void *arg0, s16 arg1);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
-void render__18TObjEnvSoundGlobalFv(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -64,7 +63,8 @@ int is_not_split_screen__13TRaderMapCoreFv(void *);
 
 #pragma push
 #pragma opt_common_subs off
-s32 setup_sound__18TObjEnvSoundGlobalFPv(u8 *arg0) {
+s32 TObjEnvSoundGlobal::setup_sound() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
@@ -88,11 +88,12 @@ s32 setup_sound__18TObjEnvSoundGlobalFPv(u8 *arg0) {
 #pragma pop
 
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
-void render__18TObjEnvSoundGlobalFv(void) {  }
+void TObjEnvSoundGlobal::render() {  }
 
 extern s32 __vt__18TObjEnvSoundGlobal[];
 
-void run_task__18TObjEnvSoundGlobalFv(Obj_801903B4 *self) {
+void TObjEnvSoundGlobal::run_task() {
+    Obj_801903B4 *self = (Obj_801903B4 *)this;
     switch (self->mode) {
     case 0:
         break;
@@ -124,7 +125,7 @@ u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal *)&__vt__18TObjEnvSoundGlobal).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEnvSoundGlobal__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    setup_sound__18TObjEnvSoundGlobalFPv((u8 *)((void *) (arg0)));
+    ((TObjEnvSoundGlobal *)arg0)->setup_sound();
     return arg0;
 }
 
@@ -141,12 +142,10 @@ void * TObjEnvSoundEx__create(void *arg0) {
 }
 
 f32 fabs_float(f32);
-s32 init_sound_params__14TObjEnvSoundExFPv(u8 *arg0);
 s32 disallow_rendering__7TObjectFv(void *);
 extern s32 __vt__14TObjEnvSoundEx[];
 extern s32 TObjEnvSoundEx__class_name;
 void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1);
-void render__14TObjEnvSoundExFv(void);
 f32 xz_distance_squared(void *, void *);
 extern u8 *camera_ctrl_instance;
 struct RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx {
@@ -154,7 +153,8 @@ struct RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx {
     u8 remaining[0x30];
 };
 
-s32 init_sound_params__14TObjEnvSoundExFPv(u8 *arg0) {
+s32 TObjEnvSoundEx::init_sound_params() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
@@ -181,7 +181,7 @@ s32 init_sound_params__14TObjEnvSoundExFPv(u8 *arg0) {
     return var_r31;
 }
 
-void render__14TObjEnvSoundExFv(void) {  }
+void TObjEnvSoundEx::render() {  }
 
 #define F(o) (*(f32 *)((s8 *)(self) + (o)))
 #define S(o) (*(s32 *)((s8 *)(self) + (o)))
@@ -243,7 +243,7 @@ u8 *TObjEnvSoundEx__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx *)&__vt__14TObjEnvSoundEx).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEnvSoundEx__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    init_sound_params__14TObjEnvSoundExFPv((u8 *)((void *) (arg0)));
+    ((TObjEnvSoundEx *)arg0)->init_sound_params();
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) (-127.0f);
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Slot_801A8868 { u8 pad[0x18]; };
 struct Counts_801A8868 { s32 v[4]; };
@@ -35,11 +36,11 @@ extern "C" {
 
 s16 get_actor_attack_params_atp_min(void *);
 s16 get_ata__10TObjPlayerFPv(void *);
-s16 get_field_2c8__10TObjPlayerFPv(void *);
-int activate_d04_slot__10TObjPlayerFPv(void *);
+s16 get_field_2c8__10TObjPlayerFv(void *);
+int activate_d04_slot__10TObjPlayerFv(void *);
 s16 TObjPlayer__sub_80113D90(void *);
-s16 get_mag_data__10TObjPlayerFPv(void *);
-s16 get_hp__10TObjPlayerFPv(void *);
+s16 get_mag_data__10TObjPlayerFv(void *);
+s16 get_hp__10TObjPlayerFv(void *);
 extern const f32 lbl_805DC110;
 extern const f32 lbl_805DC114;
 extern const f32 lbl_805DC118;
@@ -48,40 +49,38 @@ extern const f32 lbl_805DC120;
 extern const f32 lbl_805DC124;
 extern const f32 lbl_805DC128;
 extern const f32 lbl_805DC12C;
-f32 calc_photon_blast_power__10TObjPlayerFPvif(u8 *arg0, s32 arg1, f32 farg0);
 
 u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
 void render__18TPhotonConcentrateFv(void);
 s32 create_particle_emitter(void *, s32);
-s32 construct_collider_proxy__10TObjPlayerFPv(s32, s32);
+s32 construct_collider_proxy__10TObjPlayerFv(s32, s32);
 s32 find_entity_by_id(s32, f32);
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 int begin_effect_render__13TParticleCtrlFv(void);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void destroy_particle_controller__10TObjPlayerFs(void *, int);
 int end_effect_render__13TParticleCtrlFv(void);
 void queue_destruction__7TObjectFv(void *);
 extern s32 __vt__18TPhotonConcentrate[];
 extern s32 lbl_805D34D0;
 
-s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 s32 get_photon_blast_chain(void *, s32);
 void *get_player_by_client_id(u32);
 
 extern s32 photon_blast_donation_flags[];
 void clear_photon_blast_donations(void);
 s32 is_split_screen();
-s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
-u16 get_section_id__10TObjPlayerFPv(void *);
+s32 get_stat_by_key_state__10TObjPlayerFv(void *);
+u16 get_section_id__10TObjPlayerFv(void *);
 extern s32 local_client_id;
 s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
 u16 obj_getField1c(void *);
 s32 TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
-void set_field_2__10TObjPlayerFPvs(void *, s16);
-void set_type__10TObjPlayerFPvs(void *, s16);
+void set_field_2__10TObjPlayerFs(void *, s16);
+void set_type__10TObjPlayerFs(void *, s16);
 s32 TObjPlayer__sub_801AA528(void *, int);
 s32 init_arrays__10TObjPlayerFi(void *);
 void *TObjPlayer__sub_801AA66C(void *, void *);
@@ -98,31 +97,32 @@ void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2);
 
 #pragma push
 #pragma fp_contract on
-f32 calc_photon_blast_power__10TObjPlayerFPvif(u8 *arg0, s32 arg1, f32 farg0) {
+f32 TObjPlayer::calc_photon_blast_power(s32 arg1, f32 farg0) {
+    u8 *arg0 = (u8 *)this;
     f32 var_f30;
     void *mag;
     var_f30 = lbl_805DC110;
     if (*(u8 **)(arg0 + 0x38) != NULL) {
-        mag = (void *)activate_d04_slot__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38));
+        mag = (void *)activate_d04_slot__10TObjPlayerFv(*(u8 **)(arg0 + 0x38));
         if (mag != 0) {
             switch (arg1) {
             case 0:
-                var_f30 = farg0 + ((lbl_805DC114 * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC118 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
+                var_f30 = farg0 + ((lbl_805DC114 * (f32)get_mag_data__10TObjPlayerFv(mag)) + lbl_805DC118 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFv(*(u8 **)(arg0 + 0x38)) + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
                 break;
             case 1:
-                var_f30 = farg0 + ((lbl_805DC11C * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC120 * (f32)(get_hp__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) * TObjPlayer__sub_80113D90(mag)));
+                var_f30 = farg0 + ((lbl_805DC11C * (f32)get_mag_data__10TObjPlayerFv(mag)) + lbl_805DC120 * (f32)(get_hp__10TObjPlayerFv(*(u8 **)(arg0 + 0x38)) * TObjPlayer__sub_80113D90(mag)));
                 break;
             case 2:
-                var_f30 = farg0 + ((lbl_805DC124 * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC128 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
+                var_f30 = farg0 + ((lbl_805DC124 * (f32)get_mag_data__10TObjPlayerFv(mag)) + lbl_805DC128 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFv(*(u8 **)(arg0 + 0x38)) + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
                 break;
             case 3:
-                var_f30 = farg0 + ((lbl_805DC124 * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC128 * (f32)(get_ata__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) * TObjPlayer__sub_80113D90(mag)));
+                var_f30 = farg0 + ((lbl_805DC124 * (f32)get_mag_data__10TObjPlayerFv(mag)) + lbl_805DC128 * (f32)(get_ata__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) * TObjPlayer__sub_80113D90(mag)));
                 break;
             case 4:
-                var_f30 = (lbl_805DC12C * (f32)get_mag_data__10TObjPlayerFPv(mag)) + farg0;
+                var_f30 = (lbl_805DC12C * (f32)get_mag_data__10TObjPlayerFv(mag)) + farg0;
                 break;
             case 5:
-                var_f30 = 0.1f * (f32)get_mag_data__10TObjPlayerFPv(mag);
+                var_f30 = 0.1f * (f32)get_mag_data__10TObjPlayerFv(mag);
                 if (var_f30 >= 20.0f) {
                     var_f30 = 20.0f;
                 }
@@ -134,7 +134,7 @@ f32 calc_photon_blast_power__10TObjPlayerFPvif(u8 *arg0, s32 arg1, f32 farg0) {
 }
 #pragma pop
 
-s32 is_any_teammate_in_state__10TObjPlayerFv(void) {
+s32 TObjPlayer::is_any_teammate_in_state() {
     struct { u8 _pad[0x20]; } sp8;
     s32 temp_r31;
     s32 var_r30;
@@ -142,7 +142,7 @@ s32 is_any_teammate_in_state__10TObjPlayerFv(void) {
     temp_r31 = get_current_floor();
     var_r30 = 0;
 loop_1:
-    if ((((u32 (*)(s32))get_player_by_client_id)(var_r30) != 0U) && (temp_r31 == ((s32 (*)(void))get_field_3e4__10TObjPlayerFPv)()) && (get_photon_blast_chain(&sp8, var_r30) == 2)) {
+    if ((((u32 (*)(s32))get_player_by_client_id)(var_r30) != 0U) && (temp_r31 == ((s32 (*)(void))get_field_3e4__10TObjPlayerFv)()) && (get_photon_blast_chain(&sp8, var_r30) == 2)) {
         return 1;
     }
     var_r30 += 1;
@@ -159,17 +159,17 @@ s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records) {
     if (is_split_screen() != 0) {
         return 1;
     }
-    if (local_client_id == get_section_id__10TObjPlayerFPv(records)) {
+    if (local_client_id == get_section_id__10TObjPlayerFv(records)) {
         return 1;
     }
     local = get_player_by_client_id(local_client_id);
     if (local == NULL) {
         return 0;
     }
-    group = get_stat_by_key_state__10TObjPlayerFPv(local);
+    group = get_stat_by_key_state__10TObjPlayerFv(local);
     owner = get_player_by_client_id(owner_id);
     if (owner != NULL) {
-        if (get_field_3e4__10TObjPlayerFPv(local) == get_field_3e4__10TObjPlayerFPv(owner) && group == (s16) get_stat_by_key_state__10TObjPlayerFPv(owner)) {
+        if (get_field_3e4__10TObjPlayerFv(local) == get_field_3e4__10TObjPlayerFv(owner) && group == (s16) get_stat_by_key_state__10TObjPlayerFv(owner)) {
             return 1;
         }
     }
@@ -192,7 +192,7 @@ void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2) {
                 tmp1.kind = 0x14;
                 Hit_801A86E0 hit1 = tmp1;
                 ((VObj_18_b27ba1 *)plr)->m21(ent, &hit1, 0, -1, -1);
-            } else if (*(s16 *)((s8 *)plr + 0x28) == (s16)get_stat_by_key_state__10TObjPlayerFPv(ent)) {
+            } else if (*(s16 *)((s8 *)plr + 0x28) == (s16)get_stat_by_key_state__10TObjPlayerFv(ent)) {
                 tmp2.value = (f32)arg1;
                 tmp2.kind = 0x14;
                 Hit_801A86E0 hit2 = tmp2;
@@ -208,8 +208,8 @@ void clear_photon_blast_donations(void) {
         photon_blast_donation_flags[i] = 0;
     }
 }
-#define GET_STAT ((s16 (*)(void *))get_stat_by_key_state__10TObjPlayerFPv)
-#define SET_TYPE ((void (*)(void *, u16))set_type__10TObjPlayerFPvs)
+#define GET_STAT ((s16 (*)(void *))get_stat_by_key_state__10TObjPlayerFv)
+#define SET_TYPE ((void (*)(void *, u16))set_type__10TObjPlayerFs)
 void admit_photon_blast_sequence(u8 *players, void *self) {
     Slot_801A8868 a[4];
     Slot_801A8868 b[4];
@@ -235,22 +235,22 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
     Counts_801A8868 counts = photon_blast_result_counts_init;
     for (n = 0; n < 4; n++) {
         SET_TYPE(&b[n], 0xFFFF);
-        set_field_2__10TObjPlayerFPvs(&b[n], -1);
+        set_field_2__10TObjPlayerFs(&b[n], -1);
     }
     n = 0;
     k = 0;
     for (j = 0; j < 4; j++, players += 0x18) {
-        p = get_player_by_client_id(get_section_id__10TObjPlayerFPv(players));
+        p = get_player_by_client_id(get_section_id__10TObjPlayerFv(players));
         if (p != NULL && GET_STAT(p) == GET_STAT(self)
             && TObjPlayer__sub_80313114(players) != -1) {
-            SET_TYPE(&a[n], get_section_id__10TObjPlayerFPv(players));
-            set_field_2__10TObjPlayerFPvs(&a[n], TObjPlayer__sub_80313114(players));
+            SET_TYPE(&a[n], get_section_id__10TObjPlayerFv(players));
+            set_field_2__10TObjPlayerFs(&a[n], TObjPlayer__sub_80313114(players));
             n++;
         }
     }
     for (i = n; i < 4; i++) {
         SET_TYPE(&a[i], 0xFFFF);
-        set_field_2__10TObjPlayerFPvs(&a[i], -1);
+        set_field_2__10TObjPlayerFs(&a[i], -1);
     }
     for (m = 0; m < 4; m++) {
         if (m != 0) {

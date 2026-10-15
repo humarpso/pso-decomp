@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/object/TObjOnlineEnding.h"
 
 extern "C" {
 
-s16 get_card_window_value__16TObjOnlineEndingFv(void);
 void *get_character_save_record(s32);
 
-s16 get_card_window_value__16TObjOnlineEndingFv(void) {
+s16 TObjOnlineEnding::get_card_window_value() {
     if (get_character_save_record(0xFFFF) == NULL) {
         return 0x3E7;
     }

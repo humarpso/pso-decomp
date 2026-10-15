@@ -1,6 +1,6 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 extern "C" {
-s8 get_type__20TWindowSubStatusDispFPv(s32);
+s8 get_type__20TWindowSubStatusDispFv(s32);
 extern "C" u8 lbl_805DD6E0[];
 extern "C" u8 lbl_805DD6E4[];
 extern "C" u8 lbl_805DD6E8[];
@@ -258,18 +258,18 @@ void *TWindowSubStatusDisp__window_layout[5] = {
 struct SD_80281760 { s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[4]; s16 f20; u8 pad22[0x3E]; s16 f60; s16 f62; u8 pad64[4]; void *f68; f32 f6c; f32 f70; };
 
 extern "C" {
-s32 initialize_subwindow__9TWindowDDFPv(void *);
+s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 update_window_entry_list(void *, void *);
-s32 destroy_all_items__20TWindowSubStatusDispFPv(void *);
+s32 destroy_all_items__20TWindowSubStatusDispFv(void *);
 s32 fn_8026C7AC(int, int);
 s32 handle_list_page_flip_input(int);
 s32 dispatch_page_update__20TWindowSubStatusDispFv(void *);
 s32 dispatch_page_init__20TWindowSubStatusDispFv(void *);
 extern s32 lbl_805DD6F4;
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
-void *init__21TWindowSubComCardListFPviii(void *, int, int, s32);
+void *init__21TWindowSubComCardListFiii(void *, int, int, s32);
 s32 get_window_layout_position(int);
 s32 dispatch_page_init__20TWindowSubStatusDispFv(void *);
 
@@ -281,7 +281,6 @@ SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1);
 
 extern "C" {
 
-void *dt__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
 void update_status__20TWindowSubStatusDispFPv(u8 *arg0);
 u32 get_player_by_client_id(s16);
 s32 setup_window_draw_context(void *, void *);
@@ -290,7 +289,7 @@ s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
+void destroy_window_base__9TWindowDDFs(void *, int);
 
 }
 #pragma defer_codegen on
@@ -309,13 +308,13 @@ void TWindowSubStatusDisp::dispatch_page_init() {
 
     switch (m_60) {
     case 0:
-        (this->*page0[get_type__20TWindowSubStatusDispFPv(m_68)])();
+        (this->*page0[get_type__20TWindowSubStatusDispFv(m_68)])();
         break;
     case 1:
-        (this->*page1[get_type__20TWindowSubStatusDispFPv(m_68)])();
+        (this->*page1[get_type__20TWindowSubStatusDispFv(m_68)])();
         break;
     case 2:
-        (this->*page2[get_type__20TWindowSubStatusDispFPv(m_68)])();
+        (this->*page2[get_type__20TWindowSubStatusDispFv(m_68)])();
         break;
     }
 }
@@ -335,13 +334,13 @@ void TWindowSubStatusDisp::dispatch_page_update() {
 
     switch (m_60) {
     case 0:
-        (this->*page0[get_type__20TWindowSubStatusDispFPv(m_68)])();
+        (this->*page0[get_type__20TWindowSubStatusDispFv(m_68)])();
         break;
     case 1:
-        (this->*page1[get_type__20TWindowSubStatusDispFPv(m_68)])();
+        (this->*page1[get_type__20TWindowSubStatusDispFv(m_68)])();
         break;
     case 2:
-        (this->*page2[get_type__20TWindowSubStatusDispFPv(m_68)])();
+        (this->*page2[get_type__20TWindowSubStatusDispFv(m_68)])();
         break;
     }
 }
@@ -376,24 +375,24 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
       *((s16 *) (((s8 *) arg0) + 0x60)) = *((s16 *) (((s8 *) arg0) + 0x62));
       fn_8026C7AC((int) (*((s32 *) (((s8 *) arg0) + 0x68))), (int) ((s8) (*((u8 *) (((s8 *) (((u8 *) (&lbl_805DD6F4)) + (*((s16 *) (((s8 *) arg0) + 0x60))))) + 0)))));
     }
-    destroy_all_items__20TWindowSubStatusDispFPv((void *) (((u8 *) arg0) + 0x24));
+    destroy_all_items__20TWindowSubStatusDispFv((void *) (((u8 *) arg0) + 0x24));
     dispatch_page_init__20TWindowSubStatusDispFv((void *) arg0);
   }
   dispatch_page_update__20TWindowSubStatusDispFv((void *) arg0);
-  initialize_subwindow__9TWindowDDFPv((void *) arg0);
+  initialize_subwindow__9TWindowDDFv((void *) arg0);
   update_window_entry_list((void *) arg0, (void *) (((u8 *) arg0) + 0x24));
 }
 
-void *dt__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowSubStatusDisp;
-        delete_if_allocated(*(void **)((s8 *)arg0 + 0x68), 1);
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+void *TWindowSubStatusDisp::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = __vt__20TWindowSubStatusDisp;
+        delete_if_allocated(*(void **)((s8 *)this + 0x68), 1);
+        destroy_window_base__9TWindowDDFs(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
     void *w;
@@ -405,9 +404,9 @@ SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
     arg0->f62 = arg0->f60;
     arg0->f6c = lbl_805DD70C;
     arg0->f70 = lbl_805DD70C;
-    w = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
+    w = alloc__23TAdSinglePlyChrSelectGCFv(0xC);
     if (w != NULL) {
-        w = init__21TWindowSubComCardListFPviii(w, 0, 3, arg1);
+        w = init__21TWindowSubComCardListFiii(w, 0, 3, arg1);
     }
     arg0->f68 = w;
     dispatch_page_init__20TWindowSubStatusDispFv(arg0);

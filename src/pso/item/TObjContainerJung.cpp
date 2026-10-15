@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerJung.h"
 
 struct VBase { char pad[0x18]; };
 
@@ -49,21 +50,19 @@ struct Obj_8018D4DC {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 request_box_item_drop(void *, void *, int);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__bml_model_resource;
-u8 *get_model_by_index__17TObjContainerJungFi(s32 arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8018D47C_lbl_804B7134 TObjContainerJung__resource_descriptor;
 extern s32 TObjContainerJung__bml_model_resource;
 extern s32 TObjContainerJung__bml_aux_handle;
-void load_resources__17TObjContainerJungFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void reset_photon_effect__10TObjPlayerFPv(s32);
+void reset_photon_effect__10TObjPlayerFv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018D85C_lbl_804B7168 container_jung_collision_desc;
@@ -78,7 +77,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_ginja_object();
 extern s32 TObjContainerJung__bml_model_resource;
 extern s32 TObjContainerJung__bml_aux_handle;
@@ -102,15 +101,13 @@ extern "C" {
 s32 TObjContainerJung__sub_8018D3B8(void);
 void TObjContainerJung__vt78(void *arg0);
 void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1);
-void *create__17TObjContainerJungFPv(void *arg0);
-void release__17TObjContainerJungFv(void);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_container_object__10TObjPlayerFPvs(void *, s32);
+s32 destroy_container_object__10TObjPlayerFs(void *, s32);
 
 extern s32 TObjContainerJung__bml_aux_handle;
 
@@ -120,14 +117,14 @@ s32 TObjContainerJung__sub_8018D3B8(void) {
 
 extern void *tl_05;
 
-u8 *get_model_by_index__17TObjContainerJungFi(s32 arg0) {
+u8 *TObjContainerJung::get_model_by_index(s32 arg0) {
     if ((void *) (*(u8 * *)&TObjContainerJung__bml_model_resource) != NULL) {
         return get_bml_model((*(u8 * *)&TObjContainerJung__bml_model_resource), arg0);
     }
     return NULL;
 }
 
-void *create__17TObjContainerJungFPv(void *arg0) {
+void *TObjContainerJung::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
         o = TObjContainerJung__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -138,16 +135,16 @@ void *create__17TObjContainerJungFPv(void *arg0) {
 extern s32 TObjContainerJung__bml_model_resource;
 extern s32 TObjContainerJung__bml_aux_handle;
 
-void release__17TObjContainerJungFv(void) {
+void TObjContainerJung::release() {
     TLobby__sub_8001FE7C(TObjContainerJung__bml_model_resource, 1);
     TObjContainerJung__bml_model_resource = 0;
     TObjContainerJung__bml_aux_handle = 0;
 }
 
-void load_resources__17TObjContainerJungFv(void) {
+void TObjContainerJung::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjContainerJung__resource_descriptor.value, 0, 0, 0));
@@ -207,13 +204,13 @@ void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             ((VObj*)arg0)->m77();
             request_box_item_drop((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
-            clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
+            clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (1));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
+        clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (1));
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
@@ -224,7 +221,7 @@ void TObjContainerJung__vt79(u8 *arg0) {
     if ((void *)(*(u8 **)&TObjContainerJung__bml_model_resource) != NULL) {
         switch (*(s16 *)((s8 *)arg0 + 0x326)) {
         case 0:
-            set_global_param__8TObjFishFi(TObjContainerJung__bml_aux_handle);
+            set_global_param__8TObjFishFl(TObjContainerJung__bml_aux_handle);
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -264,7 +261,7 @@ void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjContainerJung;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_container_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_container_object__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -280,7 +277,7 @@ u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &container_jung_collision_desc.value, 1);
-    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    reset_photon_effect__10TObjPlayerFv((s32) arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&container_jung_collision_desc.value) + 4));

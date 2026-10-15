@@ -8,6 +8,8 @@ public:
     virtual ~TWindowSetLevelUp();
     virtual void run_task();
     virtual void render();
+public:
+    void copy_stat_block(s32 arg1);
 };
 
 #endif

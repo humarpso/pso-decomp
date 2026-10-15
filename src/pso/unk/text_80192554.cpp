@@ -9,7 +9,7 @@ void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void draw_ginja_object(s32);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
@@ -24,7 +24,7 @@ void draw_lazer_fence_extra_model(Obj_80192554 *arg0) {
     for (i = 0; i < 4; i++) {
         free_children__12TObjDoorJungFPvPv(arg0->fC8[i], lbl_80445B7C[arg0->fAC]);
     }
-    set_global_param__8TObjFishFi(lazer_fence_norm_texture_list);
+    set_global_param__8TObjFishFl(lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, arg0->f60);

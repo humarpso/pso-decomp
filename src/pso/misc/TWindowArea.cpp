@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowArea.h"
 
 struct RecoveredGlobal_8024470C___vt__11TWindowArea { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8024470C___vt__11TWindowArea_size[sizeof(RecoveredGlobal_8024470C___vt__11TWindowArea) == 0x18 ? 1 : -1];
@@ -6,7 +7,7 @@ typedef char RecoveredGlobal_8024470C___vt__11TWindowArea_size[sizeof(RecoveredG
 extern "C" {
 u8 * get_window_layout_position(s32);
 u8 * __ct__11TWindowRoomFPc(void *, s32);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(int, int);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(int, int);
 extern s32 __vt__11TWindowArea[];
 extern s32 lbl_805D3880;
 extern const f32 lbl_805DCAC4;
@@ -16,13 +17,12 @@ u8 *TWindowArea__ct(u8 *arg0);
 extern "C" {
 
 void *__dt__11TWindowAreaFv(void *arg0, s16 arg1);
-void run_task__11TWindowAreaFv(void* p);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void __dt__11TWindowRoomFv(void *, int);
-int initialize_subwindow__9TWindowDDFPv(void*);
+int initialize_subwindow__9TWindowDDFv(void*);
 
-void run_task__11TWindowAreaFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
+void TWindowArea::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list(this, (char*)this + 0x24); }
 
 extern s32 __vt__11TWindowArea[];
 
@@ -50,7 +50,7 @@ u8 *TWindowArea__ct(u8 *arg0) {
     *(s32 *)((s8 *)var_r31 + 0) = (s32) lbl_805D3880;
     var_r3 = (u8 *)(var_r31 + 0x40);
     var_r4 = (s32 *)(get_window_layout_position(0x25));
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((int) (var_r3), (int) (var_r4));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((int) (var_r3), (int) (var_r4));
     var_f0 = lbl_805DCAC4;
     var_r3 = (u8 *)(var_r31);
     *(f32 *)((s8 *)var_r31 + 0x60) = var_f0;

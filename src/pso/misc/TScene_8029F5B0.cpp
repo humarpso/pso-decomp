@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct { u8 r, g, b, a; } GXColor_8029F5F8;
 extern "C" {
@@ -11,7 +12,6 @@ s32 GXSetCopyClear(GXColor_8029F5F8, s32);
 s32 GXCopyTex(s32, s32);
 s32 GXSetZMode(s32, s32, s32);
 extern GXColor_8029F5F8 lbl_805E1220;
-void copy_efb_to_texture__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
@@ -35,13 +35,13 @@ void TScene__sub_8029F5E4(f32 farg0) {
 }
 
 void TScene__sub_8029F5EC(void) { TScene__data_805D5FE0 = 1; }
-void copy_efb_to_texture__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::copy_efb_to_texture() {
     GXColor_8029F5F8 clr = lbl_805E1220;
     GXSetZMode(0, 7, 1);
     GXSetCopyClear(clr, 0xFFFFFF);
     GXSetTexCopySrc(0, 0, 0x280, 0x1E0);
     GXSetTexCopyDst(0x280, 0x1E0, 4, 0);
-    GXCopyTex(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 8)) + 0xC)) + 0x20), 1);
+    GXCopyTex(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)this + 0x1C)) + 8)) + 0xC)) + 0x20), 1);
     GXPixModeSync();
 }
 

@@ -19,7 +19,7 @@ void init__6gc_tagFv(void *);
 s32 obj_testFlags30(void *, u32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 get_camera_field__10TObjPlayerFPv(void *);
-s32 test_bit1_at_10__10TObjPlayerFPv(void *);
+s32 test_bit1_at_10__10TObjPlayerFv(void *);
 u8 get_cast_technique_level(void *, int);
 Tec_801D7DA4 *calc_technique_parameters(s32, s32, s32);
 s32 get_game_play_mode();
@@ -31,9 +31,9 @@ void init_action_config__10TObjPlayerFPv(Obj_801D7D4C *arg0);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 s32 weapon_has_extra_attack(u32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
-s32 validate_and_clear_slot__10TObjPlayerFPv(void *, s32);
+s32 validate_and_clear_slot__10TObjPlayerFv(void *, s32);
 void init__9TItemDataFv(void *);
-s32 is_ready__10TObjPlayerFPv(void *);
+s32 is_ready__10TObjPlayerFv(void *);
 void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, TItemData_801D8044 *);
 s32 is_boss_area(void);
 s32 TObjPlayer__sub_801AF694(void *, s32);
@@ -80,7 +80,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
         }
         return 1;
     case 3:
-        if (test_bit1_at_10__10TObjPlayerFPv(arg0 + 0x428) != 0 || obj_testFlags30(arg0, 0x20006) != 0 || get_camera_field__10TObjPlayerFPv(arg0) == 0) {
+        if (test_bit1_at_10__10TObjPlayerFv(arg0 + 0x428) != 0 || obj_testFlags30(arg0, 0x20006) != 0 || get_camera_field__10TObjPlayerFPv(arg0) == 0) {
             return 0;
         }
         if (*(s16 *)(arg0 + 0x32E) - calc_technique_parameters(tec = sub, get_cast_technique_level(arg0 + 0x428, sub), ((s32 (*)(void *))obj_getField1c)(arg0))->cost < 0) {
@@ -158,7 +158,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
         }
         break;
     case 3:
-        if (validate_and_clear_slot__10TObjPlayerFPv(self->slots, arg) != 0) {
+        if (validate_and_clear_slot__10TObjPlayerFv(self->slots, arg) != 0) {
             return 0;
         }
         if (check_flag_100__10TObjPlayerFPv(self) != 0) {
@@ -182,35 +182,35 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
             item.sub = 2;
             break;
         case 3:
-            if (is_ready__10TObjPlayerFPv(self) != 0) {
+            if (is_ready__10TObjPlayerFv(self) != 0) {
                 return 0;
             }
             item.type = 1;
             item.sub = 0;
             break;
         case 4:
-            if (is_ready__10TObjPlayerFPv(self) != 0) {
+            if (is_ready__10TObjPlayerFv(self) != 0) {
                 return 0;
             }
             item.type = 1;
             item.sub = 1;
             break;
         case 5:
-            if (is_ready__10TObjPlayerFPv(self) != 0) {
+            if (is_ready__10TObjPlayerFv(self) != 0) {
                 return 0;
             }
             item.type = 1;
             item.sub = 2;
             break;
         case 6:
-            if (is_ready__10TObjPlayerFPv(self) != 0) {
+            if (is_ready__10TObjPlayerFv(self) != 0) {
                 return 0;
             }
             item.type = 6;
             item.sub = 0;
             break;
         case 7:
-            if (is_ready__10TObjPlayerFPv(self) != 0) {
+            if (is_ready__10TObjPlayerFv(self) != 0) {
                 return 0;
             }
             item.type = 6;
@@ -229,7 +229,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
             item.type = 7;
             break;
         case 12:
-            if (is_ready__10TObjPlayerFPv(self) != 0) {
+            if (is_ready__10TObjPlayerFv(self) != 0) {
                 return 0;
             }
             item.type = 8;
@@ -307,9 +307,8 @@ extern "C" {
 
 s32 TObjPlayer__sub_801D8664(s32, s16, s16);
 s32 set_animation_default__10TObjPlayerFPv(s32, s16);
-void *get_anim_table_entry__10TObjPlayerFPvi();
+void *get_anim_table_entry__10TObjPlayerFl();
 s32 TObjPlayer__sub_801D84A8(void* p);
-int bswap_disp_config_field__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_801D84F0(void* p);
 int bswap_16__FPUs(void*);
 
@@ -325,9 +324,8 @@ extern "C" {
 
 s32 TObjPlayer__sub_801D8664(s32, s16, s16);
 s32 set_animation_default__10TObjPlayerFPv(s32, s16);
-void *get_anim_table_entry__10TObjPlayerFPvi();
+void *get_anim_table_entry__10TObjPlayerFl();
 s32 TObjPlayer__sub_801D84A8(void* p);
-int bswap_disp_config_field__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_801D84F0(void* p);
 int bswap_16__FPUs(void*);
 
@@ -345,9 +343,8 @@ extern "C" {
 
 s32 TObjPlayer__sub_801D8664(s32, s16, s16);
 s32 set_animation_default__10TObjPlayerFPv(s32, s16);
-void *get_anim_table_entry__10TObjPlayerFPvi();
+void *get_anim_table_entry__10TObjPlayerFl();
 s32 TObjPlayer__sub_801D84A8(void* p);
-int bswap_disp_config_field__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_801D84F0(void* p);
 int bswap_16__FPUs(void*);
 
@@ -361,27 +358,27 @@ u8 *TObjPlayer__sub_801D84B0(s32 *arg0) {
 }
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 TObjPlayer__sub_801D84F0(void* p);
 void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(s32 arg0, void *arg1);
-int bswap_disp_config_field__10TObjPlayerFPv(void* p);
 void set_animation_from_data__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 advance_item_id_counter(u16);
 s32 equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(s32, void *);
 s32 TObjPlayer__sub_801D84A8(void* p);
 s32 TObjPlayer__sub_801D8664(s32, s16, s16);
-void *get_anim_table_entry__10TObjPlayerFPvi();
+void *get_anim_table_entry__10TObjPlayerFl();
 int bswap_16__FPUs(void*);
 s32 set_animation_default__10TObjPlayerFPv(s32, s16);
 
-int bswap_disp_config_field__10TObjPlayerFPv(void* p) { return bswap_16__FPUs((char*)p + 0x2); }
+int TObjPlayer::bswap_disp_config_field() { return bswap_16__FPUs((char*)this + 0x2); }
 s32 TObjPlayer__sub_801D84F0(void* p) { return *(s32*)((char*)p + 0x4); }
 void set_animation_from_data__10TObjPlayerFii(s32 arg0, s32 arg1) {
     void *temp_r3;
 
-    temp_r3 = get_anim_table_entry__10TObjPlayerFPvi();
+    temp_r3 = get_anim_table_entry__10TObjPlayerFl();
     TObjPlayer__sub_801D8664(arg0, *(s16 *)((s8 *)temp_r3 + 0), *(s16 *)((s8 *)temp_r3 + 2));
     set_animation_default__10TObjPlayerFPv(arg0, arg1);
 }

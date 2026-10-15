@@ -21,6 +21,7 @@ struct TObjEneDelDepthBomb
     u32 m_348;
     u32 m_34c;
     u32 m_350;
+    f32 get_depth_radius();
 };
 
 #endif

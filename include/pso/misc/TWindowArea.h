@@ -9,6 +9,7 @@ struct TWindowArea
     void* m_24;
     u8 _pad28[0x18];
     void* m_40;
+    void run_task();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowOptionCtrl.h"
 
 struct Opt_8026BCC0 {
     u8 pad0[0x1C];
@@ -21,62 +22,62 @@ struct Opt_8026BCC0 {
 
 extern "C" {
 void TWindow__close(void *);
-void close__17TWindowSubComCardFPv(void *);
+void close__17TWindowSubComCardFv(void *);
 void *create_menu__17TWindowOptionCtrlFv(void *);
-void clear_transition_flag__17TWindowSubComCardFPv(void *);
-void clear_flag_and_release__17TWindowSubComCardFPv(void *);
-s32 get_status_flag__17TWindowSubComCardFPv(void *);
-s32 is_visible__17TWindowSubComCardFPv(void *);
+void clear_transition_flag__17TWindowSubComCardFv(void *);
+void clear_flag_and_release__17TWindowSubComCardFv(void *);
+s32 get_status_flag__17TWindowSubComCardFv(void *);
+s32 is_visible__17TWindowSubComCardFv(void *);
 s32 get_selected_menu_value(void *);
-void open__17TWindowOptionCtrlFPv(void *);
+void open__17TWindowOptionCtrlFv(void *);
 void *create_select_menu_window__17TWindowOptionCtrlFv(void *);
-s32 get_flag_bit2__6TLobbyFPv(void *);
-s32 update_selected_item__17TWindowOptionCtrlFPv(void *);
-s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
+s32 get_flag_bit2__6TLobbyFv(void *);
+s32 update_selected_item__17TWindowOptionCtrlFv(void *);
+s32 handle_input__17TWindowOptionCtrlFl(void *arg0, s32 arg1);
 s32 TWindowOptionCtrl__sub_802273B4(int);
 void *create_list_window__17TWindowOptionCtrlFv(void *);
-void clear_flag70_bit4__17TWindowOptionCtrlFPv(void *);
+void clear_flag70_bit4__17TWindowOptionCtrlFv(void *);
 void stop_audio_streams__6TLobbyFv(void);
 void close_option_window__6TLobbyFv(void);
 void play_area_music(void *);
 extern u8 lbl_8044F4B4[];
-void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
-void *create_sound_mode_menu__17TWindowOptionCtrlFPv(void *);
+void apply_and_close__17TWindowOptionCtrlFl(void *arg0, s32 arg1);
+void *create_sound_mode_menu__17TWindowOptionCtrlFv(void *);
 void *create_sound_balance_window__17TWindowOptionCtrlFv(void *);
 s32 TWindowOptionCtrl__sub_8026C658(void *);
-s32 get_field_64__17TWindowOptionCtrlFPv(void *p);
-s32 get_field_62__17TWindowOptionCtrlFPv(void *p);
-void set_params__17TWindowOptionCtrlFPvsc(void *arg0, s16 arg1, s8 arg2);
-s32 is_active__17TWindowOptionCtrlFPv(void *);
+s32 get_field_64__17TWindowOptionCtrlFv(void *p);
+s32 get_field_62__17TWindowOptionCtrlFv(void *p);
+void set_params__17TWindowOptionCtrlFPvsSc(void *arg0, s16 arg1, s8 arg2);
+s32 is_active__17TWindowOptionCtrlFv(void *);
 s32 save_snapshot__15TObjBoss2TunnelFv(void);
 void save_screen_snapshot(void);
 s32 load_snapshot__15TObjBoss2TunnelFv(void);
 void *create_snap_shot_window__17TWindowOptionCtrlFv(void *);
 s32 TWindowOptionCtrl__sub_8026C630(void *);
 void *__nw__7TObjectFUl(u32);
-void *ct__17TWindowOptionCtrlFPv(void *arg0);
-s32 get_field_24__17TWindowOptionCtrlFPv(void *);
+void *ct__17TWindowOptionCtrlFv(void *arg0);
+s32 get_field_24__17TWindowOptionCtrlFv(void *);
 void queue_destruction__7TObjectFv(void *);
 s32 TKeyBoardControl__sub_8000F9CC(int);
 void *create_sub_menu_window__17TWindowOptionCtrlFv(void *);
 void *create_option_menu__17TWindowOptionCtrlFv(void *);
-void set_field_value__17TWindowOptionCtrlFis(s32 arg0, s16 arg1);
-s32 open_yes_no_window__17TWindowOptionCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 get_card_data__17TWindowSubComCardFPv(void *);
-s32 is_child_visible__17TWindowSubComCardFPv(void *);
-s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
+void set_field_value__17TWindowOptionCtrlFls(s32 arg0, s16 arg1);
+s32 open_yes_no_window__17TWindowOptionCtrlFlll(s32 arg0, s32 arg1, s32 arg2);
+s32 get_card_data__17TWindowSubComCardFv(void *);
+s32 is_child_visible__17TWindowSubComCardFv(void *);
+s32 get_slot_or_neg1__17TWindowSubComCardFv(void *);
 s32 get_option_entry__17TWindowOptionCtrlFi(s32);
-s32 create_serial_info_window__17TWindowOptionCtrlFPvi(void *, int);
+s32 create_serial_info_window__17TWindowOptionCtrlFl(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 void play_sound_effect(int, int, int, int);
 extern u8 controller_input_state[];
-void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self);
 }
 
 extern "C" {
 
-void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
+void TWindowOptionCtrl::run_task() {
+    Opt_8026BCC0 *self = (Opt_8026BCC0 *)this;
     switch (self->state) {
     case 0:
     case 1:
@@ -85,7 +86,7 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
             self->f44 = NULL;
         }
         if (self->f40 != NULL) {
-            close__17TWindowSubComCardFPv(self->f40);
+            close__17TWindowSubComCardFv(self->f40);
             self->f40 = NULL;
         }
         if (self->f3C != NULL) {
@@ -107,43 +108,43 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
         if (self->f28 == NULL) {
             self->f28 = create_menu__17TWindowOptionCtrlFv(self);
         }
-        clear_transition_flag__17TWindowSubComCardFPv(self->f28);
-        clear_flag_and_release__17TWindowSubComCardFPv(self->f28);
+        clear_transition_flag__17TWindowSubComCardFv(self->f28);
+        clear_flag_and_release__17TWindowSubComCardFv(self->f28);
         self->state = 2;
     case 2:
-        if (get_status_flag__17TWindowSubComCardFPv(self->f28) != 0) {
+        if (get_status_flag__17TWindowSubComCardFv(self->f28) != 0) {
             self->state = 0x1B;
-        } else if (is_visible__17TWindowSubComCardFPv(self->f28) != 0) {
+        } else if (is_visible__17TWindowSubComCardFv(self->f28) != 0) {
             self->state = get_selected_menu_value(self->f28);
         }
         break;
     case 3:
-        open__17TWindowOptionCtrlFPv(self->f28);
+        open__17TWindowOptionCtrlFv(self->f28);
         if (self->f34 == NULL) {
             self->f34 = create_select_menu_window__17TWindowOptionCtrlFv(self);
         }
         self->state = 4;
     case 4:
-        if (get_flag_bit2__6TLobbyFPv(self->f34) != 0) {
+        if (get_flag_bit2__6TLobbyFv(self->f34) != 0) {
             self->state = 1;
         }
-        if (handle_input__17TWindowOptionCtrlFPvi(self, update_selected_item__17TWindowOptionCtrlFPv(self->f34)) != 0) {
+        if (handle_input__17TWindowOptionCtrlFl(self, update_selected_item__17TWindowOptionCtrlFv(self->f34)) != 0) {
             self->state = 1;
         }
         break;
     case 5:
         TWindowOptionCtrl__sub_802273B4(0x1E);
-        open__17TWindowOptionCtrlFPv(self->f28);
+        open__17TWindowOptionCtrlFv(self->f28);
         if (self->f2C == NULL) {
             self->f2C = create_list_window__17TWindowOptionCtrlFv(self);
         }
         self->state = 6;
     case 6:
-        if (get_status_flag__17TWindowSubComCardFPv(self->f2C) != 0) {
+        if (get_status_flag__17TWindowSubComCardFv(self->f2C) != 0) {
             if (self->f1D & 2) {
                 TWindowOptionCtrl__sub_802273B4(0x1E);
                 self->f1D &= ~2;
-                clear_flag70_bit4__17TWindowOptionCtrlFPv(self->f2C);
+                clear_flag70_bit4__17TWindowOptionCtrlFv(self->f2C);
             } else {
                 stop_audio_streams__6TLobbyFv();
                 close_option_window__6TLobbyFv();
@@ -152,37 +153,37 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
                 break;
             }
         }
-        if (is_visible__17TWindowSubComCardFPv(self->f2C) != 0) {
-            apply_and_close__17TWindowOptionCtrlFPvi(self, get_selected_menu_value(self->f2C));
-            clear_flag_and_release__17TWindowSubComCardFPv(self->f2C);
+        if (is_visible__17TWindowSubComCardFv(self->f2C) != 0) {
+            apply_and_close__17TWindowOptionCtrlFl(self, get_selected_menu_value(self->f2C));
+            clear_flag_and_release__17TWindowSubComCardFv(self->f2C);
         }
         break;
     case 7:
-        open__17TWindowOptionCtrlFPv(self->f28);
+        open__17TWindowOptionCtrlFv(self->f28);
         if (self->f34 == NULL) {
-            self->f34 = create_sound_mode_menu__17TWindowOptionCtrlFPv(self);
+            self->f34 = create_sound_mode_menu__17TWindowOptionCtrlFv(self);
         }
         self->state = 8;
     case 8:
-        self->f20 = update_selected_item__17TWindowOptionCtrlFPv(self->f34);
-        if (get_flag_bit2__6TLobbyFPv(self->f34) != 0) {
+        self->f20 = update_selected_item__17TWindowOptionCtrlFv(self->f34);
+        if (get_flag_bit2__6TLobbyFv(self->f34) != 0) {
             self->state = 1;
         }
         break;
     case 9:
-        open__17TWindowOptionCtrlFPv(self->f28);
+        open__17TWindowOptionCtrlFv(self->f28);
         if (self->f38 == NULL) {
             self->f38 = create_sound_balance_window__17TWindowOptionCtrlFv(self);
         }
         self->state = 0xA;
     case 10:
         if (TWindowOptionCtrl__sub_8026C658(self->f38) != 0) {
-            s16 b = get_field_64__17TWindowOptionCtrlFPv(self->f38);
-            ((void (*)(void *, s16, s16)) set_params__17TWindowOptionCtrlFPvsc)(self, (s16)get_field_62__17TWindowOptionCtrlFPv(self->f38), b);
+            s16 b = get_field_64__17TWindowOptionCtrlFv(self->f38);
+            ((void (*)(void *, s16, s16)) set_params__17TWindowOptionCtrlFPvsSc)(self, (s16)get_field_62__17TWindowOptionCtrlFv(self->f38), b);
             self->state = 1;
-        } else if (is_active__17TWindowOptionCtrlFPv(self->f38) != 0) {
-            s16 b = get_field_64__17TWindowOptionCtrlFPv(self->f38);
-            ((void (*)(void *, s16, s16)) set_params__17TWindowOptionCtrlFPvsc)(self, (s16)get_field_62__17TWindowOptionCtrlFPv(self->f38), b);
+        } else if (is_active__17TWindowOptionCtrlFv(self->f38) != 0) {
+            s16 b = get_field_64__17TWindowOptionCtrlFv(self->f38);
+            ((void (*)(void *, s16, s16)) set_params__17TWindowOptionCtrlFPvsSc)(self, (s16)get_field_62__17TWindowOptionCtrlFv(self->f38), b);
             self->state = 1;
         }
         break;
@@ -196,7 +197,7 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
         break;
     case 12:
         if (load_snapshot__15TObjBoss2TunnelFv() != 0) {
-            open__17TWindowOptionCtrlFPv(self->f28);
+            open__17TWindowOptionCtrlFv(self->f28);
             if (self->f3C == NULL) {
                 self->f3C = create_snap_shot_window__17TWindowOptionCtrlFv(self);
             }
@@ -212,14 +213,14 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
         if (self->f48 == NULL) {
             void *p = __nw__7TObjectFUl(0x30);
             if (p != NULL) {
-                p = ((void *(*)(void *, void *)) ct__17TWindowOptionCtrlFPv)(p, self);
+                p = ((void *(*)(void *, void *)) ct__17TWindowOptionCtrlFv)(p, self);
             }
             self->f48 = p;
         }
-        open__17TWindowOptionCtrlFPv(self->f28);
+        open__17TWindowOptionCtrlFv(self->f28);
         self->state = 0xF;
     case 15: {
-        s32 r = get_field_24__17TWindowOptionCtrlFPv(self->f48);
+        s32 r = get_field_24__17TWindowOptionCtrlFv(self->f48);
         if (r == 1 || r == 2) {
             queue_destruction__7TObjectFv(self->f48);
             self->f48 = NULL;
@@ -235,7 +236,7 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
     }
     case 16:
         if (self->f40 != NULL) {
-            close__17TWindowSubComCardFPv(self->f40);
+            close__17TWindowSubComCardFv(self->f40);
             self->f40 = NULL;
         }
         if (self->f34 != NULL) {
@@ -249,26 +250,26 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
         if (self->f2C == NULL) {
             self->f2C = create_sub_menu_window__17TWindowOptionCtrlFv(self);
         }
-        open__17TWindowOptionCtrlFPv(self->f28);
-        clear_transition_flag__17TWindowSubComCardFPv(self->f2C);
-        clear_flag_and_release__17TWindowSubComCardFPv(self->f2C);
+        open__17TWindowOptionCtrlFv(self->f28);
+        clear_transition_flag__17TWindowSubComCardFv(self->f2C);
+        clear_flag_and_release__17TWindowSubComCardFv(self->f2C);
         self->state = 0x11;
     case 17:
-        if (get_status_flag__17TWindowSubComCardFPv(self->f2C) != 0) {
+        if (get_status_flag__17TWindowSubComCardFv(self->f2C) != 0) {
             self->state = 1;
-        } else if (is_visible__17TWindowSubComCardFPv(self->f2C) != 0) {
+        } else if (is_visible__17TWindowSubComCardFv(self->f2C) != 0) {
             self->state = get_selected_menu_value(self->f2C);
         }
         break;
     case 18:
-        open__17TWindowOptionCtrlFPv(self->f2C);
+        open__17TWindowOptionCtrlFv(self->f2C);
         if (self->f34 == NULL) {
             self->f34 = create_option_menu__17TWindowOptionCtrlFv(self);
         }
         self->state = 0x13;
     case 19:
-        ((void (*)(void *, s32)) set_field_value__17TWindowOptionCtrlFis)(self, update_selected_item__17TWindowOptionCtrlFPv(self->f34));
-        if (get_flag_bit2__6TLobbyFPv(self->f34) != 0) {
+        ((void (*)(void *, s32)) set_field_value__17TWindowOptionCtrlFls)(self, update_selected_item__17TWindowOptionCtrlFv(self->f34));
+        if (get_flag_bit2__6TLobbyFv(self->f34) != 0) {
             self->state = 0x10;
         }
         break;
@@ -277,10 +278,10 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
         self->state = 0x17;
         break;
     case 22:
-        if (get_status_flag__17TWindowSubComCardFPv(self->f30) != 0) {
+        if (get_status_flag__17TWindowSubComCardFv(self->f30) != 0) {
             self->state = 0x10;
         }
-        if (is_visible__17TWindowSubComCardFPv(self->f30) != 0) {
+        if (is_visible__17TWindowSubComCardFv(self->f30) != 0) {
             self->state = 0x17;
         }
         break;
@@ -288,20 +289,20 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
         if (self->f40 == NULL) {
             switch (get_selected_menu_value(self->f2C)) {
             case 0x14:
-                self->f40 = (void *)open_yes_no_window__17TWindowOptionCtrlFiii((s32)self, 0x22, 0xD0);
+                self->f40 = (void *)open_yes_no_window__17TWindowOptionCtrlFlll((s32)self, 0x22, 0xD0);
                 break;
             case 0x15:
-                self->f40 = (void *)open_yes_no_window__17TWindowOptionCtrlFiii((s32)self, 0x24, 0xD0);
+                self->f40 = (void *)open_yes_no_window__17TWindowOptionCtrlFlll((s32)self, 0x24, 0xD0);
                 break;
             }
         }
-        open__17TWindowOptionCtrlFPv(self->f2C);
+        open__17TWindowOptionCtrlFv(self->f2C);
         self->state = 0x18;
     case 24:
-        if (get_card_data__17TWindowSubComCardFPv(self->f40) != 0) {
+        if (get_card_data__17TWindowSubComCardFv(self->f40) != 0) {
             self->state = 0x10;
-        } else if (is_child_visible__17TWindowSubComCardFPv(self->f40) != 0) {
-            if (get_slot_or_neg1__17TWindowSubComCardFPv(self->f40) == 0) {
+        } else if (is_child_visible__17TWindowSubComCardFv(self->f40) != 0) {
+            if (get_slot_or_neg1__17TWindowSubComCardFv(self->f40) == 0) {
                 if (get_selected_menu_value(self->f2C) == 0x14) {
                     self->f24 = 1;
                 } else {
@@ -315,13 +316,13 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
         break;
     case 25:
         if (self->f44 == NULL) {
-            self->f44 = (void *)create_serial_info_window__17TWindowOptionCtrlFPvi((void *)get_option_entry__17TWindowOptionCtrlFi(0xCF), 1);
+            self->f44 = (void *)create_serial_info_window__17TWindowOptionCtrlFl((void *)get_option_entry__17TWindowOptionCtrlFi(0xCF), 1);
         }
-        open__17TWindowOptionCtrlFPv(self->f28);
+        open__17TWindowOptionCtrlFv(self->f28);
         self->state = 0x1A;
     case 26:
         if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 6) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 6) != 0) {
+            test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state + 0x160, 6) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);
             self->state = 1;
         }

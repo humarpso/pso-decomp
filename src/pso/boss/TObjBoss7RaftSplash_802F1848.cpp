@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
 
 struct Base_802F1848 { char pad[0x18]; };
 struct VObj_802F1848 : Base_802F1848 {
@@ -8,13 +9,12 @@ struct VObj_802F1848 : Base_802F1848 {
 
 extern "C" {
 
-void spawn_particle__8TObjFishFiif(s32 arg0, s32 arg1, f32 farg0);
 void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, s32, s32, s32, s32, s32, s32, s32);
 s32 get_particle_by_index__13TParticleCtrlFi(s32);
 void *__nw__7TObjectFUl(s32);
 s32 fn_802F1960(void *, f32);
 
-void spawn_particle__8TObjFishFiif(s32 arg0, s32 arg1, f32 farg0) {
+void TObjFish::spawn_particle(s32 arg0, s32 arg1, f32 farg0) {
     void *var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x78);

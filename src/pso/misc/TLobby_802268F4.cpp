@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8022727C_lbl_804CB850 {
     s32 value;
@@ -52,27 +53,22 @@ struct Buffers_80226FA0 { u8 unknown[0x80]; s32 segments[2]; s32 ticks[2]; s32 p
 
 extern "C" {
 int TLobby__sub_80226308(void);
-void update_lobby_subsystems__6TLobbyFv(void);
 int init_layout_positions__6TLobbyFv(void);
     extern int lbl_805D62B0;
     extern int lbl_805D62B4;
     extern int lbl_805D62B8;
 int TLobby__sub_80226B64(void);
 int set_and_notify__6TLobbyFi(void*);
-int set_and_notify_default__6TLobbyFv(void);
 int set_and_notify__6TLobbyFi(void*);
-int send_neg30__6TLobbyFv(void);
 s32 stop_audio_stream(s32);
 int init_layout_positions__6TLobbyFv(void);
 extern s32 lbl_804CB850[];
 extern s32 lbl_805D6330;
-void release_bgm_resource__6TLobbyFv(void);
 extern s32 lbl_805D6300;
 extern s32 music_target_id;
 void set_dark_falz_music_request(s32 arg0);
 extern s32 lbl_805D6300;
 extern s32 music_target_id;
-void set_target_id__6TLobbyFi(s32 arg0);
 void start_audio_stream_file(void *, s32);
 extern s32 lbl_804CB850[];
 void play_cue_stream_file(s32 arg0);
@@ -92,7 +88,6 @@ extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
 extern u8 *lbl_805D3720;
 extern s32 lbl_805D62E4;
 extern s32 music_fade_slot_index;
-u8 *get_current_slot_entry__6TLobbyFv(void);
 s32 set_field_40_and_notify__6TLobbyFPvs(int, int);
 extern s32 lbl_804CB850[];
 extern s32 lbl_805D6330;
@@ -139,10 +134,9 @@ void update_music_sequencer(void);
 
 extern "C" {
 
-void update_lobby_subsystems__6TLobbyFv(void);
 int TLobby__sub_8022644C(void);
 
-void update_lobby_subsystems__6TLobbyFv(void) { TLobby__sub_8022644C(); stop_cue_stream(); }
+void TLobby::update_lobby_subsystems() { TLobby__sub_8022644C(); stop_cue_stream(); }
 
 void update_sound_request_slots(void) {
     s32 i;
@@ -197,18 +191,18 @@ void update_sound_request_slots(void) {
     }
 }
 
-int TLobby__sub_80226B64(void) { update_lobby_subsystems__6TLobbyFv(); init_layout_positions__6TLobbyFv(); TLobby__sub_80226308(); lbl_805D62B4 = 0; lbl_805D62B8 = 0; lbl_805D62B0 = 1; return 0; }
+int TLobby__sub_80226B64(void) { TLobby::update_lobby_subsystems(); init_layout_positions__6TLobbyFv(); TLobby__sub_80226308(); lbl_805D62B4 = 0; lbl_805D62B8 = 0; lbl_805D62B0 = 1; return 0; }
 
 typedef char RecoveredGlobal_80226C3C_lbl_80514D00_size[sizeof(RecoveredGlobal_80226C3C_lbl_80514D00) == 0x258 ? 1 : -1];
-u8 *get_current_slot_entry__6TLobbyFv(void) {
+u8 *TLobby::get_current_slot_entry() {
     if ((s32) lbl_805D62E4 == 1) {
         return (u8 *)&lbl_80514D00.value + (music_fade_slot_index << 5);
     }
     return lbl_805D3720;
 }
 
-int set_and_notify_default__6TLobbyFv(void) { return set_and_notify__6TLobbyFi((void*)(0)); }
-int send_neg30__6TLobbyFv(void) { return set_and_notify__6TLobbyFi((void*)(-30)); }
+int TLobby::set_and_notify_default() { return set_and_notify__6TLobbyFi((void*)(0)); }
+int TLobby::send_neg30() { return set_and_notify__6TLobbyFi((void*)(-30)); }
 
 typedef char RecoveredGlobal_80226CB0_lbl_804CB850_size[sizeof(RecoveredGlobal_80226CB0_lbl_804CB850) == 0xC ? 1 : -1];
 void set_cue_stream_gain(s32 arg0) {
@@ -235,7 +229,7 @@ void set_music_streams_volume(s32 arg0) {
     set_field_40_and_notify__6TLobbyFPvs((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80226CF4_lbl_804CB850 *)&lbl_804CB850).value) + 4)), (int) (var_r31));
 }
 
-void release_bgm_resource__6TLobbyFv(void) {
+void TLobby::release_bgm_resource() {
     if ((s32) lbl_805D6330 != 0) {
         stop_audio_stream(*(s32 *)((s8 *)lbl_804CB850 + 4));
         lbl_805D6330 = 0;
@@ -320,7 +314,7 @@ void set_dark_falz_music_request(s32 arg0) {
         music_target_id = arg0;
     }
 }
-void set_target_id__6TLobbyFi(s32 arg0) {
+void TLobby::set_target_id(s32 arg0) {
     if ((s32) lbl_805D6300 != 4) {
         music_target_id = arg0;
     }

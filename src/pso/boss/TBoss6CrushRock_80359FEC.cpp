@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TBoss6CrushRock.h"
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
@@ -9,12 +10,10 @@ extern const f32 lbl_805E00B8;
 extern const f32 lbl_805E00BC;
 extern const f32 lbl_805E00C0;
 extern const f32 lbl_805E00C4;
-void run_task__15TBoss6CrushRockFv(u8 *arg0);
 }
 
 extern "C" {
 
-void render__15TBoss6CrushRockFv(void* p);
 int post_translate_matrix(void*);
 int rotate_matrix_z(void*, void*);
 int draw_ginja_object(void*);
@@ -22,12 +21,13 @@ int rotate_matrix_x(void*, void*);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void);
 int pop_matrix(void);
-int set_global_param__8TObjFishFi(void*);
+int set_global_param__8TObjFishFl(void*);
 
-void render__15TBoss6CrushRockFv(void* p) { if (is_falz_alive__15TBoss6CrushRockFv(p) != 0) { push_matrix(); post_translate_matrix((char*)p + 0x24); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x40)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x3c)); rotate_matrix_z((void*)0, *(void**)((char*)p + 0x44)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x20)); draw_ginja_object(*(void**)((char*)p + 0x1c)); pop_matrix(); } }
+void TBoss6CrushRock::render() { if (is_falz_alive__15TBoss6CrushRockFv(this) != 0) { push_matrix(); post_translate_matrix((char*)this + 0x24); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x40)); rotate_matrix_x((void*)0, *(void**)((char*)this + 0x3c)); rotate_matrix_z((void*)0, *(void**)((char*)this + 0x44)); set_global_param__8TObjFishFl(*(void**)((char*)this + 0x20)); draw_ginja_object(*(void**)((char*)this + 0x1c)); pop_matrix(); } }
 #pragma push
 #pragma opt_common_subs off
-void run_task__15TBoss6CrushRockFv(u8 *arg0) {
+void TBoss6CrushRock::run_task() {
+    u8 *arg0 = (u8 *)this;
     if (((s32)is_falz_alive__15TBoss6CrushRockFv((void*)(arg0))) == 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;

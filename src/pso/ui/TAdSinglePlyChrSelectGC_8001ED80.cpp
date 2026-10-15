@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
 s32 TLobby__sub_8001ED88(void* p);
-s32 get_global_state__23TAdSinglePlyChrSelectGCFv(void);
 int fn_8001ED90(void* p);
 
 extern s32 system_save_payload;
 
-s32 get_global_state__23TAdSinglePlyChrSelectGCFv(void) {
+s32 TAdSinglePlyChrSelectGC::get_global_state() {
     return system_save_payload;
 }
 

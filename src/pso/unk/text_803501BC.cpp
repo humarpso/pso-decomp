@@ -7,10 +7,10 @@ struct E_803501BC { u8 a, b, c; u8 w; };
 struct T_803501BC { s32 n; E_803501BC *e; };
 
 extern "C" {
-s32 get_field_d8__10TObjPlayerFPv(void *);
+s32 get_field_d8__10TObjPlayerFv(void *);
 void consume_item_by_id(s32);
 s32 replace_item_with_new_code(void *, void *);
-u8 get_slot_count__14TItemProShieldFPv(void *);
+u8 get_slot_count__14TItemProShieldFv(void *);
 T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
 s32 rand(void);
 extern const f32 lbl_805DFE28;
@@ -22,7 +22,7 @@ extern "C" {
 
 void replace_item_with_random_result(void *arg0) {
     T_803501BC *t;
-    t = get_item_pmt_entry__10TObjPlayerFUc(get_slot_count__14TItemProShieldFPv(arg0));
+    t = get_item_pmt_entry__10TObjPlayerFUc(get_slot_count__14TItemProShieldFv(arg0));
     if (t != NULL) {
         s32 r = (s32)(lbl_805DFE28 * (lbl_805DFE2C * (f32)rand()));
         E_803501BC *e = t->e;
@@ -40,7 +40,7 @@ void replace_item_with_random_result(void *arg0) {
             e++;
         }
     }
-    consume_item_by_id(get_field_d8__10TObjPlayerFPv(arg0));
+    consume_item_by_id(get_field_d8__10TObjPlayerFv(arg0));
 }
 
 }

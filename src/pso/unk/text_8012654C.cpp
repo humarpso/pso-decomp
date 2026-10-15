@@ -55,7 +55,7 @@ struct VObj_18 : VBase_18 {
 };
 extern "C" {
 s32 item_model_is_shown(void *, int);
-s32 draw_icon__10TObjPlayerFPvii(void *, int, void *);
+s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 void baranz_launcher_marker(u8 *arg0);
 }
 
@@ -67,13 +67,13 @@ void baranz_launcher_marker(u8 *arg0) {
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x1FC);
     *(s32 *)((s8 *)arg0 + 0x1FC) = (s32) (temp_r4 + 0x2AAA);
     if (item_model_is_shown((void *)(arg0), (int) (temp_r4)) != 0) {
-        draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (2), (void *) (&sp8));
+        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (2), (void *) (&sp8));
         ((VObj_18 *)(arg0))->m49(&sp8, 0, 0x4FA, 1);
-        draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (3), (void *) (&sp8));
+        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (3), (void *) (&sp8));
         ((VObj_18 *)(arg0))->m49(&sp8, 1, 0xE38, 1);
-        draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (4), (void *) (&sp8));
+        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (4), (void *) (&sp8));
         ((VObj_18 *)(arg0))->m49(&sp8, 2, -0x4FA, 1);
-        draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (5), (void *) (&sp8));
+        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (5), (void *) (&sp8));
         ((VObj_18 *)(arg0))->m49(&sp8, 3, -0xE38, 1);
     }
 }

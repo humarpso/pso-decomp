@@ -13,6 +13,9 @@ struct TAdMcCheckGC
     u32 m_30;
     u32 m_34;
     u32 m_38;
+    static void render();
+    s32 create(s32 arg1);
+    void run_task();
 };
 
 #endif

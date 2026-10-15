@@ -21,6 +21,12 @@ struct TShopGetItemWindow
     u32 m_5c;
     u32 m_60;
     u32 m_64;
+    s32 close();
+    void update_input_number();
+    s32 handle_withdraw_list_input();
+    void rebuild_item_list();
+    s16 get_cursor_index();
+    void calc_item_count(s32 *arg1);
 };
 
 #endif

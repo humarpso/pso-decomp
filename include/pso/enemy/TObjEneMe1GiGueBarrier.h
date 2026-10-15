@@ -22,6 +22,10 @@ struct TObjEneMe1GiGueBarrier
     u8 _pad102[0x2];
     u32 m_104;
     u32 m_108;
+    void render();
+    void run_task();
+    static void *create(void *arg0, void *arg1);
+    static void init_global();
 };
 
 #endif

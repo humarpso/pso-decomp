@@ -32,8 +32,7 @@ struct Shine_8034AB4C {
 extern "C" {
 extern const f32 lbl_805DFD64;
 extern const f32 lbl_805DFD68;
-void run_task__19TAdGameStartShineGCFv(u8 *arg0);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_instance__10TObjPlayerFv();
 extern f32 lbl_804789E8[];
@@ -50,23 +49,23 @@ Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self);
 
 extern "C" {
 
-void render__19TAdGameStartShineGCFv(void *arg0);
 s32 set_cached_blend_factor(s32, s32);
 s32 get_state_flag__9TMainTaskFv();
-s32 render_status_box__20TWindowSubStatusDispFPv(void *);
+s32 render_status_box__20TWindowSubStatusDispFv(void *);
 
-void render__19TAdGameStartShineGCFv(void *arg0) {
-    if ((get_state_flag__9TMainTaskFv() != 1) && ((s32) *(s32 *)((s8 *)arg0 + 0x7C) != 0)) {
+void TAdGameStartShineGC::render() {
+    if ((get_state_flag__9TMainTaskFv() != 1) && ((s32) *(s32 *)((s8 *)this + 0x7C) != 0)) {
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        render_status_box__20TWindowSubStatusDispFPv(arg0);
+        render_status_box__20TWindowSubStatusDispFv(this);
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
     }
 }
 #pragma push
 #pragma fp_contract on
-void run_task__19TAdGameStartShineGCFv(u8 *arg0) {
+void TAdGameStartShineGC::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     f32 temp_f2_2;
     f32 temp_f2_3;
@@ -106,7 +105,7 @@ Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self) {
     self->name = lbl_805D4320;
     self->f1C = lbl_805DFD64;
     self->f20 = lbl_805DFD64;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->x24, lbl_804789E8);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&self->x24, lbl_804789E8);
     self->x2C = self->x24;
     self->y30 = self->y28;
     self->x34 = self->x24 + lbl_804789F0[0];

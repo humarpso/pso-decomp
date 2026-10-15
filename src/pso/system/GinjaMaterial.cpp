@@ -1,6 +1,7 @@
 #include "pso/system/GinjaMaterialState.h"
 #include "pso/system/GinjaModel.h"
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma scheduling off
 #pragma scheduling off
@@ -76,9 +77,7 @@ void set_ginja_blend_param(u32 x);
 void GXSetAlphaCompare(s32 comp0, s32 ref0, s32 op, s32 comp1, s32 ref1);
 void ginja_set_alpha_compare(s32 ref);
 extern S_803DB560 ginja_material_cache;
-void set_global_color_rgba_alt_b__10TObjPlayerFUi(u32 v);
 extern S_803DB560 ginja_material_cache;
-void set_global_color_rgba__10TObjPlayerFUi(u32 v);
 extern S_803DB560 ginja_material_cache;
 extern s32 model_render_flags;
 extern s32 ginja_texcoord_ids[];
@@ -348,7 +347,7 @@ void set_ginja_material_color(u32 v) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void set_global_color_rgba__10TObjPlayerFUi(u32 v) {
+void TObjPlayer::set_global_color_rgba(u32 v) {
     (*(S_803DBAF8 *)&ginja_material_cache).c.r = (v & 0xFF000000) >> 24;
     (*(S_803DBAF8 *)&ginja_material_cache).c.g = (v & 0xFF0000) >> 16;
     (*(S_803DBAF8 *)&ginja_material_cache).c.b = (v & 0xFF00) >> 8;
@@ -359,7 +358,7 @@ void set_global_color_rgba__10TObjPlayerFUi(u32 v) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void set_global_color_rgba_alt_b__10TObjPlayerFUi(u32 v) {
+void TObjPlayer::set_global_color_rgba_alt_b(u32 v) {
     (*(S_803DBB38 *)&ginja_material_cache).c.r = (v & 0xFF000000) >> 24;
     (*(S_803DBB38 *)&ginja_material_cache).c.g = (v & 0xFF0000) >> 16;
     (*(S_803DBB38 *)&ginja_material_cache).c.b = (v & 0xFF00) >> 8;
@@ -568,7 +567,7 @@ s32 load_ginja_model_matrices(int arg0) {
 extern "C" {
 void *ginja_parameter_handlers[11] = {
     (void *)&ginja_set_vertex_format, (void *)&set_ginja_indexed_vtx_desc, (void *)&set_ginja_channel_counts, (void *)0x0,
-    (void *)&set_ginja_blend_param, (void *)&set_ginja_material_color, (void *)&set_global_color_rgba__10TObjPlayerFUi, (void *)&set_global_color_rgba_alt_b__10TObjPlayerFUi,
+    (void *)&set_ginja_blend_param, (void *)&set_ginja_material_color, (void *)&TObjPlayer::set_global_color_rgba, (void *)&TObjPlayer::set_global_color_rgba_alt_b,
     (void *)&ginja_load_texture_slot, (void *)&set_ginja_tev_order, (void *)&set_ginja_texcoord_gen,
 };
 s32 ginja_vertex_attributes[14] = {

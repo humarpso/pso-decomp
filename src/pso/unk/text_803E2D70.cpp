@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/ChunkMaterialState.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma scheduling off
 #pragma scheduling off
@@ -99,7 +100,6 @@ void GXSetNumTexGens(u8);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 GXSetNumTevStages(int);
-void setup_tev_passclr__10TObjPlayerFv(void);
 void GXSetNumTexGens(u8);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
@@ -115,7 +115,6 @@ s32 set_effect_active__10TObjPlayerFv();
 s32 apply_scene_fog();
 extern s32 ginja_draw_flags;
 extern s32 (*player_chunk_draw_end_callback)();
-void end_chunk_draw__10TObjPlayerFv(void);
 s32 load_list_texture(int, int, int, int);
 extern s32 chunk_texture_record_index;
 void apply_chunk_texture_command(s32 arg0, s32 arg1);
@@ -136,13 +135,11 @@ extern s32 chunk_render_flags;
 void TObjPlayer__sub_803E492C(s32 a, s32 b);
 s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void *);
 void transform_chunk_object_tree(void *, void (*)(void *));
-void end_chunk_draw__10TObjPlayerFv(void);
 void draw_chunk_object(void *arg0);
 extern s32 current_matrix;
-void copy_matrix3x3_for_chunk_tree__10TObjPlayerFPv(struct Mtx_803DC994 *src);
 s32 __cvt_fp2unsigned(f32);
 void get_current_matrix(void *m);
-void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0);
+void apply_quat_rotation__10TObjPlayerFf(f32 *arg0, f32 farg0);
 void rotate_matrix_by_node_angles(void *, int);
 void push_matrix(void);
 void scale_current_matrix(void *);
@@ -150,7 +147,6 @@ void post_translate_matrix(void *);
 extern u8 chunk_object_current_matrix[];
 void transform_point_by_current_matrix(u8 *, u8 *);
 void rotate_vector_by_current_matrix(u8 *, u8 *);
-void transform_vertex_list__10TObjPlayerFPv(Hdr_803E34B0 *arg0);
 void GXBegin(int, int, u16);
 extern const f32 lbl_805E1088;
 void draw_projected_textured_strip(Vtx_803E2D70 *v, s32 n);
@@ -225,7 +221,6 @@ extern s32 ginja_draw_flags;
 extern s32 model_render_flags;
 extern s32 chunk_previous_strip_flags;
 extern u32 chunk_strip_dirty_flags;
-void setup_model_draw_state__10TObjPlayerFPv(void *);
 }
 
 extern "C" {
@@ -279,7 +274,8 @@ void TLobby__sub_803E2EE4(s32 arg0) {
 #pragma peephole off
 #pragma scheduling off
 typedef char RecoveredGlobal_803DCBD8_lbl_8058D380_size[sizeof(RecoveredGlobal_803DCBD8_lbl_8058D380) == 0xF0 ? 1 : -1];
-void copy_matrix3x3_for_chunk_tree__10TObjPlayerFPv(struct Mtx_803DC994 *src) {
+void TObjPlayer::copy_matrix3x3_for_chunk_tree() {
+    struct Mtx_803DC994 *src = (struct Mtx_803DC994 *)this;
     struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)current_matrix;
     dst->m[0][0] = src->m[0][0];
     dst->m[0][1] = src->m[0][1];
@@ -318,9 +314,9 @@ void transform_chunk_object_tree(void *arg0, void (*cb)(void *)) {
             }
             if (!(flags & 2)) {
                 if (flags & 0x1000) {
-                    copy_matrix3x3_for_chunk_tree__10TObjPlayerFPv((struct Mtx_803DC994 *)chunk_object_current_matrix);
+                    ((TObjPlayer *)chunk_object_current_matrix)->copy_matrix3x3_for_chunk_tree();
                 } else if (flags & 0x400) {
-                    ((void (*)(f32, f32 *))apply_quat_rotation__10TObjPlayerFPvf)(node->f34, (f32 *)node->ang);
+                    ((void (*)(f32, f32 *))apply_quat_rotation__10TObjPlayerFf)(node->f34, (f32 *)node->ang);
                 } else {
                     rotate_matrix_by_node_angles(node->ang, flags & 0x20);
                 }
@@ -341,7 +337,8 @@ void transform_chunk_object_tree(void *arg0, void (*cb)(void *)) {
 }
 #undef node
 
-void transform_vertex_list__10TObjPlayerFPv(Hdr_803E34B0 *arg0) {
+void TObjPlayer::transform_vertex_list() {
+    Hdr_803E34B0 *arg0 = (Hdr_803E34B0 *)this;
     s32 n = arg0->count;
     u8 *src = arg0->src;
     u8 *dst = arg0->dst;
@@ -539,7 +536,7 @@ void apply_chunk_texture_command(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
-void setup_tev_passclr__10TObjPlayerFv(void) {
+void TObjPlayer::setup_tev_passclr() {
     GXSetNumTevStages((int) (1));
     GXSetNumTexGens(0U);
     GXSetTevOp((int) (0), (int) (4));
@@ -687,7 +684,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
     }
 }
 
-void setup_model_draw_state__10TObjPlayerFPv(void *) {
+void TObjPlayer::setup_model_draw_state(void *) {
     Mtx_803E4354 scale;
     Mtx_803E4354 trans;
     Mtx_803E4354 m;
@@ -715,7 +712,7 @@ void setup_model_draw_state__10TObjPlayerFPv(void *) {
 
 #pragma push
 #pragma peephole off
-void end_chunk_draw__10TObjPlayerFv(void) {
+void TObjPlayer::end_chunk_draw() {
     if ((u32) (ginja_draw_flags & 2) != 0) {
         set_effect_active__10TObjPlayerFv();
         apply_scene_fog();
@@ -768,17 +765,17 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
 }
 
 void draw_chunk_model(void *arg0) {
-    setup_model_draw_state__10TObjPlayerFPv((void *)(arg0));
+    TObjPlayer::setup_model_draw_state((void *)(arg0));
     draw_chunk_vertices_cached__10TObjPlayerFPv(arg0);
-    end_chunk_draw__10TObjPlayerFv();
+    TObjPlayer::end_chunk_draw();
 }
 
 #pragma push
 #pragma scheduling off
 void draw_chunk_object(void *arg0) {
-    setup_model_draw_state__10TObjPlayerFPv((void *)(arg0));
+    TObjPlayer::setup_model_draw_state((void *)(arg0));
     transform_chunk_object_tree(arg0, (void (*)(void *))draw_chunk_vertices_cached__10TObjPlayerFPv);
-    end_chunk_draw__10TObjPlayerFv();
+    TObjPlayer::end_chunk_draw();
 }
 #pragma pop
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct RecoveredGlobal_8006BA08_lbl_80488B08 {
     s32 value;
@@ -87,7 +88,7 @@ extern u32 camera_ctrl_instance;
 extern s32 TCameraCtrl__fixed_npc_camera_active;
 u8 *init_conversation_camera__11TCameraCtrlFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void set_fixed_position_and_target__11TCameraCtrlFPvPv(void *, void *);
+void set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
 void normalize_vector(void *);
@@ -97,7 +98,7 @@ extern const f32 lbl_805D8FFC;
 s32 TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006BADC(void);
-void set_fixed_position_and_target__11TCameraCtrlFPvPv(void *, void *);
+void set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void *, void *);
 void approach_vector_fixed_distance(Vec_8006B6A8 *, Vec_8006B6A8 *, Vec_8006B6A8 *, f32);
 extern u32 camera_ctrl_instance;
 void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0);
@@ -108,11 +109,6 @@ extern "C" {
 void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1);
 void fixed_view_camera_update(void);
 void *TCameraCtrl__vt9(void);
-void copy_camera_params__11TCameraCtrlFPv(void *arg0);
-void create__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
-void *destroy__11TCameraCtrlFPvs(void *arg0, s16 arg1);
-void update_active_player__11TCameraCtrlFv(void);
-void update_battle_camera__11TCameraCtrlFv(void);
 s32 restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);
 void reset_to_local_player__11TCameraCtrlFv();
@@ -122,11 +118,11 @@ u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void *get_params__11TCameraCtrlFPv(u32);
+void *get_params__11TCameraCtrlFv(u32);
 
 extern s32 local_client_id;
 
-void update_active_player__11TCameraCtrlFv(void) {
+void TCameraCtrl::update_active_player() {
     if (get_player_by_client_id(local_client_id) != 0U) {
         activate_body_collision__10TObjPlayerFPv();
     }
@@ -134,7 +130,7 @@ void update_active_player__11TCameraCtrlFv(void) {
 
 extern s32 local_client_id;
 
-void update_battle_camera__11TCameraCtrlFv(void) {
+void TCameraCtrl::update_battle_camera() {
     if (get_player_by_client_id(local_client_id) != 0U) {
         deactivate_body_collision__10TObjPlayerFPv();
     }
@@ -206,7 +202,7 @@ u8 *init_conversation_camera__11TCameraCtrlFPviii(u8 *arg0, s32 arg1, s32 arg2, 
   return arg0;
 }
 
-void create__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
+void TCameraCtrl::create(s32 arg0, s32 arg1, s32 arg2) {
     void *obj = __nw__7TObjectFUl((int)(0x40));
     if (obj != NULL) {
         TCameraCtrl__sub_8006B798((void *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(tl_07));
@@ -218,7 +214,7 @@ extern s32 lbl_80488AF0[];
 void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0) {
     approach_vector_fixed_distance(&arg0->v34, &arg0->v28, &arg0->v34, arg0->f1C);
     if (TCameraCtrl__sub_8006BADC() == 1) {
-        set_fixed_position_and_target__11TCameraCtrlFPvPv((void *)(camera_ctrl_instance + 0x178), &arg0->v34);
+        set_fixed_position_and_target__11TCameraCtrlFPUcPUc((void *)(camera_ctrl_instance + 0x178), &arg0->v34);
     }
     arg0->f20++;
     if (arg0->f20 == arg0->f22 + arg0->f24 || TCameraCtrl__sub_8006BADC() == 0) {
@@ -226,16 +222,16 @@ void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0) {
     }
 }
 
-void *destroy__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488AF0;
+void *TCameraCtrl::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_80488AF0;
         reset_to_local_player__11TCameraCtrlFv();
-        __dt__7TObjectFv((void *)(arg0), (int)(0));
+        __dt__7TObjectFv((void *)(this), (int)(0));
         if (arg1 > 0) {
-            __dl__7TObjectFPv((void *)(arg0));
+            __dl__7TObjectFPv((void *)(this));
         }
     }
-    return arg0;
+    return this;
 }
 
 #pragma push
@@ -267,7 +263,7 @@ s32 TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     arg0->pos.z = d.z * dist + VIEW_8006B798->pos.z;
     arg0->f1c = xyz_distance(&arg0->pos, &VIEW_8006B798->tgt) / (f32)arg0->f22;
     arg0->f20 = 0;
-    set_fixed_position_and_target__11TCameraCtrlFPvPv(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
+    set_fixed_position_and_target__11TCameraCtrlFPUcPUc(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
     return (s32)arg0;
 #undef arg0
 }
@@ -285,19 +281,19 @@ extern const f64 lbl_804383C8;
 extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D9000;
 
-void copy_camera_params__11TCameraCtrlFPv(void *arg0) {
+void TCameraCtrl::copy_camera_params() {
     void *temp_r3;
 
     if ((u32) camera_ctrl_instance != 0U) {
-        temp_r3 = get_params__11TCameraCtrlFPv(camera_ctrl_instance);
-        *(f32 *)((s8 *)arg0 + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x28);
-        *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)temp_r3 + 0x2C);
-        *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 0x30);
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)temp_r3 + 0x1C);
-        *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)temp_r3 + 0x20);
-        *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)temp_r3 + 0x24);
-        *(s32 *)((s8 *)arg0 + 0x54) = (s32) (lbl_805D9000 * (f32) *(s32 *)((s8 *)temp_r3 + 0x14));
-        *(f32 *)((s8 *)arg0 + 0x58) = (f32) *(f32 *)((s8 *)temp_r3 + 0x10);
+        temp_r3 = get_params__11TCameraCtrlFv(camera_ctrl_instance);
+        *(f32 *)((s8 *)this + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x28);
+        *(f32 *)((s8 *)this + 0x4C) = (f32) *(f32 *)((s8 *)temp_r3 + 0x2C);
+        *(f32 *)((s8 *)this + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 0x30);
+        *(f32 *)((s8 *)this + 0x3C) = (f32) *(f32 *)((s8 *)temp_r3 + 0x1C);
+        *(f32 *)((s8 *)this + 0x40) = (f32) *(f32 *)((s8 *)temp_r3 + 0x20);
+        *(f32 *)((s8 *)this + 0x44) = (f32) *(f32 *)((s8 *)temp_r3 + 0x24);
+        *(s32 *)((s8 *)this + 0x54) = (s32) (lbl_805D9000 * (f32) *(s32 *)((s8 *)temp_r3 + 0x14));
+        *(f32 *)((s8 *)this + 0x58) = (f32) *(f32 *)((s8 *)temp_r3 + 0x10);
     }
 }
 

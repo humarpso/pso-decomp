@@ -1,25 +1,23 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s8 TObjPlayer__sub_801D6D28(void *arg0);
 s32 destroy__10TObjPlayerFis(s32 arg0, s16 arg1);
-void* init_sub_objects__10TObjPlayerFPv(void* p);
-void reset_particle_ctrl__10TObjPlayerFPv(s32 *arg0);
-void set_level__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 __dl__FPv(s32);
-s32 destroy_particle__13TParticleCtrlFPv();
+s32 destroy_particle__13TParticleCtrlFv();
 int clear_player_sub_object_slots(void*);
-int init_sub_object__10TObjPlayerFi(void*);
+int init_sub_object__10TObjPlayerFl(void*);
 
-void reset_particle_ctrl__10TObjPlayerFPv(s32 *arg0) {
+void TObjPlayer::reset_particle_ctrl(s32 *arg0) {
     *arg0 = 0;
-    destroy_particle__13TParticleCtrlFPv();
+    destroy_particle__13TParticleCtrlFv();
 }
 
 s32 destroy__10TObjPlayerFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        destroy_particle__13TParticleCtrlFPv();
+        destroy_particle__13TParticleCtrlFv();
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -27,7 +25,7 @@ s32 destroy__10TObjPlayerFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-void* init_sub_objects__10TObjPlayerFPv(void* p) { init_sub_object__10TObjPlayerFi((char*)p + 0x8); init_sub_object__10TObjPlayerFi((char*)p + 0x18); init_sub_object__10TObjPlayerFi((char*)p + 0x28); init_sub_object__10TObjPlayerFi((char*)p + 0x38); init_sub_object__10TObjPlayerFi((char*)p + 0x48); clear_player_sub_object_slots((char*)p + 0x58); *(int*)((char*)p + 0x4) = 0; reset_particle_ctrl__10TObjPlayerFPv((s32 *)(p)); return p; }
+void*TObjPlayer::init_sub_objects() { init_sub_object__10TObjPlayerFl((char*)this + 0x8); init_sub_object__10TObjPlayerFl((char*)this + 0x18); init_sub_object__10TObjPlayerFl((char*)this + 0x28); init_sub_object__10TObjPlayerFl((char*)this + 0x38); init_sub_object__10TObjPlayerFl((char*)this + 0x48); clear_player_sub_object_slots((char*)this + 0x58); *(int*)((char*)this + 0x4) = 0; TObjPlayer::reset_particle_ctrl((s32 *)(this)); return this; }
 
 s8 TObjPlayer__sub_801D6D28(void *arg0) {
     s32 temp_r3 = *(s8 *)((s8 *)arg0 + 0x13);
@@ -37,7 +35,8 @@ s8 TObjPlayer__sub_801D6D28(void *arg0) {
     return temp_r3;
 }
 
-void set_level__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
+void TObjPlayer::set_level(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     s32 var_r4;
 
     var_r4 = arg1;

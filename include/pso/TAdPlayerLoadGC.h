@@ -6,6 +6,40 @@
 class TAdPlayerLoadGC : public TObject {
 public:
     virtual ~TAdPlayerLoadGC();
+public:
+    static s32 get_instance();
+    static void set_state(int a0);
+    static void reset_load_state(void *arg0, void *arg1);
+    static void poll_card_load(s32 arg0);
+    s32 check_card_result_code();
+    s32 probe_and_check_card();
+    static void unmount_card_and_clear_flags(s32 n);
+    static void load_banner_files();
+    static s32 get_load_result(void * _w0);
+    s32 probe_card_slot();
+    static s32 check_memcard_status(s32 arg0);
+    static s32 query_memcard_capacity(s32 arg0);
+    static s32 poll_load_status(s32 arg0);
+    void play_load_sound();
+    static void send_player_load(s32 arg0);
+    void approach_value();
+    void*init_object(s32 _w1, void * _w2);
+    u8 *create_instance();
+    s32 poll_memcard_status();
+    static s32 get_or_set_channel_flag(s32 arg0, s32 arg1);
+    static s32 get_load_state();
+    static void step_set_attributes(s32 arg0);
+    static void update_card_delete(s32 arg0);
+    static void update_card_rename(s32 arg0);
+    static void reset_slot_entry(s32 arg0);
+    static s32 close_card_slot(s32 arg0);
+    static s32 finish_load_slot_state4(s32 arg0, s32 *arg1);
+    static s32 queue_network_request(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+    static s32 finish_load_slot_state3(s32 arg0, s32 *arg1);
+    static s32 begin_card_file_request(s32 chan, const char *name);
+    static void unmount_card(s32 chan);
+    static s32 take_network_info_load_result(s32 arg0, s32 *arg1);
+    static s32 take_network_info_poll_result(s32 arg0, s32 *arg1);
 };
 
 #endif

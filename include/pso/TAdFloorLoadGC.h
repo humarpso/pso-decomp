@@ -8,6 +8,9 @@ public:
     virtual ~TAdFloorLoadGC();
     virtual void run_task();
     virtual void render();
+public:
+    static void render();
+    static void run_task();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrTag.h"
 
 struct VBase_18_c1c33b { char pad[0x18]; };
 
@@ -22,7 +23,6 @@ extern "C" {
 
 int TChCrTag__vt4(void);
 void *__ct__8TChCrTagFv(void *arg0, void *arg1, void *arg2);
-void render__8TChCrTagFv(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
@@ -30,7 +30,7 @@ void render_shadows__7TObjectFv(void);
 void *__dt__8TChCrTagFv(void *self, s16 arg1);
 
 int TChCrTag__vt4(void) { return 0; }
-void render__8TChCrTagFv(void) {  }
+void TChCrTag::render() {  }
 
 extern void *__vt__8TChCrTag[];
 extern const f32 lbl_805DDE04;
@@ -116,7 +116,7 @@ void *__ct__8TChCrTagFv(void *arg0, void *arg1, void *arg2) {
 
 void *__vt__8TChCrTag[7] = {
     0, 0, (void *)__dt__8TChCrTagFv, (void *)update_fade__8TChCrTagFPv,
-    (void *)render__8TChCrTagFv, (void *)render_shadows__7TObjectFv,
+    (void *)TChCrTag::render, (void *)render_shadows__7TObjectFv,
     (void *)TChCrTag__vt4,
 };
 

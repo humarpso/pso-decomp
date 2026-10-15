@@ -15,6 +15,9 @@ struct TCheckMemoryCard
     u8 _pad40[0x8];
     u32 m_48;
     u32 m_4c;
+    static void render();
+    void run_task();
+    void *create(void *arg1, void *arg2);
 };
 
 #endif

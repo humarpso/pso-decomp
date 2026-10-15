@@ -3,10 +3,9 @@
 
 extern "C" {
 
-void run_task__13TObjCHTimeWinFv(void *arg0);
 void init_timer__13TObjCHTimeWinFv(void);
 s32 TWindowCtrlMain__sub_8024CE58();
-s32 set_timer_window_time__11TWindowCtrlFi(s32);
+s32 set_timer_window_time__11TWindowCtrlFv(s32);
 int create_alt_timer__11TWindowCtrlFv(void);
 void *__ct__13TObjCHTimeWinFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
@@ -16,18 +15,18 @@ extern s32 TObjCHTimeWin__timer_value;
 extern s32 __vt__13TObjCHTimeWin[];
 extern void *TObjCHTimeWin__class_name;
 
-void run_task__13TObjCHTimeWinFv(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) {
-        set_timer_window_time__11TWindowCtrlFi(TObjCHTimeWin__timer_value);
+void TObjCHTimeWin::run_task() {
+    if ((s32) *(s32 *)((s8 *)this + 0x1C) != 0) {
+        set_timer_window_time__11TWindowCtrlFv(TObjCHTimeWin__timer_value);
         return;
     }
     if (TWindowCtrlMain__sub_8024CE58() == 1) {
-        ((s32 (*)(void *))init_timer__13TObjCHTimeWinFv)(arg0);
-        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
+        ((s32 (*)(void *))init_timer__13TObjCHTimeWinFv)(this);
+        *(s32 *)((s8 *)this + 0x1C) = 1;
     }
 }
 
-void init_timer__13TObjCHTimeWinFv(void) { create_alt_timer__11TWindowCtrlFv(); set_timer_window_time__11TWindowCtrlFi(TObjCHTimeWin__timer_value); }
+void init_timer__13TObjCHTimeWinFv(void) { create_alt_timer__11TWindowCtrlFv(); set_timer_window_time__11TWindowCtrlFv(TObjCHTimeWin__timer_value); }
 
 }
 

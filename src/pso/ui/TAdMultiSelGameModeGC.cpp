@@ -44,7 +44,7 @@ s32 is_multiplayer_character_slot_selected(u32);
 Ent_80300850 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
 s32 get_max_difficulty_for_party_level(void);
 s32 get_instance__6TLobbyFv(void);
-void set_state__16TAdStorySelectGCFi(s32);
+void set_state__16TAdStorySelectGCFl(s32);
 s32 get_max_difficulty_for_party_level(void);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(u32);
@@ -55,10 +55,10 @@ void __ct__8TAdRayGCFv(void *, void *);
 void __ct__10TAdTitleGCFv(void *, void *, s32);
 void *__ct__14TAdSelectTxtGCFv(void *, void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
-void add_item_rect__12TLevelSelectFPvPv(void *, void *);
+void add_item_rect__12TLevelSelectFPv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-void set_ad_field__6TLobbyFPvi(void *, s32);
+void set_ad_field__6TLobbyFl(void *, s32);
 extern s32 lbl_80474E40[];
 extern Cur_8030095C lbl_80474EAC[];
 extern Pos_8030095C TAdMultiSelGameModeGC__menu_position_table;
@@ -83,36 +83,30 @@ typedef struct Arr3_803001B4 { s32 v[3]; } Arr3_803001B4;
 
 extern "C" {
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
-s32 is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(void *self, s32 mode, u32 idx);
 s32 get_localized_text_entry(s32, s32);
-void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
+void set_selected_index__17TWindowSubComCardFs(s32, s16);
 void align_menu_entry_positions(s32);
 void update_layout_height__17TWindowSubComCardFPvf(s32, f32);
-void draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s32);
+void draw_text_gray__17TWindowSubComCardFllll(s32, s32, s32, s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, u32);
-s32 is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(void *self, s32 mode, u32 idx);
+s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, u32);
 extern Pos3_803001B4 multi_sel_game_mode_position;
 extern Arr3_803001B4 lbl_80474EEC;
 extern Arr3_803001B4 multi_sel_game_mode_arr3;
 extern const f32 lbl_805DEF40;
-s32 build_mode_menu__21TAdMultiSelGameModeGCFPvi(void *arg0, s32 arg1);
 }
 
 extern "C" {
 
 void TAdMultiSelGameModeGC__sub_80300764(void* p);
-void exit_keyboard_mode__21TAdMultiSelGameModeGCFv(void);
-void render__21TAdMultiSelGameModeGCFv(void);
-void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0);
 int TKeyBoardControl__sub_8000F9CC(int);
 s32 begin_change_game_mode__21TAdMultiChgGameModeGCFv();
 s32 begin_transition__21TAdMultiChgGameModeGCFv();
 int reset_count__14TObjEneDolmOlmFv(void);
 
-void render__21TAdMultiSelGameModeGCFv(void) {  }
+void TAdMultiSelGameModeGC::render() {  }
 
-s32 is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(void *self, s32 mode, u32 idx) {
+s32 TAdMultiSelGameModeGC::is_mode_entry_enabled(void *self, s32 mode, u32 idx) {
     switch (mode) {
     case 0:
         return idx < (u32)(get_max_difficulty_for_party_level() + 1) ? 1 : 0;
@@ -128,7 +122,7 @@ s32 is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(void *self, s32 mode, u
     }
 }
 
-s32 build_mode_menu__21TAdMultiSelGameModeGCFPvi(void *arg0, s32 arg1) {
+s32 TAdMultiSelGameModeGC::build_mode_menu(s32 arg1) {
     Pos3_803001B4 pos = multi_sel_game_mode_position;
     u32 counts[3];
     u32 n;
@@ -141,26 +135,26 @@ s32 build_mode_menu__21TAdMultiSelGameModeGCFPvi(void *arg0, s32 arg1) {
     Arr3_803001B4 a = lbl_80474EEC;
     Arr3_803001B4 b = multi_sel_game_mode_arr3;
     n = counts[arg1];
-    r = check_room_seq_4__16TAdChrSelASlotGCFii(&pos.p[arg1], n);
+    r = check_room_seq_4__16TAdChrSelASlotGCFl(&pos.p[arg1], n);
     for (i = 0; i < n; i++) {
-        if (is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(arg0, arg1, i) != 0) {
+        if (TAdMultiSelGameModeGC::is_mode_entry_enabled(this, arg1, i) != 0) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(r, get_localized_text_entry(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
         } else {
-            draw_text_gray__17TWindowSubComCardFiiii(r, get_localized_text_entry(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
+            draw_text_gray__17TWindowSubComCardFllll(r, get_localized_text_entry(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
         }
         update_layout_height__17TWindowSubComCardFPvf(r, lbl_805DEF40);
-        set_selected_index__17TWindowSubComCardFPvs(r, a.v[arg1]);
+        set_selected_index__17TWindowSubComCardFs(r, a.v[arg1]);
         align_menu_entry_positions(r);
     }
     return r;
     }
 }
 
-void exit_keyboard_mode__21TAdMultiSelGameModeGCFv(void) { reset_count__14TObjEneDolmOlmFv(); TKeyBoardControl__sub_8000F9CC(14); }
-void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0) {
+void TAdMultiSelGameModeGC::exit_keyboard_mode() { reset_count__14TObjEneDolmOlmFv(); TKeyBoardControl__sub_8000F9CC(14); }
+void TAdMultiSelGameModeGC::update_transition_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
+    temp_r0 = *(s32 *)((s8 *)this + 0x20);
     switch (temp_r0) {
     case 0:
         begin_transition__21TAdMultiChgGameModeGCFv();
@@ -225,10 +219,10 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
     }
     switch (lbl_805D69F4) {
     case 0:
-        set_state__16TAdStorySelectGCFi(0);
+        set_state__16TAdStorySelectGCFl(0);
         break;
     case 1:
-        set_state__16TAdStorySelectGCFi(1);
+        set_state__16TAdStorySelectGCFl(1);
         break;
     }
     if ((p = __nw__7TObjectFUl(0x24)) != NULL) {
@@ -288,12 +282,12 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
             p = __ct__14TAdSelectCurGCFv(p, self, &pos, &cur);
         }
         self->f3C = p;
-        add_item_rect__12TLevelSelectFPvPv(self->f3C, &pos.v[0]);
-        add_item_rect__12TLevelSelectFPvPv(self->f3C, &pos.v[2]);
-        add_item_rect__12TLevelSelectFPvPv(self->f3C, &pos.v[4]);
-        add_item_rect__12TLevelSelectFPvPv(self->f3C, &pos.v[6]);
+        add_item_rect__12TLevelSelectFPv(self->f3C, &pos.v[0]);
+        add_item_rect__12TLevelSelectFPv(self->f3C, &pos.v[2]);
+        add_item_rect__12TLevelSelectFPv(self->f3C, &pos.v[4]);
+        add_item_rect__12TLevelSelectFPv(self->f3C, &pos.v[6]);
     }
-    set_ad_field__6TLobbyFPvi(self->f3C, self->f24);
+    set_ad_field__6TLobbyFl(self->f3C, self->f24);
     p = __nw__7TObjectFUl(0x44);
     if (p != NULL) {
         p = __ct__13TAdGuideTxtGCFv(p, self);

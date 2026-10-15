@@ -7,6 +7,9 @@ class TObjBagWarnWin4P : public TObject {
 public:
     virtual ~TObjBagWarnWin4P();
     virtual void run_task();
+public:
+    static s32 check_can_open(void * _w0);
+    void create_window();
 };
 
 #endif

@@ -5,7 +5,6 @@
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 play_cave01_key_sound(void *);
-void run_task__21TODummyKeyCave01SoundFv(u8 *arg0);
 }
 
 extern "C" {
@@ -17,7 +16,8 @@ s32 queue_destruction__7TObjectFv(void *);
 extern s32 __vt__21TODummyKeyCave01Sound[];
 extern s32 TODummyKeyCave01Sound__class_name;
 
-void run_task__21TODummyKeyCave01SoundFv(u8 *arg0) {
+void TODummyKeyCave01Sound::run_task() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) - 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 0) {
         play_cave01_key_sound((void *)(arg0));

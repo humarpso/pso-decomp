@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -19,29 +20,25 @@ s32 TObjPlayer__sub_801BFFA0(void* p);
 int TObjPlayer__sub_801C000C(void);
 int TObjPlayer__sub_801C0014(void);
 int TObjPlayer__sub_801C001C(void);
-s16 get_floor__10TObjPlayerFPv(void* p);
-u8 *init_subobject__10TObjPlayerFPv(u8 *arg0);
-int is_handle_valid__10TObjPlayerFPv(void* p);
-s32 setup_state__10TObjPlayerFi(s32 arg0);
-int setup_state_helper__10TObjPlayerFPv(void* p);
-int sub_802a7290_fwd__10TObjPlayerFPv(void* p);
-int clear_id__10TObjPlayerFPv(void*);
-int get_valid_child__6TLobbyFPv(void*);
-s32 init_forward__10TObjPlayerFPv();
+int clear_id__10TObjPlayerFv(void*);
+int get_valid_child__6TLobbyFv(void*);
+s32 init_forward__10TObjPlayerFv();
 s32 init_gc_tag(void *);
-int validate_handle__6TLobbyFPv(void*);
+int validate_handle__6TLobbyFPl(void*);
 
 void TObjPlayer__sub_801BFED4(void* p) { *(s32*)((char*)p + 0x4) = -1; }
-s32 setup_state__10TObjPlayerFi(s32 arg0) {
-    init_forward__10TObjPlayerFPv();
-    setup_state_helper__10TObjPlayerFPv((void*)((void*)(arg0)));
+s32 TObjPlayer::setup_state() {
+    s32 arg0 = (s32)this;
+    init_forward__10TObjPlayerFv();
+    setup_state_helper();
     return arg0;
 }
-int setup_state_helper__10TObjPlayerFPv(void* p) { return clear_id__10TObjPlayerFPv(p); }
+int TObjPlayer::setup_state_helper() { return clear_id__10TObjPlayerFv(this); }
 
 extern s32 lbl_804C3E50[];
 
-u8 *init_subobject__10TObjPlayerFPv(u8 *arg0) {
+u8 *TObjPlayer::init_subobject() {
+    u8 *arg0 = (u8 *)this;
     *(s32 **)((s8 *)arg0 + 8) = lbl_804C3E50;
     init_gc_tag(arg0 + 4);
     *(s32 *)((s8 *)arg0 + 0) = 0;
@@ -67,11 +64,11 @@ u8 *copy_hold_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-s16 get_floor__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0xb8); }
+s16 TObjPlayer::get_floor() { return *(s16*)((char*)this + 0xb8); }
 int TObjPlayer__sub_801C000C(void) { return 0; }
 int TObjPlayer__sub_801C0014(void) { return 0; }
 int TObjPlayer__sub_801C001C(void) { return 0; }
-int sub_802a7290_fwd__10TObjPlayerFPv(void* p) { return get_valid_child__6TLobbyFPv(p); }
-int is_handle_valid__10TObjPlayerFPv(void* p) { return validate_handle__6TLobbyFPv(p); }
+int TObjPlayer::sub_802a7290_fwd() { return get_valid_child__6TLobbyFv(this); }
+int TObjPlayer::is_handle_valid() { return validate_handle__6TLobbyFPl(this); }
 
 }

@@ -18,7 +18,6 @@ struct Ang_800363B4 { s32 yaw; u8 pad4[0xC]; };
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D8458;
-void init_link_points__9TBoss2FinFPv(u8 *arg0);
 s32 fn_800FF788(void *, void *);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 f32 fabs_float(f32);
@@ -34,7 +33,7 @@ s32 rotate_matrix_x(int, int);
 s32 normalize_vector(void *);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_chunk_object(void *);
 extern const f64 lbl_80435A50[];
 extern G_800367C4 *lbl_805D4BA4;
@@ -53,7 +52,7 @@ void TBoss2Fin::render() {
     s32 j;
     s32 yaw;
     Vec_800363B4 v;
-    set_global_param__8TObjFishFi(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x2C));
+    set_global_param__8TObjFishFl(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x2C));
     seg = *(Seg_800363B4 **)((s8 *)arg0 + 0x20);
     ang = *(Ang_800363B4 **)((s8 *)arg0 + 0x24);
     pt = *(Vec_800363B4 **)((s8 *)arg0 + 0x2C);
@@ -100,7 +99,7 @@ void TBoss2Fin::run_task() {
     typedef char spC_offset[(offsetof(Stack_800365C8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800365C8, sp10) == 0x8) ? 1 : -1];
     Stack_800365C8 stack;
-    init_link_points__9TBoss2FinFPv((u8 *)((void *) (arg0)));
+    ((TBoss2Fin *)arg0)->init_link_points();
     stack.sp8 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_80435A44.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 8);
@@ -108,7 +107,8 @@ void TBoss2Fin::run_task() {
 }
 
 extern "C" {
-void init_link_points__9TBoss2FinFPv(u8 *arg0) {
+void TBoss2Fin::init_link_points() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x34, *(u8 **)((s8 *)arg0 + 0x80));
     VecCopy__FP3VecPC3Vec(arg0 + 0x54, *(u8 **)((s8 *)arg0 + 0x80));
@@ -150,8 +150,6 @@ extern E_800367C4 lbl_804FE590[];
 extern G_800367C4 *lbl_805D4BA4;
 extern const f32 TBoss2Fin__data_805D8450;
 extern const f32 lbl_805D8460;
-void init_effect_table__9TBoss2FinFv(void);
-void init_link_points__9TBoss2FinFPv(u8 *);
 void fn_800FF8CC(void *, void *, void *, void *);
 void *TObjEZRopeBase__ct(void *);
 extern u8 __vt__9TBoss2Fin[];
@@ -183,13 +181,13 @@ Obj_80036718 *__ct__9TBoss2FinFv(Obj_80036718 *self, s32 arg1, s32 arg2, s32 arg
         p->d = TBoss2Fin__data_805D8450;
     }
     p->a = lbl_805D8454;
-    init_link_points__9TBoss2FinFPv((u8*)self);
+    ((TBoss2Fin *)self)->init_link_points();
     fn_800FF8CC(self, ((u8 *)&lbl_804FE590), self->f30, self->recs);
     return self;
 }
 
 void TBoss2Fin__sub_800367C0(void) {  }
-void init_effect_table__9TBoss2FinFv(void) {
+void TBoss2Fin::init_effect_table() {
     E_800367C4 *p = lbl_804FE590;
     s32 i;
     for (i = 0; i < 2; i++) {

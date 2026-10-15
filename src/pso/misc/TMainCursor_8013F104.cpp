@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor.h"
 
 struct RecoveredGlobal_8013F1F0_lbl_804A7254 {
     s32 value;
@@ -31,30 +32,24 @@ void TMainCursor__sub_8013F170(void* p, s32 v);
 void TMainCursor__sub_8013F180(void* p, f32 v);
 void TMainCursor__sub_8013F22C(void* a0);
 int TMainCursor__sub_8013F244(void);
-void *destroy__11TMainCursorFPvs(void *arg0, s16 arg1);
-f32 get_pos__11TMainCursorFPv(void* p);
-int get_rader_map__11TMainCursorFPv(void* p);
-void set_cursor_id__11TMainCursorFPvs(void* p, s16 v);
-void set_field2__11TMainCursorFPvs(void* p, s16 v);
-void set_size__11TMainCursorFPvf(void* p, f32 v);
 int TLockOnCursor__sub_8013EC1C(void*);
-int reset_state__13TLockOnCursorFPv(void*);
+int reset_state__13TLockOnCursorFv(void*);
 int reset_nearest_target_record(void*);
 s32 __dl__FPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*);
 int fn_8004438C(void*);
-int init_forward__10TObjPlayerFPv(void*);
+int init_forward__10TObjPlayerFv(void*);
 int init_gc_tag(void*);
-int reset__11TMainCursorFi(void*);
-void reset_fields__13TLockOnCursorFPv(void* p);
+int reset__11TMainCursorFv(void*);
+void reset_fields__13TLockOnCursorFv(void* p);
 
 void TMainCursor__sub_8013F104(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void TMainCursor__sub_8013F10C(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 void TMainCursor__sub_8013F114(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 
-void set_cursor_id__11TMainCursorFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-void set_field2__11TMainCursorFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
-void set_size__11TMainCursorFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x4) = v; }
+void TMainCursor::set_cursor_id(s16 v) { *(s16*)((char*)this + 0x0) = v; }
+void TMainCursor::set_field2(s16 v) { *(s16*)((char*)this + 0x2) = v; }
+void TMainCursor::set_size(f32 v) { *(f32*)((char*)this + 0x4) = v; }
 
 void TMainCursor__sub_8013F13C(s32 *arg0) {
     *arg0 += 1;
@@ -69,21 +64,21 @@ Rec_8013F154 *get_record_at__11TMainCursorFPvi(Obj_8013F154 *self, s32 i) {
 s32 TMainCursor__sub_8013F168(void* p) { return *(s32*)((char*)p + 0x0); }
 void TMainCursor__sub_8013F170(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 
-f32 get_pos__11TMainCursorFPv(void* p) { return *(f32*)((char*)p + 0x0); }
+f32 TMainCursor::get_pos() { return *(f32*)((char*)this + 0x0); }
 void TMainCursor__sub_8013F180(void* p, f32 v) { *(f32*)((char*)p + 0x0) = v; }
 
-int get_rader_map__11TMainCursorFPv(void* p) { return copy_vec4__13TRaderMapCoreFPvPv(p); }
+int TMainCursor::get_rader_map() { return copy_vec4__13TRaderMapCoreFPvPv(this); }
 
 extern s32 lbl_804A7254[];
 
-void *destroy__11TMainCursorFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x10) = lbl_804A7254;
+void *TMainCursor::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x10) = lbl_804A7254;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            __dl__FPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
     extern const float TMainCursor__data_805DB0C0;

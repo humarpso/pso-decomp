@@ -16,6 +16,8 @@ struct TBoss7TentacleNeedle
     u32 m_40;
     u8 _pad44[0x34];
     u32 m_78;
+    void render();
+    void run_task();
 };
 
 #endif

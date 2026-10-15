@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct PlB_8012CCCC { char pad[0x18]; };
 
@@ -56,13 +57,12 @@ struct Pl_8012CCCC : PlB_8012CCCC {
 };
 
 extern "C" {
-void draw_status_icons__10TObjPlayerFPvPvPv(void *, void *, void *);
+void draw_status_icons__10TObjPlayerFPvPv(void *, void *, void *);
 void TObjPlayer__sub_8012CD68(u8 *arg0);
-u8 * init_state__10TObjPlayerFPviPv(void *, s32, void *);
+u8 * init_state__10TObjPlayerFlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_saber_weapon(u8 *arg0);
-void toggle_slot_states__10TObjPlayerFPv(Pl_8012CCCC *arg0);
 }
 
 extern "C" {
@@ -74,14 +74,15 @@ u8 *create_saber_weapon(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_state__10TObjPlayerFPviPv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(init_state__10TObjPlayerFlPv(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }
     return NULL;
 }
 
-void toggle_slot_states__10TObjPlayerFPv(Pl_8012CCCC *arg0) {
+void TObjPlayer::toggle_slot_states() {
+    Pl_8012CCCC *arg0 = (Pl_8012CCCC *)this;
     if (arg0->m49((u8 *)arg0 + 0x1F8, 0, 0, 1) != 0) {
         arg0->m49((u8 *)arg0 + 0x204, 0, 0, 0);
     } else {
@@ -90,7 +91,7 @@ void toggle_slot_states__10TObjPlayerFPv(Pl_8012CCCC *arg0) {
 }
 
 void TObjPlayer__sub_8012CD68(u8 *arg0) {
-    draw_status_icons__10TObjPlayerFPvPvPv(arg0, arg0 + 0x1F8, arg0 + 0x204);
+    draw_status_icons__10TObjPlayerFPvPv(arg0, arg0 + 0x1F8, arg0 + 0x204);
 }
 
 }

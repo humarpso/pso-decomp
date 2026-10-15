@@ -2,16 +2,17 @@
 
 extern "C" {
 
-int release__14TItemEquipBaseFPv(void*);
+int release__14TItemEquipBaseFv(void*);
 int clear_equip_flags__10TObjPlayerFPvUi(void*, void*);
 int memset(void*, void*, void*);
 void reset_item_equip(void* p);
 
-void reset_item_equip(void* p) { memset((char*)p + 0x18c, (void*)0, (void*)16); clear_equip_flags__10TObjPlayerFPvUi(p, (void*)12); release__14TItemEquipBaseFPv(p); }
+void reset_item_equip(void* p) { memset((char*)p + 0x18c, (void*)0, (void*)16); clear_equip_flags__10TObjPlayerFPvUi(p, (void*)12); release__14TItemEquipBaseFv(p); }
 
 }
 
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 struct PlB_80120C5C { char pad[0x18]; };
 
 struct Pl_80120C5C : PlB_80120C5C {
@@ -64,17 +65,17 @@ struct B12_80120C5C { s32 a; s32 b; s32 c; };
 struct T_80120C5C { s32 a; s32 b; s32 c; u16 d; u8 e; };
 
 extern "C" {
-u8 get_field_ed__10TObjPlayerFPv();
+u8 get_field_ed__10TObjPlayerFv();
 void request_model_load__14TItemEquipBaseFPvi(void *, u8);
 void create_weapon_trail_effects(void *);
 extern T_80120C5C lbl_8043E828[];
-void load_weapon_model__11TItemWeaponFPv(Pl_80120C5C *arg0);
 }
 
 extern "C" {
 
-void load_weapon_model__11TItemWeaponFPv(Pl_80120C5C *arg0) {
-    u8 v = get_field_ed__10TObjPlayerFPv();
+void TItemWeapon::load_weapon_model() {
+    Pl_80120C5C *arg0 = (Pl_80120C5C *)this;
+    u8 v = get_field_ed__10TObjPlayerFv();
     if (v >= 0xAA) {
         T_80120C5C t;
         t.a = lbl_8043E828[0].a;

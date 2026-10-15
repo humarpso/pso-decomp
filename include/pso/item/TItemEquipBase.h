@@ -15,6 +15,29 @@ struct TItemEquipBase
     u32 m_180;
     u32 m_184;
     u32 m_188;
+    void*get_stat_bonus_ptr();
+    s8 get_attach_joint();
+    void bind_loaded_resources();
+    void remove_equip_effects();
+    s32 apply_ad_rico_ring(s32 arg1);
+    void set_equip_flag(s32 v);
+    void set_attach_slot(s8 arg1);
+    static void deduct_cap_excess(s32 unused, s16 *arg1, s16 arg2);
+    void subtract_equip_stats(s32 arg1, u8 *arg2, u8 *arg3);
+    void subtract_item_stat_bonus(s32 arg1, s32 arg2, s16 *out);
+    void reset();
+    void update_equip();
+    void unequip();
+    void equip();
+    void release();
+    void update_with_player();
+    void init_slot();
+    int check_flag_32();
+    int clear_flag_c_bit5();
+    static void apply_equip_effect_slot(u16 arg0, u32 arg1);
+    static void apply_equip_slot_effect(u16 arg0, u32 arg1);
+    void set_slot(s32 arg1, s32 arg2);
+    void init_slots();
 };
 
 #endif

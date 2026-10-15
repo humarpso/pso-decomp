@@ -31,6 +31,9 @@ struct TObjWarpBoss
     u32 m_16c;
     u8 _pad170[0x10];
     u32 m_180;
+    void update_warp_confirmation();
+    void render();
+    void run_task();
 };
 
 #endif

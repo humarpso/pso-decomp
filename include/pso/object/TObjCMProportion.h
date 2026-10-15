@@ -10,5 +10,9 @@ public:
     virtual ~TObjCMProportion();
     virtual void run_task();
     virtual void render();
+public:
+    static f32 get_ratio();
+    static f32 get_right_trigger_ratio();
+    static void poll_pad_buttons();
 };
 #endif

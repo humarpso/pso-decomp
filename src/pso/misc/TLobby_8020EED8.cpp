@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-s32 pop_byte__6TLobbyFPv(u8 *arg0);
-
-s32 pop_byte__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::pop_byte() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r4;
 

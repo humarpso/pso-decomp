@@ -18,6 +18,10 @@ public:
     u32 colors[5];
     s32 visible[5];
     s32 enabled;
+public:
+    void draw_slot_icons();
+    void reset_all_slots();
+    void init_slot_entry(s32 arg1, void *arg2);
 };
 typedef char SlotQuadsOffset[offsetof(TAdChrSelSlotGC, quads) == 0x20 ? 1 : -1];
 typedef char SlotPositionsOffset[offsetof(TAdChrSelSlotGC, positions) == 0xC0 ? 1 : -1];

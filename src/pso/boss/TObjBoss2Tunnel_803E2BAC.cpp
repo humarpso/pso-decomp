@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 #pragma scheduling off
 
@@ -19,10 +20,9 @@ void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_803E2BCC *p, s32 n);
 
 extern "C" {
 
-void reset_player_state__15TObjBoss2TunnelFv(void);
 s32 TObjPlayer__sub_803E2248();
 
-void reset_player_state__15TObjBoss2TunnelFv(void) {
+void TObjBoss2Tunnel::reset_player_state() {
     TObjPlayer__sub_803E2248();
 }
 

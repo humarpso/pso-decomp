@@ -20,6 +20,14 @@ struct TObjLuker
     u8 _padB2[0x2];
     u32 m_b4;
     u32 m_b8;
+    void show_part(s32 arg1);
+    void update_floor_name_windows();
+    void open_destination_windows();
+    void transfer_to_town();
+    static void render();
+    void run_task();
+    void set_flag_4();
+    static int get_stat_table_entry(int a0);
 };
 
 #endif

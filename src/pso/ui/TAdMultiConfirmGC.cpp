@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMultiConfirmGC.h"
 
 typedef struct Obj_802FF87C {
     u8 pad0[0x1C];
@@ -27,13 +28,12 @@ struct OkArg_802FFA3C { u32 count; u32 mask; };
 extern "C" {
 void set_state_0xc__21TAdMultiChgGameModeGCFv(void);
 void set_change_game_mode__21TAdMultiChgGameModeGCFv(void);
-void set_field_100__22TAdMultiPlyChrSelectGCFPvi(void *, s32);
+void set_field_100__22TAdMultiPlyChrSelectGCFl(void *, s32);
 void TAdMultiConfirmGC__sub_802E03D0(void *);
 void TAdMultiConfirmGC__sub_802E0448(void *);
 s32 fn_802E0454(void *);
 s32 multi_confirm_cancel_requested(s32);
 s32 are_all_entries_finished(s32);
-void run_task__17TAdMultiConfirmGCFv(Obj_802FF87C *arg0);
 void *get_localized_text_entry(s32, s32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -41,7 +41,7 @@ void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__10TAdTitleGCFv(void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
-void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(void *, s32, void *);
+void set_entry_value__22TAdMultiPlyChrSelectGCFlUl(void *, s32, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 s32 is_multiplayer_character_slot_selected(u32);
 void *get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, u32, u32, s32);
@@ -57,16 +57,16 @@ TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *se
 extern "C" {
 
 void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1);
-void render__17TAdMultiConfirmGCFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void fn_802FF760(void *);
 
-void render__17TAdMultiConfirmGCFv(void) {  }
+void TAdMultiConfirmGC::render() {  }
 
 extern s32 __vt__17TAdMultiConfirmGC[];
 
-void run_task__17TAdMultiConfirmGCFv(Obj_802FF87C *arg0) {
+void TAdMultiConfirmGC::run_task() {
+    Obj_802FF87C *arg0 = (Obj_802FF87C *)this;
     u32 j;
     u32 i;
     switch (arg0->state) {
@@ -76,7 +76,7 @@ void run_task__17TAdMultiConfirmGCFv(Obj_802FF87C *arg0) {
     case 1:
         for (i = 0; i < 4; i++) {
             if (arg0->players[i] != NULL) {
-                set_field_100__22TAdMultiPlyChrSelectGCFPvi(arg0->players[i], 2);
+                set_field_100__22TAdMultiPlyChrSelectGCFl(arg0->players[i], 2);
             }
         }
         arg0->state = 2;
@@ -177,8 +177,8 @@ TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *se
         p = __ct__13TAdGuideTxtGCFv(p, self);
     }
     self->guide = p;
-    set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->guide, 0, get_localized_text_entry(0x25, 0));
-    set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->guide, 1, &lbl_805DEF30);
+    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(self->guide, 0, get_localized_text_entry(0x25, 0));
+    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(self->guide, 1, &lbl_805DEF30);
     fn_802FF7EC(self);
     return self;
 }

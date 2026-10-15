@@ -13,8 +13,8 @@ struct O_8010EF14 { s32 count; s32 f4; u8 *buf; };
 
 extern "C" {
 void fn_8010EFE8(O_8010EFE8 *self);
-void set_flags__10TObjPlayerFPvUi(void *, u32);
-void clear_flags__11TAdRicoRingFPvUi(void *, u32);
+void set_flags__10TObjPlayerFUl(void *, u32);
+void clear_flags__11TAdRicoRingFUl(void *, u32);
 s32 test_flags_any(void *, s32);
 void fn_8010EFE8(O_8010EFE8 *self);
 s32 rand();
@@ -65,7 +65,7 @@ void fn_8010F018(Set_8010F0C0 *s) {
                 f();
             }
         }
-        clear_flags__11TAdRicoRingFPvUi((u8 *)s + 0xC, 1);
+        clear_flags__11TAdRicoRingFUl((u8 *)s + 0xC, 1);
     }
 }
 
@@ -84,7 +84,7 @@ void fn_8010F0C0(Set_8010F0C0 *s) {
                 f();
             }
         }
-        set_flags__10TObjPlayerFPvUi((u8 *)s + 0xC, 1);
+        set_flags__10TObjPlayerFUl((u8 *)s + 0xC, 1);
     }
 }
 #pragma pop

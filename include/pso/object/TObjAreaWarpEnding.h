@@ -19,6 +19,10 @@ struct TObjAreaWarpEnding
     u32 m_d0;
     u32 m_d4;
     u32 m_d8;
+    static void create_and_init();
+    void open_confirm_window(s16 arg1);
+    void render();
+    void run_task();
 };
 
 #endif

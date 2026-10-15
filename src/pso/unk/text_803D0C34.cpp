@@ -5,6 +5,7 @@ typedef void (*RecoveredCallback_c88e8900640a)(s32, u8 *);
 struct P_803D0DEC { void (*fn)(s32, u8 *); s32 arg; };
 
 #include "pso/system/GcciRequests.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 extern s32 dvd_synchronous_read_enabled;
@@ -13,18 +14,16 @@ int vsprintf(char *s, const char *fmt, va_list ap);
 extern u8 log_printf_buffer[];
 extern RecoveredCallback_c88e8900640a log_printf_callback;
 extern s32 lobby_log_callback_arg;
-void log_printf__6TLobbyFPvi(const char *fmt, ...);
 void DCInvalidateRange(void *, u32);
 s32 DVDGetTransferredSize(void *);
 s32 DVDGetCommandBlockStatus(void *);
 extern GcciStatus dvd_active_request;
 extern GcciRequest dvd_request_table[40];
-void poll_dvd_requests__6TLobbyFv(void);
 }
 
 extern "C" {
 
-void poll_dvd_requests__6TLobbyFv(void) {
+void TLobby::poll_dvd_requests() {
     GcciRequest *r;
     s32 i;
     s32 n;
@@ -66,7 +65,7 @@ void set_dvd_synchronous_read_mode(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 #pragma pop
 
-void log_printf__6TLobbyFPvi(const char *fmt, ...) {
+void TLobby::log_printf(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
     vsprintf((char *)log_printf_buffer, fmt, ap);

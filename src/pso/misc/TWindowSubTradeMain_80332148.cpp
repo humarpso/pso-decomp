@@ -7,8 +7,8 @@ s32 check_flags_and_proceed__6TLobbyFv();
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024ADF0(s32);
 s32 TWindowSubComCard__sub_8024AB98(s32);
-s32 close__17TWindowSubComCardFPv(void *);
-s32 cleanup__13TWindowSubLogFPv(void *);
+s32 close__17TWindowSubComCardFv(void *);
+s32 cleanup__13TWindowSubLogFv(void *);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
@@ -51,7 +51,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
-            close__17TWindowSubComCardFPv(*(void **)((s8 *)arg0 + 0x38));
+            close__17TWindowSubComCardFv(*(void **)((s8 *)arg0 + 0x38));
             *(u32 *)((s8 *)arg0 + 0x38) = 0U;
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
@@ -63,7 +63,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
-            cleanup__13TWindowSubLogFPv(*(void **)((s8 *)arg0 + 0x2C));
+            cleanup__13TWindowSubLogFv(*(void **)((s8 *)arg0 + 0x2C));
         }
         TWindowCtrl__sub_8024ADF0(*(s32 *)((s8 *)arg0 + 0x28));
         TWindowSubComCard__sub_8024AB98(*(s32 *)((s8 *)arg0 + 0x28));

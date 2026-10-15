@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-int get_selected_quest_id__6TLobbyFPv(void* p);
 int get_selected_quest_id__16TQuestListOnlineFv(void*);
 
-int get_selected_quest_id__6TLobbyFPv(void* p) { return get_selected_quest_id__16TQuestListOnlineFv(p); }
+int TLobby::get_selected_quest_id() { return get_selected_quest_id__16TQuestListOnlineFv(this); }
 
 }

@@ -7,7 +7,7 @@ struct Obj_8012AFF8 {
 };
 
 extern "C" {
-void set_flags__10TObjPlayerFPvUi(void *, u32);
+void set_flags__10TObjPlayerFUl(void *, u32);
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
 void draw_weapon_model(void *);
 void draw_weapon_at_joint(void *, s32);
@@ -27,7 +27,7 @@ void draw_dual_weapons__10TObjPlayerFPv(Obj_8012AFF8 *arg0) {
     savedF4 = arg0->unkF4;
     if (is_rand_below_threshold__10TObjPlayerFv(arg0) == 0) {
         TObjPlayer__sub_8012B1F0(arg0, 8);
-        set_flags__10TObjPlayerFPvUi(&lbl_805D53EC, 4);
+        set_flags__10TObjPlayerFUl(&lbl_805D53EC, 4);
     }
     draw_weapon_model(arg0);
     if (TObjPlayer__sub_8012B1F8(arg0) != 8) {
@@ -36,7 +36,7 @@ void draw_dual_weapons__10TObjPlayerFPv(Obj_8012AFF8 *arg0) {
     arg0->unkF4 = arg0->unk188;
     if (is_rand_below_threshold__10TObjPlayerFv(arg0) == 0) {
         TObjPlayer__sub_8012B1F0(arg0, 8);
-        set_flags__10TObjPlayerFPvUi(&lbl_805D53EC, 4);
+        set_flags__10TObjPlayerFUl(&lbl_805D53EC, 4);
     } else {
         TObjPlayer__sub_8012B1F0(arg0, saved);
     }

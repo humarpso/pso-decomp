@@ -84,6 +84,9 @@ struct TBoss7DeRolLeC
     u16 m_7ce;
     u16 m_7d0;
     u16 m_7d2;
+    void set_field_38(s32 v);
+    static void run_exit_callbacks();
+    static void *create(void *arg0);
 };
 
 #endif

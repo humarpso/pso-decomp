@@ -8,7 +8,7 @@ extern "C" void queue_destruction__7TObjectFv(void*);
 extern "C" {
 extern const char TSetEvtDestroy_class_name[] = "TSetEvtDestroy";
 const char* TSetEvtDestroy_name = TSetEvtDestroy_class_name;
-s32 check_value_equals__13TQuestColCtrlFPvi(void*, s32);
+s32 check_value_equals__13TQuestColCtrlFPll(void*, s32);
 }
 
 extern "C" void queue_destroy_event_descendants(TObject* root) {
@@ -17,7 +17,7 @@ extern "C" void queue_destroy_event_descendants(TObject* root) {
     while (root->m_down != 0 && p != 0) {
         cur = p;
         p = p->m_next;
-        if (check_value_equals__13TQuestColCtrlFPvi(cur, (s32)TSetEvtDestroy_name) != 0) {
+        if (check_value_equals__13TQuestColCtrlFPll(cur, (s32)TSetEvtDestroy_name) != 0) {
             queue_destruction__7TObjectFv(cur);
         } else {
             queue_destroy_event_descendants(cur);
@@ -29,7 +29,7 @@ extern "C" {
 
 s32 run_wave_event_actions();
 void TLobby__sub_80208884(void*);
-s32 spawn_matching_objects__6TLobbyFssi(s32, s32, void*);
+s32 spawn_matching_objects__6TLobbyFssl(s32, s32, void*);
 void notify_partner_room_cleared(s32);
 }
 
@@ -40,7 +40,7 @@ void TSetEvtDestroy::run_task() {
             m_phase = 2;
         }
         if (--m_countdown < 0) {
-            if (spawn_matching_objects__6TLobbyFssi(m_event_record->spawn_arg0, m_event_record->spawn_arg1, m_enemy_tasks) != 0) {
+            if (spawn_matching_objects__6TLobbyFssl(m_event_record->spawn_arg0, m_event_record->spawn_arg1, m_enemy_tasks) != 0) {
                 m_phase = 1;
             } else {
                 m_phase = 2;

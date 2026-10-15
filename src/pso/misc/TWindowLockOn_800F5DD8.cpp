@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 
 extern "C" {
 
-s32 get_target_id__13TWindowLockOnFPv(void* p);
-void set_param__12TObjEneLappyFPvi(void* p, s32 v);
+void set_param__12TObjEneLappyFl(void* p, s32 v);
 int initialize_enemy_photon_effect(void* p);
-int reset_photon_effect__12TBoss3VoloptFPv(void*);
+int reset_photon_effect__12TBoss3VoloptFv(void*);
 
-s32 get_target_id__13TWindowLockOnFPv(void* p) { return *(s32*)((char*)p + 0x370); }
+s32 TWindowLockOn::get_target_id() { return *(s32*)((char*)this + 0x370); }
 
 }

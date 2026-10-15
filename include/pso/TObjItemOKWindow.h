@@ -12,6 +12,8 @@ public:
  void* m_64;
 public:
     virtual ~TObjItemOKWindow();
+public:
+    static void *create(void *arg0);
 };
 
 #endif

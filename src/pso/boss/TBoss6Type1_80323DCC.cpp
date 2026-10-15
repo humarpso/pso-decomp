@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type1.h"
 
 extern "C" {
 
-void * create_grav_ball__11TBoss6Type1FPvPv(void *arg0, void *arg1);
 void *TBoss6GravBall__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void * create_grav_ball__11TBoss6Type1FPvPv(void *arg0, void *arg1) {
+void *TBoss6Type1::create_grav_ball(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {

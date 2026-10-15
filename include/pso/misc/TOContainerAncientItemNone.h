@@ -7,6 +7,7 @@ struct TOContainerAncientItemNone
 {
     u8 _pad1C[0x30A];
     u16 m_326;
+    static void *create(void *arg0);
 };
 
 #endif

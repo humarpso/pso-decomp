@@ -28,20 +28,18 @@ void update_title_tex_positions__13TAdTitleTexGCFPv(Obj_802A4EF4 *arg0);
 extern "C" {
 
 void *__ct__13TAdTitleTexGCFv(void *arg0);
-void render__13TAdTitleTexGCFv(void *arg0);
-void run_task__13TAdTitleTexGCFv(void *arg0);
 s32 get_localized_text_entry(s32, s32);
 void __ct__7TObjectFP7TObject(void *);
 s32 fn_802A4D74(void *, s32, s32, s32);
 s32 get_state_flag__9TMainTaskFv();
-s32 render_status_pair__20TWindowSubStatusDispFii(void *, s32);
+s32 render_status_pair__20TWindowSubStatusDispFl(void *, s32);
 
-void render__13TAdTitleTexGCFv(void *arg0) {
+void TAdTitleTexGC::render() {
     s32 temp_r31;
 
     if (get_state_flag__9TMainTaskFv() != 1) {
-        render_status_pair__20TWindowSubStatusDispFii(arg0, (*(s32 *)((s8 *)arg0 + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF);
-        fn_802A4D74(arg0, (*(s32 *)((s8 *)arg0 + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x28, 0), get_localized_text_entry(0x28, 1));
+        render_status_pair__20TWindowSubStatusDispFl(this, (*(s32 *)((s8 *)this + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF);
+        fn_802A4D74(this, (*(s32 *)((s8 *)this + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x28, 0), get_localized_text_entry(0x28, 1));
     }
 }
 
@@ -59,22 +57,22 @@ void update_title_tex_positions__13TAdTitleTexGCFPv(Obj_802A4EF4 *arg0) {
     }
 }
 
-void run_task__13TAdTitleTexGCFv(void *arg0) {
+void TAdTitleTexGC::run_task() {
     s32 temp_r4;
     u32 temp_r4_2;
     u32 temp_r4_3;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x80);
+    temp_r4 = *(s32 *)((s8 *)this + 0x80);
     if (temp_r4 < 0x14) {
-        *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r4 + 1);
+        *(s32 *)((s8 *)this + 0x80) = (s32) (temp_r4 + 1);
     }
-    temp_r4_2 = *(u32 *)((s8 *)arg0 + 0x7C);
+    temp_r4_2 = *(u32 *)((s8 *)this + 0x7C);
     if (temp_r4_2 < 0xFFU) {
-        *(u32 *)((s8 *)arg0 + 0x7C) = (u32) (temp_r4_2 + 0xC);
+        *(u32 *)((s8 *)this + 0x7C) = (u32) (temp_r4_2 + 0xC);
     }
-    temp_r4_3 = *(u32 *)((s8 *)arg0 + 0x7C);
-    *(u32 *)((s8 *)arg0 + 0x7C) = (temp_r4_3 <= 0xFFU) ? temp_r4_3 : 0xFFU;
-    update_title_tex_positions__13TAdTitleTexGCFPv((Obj_802A4EF4 *)(arg0));
+    temp_r4_3 = *(u32 *)((s8 *)this + 0x7C);
+    *(u32 *)((s8 *)this + 0x7C) = (temp_r4_3 <= 0xFFU) ? temp_r4_3 : 0xFFU;
+    update_title_tex_positions__13TAdTitleTexGCFPv((Obj_802A4EF4 *)(this));
 }
 
 extern s32 __vt__13TAdTitleTexGC[];

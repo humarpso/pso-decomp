@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TObjContainerBase.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_8018A0B4 { char pad[0x18]; };
 struct VObj_8018A0B4 : Base_8018A0B4 {
@@ -217,26 +219,21 @@ struct Obj_80189F24 : VBase_80189F24 {
 
 extern "C" {
 s32 step_laser_fence_fade(void *);
-void step_laser_fence__10TObjPlayerFPv(u8 *arg0);
 f32 xyz_distance_squared(void *, void *);
-s32 is_within_range__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern f32 lbl_805DBCF4;
-f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0);
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
-void render__17TObjContainerBaseFPv(Obj_80189F24 *self);
 }
 
 extern "C" {
 
-f32 receive_technique_hit__17TObjContainerBaseFPviPv(void *arg0, s32 arg1, s32 *arg2);
-
 extern f32 lbl_805DBCF0;
 extern f32 lbl_805DBCF4;
 
-void render__17TObjContainerBaseFPv(Obj_80189F24 *self) {
+void TObjContainerBase::render() {
+    Obj_80189F24 *self = (Obj_80189F24 *)this;
     if (self->m8(self->x334, self->x338) != 1) {
         return;
     }
@@ -253,13 +250,15 @@ void render__17TObjContainerBaseFPv(Obj_80189F24 *self) {
     }
 }
 
-void step_laser_fence__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::step_laser_fence() {
+    u8 *arg0 = (u8 *)this;
     step_laser_fence_fade((void *) (arg0 + 0x340));
     ((VObj_18 *)(arg0))->m78();
     *(s32 *)((s8 *)arg0 + 0x364) = 0;
 }
 
-f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0) {
+f32 TObjContainerBase::receive_physical_hit() {
+    u8 *arg0 = (u8 *)this;
     s16 sp8;
     if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
@@ -269,9 +268,9 @@ f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0) {
     return (*(const f32 *)&lbl_805DBCF4);
 }
 
-f32 receive_technique_hit__17TObjContainerBaseFPviPv(void *arg0, s32 arg1, s32 *arg2) {
+f32 TObjContainerBase::receive_technique_hit(s32 arg1, s32 *arg2) {
     s32 temp_r4;
-    struct VObj_8018A0B4 *o = (struct VObj_8018A0B4 *)arg0;
+    struct VObj_8018A0B4 *o = (struct VObj_8018A0B4 *)this;
 
     temp_r4 = *arg2;
     if ((temp_r4 == 0) || ((u32) (temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
@@ -279,7 +278,8 @@ f32 receive_technique_hit__17TObjContainerBaseFPviPv(void *arg0, s32 arg1, s32 *
     }
     return lbl_805DBCF4;
 }
-s32 is_within_range__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
+s32 TObjPlayer::is_within_range(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)((s8 *)arg0 + 0x33C);
 }
 

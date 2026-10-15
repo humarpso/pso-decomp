@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct VBase_18_44382c { char pad[0x18]; };
 
@@ -22,12 +23,12 @@ struct Stack_801DB554 {
 
 extern "C" {
 void bswap__13packet_headerFv(s32);
-void send_6F_burst_done__6TLobbyFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void send_6F_burst_done__6TLobbyFPv(u8 *arg0) {
+void TLobby::send_6F_burst_done() {
+    u8 *arg0 = (u8 *)this;
     Stack_801DB554 stack;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1910) != 0) {
         stack.sp8 = 0x6F;

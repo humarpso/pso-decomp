@@ -17,10 +17,10 @@ const char *get_quest_name__12TQuestThreadFv();
 const char *get_guild_text(s32);
 const char *get_shop_text(s32);
 const char *get_appraisal_text(s32);
-s32 set_message__18TWindowMessagePageFPvPvi(TWindowMessagePage *, const char *, s32);
-s32 is_ready__18TWindowMessagePageFPv(TWindowMessagePage *);
-TWindowMessagePage *create__18TWindowMessagePageFiiii(s32, s32, s32, s32);
-TWindowMessagePage *set_text__18TWindowMessagePageFiii(s32, s32, s32);
+s32 set_message__18TWindowMessagePageFPvl(TWindowMessagePage *, const char *, s32);
+s32 is_ready__18TWindowMessagePageFv(TWindowMessagePage *);
+TWindowMessagePage *create__18TWindowMessagePageFllll(s32, s32, s32, s32);
+TWindowMessagePage *set_text__18TWindowMessagePageFlll(s32, s32, s32);
 void TWindow__close(TWindowMessagePage *);
 s32 is_camera_ctrl_active__6TLobbyFv();
 void set_position_xy(TWindowMessagePage *, f32, f32);
@@ -151,12 +151,12 @@ char *TMessageWindowController::parse_message_text(const char *source, char *des
 }
 s32 TMessageWindowController::is_ready() {
     TWindowMessagePage *current = window;
-    if (current != NULL) return is_ready__18TWindowMessagePageFPv(current);
+    if (current != NULL) return is_ready__18TWindowMessagePageFv(current);
     return 1;
 }
 void TMessageWindowController::send_message(s32 index, s32 flags) {
     if (window != NULL) {
-        set_message__18TWindowMessagePageFPvPvi(window, get_appraisal_text(index), flags | 0x80);
+        set_message__18TWindowMessagePageFPvl(window, get_appraisal_text(index), flags | 0x80);
     }
 }
 void TMessageWindowController::format_guild_message(s32 index, s32 flags) {
@@ -165,14 +165,14 @@ void TMessageWindowController::format_guild_message(s32 index, s32 flags) {
         text = get_guild_text(index);
         memset(buffer, 0, 0x200);
         parse_message_text(text, buffer);
-        set_message__18TWindowMessagePageFPvPvi(window, buffer, flags | 0x80);
+        set_message__18TWindowMessagePageFPvl(window, buffer, flags | 0x80);
     }
 }
 void TMessageWindowController::display_message(const char *text, s32 flags) {
     if (window != NULL) {
         memset(buffer, 0, 0x200);
         parse_message_text(text, buffer);
-        set_message__18TWindowMessagePageFPvPvi(window, buffer, flags | 0x80);
+        set_message__18TWindowMessagePageFPvl(window, buffer, flags | 0x80);
     }
 }
 void TMessageWindowController::format_shop_message(s32 index, s32 flags) {
@@ -181,7 +181,7 @@ void TMessageWindowController::format_shop_message(s32 index, s32 flags) {
         text = get_shop_text(index);
         memset(buffer, 0, 0x200);
         parse_message_text(text, buffer);
-        set_message__18TWindowMessagePageFPvPvi(window, buffer, flags | 0x80);
+        set_message__18TWindowMessagePageFPvl(window, buffer, flags | 0x80);
     }
 }
 void TMessageWindowController::close() {
@@ -195,7 +195,7 @@ TWindowMessagePage *TMessageWindowController::create_message_window(s32 x, s32 y
     if (is_camera_ctrl_active__6TLobbyFv() > 2) scale = 0.75f;
     else scale = 1.0f;
     if (window == NULL) {
-        window = create__18TWindowMessagePageFiiii(x, y, 1, flags);
+        window = create__18TWindowMessagePageFllll(x, y, 1, flags);
         set_position_xy(window, scale, scale);
         return window;
     }
@@ -206,7 +206,7 @@ TWindowMessagePage *TMessageWindowController::create_window(s32 x, s32 y) {
     if (is_camera_ctrl_active__6TLobbyFv() > 2) scale = 0.75f;
     else scale = 1.0f;
     if (window == NULL) {
-        window = set_text__18TWindowMessagePageFiii(x, y, 1);
+        window = set_text__18TWindowMessagePageFlll(x, y, 1);
         set_position_xy(window, scale, scale);
         return window;
     }

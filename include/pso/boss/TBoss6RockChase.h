@@ -19,6 +19,9 @@ struct TBoss6RockChase
     u32 m_bc;
     u32 m_c0;
     u32 m_c4;
+    s32 damage_players_in_range();
+    void render();
+    void run_task();
 };
 
 #endif

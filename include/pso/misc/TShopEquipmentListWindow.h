@@ -20,6 +20,17 @@ struct TShopEquipmentListWindow
     u32 m_4c;
     u8 _pad50[0x140];
     u32 m_190;
+    void update_list(void *arg1);
+    void handle_equip_offer();
+    void handle_buy_confirm();
+    s32 open_menu_window();
+    int get_list_item8();
+    s32 handle_confirm();
+    s32 handle_select();
+    void handle_selection();
+    s32 check_purchase_eligibility();
+    static void create_buy_list_windows(void *p);
+    void set_stack_count(s8 arg1);
 };
 
 #endif

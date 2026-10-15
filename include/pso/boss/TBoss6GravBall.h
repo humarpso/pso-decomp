@@ -13,6 +13,14 @@ struct TBoss6GravBall
     u32 m_c0;
     u32 m_c4;
     void* m_c8;
+    static void clear_player_grav_flags();
+    s32 clamp_to_ground();
+    void update_lifetime(void *);
+    void destroy_part(s32 arg1);
+    void create_emitter(s32 arg1);
+    void init_parts();
+    static void render();
+    s32 get_state();
 };
 
 #endif

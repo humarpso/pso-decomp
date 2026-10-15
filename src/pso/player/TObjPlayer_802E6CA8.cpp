@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VB_802E74E4 { u8 pad[0xC]; };
 
@@ -84,24 +86,23 @@ extern const f32 lbl_805DEA08;
 extern const f32 lbl_805DEA0C;
 s32 TObjPlayer__sub_802E76C8(u8 *arg0);
 s32 __dt__7TObjectFv(void *, int);
-s32 free__11TOBoss4RockFUi(int);
+s32 mem_free(int);
 void __dl__7TObjectFPv(void *);
 extern s32 lbl_804E3BD8[];
 u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
-s32 copy_vec3__11TBoss4Type2FPvPv(int, void *);
-s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 copy_vec3__11TBoss4Type2FPv(int, void *);
+s32 copy_pos__11TNowLoadingFPv(int, void *);
 f32 subtract_vector(Vec_802E7888 *, Vec_802E7888 *);
 extern const f64 lbl_80473FA8[];
-void update_attached_orientation__8TObjFishFPv(Obj_802E7888 *o);
 s32 TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 s32 draw_effect__10TObjPlayerFv();
 s32 rotate_matrix_z(int, s32);
 s32 translate_matrix(int, f32, f32, f32);
 s32 rotate_matrix_x(int, s32);
-s32 concat_matrix__10TObjPlayerFUiUi(int, s32);
+s32 concat_matrix__10TObjPlayerFUlUl(int, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -116,13 +117,11 @@ extern s32 model_render_flags;
 void TObjPlayer__sub_802E6CB0(u8 *arg0);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
-void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
-void *init_zeroed_object__10TObjPlayerFPv(void *arg0);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 concat_matrix__10TObjPlayerFUiUi(int, s32);
+s32 concat_matrix__10TObjPlayerFUlUl(int, s32);
 s32 push_matrix();
 s32 pop_matrix();
 extern s32 lbl_804E3BA8[];
@@ -151,15 +150,12 @@ extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DE9F8;
-void draw_boss_effect_parts__10TObjPlayerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
 s32 calc_random_scaled__10TObjPlayerFv(void);
-s32 collect_and_count__12TBoss3VoloptFUii(s32, s32);
-void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
-void *init_zeroed_object__10TObjPlayerFPv(void *arg0);
+s32 collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void TObjPlayer__sub_802E7640(void *);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 f32 vec3_add_to(void *, void *);
@@ -182,20 +178,16 @@ void TObjPlayer__sub_802E7088(void);
 void *TObjPlayer__sub_802E7284(void *arg0, s16 arg1);
 void TObjPlayer__sub_802E746C(void);
 void TObjPlayer__sub_802E7470(void);
-void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
-void destroy_child__8TObjFishFPv(void* p);
-int get_instance__10TObjPlayerFv(void);
-void *init_zeroed_object__10TObjPlayerFPv(void *arg0);
 s32 *init_from_model__11TBreakUpMdlFPvi(s32 *, s32);
 s32 TObjPlayer__sub_802E75B8(void *, s32 *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
-s32 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+s32 mem_alloc(s32);
 int queue_destruction__7TObjectFv(void*);
 
     extern int multiplay_texture_f512_handle;
-int get_instance__10TObjPlayerFv(void) {  return multiplay_texture_f512_handle; }
+int TObjPlayer::get_instance() {  return multiplay_texture_f512_handle; }
 
 extern s32 lbl_804E3BA8[];
 
@@ -215,7 +207,7 @@ void TObjPlayer__sub_802E6CB0(u8 *arg0) {
         rotate_matrix_z(0, part->f20);
         rotate_matrix_x(0, part->f18);
         translate_matrix(0, -*(f32 *)((s8 *)arg0 + 0x30), -*(f32 *)((s8 *)arg0 + 0x34), -*(f32 *)((s8 *)arg0 + 0x38));
-        concat_matrix__10TObjPlayerFUiUi(0, *(s32 *)((s8 *)arg0 + 0x2C));
+        concat_matrix__10TObjPlayerFUlUl(0, *(s32 *)((s8 *)arg0 + 0x2C));
         switch (part->type) {
         case 0:
         case 1:
@@ -255,14 +247,14 @@ void *TObjPlayer__sub_802E6EB8(void *arg0, s16 arg1) {
 u8 *init_breakup_pieces__10TObjPlayerFPvPvi(u8 *arg0, void *arg1, s32 arg2) {
     Part_802E6F10 *part;
     s32 i;
-    init_zeroed_object__10TObjPlayerFPv(arg0);
+    ((TObjPlayer *)arg0)->init_zeroed_object();
     *(u8 **)((s8 *)arg0 + 0x18) = ((u8 *)&lbl_804E3BA8);
-    alloc_breakup_model__10TObjPlayerFPvi(arg0, ((s32)queue_boss_effect__10TObjPlayerFPv(2)));
+    ((TObjPlayer *)arg0)->alloc_breakup_model(((s32)queue_boss_effect__10TObjPlayerFPv(2)));
     *(s32 *)((s8 *)arg0 + 0x2C) = arg2;
     part = *(Part_802E6F10 **)((s8 *)arg0 + 0x28);
     push_matrix();
     set_matrix_identity(0);
-    concat_matrix__10TObjPlayerFUiUi(0, *(s32 *)((s8 *)arg0 + 0x2C));
+    concat_matrix__10TObjPlayerFUlUl(0, *(s32 *)((s8 *)arg0 + 0x2C));
     (*(Vec_802E6F10 *)((s8 *)arg0 + 0x30)).z = (*(Vec_802E6F10 *)((s8 *)arg0 + 0x30)).y = (*(Vec_802E6F10 *)((s8 *)arg0 + 0x30)).x = lbl_805DE9CC;
     matrix_mult_vec(0, arg0 + 0x30, arg0 + 0x30);
     for (i = 0; i < *(s32 *)((s8 *)arg0 + 0x24); i++) {
@@ -286,7 +278,8 @@ void TObjPlayer__sub_802E7088(void) {  }
 
 extern s32 lbl_804E3BC0[];
 
-void draw_boss_effect_parts__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::draw_boss_effect_parts() {
+    u8 *arg0 = (u8 *)this;
     Node_802E708C *node;
     Part_802E708C *part;
     u8 *fx = queue_boss_effect__10TObjPlayerFPv(3);
@@ -340,7 +333,7 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
     Piece_802E72DC *p;
     Vec_802E72DC *q;
     s32 i;
-    init_zeroed_object__10TObjPlayerFPv(arg0);
+    ((TObjPlayer *)arg0)->init_zeroed_object();
     arg0->vt = lbl_804E3BC0;
     if (arg3 >= 0 && (u32)arg3 < 6) {
         n = lbl_80472C68[arg3];
@@ -348,7 +341,7 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
         n = -1;
     }
     if (n > 0) {
-        alloc_breakup_model__10TObjPlayerFPvi(arg0, collect_and_count__12TBoss3VoloptFUii(((s32)queue_boss_effect__10TObjPlayerFPv(3)), n));
+        ((TObjPlayer *)arg0)->alloc_breakup_model(collect_and_count__12TBoss3VoloptFUll(((s32)queue_boss_effect__10TObjPlayerFPv(3)), n));
         TObjPlayer__sub_802E7640(arg0);
         p = arg0->pieces;
         for (i = 0; i < arg0->count; i++, p++) {
@@ -372,19 +365,19 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
 
 void TObjPlayer__sub_802E746C(void) {  }
 void TObjPlayer__sub_802E7470(void) {  }
-void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1) {
+void TObjPlayer::alloc_breakup_model(s32 arg1) {
     s32 *temp_r4;
     s32 *var_r0;
 
-    var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
+    var_r0 = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (var_r0 != NULL) {
         var_r0 = init_from_model__11TBreakUpMdlFPvi(var_r0, arg1);
     }
-    *(s32 **)((s8 *)arg0 + 0x1C) = var_r0;
-    temp_r4 = *(s32 **)((s8 *)arg0 + 0x1C);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *temp_r4;
-    TObjPlayer__sub_802E75B8(arg0, temp_r4);
-    *(s32 *)((s8 *)arg0 + 0x28) = alloc_buffer__11TOBoss4RockFPv(*(s32 *)((s8 *)arg0 + 0x24) * 0x2C);
+    *(s32 **)((s8 *)this + 0x1C) = var_r0;
+    temp_r4 = *(s32 **)((s8 *)this + 0x1C);
+    *(s32 *)((s8 *)this + 0x24) = (s32) *temp_r4;
+    TObjPlayer__sub_802E75B8(this, temp_r4);
+    *(s32 *)((s8 *)this + 0x28) = mem_alloc(*(s32 *)((s8 *)this + 0x24) * 0x2C);
 }
 
 extern s32 lbl_804E3BD8[];
@@ -393,7 +386,7 @@ u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1) {
     VObj_802E74E4 *temp_r3;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E3BD8;
-        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0x28));
+        mem_free(*(s32 *)((s8 *)arg0 + 0x28));
         temp_r3 = *(VObj_802E74E4 **)((s8 *)arg0 + 0x1C);
         if (temp_r3 != NULL) {
             temp_r3->m0(1);
@@ -406,14 +399,14 @@ u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void *init_zeroed_object__10TObjPlayerFPv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E3BD8;
-    *(u32 *)((s8 *)arg0 + 0x20) = 0;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
-    return arg0;
+void *TObjPlayer::init_zeroed_object() {
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804E3BD8;
+    *(u32 *)((s8 *)this + 0x20) = 0;
+    *(u32 *)((s8 *)this + 0x1C) = 0;
+    *(u32 *)((s8 *)this + 0x24) = 0;
+    *(u32 *)((s8 *)this + 0x28) = 0;
+    return this;
 }
 
     extern float lbl_805D6910;
@@ -478,7 +471,8 @@ s32 TObjPlayer__sub_802E76C8(u8 *arg0) {
 
 void TObjFish__sub_802E787C(void) { lbl_805D6910 = lbl_805DE9F0; }
 
-void update_attached_orientation__8TObjFishFPv(Obj_802E7888 *o) {
+void TObjFish::update_attached_orientation() {
+    Obj_802E7888 *o = (Obj_802E7888 *)this;
     if (o->f7B0 != 0) {
         Vec_802E7888 d = o->pos;
         Ang_802E7888 ang;
@@ -486,11 +480,11 @@ void update_attached_orientation__8TObjFishFPv(Obj_802E7888 *o) {
         ang.x = -(s32)(lbl_80473FA8[0] * atan2_float(d.y, newton_sqrtf(d.x * d.x + d.z * d.z))) - 0x4000;
         ang.y = (s32)(lbl_80473FA8[0] * atan2_float(d.x, d.z));
         ang.z = 0;
-        copy_pos__11TNowLoadingFPvPv(o->f7B0, &o->pos);
-        copy_vec3__11TBoss4Type2FPvPv(o->f7B0, &ang);
+        copy_pos__11TNowLoadingFPv(o->f7B0, &o->pos);
+        copy_vec3__11TBoss4Type2FPv(o->f7B0, &ang);
     }
 }
 
-void destroy_child__8TObjFishFPv(void* p) { if (*(unsigned int*)((char*)p + 0x7b0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x7b0)); *(int*)((char*)p + 0x7b0) = 0; } }
+void TObjFish::destroy_child() { if (*(unsigned int*)((char*)this + 0x7b0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)this + 0x7b0)); *(int*)((char*)this + 0x7b0) = 0; } }
 
 }

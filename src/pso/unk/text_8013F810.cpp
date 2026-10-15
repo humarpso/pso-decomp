@@ -1,6 +1,7 @@
 #include "pso/map/FloorResourceCallbacks.h"
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct L_8013FF20 { u8 pad0[0x1012]; s16 a[0x1000]; u8 pad1[0x5016 - 0x3012]; s16 b[0x1101]; };
 
@@ -39,20 +40,18 @@ void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r);
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
 u8 lzss_read_byte(u8 *arg0);
 u8 lzss_input_exhausted(u8 *arg0);
-void init_lookup_tables__6TLobbyFPv(L_8013FF20 *arg0);
 void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
 void debug_print__FPCc(const char *);
 void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
 void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r);
-void init_lookup_tables__6TLobbyFPv(L_8013FF20 *arg0);
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
 u8 lzss_input_exhausted(u8 *arg0);
 u8 lzss_read_byte(u8 *arg0);
-void set_range__6TLobbyFPviii(void *, int, int, int);
+void set_range__6TLobbyFiii(void *, int, int, int);
 void bswap_32__FPUl(u32 *);
 int sprintf(char *, const char *, ...);
 s32 TLobby__sub_803DF1CC(void);
-s32 calc_delta__6TLobbyFii(s32, s32);
+s32 calc_delta__6TLobbyFll(s32, s32);
 s32 fn_803DF204(s32);
 extern char lbl_8043F168[];
 s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s32 *hdr);
@@ -87,8 +86,8 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
     s32 t1;
     out = hdr;
     t0 = TLobby__sub_803DF1CC();
-    set_range__6TLobbyFPviii(lz, (int)src, size, (s32)(hdr + 2));
-    init_lookup_tables__6TLobbyFPv((L_8013FF20 *)lz);
+    set_range__6TLobbyFiii(lz, (int)src, size, (s32)(hdr + 2));
+    ((TLobby *)lz)->init_lookup_tables();
     code_buf[0] = 0;
     mask = code_buf_ptr = 1;
     lz->codesize = 0;
@@ -168,7 +167,7 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
     bswap_32__FPUl((u32 *)(out + 1));
     lz->codesize += 8;
     t1 = TLobby__sub_803DF1CC();
-    sprintf(msg, lbl_8043F168, size, lz->codesize, fn_803DF204(calc_delta__6TLobbyFii(t0, t1)));
+    sprintf(msg, lbl_8043F168, size, lz->codesize, fn_803DF204(calc_delta__6TLobbyFll(t0, t1)));
     debug_print__FPCc(msg);
     return lz->codesize;
 }
@@ -260,7 +259,8 @@ void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r) {
     lz->dad[p] = 0x1000;
 }
 
-void init_lookup_tables__6TLobbyFPv(L_8013FF20 *arg0) {
+void TLobby::init_lookup_tables() {
+    L_8013FF20 *arg0 = (L_8013FF20 *)this;
     s32 i;
     for (i = 0x1001; i < 0x1101; i++) {
         arg0->b[i] = 0x1000;

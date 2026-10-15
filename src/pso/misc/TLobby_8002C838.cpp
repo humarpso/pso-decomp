@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Obj_8002CACC { s32 f0; u8 pad4[0x14]; void *vt; f32 f1c; f32 f20; f32 f24; s32 f28[4]; };
 
@@ -26,7 +27,7 @@ extern const f32 lbl_805D8174;
 Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent);
 void queue_destruction__7TObjectFv(void *);
 void *create_particle_emitter(Vec_8002C968 *, s32);
-void copy_pos__11TNowLoadingFPvPv(void *, Vec_8002C968 *);
+void copy_pos__11TNowLoadingFPv(void *, Vec_8002C968 *);
 s32 check_v2_mode__9TObjEneDDFv();
 Player_8002C968 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8170;
@@ -40,10 +41,7 @@ u8 *__dt__14TObjBoss1FloorFv(u8 *self, s16 flag);
 
 extern "C" {
 
-int forward_floor_2CB44__6TLobbyFPv(void* p);
-void init_bosses__6TLobbyFv(void);
 void render__14TObjBoss1FloorFv(void);
-void update_boss1_objects__6TLobbyFv(void);
 int TBoss8Dragon__sub_8002D5F8(void);
 s32 draw_ginja_model(int);
 int TObjBoss1Crater__sub_8002C7B4(void);
@@ -68,11 +66,11 @@ s32 func_80141618__Fv();
 s32 get_state_flag__9TMainTaskFv();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
 s32 set_depth_buffer_settings_id__FUl(int);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 
-void update_boss1_objects__6TLobbyFv(void) { free_resources__12TBoss8DragonFv(); TObjBoss1Rock__sub_8002E3CC(); TObjBoss1Crater__sub_8002C7B4(); TObjBoss1Floor__sub_8002CB40(); free_char_select__6TLobbyFv(); }
-int forward_floor_2CB44__6TLobbyFPv(void* p) { return create_instance__14TObjBoss1FloorFv(p); }
-void init_bosses__6TLobbyFv(void) { load_dragon_ground_assets(); TObjBoss1Floor__sub_8002CB78(); TObjBoss1Crater__sub_8002C7B8(); TObjBoss1Rock__sub_8002E3D0(); TBoss8Dragon__sub_8002D5F8(); }
+void TLobby::update_boss1_objects() { free_resources__12TBoss8DragonFv(); TObjBoss1Rock__sub_8002E3CC(); TObjBoss1Crater__sub_8002C7B4(); TObjBoss1Floor__sub_8002CB40(); free_char_select__6TLobbyFv(); }
+int TLobby::forward_floor_2CB44() { return create_instance__14TObjBoss1FloorFv(this); }
+void TLobby::init_bosses() { load_dragon_ground_assets(); TObjBoss1Floor__sub_8002CB78(); TObjBoss1Crater__sub_8002C7B8(); TObjBoss1Rock__sub_8002E3D0(); TBoss8Dragon__sub_8002D5F8(); }
 
 extern u8 *lbl_805D4B50;
 extern s32 dragon_common_texture_list;
@@ -92,7 +90,7 @@ void render__14TObjBoss1FloorFv(void) {
         model_render_flags = 1;
         set_depth_buffer_settings_id__FUl((int) (3));
         draw_if_all_ready__10TObjPlayerFv();
-        set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
+        set_global_param__8TObjFishFl((void *) (dragon_common_texture_list));
         temp_r31 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 0x58));
         render_projected_shadow_receiver((void *) (temp_r31 + 8), (void *) (temp_r31 + 0x14));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
@@ -115,7 +113,7 @@ void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self) {
                 if (self->objs[i] == NULL) {
                     self->objs[i] = create_particle_emitter(&pos, 0x144);
                 } else {
-                    copy_pos__11TNowLoadingFPvPv(self->objs[i], &pos);
+                    copy_pos__11TNowLoadingFPv(self->objs[i], &pos);
                 }
             } else if (self->objs[i] != NULL) {
                 queue_destruction__7TObjectFv(self->objs[i]);

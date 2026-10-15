@@ -17,7 +17,7 @@ s32 byteswap_trade_packet__6TLobbyFPv();
 extern u8 TLobby__trade_partner_client_id;
 extern u8 TLobby__trade_proposal_state;
 void handle_6xA6_modify_trade_proposal(u8 *arg0);
-void init_owner__5TItemFPvUs(void *, u16);
+void init_owner__5TItemFUs(void *, u16);
 extern s32 local_client_id;
 extern u8 TLobby__trade_proposal_state;
 void handle_trade_received_items(S_802D2BC0 *arg0);
@@ -36,7 +36,7 @@ void clear_flag400__6TLobbyFv(void);
 void handle_6xA7(void);
 void handle_reset_choice__6TLobbyFi(s32 arg0);
 s32 send_cancel_trade__9TProtocolFv(s32);
-s32 get_message_10__20TWindowSubStatusDispFPv(s32);
+s32 get_message_10__20TWindowSubStatusDispFl(s32);
 void reset__6TLobbyFi(s32 arg0);
 
 extern u8 TLobby__trade_proposal_state;
@@ -45,11 +45,11 @@ void handle_reset_choice__6TLobbyFi(s32 arg0) {
     if ((s8) TLobby__trade_proposal_state != 0) {
         switch (arg0) {
         case 0:
-            get_message_10__20TWindowSubStatusDispFPv(0xEC);
+            get_message_10__20TWindowSubStatusDispFl(0xEC);
             ((s32 (*)())reset__6TLobbyFi)();
             return;
         case 1:
-            get_message_10__20TWindowSubStatusDispFPv(0xEB);
+            get_message_10__20TWindowSubStatusDispFl(0xEB);
             ((s32 (*)())reset__6TLobbyFi)();
             break;
         }
@@ -62,7 +62,7 @@ void handle_trade_received_items(S_802D2BC0 *arg0) {
     if ((s32)TLobby__trade_proposal_state == 8 && arg0 != 0) {
         p = arg0->e;
         for (i = 0; i < arg0->count; i++, p++) {
-            init_owner__5TItemFPvUs(p, local_client_id);
+            init_owner__5TItemFUs(p, local_client_id);
         }
         TLobby__trade_proposal_state = 9;
     }
@@ -167,11 +167,11 @@ extern s32 local_client_id;
 
 s32 format_trade_out_of_range_message(s32 arg0) {
     if ((s32) local_client_id == arg0) {
-        return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xF0));
+        return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xF0));
     }
     text_builder_reset();
     refresh_player_status__6TLobbyFv(arg0);
-    ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xEF));
+    ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xEF));
     text_builder_append();
     return get_shared_text_buffer();
 }
@@ -186,11 +186,11 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         return 0;
     case 1:
         if (arg0 == (s32) local_client_id) {
-            return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xF4));
+            return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xF4));
         }
         text_builder_reset();
         refresh_player_status__6TLobbyFv(arg0);
-        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xEA));
+        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xEA));
         text_builder_append();
         return get_shared_text_buffer();
     case 2:
@@ -200,29 +200,29 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         }
         text_builder_reset();
         if (arg0 == (s32) local_client_id) {
-            ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xF3));
+            ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xF3));
             text_builder_append();
         } else {
             refresh_player_status__6TLobbyFv(arg0);
-            ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xE8));
+            ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xE8));
             text_builder_append();
         }
         ((VObj_802D2E28_0x30_802D2B64 *)temp_r3)->vma();
         text_builder_append();
-        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xE9));
+        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xE9));
         text_builder_append();
         return get_shared_text_buffer();
     case 3:
         if (arg0 == (s32) local_client_id) {
-            return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xF2));
+            return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xF2));
         }
         text_builder_reset();
         refresh_player_status__6TLobbyFv(arg0);
-        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xE7));
+        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xE7));
         text_builder_append();
         return get_shared_text_buffer();
     case 4:
-        return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFPv)((s32)(0xEE));
+        return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xEE));
     default:
         return 0;
     }
@@ -304,7 +304,7 @@ s32 prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 s32 build_6xA6_modify_trade_proposal(void *);
 
 char send_modify_trade_proposal__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2);
-u8 *get_quest_id__12TQuestListVMFPv(u32);
+u8 *get_quest_id__12TQuestListVMFv(u32);
 u32 get_player_by_client_id(void *);
 s32 close_request_window__19TWindowTradeRequestFv();
 s32 TLobby__sub_8024AAA0(s32, s32);
@@ -330,15 +330,15 @@ s32 build_6xA6_modify_trade_proposal(void *);
 
 void cancel_trade_for_member_out_of_range(s32 arg0);
 
-s32 copy_to_item_data__5TItemFPvPv(void *, void *);
+s32 copy_to_item_data__5TItemFPv(void *, void *);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
-s32 init_item_data__10TObjPlayerFPvi(void *, int);
-s32 set_stack_count__24TShopEquipmentListWindowFPvc(void *, u8);
+s32 init_item_data__10TObjPlayerFl(void *, int);
+s32 set_stack_count__24TShopEquipmentListWindowFSc(void *, u8);
 Ent_802D3134 *get_trade_window_state(s32);
 
 void build_trade_item_list__6TLobbyFPv(Trade_802D3134 *arg0);
 s32 get_shared_text_buffer();
-s32 get_message_10__20TWindowSubStatusDispFPv(s32);
+s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 refresh_player_status__6TLobbyFv(s32);
 s32 text_builder_append();
 s32 text_builder_reset();
@@ -422,12 +422,12 @@ void build_trade_item_list__6TLobbyFPv(Trade_802D3134 *arg0) {
             id = e->id;
             if (n > 0) {
                 if (id == 0xFFFFFF01) {
-                    init_item_data__10TObjPlayerFPvi(&item, n);
+                    init_item_data__10TObjPlayerFl(&item, n);
                     copy_item_data__6TLobbyFPvPv(&arg0->items[arg0->count++], &item);
                 } else if ((p = ((void *(*)(u32))find_item_by_id)(id)) != NULL) {
-                    copy_to_item_data__5TItemFPvPv(p, &item);
+                    copy_to_item_data__5TItemFPv(p, &item);
                     item.d = -1;
-                    set_stack_count__24TShopEquipmentListWindowFPvc(&item, n);
+                    set_stack_count__24TShopEquipmentListWindowFSc(&item, n);
                     copy_item_data__6TLobbyFPvPv(&arg0->items[arg0->count++], &item);
                 }
             }
@@ -466,7 +466,7 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
     u8 *temp_r3_2;
     build_6xA6_modify_trade_proposal((void *) (&packet.header));
     temp_r3 = get_player_by_client_id((void *) (local_client_id));
-    if ((temp_r3 != 0U) && (temp_r3_2 = get_quest_id__12TQuestListVMFPv(temp_r3), ((temp_r3_2 == NULL) == 0))) {
+    if ((temp_r3 != 0U) && (temp_r3_2 = get_quest_id__12TQuestListVMFv(temp_r3), ((temp_r3_2 == NULL) == 0))) {
         if ((s32) (*(u8 *)&TLobby__trade_partner_client_id) != 4) {
             close_request_window__19TWindowTradeRequestFv();
             if ((s8) (*(u8 *)&TLobby__trade_partner_client_id) == arg0) {
@@ -514,7 +514,7 @@ void handle_trade_partner_cancel(void *arg0) {
     case 4:
         text_builder_reset();
         refresh_player_status__6TLobbyFv(TLobby__trade_partner_client_id);
-        get_message_10__20TWindowSubStatusDispFPv(0xED);
+        get_message_10__20TWindowSubStatusDispFl(0xED);
         text_builder_append();
         reset__6TLobbyFi(get_shared_text_buffer());
         break;
@@ -561,7 +561,7 @@ struct O_802D377C { u8 pad0[2]; u16 f2; u8 pad4; u8 state; u8 pad6[6]; s32 fC; }
 
 extern "C" {
 
-s32 get_message_10__20TWindowSubStatusDispFPv(s32);
+s32 get_message_10__20TWindowSubStatusDispFl(s32);
 
 s32 text_builder_append();
 s32 text_builder_reset();
@@ -591,7 +591,7 @@ extern u8 TLobby__trade_window_state[];
 extern u32 TLobby__trade_main_window;
 void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0);
 
-s32 get_message_10__20TWindowSubStatusDispFPv(s32);
+s32 get_message_10__20TWindowSubStatusDispFl(s32);
 
 s32 text_builder_append();
 s32 text_builder_reset();
@@ -717,7 +717,7 @@ void update_status_message__6TLobbyFPv(O_802D368C *self) {
     case 0:
         text_builder_reset();
         ((s32 (*)(int))refresh_player_status__6TLobbyFv)(TLobby__trade_partner_client_id);
-        get_message_10__20TWindowSubStatusDispFPv(0xF1);
+        get_message_10__20TWindowSubStatusDispFl(0xF1);
         text_builder_append();
         ((s32 (*)())get_shared_text_buffer)();
         ((s32 (*)())reset__6TLobbyFi)();
@@ -740,7 +740,7 @@ void handle_trade_request_reply(void *arg0) {
     case 3:
         text_builder_reset();
         ((s32 (*)(int))refresh_player_status__6TLobbyFv)(TLobby__trade_partner_client_id);
-        get_message_10__20TWindowSubStatusDispFPv(0xD8);
+        get_message_10__20TWindowSubStatusDispFl(0xD8);
         text_builder_append();
         ((s32 (*)())get_shared_text_buffer)();
         ((s32 (*)())reset__6TLobbyFi)();
@@ -771,6 +771,7 @@ void handle_state_init__6TLobbyFPv(O_802D377C *self) {
 #undef TLobby__trade_proposal_state
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Half_802D38B4 { u8 data[0x1F0]; };
 
@@ -779,9 +780,7 @@ extern "C" {
 s32 is_trade_range_bit_set(s32);
 #define TLobby__trade_partner_client_id (*(s8 *)&TLobby__trade_partner_client_id)
 extern u8 TLobby__trade_proposal_state;
-void update_trade_partner__6TLobbyFv(void);
-void update_both_halves__6TLobbyFPv(void *);
-void close_trade_request__6TLobbyFv(void);
+void update_both_halves__6TLobbyFv(void *);
 #define TLobby__trade_window_state ((Half_802D38B4 *)TLobby__trade_window_state)
 
 extern u8 TLobby__trade_proposal_state;
@@ -790,20 +789,16 @@ extern s32 trade_proposal_delay;
 #define TLobby__data_805D6894 (*(s32 *)&TLobby__data_805D6894)
 #define TLobby__trade_main_window (*(s32 *)&TLobby__trade_main_window)
 #define trade_message_controller (*(s32 *)&trade_message_controller)
-void reset_trade_state__6TLobbyFv(void);
 }
 
 extern "C" {
-
-void close_trade_request__6TLobbyFv(void);
-void update_battle_mode__6TLobbyFv(void);
 
 s32 is_trade_range_bit_set(s32);
 
 extern s32 local_client_id;
 extern u8 TLobby__trade_proposal_state;
 
-void update_battle_mode__6TLobbyFv(void) {
+void TLobby::update_battle_mode() {
     if ((s8) TLobby__trade_proposal_state != 0) {
         if (((u32 (*)(s32))get_player_by_client_id)(local_client_id) == 0U) {
             ((s32 (*)())cancel_trade__6TLobbyFv)();
@@ -817,7 +812,7 @@ void update_battle_mode__6TLobbyFv(void) {
 
     extern u16 trade_protocol_flags;
 
-void update_trade_partner__6TLobbyFv(void) {
+void TLobby::update_trade_partner() {
     if ((s8) TLobby__trade_proposal_state == 0) {
         return;
     }
@@ -833,8 +828,8 @@ void update_trade_partner__6TLobbyFv(void) {
     }
 }
 
-void close_trade_request__6TLobbyFv(void) { trade_protocol_flags = 0; close_request_window__19TWindowTradeRequestFv(); }
-void reset_trade_state__6TLobbyFv(void) {
+void TLobby::close_trade_request() { trade_protocol_flags = 0; close_request_window__19TWindowTradeRequestFv(); }
+void TLobby::reset_trade_state() {
     s32 i;
     TLobby__trade_partner_client_id = 4;
     TLobby__trade_proposal_state = 0;
@@ -844,9 +839,9 @@ void reset_trade_state__6TLobbyFv(void) {
     TLobby__trade_main_window = 0;
     trade_message_controller = 0;
     for (i = 0; i < 2; i++) {
-        update_both_halves__6TLobbyFPv(&TLobby__trade_window_state[i]);
+        update_both_halves__6TLobbyFv(&TLobby__trade_window_state[i]);
     }
-    close_trade_request__6TLobbyFv();
+    TLobby::close_trade_request();
 }
 
 }

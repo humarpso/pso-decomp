@@ -16,11 +16,11 @@ extern "C" {
 s32 obj_getField1c(void *);
 s32 TShopGenerator__sub_80222DAC(int);
 u16 TShopWindowBase__sub_8022397C(u8 *arg0);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
 bool TShopWindowBase__sub_802239EC(u8 *arg0);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
 bool TShopWindowBase__sub_80223A48(u8 *arg0);
@@ -45,8 +45,6 @@ struct VObj_80223AA4_80223938 : Base_80223AA4_80223938 {
 void TShopWindowBase__vt9(void);
 void *__ct__15TShopWindowBaseFv(void *arg0);
 void draw_if_ready__15TShopWindowBaseFPv(void *arg0);
-s32 get_child_field1c__15TShopWindowBaseFPv(void *arg0);
-f32 get_scale__15TShopWindowBaseFv(void);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_instance__11TCameraCtrlFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -57,7 +55,7 @@ void TShopWindowBase__vt9(void) {  }
 extern f32 lbl_805DC728;
 extern f32 lbl_805DC72C;
 
-f32 get_scale__15TShopWindowBaseFv(void) {
+f32 TShopWindowBase::get_scale() {
     if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && (get_instance__11TCameraCtrlFv() > 2)) {
         return lbl_805DC728;
     }
@@ -73,8 +71,8 @@ u16 TShopWindowBase__sub_8022397C(u8 *arg0) {
     return 0U;
 }
 
-s32 get_child_field1c__15TShopWindowBaseFPv(void *arg0) {
-    void *temp_r3 = *(void **)((s8 *)arg0 + 0x24);
+s32 TShopWindowBase::get_child_field1c() {
+    void *temp_r3 = *(void **)((s8 *)this + 0x24);
     if (temp_r3 != NULL) {
         return obj_getField1c(temp_r3);
     }
@@ -88,7 +86,7 @@ bool TShopWindowBase__sub_802239EC(u8 *arg0) {
     if (*(s32 *)((s8 *)((u8 *)&controller_input_state.value + (get_map_id__13TRaderMapCoreFPv((int) (*(s32 *)((s8 *)arg0 + 0x24))) * 0x50)) + 0x28) & 2) {
         return 1;
     }
-    return test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0;
+    return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0;
 }
 
 typedef char RecoveredGlobal_80223A48_lbl_8050E208_size[sizeof(RecoveredGlobal_80223A48_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -96,7 +94,7 @@ bool TShopWindowBase__sub_80223A48(u8 *arg0) {
     if (*(s32 *)((s8 *)((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + (get_map_id__13TRaderMapCoreFPv((int) (*(s32 *)((s8 *)arg0 + 0x24))) * 0x50)) + 0x28) & 4) {
         return 1;
     }
-    return test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (4)) != 0;
+    return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (4)) != 0;
 }
 
 void draw_if_ready__15TShopWindowBaseFPv(void *arg0) {

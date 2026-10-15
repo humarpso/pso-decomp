@@ -165,9 +165,9 @@ u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(s32);
 void *__ct__7TEffectFv(void *);
 s32 init_collision_body_parts(u32, void *, s32);
-u32 construct_collider_proxy__10TObjPlayerFPv(u32, void *);
+u32 construct_collider_proxy__10TObjPlayerFv(u32, void *);
 u32 __nw__7TObjectFUl(s32);
-s16 get_level_tier__10TObjPlayerFi(s16);
+s16 get_level_tier__10TObjPlayerFl(s16);
 extern const f32 lbl_805DC7B4;
 extern const f32 lbl_805DC7B8;
 extern const f32 lbl_805DC7BC;
@@ -180,9 +180,9 @@ u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(s32);
 void *__ct__7TEffectFv(void *);
 s32 init_collision_body_parts(u32, void *, s32);
-u32 construct_collider_proxy__10TObjPlayerFPv(u32, void *);
+u32 construct_collider_proxy__10TObjPlayerFv(u32, void *);
 u32 __nw__7TObjectFUl(s32);
-s16 get_level_tier__10TObjPlayerFi(s16);
+s16 get_level_tier__10TObjPlayerFl(s16);
 extern const f32 lbl_805DC7B4;
 extern const f32 lbl_805DC7B8;
 extern const f32 lbl_805DC7BC;
@@ -216,7 +216,7 @@ u8 *init_technique_effect_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg4) {
     } else {
         *(s16 *)((s8 *)arg0 + 0x78) = arg4;
     }
-    *(s16 *)((s8 *)arg0 + 0x7A) = get_level_tier__10TObjPlayerFi(*(s16 *)((s8 *)arg0 + 0x78));
+    *(s16 *)((s8 *)arg0 + 0x7A) = get_level_tier__10TObjPlayerFl(*(s16 *)((s8 *)arg0 + 0x78));
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DC7BC;
     *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DC7B8;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DC7B8;
@@ -240,7 +240,7 @@ u8 *init_technique_effect_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg4) {
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = construct_collider_proxy__10TObjPlayerFPv(var_r0, arg0);
+        var_r0 = construct_collider_proxy__10TObjPlayerFv(var_r0, arg0);
     }
     *(u32 *)((s8 *)arg0 + 0xE8) = var_r0;
     if (*(u32 *)((s8 *)arg0 + 0xE8) != 0U) {
@@ -269,7 +269,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     } else {
         *(s16 *)((s8 *)arg0 + 0x78) = arg4;
     }
-    *(s16 *)((s8 *)arg0 + 0x7A) = get_level_tier__10TObjPlayerFi(*(s16 *)((s8 *)arg0 + 0x78));
+    *(s16 *)((s8 *)arg0 + 0x7A) = get_level_tier__10TObjPlayerFl(*(s16 *)((s8 *)arg0 + 0x78));
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DC7BC;
     *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DC7B8;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DC7B8;
@@ -293,7 +293,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = construct_collider_proxy__10TObjPlayerFPv(var_r0, arg0);
+        var_r0 = construct_collider_proxy__10TObjPlayerFv(var_r0, arg0);
     }
     *(u32 *)((s8 *)arg0 + 0xE8) = var_r0;
     if (*(u32 *)((s8 *)arg0 + 0xE8) != 0U) {

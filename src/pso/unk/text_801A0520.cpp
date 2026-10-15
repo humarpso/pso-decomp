@@ -30,7 +30,7 @@ s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 Node_801A0578 *get_bml_model(void *, s32);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 find_entry_by_name__12TObjDoorJungFPvPv(s32, void *);
 extern char lbl_80446718[];
 extern char lbl_80446728[];
@@ -62,7 +62,7 @@ void free_warp_jung_beam_resources(void) {
 void load_warp_beam_resources(void) {
     Node_801A0578 *root;
     void *p;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 5, &jungle_warp_beam_resource_descriptor, 0, 0, 0);
     }

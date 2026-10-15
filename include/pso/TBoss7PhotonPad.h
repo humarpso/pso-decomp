@@ -6,6 +6,8 @@
 class TBoss7PhotonPad : public TObject {
 public:
     virtual ~TBoss7PhotonPad();
+public:
+    static void render();
 };
 
 #endif

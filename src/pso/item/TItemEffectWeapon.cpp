@@ -12,7 +12,7 @@ void reset_player_transform();
 void draw_untextured_trail_strip(TItemEffectWeapon::TrailVertex*, s32);
 void TObjPlayer__sub_803DF768(s32);
 void set_flag_9__7TObjectFv(void*);
-void* alloc_buffer__11TOBoss4RockFPv(size_t);
+void* mem_alloc(size_t);
 extern u8 main_task[];
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
@@ -23,9 +23,9 @@ void TItemEffectWeapon__sub_80363410(void);
 void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param);
 void *__dt__17TItemEffectWeaponFv(void *self, s32 flag);
 
-void decrement_timer__17TItemEffectWeaponFPv(void *, s32);
+void decrement_timer__17TItemEffectWeaponFv(void *, s32);
 void *__dt__15TItemHeapObjectFv(void *, s32);
-int free__11TOBoss4RockFUi(void*);
+int mem_free(void*);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void  __dl__15TItemHeapObjectFPv(void *);
 void  __ct__15TItemHeapObjectFP7TObject(void *);
@@ -58,12 +58,12 @@ void TItemEffectWeapon::step() {
     offset = 0;
     while (i != vertex_count / 2) {
         segment = (TrailVertex*)((u8*)vertices + offset);
-        decrement_timer__17TItemEffectWeaponFPv(&segment[0].color, 0x3F);
+        decrement_timer__17TItemEffectWeaponFv(&segment[0].color, 0x3F);
         if ((segment[0].color & 0xFF000000) == 0) {
             vertex_count = i << 1;
             return;
         }
-        decrement_timer__17TItemEffectWeaponFPv((u8*)vertices + offset + 0x1C, 0x3F);
+        decrement_timer__17TItemEffectWeaponFv((u8*)vertices + offset + 0x1C, 0x3F);
         i++;
         offset += 0x20;
     }
@@ -168,15 +168,15 @@ TItemEffectWeapon::TrailVertex* TItemEffectWeapon::allocate_trail_buffer() {
 }
 
 void TItemEffectWeapon::free_static_effects() {
-    free__11TOBoss4RockFUi(weapon_trail_slot_bitmap);
-    free__11TOBoss4RockFUi(item_weapon_trail_vertex_buffer);
+    mem_free(weapon_trail_slot_bitmap);
+    mem_free(item_weapon_trail_vertex_buffer);
     weapon_trail_slot_bitmap = NULL;
     item_weapon_trail_vertex_buffer = NULL;
 }
 
 void TItemEffectWeapon::initialize_static_effects() {
-    item_weapon_trail_vertex_buffer = (TrailVertex*)alloc_buffer__11TOBoss4RockFPv(16 * 32 * sizeof(TrailVertex));
-    weapon_trail_slot_bitmap = (s32*)alloc_buffer__11TOBoss4RockFPv(16 * sizeof(s32));
+    item_weapon_trail_vertex_buffer = (TrailVertex*)mem_alloc(16 * 32 * sizeof(TrailVertex));
+    weapon_trail_slot_bitmap = (s32*)mem_alloc(16 * sizeof(s32));
     for (s32 i = 0; i < 16; i++) {
         weapon_trail_slot_bitmap[i] = 0;
     }

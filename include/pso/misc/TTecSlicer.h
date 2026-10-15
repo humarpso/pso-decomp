@@ -35,6 +35,17 @@ struct TTecSlicer {
     f32 argb[4];
     s32 spinVelocity;
     s32 useColorOverride;
+    s32 get_field_110();
+    s16 get_remain_count();
+    void destroy_if_set();
+    static s32 dt(s32 arg0, s16 arg1);
+    void *dt(s16 arg1);
+    void reset_fields_1e();
+    void deliver_target_hit();
+    void advance_position();
+    static void init_launch_angles(s32 *arg0, s32 *arg1, s32 arg2);
+    void update();
+    void render();
 };
 typedef char SlicerSize[(sizeof(TTecSlicer)==0x140)?1:-1];
 typedef char SlicerPosition[(offsetof(TTecSlicer,position)==0x38)?1:-1];

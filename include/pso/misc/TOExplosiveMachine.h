@@ -17,6 +17,12 @@ struct TOExplosiveMachine
     u32 m_a0;
     u32 m_a4;
     u32 m_a8;
+    void explode();
+    static void destroy_static_lobby();
+    static void load_shared_resource();
+    s32 check_trigger();
+    s32 update_trigger();
+    void update();
 };
 
 #endif

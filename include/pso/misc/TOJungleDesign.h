@@ -16,6 +16,8 @@ struct TOJungleDesign
     u8 _pad68[0x44];
     u32 m_ac;
     u32 m_b0;
+    void init_design_variant();
+    void render();
 };
 
 #endif

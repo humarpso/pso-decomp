@@ -31,6 +31,14 @@ struct TOCtrlDubchik
     void* m_390;
     u8 _pad394[0x8];
     u32 m_39c;
+    void complete_and_destroy();
+    void decay_timer_and_clear_flag();
+    void decay_timer_and_finish();
+    void run_task();
+    static void *create(void *arg0);
+    static void destroy_instance();
+    static void load_shared_resource();
+    static s32 create_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 };
 
 #endif

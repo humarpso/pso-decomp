@@ -16,6 +16,10 @@ struct TItemObject
     s32 encoded_value;
     u8 m_100;
     u8 m_101;
+    void copy_and_register_item_data();
+    int set_flag_1024();
+    u8 *create();
+    static s32 call_dispatch(s32 arg0);
 };
 
 typedef char ItemObjectF0Offset[(offsetof(TItemObject, m_f0) == 0xF0) ? 1 : -1];

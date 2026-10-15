@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjWarpBase.h"
 
 struct Base_8019DAC0 { s32 f0; u8 pad4[0x14]; };
 
@@ -21,7 +22,7 @@ int check_flag_100__10TObjPlayerFPv(void *);
 f32 xz_distance_squared(void *, void *);
 u32 get_player_by_client_id(u16);
 u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0);
-void construct_collider_proxy__10TObjPlayerFPv(Warp_8019DAC0 *, void *, void *);
+void construct_collider_proxy__10TObjPlayerFv(Warp_8019DAC0 *, void *, void *);
 void *construct_field_collider__9TTecLukerFPviii(void *, void *, Warp_8019DAC0 *, s32);
 void *__nw__7TObjectFUl(u32);
 extern s32 __vt__12TObjWarpBase[];
@@ -42,15 +43,14 @@ struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
 
 void *TObjWarpBase__vt0(void *arg0, s16 arg1);
 void TObjWarpBase__vt12(void *arg0);
-void free_globals__12TObjWarpBaseFv(void);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
 u32 get_player_by_client_id(u16);
 s32 TWindow__close(u32);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 s32 fn_8019DD24(s32, s32);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 void TObjWarpBase__vt12(void *arg0) {
     u32 temp_r3;
@@ -88,7 +88,7 @@ void *TObjWarpBase__vt0(void *arg0, s16 arg1) {
         struct VObj_8019DA54_8019D964 *o = (struct VObj_8019DA54_8019D964 *)arg0;
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBase;
         o->m12();
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -101,7 +101,7 @@ extern u32 forest_warp_texture_list;
 
 Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
     void *o;
-    construct_collider_proxy__10TObjPlayerFPv(self, parent, set);
+    construct_collider_proxy__10TObjPlayerFv(self, parent, set);
     *(void **)((u8 *)self + 0x18) = ((u8 *)&__vt__12TObjWarpBase);
     self->f0 = TObjWarpBase__name;
     self->m5(set);
@@ -116,10 +116,10 @@ Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
     return self;
 }
 
-void free_globals__12TObjWarpBaseFv(void) {
+void TObjWarpBase::free_globals() {
     if ((u32) forest_warp_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)forest_warp_texture_list);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(forest_warp_texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(forest_warp_texture_list);
         forest_warp_texture_list = 0U;
     }
     TLobby__sub_8001FE7C(forest_warp_bml_resource, 1);

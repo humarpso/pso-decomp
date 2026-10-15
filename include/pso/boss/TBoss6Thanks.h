@@ -18,5 +18,16 @@ struct TBoss6Thanks {
     void *motion1;
     void run_task();
     void render();
+    static u8 check_ship_door();
+    static int dispatch_darkfalz_phase();
+    void update_particle_emitters();
+    void destroy_effects();
+    static int is_player_near(void *arg0);
+    void update_fade_out();
+    void advance_thanks_state();
+    void mark_done();
+    static void *create();
+    s32 is_ship_door_ready();
+    static s32 try_dispatch_darkfalz_phase();
 };
 #endif

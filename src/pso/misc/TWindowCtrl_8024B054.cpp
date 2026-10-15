@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TWindowCtrl.h"
 struct Stack_8024B054 {
     s32 sp8;
     s32 spC;
@@ -16,15 +17,15 @@ extern "C" {
 struct Win_8024B098 { virtual s32 m0(); };
 typedef s32 (Win_8024B098::*Pmf_8024B098)();
 s32 TWindowCtrl__sub_8024B098(void *, Pmf_8024B098);
-Win_8024B098 *get_window__11TWindowCtrlFi(void *self);
+Win_8024B098 *get_window__11TWindowCtrlFl(void *self);
 extern RecoveredGlobal_8024B054_lbl_804CE9C8 window_ctrl_is_visible_callback_entry;
-void is_slot_visible__11TWindowCtrlFi(s32 arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8024B054_lbl_804CE9C8_size[sizeof(RecoveredGlobal_8024B054_lbl_804CE9C8) == 0xC ? 1 : -1];
-void is_slot_visible__11TWindowCtrlFi(s32 arg0) {
+void TWindowCtrl::is_slot_visible() {
+    s32 arg0 = (s32)this;
     typedef char sp8_offset[(offsetof(Stack_8024B054, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8024B054, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024B054, sp10) == 0x8) ? 1 : -1];
@@ -36,7 +37,7 @@ void is_slot_visible__11TWindowCtrlFi(s32 arg0) {
 }
 
 s32 TWindowCtrl__sub_8024B098(void *self, Pmf_8024B098 pmf) {
-    Win_8024B098 *w = get_window__11TWindowCtrlFi(self);
+    Win_8024B098 *w = get_window__11TWindowCtrlFl(self);
     if (w == NULL) {
         return 0;
     }

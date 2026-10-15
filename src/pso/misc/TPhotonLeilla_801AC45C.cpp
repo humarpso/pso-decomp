@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TPhotonLeilla.h"
 struct Stack_801AC574 {
     s32 sp8;
     f32 spC;
@@ -32,7 +33,7 @@ u8 * find_entity_by_id(u16);
 u8 * construct_photon_magic_square_normal(void *, s32, s32, s32, s32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
 s32 advance_animation_playback(void *);
 s32 queue_photon_blast_hit(int, int, int, f32);
 s32 begin_photon_summon_camera(void *, int);
@@ -46,10 +47,9 @@ extern const f32 lbl_805DC1C8;
 extern const f32 lbl_805DC1CC;
 extern const f32 lbl_805DC1D0;
 extern const f32 lbl_805DC1D4;
-void run_task__13TPhotonLeillaFv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
-s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
@@ -58,7 +58,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 translate_matrix(int, f32, f32, f32);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 s32 set_global_flag__10TObjPlayerFv();
@@ -72,16 +72,16 @@ extern void *leilla_photon_buffer_pair;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__13TPhotonLeillaFv(Self_801AC45C *self);
 }
 
 extern "C" {
 
-void render__13TPhotonLeillaFv(Self_801AC45C *self) {
+void TPhotonLeilla::render() {
+    Self_801AC45C *self = (Self_801AC45C *)this;
     if (self->started != 0) {
         scroll_strip_uvs(leilla_photon_buffer_pair, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(self->f24);
+        set_global_param__8TObjFishFl(self->f24);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
@@ -94,7 +94,7 @@ void render__13TPhotonLeillaFv(Self_801AC45C *self) {
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
         set_photon_blast_joint_callback__10TObjPlayerFPv(self);
-        draw__16TObjEneRe7BeruraFPv(self);
+        draw__16TObjEneRe7BeruraFv(self);
         clear_global_state__10TObjPlayerFv();
         clear_render_context__10TObjPlayerFv(self);
         chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -106,7 +106,8 @@ void render__13TPhotonLeillaFv(Self_801AC45C *self) {
     }
 }
 
-void run_task__13TPhotonLeillaFv(u8 *arg0) {
+void TPhotonLeilla::run_task() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_801AC574, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801AC574, spC) == 0x4) ? 1 : -1];
     Stack_801AC574 stack;
@@ -133,7 +134,7 @@ void run_task__13TPhotonLeillaFv(u8 *arg0) {
     if ((lbl_805DC1C8 == (f32) *(s32 *)((s8 *)arg0 + 0x1AC)) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1)) {
         begin_photon_summon_camera((void *) (arg0), (int) (2));
         *(s32 *)((s8 *)arg0 + 0x1AC) = 0;
-        set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
+        set_field_b8__14TObjEnePanarmsFs((void *) (arg0), (int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (4));
     }
     *(s16 *)((s8 *)arg0 + 0x190) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);

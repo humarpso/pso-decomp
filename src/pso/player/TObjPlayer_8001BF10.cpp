@@ -1,15 +1,14 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void clear_id__10TObjPlayerFPv(void* p);
-void* init_forward__10TObjPlayerFPv(void* p);
 void TAdRicoRingCtrl__sub_8001BED0(void* p, f32 v);
-void clear_flags__11TAdRicoRingFPvUi(void* p, u32 v);
-void set_flags__10TObjPlayerFPvUi(void* p, u32 v);
+void clear_flags__11TAdRicoRingFUl(void* p, u32 v);
+void set_flags__10TObjPlayerFUl(void* p, u32 v);
 
-void* init_forward__10TObjPlayerFPv(void* p) { clear_id__10TObjPlayerFPv((void*)(p)); return p; }
+void*TObjPlayer::init_forward() { clear_id(); return this; }
 
-void clear_id__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; }
+void TObjPlayer::clear_id() { *(s32*)((char*)this + 0x0) = 0; }
 
 }

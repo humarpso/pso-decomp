@@ -35,7 +35,7 @@ s32 add_actor_tp(void *, s32);
 s16 obj_getS16_32E(void *);
 extern const f32 lbl_805DAD20;
 void sorcerers_cane_update(u8 *arg0);
-u8 * init_state__10TObjPlayerFPv(void *, s32, s32);
+u8 * init_state__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state__10TObjPlayerFi(s32 arg0);
@@ -56,7 +56,7 @@ u8 *create_state__10TObjPlayerFi(s32 arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x204));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_state__10TObjPlayerFPv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(init_state__10TObjPlayerFv(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }

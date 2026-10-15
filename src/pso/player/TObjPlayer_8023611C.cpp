@@ -11,6 +11,7 @@ struct RecoveredGlobal_80236290_lbl_80516150 {
 };
 
 #include "pso/technique/TechniqueContact.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Vec_80236154 { f32 x, y, z; };
 
@@ -92,16 +93,11 @@ struct Proxy_80236A20 { u8 pad[0xA4]; Sub_80236A20 *a4; };
 struct Self_80236A20 { u8 pad[0x128]; Proxy_80236A20 *proxy; f32 f12c; };
 
 extern "C" {
-void find_area_contact__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-void collect_body_contacts_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-void find_support_technique_contact_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-void gather_contacts_for_self__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
 s32 get_player_by_client_id(int);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC89C;
-s32 *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 void resetTechniqueContactQuery();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -133,10 +129,9 @@ u32 find_actor_body_contact(void *, int, f32);
 void resetTechniqueContactQuery();
 u16 obj_getField1c(void *);
 s32 get_lobby_flag__6TLobbyFv();
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 u8 *find_entity_by_id(u16);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w2, void *arg3);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC890;
 extern const f32 lbl_805DC898;
@@ -148,9 +143,8 @@ u16 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv();
 s32 get_lobby_flag__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-void* get_pos_ptr__10TObjPlayerFPv(void* p);
 f32 vector_length(void *);
-void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+void copy_xyz__10TObjPlayerFPv(void *, void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 u8 *query_technique_enemy_contacts(void *self, s32 arg);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
@@ -165,20 +159,17 @@ void resetTechniqueContactQuery();
 u16 obj_getField1c(void *);
 s32 get_lobby_flag__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-void* get_pos_ptr__10TObjPlayerFPv(void* p);
 f32 vector_length(void *);
-void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+void copy_xyz__10TObjPlayerFPv(void *, void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 u8 *query_technique_player_contacts(void *self, s32 arg);
 }
 
 extern "C" {
 
-void* get_pos_ptr__10TObjPlayerFPv(void* p);
-s32 is_valid_and_active__10TObjPlayerFUi(u32 arg0);
 s32 obj_is_hit_receivable();
 
-s32 is_valid_and_active__10TObjPlayerFUi(u32 arg0) {
+s32 TObjPlayer::is_valid_and_active(u32 arg0) {
     if (arg0 == 0U) {
         return 0;
     }
@@ -225,7 +216,8 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
     return (s32)&technique_contact_query_results;
 }
 
-s32 *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3) {
+s32 *TObjPlayer::gather_player_contacts(u32 arg1, s32 _w2, s32 _w3) {
+    s32 arg0 = (s32)this;
     Stack_80236290 stack;
     s32 temp_r0;
     s32 temp_r3;
@@ -285,7 +277,7 @@ s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
     return (s32)&technique_contact_query_results;
 }
 
-s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w2, void *arg3) {
+s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
     Vec_802364D8 pos;
     PD_802364D8 *e;
     PD_802364D8 *pd;
@@ -294,7 +286,7 @@ s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w
     s32 ok;
     Contact_802364D8 *c;
     s32 j;
-    VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
+    VecCopy__FP3VecPC3Vec(&pos, (u8 *)this + 0x20);
     resetTechniqueContactQuery();
     if ((u32)target == 0) {
         return (s32)&technique_contact_query_results;
@@ -307,7 +299,7 @@ s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w
             if (pd != 0 && obj_getField1c(pd) != obj_getField1c(arg3)) {
                 ok = 1;
                 if (obj_getField1c(pd) < 4) {
-                    if (get_field_3e4__10TObjPlayerFPv(arg3) == get_field_3e4__10TObjPlayerFPv(pd)) {
+                    if (get_field_3e4__10TObjPlayerFv(arg3) == get_field_3e4__10TObjPlayerFv(pd)) {
                         ok = 1;
                     } else {
                         ok = 0;
@@ -345,20 +337,24 @@ s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w
     return (s32)&technique_contact_query_results;
 }
 
-void find_area_contact__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
+void TObjPlayer::find_area_contact(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     find_area_technique_contact((void *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)arg0 + 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
-void collect_body_contacts_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
-    collect_body_contacts__10TObjPlayerFPviPvPv((void *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)arg0 + 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
+void TObjPlayer::collect_body_contacts_for_target(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
+    collect_body_contacts((int)((int) (*(s32 *)((s8 *)arg0 + 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
-void find_support_technique_contact_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
+void TObjPlayer::find_support_technique_contact_for_target(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     find_support_technique_contact((void *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)arg0 + 0xdc))), (void *)((void *) (arg0 + 0xb0)), (void *)((void *) (arg1)));
 }
 
-void gather_contacts_for_self__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
-    gather_player_contacts__10TObjPlayerFiUiii((s32)((void *) (arg0)), (u32)((int) (*(s32 *)((s8 *)arg0 + 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
+void TObjPlayer::gather_contacts_for_self(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
+    gather_player_contacts((u32)((int) (*(s32 *)((s8 *)arg0 + 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
 }
 
 u8 *query_technique_enemy_contacts(void *self, s32 arg) {
@@ -380,7 +376,7 @@ u8 *query_technique_enemy_contacts(void *self, s32 arg) {
     if (s->proxy == 0) {
         return (u8 *)&technique_contact_query_results;
     }
-    pp = (f32 *)((void *)get_pos_ptr__10TObjPlayerFPv((void*)(self)));
+    pp = (f32 *)((void *)((TObjPlayer *)self)->get_pos_ptr());
     d.x = pos.x - pp[0];
     d.y = pos.y - pp[1];
     d.z = pos.z - pp[2];
@@ -393,7 +389,7 @@ u8 *query_technique_enemy_contacts(void *self, s32 arg) {
     pos.y = lbl_805DC890 * (pos.y + pp[1]);
     pos.z = lbl_805DC890 * (pos.z + pp[2]);
     VecCopy__FP3VecPC3Vec((u8 *)s->proxy + 0x38, &pos);
-    copy_xyz__10TObjPlayerFPvPv((u8 *)s->proxy + 0x5C, (u8 *)self + 0x54);
+    copy_xyz__10TObjPlayerFPv((u8 *)s->proxy + 0x5C, (u8 *)self + 0x54);
     for (i = get_game_mode__6TLobbyFv(); i < get_lobby_flag__6TLobbyFv(); i++) {
         pd = (PD_802367D8 *)get_player_data__10TObjPlayerFi(i);
         if (pd == 0) continue;
@@ -439,7 +435,7 @@ u8 *query_technique_player_contacts(void *self, s32 arg) {
     if (s->proxy == 0) {
         return (u8 *)&technique_contact_query_results;
     }
-    pp = (f32 *)((void *)get_pos_ptr__10TObjPlayerFPv((void*)(self)));
+    pp = (f32 *)((void *)((TObjPlayer *)self)->get_pos_ptr());
     d.x = pos.x - pp[0];
     d.y = pos.y - pp[1];
     d.z = pos.z - pp[2];
@@ -452,7 +448,7 @@ u8 *query_technique_player_contacts(void *self, s32 arg) {
     pos.y = lbl_805DC890 * (pos.y + pp[1]);
     pos.z = lbl_805DC890 * (pos.z + pp[2]);
     VecCopy__FP3VecPC3Vec((u8 *)s->proxy + 0x38, &pos);
-    copy_xyz__10TObjPlayerFPvPv((u8 *)s->proxy + 0x5C, (u8 *)self + 0x54);
+    copy_xyz__10TObjPlayerFPv((u8 *)s->proxy + 0x5C, (u8 *)self + 0x54);
     if (obj_getField1c((void *)arg) < 4) {
         n = get_lobby_flag__6TLobbyFv();
         for (i = 0; i < n; i++) {
@@ -496,6 +492,6 @@ void resetTechniqueContactQuery() {
     (*(TechniqueContactList *)&technique_contact_query_results).count=0;
 }
 
-void* get_pos_ptr__10TObjPlayerFPv(void* p) { return (char*)p + 0x78; }
+void*TObjPlayer::get_pos_ptr() { return (char*)this + 0x78; }
 
 }

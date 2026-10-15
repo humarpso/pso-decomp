@@ -8,14 +8,14 @@ s32 TShopGenerator__sub_80222DAC(s32);
 s32 obj_getField1c(s32);
 void *get_player_by_client_id(s32);
 void THunterGuildSeqOffline__sub_8021E180(s32);
-void suppress_slot__11TWindowCtrlFi(u16);
-void unsuppress_slot__11TWindowCtrlFi(u16);
+void suppress_slot__11TWindowCtrlFv(u16);
+void unsuppress_slot__11TWindowCtrlFv(u16);
 s32 get_window_layout_position(int, f32);
 void init_effect_5f0__10TObjPlayerFPv(void *);
 void clear_lobby_flag__10TObjPlayerFPv(void *);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-void clear_slot_active__14TShopGeneratorFi(s32);
+void clear_slot_active__14TShopGeneratorFl(s32);
 s32 queue_destruction__7TObjectFv(void *);
 void TMedicalCenterMes__sub_80216260(void);
 
@@ -29,6 +29,7 @@ struct TMedicalCenterMesInput { u8 pad[0x20]; u8 buttons[0x30]; };
 extern "C" TMedicalCenterMesInput controller_input_state[];
 
 #include "types.h"
+#include "pso/misc/TMedicalCenterSequence.h"
 
 struct Base_802163AC { char pad[0x18]; };
 struct VObj_802163AC : Base_802163AC {
@@ -154,9 +155,9 @@ struct VObj_8021658C : Base_8021658C {
 };
 
 extern "C" {
-int set_field_20__12TQuestListVMFPvi(void*, void*);
+int set_field_20__12TQuestListVMFl(void*, void*);
 u32 create_message_window__13TShopSequenceFPvii(void *, s32, s32);
-s32 get_child_field1c__15TShopWindowBaseFPv(void *);
+s32 get_child_field1c__15TShopWindowBaseFv(void *);
 s32 create_meseta_window(unsigned short);
 s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
@@ -177,27 +178,18 @@ extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalC
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 extern s32 TMedicalCenterSequence__class_name;
 u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
-void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
-void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
-void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0);
-s32 open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0);
 void TMedicalCenterSequence__vt9(u8 *arg0);
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
-void clear_window_slots__22TMedicalCenterSequenceFv(void);
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
-void clear_slot_data__22TMedicalCenterSequenceFv(void);
 s32 obj_getField1c(s32);
-int set_field_20__12TQuestListVMFPvi(void*, void*);
+int set_field_20__12TQuestListVMFl(void*, void*);
 f32 get_scale__15TShopWindowBaseFv(void *);
 void set_position_xy(s32, f32, f32);
 s32 create_yes_no_window(s32, u16, s32, s32);
 s32 get_window_layout_position(int, f32);
 void show_fee_prompt__22TMedicalCenterSequenceFv(VObj_802164A4 *self);
-int set_field_20__12TQuestListVMFPvi(void*, void*);
-void show_already_healthy__22TMedicalCenterSequenceFv(VObj_80216540 *self);
-int set_field_20__12TQuestListVMFPvi(void*, void*);
-void show_declined__22TMedicalCenterSequenceFv(VObj_8021658C *self);
+int set_field_20__12TQuestListVMFl(void*, void*);
+int set_field_20__12TQuestListVMFl(void*, void*);
 }
 
 extern "C" {
@@ -214,25 +206,25 @@ int TShopWindowBase__sub_80223A48(void *);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(u32);
 s32 close_window__13TShopSequenceFPv(void *);
-s32 get_status_flag__17TWindowSubComCardFPv(u32);
+s32 get_status_flag__17TWindowSubComCardFv(u32);
 s32 is_alive_and_ready__10TObjPlayerFi(s32);
-s32 is_visible__17TWindowSubComCardFPv(u32);
+s32 is_visible__17TWindowSubComCardFv(u32);
 s32 obj_getPtr2B0_20(s32);
 s32 queue_destruction__7TObjectFv(void *);
 int restore_player_state__13TShopSequenceFPv(void*);
 s32 send_code50_packet__10TObjPlayerFi(s32);
 s32 send_code_49_1__10TObjPlayerFi(s32);
 s32 send_field_state__10TObjPlayerFi(s32);
-int set_field_20__12TQuestListVMFPvi(void*, void*);
+int set_field_20__12TQuestListVMFl(void*, void*);
 
-void clear_window_slots__22TMedicalCenterSequenceFv(void) {
+void TMedicalCenterSequence::clear_window_slots() {
     s32 i;
     for (i = 0; i < 4; i++) {
         ((s32 *)&TMedicalCenterSequence__data_80513E90)[i] = 0;
     }
 }
 
-void clear_slot_data__22TMedicalCenterSequenceFv(void) {
+void TMedicalCenterSequence::clear_slot_data() {
     s32 i;
     for (i = 0; i < 4; i++) {
         ((s32 *)&TMedicalCenterSequence__data_80513E90)[i] = 0;
@@ -290,28 +282,28 @@ void TMedicalCenterSequence__vt9(u8 *arg0) {
         ((VObj_18_0e2b36 *)(arg0))->m10();
         return;
     case 1:
-        open_greeting_window__22TMedicalCenterSequenceFPv((u8 *)(arg0));
+        ((TMedicalCenterSequence *)arg0)->open_greeting_window();
         return;
     case 2:
-        handle_confirm__22TMedicalCenterSequenceFPv((void *)(arg0));
+        ((TMedicalCenterSequence *)arg0)->handle_confirm();
         return;
     case 6:
-        show_already_healthy__22TMedicalCenterSequenceFv((VObj_80216540 *)(arg0));
+        ((TMedicalCenterSequence *)arg0)->show_already_healthy();
         return;
     case 7:
         show_fee_prompt__22TMedicalCenterSequenceFv((VObj_802164A4 *)(arg0));
         return;
     case 3:
-        handle_window_result__22TMedicalCenterSequenceFPv((void *)(arg0));
+        ((TMedicalCenterSequence *)arg0)->handle_window_result();
         return;
     case 4:
-        exec_heal__22TMedicalCenterSequenceFPv((void *)(arg0));
+        ((TMedicalCenterSequence *)arg0)->exec_heal();
         return;
     case 5:
-        show_declined__22TMedicalCenterSequenceFv((VObj_8021658C *)(arg0));
+        ((TMedicalCenterSequence *)arg0)->show_declined();
         return;
     case 8:
-        handle_window_input__22TMedicalCenterSequenceFPv((void *)(arg0));
+        ((TMedicalCenterSequence *)arg0)->handle_window_input();
         return;
     case 10:
         ((VObj_18_0e2b36 *)(arg0))->m11();
@@ -320,87 +312,90 @@ void TMedicalCenterSequence__vt9(u8 *arg0) {
     }
 }
 
-void TMedicalCenterSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
+void TMedicalCenterSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFl((void*)(p), (void*)((void*)1)); }
 
 typedef struct Stack_80216830 Stack_80216830;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
-s32 open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0) {
+s32 TMedicalCenterSequence::open_greeting_window() {
+    u8 *arg0 = (u8 *)this;
   Stack_80216830 stack;
   stack.sp8 = lbl_805DC688;
   stack.spC = lbl_805DC68C;
   create_message_window__13TShopSequenceFPvii(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x1F, 1);
-  *((s32 *) (((s8 *) arg0) + 0x2C)) = create_meseta_window((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
-  set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(2));
+  *((s32 *) (((s8 *) arg0) + 0x2C)) = create_meseta_window((s32) get_child_field1c__15TShopWindowBaseFv(arg0));
+  set_field_20__12TQuestListVMFl((void*)(arg0), (void*)(2));
   *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 0);
 }
 
-void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0) {
-    struct VObj_80216784_802163AC *o = (struct VObj_80216784_802163AC *)arg0;
-    if ((o->m8() != 0) && ((TShopWindowBase__sub_80223A48((void *)(arg0)) != 0) || (TShopWindowBase__sub_802239EC((void *)(arg0)) != 0))) {
-        if ((get_recovery_need_flags__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x24)) != 0U) || ((is_alive_and_ready__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24)) != 0) && (are_traps_full__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x24)) == 0))) {
-            set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(7));
+void TMedicalCenterSequence::handle_confirm() {
+    struct VObj_80216784_802163AC *o = (struct VObj_80216784_802163AC *)this;
+    if ((o->m8() != 0) && ((TShopWindowBase__sub_80223A48((void *)(this)) != 0) || (TShopWindowBase__sub_802239EC((void *)(this)) != 0))) {
+        if ((get_recovery_need_flags__10TObjPlayerFPv(*(s32 *)((s8 *)this + 0x24)) != 0U) || ((is_alive_and_ready__10TObjPlayerFi(*(s32 *)((s8 *)this + 0x24)) != 0) && (are_traps_full__10TObjPlayerFPv(*(s32 *)((s8 *)this + 0x24)) == 0))) {
+            set_field_20__12TQuestListVMFl((void*)(this), (void*)(7));
             return;
         }
-        set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(6));
+        set_field_20__12TQuestListVMFl((void*)(this), (void*)(6));
     }
 }
 
-void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0) {
+void TMedicalCenterSequence::handle_window_result() {
     s32 temp_r3;
 
-    if (((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) && (is_visible__17TWindowSubComCardFPv((u32) *(u32 *)((s8 *)arg0 + 0x30)) != 0)) {
-        temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x30));
+    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (is_visible__17TWindowSubComCardFv((u32) *(u32 *)((s8 *)this + 0x30)) != 0)) {
+        temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)this + 0x30));
         if (temp_r3 == 0) {
-            TWindow__close(*(u32 *)((s8 *)arg0 + 0x30));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
-            set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(4));
+            TWindow__close(*(u32 *)((s8 *)this + 0x30));
+            *(u32 *)((s8 *)this + 0x30) = 0U;
+            set_field_20__12TQuestListVMFl((void*)(this), (void*)(4));
             return;
         }
         if (temp_r3 == 1) {
-            TWindow__close(*(u32 *)((s8 *)arg0 + 0x30));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
-            set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(5));
+            TWindow__close(*(u32 *)((s8 *)this + 0x30));
+            *(u32 *)((s8 *)this + 0x30) = 0U;
+            set_field_20__12TQuestListVMFl((void*)(this), (void*)(5));
             return;
         }
         goto block_6;
     }
 block_6:
-    if (((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) && (get_status_flag__17TWindowSubComCardFPv((u32) *(u32 *)((s8 *)arg0 + 0x30)) != 0)) {
-        TWindow__close(*(u32 *)((s8 *)arg0 + 0x30));
-        *(u32 *)((s8 *)arg0 + 0x30) = 0U;
-        set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(5));
+    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (get_status_flag__17TWindowSubComCardFv((u32) *(u32 *)((s8 *)this + 0x30)) != 0)) {
+        TWindow__close(*(u32 *)((s8 *)this + 0x30));
+        *(u32 *)((s8 *)this + 0x30) = 0U;
+        set_field_20__12TQuestListVMFl((void*)(this), (void*)(5));
     }
 }
 
-void exec_heal__22TMedicalCenterSequenceFPv(void *arg0) {
-    if (obj_getPtr2B0_20(*(s32 *)((s8 *)arg0 + 0x24)) < 0xA) {
-        ((VObj_802165D8_802163AC *)arg0)->m4(0xF, 1);
-        set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xA));
+void TMedicalCenterSequence::exec_heal() {
+    if (obj_getPtr2B0_20(*(s32 *)((s8 *)this + 0x24)) < 0xA) {
+        ((VObj_802165D8_802163AC *)this)->m4(0xF, 1);
+        set_field_20__12TQuestListVMFl((void*)(this), (void*)(0xA));
         return;
     }
     play_sound_effect(0x42D08, 0, 0, 0);
-    send_code_49_1__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
-    send_code50_packet__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
-    if (is_alive_and_ready__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24)) != 0) {
-        refill_traps__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x24));
+    send_code_49_1__10TObjPlayerFi(*(s32 *)((s8 *)this + 0x24));
+    send_code50_packet__10TObjPlayerFi(*(s32 *)((s8 *)this + 0x24));
+    if (is_alive_and_ready__10TObjPlayerFi(*(s32 *)((s8 *)this + 0x24)) != 0) {
+        refill_traps__10TObjPlayerFPv(*(s32 *)((s8 *)this + 0x24));
     }
-    send_field_state__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
-    try_spend_actor_meseta(*(s32 *)((s8 *)arg0 + 0x24), 0xA);
-    ((VObj_802165D8_802163AC *)arg0)->m4(0x22, 1);
-    set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xA));
+    send_field_state__10TObjPlayerFi(*(s32 *)((s8 *)this + 0x24));
+    try_spend_actor_meseta(*(s32 *)((s8 *)this + 0x24), 0xA);
+    ((VObj_802165D8_802163AC *)this)->m4(0x22, 1);
+    set_field_20__12TQuestListVMFl((void*)(this), (void*)(0xA));
 }
 
-void show_declined__22TMedicalCenterSequenceFv(VObj_8021658C *self) {
+void TMedicalCenterSequence::show_declined() {
+    VObj_8021658C *self = (VObj_8021658C *)this;
     self->m4(0x24, 1);
-    set_field_20__12TQuestListVMFPvi(self, (void *)8);
+    set_field_20__12TQuestListVMFl(self, (void *)8);
 }
 
-void show_already_healthy__22TMedicalCenterSequenceFv(VObj_80216540 *self) {
+void TMedicalCenterSequence::show_already_healthy() {
+    VObj_80216540 *self = (VObj_80216540 *)this;
     self->m4(0x21, 1);
-    set_field_20__12TQuestListVMFPvi(self, (void *)8);
+    set_field_20__12TQuestListVMFl(self, (void *)8);
 }
 
 void show_fee_prompt__22TMedicalCenterSequenceFv(VObj_802164A4 *self) {
@@ -409,14 +404,14 @@ void show_fee_prompt__22TMedicalCenterSequenceFv(VObj_802164A4 *self) {
     v = obj_getField1c(self->f24);
     self->f30 = create_yes_no_window(((s32 (*)(int))get_window_layout_position)(0x2B), v, 0, 0);
     set_position_xy(self->f30, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
-    set_field_20__12TQuestListVMFPvi(self, (void *)3);
+    set_field_20__12TQuestListVMFl(self, (void *)3);
 }
 
-s32 handle_window_input__22TMedicalCenterSequenceFPv(void *arg0) {
-    VObj_8021641C_802163AC *o = (VObj_8021641C_802163AC *)arg0;
-    if (o->m8() != 0 && (TShopWindowBase__sub_80223A48((void *)((void *)(arg0))) != 0 || TShopWindowBase__sub_802239EC((void *)((void *)(arg0))) != 0)) {
+s32 TMedicalCenterSequence::handle_window_input() {
+    VObj_8021641C_802163AC *o = (VObj_8021641C_802163AC *)this;
+    if (o->m8() != 0 && (TShopWindowBase__sub_80223A48((void *)((void *)(this))) != 0 || TShopWindowBase__sub_802239EC((void *)((void *)(this))) != 0)) {
         o->m4(0x22, 1);
-        set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xa));
+        set_field_20__12TQuestListVMFl((void*)(this), (void*)(0xa));
     }
 }
 
@@ -466,7 +461,7 @@ void TMedicalCenterMes::run_task() {
             player = (TObjPlayer *)get_player_by_client_id(local_client_id);
         }
         THunterGuildSeqOffline__sub_8021E180(obj_getField1c((s32)player));
-        suppress_slot__11TWindowCtrlFi((u16)obj_getField1c((s32)player));
+        suppress_slot__11TWindowCtrlFv((u16)obj_getField1c((s32)player));
         TMedicalCenterMesMessagePos pos = lbl_8044BD94[0];
         u16 id = (u16)obj_getField1c((s32)player);
         create_message_window(((s32 (*)(int))get_window_layout_position)(0x2C), (s32)&pos, id);
@@ -490,9 +485,9 @@ void TMedicalCenterMes::run_task() {
         }
         close();
         if (player != NULL) {
-            unsuppress_slot__11TWindowCtrlFi((u16)obj_getField1c((s32)player));
+            unsuppress_slot__11TWindowCtrlFv((u16)obj_getField1c((s32)player));
         }
-        clear_slot_active__14TShopGeneratorFi(obj_getField1c((s32)player));
+        clear_slot_active__14TShopGeneratorFl(obj_getField1c((s32)player));
         queue_destruction__7TObjectFv(this);
         break;
     }

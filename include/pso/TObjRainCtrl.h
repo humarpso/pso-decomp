@@ -8,6 +8,8 @@ class TObjRainCtrl : public TObject {
 public:
     virtual ~TObjRainCtrl();
     virtual void run_task();
+public:
+    static void create();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdTrialModemChkGC.h"
 
 struct Base_80335508_803354A4 { char pad[0x18]; };
 struct VObj_80335508_803354A4 : Base_80335508_803354A4 {
@@ -30,9 +31,6 @@ int TAdTrialModemChkGC__sub_803354E8(void* p);
 int TAdTrialModemChkGC__vt4(void);
 void TAdTrialModemChkGC__vt5(void);
 void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1);
-void check_modem_result__18TAdTrialModemChkGCFv(void);
-void render__18TAdTrialModemChkGCFv(void *arg0);
-void run_task__18TAdTrialModemChkGCFv(void *arg0);
 int get_localized_text_entry(void*, void*);
 s32 TAdTrialModemChkGC__sub_8007FA24(s32);
 void TAdWarningBaseGC__ct(void *);
@@ -44,7 +42,7 @@ int stop_audio_streams__6TLobbyFv(void*);
 void __dl__7TObjectFPv(void *);
 
 void TAdTrialModemChkGC__sub_803354A4(void) {  }
-void check_modem_result__18TAdTrialModemChkGCFv(void) {
+void TAdTrialModemChkGC::check_modem_result() {
     if (TLobby__sub_80145A94() != 0) {
         init_account_entries__6TLobbyFv();
         TAdTrialModemChkGC__sub_8007FA24(0);
@@ -54,16 +52,16 @@ void check_modem_result__18TAdTrialModemChkGCFv(void) {
 }
 int TAdTrialModemChkGC__sub_803354E8(void* p) { return stop_audio_streams__6TLobbyFv(p); }
 
-void render__18TAdTrialModemChkGCFv(void *arg0) {
-    struct VObj_80335508_803354A4 *o = (struct VObj_80335508_803354A4 *)arg0;
+void TAdTrialModemChkGC::render() {
+    struct VObj_80335508_803354A4 *o = (struct VObj_80335508_803354A4 *)this;
     o->m7();
 }
 
 void TAdTrialModemChkGC__vt5(void) { get_localized_text_entry((void*)35, (void*)0); }
 int TAdTrialModemChkGC__vt4(void) { return TKeyBoardControl__sub_8000F9CC((void*)(0)); }
 
-void run_task__18TAdTrialModemChkGCFv(void *arg0) {
-    struct VObj_80335580_803354A4 *o = (struct VObj_80335580_803354A4 *)arg0;
+void TAdTrialModemChkGC::run_task() {
+    struct VObj_80335580_803354A4 *o = (struct VObj_80335580_803354A4 *)this;
     o->m6();
 }
 

@@ -15,15 +15,15 @@ struct Word_8032AC24 { s32 v; };
 struct Arg_8032AC24 { f32 x, y; u8 pad[8]; };
 
 extern "C" {
-char *realloc_buffer__17TWindowSubComCardFPv(void *);
+char *realloc_buffer__17TWindowSubComCardFv(void *);
 s32 calc_text_width(void *);
-void render_status_disp__23TAdSinglePlyChrSelectGCFPvff(void *, f32, f32);
-void free__11TOBoss4RockFUi(char *);
+void render_status_disp__23TAdSinglePlyChrSelectGCFff(void *, f32, f32);
+void mem_free(char *);
 void fn_8025DE10(s32, Pos_8032AACC *);
 void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, void *, int);
 void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
 void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
-s32 get_field20_state__22TAdEnterSerialAccessGCFPv(void *);
+s32 get_field20_state__22TAdEnterSerialAccessGCFv(void *);
 void *memset(void *, int, u32);
 s32 strlen(const char *);
 extern u8 lbl_80477210[];
@@ -60,9 +60,9 @@ void draw_masked_password_field(s32 arg0) {
         __ct__19TAdPlyChrSelPlateGCFv(&plate, tl_clipout, &p1);
         Word_8032AACC w = lbl_805DF76C;
         TAdEnterSerialAccessGC__sub_802C4B64(&plate, lbl_80477210, &w, 0);
-        str = realloc_buffer__17TWindowSubComCardFPv(password_entry_keyboard_control);
+        str = realloc_buffer__17TWindowSubComCardFv(password_entry_keyboard_control);
         len = strlen(str);
-        free__11TOBoss4RockFUi(str);
+        mem_free(str);
         memset(buf, 0, 0x80);
         q = buf;
         for (i = 0; i < len; i++) {
@@ -70,9 +70,9 @@ void draw_masked_password_field(s32 arg0) {
         }
         buf[len] = 0;
         len = calc_text_width(lbl_805DF774);
-        render_status_disp__23TAdSinglePlyChrSelectGCFPvff(buf, lbl_80477220[0], lbl_80477220[1]);
+        render_status_disp__23TAdSinglePlyChrSelectGCFff(buf, lbl_80477220[0], lbl_80477220[1]);
         Pos_8032AACC p2;
-        p2.x = lbl_80477220[0] + (f32) (len * get_field20_state__22TAdEnterSerialAccessGCFPv(password_entry_keyboard_control));
+        p2.x = lbl_80477220[0] + (f32) (len * get_field20_state__22TAdEnterSerialAccessGCFv(password_entry_keyboard_control));
         p2.y = lbl_80477220[1];
         fn_8025DE10(arg0, &p2);
         __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);

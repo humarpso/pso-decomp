@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/TItemShoot.h"
 
 extern "C" {
 
-void set_particle_flags__10TItemShootFPvs(void* p, s16 v);
-
-void set_particle_flags__10TItemShootFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x60) = v; }
+void TItemShoot::set_particle_flags(s16 v) { *(s16*)((char*)this + 0x60) = v; }
 
 }

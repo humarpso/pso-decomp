@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/object/TObjButterflyLobby.h"
 
 struct Hit_8007A5D8 { u8 pad[0x40]; };
 
 extern "C" {
-int alloc_buffer__11TOBoss4RockFPv(void*);
+int mem_alloc(void*);
 extern u32 wall_query_scene_buffer;
-void alloc_scene_buffer__18TObjButterflyLobbyFv(void);
 void TObjPlayer__sub_80079118(const char *);
 void TObjPlayer__sub_8007911C(void *, void *, u32);
 s32 query_segment_wall_meshes(void *, void *, u32, void *);
@@ -18,8 +18,7 @@ Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask);
 
 extern "C" {
 
-void free_singleton_805D4E6C__18TObjButterflyLobbyFv(void);
-void free__11TOBoss4RockFUi(void*);
+void mem_free(void*);
 
 extern u32 wall_query_scene_buffer;
 
@@ -36,12 +35,12 @@ Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask) {
     return hit;
 }
 
-void free_singleton_805D4E6C__18TObjButterflyLobbyFv(void) {
+void TObjButterflyLobby::free_singleton_805D4E6C() {
     if ((u32) wall_query_scene_buffer != 0U) {
-        free__11TOBoss4RockFUi((void*)wall_query_scene_buffer);
+        mem_free((void*)wall_query_scene_buffer);
         wall_query_scene_buffer = 0U;
     }
 }
-void alloc_scene_buffer__18TObjButterflyLobbyFv(void) { (*(int *)&wall_query_scene_buffer) = alloc_buffer__11TOBoss4RockFPv((void*)20480); }
+void TObjButterflyLobby::alloc_scene_buffer() { (*(int *)&wall_query_scene_buffer) = mem_alloc((void*)20480); }
 
 }

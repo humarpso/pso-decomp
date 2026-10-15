@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct ItemNode_801D563C {
     u8 pad0[0xC];
@@ -80,76 +81,61 @@ typedef struct Node_801D56D0 {
 } Node_801D56D0;
 
 extern "C" {
-s32 copy_to_item_data__5TItemFPvPv(s32, s32 *);
+s32 copy_to_item_data__5TItemFPv(s32, s32 *);
 s32 item_identity_matches(s32 *, s32);
-s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
-s32 is_item_valid__9TItemListFi(void *);
+s32 is_item_valid__9TItemListFl(void *);
 extern s32 inventory_search_item_data;
 void *find_matching_inventory_item_node(ItemNode_801D563C *root);
-s32 has_flag_128__10TObjPlayerFPv();
-s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
-s32 is_item_valid__9TItemListFi(void *);
+s32 has_flag_128__10TObjPlayerFv();
+s32 is_item_valid__9TItemListFl(void *);
 extern s32 inventory_walk_visit_count;
 extern u32 *player_owner_collect_cursor;
-void collect_item_owners_recursive__10TObjPlayerFPv(Node_801D535C *arg0);
-s32 get_field_d8__10TObjPlayerFPv(s32);
-s32 copy_to_item_data__5TItemFPvPv(s32, s32 *);
-u8 get_field_ec__12TOSwitchItemFPv(s32);
+s32 get_field_d8__10TObjPlayerFv(s32);
+s32 copy_to_item_data__5TItemFPv(s32, s32 *);
+u8 get_field_ec__12TOSwitchItemFv(s32);
 s32 is_item_equipped();
-s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
-s32 is_item_valid__9TItemListFi(void *);
+s32 is_item_valid__9TItemListFl(void *);
 extern u8 *player_item_collect_cursor;
 extern s32 inventory_walk_visit_count;
 void TObjPlayer__sub_801D52A8(Node_801D52A8 *arg0);
-s32 is_state_ec1_ed3__10TObjPlayerFPv(void *);
+s32 is_state_ec1_ed3__10TObjPlayerFv(void *);
 s32 unequip_item__10TObjPlayerFiPv(s32, void *);
 s32 is_item_equipped();
 u32 get_slot_value__10TObjPlayerFPvi(s32, s32);
-s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
-s32 is_item_valid__9TItemListFi(void *);
+s32 is_item_valid__9TItemListFl(void *);
 extern s32 item_reduce_target_player;
-void unequip_invalid_items_recursive__10TObjPlayerFPv(Node_801D5468 *arg0);
-s32 copy_to_item_data__5TItemFPvPv(s32, s32 *);
+s32 copy_to_item_data__5TItemFPv(s32, s32 *);
 s32 compare_item_data_masked(s32 *, s32, s32);
-s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
-s32 is_item_valid__9TItemListFi(void *);
+s32 is_item_valid__9TItemListFl(void *);
 extern s32 inventory_search_item_data;
-void *find_inventory_item_matching_data__10TObjPlayerFPv(Node_801D55A4 *root);
-s32 get_field_d8__10TObjPlayerFPv(s32);
-s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
-s32 is_item_valid__9TItemListFi(void *);
+s32 get_field_d8__10TObjPlayerFv(s32);
+s32 is_item_valid__9TItemListFl(void *);
 extern s32 inventory_update_field_d8_key;
 extern s32 inventory_walk_progress_count;
-void *find_inventory_item_by_field_d8__10TObjPlayerFPv(Node_801D56D0 *root);
 }
 
 extern "C" {
 
-void collect_alive_owners__10TObjPlayerFPv(void *arg0);
-void count_items_recursive__10TObjPlayerFPv(void *arg0);
-void count_owned_items__10TObjPlayerFPv(void *arg0);
-s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
-void set_field_1c__10TObjPlayerFPvi(void* p, s32 v);
 s32 item_identity_matches(s32 *, s32);
 s32 export_inventory_entry__10TObjPlayerFiPv(u32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
-s32 copy_to_item_data__5TItemFPvPv(s32, s32 *);
-s32 is_item_valid__9TItemListFi(void *);
+s32 copy_to_item_data__5TItemFPv(s32, s32 *);
+s32 is_item_valid__9TItemListFl(void *);
 
 extern s32 inventory_walk_visit_count;
 extern s32 owned_item_export_cursor;
 
-void count_owned_items__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::count_owned_items() {
     void *var_r31;
     u32 temp;
 
-    var_r31 = *(void **)((s8 *)arg0 + 0x14);
+    var_r31 = *(void **)((s8 *)this + 0x14);
     while (var_r31 != NULL) {
-        if ((is_item_valid__9TItemListFi((void *)(var_r31)) != 0) && ((temp = get_owner_if_alive__10TObjPlayerFPv((void *)(var_r31))) != 0U) && (export_inventory_entry__10TObjPlayerFiPv(temp, owned_item_export_cursor) != 0)) {
+        if ((is_item_valid__9TItemListFl((void *)(var_r31)) != 0) && ((temp = ((TObjPlayer *)var_r31)->get_owner_if_alive()) != 0U) && (export_inventory_entry__10TObjPlayerFiPv(temp, owned_item_export_cursor) != 0)) {
             owned_item_export_cursor += 0x1C;
             inventory_walk_visit_count += 1;
         }
-        count_owned_items__10TObjPlayerFPv((void *)(var_r31));
+        ((TObjPlayer *)var_r31)->count_owned_items();
         var_r31 = *(void **)((s8 *)var_r31 + 0xC);
     }
 }
@@ -161,11 +147,11 @@ void TObjPlayer__sub_801D52A8(Node_801D52A8 *arg0) {
     Node_801D52A8 *n;
     s32 o;
     for (n = arg0->child; n != NULL; n = n->next) {
-        if (is_item_valid__9TItemListFi(n) != 0) {
-            o = get_owner_if_alive__10TObjPlayerFPv(n);
-            if ((o != 0) && (is_item_equipped() != 0) && (get_field_ec__12TOSwitchItemFPv(o) == 0)) {
-                copy_to_item_data__5TItemFPvPv(o, (s32 *)(player_item_collect_cursor + 8));
-                *(s32 *)(player_item_collect_cursor + 4) = get_field_d8__10TObjPlayerFPv(o);
+        if (is_item_valid__9TItemListFl(n) != 0) {
+            o = ((TObjPlayer *)n)->get_owner_if_alive();
+            if ((o != 0) && (is_item_equipped() != 0) && (get_field_ec__12TOSwitchItemFv(o) == 0)) {
+                copy_to_item_data__5TItemFPv(o, (s32 *)(player_item_collect_cursor + 8));
+                *(s32 *)(player_item_collect_cursor + 4) = get_field_d8__10TObjPlayerFv(o);
                 player_item_collect_cursor += 0x1C;
                 inventory_walk_visit_count += 1;
             }
@@ -174,37 +160,38 @@ void TObjPlayer__sub_801D52A8(Node_801D52A8 *arg0) {
     }
 }
 
-void collect_item_owners_recursive__10TObjPlayerFPv(Node_801D535C *arg0) {
+void TObjPlayer::collect_item_owners_recursive() {
+    Node_801D535C *arg0 = (Node_801D535C *)this;
     Node_801D535C *n;
     s32 o;
     for (n = arg0->child; n != NULL; n = n->next) {
-        if (is_item_valid__9TItemListFi(n) != 0) {
-            o = get_owner_if_alive__10TObjPlayerFPv(n);
-            if ((o != 0) && (has_flag_128__10TObjPlayerFPv() == 0)) {
+        if (is_item_valid__9TItemListFl(n) != 0) {
+            o = ((TObjPlayer *)n)->get_owner_if_alive();
+            if ((o != 0) && (has_flag_128__10TObjPlayerFv() == 0)) {
                 *(*(s32 * *)&player_owner_collect_cursor) = o;
                 (*(s32 * *)&player_owner_collect_cursor) += 1;
                 inventory_walk_visit_count += 1;
             }
         }
-        collect_item_owners_recursive__10TObjPlayerFPv(n);
+        ((TObjPlayer *)n)->collect_item_owners_recursive();
     }
 }
 
-void collect_alive_owners__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::collect_alive_owners() {
     u32 temp_r3;
     void *var_r31;
 
-    var_r31 = *(void **)((s8 *)arg0 + 0x14);
+    var_r31 = *(void **)((s8 *)this + 0x14);
     while (var_r31 != NULL) {
-        if (is_item_valid__9TItemListFi((void *)((s32)var_r31)) != 0) {
-            temp_r3 = get_owner_if_alive__10TObjPlayerFPv((void *)(var_r31));
+        if (is_item_valid__9TItemListFl((void *)((s32)var_r31)) != 0) {
+            temp_r3 = ((TObjPlayer *)var_r31)->get_owner_if_alive();
             if (temp_r3 != 0U) {
                 *player_owner_collect_cursor = temp_r3;
                 player_owner_collect_cursor += 1;
                 inventory_walk_visit_count += 1;
             }
         }
-        collect_alive_owners__10TObjPlayerFPv((void *)((void *)(var_r31)));
+        ((TObjPlayer *)var_r31)->collect_alive_owners();
         var_r31 = *(void **)((s8 *)var_r31 + 0xC);
     }
 }
@@ -212,56 +199,58 @@ void collect_alive_owners__10TObjPlayerFPv(void *arg0) {
 extern s32 inventory_walk_visit_count;
 extern s32 inventory_search_item_data;
 
-void unequip_invalid_items_recursive__10TObjPlayerFPv(Node_801D5468 *arg0) {
+void TObjPlayer::unequip_invalid_items_recursive() {
+    Node_801D5468 *arg0 = (Node_801D5468 *)this;
     Node_801D5468 *n;
     Obj_801D5468 *o;
     for (n = arg0->child; n != NULL; n = n->next) {
-        if (is_item_valid__9TItemListFi(n) != 0) {
-            o = (Obj_801D5468 *)get_owner_if_alive__10TObjPlayerFPv(n);
-            if ((o != NULL) && (is_item_equipped() != 0) && (is_state_ec1_ed3__10TObjPlayerFPv(o) == 0) &&
+        if (is_item_valid__9TItemListFl(n) != 0) {
+            o = (Obj_801D5468 *)((TObjPlayer *)n)->get_owner_if_alive();
+            if ((o != NULL) && (is_item_equipped() != 0) && (is_state_ec1_ed3__10TObjPlayerFv(o) == 0) &&
                 (get_slot_value__10TObjPlayerFPvi(item_reduce_target_player + 0xD04, o->v31()) != 0U)) {
                 unequip_item__10TObjPlayerFiPv(item_reduce_target_player, o);
             }
         }
-        unequip_invalid_items_recursive__10TObjPlayerFPv(n);
+        ((TObjPlayer *)n)->unequip_invalid_items_recursive();
     }
 }
 
-void count_items_recursive__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::count_items_recursive() {
     s32 sp8[7];
     void *var_r31;
 
     u32 temp;
 
-    var_r31 = *(void **)((s8 *)arg0 + 0x14);
+    var_r31 = *(void **)((s8 *)this + 0x14);
     while (var_r31 != NULL) {
-        if ((is_item_valid__9TItemListFi((void *)(var_r31)) != 0) && ((temp = get_owner_if_alive__10TObjPlayerFPv((void *)(var_r31))) != 0U)) {
-            copy_to_item_data__5TItemFPvPv(temp, &sp8[0]);
+        if ((is_item_valid__9TItemListFl((void *)(var_r31)) != 0) && ((temp = ((TObjPlayer *)var_r31)->get_owner_if_alive()) != 0U)) {
+            copy_to_item_data__5TItemFPv(temp, &sp8[0]);
             if (item_identity_matches(&sp8[0], inventory_search_item_data) != 0) {
                 inventory_walk_visit_count += 1;
             }
         }
-        count_items_recursive__10TObjPlayerFPv((void *)(var_r31));
+        ((TObjPlayer *)var_r31)->count_items_recursive();
         var_r31 = *(void **)((s8 *)var_r31 + 0xC);
     }
 }
 
-void *find_inventory_item_matching_data__10TObjPlayerFPv(Node_801D55A4 *root) {
+void *TObjPlayer::find_inventory_item_matching_data() {
+    Node_801D55A4 *root = (Node_801D55A4 *)this;
     s32 data[8];
     Node_801D55A4 *node;
     void *found;
     u32 owner;
     for (node = root->child; node != NULL; node = node->next) {
-        if (is_item_valid__9TItemListFi(node) != 0) {
-            owner = get_owner_if_alive__10TObjPlayerFPv(node);
+        if (is_item_valid__9TItemListFl(node) != 0) {
+            owner = ((TObjPlayer *)node)->get_owner_if_alive();
             if (owner != 0) {
-                copy_to_item_data__5TItemFPvPv((s32)(owner), (s32 *)(data));
+                copy_to_item_data__5TItemFPv((s32)(owner), (s32 *)(data));
                 if (compare_item_data_masked((s32 *)(data), inventory_search_item_data, 0) != 0) {
                     return node;
                 }
             }
         }
-        found = find_inventory_item_matching_data__10TObjPlayerFPv(node);
+        found = ((TObjPlayer *)node)->find_inventory_item_matching_data();
         if (found != NULL) {
             return found;
         }
@@ -275,10 +264,10 @@ void *find_matching_inventory_item_node(ItemNode_801D563C *root) {
     void *found;
     u32 owner;
     for (node = root->child; node != NULL; node = node->next) {
-        if (is_item_valid__9TItemListFi(node) != 0) {
-            owner = get_owner_if_alive__10TObjPlayerFPv(node);
+        if (is_item_valid__9TItemListFl(node) != 0) {
+            owner = ((TObjPlayer *)node)->get_owner_if_alive();
             if (owner != 0) {
-                copy_to_item_data__5TItemFPvPv((s32)(owner), (s32 *)(data));
+                copy_to_item_data__5TItemFPv((s32)(owner), (s32 *)(data));
                 if (item_identity_matches((s32 *)(data), (s32)(inventory_search_item_data)) != 0) {
                     return node;
                 }
@@ -292,21 +281,22 @@ void *find_matching_inventory_item_node(ItemNode_801D563C *root) {
     return NULL;
 }
 
-void *find_inventory_item_by_field_d8__10TObjPlayerFPv(Node_801D56D0 *root) {
+void *TObjPlayer::find_inventory_item_by_field_d8() {
+    Node_801D56D0 *root = (Node_801D56D0 *)this;
     Node_801D56D0 *node;
     void *found;
     u32 owner;
     for (node = root->child; node != NULL; node = node->next) {
-        if (is_item_valid__9TItemListFi(node) != 0) {
-            owner = get_owner_if_alive__10TObjPlayerFPv(node);
+        if (is_item_valid__9TItemListFl(node) != 0) {
+            owner = ((TObjPlayer *)node)->get_owner_if_alive();
             if (owner != 0) {
-                if (inventory_update_field_d8_key == get_field_d8__10TObjPlayerFPv(owner)) {
+                if (inventory_update_field_d8_key == get_field_d8__10TObjPlayerFv(owner)) {
                     return node;
                 }
                 inventory_walk_progress_count += 1;
             }
         }
-        found = find_inventory_item_by_field_d8__10TObjPlayerFPv(node);
+        found = ((TObjPlayer *)node)->find_inventory_item_by_field_d8();
         if (found != NULL) {
             return found;
         }
@@ -314,12 +304,12 @@ void *find_inventory_item_by_field_d8__10TObjPlayerFPv(Node_801D56D0 *root) {
     return NULL;
 }
 
-s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0) {
-    if (all_parents_unqueued_for_destruction__7TObjectFv(*(s32 *)((s8 *)arg0 + 0x1C)) != 0) {
-        return *(s32 *)((s8 *)arg0 + 0x1C);
+s32 TObjPlayer::get_owner_if_alive() {
+    if (all_parents_unqueued_for_destruction__7TObjectFv(*(s32 *)((s8 *)this + 0x1C)) != 0) {
+        return *(s32 *)((s8 *)this + 0x1C);
     }
     return 0;
 }
-void set_field_1c__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x1c) = v; }
+void TObjPlayer::set_field_1c(s32 v) { *(s32*)((char*)this + 0x1c) = v; }
 
 }

@@ -13,6 +13,7 @@ struct TORockJungleL01
     void* m_b4;
     u8 _padB8[0x1C];
     u32 m_d4;
+    void *destroy(s16 arg1);
 };
 
 #endif

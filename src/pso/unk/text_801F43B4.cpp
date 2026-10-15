@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TLevelSelect.h"
 
 extern "C" {
 
@@ -25,7 +26,7 @@ void copy_card_window_data(void) {
     }
 }
 
-s32 get_difficulty_flag_bit__12TLevelSelectFii(s32 n, s32 flag) {
+s32 TLevelSelect::get_difficulty_flag_bit(s32 n, s32 flag) {
     s32 v;
     s32 bit;
     s32 byteIdx;

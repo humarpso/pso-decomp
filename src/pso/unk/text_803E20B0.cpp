@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 GXLoadPosMtxImm(int, int);
@@ -17,7 +18,7 @@ extern Vp_803E20B0 *active_gx_render_mode;
 
 extern "C" {
 
-void load_screen_space_matrix__10TObjPlayerFv(void) {
+void TObjPlayer::load_screen_space_matrix() {
     Mtx_803E20B0 m;
     f32 z;
     f32 s;

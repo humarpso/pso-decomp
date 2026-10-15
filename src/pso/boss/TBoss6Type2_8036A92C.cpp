@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2.h"
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
@@ -8,7 +9,6 @@ s32 spawn_flow_soul__11TBoss6Type2Fiii(s32 arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void * create_flow_soul__11TBoss6Type2FPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void *TBoss6EffFlowSoul__ct(void *, void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -23,7 +23,7 @@ s32 spawn_flow_soul__11TBoss6Type2Fiii(s32 arg0, s32 arg1, s32 arg2) {
     return var_r0;
 }
 
-void * create_flow_soul__11TBoss6Type2FPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *TBoss6Type2::create_flow_soul(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x3C);
     if (o != NULL) {

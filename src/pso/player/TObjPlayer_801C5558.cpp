@@ -1,18 +1,16 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 void TObjPlayer__sub_801C5780(s32 arg0, s8 arg1, s32 arg2);
-s32 consume_trap_count__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2);
-u8 clamp_char_at__10TObjPlayerFPvi(s8 *arg0, s32 arg1);
-s32 init_partial__10TObjPlayerFi(s32 arg0);
 s32 clear_trap_counts();
 
-s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2) {
+s8 TObjPlayer::calc_class_stat_boost_index(s8 arg1, s32 arg2) {
+    s32 arg0 = (s32)this;
     s32 temp_r4;
     s8 var_r3;
 
@@ -86,7 +84,8 @@ s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2) {
     return var_r3;
 }
 
-s32 consume_trap_count__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
+s32 TObjPlayer::consume_trap_count(s32 arg1, s32 arg2) {
+    s32 arg0 = (s32)this;
     *(s8 *)((s8 *)(arg0 + arg2) + 0) = *(u8 *)((s8 *)(arg0 + arg2) + 0) - arg1;
     if ((s8) *(u8 *)((s8 *)(arg0 + arg2) + 0) < 0) {
         *(s8 *)((s8 *)(arg0 + arg2) + 0) = 0;
@@ -95,7 +94,8 @@ s32 consume_trap_count__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     return 1;
 }
 
-u8 clamp_char_at__10TObjPlayerFPvi(s8 *arg0, s32 arg1) {
+u8 TObjPlayer::clamp_char_at(s32 arg1) {
+    s8 *arg0 = (s8 *)this;
     s8 c = arg0[arg1];
     if (c < 0 || (s32)c > 20) {
         arg0[arg1] = 0;
@@ -112,7 +112,7 @@ void TObjPlayer__sub_801C5780(s32 arg0, s8 arg1, s32 arg2) {
     *(s8 *)((s8 *)(arg0 + arg2) + 0) = var_r4;
 }
 
-s32 init_partial__10TObjPlayerFi(s32 arg0) {
+s32 TObjPlayer::init_partial(s32 arg0) {
     clear_trap_counts();
     return arg0;
 }

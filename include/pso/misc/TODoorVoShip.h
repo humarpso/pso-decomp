@@ -20,6 +20,11 @@ struct TODoorVoShip
     u32 m_d4;
     u32 m_d8;
     void* m_dc;
+    void run_task();
+    void render();
+    static void *create(void *arg0);
+    static void free_static_data();
+    static void load_shared_resource();
 };
 
 #endif

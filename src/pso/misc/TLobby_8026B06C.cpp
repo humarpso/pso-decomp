@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 __nw__7TObjectFUl(int);
@@ -6,15 +7,13 @@ s32 TLobby__sub_80269DA4(void *, int);
 s32 TWindowMessageQuest__ct(int, void *);
 s32 create_quest_message_window_at(s32 arg0, s32 arg1);
 int append_message_window_line(void *w, int text, int flags, int color);
-int send_and_handle__6TLobbyFPvii(void *w, int text, int flags);
+int send_and_handle__6TLobbyFii(void *w, int text, int flags);
 int dispatch_message_window_text(void *w, int text, int flags);
 }
 
 extern "C" {
 
-void set_field_90__6TLobbyFPvi(void* p, s32 v);
-
-void set_field_90__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x90) = v; }
+void TLobby::set_field_90(s32 v) { *(s32*)((char*)this + 0x90) = v; }
 
 int dispatch_message_window_text(void *w, int text, int flags) {
     switch (*(s32 *)((u8 *)w + 0x90)) {
@@ -22,7 +21,7 @@ int dispatch_message_window_text(void *w, int text, int flags) {
         return append_message_window_line(w, text, flags, 0xFF000000);
     case 1:
     case 2:
-        return send_and_handle__6TLobbyFPvii(w, text, flags);
+        return send_and_handle__6TLobbyFii(w, text, flags);
     default:
         return 0;
     }

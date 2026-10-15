@@ -103,11 +103,10 @@ extern u32 TAdEndText__credit_script_lines;
 extern s32 TAdEndText__font_loaded_flag;
 void bind_gvm_texture_list(const char *name, void *data);
 void *create_named_object(const char *name);
-void load_ending_font__10TAdEndTextFv(void);
 s32 TAdEndText__sub_8001A998(s32, f32, f32, f32);
 s32 draw_small_font_text(s32, f32, f32, f32);
 u32 __cvt_fp2unsigned(f32);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -157,8 +156,7 @@ extern "C" {
 s32 get_end_text_font_loaded_flag(void);
 s32 TAdEndText__sub_8001B41C(void);
 s32 get_ending_scene_active(void);
-void free_resources__10TAdEndTextFv(void);
-void free_nodes_with_id__6TLobbyFUi(void*);
+void free_nodes_with_id__6TLobbyFUl(void*);
 void TLobby__sub_803DA16C(void*);
 
 extern s32 ending_scene_active;
@@ -204,14 +202,14 @@ void render__10TAdEndTextFv(u8 *arg0) {
             }
             break;
         case 0x21:
-            set_global_param__8TObjFishFi(TAdEndText__loaded_font_texture_list);
+            set_global_param__8TObjFishFl(TAdEndText__loaded_font_texture_list);
             begin_screen_draw(1);
             set_draw_texture_and_color(3, -1);
             draw_textured_quad_at_depth(&self->box1, lbl_805D7E18);
             get_player__20TWindowSubStatusDispFv();
             break;
         case 0x40:
-            set_global_param__8TObjFishFi(TAdEndText__loaded_font_texture_list);
+            set_global_param__8TObjFishFl(TAdEndText__loaded_font_texture_list);
             begin_screen_draw(1);
             set_draw_texture_and_color(4, -1);
             draw_textured_quad_at_depth(&self->box2, lbl_805D7E18);
@@ -327,13 +325,13 @@ u8 *__ct__10TAdEndTextFv(u8 *arg0) {
   return arg0;
 }
 
-void free_resources__10TAdEndTextFv(void) {
+void TAdEndText::free_resources() {
     if ((u32) TAdEndText__loaded_font_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)TAdEndText__loaded_font_texture_list);
         TAdEndText__loaded_font_texture_list = 0U;
     }
     if ((u32) TAdEndText__credit_script_lines != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)TAdEndText__credit_script_lines);
+        free_nodes_with_id__6TLobbyFUl((void*)TAdEndText__credit_script_lines);
         TAdEndText__credit_script_lines = 0U;
     }
 }
@@ -342,7 +340,7 @@ extern s32 ending_sequence_active;
 
 typedef char RecoveredGlobal_8001B3BC_lbl_804F5800_size[sizeof(RecoveredGlobal_8001B3BC_lbl_804F5800) == 0x100 ? 1 : -1];
 
-void load_ending_font__10TAdEndTextFv(void) {
+void TAdEndText::load_ending_font() {
     TAdEndText__loaded_font_texture_list = (u32)TAdEndText__ending_font_texture_list;
     bind_gvm_texture_list(lbl_804347B0, TAdEndText__ending_font_texture_list);
     TAdEndText__credit_script_lines = (u32)create_named_object(lbl_804347C0);

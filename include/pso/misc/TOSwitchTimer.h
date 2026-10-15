@@ -17,6 +17,9 @@ struct TOSwitchTimer
     u16 m_a8;
     u8 _padAA[0x6];
     u8 m_b0;
+    void render();
+    void run_task();
+    static void *create(void *arg0);
 };
 
 #endif

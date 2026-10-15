@@ -124,6 +124,25 @@ struct TBoss4Type3
 
     void run_task();
 
+    static void spawn_effect(s16 arg0, s16 arg1, s16 arg2);
+    void calc_grid_index();
+    void turn_toward_player(s32 arg1);
+    static s32 get_random_scaled(void * _w0);
+    s32 choose_attack_heading_sector();
+    void interp_position_between_nodes();
+    void spawn_random_effect();
+    void send_packed_action(s32 arg1, s32 arg2, s32 arg3);
+    void destroy_parts();
+    void create_particle_emitters();
+    void set_action_from_table(s32 arg1);
+    void copy_pair(void* q);
+    void set_anim_state(s32 arg1);
+    void draw();
+    static s32 create(s32 arg0);
+    static void *create_yutai(void *arg0, void *arg1, void *arg2);
+    void check_attack_trigger();
+    static f32 compute_wave_offset(f32 farg0);
+    void reset_timer();
 };
 
 typedef void (TBoss4Type3::*TBoss4Type3Handler)();

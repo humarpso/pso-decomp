@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss7DeRolLeC.h"
 
 extern "C" {
 
-void set_field_38__14TBoss7DeRolLeCFPvi(void* p, s32 v);
-
-void set_field_38__14TBoss7DeRolLeCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x38) = v; }
+void TBoss7DeRolLeC::set_field_38(s32 v) { *(s32*)((char*)this + 0x38) = v; }
 
 }

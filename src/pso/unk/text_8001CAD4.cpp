@@ -30,7 +30,7 @@ struct Obj_8001CBC4 { u8 pad[0x44]; Vec_8001CBC4 pos; };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 copy_pos__11TNowLoadingFPv(int, void *);
 s32 direction_to_rotation_xy(void *, void *, void *);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -73,7 +73,7 @@ void update_camera_facing_offset(u8 *arg0) {
         rotate_vector_by_matrix((int) (0), (void *) (arg0 + 0x20), (void *) (arg0 + 0x2C));
         pop_matrices((int) (1));
         vec3_add_to((void *) (arg0 + 0x2C), (void *) (arg0 + 0x44));
-        copy_pos__11TNowLoadingFPvPv((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (void *) (arg0 + 0x2C));
+        copy_pos__11TNowLoadingFPv((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (void *) (arg0 + 0x2C));
     }
 }
 #pragma push

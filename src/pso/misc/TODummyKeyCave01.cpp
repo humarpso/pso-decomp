@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODummyKeyCave01.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -56,7 +57,7 @@ extern s32 TODummyKeyCave01__class_name;
 u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 notify_fish_if_valid__10TObjPlayerFUi(u32);
+s32 notify_fish_if_valid__10TObjPlayerFUl(u32);
 s32 rotate_matrix_zyx(s32, s32, s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -68,13 +69,11 @@ s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void render__16TODummyKeyCave01Fv(u8 *arg0);
 s32 obj_clearFlags30(void *, s32);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 TODummyKeyCave01Sound__ct(void *, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 void *__nw__7TObjectFUl(int);
-void run_task__16TODummyKeyCave01Fv(Obj_80165C84 *self);
 }
 
 extern "C" {
@@ -82,20 +81,20 @@ extern "C" {
 void TODummyKeyCave01__sub_80165E88(void);
 void TODummyKeyCave01__sub_80165E8C(void);
 void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1);
-void *create__16TODummyKeyCave01FPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern void *tl_05;
 
-void render__16TODummyKeyCave01Fv(u8 *arg0) {
+void TODummyKeyCave01::render() {
+    u8 *arg0 = (u8 *)this;
     u32 v;
     u8 *node;
     s32 id;
     if (((VObj_80165B50 *)arg0)->m8((4e+02f), (2e+01f)) != 0 && *(void **)(arg0 + 0x34) != NULL &&
         (v = *(u32 *)(arg0 + 0x24)) != 0) {
-        notify_fish_if_valid__10TObjPlayerFUi(v);
+        notify_fish_if_valid__10TObjPlayerFUl(v);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_zyx(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
@@ -129,7 +128,8 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
     }
 }
 
-void run_task__16TODummyKeyCave01Fv(Obj_80165C84 *self) {
+void TODummyKeyCave01::run_task() {
+    Obj_80165C84 *self = (Obj_80165C84 *)this;
     u32 st;
     u8 skip;
     void *o;
@@ -191,7 +191,7 @@ void run_task__16TODummyKeyCave01Fv(Obj_80165C84 *self) {
     }
 }
 
-void *create__16TODummyKeyCave01FPv(void *arg0) {
+void *TODummyKeyCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
         o = TODummyKeyCave01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));

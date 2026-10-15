@@ -7,6 +7,7 @@
 #include "pso/TObject.h"
 #include "pso/TSocket.h"
 #include "pso/TTcpSocket.h"
+#include "pso/misc/TUdpSocket.h"
 
 struct RecoveredGlobal_80078378_lbl_8048D3B8 {
     s32 value;
@@ -42,7 +43,6 @@ struct Sock_80078264 { u8 pad[0x28]; s16 x28; };
 extern "C" {
 struct Rec_8007841C *copy_udp_socket_event_record(struct Rec_8007841C *dst, struct Rec_8007841C *src);
 extern RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots;
-s32 handle_socket_event__10TUdpSocketFsPv(s16 arg0, u8 *arg1);
 void TLobby__sub_8014672C(void *);
 void bswap_16__FPUs(void *);
 void TUdpSocket__sub_80421BAC(int, void *, void *, int, void *, int, void *);
@@ -53,7 +53,6 @@ void TUdpSocket__sub_80421BAC(int, void *, void *, int, void *, int, void *);
 void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1);
 void bswap_16__FPUs(void *);
 s16 TUdpSocket__sub_80421DEC(void *, int, void *, int, int, s32 (*)(s16, u8 *));
-s32 handle_socket_event__10TUdpSocketFsPv(s16 arg0, u8 *arg1);
 extern RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots;
 s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0);
 void TLobby__sub_80421B3C(s32);
@@ -182,7 +181,7 @@ s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0) {
     pb = arg0->port_a;
     bswap_16__FPUs(&pa);
     bswap_16__FPUs(&pb);
-    arg0->fd = TUdpSocket__sub_80421DEC(&q1, pa, &q2, pb, 0, handle_socket_event__10TUdpSocketFsPv);
+    arg0->fd = TUdpSocket__sub_80421DEC(&q1, pa, &q2, pb, 0, TUdpSocket::handle_socket_event);
     if (arg0->fd < 0) {
         return -1;
     }
@@ -190,7 +189,7 @@ s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0) {
     return arg0->fd;
 }
 
-s32 handle_socket_event__10TUdpSocketFsPv(s16 arg0, u8 *arg1) {
+s32 TUdpSocket::handle_socket_event(s16 arg0, u8 *arg1) {
     s32 (*temp_r12)(void *);
     u8 *temp_r5;
     temp_r5 = (u8 *)(*(s32 *)((s8 *)(&udp_socket_slots.value) + ((*(s16 *)((s8 *)arg1 + 0) - 0x400) * 4)));
@@ -541,7 +540,7 @@ void run_tl_camera_tasks__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
 int atoi(const char *);
 void func_803DCDFC__Fv();
-s8 str_length__6TLobbyFi(char *);
+s8 str_length__6TLobbyFl(char *);
 void close_connection_by_index__6TLobbyFs(s16);
 s16 TLobby__sub_8040A698(s16, void *, void *, int, void *, int);
 s16 TLobby__sub_8040A8B0(char *, s32, int);
@@ -594,7 +593,7 @@ int TSocket::resolve_domain(char *domain) {
     memset(start, 0, 0x20);
     strncpy(start, domain, 0x1F);
     if (get_csn_group_flags(buf[0]) != 0) {
-        handle = TLobby__sub_8040A8B0(start, str_length__6TLobbyFi(start), 4);
+        handle = TLobby__sub_8040A8B0(start, str_length__6TLobbyFl(start), 4);
         if (handle >= 0) {
             spC = 4;
             count = 0;

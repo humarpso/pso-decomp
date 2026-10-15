@@ -19,6 +19,10 @@ struct TODoorMachine02
     u8 _padC0[0x10];
     u32 m_d0;
     void* m_d4;
+    void render();
+    static void *create(void *arg0);
+    static void free_statics();
+    static void load_resources();
 };
 
 #endif

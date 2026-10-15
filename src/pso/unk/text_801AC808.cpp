@@ -26,9 +26,9 @@ struct Game_801AC808 { u8 pad[0x42C]; Res_801AC808 *res; s32 f430; };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-void set_field_dc__10TObjPlayerFPvi(void *, s32);
-void set_field_d8__10TObjPlayerFPvi(void *, void *);
+s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
+void set_field_dc__10TObjPlayerFl(void *, s32);
+void set_field_d8__10TObjPlayerFl(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 begin_photon_summon_camera(void *, int);
@@ -65,11 +65,11 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     }
     F_801AC808(self, s32, 0x34) = photon_blast_shared_resource->res->f18;
     F_801AC808(self, s32, 0x24) = photon_blast_shared_resource->res->f1C;
-    set_field_d8__10TObjPlayerFPvi(self, lbl_804C3778);
-    set_field_dc__10TObjPlayerFPvi(self, photon_blast_shared_resource->f430);
+    set_field_d8__10TObjPlayerFl(self, lbl_804C3778);
+    set_field_dc__10TObjPlayerFl(self, photon_blast_shared_resource->f430);
     F_801AC808(self, s16, 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(self, F_801AC808(self, s16, 0xB8));
-    set_field_b8__14TObjEnePanarmsFPvs(self, F_801AC808(self, s16, 0xB8));
+    set_field_b8__14TObjEnePanarmsFs(self, F_801AC808(self, s16, 0xB8));
     F_801AC808(self, s16, 0x190) = 1;
     F_801AC808(self, s32, 0x194) = pkt->first;
     F_801AC808(self, s32, 0x198) = pkt->more;
@@ -100,7 +100,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     }
     F_801AC808(self, f32, 0x150) = pkt->f20;
     if (F_801AC808(self, s32, 0x194) == 0) {
-        set_field_b8__14TObjEnePanarmsFPvs(self, 0);
+        set_field_b8__14TObjEnePanarmsFs(self, 0);
         begin_photon_summon_camera(self, 2);
         F_801AC808(self, s32, 0x194) = 1;
         F_801AC808(self, s16, 0x190) = 0;

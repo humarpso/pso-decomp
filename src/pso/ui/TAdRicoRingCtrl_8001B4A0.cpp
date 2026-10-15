@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/ui/TAdRicoRingCtrl.h"
 struct Stack_8001B8AC {
     s32 sp8;
     s32 spC;
@@ -27,7 +28,7 @@ struct Obj_8001B534 { u8 pad0[0x1c]; u32 slot[2]; u8 pad24[4]; f32 f28; };
 
 extern "C" {
 s32 fn_8001B424(void *, void *);
-s32 set_scale4__15TAdRicoRingCtrlFPvf(int, f32);
+s32 set_scale4__15TAdRicoRingCtrlFf(int, f32);
 u32 create__15TAdRicoRingCtrlFPv(int);
 s32 TAdRicoRingCtrl__sub_8001BED0(int, f32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -40,8 +41,6 @@ extern const f32 TAdRicoRingCtrl__data_805D7E50;
 u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1);
 extern const f32 lbl_805D7E4C;
 extern const f32 TAdRicoRingCtrl__data_805D7E50;
-void run_task__15TAdRicoRingCtrlFv(u8 *arg0);
-void start_anim__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
 extern const f32 lbl_805D7E48;
 extern const f32 lbl_805D7E4C;
 extern const f32 TAdRicoRingCtrl__data_805D7E50;
@@ -51,18 +50,14 @@ void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl __vt__15TAdRicoRingCtrl;
 u8 *__dt__15TAdRicoRingCtrlFv(u8 *self, s16 flag);
-void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
 extern const f32 lbl_805D7E4C;
 extern const f32 lbl_805D7E54;
-void start_fade_all__15TAdRicoRingCtrlFPvf(Obj_8001B534 *self, f32 x);
 }
 
 extern "C" {
 
-void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
-void start_anim__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
-s32 clear_flags__11TAdRicoRingFPvUi(void *, int);
-s32 set_flags__10TObjPlayerFPvUi(void *, int);
+s32 clear_flags__11TAdRicoRingFUl(void *, int);
+s32 set_flags__10TObjPlayerFUl(void *, int);
 s32 test_flags_any(void *, int);
 
 extern const f32 lbl_805D7E4C;
@@ -74,7 +69,7 @@ void TAdRicoRingCtrl__sub_8001B4A0(Obj_8001B4A0 *self, f32 x) {
     s32 i;
     for (i = 0; i != 2; i++) {
         if (self->slot[i] != 0) {
-            start_anim__15TAdRicoRingCtrlFPvf((u8 *)self->slot[i], x);
+            ((TAdRicoRingCtrl *)((u8 *)self->slot[i]))->start_anim(x);
             self->slot[i] = 0;
         }
     }
@@ -84,11 +79,12 @@ void TAdRicoRingCtrl__sub_8001B4A0(Obj_8001B4A0 *self, f32 x) {
     }
 }
 
-void start_fade_all__15TAdRicoRingCtrlFPvf(Obj_8001B534 *self, f32 x) {
+void TAdRicoRingCtrl::start_fade_all(f32 x) {
+    Obj_8001B534 *self = (Obj_8001B534 *)this;
     s32 i;
     for (i = 0; i != 2; i++) {
         if (self->slot[i] != 0) {
-            start_fade__15TAdRicoRingCtrlFPvf((u8 *)self->slot[i], x);
+            ((TAdRicoRingCtrl *)((u8 *)self->slot[i]))->start_fade(x);
         }
     }
     if (lbl_805D7E4C != x) {
@@ -98,7 +94,8 @@ void start_fade_all__15TAdRicoRingCtrlFPvf(Obj_8001B534 *self, f32 x) {
 
 #pragma push
 #pragma opt_common_subs off
-void run_task__15TAdRicoRingCtrlFv(u8 *arg0) {
+void TAdRicoRingCtrl::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + *(f32 *)((s8 *)arg0 + 0x28));
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x24);
@@ -143,13 +140,13 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r3 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3), (f32) (lbl_805D7E4C));
-        set_scale4__15TAdRicoRingCtrlFPvf((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (f32) (lbl_805D7E4C));
+        set_scale4__15TAdRicoRingCtrlFf((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (f32) (lbl_805D7E4C));
     }
     *(u32 *)((s8 *)arg0 + 0x20) = create__15TAdRicoRingCtrlFPv((int) (tl_04));
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x20);
     if (temp_r3_2 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3_2), (f32) (lbl_805D7E4C));
-        set_scale4__15TAdRicoRingCtrlFPvf((int) (*(u32 *)((s8 *)arg0 + 0x20)), (f32) (lbl_805D7E4C));
+        set_scale4__15TAdRicoRingCtrlFf((int) (*(u32 *)((s8 *)arg0 + 0x20)), (f32) (lbl_805D7E4C));
     }
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) TAdRicoRingCtrl__data_805D7E50;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D7E4C;
@@ -160,13 +157,14 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0) {
+void TAdRicoRingCtrl::start_fade(f32 farg0) {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
 
     if (test_flags_any(arg0 + 0x2C, 1) != 0) {
-        clear_flags__11TAdRicoRingFPvUi(arg0 + 0x2C, 1);
+        clear_flags__11TAdRicoRingFUl(arg0 + 0x2C, 1);
     }
-    set_flags__10TObjPlayerFPvUi(arg0 + 0x2C, 2);
+    set_flags__10TObjPlayerFUl(arg0 + 0x2C, 2);
     if (lbl_805D7E4C != farg0) {
         *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)((s8 *)arg0 + 0x1C)) / farg0);
         temp_f0 = (*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)((s8 *)arg0 + 0x20)) / farg0;
@@ -179,13 +177,14 @@ void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0) {
 extern const f32 lbl_805D7E4C;
 extern const f32 lbl_805D7E54;
 
-void start_anim__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0) {
+void TAdRicoRingCtrl::start_anim(f32 farg0) {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
 
     if (test_flags_any(arg0 + 0x2C, 2) != 0) {
-        clear_flags__11TAdRicoRingFPvUi(arg0 + 0x2C, 2);
+        clear_flags__11TAdRicoRingFUl(arg0 + 0x2C, 2);
     }
-    set_flags__10TObjPlayerFPvUi(arg0 + 0x2C, 1);
+    set_flags__10TObjPlayerFUl(arg0 + 0x2C, 1);
     if (lbl_805D7E4C != farg0) {
         *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((lbl_805D7E54 - *(f32 *)((s8 *)arg0 + 0x1C)) / farg0);
         temp_f0 = (lbl_805D7E54 - *(f32 *)((s8 *)arg0 + 0x20)) / farg0;

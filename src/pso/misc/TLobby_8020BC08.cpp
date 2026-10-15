@@ -9,14 +9,13 @@ void destroy_child_recursive__6TLobbyFPvPv(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg
 
 extern "C" {
 
-void init_scene_objects__6TLobbyFv(void);
 int get_current_floor(void);
 int create_floor_quest_thread(void);
-int set_piece_flags__13TRaderMapCoreFi(int);
+int set_piece_flags__13TRaderMapCoreFl(int);
 int clear_floor_event_flags(void);
 int init_sub_objects__6TLobbyFv(void);
-int create_objects__6TLobbyFi(void);
-int attach_objects_by_id__6TLobbyFi(void);
+int create_objects__6TLobbyFl(void);
+int attach_objects_by_id__6TLobbyFl(void);
 int reset_id_tables__6TLobbyFv(void);
 int init_switch_table(void);
 
@@ -37,20 +36,20 @@ void destroy_child_recursive__6TLobbyFPvPv(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void init_scene_objects__6TLobbyFv(void);
 int get_current_floor(void);
 int create_floor_quest_thread(void);
-int set_piece_flags__13TRaderMapCoreFi(int);
+int set_piece_flags__13TRaderMapCoreFl(int);
 int clear_floor_event_flags(void);
 int init_sub_objects__6TLobbyFv(void);
-int create_objects__6TLobbyFi(void);
-int attach_objects_by_id__6TLobbyFi(void);
+int create_objects__6TLobbyFl(void);
+int attach_objects_by_id__6TLobbyFl(void);
 int reset_id_tables__6TLobbyFv(void);
 int init_switch_table(void);
 
-void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); reset_id_tables__6TLobbyFv(); clear_floor_event_flags(); init_switch_table(); set_piece_flags__13TRaderMapCoreFi(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); create_floor_quest_thread(); }
+void TLobby::init_scene_objects() { init_sub_objects__6TLobbyFv(); reset_id_tables__6TLobbyFv(); clear_floor_event_flags(); init_switch_table(); set_piece_flags__13TRaderMapCoreFl(1); get_current_floor(); attach_objects_by_id__6TLobbyFl(); get_current_floor(); create_objects__6TLobbyFl(); create_floor_quest_thread(); }
 
 }

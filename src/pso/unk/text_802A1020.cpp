@@ -6,7 +6,7 @@ typedef struct Entry_802A1020 {
 } Entry_802A1020;
 
 extern "C" {
-void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(void *);
 u8 *set_stream_and_load_file__6TLobbyFi(s32);
 u32 get_file_size__6TLobbyFv(s32);
 extern Entry_802A1020 file_integrity_table[];
@@ -33,7 +33,7 @@ s32 fn_802A1020(void) {
         if (file_integrity_table[i].size <= 1000000) {
             buf = set_stream_and_load_file__6TLobbyFi(file_integrity_table[i].file);
             if (buf == NULL) {
-                safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+                safe_free__23TAdSinglePlyChrSelectGCFUl(buf);
                 lobby_cursor_active_flag = 0;
                 return 0;
             }
@@ -48,7 +48,7 @@ s32 fn_802A1020(void) {
                     }
                 }
             }
-            safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+            safe_free__23TAdSinglePlyChrSelectGCFUl(buf);
             if (~crc != file_integrity_table[i].crc) {
                 lobby_cursor_active_flag = 1;
                 return 1;

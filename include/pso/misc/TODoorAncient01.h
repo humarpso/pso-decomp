@@ -18,6 +18,11 @@ struct TODoorAncient01
     u32 m_bc;
     u8 _padC0[0x10];
     u32 m_d0;
+    void *destroy_ancient_door_base(s16 arg1);
+    void render();
+    static void *create(void *arg0);
+    static void free_statics();
+    static void load_assets();
 };
 
 #endif

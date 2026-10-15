@@ -9,6 +9,7 @@ struct TObjEneMe3SinowZoaReal
     s16 m_326;
     u8 _pad328[0xD4];
     u32 m_3fc;
+    static void *create_instance(void *arg0);
 };
 
 #endif

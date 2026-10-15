@@ -16,6 +16,13 @@ struct TWindowSubInformationBoard
     u32 m_38;
     u32 m_3c;
     void* m_40;
+    static void render();
+    void run_task();
+    static void clear_if_current(u32 arg0);
+    void set_page(s32 arg1);
+    void set_message_index(s32 arg1);
+    static s32 open_keyboard(s32 arg0);
+    void show_card_a7();
 };
 
 #endif

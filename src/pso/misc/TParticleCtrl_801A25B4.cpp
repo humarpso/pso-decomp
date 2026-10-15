@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 
-void *destroy_particle__13TParticleCtrlFPvs(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 mask_object_set_row_flags(void *, s32);
 
 extern s32 lbl_804B9870[];
 
-void *destroy_particle__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
+void *TParticleCtrl::destroy_particle(void *arg0, s16 arg1) {
     void *obj = arg0;
     u16 temp_r0;
 

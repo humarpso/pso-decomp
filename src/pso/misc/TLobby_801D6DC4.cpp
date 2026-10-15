@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Obj_801D6F60 { u8 pad[0x16]; s16 v; };
 
@@ -20,21 +21,15 @@ struct Obj_801D7100 { u8 pad[0x7]; u8 v; };
 
 extern "C" {
 u8 ret_801D78EC(Obj_801D6F60 *p);
-s16 clamp_value_below_200__6TLobbyFPv(Obj_801D6F60 *p);
 u8 ret_801D790C(Obj_801D7030 *p);
-u8 normalize_battle_rule_value__6TLobbyFPv(Obj_801D7030 *p);
 u8 ret_801D78F4(Obj_801D6F94 *p);
 u8 TLobby__sub_801D6F94(Obj_801D6F94 *p);
 u8 ret_801D78FC(Obj_801D6FC8 *p);
-u8 clamp_value_below_2__6TLobbyFPv(Obj_801D6FC8 *p);
 u8 ret_801D7904(Obj_801D6FFC *p);
 u8 TLobby__sub_801D6FFC(Obj_801D6FFC *p);
 u8 ret_801D7914(Obj_801D7064 *p);
-u8 get_rule_field_a__6TLobbyFPv(Obj_801D7064 *p);
 u8 ret_801D7924(Obj_801D70CC *p);
-u8 clamp_rule_value_2__6TLobbyFPv(Obj_801D70CC *p);
 u8 ret_801D791C(Obj_801D7098 *p);
-u8 normalize_battle_rule_value_b__6TLobbyFPv(Obj_801D7098 *p);
 u8 ret_801D792C(Obj_801D7100 *p);
 u8 TLobby__sub_801D7100(Obj_801D7100 *p);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
@@ -43,24 +38,18 @@ u8 TLobby__sub_801D6DDC(void *arg0);
 
 extern "C" {
 
-s16 clamp_player_index__6TLobbyFPv(void *arg0);
-u8 get_clamped_level__6TLobbyFPv(void *arg0);
-void set_clamped_index__6TLobbyFPvs(void *arg0, s16 arg1);
-void set_clamped_value_1c__6TLobbyFPvi(void *arg0, s32 arg1);
-void set_validated_field_0x11__6TLobbyFPvUc(void *arg0, u8 arg1);
-void set_volume__6TLobbyFPvUc(void *arg0, u8 arg1);
 s32 get_max_level__10TObjPlayerFv();
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 u8 ret_801D78E4();
 
-void set_volume__6TLobbyFPvUc(void *arg0, u8 arg1) {
+void TLobby::set_volume(u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
     if (var_r4 > 0x63U) {
         var_r4 = 0;
     }
-    *(u8 *)((s8 *)arg0 + 0x10) = var_r4;
+    *(u8 *)((s8 *)this + 0x10) = var_r4;
 }
 
 u8 TLobby__sub_801D6DDC(void *arg0) {
@@ -74,56 +63,57 @@ u8 TLobby__sub_801D6DDC(void *arg0) {
     return v;
 }
 
-void set_validated_field_0x11__6TLobbyFPvUc(void *arg0, u8 arg1) {
+void TLobby::set_validated_field_0x11(u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;
     if ((is_invalid_slot__10TObjPlayerFUc(var_r31) == 0) && (var_r31 > 0x1DU)) {
         var_r31 = 0;
     }
-    *(u8 *)((s8 *)arg0 + 0x11) = var_r31;
+    *(u8 *)((s8 *)this + 0x11) = var_r31;
 }
 
-s16 clamp_player_index__6TLobbyFPv(void *arg0) {
+s16 TLobby::clamp_player_index() {
     s16 var_r31;
 
-    var_r31 = *(s16 *)((s8 *)arg0 + 0x14);
+    var_r31 = *(s16 *)((s8 *)this + 0x14);
     if ((var_r31 < 0) || (var_r31 > get_max_level__10TObjPlayerFv())) {
         var_r31 = 0;
     }
     return var_r31;
 }
 
-void set_clamped_index__6TLobbyFPvs(void *arg0, s16 arg1) {
+void TLobby::set_clamped_index(s16 arg1) {
     s16 var_r31;
 
     var_r31 = arg1;
     if ((var_r31 < 0) || (var_r31 > get_max_level__10TObjPlayerFv())) {
         var_r31 = 0;
     }
-    *(s16 *)((s8 *)arg0 + 0x14) = var_r31;
+    *(s16 *)((s8 *)this + 0x14) = var_r31;
 }
 
-void set_clamped_value_1c__6TLobbyFPvi(void *arg0, s32 arg1) {
+void TLobby::set_clamped_value_1c(s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;
     if ((var_r4 < 0) || (var_r4 > 0x278D0)) {
         var_r4 = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = var_r4;
+    *(s32 *)((s8 *)this + 0x1C) = var_r4;
 }
 
-u8 get_clamped_level__6TLobbyFPv(void *arg0) {
+u8 TLobby::get_clamped_level() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x18);
+    temp_r0 = *(s16 *)((s8 *)this + 0x18);
     if (temp_r0 >= 0x1E) {
         return ret_801D78E4();
     }
     return (u8) temp_r0;
 }
-s16 clamp_value_below_200__6TLobbyFPv(Obj_801D6F60 *p) {
+s16 TLobby::clamp_value_below_200() {
+    Obj_801D6F60 *p = (Obj_801D6F60 *)this;
     if (p->v >= 200) {
         return ret_801D78EC(p);
     }
@@ -137,7 +127,8 @@ u8 TLobby__sub_801D6F94(Obj_801D6F94 *p) {
     return p->v;
 }
 
-u8 clamp_value_below_2__6TLobbyFPv(Obj_801D6FC8 *p) {
+u8 TLobby::clamp_value_below_2() {
+    Obj_801D6FC8 *p = (Obj_801D6FC8 *)this;
     if (p->v >= 2) {
         return ret_801D78FC(p);
     }
@@ -151,27 +142,31 @@ u8 TLobby__sub_801D6FFC(Obj_801D6FFC *p) {
     return p->v;
 }
 
-u8 normalize_battle_rule_value__6TLobbyFPv(Obj_801D7030 *p) {
+u8 TLobby::normalize_battle_rule_value() {
+    Obj_801D7030 *p = (Obj_801D7030 *)this;
     if (p->v >= 2) {
         return ret_801D790C(p);
     }
     return p->v;
 }
-u8 get_rule_field_a__6TLobbyFPv(Obj_801D7064 *p) {
+u8 TLobby::get_rule_field_a() {
+    Obj_801D7064 *p = (Obj_801D7064 *)this;
     if (p->v >= 2) {
         return ret_801D7914(p);
     }
     return p->v;
 }
 
-u8 normalize_battle_rule_value_b__6TLobbyFPv(Obj_801D7098 *p) {
+u8 TLobby::normalize_battle_rule_value_b() {
+    Obj_801D7098 *p = (Obj_801D7098 *)this;
     if (p->v >= 2) {
         return ret_801D791C(p);
     }
     return p->v;
 }
 
-u8 clamp_rule_value_2__6TLobbyFPv(Obj_801D70CC *p) {
+u8 TLobby::clamp_rule_value_2() {
+    Obj_801D70CC *p = (Obj_801D70CC *)this;
     if (p->v >= 2) {
         return ret_801D7924(p);
     }

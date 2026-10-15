@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/object/TObjKabochaLobby.h"
 
 extern "C" {
 extern char lbl_80479170[];
@@ -40,13 +41,10 @@ struct Kabocha_80353520 {
 
 extern "C" {
 s32 get_filtered_event_theme__6TLobbyFv(void);
-void run_task__16TObjKabochaLobbyFv(Kabocha_80353520 *o);
 }
 
 extern "C" {
 
-void *create__16TObjKabochaLobbyFPv(void *arg0);
-void render__16TObjKabochaLobbyFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 draw_ginja_object(int);
@@ -57,29 +55,28 @@ s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi(int);
-void unload_static_data__16TObjKabochaLobbyFv(void);
+s32 set_global_param__8TObjFishFl(int);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjKabochaLobby__model_resource;
-void load_resources__16TObjKabochaLobbyFv(void);
 void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 s32 init_map_object_base();
 extern s32 __vt__16TObjKabochaLobby[];
 extern s32 lbl_805D4384;
 
 extern s32 TObjKabochaLobby__lobby_type;
 
-void render__16TObjKabochaLobbyFv(u8 *arg0) {
+void TObjKabochaLobby::render() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
     if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) TObjKabochaLobby__lobby_type != 0U) && (((VObj18_8035346c *) arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0)) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -95,7 +92,8 @@ void render__16TObjKabochaLobbyFv(u8 *arg0) {
 
 extern void *tl_05;
 
-void run_task__16TObjKabochaLobbyFv(Kabocha_80353520 *o) {
+void TObjKabochaLobby::run_task() {
+    Kabocha_80353520 *o = (Kabocha_80353520 *)this;
     switch (o->state) {
     case 0:
         if (get_filtered_event_theme__6TLobbyFv() == 5) {
@@ -129,7 +127,7 @@ void run_task__16TObjKabochaLobbyFv(Kabocha_80353520 *o) {
     }
 }
 
-void *create__16TObjKabochaLobbyFPv(void *arg0) {
+void *TObjKabochaLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
         o = ((void *(*)(void *, void *, void *))TObjKabochaLobby__ct)(o, tl_05, arg0);
@@ -137,16 +135,16 @@ void *create__16TObjKabochaLobbyFPv(void *arg0) {
     return o;
 }
 
-void unload_static_data__16TObjKabochaLobbyFv(void) {
+void TObjKabochaLobby::unload_static_data() {
     if ((u32) TObjKabochaLobby__model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjKabochaLobby__model_resource, 1);
         TObjKabochaLobby__model_resource = 0U;
     }
 }
-void load_resources__16TObjKabochaLobbyFv(void) {
+void TObjKabochaLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_pumpkin_resource_descriptor, 0, 0, 0));
@@ -157,7 +155,7 @@ void load_resources__16TObjKabochaLobbyFv(void) {
 void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjKabochaLobby;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

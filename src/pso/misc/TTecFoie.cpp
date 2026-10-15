@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TTecFoie.h"
 
 extern "C" {
 
-void render__8TTecFoieFv(void);
-
-void render__8TTecFoieFv(void) {  }
+void TTecFoie::render() {  }
 
 }

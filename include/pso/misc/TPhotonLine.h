@@ -21,6 +21,7 @@ struct TPhotonLine
     u32 m_350;
     u8 _pad354[0x14];
     u16 m_368;
+    static void render();
 };
 
 #endif

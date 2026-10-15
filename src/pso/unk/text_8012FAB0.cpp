@@ -87,13 +87,13 @@ struct Self_8012FB08 : VObj_8012FB08 {
 };
 
 extern "C" {
-void draw_status_icons__10TObjPlayerFPvPvPv(void *, void *, void *);
+void draw_status_icons__10TObjPlayerFPvPv(void *, void *, void *);
 void twin_psychogun_draw(u8 *arg0);
-u8 * initialize_effect_object__10TObjPlayerFPv(void *, s32, s32);
+u8 * initialize_effect_object__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_effect_object__10TObjPlayerFi(s32 arg0);
-s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
+s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
 void launch_rare_weapon_special__10TObjPlayerFv(void *, void *, s32, f32);
 void increment_burst_counter(void *);
 void spawn_weapon_impact_effect(void);
@@ -112,7 +112,7 @@ u8 *create_effect_object__10TObjPlayerFi(s32 arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x260));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(initialize_effect_object__10TObjPlayerFPv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(initialize_effect_object__10TObjPlayerFv(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }
@@ -125,7 +125,7 @@ u8 *create_effect_object__10TObjPlayerFi(s32 arg0) {
 void twin_psychogun_marker(Self_8012FB08 *self) {
     u8 *p;
     s32 i;
-    if (is_mode_two_and_ready__10TObjPlayerFPv(self) != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFv(self) != 0) {
         p = self->owner + 0x7CC;
         for (i = 0; i != 2; i++) {
             increment_burst_counter(p);
@@ -146,7 +146,7 @@ void twin_psychogun_marker(Self_8012FB08 *self) {
 }
 
 void twin_psychogun_draw(u8 *arg0) {
-    draw_status_icons__10TObjPlayerFPvPvPv(arg0, arg0 + 0x1F8, arg0 + 0x204);
+    draw_status_icons__10TObjPlayerFPvPv(arg0, arg0 + 0x1F8, arg0 + 0x204);
 }
 
 }

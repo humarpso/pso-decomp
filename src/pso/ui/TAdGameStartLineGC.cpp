@@ -50,22 +50,21 @@ extern const f32 lbl_805DF4A8;
 extern const f32 lbl_805DF4AC;
 extern const f32 lbl_805DF4B0;
 extern const f32 lbl_805DF4B4;
-void run_task__18TAdGameStartLineGCFv(TAdGameStartLineGC_80320EF0 *self);
 }
 
 extern "C" {
 
-void render__18TAdGameStartLineGCFv(void* p);
 int fn_80320DE8(void*);
 int get_state_flag__9TMainTaskFv(void*);
 int init_xyz_limits__10TObjPlayerFv(void);
 int reset_transform_state__10TObjPlayerFv(void);
 
-void render__18TAdGameStartLineGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { init_xyz_limits__10TObjPlayerFv(); fn_80320DE8(p); reset_transform_state__10TObjPlayerFv(); } }
+void TAdGameStartLineGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { init_xyz_limits__10TObjPlayerFv(); fn_80320DE8(this); reset_transform_state__10TObjPlayerFv(); } }
 
 #pragma push
 #pragma fp_contract on
-void run_task__18TAdGameStartLineGCFv(TAdGameStartLineGC_80320EF0 *self) {
+void TAdGameStartLineGC::run_task() {
+    TAdGameStartLineGC_80320EF0 *self = (TAdGameStartLineGC_80320EF0 *)this;
     s32 i;
     self->counter++;
     if (self->counter < 10) {

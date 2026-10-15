@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
@@ -11,7 +12,6 @@ extern "C" {
 
 struct Obj054_8024A054 { char pad[0x38]; u32 field38; };
 
-void clear_flag__11TWindowCtrlFv(void);
 s32 is_player_input_active(s32 arg0);
 s32 is_input_phase_active__21TAdMultiChgGameModeGCFv();
 s32 get_multiplayer_controller_active_index(s32);
@@ -21,7 +21,7 @@ s32 get_map_id__13TRaderMapCoreFPv();
 
 extern struct Obj054_8024A054 *TWindowCtrl__active_window;
 
-void clear_flag__11TWindowCtrlFv(void) {
+void TWindowCtrl::clear_flag() {
     if ((TWindowCtrl__active_window != NULL) && (TWindowCtrl__active_window->field38 != 0U)) {
         clear_flag1e_bit8__11TWindowCtrlFPv((void*)TWindowCtrl__active_window->field38);
     }

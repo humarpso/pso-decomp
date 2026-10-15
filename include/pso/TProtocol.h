@@ -315,6 +315,10 @@ public:
     void send_room_change(int idx);
     void send_find_user(TPlyGuildCardTag &tag, u32 gc_num);
     void send_create_game(char *name, char *password, u8 difficulty, u8 battle_mode, u8 challenge_mode, u8 episode);
+public:
+    void bswap_packet();
+    int bswap_packet_header();
+    s32 init_char_data();
 };
 
 #endif

@@ -6,8 +6,8 @@ struct RecoveredGlobal_8035A860_lbl_804F1C58 {
 };
 
 extern "C" {
-s32 count_tree_nodes__15TObjBoss2TunnelFPv(void *);
-s32 alloc_buffer__11TOBoss4RockFPv(int);
+s32 count_tree_nodes__15TObjBoss2TunnelFv(void *);
+s32 mem_alloc(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035A860_lbl_804F1C58 lbl_804F1C58;
 extern const f32 lbl_805E00E8;
@@ -27,8 +27,8 @@ u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x20) = 0;
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805E00E8;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = count_tree_nodes__15TObjBoss2TunnelFPv((void *) (arg2));
-    *(s32 *)((s8 *)arg0 + 0x28) = alloc_buffer__11TOBoss4RockFPv((int) (*(s32 *)((s8 *)arg0 + 0x2C) * 0x30));
+    *(s32 *)((s8 *)arg0 + 0x2C) = count_tree_nodes__15TObjBoss2TunnelFv((void *) (arg2));
+    *(s32 *)((s8 *)arg0 + 0x28) = mem_alloc((int) (*(s32 *)((s8 *)arg0 + 0x2C) * 0x30));
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     return arg0;

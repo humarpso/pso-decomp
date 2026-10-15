@@ -9,6 +9,7 @@ struct TWindowSubEquipList
     void* m_24;
     u8 _pad28[0x58];
     u32 m_80;
+    int run_task();
 };
 
 #endif

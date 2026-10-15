@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor.h"
 
 struct RecoveredGlobal_8013DC38_lbl_804A7140 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8013DC38_lbl_804A7140_size[sizeof(RecoveredGlobal_8013DC38_lbl_804A7140) == 0x10 ? 1 : -1];
@@ -26,10 +27,9 @@ u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *lock_on_cursor_bml_resource;
 extern s32 lock_on_cursor_model;
 extern s32 TLockOnCursor__target_cursor_model;
-void free_cursor_resources__13TLockOnCursorFv(void);
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8013DC38_lbl_804A7140 target_cursor_resource_descriptor;
 extern u8 *lock_on_cursor_bml_resource;
 extern s32 lock_on_cursor_model;
@@ -38,33 +38,33 @@ extern s32 main_cursor_model;
 void load_target_cursor_models(void);
 s32 __dt__7TObjectFv(void *, int);
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
-Obj_8013DCCC *release_target__13TLockOnCursorFPv(void *);
-Obj_8013DCCC *cleanup_field__13TLockOnCursorFPv(void *);
-Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFPv(void *);
+Obj_8013DCCC *release_target__13TLockOnCursorFv(void *);
+Obj_8013DCCC *cleanup_field__13TLockOnCursorFv(void *);
+Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFv(void *);
 s32 __dt__13TLockOnCursorFis(void *, int);
 s32 destroy__13TLockOnCursorFis(void *, int);
-s32 destroy__13TLockOnCursorFPvs(void *, int);
-s32 destroy__11TMainCursorFPvs(void *, int);
+s32 destroy__13TLockOnCursorFs(void *, int);
+s32 destroy__11TMainCursorFs(void *, int);
 s32 __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
 extern s32 __dt_deleting__13TLockOnCursorFis[];
 extern s32 __vt__13TLockOnCursor[];
 u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1);
-void clear_id__10TObjPlayerFPv(void *);
-s32 init_lockon__11TMainCursorFPv(s32, s32, s32);
-s32 init_vtable__11TMainCursorFPv(s32, s32, s32);
-s32 init__11TMainCursorFPv(s32, s32, s32);
-s32 reset_state__11TMainCursorFPv(s32);
-s32 destroy_lock_on__11TMainCursorFPvi(s32, s32);
-s32 set_target__11TMainCursorFPvi(s32, s32);
+void clear_id__10TObjPlayerFv(void *);
+s32 init_lockon__11TMainCursorFv(s32, s32, s32);
+s32 init_vtable__11TMainCursorFv(s32, s32, s32);
+s32 init__11TMainCursorFv(s32, s32, s32);
+s32 reset_state__11TMainCursorFv(s32);
+s32 destroy_lock_on__11TMainCursorFl(s32, s32);
+s32 set_target__11TMainCursorFl(s32, s32);
 s32 reset_nearest_target_record(s32);
-s32 set_sub_cursor_value__11TMainCursorFPvi(s32, s32);
-s32 get_target_id__11TMainCursorFPv(s32);
-Obj_8013DCCC *release_target__13TLockOnCursorFPv(void *);
-Obj_8013DCCC *cleanup_field__13TLockOnCursorFPv(void *);
-Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFPv(void *);
+s32 set_sub_cursor_value__11TMainCursorFl(s32, s32);
+s32 get_target_id__11TMainCursorFv(s32);
+Obj_8013DCCC *release_target__13TLockOnCursorFv(void *);
+Obj_8013DCCC *cleanup_field__13TLockOnCursorFv(void *);
+Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFv(void *);
 s32 TLockOnCursor__sub_8013EC1C(s32);
-s32 reset_state__13TLockOnCursorFPv(s32);
+s32 reset_state__13TLockOnCursorFv(s32);
 s32 __nw__7TObjectFUl(s32);
 extern s32 tl_loc_start;
 extern s32 tl_loc_end;
@@ -73,16 +73,16 @@ void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0);
 s32 is_split_screen();
 s32 get_split_screen_view_index__11TCameraCtrlFUs(void *);
 s32 get_mode__11TCameraCtrlFPv(void *);
-u16 get_type_id__10TObjPlayerFPv(int);
+u16 get_type_id__10TObjPlayerFv(int);
 Ent_8013D91C *TObjPlayer__sub_80116620(s32, s32);
 s32 renderSecondaryCursor__13TLockOnCursorFPUcll(void *, int, int, int);
-s32 get_selected_entry__11TMainCursorFPv(s32);
-u8 get_active__11TMainCursorFPv(int);
+s32 get_selected_entry__11TMainCursorFv(s32);
+u8 get_active__11TMainCursorFv(int);
 u8 TMainCursor__sub_8013E900(int);
-s32 get_target_id__11TMainCursorFPv(s32);
-s32 render_part__13TLockOnCursorFPv(int);
-s32 test_flag_1_at_8__13TLockOnCursorFPv(int);
-s32 get_target__13TLockOnCursorFPv(void *);
+s32 get_target_id__11TMainCursorFv(s32);
+s32 render_part__13TLockOnCursorFv(int);
+s32 test_flag_1_at_8__13TLockOnCursorFv(int);
+s32 get_target__13TLockOnCursorFv(void *);
 s32 TLockOnCursor__sub_8013EB6C(void *, int);
 u8 *find_entity_by_id(u16);
 s32 get_camera_no__11TCameraCtrlFv();
@@ -96,24 +96,23 @@ struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 
 void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2);
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
-void run_task__13TLockOnCursorFv(s32 arg0);
 s32 TLockOnCursor__sub_8013EB80(s32);
 s32 TLockOnCursor__sub_8013EB8C(s32);
 void TLockOnCursor__sub_8013EEC0(void *, void *);
-s32 is_channel_active__11TMainCursorFPv(s32);
+s32 is_channel_active__11TMainCursorFv(s32);
 void TMainCursor__sub_8013F1F0(void *);
 void __construct_array(void *, void *, void *, int, int);
 void __ct__7TObjectFP7TObject(void *);
 s32 __dl__FPv(s32);
-void cleanup__13TLockOnCursorFPv(void *);
-void clear_id__10TObjPlayerFPv(void *);
+void cleanup__13TLockOnCursorFv(void *);
+void clear_id__10TObjPlayerFv(void *);
 void fn_8013F0A0(void *);
-s32 free_if_owned__13TLockOnCursorFis(s32, s32);
-void init_cursor__13TLockOnCursorFPv(void *);
-void init_forward__10TObjPlayerFPv(void *);
-void init_forward__13TLockOnCursorFPv(void *);
-void init_vtable__13TLockOnCursorFPv(void *);
-void reset_fields__13TLockOnCursorFPv(void *);
+s32 free_if_owned__13TLockOnCursorFls(s32, s32);
+void init_cursor__13TLockOnCursorFv(void *);
+void init_forward__10TObjPlayerFv(void *);
+void init_forward__13TLockOnCursorFv(void *);
+void init_vtable__13TLockOnCursorFv(void *);
+void reset_fields__13TLockOnCursorFv(void *);
 
 #pragma push
 #pragma opt_loop_invariants off
@@ -127,7 +126,7 @@ void render__13TLockOnCursorFv(s32 arg0) {
     s32 e;
     u8 *o;
     if (is_split_screen() != 0) {
-        if (get_camera_no__11TCameraCtrlFv() != get_split_screen_view_index__11TCameraCtrlFUs((void *)((s32)get_target_id__11TMainCursorFPv((s32)((void *)arg0))))) {
+        if (get_camera_no__11TCameraCtrlFv() != get_split_screen_view_index__11TCameraCtrlFUs((void *)((s32)get_target_id__11TMainCursorFv((s32)((void *)arg0))))) {
             return;
         }
     } else if (get_mode__11TCameraCtrlFPv(&main_task.value) & 0x10) {
@@ -135,17 +134,17 @@ void render__13TLockOnCursorFv(s32 arg0) {
     }
     for (i = 0; i < 4; i++) {
         c = (u8 *)TLockOnCursor__sub_8013EB6C((void *)arg0, i);
-        if (get_selected_entry__11TMainCursorFPv((s32)c) != 0) {
-            n = get_target__13TLockOnCursorFPv((void *)(c + 0x9C));
+        if (get_selected_entry__11TMainCursorFv((s32)c) != 0) {
+            n = get_target__13TLockOnCursorFv((void *)(c + 0x9C));
             for (p = TObjPlayer__sub_80116620((s32)(c + 0x9C), 0), j = 0; j < n; j++, p++) {
-                if (test_flag_1_at_8__13TLockOnCursorFPv((int)p) == 0 &&
-                    render_part__13TLockOnCursorFPv((int)p) == 0 &&
-                    get_type_id__10TObjPlayerFPv((int)p) != 0xFFFF) {
+                if (test_flag_1_at_8__13TLockOnCursorFv((int)p) == 0 &&
+                    render_part__13TLockOnCursorFv((int)p) == 0 &&
+                    get_type_id__10TObjPlayerFv((int)p) != 0xFFFF) {
                     o = find_entity_by_id(p->id);
                     if (o != NULL) {
                         e = *(s32 *)(o + 0xA4) + p->idx * 0x2C;
                         if (e != 0) {
-                            renderSecondaryCursor__13TLockOnCursorFPUcll((void *)arg0, e, TMainCursor__sub_8013E900((int)c), get_active__11TMainCursorFPv((int)c));
+                            renderSecondaryCursor__13TLockOnCursorFPUcll((void *)arg0, e, TMainCursor__sub_8013E900((int)c), get_active__11TMainCursorFv((int)c));
                         }
                     }
                 }
@@ -155,8 +154,9 @@ void render__13TLockOnCursorFv(s32 arg0) {
 }
 #pragma pop
 
-void run_task__13TLockOnCursorFv(s32 arg0) {
-    if (is_channel_active__11TMainCursorFPv(arg0 + 0x520) != 0) {
+void TLockOnCursor::run_task() {
+    s32 arg0 = (s32)this;
+    if (is_channel_active__11TMainCursorFv(arg0 + 0x520) != 0) {
         TLockOnCursor__sub_8013EB8C(arg0 + 0x520);
         return;
     }
@@ -168,37 +168,37 @@ void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0) {
     s32 var_r31_3;
     s32 var_r31_4;
     s32 var_r30;
-    clear_id__10TObjPlayerFPv((void *)(arg0 + 0x1C));
+    clear_id__10TObjPlayerFv((void *)(arg0 + 0x1C));
     for (var_r30 = 0; var_r30 < 4; var_r30++) {
-        reset_state__11TMainCursorFPv((s32)&((Cur_8013DAB0 *)arg0)->arr[var_r30]);
+        reset_state__11TMainCursorFv((s32)&((Cur_8013DAB0 *)arg0)->arr[var_r30]);
     }
-    reset_state__13TLockOnCursorFPv(arg0 + 0x4EC);
+    reset_state__13TLockOnCursorFv(arg0 + 0x4EC);
     TLockOnCursor__sub_8013EC1C(arg0 + 0x508);
     reset_nearest_target_record(arg0 + 0x510);
-    if (cleanup_field_3c__13TLockOnCursorFPv((void *)arg0) == NULL) {
+    if (cleanup_field_3c__13TLockOnCursorFv((void *)arg0) == NULL) {
         var_r31_2 = __nw__7TObjectFUl(0x24);
         if (var_r31_2 != 0) {
-            var_r31_2 = init__11TMainCursorFPv(var_r31_2, tl_loc_start, get_target_id__11TMainCursorFPv(arg0));
+            var_r31_2 = init__11TMainCursorFv(var_r31_2, tl_loc_start, get_target_id__11TMainCursorFv(arg0));
         }
-        set_sub_cursor_value__11TMainCursorFPvi(arg0, var_r31_2);
+        set_sub_cursor_value__11TMainCursorFl(arg0, var_r31_2);
     }
-    if (cleanup_field__13TLockOnCursorFPv((void *)arg0) == NULL) {
+    if (cleanup_field__13TLockOnCursorFv((void *)arg0) == NULL) {
         var_r31_3 = __nw__7TObjectFUl(0x24);
         if (var_r31_3 != 0) {
-            var_r31_3 = init_vtable__11TMainCursorFPv(var_r31_3, tl_loc_end, get_target_id__11TMainCursorFPv(arg0));
+            var_r31_3 = init_vtable__11TMainCursorFv(var_r31_3, tl_loc_end, get_target_id__11TMainCursorFv(arg0));
         }
-        set_target__11TMainCursorFPvi(arg0, var_r31_3);
+        set_target__11TMainCursorFl(arg0, var_r31_3);
     }
-    if (release_target__13TLockOnCursorFPv((void *)arg0) == NULL) {
+    if (release_target__13TLockOnCursorFv((void *)arg0) == NULL) {
         var_r31_4 = __nw__7TObjectFUl(0x24);
         if (var_r31_4 != 0) {
-            var_r31_4 = init_lockon__11TMainCursorFPv(var_r31_4, tl_window, get_target_id__11TMainCursorFPv(arg0));
+            var_r31_4 = init_lockon__11TMainCursorFv(var_r31_4, tl_window, get_target_id__11TMainCursorFv(arg0));
         }
-        destroy_lock_on__11TMainCursorFPvi(arg0, var_r31_4);
+        destroy_lock_on__11TMainCursorFl(arg0, var_r31_4);
     }
 }
 
-void free_cursor_resources__13TLockOnCursorFv(void) {
+void TLockOnCursor::free_cursor_resources() {
     if ((void *) lock_on_cursor_bml_resource != NULL) {
         TLobby__sub_8001FE7C(lock_on_cursor_bml_resource, 1);
         lock_on_cursor_bml_resource = NULL;
@@ -211,7 +211,7 @@ void load_target_cursor_models(void) {
     s32 temp_r3;
     s32 var_r0;
     if ((void *) lock_on_cursor_bml_resource == NULL) {
-        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &target_cursor_resource_descriptor.value, 0, 0, 0));
@@ -229,22 +229,22 @@ u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1) {
     Obj_8013DCCC *p;
     if (arg0 != NULL) {
         *(s32 **)(arg0 + 0x18) = __vt__13TLockOnCursor;
-        p = cleanup_field_3c__13TLockOnCursorFPv(arg0);
+        p = cleanup_field_3c__13TLockOnCursorFv(arg0);
         if (p != NULL) {
             delete p;
         }
-        p = cleanup_field__13TLockOnCursorFPv(arg0);
+        p = cleanup_field__13TLockOnCursorFv(arg0);
         if (p != NULL) {
             delete p;
         }
-        p = release_target__13TLockOnCursorFPv(arg0);
+        p = release_target__13TLockOnCursorFv(arg0);
         if (p != NULL) {
             delete p;
         }
-        destroy__13TLockOnCursorFPvs(arg0 + 0x520, -1);
+        destroy__13TLockOnCursorFs(arg0 + 0x520, -1);
         destroy__13TLockOnCursorFis(arg0 + 0x4EC, -1);
         __destroy_arr(arg0 + 0x5C, __dt_deleting__13TLockOnCursorFis, 0x124, 4);
-        destroy__11TMainCursorFPvs(arg0 + 0x48, -1);
+        destroy__11TMainCursorFs(arg0 + 0x48, -1);
         __dt__13TLockOnCursorFis(arg0 + 0x3C, -1);
         dt__13TLockOnCursorFis((s32)(arg0 + 0x24), -1);
         __dt__7TObjectFv(arg0, 0);
@@ -257,7 +257,7 @@ u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1) {
 
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        free_if_owned__13TLockOnCursorFis(arg0, 0);
+        free_if_owned__13TLockOnCursorFls(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -274,18 +274,18 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     struct VOff_8013DE3C_arg0_8013D91C *self = (struct VOff_8013DE3C_arg0_8013D91C *)arg0;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TLockOnCursor;
-    init_forward__10TObjPlayerFPv(self->f_1C);
+    init_forward__10TObjPlayerFv(self->f_1C);
     fn_8013F0A0((void *)((char *)arg0 + 36));
-    reset_fields__13TLockOnCursorFPv((void *)((char *)arg0 + 60));
+    reset_fields__13TLockOnCursorFv((void *)((char *)arg0 + 60));
     TMainCursor__sub_8013F1F0((void *)((char *)arg0 + 72));
     __construct_array((void *)((char *)arg0 + 92), TLockOnCursor__sub_8013EFB8, __dt_deleting__13TLockOnCursorFis, 292, 4);
-    cleanup__13TLockOnCursorFPv((void *)((char *)arg0 + 1260));
-    init_forward__13TLockOnCursorFPv((void *)((char *)arg0 + 1288));
-    init_cursor__13TLockOnCursorFPv((void *)((char *)arg0 + 1296));
-    init_vtable__13TLockOnCursorFPv((void *)((char *)arg0 + 1312));
+    cleanup__13TLockOnCursorFv((void *)((char *)arg0 + 1260));
+    init_forward__13TLockOnCursorFv((void *)((char *)arg0 + 1288));
+    init_cursor__13TLockOnCursorFv((void *)((char *)arg0 + 1296));
+    init_vtable__13TLockOnCursorFv((void *)((char *)arg0 + 1312));
     *(void **)((s8 *)arg0 + 0x0) = lock_on_cursor_class_name;
     TLockOnCursor__sub_8013EEC0(arg0, arg2);
-    clear_id__10TObjPlayerFPv(self->f_1C);
+    clear_id__10TObjPlayerFv(self->f_1C);
     return arg0;
 }
 

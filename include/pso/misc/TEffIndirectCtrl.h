@@ -18,6 +18,11 @@ struct TEffIndirectCtrl
     u32 m_40;
     u16 m_44;
     u16 m_46;
+    static void free_buffers();
+    static void render();
+    void copy_and_flush_texture(s32 arg1);
+    static void free_all();
+    void update_scroll_mode();
 };
 
 #endif

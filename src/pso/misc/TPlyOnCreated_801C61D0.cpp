@@ -3,17 +3,17 @@
 #include "pso/player/TObjPlayer.h"
 
 #include "types.h"
+#include "pso/TPlyOnCreated.h"
 
 extern "C" {
 
-void * create__13TPlyOnCreatedFPvPv(void *arg0, void *arg1);
 void run_task__20TPlayerReadyCallbackFv(void *arg0);
 void *get_player_by_client_id(u16);
 void *__ct__13TPlyOnCreatedFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 queue_destruction__7TObjectFv(void *);
 
-void * create__13TPlyOnCreatedFPvPv(void *arg0, void *arg1) {
+void *TPlyOnCreated::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {

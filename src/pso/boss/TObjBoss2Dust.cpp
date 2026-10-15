@@ -18,15 +18,14 @@ u8 *__ct__13TObjBoss2DustFv(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void run_task__13TObjBoss2DustFv(void *arg0);
 s32 queue_destruction__7TObjectFv();
 
 extern const f32 lbl_805D85B0;
 
-void run_task__13TObjBoss2DustFv(void *arg0) {
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) - lbl_805D85B0);
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) >= 0x5A) {
+void TObjBoss2Dust::run_task() {
+    *(f32 *)((s8 *)this + 0x2C) = (f32) (*(f32 *)((s8 *)this + 0x2C) - lbl_805D85B0);
+    *(s32 *)((s8 *)this + 0x1C) = (s32) (*(s32 *)((s8 *)this + 0x1C) + 1);
+    if ((s32) *(s32 *)((s8 *)this + 0x1C) >= 0x5A) {
         queue_destruction__7TObjectFv();
     }
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowGetComCard.h"
 
 struct RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 {
     s32 value;
@@ -17,8 +18,7 @@ struct RecoveredGlobal_8007B60C_TWindowGetComCard__data_80500158
 };
 
 extern "C" {
-void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 is_active__17TWindowSubComCardFPv(void *);
+s32 is_active__17TWindowSubComCardFv(void *);
 void TWindowCtrl__sub_8024A08C(void);
 extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void TWindowGetComCard__sub_8007B54C(void);
@@ -31,21 +31,19 @@ void TWindowGetComCard__sub_8007B60C(s32 _w0);
 extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void init_guild_card_tag__17TWindowSubComCardFi(void *);
 void __construct_array(void *ptr, void *ctor, void *dtor, u32 size, u32 n);
-void construct_card_tags__17TWindowGetComCardFv(void);
 }
 
 extern "C" {
 
 void TWindowGetComCard__sub_8007B65C(void* p);
 void TWindowGetComCard__sub_8007B67C(void* p);
-void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 move_words__6TLobbyFPvPvi(s32, s32, u32);
+s32 move_words__6TLobbyFPUll(s32, s32, u32);
 s32 TWindowSubComCard__sub_8007B26C(s32);
 
 typedef char RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158_size[sizeof(RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158) == 0x240 ? 1 : -1];
 void TWindowGetComCard__sub_8007B54C(void) {
-    remove_entry__17TWindowGetComCardFiii(0, (s32) &TWindowGetComCard__received_guild_card_tags.value, 4);
-    if (is_active__17TWindowSubComCardFPv(&TWindowGetComCard__received_guild_card_tags.value) == 0) {
+    TWindowGetComCard::remove_entry(0, (s32) &TWindowGetComCard__received_guild_card_tags.value, 4);
+    if (is_active__17TWindowSubComCardFv(&TWindowGetComCard__received_guild_card_tags.value) == 0) {
         TWindowCtrl__sub_8024A08C();
     }
 }
@@ -55,12 +53,12 @@ s32 *TWindowGetComCard__sub_8007B594(void) {
     return &(*(RecoveredGlobal_8007B594_TWindowGetComCard__data_80500158 *)&TWindowGetComCard__received_guild_card_tags).value;
 }
 
-void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
+void TWindowGetComCard::remove_entry(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
 
     if (arg0 < (s32) (arg2 - 1)) {
         temp_r3 = arg1 + (arg0 * 0x90);
-        move_words__6TLobbyFPvPvi(temp_r3, temp_r3 + 0x90, (u32) (((arg2 - arg0) - 1) * 0x90) >> 2U);
+        move_words__6TLobbyFPUll(temp_r3, temp_r3 + 0x90, (u32) (((arg2 - arg0) - 1) * 0x90) >> 2U);
     }
     arg1 += (arg2 - 1) * 0x90;
     TWindowSubComCard__sub_8007B26C(arg1);
@@ -87,10 +85,10 @@ void TWindowGetComCard__sub_8007B60C(s32 _w0) {
 
 void TWindowGetComCard__sub_8007B65C(void* p) { TWindowGetComCard__sub_8007B60C((s32)(p)); }
 void TWindowGetComCard__sub_8007B67C(void* p) { TWindowGetComCard__sub_8007B60C((s32)(p)); }
-void construct_card_tags__17TWindowGetComCardFv(void) {
+void TWindowGetComCard::construct_card_tags() {
     __construct_array(((u8 *)&TWindowGetComCard__received_guild_card_tags), (void *)init_guild_card_tag__17TWindowSubComCardFi, 0, 0x90, 4);
 }
 
 }
 
-__declspec(section ".ctors") static void *const __sinit_TWindowGetComCard_8007B54C_cpp_ref = (void *)construct_card_tags__17TWindowGetComCardFv;
+__declspec(section ".ctors") static void *const __sinit_TWindowGetComCard_8007B54C_cpp_ref = (void *)TWindowGetComCard::construct_card_tags;

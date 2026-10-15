@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlScreen.h"
 
 struct RecoveredGlobal_8024CAD0___vt__17TWindowCtrlScreen {
     s32 value;
@@ -6,7 +7,7 @@ struct RecoveredGlobal_8024CAD0___vt__17TWindowCtrlScreen {
 };
 
 extern "C" {
-s32 get_nth_view_player_id__11TCameraCtrlFi(int);
+s32 get_nth_view_player_id__11TCameraCtrlFl(int);
 s32 TCameraCtrl__sub_80068EF0();
 s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 reset_transform_state__10TObjPlayerFv();
@@ -19,7 +20,6 @@ s32 is_window_display_enabled();
 s32 draw_menu_backdrop_gradients(int);
 s32 TWindowCtrlMain__sub_8024D2A4(int);
 extern s32 TWindowCtrlMain__instance;
-void render__17TWindowCtrlScreenFv(void);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8024CAD0___vt__17TWindowCtrlScreen __vt__17TWindowCtrlScreen;
@@ -29,10 +29,10 @@ u8 *__dt__17TWindowCtrlScreenFv(u8 *arg0, s16 arg1);
 
 extern "C" {
 
-void render__17TWindowCtrlScreenFv(void) {
+void TWindowCtrlScreen::render() {
     u16 temp_r31;
     if (is_window_display_enabled() != 0) {
-        temp_r31 = get_nth_view_player_id__11TCameraCtrlFi((int) (get_camera_no__11TCameraCtrlFv()));
+        temp_r31 = get_nth_view_player_id__11TCameraCtrlFl((int) (get_camera_no__11TCameraCtrlFv()));
         reset_transform_state__10TObjPlayerFv();
         begin_effect_render__13TParticleCtrlFv();
         render_nodes__7TObjectFv((int) (TWindowCtrlMain__instance));

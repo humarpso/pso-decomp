@@ -37,8 +37,8 @@ extern const f32 lbl_805DED68;
 extern const f32 lbl_805DED6C;
 void TBoss8Dragon__sub_802F4098(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void get_camera_target_id__11TCameraCtrlFi(s32);
-f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+void get_camera_target_id__11TCameraCtrlFl(s32);
+f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 u8 *find_entity_by_id(void);
 s32 TBoss8Dragon__sub_802F4760(void *, void *, f32);
 void subtract_vector(void *, void *);
@@ -58,7 +58,7 @@ s32 toggle_particle_effect__10TObjPlayerFv();
 s32 TObjLight__sub_801337F8(void *);
 s32 setup_tev_swap__10TObjPlayerFv();
 s32 fn_801414B0(int, int, int, int);
-s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 s32 has_enough_enemies__12TBoss8DragonFv();
 s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
@@ -69,7 +69,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 set_material_alpha_compare_reference(int);
 s32 set_chunk_material_override_pair(int, int);
 extern s32 current_scene_light;
@@ -106,7 +106,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     if (*(s32 *)(arg0 + 0x3E4) != 0) {
         return 0;
     }
-    get_camera_target_id__11TCameraCtrlFi(-1);
+    get_camera_target_id__11TCameraCtrlFl(-1);
     temp_r3 = find_entity_by_id();
     if (temp_r3 == 0) {
         return 0;
@@ -116,7 +116,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(&sp8, temp_r3 + 0x38);
     subtract_vector(&sp8, &sp14);
     sp8.y = TBoss8Dragon__data_805DED50;
-    temp_f31 = clamp_velocity__15TObjBoss2TunnelFPv(&sp8);
+    temp_f31 = clamp_velocity__15TObjBoss2TunnelFv(&sp8);
     VecCopy__FP3VecPC3Vec(boss8_dragon_reference_pos_vec, &sp14);
     VecCopy__FP3VecPC3Vec(dragon_forward_reference_vec, &sp8);
     boss8_dragon_visibility_distance = temp_f31;
@@ -137,7 +137,7 @@ void TBoss8Dragon__sub_802F4098(u8 *arg0, u8 *arg1) {
 void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r31;
     if (!(*(f32 *)((s8 *)arg0 + 0x3C) <= lbl_805DED70)) {
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         clear_global_flag_400__9TObjEneDDFv();
         lbl_805D5660 = model_render_flags;
         set_material_alpha_compare_reference((int) (0));
@@ -165,7 +165,7 @@ void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         } else {
             *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 8);
         }
-        draw__16TObjEneRe7BeruraFPv((void *) (arg0));
+        draw__16TObjEneRe7BeruraFv((void *) (arg0));
         setup_tev_swap__10TObjPlayerFv();
         end_effect_render__13TParticleCtrlFv();
         TObjLight__sub_801337F8((void *) (current_scene_light));

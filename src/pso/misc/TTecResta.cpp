@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecResta.h"
 
 struct RecoveredGlobal_80239C48___vt__9TTecResta {
     s32 value;
@@ -109,12 +110,10 @@ struct Obj_80239CF4 { u8 pad[0x1C]; void *source; u8 pad20[0x88 - 0x20]; f32 pow
 
 extern "C" {
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFi(void *);
+s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
-s32 play_launch_sound__9TTecRestaFPv(void *);
-int init_cast__9TTecRestaFPv(void* p);
-void init_parameters__9TTecRestaFPv(u8 *arg0);
-s32 copy_params__8TTecAntiFPvPv(void *, int);
+s32 play_launch_sound__9TTecRestaFv(void *);
+s32 copy_params__8TTecAntiFPUc(void *, int);
 extern s32 __vt__9TTecResta[];
 extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
@@ -122,7 +121,6 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 f32 *calc_technique_parameters(s32, s32, s32);
 s32 is_technique_ready__8TTecCtrlFv(int);
 extern RecoveredGlobal_802394B0_lbl_804CC55C lbl_804CC55C;
-f32 calc_heal_amount__9TTecRestaFi(s32 arg0);
 extern s32 lbl_804CCBC0[];
 extern Row_8023967C TTecResta__self_recovery_effect_table[];
 extern const f32 TTecResta__data_805DC908;
@@ -130,18 +128,18 @@ void __ct__7TObjectFP7TObject(void *, void *);
 Vec_8023967C *VecCopy__FP3VecPC3Vec(Vec_8023967C *, const Vec_8023967C *);
 void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 s32 obj_getField1c(int);
-void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
+void set_owner_id__13TParticleCtrlFUs(void *, s32);
 Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
 s32 queue_destruction__7TObjectFv();
 u32 find_entity_by_id(int);
-s32 is_parents_unqueued__9TTecLukerFUi(u32);
+s32 is_parents_unqueued__9TTecLukerFUl(u32);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecRestaFv(Resta_802399F8 *self);
 s32 obj_getField1c(int);
 s32 is_split_screen(void);
 void *spawn_particle_effect_with_flags(void *, s32, s32);
-void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
-s32 is_script_controlled__10TObjPlayerFPv(void *);
+void set_owner_id__13TParticleCtrlFUs(void *, s32);
+s32 is_script_controlled__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(int);
 void construct_delayed_point_sound(void *, void *, s32, s32, s32);
 Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
@@ -149,12 +147,10 @@ void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 extern s32 tl_07;
 void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1);
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFi(void *);
+s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 s32 copy_technique_target_list(void *, void *);
-s32 play_launch_sound__9TTecRestaFPv(void *);
-int init_cast__9TTecRestaFPv(void* p);
-void init_parameters__9TTecRestaFPv(u8 *arg0);
+s32 play_launch_sound__9TTecRestaFv(void *);
 extern s32 __vt__9TTecResta[];
 extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
@@ -169,11 +165,7 @@ extern "C" {
 
 void *__dt__9TTecRestaFPvs(void *arg0, s16 arg1);
 void *__dt__9TTecRestaFv(void *arg0, s16 arg1);
-void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2);
 void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-int init_cast__9TTecRestaFPv(void* p);
-void render__9TTecRestaFv(void);
-void tick_lifetime__9TTecRestaFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 void __dt__7TObjectFv(void *, int);
@@ -181,11 +173,11 @@ void *__nw__7TObjectFUl(int);
 int spawn_support_tec_range_effect(void*);
 s32 queue_destruction__7TObjectFv();
 
-int init_cast__9TTecRestaFPv(void* p) { return spawn_support_tec_range_effect(p); }
+int TTecResta::init_cast() { return spawn_support_tec_range_effect(this); }
 
 typedef struct RecoveredGlobal_802394B0_lbl_804CC55C RecoveredGlobal_802394B0_lbl_804CC55C;
 typedef char RecoveredGlobal_802394B0_lbl_804CC55C_size[((sizeof(RecoveredGlobal_802394B0_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
-f32 calc_heal_amount__9TTecRestaFi(s32 arg0) {
+f32 TTecResta::calc_heal_amount(s32 arg0) {
   f32 *temp_r3;
   f32 var_f31;
   temp_r3 = (f32 *) calc_technique_parameters(0xF, arg0, 0xFFFF);
@@ -198,10 +190,11 @@ f32 calc_heal_amount__9TTecRestaFi(s32 arg0) {
   return var_f31;
 }
 
-void init_parameters__9TTecRestaFPv(u8 *arg0) {
+void TTecResta::init_parameters() {
+    u8 *arg0 = (u8 *)this;
   int new_var;
   new_var = (int) calc_technique_parameters((int) 0xF, (int) (*((s16 *) (((s8 *) arg0) + 0xA4))), (int) 0xFFFF);
-  copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x74), new_var);
+  copy_params__8TTecAntiFPUc((void *) (arg0 + 0x74), new_var);
   *((f32 *) (((s8 *) arg0) + 0x74)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x74))) + ((f32) ((*((s16 *) (((s8 *) arg0) + 0x98))) * (*((s16 *) (((s8 *) arg0) + 0xA4))))));
   if (((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() != 0)
   {
@@ -209,11 +202,11 @@ void init_parameters__9TTecRestaFPv(u8 *arg0) {
   }
 }
 
-void tick_lifetime__9TTecRestaFPv(void *arg0) {
+void TTecResta::tick_lifetime() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x2C);
-    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (temp_r4 + 1);
+    temp_r4 = *(s32 *)((s8 *)this + 0x2C);
+    *(s32 *)((s8 *)this + 0x2C) = (s32) (temp_r4 + 1);
     if (temp_r4 > 0xB4) {
         queue_destruction__7TObjectFv();
     }
@@ -257,7 +250,7 @@ Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self
             self->emitters[i] = create_timed_particle_emitter_with_flags(&v, row->entry, row->delay, row->duration, 0x10);
         }
         if (self->emitters[i] != 0) {
-            set_owner_id__13TParticleCtrlFPvUs(self->emitters[i], obj_getField1c(self->owner));
+            set_owner_id__13TParticleCtrlFUs(self->emitters[i], obj_getField1c(self->owner));
         }
     }
     return self;
@@ -272,7 +265,7 @@ void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3)
     }
 }
 
-void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2) {
+void TTecResta::create(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
@@ -284,7 +277,7 @@ void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2) {
 #pragma opt_common_subs off
 void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1) {
     HitInfo_8023985C h;
-    if (is_script_controlled__10TObjPlayerFPv(arg1) != 0) {
+    if (is_script_controlled__10TObjPlayerFv(arg1) != 0) {
         return;
     }
     h.type = 6;
@@ -304,11 +297,11 @@ void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1) {
     } else if (arg0->active != 0) {
         void *e = spawn_particle_effect_with_flags((u8 *)arg1 + 0x2FC, 0x1F6, 0x10);
         if (e != NULL) {
-            set_owner_id__13TParticleCtrlFPvUs(e, obj_getField1c((int)arg1));
+            set_owner_id__13TParticleCtrlFUs(e, obj_getField1c((int)arg1));
         }
         e = spawn_particle_effect_with_flags((u8 *)arg1 + 0x2FC, 0x1F7, 0x10);
         if (e != NULL) {
-            set_owner_id__13TParticleCtrlFPvUs(e, obj_getField1c((int)arg1));
+            set_owner_id__13TParticleCtrlFUs(e, obj_getField1c((int)arg1));
         }
     }
     if (arg0->active != 0) {
@@ -320,7 +313,7 @@ void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1) {
 }
 #pragma pop
 
-void render__9TTecRestaFv(void) {  }
+void TTecResta::render() {  }
 
 extern s32 __vt__9TTecResta[];
 
@@ -328,7 +321,7 @@ void run_task__9TTecRestaFv(Resta_802399F8 *self) {
     u32 target;
     s32 i;
     self->source = find_entity_by_id(self->source_id);
-    if (is_parents_unqueued__9TTecLukerFUi(self->source) == 0) {
+    if (is_parents_unqueued__9TTecLukerFUl(self->source) == 0) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(self);
         return;
     }
@@ -340,7 +333,7 @@ void run_task__9TTecRestaFv(Resta_802399F8 *self) {
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
                     target = find_entity_by_id(self->targets[i].id);
-                    if (is_parents_unqueued__9TTecLukerFUi(target) != 0) {
+                    if (is_parents_unqueued__9TTecLukerFUl(target) != 0) {
                         ((VObj_802399F8 *)self)->m5(target);
                     }
                 }
@@ -373,11 +366,11 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
     u8 *p;
     TTecPlayerInfluence__ct(arg0, arg1, arg2, arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecResta;
-    construct_target_cursor_records__10TObjPlayerFi((u8 *)arg0 + 0xE0);
+    construct_target_cursor_records__10TObjPlayerFv((u8 *)arg0 + 0xE0);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3810;
     *(s32 *)((s8 *)arg0 + 0x13C) = 1;
     copy_technique_target_list((u8 *)arg0 + 0xE0, arg3);
-    init_parameters__9TTecRestaFPv((u8 *)arg0);
+    ((TTecResta *)arg0)->init_parameters();
     p = *(u8 **)((s8 *)arg0 + 0xDC);
     if (p != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)p + 0xA4)) + 0xC) = TTecResta__data_805DC908 + *(f32 *)((s8 *)arg0 + 0x7C);
@@ -387,8 +380,8 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
         *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c(src);
     }
     if (*(s32 *)((s8 *)arg0 + 0xAC) != 0) {
-        init_cast__9TTecRestaFPv(arg0);
-        play_launch_sound__9TTecRestaFPv(arg0);
+        ((TTecResta *)arg0)->init_cast();
+        play_launch_sound__9TTecRestaFv(arg0);
     }
     return arg0;
 }
@@ -399,10 +392,10 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80239C48___vt__9TTecResta *)&__vt__9TTecResta).value;
-    construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xE0));
+    construct_target_cursor_records__10TObjPlayerFv((void *) (arg0 + 0xE0));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3810;
     *(s32 *)((s8 *)arg0 + 0x13C) = 0;
-    init_parameters__9TTecRestaFPv((u8 *) (arg0));
+    ((TTecResta *)arg0)->init_parameters();
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (TTecResta__data_805DC908 + *(f32 *)((s8 *)arg0 + 0x7C));
@@ -412,8 +405,8 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c((int) (temp_r3_2));
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0xAC) != 0) {
-        init_cast__9TTecRestaFPv((void*)((void *) (arg0)));
-        play_launch_sound__9TTecRestaFPv((void *) (arg0));
+        ((TTecResta *)arg0)->init_cast();
+        play_launch_sound__9TTecRestaFv((void *) (arg0));
     }
     return arg0;
 }

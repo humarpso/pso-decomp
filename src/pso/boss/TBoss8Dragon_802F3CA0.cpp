@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 struct RecoveredGlobal_802F3CA0_lbl_80474508 {
     s32 value;
@@ -41,14 +42,13 @@ extern "C" {
 extern RecoveredGlobal_802F3CA0_lbl_80474508 boss8_dragon_mode_params;
 extern RecoveredGlobal_802F3CA0_lbl_80474530 dragon_mode_params_a;
 extern RecoveredGlobal_802F3CA0_lbl_80474558 dragon_mode_params_b;
-void set_mode_params__12TBoss8DragonFPvc(u8 *arg0, s8 arg1);
 void TObjLight__sub_801337F8(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, Anim_802F3D6C *, f32);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
@@ -59,7 +59,6 @@ extern const f32 lbl_805DED54;
 extern const f32 TBoss8Dragon__data_805DED58;
 extern const f32 lbl_805DED5C;
 extern const f32 TBoss8Dragon__data_805DED60;
-void draw_motion_model__12TBoss8DragonFPv(u8 *arg0);
 f32 receive_direct_attack__10TObjPlayerFv(void *, void *, Pair_802F3D18 *, s32, s32, s32);
 extern const f32 TBoss8Dragon__data_805DED50;
 f32 calc_direct_attack_damage__12TBoss8DragonFPvPvPviii(void *a, void *b, Pair_802F3D18 *p, s32 x, s32 y, s32 z);
@@ -70,7 +69,8 @@ extern "C" {
 typedef char RecoveredGlobal_802F3CA0_lbl_80474508_size[sizeof(RecoveredGlobal_802F3CA0_lbl_80474508) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_802F3CA0_lbl_80474530_size[sizeof(RecoveredGlobal_802F3CA0_lbl_80474530) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_802F3CA0_lbl_80474558_size[sizeof(RecoveredGlobal_802F3CA0_lbl_80474558) == 0x28 ? 1 : -1];
-void set_mode_params__12TBoss8DragonFPvc(u8 *arg0, s8 arg1) {
+void TBoss8Dragon::set_mode_params(s8 arg1) {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     *(s32 *)((s8 *)arg0 + 0x3E8) = (s32) arg1;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x3E8);
@@ -100,12 +100,13 @@ f32 calc_direct_attack_damage__12TBoss8DragonFPvPvPviii(void *a, void *b, Pair_8
     return receive_direct_attack__10TObjPlayerFv(a, b, &t, x, y, z);
 }
 
-void draw_motion_model__12TBoss8DragonFPv(u8 *arg0) {
+void TBoss8Dragon::draw_motion_model() {
+    u8 *arg0 = (u8 *)this;
     f32 f;
     s32 idx;
     Anim_802F3D6C *anim;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DED54, TBoss8Dragon__data_805DED58) != 0) {
-        set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)(arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));

@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
 
-u8 get_type__20TWindowSubStatusDispFPv(void* p);
-
-u8 get_type__20TWindowSubStatusDispFPv(void* p) { return *(u8*)((char*)p + 0x0); }
+u8 TWindowSubStatusDisp::get_type() { return *(u8*)((char*)this + 0x0); }
 
 }

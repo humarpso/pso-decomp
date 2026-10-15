@@ -152,28 +152,24 @@ extern P_8023DBB4 tec_zonde_effect_task_list;
 extern char lbl_804CC8C8[];
 extern A_8023DBB4 *shared_effect_texture_list[];
 extern s32 TTecZondeEff__beam_vertex_data;
-void init_resources__12TTecZondeEffFv(void);
 f32 rand_signed_unit();
 void calc_lightning_scatter_direction(void *, s32, void *);
-s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0);
 extern const f32 TTecZondeEff__data_805DC990;
 extern const f32 lbl_805DC9A4;
 void randomize_bolt_jitter__12TTecZondeEffFPv(Obj_8023D4A8 *arg0);
 s32 is_split_screen(void);
 void spawn_particle_effect(Rec_8023D568 *, s32);
-void init_bolt_points__12TTecZondeEffFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 extern P_8023DBB4 tec_zonde_effect_task_list;
 extern s32 TTecZondeEff__beam_vertex_data;
 extern const f32 TTecZondeEff__data_805DC990;
-void run_task__12TTecZondeEffFv(Zonde_8023D7A0 *arg0);
 void set_depth_buffer_settings_1__Fv();
 void restore_saved_depth_alpha_state();
 void reset_transform_state__10TObjPlayerFv();
 void init_xyz_limits__10TObjPlayerFv();
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
-void draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, s32);
+void draw_transformed_primitive__9TWindowDDFPvPvPv(void *, s32, s32, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void set_chunk_material_color(f32 *argb);
@@ -181,7 +177,6 @@ extern f32 chunk_material_color_half_alpha_f32[];
 extern u32 lbl_805D5660;
 extern s32 TTecZondeEff__beam_vertex_data;
 extern u32 model_render_flags;
-void render__12TTecZondeEffFv(Zonde_8023D6B0 *self);
 void matrix_mult_vec(s32, Vec_8023D128 *, Vec_8023D128 *);
 extern Cam_8023D128 lbl_8058D4F8;
 extern const f32 TTecZondeEff__data_805DC994;
@@ -204,7 +199,7 @@ struct Obj_8023D294 { u8 pad[0x28]; Vec_8023D294 d; };
 extern "C" {
 
 f32 rand_signed_unit();
-void update_scale__15TObjBoss2TunnelFPv(void *);
+void update_scale__15TObjBoss2TunnelFv(void *);
 extern const f32 TTecZondeEff__data_805DC994;
 extern const f32 lbl_805DC9A0;
 
@@ -346,7 +341,7 @@ void calc_lightning_scatter_direction(void *arg0, s32 axis, void *arg2) {
         out->y = a;
         out->z = b;
         out->x = inv * (a * p + b * q);
-        update_scale__15TObjBoss2TunnelFPv(out);
+        update_scale__15TObjBoss2TunnelFv(out);
         break;
     }
     case 1: {
@@ -359,7 +354,7 @@ void calc_lightning_scatter_direction(void *arg0, s32 axis, void *arg2) {
         out->z = a;
         out->x = b;
         out->y = inv * (a * p + b * q);
-        update_scale__15TObjBoss2TunnelFPv(out);
+        update_scale__15TObjBoss2TunnelFv(out);
         break;
     }
     case 2: {
@@ -372,7 +367,7 @@ void calc_lightning_scatter_direction(void *arg0, s32 axis, void *arg2) {
         out->x = a;
         out->y = b;
         out->z = inv * (a * p + b * q);
-        update_scale__15TObjBoss2TunnelFPv(out);
+        update_scale__15TObjBoss2TunnelFv(out);
         break;
     }
     }
@@ -381,14 +376,14 @@ void calc_lightning_scatter_direction(void *arg0, s32 axis, void *arg2) {
 
 }
 
-s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0) {
+s32 TTecZondeEff::calc_dominant_axis() {
     f32 temp_f1;
     f32 temp_f30;
     f32 temp_f31;
 
-    temp_f30 = fabs_float(*(f32 *)((s8 *)arg0 + 0x28));
-    temp_f31 = fabs_float(*(f32 *)((s8 *)arg0 + 0x2C));
-    temp_f1 = fabs_float(*(f32 *)((s8 *)arg0 + 0x30));
+    temp_f30 = fabs_float(*(f32 *)((s8 *)this + 0x28));
+    temp_f31 = fabs_float(*(f32 *)((s8 *)this + 0x2C));
+    temp_f1 = fabs_float(*(f32 *)((s8 *)this + 0x30));
     if (temp_f30 > temp_f31) {
         if (temp_f30 > temp_f1) {
             return 0;
@@ -410,7 +405,7 @@ void randomize_bolt_jitter__12TTecZondeEffFPv(Obj_8023D4A8 *arg0) {
     s32 axis;
     s32 i;
     f32 k;
-    axis = calc_dominant_axis__12TTecZondeEffFPv((void *)(arg0));
+    axis = ((TTecZondeEff *)arg0)->calc_dominant_axis();
     p = arg0->recs;
     for (i = 0; i < arg0->count; i++, p++) {
         calc_lightning_scatter_direction(arg0, axis, p);
@@ -425,8 +420,8 @@ void randomize_bolt_jitter__12TTecZondeEffFPv(Obj_8023D4A8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void init_bolt_points__12TTecZondeEffFPv(void *arg0) {
-    Obj_8023D568 *o = (Obj_8023D568 *)arg0;
+void TTecZondeEff::init_bolt_points() {
+    Obj_8023D568 *o = (Obj_8023D568 *)this;
     f32 x0 = o->a.x;
     f32 y0 = o->a.y;
     f32 z0 = o->a.z;
@@ -446,7 +441,8 @@ void init_bolt_points__12TTecZondeEffFPv(void *arg0) {
 }
 #pragma pop
 
-void render__12TTecZondeEffFv(Zonde_8023D6B0 *self) {
+void TTecZondeEff::render() {
+    Zonde_8023D6B0 *self = (Zonde_8023D6B0 *)this;
     u32 verts[0x270 / 4];
     u32 m70[0x9c / 4];
     u32 m3c[0x34 / 4];
@@ -465,7 +461,7 @@ void render__12TTecZondeEffFv(Zonde_8023D6B0 *self) {
     set_depth_buffer_settings_1__Fv();
     if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0 && build_lightning_strip((Obj_8023CED4 *)(self), (Vtx_8023CED4 *)(verts), (Vec_8023CED4 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0) {
         init_xyz_limits__10TObjPlayerFv();
-        draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, self->count * 2, TTecZondeEff__beam_vertex_data, 1);
+        draw_transformed_primitive__9TWindowDDFPvPvPv(verts, self->count * 2, TTecZondeEff__beam_vertex_data, 1);
         reset_transform_state__10TObjPlayerFv();
     }
     end_effect_render__13TParticleCtrlFv();
@@ -476,7 +472,8 @@ void render__12TTecZondeEffFv(Zonde_8023D6B0 *self) {
 
 #pragma push
 #pragma fp_contract on
-void run_task__12TTecZondeEffFv(Zonde_8023D7A0 *arg0) {
+void TTecZondeEff::run_task() {
+    Zonde_8023D7A0 *arg0 = (Zonde_8023D7A0 *)this;
     s32 i;
     f32 s;
     E_8023D7A0 *e;
@@ -547,7 +544,7 @@ u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2,
     *(s32 *)((s8 *)arg0 + 0x250) = 0;
     *(s16 *)((s8 *)arg0 + 0x25C) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0xD;
-    init_bolt_points__12TTecZondeEffFPv((void *)(arg0));
+    ((TTecZondeEff *)arg0)->init_bolt_points();
     randomize_bolt_jitter__12TTecZondeEffFPv((Obj_8023D4A8 *)(arg0));
     *(s32 *)((s8 *)arg0 + 0x248) = 0;
     *(s32 *)((s8 *)arg0 + 0x24C) = 0xFF000000;
@@ -568,7 +565,7 @@ u8 *construct__12TTecZondeEffFPvPvPvPvf(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, 
     *(s32 *)((s8 *)arg0 + 0x250) = 0;
     *(s16 *)((s8 *)arg0 + 0x25C) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0xD;
-    init_bolt_points__12TTecZondeEffFPv((void *)(arg0));
+    ((TTecZondeEff *)arg0)->init_bolt_points();
     randomize_bolt_jitter__12TTecZondeEffFPv((Obj_8023D4A8 *)(arg0));
     *(s32 *)((s8 *)arg0 + 0x248) = 0;
     *(s32 *)((s8 *)arg0 + 0x24C) = 0xFF000000;
@@ -579,7 +576,7 @@ u8 *construct__12TTecZondeEffFPvPvPvPvf(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, 
 void clear_zonde_beam_vertex_pointer(void) {
     TTecZondeEff__beam_vertex_data = 0;
 }
-void init_resources__12TTecZondeEffFv(void) {
+void TTecZondeEff::init_resources() {
     tec_zonde_effect_task_list.vt = lbl_804CC8C8;
     tec_zonde_effect_task_list.n = 0x10;
     TTecZondeEff__beam_vertex_data = shared_effect_texture_list[0]->b->c->v;

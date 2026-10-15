@@ -4,7 +4,7 @@ extern "C" {
 
 void init_control_mode__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
-int is_flag_set_550__10TObjPlayerFPv(void* p);
+int is_flag_set_550__10TObjPlayerFv(void* p);
 void TObjPlayer__sub_801BCD50(void);
 void TObjPlayer__sub_801BCD54(void);
 int TObjPlayer__sub_801BEF60(void*, int);

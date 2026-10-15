@@ -5,6 +5,7 @@
 
 struct TWindowCtrlScreen
 {
+    static void render();
 };
 
 #endif

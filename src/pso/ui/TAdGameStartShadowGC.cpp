@@ -30,36 +30,34 @@ Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *par
 
 extern "C" {
 
-void render__20TAdGameStartShadowGCFv(void* p);
-void run_task__20TAdGameStartShadowGCFv(void *arg0);
 int fn_80320B38(void*);
 int get_state_flag__9TMainTaskFv(void*);
 
-void render__20TAdGameStartShadowGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { fn_80320B38(p); } }
+void TAdGameStartShadowGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { fn_80320B38(this); } }
 
-void run_task__20TAdGameStartShadowGCFv(void *arg0) {
+void TAdGameStartShadowGC::run_task() {
     s32 temp_r0;
     s32 var_r0;
     s32 var_r0_2;
 
-    *(s32 *)((s8 *)arg0 + 0xC4) = (s32) (*(s32 *)((s8 *)arg0 + 0xC4) + 1);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC4);
+    *(s32 *)((s8 *)this + 0xC4) = (s32) (*(s32 *)((s8 *)this + 0xC4) + 1);
+    temp_r0 = *(s32 *)((s8 *)this + 0xC4);
     if (temp_r0 < 0xA) {
-        *(s32 *)((s8 *)arg0 + 0xC0) = (s32) (*(s32 *)((s8 *)arg0 + 0xC0) + 0x19);
-        var_r0 = *(s32 *)((s8 *)arg0 + 0xC0);
+        *(s32 *)((s8 *)this + 0xC0) = (s32) (*(s32 *)((s8 *)this + 0xC0) + 0x19);
+        var_r0 = *(s32 *)((s8 *)this + 0xC0);
         if (var_r0 > 0xFF) {
             var_r0 = 0xFF;
         }
-        *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
+        *(s32 *)((s8 *)this + 0xC0) = var_r0;
     } else if (temp_r0 > 0x1C) {
-        *(s32 *)((s8 *)arg0 + 0xC0) = (s32) (*(s32 *)((s8 *)arg0 + 0xC0) - 0x19);
-        var_r0_2 = *(s32 *)((s8 *)arg0 + 0xC0);
+        *(s32 *)((s8 *)this + 0xC0) = (s32) (*(s32 *)((s8 *)this + 0xC0) - 0x19);
+        var_r0_2 = *(s32 *)((s8 *)this + 0xC0);
         if (var_r0_2 < 0) {
             var_r0_2 = 0;
         }
-        *(s32 *)((s8 *)arg0 + 0xC0) = var_r0_2;
+        *(s32 *)((s8 *)this + 0xC0) = var_r0_2;
     }
-    *(s32 *)((s8 *)arg0 + 0xBC) = (s32) ((*(s32 *)((s8 *)arg0 + 0xC0) << 0x18) | 0xFF0000 | 0xFFFF);
+    *(s32 *)((s8 *)this + 0xBC) = (s32) ((*(s32 *)((s8 *)this + 0xC0) << 0x18) | 0xFF0000 | 0xFFFF);
 }
 TAdGameStartShadowGC::~TAdGameStartShadowGC() {}
 Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *parent) {

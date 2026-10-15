@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemProArmor.h"
 
 struct Base_8011620C_80115D6C { char pad[0x18]; };
 
@@ -87,7 +88,6 @@ struct VObj_801161A4_80115D6C : Base_801161A4_80115D6C {
 };
 
 extern "C" {
-void * construct_material__13TItemProArmorFPvPvPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_material_item(u8 *arg0);
@@ -95,12 +95,11 @@ void * construct_technique_disk_item(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_technique_disk_item(u8 *arg0);
-void * init__13TItemProArmorFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_telepipe_item(u8 *arg0);
 s32 set_item_owner_technique_level(void *, void *, int);
-s32 get_slot_count__14TItemProShieldFPv(void *);
+s32 get_slot_count__14TItemProShieldFv(void *);
 s32 TItemObject__sub_80115D7C(void *);
 void technique_disk_apply_use(s32 arg0);
 }
@@ -110,8 +109,6 @@ extern "C" {
 void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1);
 void apply_telepipe(void *arg0);
 void *TItemProArmor__sub_80117160(void *arg0, s16 arg1);
-s16 calc_scaled_offset__13TItemProArmorFv(void);
-int get_stat_value__13TItemProArmorFPv(void* p);
 void TItemObject__ct(void *);
 u8 get_tool_pmt_amount_byte();
 s32 launch_technique__10TObjPlayerFv(s32, s32, s32);
@@ -121,10 +118,10 @@ int obj_getS16_2BA(void*);
 
 extern s32 lbl_8049FBC0[];
 
-void *construct_material__13TItemProArmorFPvPvPv(void *arg0, void * _w1, void * _w2) {
-    TItemObject__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FBC0;
-    return arg0;
+void *TItemProArmor::construct_material(void * _w1, void * _w2) {
+    TItemObject__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_8049FBC0;
+    return this;
 }
 
 extern s32 lbl_8049FC90[];
@@ -138,7 +135,7 @@ u8 *create_material_item(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)construct_material__13TItemProArmorFPvPvPv((void *)((void *)(temp_r3)), (void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TItemProArmor *)temp_r3)->construct_material((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
@@ -147,7 +144,7 @@ u8 *create_material_item(u8 *arg0) {
 
 void technique_disk_apply_use(s32 arg0) {
   u8 temp_r31;
-  temp_r31 = get_slot_count__14TItemProShieldFPv((void *) arg0);
+  temp_r31 = get_slot_count__14TItemProShieldFv((void *) arg0);
   set_item_owner_technique_level((void *) arg0, (void *) ((s16) (TItemObject__sub_80115D7C((void *) arg0) & 0xFF)), (int) ((s16) (temp_r31 & 0xFFFFFFFFu)));
 }
 
@@ -200,10 +197,10 @@ void *TItemProArmor__sub_80117160(void *arg0, s16 arg1) {
 
 extern s32 lbl_8049FD48[];
 
-void *init__13TItemProArmorFPv(void *arg0, void * _w1, void * _w2) {
-    TItemObject__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FD48;
-    return arg0;
+void *TItemProArmor::init(void * _w1, void * _w2) {
+    TItemObject__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_8049FD48;
+    return this;
 }
 
 u8 *create_telepipe_item(u8 *arg0) {
@@ -213,18 +210,18 @@ u8 *create_telepipe_item(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init__13TItemProArmorFPv((void *)((void *)(temp_r3)), (void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TItemProArmor *)temp_r3)->init((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
     return NULL;
 }
 
-int get_stat_value__13TItemProArmorFPv(void* p) { return obj_getS16_2BA(*(void**)((char*)p + 0xf0)); }
+int TItemProArmor::get_stat_value() { return obj_getS16_2BA(*(void**)((char*)this + 0xf0)); }
 
 extern s32 game_difficulty_selection;
 
-s16 calc_scaled_offset__13TItemProArmorFv(void) {
+s16 TItemProArmor::calc_scaled_offset() {
     return (s16) ((game_difficulty_selection * 0x32) + get_tool_pmt_amount_byte());
 }
 

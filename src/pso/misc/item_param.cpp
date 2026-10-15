@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" void* item_pmt_tbl;
 
@@ -9,7 +10,7 @@ struct PmtSub {
 
 extern "C" {
 
-void* get_pmt_record__10TObjPlayerFi(int i) {
+void*TObjPlayer::get_pmt_record(int i) {
     PmtSub* c = *(PmtSub**)((char*)item_pmt_tbl + 0x10);
     if (i < c->count) {
         return &c->records[i * 24];
@@ -17,7 +18,7 @@ void* get_pmt_record__10TObjPlayerFi(int i) {
     return &c->records[c->count * 24];
 }
 
-void* get_item_pmt_record__10TObjPlayerFii(int type, int id) {
+void*TObjPlayer::get_item_pmt_record(int type, int id) {
     if (type > 0) {
         char* cat = *(char**)((char*)item_pmt_tbl + 0x00);
         if (type < 170) {
@@ -31,7 +32,7 @@ void* get_item_pmt_record__10TObjPlayerFii(int type, int id) {
     return NULL;
 }
 
-void* get_pmt_record_by_type_id__10TObjPlayerFii(int type, int id) {
+void*TObjPlayer::get_pmt_record_by_type_id(int type, int id) {
     char* cat = *(char**)((char*)item_pmt_tbl + 0x0C);
     if (type < 24) {
         PmtSub* s = (PmtSub*)(cat + type * 8);
@@ -42,7 +43,7 @@ void* get_pmt_record_by_type_id__10TObjPlayerFii(int type, int id) {
     return *(void**)(cat + 196);
 }
 
-void* get_pmt_record_by_index__10TObjPlayerFi(int i) {
+void*TObjPlayer::get_pmt_record_by_index(int i) {
     PmtSub* c = *(PmtSub**)((char*)item_pmt_tbl + 0x08);
     if (i < c->count) {
         return &c->records[i * 0x10];

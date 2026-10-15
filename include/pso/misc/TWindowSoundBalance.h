@@ -12,6 +12,11 @@ struct TWindowSoundBalance
     u8 m_61;
     u16 m_62;
     u16 m_64;
+    void play_open_sound();
+    void handle_lr_input();
+    void run_task();
+    void apply_balance(void *arg1);
+    void handle_cancel();
 };
 
 #endif

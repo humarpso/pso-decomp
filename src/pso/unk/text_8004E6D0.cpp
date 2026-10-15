@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss4DarkFalz.h"
 
 typedef struct Rec_8004E918 {
     s32 a;
@@ -23,7 +24,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
@@ -34,11 +35,10 @@ extern const f32 lbl_805D89C0;
 
 extern "C" {
 
-void * create_demo1__14TBoss4DarkFalzFPvPvPv(void *arg0, void *arg1, void *arg2);
 void *TObjDFDemo1__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void * create_demo1__14TBoss4DarkFalzFPvPvPv(void *arg0, void *arg1, void *arg2) {
+void *TBoss4DarkFalz::create_demo1(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x130);
     if (o != NULL) {

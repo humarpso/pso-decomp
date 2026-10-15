@@ -45,6 +45,29 @@ struct TObjEneRe7Berura
     void* m_420;
     u8 _pad424[0x24];
     void* m_448;
+    void state_attack(s32 arg1);
+    void handle_message_transition(s32 msg);
+    s32 check_death_trigger();
+    void play_band_sound();
+    void reload_stats_from_tables();
+    void destroy_parts();
+    u8 is_over_limit();
+    s32 step_toward_target(s32 arg1, s32 arg2);
+    void init_fields4B8();
+    static void init_part(s32 arg0);
+    static s32 collect_node_matrices(void *arg0, int idx);
+    void update_collision_center();
+    void init_enemy();
+    static void destroy_children();
+    void *create();
+    static void load_static_resources();
+    static void advance_state();
+    static void demo_frame_callback();
+    void run_flash_warning_state(s32 arg1);
+    void handle_state(s32 arg1);
+    static void *spawn_punch(void *arg0);
+    static void set_global_state(s32 arg0);
+    void draw();
 };
 
 #endif

@@ -16,6 +16,8 @@ struct TItemEffArmor
     u32 m_70;
     u32 m_74;
     u32 m_78;
+    void render();
+    void run_task();
 };
 
 #endif

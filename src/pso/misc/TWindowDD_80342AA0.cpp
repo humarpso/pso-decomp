@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
 
 extern "C" {
 s16 TWindowDD__sub_80342158(void *);
@@ -7,7 +8,6 @@ void TWindowDD__sub_80342B5C(u8 *arg0);
 
 extern "C" {
 
-void enter_state_9__9TWindowDDFPv(void *arg0);
 s32 update_numeric_parameter_input__9TWindowDDFPv();
 s32 update_close_flag__9TWindowDDFPv(void *);
 s32 apply_entry_layout__9TWindowDDFPv(void *);
@@ -17,24 +17,24 @@ s32 TWindowDD__sub_80347C50();
 s32 play_se__9TWindowDDFv();
 s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
-s32 test_input_flag_4__9TWindowDDFPv(void *);
+s32 test_input_flag_4__9TWindowDDFv(void *);
 
-void enter_state_9__9TWindowDDFPv(void *arg0) {
+void TWindowDD::enter_state_9() {
     s32 temp_r0;
     s32 var_r31;
 
     var_r31 = 0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
+    temp_r0 = *(s32 *)((s8 *)this + 0xB8);
     switch (temp_r0) {
     case 0:
         TWindowDD__sub_80347C50();
-        update_selection_state__9TWindowDDFPv(arg0);
-        if (test_input_flag_4__9TWindowDDFPv(arg0) != 0) {
+        update_selection_state__9TWindowDDFPv(this);
+        if (test_input_flag_4__9TWindowDDFv(this) != 0) {
             play_sound__9TWindowDDFv();
-            var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
-        } else if (TWindowDD__sub_803482B0(arg0) != 0) {
+            var_r31 = update_close_flag__9TWindowDDFPv(this) == 0;
+        } else if (TWindowDD__sub_803482B0(this) != 0) {
             play_se__9TWindowDDFv();
-            apply_entry_layout__9TWindowDDFPv(arg0);
+            apply_entry_layout__9TWindowDDFPv(this);
         }
         break;
     case 1:
@@ -42,8 +42,8 @@ void enter_state_9__9TWindowDDFPv(void *arg0) {
         break;
     }
     if ((s32) var_r31 != 0) {
-        *(s32 *)((s8 *)arg0 + 0xB4) = 9;
-        TWindowDD__sub_803435A0(arg0);
+        *(s32 *)((s8 *)this + 0xB4) = 9;
+        TWindowDD__sub_803435A0(this);
     }
 }
 void TWindowDD__sub_80342B5C(u8 *arg0) {

@@ -19,6 +19,8 @@ struct TObjVoloptPillar
     u32 m_b4;
     u8 _padB8[0x4];
     u32 m_bc;
+    void render();
+    static void cache_target_values();
 };
 
 #endif

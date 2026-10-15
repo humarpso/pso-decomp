@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 
 struct Base_80101CFC { char pad[0x18]; };
 struct VObj_80101CFC : Base_80101CFC {
@@ -15,7 +16,6 @@ void TItem__sub_80101CEC(void);
 void TItem__sub_80101CF0(void);
 void TItem__sub_80101CF4(void);
 void TItem__sub_80101CF8(void);
-s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1);
 s32 set_present_color__9TItemDataFPvi(void *, s8);
 s32 set_wrapped__9TItemDataFPv(void *);
 s32 set_packed_value__9TItemDataFPvUs(void *, u16);
@@ -28,9 +28,9 @@ void TItem__sub_80101CF8(void) {  }
 
 struct TItemDataX_80101cfc;
 
-s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1) {
+s32 TItem::copy_to_item_data(void *arg1) {
     struct TItemDataX_80101cfc *item = (struct TItemDataX_80101cfc *)arg1;
-    struct VObj_80101CFC *o = (struct VObj_80101CFC *)arg0;
+    struct VObj_80101CFC *o = (struct VObj_80101CFC *)this;
     if (item != NULL) {
         init__9TItemDataFv(item);
         *(u8 *)((s8 *)item + 0) = (u8) *(u8 *)((s8 *)o + 0xEC);

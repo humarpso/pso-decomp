@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowDuelResult.h"
+#include "pso/misc/TWindowHelpItem.h"
 #pragma readonly_strings on
 
 struct Msg_8025A9C0 {
@@ -20,9 +22,9 @@ struct Ref_8025AD5C { u8 pad0[0x10]; f32 f10; f32 f14; f32 f18; u8 pad1c[0x30 - 
 struct Pt_8025AD5C { f32 x; f32 y; };
 
 extern "C" {
-s32 free__11TOBoss4RockFUi(s32);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
-s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, int);
+s32 mem_free(s32);
+s32 mem_alloc(s32);
+s32 strnlen__19TWindowKeyBoardSoftFPScUl(void *, int);
 s32 strncpy(s32, u32, s32);
 void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2);
 u8 get_small_font_glyph_width(u8);
@@ -32,9 +34,7 @@ u8 get_font_char_advance(u16);
 u16 map_char_to_font_code(u16);
 extern s32 current_language;
 void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw);
-void reset_float_field__15TWindowHelpItemFPv(void *arg0);
-int set_default_status__17TWindowDuelResultFPvi(void* p, int a1);
-f32 get_card_window_scale__20TWindowSubStatusDispFi(int);
+f32 get_card_window_scale__20TWindowSubStatusDispFl(int);
 s32 reset_entry__20TWindowSubStatusDispFPv(void *, void *);
 u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2);
 void advance_text_entry_reveal(u8 *arg0);
@@ -44,7 +44,7 @@ void set_text_draw_params(void *, u8, s32, f32, f32);
 void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1);
 void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
-s32 deleting_destructor__20TWindowSubStatusDispFPvs(void *, s32);
+s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 
 void *lbl_804CFA28[6] = {
     0, 0,
@@ -54,8 +54,8 @@ void *lbl_804CFA28[6] = {
     0,
 };
 
-void reset_float_field__15TWindowHelpItemFPv(void *arg0) {
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (9e+05f);
+void TWindowHelpItem::reset_float_field() {
+    *(f32 *)((s8 *)this + 0x1C) = (f32) (9e+05f);
 }
 
 extern const u32 lbl_805DCFAC = 0x00000000;
@@ -175,12 +175,12 @@ void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2) {
         temp_r3 = *(u16 *)((s8 *)arg0 + 0);
         if (temp_r3 & 0x20) {
             *(u16 *)((s8 *)arg0 + 0) = (u16) (temp_r3 & 0xFFFFFFDF);
-            free__11TOBoss4RockFUi((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))));
+            mem_free((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))));
         }
     }
     if ((arg1 != 0U) && (arg2 & 0x20)) {
-        temp_r3_2 = strnlen__19TWindowKeyBoardSoftFPvUi((void *) (arg1), (int) (0x400));
-        *(u32 *)((s8 *)arg0 + 0x20) = ((u32)alloc_buffer__11TOBoss4RockFPv((s32)((void *) (temp_r3_2 + 1))));
+        temp_r3_2 = strnlen__19TWindowKeyBoardSoftFPScUl((void *) (arg1), (int) (0x400));
+        *(u32 *)((s8 *)arg0 + 0x20) = ((u32)mem_alloc((s32)((void *) (temp_r3_2 + 1))));
         strncpy((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))), (u32)((void *) (arg1)), (s32)((int) (temp_r3_2)));
         *(s8 *)((s8 *)(temp_r3_2 + *(u32 *)((s8 *)arg0 + 0x20)) + 0) = 0;
         *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x20);
@@ -195,7 +195,7 @@ void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2) {
 }
 #pragma pop
 
-int set_default_status__17TWindowDuelResultFPvi(void* p, int a1) { return ((int (*)(void *, int, int))set_text_entry_string)(p, a1, 0); }
+int TWindowDuelResult::set_default_status(void* p, int a1) { return ((int (*)(void *, int, int))set_text_entry_string)(p, a1, 0); }
 
 #pragma push
 #pragma fp_contract on
@@ -259,10 +259,10 @@ void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1) {
             temp_r3 = *(u16 *)((s8 *)arg0 + 0);
             if (temp_r3 & 0x20) {
                 *(u16 *)((s8 *)arg0 + 0) = (u16) (temp_r3 & 0xFFFFFFDF);
-                free__11TOBoss4RockFUi(*(u32 *)((s8 *)arg0 + 0x20));
+                mem_free(*(u32 *)((s8 *)arg0 + 0x20));
             }
         }
-        deleting_destructor__20TWindowSubStatusDispFPvs(arg0, 0);
+        deleting_destructor__20TWindowSubStatusDispFs(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -279,7 +279,7 @@ u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2) {
     *(u16 *)((s8 *)arg0 + 0) = (u16) *(s32 *)((s8 *)arg1 + 0x14);
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) K_CFAC;
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
-    *(f32 *)((s8 *)arg0 + 0x28) = get_card_window_scale__20TWindowSubStatusDispFi((int) ((s32) *(s16 *)((s8 *)arg0 + 2)));
+    *(f32 *)((s8 *)arg0 + 0x28) = get_card_window_scale__20TWindowSubStatusDispFl((int) ((s32) *(s16 *)((s8 *)arg0 + 2)));
     if (*(u16 *)((s8 *)arg0 + 0) & 4) {
         *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) * K_CFC4);
     }

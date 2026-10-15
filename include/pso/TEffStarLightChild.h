@@ -6,6 +6,8 @@
 class TEffStarLightChild : public TObject {
 public:
     virtual ~TEffStarLightChild();
+public:
+    static void render();
 };
 
 #endif

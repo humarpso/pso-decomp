@@ -31,13 +31,13 @@ void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
 s32 draw_lazer_fence_extra_model(void *);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 s32 set_indexed_flags(void *, s32, s32);
 
 extern void *lazer_fence_norm_texture_list;
 
 void render_lazer_fence_model(void *arg0) {
-    set_global_param__8TObjFishFi(lazer_fence_norm_texture_list);
+    set_global_param__8TObjFishFl(lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, *(void **)((s8 *)arg0 + 0x60));
@@ -64,7 +64,7 @@ void render__19TObjLazerFenceExtraFv(void *arg0) {
     }
 }
 
-extern "C" void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+extern "C" void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 extern const f32 lbl_805DBE58;
 extern const f32 lbl_805DBE64;
 
@@ -74,7 +74,7 @@ void update_wait_switch__19TObjLazerFenceExtraFPv(TObjLazerFenceExtra_801926D0 *
         self->frame = lbl_805DBE58;
     }
     if (is_current_floor_switch_set((u16)self->switchId) == 1) {
-        clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
+        clear_player_status_flag__10TObjPlayerFlUl(self, 0, 1);
         self->state = 1;
     }
 }
@@ -119,12 +119,12 @@ s32 get_bml_motion(s32, s32);
 Node_80192A3C *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
 void select_models__18TObjLazerFenceNormFPv(Fish_80192A3C *arg0);
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
-void reset_photon_effect__10TObjPlayerFPv(void *);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
+void reset_photon_effect__10TObjPlayerFv(void *);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32);
-void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
-void init_models__8TObjFishFPv(void *);
+void construct_collider_proxy__10TObjPlayerFv(void *, void *);
+void init_models__8TObjFishFv(void *);
 extern Ent_80192874 laser_fence_collision_body_parts[];
 extern s32 __vt__19TObjLazerFenceExtra[];
 extern s32 lazer_fence_extra_class_name;
@@ -141,7 +141,7 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 
 void run_task__19TObjLazerFenceExtraFv(void *arg0) {
     s32 temp_r0;
@@ -164,7 +164,7 @@ void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjLazerFenceExtra;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -177,7 +177,7 @@ extern void *tl_05;
 #define self ((u8 *)arg0)
 void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
-    construct_collider_proxy__10TObjPlayerFPv(arg0, arg1);
+    construct_collider_proxy__10TObjPlayerFv(arg0, arg1);
     *(s32 **)((s8 *)self + 0x18) = __vt__19TObjLazerFenceExtra;
     *(s32 *)((s8 *)self + 0) = lazer_fence_extra_class_name;
     ((VObj_80192874 *)self)->m5(arg2);
@@ -197,16 +197,16 @@ void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     } else {
         *(s32 *)((s8 *)self + 0xD8) = 1;
     }
-    init_models__8TObjFishFPv(self);
+    init_models__8TObjFishFv(self);
     init_collision_body_parts(self, &laser_fence_collision_body_parts[*(s32 *)((s8 *)self + 0x8C) % 2], 3);
     *(u32 *)((s8 *)self + 0x30) |= 0x40000000;
     *(f32 *)((s8 *)(*(u8 **)((s8 *)self + 0xA4)) + 0x10) = *(f32 *)((s8 *)self + 0x6C);
     *(f32 *)((s8 *)(*(u8 **)((s8 *)self + 0xA4)) + 0xC) = *(f32 *)((s8 *)self + 0x70);
-    reset_photon_effect__10TObjPlayerFPv(self);
+    reset_photon_effect__10TObjPlayerFv(self);
     refresh_collision_body_centers(self);
     if (*(s32 *)((s8 *)self + 0xD8) == 0) {
         for (i = 1; i < *(s32 *)((s8 *)self + 0xA8); i++) {
-            clear_player_status_flag__10TObjPlayerFPviUi(self, i, 1);
+            clear_player_status_flag__10TObjPlayerFlUl(self, i, 1);
         }
     }
     return arg0;
@@ -270,7 +270,7 @@ void draw_animated_beam__18TObjLazerFenceNormFPv(Obj_80192B5C *arg0) {
     for (i = 0; i < 4; i++) {
         free_children__12TObjDoorJungFPvPv(arg0->fC8[i], lbl_80445B7C[arg0->fAC]);
     }
-    set_global_param__8TObjFishFi(lazer_fence_norm_texture_list);
+    set_global_param__8TObjFishFl(lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, (void *)arg0->f60);
@@ -284,6 +284,7 @@ void draw_animated_beam__18TObjLazerFenceNormFPv(Obj_80192B5C *arg0) {
 }
 
 #include "types.h"
+#include "pso/object/TObjLazerFenceNorm.h"
 
 struct LazerFenceNormBase_80192C00 { char pad[0x18]; };
 struct LazerFenceNormVObj_80192C00 : LazerFenceNormBase_80192C00 {
@@ -305,7 +306,7 @@ struct TObjLazerFenceNorm_80192CCC {
 };
 
 extern "C" {
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DBE58;
 extern const f32 lbl_805DBE64;
@@ -314,43 +315,40 @@ void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self);
 
 extern "C" {
 
-void draw_model__18TObjLazerFenceNormFPv(void *arg0);
-void render__18TObjLazerFenceNormFv(void *arg0);
-void reset_by_door__18TObjLazerFenceNormFPv(void *arg0);
 u8 is_current_floor_switch_set(u16);
 void post_translate_matrix(void *);
 void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 s32 set_indexed_flags(void *, s32, s32);
 
 extern void *lazer_fence_norm_texture_list;
 
-void draw_model__18TObjLazerFenceNormFPv(void *arg0) {
-    set_global_param__8TObjFishFi(lazer_fence_norm_texture_list);
+void TObjLazerFenceNorm::draw_model() {
+    set_global_param__8TObjFishFl(lazer_fence_norm_texture_list);
     push_matrix();
-    post_translate_matrix((void *)((char *)arg0 + 56));
-    rotate_matrix_y(0, *(void **)((s8 *)arg0 + 0x60));
-    draw_ginja_object(*(void **)((s8 *)arg0 + 0xBC));
+    post_translate_matrix((void *)((char *)this + 56));
+    rotate_matrix_y(0, *(void **)((s8 *)this + 0x60));
+    draw_ginja_object(*(void **)((s8 *)this + 0xBC));
     pop_matrix();
 }
 
 extern const f32 lbl_805DBE5C;
 extern const f32 lbl_805DBE60;
 
-void render__18TObjLazerFenceNormFv(void *arg0) {
+void TObjLazerFenceNorm::render() {
     s32 temp_r0;
 
-    if (((LazerFenceNormVObj_80192C00*)arg0)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
+    if (((LazerFenceNormVObj_80192C00*)this)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) {
+        temp_r0 = *(s32 *)((s8 *)this + 0xB4);
         switch (temp_r0) {
         case 0:
-            draw_animated_beam__18TObjLazerFenceNormFPv((Obj_80192B5C *)arg0);
+            draw_animated_beam__18TObjLazerFenceNormFPv((Obj_80192B5C *)this);
             return;
         case 1:
-            draw_model__18TObjLazerFenceNormFPv((void *)(arg0));
+            draw_model();
             break;
         }
     }
@@ -362,15 +360,15 @@ void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self) {
         self->frame = lbl_805DBE58;
     }
     if (is_current_floor_switch_set((u16)self->switchId) == 1) {
-        clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
+        clear_player_status_flag__10TObjPlayerFlUl(self, 0, 1);
         self->state = 1;
     }
 }
 
-void reset_by_door__18TObjLazerFenceNormFPv(void *arg0) {
-    if (is_current_floor_switch_set((u16) *(s16 *)((s8 *)arg0 + 0xB0)) == 0) {
-        set_indexed_flags(arg0, 0, 1);
-        *(s32 *)((s8 *)arg0 + 0xB4) = 0;
+void TObjLazerFenceNorm::reset_by_door() {
+    if (is_current_floor_switch_set((u16) *(s16 *)((s8 *)this + 0xB0)) == 0) {
+        set_indexed_flags(this, 0, 1);
+        *(s32 *)((s8 *)this + 0xB4) = 0;
     }
 }
 

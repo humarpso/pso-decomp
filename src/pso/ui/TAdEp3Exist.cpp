@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdEp3Exist.h"
 
 struct Obj_8036F4DC { u8 pad0[8]; u8 cnt; u8 bits; };
 
@@ -51,14 +52,12 @@ void TAdEp3Exist__sub_8036F574(u8 *arg0);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 s32 get_localized_text_entry(int, int);
 u32 calc_text_width(int);
-s32 render_status_line__15TAdSubPlyItemGCFPvi(int, int, f32, f32, f32);
+s32 render_status_line__15TAdSubPlyItemGCFi(int, int, f32, f32, f32);
 s32 draw_window_frame(void *, void *);
 extern const f32 lbl_805E0440;
 extern const f32 lbl_805E0444;
 extern const f32 lbl_805E0448;
-void draw_message_window__11TAdEp3ExistFii(s32 arg0, s32 arg1);
 s32 get_state_flag__9TMainTaskFv();
-void render__11TAdEp3ExistFv(void);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 get_localized_text_entry(int, int);
@@ -69,9 +68,9 @@ void __ct__7TObjectFP7TObject(void);
 int reset_and_set_mode__21TAdMultiChgGameModeGCFv(void*);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
-void add_item_rect__12TLevelSelectFPvPv(u32, void *);
+void add_item_rect__12TLevelSelectFPv(u32, void *);
 u32 __ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
-void set_ad_field__6TLobbyFPvi(u32, int);
+void set_ad_field__6TLobbyFl(u32, int);
 u32 TAdScrollWinGC__ct(void *, void *, int, s32);
 void fn_80329BAC(u32);
 extern u8 lbl_8047B8A8[];
@@ -80,19 +79,15 @@ extern s32 __vt__11TAdEp3Exist[];
 extern s32 lbl_805D4500;
 extern s32 tl_clipout;
 void *TAdEp3Exist__ct(Ep3_8036F354 *o);
-s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 get_selected_slot__23TAdSinglePlyChrSelectGCFv(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void TWindow__close(void *);
-int request_game_mode_transition__11TAdEp3ExistFPv(void* p);
-int request_scene_change__11TAdEp3ExistFPv(void* p);
 int TAdEp3Exist__sub_8036F0AC(void* p);
-void close_window__11TAdEp3ExistFPv(void* p);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805E044C;
-void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 int prs_read_control_bit(Obj_8036F4DC *arg0);
 void TAdEp3Exist__sub_8036F5A4(void* p);
@@ -107,40 +102,38 @@ extern "C" {
 int TAdEp3Exist__sub_8036F0AC(void* p);
 void TAdEp3Exist__sub_8036F5A4(void* p);
 void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1);
-void close_window__11TAdEp3ExistFPv(void* p);
-s32 free_if_valid__11TAdEp3ExistFis(s32 arg0, s16 arg1);
-int request_game_mode_transition__11TAdEp3ExistFPv(void* p);
-int request_scene_change__11TAdEp3ExistFPv(void* p);
 void __dl__7TObjectFPv(void *);
 int __dl__FPv();
 void __dt__7TObjectFv(void *, int);
-int close_window__14TAdScrollWinGCFPv(void*);
+int close_window__14TAdScrollWinGCFv(void*);
 void queue_destruction__7TObjectFv(void *);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int reset_and_set_mode__21TAdMultiChgGameModeGCFv(void*);
 
-void draw_message_window__11TAdEp3ExistFii(s32 arg0, s32 arg1) {
+void TAdEp3Exist::draw_message_window(s32 arg1) {
+    s32 arg0 = (s32)this;
     f32 temp_f31;
     draw_window_frame((void *) (arg0), (void *) (arg1));
     temp_f31 = lbl_805E0440 - (f32) (calc_text_width((int) (get_localized_text_entry((int) (0x2C), (int) (0xA)))) >> 1U);
-    render_status_line__15TAdSubPlyItemGCFPvi((int) (get_localized_text_entry((int) (0x2C), (int) (0xA))), (int) (-1), (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
+    render_status_line__15TAdSubPlyItemGCFi((int) (get_localized_text_entry((int) (0x2C), (int) (0xA))), (int) (-1), (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
 }
 
-void render__11TAdEp3ExistFv(void) {
+void TAdEp3Exist::render() {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return;
     }
 }
 
-int request_game_mode_transition__11TAdEp3ExistFPv(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
-int request_scene_change__11TAdEp3ExistFPv(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
+int TAdEp3Exist::request_game_mode_transition() { return request_transition__21TAdMultiChgGameModeGCFv(this); }
+int TAdEp3Exist::request_scene_change() { return request_scene_change__21TAdMultiChgGameModeGCFv(this); }
 int TAdEp3Exist__sub_8036F0AC(void* p) { return reset_and_set_mode__21TAdMultiChgGameModeGCFv(p); }
-void close_window__11TAdEp3ExistFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { close_window__14TAdScrollWinGCFPv(*(void**)((char*)p + 0x1c)); *(int*)((char*)p + 0x1c) = 0; } }
+void TAdEp3Exist::close_window() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { close_window__14TAdScrollWinGCFv(*(void**)((char*)this + 0x1c)); *(int*)((char*)this + 0x1c) = 0; } }
 
 extern s32 __vt__11TAdEp3Exist[];
 
-void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o) {
+void TAdEp3Exist::run_task() {
+    Ep3_8036F10C *o = (Ep3_8036F10C *)this;
     o->prev = o->state;
     switch (o->state) {
     case 0:
@@ -148,7 +141,7 @@ void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o) {
         o->state = 1;
         break;
     case 1:
-        if (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(o->sel) == 1) {
+        if (get_selected_slot__23TAdSinglePlyChrSelectGCFv(o->sel) == 1) {
             switch (TAdSinglePlyChrSelectGC__sub_801334DC(o->sel)) {
             case 0:
                 o->state = 2;
@@ -160,7 +153,7 @@ void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o) {
                 break;
             }
         } else if (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0 ||
-                   test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0) {
+                   test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state + 0x160, 2) != 0) {
             o->state = 2;
             o->next = 5;
         }
@@ -170,7 +163,7 @@ void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o) {
             TWindow__close((void *)o->win);
             o->win = 0;
         }
-        close_window__11TAdEp3ExistFPv((void*)(o));
+        close_window();
         if ((f32)++o->count > lbl_805E044C) {
             o->state = o->next;
         }
@@ -179,10 +172,10 @@ void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o) {
         TAdEp3Exist__sub_8036F0AC((void*)(o));
         break;
     case 4:
-        request_scene_change__11TAdEp3ExistFPv((void*)(o));
+        request_scene_change();
         break;
     case 5:
-        request_game_mode_transition__11TAdEp3ExistFPv((void*)(o));
+        request_game_mode_transition();
         break;
     }
     if (o->prev != o->state) {
@@ -257,9 +250,9 @@ void *TAdEp3Exist__ct(Ep3_8036F354 *o) {
         r = __ct__14TAdSelectCurGCFv((void *)r, tl_clipout, lbl_8047B8A8, lbl_8047B8B0);
     }
     o->cur20 = r;
-    add_item_rect__12TLevelSelectFPvPv(o->cur20, lbl_8047B8A8);
+    add_item_rect__12TLevelSelectFPv(o->cur20, lbl_8047B8A8);
     fn_80329BAC(o->cur20);
-    set_ad_field__6TLobbyFPvi(o->cur20, 0);
+    set_ad_field__6TLobbyFl(o->cur20, 0);
     return o;
 }
 
@@ -274,7 +267,7 @@ int prs_read_control_bit(Obj_8036F4DC *arg0) {
     return t & 1;
 }
 
-s32 free_if_valid__11TAdEp3ExistFis(s32 arg0, s16 arg1) {
+s32 TAdEp3Exist::free_if_valid(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

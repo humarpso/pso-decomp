@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01.h"
 
 struct Vec_8022675C { f32 x, y, z; };
 
@@ -28,10 +29,9 @@ s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags);
 
 extern "C" {
 
-s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1);
 s32 check_sound_admission_range();
 
-s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1) {
+s32 TOTrapAncient01::check_trigger_flag(s32 arg0, s32 arg1) {
     s32 var_r3;
 
     if (arg1 & 0x2000) {
@@ -65,7 +65,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags) {
     }
     if (idx >= 0) {
         if (src != 0) {
-            ok = check_trigger_flag__15TOTrapAncient01Fii(src, lbl_805145F0[idx].flags);
+            ok = TOTrapAncient01::check_trigger_flag(src, lbl_805145F0[idx].flags);
         } else {
             ok = fn_802264B8(idx, 1);
         }
@@ -79,7 +79,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags) {
         }
         return idx;
     }
-    if (check_trigger_flag__15TOTrapAncient01Fii(src, flags) != 0) {
+    if (TOTrapAncient01::check_trigger_flag(src, flags) != 0) {
         idx = normalize_sound_request(id, a1, src, a3, flags);
         last_sound_effect_slot = idx;
         if (idx >= 0) {

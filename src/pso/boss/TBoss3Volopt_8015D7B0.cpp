@@ -1,7 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 extern "C" {
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 s32 is_any_player_within_radius_xz(f32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -14,7 +15,6 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 enable_v2_features;
 extern const f32 lbl_805DB3D8;
-void play_proximity_sound__12TBoss3VoloptFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ void TBoss3Volopt__sub_8015D7B0(u8 *arg0) {
         return;
     }
     *(s32 *)(arg0 + 0xAC) = 3;
-    clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
+    clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 8);
     switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
     case 0:
         break;
@@ -57,7 +57,8 @@ void TBoss3Volopt__sub_8015D7B0(u8 *arg0) {
         break;
     }
 }
-void play_proximity_sound__12TBoss3VoloptFPv(u8 *arg0) {
+void TBoss3Volopt::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(lbl_805DB3D8) == 1) {
         *(s32 *)(arg0 + 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);

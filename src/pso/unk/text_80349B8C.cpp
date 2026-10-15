@@ -51,10 +51,10 @@ extern RecoveredGlobal_80349DC8_lbl_804788B8 quest_line_color_quad_coordinates;
 extern RecoveredGlobal_80349DC8_lbl_804788D8 quest_line_quad_vertices;
 extern RecoveredGlobal_80349DC8_lbl_8047896C quest_line_color_entry_table;
 void init_quest_line_draw_colors(s32 arg0);
-void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Desc_80349C54 *, s32, s32, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFllf(Desc_80349C54 *, s32, s32, f32);
 extern const f32 lbl_805DFD18;
 void draw_filled_rects_2d(void *arg0, void *arg1, int arg2);
-void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Desc_80349C54 *, s32, s32, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFllf(Desc_80349C54 *, s32, s32, f32);
 extern const f32 lbl_805DFD18;
 s32 draw_color_quad_2d(void *arg0, void *arg1p, int arg2);
 }
@@ -93,7 +93,7 @@ s32 draw_color_quad_2d(void *arg0, void *arg1p, int arg2) {
     d.pos[6] = arg1[6];
     d.pos[7] = arg1[7];
     d.col[3] = arg2;
-    draw_tri_fan_2d__14TObjCMHairMenuFPviif(pd, 4, 3, lbl_805DFD18);
+    draw_tri_fan_2d__14TObjCMHairMenuFllf(pd, 4, 3, lbl_805DFD18);
 }
 
 void draw_filled_rects_2d(void *arg0, void *arg1, int arg2) {
@@ -124,7 +124,7 @@ void draw_filled_rects_2d(void *arg0, void *arg1, int arg2) {
             d.pos[6] = item->pos[j * 2] + item->size[j * 2];
             d.pos[7] = item->pos[j * 2 + 1];
             d.col[3] = c;
-            draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 3, lbl_805DFD18);
+            draw_tri_fan_2d__14TObjCMHairMenuFllf(&d, 4, 3, lbl_805DFD18);
         }
     }
 }

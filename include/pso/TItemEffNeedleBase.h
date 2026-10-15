@@ -10,6 +10,8 @@ public:
     virtual void run_task();
     virtual void render();
     virtual int hook();
+public:
+    void draw_model();
 };
 
 #endif

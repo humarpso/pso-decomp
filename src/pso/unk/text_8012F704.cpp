@@ -37,9 +37,9 @@ struct Tec_8012F704 {
 };
 
 s16 obj_getField1c(void *);
-s32 get_field_d8__10TObjPlayerFPv(void *);
-s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
-f32 query_extended_state__10TObjPlayerFPv(void *);
+s32 get_field_d8__10TObjPlayerFv(void *);
+s32 draw_icon__10TObjPlayerFll(void *, s32, void *);
+f32 query_extended_state__10TObjPlayerFv(void *);
 struct SlicerState_801295FC;
 void init_slicer_launch_state(SlicerState_801295FC *s);
 s16 get_validated_attack_stage(void *);
@@ -54,19 +54,19 @@ void launch_slicer_tech__10TObjPlayerFPv(Self_8012F704 *self) {
 
     init_slicer_launch_state((SlicerState_801295FC *)&tec);
     tec.id = obj_getField1c(self->owner);
-    tec.fC = get_field_d8__10TObjPlayerFPv(self);
+    tec.fC = get_field_d8__10TObjPlayerFv(self);
     tec.f4 = self->f24;
     tec.f8 = self->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
     tec.f12 = get_validated_attack_stage((u8 *)self->owner + 0x7CC);
-    tec.f14 = query_extended_state__10TObjPlayerFPv(self->owner);
+    tec.f14 = query_extended_state__10TObjPlayerFv(self->owner);
     tec.f18 = lbl_805DAFB8;
     tec.f1C = lbl_805DAFC0;
     tec.f20 = lbl_805DAFB8;
     tec.f24 = lbl_805DAFC4;
     tec.f28 = self->owner->f60;
-    draw_icon__10TObjPlayerFPvii(self, 5, &tec.pos);
-    draw_icon__10TObjPlayerFPvii(self, 4, &tec.dir);
+    draw_icon__10TObjPlayerFll(self, 5, &tec.pos);
+    draw_icon__10TObjPlayerFll(self, 4, &tec.dir);
     create__10TTecSlicerFPUs(&tec);
 }
 

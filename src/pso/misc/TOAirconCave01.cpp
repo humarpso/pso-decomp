@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOAirconCave01.h"
 
 extern "C" {
 
@@ -10,8 +11,6 @@ struct AirV_80156e8c : AirBase_80156e8c {
     virtual s32 m8(void *a, f32 b, f32 c);
 };
 
-void *create__14TOAirconCave01FPv(void *arg0);
-void render__14TOAirconCave01Fv(u8 *arg0);
 void *TOAirconCave01__ct(void *, void *, void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
@@ -19,11 +18,12 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix(int);
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 
 extern u8 *TOAirconCave01__model_archive;
 
-void render__14TOAirconCave01Fv(u8 *arg0) {
+void TOAirconCave01::render() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     u8 *temp_r31;
     u8 *temp_r4;
@@ -36,7 +36,7 @@ void render__14TOAirconCave01Fv(u8 *arg0) {
         push_matrix((int) (temp_r3));
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
         pop_matrix();
     }
@@ -44,7 +44,7 @@ void render__14TOAirconCave01Fv(u8 *arg0) {
 
 extern void *tl_05;
 
-void *create__14TOAirconCave01FPv(void *arg0) {
+void *TOAirconCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
         o = TOAirconCave01__ct(o, tl_05, arg0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 void TObjPlayer__sub_800D93F0(s32, s32, s32, f32);
@@ -12,16 +13,13 @@ void spawn_dead_spot__10TObjPlayerFiiif(s32, s32, s32, f32);
 
 extern "C" {
 
-void create_dead_spot__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
-void set_field_e4__10TObjPlayerFii(s32 arg1, s32 arg2);
-void spawn_effect_f8__10TObjPlayerFii(s32 arg1, s32 arg2);
 s32 construct_fire_base__9TDeadSpotFPvPvPvif(s32, s32, s32, s32, f32);
 s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 __nw__7TObjectFUl(s32);
 
 extern s32 tl_05;
 
-void create_dead_spot__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
+void TObjPlayer::create_dead_spot(s32 arg0, s32 arg1, f32 farg0) {
     s32 temp_r3;
 
     temp_r3 = __nw__7TObjectFUl(0x38);
@@ -30,11 +28,11 @@ void create_dead_spot__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
     }
 }
 
-void spawn_effect_f8__10TObjPlayerFii(s32 arg1, s32 arg2) {
+void TObjPlayer::spawn_effect_f8(s32 arg1, s32 arg2) {
     create_timed_particle_emitter((s32)(arg1), (s32)(0xF8), (s32)(0), (s32)(arg2));
 }
 
-void set_field_e4__10TObjPlayerFii(s32 arg1, s32 arg2) {
+void TObjPlayer::set_field_e4(s32 arg1, s32 arg2) {
     create_dead_spot__10TObjPlayerFiiif(arg1, 0xE4, arg2);
 }
 
@@ -46,12 +44,9 @@ void set_field_e4__10TObjPlayerFii(s32 arg1, s32 arg2) {
 extern "C" {
 
 void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-void request_two_effects__10TObjPlayerFPv(void* p);
-void spawn_ground_effect__10TObjPlayerFPvi(void *arg0, s32 arg1);
-void trigger_dell_biter_events__10TObjPlayerFPv(void* p);
 int spawn_particle_effect(void*, void*);
 s32 __nw__7TObjectFUl(s32);
-s32 adjust_to_ground__15TObjBoss2TunnelFiPv(void *, s32 *);
+s32 adjust_to_ground__15TObjBoss2TunnelFlPv(void *, s32 *);
 s32 init__9TDeadSpotFPv(s32, s32, s32, s32, f32);
 
 extern s32 tl_05;
@@ -65,14 +60,14 @@ void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0
     }
 }
 
-void request_two_effects__10TObjPlayerFPv(void* p) { create_timed_particle_emitter((void*)(p), (void*)((void*)232), (void*)((void*)10), (void*)((void*)1)); create_timed_particle_emitter((void*)(p), (void*)((void*)236), (void*)((void*)10), (void*)((void*)1)); }
+void TObjPlayer::request_two_effects() { create_timed_particle_emitter((void*)(this), (void*)((void*)232), (void*)((void*)10), (void*)((void*)1)); create_timed_particle_emitter((void*)(this), (void*)((void*)236), (void*)((void*)10), (void*)((void*)1)); }
 
-void trigger_dell_biter_events__10TObjPlayerFPv(void* p) { spawn_particle_effect(p, (void*)251); spawn_particle_effect(p, (void*)252); spawn_particle_effect(p, (void*)227); }
+void TObjPlayer::trigger_dell_biter_events() { spawn_particle_effect(this, (void*)251); spawn_particle_effect(this, (void*)252); spawn_particle_effect(this, (void*)227); }
 
-void spawn_ground_effect__10TObjPlayerFPvi(void *arg0, s32 arg1) {
+void TObjPlayer::spawn_ground_effect(s32 arg1) {
     s32 sp8;
 
-    adjust_to_ground__15TObjBoss2TunnelFiPv(arg0, &sp8);
+    adjust_to_ground__15TObjBoss2TunnelFlPv(this, &sp8);
     create_timed_particle_emitter((void*)(&sp8), (void*)(0xE5), (void*)(0), (void*)(arg1));
 }
 
@@ -88,29 +83,24 @@ extern "C" {
 void TObjPlayer__sub_800D9290(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800D92BC(s32 arg0, s32 arg1);
 void spawn_landing_dead_spot(s32 arg0, s32 arg1);
-void apply_effect_variant_a__10TObjPlayerFii(s32 arg0, s32 arg1);
-void apply_effect_variant_b__10TObjPlayerFii(s32 arg0, s32 arg1);
-void spawn_dead_spot_default__10TObjPlayerFii(s32 arg0, s32 arg1);
-void spawn_dead_spot_here__10TObjPlayerFii(s32 arg0, s32 arg1);
-void spawn_effect_at_ground__10TObjPlayerFPvi(void *arg0, s32 arg1);
-s32 adjust_to_ground__15TObjBoss2TunnelFiPv(void *, s32 *);
+s32 adjust_to_ground__15TObjBoss2TunnelFlPv(void *, s32 *);
 
-void spawn_effect_at_ground__10TObjPlayerFPvi(void *arg0, s32 arg1) {
+void TObjPlayer::spawn_effect_at_ground(s32 arg1) {
     s32 sp8;
 
-    adjust_to_ground__15TObjBoss2TunnelFiPv(arg0, &sp8);
+    adjust_to_ground__15TObjBoss2TunnelFlPv(this, &sp8);
     create_timed_particle_emitter(&sp8, 0xE4, 0, arg1);
 }
 
 extern const f32 lbl_805DA3C8;
 
-void apply_effect_variant_a__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void TObjPlayer::apply_effect_variant_a(s32 arg0, s32 arg1) {
     TObjPlayer__sub_800D93F0(arg0, 0, arg1, lbl_805DA3C8);
 }
 
 extern const f32 lbl_805DA3CC;
 
-void apply_effect_variant_b__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void TObjPlayer::apply_effect_variant_b(s32 arg0, s32 arg1) {
     TObjPlayer__sub_800D93F0(arg0, 0, arg1, lbl_805DA3CC);
 }
 
@@ -128,13 +118,13 @@ void TObjPlayer__sub_800D92BC(s32 arg0, s32 arg1) {
 
 extern const f32 lbl_805DA3CC;
 
-void spawn_dead_spot_default__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void TObjPlayer::spawn_dead_spot_default(s32 arg0, s32 arg1) {
     spawn_dead_spot__10TObjPlayerFiiif(arg0, 1, arg1, lbl_805DA3CC);
 }
 
 extern const f32 lbl_805DA3D0;
 
-void spawn_dead_spot_here__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void TObjPlayer::spawn_dead_spot_here(s32 arg0, s32 arg1) {
     spawn_dead_spot__10TObjPlayerFiiif(arg0, 1, arg1, lbl_805DA3D0);
 }
 
@@ -155,11 +145,10 @@ extern "C" {
 
 void spawn_dead_spot_scale15(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800D93C4(s32 arg0, s32 arg1);
-void spawn_dead_spot_type2__10TObjPlayerFii(s32 arg0, s32 arg1);
 
 extern const f32 lbl_805DA3C8;
 
-void spawn_dead_spot_type2__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void TObjPlayer::spawn_dead_spot_type2(s32 arg0, s32 arg1) {
     spawn_dead_spot__10TObjPlayerFiiif(arg0, 2, arg1, lbl_805DA3C8);
 }
 
@@ -217,20 +206,18 @@ extern const f32 lbl_805DA3D8;
 s32 TObjPlayer__sub_800D9560(f32 *arg0);
 extern s32 player_particle_effect_enabled;
 extern u8 corpse_mark_resource_descriptor[];
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void load_corpse_mark_resource(void);
 }
 
 extern "C" {
 
-void clear_flag_and_notify__10TObjPlayerFv(void);
-void destroy_static_lobby__10TObjPlayerFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 set_chunk_blend(s32);
 s32 set_chunk_material_override_pair(s32, s32);
 
-void destroy_static_lobby__10TObjPlayerFv(void) {
+void TObjPlayer::destroy_static_lobby() {
     if ((u32) player_corpse_mark_resource != 0U) {
         TLobby__sub_8001FE7C((void*)player_corpse_mark_resource, 1);
         player_corpse_mark_resource = 0U;
@@ -240,7 +227,7 @@ void destroy_static_lobby__10TObjPlayerFv(void) {
 extern s32 model_render_flags;
 
 void load_corpse_mark_resource(void) {
-    u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, corpse_mark_resource_descriptor, 0, 0, 0);
     }
@@ -252,7 +239,7 @@ s32 TObjPlayer__sub_800D9560(f32 *arg0) {
     return *arg0 > lbl_805DA3D8;
 }
 
-void clear_flag_and_notify__10TObjPlayerFv(void) {
+void TObjPlayer::clear_flag_and_notify() {
     model_render_flags &= 0xFFFF77DF;
     set_chunk_material_override_pair(0xFF00, 0);
     set_chunk_blend(0x2500);
@@ -263,14 +250,12 @@ void clear_flag_and_notify__10TObjPlayerFv(void) {
 
 extern "C" {
 
-s32 advance_toward_max__10TObjPlayerFPv(void *arg0);
-void set_flags_and_apply_damage_color__10TObjPlayerFv(void);
 s32 set_chunk_material_color();
 s32 set_chunk_material_override_pair(s32, s32);
 
 extern s32 model_render_flags;
 
-void set_flags_and_apply_damage_color__10TObjPlayerFv(void) {
+void TObjPlayer::set_flags_and_apply_damage_color() {
     model_render_flags |= 0x8820;
     set_chunk_material_color();
     set_chunk_material_override_pair(0xFF00, 0x800);
@@ -278,16 +263,16 @@ void set_flags_and_apply_damage_color__10TObjPlayerFv(void) {
 
 extern const f32 lbl_805DA3DC;
 
-s32 advance_toward_max__10TObjPlayerFPv(void *arg0) {
+s32 TObjPlayer::advance_toward_max() {
     f32 temp_f1;
     s32 var_r0;
 
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0);
+    temp_f1 = *(f32 *)((s8 *)this + 0);
     var_r0 = 0;
     if (temp_f1 < lbl_805DA3DC) {
-        *(f32 *)((s8 *)arg0 + 0) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x10));
+        *(f32 *)((s8 *)this + 0) = (f32) (temp_f1 + *(f32 *)((s8 *)this + 0x10));
     } else {
-        *(f32 *)((s8 *)arg0 + 0) = (f32) lbl_805DA3DC;
+        *(f32 *)((s8 *)this + 0) = (f32) lbl_805DA3DC;
         var_r0 = 1;
     }
     return var_r0;
@@ -296,21 +281,19 @@ s32 advance_toward_max__10TObjPlayerFPv(void *arg0) {
 }
 
 extern "C" {
-
-s32 decay_value_toward_floor__10TObjPlayerFPv(void *arg0);
 
 extern const f32 lbl_805DA3D8;
 
-s32 decay_value_toward_floor__10TObjPlayerFPv(void *arg0) {
+s32 TObjPlayer::decay_value_toward_floor() {
     f32 temp_f1;
     s32 var_r0;
 
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0);
+    temp_f1 = *(f32 *)((s8 *)this + 0);
     var_r0 = 0;
     if (temp_f1 > lbl_805DA3D8) {
-        *(f32 *)((s8 *)arg0 + 0) = (f32) (temp_f1 - *(f32 *)((s8 *)arg0 + 0x10));
+        *(f32 *)((s8 *)this + 0) = (f32) (temp_f1 - *(f32 *)((s8 *)this + 0x10));
     } else {
-        *(f32 *)((s8 *)arg0 + 0) = (f32) lbl_805DA3D8;
+        *(f32 *)((s8 *)this + 0) = (f32) lbl_805DA3D8;
         var_r0 = 1;
     }
     return var_r0;
@@ -320,11 +303,9 @@ s32 decay_value_toward_floor__10TObjPlayerFPv(void *arg0) {
 
 extern "C" {
 
-void reset_obstruction_fade__10TObjPlayerFPv(void* a0);
-
     extern const f32 lbl_805DA3D8;
     extern const f32 lbl_805DA3DC;
-void reset_obstruction_fade__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x0) = lbl_805DA3D8; *(float*)((char*)a0 + 0x4) = lbl_805DA3DC; *(float*)((char*)a0 + 0x8) = lbl_805DA3DC; *(float*)((char*)a0 + 0xc) = lbl_805DA3DC; }
+void TObjPlayer::reset_obstruction_fade() { *(float*)((char*)this + 0x0) = lbl_805DA3D8; *(float*)((char*)this + 0x4) = lbl_805DA3DC; *(float*)((char*)this + 0x8) = lbl_805DA3DC; *(float*)((char*)this + 0xc) = lbl_805DA3DC; }
 
 }
 
@@ -348,8 +329,6 @@ extern "C" {
 
 void TObjPlayer__sub_800D9680(void* a0);
 void *TObjPlayer__sub_800D96D0(void *arg0, s16 arg1);
-s32 lookup_entry_by_value__10TObjPlayerFPvf(void *arg0, f32 farg0);
-void set_rate_from_divisor__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 __dl__FPv(void *);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32, f32);
 
@@ -359,8 +338,8 @@ void TObjPlayer__sub_800D9680(void* a0) { *(float*)((char*)a0 + 0x0) = lbl_805DA
 extern const f64 lbl_8043C758;
 extern const f32 lbl_805DA3E0;
 
-void set_rate_from_divisor__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    *(f32 *)((s8 *)arg0 + 0x10) = (f32) (lbl_805DA3E0 / (f32) arg1);
+void TObjPlayer::set_rate_from_divisor(s32 arg1) {
+    *(f32 *)((s8 *)this + 0x10) = (f32) (lbl_805DA3E0 / (f32) arg1);
 }
 
 extern s32 lbl_80494AE0[];
@@ -384,7 +363,7 @@ V_800D9718 *TObjPlayer__sub_800D9718(V_800D9718 *self) {
     return self;
 }
 
-s32 lookup_entry_by_value__10TObjPlayerFPvf(void *arg0, f32 farg0) {
+s32 TObjPlayer::lookup_entry_by_value(void *arg0, f32 farg0) {
     void *var_r31;
     f32 temp_f2;
     f32 temp_f_sda;

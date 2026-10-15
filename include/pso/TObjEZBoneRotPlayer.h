@@ -6,6 +6,10 @@
 class TObjEZBoneRotPlayer : public TObjEZBoneRotBase {
 public:
     virtual ~TObjEZBoneRotPlayer();
+public:
+    void run_task();
+    static void *create(void *arg0, void *arg1, void *arg2);
+    void advance_bone_rotation();
 };
 
 #endif

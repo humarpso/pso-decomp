@@ -1,13 +1,14 @@
 #include "types.h"
+#include "pso/object/TObjDFDemo3.h"
 #pragma readonly_strings on
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 request_destroy__11TBoss4Type2FUi(void *);
+s32 request_destroy__11TBoss4Type2FUl(void *);
 u32 spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);
-s32 set_flags__11TBoss4Type2FPvUi(void *, s32);
-s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 set_flags__11TBoss4Type2FUl(void *, s32);
+s32 copy_pos__11TNowLoadingFPv(void *, void *);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805D89D0;
 extern const f32 lbl_805D89DC;
@@ -15,12 +16,12 @@ void update_timed_effect__11TBoss4Type2FPv(u8 *arg0);
 s32 sync_player_globals__10TObjPlayerFv();
 s32 TObjPlayer__sub_80052390(f32);
 s32 clear_render_callback__8TObjFishFv(s32);
-s32 set_draw_callback_list__8TObjFishFPv(s32);
+s32 set_draw_callback_list__8TObjFishFv(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 func_803e11e8__FUl(u32);
 s32 func_803e11f0__Fv();
 s32 draw_model_motion(s32, s32, f32);
@@ -48,7 +49,7 @@ s32 get_bml_model(s32, s32);
 s32 get_instance_count__9TBoss4UroFv();
 s32 activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
-void cache_target_and_forward__11TCameraCtrlFii(void *, int);
+void cache_target_and_forward__11TCameraCtrlFl(void *, int);
 s32 construct_world_actor_base(void *, void *);
 extern Pose_8004EB78 lbl_80437384;
 extern s32 boss4_zanzo_bml_index_table[];
@@ -86,14 +87,13 @@ s32 normalize_vector(void *);
 void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
-void reset_motion_fields__10TObjPlayerFPv();
+void reset_motion_fields__10TObjPlayerFv();
 void TParticleCtrl__sub_801A2124();
 void update_object_view_visibility();
 void classify_actor_view_detail();
 void TObjRoomId__sub_801A1E2C();
 S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag);
 u8 *TObjDFDemo3__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void * create__11TObjDFDemo3FPvPvPv(void *arg0, void *arg1, void *arg2);
 
 const char *TObjDFDemo3__name = "TObjDFDemo3";
 __declspec(section ".rodata") IVec_8004F030 lbl_804373A4 = {0, 0, 0};
@@ -107,7 +107,7 @@ void *lbl_804856E0[3] = {
 void *__vt__11TObjDFDemo3[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo3Fv, (void *)&update_timed_effect__11TBoss4Type2FPv,
     (void *)&TObjPlayer__sub_8004ED28, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
 
@@ -129,8 +129,8 @@ void TObjPlayer__sub_8004ED28(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
     post_translate_matrix(arg0 + 0xA0);
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xAC));
-    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x98));
-    set_draw_callback_list__8TObjFishFPv(*(s32 *)((s8 *)arg0 + 0xB8));
+    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x98));
+    set_draw_callback_list__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0xB8));
     func_803e11e8__FUl(1);
     draw_model_motion(*(s32 *)((s8 *)arg0 + 0x94), *(s32 *)((s8 *)arg0 + 0x9C), *(f32 *)((s8 *)arg0 + 0xB4));
     clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0xB8));
@@ -154,7 +154,7 @@ void update_timed_effect__11TBoss4Type2FPv(u8 *arg0) {
     u32 temp_r3;
     if ((s32) *(s32 *)((s8 *)arg0 + 0xB0) >= 0x5A) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x90) != 0U) {
-            request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x90));
+            request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x90));
             *(u32 *)((s8 *)arg0 + 0x90) = 0U;
         }
     } else {
@@ -162,16 +162,16 @@ void update_timed_effect__11TBoss4Type2FPv(u8 *arg0) {
         if (temp_r3 == 0U) {
             *(u32 *)((s8 *)arg0 + 0x90) = create_particle_emitter(arg0 + 0xBC, 0x1BD);
             if ((u32) *(u32 *)((s8 *)arg0 + 0x90) != 0U) {
-                set_flags__11TBoss4Type2FPvUi((void *) *(u32 *)((s8 *)arg0 + 0x90), 0x40);
+                set_flags__11TBoss4Type2FUl((void *) *(u32 *)((s8 *)arg0 + 0x90), 0x40);
             }
         } else if (temp_r3 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((void *) temp_r3, arg0 + 0xBC);
+            copy_pos__11TNowLoadingFPv((void *) temp_r3, arg0 + 0xBC);
         }
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0xB0) == 0x86) {
         temp_r3 = spawn_particle_effect(arg0 + 0xA0, 0x9B);
         if (temp_r3 != 0U) {
-            set_flags__11TBoss4Type2FPvUi((void *) temp_r3, 0x40);
+            set_flags__11TBoss4Type2FUl((void *) temp_r3, 0x40);
         }
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xB0);
@@ -199,7 +199,7 @@ S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag) {
         }
         for (i = 0; i < 1; i++) {
             if (o->ptr[i] != 0) {
-                request_destroy__11TBoss4Type2FUi(o->ptr[i]);
+                request_destroy__11TBoss4Type2FUl(o->ptr[i]);
                 o->ptr[i] = 0;
             }
         }
@@ -245,14 +245,14 @@ u8 *TObjDFDemo3__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         c.y = *(s32 *)((s8 *)arg0 + 0xAC);
         set_scripted_camera_pose(arg0 + 0xA0, arg0 + 0xA0, &c);
     }
-    cache_target_and_forward__11TCameraCtrlFii((void *)lbl_804856E0, 0x1555);
+    cache_target_and_forward__11TCameraCtrlFl((void *)lbl_804856E0, 0x1555);
     *(s32 *)((s8 *)arg0 + 0xB8) = TObjFish__sub_800E3124((u8 *)lbl_804856C0, arg0 + 0xBC);
     *(s32 *)((s8 *)arg0 + 0xB0) = 0;
     return arg0;
 }
 #undef lbl_804856C0
 
-void * create__11TObjDFDemo3FPvPvPv(void *arg0, void *arg1, void *arg2) {
+void *TObjDFDemo3::create(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {

@@ -25,7 +25,7 @@ f64 atan2_float(f32, f32);
 void disallow_rendering__7TObjectFv(void *);
 void *__ct__10TItemShootFPvPC3VecPC3Vecf(void *, u32, s32, s32, f32);
 f32 sin_table_lookup(s32);
-void invert_matrix_in_place__10TObjPlayerFUi(s32);
+void invert_matrix_in_place__10TObjPlayerFUl(s32);
 void subtract_vector(Vec*, Vec*);
 void transform_point_by_current_matrix(void *, void *);
 void push_matrix(void);
@@ -47,7 +47,7 @@ extern "C" {
 void subtract_vector(Vec*, Vec*);
 }
 extern "C" {
-void request_destroy__11TBoss4Type2FUi(s32);
+void request_destroy__11TBoss4Type2FUl(s32);
 }
 
 void TItemEffBringer::hook() {
@@ -60,7 +60,7 @@ void TItemEffBringer::hook() {
 
 TItemEffBringer::~TItemEffBringer() {
     for (int i = 0; i != this->m_particle_count; i++) {
-        request_destroy__11TBoss4Type2FUi(this->m_particles[i]);
+        request_destroy__11TBoss4Type2FUl(this->m_particles[i]);
     }
 }
 
@@ -68,7 +68,6 @@ TItemEffBringer::~TItemEffBringer() {
 
 extern "C" {
 
-void *create__15TItemEffBringerFUiiif(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
 void *__nw__7TObjectFUl(s32);
 
 extern f32 lbl_805DAB10;
@@ -87,7 +86,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
     self->f0 = TItemEffBringer__class_name;
     push_matrix();
     z.x = z.y = z.z = lbl_805DAB10;
-    invert_matrix_in_place__10TObjPlayerFUi(0);
+    invert_matrix_in_place__10TObjPlayerFUl(0);
     transform_point_by_current_matrix(&z, &out);
     VecCopy__FP3VecPC3Vec(&w, src);
     subtract_vector((Vec*)((Vec *)&w), (Vec*)((Vec *)&out));
@@ -110,7 +109,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
 }
 #pragma pop
 
-void *create__15TItemEffBringerFUiiif(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
+void *TItemEffBringer::create(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     if ((lbl_805DAB10 != farg0) && (arg0 != 0U)) {
         void *obj = __nw__7TObjectFUl(0x90);
         if (obj != NULL) {

@@ -7,7 +7,7 @@ extern "C" {
 s32 is_split_screen();
 s32 __nw__7TObjectFUl(int);
 s32 get_window_layout_position(int);
-s32 create__19TWindowSimpleStatusFPvPv(int, void *);
+s32 create__19TWindowSimpleStatusFPv(int, void *);
 s32 TWindowStatus__ct(int, int, void *, void *);
 extern RecoveredGlobal_80271400_lbl_804D0F78 lbl_804D0F78;
 s32 create_status_window(s32 arg0);
@@ -21,7 +21,7 @@ s32 create_status_window(s32 arg0) {
     s32 var_r0;
     temp_r31 = get_window_layout_position((int) (0x1C));
     if (is_split_screen() != 0) {
-        return create__19TWindowSimpleStatusFPvPv((int) (temp_r31), (void *) (arg0));
+        return create__19TWindowSimpleStatusFPv((int) (temp_r31), (void *) (arg0));
     }
     temp_r3 = __nw__7TObjectFUl((int) (0x78));
     var_r0 = temp_r3;

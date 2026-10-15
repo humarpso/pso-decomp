@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TItemLockCountCtrl.h"
 
 extern "C" {
 void fn_8011E1D4(u8 *arg0);
@@ -7,18 +8,17 @@ void TObjPlayer__sub_8011E204(void *arg0, s32 arg1);
 
 extern "C" {
 
-void create_instance__18TItemLockCountCtrlFv(void);
 void *TItemLockCountCtrl__ct(void *, int, int, void *, void *);
 u8 get_special_selector__11TItemWeaponFv(void* p);
 void set_special_selector__11TItemWeaponFUc(void* p, u8 v);
 void *__nw__7TObjectFUl(int);
-void set_state_flags__10TObjPlayerFPvUi(void* p, u32 v);
+void set_state_flags__10TObjPlayerFUl(void* p, u32 v);
 
 extern unsigned char notify_if_active__15TItemTimerEventFi[];
 extern unsigned char check_battle_ctrl__15TItemTimerEventFi[];
 extern void *item_timer_event_instance;
 
-void create_instance__18TItemLockCountCtrlFv(void) {
+void TItemLockCountCtrl::create_instance() {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {

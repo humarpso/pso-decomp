@@ -24,6 +24,11 @@ struct TODoorMachine01
     u32 m_d0;
     u32 m_d4;
     u32 m_d8;
+    void draw_part_models(u8 *arg1, s32 arg2);
+    void render();
+    static void *create(void *arg0);
+    static void free_resources();
+    static void load_resources();
 };
 
 #endif

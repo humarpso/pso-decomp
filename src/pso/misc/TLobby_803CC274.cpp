@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void invalidate_cache__6TLobbyFv(void);
 s32 DCInvalidateRange();
 
-void invalidate_cache__6TLobbyFv(void) {
+void TLobby::invalidate_cache() {
     DCInvalidateRange();
 }
 

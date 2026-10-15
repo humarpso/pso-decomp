@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TOMineTrap.h"
 
 extern "C" {
 
-s32 matches_id__10TOMineTrapFPvUs(void *arg0, u16 arg1);
-
-s32 matches_id__10TOMineTrapFPvUs(void *arg0, u16 arg1) {
-    if ((arg1 == (u16) *(u16 *)((s8 *)arg0 + 0xA8)) && ((s32) *(s32 *)((s8 *)arg0 + 0xA4) != 2)) {
+s32 TOMineTrap::matches_id(u16 arg1) {
+    if ((arg1 == (u16) *(u16 *)((s8 *)this + 0xA8)) && ((s32) *(s32 *)((s8 *)this + 0xA4) != 2)) {
         return 1;
     }
     return 0;

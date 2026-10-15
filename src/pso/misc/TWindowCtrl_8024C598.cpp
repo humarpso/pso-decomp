@@ -5,9 +5,6 @@ extern "C" {
 int is_flag_2_set__11TWindowCtrlFPv(void* p);
 void set_flag1e_bit8__11TWindowCtrlFPv(void* p);
 void clear_flag1e_bit8__11TWindowCtrlFPv(void* p);
-void set_flag1e_bit40__11TWindowCtrlFPv(void* p);
-u16 get_flags__11TWindowCtrlFPv(void* p);
-int get_flag_bit1__11TWindowCtrlFPv(void* p);
 
 int is_flag_2_set__11TWindowCtrlFPv(void* p) { return *(u16*)((char*)p + 0x4) & 0x4; }
 void set_flag1e_bit8__11TWindowCtrlFPv(void* p) { *(u16*)((char*)p + 0x1e) |= 0x8; }
@@ -28,9 +25,6 @@ extern "C" {
 int is_flag_2_set__11TWindowCtrlFPv(void* p);
 void set_flag1e_bit8__11TWindowCtrlFPv(void* p);
 void clear_flag1e_bit8__11TWindowCtrlFPv(void* p);
-void set_flag1e_bit40__11TWindowCtrlFPv(void* p);
-u16 get_flags__11TWindowCtrlFPv(void* p);
-int get_flag_bit1__11TWindowCtrlFPv(void* p);
 
 s32 TWindowCtrl__sub_8024C5C4(Obj_8024C5C4 *self) {
     if (self->f1e & 2) return 0;
@@ -40,18 +34,16 @@ s32 TWindowCtrl__sub_8024C5C4(Obj_8024C5C4 *self) {
 }
 
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
 int is_flag_2_set__11TWindowCtrlFPv(void* p);
 void set_flag1e_bit8__11TWindowCtrlFPv(void* p);
 void clear_flag1e_bit8__11TWindowCtrlFPv(void* p);
-void set_flag1e_bit40__11TWindowCtrlFPv(void* p);
-u16 get_flags__11TWindowCtrlFPv(void* p);
-int get_flag_bit1__11TWindowCtrlFPv(void* p);
 
-void set_flag1e_bit40__11TWindowCtrlFPv(void* p) { *(u16*)((char*)p + 0x1e) |= 0x40; }
-u16 get_flags__11TWindowCtrlFPv(void* p) { return *(u16*)((char*)p + 0x76); }
-int get_flag_bit1__11TWindowCtrlFPv(void* p) { return (*(u8*)((char*)p + 0x71) >> 1) & 0x1; }
+void TWindowCtrl::set_flag1e_bit40() { *(u16*)((char*)this + 0x1e) |= 0x40; }
+u16 TWindowCtrl::get_flags() { return *(u16*)((char*)this + 0x76); }
+int TWindowCtrl::get_flag_bit1() { return (*(u8*)((char*)this + 0x71) >> 1) & 0x1; }
 
 }

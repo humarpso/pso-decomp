@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/player/TObjPlayer.h"
 struct Stack_801A7310 {
     s8 sp8;
     s8 sp9;
@@ -21,7 +22,7 @@ struct Ent_801A710C { u32 a; f32 b; s32 c; };
 extern "C" {
 s32 select_active_controller__11TCameraCtrlFc(int);
 s32 set_scripted_camera_pose(int, int, void *);
-s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
+s32 cache_target_and_forward__11TCameraCtrlFl(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 extern const f32 lbl_805DC0D0;
@@ -41,7 +42,6 @@ extern "C" {
 
 void queue_deferred_photon_blast_support(void);
 void queue_photon_blast_support(void);
-void reset_state_block__10TObjPlayerFPv(void* a0);
 void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2);
 extern u32 lbl_805D5D20;
 void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate);
@@ -49,7 +49,7 @@ const f32 *get_photon_blast_entry__10TObjPlayerFi(s32);
 extern u32 lbl_805D5D18;
 
     extern const float lbl_805DC0C0;
-void reset_state_block__10TObjPlayerFPv(void* a0) { *(int*)((char*)a0 + 0x0) = 0; *(int*)((char*)a0 + 0x4) = -1; *(int*)((char*)a0 + 0x8) = 0; *(int*)((char*)a0 + 0xc) = 0; *(short*)((char*)a0 + 0x10) = 0; *(short*)((char*)a0 + 0x12) = 0; *(short*)((char*)a0 + 0x14) = 0; *(short*)((char*)a0 + 0x16) = 0; *(short*)((char*)a0 + 0x18) = 0; *(short*)((char*)a0 + 0x1a) = 0; *(int*)((char*)a0 + 0x1c) = 0; *(int*)((char*)a0 + 0x20) = 0; *(float*)((char*)a0 + 0x24) = lbl_805DC0C0; *(float*)((char*)a0 + 0x28) = lbl_805DC0C0; }
+void TObjPlayer::reset_state_block() { *(int*)((char*)this + 0x0) = 0; *(int*)((char*)this + 0x4) = -1; *(int*)((char*)this + 0x8) = 0; *(int*)((char*)this + 0xc) = 0; *(short*)((char*)this + 0x10) = 0; *(short*)((char*)this + 0x12) = 0; *(short*)((char*)this + 0x14) = 0; *(short*)((char*)this + 0x16) = 0; *(short*)((char*)this + 0x18) = 0; *(short*)((char*)this + 0x1a) = 0; *(int*)((char*)this + 0x1c) = 0; *(int*)((char*)this + 0x20) = 0; *(float*)((char*)this + 0x24) = lbl_805DC0C0; *(float*)((char*)this + 0x28) = lbl_805DC0C0; }
 
 extern const f32 lbl_805DC0D4;
 

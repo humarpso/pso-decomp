@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjSuisouLobby.h"
 
 struct RecoveredGlobal_80369DF0_lbl_804F33E0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80369DF0_lbl_804F33E0_size[sizeof(RecoveredGlobal_80369DF0_lbl_804F33E0) == 0x10 ? 1 : -1];
@@ -29,16 +30,14 @@ struct Self_80369ED4 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjSuisouLobby__instance;
 extern s32 TObjSuisouLobby__lobby_type;
-void load_resources__15TObjSuisouLobbyFv(void);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
 void TObjSuisouLobby__sub_80369B5C(void);
-void update_particle__15TObjSuisouLobbyFPv(void *arg0);
 void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self);
 u32 create_particle_emitter(void *, int);
 s32 enable__13TParticleCtrlFPv(void *);
@@ -61,10 +60,7 @@ extern "C" {
 void TObjSuisouLobby__sub_80369B5C(void);
 void TObjSuisouLobby__sub_80369D68(void);
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
-void *create__15TObjSuisouLobbyFPv(void *arg0);
-void destroy_instance__15TObjSuisouLobbyFv(void);
 void render__15TObjSuisouLobbyFv(u8 *arg0);
-void update_particle__15TObjSuisouLobbyFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
@@ -75,16 +71,16 @@ s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 begin_effect_render__13TParticleCtrlFv();
-s32 clear_active_flag__13TParticleCtrlFPv(void *);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+s32 clear_active_flag__13TParticleCtrlFv(void *);
+void destroy_key_base__5TOKeyFs(void *, int);
 s32 enable__13TParticleCtrlFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 void queue_destruction__7TObjectFv(void *);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
 void render__15TObjSuisouLobbyFv(u8 *arg0);
-void render_shadows__7TObjectFv(); void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFPv();
+void render_shadows__7TObjectFv(); void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
 void TParticleCtrl__sub_801A2124(); void update_object_view_visibility(); void classify_actor_view_detail();
 void TObjRoomId__sub_801A1E2C(); void TObjPlayer__sub_80019568();
 #pragma readonly_strings on
@@ -97,7 +93,7 @@ char *lbl_805D44C4 = "TObjSuisouLobby";
 void *__vt__15TObjSuisouLobby[14] = {
     0, 0, (void *)__dt__15TObjSuisouLobbyFv, (void *)run_task__15TObjSuisouLobbyFv, (void *)render__15TObjSuisouLobbyFv,
     (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
-    (void *)release_member_90__10TObjPlayerFPv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility,
+    (void *)release_member_90__10TObjPlayerFv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility,
     (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568,
 };
 const f32 lbl_8047A3D0[1][3] = { { 0.0f, 0.0f, 60.0f } };
@@ -112,7 +108,7 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
 
     if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U)) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi((int) (*(u32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(u32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -157,23 +153,23 @@ void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self) {
         }
         break;
     }
-    update_particle__15TObjSuisouLobbyFPv(self);
+    ((TObjSuisouLobby *)self)->update_particle();
 }
 
-void update_particle__15TObjSuisouLobbyFPv(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) == 3) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xD4) != 0U) {
-            clear_active_flag__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0xD4));
+void TObjSuisouLobby::update_particle() {
+    if ((s32) *(s32 *)((s8 *)this + 0xC8) == 3) {
+        if ((u32) *(u32 *)((s8 *)this + 0xD4) != 0U) {
+            clear_active_flag__13TParticleCtrlFv(*(void **)((s8 *)this + 0xD4));
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xD8) != 0U) {
-            clear_active_flag__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0xD8));
+        if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
+            clear_active_flag__13TParticleCtrlFv(*(void **)((s8 *)this + 0xD8));
         }
     } else {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xD4) != 0U) {
-            enable__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0xD4));
+        if ((u32) *(u32 *)((s8 *)this + 0xD4) != 0U) {
+            enable__13TParticleCtrlFPv(*(void **)((s8 *)this + 0xD4));
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xD8) != 0U) {
-            enable__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0xD8));
+        if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
+            enable__13TParticleCtrlFPv(*(void **)((s8 *)this + 0xD8));
         }
     }
 }
@@ -181,27 +177,27 @@ void TObjSuisouLobby__sub_80369D68(void) {  }
 
 extern void *tl_05;
 
-void *create__15TObjSuisouLobbyFPv(void *arg0) {
+void *TObjSuisouLobby::create() {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
-        o = TObjSuisouLobby__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
+        o = TObjSuisouLobby__ct((void *)(o), (void *)(tl_05), (void *)(this));
     }
     return o;
 }
 
 extern u32 TObjSuisouLobby__instance;
 
-void destroy_instance__15TObjSuisouLobbyFv(void) {
+void TObjSuisouLobby::destroy_instance() {
     if ((u32) TObjSuisouLobby__instance != 0U) {
         TLobby__sub_8001FE7C((void*)TObjSuisouLobby__instance, 1);
         TObjSuisouLobby__instance = 0U;
     }
 }
 
-void load_resources__15TObjSuisouLobbyFv(void) {
+void TObjSuisouLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_suisou_resource_descriptor.value, 0, 0, 0));
@@ -215,7 +211,7 @@ void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__15TObjSuisouLobby;
         if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
         if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD8)); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

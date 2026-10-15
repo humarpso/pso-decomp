@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct RecoveredGlobal_8016D1A8_lbl_80441D84 {
     s32 value;
@@ -29,8 +30,8 @@ struct VObj_8016CF5C : VBase_8016CF5C {
 
 extern "C" {
 s32 is_split_screen();
-s32 is_any_player_in_range__5TOKeyFPv(void *);
-s32 is_local_player_in_range__5TOKeyFPv(void *);
+s32 is_any_player_in_range__5TOKeyFv(void *);
+s32 is_local_player_in_range__5TOKeyFv(void *);
 s32 TOKeyMachine01__vt13(u8 *arg0);
 extern const f32 lbl_805DB780;
 extern const f32 lbl_805DB784;
@@ -50,15 +51,14 @@ void TOKeyMachine01__vt16(s32 arg0);
 extern const f32 lbl_805DB790;
 extern const f32 lbl_805DB78C;
 void TOKeyMachine01__vt14(Obj_8016D428 *self);
-void init_6x05_switch_changed__6TLobbyFPv(void *);
-void finalize_and_send_60__6TLobbyFPv(void *);
+void init_6x05_switch_changed__6TLobbyFv(void *);
+void finalize_and_send_60__6TLobbyFv(void *);
 s32 get_current_floor();
 extern s32 local_client_id;
-void send_switch_changed__14TOKeyMachine01FPvi(Self_8016D148 *self, s32 flags);
-void reset_photon_effect__10TObjPlayerFPv(void *);
+void reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, s32);
-s32 init_switch_id__5TOKeyFPv(void *);
+s32 init_switch_id__5TOKeyFv(void *);
 void *TOKey__ct(void *, void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern void *__vt__14TOKeyGenericSw[];
@@ -83,7 +83,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     *(void **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
     *(s32 *)((s8 *)arg0 + 0) = TOKeyGenericSw__name;
     ((VObj_8016CF5C *)arg0)->m5(source);
-    init_switch_id__5TOKeyFPv(arg0);
+    init_switch_id__5TOKeyFv(arg0);
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x42C)) + 8);
     *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB768;
@@ -91,7 +91,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     *(u32 *)((s8 *)arg0 + 0x24) = TOKeyGenericSw__texture_lists[1];
     init_collision_body_parts(arg0, lbl_804B2D30, 1);
     refresh_collision_body_centers(arg0);
-    reset_photon_effect__10TObjPlayerFPv(arg0);
+    reset_photon_effect__10TObjPlayerFv(arg0);
     *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB770;
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB774;
     if ((*(s32 *)((s8 *)arg0 + 0xD0) != 2) && (*(f32 *)((s8 *)arg0 + 0x68) < lbl_805DB778)) {
@@ -117,16 +117,16 @@ s32 TOKeyMachine01__vt13(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
-            var_r3 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
+            var_r3 = is_any_player_in_range__5TOKeyFv((void *) (arg0));
         } else {
-            var_r3 = is_local_player_in_range__5TOKeyFPv((void *) (arg0));
+            var_r3 = is_local_player_in_range__5TOKeyFv((void *) (arg0));
         }
         if (((s32) *(s32 *)((s8 *)arg0 + 0xD4) == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;
     case 1:
-        var_r31 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
+        var_r31 = is_any_player_in_range__5TOKeyFv((void *) (arg0));
         break;
     }
     return var_r31;
@@ -134,15 +134,16 @@ s32 TOKeyMachine01__vt13(u8 *arg0) {
 
 typedef char RecoveredGlobal_8016D1A8_lbl_80441D84_size[sizeof(RecoveredGlobal_8016D1A8_lbl_80441D84) == 0x90 ? 1 : -1];
 
-void send_switch_changed__14TOKeyMachine01FPvi(Self_8016D148 *self, s32 flags) {
+void TOKeyMachine01::send_switch_changed(s32 flags) {
+    Self_8016D148 *self = (Self_8016D148 *)this;
     Pkt_8016D148 pkt;
-    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    init_6x05_switch_changed__6TLobbyFv(&pkt);
     pkt.object = self->id;
     pkt.zero = local_client_id;
     pkt.switchId = self->switchId;
     pkt.area = get_current_floor();
     pkt.flags = flags;
-    finalize_and_send_60__6TLobbyFPv(&pkt);
+    finalize_and_send_60__6TLobbyFv(&pkt);
 }
 
 void TOKeyMachine01__vt17(s32 arg0) {

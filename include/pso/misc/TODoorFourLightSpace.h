@@ -25,6 +25,8 @@ struct TODoorFourLightSpace
     u32 m_cc;
     u32 m_d0;
     u32 m_d4;
+    s32 draw_lights();
+    void render();
 };
 
 #endif

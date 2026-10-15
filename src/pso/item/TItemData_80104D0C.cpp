@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemData.h"
 
 struct ObjBase_80104DAC { u8 pad[0x18]; };
 
@@ -28,10 +29,10 @@ struct Rec_80104DAC { u8 pad0[6]; u8 b6; u8 b7; u8 b8; u8 b9; u8 bA; u8 bB; u8 b
 
 extern "C" {
 s32 get_actor_section_id(void *);
-void copy_to_item_data__5TItemFPvPv(void *, void *);
+void copy_to_item_data__5TItemFPv(void *, void *);
 void *find_unique_combination_target(void *, u8 *);
 s32 check_equip_requirements(void *, void *, int);
-void initialize_mag_data__9TItemDataFPv(void *);
+void initialize_mag_data__9TItemDataFv(void *);
 void deserialize_mag__9TItemDataFPvPv(void *, void *);
 void init__9TItemDataFv(void *);
 s16 get_mag_total_level(void *);
@@ -41,11 +42,10 @@ s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1);
 
 extern "C" {
 
-u8 is_item_usable__9TItemDataFiPv(s32 arg0, u8 *arg1);
 s32 is_wrapped__9TItemDataFPv(u8 *);
 void *lookup_item_pmt_record(u8 *);
 
-u8 is_item_usable__9TItemDataFiPv(s32 arg0, u8 *arg1) {
+u8 TItemData::is_item_usable(s32 arg0, u8 *arg1) {
     if (is_wrapped__9TItemDataFPv(arg1) != 0) {
         return 1U;
     }
@@ -71,7 +71,7 @@ s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1) {
         it = find_unique_combination_target(o, arg1);
         if (it != NULL) {
             init__9TItemDataFv(&d);
-            copy_to_item_data__5TItemFPvPv(it, &d);
+            copy_to_item_data__5TItemFPv(it, &d);
             rec = find_item_combination_recipe(arg1, it);
         } else {
             return 0;
@@ -80,7 +80,7 @@ s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1) {
             if (d.b[0] != 2) {
                 return 0;
             }
-            initialize_mag_data__9TItemDataFPv(&mag);
+            initialize_mag_data__9TItemDataFv(&mag);
             deserialize_mag__9TItemDataFPvPv(&d, &mag);
             m = rec->b9;
             if (get_mag_total_level(&mag) < m) {

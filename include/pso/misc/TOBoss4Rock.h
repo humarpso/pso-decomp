@@ -20,6 +20,10 @@ struct TOBoss4Rock
     u32 m_ac;
     u32 m_b0;
     u32 m_b4;
+    void run_task();
+    void render();
+    static void *create(void *arg0);
+    void *destroy(s16 arg1);
 };
 
 #endif

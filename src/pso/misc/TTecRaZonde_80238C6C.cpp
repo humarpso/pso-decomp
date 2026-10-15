@@ -2,6 +2,8 @@
 #pragma readonly_strings on
 
 #include <stddef.h>
+#include "pso/misc/TTecRaZonde.h"
+#include "pso/misc/TTecResta.h"
 struct Stack_80238388 {
     s32 sp8;
     s32 spC;
@@ -101,10 +103,10 @@ extern const f32 lbl_805DC8E0;
 void update_rafoie_explosion(u8 *arg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 copy_params__8TTecAntiFPvPv(void *, int);
+s32 copy_params__8TTecAntiFPUc(void *, int);
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
-void calc_area_parameters__10TTecRaFoieFPv(u8 *arg0);
+void calc_area_parameters__10TTecRaFoieFv(u8 *arg0);
 void get_bml_model(void *, s32);
 void set_cull_none__8TObjFishFv(void);
 void set_cull_back__8TObjFishFv(void);
@@ -113,14 +115,14 @@ void set_depth_buffer_settings_id__FUl(s32);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-void set_indirect_tev__6TSceneFii(void *, s32);
-void draw_field_1c__6TSceneFPviii(void *, s32, s32, s32);
+void set_indirect_tev__6TSceneFll(void *, s32);
+void draw_field_1c__6TSceneFlll(void *, s32, s32, s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(void *);
+void set_global_param__8TObjFishFl(void *);
 void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
 extern u8 *camera_ctrl_instance;
@@ -133,11 +135,10 @@ extern const f32 lbl_805DC8D4;
 void render_rafoie_explosion(RaFoie_802381F8 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-void update_technique_slot__10TTecRaFoieFi(s32 handle, s32 pitch, s32 c);
+void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void *__nw__7TObjectFUl(int);
 void construct_area_technique_base(void *, void *, void *, void *, int);
-void calc_damage__11TTecRaZondeFPv(u8 *arg0);
 u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -159,7 +160,7 @@ typedef struct RecoveredGlobal_80230D9C_lbl_804CC510 RecoveredGlobal_80230D9C_lb
 typedef struct RecoveredGlobal_80230D9C_lbl_804CC55C RecoveredGlobal_80230D9C_lbl_804CC55C;
 typedef char RecoveredGlobal_80230D9C_lbl_804CC510_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
-void calc_area_parameters__10TTecRaFoieFPv(u8 *arg0);
+void calc_area_parameters__10TTecRaFoieFv(u8 *arg0);
 
 void render_rafoie_explosion(RaFoie_802381F8 *o);
 
@@ -352,11 +353,11 @@ struct VObj_18_9c98dd : VBase_18_9c98dd {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
-s32 is_parents_unqueued__9TTecLukerFUi();
-s32 is_valid_and_active__10TObjPlayerFUi(int);
-void update_detonation__10TTecRaFoieFPvPv(void *, void *);
+s32 is_parents_unqueued__9TTecLukerFUl();
+s32 is_valid_and_active__10TObjPlayerFUl(int);
+void update_detonation__10TTecRaFoieFPv(void *, void *);
 void run_task__10TTecRaFoieFv(u8 *arg0);
-void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void apply_technique_to_area_targets(void *);
 extern s32 tl_particle;
@@ -384,20 +385,19 @@ extern const f32 lbl_805DC8EC;
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 copy_params__8TTecAntiFPvPv(void *, int);
-void calc_damage__11TTecRaZondeFPv(u8 *arg0);
+s32 copy_params__8TTecAntiFPUc(void *, int);
 void TTecRaFoie__vt4(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
-void construct_target_cursor_records__10TObjPlayerFi(void *);
+void construct_target_cursor_records__10TObjPlayerFv(void *);
 void copy_technique_target_list(void *, void *);
 extern s32 __vt__10TTecRaFoie[];
 extern u32 TTecRaFoie_class_name;
 u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 s32 create_particle_emitter(void *, int);
-s32 alloc_buffer__11TOBoss4RockFPv(int);
+s32 mem_alloc(int);
 void TTecRaZonde__vt6(struct Self_80238C6C *self);
 u16 obj_getField1c(void *);
-void construct_target_cursor_records__10TObjPlayerFi(void *);
+void construct_target_cursor_records__10TObjPlayerFv(void *);
 void fn_80044330(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 extern s32 __vt__10TTecRaFoie[];
@@ -409,8 +409,8 @@ void TTecRaZonde__vt4(u8 *arg0, u8 *arg1);
 extern "C" {
 
 void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1);
-void create__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void create_ex__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void create__10TTecRaFoieFPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void create_ex__10TTecRaFoieFPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__10TTecRaFoieFv(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -426,11 +426,11 @@ void render__10TTecRaFoieFv(void);
 
 void run_task__10TTecRaFoieFv(u8 *arg0);
 
-void update_detonation__10TTecRaFoieFPvPv(void *arg0, void *arg1);
+void update_detonation__10TTecRaFoieFPv(void *arg0, void *arg1);
 
-void create__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void create__10TTecRaFoieFPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 
-void create_ex__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void create_ex__10TTecRaFoieFPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 
 extern s32 __vt__10TTecRaFoie[];
 
@@ -450,16 +450,17 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
 
 void TTecRaZonde__vt6(struct Self_80238C6C *self) {
     u32 i;
-    self->emitters = (s32 *)alloc_buffer__11TOBoss4RockFPv(TTecRaZonde__band_profile_table[self->band].count * 4);
+    self->emitters = (s32 *)mem_alloc(TTecRaZonde__band_profile_table[self->band].count * 4);
     for (i = 0; i < TTecRaZonde__band_profile_table[self->band].count; i++) {
         self->emitters[i] = create_particle_emitter(&self->points[i], TTecRaZonde__band_profile_table[self->band].entries[i].entry);
     }
 }
 
-void calc_damage__11TTecRaZondeFPv(u8 *arg0) {
+void TTecRaZonde::calc_damage() {
+    u8 *arg0 = (u8 *)this;
   s32 new_var;
   new_var = calc_technique_parameters((int) 8, (int) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78, (int) 0xFFFF);
-  copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x88), (int) new_var);
+  copy_params__8TTecAntiFPUc((void *) (arg0 + 0x88), (int) new_var);
   if ((((s16) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x20))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x22))) * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78));
@@ -499,8 +500,7 @@ struct Obj_80238F84 {
 
 extern "C" {
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
-void update_technique_slot__10TTecRaFoieFi(s32 handle, s32 pitch, s32 c);
-void play_launch_sound__9TTecRestaFPv(Tec_802393D0 *self);
+void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
 void create_timed_particle_emitter(void *, s32, s32, s32, void *);
 void spawn_particle_effect(void *, s32, void *);
 void apply_technique_to_area_targets(void *);
@@ -509,17 +509,15 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
 
 extern "C" {
 
-void create__11TTecRaZondeFPvPvPv(void *arg0, void *arg1, void *arg2);
-void render__11TTecRaZondeFv(void);
 void *__nw__7TObjectFUl(int);
 int spawn_support_tec_range_effect(void*);
-int init_cast__9TTecRestaFPv(void* p);
+int init_cast__9TTecRestaFv(void* p);
 
-void create__11TTecRaZondeFPvPvPv(void *arg0, void *arg1, void *arg2) {
+void TTecRaZonde::create(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x150);
     if (o != NULL) {
-        TTecRaZonde__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
+        TTecRaZonde__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2));
     }
 }
 
@@ -533,7 +531,7 @@ struct Self_80238EC8 {
     void **objs;
 };
 extern "C" {
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 extern void *__vt__11TTecRaZonde[];
 
 Self_80238EC8 *__dt__11TTecRaZondeFv(Self_80238EC8 *self, s16 arg1) {
@@ -546,7 +544,7 @@ Self_80238EC8 *__dt__11TTecRaZondeFv(Self_80238EC8 *self, s16 arg1) {
                 self->objs[i] = 0;
             }
         }
-        free__11TOBoss4RockFUi(self->objs);
+        mem_free(self->objs);
         destroy_technique_base__9TTecLukerFPvs(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
@@ -555,7 +553,7 @@ Self_80238EC8 *__dt__11TTecRaZondeFv(Self_80238EC8 *self, s16 arg1) {
     return self;
 }
 
-void render__11TTecRaZondeFv(void) {  }
+void TTecRaZonde::render() {  }
 
 void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
     s32 i;
@@ -596,7 +594,7 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
     construct_area_technique_base(self_, source, origin, origin, (int)level);
     self->vt = __vt__11TTecRaZonde;
     self->f0 = (u32)TTecRaZonde_class_name;
-    calc_damage__11TTecRaZondeFPv((u8 *)self);
+    ((TTecRaZonde *)self)->calc_damage();
     if (self->holder != 0) {
         self->holder->eff->scale = (5.0f) + self->range;
     }
@@ -644,7 +642,7 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
     case 0: {
         s32 h = play_sound_effect(0x4002A50A, &self->pos, 0, 0);
         if (h >= 0) {
-            update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(h, 0x100, 0);
         }
         break;
     }
@@ -655,21 +653,21 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
     case 3: {
         s32 h = play_sound_effect(0x4002A50A, &self->pos, 0, 0);
         if (h >= 0) {
-            update_technique_slot__10TTecRaFoieFi(h, -0x180, 0);
+            update_technique_slot__10TTecRaFoieFl(h, -0x180, 0);
         }
         break;
     }
     case 4: {
         s32 h = play_sound_effect(0x4002A50A, &self->pos, 0, 0);
         if (h >= 0) {
-            update_technique_slot__10TTecRaFoieFi(h, -0x250, 0);
+            update_technique_slot__10TTecRaFoieFl(h, -0x250, 0);
         }
         break;
     }
     case 5: {
         s32 h = play_sound_effect(0x4002A50A, &self->pos, 0, 0);
         if (h >= 0) {
-            update_technique_slot__10TTecRaFoieFi(h, -0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(h, -0x100, 0);
         }
         break;
     }
@@ -682,14 +680,15 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
 #undef self
 #pragma pop
 
-void play_launch_sound__9TTecRestaFPv(Tec_802393D0 *self) {
+void TTecResta::play_launch_sound() {
+    Tec_802393D0 *self = (Tec_802393D0 *)this;
     s32 h;
     switch (self->band) {
     case 0:
     case 1:
         h = play_sound_effect(0x4002AB0E, self->pos, 0, 0);
         if (h >= 0) {
-            update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(h, 0x100, 0);
         }
         break;
     case 2:
@@ -700,7 +699,7 @@ void play_launch_sound__9TTecRestaFPv(Tec_802393D0 *self) {
     case 5:
         h = play_sound_effect(0x4002AB0E, self->pos, 0, 0);
         if (h >= 0) {
-            update_technique_slot__10TTecRaFoieFi(h, -0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(h, -0x100, 0);
         }
         break;
     }

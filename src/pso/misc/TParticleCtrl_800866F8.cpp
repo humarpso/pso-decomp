@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 
 struct Part_8008673C { u8 pad[0xAC]; u8 from_backup; };
 
@@ -11,13 +12,13 @@ Part_8008673C *alloc_particle_memory(u32 size);
 
 extern "C" {
 
-void free_from_heap__13TParticleCtrlFPv(u8 *arg0);
 int heap_free__5THeapFPv(void *, void *);
 
 extern s32 TParticleCtrl__heap;
 extern s32 alt_heap;
 
-void free_from_heap__13TParticleCtrlFPv(u8 *arg0) {
+void TParticleCtrl::free_from_heap() {
+    u8 *arg0 = (u8 *)this;
     if (arg0) {
         if (arg0[0xAC] != 0) {
             heap_free__5THeapFPv((void *)TParticleCtrl__heap, arg0);

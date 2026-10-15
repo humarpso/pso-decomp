@@ -25,7 +25,7 @@ struct A_8028ECCC { u8 pad0[4]; s16 v[5]; s8 e; };
 struct B_8028ECCC { u8 pad0[0x30]; s8 e; u8 pad31[7]; s16 v[5]; };
 
 extern "C" {
-s32 evict_char_entries__23TAdSinglePlyChrSelectGCFi(int);
+s32 evict_char_entries__23TAdSinglePlyChrSelectGCFl(int);
 s32 TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
 u32 find_free_slot__23TAdSinglePlyChrSelectGCFv();
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -34,7 +34,7 @@ extern s32 creation_player_character;
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0);
 void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED24 *s);
 void copy_player_visual_record(void *, void *);
-s32 get_display_index__12TCharaMakingFPv(void *);
+s32 get_display_index__12TCharaMakingFv(void *);
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 extern Row_8028EE20 class_appearance_table[];
 s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_);
@@ -94,7 +94,7 @@ void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0) {
 block_7:
             h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             if (h == 0U) {
-                if (evict_char_entries__23TAdSinglePlyChrSelectGCFi((int) (1)) == 0) {
+                if (evict_char_entries__23TAdSinglePlyChrSelectGCFl((int) (1)) == 0) {
                     return;
                 }
                 h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
@@ -111,7 +111,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_) {
     s32 max;
     s32 cur;
     s32 v;
-    max = class_appearance_table[get_display_index__12TCharaMakingFPv(&c)].max[arg1];
+    max = class_appearance_table[get_display_index__12TCharaMakingFv(&c)].max[arg1];
     cur = c.sel[arg1];
     v = cur;
     do {

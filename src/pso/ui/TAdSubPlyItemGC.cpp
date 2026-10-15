@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/TAdSubPlyItemGC.h"
 
 extern "C" {
 
-int render_status_line__15TAdSubPlyItemGCFPvi(void* p, int a1);
-
 int draw_menu_font_string(void*, int, int);
 
-int render_status_line__15TAdSubPlyItemGCFPvi(void* p, int a1) { return draw_menu_font_string(p, a1, 0); }
+int TAdSubPlyItemGC::render_status_line(int a1) { return draw_menu_font_string(this, a1, 0); }
 
 }

@@ -8,6 +8,12 @@ public:
     virtual ~TEndingAB();
     virtual void run_task();
     virtual void render();
+public:
+    void advance_fade_sequence();
+    void draw_overlay();
+    static void set_fish_global_param();
+    void init_float_table();
+    static void destroy_instance();
 };
 
 #endif

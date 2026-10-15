@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
-s32 get_window__11TWindowCtrlFi(s32 arg0);
-
 extern s8 *TWindowCtrl__active_window;
 
-s32 get_window__11TWindowCtrlFi(s32 arg0) {
+s32 TWindowCtrl::get_window(s32 arg0) {
     if (TWindowCtrl__active_window == 0) {
         return 0;
     }

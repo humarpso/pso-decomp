@@ -8,21 +8,19 @@ extern u8 boss4_zako_draw_buffers[];
 extern u32 dark_falz_controller_instance;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern s32 TBoss4ZakoDraw__rotation_phase;
-void run_task__14TBoss4ZakoDrawFv(void *arg0);
 }
 
 extern "C" {
 
-void render__14TBoss4ZakoDrawFv(void);
 int TCameraCtrl__sub_8030ABF4(void);
 int end_effect_render__13TParticleCtrlFv(void);
 int toggle_particle_effect__10TObjPlayerFv(void);
 
-void render__14TBoss4ZakoDrawFv(void) { toggle_particle_effect__10TObjPlayerFv(); TCameraCtrl__sub_8030ABF4(); end_effect_render__13TParticleCtrlFv(); }
-void run_task__14TBoss4ZakoDrawFv(void *arg0) {
+void TBoss4ZakoDraw::render() { toggle_particle_effect__10TObjPlayerFv(); TCameraCtrl__sub_8030ABF4(); end_effect_render__13TParticleCtrlFv(); }
+void TBoss4ZakoDraw::run_task() {
     s32 old;
     if (dark_falz_controller_instance == 0U) {
-        queue_destruction__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(this);
         return;
     }
     old = TBoss4ZakoDraw__draw_buffer_index;

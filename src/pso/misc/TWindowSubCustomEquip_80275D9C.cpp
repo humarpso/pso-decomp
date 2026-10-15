@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubCustomEquip.h"
 
 struct Obj_80275DB4 { u8 pad[0x60]; char f60; u8 pad2[0x6c - 0x61]; void *f6c; };
 
@@ -9,27 +10,25 @@ struct Win_80275F90 { u8 pad[0x66]; s16 f66; };
 struct Rect_80275DE8 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 extern "C" {
-void set_entry_state__20TWindowSubStatusDispFPvc(void *p, char c);
-void clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(Obj_80275DB4 *o);
+void set_entry_state__20TWindowSubStatusDispFSc(void *p, char c);
 void *get_player_by_client_id(s32);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(void *, u8, u8);
-u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 void update_palette_item_count_label(u8 *, u8 *, s32, s32, s32);
 void draw_action_palette_icon(u8 *, s32, s32);
 extern u8 lbl_8044F738[];
 extern u8 lbl_8044F740[];
 void update_palette_slot__21TWindowSubCustomEquipFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-void set_relative_pos__21TWindowSubCustomEquipFPvPv(void *, void *);
+u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+void set_relative_pos__21TWindowSubCustomEquipFPv(void *, void *);
 extern u8 lbl_8044F738[];
 void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
 void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
 extern const f32 lbl_805DD564;
-void draw_cursor__21TWindowSubCustomEquipFPvPv(Win_80275F90 *arg0, u8 *arg1);
 void reset_transform_state__10TObjPlayerFv();
 void init_xyz_limits__10TObjPlayerFv();
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
@@ -45,15 +44,15 @@ void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 
 extern "C" {
 
 int TWindowSubCustomEquip__sub_80275DA8(void* p);
-int is_selected__21TWindowSubCustomEquipFPv(void* p);
 int fn_80275D90(void* p);
-int is_active__22TWindowSubCustomSelectFPv(void* p);
+int is_active__22TWindowSubCustomSelectFv(void* p);
 
-int is_selected__21TWindowSubCustomEquipFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
+int TWindowSubCustomEquip::is_selected() { return *(u8*)((char*)this + 0x60) & 0x1; }
 int TWindowSubCustomEquip__sub_80275DA8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
-void clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(Obj_80275DB4 *o) {
+void TWindowSubCustomEquip::clear_flag_and_set_entry_state() {
+    Obj_80275DB4 *o = (Obj_80275DB4 *)this;
     o->f60 &= ~1;
-    set_entry_state__20TWindowSubStatusDispFPvc(o->f6c, 1);
+    set_entry_state__20TWindowSubStatusDispFSc(o->f6c, 1);
 }
 
 #pragma push
@@ -69,7 +68,7 @@ void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 
     scale = lbl_805DD550 / (lbl_805DD554 * farg0 + *(f32 *)((s8 *)arg0 + 0x38));
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_global_param__8TObjFishFl(lbl_805D63F0);
     set_draw_texture_and_color(0xC, -1);
     r.x0 = arg1->x + *(f32 *)((s8 *)arg0 + 0x10);
     r.y0 = arg1->y + *(f32 *)((s8 *)arg0 + 0x14);
@@ -94,11 +93,12 @@ void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1) {
     } else {
         idx = arg0[0x61] + (1 - arg0[0x62]) * 3;
     }
-    u8 *e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, lbl_8044F738[idx]);
-    set_relative_pos__21TWindowSubCustomEquipFPvPv(arg1, e);
+    u8 *e = get_array_entry__20TWindowSubStatusDispFi(arg0, lbl_8044F738[idx]);
+    set_relative_pos__21TWindowSubCustomEquipFPv(arg1, e);
 }
 
-void draw_cursor__21TWindowSubCustomEquipFPvPv(Win_80275F90 *arg0, u8 *arg1) {
+void TWindowSubCustomEquip::draw_cursor(u8 *arg1) {
+    Win_80275F90 *arg0 = (Win_80275F90 *)this;
     Vec2_80275DE8 pos;
     TWindowSubCustomEquip__sub_80275F08((u8 *)arg0, &pos);
     ((void (*)(f32, u8 *, Vec2_80275DE8 *, s32))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD564, arg1, &pos, arg0->f66);
@@ -110,8 +110,8 @@ void update_palette_slot__21TWindowSubCustomEquipFPviii(u8 *arg0, s32 arg1, s32 
     u8 *b;
     pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != NULL) {
-        a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, lbl_8044F738[arg1]);
-        b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, lbl_8044F740[arg1]);
+        a = get_array_entry__20TWindowSubStatusDispFi(arg0, lbl_8044F738[arg1]);
+        b = get_array_entry__20TWindowSubStatusDispFi(arg0, lbl_8044F740[arg1]);
         if (can_use_palette_action__10TObjPlayerFPvUcUc(pl, arg2, arg3) != 0) {
             *(s32 *)(a + 0x2C) = -1;
         } else {

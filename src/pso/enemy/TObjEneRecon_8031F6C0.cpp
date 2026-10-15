@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 struct Base_8031F6C0 { char pad[0x18]; };
 struct VObj_8031F6C0 : Base_8031F6C0 {
@@ -75,7 +76,6 @@ struct V_Sub_8031f748 : Base_Sub_8031f748 {
 extern "C" {
 
 void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1);
-void handle_state__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 s32 advance_animation_playback();
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
@@ -100,7 +100,8 @@ void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1) {
     }
 }
 
-void handle_state__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
+void TObjEneRecon::handle_state(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r4;
 
     switch (arg1) {

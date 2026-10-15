@@ -49,9 +49,7 @@ f32 vec_squared_length();
 f32 newton_sqrtf();
 extern f32 lbl_805DB068;
 extern f32 lbl_805DB06C;
-f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0);
-void horizontal_distance__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
-void launch_weapon_casing__10TObjPlayerFiUiiUiUi(s32, u32, s32, u32, u32);
+void launch_weapon_casing__10TObjPlayerFlUllUlUl(s32, u32, s32, u32, u32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
@@ -60,7 +58,7 @@ extern const float lbl_805DB054;
 extern const f32 lbl_805DB058;
 extern const f32 lbl_805DB05C;
 void yasminkov_7000v_update_recoil(u8 *arg0);
-void draw_status_icon__10TObjPlayerFPvi(void *self, void *buf);
+void draw_status_icon__10TObjPlayerFl(void *self, void *buf);
 void spawn_particle_effect(void *buf, s32 n);
 void yasminkov_7000v_marker(Obj_80131334 *self);
 extern u8 lbl_80506250[];
@@ -97,6 +95,8 @@ u8 *create_yasminkov_2000h(s32 arg0) {
 #include "types.h"
 
 #include "types.h"
+#include "pso/object/TObjGyaranzoMissile.h"
+#include "pso/player/TObjPlayer.h"
 
 void yasminkov_7000v_node_callback(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { post_translate_matrix((char*)p + 0x1fc); } }
 
@@ -134,7 +134,7 @@ void yasminkov_7000v_update_recoil(u8 *arg0) {
         buffer_8[0] = 0x4000;
         buffer_8[1] = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x60);
         buffer_8[2] = 0;
-        launch_weapon_casing__10TObjPlayerFiUiiUiUi(tl_05, (u32) arg0, 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
+        launch_weapon_casing__10TObjPlayerFlUllUlUl(tl_05, (u32) arg0, 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
         break;
     }
 }
@@ -143,7 +143,7 @@ void yasminkov_7000v_update_recoil(u8 *arg0) {
 void yasminkov_7000v_marker(Obj_80131334 *self) {
     u8 buf[0x18];
     self->state = 2;
-    draw_status_icon__10TObjPlayerFPvi(self, buf);
+    draw_status_icon__10TObjPlayerFl(self, buf);
     spawn_particle_effect(buf, 9);
 }
 
@@ -179,15 +179,15 @@ void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self) {
     }
 }
 
-f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0) {
+f32 TObjGyaranzoMissile::scale_velocity(f32 farg0) {
     f32 temp_f1;
     f32 temp_f2;
     if (vec_squared_length() > lbl_805DB068) {
         temp_f1 = newton_sqrtf();
         temp_f2 = farg0 / temp_f1;
-        *(f32 *)((s8 *)arg0 + 0) = (f32) (*(f32 *)((s8 *)arg0 + 0) * temp_f2);
-        *(f32 *)((s8 *)arg0 + 4) = (f32) (*(f32 *)((s8 *)arg0 + 4) * temp_f2);
-        *(f32 *)((s8 *)arg0 + 8) = (f32) (*(f32 *)((s8 *)arg0 + 8) * temp_f2);
+        *(f32 *)((s8 *)this + 0) = (f32) (*(f32 *)((s8 *)this + 0) * temp_f2);
+        *(f32 *)((s8 *)this + 4) = (f32) (*(f32 *)((s8 *)this + 4) * temp_f2);
+        *(f32 *)((s8 *)this + 8) = (f32) (*(f32 *)((s8 *)this + 8) * temp_f2);
         return temp_f1;
     }
     return lbl_805DB06C;
@@ -195,7 +195,8 @@ f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0) {
 
 #pragma push
 #pragma fp_contract on
-void horizontal_distance__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
+void TObjPlayer::horizontal_distance(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f2;
     f32 temp_f3;

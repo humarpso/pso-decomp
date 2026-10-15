@@ -1,6 +1,7 @@
 #include "pso/TBoss6DPB.h"
 
 #include "types.h"
+#include "pso/boss/TBoss6Type2.h"
 
 struct V_8035D8B0 { s32 a; f32 b; s32 c; };
 
@@ -59,15 +60,13 @@ struct Shower_8035D924 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-int query_teammate_state__9TObjEneDDFPv(void *);
+int query_teammate_state__9TObjEneDDFv(void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 void create_TDPBShower(int, void *);
 extern s32 tl_02;
 void fn_8035D8B0(W_8035D8B0 *arg0);
 extern const f32 lbl_805E01C8;
-void run_task__9TBoss6DPBFv(u8 *arg0);
 u8 *__nw__7TObjectFUl(s32);
-u8 *create_dpb__11TBoss6Type2Fiif(s32 arg0, s32 arg1, f32 farg0);
 s32 try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 f32 TObjEneEpsilonGuard__vt22(s32 arg0);
@@ -75,7 +74,7 @@ s32 try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 f32 TObjEneEpsilonGuard__vt20(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
+u8 *dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 play_sound_effect(s32, u32, int, s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035DB70___vt__9TBoss6DPB __vt__9TBoss6DPB;
@@ -90,9 +89,9 @@ f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3,
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Pl_8035D924 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv(void);
-s32 is_active__14TBoss6PlotFalzFPv(void *);
-s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
-s32 get_rotation_timer__11TBoss6Type2FPv(s32);
+s32 is_active__14TBoss6PlotFalzFv(void *);
+s32 rand_vary_count__14TBoss6PlotFalzFlf(s32, f32);
+s32 get_rotation_timer__11TBoss6Type2Fv(s32);
 void create_TDPBShower(int, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
@@ -103,8 +102,6 @@ void apply_shower_damage_to_players(Shower_8035D924 *arg0);
 }
 
 extern "C" {
-
-void render__9TBoss6DPBFv(void);
 
 void fn_8035D8B0(W_8035D8B0 *arg0) {
     V_8035D8B0 v = arg0->v;
@@ -126,16 +123,16 @@ void apply_shower_damage_to_players(Shower_8035D924 *arg0) {
     n = get_game_mode__6TLobbyFv();
     for (i = 0; i < n; i++) {
         pl = get_player_data__10TObjPlayerFi(i);
-        if (is_active__14TBoss6PlotFalzFPv(pl) != 0) {
+        if (is_active__14TBoss6PlotFalzFv(pl) != 0) {
             VecCopy__FP3VecPC3Vec(&v, (u8 *)pl + 0x38);
             subtract_vector(&v, &arg0->pos);
             v.y = lbl_805E01CC;
             if (!(vector_length(&v) > arg0->radius)) {
                 power = arg0->power;
-                if (get_rotation_timer__11TBoss6Type2FPv(arg0->owner) != 0) {
+                if (get_rotation_timer__11TBoss6Type2Fv(arg0->owner) != 0) {
                     power = (f32)power * arg0->scale;
                 }
-                s32 r = rand_vary_count__14TBoss6PlotFalzFif(power, lbl_805E01D0);
+                s32 r = rand_vary_count__14TBoss6PlotFalzFlf(power, lbl_805E01D0);
                 dmg.a = 0;
                 dmg.c = 0;
                 dmg.d = r;
@@ -148,9 +145,10 @@ void apply_shower_damage_to_players(Shower_8035D924 *arg0) {
 }
 #pragma pop
 
-void render__9TBoss6DPBFv(void) {  }
-void run_task__9TBoss6DPBFv(u8 *arg0) {
-    if (query_teammate_state__9TObjEneDDFPv(arg0) == 0) {
+void TBoss6DPB::render() {  }
+void TBoss6DPB::run_task() {
+    u8 *arg0 = (u8 *)this;
+    if (query_teammate_state__9TObjEneDDFv(arg0) == 0) {
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) + 1);
         if ((f32) *(s32 *)((s8 *)arg0 + 0x30) > lbl_805E01C8) {
             apply_shower_damage_to_players((Shower_8035D924 *)(arg0));
@@ -176,12 +174,12 @@ u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (arg2));
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805E01CC;
     *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
-    temp_f2 = *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2C)) + 8);
+    temp_f2 = *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFl(0x2C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) temp_f2;
     if (lbl_805E01CC == temp_f2) {
         *(s32 *)((s8 *)arg0 + 0x34) = 0x14;
     }
-    temp_f1 = *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2F)) + 8);
+    temp_f1 = *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFl(0x2F)) + 8);
     *(f32 *)((s8 *)arg0 + 0x38) = temp_f1;
     if (lbl_805E01CC == temp_f1) {
         *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805E01D4;
@@ -193,7 +191,7 @@ u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
 
 #pragma push
 #pragma fp_contract on
-u8 *create_dpb__11TBoss6Type2Fiif(s32 arg0, s32 arg1, f32 farg0) {
+u8 *TBoss6Type2::create_dpb(s32 arg0, s32 arg1, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x3C));

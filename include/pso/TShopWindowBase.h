@@ -6,6 +6,9 @@
 class TShopWindowBase : public TObject {
 public:
     virtual ~TShopWindowBase();
+public:
+    static f32 get_scale();
+    s32 get_child_field1c();
 };
 
 #endif

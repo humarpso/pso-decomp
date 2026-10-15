@@ -1,15 +1,17 @@
 #include "types.h"
+#include "pso/TProtocol.h"
 
 extern "C" {
 
 s32 handle_quest_ready__16TQuestListOnlineFv();
 
-void handle_cmd_AC__9TProtocolFR6packet(void *arg0, void *arg1) {
+void TProtocol::handle_cmd_AC(packet &pkt) {
+    void *arg1 = &pkt;
     if ((u8) *(u8 *)((s8 *)arg1 + 1) == 0) {
         handle_quest_ready__16TQuestListOnlineFv();
         return;
     }
-    *(s8 *)((s8 *)arg0 + 0x2A) = 1;
+    *(s8 *)((s8 *)this + 0x2A) = 1;
 }
 
 }

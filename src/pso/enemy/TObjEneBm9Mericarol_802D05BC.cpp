@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm9Mericarol.h"
 
 extern "C" {
 
@@ -134,9 +135,8 @@ struct VObj_802D06E0_802D05BC : Base_802D06E0_802D05BC {
 };
 
 void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1);
-void handle_action__19TObjEneBm9MericarolFPvi(void *arg0, s32 arg1);
 s32 advance_animation_playback();
-s32 play_area_sound_effect__12TBoss3VoloptFi(void *);
+s32 play_area_sound_effect__12TBoss3VoloptFv(void *);
 s32 TObjEneBm9Mericarol__sub_802D093C(void *);
 s32 transition_enemy_state(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
@@ -154,7 +154,7 @@ void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
         set_field_378__9TObjEneDDFPvi(arg0, 2);
         enemy_clear_target(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x46C);
-        play_area_sound_effect__12TBoss3VoloptFi(arg0 + 0x38);
+        play_area_sound_effect__12TBoss3VoloptFv(arg0 + 0x38);
         return;
     case 3:
         if (((SubObj_802d05bc *)(arg0 + 0x46C))->v5() != 0) {
@@ -173,13 +173,13 @@ void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
     }
 }
 
-void handle_action__19TObjEneBm9MericarolFPvi(void *arg0, s32 arg1) {
+void TObjEneBm9Mericarol::handle_action(s32 arg1) {
     switch (arg1) {
     case 4:
-        ((VObj_802D06E0_802D05BC *)arg0)->m93();
+        ((VObj_802D06E0_802D05BC *)this)->m93();
         return;
     case 3:
-        transition_enemy_state((void *)(arg0), (s32)(1));
+        transition_enemy_state((void *)(this), (s32)(1));
     case 5:
     case 0:
         return;

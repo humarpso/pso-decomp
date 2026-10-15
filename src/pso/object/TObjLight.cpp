@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjLight.h"
 
 struct VBase_18_8322b3 { char pad[0x18]; };
 
@@ -96,24 +97,23 @@ extern const Vec_80193FE8 lbl_80445D44;
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
-void run_task__9TObjLightFv(Light_80193FE8 *self);
 }
 
 extern "C" {
 
 void *__dt__9TObjLightFv(void *arg0, s16 arg1);
-void render__9TObjLightFv(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void mask_object_set_row_flags(void *, int);
 
-void render__9TObjLightFv(void) {  }
+void TObjLight::render() {  }
 
 extern s32 __vt__9TObjLight[];
 
 #pragma push
 #pragma fp_contract on
-void run_task__9TObjLightFv(Light_80193FE8 *self) {
+void TObjLight::run_task() {
+    Light_80193FE8 *self = (Light_80193FE8 *)this;
     s32 hi;
     if (xyz_distance_squared(&self->pos, camera_ctrl_instance + 0x178) > 160000.0f) {
         queue_destruction__7TObjectFv(self);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct VBase { char pad[0x18]; };
 struct VObj : VBase {
@@ -11,14 +12,13 @@ struct VObj : VBase {
 
 extern "C" {
 
-void attach_objects_by_id__6TLobbyFi(s32 arg0);
 u8 *create_set_object_from_row(void *);
 u8 *get_object_count__6TLobbyFPv();
 s32 get_obj_table_entry__6TLobbyFi(s32);
 
 extern s32 TLobby__data_805D6140;
 
-void attach_objects_by_id__6TLobbyFi(s32 arg0) {
+void TLobby::attach_objects_by_id(s32 arg0) {
     s16 temp_r3;
     s16 temp_r0;
     s32 count;

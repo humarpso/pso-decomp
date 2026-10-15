@@ -27,6 +27,12 @@ struct TObjContainerIdo
     void* m_f0;
     u8 _padF4[0x10];
     u32 m_104;
+    void run();
+    void check_and_trigger();
+    void *dt(s16 arg1);
+    void*init_positions();
+    static void free_resources();
+    static void load_resources();
 };
 
 #endif

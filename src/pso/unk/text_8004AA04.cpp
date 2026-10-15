@@ -17,14 +17,14 @@ typedef struct Obj_8004AA80 {
 
 extern "C" {
 void destroy_buffer_pair(void *p, s32 flag);
-int free__11TOBoss4RockFUi(void *p);
+int mem_free(void *p);
 void fn_8004AA04(Obj_8004AA04 *self);
 s32 get_bml_model(s32, s32);
 int get_instance_count__9TBoss4UroFv(void);
-s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 alloc_tables__6TLobbyFPvii(s32, s32, s32);
-s32 collect_and_count__12TBoss3VoloptFUii(u32 arg0, s32 arg1);
-s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
+s32 alloc_tables__6TLobbyFll(s32, s32, s32);
+s32 collect_and_count__12TBoss3VoloptFUll(u32 arg0, s32 arg1);
+s32 *mem_alloc(s32);
 void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
 }
 
@@ -38,7 +38,7 @@ void fn_8004AA04(Obj_8004AA04 *self) {
             self->items[i] = 0;
         }
     }
-    free__11TOBoss4RockFUi(self->items);
+    mem_free(self->items);
     self->items = 0;
 }
 void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
@@ -54,7 +54,7 @@ void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
     }
     arg0->count = arg2;
     arg0->items = NULL;
-    arg0->items = alloc_buffer__11TOBoss4RockFPv(arg0->count * 4);
+    arg0->items = mem_alloc(arg0->count * 4);
     arg0->f8 = 0;
     arg0->fc = 0;
     for (j = 0; j < arg0->count; j++) {
@@ -62,10 +62,10 @@ void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
     }
     for (i = 0; i < arg0->count; i++) {
         r = &arg1[i];
-        t = collect_and_count__12TBoss3VoloptFUii(get_bml_model(h, r->a), r->b);
-        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
+        t = collect_and_count__12TBoss3VoloptFUll(get_bml_model(h, r->a), r->b);
+        p = alloc__23TAdSinglePlyChrSelectGCFv(0x14);
         if (p != 0) {
-            p = alloc_tables__6TLobbyFPvii(p, t, r->c);
+            p = alloc_tables__6TLobbyFll(p, t, r->c);
         }
         arg0->items[i] = p;
     }

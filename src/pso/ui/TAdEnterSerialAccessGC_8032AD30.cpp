@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdEnterSerialAccessGC.h"
 
 struct Lim_8032B1A4 { u32 n[4]; };
 
@@ -9,20 +10,17 @@ void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 void fn_8032AC9C();
 extern char lbl_80477188[];
 extern char lbl_80477190[];
-void create_default_callback__22TAdEnterSerialAccessGCFv(void);
 s32 get_localized_text_entry(int, void *);
-void send_and_handle__6TLobbyFPvii(s32, s32, int);
-s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
+void send_and_handle__6TLobbyFii(s32, s32, int);
+s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_80477178[];
 extern u8 lbl_80477180[];
-s32 show_message_window__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1);
 int sprintf(char *, const char *, ...);
 void sscanf(int, const char *, ...);
 s32 memset(s32, s32, s32);
 extern char lbl_80477260[];
 extern char lbl_80477268[];
 extern char serial_access_hex_string_buf[];
-char *serial_to_hex_string__22TAdEnterSerialAccessGCFi(int arg0);
 u8 *get_access_key_input_buffer();
 u8 *get_raw_serial_input_buffer();
 u8 *TAdEnterPasswordGC__sub_8013ADE4();
@@ -37,8 +35,8 @@ extern Lim_8032B1A4 serial_access_input_limits;
 s32 TKeyBoardControl__ct(void *, s32, s32, s32, s32, s32);
 void *__nw__7TObjectFUl(s32);
 void update_chat_window(void *);
-void set_sub_position__15TWindowMakeTeamFPvPv(u8 *arg0, u8 *arg1);
-int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
+void set_sub_position__15TWindowMakeTeamFPUc(u8 *arg0, u8 *arg1);
+int get_keyboard_field_6c__15TWindowMakeTeamFv(void* p);
 s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
 u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
 extern s32 serial_keyboard_field_width_table[];
@@ -50,11 +48,8 @@ u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
 
 extern "C" {
 
-void clear_serial_buffer__22TAdEnterSerialAccessGCFv(void);
 void clear_state(void);
-int forward_input__22TAdEnterSerialAccessGCFPv(void* p);
 s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
-void store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32 arg0, s32 arg1, s32 arg2);
 u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
 int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *arg2);
 s32 TAdPsoPassSaveGC__sub_8032B584();
@@ -75,9 +70,9 @@ u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
     if (kb == NULL) {
         return 0;
     }
-    set_sub_position__15TWindowMakeTeamFPvPv(kb, serial_keyboard_position_table[arg1]);
+    set_sub_position__15TWindowMakeTeamFPUc(kb, serial_keyboard_position_table[arg1]);
     if (((s32 (*)(s32, s32))has_serial_input__22TAdEnterSerialAccessGCFv)(arg0, arg1) != 0) {
-        ((int (*)(void *, u8 *))get_keyboard_field_6c__15TWindowMakeTeamFPv)(kb, get_serial_text__22TAdEnterSerialAccessGCFii(arg0, arg1));
+        ((int (*)(void *, u8 *))get_keyboard_field_6c__15TWindowMakeTeamFv)(kb, get_serial_text__22TAdEnterSerialAccessGCFii(arg0, arg1));
     }
     if (arg1 != 3) {
         update_chat_window(kb);
@@ -85,13 +80,13 @@ u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
     return (u32)kb;
 }
 
-void create_default_callback__22TAdEnterSerialAccessGCFv(void) {
+void TAdEnterSerialAccessGC::create_default_callback() {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_80477188, lbl_80477190, (void *)fn_8032AC9C);
 }
 
-s32 show_message_window__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1) {
-    s32 r = update_window_mode_from_progress__6TLobbyFiPv(lbl_80477178, lbl_80477180);
-    send_and_handle__6TLobbyFPvii(r, get_localized_text_entry(0x17, arg1), 1);
+s32 TAdEnterSerialAccessGC::show_message_window(void *arg0, void *arg1) {
+    s32 r = update_window_mode_from_progress__6TLobbyFPv(lbl_80477178, lbl_80477180);
+    send_and_handle__6TLobbyFii(r, get_localized_text_entry(0x17, arg1), 1);
     return r;
 }
 
@@ -105,7 +100,7 @@ u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
     if (*(s8 *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C) != 0) {
         switch (arg1) {
         case 0:
-            return (u8 *) serial_to_hex_string__22TAdEnterSerialAccessGCFi(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C);
+            return (u8 *) TAdEnterSerialAccessGC::serial_to_hex_string(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C);
         case 1:
             return (u8 *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C);
         case 2:
@@ -128,7 +123,7 @@ s32 has_serial_input__22TAdEnterSerialAccessGCFv(void) {
     return (s8) *((u8 *(*)(void))get_serial_text__22TAdEnterSerialAccessGCFii)() ? 1 : 0;
 }
 
-void clear_serial_buffer__22TAdEnterSerialAccessGCFv(void) {
+void TAdEnterSerialAccessGC::clear_serial_buffer() {
     u32 temp_r3;
 
     temp_r3 = get_instance__23TAdSinglePlyChrSelectGCFv();
@@ -148,7 +143,7 @@ void clear_state(void) {
     }
 }
 
-void store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32 arg0, s32 arg1, s32 arg2) {
+void TAdEnterSerialAccessGC::store_serial_access_key(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
 
     temp_r3 = get_instance__23TAdSinglePlyChrSelectGCFv();
@@ -161,7 +156,7 @@ void store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32 arg0, s32 arg1, s
     }
 }
 
-char *serial_to_hex_string__22TAdEnterSerialAccessGCFi(int arg0) {
+char *TAdEnterSerialAccessGC::serial_to_hex_string(int arg0) {
     u32 v = 0;
     sscanf(arg0, lbl_80477260, &v);
     memset((s32)((s32)serial_access_hex_string_buf), (s32)(0), (s32)(0x40));
@@ -206,6 +201,6 @@ int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *a
     return 1;
 }
 
-int forward_input__22TAdEnterSerialAccessGCFPv(void* p) { return ((int (*)(void *))validate_input__22TAdEnterSerialAccessGCFPviPv)(p); }
+int TAdEnterSerialAccessGC::forward_input(void* p) { return ((int (*)(void *))validate_input__22TAdEnterSerialAccessGCFPviPv)(p); }
 
 }

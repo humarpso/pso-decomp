@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Stack_802878B8
 {
@@ -42,15 +43,12 @@ s32 set_text_draw_params(void *, int, int, f32, f32, f32, f32, f32, f32);
 void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1);
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
-void set_entry_state__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
 u32 calc_text_width(void *);
-f32 get_card_window_scale__20TWindowSubStatusDispFi(void *);
+f32 get_card_window_scale__20TWindowSubStatusDispFl(void *);
 u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
-void update_entry_color__20TWindowSubStatusDispFPv(void *arg0);
-void draw_entry_tab__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1);
 void apply_context_transform_to_rect(void *, Rect_80287580 *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(Rect_80287580 *, f32);
@@ -65,10 +63,6 @@ extern "C" {
 f32 TWindowSubStatusDisp__sub_80287570(void *arg0);
 void TWindowSubStatusDisp__sub_802879B0(void *arg0);
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
-s32 deleting_destructor__20TWindowSubStatusDispFis(s32 arg0, s16 arg1);
-f32 get_base_y__20TWindowSubStatusDispFf(f32 farg0);
-void set_entry_state__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
-void update__20TWindowSubStatusDispFPvPv(void* p, void* a1);
 s32 __dl__FPv();
 
 f32 TWindowSubStatusDisp__sub_80287570(void *arg0) {
@@ -85,7 +79,7 @@ void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width) {
     w = width;
     w += (8e+01f);
     begin_screen_draw(1);
-    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_global_param__8TObjFishFl(lbl_805D63F0);
     set_draw_texture_and_color(1, obj->f34);
     r1.x0 = pos[0];
     r1.y0 = pos[1];
@@ -120,7 +114,7 @@ void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width) {
     get_player__20TWindowSubStatusDispFv();
 }
 
-f32 get_base_y__20TWindowSubStatusDispFf(f32 farg0) {
+f32 TWindowSubStatusDisp::get_base_y(f32 farg0) {
     return (1.6e+02f) + farg0;
 }
 
@@ -143,8 +137,8 @@ f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0) {
   return temp_f1;
 }
 
-void update_entry_color__20TWindowSubStatusDispFPv(void *arg0) {
-    Entry_802877C8 *e = (Entry_802877C8 *)arg0;
+void TWindowSubStatusDisp::update_entry_color() {
+    Entry_802877C8 *e = (Entry_802877C8 *)this;
     switch (e->state) {
     case 0:
         if (((s32 (*)(u8 *))TWindowSubStatusDisp__sub_80287AC4)((u8 *)e) != 0) {
@@ -160,16 +154,16 @@ void update_entry_color__20TWindowSubStatusDispFPv(void *arg0) {
     }
 }
 
-void set_entry_state__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1) {
-    *(s8 *)((s8 *)arg0 + 0x18) = arg1;
-    update_entry_color__20TWindowSubStatusDispFPv((void *)(arg0));
+void TWindowSubStatusDisp::set_entry_state(s8 arg1) {
+    *(s8 *)((s8 *)this + 0x18) = arg1;
+    update_entry_color();
 }
 
 typedef struct Stack_802878B8 Stack_802878B8;
 #pragma fp_contract on
 
-void draw_entry_tab__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1) {
-    Entry_80287860 *e = (Entry_80287860 *)arg0;
+void TWindowSubStatusDisp::draw_entry_tab(void *arg1) {
+    Entry_80287860 *e = (Entry_80287860 *)this;
     f32 pos[2];
     pos[0] = ((f32 *)arg1)[0] + e->x;
     pos[1] = ((f32 *)arg1)[1] + e->y;
@@ -194,13 +188,13 @@ void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1) {
   }
 }
 
-void update__20TWindowSubStatusDispFPvPv(void* p, void* a1) { draw_entry_tab__20TWindowSubStatusDispFPvPv((void *)(p), (void *)(a1)); TWindowSubStatusDisp__sub_802878B8((u8 *)(p), (u8 *)(a1)); }
+void TWindowSubStatusDisp::update(void* a1) { draw_entry_tab((void *)(a1)); TWindowSubStatusDisp__sub_802878B8((u8 *)(this), (u8 *)(a1)); }
 
 void TWindowSubStatusDisp__sub_802879B0(void *arg0) {
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) + *(f32 *)((s8 *)arg0 + 0x20));
 }
 
-s32 deleting_destructor__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
+s32 TWindowSubStatusDisp::deleting_destructor(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }
@@ -215,8 +209,8 @@ u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 a
     *(s32 *)((s8 *)arg0 + 0) = arg2;
     *(s8 *)((s8 *)arg0 + 0x19) = 0;
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (0.0f);
-    set_entry_state__20TWindowSubStatusDispFPvc(arg0, arg3);
-    *(f32 *)((s8 *)arg0 + 0x20) = get_card_window_scale__20TWindowSubStatusDispFi((void *) (arg4));
+    ((TWindowSubStatusDisp *)arg0)->set_entry_state(arg3);
+    *(f32 *)((s8 *)arg0 + 0x20) = get_card_window_scale__20TWindowSubStatusDispFl((void *) (arg4));
     if (*(f32 *)((s8 *)arg0 + 0x20) <= (0.0f)) {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (1e+05f);
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8028D738_lbl_80518850 {
     s32 value;
@@ -23,15 +24,11 @@ void TLobby__sub_8028D7D0(s32 i);
 
 extern "C" {
 
-void alloc_download_server__6TLobbyFv(void);
-void free_chr_select_singleton__6TLobbyFv(void);
-void free_single_player_chr_select__6TLobbyFv(void);
-int start_load_default__6TLobbyFPv(void* p);
-int alloc_load_buffer__6TLobbyFii(void*, int);
-u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
+int alloc_load_buffer__6TLobbyFl(void*, int);
+u32 alloc__22TQuestVmDownLoadServerFv(s32);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 
-int start_load_default__6TLobbyFPv(void* p) { return alloc_load_buffer__6TLobbyFii(p, 0); }
+int TLobby::start_load_default() { return alloc_load_buffer__6TLobbyFl(this, 0); }
 
 extern u32 chr_select_load_buffer_base;
 extern u32 chr_select_load_buffer;
@@ -65,9 +62,9 @@ void TLobby__sub_8028D7D0(s32 i) {
     if (i >= n) return;
 }
 
-void free_single_player_chr_select__6TLobbyFv(void) {
+void TLobby::free_single_player_chr_select() {
     if (((u32) chr_select_load_buffer_base != 0U) && ((u32) chr_select_load_buffer != 0U)) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)((void*)chr_select_load_buffer));
+        safe_free__23TAdSinglePlyChrSelectGCFUl((void*)((void*)chr_select_load_buffer));
         chr_select_load_buffer = 0U;
     }
 }
@@ -75,9 +72,9 @@ void free_single_player_chr_select__6TLobbyFv(void) {
 extern u32 chr_select_load_buffer_base;
 extern u32 chr_select_load_buffer;
 
-void alloc_download_server__6TLobbyFv(void) {
+void TLobby::alloc_download_server() {
     if (((u32) chr_select_load_buffer_base != 0U) && ((u32) chr_select_load_buffer == 0U)) {
-        chr_select_load_buffer = alloc__22TQuestVmDownLoadServerFPv(0x50000);
+        chr_select_load_buffer = alloc__22TQuestVmDownLoadServerFv(0x50000);
         if ((u32) chr_select_load_buffer == 0U) {
             return;
         }
@@ -86,9 +83,9 @@ void alloc_download_server__6TLobbyFv(void) {
 
 extern u32 chr_select_load_buffer_base;
 
-void free_chr_select_singleton__6TLobbyFv(void) {
+void TLobby::free_chr_select_singleton() {
     if ((u32) chr_select_load_buffer_base != 0U) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)((void*)chr_select_load_buffer_base));
+        safe_free__23TAdSinglePlyChrSelectGCFUl((void*)((void*)chr_select_load_buffer_base));
         chr_select_load_buffer_base = 0U;
     }
 }

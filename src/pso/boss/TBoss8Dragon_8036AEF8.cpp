@@ -20,7 +20,7 @@ s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 reset_transform_state__10TObjPlayerFv();
 s32 init_xyz_limits__10TObjPlayerFv();
 s32 begin_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 set_draw_texture_and_color(int, int);
@@ -97,7 +97,7 @@ void TBoss8Dragon__sub_8036B088(void) {
     begin_effect_render__13TParticleCtrlFv();
     restore_full_screen_view__11TCameraCtrlFv();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_global_param__8TObjFishFl(lbl_805D63F0);
     set_draw_texture_and_color(5, -1);
     o[0] = (545.0f);
     o[1] = (3.9e+02f);

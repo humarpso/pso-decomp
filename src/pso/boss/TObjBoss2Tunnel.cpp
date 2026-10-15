@@ -1,28 +1,27 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 extern "C" {
 
-void advance_phase__15TObjBoss2TunnelFPv(void *arg0);
-void update_position__15TObjBoss2TunnelFPv(void *arg0);
 s32 TObjBoss2Tunnel__sub_8007DDB0(f32);
 struct Obj_8007DE80 { f32 f0, f4, f8, fC, f10, f14, f18; };
-f32 eval_piecewise_curve__15TObjBoss2TunnelFPvf(Obj_8007DE80 *arg0, f32 farg0);
 extern const f32 TObjBoss2Tunnel__data_805D9234;
 
 extern f32 lbl_805D923C;
 
-void advance_phase__15TObjBoss2TunnelFPv(void *arg0) {
-    TObjBoss2Tunnel__sub_8007DDB0(*(f32 *)((s8 *)arg0 + 0x1C));
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) + lbl_805D923C);
+void TObjBoss2Tunnel::advance_phase() {
+    TObjBoss2Tunnel__sub_8007DDB0(*(f32 *)((s8 *)this + 0x1C));
+    *(f32 *)((s8 *)this + 0x1C) = (f32) (*(f32 *)((s8 *)this + 0x1C) + lbl_805D923C);
 }
 
-void update_position__15TObjBoss2TunnelFPv(void *arg0) {
-    eval_piecewise_curve__15TObjBoss2TunnelFPvf((Obj_8007DE80 *)arg0, *(f32 *)((s8 *)arg0 + 0x1C));
+void TObjBoss2Tunnel::update_position() {
+    eval_piecewise_curve(*(f32 *)((s8 *)this + 0x1C));
 }
 
 #pragma push
 #pragma fp_contract on
-f32 eval_piecewise_curve__15TObjBoss2TunnelFPvf(Obj_8007DE80 *arg0, f32 farg0) {
+f32 TObjBoss2Tunnel::eval_piecewise_curve(f32 farg0) {
+    Obj_8007DE80 *arg0 = (Obj_8007DE80 *)this;
     f32 t;
     f32 r = TObjBoss2Tunnel__data_805D9234;
     if (farg0 < r) {

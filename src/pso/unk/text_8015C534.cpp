@@ -12,15 +12,15 @@ struct RecoveredGlobal_8015C534_lbl_804B08BC {
 
 extern "C" {
 s32 TLobby__sub_8001FE7C(u32, int);
-s32 free__11TOBoss4RockFUi(u32);
-s32 free_if_valid__10TObjPlayerFi(int);
+s32 mem_free(u32);
+s32 free_if_valid__10TObjPlayerFl(int);
 extern u32 ancient_container_resource_bundle;
 extern u32 ancient_container_fragment_texture_lists;
 void fn_8015C5F8(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, int, void *);
 extern RecoveredGlobal_8015C534_lbl_804B00C8 TOContainerAncientEnemy__collision_body_params;
@@ -40,7 +40,7 @@ u8 *init_ancient_container(u8 *arg0, s32 arg1) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&TOContainerAncientEnemy__collision_body_params.value), (int) (1));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&TOContainerAncientEnemy__collision_body_params.value) + 4));
@@ -59,13 +59,13 @@ void fn_8015C5F8(void) {
         var_r30 = 0;
         var_r31 = 0;
         do {
-            free_if_valid__10TObjPlayerFi((int) (*(s32 *)((s8 *)ancient_container_fragment_texture_lists + var_r31)));
+            free_if_valid__10TObjPlayerFl((int) (*(s32 *)((s8 *)ancient_container_fragment_texture_lists + var_r31)));
             var_r30 += 1;
             var_r31 += 4;
         } while (var_r30 < 3);
         p = ancient_container_fragment_texture_lists;
         if (p != 0U) {
-            free__11TOBoss4RockFUi(p);
+            mem_free(p);
             ancient_container_fragment_texture_lists = 0U;
         }
     }

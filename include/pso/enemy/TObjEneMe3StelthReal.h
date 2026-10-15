@@ -9,6 +9,7 @@ struct TObjEneMe3StelthReal
     s16 m_326;
     u8 _pad328[0xC4];
     u32 m_3ec;
+    static void *create(void *arg0);
 };
 
 #endif

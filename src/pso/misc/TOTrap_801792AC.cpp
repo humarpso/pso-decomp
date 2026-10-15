@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrap.h"
 
 struct Base_80179314_801792AC { char pad[0x18]; };
 struct VObj_80179314_801792AC : Base_80179314_801792AC {
@@ -60,8 +61,6 @@ extern "C" {
 
 void TOTrap__sub_801792AC(void);
 void TOTrap__sub_801792B0(void);
-f32 check_trigger_range__6TOTrapFPvUi(struct VObj_80179314_801792AC *arg0, u32 arg1);
-f32 get_scale__6TOTrapFPvUi(struct VObj_80179358_801792AC *arg0, u32 arg1);
 void TOTrap__vt82(void);
 
 void TOTrap__sub_801792AC(void) {  }
@@ -86,7 +85,8 @@ u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1) {
     return (u8) (arg1 != *(s32 *)((s8 *)arg0 + 0x2A8));
 }
 
-f32 check_trigger_range__6TOTrapFPvUi(struct VObj_80179314_801792AC *arg0, u32 arg1) {
+f32 TOTrap::check_trigger_range(u32 arg1) {
+    struct VObj_80179314_801792AC *arg0 = (struct VObj_80179314_801792AC *)this;
     if (arg1 != *(u32 *)((s8 *)arg0 + 0x2A8)) {
         arg0->m20(0, TOTrap__data_805DBA38);
     }
@@ -96,7 +96,8 @@ f32 check_trigger_range__6TOTrapFPvUi(struct VObj_80179314_801792AC *arg0, u32 a
 extern f32 TOTrap__data_805DBA38;
 extern f32 TOTrap__data_805DBA3C;
 
-f32 get_scale__6TOTrapFPvUi(struct VObj_80179358_801792AC *arg0, u32 arg1) {
+f32 TOTrap::get_scale(u32 arg1) {
+    struct VObj_80179358_801792AC *arg0 = (struct VObj_80179358_801792AC *)this;
     if (arg1 != *(u32 *)((s8 *)arg0 + 0x2A8)) {
         arg0->m20(0, TOTrap__data_805DBA38);
     }

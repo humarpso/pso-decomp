@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TOMineIcon03.h"
 
 extern "C" {
 
-void *create__12TOMineIcon03FPv(void *arg0);
 void *__dt__12TOMineIcon03Fv(void *arg0, s16 arg1);
 void *TOMineIcon03__ct(void *, void *, void *);
 s32 __dl__7TObjectFPv(void *);
@@ -13,7 +13,7 @@ s32 free_collision_body_parts(void *);
 
 extern void *tl_05;
 
-void *create__12TOMineIcon03FPv(void *arg0) {
+void *TOMineIcon03::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x37C);
     if (o != NULL) {
         o = TOMineIcon03__ct(o, tl_05, arg0);

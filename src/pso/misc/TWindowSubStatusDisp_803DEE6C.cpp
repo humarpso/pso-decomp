@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 #pragma scheduling off
 
@@ -31,7 +32,6 @@ void DVDConvertEntrynumToPath(f32 *q);
 
 extern "C" {
 
-void get_player__20TWindowSubStatusDispFv(void);
 s32 TObjPlayer__sub_803E2248();
 
 void begin_screen_draw(s32 arg0) {
@@ -43,7 +43,7 @@ void begin_screen_draw(s32 arg0) {
     setup_render__10TObjPlayerFv();
 }
 
-void get_player__20TWindowSubStatusDispFv(void) {
+void TWindowSubStatusDisp::get_player() {
     TObjPlayer__sub_803E2248();
 }
 

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TOWreckAncient.h"
 
 extern "C" {
 extern char lbl_804433E8[];
@@ -37,12 +38,11 @@ struct RecoveredGlobal_8017DE94___vt__14TOWreckAncient {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8017DDA8_lbl_804B53D0 bm_o_wreck_ancient_resource_descriptor;
 extern u32 wreck_ancient_bml_resource;
 extern u32 wreck_ancient_brakable_bml_resource;
-void load_resources__14TOWreckAncientFv(void);
-s32 construct_collider_proxy__10TObjPlayerFPv(void *, int);
+s32 construct_collider_proxy__10TObjPlayerFv(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, void *);
 s32 get_bml_model(void *, void *);
 extern s32 __vt__14TOWreckAncient[];
@@ -57,8 +57,6 @@ u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1);
 extern "C" {
 
 void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1);
-void draw_model__14TOWreckAncientFPv(u8 *arg0);
-void free_statics__14TOWreckAncientFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
@@ -68,16 +66,17 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
-s32 set_global_param__8TObjFishFi(s32);
+s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
+s32 set_global_param__8TObjFishFl(s32);
 
-void draw_model__14TOWreckAncientFPv(u8 *arg0) {
+void TOWreckAncient::draw_model() {
+    u8 *arg0 = (u8 *)this;
     VObj1_8017dce0 *self = (VObj1_8017dce0 *)arg0;
     if (self->m8(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
@@ -86,7 +85,7 @@ void draw_model__14TOWreckAncientFPv(u8 *arg0) {
 extern u32 wreck_ancient_bml_resource;
 extern u32 wreck_ancient_brakable_bml_resource;
 
-void free_statics__14TOWreckAncientFv(void) {
+void TOWreckAncient::free_statics() {
     if ((u32) wreck_ancient_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)wreck_ancient_bml_resource, 1);
         wreck_ancient_bml_resource = 0U;
@@ -99,18 +98,18 @@ void free_statics__14TOWreckAncientFv(void) {
 
 extern s32 __vt__14TOWreckAncient[];
 
-void load_resources__14TOWreckAncientFv(void) {
+void TOWreckAncient::load_resources() {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r0;
     s32 var_r0_2;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_wreck_ancient_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&wreck_ancient_bml_resource) = var_r0;
-    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
         var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &TOWreckAncient__resource_descriptor, 0, 0, 0));
@@ -123,7 +122,7 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOWreckAncient;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -132,7 +131,7 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8017DE94___vt__14TOWreckAncient_size[sizeof(RecoveredGlobal_8017DE94___vt__14TOWreckAncient) == 0x3C ? 1 : -1];
 u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1) {
-    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (int) (tl_05));
+    construct_collider_proxy__10TObjPlayerFv((void *) (arg0), (int) (tl_05));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8017DE94___vt__14TOWreckAncient *)&__vt__14TOWreckAncient).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOWreckAncient__name;
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoaEx01.h"
 
 struct NjObj_8018DD0C {
     u32 evalflags;
@@ -39,17 +40,15 @@ extern s32 lbl_805D5660;
 extern u8 *TObjDoaEx01__alpha_model_node;
 extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern s32 model_render_flags;
-s32 draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
 s32 free_children__12TObjDoorJungFPvPv(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi();
+s32 set_global_param__8TObjFishFl();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 TObjDoaEx01__resource_bundle;
 extern u8 *TObjDoaEx01__alpha_model_node;
@@ -70,7 +69,7 @@ s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFi();
+s32 set_global_param__8TObjFishFl();
 
 struct TObjDoaEx01_base { char pad[0x18]; };
 struct TObjDoaEx01_VObj : TObjDoaEx01_base {
@@ -90,7 +89,7 @@ extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
 
-s32 draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
+s32 TObjDoaEx01::draw_object_tree(s32 arg1) {
     NjObj_8018DD0C *obj = (NjObj_8018DD0C *)arg1;
     u32 flags = obj->evalflags;
     push_matrix();
@@ -108,7 +107,7 @@ s32 draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
             begin_effect_render__13TParticleCtrlFv();
             lbl_805D5660 = model_render_flags;
             model_render_flags = model_render_flags | 0x10;
-            set_chunk_material_color((u8 *)arg0 + 0xD4);
+            set_chunk_material_color((u8 *)this + 0xD4);
             draw_ginja_model(obj->model);
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
@@ -118,11 +117,11 @@ s32 draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
         }
     }
     if (obj->child != 0) {
-        draw_object_tree__11TObjDoaEx01FPvi(arg0, (s32)obj->child);
+        draw_object_tree((s32)obj->child);
     }
     pop_matrix();
     if (obj->sibling != 0) {
-        draw_object_tree__11TObjDoaEx01FPvi(arg0, (s32)obj->sibling);
+        draw_object_tree((s32)obj->sibling);
     }
 }
 
@@ -134,11 +133,11 @@ void try_open__11TObjDoaEx01FPv(u8 *arg0) {
         free_children__12TObjDoorJungFPvPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4), 1);
         free_children__12TObjDoorJungFPvPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4), 1);
         TObjFish__sub_8001EDB0(TObjDoaEx01__resource_bundle, 0);
-        set_global_param__8TObjFishFi();
+        set_global_param__8TObjFishFl();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        draw_object_tree__11TObjDoaEx01FPvi((void *)(arg0), (s32)(temp_r31));
+        ((TObjDoaEx01 *)arg0)->draw_object_tree((s32)(temp_r31));
         pop_matrix();
     }
 }
@@ -151,7 +150,7 @@ void draw_model__11TObjDoaEx01FPv(u8 *arg0) {
         free_children__12TObjDoorJungFPvPv((*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4)), (0));
         temp_r31 = get_bml_model((TObjDoaEx01__resource_bundle), (0));
         TObjFish__sub_8001EDB0((TObjDoaEx01__resource_bundle), (0));
-        set_global_param__8TObjFishFi();
+        set_global_param__8TObjFishFl();
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((0), (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -160,7 +159,7 @@ void draw_model__11TObjDoaEx01FPv(u8 *arg0) {
             temp_r31 = get_bml_motion((TObjDoaEx01__resource_bundle), (0));
             draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__resource_bundle), (0)), temp_r31, temp_f31);
         } else {
-            draw_object_tree__11TObjDoaEx01FPvi(arg0, (temp_r31));
+            ((TObjDoaEx01 *)arg0)->draw_object_tree((temp_r31));
         }
         pop_matrix();
     }

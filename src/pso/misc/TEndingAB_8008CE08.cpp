@@ -1,6 +1,7 @@
 #include "pso/TEndingAB.h"
 
 #include "types.h"
+#include "pso/misc/TScene.h"
 
 struct EndingTextureName {
     const char *name;
@@ -158,7 +159,7 @@ typedef char RecoveredGlobal_8008CE80___vt__9TEndingAB_size[sizeof(RecoveredGlob
 
 extern "C" {
 s32 TKeyBoardControl__sub_8000F828(void);
-void init_float_table__9TEndingABFPv(void *);
+void init_float_table__9TEndingABFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8008CE80___vt__9TEndingAB __vt__9TEndingAB;
 
@@ -169,17 +170,15 @@ void bind_gvm_texture_list(const char *, void *);
 
 extern u32 ending_ab_wall_texture_list;
 extern s32 game_difficulty_selection;
-void bind_ending_wall_textures__6TSceneFv(void);
 }
 
 extern "C" {
 
-void destroy_instance__9TEndingABFv(void);
 int run_task__9TEndingABFv(void* p);
 void TLobby__sub_803DA16C(void*);
-int advance_fade_sequence__9TEndingABFPv(void*);
+int advance_fade_sequence__9TEndingABFv(void*);
 
-int run_task__9TEndingABFv(void* p) { return advance_fade_sequence__9TEndingABFPv(p); }
+int run_task__9TEndingABFv(void* p) { return advance_fade_sequence__9TEndingABFv(p); }
 
 extern u32 ending_ab_wall_texture_list;
 
@@ -194,7 +193,7 @@ u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x20) = 0xFF;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    init_float_table__9TEndingABFPv(arg0);
+    init_float_table__9TEndingABFv(arg0);
     temp_r3 = TKeyBoardControl__sub_8000F828();
     switch (temp_r3) {
     case 0:
@@ -207,13 +206,13 @@ u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-void destroy_instance__9TEndingABFv(void) {
+void TEndingAB::destroy_instance() {
     if ((u32) ending_ab_wall_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)ending_ab_wall_texture_list);
         ending_ab_wall_texture_list = 0U;
     }
 }
-void bind_ending_wall_textures__6TSceneFv(void) {
+void TScene::bind_ending_wall_textures() {
     EndingWallTextureSet *base = ending_wall_texture_sets;
     u8 *t;
     if (get_ending_scene_active() != 0) {

@@ -7,6 +7,7 @@ struct Stack_80067EE0 {
 };
 
 #include <stddef.h>
+#include "pso/misc/TCameraCtrl.h"
 struct Stack_80067E30 {
     f32 sp8;
     f32 spC;
@@ -40,7 +41,7 @@ struct Obj_80067D20 {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void *construct_derived__11TCameraCtrlFPv(void *);
-s32 set_target_pos__11TCameraCtrlFPvPv(void *, void *, f32);
+s32 set_target_pos__11TCameraCtrlFPv(void *, void *, f32);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8F78;
 void target_player0__11TCameraCtrlFi(s32 arg0);
@@ -51,10 +52,8 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_80067E30_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D8F74;
-void reset_behind_player__11TCameraCtrlFPv(u8 *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void update_orbit_camera__11TCameraCtrlFPv(Obj_80067D20 *arg0);
 }
 
 extern "C" {
@@ -72,7 +71,8 @@ void * TCameraCtrl__vt7(void) {
 
 #pragma push
 #pragma fp_contract on
-void update_orbit_camera__11TCameraCtrlFPv(Obj_80067D20 *arg0) {
+void TCameraCtrl::update_orbit_camera() {
+    Obj_80067D20 *arg0 = (Obj_80067D20 *)this;
     Pad_80067D20 *pad = arg0->pad;
     f32 d = arg0->dist;
     u32 btn = pad->buttons;
@@ -103,7 +103,8 @@ void update_orbit_camera__11TCameraCtrlFPv(Obj_80067D20 *arg0) {
 }
 #pragma pop
 
-void reset_behind_player__11TCameraCtrlFPv(u8 *arg0) {
+void TCameraCtrl::reset_behind_player() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_80067E30, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80067E30, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80067E30, sp10) == 0x8) ? 1 : -1];
@@ -133,7 +134,7 @@ void target_player0__11TCameraCtrlFi(s32 arg0) {
         stack.sp8 = *(f32 *)((s8 *)temp_r3 + 0x38);
         stack.spC = lbl_805D8F78 + *(f32 *)((s8 *)temp_r3 + 0x3C);
         stack.sp10 = *(f32 *)((s8 *)temp_r3 + 0x40);
-        set_target_pos__11TCameraCtrlFPvPv((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805D8F78));
+        set_target_pos__11TCameraCtrlFPv((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805D8F78));
     }
 }
 

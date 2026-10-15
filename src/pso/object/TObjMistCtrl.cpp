@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TPlayerFootStamp.h"
+#include "pso/object/TObjMistCtrl.h"
 
 struct VBase_18_023f9f { char pad[0x18]; };
 
@@ -39,14 +41,11 @@ extern s32 __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
 u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2);
 void queue_destruction__7TObjectFv(void *);
-void run_task__16TPlayerFootStampFv(TPlayerFootStamp_802AF8BC *o);
 }
 
 extern "C" {
 
 void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
-void render__16TPlayerFootStampFv(u8 *arg0);
-int run_task__12TObjMistCtrlFv(void* p);
 f32 horizontal_distance_squared(void *, void *);
 s32 set_texture_num(int);
 void __dl__7TObjectFPv(void *);
@@ -57,9 +56,9 @@ s32 draw_particle_strip(void *, int, int);
 void queue_destruction__7TObjectFv(void *);
 s32 reset_transform_state__10TObjPlayerFv();
 s32 set_depth_buffer_settings_1__Fv();
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 
-int run_task__12TObjMistCtrlFv(void* p) { return fn_802AF64C(p); }
+int TObjMistCtrl::run_task() { return fn_802AF64C(this); }
 
 extern s32 __vt__12TObjMistCtrl[];
 
@@ -93,11 +92,12 @@ u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2) {
     return arg0;
 }
 
-void render__16TPlayerFootStampFv(u8 *arg0) {
+void TPlayerFootStamp::render() {
+    u8 *arg0 = (u8 *)this;
     if (horizontal_distance_squared((void *) (arg0 + 0x7C), (void *) (camera_ctrl_instance + 0x178)) < lbl_805DE1F8) {
         lbl_805D5660 = model_render_flags;
         reset_transform_state__10TObjPlayerFv();
-        set_global_param__8TObjFishFi((void *) (player_footstamp_texture_gvm_handle));
+        set_global_param__8TObjFishFl((void *) (player_footstamp_texture_gvm_handle));
         set_texture_num((int) (*(s16 *)((s8 *)arg0 + 0xBE)));
         set_depth_buffer_settings_1__Fv();
         draw_particle_strip((void *) (arg0 + 0x1C), (int) (4), (int) (1));
@@ -105,7 +105,8 @@ void render__16TPlayerFootStampFv(u8 *arg0) {
         model_render_flags = lbl_805D5660;
     }
 }
-void run_task__16TPlayerFootStampFv(TPlayerFootStamp_802AF8BC *o) {
+void TPlayerFootStamp::run_task() {
+    TPlayerFootStamp_802AF8BC *o = (TPlayerFootStamp_802AF8BC *)this;
     s32 j;
     Ent_802AF8BC *e;
     s32 i;

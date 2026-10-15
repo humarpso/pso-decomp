@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8032BD64_lbl_804EDAC0 {
     s32 value;
@@ -23,11 +24,10 @@ extern "C" {
 
 void TLobby__sub_8032BE30(void);
 void TLobby__sub_8032BE3C(void);
-void run_locked_update__6TLobbyFPv(void* p);
 int clear_password__18TAdEnterPasswordGCFPv(void*);
 int update_children__18TAdEnterPasswordGCFPv(void*);
 
-void run_locked_update__6TLobbyFPv(void* p) { *(int*)((char*)p + 0x1c) = 1; update_children__18TAdEnterPasswordGCFPv(p); *(int*)((char*)p + 0x1c) = 0; clear_password__18TAdEnterPasswordGCFPv(p); }
+void TLobby::run_locked_update() { *(int*)((char*)this + 0x1c) = 1; update_children__18TAdEnterPasswordGCFPv(this); *(int*)((char*)this + 0x1c) = 0; clear_password__18TAdEnterPasswordGCFPv(this); }
 
     extern int lbl_805D6CB8;
 

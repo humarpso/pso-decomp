@@ -32,5 +32,9 @@ struct TObjMapWarp : TObjMapWarpPrefix {
     u8 base88[0x34];
     f32 destinations[4][3];
     void* playerPopups[4];
+    void draw_debug_destinations();
+    static u8 can_warp(s32 arg0, u16 arg1);
+    void open_player_warp_window(s32 arg1);
+    void close_player_window(u16 arg1);
 };
 #endif

@@ -6,6 +6,12 @@
 class TObjCMAssignMenu : public TObject {
 public:
     virtual ~TObjCMAssignMenu();
+public:
+    void draw_char_info_sprites();
+    void draw_frame();
+    void draw_assign_icons();
+    void render_assign_slots();
+    void calc_grid_layout();
 };
 
 #endif

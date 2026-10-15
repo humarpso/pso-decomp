@@ -10,6 +10,9 @@ struct TObjNpcCloakroomBase
     u8 _pad28[0xC];
     u32 m_34;
     void* m_38;
+    static void *create(void *arg0);
+    static void destroy_static_instance();
+    static void load_shared_resource();
 };
 
 #endif

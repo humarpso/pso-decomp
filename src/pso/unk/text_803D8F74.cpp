@@ -9,7 +9,7 @@ extern u32 current_matrix;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 PSMTXCopy(int, int);
 extern u32 current_matrix;
-void copy_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
+void copy_matrix__10TObjPlayerFUlUl(u32 arg0, u32 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);

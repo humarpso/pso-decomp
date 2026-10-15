@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPsoPassSaveGC.h"
 
 struct Base_8034A63C { char pad[0x18]; };
 struct VObj_8034A63C : Base_8034A63C {
@@ -36,8 +37,6 @@ void TAdPsoPassSaveGC__vt4(void);
 void TAdPsoPassSaveGC__vt5(void);
 void TAdPsoPassSaveGC__vt8(void);
 void *__dt__16TAdPsoPassSaveGCFv(void *arg0, s16 arg1);
-void render__16TAdPsoPassSaveGCFv(void *arg0);
-void run_task__16TAdPsoPassSaveGCFv(void *arg0);
 s32 get_localized_text_entry(s32, s32);
 void TAdYesNoBaseGC__ct(void *);
 void TAdYesNoBaseGC__vt0(void *, int);
@@ -46,8 +45,8 @@ void *__ct__10TAdTitleGCFv(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void render__16TAdPsoPassSaveGCFv(void *arg0) {
-    struct VObj_8034A63C *o = (struct VObj_8034A63C *)arg0;
+void TAdPsoPassSaveGC::render() {
+    struct VObj_8034A63C *o = (struct VObj_8034A63C *)this;
     o->m10();
 }
 
@@ -69,8 +68,8 @@ void TAdPsoPassSaveGC__vt4(void) {
     TKeyBoardControl__sub_8000F9CC(0xF);
 }
 
-void run_task__16TAdPsoPassSaveGCFv(void *arg0) {
-    struct VObj_8034A6E8_8034A63C *o = (struct VObj_8034A6E8_8034A63C *)arg0;
+void TAdPsoPassSaveGC::run_task() {
+    struct VObj_8034A6E8_8034A63C *o = (struct VObj_8034A6E8_8034A63C *)this;
     o->m9();
 }
 

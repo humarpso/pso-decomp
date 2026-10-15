@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubEquipList.h"
 
 struct RecoveredGlobal_802793E4___vt__19TWindowSubEquipList { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_802793E4___vt__19TWindowSubEquipList_size[sizeof(RecoveredGlobal_802793E4___vt__19TWindowSubEquipList) == 0x20 ? 1 : -1];
@@ -8,13 +9,13 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_selected_list_entry(void *, int);
-s32 forward_render__20TWindowSubStatusDispFPv(void *, int);
+s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 void render__19TWindowSubEquipListFv(u8 *arg0);
 u8 *__nw__7TObjectFUl(s32);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2);
-s32 get_message_10__20TWindowSubStatusDispFPv(int);
-s32 ensure_status_display__20TWindowSubStatusDispFPvi(void *, int);
+s32 get_message_10__20TWindowSubStatusDispFl(int);
+s32 ensure_status_display__20TWindowSubStatusDispFl(void *, int);
 s32 fn_802683F4(void *, void *, int, void *);
 extern s32 __vt__19TWindowSubEquipList[];
 extern s32 TWindowSubEquipList__class_name;
@@ -24,10 +25,9 @@ u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2);
 extern "C" {
 
 void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1);
-int run_task__19TWindowSubEquipListFv(void* p);
 int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
-void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
+void destroy_item_list_resources__20TWindowSubStatusDispFs(void *, int);
 
 u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2) {
     u8 *temp_r3;
@@ -50,19 +50,19 @@ void render__19TWindowSubEquipListFv(u8 *arg0) {
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     draw_selected_list_entry((void *) (arg0), (int) (temp_r3));
     if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
-        forward_render__20TWindowSubStatusDispFPv(*(void **)((s8 *)arg0 + 0x80), (int) (temp_r3));
+        forward_render__20TWindowSubStatusDispFv(*(void **)((s8 *)arg0 + 0x80), (int) (temp_r3));
     }
 }
 #pragma pop
 
-int run_task__19TWindowSubEquipListFv(void* p) { return update_item_list_window(p); }
+int TWindowSubEquipList::run_task() { return update_item_list_window(this); }
 
 extern s32 __vt__19TWindowSubEquipList[];
 
 void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubEquipList;
-        destroy_item_list_resources__20TWindowSubStatusDispFPvs(arg0, 0);
+        destroy_item_list_resources__20TWindowSubStatusDispFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -73,7 +73,7 @@ u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4((void *) (arg0), (void *) (arg1), (int) (8), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802793E4___vt__19TWindowSubEquipList *)&__vt__19TWindowSubEquipList).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubEquipList__class_name;
-    ensure_status_display__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x25))));
+    ensure_status_display__20TWindowSubStatusDispFl((void *) (arg0), (int) (get_message_10__20TWindowSubStatusDispFl((int) (0x25))));
     return arg0;
 }
 

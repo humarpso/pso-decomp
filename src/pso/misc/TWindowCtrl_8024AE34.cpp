@@ -1,28 +1,27 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
-void init_all_slots__11TWindowCtrlFv(void);
-void init_all_slots2__11TWindowCtrlFv(void);
-int suppress_slot__11TWindowCtrlFi(s32);
-int unsuppress_slot__11TWindowCtrlFi(s32);
+int suppress_slot__11TWindowCtrlFv(s32);
+int unsuppress_slot__11TWindowCtrlFv(s32);
 
-void init_all_slots__11TWindowCtrlFv(void) {
+void TWindowCtrl::init_all_slots() {
     s32 var_r31;
 
     var_r31 = 0;
     do {
-        suppress_slot__11TWindowCtrlFi(var_r31);
+        suppress_slot__11TWindowCtrlFv(var_r31);
         var_r31 += 1;
     } while (var_r31 < 0xC);
 }
 
-void init_all_slots2__11TWindowCtrlFv(void) {
+void TWindowCtrl::init_all_slots2() {
     s32 var_r31;
 
     var_r31 = 0;
     do {
-        unsuppress_slot__11TWindowCtrlFi(var_r31);
+        unsuppress_slot__11TWindowCtrlFv(var_r31);
         var_r31 += 1;
     } while (var_r31 < 0xC);
 }

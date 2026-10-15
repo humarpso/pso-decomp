@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1Gee.h"
 
 struct RecoveredGlobal_802A4CC4_lbl_804DCFF8 {
     s32 value;
@@ -9,10 +10,9 @@ extern "C" {
 s32 TObjPlayer__sub_802A445C(void *, s32);
 u32 find_entity_by_id(u16);
 s32 TNeedleShoot__sub_802A4668(void *);
-s32 update_position__12TNeedleShootFPv(void *);
+s32 update_position__12TNeedleShootFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
-void update_missile__13TObjEneMe1GeeFPv(void *arg0);
+s32 update_lifetime__22TObjEneMe1GiGueMissileFv(void *);
 u16 obj_getField1c(void *);
 u8 * TNeedleShoot__ct(void *, s32, void *, void *);
 extern RecoveredGlobal_802A4CC4_lbl_804DCFF8 __vt__20TObjEneMe1Gee_NEEDLE;
@@ -21,18 +21,16 @@ u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, 
 void TObjEneMe1Gee__sub_802A4D4C(void);
 int TObjEneMe1Gee__sub_800CC2BC(void);
 extern u32 me1gee_cached_model_handle;
-void cache_result_805D6660__13TObjEneMe1GeeFv(void);
 }
 
 extern "C" {
 
-void draw_model__13TObjEneMe1GeeFPv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 s32 rotate_matrix_x(int, int);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 set_global_param__8TObjFishFi();
+s32 set_global_param__8TObjFishFl();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -41,7 +39,8 @@ s32 end_effect_render__13TParticleCtrlFv();
 
 extern u32 me1gee_cached_model_handle;
 
-void draw_model__13TObjEneMe1GeeFPv(u8 *arg0) {
+void TObjEneMe1Gee::draw_model() {
+    u8 *arg0 = (u8 *)this;
     if ((u32) me1gee_cached_model_handle == 0U) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
@@ -52,25 +51,25 @@ void draw_model__13TObjEneMe1GeeFPv(u8 *arg0) {
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xA4)));
     rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xA0)));
     TObjFish__sub_8001EDB0((void *) (me1gee_cached_model_handle), (int) (1));
-    set_global_param__8TObjFishFi();
+    set_global_param__8TObjFishFl();
     get_bml_model((void *) (me1gee_cached_model_handle), (int) (1));
     draw_ginja_object();
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
 }
-void update_missile__13TObjEneMe1GeeFPv(void *arg0) {
-    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x34));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+void TObjEneMe1Gee::update_missile() {
+    *(u32 *)((s8 *)this + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)this + 0x34));
+    if ((u32) *(u32 *)((s8 *)this + 0x1C) == 0U) {
+        queue_destruction__7TObjectFv((void *)(this));
         return;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xB8) == 1) {
-        update_position__12TNeedleShootFPv(arg0);
-        update_lifetime__22TObjEneMe1GiGueMissileFPv(arg0);
-        TObjPlayer__sub_802A445C(arg0, 1);
+    if ((s32) *(s32 *)((s8 *)this + 0xB8) == 1) {
+        update_position__12TNeedleShootFv(this);
+        update_lifetime__22TObjEneMe1GiGueMissileFv(this);
+        TObjPlayer__sub_802A445C(this, 1);
         return;
     }
-    TNeedleShoot__sub_802A4668(arg0);
+    TNeedleShoot__sub_802A4668(this);
 }
 u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1) {
     u8 *temp_r3;
@@ -88,7 +87,7 @@ u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, 
     return arg0;
 }
 void TObjEneMe1Gee__sub_802A4D4C(void) {  }
-void cache_result_805D6660__13TObjEneMe1GeeFv(void) { (*(int *)&me1gee_cached_model_handle) = TObjEneMe1Gee__sub_800CC2BC(); }
+void TObjEneMe1Gee::cache_result_805D6660() { (*(int *)&me1gee_cached_model_handle) = TObjEneMe1Gee__sub_800CC2BC(); }
 
 typedef char RecoveredGlobal_802A4CC4_lbl_804DCFF8_size[sizeof(RecoveredGlobal_802A4CC4_lbl_804DCFF8) == 0x28 ? 1 : -1];
 

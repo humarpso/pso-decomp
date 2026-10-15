@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Base_801DA7DC { char pad[0x18]; };
 struct VObj_801DA7DC : Base_801DA7DC {
@@ -98,9 +99,9 @@ void bswap_cmd_c5(void *);
 void handle_cmd_C5__9TProtocolFR6packet(u8 *arg0, Pkt_801DA848 *arg1);
 s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
-s32 bswap_guild_card_meet_user__6TLobbyFPv(void *);
+s32 bswap_guild_card_meet_user__6TLobbyFv(void *);
 s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
-s32 construct__8TPlySmthFPv(void *);
+s32 construct__8TPlySmthFv(void *);
 s32 strncpy(void *, void *, int);
 s32 memset(void *, int, int);
 s32 send_login_9e_extended__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
@@ -108,10 +109,10 @@ s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 s32 reset__18PSOV3EncryptionTCPFUl(void *, u32);
 s32 __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
 s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
-s32 bswap_guild_card_meet_user__6TLobbyFPv(void *);
+s32 bswap_guild_card_meet_user__6TLobbyFv(void *);
 s32 bswap__21TRecvPsoRegistConnectFv(void *);
 s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
-s32 construct__8TPlySmthFPv(void *);
+s32 construct__8TPlySmthFv(void *);
 s32 strcmp(const char *, const char *);
 s32 strncpy(void *, void *, int);
 s32 memset(void *, int, int);
@@ -122,15 +123,14 @@ void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1);
 
 extern "C" {
 
-void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1);
-s32 bswap_c6_packet__6TLobbyFPv(void *);
+s32 bswap_c6_packet__6TLobbyFv(void *);
 
-void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1910) != 0) {
+void TLobby::send_c6_packet(void *arg1) {
+    if ((s32) *(s32 *)((s8 *)this + 0x1910) != 0) {
         *(u8 *)((s8 *)arg1 + 0) = 0xC6;
         *(s16 *)((s8 *)arg1 + 2) = 0x7C;
-        bswap_c6_packet__6TLobbyFPv(arg1);
-        ((VObj_801DA7DC *)arg0)->m_call(arg1, 0x7C);
+        bswap_c6_packet__6TLobbyFv(arg1);
+        ((VObj_801DA7DC *)this)->m_call(arg1, 0x7C);
     }
 }
 
@@ -149,7 +149,7 @@ s32 send_login_9e_extended__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     memset(arg0 + 0x3F7A, 0, 0x10);
     strncpy(arg0 + 0x3F7A, arg1, 0x10);
     *(s32 *)(arg0 + 0x1930) = arg2;
-    construct__8TPlySmthFPv(&pkt);
+    construct__8TPlySmthFv(&pkt);
     memset(&pkt, 0, 0x150);
     pkt.cmd = 0x9E;
     pkt.flag = *(s32 *)(arg0 + 0x1930);
@@ -166,7 +166,7 @@ s32 send_login_9e_extended__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     strncpy(pkt.desc1, arg0 + 0x3EDA, 0x30);
     strncpy(pkt.desc2, arg0 + 0x3F0A, 0x30);
     strncpy(pkt.name5, arg0 + 0x3F7A, 0x10);
-    bswap_guild_card_meet_user__6TLobbyFPv(&pkt);
+    bswap_guild_card_meet_user__6TLobbyFv(&pkt);
     ((VObj_801DA8C4 *)arg0)->m_call(&pkt, 0x150);
     return 0;
 }
@@ -190,7 +190,7 @@ void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1) {
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x10BC, r.key1);
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x884, r.key2);
         *(s32 *)(arg0 + 0x18F4) = 1;
-        construct__8TPlySmthFPv(&pkt);
+        construct__8TPlySmthFv(&pkt);
         memset(&pkt, 0, 0x150);
         pkt.cmd = 0x9E;
         pkt.flag = *(s32 *)(arg0 + 0x1930);
@@ -210,11 +210,11 @@ void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1) {
             pkt.f18 = 1;
             __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(pkt.ext, meet_user_settings);
             pkt.size = 0x150;
-            bswap_guild_card_meet_user__6TLobbyFPv(&pkt);
+            bswap_guild_card_meet_user__6TLobbyFv(&pkt);
             ((VObj_801DAA70 *)arg0)->m_call(&pkt, 0x150);
         } else {
             pkt.size = 0xEC;
-            bswap_guild_card_meet_user__6TLobbyFPv(&pkt);
+            bswap_guild_card_meet_user__6TLobbyFv(&pkt);
             ((VObj_801DAA70 *)arg0)->m_call(&pkt, 0xEC);
         }
     } else {

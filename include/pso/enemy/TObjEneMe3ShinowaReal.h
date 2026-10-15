@@ -33,6 +33,12 @@ struct TObjEneMe3ShinowaReal
     u32 m_404;
     u8 _pad408[0x1C];
     u32 m_424;
+    void spawn_mirages();
+    s32 get_or_create_mirage(s32 arg1);
+    void try_spawn_mirages();
+    void *create();
+    int get_flag_b4();
+    static f32 get_random_float();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNpcPlayer.h"
 
 struct RecoveredGlobal_8034DE10_lbl_80478C70 {
     s32 value;
@@ -42,10 +43,8 @@ extern RecoveredGlobal_8034DE10_lbl_80478C70 party_position_table;
 u8 *get_party_position(void);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_8034DE70_lbl_80478C50 npc_lobby_entry_positions;
-u8 *get_lobby_entry_ptr__10TNpcPlayerFv(void);
-s32 copy__10TNpcPlayerFPvPv(void *, void *, int);
+s32 copy__10TNpcPlayerFPv(void *, void *, int);
 extern RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90 TNpcPlayer__template_table;
-void copy_entry_by_index__10TNpcPlayerFii(s32 arg0, s32 arg1);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C88;
 s32 get_party_yaw(void);
@@ -54,19 +53,19 @@ extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C68;
 s32 TNpcPlayer__sub_8034DE40(void);
 s32 __dt__7TObjectFv(void *, int);
 s32 obj_isState3_324(int);
-s32 is_script_controlled__10TObjPlayerFPv();
-u16 get_action_flags__10TNpcPlayerFPv(int);
+s32 is_script_controlled__10TObjPlayerFv();
+u16 get_action_flags__10TNpcPlayerFv(int);
 u8 *get_player_by_client_id(s32);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 u8 *destroy_quest_party_area(u8 *arg0, s16 arg1);
 s32 obj_isState3_324(int);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s32, void *);
-u16 get_action_flags__10TNpcPlayerFPv(int);
+u16 get_action_flags__10TNpcPlayerFv(int);
 u8 *get_player_by_client_id(s32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 get_field_67c__10TNpcPlayerFPv(u8 *);
+s32 get_field_67c__10TNpcPlayerFv(u8 *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 extern void *tl_00;
 u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent);
@@ -99,7 +98,7 @@ u8 *destroy_quest_party_area(u8 *arg0, s16 arg1) {
       temp_r3 = (u8 *) get_player_by_client_id(var_r31);
       if (temp_r3 != 0)
       {
-        if (is_script_controlled__10TObjPlayerFPv() != 0)
+        if (is_script_controlled__10TObjPlayerFv() != 0)
         {
           if (temp_r3 != 0)
           {
@@ -107,7 +106,7 @@ u8 *destroy_quest_party_area(u8 *arg0, s16 arg1) {
           }
         }
         else
-          if (((obj_isState3_324((int) temp_r3) != 0) && (get_action_flags__10TNpcPlayerFPv((int) temp_r3) == ((-1U) & 0xFFFFu))) && (temp_r3 != 0))
+          if (((obj_isState3_324((int) temp_r3) != 0) && (get_action_flags__10TNpcPlayerFv((int) temp_r3) == ((-1U) & 0xFFFFu))) && (temp_r3 != 0))
         {
           PSO_VCALL_VObj_18_dac7f3_m0(temp_r3, 1);
         }
@@ -133,12 +132,12 @@ u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent) {
     *(s32 *)((s8 *)self + 0x1C) = 0;
     for (slot = 0; slot < 4; slot++) {
         player = get_player_by_client_id(slot);
-        if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324)(player) == 0 || ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFPv)(player) == 0xFFFF) {
+        if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324)(player) == 0 || ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFv)(player) == 0xFFFF) {
             continue;
         }
         task = __nw__7TObjectFUl(0xE8);
         if (task != NULL) {
-            construct_partner__10TNpcPlayerFPviisPv(task, ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFPv)(player), (u16) slot, get_field_67c__10TNpcPlayerFPv(player), tl_00);
+            construct_partner__10TNpcPlayerFPviisPv(task, ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFv)(player), (u16) slot, get_field_67c__10TNpcPlayerFv(player), tl_00);
         }
         (*(s32 *)((s8 *)self + 0x1C))++;
     }
@@ -158,14 +157,15 @@ s32 TNpcPlayer__sub_8034DE40(void) {
     return *(s32 *)((s8 *)(&lbl_80478C68.value) + (get_instance__6TLobbyFv() * 4));
 }
 
-u8 *get_lobby_entry_ptr__10TNpcPlayerFv(void) {
+u8 *TNpcPlayer::get_lobby_entry_ptr() {
     return (u8 *)&npc_lobby_entry_positions.value + (get_instance__6TLobbyFv() * 0xC);
 }
 typedef char RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90_size[sizeof(RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90) == 0xA00 ? 1 : -1];
-void copy_entry_by_index__10TNpcPlayerFii(s32 arg0, s32 arg1) {
+void TNpcPlayer::copy_entry_by_index(s32 arg1) {
+    s32 arg0 = (s32)this;
     s32 temp_r5;
     temp_r5 = arg1 * 0x28;
-    copy__10TNpcPlayerFPvPv((void *) ((u8 *)&TNpcPlayer__template_table.value + temp_r5), (void *) (arg0), (int) (temp_r5));
+    copy__10TNpcPlayerFPv((void *) ((u8 *)&TNpcPlayer__template_table.value + temp_r5), (void *) (arg0), (int) (temp_r5));
 }
 
 }

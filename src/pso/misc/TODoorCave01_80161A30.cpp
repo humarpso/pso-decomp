@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TODoorCave01.h"
 
 extern "C" {
 extern char lbl_80440D10[];
@@ -48,7 +49,7 @@ struct RecoveredGlobal_80161BE4___vt__12TODoorCave01 {
 };
 
 extern "C" {
-s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -60,8 +61,8 @@ extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A8;
 u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
+s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
 s32 is_online_ready__6TLobbyFv();
 extern u8 lbl_80440D7C[];
@@ -70,29 +71,27 @@ extern u8 lbl_80440D94[];
 extern s32 enable_v2_features;
 extern u32 door_cave_shared_bml_archive;
 extern s32 *TODoorCave01__texture_lists;
-void load_resources__12TODoorCave01Fv(void);
 }
 
 extern "C" {
 
 void *__dt__12TODoorCave01Fv(void *arg0, s16 arg1);
-void free_resources__12TODoorCave01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_ancient_door_base__15TODoorAncient01FPvs(void *, s32);
-s32 free__11TOBoss4RockFUi(void*);
-s32 free_if_valid__10TObjPlayerFi(s32);
+s32 destroy_ancient_door_base__15TODoorAncient01Fs(void *, s32);
+s32 mem_free(void*);
+s32 free_if_valid__10TObjPlayerFl(s32);
 
 extern u32 door_cave_shared_bml_archive;
 extern s32 *TODoorCave01__texture_lists;
 
-void free_resources__12TODoorCave01Fv(void) {
+void TODoorCave01::free_resources() {
     if ((s32 *) TODoorCave01__texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFi(*TODoorCave01__texture_lists);
+        free_if_valid__10TObjPlayerFl(*TODoorCave01__texture_lists);
         if ((s32 *) TODoorCave01__texture_lists != NULL) {
-            free__11TOBoss4RockFUi((void*)TODoorCave01__texture_lists);
+            mem_free((void*)TODoorCave01__texture_lists);
             TODoorCave01__texture_lists = NULL;
         }
     }
@@ -104,18 +103,18 @@ void free_resources__12TODoorCave01Fv(void) {
 
 extern s32 __vt__12TODoorCave01[];
 
-void load_resources__12TODoorCave01Fv(void) {
+void TODoorCave01::load_resources() {
     void *o;
-    TODoorCave01__texture_lists = alloc_buffer__11TOBoss4RockFPv(8);
+    TODoorCave01__texture_lists = mem_alloc(8);
     if (enable_v2_features != 0 && is_online_ready__6TLobbyFv() != 0) {
-        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &cave_door01_resource_descriptor, 0, 0, 0);
         }
         door_cave_shared_bml_archive = (u32)o;
         TODoorCave01__texture_lists[0] = load_gvm_texture_file(lbl_80440D7C);
     } else {
-        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODoorCave01__resource_descriptor, 0, 0, 0);
         }
@@ -130,7 +129,7 @@ void *__dt__12TODoorCave01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TODoorCave01;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
+        destroy_ancient_door_base__15TODoorAncient01Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -152,7 +151,7 @@ u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB4A8;
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorCave01__collision_body_template.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x88);
     if (temp_r0 < 0) {

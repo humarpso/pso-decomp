@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-s32 spawn_objects_at_pos__6TLobbyFss(s16 arg0, s16 arg1);
 u8 *create_set_object_from_row(void *);
 u8 *get_object_count__6TLobbyFPv(s32);
 s32 get_obj_table_entry__6TLobbyFi(s32);
@@ -18,7 +18,7 @@ struct VObj8020 {
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D6140;
 
-s32 spawn_objects_at_pos__6TLobbyFss(s16 arg0, s16 arg1) {
+s32 TLobby::spawn_objects_at_pos(s16 arg0, s16 arg1) {
     s16 temp_r0;
     s16 temp_r3;
     s32 temp_r31;

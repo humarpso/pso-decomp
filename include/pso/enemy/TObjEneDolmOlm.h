@@ -46,6 +46,13 @@ struct TObjEneDolmOlm
     void* m_3d8;
     u8 _pad3DC[0x8];
     u32 m_3e4;
+    void load_params_from_table(s32 i);
+    static void load_shared_resources();
+    static void free_shared_resources();
+    static void toggle_effect_render();
+    void advance_position();
+    void init_body_sub();
+    static void reset_count();
 };
 
 #endif

@@ -8,6 +8,8 @@ struct TAdLicAgreementGC
     u8 _pad1C[0x18];
     u32 m_34;
     u32 m_38;
+    void render();
+    void run_task();
 };
 
 #endif

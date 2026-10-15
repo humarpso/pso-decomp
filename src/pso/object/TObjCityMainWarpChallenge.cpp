@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCityMainWarpChallenge.h"
 
 struct CityMainWarpChalBase_80187824 { char pad[0x18]; };
 struct CityMainWarpChalVObj_80187824 : CityMainWarpChalBase_80187824 {
@@ -11,12 +12,10 @@ struct Warp_80187B50 { u8 pad[0x144]; s32 arr[4]; };
 
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
-s32 count_players_in_warp_radius__10TObjPlayerFPv(void *);
-void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
+s32 count_players_in_warp_radius__10TObjPlayerFv(void *);
 extern const f32 lbl_805DBCC4;
 extern const f32 lbl_805DBCC8;
 extern const f32 lbl_805DBCCC;
-void run_task__25TObjCityMainWarpChallengeFv(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 register_entity_by_id(void *, int, f32);
 s32 TObjAreaWarp__ct();
@@ -29,7 +28,7 @@ extern const f32 lbl_805DBCCC;
 extern const f32 lbl_805DBCD0;
 u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
-void set_global_count__12TObjNpcEnemyFi(s32);
+void set_global_count__12TObjNpcEnemyFl(s32);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444A44[];
 extern char lbl_80444A58[];
@@ -39,13 +38,11 @@ void TObjCityMainWarpChallenge__vt18(void *arg0);
 extern "C" {
 
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1);
-void render__25TObjCityMainWarpChallengeFv(u8 *arg0);
-void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
-s32 update_floor_switch_state__16TObjCityMainWarpFPv();
-s32 update_warp_sequence__16TObjCityMainWarpFPv();
-s32 update_challenge_state__16TObjCityMainWarpFPv();
+s32 update_floor_switch_state__16TObjCityMainWarpFv();
+s32 update_warp_sequence__16TObjCityMainWarpFv();
+s32 update_challenge_state__16TObjCityMainWarpFv();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 unregister_object_by_id(s32 *);
 s32 rotate_matrix_y(s32, s32);
@@ -54,32 +51,32 @@ s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__12TObjAreaWarpFv(void *, s32);
 s32 begin_effect_render__13TParticleCtrlFv();
-s32 close_windows__16TObjCityMainWarpFPv(void *);
+s32 close_windows__16TObjCityMainWarpFv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 f32 xz_distance_squared(s32, void *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 update_challenge_warp_window();
-s32 update_state__16TObjCityMainWarpFPv();
+s32 update_state__16TObjCityMainWarpFv();
 
-void update_state__25TObjCityMainWarpChallengeFPv(void *arg0) {
+void TObjCityMainWarpChallenge::update_state() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0xDE);
+    temp_r0 = *(s16 *)((s8 *)this + 0xDE);
     switch (temp_r0) {
     case 0:
-        update_challenge_state__16TObjCityMainWarpFPv();
+        update_challenge_state__16TObjCityMainWarpFv();
         return;
     case 1:
-        update_warp_sequence__16TObjCityMainWarpFPv();
+        update_warp_sequence__16TObjCityMainWarpFv();
         return;
     case 2:
-        update_state__16TObjCityMainWarpFPv();
+        update_state__16TObjCityMainWarpFv();
         return;
     case 3:
         update_challenge_warp_window();
         return;
     case 4:
-        update_floor_switch_state__16TObjCityMainWarpFPv();
+        update_floor_switch_state__16TObjCityMainWarpFv();
         return;
     }
 }
@@ -98,14 +95,15 @@ void TObjCityMainWarpChallenge__vt18(void *arg0) {
     } else {
         *(s32 *)((u8 *)arg0 + 0x16C) = v;
     }
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     if (get_global_state__14TOKeyMachine01Fv() == 0) {
         debug_printf_at(0x130020, lbl_80444A44, *(s32 *)((u8 *)arg0 + 0x84));
     }
     debug_printf_at(0x130021, lbl_80444A58, *(s32 *)((u8 *)arg0 + 0x16C));
 }
 
-void render__25TObjCityMainWarpChallengeFv(u8 *arg0) {
+void TObjCityMainWarpChallenge::render() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) == 0xE) {
         if (xz_distance_squared(camera_ctrl_instance + 0x178, arg0 + 0x38) > lbl_805DBCB8) {
             return;
@@ -114,7 +112,7 @@ void render__25TObjCityMainWarpChallengeFv(u8 *arg0) {
     }
     if (((CityMainWarpChalVObj_80187824*)arg0)->m8(lbl_805DBCBC, lbl_805DBCC0) != 0) {
 block_4:
-        set_global_param__8TObjFishFi(city_common_texture_list);
+        set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -128,18 +126,19 @@ block_4:
 
 extern s32 __vt__25TObjCityMainWarpChallenge[];
 
-void run_task__25TObjCityMainWarpChallengeFv(u8 *arg0) {
+void TObjCityMainWarpChallenge::run_task() {
+    u8 *arg0 = (u8 *)this;
     if (check_demo_mode__10TObjPlayerFv() != 1) {
         if (!(*(s16 *)((s8 *)arg0 + 0xE2) & 1) && ((s16) *(s16 *)((s8 *)arg0 + 0xDE) != (s16) *(s16 *)((s8 *)arg0 + 0xDC))) {
             if ((s16) *(s16 *)((s8 *)arg0 + 0xE0) != -1) {
                 *(s16 *)((s8 *)arg0 + 0xE0) = -1;
-                update_state__25TObjCityMainWarpChallengeFPv((void *) (arg0));
+                update_state();
             }
             *(s16 *)((s8 *)arg0 + 0xDE) = (s16) *(s16 *)((s8 *)arg0 + 0xDC);
             *(s16 *)((s8 *)arg0 + 0xE0) = 0;
         }
-        count_players_in_warp_radius__10TObjPlayerFPv((void *) (arg0));
-        update_state__25TObjCityMainWarpChallengeFPv((void *) (arg0));
+        count_players_in_warp_radius__10TObjPlayerFv((void *) (arg0));
+        update_state();
         if ((void *) *(u8 **)((s8 *)arg0 + 0xD4) != NULL) {
             *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) + lbl_805DBCC4);
             if ((lbl_805DBCC8 + *(f32 *)((s8 *)arg0 + 0xC4)) >= (f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xD4)) + 4)) {
@@ -153,7 +152,7 @@ void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TObjCityMainWarpChallenge;
         unregister_object_by_id((s32 *)arg0);
-        close_windows__16TObjCityMainWarpFPv(arg0);
+        close_windows__16TObjCityMainWarpFv(arg0);
         __dt__12TObjAreaWarpFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

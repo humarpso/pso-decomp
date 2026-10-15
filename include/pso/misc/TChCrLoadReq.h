@@ -13,6 +13,10 @@ public:
     void close_and_destroy();
     void try_advance_state();
     void update_load_progress();
+public:
+    void reset_request();
+    void copy(void* q);
+    static void *create(void *arg0);
 };
 typedef char TChCrLoadReq_state_offset[(offsetof(TChCrLoadReq,state)==0x60)?1:-1];
 typedef char TChCrLoadReq_timer_offset[(offsetof(TChCrLoadReq,timer)==0x64)?1:-1];

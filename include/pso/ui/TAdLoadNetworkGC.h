@@ -7,6 +7,8 @@ struct TAdLoadNetworkGC
 {
     u8 _pad1C[0x18];
     void* m_34;
+    static void render();
+    void run_task();
 };
 
 #endif

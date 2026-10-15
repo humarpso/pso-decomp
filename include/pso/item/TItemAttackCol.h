@@ -42,6 +42,14 @@ struct TItemAttackCol
     u32 m_138;
     u32 m_13c;
     u32 m_140;
+    static void add_to_active_list(void* a0);
+    void shift_collision_bounds();
+    void move_with_collision(void *arg1);
+    void render();
+    void run_task();
+    static void create(void *arg0, void *arg1);
+    void copy_pos(void* q);
+    void *destroy_attack_collision(s16 arg1);
 };
 
 #endif

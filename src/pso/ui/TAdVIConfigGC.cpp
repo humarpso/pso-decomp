@@ -37,31 +37,27 @@ struct Cfg_80307D00 {
 };
 
 extern "C" {
-int disable_progressive_mode__13TAdVIConfigGCFv(void* p = 0);
 void TAdVIConfigGC__vt5(void* p);
-void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
 extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
 void TAdVIConfigGC__vt5(void* p);
 void *VIGetDTVStatus(void *);
-void enable_progressive_mode__13TAdVIConfigGCFv(void * = 0);
-void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
 void TAdVIConfigGC__vt4(void *arg0);
-void set_flag_4__9TObjLukerFPv(void *);
+void set_flag_4__9TObjLukerFv(void *);
 s32 allow_rendering__7TObjectFv(u32);
 void disallow_rendering__7TObjectFv(void *);
-s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
+s32 clear_flag4_bit4__22TQuestVmDownLoadServerFv(void *);
 s32 count_members__6TLobbyFv();
 s32 update_players_in_range(void *);
 void update_visibility__13TAdVIConfigGCFPv(u8 *arg0);
-void set_close_flag__19TWindowSubTradeMainFPv(u32);
-void set_visible__19TWindowSubTradeMainFPv(u32);
+void set_close_flag__19TWindowSubTradeMainFv(u32);
+void set_visible__19TWindowSubTradeMainFv(u32);
 u8 *get_player_by_client_id(s32);
 s32 TWindow__close(u32);
-void dispatch_without_flags__20TWindowSubStatusDispFiii(u32, char *, s32);
-u32 draw_with_layer__13TAdVIConfigGCFiii(s32, void *, s32);
+void dispatch_without_flags__20TWindowSubStatusDispFlll(u32, char *, s32);
+u32 draw_with_layer__13TAdVIConfigGCFlll(s32, void *, s32);
 s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 player_names_window_pos[];
@@ -76,10 +72,6 @@ void TAdVIConfigGC__vt8(void);
 void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1);
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1);
 s32 get_field_14__13TAdVIConfigGCFPv(void* p);
-u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0);
-void render__13TAdVIConfigGCFv(void *arg0);
-void run_task__13TAdVIConfigGCFv(void *arg0);
-void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
 int OSSetProgressiveMode(void*);
 int get_localized_text_entry(void*, void*);
 void TAdYesNoBaseGC__ct(void *);
@@ -90,12 +82,12 @@ s32 VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(void *);
 s32 allow_rendering__7TObjectFv(u32);
-s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
+s32 clear_flag4_bit4__22TQuestVmDownLoadServerFv(void *);
 int VIWaitForRetrace(void);
 int VIConfigure(void*);
 int VIFlush(void);
 s32 memset(void *, int, int);
-void set_field_2c__13TAdVIConfigGCFPvi(void *, int);
+void set_field_2c__13TAdVIConfigGCFl(void *, int);
 
 void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0) {
     s32 i;
@@ -104,19 +96,19 @@ void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0) {
         TWindow__close(arg0->win);
         arg0->win = 0;
     }
-    arg0->win = draw_with_layer__13TAdVIConfigGCFiii(get_window_layout_position(0x5A), player_names_window_pos, local_client_id);
+    arg0->win = draw_with_layer__13TAdVIConfigGCFlll(get_window_layout_position(0x5A), player_names_window_pos, local_client_id);
     if (arg0->win != 0) {
-        set_visible__19TWindowSubTradeMainFPv(arg0->win);
-        set_close_flag__19TWindowSubTradeMainFPv(arg0->win);
+        set_visible__19TWindowSubTradeMainFv(arg0->win);
+        set_close_flag__19TWindowSubTradeMainFv(arg0->win);
         for (i = 0; i < 4; i++) {
             p = get_player_by_client_id(i);
             if (p != 0) {
                 strncpy(arg0->names[i].s, (char *)(p + 0x85C), 0x17);
                 arg0->names[i].s[0x17] = 0;
-                dispatch_without_flags__20TWindowSubStatusDispFiii(arg0->win, arg0->names[i].s, i);
+                dispatch_without_flags__20TWindowSubStatusDispFlll(arg0->win, arg0->names[i].s, i);
             } else {
                 arg0->names[i].s[0] = 0;
-                dispatch_without_flags__20TWindowSubStatusDispFiii(arg0->win, arg0->names[i].s, i);
+                dispatch_without_flags__20TWindowSubStatusDispFlll(arg0->win, arg0->names[i].s, i);
             }
         }
     }
@@ -136,11 +128,11 @@ void update_visibility__13TAdVIConfigGCFPv(u8 *arg0) {
     temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x24));
     if (temp_r3_2 != NULL) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x18) != 0) {
-            clear_flag4_bit4__22TQuestVmDownLoadServerFPv(temp_r3_2);
+            clear_flag4_bit4__22TQuestVmDownLoadServerFv(temp_r3_2);
             allow_rendering__7TObjectFv((u32)(*(u8 **)((s8 *)arg0 + 0x24)));
             return;
         }
-        set_flag_4__9TObjLukerFPv(temp_r3_2);
+        set_flag_4__9TObjLukerFv(temp_r3_2);
         disallow_rendering__7TObjectFv(*(u8 **)((s8 *)arg0 + 0x24));
     }
 }
@@ -148,7 +140,7 @@ void update_visibility__13TAdVIConfigGCFPv(u8 *arg0) {
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-            clear_flag4_bit4__22TQuestVmDownLoadServerFPv(*(void **)((s8 *)arg0 + 0x24));
+            clear_flag4_bit4__22TQuestVmDownLoadServerFv(*(void **)((s8 *)arg0 + 0x24));
             allow_rendering__7TObjectFv(*(u32 *)((s8 *)arg0 + 0x24));
             TWindow__close(*(u32 *)((s8 *)arg0 + 0x24));
             *(u32 *)((s8 *)arg0 + 0x24) = 0U;
@@ -161,9 +153,11 @@ void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
 }
 
 #include "types.h"
+#include "pso/ui/TAdVIConfigGC.h"
 extern "C" {
 
-u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0) {
+u8 *TAdVIConfigGC::init(f32 farg0) {
+    u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 8));
     *(f32 *)((s8 *)arg0 + 0) = (f32) (farg0 * farg0);
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
@@ -178,38 +172,38 @@ u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0) {
 
 }
 
-void render__13TAdVIConfigGCFv(void *arg0) {
-    struct VObj_80307F6C_80307DEC *o = (struct VObj_80307F6C_80307DEC *)arg0;
+void TAdVIConfigGC::render() {
+    struct VObj_80307F6C_80307DEC *o = (struct VObj_80307F6C_80307DEC *)this;
     o->m10();
 }
 
 extern s32 logo_clear_flag;
 
-void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x48) = 1;
+void TAdVIConfigGC::set_field48_clear_global() {
+    *(s32 *)((s8 *)this + 0x48) = 1;
     logo_clear_flag = 0;
 }
 
     extern unsigned char GXNtsc480Prog[];
     extern int active_gx_render_mode;
-void enable_progressive_mode__13TAdVIConfigGCFv(void * _w0) { OSSetProgressiveMode((void*)1); active_gx_render_mode = (int)GXNtsc480Prog; VIConfigure(GXNtsc480Prog); VIFlush(); VIWaitForRetrace(); VIWaitForRetrace(); }
+void TAdVIConfigGC::enable_progressive_mode(void * _w0) { OSSetProgressiveMode((void*)1); active_gx_render_mode = (int)GXNtsc480Prog; VIConfigure(GXNtsc480Prog); VIFlush(); VIWaitForRetrace(); VIWaitForRetrace(); }
 
-int disable_progressive_mode__13TAdVIConfigGCFv(void* _w0) { return OSSetProgressiveMode((void*)(0)); }
+int TAdVIConfigGC::disable_progressive_mode(void* _w0) { return OSSetProgressiveMode((void*)(0)); }
 void TAdVIConfigGC__vt8(void) { get_localized_text_entry((void*)29, (void*)0); }
 
-void TAdVIConfigGC__vt5(void* p) { disable_progressive_mode__13TAdVIConfigGCFv((void*)((void*)(p))); set_field48_clear_global__13TAdVIConfigGCFPv((void *)(p)); }
+void TAdVIConfigGC__vt5(void* p) { TAdVIConfigGC::disable_progressive_mode((void*)((void*)(p))); ((TAdVIConfigGC *)p)->set_field48_clear_global(); }
 
 void TAdVIConfigGC__vt4(void *arg0) {
     void *x;
     x = VIGetDTVStatus(arg0);
     if (x != NULL) {
-        enable_progressive_mode__13TAdVIConfigGCFv((void *)(arg0));
+        TAdVIConfigGC::enable_progressive_mode((void *)(arg0));
     }
-    set_field48_clear_global__13TAdVIConfigGCFPv(arg0);
+    ((TAdVIConfigGC *)arg0)->set_field48_clear_global();
 }
 
-void run_task__13TAdVIConfigGCFv(void *arg0) {
-    struct VObj_803080B0_80307DEC *o = (struct VObj_803080B0_80307DEC *)arg0;
+void TAdVIConfigGC::run_task() {
+    struct VObj_803080B0_80307DEC *o = (struct VObj_803080B0_80307DEC *)this;
     o->m9();
 }
 
@@ -233,7 +227,7 @@ void *TAdVIConfigGC__ct(void *arg0) {
     TAdYesNoBaseGC__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdVIConfigGC;
     *(void **)((s8 *)arg0 + 0x0) = TAdVIConfigGC__class_name;
-    set_field_2c__13TAdVIConfigGCFPvi(arg0, 0);
+    set_field_2c__13TAdVIConfigGCFl(arg0, 0);
     *(u32 *)((s8 *)arg0 + 0x48) = 0;
     return arg0;
 }

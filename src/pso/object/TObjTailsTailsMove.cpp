@@ -3,7 +3,7 @@
 #include "types.h"
 
 extern "C" {
-s32 advance_field28__23TAdSinglePlyChrSelectGCFPv();
+s32 advance_field28__23TAdSinglePlyChrSelectGCFv();
 s32 fn_800FFC6C();
 void *__nw__7TObjectFUl(int);
 void *TObjTailsTailsMove__ct(void *, void *);
@@ -17,14 +17,15 @@ void TObjTailsTailsMove__sub_800FFE0C(void);
 void TObjTailsTailsMove__sub_800FFE10(void);
 int TObjTailsTailsMove__sub_800FFE14(void);
 void __ct__7TObjectFP7TObject(void *);
-int clear_item_flags__10TObjPlayerFPvUi(void*, int);
-int set_flag_1024__11TItemObjectFPv(void* p);
-s32 test_item_flags__10TObjPlayerFPvUi(s32, s32);
+int clear_item_flags__10TObjPlayerFUl(void*, int);
+int set_flag_1024__11TItemObjectFv(void* p);
+s32 test_item_flags__10TObjPlayerFUl(s32, s32);
 
 extern s32 __vt__18TObjTailsTailsMove[];
 extern void *TObjTailsTailsMove__name;
 
-void run_task__18TObjTailsTailsMoveFv(u8 *arg0) {
+void TObjTailsTailsMove::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
     switch (temp_r0) {
@@ -32,7 +33,7 @@ void run_task__18TObjTailsTailsMoveFv(u8 *arg0) {
         fn_800FFC6C();
         return;
     case 1:
-        advance_field28__23TAdSinglePlyChrSelectGCFPv();
+        advance_field28__23TAdSinglePlyChrSelectGCFv();
         return;
     }
 }
@@ -47,7 +48,7 @@ void *TObjTailsTailsMove__ct(void *arg0, void *arg1) {
     return arg0;
 }
 
-void * create__18TObjTailsTailsMoveFPv(void *arg0) {
+void *TObjTailsTailsMove::create(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {

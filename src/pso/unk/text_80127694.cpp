@@ -47,12 +47,12 @@ struct Rec_80127694 {
 };
 
 extern "C" {
-void construct_target_cursor_records__10TObjPlayerFi(void *);
+void construct_target_cursor_records__10TObjPlayerFv(void *);
 void spawn_particle_effect(void *, int);
-void update_active_game_effect__10TObjPlayerFPv(void *);
-void draw_icon__10TObjPlayerFPvii(void *, int, void *);
-s16 is_status_subsystem_ready__10TObjPlayerFPv(void *);
-void *get_extended_state__10TObjPlayerFPv(void *);
+void update_active_game_effect__10TObjPlayerFv(void *);
+void draw_icon__10TObjPlayerFll(void *, int, void *);
+s16 is_status_subsystem_ready__10TObjPlayerFv(void *);
+void *get_extended_state__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(void *);
 s16 get_uid__10TObjPlayerFPv(void *);
 void *get_captured_target_entry(void *, int);
@@ -67,17 +67,17 @@ void update_zonde_effect__10TObjPlayerFPv(u8 *arg0) {
     u8 pos[12];
     Rec_80127694 rec;
     void *st;
-    draw_icon__10TObjPlayerFPvii(arg0, 2, pos);
+    draw_icon__10TObjPlayerFll(arg0, 2, pos);
     spawn_particle_effect(pos, 0x1BE);
-    draw_icon__10TObjPlayerFPvii(arg0, 3, pos);
+    draw_icon__10TObjPlayerFll(arg0, 3, pos);
     spawn_particle_effect(pos, 0x1BE);
-    draw_icon__10TObjPlayerFPvii(arg0, 0, pos);
-    if (is_status_subsystem_ready__10TObjPlayerFPv(*(void **)(arg0 + 0xF0)) == 2) {
+    draw_icon__10TObjPlayerFll(arg0, 0, pos);
+    if (is_status_subsystem_ready__10TObjPlayerFv(*(void **)(arg0 + 0xF0)) == 2) {
         if (((VObj_18 *)arg0)->m33() == 1) {
-            st = get_extended_state__10TObjPlayerFPv(*(void **)(arg0 + 0xF0));
+            st = get_extended_state__10TObjPlayerFv(*(void **)(arg0 + 0xF0));
             if (get_captured_target_count(st) != 0) {
                 void *e = get_captured_target_entry(st, 0);
-                construct_target_cursor_records__10TObjPlayerFi(&rec);
+                construct_target_cursor_records__10TObjPlayerFv(&rec);
                 rec.kind = 1;
                 rec.uid = get_uid__10TObjPlayerFPv(e);
                 rec.sub = get_captured_target_collider_index(e);
@@ -85,7 +85,7 @@ void update_zonde_effect__10TObjPlayerFPv(u8 *arg0) {
             }
         }
     } else {
-        update_active_game_effect__10TObjPlayerFPv(arg0);
+        update_active_game_effect__10TObjPlayerFv(arg0);
     }
 }
 

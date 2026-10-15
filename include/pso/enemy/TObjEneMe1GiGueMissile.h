@@ -16,6 +16,11 @@ struct TObjEneMe1GiGueMissile
     u32 m_a4;
     u8 _padA8[0x8];
     u32 m_b0;
+    void explode(void *pos);
+    static void create(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
+    void render();
+    void run_task();
+    void update_lifetime();
 };
 
 #endif

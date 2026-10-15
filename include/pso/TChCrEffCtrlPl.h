@@ -8,6 +8,9 @@ public:
     virtual ~TChCrEffCtrlPl();
     virtual void run_task();
     virtual void render();
+public:
+    static s32 get_clamped_player_index();
+    void *create();
 };
 
 #endif

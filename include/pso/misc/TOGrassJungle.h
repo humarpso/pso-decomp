@@ -13,6 +13,9 @@ struct TOGrassJungle
     u32 m_84;
     u8 _pad88[0x8];
     u32 m_90;
+    static void release_static_instance();
+    static void load_resources();
+    void render();
 };
 
 #endif

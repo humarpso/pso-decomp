@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8023F1B8_lbl_804CCDA8 {
     s32 value;
@@ -30,7 +31,6 @@ extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
 extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lobby_scene_release_callback_table;
 extern RecoveredGlobal_8023F1B8_main_task main_task;
 extern u32 game_mode_scene_instance;
-void release_scene_resources__6TLobbyFv(void);
 void set_active_camera_pose(Vec_8023F22C *, Vec_8023F22C *);
 void select_active_controller__11TCameraCtrlFc(s32);
 void TCameraCtrl__ct(void *, void *);
@@ -70,7 +70,7 @@ extern "C" {
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCDA8_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCDA8) == 0xB8 ? 1 : -1];
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCE60) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8023F1B8_main_task_size[sizeof(RecoveredGlobal_8023F1B8_main_task) == 0x34 ? 1 : -1];
-void release_scene_resources__6TLobbyFv(void) {
+void TLobby::release_scene_resources() {
     refresh_render_state__6TLobbyFv();
     stop_audio_streams__6TLobbyFv();
     if ((u32) game_mode_scene_instance != 0U) {

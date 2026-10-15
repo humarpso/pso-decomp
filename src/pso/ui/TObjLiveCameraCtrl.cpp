@@ -20,10 +20,10 @@ struct Cam_8030BED4 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void update_toggle_state__12TBoss8DragonFPv(void *);
-void update_live_camera__12TBoss8DragonFPv(void *);
-void choose_next_camera_shot__12TBoss8DragonFPv(void *);
-void copy_position_vectors__11TCameraCtrlFPvPvPv(void *, void *, void *);
+void update_toggle_state__12TBoss8DragonFv(void *);
+void update_live_camera__12TBoss8DragonFv(void *);
+void choose_next_camera_shot__12TBoss8DragonFv(void *);
+void copy_position_vectors__11TCameraCtrlFPvPv(void *, void *, void *);
 s32 get_current_floor();
 void subtractive_rng_seed(void *, s32);
 s32 __ct__14SubtractiveRngFv(void *);
@@ -50,7 +50,6 @@ extern "C" {
 
 s32 TObjLiveMonitor__sub_8030C050(void* p);
 void fn_8030C058(void);
-s32 get_table_entry__18TObjLiveCameraCtrlFi(s32 arg0);
 void reset_globals_805D6A84(void);
 s32 memset(s32 *, s32, s32);
 
@@ -59,11 +58,11 @@ extern s32 TObjLiveCameraCtrl__instances;
 }
 
 void TObjLiveCameraCtrl::run_task() {
-    update_toggle_state__12TBoss8DragonFPv(this);
-    update_live_camera__12TBoss8DragonFPv(this);
-    choose_next_camera_shot__12TBoss8DragonFPv(this);
+    update_toggle_state__12TBoss8DragonFv(this);
+    update_live_camera__12TBoss8DragonFv(this);
+    choose_next_camera_shot__12TBoss8DragonFv(this);
     if (camera_object != NULL) {
-        copy_position_vectors__11TCameraCtrlFPvPvPv(camera_object, vector_34, vector_40);
+        copy_position_vectors__11TCameraCtrlFPvPv(camera_object, vector_34, vector_40);
     }
 }
 
@@ -130,7 +129,7 @@ Cam_8030BED4 *TObjLiveCameraCtrl__ct(Cam_8030BED4 *arg0, void *parent) {
     return arg0;
 }
 
-s32 get_table_entry__18TObjLiveCameraCtrlFi(s32 arg0) {
+s32 TObjLiveCameraCtrl::get_table_entry(s32 arg0) {
     if (arg0 < 0) {
         return 0;
     }

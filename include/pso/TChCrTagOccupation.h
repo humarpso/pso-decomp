@@ -6,6 +6,10 @@
 class TChCrTagOccupation : public TChCrTag {
 public:
     virtual ~TChCrTagOccupation();
+public:
+    static int render(void* p);
+    static void *create(void *arg0);
+    static void create_all();
 };
 
 #endif

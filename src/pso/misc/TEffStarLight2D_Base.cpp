@@ -73,7 +73,7 @@ extern s32 lbl_8048E640[];
 extern void *tl_particle;
 u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2);
 int copy_position__15TEffStarLight2DFPv(void* p);
-void copy_from_subobject__15TEffStarLight2DFPvPv(void *, void *);
+void copy_from_subobject__15TEffStarLight2DFPv(void *, void *);
 void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self);
 }
 
@@ -124,7 +124,7 @@ void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self) {
     s.g = (f32)self->g;
     s.b = (f32)self->b;
     s.flags = 0;
-    copy_from_subobject__15TEffStarLight2DFPvPv(self->sub, &s);
+    copy_from_subobject__15TEffStarLight2DFPv(self->sub, &s);
 }
 
 void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1) {

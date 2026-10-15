@@ -10,6 +10,8 @@ struct TObjNpcARW00
     u8 _pad28[0xC];
     u32 m_34;
     void* m_38;
+    static void free_resources();
+    static void load_resources();
 };
 
 #endif

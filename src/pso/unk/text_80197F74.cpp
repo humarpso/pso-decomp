@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_80197F78_lbl_8050DD24 {
     u8 * value;
@@ -6,11 +7,10 @@ struct RecoveredGlobal_80197F78_lbl_8050DD24 {
 };
 
 extern "C" {
-s32 safe_free__23TAdSinglePlyChrSelectGCFUi();
+s32 safe_free__23TAdSinglePlyChrSelectGCFUl();
 void **TLobby__sub_803DA16C();
 extern RecoveredGlobal_80197F78_lbl_8050DD24 signboard_texture_list;
 extern int TObjSinBoard__texture_buffer;
-void **free_global_buffer__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -23,11 +23,11 @@ void TLobby__sub_80197F74(void) {  }
     extern int TObjSinBoard__texture_buffer;
 
 typedef char RecoveredGlobal_80197F78_lbl_8050DD24_size[sizeof(RecoveredGlobal_80197F78_lbl_8050DD24) == 0x2C ? 1 : -1];
-void **free_global_buffer__6TLobbyFv(void) {
+void **TLobby::free_global_buffer() {
     void **var_r3;
     var_r3 = (void **)((u8 *)((*(void ** *)&TObjSinBoard__texture_buffer)));
     if (var_r3 != NULL) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi();
+        safe_free__23TAdSinglePlyChrSelectGCFUl();
         (*(void ** *)&TObjSinBoard__texture_buffer) = NULL;
         var_r3 = (void **)(&signboard_texture_list.value);
         if ((u32) *(u32 *)((s8 *)signboard_texture_list.value + 8) != 0U) {

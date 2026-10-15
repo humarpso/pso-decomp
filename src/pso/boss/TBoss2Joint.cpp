@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss2Joint.h"
+#include "pso/boss/TBoss2LaserLight.h"
 
 struct TBJ_8003688C { char pad[0x18]; };
 struct VTbj_8003688C : TBJ_8003688C {
@@ -311,22 +313,20 @@ typedef struct Param_80036EA8 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 TBoss2Joint__sub_80036940(void *);
-void update_position_history__11TBoss2JointFi(s32 arg0);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 set_player_state_default__12TBoss8DragonFPv(void *);
+s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 TObjEneDD__sub_800BBA0C(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D848C;
-void run_task__11TBoss2JointFv(u8 *arg0);
 s32 TObjEneDD__vt91(void *);
 s32 TObjEneDD__vt90(void *);
-s32 transform_part_positions__9TObjEneDDFPv(void *);
+s32 transform_part_positions__9TObjEneDDFv(void *);
 extern const f32 lbl_805D8258;
 extern const f32 lbl_805D847C;
 extern const f32 lbl_805D8480;
 void TBoss2Joint__vt86(u8 *arg0);
 void TBoss2Joint__sub_8003688C(u8 *arg0);
-void initialize_enemy_state__9TObjEneDDFPv(void *, s32);
+void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_common_from__9TObjEneDDFPvPv(void *, void *);
 u8 * TObjEneDD__ct(void *);
 extern s32 __vt__11TBoss2Joint[];
@@ -335,28 +335,25 @@ u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, 
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_80036A90_lbl_80435A68 TBoss2Joint__joint_offset_vec4_table;
 extern const f32 TBoss2Joint__data_805D8474;
-void init_joint_offset__11TBoss2JointFPvi(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern const f32 lbl_805D8498;
 void push_trail_position__13TBoss2DeRolLeFPvPv(Obj_80037178 *self, V3_80037178 *src);
 void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
-void copy_pos__11TNowLoadingFPvPv(void *, Vec_80037074 *);
+void copy_pos__11TNowLoadingFPv(void *, Vec_80037074 *);
 void enable__13TParticleCtrlFPv(void *);
-void update_particle_trail__16TBoss2LaserLightFPv(Laser_80037074 *self);
-s32 register_object__6TLobbyFPv(s32);
-s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
-s32 register_boss__6TLobbyFPv(s32);
+s32 register_object__6TLobbyFl(s32);
+s32 dispatch_shared_handler_b__6TLobbyFl(s32);
+s32 register_boss__6TLobbyFl(s32);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TBoss2Joint_get_shell_max_hp(void);
-void reset_hp__9TObjEneDDFPv(void *, s32, s32, s32);
-void check_state_flag_2__9TObjEneDDFPv(void *);
-void init_model__9TObjEneDDFPv(void *, void *, s32);
+void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
+void check_state_flag_2__9TObjEneDDFv(void *);
+void init_model__9TObjEneDDFv(void *, void *, s32);
 void init_position_vectors__9TObjEneDDFPv(void *);
 extern RecoveredGlobal_80036A90_lbl_80435A68 TBoss2Joint__joint_offset_vec4_table;
 extern const f32 lbl_805D846C;
 extern const f32 TBoss2Joint__data_805D8474;
 extern const f32 lbl_805D8490;
-s32 init_params__11TBoss2JointFPv(void *arg0);
 }
 
 extern "C" {
@@ -374,8 +371,6 @@ void TBoss2Joint__vt60(u8 *arg0);
 void TBoss2Joint__vt61(void* p);
 void TBoss2Joint__vt91(void *arg0);
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
-void call_36A90_with_1__11TBoss2JointFPv(void* p);
-void update_position_history__11TBoss2JointFi(s32 arg0);
 s32 spawn_offset_particle__13TBoss2DeRolLeFiff(void *, f32, f32);
 s32 apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(s32, s32, u16);
 s32 clear_attack_receipts(void *);
@@ -428,10 +423,11 @@ void TBoss2Joint__sub_8003688C(u8 *arg0) {
   *temp_r3 |= 0xFF00;
 }
 
-void call_36A90_with_1__11TBoss2JointFPv(void* p) { init_joint_offset__11TBoss2JointFPvi((u8 *)((void*)(p)), (s32)((int)(1))); }
+void TBoss2Joint::call_36A90_with_1() { init_joint_offset((s32)((int)(1))); }
 
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
-void init_joint_offset__11TBoss2JointFPvi(u8 *arg0, s32 arg1) {
+void TBoss2Joint::init_joint_offset(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x3A8) = (f32) TBoss2Joint__data_805D8474;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x3AC), (void *) ((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
 }
@@ -446,14 +442,14 @@ struct Obj_80036ACC {
     u32 f38C;
 };
 void TObjPlayer__sub_8002EA64(void *, void *, void *);
-void reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, int, int, int);
+void reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 void *__nw__7TObjectFUl(u32);
 void TBoss2Joint__vt102(Obj_80036ACC *self) {
     self->f38C = self->f38C | 1;
-    reload_stats_keep_hp_tp__9TObjEneDDFPv(self,
-        register_boss__6TLobbyFPv(((Ent_80036ACC *)&TBoss2Joint__param_table)->b),
-        dispatch_shared_handler_b__6TLobbyFPv(((Ent_80036ACC *)lbl_80482A58)->b),
-        register_object__6TLobbyFPv(((Ent_80036ACC *)lbl_80482A60)->b));
+    reload_stats_keep_hp_tp__9TObjEneDDFv(self,
+        register_boss__6TLobbyFl(((Ent_80036ACC *)&TBoss2Joint__param_table)->b),
+        dispatch_shared_handler_b__6TLobbyFl(((Ent_80036ACC *)lbl_80482A58)->b),
+        register_object__6TLobbyFl(((Ent_80036ACC *)lbl_80482A60)->b));
     self->f32C = 0x4E20;
     self->f2B8 = 0x4E20;
     {
@@ -486,10 +482,11 @@ void TBoss2Joint__vt86(u8 *arg0) {
             ((VObj_18_67c185 *)(arg0))->m96();
         }
     }
-    transform_part_positions__9TObjEneDDFPv((void *) (arg0));
+    transform_part_positions__9TObjEneDDFv((void *) (arg0));
 }
 
-void update_position_history__11TBoss2JointFi(s32 arg0) {
+void TBoss2Joint::update_position_history() {
+    s32 arg0 = (s32)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
@@ -504,7 +501,7 @@ void TBoss2Joint__vt60(u8 *arg0) {
 
     temp_r31 = *(s16 *)((s8 *)self + 0x2B8) - *(s16 *)((s8 *)self + 0x32C);
     if (!(*(s32 *)((s8 *)self + 0x38C) & 1)) {
-        init_joint_offset__11TBoss2JointFPvi((u8 *)((void*)(self)), (s32)((int)(0)));
+        ((TBoss2Joint *)self)->init_joint_offset((s32)((int)(0)));
         *(s32 *)((s8 *)self + 0x394) = (s32) (*(s32 *)((s8 *)self + 0x394) - temp_r31);
         if ((s32) *(s32 *)((s8 *)self + 0x394) <= 0) {
             *(s32 *)((s8 *)self + 0x394) = 0;
@@ -523,7 +520,8 @@ void TBoss2Joint__vt26(void) {  }
 
 extern s32 __vt__11TBoss2Joint[];
 
-void run_task__11TBoss2JointFv(u8 *arg0) {
+void TBoss2Joint::run_task() {
+    u8 *arg0 = (u8 *)this;
     if (check_demo_mode__10TObjPlayerFv() == 0) {
         VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
         ((VObj_18 *)(arg0))->m81();
@@ -533,9 +531,9 @@ void run_task__11TBoss2JointFv(u8 *arg0) {
         ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
         TObjEneDD__sub_800BBA0C((void *) (arg0));
         TBoss2Joint__sub_80036940((void *) (arg0));
-        update_position_history__11TBoss2JointFi((s32)((void *) (arg0)));
+        update_position_history();
         ((VObj_18 *)(arg0))->m86();
-        set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
+        set_player_state_default__12TBoss8DragonFv((void *) (arg0));
         add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805D848C));
     }
 }
@@ -558,18 +556,18 @@ typedef char RecoveredGlobal_80036FC8___vt__11TBoss2Joint_size[sizeof(RecoveredG
 #pragma opt_propagation off
 struct RecoveredGlobal_80036A90_lbl_80435A68;
 
-s32 init_params__11TBoss2JointFPv(void *arg0) {
+s32 TBoss2Joint::init_params() {
     Param_80036EA8 *prm;
-    Joint_80036EA8 *self = (Joint_80036EA8 *)arg0;
+    Joint_80036EA8 *self = (Joint_80036EA8 *)this;
     prm = &TBoss2Joint__param_table;
     init_position_vectors__9TObjEneDDFPv(self);
     self->unk34 = 0;
     self->unk24 = 0;
-    init_model__9TObjEneDDFPv(self, prm->unk34, 1);
-    reset_hp__9TObjEneDDFPv(self, register_boss__6TLobbyFPv(prm->unk0), dispatch_shared_handler_b__6TLobbyFPv(prm->unk8), register_object__6TLobbyFPv(prm->unk10));
+    init_model__9TObjEneDDFv(self, prm->unk34, 1);
+    reset_hp__9TObjEneDDFv(self, register_boss__6TLobbyFl(prm->unk0), dispatch_shared_handler_b__6TLobbyFl(prm->unk8), register_object__6TLobbyFl(prm->unk10));
     self->hp32C = 0x4E20;
     self->hp2B8 = 0x4E20;
-    check_state_flag_2__9TObjEneDDFPv(self);
+    check_state_flag_2__9TObjEneDDFv(self);
     self->unk350 = prm->unk18;
     self->unk33E = self->hp2B8;
     self->unk37C = lbl_805D8490;
@@ -595,8 +593,8 @@ u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, 
     *(s32 *)((s8 *)arg0 + 0x390) = arg4;
     *(s32 *)((s8 *)arg0 + 0x398) = arg5;
     *(s32 *)((s8 *)arg0 + 0x39C) = arg6;
-    initialize_enemy_state__9TObjEneDDFPv(arg0, 0x2D);
-    init_params__11TBoss2JointFPv((void *)((void *) (arg0)));
+    initialize_enemy_state__9TObjEneDDFv(arg0, 0x2D);
+    ((TBoss2Joint *)arg0)->init_params();
     return arg0;
 }
 
@@ -608,7 +606,8 @@ void TBoss2Joint__vt46(void) {  }
 void TBoss2Joint__vt47(void) {  }
 void TBoss2Joint__vt48(void) {  }
 
-void update_particle_trail__16TBoss2LaserLightFPv(Laser_80037074 *self) {
+void TBoss2LaserLight::update_particle_trail() {
+    Laser_80037074 *self = (Laser_80037074 *)this;
     if (self->ptcl == NULL) {
         self->ptcl = spawn_continuous_particle_effect_with_flags(self->pts, self->unk118, 0x40);
         if (self->ptcl != NULL) {
@@ -624,7 +623,7 @@ void update_particle_trail__16TBoss2LaserLightFPv(Laser_80037074 *self) {
             enable__13TParticleCtrlFPv(self->ptcl);
             break;
         case 1:
-            copy_pos__11TNowLoadingFPvPv(self->ptcl, &self->pts[self->cur]);
+            copy_pos__11TNowLoadingFPv(self->ptcl, &self->pts[self->cur]);
             self->cur++;
             if (self->cur >= 20) {
                 self->cur = 0;

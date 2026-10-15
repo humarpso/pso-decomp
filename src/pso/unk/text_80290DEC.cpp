@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/object/TObjCMMainMenu.h"
 
 extern "C" {
 s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
-s16 get_creation_sprite_id__14TObjCMMainMenuFi(s32 arg0);
 }
 
 extern "C" {
 
-s16 get_creation_sprite_id__14TObjCMMainMenuFi(s32 arg0) {
+s16 TObjCMMainMenu::get_creation_sprite_id(s32 arg0) {
     s32 spC;
     s32 sp8;
     sp8 = arg0;

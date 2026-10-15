@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/item/TItemProShield.h"
 
 extern "C" {
 
 void *TItemProShield__sub_80076B64(void *arg0, s16 arg1);
-s16 get_field_2b8__14TItemProShieldFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-s16 get_field_2b8__14TItemProShieldFPv(void* p) { return *(s16*)((char*)p + 0x2b8); }
+s16 TItemProShield::get_field_2b8() { return *(s16*)((char*)this + 0x2b8); }
 
 extern s32 lbl_804CC048[];
 

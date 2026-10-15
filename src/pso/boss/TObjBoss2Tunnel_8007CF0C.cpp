@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 struct Vec2_8007DD28 { f32 x; f32 y; f32 z; };
 
@@ -15,11 +16,10 @@ extern s16 TObjBoss2Tunnel__snapshot_state;
 extern u32 TObjBoss2Tunnel__snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 void reset__12TQuestListVMFv(void);
-void reset_state__15TObjBoss2TunnelFv(void);
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void reset_transform_state__10TObjPlayerFv(void);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -37,21 +37,21 @@ extern "C" {
 void TObjBoss2Tunnel__sub_8007DD24(void);
 void load_data_buffers(void);
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1);
-s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32);
+s32 probe_and_check_card__15TAdPlayerLoadGCFv(s32);
 s32 TAdPlayerLoadGC__sub_801E0FA4(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
 s32 init_capture_texture(s32);
-s32 check_memcard_status__15TAdPlayerLoadGCFi(s32);
+s32 check_memcard_status__15TAdPlayerLoadGCFl(s32);
 s32 get_instance__15TAdPlayerLoadGCFv();
-s32 get_load_result__15TAdPlayerLoadGCFv(s32);
+s32 get_load_result__15TAdPlayerLoadGCFPv(s32);
 s32 memmove(void *, void *, s32);
 s32 memset(void *, s32, s32);
-s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32, s32);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 query_memcard_capacity__15TAdPlayerLoadGCFl(s32, s32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
-s32 update_lobby_scene__6TSceneFPv(s32);
+s32 update_lobby_scene__6TSceneFv(s32);
 u32 xmalloc__FUl(s32);
 
 extern s32 screen_binary_filename;
@@ -74,14 +74,14 @@ void load_data_buffers(void) {
     if (temp_r3 != 0U) {
         memset((void *)temp_r3, 0, 0x1818C);
     }
-    temp_r31 = update_lobby_scene__6TSceneFPv(screen_binary_filename);
+    temp_r31 = update_lobby_scene__6TSceneFv(screen_binary_filename);
     if (temp_r31 <= 0x1818C) {
         temp_r30 = set_stream_and_load_file__6TLobbyFi(screen_binary_filename);
         if (temp_r30 != 0) {
             if ((u32) boss2_tunnel_snapshot_buffer != 0U) {
                 memmove((void *)boss2_tunnel_snapshot_buffer, (void *)temp_r30, temp_r31);
             }
-            safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r30);
+            safe_free__23TAdSinglePlyChrSelectGCFUl(temp_r30);
         }
     }
 }
@@ -94,19 +94,19 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     if (get_instance__15TAdPlayerLoadGCFv() != 0) {
         return 0;
     }
-    if (probe_card_slot__15TAdPlayerLoadGCFi(1) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFv(1) == 0) {
         if (arg1 != NULL) {
             *arg1 = -4;
         }
         return 0;
     }
-    if (probe_and_check_card__15TAdPlayerLoadGCFi(1) == 0) {
+    if (probe_and_check_card__15TAdPlayerLoadGCFv(1) == 0) {
         if (arg1 != NULL) {
-            if ((u32)(get_load_result__15TAdPlayerLoadGCFv(1) + 0x10000) == 0xff83U) {
+            if ((u32)(get_load_result__15TAdPlayerLoadGCFPv(1) + 0x10000) == 0xff83U) {
                 if (arg1 != NULL) {
                     *arg1 = -6;
                 }
-            } else if ((u32)(get_load_result__15TAdPlayerLoadGCFv(1) + 0x10000) == 0xff21U) {
+            } else if ((u32)(get_load_result__15TAdPlayerLoadGCFPv(1) + 0x10000) == 0xff21U) {
                 if (arg1 != NULL) {
                     *arg1 = -8;
                 }
@@ -116,7 +116,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
         }
         return 0;
     }
-    if (check_memcard_status__15TAdPlayerLoadGCFi(1) != 0) {
+    if (check_memcard_status__15TAdPlayerLoadGCFl(1) != 0) {
         if (arg1 != NULL) {
             *arg1 = -3;
         }
@@ -150,7 +150,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
         }
         return 0;
     }
-    if (query_memcard_capacity__15TAdPlayerLoadGCFi(1, 0) < 0xF) {
+    if (query_memcard_capacity__15TAdPlayerLoadGCFl(1, 0) < 0xF) {
         if (arg1 != NULL) {
             *arg1 = -1;
         }
@@ -216,7 +216,7 @@ void draw_snapshot_capture_overlay(void) {
     TObjBoss2Tunnel__sub_803E2D10(1);
     draw_projected_quads__15TObjBoss2TunnelFPvi(v, 4);
     reset_player_state__15TObjBoss2TunnelFv();
-    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_global_param__8TObjFishFl(lbl_805D63F0);
     set_draw_texture_and_color(1, -1);
     begin_screen_draw(1);
     q.x0 = TObjBoss2Tunnel__data_8048DF2C.x - 27.0f;
@@ -268,7 +268,7 @@ void draw_snapshot_capture_overlay(void) {
 }
 
 void TObjBoss2Tunnel__sub_8007DD24(void) {  }
-void reset_state__15TObjBoss2TunnelFv(void) {
+void TObjBoss2Tunnel::reset_state() {
     TObjBoss2Tunnel__data_8048DF2C.x = lbl_805D9280;
     boss2_tunnel_state_flag = 0;
     TObjBoss2Tunnel__data_8048DF2C.y = lbl_805D9284;

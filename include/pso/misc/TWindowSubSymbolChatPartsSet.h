@@ -25,6 +25,13 @@ struct TWindowSubSymbolChatPartsSet
     u32 m_80;
     u8 _pad84[0x4];
     u32 m_88;
+    void copy_vec2(void* q);
+    s32 draw_selected_part_cursor(int arg1);
+    void handle_cancel();
+    void handle_decide();
+    void toggle_selected_part();
+    void handle_cursor_input();
+    void run_task();
 };
 
 #endif

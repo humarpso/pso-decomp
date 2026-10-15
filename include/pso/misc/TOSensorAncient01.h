@@ -22,6 +22,10 @@ struct TOSensorAncient01
     u32 m_ec;
     u8 _padF0[0x4];
     u32 m_f4;
+    void render();
+    static void *create(void *arg0);
+    static void destroy();
+    static void load_resources();
 };
 
 #endif

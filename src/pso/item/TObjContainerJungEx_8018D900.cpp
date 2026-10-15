@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerJungEx.h"
 
 struct RecoveredGlobal_8018D9B0_lbl_804B7158 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8018D9B0_lbl_804B7158_size[sizeof(RecoveredGlobal_8018D9B0_lbl_804B7158) == 0x10 ? 1 : -1];
@@ -31,13 +32,11 @@ extern u32 TObjContainerJungEx__resource_bundle;
 u8 *TObjContainerJungEx__sub_8018D900(s32 arg0);
 u8 * get_bml_model(void *, int);
 extern u32 TObjContainerJungEx__resource_bundle;
-u8 *get_model__19TObjContainerJungExFi(s32 arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 fe_obj_hako02_resource_descriptor;
 extern u32 TObjContainerJungEx__resource_bundle;
-void load_resource_instance__19TObjContainerJungExFv(void);
-void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
+void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 extern const f32 TObjDoaEx01__data_805DBDA0;
 void TObjDoaEx01__vt16(u8 *arg0);
 extern const f32 TObjDoaEx01__data_805DBDA8;
@@ -60,7 +59,6 @@ void TObjDoaEx01__vt13(Obj_8018DBCC *self);
 
 extern "C" {
 
-void free_data__19TObjContainerJungExFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjContainerJungEx__resource_bundle;
@@ -72,23 +70,23 @@ u8 *TObjContainerJungEx__sub_8018D900(s32 arg0) {
     return NULL;
 }
 
-u8 *get_model__19TObjContainerJungExFi(s32 arg0) {
+u8 *TObjContainerJungEx::get_model(s32 arg0) {
     if ((void *) (*(u8 * *)&TObjContainerJungEx__resource_bundle) != NULL) {
         return get_bml_model((*(u8 * *)&TObjContainerJungEx__resource_bundle), arg0);
     }
     return NULL;
 }
 
-void free_data__19TObjContainerJungExFv(void) {
+void TObjContainerJungEx::free_data() {
     if ((u32) TObjContainerJungEx__resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)TObjContainerJungEx__resource_bundle, 1);
         TObjContainerJungEx__resource_bundle = 0U;
     }
 }
-void load_resource_instance__19TObjContainerJungExFv(void) {
+void TObjContainerJungEx::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &fe_obj_hako02_resource_descriptor.value, 0, 0, 0));
@@ -103,7 +101,7 @@ void TObjDoaEx01__vt16(u8 *arg0) {
     if (*(f32 *)((s8 *)arg0 + 0xB0) < TObjDoaEx01__data_805DBDA0) {
         *(f32 *)((s8 *)arg0 + 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
         *(s32 *)((s8 *)arg0 + 0xAC) = 0;
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
+        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 8);
     }
 }
 #pragma pop

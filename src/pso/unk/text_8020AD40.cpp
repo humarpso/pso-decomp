@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Stack_8020AF0C {
     s32 sp8;
@@ -29,7 +30,6 @@ s32 sum_floor_enemy_counts__6TLobbyFv();
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_set_enemy_id_counter;
 extern s32 TLobby__data_805D614C;
-s32 load_all_floor_enemy_sets__6TLobbyFv(void);
 s32 is_area_transfer_pending();
 s32 advance_object_id_counter(int);
 s32 get_floor_map_selection(int, void *);
@@ -37,9 +37,8 @@ s32 TLobby__sub_8020B308();
 extern s32 map_set_object_id_counter;
 extern s32 map_object_id_counter;
 extern s32 TLobby__data_805D6148;
-s32 load_all_floor_object_sets__6TLobbyFv(void);
 s32 read_disc_file(void *, Rec_8020AD40 *);
-void debug_print__6TLobbyFii(void *, ...);
+void debug_print__6TLobbyFle(void *, ...);
 void replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
 void swap_object_row_endian(Rec_8020AD40 *);
 void assign_object_ids__6TLobbyFPviPv(Rec_8020AD40 *, s32, s32);
@@ -68,12 +67,12 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 i;
     subs = TLobby__data_805D6068[arg1].subs;
     if (subs == NULL || TLobby__data_805D6068[arg1].count - 1 < arg2) {
-        debug_print__6TLobbyFii(lbl_8044BBB8);
+        debug_print__6TLobbyFle(lbl_8044BBB8);
         return 0;
     }
     items = subs[arg2].items;
     if (items == NULL || subs[arg2].count - 1 < arg3) {
-        debug_print__6TLobbyFii(lbl_8044BBB8);
+        debug_print__6TLobbyFle(lbl_8044BBB8);
         return 0;
     }
     id = items[arg3].id;
@@ -110,7 +109,7 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return 1;
 }
 
-s32 load_all_floor_enemy_sets__6TLobbyFv(void) {
+s32 TLobby::load_all_floor_enemy_sets() {
     Stack_8020AF0C stack;
     s32 var_r31;
     var_r31 = 0;
@@ -132,7 +131,7 @@ block_6:
     }
     goto loop_1;
 }
-s32 load_all_floor_object_sets__6TLobbyFv(void) {
+s32 TLobby::load_all_floor_object_sets() {
     Stack_8020AFA4 stack;
     s32 var_r31;
     var_r31 = 0;

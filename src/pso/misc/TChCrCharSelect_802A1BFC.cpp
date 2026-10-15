@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TChCrCharSelect.h"
+#include "pso/TObjCMAssignMenu.h"
 
 struct V2_802A1C04 { f32 x; f32 y; };
 
@@ -26,16 +28,14 @@ extern V2_802A1C04 lbl_804663EC[];
 extern const f32 lbl_805DDE10;
 extern const f32 lbl_805DDE14;
 extern const f32 lbl_805DDE18;
-void draw_char_info_sprites__16TObjCMAssignMenuFPv(Self_802A1C04 *self);
 }
 
 extern "C" {
 
-int get_selected_index__15TChCrCharSelectFv(void);
-
     extern int TChCrCharSelect__input_mode;
-int get_selected_index__15TChCrCharSelectFv(void) {  return TChCrCharSelect__input_mode; }
-void draw_char_info_sprites__16TObjCMAssignMenuFPv(Self_802A1C04 *self) {
+int TChCrCharSelect::get_selected_index() {  return TChCrCharSelect__input_mode; }
+void TObjCMAssignMenu::draw_char_info_sprites() {
+    Self_802A1C04 *self = (Self_802A1C04 *)this;
     f32 alpha;
     s32 c;
     alpha = lbl_805DDE10;

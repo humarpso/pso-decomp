@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8 {
     s32 value;
@@ -25,18 +26,14 @@ int TLobby__sub_8013AD50(void* p);
 s32 TLobby__sub_8013AD5C(void* p);
 u8 TLobby__sub_8013AD6C(void* p);
 int TLobby__sub_8013AD74(void* p);
-int get_flag_bit2__6TLobbyFPv(void* p);
-u8 get_mode__6TLobbyFPv(void* p);
-int get_status_flag__6TLobbyFPv(void* p);
-void init_serial_access__6TLobbyFv(void);
 int hex_to_decimal_string__22TAdEnterSerialAccessGCFi(void);
-void set_ready_flag__18TCheckRoomSequenceFPv(void* p);
+void set_ready_flag__18TCheckRoomSequenceFv(void* p);
 
-int get_status_flag__6TLobbyFPv(void* p) { return (*(u16*)((char*)p + 0x70) >> 1) & 0x1; }
-int get_flag_bit2__6TLobbyFPv(void* p) { return (*(u16*)((char*)p + 0x70) >> 2) & 0x1; }
+int TLobby::get_status_flag() { return (*(u16*)((char*)this + 0x70) >> 1) & 0x1; }
+int TLobby::get_flag_bit2() { return (*(u16*)((char*)this + 0x70) >> 2) & 0x1; }
 int TLobby__sub_8013AD50(void* p) { return (*(u8*)((char*)p + 0x1d) >> 1) & 0x1; }
 s32 TLobby__sub_8013AD5C(void* p) { return *(s32*)((char*)p + 0x20); }
-u8 get_mode__6TLobbyFPv(void* p) { return *(u8*)((char*)p + 0x1e); }
+u8 TLobby::get_mode() { return *(u8*)((char*)this + 0x1e); }
 u8 TLobby__sub_8013AD6C(void* p) { return *(u8*)((char*)p + 0x1e); }
 int TLobby__sub_8013AD74(void* p) { return *(u8*)((char*)p + 0x1d) & 0x1; }
 
@@ -45,7 +42,7 @@ s32 *get_access_key_input_buffer(void) {
     return &TAdEnterSerialAccessGC__access_key_input_buffer.value;
 }
 
-void init_serial_access__6TLobbyFv(void) { get_raw_serial_input_buffer(); hex_to_decimal_string__22TAdEnterSerialAccessGCFi(); }
+void TLobby::init_serial_access() { get_raw_serial_input_buffer(); hex_to_decimal_string__22TAdEnterSerialAccessGCFi(); }
 
 typedef char RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8_size[sizeof(RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8) == 0xC ? 1 : -1];
 s32 *get_raw_serial_input_buffer(void) {

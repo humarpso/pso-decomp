@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 extern "C" {
 
-u32 get_move_effect__22TAdMultiPlyChrSelectGCFi(s32 arg0);
 u32 TAdChrMoveEffectGC__ct(u32, s32);
 u32 __nw__7TObjectFUl(s32);
 
 extern u32 lbl_805D6E78;
 
-u32 get_move_effect__22TAdMultiPlyChrSelectGCFi(s32 arg0) {
+u32 TAdMultiPlyChrSelectGC::get_move_effect(s32 arg0) {
     u32 var_r0;
 
     if ((u32) lbl_805D6E78 == 0U) {

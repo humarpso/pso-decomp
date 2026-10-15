@@ -136,6 +136,7 @@ void *TObjPlayer__sub_800A05B8(void *arg0, s16 arg1) {
 }
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Obj_800A0654 { u8 pad[0x37c]; s32 count; u8 pad2[4]; u16 ids[1]; };
 
@@ -145,30 +146,28 @@ struct Obj_800A0728 { u8 pad[0x374]; s32 mode; s32 timer; s32 count; u8 pad2[4];
 
 extern "C" {
 void *get_enemy_entity(int);
-void apply_fall_damage_flag__10TObjPlayerFi(void *);
+void apply_fall_damage_flag__10TObjPlayerFv(void *);
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self);
 void *get_enemy_entity(int);
 int TObjPlayer__sub_800A1808(void *p);
 s32 TObjPlayer__sub_800A06B4(Obj_800A06B4 *self);
 void *get_enemy_entity(int);
-void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0);
-void trigger_targets_action__10TObjPlayerFPv(Obj_800A0728 *self);
+void trigger_action_if_not_flagged__10TObjPlayerFv(void *arg0);
 }
 
 extern "C" {
 
-void* init_vtable_and_field18__10TObjPlayerFPv(void* a0);
 int TObjPlayer__sub_800D9718(void);
 
     extern s32 lbl_80490470[];
     extern const float lbl_805D9958;
-void* init_vtable_and_field18__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_800D9718(); *(int*)((char*)a0 + 0x14) = (int)lbl_80490470; *(float*)((char*)a0 + 0x18) = lbl_805D9958; return a0; }
+void*TObjPlayer::init_vtable_and_field18() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float*)((char*)this + 0x18) = lbl_805D9958; return this; }
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {
         void *e = get_enemy_entity(self->ids[i]);
         if (e != 0) {
-            apply_fall_damage_flag__10TObjPlayerFi(e);
+            apply_fall_damage_flag__10TObjPlayerFv(e);
         }
     }
 }
@@ -184,14 +183,15 @@ s32 TObjPlayer__sub_800A06B4(Obj_800A06B4 *self) {
     }
     return 1;
 }
-void trigger_targets_action__10TObjPlayerFPv(Obj_800A0728 *self) {
+void TObjPlayer::trigger_targets_action() {
+    Obj_800A0728 *self = (Obj_800A0728 *)this;
     s32 i;
     self->timer = 0x78;
     self->mode = 6;
     for (i = 0; i < self->count; i++) {
         void *e = get_enemy_entity(self->ids[i]);
         if (e != 0) {
-            trigger_action_if_not_flagged__10TObjPlayerFPv(e);
+            trigger_action_if_not_flagged__10TObjPlayerFv(e);
         }
     }
 }

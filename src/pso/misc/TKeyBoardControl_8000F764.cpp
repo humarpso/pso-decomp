@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
 
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
     s32 value;
@@ -166,7 +167,7 @@ s32 PADSetSpec(int);
 s32 GXSetPixelFmt(int, int);
 s32 fn_803D8030(s32, int, int);
 s32 fn_803D8064(int);
-s32 set_global_count__12TObjNpcEnemyFi(int);
+s32 set_global_count__12TObjNpcEnemyFl(int);
 s32 set_matrix_identity(int);
 s32 fn_803DA754(s32, int, s32, int);
 s32 init_video_and_gx(void *);
@@ -176,11 +177,11 @@ s32 set_key_state__16TKeyBoardControlFi(void (*)(void));
 s32 fn_803DE804(u32, u32);
 s32 xmalloc__FUl(u32);
 s32 init_pad_slots_and_read__16TKeyBoardControlFv(int, int, int);
-s32 init_matrix_stack__10TObjPlayerFii(s32, int);
+s32 init_matrix_stack__10TObjPlayerFll(s32, int);
 s32 init_light_globals(int, int);
 s32 set_some_id__FUl(int);
 s32 TObjPlayer__sub_803E492C(void *, int);
-s32 set_global_7778__10TObjPlayerFi(void *);
+s32 set_global_7778__10TObjPlayerFl(void *);
 void TKeyBoardControl__sub_8000F764(void);
 extern u8 GXNtsc480IntDf[];
 extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
@@ -198,12 +199,7 @@ void init_game_systems(void);
 extern "C" {
 
 int TKeyBoardControl__sub_8000F828(void);
-int get_fog_ctrl__16TKeyBoardControlFPv(void* p);
-s32 get_input__16TKeyBoardControlFv(void);
-s32 get_key_state__16TKeyBoardControlFv(void);
-void run_tasks__16TKeyBoardControlFv(void);
 void shutdown_and_reset_system(void);
-void update__16TKeyBoardControlFv(void);
 int OSResetSystem(void*, void*, void*);
 int TAdPlayerLoadGC__sub_801E1350(void);
 int release_all__23TAdSinglePlyChrSelectGCFv(void);
@@ -247,7 +243,7 @@ void TKeyBoardControl__sub_8000F764(void) {
     reset_state_byte__6TLobbyFv();
 }
 
-void run_tasks__16TKeyBoardControlFv(void) {
+void TKeyBoardControl::run_tasks() {
     TObjPlayer__sub_80083FB0();
     update_global_sound_frame();
     if ((s32) lbl_805D62B0 != 0) {
@@ -256,14 +252,14 @@ void run_tasks__16TKeyBoardControlFv(void) {
     run_tasks__7TObjectFv(keyboard_task_object);
 }
 
-int get_fog_ctrl__16TKeyBoardControlFPv(void* p) { return clear_split_screen_fog__8TFogCtrlFv(p); }
+int TKeyBoardControl::get_fog_ctrl() { return clear_split_screen_fog__8TFogCtrlFv(this); }
 
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void TKeyBoardControl__sub_8000F7FC(void) {
     run_tasks__7TObjectFv((s32 *)(&lbl_80515F48.value));
 }
 
-void update__16TKeyBoardControlFv(void) {  }
+void TKeyBoardControl::update() {  }
 int TKeyBoardControl__sub_8000F828(void) { return 0; }
 
     extern int lbl_805D49A0;
@@ -303,7 +299,7 @@ s32 TKeyBoardControl__sub_8000F92C(void) {
     return (*(G_8000F92C *)&main_phase_state).f4 = (*(G_8000F92C *)&main_phase_state).fc;
 }
 
-s32 get_input__16TKeyBoardControlFv(void) {
+s32 TKeyBoardControl::get_input() {
     return lbl_805D49C0;
 }
 
@@ -329,7 +325,7 @@ void deactivate_keyboard(void) {
     keyboard_active_flag = 0;
 }
 
-s32 get_key_state__16TKeyBoardControlFv(void) {
+s32 TKeyBoardControl::get_key_state() {
     return keyboard_key_state;
 }
 
@@ -415,16 +411,16 @@ void init_game_systems(void) {
     TObjPlayer__sub_803E492C((void *) ((*(s32 *)&resource_decompress_buffer)), (int) (0x2000));
     set_key_state__16TKeyBoardControlFi(TKeyBoardControl__sub_8000F764);
     (*(s32 *)&player_matrix_stack_buffer) = xmalloc__FUl(0x600);
-    init_matrix_stack__10TObjPlayerFii((*(s32 *)&player_matrix_stack_buffer), 0x20);
+    init_matrix_stack__10TObjPlayerFll((*(s32 *)&player_matrix_stack_buffer), 0x20);
     set_matrix_identity(0);
     init_pad_slots_and_read__16TKeyBoardControlFv((int) (0), (int) (0), (int) (0));
     enable_and_trigger__15TObjBoss2TunnelFv();
     TAdSinglePlyChrSelectGC__sub_802431D0();
     init_pad_state__16TKeyBoardControlFv();
-    set_global_7778__10TObjPlayerFi((void *)(*(s32 *)&lbl_805D5680));
+    set_global_7778__10TObjPlayerFl((void *)(*(s32 *)&lbl_805D5680));
     keyboard_input_buffer = xmalloc__FUl(0x1000);
     fn_803D8030(keyboard_input_buffer, 0x80, 0x800);
-    set_global_count__12TObjNpcEnemyFi(-1);
+    set_global_count__12TObjNpcEnemyFl(-1);
     fn_803D8064(0xC);
     init_gx_lighting_defaults();
     TObjPlayer__sub_801416AC();

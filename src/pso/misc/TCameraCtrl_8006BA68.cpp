@@ -122,6 +122,7 @@ void *__dt_deleting_3__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TCameraCtrl.h"
 struct Stack_8006C03C {
     s32 sp8;
     s32 spC;
@@ -185,7 +186,6 @@ s32 set_camera_look_at(void *, void *, void *);
 extern RecoveredGlobal_8006C03C_lbl_804383E0 camera_look_at_up_vec;
 extern RecoveredGlobal_8006C03C_lbl_804FF5E8 lbl_804FF5E8;
 extern void *camera_ctrl_instance;
-void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern void* camera_controller_registry[];
 extern RecoveredGlobal_8006C140_lbl_80488C50 camera_path_bank_table;
@@ -237,7 +237,6 @@ void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 extern "C" {
 
 void *TCameraCtrl__vt5(void);
-void cache_target_and_forward__11TCameraCtrlFii(s32 arg0, s32 arg1);
 s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 void* init_defaults__11TCameraCtrlFPv(void* a0);
 int TCameraCtrl__sub_80068714(void);
@@ -346,7 +345,8 @@ typedef char RecoveredFields_8006C03C_lbl_805D4DF0_180_offset[offsetof(Recovered
 typedef char RecoveredFields_8006C03C_lbl_805D4DF0_184_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_184) == 0x184 ? 1 : -1];
 typedef char RecoveredFields_8006C03C_lbl_805D4DF0_188_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_188) == 0x188 ? 1 : -1];
 typedef char RecoveredFields_8006C03C_lbl_805D4DF0_18C_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_18C) == 0x18C ? 1 : -1];
-void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0) {
+void TCameraCtrl::apply_look_at_from_target() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_8006C03C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8006C03C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8006C03C, sp10) == 0x8) ? 1 : -1];
@@ -374,7 +374,8 @@ void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0) {
 }
 #pragma pop
 
-void cache_target_and_forward__11TCameraCtrlFii(s32 arg0, s32 arg1) {
+void TCameraCtrl::cache_target_and_forward(s32 arg1) {
+    s32 arg0 = (s32)this;
     if ((void *) camera_ctrl_instance != NULL) {
         TCameraCtrl__saved_projection_angle = *(s32 *)((s8 *)camera_ctrl_instance + 0x19C);
         scripted_camera_projection_angle = arg1;

@@ -14,6 +14,10 @@ struct TTecReverser
     u8 _padB6[0x36];
     u32 m_ec;
     u16 m_f0;
+    void update();
+    static void render();
+    static void create(void *arg0, void *arg1, void *arg2, void *arg3);
+    u8 is_active();
 };
 
 #endif

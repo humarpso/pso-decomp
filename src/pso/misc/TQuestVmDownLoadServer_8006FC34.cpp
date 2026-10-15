@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 
 struct Info_8006FE7C {
     s8 a;
@@ -53,8 +55,7 @@ void create__13TObjTombstoneFPvPvPv(void *, void *, void *);
 void *get_player_by_client_id(s32);
 extern Table_8006FE7C challenge_mode_state;
 extern void *tl_07;
-void spawn_player_tombstones__6TLobbyFv(void);
-s32 get_field_2d4__10TObjPlayerFPv(Ply_8006FC7C *);
+s32 get_field_2d4__10TObjPlayerFv(Ply_8006FC7C *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor();
 s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
@@ -71,14 +72,11 @@ u32 strlen(const char *);
 extern char lbl_8043857C[];
 extern Table_8006FE7C challenge_mode_state;
 extern s32 local_client_id;
-void update_card_save_info__6TLobbyFv(void);
 }
 
 extern "C" {
 
-void split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(s32 arg0, s32 *arg1, s32 *arg2, s32 *arg3);
-
-void split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(s32 arg0, s32 *arg1, s32 *arg2, s32 *arg3) {
+void TQuestVmDownLoadServer::split_time_hms(s32 arg0, s32 *arg1, s32 *arg2, s32 *arg3) {
     *arg1 = arg0 / 3600;
     if ((s32) *arg1 > 0x63) {
         *arg1 = 0x63;
@@ -87,7 +85,7 @@ void split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(s32 arg0, s32 *arg1, s32 *
     *arg3 = arg0 % 60;
 }
 
-void update_card_save_info__6TLobbyFv(void) {
+void TLobby::update_card_save_info() {
     char buf[0x60];
     char name[0x20];
     Date_8006FC7C date;
@@ -159,7 +157,7 @@ void update_card_save_info__6TLobbyFv(void) {
         }
     }
     id = -1;
-    if ((get_field_2d4__10TObjPlayerFPv(ply) & 0xF000) == 0x1000) {
+    if ((get_field_2d4__10TObjPlayerFv(ply) & 0xF000) == 0x1000) {
         u = find_entity_by_id();
         if (u != NULL) {
             id = u->f370;
@@ -168,7 +166,7 @@ void update_card_save_info__6TLobbyFv(void) {
     card->f2230 = id;
 }
 
-void spawn_player_tombstones__6TLobbyFv(void) {
+void TLobby::spawn_player_tombstones() {
     s32 i;
     Rec_8006FE7C *rec;
     Info_8006FE7C *info;

@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32, f32, f32);
@@ -19,7 +19,7 @@ extern "C" {
 void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2) {
   f32 buffer_8[8];
   begin_screen_draw((int) 1);
-  set_global_param__8TObjFishFi((void *) TAdBackTxtGC__backtext_texture_list);
+  set_global_param__8TObjFishFl((void *) TAdBackTxtGC__backtext_texture_list);
   set_draw_texture_and_color((void *) arg1, (void *) arg2);
   buffer_8[0] = lbl_805DDCF8;
   buffer_8[1] = lbl_805DDCF8;

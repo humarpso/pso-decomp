@@ -16,6 +16,11 @@ struct TObjLobbyMain
     u8 _padD2[0x6];
     u32 m_d8;
     u32 m_dc;
+    void render();
+    void run_task();
+    static void *create(void *arg0);
+    static void release_static_instance();
+    static void load_resources();
 };
 
 #endif

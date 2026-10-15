@@ -1,15 +1,16 @@
 #include "types.h"
+#include "pso/boss/TBoss7LaserPtcl.h"
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void destroy_particles__15TBoss7LaserPtclFi(s32 arg0);
 }
 
 extern "C" {
 
 void render__15TBoss7LaserPtclFv(void);
 
-void destroy_particles__15TBoss7LaserPtclFi(s32 arg0) {
+void TBoss7LaserPtcl::destroy_particles() {
+    s32 arg0 = (s32)this;
   void **var_r30;
   s32 var_r29;
   u8 *temp_r3;

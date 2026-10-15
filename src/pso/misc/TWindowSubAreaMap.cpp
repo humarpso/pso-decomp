@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubAreaMap.h"
+#include "pso/misc/TWindowSubAreaMapDisp.h"
 
 struct VBase_18_204a81 { char pad[0x18]; };
 
@@ -24,27 +26,24 @@ struct RecoveredGlobal_802715F0_lbl_8050E208 {
 };
 
 extern "C" {
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_80271480_lbl_8050E208 controller_input_state;
-void run_task__17TWindowSubAreaMapFv(u8 *arg0);
-s32 is_flag_set__11TLoadingCurFPv(void *, int);
-s32 is_on_current_screen__11TCameraCtrlFPv(int, int);
+s32 is_flag_set__11TLoadingCurFv(void *, int);
+s32 is_on_current_screen__11TCameraCtrlFv(int, int);
 s32 add_zoom_distance__13TRaderMapCoreFf(f32);
-s32 pan_vertical__13TRaderMapCoreFv(f32);
-s32 pan_horizontal__13TRaderMapCoreFv(f32);
+s32 pan_vertical__13TRaderMapCoreFf(f32);
+s32 pan_horizontal__13TRaderMapCoreFf(f32);
 extern RecoveredGlobal_80271480_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD478;
 extern const f32 lbl_805DD47C;
-void update_manual_scroll__21TWindowSubAreaMapDispFPv(u8 *arg0);
 }
 
 extern "C" {
 
 void *TWindowSubAreaMap__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1);
-void render__17TWindowSubAreaMapFv(void);
 void *TWindowSubAreaMapDisp__ct(void *);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -52,14 +51,15 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
-void render__17TWindowSubAreaMapFv(void) {  }
+void TWindowSubAreaMap::render() {  }
 
 extern s32 __vt__17TWindowSubAreaMap[];
 
 typedef char RecoveredGlobal_80271480_lbl_8050E208_size[sizeof(RecoveredGlobal_80271480_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void run_task__17TWindowSubAreaMapFv(u8 *arg0) {
+void TWindowSubAreaMap::run_task() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x20));
         ((VObj_18_204a81 *)(temp_r3))->m7();
@@ -96,30 +96,31 @@ void *TWindowSubAreaMap__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 typedef char RecoveredGlobal_802715F0_lbl_8050E208_size[sizeof(RecoveredGlobal_802715F0_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void update_manual_scroll__21TWindowSubAreaMapDispFPv(u8 *arg0) {
+void TWindowSubAreaMapDisp::update_manual_scroll() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x6C) != 0) {
         temp_r31 = (u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x20;
-        if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x10)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x10)) != 0)) {
+        if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x10)) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x10)) != 0)) {
             *(f32 *)((s8 *)arg0 + 0x64) = (f32) (*(f32 *)((s8 *)arg0 + 0x64) + lbl_805DD478);
         }
-        if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x20)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x20)) != 0)) {
+        if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x20)) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x20)) != 0)) {
             *(f32 *)((s8 *)arg0 + 0x64) = (f32) (*(f32 *)((s8 *)arg0 + 0x64) - lbl_805DD478);
         }
-        if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x40)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x40)) != 0)) {
+        if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x40)) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x40)) != 0)) {
             *(f32 *)((s8 *)arg0 + 0x60) = (f32) (*(f32 *)((s8 *)arg0 + 0x60) + lbl_805DD478);
         }
-        if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x80)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x80)) != 0)) {
+        if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x80)) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x80)) != 0)) {
             *(f32 *)((s8 *)arg0 + 0x60) = (f32) (*(f32 *)((s8 *)arg0 + 0x60) - lbl_805DD478);
         }
-        if (is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x20000)) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x20000)) != 0) {
             *(f32 *)((s8 *)arg0 + 0x68) = (f32) (*(f32 *)((s8 *)arg0 + 0x68) - lbl_805DD478);
         }
-        if (is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x10000)) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x10000)) != 0) {
             *(f32 *)((s8 *)arg0 + 0x68) = (f32) (*(f32 *)((s8 *)arg0 + 0x68) + lbl_805DD478);
         }
-        pan_horizontal__13TRaderMapCoreFv((f32) (*(f32 *)((s8 *)arg0 + 0x60)));
-        pan_vertical__13TRaderMapCoreFv((f32) (*(f32 *)((s8 *)arg0 + 0x64)));
+        pan_horizontal__13TRaderMapCoreFf((f32) (*(f32 *)((s8 *)arg0 + 0x60)));
+        pan_vertical__13TRaderMapCoreFf((f32) (*(f32 *)((s8 *)arg0 + 0x64)));
         add_zoom_distance__13TRaderMapCoreFf((f32) (*(f32 *)((s8 *)arg0 + 0x68)));
         *(f32 *)((s8 *)arg0 + 0x60) = (f32) (*(f32 *)((s8 *)arg0 + 0x60) * lbl_805DD47C);
         *(f32 *)((s8 *)arg0 + 0x64) = (f32) (*(f32 *)((s8 *)arg0 + 0x64) * lbl_805DD47C);

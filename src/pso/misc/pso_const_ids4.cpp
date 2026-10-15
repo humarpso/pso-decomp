@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-void set_slot_mode__20TWindowActionPaletteFiiii(void *, int, int, int);
+void set_slot_mode__20TWindowActionPaletteFllll(void *, int, int, int);
 extern s32 lbl_80447184[];
 void assign_default_photon_blast_palette_slots(u8 *arg0);
 }
@@ -32,7 +32,7 @@ void assign_default_photon_blast_palette_slots(u8 *arg0) {
     tbl[1] = lbl_80447184[1];
     tbl[2] = lbl_80447184[2];
     do {
-        set_slot_mode__20TWindowActionPaletteFiiii(arg0 + 0x24, 1, tbl[i], 0);
+        set_slot_mode__20TWindowActionPaletteFllll(arg0 + 0x24, 1, tbl[i], 0);
         i++;
     } while (i < 3);
 }

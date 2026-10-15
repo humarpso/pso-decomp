@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
 
 extern "C" {
 
-s32 check_all_ready__9TWindowDDFi(s32 arg0);
 u8 *resolve_matching_object__6TLobbyFPv();
 s32 get_object_type__6TLobbyFi(s32);
 
-s32 check_all_ready__9TWindowDDFi(s32 arg0) {
+s32 TWindowDD::check_all_ready(s32 arg0) {
     s16 temp_r3_2;
     s32 temp_r3;
     s32 i;

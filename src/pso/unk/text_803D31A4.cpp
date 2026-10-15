@@ -20,23 +20,21 @@ struct P_803D3860 { void (*fn)(s32, u8 *); s32 arg; };
 struct Cb_803D3678 { s32 fn; s32 arg; };
 
 #include "stdarg.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 memset(void *, int, int);
 extern s32 lobby_callback_tables_refcount;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
-void init_callback_tables__6TLobbyFv(void);
 extern s32 lbl_805D765C;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
-void set_callback_params__6TLobbyFii(s32 arg0, s32 arg1);
 void TLobby__sub_803D33D4(s32 arg0, s32 arg1);
 void TLobby__sub_803D33E4(s32 arg0, s32 arg1);
 void TLobby__sub_803D346C(s32 arg0);
 char *strncpy(char *, const char *, unsigned long);
 extern s32 lbl_805D765C;
-void set_message_and_notify__6TLobbyFPv(char *arg0);
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2);
@@ -45,7 +43,6 @@ extern char lbl_8047DF3C[];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern s32 lbl_805D765C;
-void SVM_DelCbSvr__6TLobbyFii(s32 arg0, s32 arg1);
 s32 memset(void *, int, int);
 int vsprintf(char *s, const char *fmt, va_list ap);
 extern s32 lbl_805D765C;
@@ -56,13 +53,11 @@ extern char lbl_8047DF14[];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern s32 lbl_805D765C;
-void SVM_SetCbSvrId__6TLobbyFiiii(s32 arg0, s32 arg1, s32 fn, s32 arg);
 char *strncpy(char *, const char *, unsigned long);
 extern char lbl_8047DF5C[];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern s32 lbl_805D765C;
-s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg);
 }
 
 extern "C" {
@@ -76,7 +71,7 @@ Cb_803D3678 svm_callback_table[7][4];
 RecoveredGlobal_803D31A4_lbl_8058B6B8 worker_callback_flag_table;
 RecoveredGlobal_803D31A4_lbl_8058B6D4 svm_callback_counts;
 
-void init_callback_tables__6TLobbyFv(void) {
+void TLobby::init_callback_tables() {
     if ((s32) lobby_callback_tables_refcount == 0) {
         memset((void *) (&worker_callback_flag_table.value), (int) (0), (int) (0x1C));
         memset((void *) (&lbl_805D766C), (int) (0), (int) (8));
@@ -110,13 +105,13 @@ static inline s32 run_callbacks_803D3224(s32 idx) {
     return r;
 }
 
-s32 run_worker_callbacks_slot5__6TLobbyFv(void) {
+s32 TLobby::run_worker_callbacks_slot5() {
     return run_callbacks_803D3224(5);
 }
-s32 run_worker_callbacks_slot4__6TLobbyFv(void) {
+s32 TLobby::run_worker_callbacks_slot4() {
     return run_callbacks_803D3224(4);
 }
-s32 run_callbacks_group2__6TLobbyFv(void) {
+s32 TLobby::run_callbacks_group2() {
     return run_callbacks_803D3224(2);
 }
 #pragma pop
@@ -129,7 +124,7 @@ void TLobby__sub_803D33E4(s32 arg0, s32 arg1) {
     lbl_805D766C.a = arg0;
     lbl_805D766C.b = arg1;
 }
-void set_callback_params__6TLobbyFii(s32 arg0, s32 arg1) {
+void TLobby::set_callback_params(s32 arg0, s32 arg1) {
     if (((s32 (*)(s32)) *(s32 (**)(s32))((s8 *)(&lbl_805D766C) + 0)) != NULL) {
         (*(s32 (**)(s32))((s8 *)(&lbl_805D766C) + 0))(*(s32 *)((s8 *)(&lbl_805D766C) + 4));
     }
@@ -159,7 +154,7 @@ void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2) {
 #define CB765C (*(P_803D3860 *)&lbl_805D765C)
 
 #define CB765C (*(P_803D3860 *)&lbl_805D765C)
-void SVM_SetCbSvrId__6TLobbyFiiii(s32 arg0, s32 arg1, s32 fn, s32 arg) {
+void TLobby::SVM_SetCbSvrId(s32 arg0, s32 arg1, s32 fn, s32 arg) {
     Cb_803D3678 *c;
     if (arg1 < 0 || arg1 >= 4) {
         strncpy((char *)svm_callback_message_buffer, svm_invalid_callback_server_id_error, 0xFF);
@@ -184,7 +179,7 @@ void SVM_SetCbSvrId__6TLobbyFiiii(s32 arg0, s32 arg1, s32 fn, s32 arg) {
     }
 }
 
-void SVM_DelCbSvr__6TLobbyFii(s32 arg0, s32 arg1) {
+void TLobby::SVM_DelCbSvr(s32 arg0, s32 arg1) {
     if (arg1 < 0 || arg1 >= 4) {
         strncpy((char *)svm_callback_message_buffer, lbl_8047DF3C, 0xFF);
         if (CB765C.fn != 0) {
@@ -202,7 +197,7 @@ void SVM_DelCbSvr__6TLobbyFii(s32 arg0, s32 arg1) {
 }
 
 #define CB765C (*(P_803D3860 *)&lbl_805D765C)
-s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg) {
+s32 TLobby::svm_set_cb_svr(s32 arg0, s32 fn, s32 arg) {
     Cb_803D3678 *c;
     s32 i;
     if ((void (*)(s32))lbl_805D766C.a != 0) {
@@ -231,7 +226,7 @@ s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg) {
     return i;
 }
 
-void set_message_and_notify__6TLobbyFPv(char *arg0) {
+void TLobby::set_message_and_notify(char *arg0) {
     strncpy((char *)svm_callback_message_buffer, arg0, 0xFF);
     if ((*(P_803D3860 *)&lbl_805D765C).fn != 0) {
         (*(P_803D3860 *)&lbl_805D765C).fn((*(P_803D3860 *)&lbl_805D765C).arg, svm_callback_message_buffer);

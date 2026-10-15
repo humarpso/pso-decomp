@@ -11,6 +11,9 @@ struct TWindowChatSymbol
     u32 m_5c;
     u32 m_60;
     u32 m_64;
+    void run_task();
+    void apply_symbol_from_card();
+    void *destroy(s16 arg1);
 };
 
 #endif

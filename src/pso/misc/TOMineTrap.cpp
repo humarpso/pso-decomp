@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOMineTrap.h"
 
 extern "C" {
 extern f32 lbl_805D307C;
@@ -16,20 +17,14 @@ int TOMineTrap__sub_80171350(void);
 u16 TOMineTrap__sub_80171358(void* p);
 void TOMineTrap__sub_80171380(void);
 void TOMineTrap__sub_8017141C(void* p);
-void bswap_6x80_trigger_trap__10TOMineTrapFPv(void* p);
 void fn_80171314(void* p);
-int get_trap_count__10TOMineTrapFv(void);
-u16 get_trap_type__10TOMineTrapFPv(void* p);
-void send_and_handle_60__10TOMineTrapFPv(void* p);
-void set_instance__10TOMineTrapFi(int a0);
-void set_trap_count__10TOMineTrapFi(int a0);
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void*);
-int check_flag__10TObjPlayerFPvi(void*, void*);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int check_flag__10TObjPlayerFl(void*, void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 
-void fn_80171314(void* p) { check_flag__10TObjPlayerFPvi(p, (void*)65536); }
-u16 get_trap_type__10TOMineTrapFPv(void* p) { return *(u16*)((char*)p + 0x2d8); }
+void fn_80171314(void* p) { check_flag__10TObjPlayerFl(p, (void*)65536); }
+u16 TOMineTrap::get_trap_type() { return *(u16*)((char*)this + 0x2d8); }
 s16 TOMineTrap__sub_80171340(void* p) { return *(s16*)((char*)p + 0x326); }
 void TOMineTrap__sub_80171348(void* p, s16 v) { *(s16*)((char*)p + 0x2d8) = v; }
 
@@ -39,7 +34,7 @@ int TOMineTrap__sub_80171350(void) {  return mine_trap_instance_id; }
 u16 TOMineTrap__sub_80171358(void* p) { return *(u16*)((char*)p + 0x37e); }
 
     extern int mine_trap_count;
-int get_trap_count__10TOMineTrapFv(void) {  return mine_trap_count; }
+int TOMineTrap::get_trap_count() {  return mine_trap_count; }
 
     extern int mine_trap_instance_id;
 
@@ -47,10 +42,10 @@ void TOMineTrap__sub_80171368(f32 farg0) {
     lbl_805D307C = farg0;
 }
 
-void set_instance__10TOMineTrapFi(int a0) { mine_trap_instance_id = a0; }
+void TOMineTrap::set_instance(int a0) { mine_trap_instance_id = a0; }
 
     extern int mine_trap_count;
-void set_trap_count__10TOMineTrapFi(int a0) { mine_trap_count = a0; }
+void TOMineTrap::set_trap_count(int a0) { mine_trap_count = a0; }
 
 void TOMineTrap__sub_80171380(void) {  }
 
@@ -62,8 +57,8 @@ bool TOMineTrap__vt19(u8 *arg0, s32 arg1) {
     return arg1 != *(s32 *)((s8 *)arg0 + 0x2A8);
 }
 
-void bswap_6x80_trigger_trap__10TOMineTrapFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
-void send_and_handle_60__10TOMineTrapFPv(void* p) { bswap_6x80_trigger_trap__10TOMineTrapFPv((void*)(p)); TLobby__send_and_handle_60(p); }
+void TOMineTrap::bswap_6x80_trigger_trap() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
+void TOMineTrap::send_and_handle_60() { bswap_6x80_trigger_trap(); TLobby__send_and_handle_60(this); }
 
 void TOMineTrap__sub_8017141C(void* p) { *(u8*)((char*)p + 0x0) = 128; *(u8*)((char*)p + 0x1) = 2; }
 

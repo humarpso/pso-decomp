@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdYesNoBaseGC.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -18,16 +19,15 @@ struct T_8032C118 { s32 a; s32 b; };
 struct O_8032C118 { u8 pad[0x2C]; s32 sel; };
 
 extern "C" {
-s32 send_and_handle__6TLobbyFPvii(int, void *, int);
-s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
+s32 send_and_handle__6TLobbyFii(int, void *, int);
+s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0);
-void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
+void set_selected_index__17TWindowSubComCardFs(s32, s16);
 void align_menu_entry_positions(s32);
 void update_layout_height__17TWindowSubComCardFPvf(f32);
 s32 init_shop_judgment_window(void *);
 extern T_8032C118 lbl_804772E8[];
 extern const f32 lbl_805DF788;
-s32 create_menu_window__14TAdYesNoBaseGCFPv(O_8032C118 *arg0);
 }
 
 extern "C" {
@@ -47,7 +47,6 @@ struct VtObj8032C1C8_8032C188 : VtBase8032C1C8_8032C188 {
 void *TAdYesNoBaseGC__ct(void *arg0);
 void *TAdYesNoBaseGC__vt0(void *arg0, s16 arg1);
 void TAdYesNoBaseGC__vt6(void *arg0);
-void init_parts__14TAdYesNoBaseGCFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(void *);
@@ -57,30 +56,31 @@ void *__ct__9TAdBackGCFv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *);
-s32 is_visible__17TWindowSubComCardFPv(u32);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
+s32 is_visible__17TWindowSubComCardFv(u32);
 void queue_destruction__7TObjectFv(void *);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 
 s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0) {
     s32 temp_r31;
-    temp_r31 = update_window_mode_from_progress__6TLobbyFiPv((void *) (arg0 + 0x30), (void *) (arg0 + 0x38));
-    send_and_handle__6TLobbyFPvii((int) (temp_r31), (void *) (((VObj_18 *)(arg0))->m8()), (int) (1));
+    temp_r31 = update_window_mode_from_progress__6TLobbyFPv((void *) (arg0 + 0x30), (void *) (arg0 + 0x38));
+    send_and_handle__6TLobbyFii((int) (temp_r31), (void *) (((VObj_18 *)(arg0))->m8()), (int) (1));
     return temp_r31;
 }
 
-s32 create_menu_window__14TAdYesNoBaseGCFPv(O_8032C118 *arg0) {
+s32 TAdYesNoBaseGC::create_menu_window() {
+    O_8032C118 *arg0 = (O_8032C118 *)this;
     T_8032C118 t = lbl_804772E8[0];
     s32 r = init_shop_judgment_window(&t);
     update_layout_height__17TWindowSubComCardFPvf(lbl_805DF788);
     align_menu_entry_positions(r);
-    set_selected_index__17TWindowSubComCardFPvs(r, (s16)arg0->sel);
+    set_selected_index__17TWindowSubComCardFs(r, (s16)arg0->sel);
     return r;
 }
 
-void init_parts__14TAdYesNoBaseGCFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *)((char *)arg0 + 48));
-    ((void (*)(void *, void *))copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv)((void *)((char *)arg0 + 56), arg2);
+void TAdYesNoBaseGC::init_parts(void *arg1, void *arg2) {
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *)((char *)this + 48));
+    ((void (*)(void *, void *))copy_vec2__28TWindowSubSymbolChatPartsSetFPv)((void *)((char *)this + 56), arg2);
 }
 
 extern const f64 lbl_804772F0;
@@ -98,11 +98,11 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
     switch (temp_r0) {
     case 0:
         *(u32 *)((s8 *)arg0 + 0x40) = TAdYesNoBaseGC__sub_8032C0B4((u8 *)(arg0));
-        *(u32 *)((s8 *)arg0 + 0x44) = create_menu_window__14TAdYesNoBaseGCFPv((O_8032C118 *)(arg0));
+        *(u32 *)((s8 *)arg0 + 0x44) = ((TAdYesNoBaseGC *)arg0)->create_menu_window();
         *(s32 *)((s8 *)arg0 + 0x1C) = 1;
         break;
     case 1:
-        if (is_visible__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0x44)) != 0) {
+        if (is_visible__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0x44)) != 0) {
             temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x44));
             switch (temp_r3) {
             case 0:
@@ -116,7 +116,7 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
                 *(s32 *)((s8 *)arg0 + 0x24) = 4;
                 break;
             }
-        } else if ((TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)) {
+        } else if ((TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state + 0x160, 2) != 0)) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 2;
             *(s32 *)((s8 *)arg0 + 0x24) = 4;
         }

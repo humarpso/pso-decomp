@@ -26,6 +26,8 @@ struct TBoss4Uro
     u32 m_3b8;
     u32 m_3bc;
     u32 m_3c0;
+    s32 get_phase();
+    static int get_instance_count();
 };
 
 #endif

@@ -11,6 +11,10 @@ struct TObjCityAreaWarp
     u16 m_b8;
     u8 _padBA[0x2];
     u32 m_bc;
+    void render();
+    void do_warp();
+    void run_task();
+    static void *create(void *arg0);
 };
 
 #endif

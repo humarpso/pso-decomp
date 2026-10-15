@@ -38,6 +38,16 @@ struct TObjEneRe2Flower
     u32 m_420;
     u8 _pad424[0x4];
     u32 m_428;
+    void handle_event(s32 arg1);
+    void begin_state_242();
+    s32 check_hit_flag();
+    void clear_child_flags();
+    void set_child_flags();
+    void update_part_position();
+    u8 *find_target_in_range();
+    static void destroy_instance();
+    static void *create(void *arg0);
+    int get_flag_11();
 };
 
 #endif

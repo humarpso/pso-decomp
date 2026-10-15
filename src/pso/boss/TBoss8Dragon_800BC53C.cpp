@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 struct AreaAttackHistory {
     void** entries;
@@ -19,7 +20,6 @@ s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 fn_800BC758(u8 *arg0);
 s32 attack_target_history_add(s32 arg0, s32 arg1);
 s32 push_attack_target_entry(u8 *arg0, s32 arg1);
-void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 int attack_target_history_contains(void* object, void* target);
 }
@@ -27,12 +27,11 @@ int attack_target_history_contains(void* object, void* target);
 extern "C" {
 
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
-void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 __dl__FPv(u32 *);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_alloc(s32);
 s32 fill_value_array(void *);
-s32 free__11TOBoss4RockFUi(u32);
-int queue_destruction__12TObjGrassWebFPv(void* p);
+s32 mem_free(u32);
+int queue_destruction__12TObjGrassWebFv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
 struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
@@ -56,26 +55,26 @@ s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1) {
 }
 
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1) {
-    init_buffer__12TBoss8DragonFPvii(arg0, arg1, 0);
+    ((TBoss8Dragon *)arg0)->init_buffer(arg1, 0);
     return arg0;
 }
 
-void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
+void *TBoss8Dragon::init_buffer(s32 arg1, s32 arg2) {
     if (arg1 > 0) {
-        *(s32 *)((s8 *)arg0 + 0) = alloc_buffer__11TOBoss4RockFPv(arg1 * 4);
+        *(s32 *)((s8 *)this + 0) = mem_alloc(arg1 * 4);
     } else {
-        *(s32 *)((s8 *)arg0 + 0) = 0;
+        *(s32 *)((s8 *)this + 0) = 0;
     }
-    *(s32 *)((s8 *)arg0 + 4) = arg2;
-    *(s32 *)((s8 *)arg0 + 8) = 0;
-    *(s32 *)((s8 *)arg0 + 0xC) = arg1;
-    fill_value_array(arg0);
-    return arg0;
+    *(s32 *)((s8 *)this + 4) = arg2;
+    *(s32 *)((s8 *)this + 8) = 0;
+    *(s32 *)((s8 *)this + 0xC) = arg1;
+    fill_value_array(this);
+    return this;
 }
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *arg0 != 0U) {
-            free__11TOBoss4RockFUi(*arg0);
+            mem_free(*arg0);
             *arg0 = 0U;
         }
         if (arg1 > 0) {

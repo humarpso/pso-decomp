@@ -60,9 +60,9 @@ u32 __nw__7TObjectFUl(s32);
 s32 create__13TRaderMapCoreFv();
 s32 create__6TSceneFv();
 s32 create_instance__10TSceneSoraFv();
-s32 init_subobject__6TLobbyFPvPvPv(u32, s32, s32);
-s32 set_fade_params__6TLobbyFi(s32);
-s32 ct_register__6TLobbyFPv(u32, s32);
+s32 init_subobject__6TLobbyFPvPv(u32, s32, s32);
+s32 set_fade_params__6TLobbyFl(s32);
+s32 ct_register__6TLobbyFv(u32, s32);
 s32 TWindowTimer__sub_80198D98();
 s32 create__11TSetManagerFv();
 s32 TLobby__sub_8032BDC4(u32, s32);
@@ -85,11 +85,11 @@ void create_tasks__6TLobbyFv(void) {
     if (is_split_screen() == 0) {
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            init_subobject__6TLobbyFPvPvPv(tmp, tl_particlemodel, 1);
+            init_subobject__6TLobbyFPvPv(tmp, tl_particlemodel, 1);
         }
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            init_subobject__6TLobbyFPvPvPv(tmp, tl_particlemodel, 0);
+            init_subobject__6TLobbyFPvPv(tmp, tl_particlemodel, 0);
         }
         tmp = __nw__7TObjectFUl(0x84);
         if (tmp != 0U) {
@@ -115,9 +115,9 @@ void create_tasks__6TLobbyFv(void) {
     }
     tmp = __nw__7TObjectFUl(0x2C);
     if (tmp != 0U) {
-        ct_register__6TLobbyFPv(tmp, tl_fade);
+        ct_register__6TLobbyFv(tmp, tl_fade);
     }
-    set_fade_params__6TLobbyFi(0);
+    set_fade_params__6TLobbyFl(0);
     tmp = __nw__7TObjectFUl(0x30);
     if (tmp != 0U) {
         TCineCtrl__ct(tmp, tl_00);
@@ -235,24 +235,22 @@ void reset_and_invoke__6TLobbyFv(void) { reset_keyboard_state__6TLobbyFv(); invo
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct L_8007BC5C { u8 pad0; u8 count; u8 pad2[2]; s32 ids[30]; };
 
 extern "C" {
 s32 get_state__23TAdSinglePlyChrSelectGCFv(void);
-s32 get_card_slot__17TWindowSubComCardFi(s32 arg0);
-s32 get_card_id__17TWindowSubComCardFPv(void *);
-s32 is_active__17TWindowSubComCardFPv(void *);
-s32 get_card_slot__17TWindowSubComCardFi(s32 arg0);
-void collect_active_card_ids__6TLobbyFPv(L_8007BC5C *arg0);
+s32 get_card_id__17TWindowSubComCardFv(void *);
+s32 is_active__17TWindowSubComCardFv(void *);
 }
 
 extern "C" {
 
 void TLobby__sub_8007BBEC(void);
 void TLobby__sub_8007BBF8(void);
-void send_status_packet__6TLobbyFv(void);
-s32 send_c6_packet__6TLobbyFPvPv(s32, s32 *);
+s32 send_c6_packet__6TLobbyFPv(s32, s32 *);
 
     extern short quest_collision_next_id;
 void TLobby__sub_8007BBEC(void) { quest_collision_next_id = 0; }
@@ -262,7 +260,7 @@ void TLobby__sub_8007BBF8(void) { quest_collision_next_id = 0; }
 
 extern s32 TLobby__protocol_instance;
 
-s32 get_card_slot__17TWindowSubComCardFi(s32 arg0) {
+s32 TWindowSubComCard::get_card_slot(s32 arg0) {
     s32 temp_r3;
     s32 var_r31;
     s32 var_r3;
@@ -282,20 +280,21 @@ s32 get_card_slot__17TWindowSubComCardFi(s32 arg0) {
     return var_r3;
 }
 
-void collect_active_card_ids__6TLobbyFPv(L_8007BC5C *arg0) {
+void TLobby::collect_active_card_ids() {
+    L_8007BC5C *arg0 = (L_8007BC5C *)this;
     u8 *card;
     s32 *p;
     s32 i;
     s32 n;
-    card = (u8 *)get_card_slot__17TWindowSubComCardFi(0);
+    card = (u8 *)TWindowSubComCard::get_card_slot(0);
     p = arg0->ids;
     n = 0;
     i = 0;
     do {
-        if (is_active__17TWindowSubComCardFPv(card) == 0) {
+        if (is_active__17TWindowSubComCardFv(card) == 0) {
             break;
         }
-        *p++ = get_card_id__17TWindowSubComCardFPv(card);
+        *p++ = get_card_id__17TWindowSubComCardFv(card);
         i++;
         n++;
         card += 0x90;
@@ -306,11 +305,11 @@ void collect_active_card_ids__6TLobbyFPv(L_8007BC5C *arg0) {
     }
 }
 
-void send_status_packet__6TLobbyFv(void) {
+void TLobby::send_status_packet() {
     char sp8[0x84];
 
-    collect_active_card_ids__6TLobbyFPv((L_8007BC5C *)((s32 *) sp8));
-    send_c6_packet__6TLobbyFPvPv(TLobby__protocol_instance, (s32 *) sp8);
+    ((TLobby *)sp8)->collect_active_card_ids();
+    send_c6_packet__6TLobbyFPv(TLobby__protocol_instance, (s32 *) sp8);
 }
 
 }

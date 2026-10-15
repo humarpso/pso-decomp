@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjEnvSound.h"
 
 struct Pkt_80190BA0 { u32 header; s32 target; s32 event; };
 
@@ -31,10 +32,9 @@ struct Obj_80190AA0 {
 };
 
 extern "C" {
-s32 is_sound_enabled__12TObjEnvSoundFPvi(void *, int);
+s32 is_sound_enabled__12TObjEnvSoundFPvl(void *, int);
 s32 fn_801908F8(f32);
 s32 play_persistent_sound(int, void *, void *, int, int);
-void run_task__12TObjEnvSoundFv(u8 *arg0);
 void byteswap_event_packet__6TLobbyFi(Pkt_80190BA0 *pkt);
 s32 get_current_floor(void);
 void set_floor_event_flags(s32, s32, s32);
@@ -56,19 +56,19 @@ void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2);
 extern "C" {
 
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1);
-void render__12TObjEnvSoundFv(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-void render__12TObjEnvSoundFv(void) {  }
+void TObjEnvSound::render() {  }
 
 extern s32 __vt__12TObjEnvSound[];
 
-void run_task__12TObjEnvSoundFv(u8 *arg0) {
+void TObjEnvSound::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     s32 temp_r0;
     temp_f0 = *(f32 *)((s8 *)arg0 + 0x90);
-    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (is_sound_enabled__12TObjEnvSoundFPvi((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x98))) != 0)) {
+    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (is_sound_enabled__12TObjEnvSoundFPvl((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x98))) != 0)) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x9C);
         switch (temp_r0) {
         case 0:

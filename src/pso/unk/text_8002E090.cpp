@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1Rock.h"
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
@@ -9,7 +10,6 @@ extern const f32 lbl_805D820C;
 extern const f32 lbl_805D8210;
 extern const f32 lbl_805D8214;
 extern const f32 lbl_805D8218;
-void run_task__13TObjBoss1RockFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -17,7 +17,8 @@ extern "C" {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void run_task__13TObjBoss1RockFPv(u8 *arg0) {
+void TObjBoss1Rock::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3C) > 0x28) {

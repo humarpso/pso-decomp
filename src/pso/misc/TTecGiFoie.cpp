@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecGiFoie.h"
 
 extern "C" {
 
@@ -152,35 +153,32 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 f32 newton_sqrtf(f32);
 s32 queue_destruction__7TObjectFv(int);
-void set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
+void set_position_xy__10TObjPlayerFff(u32, f32, f32);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
 f32 horizontal_distance_squared(void *, void *);
-void free__11TOBoss4RockFUi(void *);
-u32 * alloc_buffer__11TOBoss4RockFPv(s32);
+void mem_free(void *);
+u32 * mem_alloc(s32);
 void * find_entity_by_id(u16);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 copy_params__8TTecAntiFPvPv(void *, int);
+s32 copy_params__8TTecAntiFPUc(void *, int);
 void apply_technique_to_area_targets(void *);
 u8 * destroy_technique_base__9TTecLukerFPvs(void *, s16);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 s32 calc_technique_parameters(int, int, int);
-void calc_params__10TTecGiFoieFPv(u8 *arg0);
 u8 * gifoie_orbit_dtor(Task_80231224 *task, s16 flag);
 Task_802312E4 * construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, Vec_802312E4 *pos, s32 arg2, u8 band, s32 arg4, void *parent, u8 single);
-void create__10TTecGiFoieFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target);
 u8 * __dt__10TTecGiFoieFv(u8 *arg0, s16 arg1);
 void run_task__10TTecGiFoieFv(u8 *self);
 void * TTecGiFoie__ct(void *self_, void *source, void *origin, void *level);
-void render__10TTecGiFoieFv(void);
-s32 is_parents_unqueued__9TTecLukerFUi(u32);
+s32 is_parents_unqueued__9TTecLukerFUl(u32);
 void matrix_mult_vec(void *, void *, void *);
 void rotate_matrix_y(void *, s32);
 void push_matrix_from(void *);
@@ -202,9 +200,10 @@ extern const f32 lbl_805DC820;
 extern const f32 lbl_805DC824;
 extern s32 tl_07;
 
-void calc_params__10TTecGiFoieFPv(u8 *arg0) {
+void TTecGiFoie::calc_params() {
+    u8 *arg0 = (u8 *)this;
   int new_var;
- new_var = (int) calc_technique_parameters((int) 1, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { copy_params__8TTecAntiFPvPv((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 4))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 6))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
+ new_var = (int) calc_technique_parameters((int) 1, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { copy_params__8TTecAntiFPUc((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 4))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 6))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
   ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_AC * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)));
   if (is_technique_ready__8TTecCtrlFv())
   {
@@ -223,7 +222,7 @@ u8 *gifoie_orbit_dtor(Task_80231224 *task, s16 flag) {
                 ((void (*)(void *))queue_destruction__7TObjectFv)(task->emitters[i]);
             }
         }
-        free__11TOBoss4RockFUi(task->emitters);
+        mem_free(task->emitters);
         __dt__7TObjectFv(task, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(task);
@@ -248,7 +247,7 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
     self->single = single;
     if (self->single != 0) {
         Rot_802312E4 r;
-        self->emitters = alloc_buffer__11TOBoss4RockFPv(4);
+        self->emitters = mem_alloc(4);
         r.x = 0;
         r.y = 0;
         r.z = 0x4000;
@@ -256,7 +255,7 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
         self->x38 = TTecGiFoie__data_805DC81C;
     } else {
         s32 i;
-        self->emitters = alloc_buffer__11TOBoss4RockFPv(TTecGiFoie__emitter_profile_table[self->band].count * 4);
+        self->emitters = mem_alloc(TTecGiFoie__emitter_profile_table[self->band].count * 4);
         for (i = 0; i < TTecGiFoie__emitter_profile_table[self->band].count; i++) {
             Rot_802312E4 r;
             Part_802312E4 *p;
@@ -268,11 +267,11 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
             if (self->band == 2) {
                 if (arg4 >= 0xF && arg4 < 0x19) {
                     if (i <= 1 && self->emitters[i] != 0) {
-                        set_position_xy__10TObjPlayerFPvff(self->emitters[i], lbl_805DC820, lbl_805DC820);
+                        set_position_xy__10TObjPlayerFff(self->emitters[i], lbl_805DC820, lbl_805DC820);
                     }
                 } else if (arg4 >= 0x19 && arg4 < 0x1E) {
                     if (i <= 1 && self->emitters[i] != 0) {
-                        set_position_xy__10TObjPlayerFPvff(self->emitters[i], lbl_805DC820, lbl_805DC824);
+                        set_position_xy__10TObjPlayerFff(self->emitters[i], lbl_805DC820, lbl_805DC824);
                     }
                 }
             }
@@ -281,7 +280,7 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
     return self;
 }
 
-void create__10TTecGiFoieFPvPvPv(void *arg0, void *arg1, void *arg2) {
+void TTecGiFoie::create(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x13C);
     if (o != NULL) {
@@ -333,7 +332,7 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
     do
     {
       temp_r30 = var_r31 + 0xEC;
-      if (is_parents_unqueued__9TTecLukerFUi(*((s32 *) (((s8 *) arg0) + temp_r30))) != 0)
+      if (is_parents_unqueued__9TTecLukerFUl(*((s32 *) (((s8 *) arg0) + temp_r30))) != 0)
       {
         queue_destruction__7TObjectFv((int) (*((s32 *) (((s8 *) arg0) + temp_r30))));
       }
@@ -366,7 +365,7 @@ void run_task__10TTecGiFoieFv(u8 *self) {
         queue_destruction__7TObjectFv((int) self);
         return;
     }
-    if (is_parents_unqueued__9TTecLukerFUi(*(u32 *)((s8 *)self + 0xEC)) != 0) {
+    if (is_parents_unqueued__9TTecLukerFUl(*(u32 *)((s8 *)self + 0xEC)) != 0) {
         distance = newton_sqrtf(horizontal_distance_squared(*(u8 **)((s8 *)self + 0xEC) + 0x2C, self + 0x20));
         if (*(u8 **)((s8 *)self + 0xE8) != NULL) {
             *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)self + 0xE8)) + 0xA4)) + 0xC) = TTecGiFoie__data_805DC81C + distance;
@@ -388,7 +387,7 @@ void *TTecGiFoie__ct(void *self_, void *source, void *origin, void *level) {
     construct_area_technique_base(self_, source, origin, origin, level);
     self->vt = &__vt__10TTecGiFoie.value;
     self->x0 = TTecGiFoie__name;
-    ((void (*)(void *))calc_params__10TTecGiFoieFPv)(self_);
+    ((TTecGiFoie *)self_)->calc_params();
     if (self->effect != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)self->effect + 0xA4)) + 0xC) = TTecGiFoie__data_805DC81C + self->radius;
     }
@@ -424,7 +423,7 @@ void *TTecGiFoie__ct(void *self_, void *source, void *origin, void *level) {
     case 0:
         r = play_sound_effect(0x4002A801, (u8 *)self_ + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, 0x100, 0);
         }
         break;
     case 1:
@@ -434,19 +433,19 @@ void *TTecGiFoie__ct(void *self_, void *source, void *origin, void *level) {
     case 3:
         r = play_sound_effect(0x4002A801, (u8 *)self_ + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, -0x180, 0);
+            update_technique_slot__10TTecRaFoieFl(r, -0x180, 0);
         }
         break;
     case 4:
         r = play_sound_effect(0x4002A801, (u8 *)self_ + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, -0x250, 0);
+            update_technique_slot__10TTecRaFoieFl(r, -0x250, 0);
         }
         break;
     case 5:
         r = play_sound_effect(0x4002A801, (u8 *)self_ + 0x20, 0, 0);
         if (r >= 0) {
-            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+            update_technique_slot__10TTecRaFoieFl(r, -0x100, 0);
         }
         break;
     default:
@@ -460,6 +459,6 @@ void *TTecGiFoie__ct(void *self_, void *source, void *origin, void *level) {
 #undef self
 }
 
-void render__10TTecGiFoieFv(void) {  }
+void TTecGiFoie::render() {  }
 
 }

@@ -24,6 +24,7 @@ struct TWindowRoom {
     TWindowRoom(char *title);
     void *get_title_entry();
     void draw_tab(void *context);
+    void run_task();
 };
 
 typedef char TWindowRoomSize[sizeof(TWindowRoom) == 0x64 ? 1 : -1];

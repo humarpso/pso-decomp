@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern const f32 lbl_805D9958;
@@ -8,7 +9,6 @@ extern const f32 lbl_805D995C;
 s32 TObjPlayer__sub_800A0360(u8 *arg0);
 s32 calc_recoil_offsets__10TObjPlayerFPv(f32);
 extern const f32 lbl_805D9958;
-s32 update_recoil_offset__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -29,7 +29,8 @@ s32 TObjPlayer__sub_800A0360(u8 *arg0) {
     calc_recoil_offsets__10TObjPlayerFPv((f32) (temp_f1));
     return *(f32 *)((s8 *)arg0 + 0x18) >= lbl_805D995C;
 }
-s32 update_recoil_offset__10TObjPlayerFPv(u8 *arg0) {
+s32 TObjPlayer::update_recoil_offset() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 - *(f32 *)((s8 *)arg0 + 0x10));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMotorcycle.h"
 
 extern "C" {
 
@@ -12,7 +13,7 @@ void copy_position_data(void *arg0, void *arg1) {
 
 void *insert_slot_by_id__12TObjNpcEnemyFs();
 
-void add_entry__11TMotorcycleFsiiff(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void TMotorcycle::add_entry(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     void *temp_r3;
 
     temp_r3 = insert_slot_by_id__12TObjNpcEnemyFs();

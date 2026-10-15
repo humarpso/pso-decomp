@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuadSpriteCol.h"
 
 typedef struct Vec_801E4FF0 { f32 x, y, z; } Vec_801E4FF0;
 
@@ -48,7 +49,7 @@ s32 begin_effect_render__13TParticleCtrlFv(void);
 s32 end_effect_render__13TParticleCtrlFv(void);
 void quad_sprite_reset_entries(void *);
 s32 matrix_mult_vec(int, void *, void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -57,7 +58,6 @@ s32 set_constant_material_color(int);
 extern Cam_801E4FF0 lbl_8058D4F8;
 extern const f32 lbl_805DC450;
 extern const f32 lbl_805DC454;
-void render__14TQuadSpriteColFv(Self_801E4FF0 *self);
 }
 
 extern "C" {
@@ -75,7 +75,8 @@ extern s32 __vt__14TQuadSpriteCol[];
 
 #pragma push
 #pragma fp_contract on
-void render__14TQuadSpriteColFv(Self_801E4FF0 *self) {
+void TQuadSpriteCol::render() {
+    Self_801E4FF0 *self = (Self_801E4FF0 *)this;
     Quad_801E4FF0 q;
     Vec_801E4FF0 out;
     Vec_801E4FF0 pos;
@@ -107,7 +108,7 @@ void render__14TQuadSpriteColFv(Self_801E4FF0 *self) {
     sh = sw * (lbl_805DC450 / (lbl_805DC450 * lbl_8058D4F8.aspect));
     begin_effect_render__13TParticleCtrlFv();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFi((void *)self->desc->param4);
+    set_global_param__8TObjFishFl((void *)self->desc->param4);
     set_draw_texture_and_color(self->desc->param8, self->desc->param1C);
     one = lbl_805DC454;
     for (i = 0, ci = 0, li = 0; i < self->desc->count; i++, ci += 0x10, li += 0x2C) {

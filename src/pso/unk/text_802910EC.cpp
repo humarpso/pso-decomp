@@ -21,7 +21,7 @@ s32 TLobby__sub_803DA16C(void *);
 extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern u32 cmicon_instance;
 void fn_80291138(void);
-void apply_view_params_if_flagged__11TCameraCtrlFPv(void *);
+void apply_view_params_if_flagged__11TCameraCtrlFv(void *);
 extern RecoveredGlobal_802911E8_lbl_804DAA78 creation_view_parameters;
 extern f32 lbl_805D3CA0;
 extern const f32 lbl_805DD968;
@@ -93,7 +93,7 @@ void set_creation_projection_center(f32 farg0) {
     CopyStack_802911E8 copy_storage_802911E8;
     *(ByteBlock_48 *)(copy_storage_802911E8.bytes) = *(const ByteBlock_48 *)((s32) ((u8 *)(&creation_view_parameters.value) + -4) + 4);
     (*(f32 *)(copy_storage_802911E8.bytes + 0x8)) = lbl_805DD968 * ((lbl_805DD970 * farg0) + lbl_805DD96C);
-    apply_view_params_if_flagged__11TCameraCtrlFPv((copy_storage_802911E8.bytes));
+    apply_view_params_if_flagged__11TCameraCtrlFv((copy_storage_802911E8.bytes));
     lbl_805D3CA0 = farg0;
 }
 #pragma pop

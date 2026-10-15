@@ -1,16 +1,16 @@
 #include "types.h"
+#include "pso/object/TObjMapWarpAncient.h"
 
 extern "C" {
 
 u8 *TObjMapWarpAncient__ct(u8 *arg0);
 void *__dt__18TObjMapWarpAncientFv(void *arg0, s16 arg1);
-void free_globals__18TObjMapWarpAncientFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TObjGoalWarpAncient__sub_8017D2D4(int);
 s32 TObjMapWarp__ct();
 void __dl__7TObjectFPv(void *);
 void __dt__11TObjMapWarpFv(void *, int);
-s32 free_if_valid__10TObjPlayerFi(s32);
+s32 free_if_valid__10TObjPlayerFl(s32);
 s32 register_warp__19TObjGoalWarpAncientFPv(int);
 s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
 
@@ -49,8 +49,8 @@ u8 *TObjMapWarpAncient__ct(u8 *arg0) {
 extern u32 ancient_warp_shared_resource;
 extern s32 goal_warp_ancient_gvm_texture;
 
-void free_globals__18TObjMapWarpAncientFv(void) {
-    free_if_valid__10TObjPlayerFi(goal_warp_ancient_gvm_texture);
+void TObjMapWarpAncient::free_globals() {
+    free_if_valid__10TObjPlayerFl(goal_warp_ancient_gvm_texture);
     goal_warp_ancient_gvm_texture = 0;
     if ((u32) ancient_warp_shared_resource != 0U) {
         TLobby__sub_8001FE7C((void*)ancient_warp_shared_resource, 1);

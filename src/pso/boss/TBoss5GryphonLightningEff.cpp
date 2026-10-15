@@ -40,9 +40,8 @@ extern "C" {
 void spawn_particle_effect_with_flags(void *, s32, s32);
 void run_task__12TTecZondeEffFv(void *);
 s32 rand(void);
-void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
+f32 update_scale__15TObjBoss2TunnelFv(void *);
 void randomize_bolt_jitter__12TTecZondeEffFPv(void *);
 void __ct__12TTecZondeEffFv(void *, void *, s32, s32, f32);
 void eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, void *, s32, void *, f32);
@@ -51,18 +50,16 @@ extern s32 __vt__25TBoss5GryphonLightningEff[];
 extern s32 lbl_805D4188;
 Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale);
 extern L1_80325070 **inazuma_texture_list;
-s32 calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv(void *self_, void *p_);
 }
 
 extern "C" {
 
 void TBoss5GryphonLightningEff__sub_80325064(void* p);
-void render__25TBoss5GryphonLightningEffFv(void *arg0);
 s32 set_chunk_material_color(void *);
 s32 build_lightning_strip(void *, void *, void *, void *, void *);
 s32 project_lightning_points(void *, void *, void *, void *);
 s32 begin_effect_render__13TParticleCtrlFv();
-s32 draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, s32);
+s32 draw_transformed_primitive__9TWindowDDFPvPvPv(void *, s32, s32, s32);
 s32 end_effect_render__13TParticleCtrlFv();
 s32 restore_saved_depth_alpha_state();
 s32 init_xyz_limits__10TObjPlayerFv();
@@ -75,8 +72,8 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 
-s32 calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv(void *self_, void *p_) {
-#define arg0 ((Obj_80325070 *)self_)
+s32 TBoss5GryphonLightningEff::calc_segment_uvs(void *p_) {
+#define arg0 ((Obj_80325070 *)this)
     Seg_80325070 *p = (Seg_80325070 *)p_;
     s32 i;
     s16 flags;
@@ -105,7 +102,7 @@ s32 calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv(void *self_, void *p_) {
 }
 #undef arg0
 
-void render__25TBoss5GryphonLightningEffFv(void *arg0) {
+void TBoss5GryphonLightningEff::render() {
     char sp10C[0x270];
     char sp70[0x9C];
     char sp3C[0x34];
@@ -118,12 +115,12 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     begin_effect_render__13TParticleCtrlFv();
     set_depth_buffer_settings_1__Fv();
     init_xyz_limits__10TObjPlayerFv();
-    project_lightning_points(arg0, sp70, sp3C, sp8);
-    build_lightning_strip(arg0, sp10C, sp70, sp3C, sp8);
-    draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, *(s32 *)((s8 *)arg0 + 0x38) * 2, calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv((void *)(arg0), (void *)(sp10C)), 1);
-    if ((u8) *(u8 *)((s8 *)arg0 + 0x260) == 1) {
-        build_lightning_strip(arg0, sp10C, sp70, sp8, sp3C);
-        draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, *(s32 *)((s8 *)arg0 + 0x38) * 2, calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv((void *)(arg0), (void *)(sp10C)), 1);
+    project_lightning_points(this, sp70, sp3C, sp8);
+    build_lightning_strip(this, sp10C, sp70, sp3C, sp8);
+    draw_transformed_primitive__9TWindowDDFPvPvPv(sp10C, *(s32 *)((s8 *)this + 0x38) * 2, calc_segment_uvs((void *)(sp10C)), 1);
+    if ((u8) *(u8 *)((s8 *)this + 0x260) == 1) {
+        build_lightning_strip(this, sp10C, sp70, sp8, sp3C);
+        draw_transformed_primitive__9TWindowDDFPvPvPv(sp10C, *(s32 *)((s8 *)this + 0x38) * 2, calc_segment_uvs((void *)(sp10C)), 1);
     }
     reset_transform_state__10TObjPlayerFv();
     end_effect_render__13TParticleCtrlFv();
@@ -131,7 +128,8 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     model_render_flags = lbl_805D5660;
     restore_saved_depth_alpha_state();
 }
-void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0) {
+void TBoss5GryphonLightningEff::run_task() {
+    Obj_80325248 *arg0 = (Obj_80325248 *)this;
     run_task__12TTecZondeEffFv(arg0);
     if ((3.0517578e-05f) * (f32)rand() > (0.95f)) {
         s32 i = (f32)arg0->n * ((3.0517578e-05f) * (f32)rand());
@@ -155,7 +153,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     eval_bezier_curve__12TBoss8DragonFPviiPvf(a, b, 0, &self->v1c, x0);
     eval_bezier_curve__12TBoss8DragonFPviiPvf(a, b, 0, &self->v28, x1);
     subtract_vector(&self->v28, &self->v1c);
-    self->f34 = update_scale__15TObjBoss2TunnelFPv(&self->v28);
+    self->f34 = update_scale__15TObjBoss2TunnelFv(&self->v28);
     self->n = self->f34 * *(const volatile f32 *)&lbl_805DF5FC;
     self->n = self->n + 1;
     if (self->n < 2) {
@@ -173,7 +171,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     for (i = 0; (f32)i < denom; i++) {
         VecCopy__FP3VecPC3Vec(&v, &self->pts[i]);
         subtract_vector(&v, &self->pts[i + 1]);
-        self->f34 += update_scale__15TObjBoss2TunnelFPv(&v);
+        self->f34 += update_scale__15TObjBoss2TunnelFv(&v);
     }
     randomize_bolt_jitter__12TTecZondeEffFPv(self);
     for (i = 0; i < self->n; i++) {

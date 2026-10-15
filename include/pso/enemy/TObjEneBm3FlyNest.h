@@ -38,6 +38,18 @@ struct TObjEneBm3FlyNest
     u32 m_4cc;
     u32 m_4d0;
     u32 m_4d4;
+    static void capture_attachment(void * _w0);
+    static int init(void* p);
+    void remove_child(u8 *child);
+    s32 has_free_attack_slot(u16 id);
+    void spawn_child();
+    void update_replenish();
+    void copy_pos();
+    static void free_fly();
+    static void *create(void *arg0);
+    static void load_resources();
+    void render_parts();
+    static void init_vertex_table();
 };
 
 #endif

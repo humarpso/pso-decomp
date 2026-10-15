@@ -14,6 +14,14 @@ struct TORainbowCave01
     u32 m_60;
     u8 _pad64[0x70];
     void* m_d4;
+    void update();
+    s32 is_player_in_range(f32 farg0);
+    void init_light_params(int _w1, f32 _w2, f32 _w3);
+    void render();
+    void run_task();
+    static void *create(void *arg0);
+    static void free_static_data();
+    static void load_resource_instance();
 };
 
 #endif

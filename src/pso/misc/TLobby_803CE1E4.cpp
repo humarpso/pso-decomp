@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void set_flag_4__6TLobbyFPvc(u8 *arg0, s8 arg1);
-void set_client_slot__6TLobbyFPvc(u8 *arg0, s8 arg1);
-
-void set_flag_4__6TLobbyFPvc(u8 *arg0, s8 arg1) {
+void TLobby::set_flag_4(s8 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 4) = arg1;
 }
 
-void set_client_slot__6TLobbyFPvc(u8 *arg0, s8 arg1) {
+void TLobby::set_client_slot(s8 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 3) = arg1;
 }
 

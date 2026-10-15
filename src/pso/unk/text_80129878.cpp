@@ -62,7 +62,7 @@ struct RecoveredGlobal_80129878_lbl_804A4438 {
 
 extern "C" {
 s32 spawn_particle_effect(void *, int);
-s32 draw_icon__10TObjPlayerFPvii(void *, int, void *);
+s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 TObjPlayer__sub_80128A70();
 extern RecoveredGlobal_80129878_lbl_804A4438 s_rank_shot_marker_offsets;
 void s_rank_shot_marker(u8 *arg0);
@@ -74,16 +74,16 @@ typedef char RecoveredGlobal_80129878_lbl_804A4438_size[sizeof(RecoveredGlobal_8
 void s_rank_shot_marker(u8 *arg0) {
     s32 sp8;
     TObjPlayer__sub_80128A70();
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (7), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (7), (void *) (&sp8));
     spawn_particle_effect((void *) (&sp8), (int) (9));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 0, *(s32 *)((s8 *)(&s_rank_shot_marker_offsets.value) + 0), 1);
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (3), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (3), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 1, *(s32 *)((s8 *)(&s_rank_shot_marker_offsets.value) + 4), 1);
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (5), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (5), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 2, *(s32 *)((s8 *)(&s_rank_shot_marker_offsets.value) + 8), 1);
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (2), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (2), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 3, *(s32 *)((s8 *)(&s_rank_shot_marker_offsets.value) + 0xC), 1);
-    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (6), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (6), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 4, *(s32 *)((s8 *)(&s_rank_shot_marker_offsets.value) + 0x10), 1);
 }
 

@@ -13,6 +13,8 @@ struct TWindowSubTrade
     u32 m_2c;
     u32 m_30;
     u32 m_34;
+    static void render();
+    void run_task();
 };
 
 #endif

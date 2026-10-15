@@ -21,7 +21,6 @@ extern Ent_8029ACF8 creation_effwall_sprite_position_table[6];
 extern Ent_8029ACF8 creation_effwall_sprite_size_table[2];
 extern const f32 lbl_805DDCB0;
 extern const f32 lbl_805DDCB4;
-void render__12TChCrEffWallFv(void);
 }
 
 extern "C" {
@@ -46,7 +45,7 @@ void *lbl_804DBF88[8] = {
 void *lbl_804DBFA8[4] = {
     (void *)0xec181818, (void *)0xff181818, (void *)0xff181818, (void *)0xec181818,
 };
-void render__12TChCrEffWallFv(void) {
+void TChCrEffWall::render() {
     Args_8029ACF8 args;
     s32 i;
     set_depth_buffer_settings_1__Fv();

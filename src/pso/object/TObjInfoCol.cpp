@@ -23,7 +23,7 @@ struct RecoveredGlobal_80191EC0___vt__11TObjInfoCol {
 };
 
 extern "C" {
-s32 is_inactive__10TObjPlayerFPv(int);
+s32 is_inactive__10TObjPlayerFv(int);
 s32 open_lobby_warp_menu__6TLobbyFv();
 s32 is_idle__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -31,7 +31,7 @@ s32 check_flag_100__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
 extern RecoveredGlobal_80191E28_lbl_8050E208 controller_input_state;
 extern s32 local_client_id;
-s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
+s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
 extern s32 __vt__11TObjInfoCol[];
 extern s32 TObjInfoCol__class_name;
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -40,16 +40,15 @@ u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern "C" {
 
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1);
-void bswap_6x78__11TObjInfoColFPv(void* p);
 u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void destroy_particle_controller__10TObjPlayerFs(void *, int);
 f32 xyz_distance_squared(const Vec *, const Vec *);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 
-void bswap_6x78__11TObjInfoColFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
+void TObjInfoCol::bswap_6x78() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
 
 extern s32 local_client_id;
 
@@ -78,7 +77,7 @@ void TObjInfoCol::run_task() {
         TWindowShortListCtrl__check_controller_button((u8 *) &controller_input_state.value + 0x20, 4) != 0 &&
         ((player = get_player_by_client_id(local_client_id), player == 0) ||
          check_flag_100__10TObjPlayerFPv() == 0) &&
-        (player == 0 || is_inactive__10TObjPlayerFPv((int) player) != 0) &&
+        (player == 0 || is_inactive__10TObjPlayerFv((int) player) != 0) &&
         is_idle__6TLobbyFv() != 0) {
         open_lobby_warp_menu__6TLobbyFv();
     }
@@ -88,7 +87,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_80191EC0___vt__11TObjInfoCol_size[sizeof(RecoveredGlobal_80191EC0___vt__11TObjInfoCol) == 0x38 ? 1 : -1];
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg1));
+    construct_collider_proxy__10TObjPlayerFv((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80191EC0___vt__11TObjInfoCol *)&__vt__11TObjInfoCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjInfoCol__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -99,7 +98,7 @@ u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjInfoCol;
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

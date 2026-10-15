@@ -6,19 +6,19 @@ void init__11TOVS2Wall01Fi(s32 arg0);
 f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 save_and_send_state__11TOVS2Wall01FPvUs(void *, s32);
-s32 spawn_debris__11TOVS2Wall01FPvi(s32, s32);
+s32 spawn_debris__11TOVS2Wall01Fl(s32, s32);
 s32 spawn_particle_effect(void *, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(u32);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(s32, s32, s32);
+s32 clear_player_status_flag__10TObjPlayerFlUl(s32, s32, s32);
 u16 obj_getField1c(u32);
 
 void init__11TOVS2Wall01Fi(s32 arg0) {
     s32 var_r31;
 
-    clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
+    clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1);
     var_r31 = 7;
     do {
-        spawn_debris__11TOVS2Wall01FPvi(arg0, var_r31);
+        spawn_debris__11TOVS2Wall01Fl(arg0, var_r31);
         var_r31 += 1;
     } while (var_r31 <= 0xF);
     spawn_particle_effect((void *)(arg0 + 0x38), (s32)(0x45));

@@ -1,9 +1,10 @@
 #include "types.h"
 #include "pso/misc/CharacterAppearance.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-s32 render__16TObjDFTenchuFuruFPv(u32);
+s32 draw_node_tree__16TObjDFTenchuFuruFv(u32);
 s32 sync_player_globals__10TObjPlayerFv();
 s32 TObjPlayer__sub_80052390(f32);
 u8 *get_player_by_client_id(s32);
@@ -12,7 +13,7 @@ s32 enable_making__12TCharaMakingFv();
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(s32 *);
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 s32 draw_chunk_object(u32);
 extern s32 lbl_804FF228[];
 extern s32 lbl_804FF234[];
@@ -21,16 +22,16 @@ extern const f32 lbl_805D8A34;
 
 void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32 arg6, s32 arg7, f32 farg0) {
     if (lbl_805D8A30 != farg0) {
-        render__16TObjDFTenchuFuruFPv(arg3);
+        draw_node_tree__16TObjDFTenchuFuruFv(arg3);
         if (farg0 < lbl_805D8A34) {
             TObjPlayer__sub_80052390(farg0);
         }
-        set_global_param__8TObjFishFi(arg0);
+        set_global_param__8TObjFishFl(arg0);
         draw_chunk_object(arg3);
         if (arg6 != 0U) {
             push_matrix();
             post_translate_matrix(lbl_804FF234);
-            set_global_param__8TObjFishFi(arg2);
+            set_global_param__8TObjFishFl(arg2);
             draw_chunk_object(arg6);
             pop_matrix();
         }
@@ -38,7 +39,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             enable_making__12TCharaMakingFv();
             push_matrix();
             post_translate_matrix(lbl_804FF228);
-            set_global_param__8TObjFishFi(arg1);
+            set_global_param__8TObjFishFl(arg1);
             draw_chunk_object(arg4);
             pop_matrix();
             clear_flag_bit0__12TCharaMakingFv();
@@ -50,7 +51,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             enable_making__12TCharaMakingFv();
             push_matrix();
             post_translate_matrix(lbl_804FF228);
-            set_global_param__8TObjFishFi(arg1);
+            set_global_param__8TObjFishFl(arg1);
             TCharaMaking__draw_colored_hair(farg0, (s32)arg5, (CharacterAppearanceFields *)arg7, 0);
             pop_matrix();
             clear_flag_bit0__12TCharaMakingFv();
@@ -58,7 +59,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
     }
 }
 
-void draw_player_model_by_id__10TObjPlayerFif(s32 arg0, f32 farg0) {
+void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 farg0) {
     u8 *p;
     u32 m8b0;
     u32 m8ac;
@@ -85,16 +86,16 @@ void draw_player_model_by_id__10TObjPlayerFif(s32 arg0, f32 farg0) {
     m8ac = *(u32 *)((s8 *)p + 0x8AC);
     m8b4 = *(u32 *)((s8 *)p + 0x8B4);
     cf4 = (s32)(p + 0xCF4);
-    render__16TObjDFTenchuFuruFPv(m34);
+    draw_node_tree__16TObjDFTenchuFuruFv(m34);
     if (farg0 < lbl_805D8A34) {
         TObjPlayer__sub_80052390(farg0);
     }
-    set_global_param__8TObjFishFi(cf4);
+    set_global_param__8TObjFishFl(cf4);
     draw_chunk_object(m34);
     if (m8b4 != 0U) {
         push_matrix();
         post_translate_matrix(lbl_804FF234);
-        set_global_param__8TObjFishFi(b88);
+        set_global_param__8TObjFishFl(b88);
         draw_chunk_object(m8b4);
         pop_matrix();
     }
@@ -102,7 +103,7 @@ void draw_player_model_by_id__10TObjPlayerFif(s32 arg0, f32 farg0) {
         enable_making__12TCharaMakingFv();
         push_matrix();
         post_translate_matrix(lbl_804FF228);
-        set_global_param__8TObjFishFi(a1c);
+        set_global_param__8TObjFishFl(a1c);
         draw_chunk_object(m8b0);
         pop_matrix();
         clear_flag_bit0__12TCharaMakingFv();
@@ -114,7 +115,7 @@ void draw_player_model_by_id__10TObjPlayerFif(s32 arg0, f32 farg0) {
         enable_making__12TCharaMakingFv();
         push_matrix();
         post_translate_matrix(lbl_804FF228);
-        set_global_param__8TObjFishFi(a1c);
+        set_global_param__8TObjFishFl(a1c);
         TCharaMaking__draw_colored_hair(farg0, (s32)m8ac, (CharacterAppearanceFields *)(p + 0x85C), 0);
         pop_matrix();
         clear_flag_bit0__12TCharaMakingFv();

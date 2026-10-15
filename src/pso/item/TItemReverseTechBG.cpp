@@ -17,27 +17,25 @@ struct TItemReverseTechBG_80119658 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void run_task__18TItemReverseTechBGFv(TItemReverseTechBG_80119658 *o);
 }
 
 extern "C" {
 
 void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
-void render__18TItemReverseTechBGFv(void *arg0);
 void draw_textured_quad_at_depth(void *, f32);
 void begin_screen_draw(int);
 void set_draw_texture_and_color(void *, void *);
 s32 __ct__7TObjectFP7TObject();
 void get_player__20TWindowSubStatusDispFv(void);
-void notify_fish_if_valid__10TObjPlayerFUi(void *);
+void notify_fish_if_valid__10TObjPlayerFUl(void *);
 void reset_transform_state__10TObjPlayerFv(void *);
 
-void render__18TItemReverseTechBGFv(void *arg0) {
-    reset_transform_state__10TObjPlayerFv(arg0);
-    notify_fish_if_valid__10TObjPlayerFUi(*(void **)((s8 *)arg0 + 0x2C));
+void TItemReverseTechBG::render() {
+    reset_transform_state__10TObjPlayerFv(this);
+    notify_fish_if_valid__10TObjPlayerFUl(*(void **)((s8 *)this + 0x2C));
     begin_screen_draw(1);
-    set_draw_texture_and_color(*(void **)((s8 *)arg0 + 0x30), *(void **)((s8 *)arg0 + 0x34));
-    draw_textured_quad_at_depth((void *)((char *)arg0 + 56), *(f32 *)((s8 *)arg0 + 0x58));
+    set_draw_texture_and_color(*(void **)((s8 *)this + 0x30), *(void **)((s8 *)this + 0x34));
+    draw_textured_quad_at_depth((void *)((char *)this + 56), *(f32 *)((s8 *)this + 0x58));
     get_player__20TWindowSubStatusDispFv();
 }
 
@@ -45,7 +43,8 @@ extern void *__vt__18TItemReverseTechBG[];
 extern s32 lbl_805D2C54;
 extern const f32 lbl_805DAC08;
 
-void run_task__18TItemReverseTechBGFv(TItemReverseTechBG_80119658 *o) {
+void TItemReverseTechBG::run_task() {
+    TItemReverseTechBG_80119658 *o = (TItemReverseTechBG_80119658 *)this;
     switch (o->state) {
     case 0:
         if (o->alpha != 0xFF) {

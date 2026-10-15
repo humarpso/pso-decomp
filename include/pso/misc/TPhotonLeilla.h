@@ -33,6 +33,8 @@ struct TPhotonLeilla
     u32 m_19c;
     u8 _pad1A0[0xC];
     u32 m_1ac;
+    void render();
+    void run_task();
 };
 
 #endif

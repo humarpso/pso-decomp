@@ -1,7 +1,7 @@
 #include "pso/TItemEffEquip.h"
 
 extern "C" int  all_parents_unqueued_for_destruction__7TObjectFv(TObject*);
-extern "C" void request_destroy__11TBoss4Type2FUi(void*);
+extern "C" void request_destroy__11TBoss4Type2FUl(void*);
 extern "C" void queue_destruction__7TObjectFv(TObject*);
 
 struct Equip_Self { u8 pad0[0x18]; void *vt; void *m_1c; void *m_20; };
@@ -19,7 +19,7 @@ void run_task__13TItemEffEquipFv(Equip_Self *self) {
 void *__dt__13TItemEffEquipFv(Equip_Self *self, s16 arg1) {
     if (self != NULL) {
         self->vt = __vt__13TItemEffEquip;
-        request_destroy__11TBoss4Type2FUi(self->m_20);
+        request_destroy__11TBoss4Type2FUl(self->m_20);
         __dt__7TObjectFv(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
@@ -35,10 +35,10 @@ extern "C" {
 void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1);
 void notify_hit__13TItemEffFlameFPv(u8 *arg0);
 u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0);
-s32 set_item_count__6TLobbyFPvs(void *, s32);
+s32 set_item_count__6TLobbyFs(void *, s32);
 s32 TLobby__sub_80103B04();
 s32 unregister_object_by_id(void *);
-s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 u8 *get_player_by_client_id(u16);
 s32 __dl__7TObjectFPv(void *);
 s32 clear_obj_links(void *);
@@ -55,23 +55,22 @@ struct Obj_80108C90 {
 void disallow_rendering__7TObjectFv(void *);
 void fn_8002B630(void *, void *);
 s32 pop_free_id__6TLobbyFv();
-void reset_photon_effect__10TObjPlayerFPv(void *);
+void reset_photon_effect__10TObjPlayerFv(void *);
 void initialize_linked_object_reference(void *, void *);
-void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
+void construct_collider_proxy__10TObjPlayerFv(void *, void *);
 extern u8 lbl_8043E1A0[];
 
 #include "types.h"
+#include "pso/TItemEffFlame.h"
 
 extern "C" {
 
-void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
 s32 spawn_particle_effect(s32, s32);
 void *__nw__7TObjectFUl(int);
 struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
-void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
+void spawn_item_timer__13TItemAttackerFlll(void *, void *, s32);
 s32 spawn_equip_particle_effect(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 retire_equipment_effect[];
@@ -96,8 +95,8 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     self->x24 = arg5;
     if (self->src != NULL) {
         spawn_equip_particle_effect(arg0, arg4);
-        spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088F8, 0xA);
-        spawn_item_timer__13TItemAttackerFiii(arg0, retire_equipment_effect, 0x14);
+        spawn_item_timer__13TItemAttackerFlll(arg0, TItemEffEquip__sub_801088F8, 0xA);
+        spawn_item_timer__13TItemAttackerFlll(arg0, retire_equipment_effect, 0x14);
     } else {
         queue_destruction__7TObjectFv((TObject *)arg0);
     }
@@ -105,7 +104,7 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
 }
 #undef self
 
-void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+void TItemEffEquip::create(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     void *o;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
@@ -277,9 +276,9 @@ void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
             clear_obj_links(arg0);
             obj_getField1c(arg0);
             TLobby__sub_80103B04();
-            set_item_count__6TLobbyFPvs(arg0, 0xFFFF);
+            set_item_count__6TLobbyFs(arg0, 0xFFFF);
         }
-        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -288,23 +287,23 @@ void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
 }
 
 Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b) {
-    construct_collider_proxy__10TObjPlayerFPv(self, parent);
+    construct_collider_proxy__10TObjPlayerFv(self, parent);
     self->vt = lbl_8049F038;
     self->f_AC = a;
     self->f_B0 = b;
     fn_8002B630(self->sub, lbl_8043E1A0);
     if ((u16)obj_getField1c(self) == 0xFFFF) {
-        set_item_count__6TLobbyFPvs(self, pop_free_id__6TLobbyFv());
+        set_item_count__6TLobbyFs(self, pop_free_id__6TLobbyFv());
     }
     initialize_linked_object_reference(self, self->sub);
-    reset_photon_effect__10TObjPlayerFPv(self);
+    reset_photon_effect__10TObjPlayerFv(self);
     disallow_rendering__7TObjectFv(self);
     return self;
 }
 
 }
 
-void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TItemEffFlame::play_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     spawn_particle_effect(arg3, 0x45);
     play_sound_effect(0x4001C112, 0, 0, 0);
 }
@@ -316,7 +315,7 @@ void render__7TObjectFv(void);
 void render_shadows__7TObjectFv(void);
 void TLobby__sub_801A1FD8(void);
 void apply_object_set_data(void);
-void release_member_90__10TObjPlayerFPv(void *);
+void release_member_90__10TObjPlayerFv(void *);
 void update_object_view_visibility(void);
 void classify_actor_view_detail(void);
 void TObjRoomId__sub_801A1E2C(void);
@@ -330,7 +329,7 @@ void *lbl_8049F038[14] = {
     0, 0, (void *)destroy__13TItemEffFlameFPvs, (void *)notify_hit__13TItemEffFlameFPv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
     (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
-    (void *)release_member_90__10TObjPlayerFPv, (void *)notify_hit_and_get_pos__13TItemEffFlameFPv,
+    (void *)release_member_90__10TObjPlayerFv, (void *)notify_hit_and_get_pos__13TItemEffFlameFPv,
     (void *)update_object_view_visibility, (void *)classify_actor_view_detail,
     (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568,
 };

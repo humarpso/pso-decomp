@@ -5,6 +5,7 @@
 
 struct TWindow
 {
+    void close_sub_windows();
 };
 
 #endif

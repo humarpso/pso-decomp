@@ -6,7 +6,7 @@ s32 get_quest_bgm_issued_flag();
 void *__nw__7TObjectFUl(s32);
 s32 fn_80350440(void *, void *, u32);
 extern void *tl_05;
-u8 get_slot_count__14TItemProShieldFPv();
+u8 get_slot_count__14TItemProShieldFv();
 void *item_object_variant_deleting_dtor_80350530(void *arg0, s16 arg1);
 void *fn_80350588(void *arg0);
 void TItemObject__ct(void *);
@@ -30,7 +30,7 @@ void create_quest_bgm_object(s32 arg0, u32 arg1) {
 }
 
 void fn_80350504(void) {
-    ((s32 (*)(s32, int))create_quest_bgm_object)((s32)tl_05, (u8)get_slot_count__14TItemProShieldFPv());
+    ((s32 (*)(s32, int))create_quest_bgm_object)((s32)tl_05, (u8)get_slot_count__14TItemProShieldFv());
 }
 
 void *item_object_variant_deleting_dtor_80350530(void *arg0, s16 arg1) {

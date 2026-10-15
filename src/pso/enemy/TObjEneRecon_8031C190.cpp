@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 struct Stack_8031C190 {
     s32 sp8;
@@ -11,12 +12,12 @@ u8 * csnVectorUnder(s32, void *, s32);
 void set_active__12TObjEneReconFv(void);
 extern s32 actor_frame_tick;
 extern const f32 TObjEneRecon__data_805DF3C0;
-void update_ground_probe__12TObjEneReconFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void update_ground_probe__12TObjEneReconFPv(u8 *arg0) {
+void TObjEneRecon::update_ground_probe() {
+    u8 *arg0 = (u8 *)this;
     Stack_8031C190 stack;
     u8 *temp_r3;
     if ((actor_frame_tick % 5) == 0) {

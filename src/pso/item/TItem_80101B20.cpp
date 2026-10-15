@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 struct TItem_80101B20 {
     u8 pad[0xD8];
     s32 id;
@@ -13,17 +14,16 @@ extern "C" {
 void *memcpy(void *, const void *, u32);
 extern s32 item_registry_count;
 extern TItem_80101B20 **item_registry_sorted_entries;
-s32 unregister_item__5TItemFPv(TItem_80101B20 *item);
 void *memcpy(void *, const void *, u32);
 extern s32 item_registry_count;
 extern TItem_80101B20 **item_registry_sorted_entries;
 extern s32 lbl_805D5450;
-s32 insert_sorted_by_id__5TItemFPv(TItem_80101BE4 *item);
 }
 
 extern "C" {
 
-s32 unregister_item__5TItemFPv(TItem_80101B20 *item) {
+s32 TItem::unregister_item() {
+    TItem_80101B20 *item = (TItem_80101B20 *)this;
     s32 lo;
     s32 id;
     s32 mid;
@@ -49,7 +49,8 @@ s32 unregister_item__5TItemFPv(TItem_80101B20 *item) {
     }
     return -1;
 }
-s32 insert_sorted_by_id__5TItemFPv(TItem_80101BE4 *item) {
+s32 TItem::insert_sorted_by_id() {
+    TItem_80101BE4 *item = (TItem_80101BE4 *)this;
     s32 id;
     s32 lo;
     s32 mid;

@@ -27,7 +27,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_psycho_wand(s32 arg0);
-s32 construct_target_cursor_records__10TObjPlayerFi(s32);
+s32 construct_target_cursor_records__10TObjPlayerFv(s32);
 u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_8012BCD4_lbl_804A4F60 psycho_wand_weapon_vtable;
@@ -40,7 +40,7 @@ extern "C" {
 u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &psycho_wand_weapon_vtable.value;
-    construct_target_cursor_records__10TObjPlayerFi((s32) (arg0 + 0x208));
+    construct_target_cursor_records__10TObjPlayerFv((s32) (arg0 + 0x208));
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x22);
     *(s32 *)((s8 *)arg0 + 0x278) = 0;
     *(f32 *)((s8 *)arg0 + 0x274) = (f32) lbl_805DAEC8;

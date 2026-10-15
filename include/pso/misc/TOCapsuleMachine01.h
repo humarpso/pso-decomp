@@ -13,6 +13,11 @@ struct TOCapsuleMachine01
     void* m_38;
     u8 _pad3C[0x24];
     u32 m_60;
+    static void run_task();
+    void render();
+    static void *create(void *arg0);
+    static void reset_static_state();
+    static void alloc_and_load_resource();
 };
 
 #endif

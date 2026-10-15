@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcNFW01.h"
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 
@@ -91,9 +92,9 @@ struct RecoveredGlobal_8014CD7C___vt__12TObjNpcNFW00 {
 };
 
 extern "C" {
-s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 init_position_vectors__10TObjPlayerFv(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
-s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
+s32 construct_female_base__17TObjNpcFemaleBaseFv(void *);
 extern s32 __vt__12TObjNpcNFW00[];
 extern s32 TObjNpcNFW00__name;
 extern s32 *TObjNpcNFW00__named_object_resource;
@@ -105,29 +106,27 @@ extern u32 TObjNpcNFW01__shared_object_resource;
 extern u32 TObjNpcNFW01__texture_gvm;
 extern char lbl_8043FDC8[];
 extern char lbl_8043FDDC[];
-void load_resources__12TObjNpcNFW01Fv(void);
 }
 
 extern "C" {
 
 void * TObjNpcNFW01__create(void *arg0);
 void *__dt__12TObjNpcNFW00Fv(void *arg0, s16 arg1);
-void free_resources__12TObjNpcNFW01Fv(void);
-void free_nodes_with_id__6TLobbyFUi(void*);
+void free_nodes_with_id__6TLobbyFUl(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcNFW01__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *, int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+void destroy_npc_female_base__17TObjNpcFemaleBaseFs(void *, int);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern s32 __vt__12TObjNpcNFW00[];
 
 void *__dt__12TObjNpcNFW00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjNpcNFW00;
-        destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(arg0, 0);
+        destroy_npc_female_base__17TObjNpcFemaleBaseFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -139,11 +138,11 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014CD7C___vt__12TObjNpcNFW00_size[sizeof(RecoveredGlobal_8014CD7C___vt__12TObjNpcNFW00) == 0x178 ? 1 : -1];
 u8 *TObjNpcNFW00__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_female_base__17TObjNpcFemaleBaseFPv((void *) (arg0));
+    construct_female_base__17TObjNpcFemaleBaseFv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014CD7C___vt__12TObjNpcNFW00 *)&__vt__12TObjNpcNFW00).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcNFW00__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    init_position_vectors__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *TObjNpcNFW00__named_object_resource;
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) TObjNpcNFW00__texture_gvm_handle;
     setup_common__11TObjNpcBaseFv((void *) (arg0));
@@ -167,18 +166,18 @@ void * TObjNpcNFW01__create(void *arg0) {
 extern u32 TObjNpcNFW01__shared_object_resource;
 extern u32 TObjNpcNFW01__texture_gvm;
 
-void free_resources__12TObjNpcNFW01Fv(void) {
+void TObjNpcNFW01::free_resources() {
     if ((u32) TObjNpcNFW01__texture_gvm != 0U) {
         TLobby__sub_803DA16C((void*)TObjNpcNFW01__texture_gvm);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjNpcNFW01__texture_gvm);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(TObjNpcNFW01__texture_gvm);
         TObjNpcNFW01__texture_gvm = 0U;
     }
     if ((u32) TObjNpcNFW01__shared_object_resource != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcNFW01__shared_object_resource);
+        free_nodes_with_id__6TLobbyFUl((void*)TObjNpcNFW01__shared_object_resource);
         TObjNpcNFW01__shared_object_resource = 0U;
     }
 }
-void load_resources__12TObjNpcNFW01Fv(void) {
+void TObjNpcNFW01::load_resources() {
     TObjNpcNFW01__shared_object_resource = (u32)create_named_object(lbl_8043FDC8);
     TObjNpcNFW01__texture_gvm = (u32)load_gvm_texture_file(lbl_8043FDDC);
 }

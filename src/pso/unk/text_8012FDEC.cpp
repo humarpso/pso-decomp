@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-s32 approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
+s32 approach_value__20TItemEffOrgaFlowShotFPfff(void *, f32, f32);
 s32 play_sound_effect(int, int, int, int);
 extern const f32 lbl_805DAFD0;
 extern const f32 lbl_805DAFD4;
@@ -23,8 +23,8 @@ void madam_umbrella_close(u8 *arg0) {
             var_r31 = 1;
         }
     }
-    approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x1FC), (f32) (lbl_805DAFD8), (f32) (lbl_805DAFD0));
-    approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x200), (f32) (lbl_805DAFD4), (f32) (lbl_805DAFD0));
+    approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x1FC), (f32) (lbl_805DAFD8), (f32) (lbl_805DAFD0));
+    approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x200), (f32) (lbl_805DAFD4), (f32) (lbl_805DAFD0));
     if (var_r31 == 1) {
         play_sound_effect((int) (0x4001AA24), (int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x38), (int) (0), (int) (0));
     }

@@ -100,37 +100,36 @@ struct Obj_8011F710 { u8 pad[0x1D1]; u8 cur; u8 pad2[0x1DC - 0x1D2]; Stats_8011F
 
 extern "C" {
 s32 obj_getField1c(void *);
-s8 get_field_ed__10TObjPlayerFPv(void *);
+s8 get_field_ed__10TObjPlayerFv(void *);
 s8 TObjPlayer__sub_80102C30();
-s8 get_slot_count__14TItemProShieldFPv(void *);
+s8 get_slot_count__14TItemProShieldFv(void *);
 s32 play_weapon_hit_sound(void *);
-s32 reset_status_block__10TObjPlayerFPv(void *);
+s32 reset_status_block__10TObjPlayerFv(void *);
 f32 get_attack_accuracy_scale(void *);
 s32 apply_camera_shake__10TObjPlayerFiii(void *, void *, int);
-s32 calc_photon_blast_charge__10TObjPlayerFv(void *, int);
+s32 calc_photon_blast_charge__10TObjPlayerFPvl(void *, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
 extern const f32 lbl_805DAC98;
 void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
-s32 lookup_item_data__20TWindowSubStatusDispFPv(void *);
+s32 lookup_item_data__20TWindowSubStatusDispFv(void *);
 Item_8011F760 *get_weapon_range_record(void *, s32);
-u32 get_attack_flags__11TItemWeaponFPv(void *self);
-s32 is_active_in_game__10TObjPlayerFPv(void*);
-s32 get_flag_40__8TItemMagFPv(void*);
+s32 is_active_in_game__10TObjPlayerFv(void*);
+s32 get_flag_40__8TItemMagFv(void*);
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 get_attack_stage__11TItemWeaponFPv(void*);
-s32 reset_status_block__10TObjPlayerFPv(void *);
-s8 get_field_ed__10TObjPlayerFPv(void *);
-s8 get_slot_count__14TItemProShieldFPv(void *);
+s32 get_attack_stage__11TItemWeaponFv(void*);
+s32 reset_status_block__10TObjPlayerFv(void *);
+s8 get_field_ed__10TObjPlayerFv(void *);
+s8 get_slot_count__14TItemProShieldFv(void *);
 void play_weapon_owner_sounds(void*);
-u32 test_flags_1b8__10TObjPlayerFPvUi(void*,u32);
+u32 test_flags_1b8__10TObjPlayerFUl(void*,u32);
 s32 obj_getField1c(void *);
 void spawn_effect__11TBoss4Type3Fsss(s16,s16,s16);
-s32 is_mode_two_and_ready__10TObjPlayerFPv(void*);
+s32 is_mode_two_and_ready__10TObjPlayerFv(void*);
 void set_status_flags__10TObjPlayerFPvUi(void*,u32);
-void draw_status_icon__10TObjPlayerFPvi(void*,WeaponVector*);
+void draw_status_icon__10TObjPlayerFl(void*,WeaponVector*);
 void fire_shot_at_target__11TItemWeaponFv(void*,WeaponVector*,s32,s32);
-void update_active_game_effect__10TObjPlayerFPv(void*);
+void update_active_game_effect__10TObjPlayerFv(void*);
 
 s32 refresh_owner_stats__5TItemFPv(Obj_8011F710 *arg0);
 s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1);
@@ -148,15 +147,15 @@ s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1) {
     return 1;
 }
 
-u32 get_attack_flags__11TItemWeaponFPv(void *self) {
+u32 TItemWeapon::get_attack_flags() {
     u32 flags = 0;
     Item_8011F760 *it;
-    if (lookup_item_data__20TWindowSubStatusDispFPv(self) == 3) {
+    if (lookup_item_data__20TWindowSubStatusDispFv(this) == 3) {
         flags |= 2;
     } else {
         flags |= 1;
     }
-    it = get_weapon_range_record(self, 0);
+    it = get_weapon_range_record(this, 0);
     if (it != 0 && it->count > 1) {
         flags |= 4;
     }
@@ -202,13 +201,13 @@ void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3,
                     (*(s32 (**)(s32, void *, s32, s32))((s8 *)arg0 + 0x1F4))(tl_05, arg0, obj_getField1c((void *) (arg2)), arg4);
                 }
                 temp_r31_2 = (s32) var_f31_2;
-                calc_photon_blast_charge__10TObjPlayerFv((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (temp_r31_2));
+                calc_photon_blast_charge__10TObjPlayerFPvl((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (temp_r31_2));
                 temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
                 ((VObj_18_f8c4e0 *)(temp_r3_2))->m73();
                 apply_camera_shake__10TObjPlayerFiii((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (void *) (arg2), (int) (temp_r31_2));
-                reset_status_block__10TObjPlayerFPv((void *) (&stack.sp8));
-                stack.sp8 = get_field_ed__10TObjPlayerFPv((void *) (arg0));
-                stack.sp9 = get_slot_count__14TItemProShieldFPv((void *) (arg0));
+                reset_status_block__10TObjPlayerFv((void *) (&stack.sp8));
+                stack.sp8 = get_field_ed__10TObjPlayerFv((void *) (arg0));
+                stack.sp9 = get_slot_count__14TItemProShieldFv((void *) (arg0));
                 stack.spC = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
                 stack.sp14 = (u8 *)(arg2);
                 stack.sp18 = arg4;
@@ -223,32 +222,32 @@ void TItemWeapon::dispatch_attack_marker() {
     WeaponMarkerPacket packet;
     WeaponVector gun_point;
     WeaponVector fallback_point;
-    if (is_active_in_game__10TObjPlayerFPv(self) && !get_flag_40__8TItemMagFPv(self) && reset_key_machine_state__10TObjPlayerFv()) {
+    if (is_active_in_game__10TObjPlayerFv(self) && !get_flag_40__8TItemMagFv(self) && reset_key_machine_state__10TObjPlayerFv()) {
         self->heading=self->player->heading;
-        self->stage=get_attack_stage__11TItemWeaponFPv(self);
-        reset_status_block__10TObjPlayerFPv((void *)(&packet));
-        packet.kind=get_field_ed__10TObjPlayerFPv((void *)(self));
-        packet.variant=get_slot_count__14TItemProShieldFPv((void *)(self));
+        self->stage=get_attack_stage__11TItemWeaponFv(self);
+        reset_status_block__10TObjPlayerFv((void *)(&packet));
+        packet.kind=get_field_ed__10TObjPlayerFv((void *)(self));
+        packet.variant=get_slot_count__14TItemProShieldFv((void *)(self));
         packet.player=self->player;
         play_weapon_owner_sounds(&packet);
-        if(test_flags_1b8__10TObjPlayerFPvUi(self,0x40000)) {
+        if(test_flags_1b8__10TObjPlayerFUl(self,0x40000)) {
             spawn_effect__11TBoss4Type3Fsss(0x80,5,(s16)obj_getField1c((void *)(self->player)));
-        } else if(test_flags_1b8__10TObjPlayerFPvUi(self,0x80000) && is_mode_two_and_ready__10TObjPlayerFPv(self)) {
+        } else if(test_flags_1b8__10TObjPlayerFUl(self,0x80000) && is_mode_two_and_ready__10TObjPlayerFv(self)) {
             spawn_effect__11TBoss4Type3Fsss(0x80,5,(s16)obj_getField1c((void *)(self->player)));
         }
         self->emit_marker_effects();
         set_status_flags__10TObjPlayerFPvUi(self,0x1000000);
-        if(!test_flags_1b8__10TObjPlayerFPvUi(self,2)) {
-            if(test_flags_1b8__10TObjPlayerFPvUi(self,0x8000)) {
-                draw_status_icon__10TObjPlayerFPvi(self,&gun_point);
+        if(!test_flags_1b8__10TObjPlayerFUl(self,2)) {
+            if(test_flags_1b8__10TObjPlayerFUl(self,0x8000)) {
+                draw_status_icon__10TObjPlayerFl(self,&gun_point);
                 fire_shot_at_target__11TItemWeaponFv(self,&gun_point,self->projectile,0);
                 return;
             }
-            if(test_flags_1b8__10TObjPlayerFPvUi(self,0x20000)) {
-                update_active_game_effect__10TObjPlayerFPv(self);
+            if(test_flags_1b8__10TObjPlayerFUl(self,0x20000)) {
+                update_active_game_effect__10TObjPlayerFv(self);
                 return;
             }
-            draw_status_icon__10TObjPlayerFPvi(self,&fallback_point);
+            draw_status_icon__10TObjPlayerFl(self,&fallback_point);
             self->deliver_projectile(&fallback_point,0,0,1);
         }
     }

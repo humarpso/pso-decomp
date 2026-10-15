@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcFemaleBase.h"
 
 struct VBase18_801482f8 { char pad[0x18]; };
 struct VObj18_801482f8 : VBase18_801482f8 {
@@ -288,8 +289,6 @@ struct Lim_8014854C { u8 pad0[8]; s32 lim; };
 
 extern "C" {
 s32 approach_angle_limited(s32, s32, s32);
-void update_standing__11TObjNpcBaseFPv(u8 *arg0);
-void activate_idle_mode__11TObjNpcBaseFPv(void *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
 void move_with_wall_slide(void *);
 void enemy_set_heading_velocity(void *, s32, f32);
@@ -297,7 +296,7 @@ void select_enemy_destination(void *, void *, s32);
 void enemy_turn_toward_dest(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-void update_collisions__10TObjPlayerFPv(void *);
+void update_collisions__10TObjPlayerFv(void *);
 void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
@@ -311,12 +310,11 @@ extern const f32 lbl_805DB1D0;
 extern const f32 lbl_805DB1D4;
 extern const f32 lbl_805DB1D8;
 extern const f32 lbl_805DB1DC;
-void update_wandering__11TObjNpcBaseFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 check_player_flag1__6TLobbyFPv(void *);
+s32 check_player_flag1__6TLobbyFv(void *);
 s32 update_active_player__11TCameraCtrlFv(void);
 s32 update_battle_camera__11TCameraCtrlFv(void);
 u32 create_conversation_camera(int);
@@ -324,9 +322,9 @@ s32 end_conversation_camera(void);
 s32 begin_conversation_camera(void);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-s32 send_6x3E__10TNpcPlayerFi(void *);
-s32 init_6x3E_packet__10TNpcPlayerFPv(void *);
-void update_collisions__10TObjPlayerFPv(void *);
+s32 send_6x3E__10TNpcPlayerFv(void *);
+s32 init_6x3E_packet__10TNpcPlayerFv(void *);
+void update_collisions__10TObjPlayerFv(void *);
 s32 send_code_45_1__10TObjPlayerFi(void *);
 u32 get_player_by_client_id();
 void *__ct__12TQuestThreadFv(void *, u32, s32);
@@ -338,63 +336,60 @@ extern const f64 lbl_8043F550[];
 extern s32 local_client_id;
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
-void update_conversation__11TObjNpcBaseFPv(u8 *arg0);
 void TObjNpcBase__sub_80149358(void *, s32);
 void TObjNpcBase__sub_80149360(void *, s32);
 extern const f32 lbl_805DB1B8;
 extern const f32 lbl_805DB1BC;
 extern const f32 lbl_805DB1C0;
-void apply_set_params__11TObjNpcBaseFv(u8 *arg0, s32 arg1, s32 arg2);
 s32 fn_8010319C();
 u32 get_player_by_client_id();
 s32 debug_printf_at(s32, const char *, ...);
 extern char lbl_8043F544[];
-void debug_draw_talk__17TObjNpcFemaleBaseFPv(void *arg0);
 }
 
 extern "C" {
 
 void TObjPlayer__sub_80148D80(void);
-void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1);
 u32 get_player_by_client_id();
 s32 play_effect_default__10TObjPlayerFii(u32, s32);
 
 extern s32 local_client_id;
 
-void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
+void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
     u32 temp_r3;
 
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x3A8) > 0) {
+    if ((s32) *(s32 *)((s8 *)this + 0x3A8) > 0) {
         if ((s32) arg1 == (s32) local_client_id) {
             temp_r3 = get_player_by_client_id();
-            if ((temp_r3 != 0U) && ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 3)) {
-                *(s16 *)((s8 *)arg0 + 0x326) = 3;
-                *(s16 *)((s8 *)arg0 + 0x328) = 0;
-                *(u16 *)((s8 *)arg0 + 0x94) = arg1;
-                *(u16 *)((s8 *)arg0 + 0x338) = arg1;
-                *(u32 *)((s8 *)arg0 + 0x2A8) = temp_r3;
-                if ((s32) *(u16 *)((s8 *)arg0 + 0x338) == (s32) local_client_id) {
+            if ((temp_r3 != 0U) && ((s16) *(s16 *)((s8 *)this + 0x326) != 3)) {
+                *(s16 *)((s8 *)this + 0x326) = 3;
+                *(s16 *)((s8 *)this + 0x328) = 0;
+                *(u16 *)((s8 *)this + 0x94) = arg1;
+                *(u16 *)((s8 *)this + 0x338) = arg1;
+                *(u32 *)((s8 *)this + 0x2A8) = temp_r3;
+                if ((s32) *(u16 *)((s8 *)this + 0x338) == (s32) local_client_id) {
                     play_effect_default__10TObjPlayerFii(temp_r3, -1);
                 }
-                ((VObj18_801482f8 *) arg0)->vf160(1);
-                *(s32 *)((s8 *)arg0 + 0x2AC) = 0;
+                ((VObj18_801482f8 *) this)->vf160(1);
+                *(s32 *)((s8 *)this + 0x2AC) = 0;
             }
         } else {
-            *(u16 *)((s8 *)arg0 + 0x94) = 0xFFFFU;
-            *(u16 *)((s8 *)arg0 + 0x338) = 0xFFFFU;
+            *(u16 *)((s8 *)this + 0x94) = 0xFFFFU;
+            *(u16 *)((s8 *)this + 0x338) = 0xFFFFU;
         }
     }
 }
 
 #define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
 
-void debug_draw_talk__17TObjNpcFemaleBaseFPv(void *arg0) {
-    if ((fn_8010319C() != 0) && (((u32 (*)(u16))get_player_by_client_id)(*(u16 *)((u8 *)arg0 + 0x94)) != 0)) {
+void TObjNpcFemaleBase::debug_draw_talk() {
+    if ((fn_8010319C() != 0) && (((u32 (*)(u16))get_player_by_client_id)(*(u16 *)((u8 *)this + 0x94)) != 0)) {
         debug_printf_at(0x1A0020, lbl_8043F544);
     }
 }
 
-void apply_set_params__11TObjNpcBaseFv(u8 *arg0, s32 arg1, s32 arg2) {
+void TObjNpcBase::apply_set_params(s32 arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x368);
     if (temp_r0 <= arg1) {
@@ -424,7 +419,8 @@ void apply_set_params__11TObjNpcBaseFv(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x398) = (f32) lbl_805DB1C0;
 }
 
-void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
+void TObjNpcBase::update_conversation() {
+    u8 *arg0 = (u8 *)this;
     Pkt_8014854C pkt1;
     Pkt_8014854C pkt2;
     Vec_8014854C d;
@@ -448,22 +444,22 @@ void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
         case 0x41F:
             F(s16, 0x328) = 1;
             ((VObj_18_f3aa6a *)arg0)->m86(0);
-            init_6x3E_packet__10TNpcPlayerFPv(&pkt1);
+            init_6x3E_packet__10TNpcPlayerFv(&pkt1);
             pkt1.id = obj_getField1c(F(void *, 0x2A8));
             VecCopy__FP3VecPC3Vec(&pkt1.pos, F(u8 *, 0x2A8) + 0x38);
             pkt1.ang = ang + 0x8000;
-            send_6x3E__10TNpcPlayerFi(&pkt1);
+            send_6x3E__10TNpcPlayerFv(&pkt1);
             break;
         default:
             if (angle_difference_abs(F(s32, 0x60), ang) < F(Lim_8014854C *, 0x350)->lim) {
                 F(s16, 0x328) = 1;
                 F(s32, 0x60) = ang;
                 ((VObj_18_f3aa6a *)arg0)->m86(0);
-                init_6x3E_packet__10TNpcPlayerFPv(&pkt2);
+                init_6x3E_packet__10TNpcPlayerFv(&pkt2);
                 pkt2.id = obj_getField1c(F(void *, 0x2A8));
                 VecCopy__FP3VecPC3Vec(&pkt2.pos, F(u8 *, 0x2A8) + 0x38);
                 pkt2.ang = F(s32, 0x60) + 0x8000;
-                send_6x3E__10TNpcPlayerFi(&pkt2);
+                send_6x3E__10TNpcPlayerFv(&pkt2);
             } else {
                 F(s32, 0x60) = approach_angle_limited(F(s32, 0x60), ang, F(Lim_8014854C *, 0x350)->lim);
             }
@@ -540,7 +536,7 @@ void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
             }
             if (F(void *, 0x2A8) != 0 && local_client_id == obj_getField1c(F(void *, 0x2A8))) {
                 p = ((u32 (*)(s32))get_player_by_client_id)(local_client_id);
-                if (p != 0 && check_player_flag1__6TLobbyFPv((void *)p) != 0) {
+                if (p != 0 && check_player_flag1__6TLobbyFv((void *)p) != 0) {
                     send_code_45_1__10TObjPlayerFi((void *)p);
                 }
             }
@@ -555,10 +551,11 @@ void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
         F(void *, 0x3B0) = 0;
         break;
     }
-    update_collisions__10TObjPlayerFPv(arg0);
+    update_collisions__10TObjPlayerFv(arg0);
 }
 
-void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
+void TObjNpcBase::update_wandering() {
+    u8 *arg0 = (u8 *)this;
     switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 0: {
         Vec_801489B8 v;
@@ -613,10 +610,11 @@ void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
         }
         break;
     }
-    update_collisions__10TObjPlayerFPv(arg0);
+    update_collisions__10TObjPlayerFv(arg0);
 }
 
-void update_standing__11TObjNpcBaseFPv(u8 *arg0) {
+void TObjNpcBase::update_standing() {
+    u8 *arg0 = (u8 *)this;
     switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 0:
         if (*(s32 *)((s8 *)arg0 + 0x60) != *(s32 *)((s8 *)arg0 + 0x384)) {
@@ -640,19 +638,19 @@ void update_standing__11TObjNpcBaseFPv(u8 *arg0) {
     }
 }
 
-void activate_idle_mode__11TObjNpcBaseFPv(void *arg0) {
+void TObjNpcBase::activate_idle_mode() {
     s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     if ((temp_r0 >= 4) || (temp_r0 < 1)) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x368) != 1) {
-            *(s16 *)((s8 *)arg0 + 0x326) = 1;
-            *(s16 *)((s8 *)arg0 + 0x328) = 0;
-            ((VObj18_801482f8 *) arg0)->vf160(0);
+        if ((s32) *(s32 *)((s8 *)this + 0x368) != 1) {
+            *(s16 *)((s8 *)this + 0x326) = 1;
+            *(s16 *)((s8 *)this + 0x328) = 0;
+            ((VObj18_801482f8 *) this)->vf160(0);
             return;
         }
-        *(s16 *)((s8 *)arg0 + 0x326) = 2;
-        *(s16 *)((s8 *)arg0 + 0x328) = 0;
-        ((VObj18_801482f8 *) arg0)->vf160(0);
+        *(s16 *)((s8 *)this + 0x326) = 2;
+        *(s16 *)((s8 *)this + 0x328) = 0;
+        ((VObj18_801482f8 *) this)->vf160(0);
     }
 }
 

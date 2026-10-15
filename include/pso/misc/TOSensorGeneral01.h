@@ -20,6 +20,10 @@ struct TOSensorGeneral01
     u32 m_e8;
     u32 m_ec;
     u32 m_f0;
+    void render();
+    void *create();
+    static void free_rocks();
+    static void load_assets();
 };
 
 #endif

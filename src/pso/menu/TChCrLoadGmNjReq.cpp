@@ -24,7 +24,8 @@ void strncpy(void *, void *, int);
 extern s32 __vt__16TChCrLoadGmNjReq[];
 extern void *lbl_805D3B58;
 
-void run_task__16TChCrLoadGmNjReqFv(u8 *arg0) {
+void TChCrLoadGmNjReq::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x70) - 1;

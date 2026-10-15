@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void start_weapon_recoil__10TObjPlayerFPv(void* p);
-
-void start_weapon_recoil__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x1fc) = 1; }
+void TObjPlayer::start_weapon_recoil() { *(s32*)((char*)this + 0x1fc) = 1; }
 
 }

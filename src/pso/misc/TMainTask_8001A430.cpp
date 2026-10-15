@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 
 extern "C" {
 
-s32 get_state_flag__9TMainTaskFv(void);
-
 extern s32 some_main_task_flag;
 
-s32 get_state_flag__9TMainTaskFv(void) {
+s32 TMainTask::get_state_flag() {
     return some_main_task_flag;
 }
 

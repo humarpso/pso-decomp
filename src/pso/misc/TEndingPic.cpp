@@ -57,7 +57,6 @@ struct T_80353018 { u8 pad0[0xF0]; VObj_18_c82b17 *obj; };
 extern "C" {
 s32 TKeyBoardControl__sub_8000F828(void);
 void __ct__7TObjectFP7TObject(void *, void *);
-void init_positions__10TEndingPicFPv(void* a0);
 int get_ending_ab_wall_texture_list(void);
 extern RecoveredGlobal_80352F6C___vt__10TEndingPic __vt__10TEndingPic;
 extern s32 lbl_805D4378;
@@ -65,7 +64,6 @@ extern s32 TEndingPic__animation_state;
 extern s32 ending_pic_wall_texture_list;
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805DFF30;
-void send_obj_position_event__10TEndingPicFPvi(T_80353018 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -77,14 +75,6 @@ void TEndingPic__sub_80353134(void* p);
 void TEndingPic__sub_80353194(void *arg0);
 void TEndingPic__sub_803531D0(void* a0);
 void TEndingPic__sub_803531F8(void);
-void advance_animation_state__10TEndingPicFPv(void *arg0);
-void draw_current_pic__10TEndingPicFPv(u8 *arg0);
-void init_positions__10TEndingPicFPv(void* a0);
-void render__10TEndingPicFv(s32 arg0);
-void run_task__10TEndingPicFv(void* p);
-void set_phase_18__10TEndingPicFPv(void* p);
-void update_player_object__10TEndingPicFPv(void *arg0);
-void update_shield__10TEndingPicFPv(void *arg0);
 int send_nearby_player_ids(void*, f32);
 s32 add_actor_hp(s32, s32);
 s32 add_actor_tp(s32, s32);
@@ -92,15 +82,15 @@ s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
 s32 set_draw_texture_and_color(int, int);
-s32 get_field_2b8__14TItemProShieldFPv(s32);
+s32 get_field_2b8__14TItemProShieldFv(s32);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 obj_getS16_2BA(s32);
-s32 set_global_param__8TObjFishFi(s32);
-s32 update_flag890_state__10TObjPlayerFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
+s32 update_flag890_state__10TObjPlayerFl(s32);
 
 extern s32 TEndingPic__animation_state;
 
-void advance_animation_state__10TEndingPicFPv(void *arg0) {
+void TEndingPic::advance_animation_state() {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;
@@ -111,51 +101,51 @@ void advance_animation_state__10TEndingPicFPv(void *arg0) {
 
     switch ((s32) TEndingPic__animation_state) {
     case 1:
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
-        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3;
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0xEC);
+        temp_r3 = *(s32 *)((s8 *)this + 0x1C) + 1;
+        *(s32 *)((s8 *)this + 0x1C) = temp_r3;
+        temp_r4 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 > (s32) ((temp_r4 * 3) - temp_r4)) {
             TEndingPic__animation_state = 2;
-            update_flag890_state__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
-            *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
+            update_flag890_state__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x24));
+            *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
         }
         break;
     case 2:
-        temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
-        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3_2;
-        if (temp_r3_2 > (s32) (*(s32 *)((s8 *)arg0 + 0xEC) * 0xD)) {
+        temp_r3_2 = *(s32 *)((s8 *)this + 0x1C) + 1;
+        *(s32 *)((s8 *)this + 0x1C) = temp_r3_2;
+        if (temp_r3_2 > (s32) (*(s32 *)((s8 *)this + 0xEC) * 0xD)) {
             TEndingPic__animation_state = 3;
             return;
         }
         break;
     case 3:
-        temp_r3_3 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
-        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3_3;
-        temp_r4_2 = *(s32 *)((s8 *)arg0 + 0xEC);
+        temp_r3_3 = *(s32 *)((s8 *)this + 0x1C) + 1;
+        *(s32 *)((s8 *)this + 0x1C) = temp_r3_3;
+        temp_r4_2 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3_3 > (s32) ((temp_r4_2 * 0xE) - temp_r4_2)) {
             TEndingPic__animation_state = 4;
-            update_flag890_state__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
-            *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
+            update_flag890_state__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x24));
+            *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
             return;
         }
         break;
     case 4:
-        temp_r3_4 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
-        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3_4;
-        if (temp_r3_4 > (s32) (*(s32 *)((s8 *)arg0 + 0xEC) * 0x18)) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+        temp_r3_4 = *(s32 *)((s8 *)this + 0x1C) + 1;
+        *(s32 *)((s8 *)this + 0x1C) = temp_r3_4;
+        if (temp_r3_4 > (s32) (*(s32 *)((s8 *)this + 0xEC) * 0x18)) {
+            *(s32 *)((s8 *)this + 0x1C) = 0;
             TEndingPic__animation_state = 1;
-            temp_r0 = *(s32 *)((s8 *)arg0 + 0x28) + 1;
-            *(s32 *)((s8 *)arg0 + 0x28) = temp_r0;
+            temp_r0 = *(s32 *)((s8 *)this + 0x28) + 1;
+            *(s32 *)((s8 *)this + 0x28) = temp_r0;
             if (temp_r0 > 5) {
-                *(s32 *)((s8 *)arg0 + 0x28) = 5;
+                *(s32 *)((s8 *)this + 0x28) = 5;
                 TEndingPic__animation_state = 5;
                 return;
             }
         }
         break;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0x28) = 5;
+        *(s32 *)((s8 *)this + 0x28) = 5;
         break;
     }
 }
@@ -163,7 +153,8 @@ void advance_animation_state__10TEndingPicFPv(void *arg0) {
 extern s32 TEndingPic__animation_state;
 extern const f32 lbl_805DFEF0;
 
-void draw_current_pic__10TEndingPicFPv(u8 *arg0) {
+void TEndingPic::draw_current_pic() {
+    u8 *arg0 = (u8 *)this;
     begin_screen_draw((int) (1));
     switch ((s32) TEndingPic__animation_state) {
     case 1:
@@ -198,19 +189,20 @@ void draw_current_pic__10TEndingPicFPv(u8 *arg0) {
     extern const float lbl_805DFF20;
     extern const float lbl_805DFF24;
     extern const float lbl_805DFF28;
-void init_positions__10TEndingPicFPv(void* a0) { *(float*)((char*)a0 + 0x2c) = lbl_805DFEF4; *(float*)((char*)a0 + 0x30) = lbl_805DFEF8; *(float*)((char*)a0 + 0x34) = lbl_805DFEFC; *(float*)((char*)a0 + 0x38) = lbl_805DFF00; *(float*)((char*)a0 + 0x3c) = lbl_805DFF04; *(float*)((char*)a0 + 0x40) = lbl_805DFEF8; *(float*)((char*)a0 + 0x44) = lbl_805DFF08; *(float*)((char*)a0 + 0x48) = lbl_805DFF0C; *(float*)((char*)a0 + 0x4c) = lbl_805DFEF8; *(float*)((char*)a0 + 0x50) = lbl_805DFEF8; *(float*)((char*)a0 + 0x54) = lbl_805DFF10; *(float*)((char*)a0 + 0x58) = lbl_805DFF00; *(float*)((char*)a0 + 0x5c) = lbl_805DFEF8; *(float*)((char*)a0 + 0x60) = lbl_805DFEF8; *(float*)((char*)a0 + 0x64) = lbl_805DFF04; *(float*)((char*)a0 + 0x68) = lbl_805DFF0C; *(float*)((char*)a0 + 0x6c) = lbl_805DFEF4; *(float*)((char*)a0 + 0x70) = lbl_805DFEF8; *(float*)((char*)a0 + 0x74) = lbl_805DFEFC; *(float*)((char*)a0 + 0x78) = lbl_805DFF00; *(float*)((char*)a0 + 0x7c) = lbl_805DFF04; *(float*)((char*)a0 + 0x80) = lbl_805DFEF8; *(float*)((char*)a0 + 0x84) = lbl_805DFF08; *(float*)((char*)a0 + 0x88) = lbl_805DFF0C; *(float*)((char*)a0 + 0x8c) = lbl_805DFEF8; *(float*)((char*)a0 + 0x90) = lbl_805DFEF8; *(float*)((char*)a0 + 0x94) = lbl_805DFF10; *(float*)((char*)a0 + 0x98) = lbl_805DFF00; *(float*)((char*)a0 + 0x9c) = lbl_805DFEF8; *(float*)((char*)a0 + 0xa0) = lbl_805DFEF8; *(float*)((char*)a0 + 0xa4) = lbl_805DFF04; *(float*)((char*)a0 + 0xa8) = lbl_805DFF0C; *(float*)((char*)a0 + 0xac) = lbl_805DFF14; *(float*)((char*)a0 + 0xb0) = lbl_805DFF18; *(float*)((char*)a0 + 0xb4) = lbl_805DFF1C; *(float*)((char*)a0 + 0xb8) = lbl_805DFF20; *(float*)((char*)a0 + 0xbc) = lbl_805DFEF8; *(float*)((char*)a0 + 0xc0) = lbl_805DFEF8; *(float*)((char*)a0 + 0xc4) = lbl_805DFF08; *(float*)((char*)a0 + 0xc8) = lbl_805DFF08; *(float*)((char*)a0 + 0xcc) = lbl_805DFF14; *(float*)((char*)a0 + 0xd0) = lbl_805DFF24; *(float*)((char*)a0 + 0xd4) = lbl_805DFF1C; *(float*)((char*)a0 + 0xd8) = lbl_805DFF28; *(float*)((char*)a0 + 0xdc) = lbl_805DFEF8; *(float*)((char*)a0 + 0xe0) = lbl_805DFEF8; *(float*)((char*)a0 + 0xe4) = lbl_805DFF08; *(float*)((char*)a0 + 0xe8) = lbl_805DFF08; }
+void TEndingPic::init_positions() { *(float*)((char*)this + 0x2c) = lbl_805DFEF4; *(float*)((char*)this + 0x30) = lbl_805DFEF8; *(float*)((char*)this + 0x34) = lbl_805DFEFC; *(float*)((char*)this + 0x38) = lbl_805DFF00; *(float*)((char*)this + 0x3c) = lbl_805DFF04; *(float*)((char*)this + 0x40) = lbl_805DFEF8; *(float*)((char*)this + 0x44) = lbl_805DFF08; *(float*)((char*)this + 0x48) = lbl_805DFF0C; *(float*)((char*)this + 0x4c) = lbl_805DFEF8; *(float*)((char*)this + 0x50) = lbl_805DFEF8; *(float*)((char*)this + 0x54) = lbl_805DFF10; *(float*)((char*)this + 0x58) = lbl_805DFF00; *(float*)((char*)this + 0x5c) = lbl_805DFEF8; *(float*)((char*)this + 0x60) = lbl_805DFEF8; *(float*)((char*)this + 0x64) = lbl_805DFF04; *(float*)((char*)this + 0x68) = lbl_805DFF0C; *(float*)((char*)this + 0x6c) = lbl_805DFEF4; *(float*)((char*)this + 0x70) = lbl_805DFEF8; *(float*)((char*)this + 0x74) = lbl_805DFEFC; *(float*)((char*)this + 0x78) = lbl_805DFF00; *(float*)((char*)this + 0x7c) = lbl_805DFF04; *(float*)((char*)this + 0x80) = lbl_805DFEF8; *(float*)((char*)this + 0x84) = lbl_805DFF08; *(float*)((char*)this + 0x88) = lbl_805DFF0C; *(float*)((char*)this + 0x8c) = lbl_805DFEF8; *(float*)((char*)this + 0x90) = lbl_805DFEF8; *(float*)((char*)this + 0x94) = lbl_805DFF10; *(float*)((char*)this + 0x98) = lbl_805DFF00; *(float*)((char*)this + 0x9c) = lbl_805DFEF8; *(float*)((char*)this + 0xa0) = lbl_805DFEF8; *(float*)((char*)this + 0xa4) = lbl_805DFF04; *(float*)((char*)this + 0xa8) = lbl_805DFF0C; *(float*)((char*)this + 0xac) = lbl_805DFF14; *(float*)((char*)this + 0xb0) = lbl_805DFF18; *(float*)((char*)this + 0xb4) = lbl_805DFF1C; *(float*)((char*)this + 0xb8) = lbl_805DFF20; *(float*)((char*)this + 0xbc) = lbl_805DFEF8; *(float*)((char*)this + 0xc0) = lbl_805DFEF8; *(float*)((char*)this + 0xc4) = lbl_805DFF08; *(float*)((char*)this + 0xc8) = lbl_805DFF08; *(float*)((char*)this + 0xcc) = lbl_805DFF14; *(float*)((char*)this + 0xd0) = lbl_805DFF24; *(float*)((char*)this + 0xd4) = lbl_805DFF1C; *(float*)((char*)this + 0xd8) = lbl_805DFF28; *(float*)((char*)this + 0xdc) = lbl_805DFEF8; *(float*)((char*)this + 0xe0) = lbl_805DFEF8; *(float*)((char*)this + 0xe4) = lbl_805DFF08; *(float*)((char*)this + 0xe8) = lbl_805DFF08; }
 
 extern s32 TEndingPic__animation_state;
 extern s32 ending_pic_wall_texture_list;
 
-void render__10TEndingPicFv(s32 arg0) {
+void TEndingPic::render() {
+    s32 arg0 = (s32)this;
     if ((s32) TEndingPic__animation_state != 0) {
-        set_global_param__8TObjFishFi(ending_pic_wall_texture_list);
-        draw_current_pic__10TEndingPicFPv((u8 *)(arg0));
+        set_global_param__8TObjFishFl(ending_pic_wall_texture_list);
+        draw_current_pic();
     }
 }
 
-void run_task__10TEndingPicFv(void* p) { advance_animation_state__10TEndingPicFPv((void *)(p)); }
+void TEndingPic::run_task() { advance_animation_state(); }
 
     extern int ending_ab_wall_texture_list;
 
@@ -226,7 +218,7 @@ u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     ending_pic_wall_texture_list = ((s32)get_ending_ab_wall_texture_list());
-    init_positions__10TEndingPicFPv((void*)(arg0));
+    ((TEndingPic *)arg0)->init_positions();
     temp_r3 = TKeyBoardControl__sub_8000F828();
     switch (temp_r3) {
     case 0:
@@ -241,7 +233,8 @@ u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
 
 int get_ending_ab_wall_texture_list(void) {  return ending_ab_wall_texture_list; }
 
-void send_obj_position_event__10TEndingPicFPvi(T_80353018 *arg0, s32 arg1) {
+void TEndingPic::send_obj_position_event(s32 arg1) {
+    T_80353018 *arg0 = (T_80353018 *)this;
     VObj_18_c82b17 *o = arg0->obj;
     if (o != NULL) {
         Q_80353018 q;
@@ -254,21 +247,21 @@ void send_obj_position_event__10TEndingPicFPvi(T_80353018 *arg0, s32 arg1) {
     }
 }
 
-void set_phase_18__10TEndingPicFPv(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(18)); }
-void TEndingPic__sub_803530A0(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(17)); }
+void TEndingPic::set_phase_18() { send_obj_position_event((s32)(18)); }
+void TEndingPic__sub_803530A0(void* p) { ((TEndingPic *)p)->send_obj_position_event((s32)(17)); }
 
-void update_player_object__10TEndingPicFPv(void *arg0) {
-    void *temp_r3 = *(void **)((s8 *)arg0 + 0xF0);
+void TEndingPic::update_player_object() {
+    void *temp_r3 = *(void **)((s8 *)this + 0xF0);
     if (is_locally_controlled__10TObjPlayerFPv(temp_r3) != 0) {
-        struct VObj_803530C4_80352BB8 *o = (struct VObj_803530C4_80352BB8 *)*(void **)((s8 *)arg0 + 0xF0);
+        struct VObj_803530C4_80352BB8 *o = (struct VObj_803530C4_80352BB8 *)*(void **)((s8 *)this + 0xF0);
         o->m47();
     }
 }
 
-void TEndingPic__sub_80353110(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(16)); }
-void TEndingPic__sub_80353134(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(15)); }
-void update_shield__10TEndingPicFPv(void *arg0) {
-    add_actor_hp(*(s32 *)((s8 *)arg0 + 0xF0), get_field_2b8__14TItemProShieldFPv(*(s32 *)((s8 *)arg0 + 0xF0)));
+void TEndingPic__sub_80353110(void* p) { ((TEndingPic *)p)->send_obj_position_event((s32)(16)); }
+void TEndingPic__sub_80353134(void* p) { ((TEndingPic *)p)->send_obj_position_event((s32)(15)); }
+void TEndingPic::update_shield() {
+    add_actor_hp(*(s32 *)((s8 *)this + 0xF0), get_field_2b8__14TItemProShieldFv(*(s32 *)((s8 *)this + 0xF0)));
 }
 void TEndingPic__sub_80353194(void *arg0) {
     add_actor_tp(*(s32 *)((s8 *)arg0 + 0xF0), obj_getS16_2BA(*(s32 *)((s8 *)arg0 + 0xF0)));

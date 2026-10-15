@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/TObjControl.h"
 #include "pso/enemy/TObjEnemy.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Ply_800F7118 {
     u8 pad0[0x28];
@@ -23,7 +24,6 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void link_into_group_chain__10TObjPlayerFPv(Ply_800F7118 *self);
 u16 obj_getField1c(void *);
 extern u32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D586C;
@@ -416,14 +416,14 @@ struct Plr_800F6BF0 : VBase_800F6BF0 {
     virtual void m12(s32);
 };
 
-s32 add_capped_counter_999__10TObjPlayerFPvi(void *, s32);
+s32 add_capped_counter_999__10TObjPlayerFl(void *, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void add_to_field_2ce__10TObjPlayerFPvi(void *, int);
-s16 get_atp__10TObjPlayerFPv(void *);
-void add_to_field_2ca__10TObjPlayerFPvi(void *, int);
-s16 get_field_2c2__10TObjPlayerFPv(void *);
-void add_to_field_2c8__10TObjPlayerFPvi(void *, int);
-s16 get_field_2c0__10TObjPlayerFPv(void *);
+void add_to_field_2ce__10TObjPlayerFi(void *, int);
+s16 get_atp__10TObjPlayerFv(void *);
+void add_to_field_2ca__10TObjPlayerFi(void *, int);
+s16 get_field_2c2__10TObjPlayerFv(void *);
+void add_to_field_2c8__10TObjPlayerFi(void *, int);
+s16 get_field_2c0__10TObjPlayerFv(void *);
 f32 TObjPlayer__sub_800192C4(s32, s32);
 u16 obj_getArrU16_FC(void *, int);
 s32 obj_testFlag_2E4(void *, u32);
@@ -436,11 +436,11 @@ u16 obj_getField1c(void *);
 void obj_setFlags30(void *, s32);
 s32 is_split_screen();
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_3e4__10TObjPlayerFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
-void copy_xyz__10TObjPlayerFPvPv(void *, void *);
-s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
-void copy_header__6TLobbyFPvPv(void *, void *);
+void copy_xyz__10TObjPlayerFPv(void *, void *);
+s32 exchange_object_state__6TLobbyFls(void *, void *, int);
+void copy_header__6TLobbyFPv(void *, void *);
 s32 set_flag_3__7TObjectFv(int);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
@@ -454,22 +454,17 @@ void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
 s32 send_6x0A_enemy_state(void *, void *);
 s32 update_and_send_enemy_hit_state(u8 *self, s32 kind);
 void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673C *arg1);
-void call_vt78__10TObjPlayerFPv(void *arg0);
 void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1);
-void refresh_lobby_state__10TObjPlayerFPv(void* p);
-int query_lobby_state__10TObjPlayerFPv(void* p);
 void distribute_experience(TObjPlayer_800F6B68 *self);
 void award_enemy_experience(u8 *arg0, s32 arg1);
-void update_prev_position__10TObjPlayerFPv(u8 *arg0);
 void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
 void unlink_enemy_group_relations(u8 *arg0);
-s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0);
 void apply_by_index__9TObjEnemyFs(s16, void *);
 s32 clear_flag_3__7TObjectFv(int);
-void bswap_field__6TLobbyFPv(void *);
-void broadcast_state__6TLobbyFPv(void* p);
+void bswap_field__6TLobbyFv(void *);
+void broadcast_state__6TLobbyFv(void* p);
 void init_6x9C_enemy_low_game_flags_packet(u8 *arg0);
-void bswap_enemy_state__6TLobbyFPv(void *);
+void bswap_enemy_state__6TLobbyFv(void *);
 s32 get_attack_credit_slot_count(void *);
 f32 TLobby__sub_800F7A6C();
 f32 TLobby__sub_800F7A7C();
@@ -479,7 +474,7 @@ s32 fn_801B0480(void *, void *, s32);
 s32 draw_player_status(void *, void *, s32 *);
 s32 submit_cursor_candidate(int, int);
 Plr_800F6BF0 * get_player_by_client_id(u16);
-u8 get_rule_field_0__6TLobbyFPv(void *);
+u8 get_rule_field_0__6TLobbyFv(void *);
 s32 minimap_render_dot(void *, int, int, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -602,7 +597,7 @@ void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0) {
     if (game_difficulty_selection != 3) {
         return;
     }
-    bswap_field__6TLobbyFPv(arg0);
+    bswap_field__6TLobbyFv(arg0);
     if (arg0->id < 0x1000) {
         return;
     }
@@ -647,16 +642,16 @@ void send_6x9C_enemy_low_game_flags(Obj_800F641C *self, s32 arg) {
     init_6x9C_enemy_low_game_flags_packet((u8 *)&msg);
     msg.id = self->id;
     msg.arg = arg;
-    broadcast_state__6TLobbyFPv(&msg);
+    broadcast_state__6TLobbyFv(&msg);
 }
 
 void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0) {
     Hdr_800F6464 sp;
     u16 idx;
     Ene_800F6464 *e;
-    bswap_enemy_state__6TLobbyFPv(arg0);
+    bswap_enemy_state__6TLobbyFv(arg0);
     idx = arg0->f4;
-    copy_header__6TLobbyFPvPv(&sp, &TLobby__data_805D6144[idx]);
+    copy_header__6TLobbyFPv(&sp, &TLobby__data_805D6144[idx]);
     sp.y = arg0->f6;
     if (game_difficulty_selection == 3) {
         sp.w &= 0x3F;
@@ -676,7 +671,7 @@ s32 update_and_send_enemy_hit_state(u8 *self, s32 kind) {
     s32 ret;
     ret = 0;
     if (*(u16 *)(self + 0x1C) >= 0x1000 && *(u16 *)(self + 0x1C) < 0x4000) {
-        exchange_object_state__6TLobbyFPvis(self, &pkt, 1);
+        exchange_object_state__6TLobbyFls(self, &pkt, 1);
         pkt.diff = *(s16 *)(self + 0x2B8) - *(s16 *)(self + 0x32C);
         pkt.id = *(s32 *)(self + 0x30);
         switch (kind) {
@@ -691,7 +686,7 @@ s32 update_and_send_enemy_hit_state(u8 *self, s32 kind) {
             pkt.bv = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(self, 3) / lbl_805DA8C4 - lbl_805DA8C8);
             break;
         }
-        ret = exchange_object_state__6TLobbyFPvis(self, &pkt, 0);
+        ret = exchange_object_state__6TLobbyFls(self, &pkt, 0);
         if (ret != 0) {
             send_6x0A_enemy_state(self, &pkt);
         }
@@ -743,8 +738,8 @@ void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673
     }
 }
 
-void call_vt78__10TObjPlayerFPv(void *arg0) {
-    struct VObj_800F6960 *o = (struct VObj_800F6960 *)arg0;
+void TObjPlayer::call_vt78() {
+    struct VObj_800F6960 *o = (struct VObj_800F6960 *)this;
     o->m78();
 }
 
@@ -753,7 +748,7 @@ void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1) {
     arg0->f1C = arg1->f6;
     VecCopy__FP3VecPC3Vec(&arg0->v50, &arg1->v10);
     VecCopy__FP3VecPC3Vec(&arg0->v38, &arg0->v50);
-    copy_xyz__10TObjPlayerFPvPv(&arg0->v5C, &arg1->v1C);
+    copy_xyz__10TObjPlayerFPv(&arg0->v5C, &arg1->v1C);
     for (i = 0; i < 5; i++) {
         arg0->f354[i] = arg1->f28[i];
     }
@@ -788,9 +783,9 @@ u8 *get_enemy_entity(u16 arg0) {
     return 0;
 }
 
-void refresh_lobby_state__10TObjPlayerFPv(void* p) { distribute_experience((TObjPlayer_800F6B68 *)((void*)(p))); query_lobby_state__10TObjPlayerFPv((void*)(p)); }
+void TObjPlayer::refresh_lobby_state() { distribute_experience((TObjPlayer_800F6B68 *)((void*)(this))); query_lobby_state(); }
 
-int query_lobby_state__10TObjPlayerFPv(void* p) { return send_6x60_standard_drop_item_request(p); }
+int TObjPlayer::query_lobby_state() { return send_6x60_standard_drop_item_request(this); }
 
 void distribute_experience(TObjPlayer_800F6B68 *self) {
     s32 count;
@@ -815,17 +810,17 @@ void award_enemy_experience(u8 *arg0, s32 arg1) {
     Plr_800F6BF0 *p;
 
     if ((u16)arg1 >= 0x1000 || (p = get_player_by_client_id(arg1)) == NULL ||
-        ((s32 (*)(void *, int))obj_testFlags30)(p, 0x800) != 0 || get_field_3e4__10TObjPlayerFPv(p) != get_current_floor()) {
+        ((s32 (*)(void *, int))obj_testFlags30)(p, 0x800) != 0 || get_field_3e4__10TObjPlayerFv(p) != get_current_floor()) {
         return;
     }
     val = *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2B0)) + 0x1C);
     if ((u16)arg1 == *(u16 *)((s8 *)arg0 + 0x2D4)) {
-        if (get_rule_field_0__6TLobbyFPv(lobby_rule_settings) == 1) {
+        if (get_rule_field_0__6TLobbyFv(lobby_rule_settings) == 1) {
             fn_801B0480(p, arg0, 1);
             draw_player_status(p, p, &lbl_805DA8CC);
             draw_player_status(p, arg0, &lbl_805DA8D0);
         }
-        add_capped_counter_999__10TObjPlayerFPvi(p, 1);
+        add_capped_counter_999__10TObjPlayerFl(p, 1);
     } else {
         val = (s32)((f32)val * lbl_805DA8D4);
     }
@@ -842,7 +837,8 @@ void award_enemy_experience(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void update_prev_position__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::update_prev_position() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x2B0));
@@ -1023,7 +1019,8 @@ extern "C" {
         } \
         tail = q; \
     }
-void link_into_group_chain__10TObjPlayerFPv(Ply_800F7118 *self) {
+void TObjPlayer::link_into_group_chain() {
+    Ply_800F7118 *self = (Ply_800F7118 *)this;
     Ply_800F7118 *p;
     Ply_800F7118 *head;
     Ply_800F7118 *tail;
@@ -1126,7 +1123,8 @@ s32 TObjEnemy::countChildren() {
 }
 
 extern "C" {
-s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0) {
+s32 TObjPlayer::is_action_available() {
+    TObjEnemy*_w0 = (TObjEnemy*)this;
     return ((s32)_w0->groupRoot()) ? 1 : 0;
 }
 
@@ -1207,9 +1205,9 @@ block_14:
     *(s16 *)((s8 *)arg0 + 0x2F6) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 4);
     *(s16 *)((s8 *)arg0 + 0x2F8) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 0xA);
     *(s16 *)((s8 *)arg0 + 0x2FA) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 8);
-    add_to_field_2c8__10TObjPlayerFPvi(arg0, (s32)((f32)get_field_2c0__10TObjPlayerFPv(arg0) * TObjPlayer__sub_800192C4((s32)arg0, 2)));
-    add_to_field_2ca__10TObjPlayerFPvi(arg0, (s32)((f32)get_field_2c2__10TObjPlayerFPv(arg0) * TObjPlayer__sub_800192C4((s32)arg0, 2)));
-    add_to_field_2ce__10TObjPlayerFPvi(arg0, (s32)((f32)get_atp__10TObjPlayerFPv(arg0) * TObjPlayer__sub_800192C4((s32)arg0, 3)));
+    add_to_field_2c8__10TObjPlayerFi(arg0, (s32)((f32)get_field_2c0__10TObjPlayerFv(arg0) * TObjPlayer__sub_800192C4((s32)arg0, 2)));
+    add_to_field_2ca__10TObjPlayerFi(arg0, (s32)((f32)get_field_2c2__10TObjPlayerFv(arg0) * TObjPlayer__sub_800192C4((s32)arg0, 2)));
+    add_to_field_2ce__10TObjPlayerFi(arg0, (s32)((f32)get_atp__10TObjPlayerFv(arg0) * TObjPlayer__sub_800192C4((s32)arg0, 3)));
     return 1;
 }
 

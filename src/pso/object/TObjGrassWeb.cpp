@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjGrassWeb.h"
 
 typedef struct Web_800BC798 {
     u8 pad0[0x38];
@@ -9,9 +10,6 @@ typedef struct Web_800BC798 {
 } Web_800BC798;
 
 extern "C" {
-int queue_destruction__12TObjGrassWebFPv(void* p);
-void apply_to_player__12TObjGrassWebFPv(void *arg0);
-void run_task__12TObjGrassWebFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
 s16 obj_getField1c(u32);
 int queue_destruction__7TObjectFv(void*);
@@ -28,23 +26,20 @@ void TObjGrassWeb__sub_800BC798(Web_800BC798 *o);
 extern "C" {
 
 void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1);
-void apply_to_player__12TObjGrassWebFPv(void *arg0);
-int queue_destruction__12TObjGrassWebFPv(void* p);
-void render__12TObjGrassWebFv(void);
 s32 is_locally_controlled__10TObjPlayerFPv();
 s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(u32 *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
-s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 mem_alloc(s32);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 fill_value_array(void *);
-s32 free__11TOBoss4RockFUi(u32);
+s32 mem_free(u32);
 s32 obj_testFlags30(s32, s32);
 s32 play_effect__10TObjPlayerFiii(s32, s32, s32);
 int queue_destruction__7TObjectFv(void*);
 
-int queue_destruction__12TObjGrassWebFPv(void* p) { return queue_destruction__7TObjectFv(p); }
+int TObjGrassWeb::queue_destruction() { return queue_destruction__7TObjectFv(this); }
 
 void TObjGrassWeb__sub_800BC798(Web_800BC798 *o) {
     switch (get_global_state__14TOKeyMachine01Fv()) {
@@ -71,33 +66,34 @@ void TObjGrassWeb__sub_800BC798(Web_800BC798 *o) {
     }
 }
 
-void apply_to_player__12TObjGrassWebFPv(void *arg0) {
+void TObjGrassWeb::apply_to_player() {
     s32 temp_r3;
 
-    *(s32 *)((s8 *)arg0 + 0x90) = 1;
-    temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xA4));
+    *(s32 *)((s8 *)this + 0x90) = 1;
+    temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)this + 0xA4));
     if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
-        play_effect__10TObjPlayerFiii(temp_r3, *(s32 *)((s8 *)arg0 + 0x84), 1);
+        play_effect__10TObjPlayerFiii(temp_r3, *(s32 *)((s8 *)this + 0x84), 1);
     }
 }
 
-void run_task__12TObjGrassWebFv(u8 *arg0) {
+void TObjGrassWeb::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x90);
     switch (temp_r0) {
     case 0:
-        apply_to_player__12TObjGrassWebFPv((void *)arg0);
+        apply_to_player();
         return;
     case 1:
         TObjGrassWeb__sub_800BC798((Web_800BC798 *)(arg0));
         return;
     default:
-        queue_destruction__12TObjGrassWebFPv((void*)arg0);
+        queue_destruction();
         return;
     }
 }
 
-void render__12TObjGrassWebFv(void) {  }
+void TObjGrassWeb::render() {  }
 
 extern s32 __vt__12TObjGrassWeb[];
 

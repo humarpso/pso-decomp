@@ -8,6 +8,9 @@ public:
     virtual ~TChCrEffFade();
     virtual void run_task();
     virtual void render();
+public:
+    void update_fade();
+    static void draw_fade_strip(f32 farg0);
 };
 
 #endif

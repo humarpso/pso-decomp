@@ -3,14 +3,14 @@
 extern "C" {
 s32 TObjNewFloorWin__sub_8007410C(void);
 s32 TWindowSubComCard__sub_80244774(void);
-s32 set_count_ratio_text__20TWindowSubStatusDispFiii(int, int, int);
+s32 set_count_ratio_text__20TWindowSubStatusDispFll(int, int, int);
 void fn_8024450C(s32 arg0);
 u32 calc_text_width(void *);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowArea__ct();
 s32 fn_802449E0(int);
 u8 *get_title_entry__11TWindowRoomFv(s32);
-s32 set_entry_display_value__20TWindowSubStatusDispFPvi(int, void *);
+s32 set_entry_display_value__20TWindowSubStatusDispFl(int, void *);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
 s32 create_area_window(s32 arg0);
@@ -18,7 +18,7 @@ u32 calc_text_width(void *);
 s32 __nw__7TObjectFUl(int);
 void fn_8024450C(s32 arg0);
 s32 TWindowArea__ct();
-void *get_field_20__17TWindowSubComCardFPv(void *);
+void *get_field_20__17TWindowSubComCardFv(void *);
 s32 fn_802449E0(int);
 u8 *get_title_entry__11TWindowRoomFv(s32);
 extern const f32 lbl_805DCABC;
@@ -39,7 +39,7 @@ void fn_8024450C(s32 arg0) {
     var_r3 = var_r30;
     var_r5 = TWindowSubComCard__sub_80244774();
     var_r4 = var_r31;
-    set_count_ratio_text__20TWindowSubStatusDispFiii((int) (var_r3), (int) (var_r4), (int) (var_r5));
+    set_count_ratio_text__20TWindowSubStatusDispFll((int) (var_r3), (int) (var_r4), (int) (var_r5));
 }
 #pragma push
 #pragma fp_contract on
@@ -50,7 +50,7 @@ s32 create_area_window(s32 arg0) {
     if (var_r30 != 0) {
         var_r30 = TWindowArea__ct();
     }
-    set_entry_display_value__20TWindowSubStatusDispFPvi((int) (var_r30), (void *) (arg0));
+    set_entry_display_value__20TWindowSubStatusDispFl((int) (var_r30), (void *) (arg0));
     fn_802449E0((int) (var_r30));
     temp_r31 = (u8 *)(get_title_entry__11TWindowRoomFv(var_r30));
     *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((void *) (arg0))) - lbl_805DCABC);
@@ -70,7 +70,7 @@ s32 create_window_area(void) {
     fn_802449E0(var_r30);
     fn_8024450C(var_r30);
     temp_r31 = get_title_entry__11TWindowRoomFv(var_r30);
-    *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width(get_field_20__17TWindowSubComCardFPv(temp_r31))) - lbl_805DCABC);
+    *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width(get_field_20__17TWindowSubComCardFv(temp_r31))) - lbl_805DCABC);
     return var_r30;
 }
 #pragma pop

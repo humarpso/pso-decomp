@@ -77,6 +77,7 @@ struct TBoss2DeRolLe
     u32 m_73c;
     u8 _pad740[0x18];
     u32 m_758;
+    void set_target_player(void *player);
 };
 
 #endif

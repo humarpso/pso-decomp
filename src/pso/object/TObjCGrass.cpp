@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCGrass.h"
 
 struct Rec_800B8B08 { u8 vec[0x18]; s32 f18; u32 flags; };
 
@@ -63,9 +64,8 @@ s32 translate_matrix_vec3(int, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(int);
 s32 pop_matrices(int);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_model_motion(int, int, f32);
-void render__10TObjCGrassFv(Obj_800B8B08 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVectorUnder(void *, void *, int);
@@ -73,14 +73,13 @@ s32 vec3_add_to(void *, void *);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805D9E60;
 extern const f32 TObjCGrass__data_805D9E64;
-void run_task__10TObjCGrassFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 register_object__10TObjPlayerFi(void *);
-s32 set_field_d8__10TObjPlayerFPvi(void *, void *);
+s32 register_object__10TObjPlayerFv(void *);
+s32 set_field_d8__10TObjPlayerFl(void *, void *);
 u8 *csnVectorUnder(void *, void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 TObjMotion__ct(void *, s32);
-s32 alloc_buffer__11TOBoss4RockFPv(int);
+s32 mem_alloc(int);
 s32 rand(void);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -104,12 +103,11 @@ extern "C" {
 
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1);
 void* fn_800B8B00(void* p);
-void release_global_805D5130__10TObjCGrassFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 get_group_id__14TObjEneBm5WolfFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
-void free__11TOBoss4RockFUi(void *);
+void mem_free(void *);
 
 struct Stack_800B8DC4 {
     s32 sp8;
@@ -118,10 +116,10 @@ struct Stack_800B8DC4 {
     s32 sp14;
 };
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(s32 *, s32 *);
-s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
+s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 struct RecoveredGlobal_800B8DC4_lbl_8043B628 {
     s32 value;
     u8 remaining[0xC];
@@ -142,15 +140,15 @@ typedef char RecoveredGlobal_800B8DC4_lbl_80492500_size[sizeof(RecoveredGlobal_8
 extern RecoveredGlobal_800B8DC4_lbl_80492500 bm_ene_cgrass_resource_descriptor;
 extern const f32 TObjCGrass__data_805D9E64;
 extern const f32 lbl_805D9E68;
-void load_resources__10TObjCGrassFv(void);
 
 void* fn_800B8B00(void* p) { return (char*)p + 0x3e8; }
 
 extern u32 TObjCGrass_bml_resource;
 
-void render__10TObjCGrassFv(Obj_800B8B08 *arg0) {
+void TObjCGrass::render() {
+    Obj_800B8B08 *arg0 = (Obj_800B8B08 *)this;
     s32 i;
-    set_global_param__8TObjFishFi(arg0->f24);
+    set_global_param__8TObjFishFl(arg0->f24);
     for (i = 0; i < arg0->count; i++) {
         if (!(arg0->recs[i].flags & 1)) {
             push_matrix_from(0);
@@ -163,7 +161,8 @@ void render__10TObjCGrassFv(Obj_800B8B08 *arg0) {
     }
 }
 
-void run_task__10TObjCGrassFv(u8 *arg0) {
+void TObjCGrass::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 i;
     Grass_800B8BB4 *self = (Grass_800B8BB4 *)arg0;
     Vec_800B8BB4 a;
@@ -207,14 +206,14 @@ void run_task__10TObjCGrassFv(u8 *arg0) {
     }
 }
 
-void release_global_805D5130__10TObjCGrassFv(void) {
+void TObjCGrass::release_global_805D5130() {
     if ((u32) TObjCGrass_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjCGrass_bml_resource, 1);
         TObjCGrass_bml_resource = 0U;
     }
 }
 
-void load_resources__10TObjCGrassFv(void) {
+void TObjCGrass::load_resources() {
     Stack_800B8DC4 stack;
 
     u8 *temp_r3;
@@ -224,7 +223,7 @@ void load_resources__10TObjCGrassFv(void) {
     if (check_v2_mode__9TObjEneDDFv() != 0) {
         TObjCGrass_bml_resource = (u32) load_enemy_bml_resource_named(&bm_ene_cgrass_resource_descriptor.value, &lbl_8043B638.value);
     } else {
-        temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
+        temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFv(0x440));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &bm_ene_cgrass_resource_descriptor.value, 0, 0, 0));
@@ -237,7 +236,7 @@ void load_resources__10TObjCGrassFv(void) {
     stack.sp14 = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)TObjCGrass_bml_resource + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)TObjCGrass_bml_resource + 0x42C));
-    spawn_npc_enemy__6TLobbyFsiiiff((int) (0x36), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9E68), (f32) (TObjCGrass__data_805D9E64));
+    spawn_npc_enemy__6TLobbyFslllff((int) (0x36), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9E68), (f32) (TObjCGrass__data_805D9E64));
 }
 
 extern s32 __vt__10TObjCGrass[];
@@ -245,7 +244,7 @@ extern s32 __vt__10TObjCGrass[];
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCGrass;
-        if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xFC)); }
+        if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xFC)); }
         __dt__10TObjMotionFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -259,7 +258,7 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
     u8 *hit;
     TObjMotion__ct(self, tl_06);
     self->vt = __vt__10TObjCGrass;
-    register_object__10TObjPlayerFi(self->f10C);
+    register_object__10TObjPlayerFv(self->f10C);
     self->f0 = lbl_805D2A28;
     hit = csnVectorUnder(arg1, self->f10C, 1);
     if (hit != NULL) {
@@ -271,12 +270,12 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
     self->f24 = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->src->fC;
     self->fDC = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->f430;
     self->fD8 = cgrass_action_desc;
-    set_field_d8__10TObjPlayerFPvi(self, self->fD8);
+    set_field_d8__10TObjPlayerFl(self, self->fD8);
     set_animation__10TObjPlayerFPvs(self, 0);
     self->f100 = self->fC4 - lbl_805D9E6C;
     self->count = arg2;
     if (arg2 != 0) {
-        self->recs = (Rec_800B8EFC *)alloc_buffer__11TOBoss4RockFPv(self->count << 5);
+        self->recs = (Rec_800B8EFC *)mem_alloc(self->count << 5);
     } else {
         self->recs = NULL;
     }

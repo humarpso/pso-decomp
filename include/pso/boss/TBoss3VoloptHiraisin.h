@@ -31,6 +31,13 @@ struct TBoss3VoloptHiraisin
     u32 m_37c;
     u8 _pad380[0xC];
     u32 m_38c;
+    static void init_models();
+    static void *create(void *arg0);
+    void load_params_from_table(s32 i);
+    void set_hit_flags_and_notify();
+    void spawn_effects();
+    void damage_player_if_aligned();
+    void update_state();
 };
 
 #endif

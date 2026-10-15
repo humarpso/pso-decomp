@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTechnique.h"
 
 struct Base_80286B0C { char pad[0x18]; };
 struct VObj_80286B0C : Base_80286B0C {
@@ -14,10 +15,9 @@ VV(31)VV(32)VV(33)
 
 extern "C" {
 
-void get_selection__19TWindowSubTechniqueFPvPvi(s16 *arg0, s32 *arg1, s32 arg2);
 void *get_player_by_client_id(s32);
 
-void get_selection__19TWindowSubTechniqueFPvPvi(s16 *arg0, s32 *arg1, s32 arg2) {
+void TWindowSubTechnique::get_selection(s16 *arg0, s32 *arg1, s32 arg2) {
     void *temp_r3;
 
     temp_r3 = get_player_by_client_id(arg2);

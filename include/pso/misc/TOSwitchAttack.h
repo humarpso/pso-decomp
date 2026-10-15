@@ -17,6 +17,11 @@ struct TOSwitchAttack
     u8 m_a6;
     u8 m_a7;
     u32 m_a8;
+    static void create_sub(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
+    void init_params();
+    static void render();
+    void run_task();
+    static void *create(void *arg0);
 };
 
 #endif

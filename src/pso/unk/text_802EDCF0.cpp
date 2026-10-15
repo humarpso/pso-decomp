@@ -22,10 +22,10 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 free_if_positive__13TBoss2DeRolLeFis(void *, int);
 s32 __dt__9TObjEneDDFv(void *, int);
 s32 delete_buffer__12TBoss8DragonFis(void *, int);
-s32 free__11TOBoss4RockFUi(s32);
+s32 mem_free(s32);
 s32 clear_obj_links(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_child__8TObjFishFPv(void *);
+s32 destroy_child__8TObjFishFv(void *);
 extern s32 TBoss7DeRolLeC__vtable[];
 extern u32 boss7_joint_state;
 u8 *fn_802EDCF0(u8 *arg0, s16 arg1);
@@ -48,7 +48,7 @@ u8 *fn_802EDCF0(u8 *arg0, s16 arg1) {
                 o->f788[i] = 0;
             }
         }
-        free__11TOBoss4RockFUi(o->f6D4);
+        mem_free(o->f6D4);
         o->f6D4 = 0;
         if (o->f71C != 0) {
             queue_destruction__7TObjectFv(o->f71C);
@@ -70,12 +70,12 @@ u8 *fn_802EDCF0(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(o->f6DC[i]);
             o->f6DC[i] = 0;
         }
-        free__11TOBoss4RockFUi(o->f6D8);
+        mem_free(o->f6D8);
         clear_obj_links(arg0);
         if (boss7_joint_state == (u32) arg0) {
             boss7_joint_state = 0;
         }
-        destroy_child__8TObjFishFPv(arg0);
+        destroy_child__8TObjFishFv(arg0);
         __dt__7TObjectFv(arg0 + 0x690, -1);
         free_if_positive__13TBoss2DeRolLeFis(arg0 + 0x670, -1);
         free_if_positive__13TBoss2DeRolLeFis(arg0 + 0x650, -1);

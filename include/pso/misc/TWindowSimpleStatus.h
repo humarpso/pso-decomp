@@ -11,6 +11,8 @@ struct TWindowSimpleStatus
     void* m_24;
     u8 _pad28[0x38];
     u32 m_60;
+    void run_task();
+    void *create(void *arg1);
 };
 
 #endif

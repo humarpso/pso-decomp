@@ -40,6 +40,16 @@ struct TObjEneMe1CanadinLeader
     u32 m_4d0;
     u8 _pad4D4[0x20];
     u32 m_4f4;
+    static void update_formation_state(void *arg0);
+    static void *create(void *arg0);
+    void set_flag3c8_bit40();
+    void set_flag3c8_bit20();
+    void set_flag3c8_bit8();
+    void set_attack_flag();
+    void set_leader_index(s32 arg1, s32 arg2);
+    static void update_fade_sequence(void *pv);
+    static f32 get_status_value_f32();
+    static void *create_canadin(void *arg0, void *arg1, void *arg2, void *arg3);
 };
 
 #endif

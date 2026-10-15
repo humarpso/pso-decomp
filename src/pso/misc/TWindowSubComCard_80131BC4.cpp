@@ -1,28 +1,26 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 
-int is_keyboard_active__17TWindowSubComCardFPv(void* p);
-s32 realloc_buffer__17TWindowSubComCardFPv(void *arg0);
-int update_keyboard__17TWindowSubComCardFPv(void* p);
 s32 export_keyboard_text(s32, s32);
-s32 measure_text_overflow__19TWindowKeyBoardSoftFPv(s32);
-s32 alloc_buffer__11TOBoss4RockFPv();
-int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
-int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
+s32 measure_text_overflow__19TWindowKeyBoardSoftFv(s32);
+s32 mem_alloc();
+int get_field_6c__19TWindowKeyBoardSoftFv(void*);
+int get_keyboard_field_6c__15TWindowMakeTeamFv(void* p);
 int is_active__16TKeyBoardControlFPv(void*);
 int is_key_active__16TKeyBoardControlFPv(void*);
 
-s32 realloc_buffer__17TWindowSubComCardFPv(void *arg0) {
+s32 TWindowSubComCard::realloc_buffer() {
     s32 temp_r3;
 
-    measure_text_overflow__19TWindowKeyBoardSoftFPv(*(s32 *)((s8 *)arg0 + 0x20));
-    temp_r3 = alloc_buffer__11TOBoss4RockFPv();
-    export_keyboard_text(*(s32 *)((s8 *)arg0 + 0x20), temp_r3);
+    measure_text_overflow__19TWindowKeyBoardSoftFv(*(s32 *)((s8 *)this + 0x20));
+    temp_r3 = mem_alloc();
+    export_keyboard_text(*(s32 *)((s8 *)this + 0x20), temp_r3);
     return temp_r3;
 }
 
-int is_keyboard_active__17TWindowSubComCardFPv(void* p) { return is_active__16TKeyBoardControlFPv(*(void**)((char*)p + 0x20)); }
-int update_keyboard__17TWindowSubComCardFPv(void* p) { return is_key_active__16TKeyBoardControlFPv(*(void**)((char*)p + 0x20)); }
+int TWindowSubComCard::is_keyboard_active() { return is_active__16TKeyBoardControlFPv(*(void**)((char*)this + 0x20)); }
+int TWindowSubComCard::update_keyboard() { return is_key_active__16TKeyBoardControlFPv(*(void**)((char*)this + 0x20)); }
 
 }

@@ -77,7 +77,7 @@ __declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table;
 extern u8 *current_render_context;
 void set_cached_blend_factor(s32 arg0, s32 arg1);
 s32 get_current_matrix(void *);
-s32 apply_quat_rotation__10TObjPlayerFPvf(void *, f32);
+s32 apply_quat_rotation__10TObjPlayerFf(void *, f32);
 s32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -173,7 +173,7 @@ void traverse_model_node_tree(struct N_803DC9E4 *p, s32 (*cb)(s32)) {
                 if (f & 0x1000) {
                     copy_rotation_to_current_matrix((struct Mtx_803DC994 *) (node_saved_matrix));
                 } else if (f & 0x400) {
-                    ((s32 (*)(f32, void *))apply_quat_rotation__10TObjPlayerFPvf)(p->f34, p->m14);
+                    ((s32 (*)(f32, void *))apply_quat_rotation__10TObjPlayerFf)(p->f34, p->m14);
                 } else {
                     rotate_matrix_by_node_angles(p->m14, (void *) (f & 0x20));
                 }

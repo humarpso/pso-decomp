@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TEffIndirectCtrl.h"
 
 extern "C" {
 extern u32 indirect_effect_tile_buffer;
@@ -18,13 +19,12 @@ extern "C" {
 void TEffIndirectCtrl__sub_802A9548(void* p);
 u8 TEffIndirectCtrl__sub_802A9554(void* p);
 void TEffIndirectCtrl__sub_802A955C(void* p);
-void free_buffers__16TEffIndirectCtrlFv(void);
 void xfree__FPv(void*);
 
 extern u32 indirect_recipe_buffer;
 extern u32 indirect_effect_tile_buffer;
 
-void free_buffers__16TEffIndirectCtrlFv(void) {
+void TEffIndirectCtrl::free_buffers() {
     if ((u32) indirect_recipe_buffer != 0U) {
         xfree__FPv((void*)indirect_recipe_buffer);
         indirect_recipe_buffer = 0U;

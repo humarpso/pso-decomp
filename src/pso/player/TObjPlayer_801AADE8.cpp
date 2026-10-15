@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Color_801AAF00 { f32 a, r, g, b; };
 
@@ -20,14 +21,14 @@ struct Self_801AAF00 {
 };
 
 extern "C" {
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
+u8 * alloc_tables__6TLobbyFll(void *, s32, s32);
 extern u8 *photon_blast_shared_resource;
 extern u32 estlla_photon_blast_model;
 void create_estlla_photon_blast_model(void);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
-s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
@@ -36,7 +37,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 translate_matrix(int, f32, f32, f32);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 s32 set_global_flag__10TObjPlayerFv();
@@ -56,8 +57,6 @@ void render__13TPhotonFarllaFPv(Self_801AAF00 *self);
 extern "C" {
 
 void TObjPlayer__sub_801AAE6C(void* a0);
-void destroy_global_buffer__10TObjPlayerFv(void);
-void update_all_slots__10TObjPlayerFPv(void *arg0);
 s32 mark_enemy_body_contacts(void *);
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
 s32 destroy_buffer_pair(void*, s32);
@@ -67,7 +66,7 @@ u32 obj_getField1c();
 
 extern u32 estlla_photon_blast_model;
 
-void destroy_global_buffer__10TObjPlayerFv(void) {
+void TObjPlayer::destroy_global_buffer() {
     if ((u32) estlla_photon_blast_model != 0U) {
         destroy_buffer_pair((void*)estlla_photon_blast_model, 1);
     }
@@ -79,26 +78,26 @@ void destroy_global_buffer__10TObjPlayerFv(void) {
 void create_estlla_photon_blast_model(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x14);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x14);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (alloc_tables__6TLobbyFPvii((void *) temp_r3, *(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x98)) + 0x2C), 0));
+        var_r0 = (long) (alloc_tables__6TLobbyFll((void *) temp_r3, *(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x98)) + 0x2C), 0));
     }
     (*(s32 *)&estlla_photon_blast_model) = var_r0;
 }
 
 void TObjPlayer__sub_801AAE6C(void* a0) { *(float*)((char*)a0 + 0x184) = lbl_805DC158; *(float*)((char*)a0 + 0x188) = lbl_805DC158; *(float*)((char*)a0 + 0x18c) = lbl_805DC158; *(float*)((char*)a0 + 0x190) = lbl_805DC158; }
 
-void update_all_slots__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::update_all_slots() {
     s32 var_r31;
 
     init_all_slots__10TObjPlayerFv();
-    mark_enemy_body_contacts(arg0);
-    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x100000) {
+    mark_enemy_body_contacts(this);
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x100000) {
         var_r31 = 0;
         do {
             if (get_battle_param__10TObjPlayerFi(var_r31) != 0U) {
-                queue_photon_blast_hit((u16) obj_getField1c(), 0, 0, *(f32 *)((s8 *)arg0 + 0x150));
+                queue_photon_blast_hit((u16) obj_getField1c(), 0, 0, *(f32 *)((s8 *)this + 0x150));
             }
             var_r31 += 1;
         } while (var_r31 < 0x10);
@@ -108,7 +107,7 @@ void render__13TPhotonFarllaFPv(Self_801AAF00 *self) {
     if (self->started != 0) {
         scroll_strip_uvs(farlla_photon_blast_model_buffers, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(self->f24);
+        set_global_param__8TObjFishFl(self->f24);
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
@@ -121,7 +120,7 @@ void render__13TPhotonFarllaFPv(Self_801AAF00 *self) {
         set_global_flag__10TObjPlayerFv();
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
-        draw__16TObjEneRe7BeruraFPv(self);
+        draw__16TObjEneRe7BeruraFv(self);
         clear_global_state__10TObjPlayerFv();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;

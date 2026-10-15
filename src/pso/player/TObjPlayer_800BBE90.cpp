@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VPad800BC050_800bc050_800BBE90 { char pad[0x18]; };
 struct VObj800BC050_800bc050_800BBE90 : VPad800BC050_800bc050_800BBE90 {
@@ -141,12 +142,10 @@ struct P_800BC250 : VB_800BC250 {
 
 extern "C" {
 extern const f32 lbl_805D9EB4;
-void call_vt16_with_default__10TObjPlayerFPv(u8 *arg0);
 extern const f32 lbl_805D9EB4;
-void call_vt13_with_default__10TObjPlayerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
 void subtract_vector(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
-void clamp_velocity__15TObjBoss2TunnelFPv(void *p);
+void clamp_velocity__15TObjBoss2TunnelFv(void *p);
 void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
 s32 obj_isState2_324(void *);
 void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
@@ -196,16 +195,14 @@ struct VObj_800bbe90 : Base_800bbe90 {
 };
 
 void TObjPlayer__sub_800BC220(void *arg0, void *arg1, void *arg2);
-void apply_hit_if_active__10TObjPlayerFPvPvPv(void *arg0, void *arg1, f32 *arg2);
-void dispatch_vt15__10TObjPlayerFPvPv(void *arg0, void *arg1);
 s32 obj_isState2_324(void *);
 
 extern const f32 lbl_805D9EB0;
 
-void apply_hit_if_active__10TObjPlayerFPvPvPv(void *arg0, void *arg1, f32 *arg2) {
-    ((VObj_800bbe90*)arg1)->m20(*(s32 *)((s8 *)arg0 + 0xAC), lbl_805D9EB0);
+void TObjPlayer::apply_hit_if_active(void *arg1, f32 *arg2) {
+    ((VObj_800bbe90*)arg1)->m20(*(s32 *)((s8 *)this + 0xAC), lbl_805D9EB0);
     if (obj_isState2_324(arg1) == 0) {
-        ((VObj_800bbe90*)arg0)->m18(arg1, *arg2);
+        ((VObj_800bbe90*)this)->m18(arg1, *arg2);
     }
 }
 
@@ -230,14 +227,14 @@ void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s) {
     Vec_800BBFD0 v;
     VecCopy__FP3VecPC3Vec(&v, &b->pos);
     subtract_vector(&v, &a->pos);
-    clamp_velocity__15TObjBoss2TunnelFPv(&v);
+    clamp_velocity__15TObjBoss2TunnelFv(&v);
     b->f308 = v.x * s + b->f308;
     b->f310 = v.z * s + b->f310;
 }
 #pragma pop
 
-void dispatch_vt15__10TObjPlayerFPvPv(void *arg0, void *arg1) {
-    ((VObj800BC050_800bc050_800BBE90*)arg0)->m15(arg1, 0);
+void TObjPlayer::dispatch_vt15(void *arg1) {
+    ((VObj800BC050_800bc050_800BBE90*)this)->m15(arg1, 0);
 }
 
 s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0) {
@@ -288,7 +285,8 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg
 
 #pragma push
 #pragma fp_contract on
-void call_vt16_with_default__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::call_vt16_with_default() {
+    u8 *arg0 = (u8 *)this;
     ((VObj *)arg0)->m16(lbl_805D9EB4);
 }
 #pragma pop
@@ -336,7 +334,8 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
     return hit;
 }
 
-void call_vt13_with_default__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::call_vt13_with_default() {
+    u8 *arg0 = (u8 *)this;
     ((VObj *)arg0)->m13(lbl_805D9EB4);
 }
 

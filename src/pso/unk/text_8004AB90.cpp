@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss4DarkFalz.h"
 
 struct Vec_8004AB90 { f32 x, y, z; };
 
@@ -21,12 +22,11 @@ extern const f32 lbl_805D8908;
 extern const f32 lbl_805D890C;
 extern const f32 lbl_805D8910;
 extern const f32 lbl_805D8914;
-void push_players_out_of_zone__14TBoss4DarkFalzFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-void push_players_out_of_zone__14TBoss4DarkFalzFii(s32 arg0, s32 arg1) {
+void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
     Vec_8004AB90 v;
     E_8004AB90 *e;
     Vec_8004AB90 *ev;

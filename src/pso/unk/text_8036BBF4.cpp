@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneHoldEffect.h"
 struct Pkt_8036BBF4 {
     u8 header[4];
     u8 params[2];
@@ -11,12 +12,12 @@ extern "C" {
 s32 validate_subcommand_client(void *);
 s32 validate_photon_blast_parameters(void *);
 s32 validate_cast_target_entry(void *);
-s32 validate_6x49_packet__17TObjEneHoldEffectFPv(struct Pkt_8036BBF4 *packet);
 }
 
 extern "C" {
 
-s32 validate_6x49_packet__17TObjEneHoldEffectFPv(struct Pkt_8036BBF4 *packet) {
+s32 TObjEneHoldEffect::validate_6x49_packet() {
+    struct Pkt_8036BBF4 *packet = (struct Pkt_8036BBF4 *)this;
     s32 i;
     if (validate_subcommand_client(packet->header) == 0) {
         return 0;

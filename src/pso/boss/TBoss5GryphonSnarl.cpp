@@ -28,12 +28,11 @@ void queue_destruction__7TObjectFv(void *);
 
 void TBoss5GryphonSnarl__sub_80066E84(void);
 void TLobby__sub_80066EC0(void);
-void render__18TBoss5GryphonSnarlFv(void);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
-void render__18TBoss5GryphonSnarlFv(void) {  }
+void TBoss5GryphonSnarl::render() {  }
 
 }
 
@@ -89,7 +88,7 @@ void TBoss5GryphonSnarl__sub_80066E88(void *self) {
 void TLobby__sub_80066EC0(void) {
     if ((u32) boss5_common_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)boss5_common_texture_list);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(boss5_common_texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUl(boss5_common_texture_list);
         boss5_common_texture_list = 0U;
     }
     TLobby__sub_8001FE7C(lbl_805D4DD8, 1);

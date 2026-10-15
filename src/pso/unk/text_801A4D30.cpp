@@ -31,10 +31,10 @@ s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv(void);
 void pso_system_load_gc(void);
 void request_scene_change__21TAdMultiChgGameModeGCFv(void);
 void TWindow__close(void *);
-void send_and_handle__6TLobbyFPvii(void *, s32, s32);
-void *update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
+void send_and_handle__6TLobbyFii(void *, s32, s32);
+void *update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8033B9F8(void *);
-void *create__16TCheckMemoryCardFPvPvPv(void *, void *, void *);
+void *create__16TCheckMemoryCardFPvPv(void *, void *, void *);
 extern Vec_801A4D30 lbl_80446940;
 extern Vec_801A4D30 lbl_8044694C;
 extern Pair_801A4D30 lbl_80446958[];
@@ -78,7 +78,7 @@ void run_memcard_check_scene(Obj_801A4D30 *self) {
         break;
     case 4:
         if (self->card == NULL) {
-            self->card = create__16TCheckMemoryCardFPvPvPv(self, NULL, NULL);
+            self->card = create__16TCheckMemoryCardFPvPv(self, NULL, NULL);
         }
         self->state = 5;
     case 5:
@@ -98,8 +98,8 @@ void run_memcard_check_scene(Obj_801A4D30 *self) {
         } else {
             Pair_801A4D30 a = lbl_80446958[0];
             Pair_801A4D30 b = lbl_80446960[0];
-            self->window = update_window_mode_from_progress__6TLobbyFiPv(&a, &b);
-            send_and_handle__6TLobbyFPvii(self->window, TQuestVmDownLoadServer__sub_8006EF6C(0xC), 1);
+            self->window = update_window_mode_from_progress__6TLobbyFPv(&a, &b);
+            send_and_handle__6TLobbyFii(self->window, TQuestVmDownLoadServer__sub_8006EF6C(0xC), 1);
             self->state = 7;
         }
         break;

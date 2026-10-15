@@ -52,7 +52,7 @@ s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_object();
 extern s32 city_common_texture_list;
 extern const f32 lbl_805DBC00;
@@ -95,7 +95,7 @@ void render_city_vertical_model(u8 *arg0) {
       ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C = ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C;
       return;
     }
-    set_global_param__8TObjFishFi((void *) city_common_texture_list);
+    set_global_param__8TObjFishFl((void *) city_common_texture_list);
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     translate_matrix((int) 0, (f32) lbl_805DBC00, (f32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C, (f32) lbl_805DBC00);
@@ -193,7 +193,7 @@ extern "C" {
 void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
-void reset_motion_fields__10TObjPlayerFPv();
+void reset_motion_fields__10TObjPlayerFv();
 void TParticleCtrl__sub_801A2124();
 void update_object_view_visibility();
 void classify_actor_view_detail();
@@ -207,7 +207,7 @@ s32 city_vertical_model_vtable[14] = {
     (s32)render_shadows__7TObjectFv,
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,
-    (s32)reset_motion_fields__10TObjPlayerFPv,
+    (s32)reset_motion_fields__10TObjPlayerFv,
     (s32)TParticleCtrl__sub_801A2124,
     (s32)update_object_view_visibility,
     (s32)classify_actor_view_detail,

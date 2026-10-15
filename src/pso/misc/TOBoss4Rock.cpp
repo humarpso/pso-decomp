@@ -1,22 +1,27 @@
 #include "types.h"
+#include "pso/misc/TOBoss4Rock.h"
 
 extern "C" {
 
 void * TObjNpcAHM01__create(void *arg0);
-int alloc_buffer__11TOBoss4RockFPv(void* p);
-void free__11TOBoss4RockFUi(u32 arg0);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcAHM01__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-s32 xfree__FPv();
-int xmalloc__FUl(void*);
+void mem_free(void *p);
+void *mem_alloc(u32 size);
+}
 
-void free__11TOBoss4RockFUi(u32 arg0) {
-    if (arg0 != 0U) {
-        xfree__FPv();
+void xfree(void *p);
+void *xmalloc(u32 size);
+
+extern "C" {
+
+void mem_free(void *p) {
+    if (p != NULL) {
+        xfree(p);
     }
 }
-int alloc_buffer__11TOBoss4RockFPv(void* p) { return xmalloc__FUl(p); }
+void *mem_alloc(u32 size) { return xmalloc(size); }
 
 extern void *tl_04;
 

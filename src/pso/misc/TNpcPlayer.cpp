@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TNpcPlayer.h"
+#include "pso/object/TObjFogCollisionPoison.h"
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
@@ -388,151 +390,107 @@ s16 obj_getS16_2BA(void *);
 s16 obj_getS16_32C(void *);
 Actor_8014F140 * get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *obj);
-int read_be16_field2__10TObjPlayerFPv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
 f32 fabs_float(f32);
 f64 atan2_float(int, f32, f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_game_mode__6TLobbyFv(void);
 s32 fn_8002B630(void *, void *);
-u8 * get_position_ptr__10TObjPlayerFPv(s32);
-u8 * get_target_ptr__11TCameraCtrlFPv(s32);
+u8 * get_position_ptr__10TObjPlayerFv(s32);
+u8 * get_target_ptr__11TCameraCtrlFv(s32);
 void __dt__12TPlyCharDataFv(void *self, s32 flag);
 void * __ct__12TPlyCharDataFv(void *self);
-s16 get_field_2b8__14TItemProShieldFPv(void *);
+s16 get_field_2b8__14TItemProShieldFv(void *);
 u8 * csnVector(s32, s32, s32);
 s32 __dl__FPv(void *);
-void * alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-s32 is_inactive__10TObjPlayerFPv(void *);
-s32 is_alive__9TObjEneDDFPv(void *);
+void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
+s32 is_inactive__10TObjPlayerFv(void *);
+s32 is_alive__9TObjEneDDFv(void *);
 s32 get_enemy_count__9TObjEneDDFv(void);
 s32 find_active_entity_by_id(void *);
-int bswap_pkt_u32x2__10TObjPlayerFPv(void*);
+int bswap_pkt_u32x2__10TObjPlayerFv(void*);
 f32 horizontal_distance_squared(void *, void *);
-u32 alloc_buffer__11TOBoss4RockFPv(s32);
-void init_equipment__10TNpcPlayerFPv(void *);
+u32 mem_alloc(s32);
+void init_equipment__10TNpcPlayerFv(void *);
 void TNpcPlayer__sub_8014DC3C(void *, s32);
 void partner_request_physical_attack(void *);
-void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1);
-void change_ai_state__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1);
-void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1);
 void deliver_partner_chatter(Npc_8014E250 *self);
-void request_chatter__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1);
 s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out);
 void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
 s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
 s32 partner_find_wall_segment(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 partner_probe_obstacles(View_8014F140 *view);
 s32 partition_sort_entries__10TNpcPlayerFiPvii(s32 self, Ent_8014F28C *a, s32 lo, s32 hi);
-void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 find_parts_in_range__10TNpcPlayerFPvPvif(View_8014F424 *view, void *pos, s32 id, f32 range);
 s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 range);
 bool is_target_line_clear__10TNpcPlayerFPvUs(u8 *arg0, u16 arg1);
-void * dt__10TNpcPlayerFPvs(void *arg0, s16 arg1);
 s32 refresh_npc_view_actor_lost(void *arg0);
 Npc_8014F844 * init_ai_state__10TNpcPlayerFPvi(Npc_8014F844 *self, s32 id);
 s32 partner_view_update_hp_change(void *arg0);
 s32 partner_view_update_conditions(u8 *arg0);
 s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1);
 s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0);
-s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 partner_view_check_moved(u8 *arg0);
-s32 check_movement_progress__10TNpcPlayerFPv(u8 *arg0);
-void render__10TNpcPlayerFv(void);
-void init_follow_target__10TNpcPlayerFPv(Npc_80150050 *arg0);
 s32 needs_movement__10TNpcPlayerFPvPvi(u8 *arg0, void * _w1, int _w2);
 void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self);
 void partner_observe_surroundings(u8 *arg0);
-void update_condition_flags__10TNpcPlayerFPv(u8 *arg0);
-void init_state__10TNpcPlayerFPv(void *arg0);
 void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind);
 void update_combat_action__10TNpcPlayerFv(Npc_80150B90 *self);
-void send_run_request__10TNpcPlayerFPv(Npc_80150DE8 *self);
-void send_walk_request__10TNpcPlayerFPv(Npc_80150E44 *self);
 s32 deliver_partner_action__10TNpcPlayerFv(void *);
 s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1);
-s32 calc_follow_goal__10TNpcPlayerFPv(u8 *arg0);
-s32 choose_attack_target__10TNpcPlayerFPv(Npc_80151708 *self);
-s32 check_return_to_leader__10TNpcPlayerFPv(Npc_801518A4 *arg0);
-s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0);
-void decide_action__10TNpcPlayerFv(u8 *arg0);
 void run_task__10TNpcPlayerFv(u8 *arg0);
 u8 * __dt__10TNpcPlayerFv(u8 *arg0, s16 arg1);
 Npc_80152168 * TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg4, void *parent);
-void copy__10TNpcPlayerFPvPv(void* p, void* q);
 Npc_80152330 * construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent);
-void ensure_rock_singleton__10TNpcPlayerFv(void);
-void register_ply_char_data_global__10TNpcPlayerFv(void);
 void set_technique_seed_level(Obj_801528A8 *self, s16 i, u8 v);
 void reset_partner_counter(s32 arg0, s32 arg1);
 void increment_partner_counter(s32 arg0, s32 arg1);
 s32 TNpcPlayer__sub_801528DC(void* p);
-s32 get_npc_state__10TNpcPlayerFPv(void* p);
 u16 get_npc_type__10TNpcPlayerFPv(void* p);
 int get_partner_counter(s32 arg0, s32 arg1);
 s32 npc_counter_reset_if_reached(s32 arg0, s32 arg1);
 int is_partner_counter_reached(s16 *table, s32 idx, s32 value);
 void set_partner_counter(s32 arg0, s32 arg1, s16 arg2);
 s32 TNpcPlayer__sub_80152978(void* p);
-s32 get_condition__10TNpcPlayerFPv(void* p);
 void copy_transform_second__10TNpcPlayerFPvPvPv(void* p, void* a1, void* a2);
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
-s32 get_action_state__10TNpcPlayerFPv(void* p);
-void reset_fields_8c__10TNpcPlayerFPv(void* p);
 s32 clamp_partner_counter(s32 arg0, s32 arg1, s16 arg2);
 void TNpcPlayer__sub_80152A30(void);
 void TNpcPlayer__sub_80152A34(u8 *arg0, s32 arg1, s32 arg2);
-void* init__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152A78(s16 *self);
-void update__10TNpcPlayerFPv(void* p);
 void bswap_6x45_packet(void* p);
 void init_6x45_attack_packet(u8 *arg0);
-void update_players__10TNpcPlayerFPv(void* p);
 void bswap_6x44_packet(void* p);
 void init_6x44_attack_packet(u8 *arg0);
-void update_lobby__10TNpcPlayerFPv(void* p);
 void bswap_6x43_packet(void* p);
 void init_6x43_attack_packet(u8 *arg0);
-void finalize_and_send_packet__10TNpcPlayerFPv(u8 *arg0);
-void byteswap_positions__10TNpcPlayerFPv(N_80152C8C *arg0);
 u8 get_6x47_cast_packet_size(u8 *arg0);
-void * init_cast_technique_cmd__10TNpcPlayerFPv(void *arg0);
 void TNpcPlayer__sub_80152D64(void* p);
-void reset_model__10TNpcPlayerFPv(void* p);
-void init_model__10TNpcPlayerFPv(void* p);
-void reset_move_state__10TNpcPlayerFPv(void* a0);
-void sync_from_lobby__10TNpcPlayerFPv(void* p);
-void swap_endian__10TNpcPlayerFPv(void* p);
 void init_6x40_walk_packet(void* a0);
-void set_field2__10TNpcPlayerFPvs(void* p, s16 v);
-void set_field_0__10TNpcPlayerFPvs(void* p, s16 v);
-void set_state__10TNpcPlayerFPvi(void* p, s32 v);
-void byteswap_pos__10TNpcPlayerFPv(void* p);
 void set_state__10TNpcPlayerFPvs(void* p, s16 v);
 void set_type__10TNpcPlayerFPvs(void* p, s16 v);
 void* fn_80152EF8(void* p);
 void TFontSmallLobby__sub_80152F28(Obj_80152F28 *self);
 int get_registered_object_count(void);
-u16 get_action_flags__10TNpcPlayerFPv(void* p);
-void update_poison_damage__22TObjFogCollisionPoisonFPv(void *arg0);
-s32 check_switch__22TObjFogCollisionPoisonFPv(s32);
-s32 apply_poison_damage__22TObjFogCollisionPoisonFPvi(s32, u16);
-s32 record_poison_hit__22TObjFogCollisionPoisonFPvUs(s32, u16);
+s32 check_switch__22TObjFogCollisionPoisonFv(s32);
+s32 apply_poison_damage__22TObjFogCollisionPoisonFl(s32, u16);
+s32 record_poison_hit__22TObjFogCollisionPoisonFUs(s32, u16);
 s32 TObjFogCollisionPoison__sub_80153520(s32);
 s32 TObjFogCollisionPoison__sub_801535D0(s32);
-s32 check_collision__16TObjFogCollisionFPvUs(s32, u16);
+s32 check_collision__16TObjFogCollisionFUs(s32, u16);
 Actor_8014F424 * find_entity_by_id(s32);
 Contact_8014F140 * find_actor_body_contact(void *, void *, f32);
 s32 free_collision_body_parts(u32);
 void init_collision_body_parts(void *, void *, s32);
-void * construct_collider_proxy__10TObjPlayerFPv(void *, void *);
-s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
+void * construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s32 get_stat_by_key_state__10TObjPlayerFv(void *);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
 void send_item_pickup_request__10TObjPlayerFi(s32);
 s32 find_inventory_item_id__10TObjPlayerFPvcc(s32, s32, s32);
 s32 try_send_6x27_use_item(s32, s32, void *);
 u32 get_player_by_client_id(u16);
 s32 try_camera_action__10TObjPlayerFii(void *, s32);
-s32 can_perform_physical_action__10TObjPlayerFi(void *);
+s32 can_perform_physical_action__10TObjPlayerFv(void *);
 s8 get_cast_technique_level(void *, s16);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
@@ -545,9 +503,9 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 Tec_80150B90 * calc_technique_parameters(s32, s32, s32);
-void open__11TWindowCtrlFiii(u16 id, char *text, s32 kind);
+void open__11TWindowCtrlFlll(u16 id, char *text, s32 kind);
 char * get_partner_custom_text(s32 state, u16 id);
-s32 is_active__12TTecReverserFPv(void *);
+s32 is_active__12TTecReverserFv(void *);
 void __register_global_object(void *obj, void *dtor, void *link);
 void __construct_array(void *, void *, int, int, int);
 s32 rand(void);
@@ -595,8 +553,8 @@ extern void *tl_05;
 
 void copy_player_visual_record(void *, void *);
 void bswap__15disp_data_part2Fv(void *);
-void free__11TOBoss4RockFUi(void *);
-void send_command__10TNpcPlayerFiciiPv(int, int, int, int, void *);
+void mem_free(void *);
+void send_command__10TNpcPlayerFlScllPSc(int, int, int, int, void *);
 extern s32 game_difficulty_selection;
 extern s32 TNpcPlayer__data_805D5864;
 
@@ -1711,7 +1669,7 @@ void *lbl_804AF630[64] = {
 };
 void *__vt__10TNpcPlayer[6] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__10TNpcPlayerFv, (void *)&run_task__10TNpcPlayerFv,
-    (void *)&render__10TNpcPlayerFv, (void *)&render_shadows__7TObjectFv,
+    (void *)&TNpcPlayer::render, (void *)&render_shadows__7TObjectFv,
 };
 
 struct Info_8014E7A0 {
@@ -1748,42 +1706,43 @@ extern Vec_8014E3B0 lbl_8043FFC4;
 s32 route_around_object__10TNpcPlayerFv(Self_8014E7A0 *self, Vec_8014E3B0 *out);
 }
 
-void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
+void TNpcPlayer::dispatch_action(s32 arg1) {
     switch (arg1) {
     case 0:
-        if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)(*(s32 *)((s8 *)arg0 + 0x78)) & 0x20) {
-            handle_action__10TNpcPlayerFPvi((void *)(arg0), (s32)(arg1));
+        if (((TNpcPlayer *)(*(s32 *)((s8 *)this + 0x78)))->get_condition() & 0x20) {
+            handle_action((s32)(arg1));
         } else {
-            ((s32 (*)(void *, s32))request_technique_cast__10TNpcPlayerFPvi)(arg0, 0xF);
+            ((s32 (*)(void *, s32))request_technique_cast__10TNpcPlayerFPvi)(this, 0xF);
         }
-        if (*(s32 *)((s8 *)arg0 + 0x80) & 0x200) {
-            request_chatter__10TNpcPlayerFPvUi((u8 *)(arg0), (u32)(0x13));
+        if (*(s32 *)((s8 *)this + 0x80) & 0x200) {
+            request_chatter((u32)(0x13));
         }
         return;
     case 1:
-        if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)(*(s32 *)((s8 *)arg0 + 0x78)) & 0x20) {
-            handle_action__10TNpcPlayerFPvi((void *)(arg0), (s32)(arg1));
+        if (((TNpcPlayer *)(*(s32 *)((s8 *)this + 0x78)))->get_condition() & 0x20) {
+            handle_action((s32)(arg1));
             return;
         }
         break;
     case 2:
-        if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)(*(s32 *)((s8 *)arg0 + 0x78)) & 0x20) {
-            handle_action__10TNpcPlayerFPvi((void *)(arg0), (s32)(arg1));
+        if (((TNpcPlayer *)(*(s32 *)((s8 *)this + 0x78)))->get_condition() & 0x20) {
+            handle_action((s32)(arg1));
             return;
         }
-        ((s32 (*)(void *, s32))request_technique_cast__10TNpcPlayerFPvi)(arg0, 0x10);
+        ((s32 (*)(void *, s32))request_technique_cast__10TNpcPlayerFPvi)(this, 0x10);
         return;
     case 3:
-        if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)(*(s32 *)((s8 *)arg0 + 0x78)) & 0x20) {
-            handle_action__10TNpcPlayerFPvi((void *)(arg0), (s32)(arg1));
+        if (((TNpcPlayer *)(*(s32 *)((s8 *)this + 0x78)))->get_condition() & 0x20) {
+            handle_action((s32)(arg1));
             return;
         }
-        ((s32 (*)(void *, s32))request_technique_cast__10TNpcPlayerFPvi)(arg0, 0x11);
+        ((s32 (*)(void *, s32))request_technique_cast__10TNpcPlayerFPvi)(this, 0x11);
         break;
     }
 }
 
-void change_ai_state__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1) {
+void TNpcPlayer::change_ai_state(u32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(u32 *)((s8 *)arg0 + 0x7C) = arg1;
     *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFEFFF);
     switch (arg1) {
@@ -1810,7 +1769,7 @@ void change_ai_state__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1) {
     }
 }
 
-void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
+void TNpcPlayer::handle_action(s32 arg1) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r3_3;
@@ -1820,25 +1779,25 @@ void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
 
     switch (arg1) {
     case 0:
-        temp_r3 = find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x78)) + 0x94), 3, 0);
+        temp_r3 = find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94), 3, 0);
         if (temp_r3 != -1) {
-            temp_r5 = *(void **)((s8 *)arg0 + 0x78);
+            temp_r5 = *(void **)((s8 *)this + 0x78);
             try_send_6x27_use_item(*(s32 *)((s8 *)temp_r5 + 0x94), temp_r3, temp_r5);
-            *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) | 0x10000);
+            *(s32 *)((s8 *)this + 0x80) = (s32) (*(s32 *)((s8 *)this + 0x80) | 0x10000);
         }
         break;
     case 1:
-        temp_r3_2 = find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x78)) + 0x94), 3, 1);
+        temp_r3_2 = find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94), 3, 1);
         if (temp_r3_2 != -1) {
-            temp_r5_2 = *(void **)((s8 *)arg0 + 0x78);
+            temp_r5_2 = *(void **)((s8 *)this + 0x78);
             try_send_6x27_use_item(*(s32 *)((s8 *)temp_r5_2 + 0x94), temp_r3_2, temp_r5_2);
             return;
         }
         break;
     case 2:
-        temp_r3_3 = find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x78)) + 0x94), 3, 6);
+        temp_r3_3 = find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94), 3, 6);
         if (temp_r3_3 != -1) {
-            temp_r5_3 = *(void **)((s8 *)arg0 + 0x78);
+            temp_r5_3 = *(void **)((s8 *)this + 0x78);
             try_send_6x27_use_item(*(s32 *)((s8 *)temp_r5_3 + 0x94), temp_r3_3, temp_r5_3);
         }
         break;
@@ -1860,11 +1819,11 @@ void deliver_partner_chatter(Npc_8014E250 *self) {
     if (id != 0xFFFF) {
         text = get_partner_custom_text(self->state, id);
         if (text != 0) {
-            open__11TWindowCtrlFiii(id, text, 0x1B);
+            open__11TWindowCtrlFlll(id, text, 0x1B);
         } else {
             text = npc_partner_dialogue_state[self->state].text;
             if (text[0] != 0) {
-                open__11TWindowCtrlFiii(id, text, 0x1B);
+                open__11TWindowCtrlFlll(id, text, 0x1B);
             }
         }
     }
@@ -1874,7 +1833,8 @@ void deliver_partner_chatter(Npc_8014E250 *self) {
     }
 }
 
-void request_chatter__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1) {
+void TNpcPlayer::request_chatter(u32 arg1) {
+    u8 *arg0 = (u8 *)this;
   u32 *new_var;
   int new_var2;
   new_var = (u32 *) (((s8 *) arg0) + 0x24);
@@ -2298,13 +2258,13 @@ s32 partition_sort_entries__10TNpcPlayerFiPvii(s32 self, Ent_8014F28C *a, s32 lo
     return i;
 }
 
-void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TNpcPlayer::quick_sort(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
 
     if (arg2 < arg3) {
         temp_r3 = ((s32 (*)(void))partition_sort_entries__10TNpcPlayerFiPvii)();
-        quick_sort__10TNpcPlayerFiiii((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(temp_r3 - 1));
-        quick_sort__10TNpcPlayerFiiii((s32)(arg0), (s32)(arg1), (s32)(temp_r3 + 1), (s32)(arg3));
+        TNpcPlayer::quick_sort((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(temp_r3 - 1));
+        TNpcPlayer::quick_sort((s32)(arg0), (s32)(arg1), (s32)(temp_r3 + 1), (s32)(arg3));
     }
 }
 
@@ -2322,7 +2282,7 @@ s32 find_parts_in_range__10TNpcPlayerFPvPvif(View_8014F424 *view, void *pos, s32
         view->c[j].dist = TNpcPlayer__data_805DB1F0;
     }
     actor = find_entity_by_id(id);
-    if (is_alive__9TObjEneDDFPv(actor) != 0) {
+    if (is_alive__9TObjEneDDFv(actor) != 0) {
         range = range * range;
         for (i = 0; i < actor->ncols; i++) {
             if (actor->cols == 0) {
@@ -2341,7 +2301,7 @@ s32 find_parts_in_range__10TNpcPlayerFPvPvif(View_8014F424 *view, void *pos, s32
             }
         }
     }
-    quick_sort__10TNpcPlayerFiiii((s32)view, (s32)&view->c[0], 0, view->count - 1);
+    TNpcPlayer::quick_sort((s32)view, (s32)&view->c[0], 0, view->count - 1);
     return found;
 }
 
@@ -2354,7 +2314,7 @@ s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 
     s32 j;
     f32 d;
     found = 0;
-    get_stat_by_key_state__10TObjPlayerFPv(view->f94);
+    get_stat_by_key_state__10TObjPlayerFv(view->f94);
     VecCopy__FP3VecPC3Vec(origin, (int)pos);
     view->count = 0;
     for (j = 0; j < 10; j++) {
@@ -2365,7 +2325,7 @@ s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 
     range = range * range;
     for (; i < get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv(); i++) {
         actor = (Actor_8014F57C *)get_player_data__10TObjPlayerFi(i);
-        if (is_active__12TTecReverserFPv(actor) == 0 || !(actor->flags30 & 0x20000000)) {
+        if (is_active__12TTecReverserFv(actor) == 0 || !(actor->flags30 & 0x20000000)) {
             continue;
         }
         for (c = 0; c < actor->ncols; c++) {
@@ -2388,7 +2348,7 @@ s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 
             }
         }
     }
-    quick_sort__10TNpcPlayerFiiii((s32)view, (s32)&view->c[0], 0, view->count - 1);
+    TNpcPlayer::quick_sort((s32)view, (s32)&view->c[0], 0, view->count - 1);
     return found;
 }
 
@@ -2401,18 +2361,18 @@ bool is_target_line_clear__10TNpcPlayerFPvUs(u8 *arg0, u16 arg1) {
     return ((s32)csnVector((s32)((void *) (temp_r3 + 0x2FC)), (s32)((void *) (&stack.sp8)), (s32)((int) (0x2100)))) == 0;
 }
 
-void *dt__10TNpcPlayerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xA8) != 0U) {
-            free_collision_body_parts(*(u32 *)((s8 *)arg0 + 0xA8));
-            ((s32 (*)(u32))queue_destruction__7TObjectFv)(*(u32 *)((s8 *)arg0 + 0xA8));
-            *(u32 *)((s8 *)arg0 + 0xA8) = 0U;
+void *TNpcPlayer::dt(s16 arg1) {
+    if (this != NULL) {
+        if ((u32) *(u32 *)((s8 *)this + 0xA8) != 0U) {
+            free_collision_body_parts(*(u32 *)((s8 *)this + 0xA8));
+            ((s32 (*)(u32))queue_destruction__7TObjectFv)(*(u32 *)((s8 *)this + 0xA8));
+            *(u32 *)((s8 *)this + 0xA8) = 0U;
         }
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            __dl__FPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 #pragma push
@@ -2456,7 +2416,7 @@ Npc_8014F844 *init_ai_state__10TNpcPlayerFPvi(Npc_8014F844 *self, s32 id) {
     self->fC4 = 0x1103;
     p = __nw__7TObjectFUl(0xAC);
     if (p != 0) {
-        p = construct_collider_proxy__10TObjPlayerFPv(p, tl_05);
+        p = construct_collider_proxy__10TObjPlayerFv(p, tl_05);
     }
     self->fA8 = p;
     if (self->fA8 != 0) {
@@ -2473,7 +2433,7 @@ s32 partner_view_update_hp_change(void *arg0) {
     s16 temp_r3;
     s16 temp_r4;
     temp_r31 = obj_getS16_32C((void *)(*(s32 *)((s8 *)arg0 + 0x94)));
-    temp_r3 = get_field_2b8__14TItemProShieldFPv((void *)(*(s32 *)((s8 *)arg0 + 0x94)));
+    temp_r3 = get_field_2b8__14TItemProShieldFv((void *)(*(s32 *)((s8 *)arg0 + 0x94)));
     if (*(s16 *)((s8 *)arg0 + 0x88) <= 0) {
         *(s16 *)((s8 *)arg0 + 0x88) = temp_r31;
         return 0;
@@ -2504,7 +2464,7 @@ s32 partner_view_update_conditions(u8 *arg0) {
     s32 var_r31;
     var_r31 = 0;
     temp_f31 = (f32) obj_getS16_32C(*(u8 **)((s8 *)arg0 + 0x94));
-    temp_f1 = temp_f31 / (f32) get_field_2b8__14TItemProShieldFPv(*(u8 **)((s8 *)arg0 + 0x94));
+    temp_f1 = temp_f31 / (f32) get_field_2b8__14TItemProShieldFv(*(u8 **)((s8 *)arg0 + 0x94));
     if (*(s32 *)((s8 *)arg0 + 0x8C) & 2) {
         if (temp_f1 <= lbl_805DB224) {
             var_r31 = 1;
@@ -2559,34 +2519,34 @@ s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0) {
     return 0;
 }
 
-s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
+s32 TNpcPlayer::try_attack(s32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        if ((arg2 != 0) && (find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)arg0 + 0x94), 3, 0) != -1)) {
-            *(s32 *)((s8 *)arg0 + 0x90) = (s32) (*(s32 *)((s8 *)arg0 + 0x90) | 0x20);
+        if ((arg2 != 0) && (find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)this + 0x94), 3, 0) != -1)) {
+            *(s32 *)((s8 *)this + 0x90) = (s32) (*(s32 *)((s8 *)this + 0x90) | 0x20);
             return 1;
         }
-        if (((s32 (*)(s32, s32))try_camera_action__10TObjPlayerFii)(*(s32 *)((s8 *)arg0 + 0x94), 0xF) != 0) {
+        if (((s32 (*)(s32, s32))try_camera_action__10TObjPlayerFii)(*(s32 *)((s8 *)this + 0x94), 0xF) != 0) {
             return 1;
         }
         break;
     case 1:
-        if (find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)arg0 + 0x94), 3, 1) != -1) {
-            *(s32 *)((s8 *)arg0 + 0x90) = (s32) (*(s32 *)((s8 *)arg0 + 0x90) | 0x20);
+        if (find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)this + 0x94), 3, 1) != -1) {
+            *(s32 *)((s8 *)this + 0x90) = (s32) (*(s32 *)((s8 *)this + 0x90) | 0x20);
             return 1;
         }
         break;
     case 2:
-        if (((s32 (*)(s32, s32))try_camera_action__10TObjPlayerFii)(*(s32 *)((s8 *)arg0 + 0x94), 0x10) != 0) {
+        if (((s32 (*)(s32, s32))try_camera_action__10TObjPlayerFii)(*(s32 *)((s8 *)this + 0x94), 0x10) != 0) {
             return 1;
         }
         break;
     case 3:
-        if (find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)arg0 + 0x94), 3, 6) != -1) {
-            *(s32 *)((s8 *)arg0 + 0x90) = (s32) (*(s32 *)((s8 *)arg0 + 0x90) | 0x20);
+        if (find_inventory_item_id__10TObjPlayerFPvcc(*(s32 *)((s8 *)this + 0x94), 3, 6) != -1) {
+            *(s32 *)((s8 *)this + 0x90) = (s32) (*(s32 *)((s8 *)this + 0x90) | 0x20);
             return 1;
         }
-        if (((s32 (*)(s32, s32))try_camera_action__10TObjPlayerFii)(*(s32 *)((s8 *)arg0 + 0x94), 0x11) != 0) {
+        if (((s32 (*)(s32, s32))try_camera_action__10TObjPlayerFii)(*(s32 *)((s8 *)this + 0x94), 0x11) != 0) {
             return 1;
         }
         break;
@@ -2599,8 +2559,8 @@ s32 partner_view_check_moved(u8 *arg0) {
     f32 temp_f1;
     u8 *temp_r31;
     u8 *temp_r3;
-    temp_r31 = (u8 *)(get_target_ptr__11TCameraCtrlFPv(*(s32 *)((s8 *)arg0 + 0x94)));
-    temp_r3 = (u8 *)(get_position_ptr__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x94)));
+    temp_r31 = (u8 *)(get_target_ptr__11TCameraCtrlFv(*(s32 *)((s8 *)arg0 + 0x94)));
+    temp_r3 = (u8 *)(get_position_ptr__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x94)));
     if ((temp_r31 == NULL) || (temp_r3 == NULL)) {
         return 0;
     }
@@ -2617,7 +2577,8 @@ s32 partner_view_check_moved(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 check_movement_progress__10TNpcPlayerFPv(u8 *arg0) {
+s32 TNpcPlayer::check_movement_progress() {
+    u8 *arg0 = (u8 *)this;
     s8 temp_r3;
     if (((f32 (*)(void *, void *))horizontal_distance_squared)((void *) (arg0 + 0xAC), (void *) (arg0 + 0xD0)) <= lbl_805DB234) {
         return 0;
@@ -2627,7 +2588,7 @@ s32 check_movement_progress__10TNpcPlayerFPv(u8 *arg0) {
         *(u8 *)((s8 *)arg0 + 0x8C) = 0x1EU;
         *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) | 0x4000);
         if (((s16 (*)(void *, int))get_partner_counter)((void *) (arg0 + 0x5C), (int) (7)) == 0) {
-            ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *) (arg0), (int) (7));
+            request_chatter((int) (7));
         }
         ((s32 (*)(void *, int))increment_partner_counter)((void *) (arg0 + 0x5C), (int) (7));
         ((s32 (*)(void *, int, int))npc_counter_reset_if_reached)((void *) (arg0 + 0x5C), (int) (7), (int) (0x12C));
@@ -2635,7 +2596,7 @@ s32 check_movement_progress__10TNpcPlayerFPv(u8 *arg0) {
     }
     if ((temp_r3 == 0) && (*(s32 *)((s8 *)arg0 + 0x80) & 0x4000)) {
         ((s32 (*)(void *, int))reset_partner_counter)((void *) (arg0 + 0x5C), (int) (7));
-        ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *) (arg0), (int) (0x18));
+        request_chatter((int) (0x18));
         *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFBFFF);
     }
     return 1;
@@ -2643,9 +2604,10 @@ s32 check_movement_progress__10TNpcPlayerFPv(u8 *arg0) {
 extern int fold_flush_4;
 #pragma pop
 
-void render__10TNpcPlayerFv(void) {  }
+void TNpcPlayer::render() {  }
 
-void init_follow_target__10TNpcPlayerFPv(Npc_80150050 *arg0) {
+void TNpcPlayer::init_follow_target() {
+    Npc_80150050 *arg0 = (Npc_80150050 *)this;
     Tgt_80150050 *t = arg0->mid->tgt;
     V3_80150050 off = lbl_8043FFAC;
     if (t != NULL) {
@@ -2784,7 +2746,7 @@ void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self) {
         }
         return;
     }
-    if (get_action_state__10TNpcPlayerFPv(self->view) & 0x20) {
+    if (((TNpcPlayer *)(self->view))->get_action_state() & 0x20) {
         if (route_around_object__10TNpcPlayerFv((Self_8014E7A0 *)(self), (Vec_8014E3B0 *)(&route)) != 0 && self->s8c < 30) {
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->target, &route);
         } else {
@@ -2793,7 +2755,7 @@ void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self) {
             }
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->target, &midpoint);
         }
-    } else if (get_action_state__10TNpcPlayerFPv(self->view) & 0x80) {
+    } else if (((TNpcPlayer *)(self->view))->get_action_state() & 0x80) {
         ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->target, &midpoint);
     } else if (self->s8c >= 15 && self->s8c < 30) {
         Vec_801501A0 d4;
@@ -2838,26 +2800,26 @@ void partner_observe_surroundings(u8 *arg0) {
     *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x98) = (s32) (lbl_8043FFD8 * atan2_float((int) (temp_r3), (f32) (temp_f3 - *(f32 *)((s8 *)temp_r3 + 0x38)), (f32) (*(f32 *)((s8 *)arg0 + 0xE4) - *(f32 *)((s8 *)temp_r3 + 0x40)), (f32) (temp_f3)));
     ((s32 (*)(void *))partner_probe_obstacles)((void *) (*(u8 **)((s8 *)arg0 + 0x78)));
     if (partner_view_update_hp_change((void *) (*(u8 **)((s8 *)arg0 + 0x78))) != 0) {
-        if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x78)))) & 0x40) {
-            ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *)((void *) (arg0)), (s32)((int) (0xE)));
-        } else if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x78)))) & 0x80) {
-            ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *)((void *) (arg0)), (s32)((int) (0xF)));
-        } else if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x78)))) & 0x200) {
+        if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x40) {
+            ((TNpcPlayer *)arg0)->request_chatter((s32)((int) (0xE)));
+        } else if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x80) {
+            ((TNpcPlayer *)arg0)->request_chatter((s32)((int) (0xF)));
+        } else if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x200) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 8U) {
                 temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x80);
                 if (temp_r3_2 & 0x10000) {
                     *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_2 & 0xFFFEFFFF);
                 } else {
-                    ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *)((void *) (arg0)), (s32)((int) (0x11)));
+                    ((TNpcPlayer *)arg0)->request_chatter((s32)((int) (0x11)));
                 }
             }
         } else {
-            ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *)((void *) (arg0)), (s32)((int) (0x10)));
+            ((TNpcPlayer *)arg0)->request_chatter((s32)((int) (0x10)));
         }
     }
     if (((s32)((s32 (*)(s32))partner_view_check_moved)((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x78))))) == 0) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) == 1U) {
-            if (get_action_state__10TNpcPlayerFPv((void *) (*(u8 **)((s8 *)arg0 + 0x78))) & 0x80) {
+            if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_action_state() & 0x80) {
                 *(u8 *)((s8 *)arg0 + 0x8C) = 0U;
                 *(u8 *)((s8 *)arg0 + 0x8D) = 0U;
                 return;
@@ -2878,21 +2840,22 @@ void partner_observe_surroundings(u8 *arg0) {
 extern int fold_flush_7;
 #pragma pop
 
-void update_condition_flags__10TNpcPlayerFPv(u8 *arg0) {
+void TNpcPlayer::update_condition_flags() {
+    u8 *arg0 = (u8 *)this;
     ((s32 (*)(s32))partner_view_check_moved)(*(s32 *)((s8 *)arg0 + 0x74));
     ((s32 (*)(s32))partner_view_update_conditions)(*(s32 *)((s8 *)arg0 + 0x74));
-    if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)(*(s32 *)((s8 *)arg0 + 0x74)) & 2) {
+    if (((TNpcPlayer *)(*(s32 *)((s8 *)arg0 + 0x74)))->get_condition() & 2) {
         if (((s16 (*)(void *, int))get_partner_counter)(arg0 + 0x5C, 0xA) == 0) {
-            ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(arg0, 9);
+            request_chatter(9);
         }
         ((s32 (*)(void *, s32))increment_partner_counter)(arg0 + 0x5C, 0xA);
     } else {
         ((s32 (*)(void *, s32))reset_partner_counter)(arg0 + 0x5C, 0xA);
     }
     if (((s32 (*)(s32, f32))check_and_set_reached__10TNpcPlayerFPv)(*(s32 *)((s8 *)arg0 + 0x74), lbl_805DB240) != 0) {
-        if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)(*(s32 *)((s8 *)arg0 + 0x74)) & 8) {
+        if (((TNpcPlayer *)(*(s32 *)((s8 *)arg0 + 0x74)))->get_condition() & 8) {
             if (((s16 (*)(void *, int))get_partner_counter)(arg0 + 0x5C, 9) == 0) {
-                ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(arg0, 0xC);
+                request_chatter(0xC);
             }
             ((s32 (*)(void *, s32))increment_partner_counter)(arg0 + 0x5C, 8);
             ((s32 (*)(void *, int, int))npc_counter_reset_if_reached)(arg0 + 0x5C, 9, 0x2BC);
@@ -2902,16 +2865,16 @@ void update_condition_flags__10TNpcPlayerFPv(u8 *arg0) {
     }
 }
 
-void init_state__10TNpcPlayerFPv(void *arg0) {
+void TNpcPlayer::init_state() {
     s32 temp_r0;
 
-    ((s32 (*)(s32))reset_fields_8c__10TNpcPlayerFPv)(*(s32 *)((s8 *)arg0 + 0x74));
-    ((s32 (*)(s32))reset_fields_8c__10TNpcPlayerFPv)(*(s32 *)((s8 *)arg0 + 0x78));
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x28);
+    ((TNpcPlayer *)(*(s32 *)((s8 *)this + 0x74)))->reset_fields_8c();
+    ((TNpcPlayer *)(*(s32 *)((s8 *)this + 0x78)))->reset_fields_8c();
+    temp_r0 = *(s32 *)((s8 *)this + 0x28);
     switch (temp_r0) {
     case 0:
-        init_follow_target__10TNpcPlayerFPv((Npc_80150050 *)(arg0));
-        *(s32 *)((s8 *)arg0 + 0x28) = 1;
+        init_follow_target();
+        *(s32 *)((s8 *)this + 0x28) = 1;
     case 1:
         return;
     }
@@ -2921,14 +2884,14 @@ void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind) {
     Msg_80150A34 m;
     u8 *actor;
 
-    ((void (*)(void *))init_cast_technique_cmd__10TNpcPlayerFPv)(&m);
+    ((TNpcPlayer *)(&m))->init_cast_technique_cmd();
     actor = self->p78->actor;
     if (kind == 15 || kind == 16) {
-        ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 0x16);
+        ((TNpcPlayer *)self)->request_chatter(0x16);
     } else if (kind == 0 || kind == 3 || kind == 6) {
-        ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 0x17);
+        ((TNpcPlayer *)self)->request_chatter(0x17);
     } else {
-        ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 2);
+        ((TNpcPlayer *)self)->request_chatter(2);
     }
     if (try_camera_action__10TObjPlayerFii(actor, kind) != 0) {
         m.type = get_npc_type__10TNpcPlayerFPv(self->p78);
@@ -2943,10 +2906,10 @@ void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind) {
             set_state__10TNpcPlayerFPvs(m.sub, 0);
         } else {
             m.e = get_cast_technique_level(actor + 0x428, kind);
-            ((void (*)(void *, u16))set_type__10TNpcPlayerFPvs)(m.sub, ((s32 (*)(void *))get_npc_state__10TNpcPlayerFPv)(self->p78));
+            ((void (*)(void *, u16))set_type__10TNpcPlayerFPvs)(m.sub, ((TNpcPlayer *)(self->p78))->get_npc_state());
             set_state__10TNpcPlayerFPvs(m.sub, TNpcPlayer__sub_801528DC(self->p78));
         }
-        ((void (*)(void *))finalize_and_send_packet__10TNpcPlayerFPv)(&m);
+        ((TNpcPlayer *)(&m))->finalize_and_send_packet();
     }
 }
 
@@ -2963,10 +2926,10 @@ void update_combat_action__10TNpcPlayerFv(Npc_80150B90 *self) {
     if (((u32 (*)(void *))TNpcPlayer__sub_80152978)(self->f78) == 0xFFFF) {
         return;
     }
-    if (can_perform_physical_action__10TObjPlayerFi(self->f78->obj) == 0) {
+    if (can_perform_physical_action__10TObjPlayerFv(self->f78->obj) == 0) {
         return;
     }
-    if (!(self->f34 & 0x40) && !(((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x10)) {
+    if (!(self->f34 & 0x40) && !(((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x10)) {
         fl = self->f34;
         if (fl & 4) {
             tier = 0;
@@ -2977,7 +2940,7 @@ void update_combat_action__10TNpcPlayerFv(Npc_80150B90 *self) {
         } else {
             tier = 0;
         }
-        if ((self->f80 & 0x2000) && (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x1000)) {
+        if ((self->f80 & 0x2000) && (((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x1000)) {
             alt = 1;
         } else {
             alt = 0;
@@ -2994,7 +2957,7 @@ void update_combat_action__10TNpcPlayerFv(Npc_80150B90 *self) {
         diff = (f32)(obj_getS16_32E(self->f78->obj) - tec->f10);
         mx = (f32)obj_getS16_2BA(self->f78->obj);
         if (diff / mx <= (*(const f32 *)&TNpcPlayer__data_805DB218) && TNpcPlayer__data_805DB1F0 != mx) {
-            ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 3);
+            ((TNpcPlayer *)self)->request_chatter(3);
         }
         self->f80 &= ~0x2000;
         if (try_camera_action__10TObjPlayerFii(self->f78->obj, id) != 0) {
@@ -3005,18 +2968,20 @@ void update_combat_action__10TNpcPlayerFv(Npc_80150B90 *self) {
     partner_request_physical_attack(self);
 }
 
-void send_run_request__10TNpcPlayerFPv(Npc_80150DE8 *self) {
+void TNpcPlayer::send_run_request() {
+    Npc_80150DE8 *self = (Npc_80150DE8 *)this;
     Msg_80150DE8 m;
-    reset_move_state__10TNpcPlayerFPv(&m);
+    ((TNpcPlayer *)(&m))->reset_move_state();
     if (self->owner != 0) {
         m.type = get_npc_type__10TNpcPlayerFPv(self->owner);
         m.x = self->x;
         m.z = self->z;
-        reset_model__10TNpcPlayerFPv(&m);
+        ((TNpcPlayer *)(&m))->reset_model();
     }
 }
 
-void send_walk_request__10TNpcPlayerFPv(Npc_80150E44 *self) {
+void TNpcPlayer::send_walk_request() {
+    Npc_80150E44 *self = (Npc_80150E44 *)this;
     Msg_80150E44 m;
     init_6x40_walk_packet(&m);
     if (self->owner != 0) {
@@ -3027,7 +2992,7 @@ void send_walk_request__10TNpcPlayerFPv(Npc_80150E44 *self) {
         if (self->owner->obj->flags & 0x100000) {
             m.flags |= 8;
         }
-        sync_from_lobby__10TNpcPlayerFPv(&m);
+        ((TNpcPlayer *)(&m))->sync_from_lobby();
     }
 }
 
@@ -3035,10 +3000,10 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
     u8 flags = 0;
     Tgt_801510F8 *tgt;
     u8 *ent;
-    if (get_action_state__10TNpcPlayerFPv(self->f78) & 4) {
+    if (((TNpcPlayer *)(self->f78))->get_action_state() & 4) {
         flags |= 1;
     }
-    if (arg1 != 0 && (get_action_state__10TNpcPlayerFPv(self->f74) & 4) && self->f84 == 0) {
+    if (arg1 != 0 && (((TNpcPlayer *)(self->f74))->get_action_state() & 4) && self->f84 == 0) {
         flags |= 2;
     }
     tgt = ((Tgt_801510F8 *)((Tgt_801518A4 * (*)(void *))TNpcPlayer__sub_80152A30)(self->f78));
@@ -3058,9 +3023,9 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
     }
     if (flags == 3) {
         self->f80 |= 0x200;
-        if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 2) {
-            if (try_attack__10TNpcPlayerFPvii(self->f78, 2, 1) != 0) {
-                if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x20) {
+        if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 2) {
+            if (((TNpcPlayer *)(self->f78))->try_attack(2, 1) != 0) {
+                if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x20) {
                     self->f92 = 2;
                     return 1;
                 }
@@ -3069,9 +3034,9 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
                     return 1;
                 }
             }
-        } else if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 8) {
-            if (try_attack__10TNpcPlayerFPvii(self->f78, 0, 1) != 0) {
-                if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x20) {
+        } else if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 8) {
+            if (((TNpcPlayer *)(self->f78))->try_attack(0, 1) != 0) {
+                if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x20) {
                     self->f92 = 0;
                     return 1;
                 }
@@ -3081,13 +3046,13 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
                 }
             } else {
                 if (((s16 (*)(void *, int))get_partner_counter)(self->counters, 8) == 0) {
-                    ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 0x14);
+                    ((TNpcPlayer *)self)->request_chatter(0x14);
                 }
                 ((s32 (*)(void *, s32))increment_partner_counter)(self->counters, 8);
                 ((s32 (*)(void *, int, int))npc_counter_reset_if_reached)(self->counters, 8, 0x5DC);
             }
-        } else if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x10) {
-            if (try_attack__10TNpcPlayerFPvii(self->f78, 1, 1) != 0) {
+        } else if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x10) {
+            if (((TNpcPlayer *)(self->f78))->try_attack(1, 1) != 0) {
                 self->f92 = 1;
                 return 1;
             }
@@ -3096,14 +3061,14 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
         }
     }
     if (flags == 2) {
-        if (get_action_state__10TNpcPlayerFPv(self->f78) & 2) {
+        if (((TNpcPlayer *)(self->f78))->get_action_state() & 2) {
             return 0;
         }
         ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(self->dst, self->f74->obj + 0x2FC);
         self->f80 |= 0x20;
-        if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f74) & 2) {
-            if (try_attack__10TNpcPlayerFPvii(self->f78, 2, 0) != 0) {
-                if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x20) {
+        if (((TNpcPlayer *)((s32)self->f74))->get_condition() & 2) {
+            if (((TNpcPlayer *)(self->f78))->try_attack(2, 0) != 0) {
+                if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x20) {
                     self->f92 = 2;
                     return 1;
                 }
@@ -3112,9 +3077,9 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
                     return 1;
                 }
             }
-        } else if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f74) & 0x800) {
-            if (try_attack__10TNpcPlayerFPvii(self->f78, 0, 0) != 0) {
-                if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x20) {
+        } else if (((TNpcPlayer *)((s32)self->f74))->get_condition() & 0x800) {
+            if (((TNpcPlayer *)(self->f78))->try_attack(0, 0) != 0) {
+                if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x20) {
                     self->f92 = 0;
                     return 1;
                 }
@@ -3127,9 +3092,9 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
     }
     if (flags == 1) {
         self->f80 |= 0x200;
-        if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 2) {
-            if (try_attack__10TNpcPlayerFPvii(self->f78, 2, 1) != 0) {
-                if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x20) {
+        if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 2) {
+            if (((TNpcPlayer *)(self->f78))->try_attack(2, 1) != 0) {
+                if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x20) {
                     self->f92 = 2;
                     return 1;
                 }
@@ -3138,9 +3103,9 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
                     return 1;
                 }
             }
-        } else if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 8) {
-            if (try_attack__10TNpcPlayerFPvii(self->f78, 0, 1) != 0) {
-                if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x20) {
+        } else if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 8) {
+            if (((TNpcPlayer *)(self->f78))->try_attack(0, 1) != 0) {
+                if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x20) {
                     self->f92 = 0;
                     return 1;
                 }
@@ -3150,13 +3115,13 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
                 }
             } else {
                 if (((s16 (*)(void *, int))get_partner_counter)(self->counters, 8) == 0) {
-                    ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 0x14);
+                    ((TNpcPlayer *)self)->request_chatter(0x14);
                 }
                 ((s32 (*)(void *, s32))increment_partner_counter)(self->counters, 8);
                 ((s32 (*)(void *, int, int))npc_counter_reset_if_reached)(self->counters, 8, 0x5DC);
             }
-        } else if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 0x10) {
-            if (try_attack__10TNpcPlayerFPvii(self->f78, 1, 1) != 0) {
+        } else if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 0x10) {
+            if (((TNpcPlayer *)(self->f78))->try_attack(1, 1) != 0) {
                 self->f92 = 1;
                 return 1;
             }
@@ -3167,7 +3132,8 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-s32 calc_follow_goal__10TNpcPlayerFPv(u8 *arg0) {
+s32 TNpcPlayer::calc_follow_goal() {
+    u8 *arg0 = (u8 *)this;
     Stack_801515E0 stack;
     f32 temp_f0;
     f32 temp_f1;
@@ -3203,7 +3169,8 @@ s32 calc_follow_goal__10TNpcPlayerFPv(u8 *arg0) {
 extern int fold_flush_8;
 #pragma pop
 
-s32 choose_attack_target__10TNpcPlayerFPv(Npc_80151708 *self) {
+s32 TNpcPlayer::choose_attack_target() {
+    Npc_80151708 *self = (Npc_80151708 *)this;
     s32 i;
     View_80151708 *view;
     Pos_80151708 *tgt;
@@ -3212,10 +3179,10 @@ s32 choose_attack_target__10TNpcPlayerFPv(Npc_80151708 *self) {
         self->f80 |= 0x2000;
         ((s32 (*)(void *, s32))increment_partner_counter)(self->f5C, 6);
         if (((s32 (*)(void *, int, int))npc_counter_reset_if_reached)(self->f5C, 6, 100) != 0) {
-            if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)self->f78) & 8) {
-                ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 1);
+            if (((TNpcPlayer *)((s32)self->f78))->get_condition() & 8) {
+                request_chatter(1);
             } else {
-                ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 0);
+                request_chatter(0);
             }
         }
     } else {
@@ -3236,24 +3203,25 @@ s32 choose_attack_target__10TNpcPlayerFPv(Npc_80151708 *self) {
                 return 1;
             }
         }
-        ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 8);
+        request_chatter(8);
         self->f80 |= 0x40;
     }
     return 0;
 }
 
-s32 check_return_to_leader__10TNpcPlayerFPv(Npc_801518A4 *arg0) {
+s32 TNpcPlayer::check_return_to_leader() {
+    Npc_801518A4 *arg0 = (Npc_801518A4 *)this;
     Tgt_801518A4 *t;
     u8 *o;
     f32 r2;
 
     t = ((Tgt_801518A4 * (*)(void *))TNpcPlayer__sub_80152A30)(arg0->p78);
     r2 = arg0->f44 * arg0->f44;
-    if (get_action_state__10TNpcPlayerFPv(arg0->p74) & 2) {
+    if (((TNpcPlayer *)(arg0->p74))->get_action_state() & 2) {
         arg0->flags &= ~0x100;
         return 0;
     }
-    if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)arg0->p78) & 8) {
+    if (((TNpcPlayer *)((s32)arg0->p78))->get_condition() & 8) {
         arg0->flags |= 0x100;
         return 1;
     }
@@ -3280,13 +3248,14 @@ s32 check_return_to_leader__10TNpcPlayerFPv(Npc_801518A4 *arg0) {
     return 0;
 }
 
-s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0) {
+s32 TNpcPlayer::update_follow_target() {
+    u8 *arg0 = (u8 *)this;
     if (((s32 (*)())needs_movement__10TNpcPlayerFPvPvi)() != 0) {
         ((s32 (*)(void *))select_path_waypoint__10TNpcPlayerFv)((void *) (arg0));
-        if (((s32 (*)(void *))check_movement_progress__10TNpcPlayerFPv)((void *) (arg0)) != 0) {
+        if (check_movement_progress() != 0) {
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0xAC), (void *) (arg0 + 0xD0));
             if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 2U) {
-                ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (1));
+                change_ai_state((int) (1));
             }
         } else {
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0xAC), (void *) (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x78)) + 0x94) + 0x38));
@@ -3294,12 +3263,13 @@ s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0) {
         return 1;
     }
     if ((*(s32 *)((s8 *)arg0 + 0x80) & 0x20) && ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 8U)) {
-        ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (0));
+        change_ai_state((int) (0));
     }
     return 0;
 }
 
-void decide_action__10TNpcPlayerFv(u8 *arg0) {
+void TNpcPlayer::decide_action() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f2;
@@ -3309,37 +3279,37 @@ void decide_action__10TNpcPlayerFv(u8 *arg0) {
     s32 temp_r3_2;
     s32 temp_r3_3;
     if ((get_global_state__14TOKeyMachine01Fv() == 0) || (get_global_state__14TOKeyMachine01Fv() == 0x12)) {
-        calc_follow_goal__10TNpcPlayerFPv(arg0);
-        ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (1));
+        calc_follow_goal();
+        change_ai_state((int) (1));
         return;
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        if (get_action_state__10TNpcPlayerFPv((void *) (*(u8 **)((s8 *)arg0 + 0x78))) & 2) {
+        if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_action_state() & 2) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 1;
-            ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (0));
+            change_ai_state((int) (0));
             return;
         }
         *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFFEFF);
         if (select_recovery_action__10TNpcPlayerFv((Npc_801510F8 *) (arg0), (int) (1)) != 0) {
             temp_r3 = *(s32 *)((s8 *)arg0 + 0x80);
             if (temp_r3 & 0x200) {
-                ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *) (arg0), (int) (0x13));
-                ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (8));
+                request_chatter((int) (0x13));
+                change_ai_state((int) (8));
                 return;
             }
             *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3 & 0xFFFFFDFF);
             if (((f32 (*)(void *, void *))horizontal_distance_squared)((void *) (arg0 + 0xDC), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) + 0x38)) < lbl_805DB248) {
-                ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (8));
+                change_ai_state((int) (8));
                 return;
             }
-            calc_follow_goal__10TNpcPlayerFPv(arg0);
-            ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (1));
+            calc_follow_goal();
+            change_ai_state((int) (1));
             return;
         }
-        calc_follow_goal__10TNpcPlayerFPv(arg0);
-        ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (1));
+        calc_follow_goal();
+        change_ai_state((int) (1));
         *(s16 *)((s8 *)arg0 + 0x8E) = 0;
         return;
     case 1:
@@ -3347,7 +3317,7 @@ void decide_action__10TNpcPlayerFv(u8 *arg0) {
         if (*(s32 *)((s8 *)arg0 + 0x80) & 0x8000) {
             var_f31 = lbl_805DB24C;
         }
-        if ((can_perform_physical_action__10TObjPlayerFi((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94))) != 0) && (*(s16 *)((s8 *)arg0 + 0x8E) == 0)) {
+        if ((can_perform_physical_action__10TObjPlayerFv((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94))) != 0) && (*(s16 *)((s8 *)arg0 + 0x8E) == 0)) {
             temp_f1 = fabs_float(TNpcPlayer__data_805DB1F4 * (lbl_805DB244 * (f32) rand()));
             temp_f0 = TNpcPlayer__data_805DB22C * (f32) *(u8 *)((s8 *)arg0 + 0x52);
             temp_f0 *= var_f31;
@@ -3361,64 +3331,64 @@ void decide_action__10TNpcPlayerFv(u8 *arg0) {
         if (*(s16 *)((s8 *)arg0 + 0x8E) < 0) {
             *(s16 *)((s8 *)arg0 + 0x8E) = 0;
         }
-        if ((check_return_to_leader__10TNpcPlayerFPv((Npc_801518A4 *) (arg0)) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x84) == 0)) {
+        if ((check_return_to_leader() != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x84) == 0)) {
             if (select_recovery_action__10TNpcPlayerFv((Npc_801510F8 *) (arg0), (int) (0)) != 0) {
-                ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *) (arg0), (int) (0x13));
-                ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (8));
+                request_chatter((int) (0x13));
+                change_ai_state((int) (8));
                 *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFFF7F);
             } else {
                 temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x80);
                 if (temp_r3_2 & 0x80) {
                     *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_2 & 0xFFFFFF7F);
                     if (*(s16 *)((s8 *)arg0 + 0x8E) == 0) {
-                        ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (2));
+                        change_ai_state((int) (2));
                     }
                 } else {
-                    calc_follow_goal__10TNpcPlayerFPv(arg0);
-                    ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (1));
+                    calc_follow_goal();
+                    change_ai_state((int) (1));
                 }
             }
         } else if (select_recovery_action__10TNpcPlayerFv((Npc_801510F8 *) (arg0), (int) (1)) != 0) {
             ((s32 (*)(void *, int))reset_partner_counter)((void *) (arg0 + 0x5C), (int) (8));
             temp_r3_3 = *(s32 *)((s8 *)arg0 + 0x80);
             if (temp_r3_3 & 0x200) {
-                ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *) (arg0), (int) (0x13));
-                ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (8));
+                request_chatter((int) (0x13));
+                change_ai_state((int) (8));
             } else if (temp_r3_3 & 0x80) {
                 *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_3 & ~0x280);
                 if (*(s16 *)((s8 *)arg0 + 0x8E) == 0) {
-                    ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (2));
+                    change_ai_state((int) (2));
                 }
             } else {
                 *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_3 & 0xFFFFFDFF);
                 if (((f32 (*)(void *, void *))horizontal_distance_squared)((void *) (arg0 + 0xDC), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) + 0x38)) < lbl_805DB248) {
-                    ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (8));
+                    change_ai_state((int) (8));
                 } else if ((s32) *(s32 *)((s8 *)arg0 + 0x84) != 0) {
                     if (*(s16 *)((s8 *)arg0 + 0x8E) == 0) {
-                        ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (2));
+                        change_ai_state((int) (2));
                     }
                 } else {
-                    calc_follow_goal__10TNpcPlayerFPv(arg0);
-                    ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (1));
+                    calc_follow_goal();
+                    change_ai_state((int) (1));
                 }
             }
-        } else if ((choose_attack_target__10TNpcPlayerFPv((Npc_80151708 *) (arg0)) != 0) && (*(s16 *)((s8 *)arg0 + 0x8E) == 0)) {
+        } else if ((choose_attack_target() != 0) && (*(s16 *)((s8 *)arg0 + 0x8E) == 0)) {
             if (*(s32 *)((s8 *)arg0 + 0x80) & 0x1000) {
-                ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (2));
+                change_ai_state((int) (2));
                 *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFEFFF);
             } else {
-                ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (1));
+                change_ai_state((int) (1));
             }
             *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFEFFF);
         } else {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x84) != 0) {
-                calc_follow_goal__10TNpcPlayerFPv(arg0);
+                calc_follow_goal();
             } else {
                 ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0xDC), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) + 0x38));
             }
-            ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (1));
+            change_ai_state((int) (1));
         }
-        if (!(get_action_state__10TNpcPlayerFPv((void *) (*(u8 **)((s8 *)arg0 + 0x78))) & 2)) {
+        if (!(((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_action_state() & 2)) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 0;
         }
         return;
@@ -3441,23 +3411,23 @@ void run_task__10TNpcPlayerFv(u8 *arg0) {
             queue_destruction__7TObjectFv((void *) (arg0));
             return;
         }
-        if ((is_inactive__10TObjPlayerFPv((void *) (*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94))) != 0) && (((void *) *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) == NULL) || (get_action_flags__10TNpcPlayerFPv((void *) *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94)) != 0xFFFF))) {
-            ((s32 (*)(void *))init_state__10TNpcPlayerFPv)((void *) (arg0));
+        if ((is_inactive__10TObjPlayerFv((void *) (*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94))) != 0) && (((void *) *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) == NULL) || (((TNpcPlayer *)((void *) *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94)))->get_action_flags() != 0xFFFF))) {
+            ((TNpcPlayer *)arg0)->init_state();
             if (!(*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x74)) + 0x94)) + 0x30) & 0x800)) {
                 if (*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94)) + 0x30) & 0x800) {
                     if (((s32 (*)(void *, int, int))clamp_partner_counter)((void *) (arg0 + 0x5C), (int) (3), (int) (0x400)) != 0) {
-                        ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *) (arg0), (int) (5));
+                        ((TNpcPlayer *)arg0)->request_chatter((int) (5));
                     } else if (((s32 (*)(void *, int, int))is_partner_counter_reached)((void *) (arg0 + 0x5C), (int) (3), (int) (0)) != 0) {
-                        ((s32 (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)((void *) (arg0), (int) (4));
+                        ((TNpcPlayer *)arg0)->request_chatter((int) (4));
                     }
                     increment_partner_counter((s32) (arg0 + 0x5C), 3);
-                    ((s32 (*)(void *, int))change_ai_state__10TNpcPlayerFPvUi)((void *) (arg0), (int) (0));
+                    ((TNpcPlayer *)arg0)->change_ai_state((int) (0));
                 } else {
                     reset_partner_counter((s32) (arg0 + 0x5C), 3);
-                    ((s32 (*)(void *))update_condition_flags__10TNpcPlayerFPv)((void *) (arg0));
+                    ((TNpcPlayer *)arg0)->update_condition_flags();
                     ((s32 (*)(void *))partner_observe_surroundings)((void *) (arg0));
-                    decide_action__10TNpcPlayerFv((u8 *)((void *) (arg0)));
-                    update_follow_target__10TNpcPlayerFPv(arg0);
+                    ((TNpcPlayer *)arg0)->decide_action();
+                    ((TNpcPlayer *)arg0)->update_follow_target();
                 }
                 deliver_partner_action__10TNpcPlayerFv((void *) (arg0));
             }
@@ -3474,7 +3444,7 @@ u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = ((s32 *)__vt__10TNpcPlayer);
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x74));
         if (temp_r3 != NULL) {
-            dt__10TNpcPlayerFPvs(temp_r3, 1);
+            ((TNpcPlayer *)temp_r3)->dt(1);
             *(u8 **)((s8 *)arg0 + 0x74) = NULL;
         }
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x78));
@@ -3483,7 +3453,7 @@ u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
             if (temp_r3_3 != 0U) {
                 send_item_pickup_request__10TObjPlayerFi((s32) temp_r3_3);
             }
-            dt__10TNpcPlayerFPvs(*(u8 **)((s8 *)arg0 + 0x78), 1);
+            ((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->dt(1);
             *(u8 **)((s8 *)arg0 + 0x78) = NULL;
         }
         __dt__7TObjectFv((void *) (arg0), (int) (0));
@@ -3499,7 +3469,7 @@ Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg
 
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = ((s32 *)__vt__10TNpcPlayer);
-    init__10TNpcPlayerFPv(self->f5C);
+    ((TNpcPlayer *)(self->f5C))->init();
     self->f0 = lbl_805D2E74;
     self->f24 = 0x19;
     self->f1C = 0;
@@ -3524,33 +3494,33 @@ Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg
     self->f8C = 0;
     self->f8E = 0;
     self->f8D = 0;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x108);
     if (p != 0) {
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, a);
     }
     self->f74 = p;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x108);
     if (p != 0) {
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, b);
     }
     self->f78 = (Own_80152168 *)p;
-    copy__10TNpcPlayerFPvPv(self->f30, (u8 *)&TNpcPlayer__template_table[self->f2C]);
+    ((TNpcPlayer *)(self->f30))->copy((u8 *)&TNpcPlayer__template_table[self->f2C]);
     if (self->f78 != 0 && self->f78->obj != 0) {
         ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->fDC, self->f78->obj + 0x38);
-        init_equipment__10TNpcPlayerFPv(self);
+        init_equipment__10TNpcPlayerFv(self);
     }
     self->f84 = arg4;
     return self;
 }
 
-void copy__10TNpcPlayerFPvPv(void* p, void* q) { *(u16*)((char*)p + 0x0) = *(u16*)((char*)q + 0x0); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); *(f32*)((char*)p + 0x1c) = *(f32*)((char*)q + 0x1c); *(u8*)((char*)p + 0x20) = *(u8*)((char*)q + 0x20); *(u8*)((char*)p + 0x21) = *(u8*)((char*)q + 0x21); *(u8*)((char*)p + 0x22) = *(u8*)((char*)q + 0x22); *(u8*)((char*)p + 0x23) = *(u8*)((char*)q + 0x23); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }
+void TNpcPlayer::copy(void* q) { *(u16*)((char*)this + 0x0) = *(u16*)((char*)q + 0x0); *(u16*)((char*)this + 0x2) = *(u16*)((char*)q + 0x2); *(u32*)((char*)this + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)this + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); *(f32*)((char*)this + 0x1c) = *(f32*)((char*)q + 0x1c); *(u8*)((char*)this + 0x20) = *(u8*)((char*)q + 0x20); *(u8*)((char*)this + 0x21) = *(u8*)((char*)q + 0x21); *(u8*)((char*)this + 0x22) = *(u8*)((char*)q + 0x22); *(u8*)((char*)this + 0x23) = *(u8*)((char*)q + 0x23); *(f32*)((char*)this + 0x24) = *(f32*)((char*)q + 0x24); }
 
 Npc_80152330 *construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent) {
     void *p;
 
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = ((s32 *)__vt__10TNpcPlayer);
-    init__10TNpcPlayerFPv(self->f5C);
+    ((TNpcPlayer *)(self->f5C))->init();
     self->f0 = lbl_805D2E74;
     self->f24 = 0x19;
     self->f1C = 0;
@@ -3575,26 +3545,26 @@ Npc_80152330 *construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a,
     self->f8C = 0;
     self->f8E = 0;
     self->f8D = 0;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x108);
     if (p != 0) {
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, a);
     }
     self->f74 = p;
-    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x108);
     if (p != 0) {
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, b);
     }
     self->f78 = (Own_80152330 *)p;
-    copy__10TNpcPlayerFPvPv(self->f30, (u8 *)&TNpcPlayer__template_table[self->f2C]);
+    ((TNpcPlayer *)(self->f30))->copy((u8 *)&TNpcPlayer__template_table[self->f2C]);
     if (self->f78 != 0 && self->f78->obj != 0) {
         ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->fDC, self->f78->obj + 0x38);
-        init_equipment__10TNpcPlayerFPv(self);
+        init_equipment__10TNpcPlayerFv(self);
     }
     self->f84 = 0;
     return self;
 }
 
-u8 *build_npc_player_record__10TNpcPlayerFi(s32 arg0) {
+u8 *TNpcPlayer::build_npc_player_record(s32 arg0) {
     s32 mode;
     s32 diff;
     s32 lvl;
@@ -3607,7 +3577,7 @@ u8 *build_npc_player_record__10TNpcPlayerFi(s32 arg0) {
         copy_player_visual_record(lbl_8050CF68, (u8 *)lbl_805D5860 + arg0 * 0x50);
     }
     bswap__15disp_data_part2Fv(lbl_8050CF68);
-    free__11TOBoss4RockFUi((void *)lbl_805D5860);
+    mem_free((void *)lbl_805D5860);
     mode = game_difficulty_selection;
     lbl_805D5860 = 0;
     if (mode >= 0 && mode <= 2) {
@@ -3625,32 +3595,32 @@ u8 *build_npc_player_record__10TNpcPlayerFi(s32 arg0) {
     }
     switch (mode) {
     case 0:
-        send_command__10TNpcPlayerFiciiPv(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF330[arg0], lvl, lbl_8050CFC4);
+        send_command__10TNpcPlayerFlScllPSc(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF330[arg0], lvl, lbl_8050CFC4);
         break;
     case 1:
-        send_command__10TNpcPlayerFiciiPv(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF430[arg0], lvl, lbl_8050CFC4);
+        send_command__10TNpcPlayerFlScllPSc(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF430[arg0], lvl, lbl_8050CFC4);
         break;
     case 2:
-        send_command__10TNpcPlayerFiciiPv(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF530[arg0], lvl, lbl_8050CFC4);
+        send_command__10TNpcPlayerFlScllPSc(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF530[arg0], lvl, lbl_8050CFC4);
         break;
     case 3:
-        send_command__10TNpcPlayerFiciiPv(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF630[arg0], lvl, lbl_8050CFC4);
+        send_command__10TNpcPlayerFlScllPSc(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF630[arg0], lvl, lbl_8050CFC4);
         break;
     default:
-        send_command__10TNpcPlayerFiciiPv(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF530[arg0], lvl, lbl_8050CFC4);
+        send_command__10TNpcPlayerFlScllPSc(((u8 *)lbl_8050CF68)[0x31], 5, (int)lbl_804AF530[arg0], lvl, lbl_8050CFC4);
         break;
     }
     copy_player_visual_record((u8 *)lbl_8050CFC4 + 0x370, lbl_8050CF68);
     return (u8 *)lbl_8050CFC4;
 }
 
-void ensure_rock_singleton__10TNpcPlayerFv(void) {
+void TNpcPlayer::ensure_rock_singleton() {
     if ((u32) lbl_805D5860 == 0U) {
-        lbl_805D5860 = alloc_buffer__11TOBoss4RockFPv(0x1400);
+        lbl_805D5860 = mem_alloc(0x1400);
     }
 }
 
-void register_ply_char_data_global__10TNpcPlayerFv(void) {
+void TNpcPlayer::register_ply_char_data_global() {
     __register_global_object(__ct__12TPlyCharDataFv(lbl_8050CFC4), (void *)__dt__12TPlyCharDataFv, lbl_8050CFB8);
 }
 
@@ -3670,7 +3640,7 @@ void increment_partner_counter(s32 arg0, s32 arg1) {
 
 s32 TNpcPlayer__sub_801528DC(void* p) { return *(s32*)((char*)p + 0x84); }
 
-s32 get_npc_state__10TNpcPlayerFPv(void* p) { return *(s32*)((char*)p + 0x7c); }
+s32 TNpcPlayer::get_npc_state() { return *(s32*)((char*)this + 0x7c); }
 
 u16 get_npc_type__10TNpcPlayerFPv(void* p) { return *(u16*)((char*)p + 0x8a); }
 
@@ -3696,15 +3666,15 @@ void set_partner_counter(s32 arg0, s32 arg1, s16 arg2) {
 
 s32 TNpcPlayer__sub_80152978(void* p) { return *(s32*)((char*)p + 0x80); }
 
-s32 get_condition__10TNpcPlayerFPv(void* p) { return *(s32*)((char*)p + 0x90); }
+s32 TNpcPlayer::get_condition() { return *(s32*)((char*)this + 0x90); }
 
 void copy_transform_second__10TNpcPlayerFPvPvPv(void* p, void* a1, void* a2) { ((int (*)(void*))copy_transform__10TNpcPlayerFPvPv)(a2); }
 
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); }
 
-s32 get_action_state__10TNpcPlayerFPv(void* p) { return *(s32*)((char*)p + 0x8c); }
+s32 TNpcPlayer::get_action_state() { return *(s32*)((char*)this + 0x8c); }
 
-void reset_fields_8c__10TNpcPlayerFPv(void* p) { *(s32*)((char*)p + 0x8c) = 0; *(s32*)((char*)p + 0x90) = 0; }
+void TNpcPlayer::reset_fields_8c() { *(s32*)((char*)this + 0x8c) = 0; *(s32*)((char*)this + 0x90) = 0; }
 
 s32 clamp_partner_counter(s32 arg0, s32 arg1, s16 arg2) {
     if (((s32 (*)(void))is_partner_counter_reached)() != 0) {
@@ -3722,7 +3692,7 @@ void TNpcPlayer__sub_80152A34(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x84) = arg2;
 }
 
-void* init__10TNpcPlayerFPv(void* p) { TNpcPlayer__sub_80152A78((s16 *)((void*)(p))); return p; }
+void*TNpcPlayer::init() { TNpcPlayer__sub_80152A78((s16 *)((void*)(this))); return this; }
 
 void TNpcPlayer__sub_80152A78(s16 *self) {
     s32 i;
@@ -3731,9 +3701,9 @@ void TNpcPlayer__sub_80152A78(s16 *self) {
     }
 }
 
-void update__10TNpcPlayerFPv(void* p) { bswap_6x45_packet((void*)(p)); update_players__6TLobbyFi(p); }
+void TNpcPlayer::update() { bswap_6x45_packet((void*)(this)); update_players__6TLobbyFi(this); }
 
-void bswap_6x45_packet(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
+void bswap_6x45_packet(void* p) { read_be16_field2__10TObjPlayerFv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
 void init_6x45_attack_packet(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 4) = 0;
@@ -3742,9 +3712,9 @@ void init_6x45_attack_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void update_players__10TNpcPlayerFPv(void* p) { bswap_6x44_packet((void*)(p)); update_players__6TLobbyFi(p); }
+void TNpcPlayer::update_players() { bswap_6x44_packet((void*)(this)); update_players__6TLobbyFi(this); }
 
-void bswap_6x44_packet(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
+void bswap_6x44_packet(void* p) { read_be16_field2__10TObjPlayerFv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
 void init_6x44_attack_packet(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 4) = 0;
@@ -3753,9 +3723,9 @@ void init_6x44_attack_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void update_lobby__10TNpcPlayerFPv(void* p) { bswap_6x43_packet((void*)(p)); update_players__6TLobbyFi(p); }
+void TNpcPlayer::update_lobby() { bswap_6x43_packet((void*)(this)); update_players__6TLobbyFi(this); }
 
-void bswap_6x43_packet(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
+void bswap_6x43_packet(void* p) { read_be16_field2__10TObjPlayerFv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
 void init_6x43_attack_packet(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 4) = 0;
@@ -3764,17 +3734,19 @@ void init_6x43_attack_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
-void finalize_and_send_packet__10TNpcPlayerFPv(u8 *arg0) {
+void TNpcPlayer::finalize_and_send_packet() {
+    u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 1) = (s8) ((((u32)get_6x47_cast_packet_size((u8 *)(arg0))) >> 2U) & 0x3F);
-    byteswap_positions__10TNpcPlayerFPv((N_80152C8C *)((void*)((void*)((void *) (arg0)))));
+    byteswap_positions();
     TLobby__send_and_handle_60((void*)((void *) (arg0)));
 }
 
-void byteswap_positions__10TNpcPlayerFPv(N_80152C8C *arg0) {
+void TNpcPlayer::byteswap_positions() {
+    N_80152C8C *arg0 = (N_80152C8C *)this;
     s32 i;
-    read_be16_field2__10TObjPlayerFPv((void*)(arg0));
+    read_be16_field2__10TObjPlayerFv((void*)(arg0));
     for (i = 0; i < arg0->count; i++) {
-        byteswap_pos__10TNpcPlayerFPv((void*)(&arg0->pos[i]));
+        ((TNpcPlayer *)(&arg0->pos[i]))->byteswap_pos();
     }
 }
 
@@ -3782,35 +3754,35 @@ u8 get_6x47_cast_packet_size(u8 *arg0) {
     return (u8) (0x30 - ((0xA - (s8) *(u8 *)((s8 *)arg0 + 7)) * 4));
 }
 
-void *init_cast_technique_cmd__10TNpcPlayerFPv(void *arg0) {
-    TNpcPlayer__sub_80152D64((void*)((void *)((char *)arg0 + 4)));
-    __construct_array((void *)((char *)arg0 + 8), fn_80152EF8, 0, 4, 10);
-    *(u8 *)((s8 *)arg0 + 0x0) = 71;
-    *(u8 *)((s8 *)arg0 + 0x1) = 12;
-    return arg0;
+void *TNpcPlayer::init_cast_technique_cmd() {
+    TNpcPlayer__sub_80152D64((void*)((void *)((char *)this + 4)));
+    __construct_array((void *)((char *)this + 8), fn_80152EF8, 0, 4, 10);
+    *(u8 *)((s8 *)this + 0x0) = 71;
+    *(u8 *)((s8 *)this + 0x1) = 12;
+    return this;
 }
 
 void TNpcPlayer__sub_80152D64(void* p) { *(u8*)((char*)p + 0x3) = 0; *(u8*)((char*)p + 0x2) = 0; *(u8*)((char*)p + 0x1) = 0; *(u8*)((char*)p + 0x0) = 0; }
 
-void reset_model__10TNpcPlayerFPv(void* p) { init_model__10TNpcPlayerFPv((void*)(p)); update_players__6TLobbyFi(p); }
+void TNpcPlayer::reset_model() { init_model(); update_players__6TLobbyFi(this); }
 
-void init_model__10TNpcPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_pkt_u32x2__10TObjPlayerFPv((char*)p + 0x4); }
+void TNpcPlayer::init_model() { read_be16_field2__10TObjPlayerFv((void*)(this)); bswap_pkt_u32x2__10TObjPlayerFv((char*)this + 0x4); }
 
-void reset_move_state__10TNpcPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(unsigned char*)((char*)a0 + 0x0) = 66; *(unsigned char*)((char*)a0 + 0x1) = 3; }
+void TNpcPlayer::reset_move_state() { *(float*)((char*)this + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)this + 0x4) = TNpcPlayer__data_805DB1F0; *(unsigned char*)((char*)this + 0x0) = 66; *(unsigned char*)((char*)this + 0x1) = 3; }
 
-void sync_from_lobby__10TNpcPlayerFPv(void* p) { swap_endian__10TNpcPlayerFPv((void*)((void*)(p))); update_players__6TLobbyFi(p); }
+void TNpcPlayer::sync_from_lobby() { swap_endian(); update_players__6TLobbyFi(this); }
 
-void swap_endian__10TNpcPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_pkt_u32x2__10TObjPlayerFPv((char*)p + 0x4); bswap_32__FPUl((char*)p + 0xc); }
+void TNpcPlayer::swap_endian() { read_be16_field2__10TObjPlayerFv((void*)(this)); bswap_pkt_u32x2__10TObjPlayerFv((char*)this + 0x4); bswap_32__FPUl((char*)this + 0xc); }
 
 void init_6x40_walk_packet(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(int*)((char*)a0 + 0xc) = 0; *(unsigned char*)((char*)a0 + 0x0) = 64; *(unsigned char*)((char*)a0 + 0x1) = 4; }
 
-void set_field2__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
+void TNpcPlayer::set_field2(s16 v) { *(s16*)((char*)this + 0x2) = v; }
 
-void set_field_0__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
+void TNpcPlayer::set_field_0(s16 v) { *(s16*)((char*)this + 0x0) = v; }
 
-void set_state__10TNpcPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
+void TNpcPlayer::set_state(s32 v) { *(s32*)((char*)this + 0x0) = v; }
 
-void byteswap_pos__10TNpcPlayerFPv(void* p) { bswap_16__FPUs((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x2)); }
+void TNpcPlayer::byteswap_pos() { bswap_16__FPUs((void*)(this)); bswap_16__FPUs((void*)((char*)this + 0x2)); }
 
 void set_state__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 
@@ -3825,28 +3797,28 @@ void TFontSmallLobby__sub_80152F28(Obj_80152F28 *self) {
 
 int get_registered_object_count(void) {  return registered_entity_count; }
 
-u16 get_action_flags__10TNpcPlayerFPv(void* p) { return *(u16*)((char*)p + 0x678); }
+u16 TNpcPlayer::get_action_flags() { return *(u16*)((char*)this + 0x678); }
 
-void update_poison_damage__22TObjFogCollisionPoisonFPv(void *arg0) {
+void TObjFogCollisionPoison::update_poison_damage() {
     s32 temp_r0;
     s32 temp_r31;
 
-    temp_r31 = *(s32 *)((s8 *)arg0 + 0x10);
-    if (check_switch__22TObjFogCollisionPoisonFPv(temp_r31) != 0) {
-        if (check_collision__16TObjFogCollisionFPvUs(temp_r31, *(u16 *)((s8 *)arg0 + 0x28)) != 0) {
-            record_poison_hit__22TObjFogCollisionPoisonFPvUs(temp_r31, *(u16 *)((s8 *)arg0 + 0x28));
-            *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) + 1);
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x20) >= (s32) *(s32 *)((s8 *)arg0 + 0x1C)) {
-                apply_poison_damage__22TObjFogCollisionPoisonFPvi(temp_r31, *(u16 *)((s8 *)arg0 + 0x28));
-                *(s32 *)((s8 *)arg0 + 0x20) = 0;
-                *(s32 *)((s8 *)arg0 + 0x1C) = 0x1E;
+    temp_r31 = *(s32 *)((s8 *)this + 0x10);
+    if (check_switch__22TObjFogCollisionPoisonFv(temp_r31) != 0) {
+        if (check_collision__16TObjFogCollisionFUs(temp_r31, *(u16 *)((s8 *)this + 0x28)) != 0) {
+            record_poison_hit__22TObjFogCollisionPoisonFUs(temp_r31, *(u16 *)((s8 *)this + 0x28));
+            *(s32 *)((s8 *)this + 0x20) = (s32) (*(s32 *)((s8 *)this + 0x20) + 1);
+            if ((s32) *(s32 *)((s8 *)this + 0x20) >= (s32) *(s32 *)((s8 *)this + 0x1C)) {
+                apply_poison_damage__22TObjFogCollisionPoisonFl(temp_r31, *(u16 *)((s8 *)this + 0x28));
+                *(s32 *)((s8 *)this + 0x20) = 0;
+                *(s32 *)((s8 *)this + 0x1C) = 0x1E;
             }
-            *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
+            *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
         } else {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 0x96;
-            *(s32 *)((s8 *)arg0 + 0x24) = 0;
+            *(s32 *)((s8 *)this + 0x1C) = 0x96;
+            *(s32 *)((s8 *)this + 0x24) = 0;
         }
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
+        temp_r0 = *(s32 *)((s8 *)this + 0x24);
         if (temp_r0 == 1) {
             TObjFogCollisionPoison__sub_801535D0(temp_r31);
             return;

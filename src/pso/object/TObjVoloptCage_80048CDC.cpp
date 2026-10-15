@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjVoloptCage.h"
 
 struct Base_800490E8_80048F40 { char pad[0xC]; };
 struct VObj_800490E8_80048F40 : Base_800490E8_80048F40 {
@@ -179,8 +180,8 @@ struct Vec_80048CDC { f32 x, y, z; };
 void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
 s32 spawn_particle_effect(Vec_80048CDC *, s32);
-void create_breakup_mdl__12TBoss3VoloptFiiiii(void *, void *, s32, void *, s32);
-void trigger_dell_biter_events__10TObjPlayerFPv(void *);
+void create_breakup_mdl__12TBoss3VoloptFlllll(void *, void *, s32, void *, s32);
+void trigger_dell_biter_events__10TObjPlayerFv(void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -193,14 +194,12 @@ extern const f32 lbl_805D8868;
 extern const f32 lbl_805D886C;
 extern Pair_80048C04 lbl_804366E8[];
 void fn_80048C04(Self_80048C04 *self);
-void update_breakup__14TObjVoloptCageFPv(u8 *arg0);
 s32 TObjVoloptPillar__sub_80048118(s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8874;
 extern const f32 lbl_805D8878;
 void TObjVoloptCage__sub_80049000(u8 *arg0);
-s32 check_object_collisions__10TObjPlayerFPv(void *, int);
-void update_collision_state__14TObjVoloptCageFPv(u8 *arg0);
+s32 check_object_collisions__10TObjPlayerFv(void *, int);
 }
 
 extern "C" {
@@ -271,7 +270,6 @@ struct TObjVoloptCage_VObj_80048F40 : TObjVoloptCage_base_80048F40 {
     virtual s32 m61();
 };
 
-void destroy__14TObjVoloptCageFv(void);
 void update_capture__14TObjVoloptCageFPv(u8 *arg0);
 s32 TLobby__sub_80049568();
 s32 is_locally_controlled__10TObjPlayerFPv();
@@ -299,7 +297,8 @@ void fn_80048C04(Self_80048C04 *self) {
 
 #pragma push
 #pragma fp_contract on
-void update_breakup__14TObjVoloptCageFPv(u8 *arg0) {
+void TObjVoloptCage::update_breakup() {
+    u8 *arg0 = (u8 *)this;
     Vec_80048CDC v;
     s32 idx;
 
@@ -308,9 +307,9 @@ void update_breakup__14TObjVoloptCageFPv(u8 *arg0) {
         break;
     case 0:
         play_sound_effect(0x4001C112, (u32)(arg0 + 0x38), 0, 0);
-        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
-        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
-        trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
+        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
+        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
+        trigger_dell_biter_events__10TObjPlayerFv(arg0 + 0x2FC);
         *(s16 *)((s8 *)arg0 + 0x33C) = 0xC;
         disallow_rendering__7TObjectFv(arg0);
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
@@ -332,7 +331,8 @@ void update_breakup__14TObjVoloptCageFPv(u8 *arg0) {
 
 #pragma pop
 
-void update_collision_state__14TObjVoloptCageFPv(u8 *arg0) {
+void TObjVoloptCage::update_collision_state() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r3;
     s32 temp_r0;
     s32 temp_r4;
@@ -346,7 +346,7 @@ void update_collision_state__14TObjVoloptCageFPv(u8 *arg0) {
     case 1:
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x38C);
         *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (temp_r4 - 1);
-        check_object_collisions__10TObjPlayerFPv((void *) (arg0), (int) (temp_r4));
+        check_object_collisions__10TObjPlayerFv((void *) (arg0), (int) (temp_r4));
         if ((s16) (*(s16 *)((s8 *)arg0 + 0x33C) -= 1) <= 0) {
             *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
             *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
@@ -419,7 +419,7 @@ void TObjVoloptCage__sub_80049000(u8 *arg0) {
 }
 #pragma pop
 
-void destroy__14TObjVoloptCageFv(void) {
+void TObjVoloptCage::destroy() {
     if (volopt_cage_breakup_model != NULL) {
         volopt_cage_breakup_model->m0(1);
     }

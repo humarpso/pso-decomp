@@ -17,6 +17,10 @@ struct TORockJungleS01
     u8 _pad88[0x30];
     u32 m_b8;
     u32 m_bc;
+    static void *create(void *arg0);
+    static u8 *get_model(s32 arg0);
+    static void free_globals();
+    static void load_resources();
 };
 
 #endif

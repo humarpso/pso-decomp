@@ -11,6 +11,12 @@ struct TObjLaboMapWarp
     u32 m_60;
     u8 _pad64[0x28];
     u32 m_8c;
+    void render();
+    int is_field88_zero();
+    void clamp_index();
+    static void release_static_resource();
+    static void load_static_resource();
+    static void *create(void *arg0);
 };
 
 #endif

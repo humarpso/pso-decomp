@@ -8,7 +8,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0);
 int get_logo_texture_e_handle(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
+void *init_fade__6TLobbyFPvPv(void *, void *, void *);
 void init_logo_state__23TAdSinglePlyChrSelectGCFi(int);
 
 extern s32 __vt__12TAdSoniclogo[];
@@ -29,7 +29,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
     init_logo_state__23TAdSinglePlyChrSelectGCFi(1);
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init_fade__6TLobbyFPvPvPv(o, tl_00, request_destroy__12TAdSoniclogoFv);
+        init_fade__6TLobbyFPvPv(o, tl_00, request_destroy__12TAdSoniclogoFv);
     }
     return arg0;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct Stack_800676A0 {
     f32 sp8;
@@ -21,8 +22,7 @@ extern const f32 lbl_805D8F28;
 extern const f32 lbl_805D8F2C;
 extern const f32 lbl_805D8F30;
 extern const f32 lbl_805D8F34;
-void update_follow_position__11TCameraCtrlFPv(u8 *arg0);
-void set_target__11TCameraCtrlFPvUi(void *, u32);
+void set_target__11TCameraCtrlFUl(void *, u32);
 u8 * TCameraCtrl__sub_80068714(void *);
 s32 get_player_by_client_id(u32);
 extern s32 lbl_804887C8[];
@@ -59,7 +59,8 @@ void * TCameraCtrl__vt11(void) {
 
 #pragma push
 #pragma fp_contract on
-void update_follow_position__11TCameraCtrlFPv(u8 *arg0) {
+void TCameraCtrl::update_follow_position() {
+    u8 *arg0 = (u8 *)this;
     Stack_800676A0 stack;
     f32 temp_f1;
     f32 temp_f2;
@@ -102,7 +103,7 @@ u8 *TCameraCtrl__sub_800677D4(u8 *arg0) {
     TCameraCtrl__sub_80068714(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800677D4_lbl_804887C8 *)&lbl_804887C8).value;
     *(s32 *)((s8 *)arg0 + 0x38) = 5;
-    set_target__11TCameraCtrlFPvUi(arg0, get_player_by_client_id(0U));
+    set_target__11TCameraCtrlFUl(arg0, get_player_by_client_id(0U));
     return arg0;
 }
 

@@ -1,13 +1,14 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChat.h"
 
 extern "C" {
 
-void set_flag60_bit1__20TWindowSubSymbolChatFPv(void *arg0) {
-    *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) | 1);
+void TWindowSubSymbolChat::set_flag60_bit1() {
+    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 1);
 }
 
-void set_flag60_bit2__20TWindowSubSymbolChatFPv(void *arg0) {
-    *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) | 2);
+void TWindowSubSymbolChat::set_flag60_bit2() {
+    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 2);
 }
 
 s32 TWindowSubSymbolChat__sub_80283974(void *arg0) {
@@ -18,8 +19,8 @@ s32 TWindowSubSymbolChat__sub_80283980(void *arg0) {
     return *(u8 *)((s8 *)arg0 + 0x70) & 2;
 }
 
-s32 is_open__20TWindowSubSymbolChatFPv(void *arg0) {
-    return *(u8 *)((s8 *)arg0 + 0x60) & 1;
+s32 TWindowSubSymbolChat::is_open() {
+    return *(u8 *)((s8 *)this + 0x60) & 1;
 }
 
 s32 TWindowSubSymbolChat__sub_80283998(void *arg0) {

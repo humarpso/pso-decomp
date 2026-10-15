@@ -45,7 +45,6 @@ extern RecoveredGlobal_800823E0_lbl_80438EC8 clitical_vec_b;
 extern const f32 TEffClitical__alpha_approach_step;
 extern const f32 lbl_805D93A8;
 extern const f32 lbl_805D93AC;
-void run_task__12TEffCliticalFv(u8 *arg0);
 void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 copy_slot_to_anim_frame(void *);
 s32 fn_800829E0(void *);
@@ -58,7 +57,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 set_chunk_material_color(void *);
 s32 draw_chunk_object(int);
 extern s32 lbl_8048E2E0[];
@@ -67,14 +66,12 @@ extern u8 *camera_ctrl_instance;
 extern s32 *lbl_805D4ED8;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void render__12TEffCliticalFv(u8 *arg0);
 }
 
 extern "C" {
 
 void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *__ct__12TEffCliticalFv(void *arg0, void *arg1);
-void create__12TEffCliticalFPv(void *arg0);
 void __ct__7TEffectFv(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -89,7 +86,8 @@ extern const f32 lbl_805D93B0;
 typedef char RecoveredGlobal_800823E0_lbl_80438EB8_size[sizeof(RecoveredGlobal_800823E0_lbl_80438EB8) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_800823E0_lbl_80438EC8_size[sizeof(RecoveredGlobal_800823E0_lbl_80438EC8) == 0x10 ? 1 : -1];
 
-void render__12TEffCliticalFv(u8 *arg0) {
+void TEffClitical::render() {
+    u8 *arg0 = (u8 *)this;
     s32 sp8;
     s32 temp_r3;
     set_depth_buffer_settings_1__Fv();
@@ -101,7 +99,7 @@ void render__12TEffCliticalFv(u8 *arg0) {
     set_chunk_material_color((void *) ((u8 *)(arg0) + 0x2C));
     fn_800829E0((void *) (&sp8));
     push_matrix();
-    set_global_param__8TObjFishFi((void *) (lbl_8048E2E0));
+    set_global_param__8TObjFishFl((void *) (lbl_8048E2E0));
     post_translate_matrix((void *) ((u8 *)(arg0) + 0x20));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
     scale_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x44)));
@@ -113,7 +111,8 @@ void render__12TEffCliticalFv(u8 *arg0) {
     restore_saved_depth_alpha_state();
 }
 
-void run_task__12TEffCliticalFv(u8 *arg0) {
+void TEffClitical::run_task() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_800823E0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800823E0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800823E0, sp10) == 0x8) ? 1 : -1];
@@ -193,11 +192,11 @@ void *__ct__12TEffCliticalFv(void *arg0, void *arg1) {
     return arg0;
 }
 
-void create__12TEffCliticalFPv(void *arg0) {
+void TEffClitical::create() {
     void *o;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {
-        __ct__12TEffCliticalFv((void *)(o), (void *)(arg0));
+        __ct__12TEffCliticalFv((void *)(o), (void *)(this));
     }
 }
 

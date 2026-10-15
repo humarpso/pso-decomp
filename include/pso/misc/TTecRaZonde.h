@@ -15,6 +15,9 @@ struct TTecRaZonde
     u8 _padB6[0x32];
     u32 m_e8;
     u32 m_ec;
+    void calc_damage();
+    void create(void *arg1, void *arg2);
+    static void render();
 };
 
 #endif

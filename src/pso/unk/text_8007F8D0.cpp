@@ -15,7 +15,7 @@ extern s16 disc_error_code;
 extern s32 lbl_805D4EC0;
 extern s32 lbl_805D4EC4;
 void init_disc_error_messages(void);
-s32 update_lobby_scene__6TSceneFPv(void *);
+s32 update_lobby_scene__6TSceneFv(void *);
 void read_disc_file(void *, s32);
 void VIWaitForRetrace(void);
 void VIFlush(void);
@@ -59,7 +59,7 @@ s32 launch_switcher_dol(const char *arg0) {
     char buf[0x100];
     s32 r;
     s32 v;
-    r = update_lobby_scene__6TSceneFPv(lbl_80438D20);
+    r = update_lobby_scene__6TSceneFv(lbl_80438D20);
     read_disc_file(lbl_80438D20, v = resource_decompress_buffer);
     VISetBlack(1);
     VIFlush();

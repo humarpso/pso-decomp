@@ -329,13 +329,13 @@ struct Ent_800F0F84 { u8 pad0[0x18]; u32 f18; };
 
 extern "C" {
 s32 is_split_screen();
-s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFv(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
-s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
 s32 play_sound_effect(int, void *, int, int);
 extern const Quad_800F1440 me3_stelth_offset_vec;
 extern const f32 lbl_805DA828;
@@ -345,21 +345,21 @@ s32 move_with_wall_slide(void *);
 s32 enemy_set_heading_velocity(void *, s32, f32);
 s32 select_enemy_destination(void *, Vec_800F1098 *, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800F1098 *);
-s32 update_angle__10TObjPlayerFPviPv(void *, s32, void *);
+s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 enemy_turn_toward_dest(void *, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFv(void *);
 s32 enemy_copy_target_destination(void *);
-s32 clamp_frame_index__9TObjEneDDFi(s32);
+s32 clamp_frame_index__9TObjEneDDFl(s32);
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
-s32 update_prev_position__10TObjPlayerFPv(void *);
-s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
+s32 update_prev_position__10TObjPlayerFv(void *);
+s32 render_anim_model__10TObjPlayerFf(void *, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
-s32 update_collisions__10TObjPlayerFPv(void *);
+s32 update_collisions__10TObjPlayerFv(void *);
 s32 create__10TTecGiFoieFPvPvPv(void *, void *, s32);
-s32 create__10TTecRaFoieFPvPvPvPv(void *, void *, void *, s32);
+s32 create__10TTecRaFoieFPvPvPv(void *, void *, void *, s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 void subtract_vector(void *, void *);
@@ -458,7 +458,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
         }
         break;
     case 0:
-        update_prev_position__10TObjPlayerFPv(arg0);
+        update_prev_position__10TObjPlayerFv(arg0);
         switch (F(s32, 0x424)) {
         case 0:
         default:
@@ -478,7 +478,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                 } else {
                     VecCopy__FP3VecPC3Vec(&d, arg0 + 0x394);
                     subtract_vector(&d, arg0 + 0x2FC);
-                    r = update_angle__10TObjPlayerFPviPv(arg0, F(Spd_800F1098 *, 0x350)->turn, &d);
+                    r = update_angle__10TObjPlayerFlPv(arg0, F(Spd_800F1098 *, 0x350)->turn, &d);
                 }
             }
             if (r < 0x100) {
@@ -490,7 +490,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
             break;
         case 1:
             advance_animation_playback(arg0);
-            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFv(arg0) != 0) {
                 F(s32, 0x428) = 0;
                 F(s32, 0x424) = 2;
             }
@@ -500,7 +500,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, F(s32, 0x60));
                 set_global_flag__10TObjPlayerFv();
-                render_anim_model__10TObjPlayerFPvf(arg0, TObjEneMe3Stelth__data_805DA824);
+                render_anim_model__10TObjPlayerFf(arg0, TObjEneMe3Stelth__data_805DA824);
                 clear_global_state__10TObjPlayerFv();
                 pop_matrix();
                 push_matrix_from(anim_model_matrix_array + 0x90);
@@ -512,15 +512,15 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                 if (F(u32, 0x390) != 0) {
                     VecCopy__FP3VecPC3Vec(&d, arg0 + 0x394);
                     subtract_vector(&d, arg0 + 0x2FC);
-                    r = update_angle__10TObjPlayerFPviPv(arg0, F(Spd_800F1098 *, 0x350)->turn, &d);
+                    r = update_angle__10TObjPlayerFlPv(arg0, F(Spd_800F1098 *, 0x350)->turn, &d);
                 } else {
                     r = F(s32 *, 0x318)[3];
                 }
                 if (r < F(s32 *, 0x318)[3] / 2 && F(u32, 0x390) != 0) {
                     if (game_difficulty_selection == 3) {
-                        create__10TTecRaFoieFPvPvPvPv(arg0, &out, arg0 + 0x394, clamp_frame_index__9TObjEneDDFi(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl));
+                        create__10TTecRaFoieFPvPvPv(arg0, &out, arg0 + 0x394, clamp_frame_index__9TObjEneDDFl(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl));
                     } else {
-                        create__10TTecGiFoieFPvPvPv(arg0, &out, clamp_frame_index__9TObjEneDDFi(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl));
+                        create__10TTecGiFoieFPvPvPv(arg0, &out, clamp_frame_index__9TObjEneDDFl(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl));
                     }
                 } else {
                     F(s32, 0x424) = 3;
@@ -537,7 +537,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
     case 5:
         break;
     }
-    update_collisions__10TObjPlayerFPv(arg0);
+    update_collisions__10TObjPlayerFv(arg0);
 }
 
 void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
@@ -550,7 +550,7 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
         F(s32, 0x3CC) &= 0xFFFFFFF1;
         F(s32, 0x3CC) |= 1;
         F(s32, 0x3CC) |= 0x40000;
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x08000000);
+        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 0x08000000);
         F(s32, 0x424) = 0;
         play_sound_effect(0x3B23B, arg0 + 0x38, 0, 0);
         break;
@@ -562,7 +562,7 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFv(arg0) != 0) {
             F(s32, 0x424) = 3;
         } else if (is_split_screen() != 0) {
             switch (F(s32, 0x424)) {

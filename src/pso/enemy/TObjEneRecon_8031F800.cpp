@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 struct Vec_8031F8C4 { f32 x, y, z; };
 
@@ -30,16 +31,15 @@ void TObjEneRecon__sub_8031F800(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_8031F8C4 *, Vec_8031F8C4 *);
 void play_sound_effect(s32, void *, s32, s32);
 u32 create__12TObjEneReconFPvPvPvPvPv(void *, u16, s32, Vec_8031F8C4 *, Vec_8031F8C4 *);
-s32 alloc_child_id__12TObjEneReconFPv(void *);
-s32 remap_area_sound_id__14TObjEneRecoboxFUi(s32, s32, s32);
-Vec_8031F8C4 *get_field_38_ptr__12TObjEneReconFPv(void *, s32);
+s32 alloc_child_id__12TObjEneReconFv(void *);
+s32 remap_area_sound_id__14TObjEneRecoboxFUl(s32, s32, s32);
+Vec_8031F8C4 *get_field_38_ptr__12TObjEneReconFv(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Vec_8031F8C4 lbl_804762E4;
 extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF454;
 extern const f32 lbl_805DF458;
-void update_child_spawn__12TObjEneReconFPv(Recon_8031F8C4 *o);
 }
 
 extern "C" {
@@ -74,7 +74,8 @@ void TObjEneRecon__sub_8031F800(u8 *arg0) {
 }
 #pragma pop
 
-void update_child_spawn__12TObjEneReconFPv(Recon_8031F8C4 *o) {
+void TObjEneRecon::update_child_spawn() {
+    Recon_8031F8C4 *o = (Recon_8031F8C4 *)this;
     Vec_8031F8C4 dir = lbl_804762E4;
     Vec_8031F8C4 pos;
     s32 id;
@@ -100,9 +101,9 @@ void update_child_spawn__12TObjEneReconFPv(Recon_8031F8C4 *o) {
         dir.z = lbl_805DF458 * cos_table_lookup(o->f60);
         break;
     }
-    id = alloc_child_id__12TObjEneReconFPv(o);
+    id = alloc_child_id__12TObjEneReconFv(o);
     arg = o->f2C + (id - o->f1C);
-    VecCopy__FP3VecPC3Vec(&pos, get_field_38_ptr__12TObjEneReconFPv(o, o->f2C));
+    VecCopy__FP3VecPC3Vec(&pos, get_field_38_ptr__12TObjEneReconFv(o, o->f2C));
     if (id == 0xFFFF) {
         o->f414 = o->f3F4;
         return;
@@ -110,7 +111,7 @@ void update_child_spawn__12TObjEneReconFPv(Recon_8031F8C4 *o) {
     if (create__12TObjEneReconFPvPvPvPvPv(o, id, arg, &pos, &dir) != 0) {
         n = o->f410++;
         o->ids[n] = id;
-        play_sound_effect(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003A80F, o->f414++, n), o->pos38, 0, 0);
+        play_sound_effect(remap_area_sound_id__14TObjEneRecoboxFUl(0x4003A80F, o->f414++, n), o->pos38, 0, 0);
     }
 }
 

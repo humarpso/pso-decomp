@@ -7,7 +7,7 @@ struct E_8029BCB4 { u8 b[0x14]; };
 struct T_8029BCB4 { u8 b[0x20]; };
 
 extern "C" {
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -15,20 +15,17 @@ s32 set_draw_texture_and_color(void *, void *);
 extern T_8029BCB4 TAdRayGC_ray_quad_table[];
 extern s32 TAdRayGC__ray_texture_list;
 extern const f32 lbl_805DDD10;
-void draw_ray_quads__8TAdRayGCFiPvPvi(s32 arg0, u8 *arg1, void *arg2, s32 arg3);
 }
 
 extern "C" {
 
 void *__ct__8TAdRayGCFv(void *arg0);
-void render__8TAdRayGCFv(void *arg0);
-void run_task__8TAdRayGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 s32 set_cached_blend_factor(s32, s32);
 s32 get_state_flag__9TMainTaskFv();
 s32 queue_destruction__7TObjectFv();
 
-void draw_ray_quads__8TAdRayGCFiPvPvi(s32 arg0, u8 *arg1, void *arg2, s32 arg3) {
+void TAdRayGC::draw_ray_quads(s32 arg0, u8 *arg1, void *arg2, s32 arg3) {
     u32 i;
     E_8029BCB4 *p;
     switch (arg3) {
@@ -36,7 +33,7 @@ void draw_ray_quads__8TAdRayGCFiPvPvi(s32 arg0, u8 *arg1, void *arg2, s32 arg3) 
         p = (E_8029BCB4 *)arg1;
         for (i = 0; i < 2; i++) {
             begin_screen_draw(1);
-            set_global_param__8TObjFishFi((void *) TAdRayGC__ray_texture_list);
+            set_global_param__8TObjFishFl((void *) TAdRayGC__ray_texture_list);
             set_draw_texture_and_color(p, arg2);
             draw_textured_quad_at_depth(&TAdRayGC_ray_quad_table[i], lbl_805DDD10);
             get_player__20TWindowSubStatusDispFv();
@@ -46,7 +43,7 @@ void draw_ray_quads__8TAdRayGCFiPvPvi(s32 arg0, u8 *arg1, void *arg2, s32 arg3) 
         p = (E_8029BCB4 *)(arg1 + 0x14);
         for (i = 2; i < 4; i++) {
             begin_screen_draw(1);
-            set_global_param__8TObjFishFi((void *) TAdRayGC__ray_texture_list);
+            set_global_param__8TObjFishFl((void *) TAdRayGC__ray_texture_list);
             set_draw_texture_and_color(p, arg2);
             draw_textured_quad_at_depth(&TAdRayGC_ray_quad_table[i], lbl_805DDD10);
             get_player__20TWindowSubStatusDispFv();
@@ -55,23 +52,23 @@ void draw_ray_quads__8TAdRayGCFiPvPvi(s32 arg0, u8 *arg1, void *arg2, s32 arg3) 
     }
 }
 
-void render__8TAdRayGCFv(void *arg0) {
+void TAdRayGC::render() {
     s32 temp_r0;
 
     if (get_state_flag__9TMainTaskFv() != 1) {
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+        temp_r0 = *(s32 *)((s8 *)this + 0x1C);
         switch (temp_r0) {
         case 0:
-            draw_ray_quads__8TAdRayGCFiPvPvi((s32)(arg0), (u8 *)(*(s32 *)((s8 *)arg0 + 0x20)), (void *)(-1), (s32)(0));
+            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20)), (void *)(-1), (s32)(0));
             break;
         case 1:
-            draw_ray_quads__8TAdRayGCFiPvPvi((s32)(arg0), (u8 *)(*(s32 *)((s8 *)arg0 + 0x20)), (void *)(-1), (s32)(0));
-            draw_ray_quads__8TAdRayGCFiPvPvi((s32)(arg0), (u8 *)(*(s32 *)((s8 *)arg0 + 0x20) - 0xD), (void *)(-1), (s32)(1));
+            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20)), (void *)(-1), (s32)(0));
+            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20) - 0xD), (void *)(-1), (s32)(1));
             break;
         case 2:
-            draw_ray_quads__8TAdRayGCFiPvPvi((s32)(arg0), (u8 *)(*(s32 *)((s8 *)arg0 + 0x20) - 0xD), (void *)(-1), (s32)(1));
+            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20) - 0xD), (void *)(-1), (s32)(1));
             break;
         }
         set_cached_blend_factor(0, 8);
@@ -79,26 +76,26 @@ void render__8TAdRayGCFv(void *arg0) {
     }
 }
 
-void run_task__8TAdRayGCFv(void *arg0) {
+void TAdRayGC::run_task() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) + 1);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    *(s32 *)((s8 *)this + 0x20) = (s32) (*(s32 *)((s8 *)this + 0x20) + 1);
+    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) > 0xC) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 1;
+        if ((s32) *(s32 *)((s8 *)this + 0x20) > 0xC) {
+            *(s32 *)((s8 *)this + 0x1C) = 1;
         }
         break;
     case 1:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) > 0x12) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
+        if ((s32) *(s32 *)((s8 *)this + 0x20) > 0x12) {
+            *(s32 *)((s8 *)this + 0x1C) = 2;
             return;
         }
         break;
     case 2:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) > 0x1F) {
-            *(s32 *)((s8 *)arg0 + 0x20) = 0x20;
+        if ((s32) *(s32 *)((s8 *)this + 0x20) > 0x1F) {
+            *(s32 *)((s8 *)this + 0x20) = 0x20;
             queue_destruction__7TObjectFv();
         }
         break;

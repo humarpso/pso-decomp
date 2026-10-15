@@ -79,7 +79,7 @@ extern void __destroy_arr(void* block, ConstructorDestructor* dtor, size_t size,
     }
 }
 
-extern "C" void free__11TOBoss4RockFUi(void*);
+extern "C" void mem_free(void*);
 
 extern void __destroy_new_array(void* block, ConstructorDestructor dtor) {
     if (block) {
@@ -97,6 +97,6 @@ extern void __destroy_new_array(void* block, ConstructorDestructor dtor) {
             }
         }
 
-        free__11TOBoss4RockFUi((char*)block - ARRAY_HEADER_SIZE);
+        mem_free((char*)block - ARRAY_HEADER_SIZE);
     }
 }

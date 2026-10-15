@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -6,14 +7,11 @@
 
 extern "C" {
 
-void dispatch_by_index__6TLobbyFi(s32 arg0);
-s32 get_option_state__6TLobbyFv(void);
-int render__6TLobbyFv(void* p);
 s32 clear_serial_buffer__22TAdEnterSerialAccessGCFv();
 s32 clear_state();
 int get_instance__15TAdPlayerLoadGCFv(void*);
 s32 get_option_field_C__17TWindowOptionCtrlFv();
-s32 store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32, s32, s32);
+s32 store_serial_access_key__22TAdEnterSerialAccessGCFlll(s32, s32, s32);
 
 void *__nw__7TObjectFUl(int);
 void *TAdScrollWinGC__ct(void *, s32, s32, void *);
@@ -27,7 +25,7 @@ void handle_game_join__6TLobbyFPv();
 
 extern s32 TLobby__protocol_instance;
 
-void dispatch_by_index__6TLobbyFi(s32 arg0) {
+void TLobby::dispatch_by_index(s32 arg0) {
     s32 var_r3;
 
     var_r3 = arg0;
@@ -39,7 +37,7 @@ void dispatch_by_index__6TLobbyFi(s32 arg0) {
         clear_state();
         return;
     case 1:
-        store_serial_access_key__22TAdEnterSerialAccessGCFiii(TLobby__protocol_instance + 0x3F8A, TLobby__protocol_instance + 0x3F9B, TLobby__protocol_instance + 0x3F3A);
+        store_serial_access_key__22TAdEnterSerialAccessGCFlll(TLobby__protocol_instance + 0x3F8A, TLobby__protocol_instance + 0x3F9B, TLobby__protocol_instance + 0x3F3A);
         return;
     case 2:
         clear_serial_buffer__22TAdEnterSerialAccessGCFv();
@@ -47,7 +45,7 @@ void dispatch_by_index__6TLobbyFi(s32 arg0) {
     }
 }
 
-void open_scroll_text_window__6TLobbyFi(s32 arg0) {
+void TLobby::open_scroll_text_window(s32 arg0) {
     void *obj;
     if (lobby_scroll_text_window == 0) {
         strncpy(lobby_scroll_text_buffer, arg0, 0x1000);
@@ -61,13 +59,14 @@ void open_scroll_text_window__6TLobbyFi(s32 arg0) {
     TLobby__data_805D5594 = 0x1A;
 }
 
-int render__6TLobbyFv(void* p) { return get_instance__15TAdPlayerLoadGCFv(p); }
+int TLobby::render() { return get_instance__15TAdPlayerLoadGCFv(this); }
 
 struct E_80134B58 { u8 d[0x11C]; };
 struct In_80134B58 { u32 type; u8 rest[0x118]; };
 extern E_80134B58 lobby_player_status_records[];
 void copy_player_record__6TLobbyFPvPv(u8 *, u8 *);
-void copy_player_records__6TLobbyFPvi(In_80134B58 *arg0, s32 arg1) {
+void TLobby::copy_player_records(s32 arg1) {
+    In_80134B58 *arg0 = (In_80134B58 *)this;
     s32 i;
     for (i = 0; i < arg1; i++) {
         if (arg0[i].type > 0xC) {
@@ -97,7 +96,8 @@ struct Ent_80134C44 { u8 pad[4]; u32 key; u32 val; };
 struct Obj_80134C44 { u8 pad0; u8 count; u8 pad2[2]; Ent_80134C44 e[1]; };
 void* get_player_by_client_id(s32);
 void set_lobby_marker__10TObjPlayerFPvi(void*, int);
-void apply_lobby_markers__6TLobbyFPv(Obj_80134C44 *o) {
+void TLobby::apply_lobby_markers() {
+    Obj_80134C44 *o = (Obj_80134C44 *)this;
     Ent_80134C44 *e = o->e;
     s32 i;
     for (i = 0; i < o->count; i++, e++) {
@@ -113,7 +113,7 @@ void apply_lobby_markers__6TLobbyFPv(Obj_80134C44 *o) {
 
 extern s32 TLobby__net_session_mode;
 
-s32 get_option_state__6TLobbyFv(void) {
+s32 TLobby::get_option_state() {
     s32 temp_r3;
 
     temp_r3 = get_option_field_C__17TWindowOptionCtrlFv();
@@ -129,7 +129,7 @@ s32 get_option_state__6TLobbyFv(void) {
     }
 }
 
-void install_game_join_handlers__6TLobbyFv(void) {
+void TLobby::install_game_join_handlers() {
     *(void (**)())(TLobby__protocol_instance + 0xBC04) = handle_game_join__6TLobbyFPv;
     *(void (**)())(TLobby__protocol_instance + 0xBC18) = on_game_player_add__6TLobbyFiii;
 }

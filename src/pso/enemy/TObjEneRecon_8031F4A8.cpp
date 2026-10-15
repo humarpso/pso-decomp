@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 struct Base_8031F4A8 { char pad[0x18]; };
 struct VObj_8031F4A8 : Base_8031F4A8 {
@@ -128,52 +129,50 @@ struct VObj_8031F550 : Base_8031F550 {
 
 extern "C" {
 
-void handle_action_state__12TObjEneReconFPvi(void *arg0, s32 arg1);
-void update_state__12TObjEneReconFPvi(void *arg0, s32 arg1);
 s32 advance_animation_playback();
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 s32 transition_enemy_state(void *, s32);
-s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
-s32 update_child_spawn__12TObjEneReconFPv(void *);
-s32 is_out_of_range__12TObjEneReconFPv();
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFv();
+s32 update_child_spawn__12TObjEneReconFv(void *);
+s32 is_out_of_range__12TObjEneReconFv();
 
-void handle_action_state__12TObjEneReconFPvi(void *arg0, s32 arg1) {
+void TObjEneRecon::handle_action_state(s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {
     case 4:
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE;
-        *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 2;
-        ((VObj_8031F4A8 *)arg0)->m94();
-        set_field_378__9TObjEneDDFPvi(arg0, 2);
+        temp_r4 = *(s32 *)((s8 *)this + 0x40C) & 0xFFFFFFFE;
+        *(s32 *)((s8 *)this + 0x40C) = temp_r4;
+        *(s16 *)((s8 *)this + 0xB8) = 2;
+        ((VObj_8031F4A8 *)this)->m94();
+        set_field_378__9TObjEneDDFPvi(this, 2);
         return;
     case 3:
-        if (is_out_of_range__12TObjEneReconFPv() != 0) {
-            transition_enemy_state(arg0, 5);
+        if (is_out_of_range__12TObjEneReconFv() != 0) {
+            transition_enemy_state(this, 5);
         }
     case 5:
         return;
     case 0:
         advance_animation_playback();
-        update_child_spawn__12TObjEneReconFPv(arg0);
+        update_child_spawn__12TObjEneReconFv(this);
         break;
     }
 }
 
-void update_state__12TObjEneReconFPvi(void *arg0, s32 arg1) {
+void TObjEneRecon::update_state(s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s32 *)((s8 *)arg0 + 0x40C) = *(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-        ((VObj_8031F550 *)arg0)->m94();
-        set_field_378__9TObjEneDDFPvi(arg0, 3);
+        *(s32 *)((s8 *)this + 0x40C) = *(s32 *)((s8 *)this + 0x40C) & 0xFFFFFFFE;
+        *(s16 *)((s8 *)this + 0xB8) = 1;
+        ((VObj_8031F550 *)this)->m94();
+        set_field_378__9TObjEneDDFPvi(this, 3);
         return;
     case 3:
-        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
-            *(s32 *)((s8 *)arg0 + 0x4D8) = 0;
-            *(s32 *)((s8 *)arg0 + 0x4DC) = 0x1E;
-            transition_enemy_state(arg0, 4);
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFv() != 0) {
+            *(s32 *)((s8 *)this + 0x4D8) = 0;
+            *(s32 *)((s8 *)this + 0x4DC) = 0x1E;
+            transition_enemy_state(this, 4);
         }
     case 5:
         return;

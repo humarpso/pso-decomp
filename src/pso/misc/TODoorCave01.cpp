@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODoorCave01.h"
 
 struct VBase_801618fc { char pad[0x18]; };
 struct VObj_801618fc : VBase_801618fc {
@@ -19,19 +20,17 @@ s32 end_effect_render__13TParticleCtrlFv();
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 s32 set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TODoorCave01__texture_lists;
 extern s32 model_render_flags;
-s32 draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2);
 }
 
 extern "C" {
 
-void *create__12TODoorCave01FPv(void *arg0);
 void render__12TODoorCave01Fv(u8 *arg0);
 void *TODoorCave01__ct(void *, void *, void *);
 s32 post_translate_matrix(void *);
@@ -41,16 +40,16 @@ s32 push_matrix();
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 is_in_view_depth(void *, f32);
-s32 set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFl(int);
 
 extern u8 *TODoorCave01__texture_lists;
 extern const f32 lbl_805DB4A4;
 
-s32 draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2) {
+s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {
     s32 temp_r4;
     u8 *temp_r31;
     u8 *temp_r31_2;
-    set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + (arg2 * 4))));
+    set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + (arg2 * 4))));
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 8)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0xC)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0x10)));
     draw_ginja_model((int) (*(s32 *)((s8 *)((u8 *) p1) + 4)));
@@ -91,12 +90,12 @@ void render__12TODoorCave01Fv(u8 *arg0) {
             var_r29 = 0;
             var_r30 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C));
             do {
-                draw_door_model__12TODoorCave01FPvii((void *)((void *) (arg0)), (int)((int) (var_r30)), (int)(*(s32 *)((s8 *)arg0 + 0xD0) & (1 << (var_r29 + 0x10)) ? 1 : 0));
+                TODoorCave01::draw_door_model((void *)((void *) (arg0)), (int)((int) (var_r30)), (int)(*(s32 *)((s8 *)arg0 + 0xD0) & (1 << (var_r29 + 0x10)) ? 1 : 0));
                 var_r29 += 1;
                 var_r30 = (unsigned char *) (*(void **)((s8 *)var_r30 + 0x30));
             } while (var_r29 < 4);
         } else {
-            set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + 4)));
+            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + 4)));
             draw_ginja_model_with_motion((void *) (*(void **)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
         }
         pop_matrix();
@@ -105,7 +104,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
 
 extern void *tl_05;
 
-void *create__12TODoorCave01FPv(void *arg0) {
+void *TODoorCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
         o = TODoorCave01__ct(o, tl_05, arg0);

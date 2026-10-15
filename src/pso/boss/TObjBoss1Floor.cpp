@@ -14,7 +14,7 @@ s32 push_matrix();
 s32 pop_matrix();
 void* __nw__7TObjectFUl(s32);
 s32 set_chunk_material_override_pair(int, int, void *, void *);
-s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFl(void *);
 
 void TObjBoss1Floor__sub_8002CB40(void) {  }
 
@@ -39,7 +39,7 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 
 void render_boss_effect_object(u8 *arg0) {
-    set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
+    set_global_param__8TObjFishFl((void *) (dragon_common_texture_list));
     update_dragon_trail_uvs((void *) (arg0 + 0x28));
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x28)), (f32) (*(f32 *)((s8 *)arg0 + 0x34)), (f32) (*(f32 *)((s8 *)arg0 + 0x30)));

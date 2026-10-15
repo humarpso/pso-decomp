@@ -1,20 +1,21 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Ent_801BC194 { u8 pad[0x14]; };
 
 extern "C" {
 
 s32 get_main_phase();
-s32 calc_attach_pos__10TObjPlayerFPv(void *);
+s32 calc_attach_pos__10TObjPlayerFv(void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 obj_isState2_324(void *);
 u16 obj_getField1c(void *);
-s32 check_flag__10TObjPlayerFPvi(void *, int);
-s32 save_position__14TBoss4DarkFalzFi(void *);
-s32 set_position_from__14TBoss4DarkFalzFPvPv(void *, void *);
+s32 check_flag__10TObjPlayerFl(void *, int);
+s32 save_position__14TBoss4DarkFalzFv(void *);
+s32 set_position_from__14TBoss4DarkFalzFPv(void *, void *);
 s32 reset_cameras_to_actor(void *, int);
-s32 set_state_flags__10TObjPlayerFPvUi(void *, int);
-s32 set_camera_mode__10TObjPlayerFi(int);
+s32 set_state_flags__10TObjPlayerFUl(void *, int);
+s32 set_camera_mode__10TObjPlayerFl(int);
 s32 is_current_room__10TObjRoomIdFPv(void *);
 s32 is_single_screen__10TObjPlayerFv();
 s32 is_key_machine_ready__10TObjPlayerFv();
@@ -23,13 +24,13 @@ void *get_player_by_client_id(s32);
 s32 has_active_camera_event__10TObjPlayerFv(void *);
 u8 *find_player_arrival_set(void *, s32);
 s32 set_position_history_entry__10TObjPlayerFiiff(void *, int, f32, f32);
-s32 set_position__10TObjPlayerFPvfff(void *, f32, f32, f32);
-u8 *get_sub_object__10TObjPlayerFPv(void *);
-s32 get_lock_timer__10TObjPlayerFPv(void *);
+s32 set_position__10TObjPlayerFfff(void *, f32, f32, f32);
+u8 *get_sub_object__10TObjPlayerFv(void *);
+s32 get_lock_timer__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801BF954(void *, int);
 s32 TObjPlayer__sub_801BF95C(void *);
 s32 TForceOperate__ct(void *, s32, u16);
-s32 copy_offset_position__10TObjPlayerFPvPv(void *, void *);
+s32 copy_offset_position__10TObjPlayerFPv(void *, void *);
 s32 clear_movement_history(void *);
 s32 TObjPlayer__sub_801D8C3C(void *);
 u8 *get_lobby_entry_ptr__10TObjPlayerFv(void *);
@@ -40,7 +41,8 @@ extern s32 local_client_id;
 extern s32 tl_02;
 extern const f32 TObjPlayer__data_805DC278;
 
-void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::place_on_area_entry() {
+    u8 *arg0 = (u8 *)this;
     void *obj;
     void *p;
     Ent_801BC194 *e;
@@ -48,12 +50,12 @@ void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
 
     if (get_main_phase() == 0xE && is_single_screen__10TObjPlayerFv() == 0 &&
         is_locally_controlled__10TObjPlayerFPv(arg0) != 0 && has_active_camera_event__10TObjPlayerFv(arg0) == 0 &&
-        check_flag__10TObjPlayerFPvi(arg0, 0x100000) == 0 && is_key_machine_ready__10TObjPlayerFv() != 0) {
-        set_state_flags__10TObjPlayerFPvUi(arg0, 0x100000);
-        set_position_from__14TBoss4DarkFalzFPvPv(arg0, get_lobby_entry_ptr__10TObjPlayerFv(arg0));
+        check_flag__10TObjPlayerFl(arg0, 0x100000) == 0 && is_key_machine_ready__10TObjPlayerFv() != 0) {
+        set_state_flags__10TObjPlayerFUl(arg0, 0x100000);
+        set_position_from__14TBoss4DarkFalzFPv(arg0, get_lobby_entry_ptr__10TObjPlayerFv(arg0));
         *(s32 *)((s8 *)arg0 + 0x60) = TObjPlayer__sub_801D8C3C(arg0);
         play_effect_default__10TObjPlayerFii(arg0, 0x1E);
-        set_camera_mode__10TObjPlayerFi(3);
+        set_camera_mode__10TObjPlayerFl(3);
         obj = __nw__7TObjectFUl(0x24);
         if (obj != NULL) {
             TForceOperate__ct(obj, tl_02, obj_getField1c(arg0));
@@ -61,27 +63,27 @@ void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
     } else if (obj_isState2_324(arg0) == 0) {
         p = consume_telepipe_arrival(obj_getField1c(arg0), arg0 + 0x60);
         if (p != NULL) {
-            set_position_from__14TBoss4DarkFalzFPvPv(arg0, p);
+            set_position_from__14TBoss4DarkFalzFPv(arg0, p);
         } else {
             e = &TObjPlayer__arrival_override_table[obj_getField1c(arg0)];
             if (obj_isState2_324(arg0) == 0 && TObjPlayer__sub_801BF95C(e) == 1) {
                 TObjPlayer__sub_801BF954(e, 0);
-                *(s32 *)((s8 *)arg0 + 0x60) = get_lock_timer__10TObjPlayerFPv(e);
-                set_position_from__14TBoss4DarkFalzFPvPv(arg0, get_sub_object__10TObjPlayerFPv(e));
+                *(s32 *)((s8 *)arg0 + 0x60) = get_lock_timer__10TObjPlayerFv(e);
+                set_position_from__14TBoss4DarkFalzFPv(arg0, get_sub_object__10TObjPlayerFv(e));
             } else {
                 other = find_player_arrival_set(arg0, obj_getField1c(arg0));
                 if (other != NULL) {
-                    set_position_from__14TBoss4DarkFalzFPvPv(arg0, other + 0x38);
+                    set_position_from__14TBoss4DarkFalzFPv(arg0, other + 0x38);
                     *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)other + 0x60);
                 } else {
-                    set_position__10TObjPlayerFPvfff(arg0, TObjPlayer__data_805DC278, TObjPlayer__data_805DC278, TObjPlayer__data_805DC278);
+                    set_position__10TObjPlayerFfff(arg0, TObjPlayer__data_805DC278, TObjPlayer__data_805DC278, TObjPlayer__data_805DC278);
                 }
             }
         }
     }
-    save_position__14TBoss4DarkFalzFi(arg0);
-    calc_attach_pos__10TObjPlayerFPv(arg0);
-    copy_offset_position__10TObjPlayerFPvPv(arg0 + 0x84C, arg0);
+    save_position__14TBoss4DarkFalzFv(arg0);
+    calc_attach_pos__10TObjPlayerFv(arg0);
+    copy_offset_position__10TObjPlayerFPv(arg0 + 0x84C, arg0);
     set_position_history_entry__10TObjPlayerFiiff(arg0, 0, *(f32 *)((s8 *)arg0 + 0x38), *(f32 *)((s8 *)arg0 + 0x40));
     clear_movement_history(arg0 + 0x6AC);
     if (is_single_screen__10TObjPlayerFv() != 0) {

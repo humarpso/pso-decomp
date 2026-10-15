@@ -5,6 +5,11 @@
 
 struct TChCrTagInformation
 {
+    int render();
+    void update_selected_char();
+    void run_task();
+    static void *create(void *arg0);
+    static void *create_default();
 };
 
 #endif

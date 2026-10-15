@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/ui/TAdDialingGC.h"
 
 extern "C" {
 
-void create__12TAdDialingGCFv(void);
 s32 TAdDialingGC__ct(void *, s32);
 u32 __nw__7TObjectFUl(s32);
 
 extern s32 tl_window;
 extern u32 TAdDialingGC__instance;
 
-void create__12TAdDialingGCFv(void) {
+void TAdDialingGC::create() {
     void *temp_r3;
 
     if ((u32) TAdDialingGC__instance == 0U) {

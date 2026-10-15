@@ -16,6 +16,10 @@ struct TODoorVS2Door01
     u32 m_ac;
     u8 _padB0[0x20];
     u32 m_d0;
+    void render();
+    static void *create(void *arg0);
+    static void free_resources();
+    static void load_resources();
 };
 
 #endif

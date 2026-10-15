@@ -49,12 +49,12 @@ s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_table;
 extern RecoveredGlobal_8011A350_main_task main_task;
 void run_cleanup_callbacks__16TItemReverseTechFv(void);
-Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-void safe_free__23TAdSinglePlyChrSelectGCFUi(int);
+Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFv(u32);
+void safe_free__23TAdSinglePlyChrSelectGCFUl(int);
 s32 prs_decompress_alloc(int, int, int);
 int set_stream_and_load_file__6TLobbyFi(char *);
-int free__11TOBoss4RockFUi(void*);
-int alloc_buffer__11TOBoss4RockFPv(u32);
+int mem_free(void*);
+int mem_alloc(u32);
 char *strncpy(char *, const char *, u32);
 void load_gvm_texture_archive(int, int);
 extern Name_8011A270 lbl_8043E714;
@@ -97,9 +97,9 @@ void free__16TItemReverseTechFv(void);
 s32 TItemReverseTech__ct(void *, s32);
 int __dl__FPv(void*);
 void * __nw__7TObjectFUl(s32);
-int free__11TOBoss4RockFUi(void*);
+int mem_free(void*);
 int free_texture_if_valid(void*);
-int set_global_flags__6TLobbyFi(void*);
+int set_global_flags__6TLobbyFl(void*);
 
 extern s32 tl_01;
 
@@ -113,7 +113,7 @@ void create__16TItemReverseTechFv(void) {
     extern int TItemReverseTech__texture_archive;
     extern int TItemReverseTech__entry_table;
     extern int TItemReverseTech__name_buffer;
-void free__16TItemReverseTechFv(void) { free_texture_if_valid((void*)(TItemReverseTech__texture_archive)); free__11TOBoss4RockFUi((void*)(TItemReverseTech__name_buffer)); TItemReverseTech__name_buffer = 0; free__11TOBoss4RockFUi((void*)(TItemReverseTech__entry_table)); TItemReverseTech__entry_table = 0; __dl__FPv((void*)(TItemReverseTech__texture_archive)); TItemReverseTech__texture_archive = 0; }
+void free__16TItemReverseTechFv(void) { free_texture_if_valid((void*)(TItemReverseTech__texture_archive)); mem_free((void*)(TItemReverseTech__name_buffer)); TItemReverseTech__name_buffer = 0; mem_free((void*)(TItemReverseTech__entry_table)); TItemReverseTech__entry_table = 0; __dl__FPv((void*)(TItemReverseTech__texture_archive)); TItemReverseTech__texture_archive = 0; }
 
     extern const float lbl_805DAC4C;
 
@@ -128,27 +128,27 @@ void load_textures__16TItemReverseTechFv(void) {
     Hdr_8011A270 *hdr;
     int file;
     int buf;
-    TItemReverseTech__name_buffer = alloc_buffer__11TOBoss4RockFPv(0x1C);
+    TItemReverseTech__name_buffer = mem_alloc(0x1C);
     strncpy((char *)TItemReverseTech__name_buffer, name->s, 0x1B);
-    e = (Ent_8011A270 *)alloc_buffer__11TOBoss4RockFPv(0xCC);
+    e = (Ent_8011A270 *)mem_alloc(0xCC);
     TItemReverseTech__entry_table = (int)e;
     for (i = 0; i < 17; i++, e++) {
         e->name = TItemReverseTech__name_buffer;
         e->a = 0;
         e->b = 0;
     }
-    hdr = alloc__23TAdSinglePlyChrSelectGCFPv(8);
+    hdr = alloc__23TAdSinglePlyChrSelectGCFv(8);
     TItemReverseTech__texture_archive = (int)hdr;
     hdr->entries = TItemReverseTech__entry_table;
     file = set_stream_and_load_file__6TLobbyFi(name->s);
     if (file != 0) {
-        buf = alloc_buffer__11TOBoss4RockFPv(0x200000);
+        buf = mem_alloc(0x200000);
         if (buf != 0 && prs_decompress_alloc(file, buf, 0x200000) > 0) {
             load_gvm_texture_archive(buf, TItemReverseTech__texture_archive);
         }
-        free__11TOBoss4RockFUi((void *)buf);
+        mem_free((void *)buf);
     }
-    safe_free__23TAdSinglePlyChrSelectGCFUi(file);
+    safe_free__23TAdSinglePlyChrSelectGCFUl(file);
 }
 #pragma pop
 
@@ -241,8 +241,8 @@ void init_scene__16TItemReverseTechFv(void) {
 
 void TItemReverseTech__sub_8011A54C(void* a0) { *(float*)((char*)a0 + 0x20) = lbl_805DAC4C; *(float*)((char*)a0 + 0x24) = lbl_805DAC4C; }
 
-int TItemReverseTech__sub_8011A55C(void) { return set_global_flags__6TLobbyFi((void*)(2)); }
-int TItemReverseTech__sub_8011A580(void) { return set_global_flags__6TLobbyFi((void*)(1)); }
+int TItemReverseTech__sub_8011A55C(void) { return set_global_flags__6TLobbyFl((void*)(2)); }
+int TItemReverseTech__sub_8011A580(void) { return set_global_flags__6TLobbyFl((void*)(1)); }
 void TItemReverseTech__sub_8011A5A4(void) {  }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TChCrTagInformation.h"
 
 struct Tag_802A1E8C {
     u8 pad[0x24];
@@ -12,24 +13,22 @@ s32 get_selected_char__15TChCrCharSelectFv();
 void get_instance__15TChCrCharSelectFv();
 void fn_80309890(void *, s32);
 extern const f32 lbl_805DDE1C;
-void update_selected_char__19TChCrTagInformationFPv(Tag_802A1E8C *arg0);
 }
 
 extern "C" {
 
 int TChCrTagInformation__vt4(void);
 void *__dt__19TChCrTagInformationFv(void *arg0, s16 arg1);
-int render__19TChCrTagInformationFv(void* p);
-void run_task__19TChCrTagInformationFv(void* p);
 int update_fade__8TChCrTagFPv(void*);
-int draw_char_info_sprites__16TObjCMAssignMenuFPv(void*);
+int draw_char_info_sprites__16TObjCMAssignMenuFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__8TChCrTagFv(void *, int);
 void fn_803098DC(void);
 
-int render__19TChCrTagInformationFv(void* p) { return draw_char_info_sprites__16TObjCMAssignMenuFPv(p); }
+int TChCrTagInformation::render() { return draw_char_info_sprites__16TObjCMAssignMenuFv(this); }
 
-void update_selected_char__19TChCrTagInformationFPv(Tag_802A1E8C *arg0) {
+void TChCrTagInformation::update_selected_char() {
+    Tag_802A1E8C *arg0 = (Tag_802A1E8C *)this;
     s32 c;
     if (arg0->f24 < lbl_805DDE1C) {
         fn_80309890(arg0, -1);
@@ -49,7 +48,7 @@ void update_selected_char__19TChCrTagInformationFPv(Tag_802A1E8C *arg0) {
     }
 }
 
-void run_task__19TChCrTagInformationFv(void* p) { update_fade__8TChCrTagFPv(p); update_selected_char__19TChCrTagInformationFPv((Tag_802A1E8C *)(p)); }
+void TChCrTagInformation::run_task() { update_fade__8TChCrTagFPv(this); update_selected_char(); }
 int TChCrTagInformation__vt4(void) { return 0; }
 
 extern s32 __vt__19TChCrTagInformation[];

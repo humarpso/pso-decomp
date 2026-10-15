@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKurage.h"
 
 struct RecoveredGlobal_8016E800_lbl_804B2E6C { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8016E800_lbl_804B2E6C_size[sizeof(RecoveredGlobal_8016E800_lbl_804B2E6C) == 0x10 ? 1 : -1];
@@ -59,7 +60,7 @@ void rotate_matrix_zyx(s32, s32, s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFi(s32);
+void set_global_param__8TObjFishFl(s32);
 s32 set_chunk_material_color(void *);
 void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -67,11 +68,8 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 update_anim_phase__17TOBarrierEnergy01FPv(void *);
+s32 update_anim_phase__17TOBarrierEnergy01Fv(void *);
 s32 fn_8016D8F8(void *);
-void check_player_distance__8TOKurageFPv(u8 *arg0);
-void update_state__8TOKurageFPv(void *arg0);
-void debug_print_ranges__8TOKurageFPv(void *self);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 s32 vec3_add_to(void *, void *);
@@ -83,22 +81,19 @@ s32 push_matrix_from(void *);
 s32 pop_matrices(int);
 f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
-void run_task__8TOKurageFv(TOKurage_8016DB24 *o);
 }
 
 struct RecoveredGlobal_8016E8A8___vt__8TOKurage { s32 value; u8 remaining[0x38]; };
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8016E800_lbl_804B2E6C bm_fs_obj_kurage_resource_descriptor;
 extern u32 TOKurage__static_model_resource;
-void load_static_resource__8TOKurageFv(void);
 u8 *get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 init_map_object_base(void *);
-void init__8TOKurageFPv(u8 *arg0);
 extern s32 __vt__8TOKurage[];
 extern s32 TOKurage__name;
 extern u32 TOKurage__static_model_resource;
@@ -108,49 +103,45 @@ void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80441EA0[];
 extern const char lbl_80441EB0[];
 extern const char lbl_80441EBC[];
-void debug_print_ranges__8TOKurageFPv(void *self);
 }
 
 extern "C" {
 
 void *__dt__8TOKurageFv(void *arg0, s16 arg1);
-void check_player_distance__8TOKurageFPv(u8 *arg0);
-void *create__8TOKurageFPv(void *arg0);
-void destroy_static_instance__8TOKurageFv(void);
-void init__8TOKurageFPv(u8 *arg0);
-void update_state__8TOKurageFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);
 f32 xyz_distance(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 
-void check_player_distance__8TOKurageFPv(u8 *arg0) {
+void TOKurage::check_player_distance() {
+    u8 *arg0 = (u8 *)this;
     if ((xyz_distance(arg0 + 0xE4, arg0 + 0x38) > *(f32 *)((s8 *)arg0 + 0x6C)) && ((u8) *(u8 *)((s8 *)arg0 + 0x100) != 4)) {
         *(u8 *)((s8 *)arg0 + 0x100) = 3U;
     }
 }
 
-void update_state__8TOKurageFPv(void *arg0) {
+void TOKurage::update_state() {
     f32 temp_f0;
 
-    temp_f0 = *(f32 *)((s8 *)arg0 + 0x68);
+    temp_f0 = *(f32 *)((s8 *)this + 0x68);
     if (is_any_player_within_radius_xz(temp_f0 * temp_f0) == 1) {
-        *(s8 *)((s8 *)arg0 + 0x100) = 4;
+        *(s8 *)((s8 *)this + 0x100) = 4;
     }
 }
 
-void debug_print_ranges__8TOKurageFPv(void *self) {
-    if (is_current_room(self) == 1) {
+void TOKurage::debug_print_ranges() {
+    if (is_current_room(this) == 1) {
         debug_printf_at(0x13001C, lbl_80441EA0);
         debug_printf_at(0x13001D, lbl_80441EB0);
         debug_printf_at(0x13001E, lbl_80441EBC);
     }
 }
 
-void init__8TOKurageFPv(u8 *arg0) {
+void TOKurage::init() {
+    u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0xCC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0xE4, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (0.0f);
@@ -169,15 +160,16 @@ void init__8TOKurageFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void run_task__8TOKurageFv(TOKurage_8016DB24 *o) {
+void TOKurage::run_task() {
+    TOKurage_8016DB24 *o = (TOKurage_8016DB24 *)this;
     f32 y;
     VecCopy__FP3VecPC3Vec(&o->prev, &o->pos);
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        debug_print_ranges__8TOKurageFPv(o);
+        debug_print_ranges();
         return;
     }
     if (o->anim != 0) {
-        update_anim_phase__17TOBarrierEnergy01FPv(o);
+        update_anim_phase__17TOBarrierEnergy01Fv(o);
     }
     y = 3.2f * sin_table_lookup(o->phase) + o->baseY;
     if (o->rising == 0) {
@@ -352,19 +344,20 @@ void run_task__8TOKurageFv(TOKurage_8016DB24 *o) {
         }
         }
     }
-    check_player_distance__8TOKurageFPv((u8 *)o);
-    update_state__8TOKurageFPv(o);
+    check_player_distance();
+    update_state();
     fn_8016D8F8(o);
     o->phase += (s32)(40.0f * (3.0517578125e-05f * (f32)rand()) + 160.0f);
 }
 #pragma pop
 
-void render__8TOKurageFv(u8 *arg0) {
+void TOKurage::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)(arg0 + 0xC0), *(f32 *)(arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_zyx(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
-        set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
+        set_global_param__8TObjFishFl(*(s32 *)(arg0 + 0x24));
         switch (*(u8 *)(arg0 + 0x100)) {
         case 4:
             lbl_805D5660 = model_render_flags;
@@ -394,7 +387,7 @@ void render__8TOKurageFv(u8 *arg0) {
 
 extern void *tl_05;
 
-void *create__8TOKurageFPv(void *arg0) {
+void *TOKurage::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x114);
     if (o != NULL) {
         o = TOKurage__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -404,7 +397,7 @@ void *create__8TOKurageFPv(void *arg0) {
 
 extern u32 TOKurage__static_model_resource;
 
-void destroy_static_instance__8TOKurageFv(void) {
+void TOKurage::destroy_static_instance() {
     if ((u32) TOKurage__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOKurage__static_model_resource, 1);
         TOKurage__static_model_resource = 0U;
@@ -413,10 +406,10 @@ void destroy_static_instance__8TOKurageFv(void) {
 
 extern s32 __vt__8TOKurage[];
 
-void load_static_resource__8TOKurageFv(void) {
+void TOKurage::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_kurage_resource_descriptor.value, 0, 0, 0));
@@ -427,7 +420,7 @@ void load_static_resource__8TOKurageFv(void) {
 void *__dt__8TOKurageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOKurage;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -447,7 +440,7 @@ u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - (1.0f));
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (5e+02f);
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (1e+02f);
-    init__8TOKurageFPv((u8 *)((void *) (arg0)));
+    ((TOKurage *)arg0)->init();
     return arg0;
 }
 

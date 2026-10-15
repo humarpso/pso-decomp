@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/THunterGuildWarning.h"
 
 extern "C" {
 
-u8 is_active__19THunterGuildWarningFv(void);
-
 extern s32 THunterGuildWarning__instance;
 
-u8 is_active__19THunterGuildWarningFv(void) {
+u8 THunterGuildWarning::is_active() {
     return (u8) (THunterGuildWarning__instance != 0);
 }
 

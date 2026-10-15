@@ -23,6 +23,10 @@ public:
     s32 vertex_count;
     u32 color;
     s32 field_28;
+public:
+    int decrement_timer();
+    void*init(s32 _w1, void * _w2);
+    u8 *create_instance();
 };
 
 #include <stddef.h>

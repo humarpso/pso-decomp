@@ -97,21 +97,19 @@ s32 angle_difference_abs(int, int);
 s32 angle_diff_s16(s32, s32);
 u32 get_player_by_client_id(int);
 s32 bswap_6x92__14TAdGameStartGCFPv(void *);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 draw_color_lines(Desc_802E55B8 *, s32, s32, f32);
-s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 void send_6x92__14TAdGameStartGCFPv(Pkt_802E5EFC *);
 void TAdGameStartGC__sub_802E6368(Pkt_802E5EFC *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 
-void step_line__23TObjOnlineEndingHexLineFPv(void *);
 void TObjOnlineEndingHexLine__sub_802E55A4(void *arg0, void *arg1);
 void render__23TObjOnlineEndingHexLineFv(u8 *arg0);
 void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0);
-void *create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1);
 s32 calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *, P2_802E55B8 *);
 void update_line_params__23TObjOnlineEndingHexLineFv(void);
 u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *arg1);
@@ -119,8 +117,8 @@ void copy_move_params__23TObjOnlineEndingHexMoveFPvPv(void *p, void *q);
 void *fn_802E6218(void *arg0);
 void fn_802E6260(void);
 
-void step_line__23TObjOnlineEndingHexLineFPv(void *arg0_) {
-    Hex_802E530C *h = (Hex_802E530C *)arg0_;
+void TObjOnlineEndingHexLine::step_line() {
+    Hex_802E530C *h = (Hex_802E530C *)this;
     s16 dx;
     s16 dy;
     s32 bad[3];
@@ -238,7 +236,7 @@ void render__23TObjOnlineEndingHexLineFv(u8 *arg0) {
 void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (*(f32 *)((s8 *)arg0 + 0x9C) + TObjOnlineEndingHexLine__hex_line_params.a);
     if (*(f32 *)((s8 *)arg0 + 0x9C) >= lbl_805DE968) {
-        step_line__23TObjOnlineEndingHexLineFPv(arg0);
+        ((TObjOnlineEndingHexLine *)arg0)->step_line();
     }
 }
 
@@ -284,7 +282,7 @@ Hex_802E57E0 *__ct__23TObjOnlineEndingHexLineFv(Hex_802E57E0 *arg0, s32 arg1, Po
     return arg0;
 }
 
-void * create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1) {
+void *TObjOnlineEndingHexLine::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
@@ -369,7 +367,7 @@ s32 calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *arg0, P2
     p.y = p.y * sc;
     p.x = p.x + ctr.x;
     p.y = p.y + ctr.y;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0), &p);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0), &p);
     return 1;
 }
 #pragma pop
@@ -453,7 +451,7 @@ void TObjOnlineEndingHexMove::run_task() {
     }
     if (self->timer == 0) {
         pad = controller_input_state + 0x20;
-        if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x30000) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(pad, 0x30000) != 0) {
             TAdGameStartGC__sub_802E6368(&pkt);
             pkt.idx = local_client_id % 4;
             switch (pkt.idx) {
@@ -480,7 +478,7 @@ void TObjOnlineEndingHexMove::run_task() {
                     min = lbl_805DE978;
                     break;
                 }
-                if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) != 0) {
+                if (is_on_current_screen__11TCameraCtrlFv(pad, 0x10000) != 0) {
                     v += step;
                     if (v > max) {
                         v = max;
@@ -495,7 +493,7 @@ void TObjOnlineEndingHexMove::run_task() {
                 break;
             case 2:
                 ang = TObjOnlineEndingHexLine__hex_line_params.c;
-                if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) != 0) {
+                if (is_on_current_screen__11TCameraCtrlFv(pad, 0x10000) != 0) {
                     ang += 0x1999;
                 } else {
                     ang -= 0x1999;
@@ -520,7 +518,7 @@ u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TObjOnlineEndingHexMove;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3FA0;
     for (i = 0; i < 4; i++) {
-        create__23TObjOnlineEndingHexLineFPvPv(arg1, &TObjOnlineEndingHexLine_corner_offsets[i]);
+        TObjOnlineEndingHexLine::create(arg1, &TObjOnlineEndingHexLine_corner_offsets[i]);
     }
     copy_move_params__23TObjOnlineEndingHexMoveFPvPv((void*)(&online_ending_hex_line_state), (void*)(TObjOnlineEndingHexMove__default_move_params));
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1E;

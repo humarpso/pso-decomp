@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjTombstone.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -54,7 +55,7 @@ struct Obj_800753DC {
 };
 
 extern "C" {
-u16 get_nth_view_player_id__11TCameraCtrlFi();
+u16 get_nth_view_player_id__11TCameraCtrlFl();
 s32 get_camera_no__11TCameraCtrlFv();
 u32 get_player_by_client_id(int);
 f32 xyz_distance(void *, void *);
@@ -63,11 +64,8 @@ extern f32 TObjTombstone__data_805D9178;
 extern f32 TObjTombstone__data_805D917C;
 extern const f32 lbl_805D9180;
 extern f32 TObjTombstone__data_805D9184;
-void update_fade_by_distance__13TObjTombstoneFPv(u8 *arg0);
-void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
 extern RecoveredGlobal_80074FAC_lbl_8043878C tombstone_reset_matrix_template;
 extern RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 TObjTombstone__base_matrix;
-void reset_matrix__13TObjTombstoneFv(void);
 u32 get_player_by_client_id(int);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
@@ -76,7 +74,6 @@ extern s32 local_client_id;
 extern const f32 lbl_805D9170;
 extern const f32 TObjTombstone__data_805D9174;
 extern f32 TObjTombstone__data_805D917C;
-s32 is_other_tombstone_closer__13TObjTombstoneFPv(Obj_80075070 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 f32 get_fov__11TCameraCtrlFv();
@@ -97,11 +94,9 @@ extern V_800751BC lbl_80438780;
 extern u8 identity_matrix[];
 extern View_800751BC *camera_ctrl_instance;
 extern const f32 TObjTombstone__data_805D9174;
-s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2);
 u32 calc_text_width(const char *);
-u32 calc_text_width__20TWindowSubStatusDispFPv(const char *);
+u32 calc_text_width__20TWindowSubStatusDispFPc(const char *);
 void draw_menu_font_string(const char *, u32, s32, f32, f32, f32);
 f32 sin_table_lookup(s32);
 u32 strlen(const char *);
@@ -112,31 +107,28 @@ extern const f32 lbl_805D9188;
 extern const f32 lbl_805D918C;
 extern const f32 lbl_805D9190;
 extern const f32 lbl_805D91A0;
-s32 draw_name_labels__13TObjTombstoneFPv(void *arg0_);
 }
 
 extern "C" {
 
-s32 check_owner__13TObjTombstoneFPv(void *arg0);
-void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
 void handle_6x96(void);
 s32 is_challenge_mode_active();
 s32 get_current_floor();
 s32 is_flag_set__6TLobbyFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
-void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); *(f32*)((char*)p + 0x1c) = *(f32*)((char*)q + 0x1c); *(f32*)((char*)p + 0x20) = *(f32*)((char*)q + 0x20); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }
+void TObjTombstone::copy_matrix(void* q) { *(f32*)((char*)this + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)this + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); *(f32*)((char*)this + 0x1c) = *(f32*)((char*)q + 0x1c); *(f32*)((char*)this + 0x20) = *(f32*)((char*)q + 0x20); *(f32*)((char*)this + 0x24) = *(f32*)((char*)q + 0x24); }
 
 typedef char RecoveredGlobal_80074FAC_lbl_8043878C_size[sizeof(RecoveredGlobal_80074FAC_lbl_8043878C) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250_size[sizeof(RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250) == 0x28 ? 1 : -1];
-void reset_matrix__13TObjTombstoneFv(void) {
+void TObjTombstone::reset_matrix() {
     ByteBlock_28 sp8;
     sp8 = *(const ByteBlock_28 *)((s32) ((u8 *)(&tombstone_reset_matrix_template.value) + -4) + 4);
-    copy_matrix__13TObjTombstoneFPvPv((void*)(&TObjTombstone__base_matrix.value), (void*)(&sp8));
+    ((TObjTombstone *)(&TObjTombstone__base_matrix.value))->copy_matrix((void*)(&sp8));
 }
 
 void handle_6x96(void) {  }
-s32 check_owner__13TObjTombstoneFPv(void *arg0) {
+s32 TObjTombstone::check_owner() {
     s32 var_r3;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -144,13 +136,14 @@ s32 check_owner__13TObjTombstoneFPv(void *arg0) {
     } else {
         var_r3 = is_flag_set__6TLobbyFv();
     }
-    if ((var_r3 == 0) || ((s8) *(u8 *)((s8 *)arg0 + 0xC2) != get_current_floor())) {
+    if ((var_r3 == 0) || ((s8) *(u8 *)((s8 *)this + 0xC2) != get_current_floor())) {
         return 1;
     }
     return 0;
 }
 
-s32 is_other_tombstone_closer__13TObjTombstoneFPv(Obj_80075070 *arg0) {
+s32 TObjTombstone::is_other_tombstone_closer() {
+    Obj_80075070 *arg0 = (Obj_80075070 *)this;
     f32 best;
     f32 d;
     u32 pl;
@@ -186,7 +179,7 @@ s32 is_other_tombstone_closer__13TObjTombstoneFPv(Obj_80075070 *arg0) {
     return 1;
 }
 
-s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2) {
+s32 TObjTombstone::project_to_screen(void *arg0, f32 *arg1, void *arg2) {
     V_800751BC d;
     V_800751BC v = lbl_80438780;
     push_matrix_from(identity_matrix);
@@ -212,11 +205,12 @@ s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2)
     return 1;
 }
 
-void update_fade_by_distance__13TObjTombstoneFPv(u8 *arg0) {
+void TObjTombstone::update_fade_by_distance() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     u32 temp_r3;
     get_camera_no__11TCameraCtrlFv();
-    temp_r3 = get_player_by_client_id((int) (get_nth_view_player_id__11TCameraCtrlFi()));
+    temp_r3 = get_player_by_client_id((int) (get_nth_view_player_id__11TCameraCtrlFl()));
     if (temp_r3 != 0U) {
         temp_f1 = xyz_distance((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
         if (temp_f1 <= lbl_805D9180) {
@@ -226,13 +220,13 @@ void update_fade_by_distance__13TObjTombstoneFPv(u8 *arg0) {
         } else {
             *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((TObjTombstone__data_805D917C - temp_f1) / TObjTombstone__data_805D9184);
         }
-        draw_name_labels__13TObjTombstoneFPv((void *)((void *) (arg0)));
+        TObjTombstone::draw_name_labels((void *)((void *) (arg0)));
     }
 }
 #pragma push
 #pragma fp_contract on
 #define self ((Obj_800753DC *)arg0_)
-s32 draw_name_labels__13TObjTombstoneFPv(void *arg0_) {
+s32 TObjTombstone::draw_name_labels(void *arg0_) {
     u32 c2;
     u32 c1;
     P_800753DC screen;
@@ -244,7 +238,7 @@ s32 draw_name_labels__13TObjTombstoneFPv(void *arg0_) {
     if (TObjTombstone__data_805D9174 == self->scale) return;
     VecCopy__FP3VecPC3Vec(&pos, &self->pos);
     pos.y += lbl_805D9188;
-    if (project_to_screen__13TObjTombstoneFPvPvPv(self, (f32 *)&screen, &pos) == 0) return;
+    if (TObjTombstone::project_to_screen(self, (f32 *)&screen, &pos) == 0) return;
     m = TObjTombstone__data_805D9174;
     for (s32 i = 0; i < 6; i++) {
         f32 w = calc_text_width(self->names[i]);
@@ -268,7 +262,7 @@ s32 draw_name_labels__13TObjTombstoneFPv(void *arg0_) {
         P_800753DC p = screen;
         name = self->names[i];
         if (strlen(name) != 0) {
-            p.x -= lbl_805D918C * calc_text_width__20TWindowSubStatusDispFPv(name);
+            p.x -= lbl_805D918C * calc_text_width__20TWindowSubStatusDispFPc(name);
             if (a > TObjTombstone__data_805D9174) {
                 s32 j;
                 for (j = 0; j < 8; j++) {

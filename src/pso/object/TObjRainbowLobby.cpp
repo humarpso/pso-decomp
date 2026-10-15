@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjRainbowLobby.h"
 
 struct RecoveredGlobal_80350808_lbl_804F0DF0 { s32 value; u8 remaining[0xC]; };
 struct TObjBase803508_80350858 { char pad[0x18]; };
@@ -15,13 +16,10 @@ struct Obj_803506A4 { u8 pad[0xC8]; s32 state; f32 val; };
 extern "C" {
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
-void run_task__16TObjRainbowLobbyFv(Obj_803506A4 *arg0);
 }
 
 extern "C" {
 
-void *create__16TObjRainbowLobbyFPv(void *arg0);
-void render__16TObjRainbowLobbyFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 draw_ginja_object(int);
@@ -32,28 +30,27 @@ void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi(int);
-void free_static_data__16TObjRainbowLobbyFv(void);
+s32 set_global_param__8TObjFishFl(int);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80350808_lbl_804F0DF0 bm_obj_lobby_rainbow_resource_descriptor;
 extern u32 TObjRainbowLobby__shared_model_resource;
-void load_shared_resource__16TObjRainbowLobbyFv(void);
 void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFPvs(void *, int);
+void destroy_key_base__5TOKeyFs(void *, int);
 s32 init_map_object_base();
 s32 is_lobby_event_active();
 extern s32 __vt__16TObjRainbowLobby[];
 extern s32 lbl_805D435C;
 
-void render__16TObjRainbowLobbyFv(u8 *arg0) {
+void TObjRainbowLobby::render() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -69,7 +66,8 @@ void render__16TObjRainbowLobbyFv(u8 *arg0) {
 
 extern void *tl_05;
 
-void run_task__16TObjRainbowLobbyFv(Obj_803506A4 *arg0) {
+void TObjRainbowLobby::run_task() {
+    Obj_803506A4 *arg0 = (Obj_803506A4 *)this;
     switch (arg0->state) {
     case 0:
         if (is_connected__6TLobbyFv() != 0) {
@@ -99,7 +97,7 @@ void run_task__16TObjRainbowLobbyFv(Obj_803506A4 *arg0) {
     }
 }
 
-void *create__16TObjRainbowLobbyFPv(void *arg0) {
+void *TObjRainbowLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
         o = ((void *(*)(void *, void *, void *))TObjRainbowLobby__ct)(o, tl_05, arg0);
@@ -107,16 +105,16 @@ void *create__16TObjRainbowLobbyFPv(void *arg0) {
     return o;
 }
 
-void free_static_data__16TObjRainbowLobbyFv(void) {
+void TObjRainbowLobby::free_static_data() {
     if ((u32) TObjRainbowLobby__shared_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjRainbowLobby__shared_model_resource, 1);
         TObjRainbowLobby__shared_model_resource = 0U;
     }
 }
-void load_shared_resource__16TObjRainbowLobbyFv(void) {
+void TObjRainbowLobby::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_obj_lobby_rainbow_resource_descriptor.value, 0, 0, 0));
@@ -126,7 +124,7 @@ void load_shared_resource__16TObjRainbowLobbyFv(void) {
 void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjRainbowLobby;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        destroy_key_base__5TOKeyFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

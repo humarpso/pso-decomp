@@ -28,18 +28,17 @@ extern u8 default_scene_light_config[];
 extern void *tl_camera;
 extern const f32 lbl_805D9570;
 extern const f32 lbl_805D9574;
-int start_ending_scene__7TEndingFv();
 }
 
 extern "C" {
 extern s32 ending_scene_active;
 
-void set_flag_and_advance__7TEndingFv() {
+void TEnding::set_flag_and_advance() {
     ending_scene_active = 1;
-    start_ending_scene__7TEndingFv();
+    TEnding::start_ending_scene();
 }
 
-int start_ending_scene__7TEndingFv() {
+int TEnding::start_ending_scene() {
     void *p;
     set_screen_size(lbl_805D9570, lbl_805D9574);
     set_copy_clear_color_argb(0, 0, 0);

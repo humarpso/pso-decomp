@@ -19,6 +19,8 @@ struct TWindowSubSymbolChatFaceType
     u8 _pad63[0x1];
     u32 m_64;
     u32 m_68;
+    void close_when_chat_closed();
+    void confirm_selection();
 };
 
 #endif

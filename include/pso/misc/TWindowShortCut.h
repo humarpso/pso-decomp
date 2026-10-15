@@ -15,6 +15,7 @@ struct TWindowShortCut
     u32 m_68;
     u32 m_6c;
     u32 m_70;
+    void run_task();
 };
 
 #endif

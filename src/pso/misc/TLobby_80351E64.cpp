@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_80351FDC_lbl_804F0EA8 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80351FDC_lbl_804F0EA8_size[sizeof(RecoveredGlobal_80351FDC_lbl_804F0EA8) == 0x18 ? 1 : -1];
@@ -11,9 +12,8 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 extern const s32 lbl_804F0EA8[];
 extern void *lobby_event_theme_controller;
-void *destroy_and_clear_instance__6TLobbyFPvs(void *arg0, s16 arg1);
 s32 TLobby__sub_803DA16C(void*);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 extern int lobby_main_texture_gvm;
 void TLobby__sub_8035202C(void);
 int load_gvm_texture_file(void*);
@@ -29,20 +29,16 @@ s32 get_filtered_event_theme__6TLobbyFv(void);
 s32 get_theme_lobby_type(void);
 void TLobby__sub_80351DF8(void *, s32);
 s32 get_filtered_event_theme__6TLobbyFv(void);
-void update_event_theme_flags__6TLobbyFPv(L_80351EAC *arg0);
 }
 
 extern "C" {
 
 void TLobby__sub_80351F3C(void);
-int get_lobby_type__6TLobbyFv(void);
-s32 is_connected__6TLobbyFv(void);
-s32 is_lobby_obj_active__6TLobbyFv(void);
 void *__nw__7TObjectFUl(int);
 
 extern void *lobby_event_theme_controller;
 
-s32 is_connected__6TLobbyFv(void) {
+s32 TLobby::is_connected() {
     if ((void *) lobby_event_theme_controller != NULL) {
         return ((u32) *(u32 *)((s8 *)lobby_event_theme_controller + 0x1C) >> 2U) & 1;
     }
@@ -51,7 +47,7 @@ s32 is_connected__6TLobbyFv(void) {
 
 extern void *lobby_event_theme_controller;
 
-s32 is_lobby_obj_active__6TLobbyFv(void) {
+s32 TLobby::is_lobby_obj_active() {
     if ((void *) lobby_event_theme_controller != NULL) {
         return ((u32) *(u32 *)((s8 *)lobby_event_theme_controller + 0x1C) >> 1U) & 1;
     }
@@ -59,11 +55,12 @@ s32 is_lobby_obj_active__6TLobbyFv(void) {
 }
 
     extern int lobby_main_texture_gvm;
-int get_lobby_type__6TLobbyFv(void) {  return lobby_main_texture_gvm; }
+int TLobby::get_lobby_type() {  return lobby_main_texture_gvm; }
 
 extern void *lobby_event_theme_controller;
 
-void update_event_theme_flags__6TLobbyFPv(L_80351EAC *arg0) {
+void TLobby::update_event_theme_flags() {
+    L_80351EAC *arg0 = (L_80351EAC *)this;
     s32 mode = get_filtered_event_theme__6TLobbyFv();
     arg0->flags &= ~7;
     if (arg0->mode != mode) {
@@ -86,17 +83,17 @@ void TLobby__sub_80351F3C(void) {
     }
     lobby_event_theme_controller = o;
 }
-void *destroy_and_clear_instance__6TLobbyFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(const s32 **)((s8 *)arg0 + 0x18) = lbl_804F0EA8;
-        queue_destruction__7TObjectFv(arg0);
+void *TLobby::destroy_and_clear_instance(s16 arg1) {
+    if (this != NULL) {
+        *(const s32 **)((s8 *)this + 0x18) = lbl_804F0EA8;
+        queue_destruction__7TObjectFv(this);
         (*(s32 *)&lobby_event_theme_controller) = 0;
-        __dt__7TObjectFv(arg0, 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 u8 *TLobby__sub_80351FDC(u8 *arg0) {
@@ -110,7 +107,7 @@ u8 *TLobby__sub_80351FDC(u8 *arg0) {
 void TLobby__sub_8035202C(void) {
     if ((u32) (*(u32 *)&lobby_main_texture_gvm) != 0U) {
         TLobby__sub_803DA16C((void*)(*(u32 *)&lobby_main_texture_gvm));
-        safe_free__23TAdSinglePlyChrSelectGCFUi((*(u32 *)&lobby_main_texture_gvm));
+        safe_free__23TAdSinglePlyChrSelectGCFUl((*(u32 *)&lobby_main_texture_gvm));
         (*(u32 *)&lobby_main_texture_gvm) = 0U;
     }
 }

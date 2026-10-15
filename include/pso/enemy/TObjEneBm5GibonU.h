@@ -46,6 +46,24 @@ struct TObjEneBm5GibonU
     u32 m_52c;
     u8 _pad530[0x34];
     u32 m_564;
+    void forward_hit_to_node_list();
+    void init_child_node();
+    static void release_static_resource();
+    static void *create(void *arg0);
+    static void load_resources();
+    void forward_hit(void* a1);
+    void init_child(void* a1);
+    void reset_fields();
+    void*reset();
+    void set_field8_from_obj(s32 arg1);
+    void push_list_node(void **arg1, void **arg2);
+    void unlink_list_node(void ***arg1, void **arg2);
+    static s32 destroy(s32 arg0, s16 arg1);
+    static void register_global_objects();
+    void clear_flag_and_update();
+    s32 check_and_update();
+    s32 try_activate();
+    void debug_print_tech_params();
 };
 
 #endif

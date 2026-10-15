@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss4DarkFalz.h"
 
 extern "C" {
 
-void init_uro_link__14TBoss4DarkFalzFv(void);
 s32 clear_uro_link_state__14TBoss4DarkFalzFv();
 s32 get_instance_count__9TBoss4UroFv();
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -12,7 +12,7 @@ extern s32 falz_zako_texture_list;
 extern u32 falz_zako_chunk_model;
 extern s32 TBoss4ZakoDraw__rotation_phase;
 
-void init_uro_link__14TBoss4DarkFalzFv(void) {
+void TBoss4DarkFalz::init_uro_link() {
     u32 temp_r3_2;
     void *temp_r3;
 

@@ -1,12 +1,12 @@
 #include "pso/system/MiddlewareInterruptLock.h"
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
-void update_scroll_impl__6TLobbyFv(void);
 void TLobby__sub_803CE220(void);
 
-void update_scroll_impl__6TLobbyFv(void) {
+void TLobby::update_scroll_impl() {
     middleware_interrupt_lock_leave();
 }
 

@@ -5,7 +5,7 @@ extern "C" {
 void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2);
 void *__nw__7TObjectFUl(int);
 void apply_rel_relocations(void *);
-void *ct_object__9TItemDropFPv(void *, void *);
+void *ct_object__9TItemDropFv(void *, void *);
 void memset(void *, int, int);
 void strncpy(void *, void *, int);
 
@@ -16,7 +16,7 @@ void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2) {
     struct VOff_800F9A60_o_800f9a60 *o;
     o = (struct VOff_800F9A60_o_800f9a60 *)__nw__7TObjectFUl(0x3C);
     if (o != NULL) {
-        o = (struct VOff_800F9A60_o_800f9a60 *)ct_object__9TItemDropFPv(o, resource_load_task_root);
+        o = (struct VOff_800F9A60_o_800f9a60 *)ct_object__9TItemDropFv(o, resource_load_task_root);
     }
     memset(o->f_28, 0, 17);
     strncpy(o->f_28, arg0, 16);

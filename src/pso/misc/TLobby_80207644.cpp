@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_80207798_lbl_80513920 {
     s32 value;
@@ -44,7 +45,7 @@ s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 get_floor_map_selection(s32 arg0, u8 *arg1);
 s32 get_main_phase(void);
-s32 set_state__16TAdStorySelectGCFi(void*);
+s32 set_state__16TAdStorySelectGCFl(void*);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 rand(void);
 extern RecoveredGlobal_802078A4_lbl_8044B658 adventure_map_variation_count_table;
@@ -70,7 +71,6 @@ extern Tbl_8020765C boss_warp_destination_table_b;
 s32 get_boss_warp_destination(void);
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 extern int selected_episode;
-void copy_table_entries__6TLobbyFPvUi(s32 *src, u32 size);
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 get_floor_map_terrain(s32 arg0);
 }
@@ -79,19 +79,15 @@ extern "C" {
 
 struct Buf12_80207718_80207644 { s32 a, b, c; };
 
-void backup_story_select__6TLobbyFv(void);
-s32 get_player_floor__6TLobbyFi(s32 idx);
-void reset_story_select_state__6TLobbyFv(void);
-void sync_story_select__6TLobbyFv(void);
-s32 set_state__16TAdStorySelectGCFi(void*);
+s32 set_state__16TAdStorySelectGCFl(void*);
 
     extern int story_select_current;
     extern int selected_episode;
-void backup_story_select__6TLobbyFv(void) { selected_episode = story_select_current; }
+void TLobby::backup_story_select() { selected_episode = story_select_current; }
 
     extern int story_select_current;
     extern int selected_episode;
-void sync_story_select__6TLobbyFv(void) { story_select_current = selected_episode; }
+void TLobby::sync_story_select() { story_select_current = selected_episode; }
 
 s32 get_boss_warp_destination(void) {
     Tbl_8020765C a = boss_warp_destination_table;
@@ -104,7 +100,7 @@ s32 get_boss_warp_destination(void) {
     return a.w[i][p];
 }
 
-s32 get_player_floor__6TLobbyFi(s32 idx) {
+s32 TLobby::get_player_floor(s32 idx) {
     struct Buf12_80207718_80207644 buf;
 
     if (get_floor_map_selection((s32)(idx), (u8 *)(&buf)) == 1) {
@@ -174,7 +170,8 @@ typedef char RecoveredGlobal_802078A4_lbl_8044B658_size[((sizeof(RecoveredGlobal
 typedef char RecoveredGlobal_802078A4_lbl_8044B778_size[((sizeof(RecoveredGlobal_802078A4_lbl_8044B778)) == 0x120) ? (1) : (-1)];
 typedef char RecoveredGlobal_802078A4_lbl_80513920_size[((sizeof(RecoveredGlobal_802078A4_lbl_80513920)) == 0xD8) ? (1) : (-1)];
 
-void copy_table_entries__6TLobbyFPvUi(s32 *src, u32 size) {
+void TLobby::copy_table_entries(u32 size) {
+    s32 *src = (s32 *)this;
     s32 n = size >> 3;
     s32 i;
     if (n <= 0x12) {
@@ -201,7 +198,7 @@ void randomize_adventure_maps(void) {
   s32 var_r30;
   s32 var_r29;
   var_r31 = (s32 *) (&(*(RecoveredGlobal_802078A4_lbl_80513920 *)&floor_map_registry).value);
-  set_state__16TAdStorySelectGCFi((void*)((*(s32 *)&selected_episode)));
+  set_state__16TAdStorySelectGCFl((void*)((*(s32 *)&selected_episode)));
   var_r30 = get_main_phase();
   if (is_not_split_screen__13TRaderMapCoreFv() == 1)
   {
@@ -261,9 +258,9 @@ void init_floor_map_registry(void) {
     }
 }
 
-void reset_story_select_state__6TLobbyFv(void) {
+void TLobby::reset_story_select_state() {
     if ((s32) story_select_pending_state != -1) {
-        set_state__16TAdStorySelectGCFi((void*)story_select_pending_state);
+        set_state__16TAdStorySelectGCFl((void*)story_select_pending_state);
         story_select_pending_state = -1;
     }
 }

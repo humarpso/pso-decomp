@@ -14,7 +14,7 @@ void *sys_calloc(s32 arg0, s32 arg1);
 extern void *sys_heap_handle;
 void *OSAllocFromHeap(void *heap, u32 size);
 void OSFreeToHeap(void *heap, void *ptr);
-void move_data__6TLobbyFv(void *, void *, void *);
+void move_data__6TLobbyFPCvUl(void *, void *, void *);
 void *fn_803DE960(void *arg0, void *arg1);
 }
 
@@ -41,7 +41,7 @@ void *sys_calloc(s32 arg0, s32 arg1) {
 }
 void *fn_803DE960(void *arg0, void *arg1) {
     void *p = OSAllocFromHeap(sys_heap_handle, (u32)arg1);
-    move_data__6TLobbyFv(p, arg0, arg1);
+    move_data__6TLobbyFPCvUl(p, arg0, arg1);
     OSFreeToHeap(sys_heap_handle, arg0);
     return p;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopGetItemWindow.h"
 
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
@@ -43,7 +44,7 @@ struct ShopPlayerLevel : ShopPlayerHeader {
 };
 
 extern "C" {
-s32 get_task_id__14TFontSmallTaskFPv(s32 *);
+s32 get_task_id__14TFontSmallTaskFv(s32 *);
 void *get_player_by_client_id(s32);
 s32 clear_shop_armor_flags();
 s32 clear_shop_tool_flags();
@@ -60,22 +61,20 @@ void init_shop_world_context(void);
 
 extern "C" {
 
-void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1);
-s16 get_cursor_index__18TShopGetItemWindowFPv(void* p);
 void *get_player_by_client_id(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
-s16 get_cursor_index__18TShopGetItemWindowFPv(void* p) { return *(s16*)((char*)p + 0x74); }
+s16 TShopGetItemWindow::get_cursor_index() { return *(s16*)((char*)this + 0x74); }
 
 extern s32 local_client_id;
 
-void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1) {
+void TShopGetItemWindow::calc_item_count(s32 *arg1) {
     s32 var_r31;
     void *temp_r3;
 
     var_r31 = 1;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        var_r31 = ((VObj_8021EEEC_8021EEE4 *)arg0)->m14() + 1;
+        var_r31 = ((VObj_8021EEEC_8021EEE4 *)this)->m14() + 1;
     } else {
         temp_r3 = get_player_by_client_id(local_client_id);
         if (temp_r3 != NULL) {
@@ -109,7 +108,7 @@ void init_shop_world_context(void) {
     if ((s32) shop_world_player_level > 0xC7) {
         shop_world_player_level = 0xC7;
     }
-    temp_r3_3 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
+    temp_r3_3 = get_task_id__14TFontSmallTaskFv(TLobby__data_805011D8);
     lbl_805D6238 = temp_r3_3;
     if (temp_r3_3 < 0) {
         lbl_805D6238 = 0;

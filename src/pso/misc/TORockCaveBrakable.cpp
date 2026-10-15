@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TORockCaveBrakable.h"
 
 struct Base_80174EA0_80174CC0 { char pad[0x18]; };
 struct VObj_80174EA0_80174CC0 : Base_80174EA0_80174CC0 {
@@ -43,7 +44,6 @@ extern Init_80174CFC rock_cave_debris_init_params;
 extern u8 identity_matrix[];
 extern void *rock_cave_model_resource;
 extern s32 tl_05;
-void spawn_debris__18TORockCaveBrakableFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -73,8 +73,6 @@ void *TORockCaveBrakable__ct(void *arg0);
 void TORockCaveBrakable__sub_80174CC0(void);
 void TORockCaveBrakable__sub_80174CC4(void* p);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
-void spawn_break_effect__18TORockCaveBrakableFPv(u8 *arg0);
-void update_break_state__18TORockCaveBrakableFPv(void *arg0);
 int play_sound_effect(void*, void*, void*, void*);
 u8 is_current_floor_switch_set(u16);
 void TORockCave__ct(void *);
@@ -88,7 +86,8 @@ s32 set_flag8__6TLobbyFPv(void *);
 void TORockCaveBrakable__sub_80174CC0(void) {  }
 void TORockCaveBrakable__sub_80174CC4(void* p) { play_sound_effect((void*)277521, (char*)p + 0x38, (void*)0, (void*)0); }
 
-void spawn_debris__18TORockCaveBrakableFPv(u8 *arg0) {
+void TORockCaveBrakable::spawn_debris() {
+    u8 *arg0 = (u8 *)this;
     Vec_80174CFC v;
     Offs_80174CFC offs;
     Init_80174CFC init;
@@ -117,35 +116,36 @@ void spawn_debris__18TORockCaveBrakableFPv(u8 *arg0) {
     }
 }
 
-void spawn_break_effect__18TORockCaveBrakableFPv(u8 *arg0) {
+void TORockCaveBrakable::spawn_break_effect() {
+    u8 *arg0 = (u8 *)this;
     ((E4E50Obj_80174e50_80174CC0*)arg0)->m16();
     spawn_particle_effect(arg0 + 0x38, 0x45);
     spawn_particle_effect(arg0 + 0x38, 0x46);
 }
 
-void update_break_state__18TORockCaveBrakableFPv(void *arg0) {
+void TORockCaveBrakable::update_break_state() {
     s32 temp_r0;
     s32 temp_r0_2;
 
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        ((VObj_80174EA0_80174CC0 *)arg0)->m17();
+        ((VObj_80174EA0_80174CC0 *)this)->m17();
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
+    temp_r0 = *(s32 *)((s8 *)this + 0xB4);
     switch (temp_r0) {
     default:
-        *(s32 *)((s8 *)arg0 + 0xB4) = 0;
+        *(s32 *)((s8 *)this + 0xB4) = 0;
     case 0:
-        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0xB8);
+        temp_r0_2 = *(s32 *)((s8 *)this + 0xB8);
         if ((temp_r0_2 >= 0) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)) {
-            *(s32 *)((s8 *)arg0 + 0xB4) = 1;
-            ((VObj_80174EA0_80174CC0 *)arg0)->m15();
-            ((VObj_80174EA0_80174CC0 *)arg0)->m14();
+            *(s32 *)((s8 *)this + 0xB4) = 1;
+            ((VObj_80174EA0_80174CC0 *)this)->m15();
+            ((VObj_80174EA0_80174CC0 *)this)->m14();
         }
         break;
     case 1:
-        set_flag8__6TLobbyFPv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        set_flag8__6TLobbyFPv(this);
+        queue_destruction__7TObjectFv(this);
         break;
     }
 }

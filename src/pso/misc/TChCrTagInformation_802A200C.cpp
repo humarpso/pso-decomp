@@ -1,15 +1,14 @@
 #include "types.h"
+#include "pso/misc/TChCrTagInformation.h"
 
 extern "C" {
 
-void *create__19TChCrTagInformationFPv(void *arg0);
-void * create_default__19TChCrTagInformationFv(void);
 void *TChCrTagInformation__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_03;
 
-void *create__19TChCrTagInformationFPv(void *arg0) {
+void *TChCrTagInformation::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3C);
     if (o != NULL) {
         o = TChCrTagInformation__ct(o, tl_03, arg0);
@@ -17,6 +16,6 @@ void *create__19TChCrTagInformationFPv(void *arg0) {
     return o;
 }
 
-void * create_default__19TChCrTagInformationFv(void) { return create__19TChCrTagInformationFPv((void *)((void*)(0))); }
+void *TChCrTagInformation::create_default() { return TChCrTagInformation::create((void *)((void*)(0))); }
 
 }

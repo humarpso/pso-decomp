@@ -19,6 +19,8 @@ struct TOBiwaMushi
     u8 _padC0[0x38];
     u32 m_f8;
     u32 m_fc;
+    static void free_shared_data();
+    static void load_resource_instance();
 };
 
 #endif

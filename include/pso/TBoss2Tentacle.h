@@ -6,6 +6,13 @@
 class TBoss2Tentacle : public TObject {
 public:
     virtual ~TBoss2Tentacle();
+public:
+    void advance_motion_position();
+    void reset();
+    void init_motion_from_table();
+    void reset_segment_points();
+    void start_attack_at_target(u8 *arg1, s32 arg2);
+    void forward_80039DC8();
 };
 
 #endif

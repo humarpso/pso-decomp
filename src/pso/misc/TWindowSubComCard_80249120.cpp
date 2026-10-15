@@ -1,12 +1,13 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 int TWindowSubComCard__sub_80249220(void *, void *);
 s32 TWindowChoiceSetting__ct(int, void *, void *);
 s32 create_choice_setting_window__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2);
-void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
-s32 get_field_74__17TWindowSubComCardFPv(void *);
+void *get_array_entry__20TWindowSubStatusDispFi(void *, s16);
+s32 get_field_74__17TWindowSubComCardFv(void *);
 extern const f32 lbl_805DCBB8;
 extern const f32 lbl_805DCBBC;
 void TWindowSubComCard__sub_80249144(void *arg0);
@@ -14,17 +15,16 @@ void TWindowSubComCard__sub_80249144(void *arg0);
 
 extern "C" {
 
-void begin_scroll__17TWindowSubComCardFPvf(void *arg0, f32 farg0);
 int fn_80268C5C(void*);
 
-void begin_scroll__17TWindowSubComCardFPvf(void *arg0, f32 farg0) {
+void TWindowSubComCard::begin_scroll(f32 farg0) {
     u16 temp_r4;
 
-    temp_r4 = *(u16 *)((s8 *)arg0 + 0x80);
+    temp_r4 = *(u16 *)((s8 *)this + 0x80);
     if (temp_r4 & 1) {
-        *(u16 *)((s8 *)arg0 + 0x80) = (u16) (temp_r4 & 0xFFFE);
-        *(f32 *)((s8 *)arg0 + 0x3C) = farg0;
-        *(s32 *)((s8 *)arg0 + 0x50) = 3;
+        *(u16 *)((s8 *)this + 0x80) = (u16) (temp_r4 & 0xFFFE);
+        *(f32 *)((s8 *)this + 0x3C) = farg0;
+        *(s32 *)((s8 *)this + 0x50) = 3;
     }
 }
 
@@ -34,7 +34,7 @@ void TWindowSubComCard__sub_80249144(void *arg0) {
     temp_r4 = *(u16 *)((s8 *)arg0 + 0x80);
     if (!(temp_r4 & 1)) {
         *(u16 *)((s8 *)arg0 + 0x80) = (u16) (temp_r4 | 1);
-        e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, get_field_74__17TWindowSubComCardFPv(arg0));
+        e = get_array_entry__20TWindowSubStatusDispFi(arg0, get_field_74__17TWindowSubComCardFv(arg0));
         *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DCBB8 + *(f32 *)((s8 *)e + 0x14);
         if (*(s32 *)((s8 *)arg0 + 0x2C) & 0x40) {
             *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DCBBC);

@@ -8,6 +8,7 @@ struct RecoveredGlobal_803E5458_lbl_8058DC00 {
 struct Ctx_803E53BC { s32 f0; s32 f4; s32 f8; s32 fc; s32 f10; s32 f14; s32 f18; s32 f1c; };
 
 #include <stddef.h>
+#include "pso/player/TObjPlayer.h"
 struct Stack_803D6DDC {
     u8 * sp8;
     u8 * spC;
@@ -91,7 +92,6 @@ extern RecoveredGlobal_803E5458_lbl_8058DC00 lbl_8058DC00;
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5458(s32 arg0);
 extern u8 *lbl_805D7818;
-void advance_render_counters__10TObjPlayerFv(void);
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5378(s32 n);
 void bind_motion_context(s32);
@@ -103,13 +103,10 @@ void draw_motion_bound__10TObjPlayerFiiPvfi(s32 arg0, s32 arg1, u8 *arg2, f32 fa
 void compose_motion_node_matrix(Node_803E4E20 *);
 void push_matrix(void);
 void pop_matrix(void);
-void advance_render_counters__10TObjPlayerFv(void);
 void update_render_state__10TObjPlayerFv(s32 *, s32 *);
 extern u8 *model_draw_context;
-void draw_motion_node_list__10TObjPlayerFi(s32 arg0);
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern u32 *lbl_805D7778;
-void resolve_render_keys__10TObjPlayerFPvPv(u32 **src, u32 **dst);
 extern const f32 lbl_805E10B8;
 void TObjPlayer__sub_803E500C(void *motA, s32 keyA, void *motB, s32 keyB, f32 t, u32 *src, u32 **out);
 }
@@ -136,10 +133,11 @@ void draw_motion_bound__10TObjPlayerFiiPvfi(s32 arg0, s32 arg1, u8 *arg2, f32 fa
     }
     TObjPlayer__sub_803E5458(0);
     TObjPlayer__sub_803E53F8(arg2, farg0);
-    draw_motion_node_list__10TObjPlayerFi((s32)(arg0));
+    ((TObjPlayer *)arg0)->draw_motion_node_list();
 }
 
-void draw_motion_node_list__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::draw_motion_node_list() {
+    s32 arg0 = (s32)this;
     s32 tmp;
     Ctx_803E4E20 *ctx;
     s32 *obj;
@@ -159,13 +157,13 @@ void draw_motion_node_list__10TObjPlayerFi(s32 arg0) {
                 ctx->draw(obj);
                 *obj = save;
             } else {
-                advance_render_counters__10TObjPlayerFv();
+                TObjPlayer::advance_render_counters();
             }
         } else if (n->obj != NULL && !(n->flags & 8)) {
             ctx->draw(n->obj);
         }
         if (n->child != NULL) {
-            draw_motion_node_list__10TObjPlayerFi((s32)n->child);
+            ((TObjPlayer *)((s32)n->child))->draw_motion_node_list();
         }
         pop_matrix();
         n = n->next;
@@ -176,7 +174,7 @@ void draw_motion_node_list__10TObjPlayerFi(s32 arg0) {
 #pragma push
 #pragma optimize_for_size off
 #pragma opt_common_subs on
-void resolve_render_keys__10TObjPlayerFPvPv(u32 **src, u32 **dst) {
+void TObjPlayer::resolve_render_keys(u32 **src, u32 **dst) {
     s32 bi;
     s32 ai;
     void *a;
@@ -350,7 +348,7 @@ typedef char RecoveredGlobal_803D78A8_lbl_8058CAB8_size[sizeof(RecoveredGlobal_8
 
 #pragma push
 #pragma scheduling off
-void advance_render_counters__10TObjPlayerFv(void) {
+void TObjPlayer::advance_render_counters() {
     s32 v = ((Ctx_803E53BC *)lbl_805D7818)->f0;
     v += ((Ctx_803E53BC *)lbl_805D7818)->f8;
     ((Ctx_803E53BC *)lbl_805D7818)->f0 = v;

@@ -27,6 +27,12 @@ struct TObjGyaranzoMissile
     u32 m_d0;
     u8 _padD4[0x4];
     u16 m_d8;
+    void *destroy(s16 arg1);
+    void render();
+    void run_task();
+    void draw();
+    void update_flight();
+    f32 scale_velocity(f32 farg0);
 };
 
 #endif

@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/TObjBoss5FloorStone.h"
 
 extern "C" {
 
-void *create__19TObjBoss5FloorStoneFv(void);
 void *__ct__19TObjBoss5FloorStoneFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_02;
 
-void *create__19TObjBoss5FloorStoneFv(void) {
+void *TObjBoss5FloorStone::create() {
     void *o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
         o = __ct__19TObjBoss5FloorStoneFv(o, tl_02);

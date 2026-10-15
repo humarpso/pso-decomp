@@ -23,6 +23,14 @@ struct TOKeyMachine01
     void* m_e8;
     u8 _padEC[0xC];
     u32 m_f8;
+    static s32 get_global_state();
+    void run_task();
+    void render();
+    static void *create(void *arg0);
+    static void free_statics();
+    static void load_assets();
+    static s32 is_state_active();
+    void send_switch_changed(s32 flags);
 };
 
 #endif

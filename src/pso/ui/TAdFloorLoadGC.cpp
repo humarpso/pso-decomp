@@ -5,15 +5,13 @@
 extern "C" {
 
 void *__ct__14TAdFloorLoadGCFv(void *arg0, void *arg1, void *arg2);
-void render__14TAdFloorLoadGCFv(void);
-void run_task__14TAdFloorLoadGCFv(void);
 void *TAdFloorLoadCamGC__ct(void *, void *, void *);
 void *TAdFloorLoadPrtGC__ct(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
-void render__14TAdFloorLoadGCFv(void) {  }
-void run_task__14TAdFloorLoadGCFv(void) {  }
+void TAdFloorLoadGC::render() {  }
+void TAdFloorLoadGC::run_task() {  }
 
 extern s32 __vt__14TAdFloorLoadGC[];
 extern void *lbl_805D4328;

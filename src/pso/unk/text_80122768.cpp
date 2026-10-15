@@ -1,12 +1,13 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void update_fade_state__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void update_fade_state__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::update_fade_state() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r4_2;

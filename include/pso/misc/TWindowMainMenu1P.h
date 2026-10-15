@@ -14,6 +14,10 @@ struct TWindowMainMenu1P
     u8 m_61;
     u8 _pad62[0x2];
     void* m_64;
+    void update_backdrop_transition();
+    static void render();
+    void run_task();
+    void create_char_select_slot();
 };
 
 #endif

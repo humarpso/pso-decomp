@@ -86,7 +86,7 @@ void TLobby__sub_804073B8(void);
 s16 run_connect_step__6TLobbyFv(void);
 s16 TLobby__sub_804150EC(void);
 s16 TLobby__sub_8042315C(s16, void *);
-void set_connect_mode__6TLobbyFi(s32);
+void set_connect_mode__6TLobbyFl(s32);
 extern s32 lbl_805D2D00;
 extern s32 lbl_805D56D8;
 extern s32 lobby_connect_battle_flag;
@@ -162,7 +162,7 @@ void fn_80147A60(int a0);
 s16 TLobby__sub_8042455C(void *);
 s16 TLobby__sub_8042474C(void *, void *, void *);
 s16 TLobby__sub_8042489C(void *, void *);
-s16 validate_slot_buffers__6TLobbyFiPvPvPv(void *, void *, void *, void *);
+s16 validate_slot_buffers__6TLobbyFlPvPvPv(void *, void *, void *, void *);
 s16 TLobby__sub_80424D58(s16, s32, s32, void *, void *, s32 *, void *, s32);
 s16 TLobby__sub_80424E44(s16);
 extern s32 lbl_805D56E8;
@@ -197,7 +197,7 @@ s32 TLobby__sub_80421A50(s32, s32, s32);
 s16 query_link_status__6TLobbyFv();
 s8 func_801A5E54__Fv();
 s32 get_task_count__6TLobbyFv();
-s32 send_and_handle__6TLobbyFPv();
+s32 send_and_handle__6TLobbyFv();
 void xfree__FPv(void*);
 int xmalloc__FUl(void);
 
@@ -230,7 +230,7 @@ loop_1:
         return 0;
     }
     var_r31 += 1;
-    send_and_handle__6TLobbyFPv();
+    send_and_handle__6TLobbyFv();
     if (func_801A5E54__Fv() != 0) {
         return 1;
     }
@@ -294,7 +294,7 @@ s32 TLobby__sub_801465C0(s32 *arg0) {
         return 0xC;
     }
     fn_80147A60(lbl_805D56EC);
-    return validate_slot_buffers__6TLobbyFiPvPvPv(lbl_8050C0C4, lbl_8050C684, &lobby_dns_server_addr, &lbl_805D56E0) != 0 ? 0xC : 0;
+    return validate_slot_buffers__6TLobbyFlPvPvPv(lbl_8050C0C4, lbl_8050C684, &lobby_dns_server_addr, &lbl_805D56E0) != 0 ? 0xC : 0;
 }
 
 s32 TLobby__sub_801466F4(u32 arg0) {
@@ -374,7 +374,7 @@ void flush_pending_flags__6TLobbyFv(void) {
             TLobby__sub_803FB1A4((void *) (&sp8));
             do {
                 TLobby__sub_803FB184((void *) (&spC));
-                send_and_handle__6TLobbyFPv();
+                send_and_handle__6TLobbyFv();
             } while (spC.f4 != 0);
         }
         if (TLobby__connect_pending_flags & 4) {
@@ -417,7 +417,7 @@ s32 run_connect_sequence__6TLobbyFv(void) {
             return 0x11;
         }
         TLobby__connect_pending_flags |= 1;
-        set_connect_mode__6TLobbyFi(4);
+        set_connect_mode__6TLobbyFl(4);
         ok = TLobby__sub_804150EC();
         TLobby__connect_pending_flags |= 0x20;
         lobby_connect_active_flag = 0;
@@ -580,6 +580,7 @@ void teardown_boss2__6TLobbyFv(void) {
 #undef lbl_8050CE14
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_80147A74_lbl_804EF500 {
     s32 value;
@@ -691,7 +692,7 @@ struct Acct_8014797C {
 #define lbl_8050C784 (*(Acct_8014797C (*)[3])lbl_8050C784)
 #define memset ((void *(*)(void *, s32, u32))memset)
 #define strncpy ((char *(*)(char *, const char *, u32))strncpy)
-void init_account_entries__6TLobbyFv(void) {
+void TLobby::init_account_entries() {
     memset(&lbl_8050C784[0], 0, sizeof(Acct_8014797C));
     memset(&lbl_8050C784[1], 0, sizeof(Acct_8014797C));
     memset(&lbl_8050C784[2], 0, sizeof(Acct_8014797C));

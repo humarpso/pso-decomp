@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/misc/TOBiwaMushi.h"
+#include "pso/misc/TOMekaFish00.h"
+#include "pso/misc/TOMekaFish01.h"
 
 extern "C" {
 extern char lbl_8046FCB8[];
@@ -21,17 +25,15 @@ typedef char RecoveredGlobal_802AA354_lbl_804DE000_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_802AA354_lbl_804DE000 biwamushi_resource_desc;
 extern u32 TOBiwaMushi__shared_model_resource;
-void load_resource_instance__11TOBiwaMushiFv(void);
 }
 
 extern "C" {
 
 void *TOBiwaMushi__create(void *arg0);
 void *__dt__11TOBiwaMushiFv(void *arg0, s16 arg1);
-void free_shared_data__11TOBiwaMushiFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TOBiwaMushi__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -48,7 +50,7 @@ void *TOBiwaMushi__create(void *arg0) {
 
 extern u32 TOBiwaMushi__shared_model_resource;
 
-void free_shared_data__11TOBiwaMushiFv(void) {
+void TOBiwaMushi::free_shared_data() {
     if ((u32) TOBiwaMushi__shared_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOBiwaMushi__shared_model_resource, 1);
         TOBiwaMushi__shared_model_resource = 0U;
@@ -57,10 +59,10 @@ void free_shared_data__11TOBiwaMushiFv(void) {
 
 extern s32 __vt__11TOBiwaMushi[];
 
-void load_resource_instance__11TOBiwaMushiFv(void) {
+void TOBiwaMushi::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &biwamushi_resource_desc.value, 0, 0, 0));
@@ -167,16 +169,14 @@ typedef char RecoveredGlobal_802AA644_lbl_804DDFE0_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u32 TOMekaFish01__shared_model_resource;
-void load_shared_resource__12TOMekaFish01Fv(void);
 }
 
 extern "C" {
 
 void *TOMekaFish01__create(void *arg0);
 void *__dt__12TOMekaFish01Fv(void *arg0, s16 arg1);
-void free_static_data__12TOMekaFish01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TOMekaFish01__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -193,7 +193,7 @@ void *TOMekaFish01__create(void *arg0) {
 
 extern u32 TOMekaFish01__shared_model_resource;
 
-void free_static_data__12TOMekaFish01Fv(void) {
+void TOMekaFish01::free_static_data() {
     if ((u32) TOMekaFish01__shared_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOMekaFish01__shared_model_resource, 1);
         TOMekaFish01__shared_model_resource = 0U;
@@ -202,10 +202,10 @@ void free_static_data__12TOMekaFish01Fv(void) {
 
 extern s32 __vt__12TOMekaFish01[];
 
-void load_shared_resource__12TOMekaFish01Fv(void) {
+void TOMekaFish01::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish01__shared_resource_descriptor, 0, 0, 0));
@@ -346,9 +346,8 @@ struct RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 { s32 value; u8 remaining[0
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u32 TOMekaFish00__model_resource;
-void load_shared_resource__12TOMekaFish00Fv(void);
 #define get_bml_motion ((s32 (*)(void *, s32))get_bml_motion)
 #define TObjFish__sub_8001EDB0 ((s32 (*)(void *, s32))TObjFish__sub_8001EDB0)
 #define get_bml_model ((s32 (*)(void *, s32))get_bml_model)
@@ -372,16 +371,14 @@ u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1);
 extern "C" {
 
 void *__dt__12TOMekaFish00Fv(void *arg0, s16 arg1);
-s32 is_phase_reached__14TBoss6PlotFalzFv(void);
-void release_static_instance__12TOMekaFish00Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void __dt__11TODragonflyFv(void *, int);
-s32 get_phase__8TObjFishFPv(void*);
+s32 get_phase__8TObjFishFv(void*);
 
 extern u32 TOMekaFish00__model_resource;
 
-void release_static_instance__12TOMekaFish00Fv(void) {
+void TOMekaFish00::release_static_instance() {
     if ((u32) TOMekaFish00__model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOMekaFish00__model_resource, 1);
         TOMekaFish00__model_resource = 0U;
@@ -390,10 +387,10 @@ void release_static_instance__12TOMekaFish00Fv(void) {
 
 extern s32 __vt__12TOMekaFish00[];
 
-void load_shared_resource__12TOMekaFish00Fv(void) {
+void TOMekaFish00::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish00__resource_descriptor, 0, 0, 0));
@@ -438,12 +435,12 @@ u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
-s32 is_phase_reached__14TBoss6PlotFalzFv(void) {
+s32 TBoss6PlotFalz::is_phase_reached() {
     u32 p = TBoss6PlotFalz__instance;
     if (!p) {
         return 0;
     }
-    return get_phase__8TObjFishFPv((void*)TBoss6PlotFalz__instance) >= 7 ? 1 : 0;
+    return get_phase__8TObjFishFv((void*)TBoss6PlotFalz__instance) >= 7 ? 1 : 0;
 }
 
 }

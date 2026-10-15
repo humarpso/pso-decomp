@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/TSlicerHistory.h"
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DC950;
 extern const f32 lbl_805DC94C;
-void run_task__14TSlicerHistoryFv(u8 *arg0);
 u32 query_game_join_id__10TObjPlayerFv(int);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 notify_fish_if_valid__10TObjPlayerFUi(u32);
+s32 notify_fish_if_valid__10TObjPlayerFUl(u32);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
@@ -25,12 +25,12 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC948;
 
-void render__14TSlicerHistoryFv(u8 *arg0);
 }
 
 extern "C" {
 
-void render__14TSlicerHistoryFv(u8 *arg0) {
+void TSlicerHistory::render() {
+    u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x58))) == 0U) {
         return;
     }
@@ -44,7 +44,7 @@ void render__14TSlicerHistoryFv(u8 *arg0) {
             col.r -= lbl_805DC948;
         }
         if (((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) && ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U)) {
-            notify_fish_if_valid__10TObjPlayerFUi(*(u32 *)((s8 *)arg0 + 0x38));
+            notify_fish_if_valid__10TObjPlayerFUl(*(u32 *)((s8 *)arg0 + 0x38));
             begin_effect_render__13TParticleCtrlFv();
             push_matrix();
             post_translate_matrix((void *) ((u8 *)(arg0) + 0x28));
@@ -62,7 +62,8 @@ void render__14TSlicerHistoryFv(u8 *arg0) {
     }
 }
 
-void run_task__14TSlicerHistoryFv(u8 *arg0) {
+void TSlicerHistory::run_task() {
+    u8 *arg0 = (u8 *)this;
   const f32 *new_var;
   *((f32 *) (((s8 *) arg0) + 0x3c)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x3c))) - lbl_805DC94C);
   if ((*((f32 *) (((s8 *) arg0) + 0x3c))) < (*(new_var = &lbl_805DC950)))

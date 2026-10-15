@@ -16,6 +16,10 @@ struct TBoss6Kakusan
     void* m_48;
     u8 _pad4C[0x8];
     u32 m_54;
+    void check_beam_player_hits();
+    s32 is_out_of_range();
+    static void render();
+    void run_task();
 };
 
 #endif

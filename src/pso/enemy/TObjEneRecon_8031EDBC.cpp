@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 struct Stack_8031EE54 {
     s32 sp8;
@@ -23,14 +24,12 @@ u8 * csnVectorUnder(s32, void *, s32);
 void set_active__12TObjEneReconFv(void);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DF448;
-void update_floor_probe__12TObjEneReconFPv(u8 *arg0);
-void remove_tracked_id__12TObjEneReconFPvi(T_8031EDBC *self, s32 id);
-u16 alloc_child_id__12TObjEneReconFPv(Rec_8031EDF8 *o);
 }
 
 extern "C" {
 
-void remove_tracked_id__12TObjEneReconFPvi(T_8031EDBC *self, s32 id) {
+void TObjEneRecon::remove_tracked_id(s32 id) {
+    T_8031EDBC *self = (T_8031EDBC *)this;
     s32 i;
     for (i = 0; i < 30; i++) {
         if (self->ids[i] == id) {
@@ -43,7 +42,8 @@ void remove_tracked_id__12TObjEneReconFPvi(T_8031EDBC *self, s32 id) {
 #pragma push
 #pragma opt_propagation off
 typedef struct Rec_8031EDF8 Rec_8031EDF8;
-u16 alloc_child_id__12TObjEneReconFPv(Rec_8031EDF8 *o) {
+u16 TObjEneRecon::alloc_child_id() {
+    Rec_8031EDF8 *o = (Rec_8031EDF8 *)this;
   s32 new_var;
   s32 i;
   s32 v;
@@ -61,7 +61,8 @@ u16 alloc_child_id__12TObjEneReconFPv(Rec_8031EDF8 *o) {
 }
 #pragma pop
 
-void update_floor_probe__12TObjEneReconFPv(u8 *arg0) {
+void TObjEneRecon::update_floor_probe() {
+    u8 *arg0 = (u8 *)this;
     Stack_8031EE54 stack;
     u8 *temp_r3;
     if ((actor_frame_tick % 5) == 0) {

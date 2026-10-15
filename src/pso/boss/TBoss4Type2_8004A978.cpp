@@ -1,22 +1,21 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2.h"
 
 struct Obj_8004A98C { s32 count; u8 pad[4]; s32 x; s32 y; void **items; };
 
 extern "C" {
 void scroll_strip_uvs(void *, s16, s16);
-void scroll_strips__11TBoss4Type2FPv(Obj_8004A98C *self);
 }
 
 extern "C" {
 
-u8 is_active__11TBoss4Type2Fv(void);
-
 extern s32 dark_falz_controller_instance;
 
-u8 is_active__11TBoss4Type2Fv(void) {
+u8 TBoss4Type2::is_active() {
     return (u8) (dark_falz_controller_instance != 0);
 }
-void scroll_strips__11TBoss4Type2FPv(Obj_8004A98C *self) {
+void TBoss4Type2::scroll_strips() {
+    Obj_8004A98C *self = (Obj_8004A98C *)this;
     s32 i;
     self->x += 8;
     for (i = 0; i < self->count; i++) {

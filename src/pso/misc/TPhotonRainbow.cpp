@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/misc/TPhotonRainbow.h"
 
 extern "C" {
 
 void *__dt__14TPhotonRainbowFv(void *arg0, s16 arg1);
-void render__14TPhotonRainbowFv(u8 *arg0);
-void run_task__14TPhotonRainbowFv(void *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
 s32 rotate_matrix_y(s32, s32);
@@ -14,11 +13,12 @@ void __dl__7TObjectFPv(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 extern u8 *camera_ctrl_instance;
 
-void render__14TPhotonRainbowFv(u8 *arg0) {
+void TPhotonRainbow::render() {
+    u8 *arg0 = (u8 *)this;
     if ((void *) camera_ctrl_instance != NULL) {
         *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)camera_ctrl_instance + 0x178);
         *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)camera_ctrl_instance + 0x180);
@@ -28,21 +28,21 @@ void render__14TPhotonRainbowFv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg0 + 0x90);
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, (s32) *(s32 *)((s8 *)arg0 + 0x60) / 2);
-    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
     draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x98));
     pop_matrix();
     push_matrix();
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg0 + 0x94);
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, 0x10000 - *(s32 *)((s8 *)arg0 + 0x60));
-    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
     draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x9C));
     pop_matrix();
     end_effect_render__13TParticleCtrlFv();
 }
 
-void run_task__14TPhotonRainbowFv(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0xB6);
+void TPhotonRainbow::run_task() {
+    *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0xB6);
 }
 
 extern s32 __vt__14TPhotonRainbow[];

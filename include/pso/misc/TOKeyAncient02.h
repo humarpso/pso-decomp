@@ -22,6 +22,10 @@ struct TOKeyAncient02
     u8 _padD8[0x10];
     u32 m_e8;
     u32 m_ec;
+    void render();
+    static void *create(void *arg0);
+    static void free_static();
+    static void load_resources();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Crypt_8007C438 { s32 pos; u32 k[0x38]; };
 
@@ -23,7 +24,6 @@ extern u16 TAdSinglePlyChrSelectGC__sub_8007C584(s32*,u16);
 void subtractive_rng_make_shuffle(s32* stream);
 extern void* memcpy(void*,const void*,u32);
 extern u8 save_block_shuffle_permutation[256], save_block_shuffle_permutation[256];
-void permute_save_blocks__23TAdSinglePlyChrSelectGCFPvPvPvUi(void* stream,const u8* source,u8* destination,u32 size);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void subtractive_rng_unshuffle(void* stream,const u8* source,u8* destination,u32
  }
 }
 
-void permute_save_blocks__23TAdSinglePlyChrSelectGCFPvPvPvUi(void* stream,const u8* source,u8* destination,u32 size) {
+void TAdSinglePlyChrSelectGC::permute_save_blocks(void* stream, const u8* source, u8* destination, u32 size) {
  u32 block,i;
  memcpy(destination,source,size);
  for(block=0;block<(size>>8);block++) {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss6GravBall.h"
+#include "pso/boss/TBoss6Type2.h"
 
 struct RecoveredGlobal_802ACE84_lbl_804DE360 {
     s32 value;
@@ -11,7 +13,7 @@ struct RecoveredGlobal_802ACE84___vt__15TWindowCallBack {
 };
 
 extern "C" {
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void save_position__17TWindowSubComCardFPv(void *);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v);
@@ -27,33 +29,28 @@ void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1);
 void build_6xA3_olga_flow_boss_actions(void* p);
 int fn_802ACD40(void* p);
 void fn_802ACD60(void* p);
-s32 get_state__11TBoss6Type2FPv(void* p);
-s32 get_state__14TBoss6GravBallFPv(void* p);
-int handle_olga_action__11TBoss6Type2FPv(void* p);
-void init_packet__11TBoss6Type2FPv(void* p);
 void run_task__15TWindowCallBackFv(void* p);
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v);
-void update_and_send__11TBoss6Type2FPv(void* p);
 int TLobby__send_and_handle_60(void*);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
-int initialize_subwindow__9TWindowDDFPv(void*);
-int read_be16_field2__10TObjPlayerFPv(void*);
-int update_fade__17TWindowSubComCardFPv(void*);
+void destroy_window_base__9TWindowDDFs(void *, int);
+int initialize_subwindow__9TWindowDDFv(void*);
+int read_be16_field2__10TObjPlayerFv(void*);
+int update_fade__17TWindowSubComCardFv(void*);
 
-s32 get_state__11TBoss6Type2FPv(void* p) { return *(s32*)((char*)p + 0x374); }
-s32 get_state__14TBoss6GravBallFPv(void* p) { return *(s32*)((char*)p + 0x374); }
-void update_and_send__11TBoss6Type2FPv(void* p) { handle_olga_action__11TBoss6Type2FPv((void*)(p)); TLobby__send_and_handle_60(p); }
-int handle_olga_action__11TBoss6Type2FPv(void* p) { return read_be16_field2__10TObjPlayerFPv(p); }
-void init_packet__11TBoss6Type2FPv(void* p) { *(u8*)((char*)p + 0x0) = 165; *(u8*)((char*)p + 0x1) = 5; }
-int fn_802ACD40(void* p) { return read_be16_field2__10TObjPlayerFPv(p); }
+s32 TBoss6Type2::get_state() { return *(s32*)((char*)this + 0x374); }
+s32 TBoss6GravBall::get_state() { return *(s32*)((char*)this + 0x374); }
+void TBoss6Type2::update_and_send() { handle_olga_action(); TLobby__send_and_handle_60(this); }
+int TBoss6Type2::handle_olga_action() { return read_be16_field2__10TObjPlayerFv(this); }
+void TBoss6Type2::init_packet() { *(u8*)((char*)this + 0x0) = 165; *(u8*)((char*)this + 0x1) = 5; }
+int fn_802ACD40(void* p) { return read_be16_field2__10TObjPlayerFv(p); }
 void fn_802ACD60(void* p) { fn_802ACD40((void*)(p)); TLobby__send_and_handle_60(p); }
 void build_6xA3_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 163; *(u8*)((char*)p + 0x1) = 5; }
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x60) = v; }
 
 }
 
-extern "C" s32 draw_default_entry__9TWindowDDFi(void *);
+extern "C" s32 draw_default_entry__9TWindowDDFl(void *);
 class TWindowCallBack {
 public:
     u8 pad[0x60];
@@ -62,7 +59,7 @@ public:
 };
 
 void TWindowCallBack::render() {
-    s32 r = draw_default_entry__9TWindowDDFi(this);
+    s32 r = draw_default_entry__9TWindowDDFl(this);
     if (callback != NULL) {
         callback(this, r);
     }
@@ -70,14 +67,14 @@ void TWindowCallBack::render() {
 
 extern "C" {
 
-void run_task__15TWindowCallBackFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }
+void run_task__15TWindowCallBackFv(void* p) { initialize_subwindow__9TWindowDDFv(p); update_fade__17TWindowSubComCardFv(p); }
 
 extern s32 __vt__15TWindowCallBack[];
 
 void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TWindowCallBack;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -90,7 +87,7 @@ u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &window_callback_base_params.value, 4, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802ACE84___vt__15TWindowCallBack *)&__vt__15TWindowCallBack).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E58;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x38, arg2);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(arg0 + 0x38, arg2);
     save_position__17TWindowSubComCardFPv(arg0);
     set_field_60__15TWindowCallBackFPvi((void*)(arg0), (s32)(arg3));
     return arg0;

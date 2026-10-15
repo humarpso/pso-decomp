@@ -19,6 +19,11 @@ struct TOKeyAncient01
     u8 _padC0[0x10];
     u32 m_d0;
     u32 m_d4;
+    void set_type();
+    void render();
+    static void *create(void *arg0);
+    static void free_shared_resources();
+    static void load_resources();
 };
 
 #endif

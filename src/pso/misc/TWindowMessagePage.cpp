@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessagePage.h"
 
 struct RecoveredGlobal_8026B014___vt__18TWindowMessagePage { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8026B014___vt__18TWindowMessagePage_size[sizeof(RecoveredGlobal_8026B014___vt__18TWindowMessagePage) == 0x18 ? 1 : -1];
@@ -13,66 +14,58 @@ struct Page_8026AE20 { u8 pad[0x90]; s32 flags; void *msg; };
 extern "C" {
 u8 *__nw__7TObjectFUl(s32);
 s32 TLobby__sub_80269DA4(void *, void *);
-u8 *create__18TWindowMessagePageFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TWindowMessage__ct(void *, void *, void *, void *);
 extern s32 __vt__18TWindowMessagePage[];
 extern s32 lbl_805D3998;
 u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 is_player_input_active(int);
 s32 is_message_window_ready(void *);
 s32 complete_reveal__14TWindowMessageFPv(void *);
-s32 draw__14TWindowMessageFPv();
-void update_message__18TWindowMessagePageFPv(void *arg0);
+s32 draw__14TWindowMessageFv();
 extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
-void run_task__18TWindowMessagePageFv(u8 *arg0);
-void update_message__18TWindowMessagePageFPv(void *arg0);
-void set_message__18TWindowMessagePageFPvPvi(Page_8026AE20 *self, void *msg, s32 flags);
 }
 
 extern "C" {
 
 void *__dt__18TWindowMessagePageFv(void *arg0, s16 arg1);
-s32 is_ready__18TWindowMessagePageFPv(void *arg0);
-int render__18TWindowMessagePageFv(void* p);
-void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c);
-void update_message__18TWindowMessagePageFPv(void *arg0);
 s32 get_shared_text_buffer();
-u32 copy_message_page_text__20TWindowSubStatusDispFPv(u32);
+u32 copy_message_page_text__20TWindowSubStatusDispFv(u32);
 s32 text_builder_reset();
 void __dl__7TObjectFPv(void *);
 void __dt__14TWindowMessageFv(void *, int);
 int render__14TWindowMessageFv(void*);
-s32 send_and_handle__6TLobbyFPvii(void *, s32, s32);
+s32 send_and_handle__6TLobbyFii(void *, s32, s32);
 
-s32 is_ready__18TWindowMessagePageFPv(void *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x94) != 0U) {
+s32 TWindowMessagePage::is_ready() {
+    if ((u32) *(u32 *)((s8 *)this + 0x94) != 0U) {
         return 0;
     }
-    return is_message_window_ready((void *)(arg0)) != 0 ? 1 : 0;
+    return is_message_window_ready((void *)(this)) != 0 ? 1 : 0;
 }
 
-void update_message__18TWindowMessagePageFPv(void *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x94) != 0U) {
+void TWindowMessagePage::update_message() {
+    if ((u32) *(u32 *)((s8 *)this + 0x94) != 0U) {
         text_builder_reset();
-        *(u32 *)((s8 *)arg0 + 0x94) = copy_message_page_text__20TWindowSubStatusDispFPv(*(u32 *)((s8 *)arg0 + 0x94));
-        send_and_handle__6TLobbyFPvii(arg0, get_shared_text_buffer(), *(s32 *)((s8 *)arg0 + 0x90));
+        *(u32 *)((s8 *)this + 0x94) = copy_message_page_text__20TWindowSubStatusDispFv(*(u32 *)((s8 *)this + 0x94));
+        send_and_handle__6TLobbyFii(this, get_shared_text_buffer(), *(s32 *)((s8 *)this + 0x90));
     }
 }
 
 extern s32 local_client_id;
 
-void set_message__18TWindowMessagePageFPvPvi(Page_8026AE20 *self, void *msg, s32 flags) {
+void TWindowMessagePage::set_message(void *msg, s32 flags) {
+    Page_8026AE20 *self = (Page_8026AE20 *)this;
     while (self->msg != NULL) {
-        update_message__18TWindowMessagePageFPv(self);
+        update_message();
     }
     self->flags = flags | 2;
     self->msg = msg;
-    update_message__18TWindowMessagePageFPv(self);
+    update_message();
 }
 
-u8 *create__18TWindowMessagePageFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TWindowMessagePage::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     u8 *var_r0;
     TLobby__sub_80269DA4((void *) (arg1), (void *) (arg2));
@@ -84,22 +77,23 @@ u8 *create__18TWindowMessagePageFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return var_r0;
 }
 
-void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c) {
-    create__18TWindowMessagePageFiiii((s32)(a), (s32)(b), (s32)(c), local_client_id);
+void TWindowMessagePage::set_text(s32 a, s32 b, s32 c) {
+    TWindowMessagePage::create((s32)(a), (s32)(b), (s32)(c), local_client_id);
 }
 
-int render__18TWindowMessagePageFv(void* p) { return render__14TWindowMessageFv(p); }
+int TWindowMessagePage::render() { return render__14TWindowMessageFv(this); }
 
 extern s32 __vt__18TWindowMessagePage[];
 
 typedef char RecoveredGlobal_8026AF24_lbl_8050E208_size[sizeof(RecoveredGlobal_8026AF24_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void run_task__18TWindowMessagePageFv(u8 *arg0) {
+void TWindowMessagePage::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r5;
-    draw__14TWindowMessageFPv();
+    draw__14TWindowMessageFv();
     temp_r5 = is_player_input_active((int) (*(s16 *)((s8 *)arg0 + 0x20))) * 0x50;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (4), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (4), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
         if (is_message_window_ready((void *)((void *) (arg0))) != 0) {
-            update_message__18TWindowMessagePageFPv((void *) (arg0));
+            update_message();
             return;
         }
         complete_reveal__14TWindowMessageFPv((void *) (arg0));

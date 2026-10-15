@@ -12,6 +12,10 @@ struct TOMonumentAncient01
     void* m_38;
     u8 _pad3C[0x24];
     u32 m_60;
+    void render();
+    static void *create(void *arg0);
+    static void release_static_resource();
+    static void load_resource_instance();
 };
 
 #endif

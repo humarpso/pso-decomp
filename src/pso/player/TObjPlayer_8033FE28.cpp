@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-s32 get_plot_state__10TObjPlayerFPv(void* p);
-
-s32 get_plot_state__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x24); }
+s32 TObjPlayer::get_plot_state() { return *(s32*)((char*)this + 0x24); }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlyPhotonChair.h"
 
 struct RecoveredGlobal_801426DC_lbl_8050BFF0 {
     s32 value;
@@ -25,7 +26,6 @@ extern s32 model_render_flags;
 void set_global_draw_flag_bits(s32 arg0, s32 arg1);
     extern int lbl_805D566C;
 extern s32 model_render_flags;
-void restore_state__15TPlyPhotonChairFv(s32 _w0);
     extern int lbl_805D5670;
     extern int lbl_805D5674;
     extern int chunk_polygon_flags_or_mask;
@@ -38,32 +38,26 @@ extern int chunk_polygon_flags_and_mask;
 int TPlyPhotonChair__sub_80142720(s32 _w0);
 extern int lbl_805D566C;
 extern s32 model_render_flags;
-void save_state__15TPlyPhotonChairFv(s32 _w0);
 void restore_actor_draw_lighting(void);
 void setup_actor_draw_lighting(void);
-s32 activate__15TPlyPhotonChairFPv();
+s32 activate__15TPlyPhotonChairFv();
 extern const f32 lbl_805DB168;
-s32 activate__15TPlyPhotonChairFPv();
-void update_scale_state__15TPlyPhotonChairFPv(u8 *arg0);
-s32 activate__15TPlyPhotonChairFPv();
+s32 activate__15TPlyPhotonChairFv();
+s32 activate__15TPlyPhotonChairFv();
 extern const f32 lbl_805DB16C;
-void update_bob_motion__15TPlyPhotonChairFPv(u8 *arg0);
 int draw_chunk_object(void);
 void TLobby__sub_80142920(void * _w0);
 int TLobby__sub_80142944(void* p);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;
 extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
-void copy_vec4_forward__15TPlyPhotonChairFi(s32 _w0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;
 extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
-void copy_vec4_reverse__15TPlyPhotonChairFi(s32 _w0);
-f32 get_float_c__15TPlyPhotonChairFPv(void *);
+f32 get_float_c__15TPlyPhotonChairFv(void *);
 s32 TPlyPhotonChair__sub_80143930(void *);
-int get_id__15TPlyPhotonChairFPv(void *);
+int get_id__15TPlyPhotonChairFv(void *);
 void draw_model_motion(s32, s32, f32);
-void draw_model__15TPlyPhotonChairFPv(void *arg0);
 extern const f64 lbl_8043F298;
 extern const f64 lbl_8043F2A0;
 extern const f64 lbl_8043F2A8;
@@ -74,20 +68,16 @@ f64 TPlyPhotonChair__sub_80142624(f64 x);
 
 extern "C" {
 
-void play_sound__15TPlyPhotonChairFPv(void* p);
-void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1);
-void update_parts2__15TPlyPhotonChairFPv(void* p);
-void update_parts__15TPlyPhotonChairFPv(void* p);
 int set_chunk_material_color(void*);
 int set_chunk_material_override_pair(void*, void*);
 
-void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1) { set_global_draw_flag_bits((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(a1); }
+void TPlyPhotonChair::play_sound_with_arg(void* p, void* a1) { set_global_draw_flag_bits((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(a1); }
 
-void play_sound__15TPlyPhotonChairFPv(void* p) { set_global_draw_flag_bits((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(p); }
+void TPlyPhotonChair::play_sound() { set_global_draw_flag_bits((s32)(this), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(this); }
 
-void update_parts__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); copy_vec4_forward__15TPlyPhotonChairFi((s32)(p)); restore_state__15TPlyPhotonChairFv((s32)(p)); }
+void TPlyPhotonChair::update_parts(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); TPlyPhotonChair::copy_vec4_forward((s32)(p)); TPlyPhotonChair::restore_state((s32)(p)); }
 
-void update_parts2__15TPlyPhotonChairFPv(void* p) { save_state__15TPlyPhotonChairFv((s32)(p)); copy_vec4_reverse__15TPlyPhotonChairFi((s32)(p)); TPlyPhotonChair__sub_80142720((s32)(p)); }
+void TPlyPhotonChair::update_parts2(void* p) { TPlyPhotonChair::save_state((s32)(p)); TPlyPhotonChair::copy_vec4_reverse((s32)(p)); TPlyPhotonChair__sub_80142720((s32)(p)); }
 
 #pragma push
 #pragma fp_contract on
@@ -117,11 +107,11 @@ void set_global_draw_flag_bits(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
-void restore_state__15TPlyPhotonChairFv(s32 _w0) { (*(int *)&model_render_flags) = lbl_805D566C; }
+void TPlyPhotonChair::restore_state(s32 _w0) { (*(int *)&model_render_flags) = lbl_805D566C; }
 
 typedef char RecoveredGlobal_801426DC_lbl_8050BFF0_size[sizeof(RecoveredGlobal_801426DC_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801426DC_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801426DC_lbl_8058D4C0) == 0x10 ? 1 : -1];
-void copy_vec4_forward__15TPlyPhotonChairFi(s32 _w0) {
+void TPlyPhotonChair::copy_vec4_forward(s32 _w0) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&photon_chair_color_vec4.value));
 }
 
@@ -130,19 +120,20 @@ int TPlyPhotonChair__sub_80142720(s32 _w0) { lbl_805D5670 = chunk_polygon_flags_
 
 typedef char RecoveredGlobal_80142734_lbl_8050BFF0_size[sizeof(RecoveredGlobal_80142734_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80142734_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80142734_lbl_8058D4C0) == 0x10 ? 1 : -1];
-void copy_vec4_reverse__15TPlyPhotonChairFi(s32 _w0) {
+void TPlyPhotonChair::copy_vec4_reverse(s32 _w0) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&photon_chair_color_vec4).value), (void *) (&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&model_material_color).value));
 }
 
-void save_state__15TPlyPhotonChairFv(s32 _w0) { lbl_805D566C = (*(int *)&model_render_flags); }
+void TPlyPhotonChair::save_state(s32 _w0) { lbl_805D566C = (*(int *)&model_render_flags); }
 void restore_actor_draw_lighting(void) {  }
 void setup_actor_draw_lighting(void) {  }
 
-void draw_model__15TPlyPhotonChairFPv(void *arg0) {
-    draw_model_motion(((s32)get_id__15TPlyPhotonChairFPv((void *)(arg0))), TPlyPhotonChair__sub_80143930(arg0), get_float_c__15TPlyPhotonChairFPv(arg0));
+void TPlyPhotonChair::draw_model() {
+    draw_model_motion(((s32)get_id__15TPlyPhotonChairFv((void *)(this))), TPlyPhotonChair__sub_80143930(this), get_float_c__15TPlyPhotonChairFv(this));
 }
 
-void update_scale_state__15TPlyPhotonChairFPv(u8 *arg0) {
+void TPlyPhotonChair::update_scale_state() {
+    u8 *arg0 = (u8 *)this;
     f32 var_f31;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x18);
@@ -157,14 +148,15 @@ void update_scale_state__15TPlyPhotonChairFPv(u8 *arg0) {
     case 2:
         if (var_f31 <= lbl_805DB168) {
             var_f31 = lbl_805DB168;
-            activate__15TPlyPhotonChairFPv();
+            activate__15TPlyPhotonChairFv();
         }
         *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
     case 1:
         return;
     }
 }
-void update_bob_motion__15TPlyPhotonChairFPv(u8 *arg0) {
+void TPlyPhotonChair::update_bob_motion() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f0_2;
     f32 var_f31;
@@ -183,14 +175,14 @@ void update_bob_motion__15TPlyPhotonChairFPv(u8 *arg0) {
         temp_f0_2 = *(f32 *)((s8 *)arg0 + 0x10) - lbl_805DB16C;
         if (var_f31 >= temp_f0_2) {
             var_f31 = temp_f0_2;
-            activate__15TPlyPhotonChairFPv();
+            activate__15TPlyPhotonChairFv();
         }
         *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
     case 1:
         return;
     }
 }
-void TLobby__sub_80142920(void * _w0) { get_id__15TPlyPhotonChairFPv((void *)(_w0)); draw_chunk_object(); }
+void TLobby__sub_80142920(void * _w0) { get_id__15TPlyPhotonChairFv((void *)(_w0)); draw_chunk_object(); }
 int TLobby__sub_80142944(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }
 
 }

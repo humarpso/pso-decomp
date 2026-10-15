@@ -1,22 +1,21 @@
 #include "types.h"
+#include "pso/ui/TAdScrollWinGC.h"
 
 struct O_8032745C { u8 pad[0x44]; s32 mode; };
 
 extern "C" {
 s32 TLobby__sub_80145DB4(int);
-s32 get_scroll_delay_for_mode__14TAdScrollWinGCFPv(O_8032745C *arg0);
 }
 
 extern "C" {
 
-void render__14TAdScrollWinGCFv(void* p);
-
 int set_cached_blend_factor(void*, void*);
 int get_state_flag__9TMainTaskFv(void*);
-int render_status_value__20TWindowSubStatusDispFPv(void*);
+int render_status_value__20TWindowSubStatusDispFv(void*);
 
-void render__14TAdScrollWinGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status_value__20TWindowSubStatusDispFPv(p); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
-s32 get_scroll_delay_for_mode__14TAdScrollWinGCFPv(O_8032745C *arg0) {
+void TAdScrollWinGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status_value__20TWindowSubStatusDispFv(this); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+s32 TAdScrollWinGC::get_scroll_delay_for_mode() {
+    O_8032745C *arg0 = (O_8032745C *)this;
     s32 r = 0;
     switch (arg0->mode) {
     case 0:

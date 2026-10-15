@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardHard.h"
 
 struct RecoveredGlobal_80260304_lbl_804CFAD0 {
     s32 value;
@@ -12,7 +13,7 @@ struct RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard {
 
 extern "C" {
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
-s32 release_keyboard__19TWindowKeyBoardHardFPv(void *);
+s32 release_keyboard__19TWindowKeyBoardHardFv(void *);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_80260304_lbl_804CFAD0 lbl_804CFAD0;
 extern s32 __vt__19TWindowKeyBoardHard[];
@@ -23,46 +24,45 @@ u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1);
 extern "C" {
 
 void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1);
-void run_task__19TWindowKeyBoardHardFv(void *arg0);
 s32 is_key_active__16TKeyBoardControlFPv(void *);
-s32 is_key_active__19TWindowKeyBoardHardFPv();
+s32 is_key_active__19TWindowKeyBoardHardFv();
 void __dl__7TObjectFPv(void *);
-s32 update_fade__17TWindowSubComCardFPv(void *);
-s32 initialize_subwindow__9TWindowDDFPv(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
+s32 update_fade__17TWindowSubComCardFv(void *);
+s32 initialize_subwindow__9TWindowDDFv(void *);
+void destroy_window_base__9TWindowDDFs(void *, int);
 s32 TWindowKeyBoardHard__sub_8025CC48(void *);
 s32 has_non_modifier_key__16TKeyBoardControlFv(void *);
-s32 process_all_key_states__16TKeyBoardControlFPv(void *);
-s32 update_modifier_flags__16TKeyBoardControlFPv(void *);
+s32 process_all_key_states__16TKeyBoardControlFv(void *);
+s32 update_modifier_flags__16TKeyBoardControlFv(void *);
 
 extern s32 current_language;
 
-void run_task__19TWindowKeyBoardHardFv(void *arg0) {
+void TWindowKeyBoardHard::run_task() {
     s32 temp_r3_2;
     void *temp_r3;
 
-    if ((void *) *(void **)((s8 *)arg0 + 0x70) != NULL) {
-        if ((is_key_active__19TWindowKeyBoardHardFPv() == 0) && (is_key_active__16TKeyBoardControlFPv(*(void **)((s8 *)arg0 + 0x70)) == 0)) {
-            if (has_non_modifier_key__16TKeyBoardControlFv(arg0) != 0) {
+    if ((void *) *(void **)((s8 *)this + 0x70) != NULL) {
+        if ((is_key_active__19TWindowKeyBoardHardFv() == 0) && (is_key_active__16TKeyBoardControlFPv(*(void **)((s8 *)this + 0x70)) == 0)) {
+            if (has_non_modifier_key__16TKeyBoardControlFv(this) != 0) {
                 if ((s32) current_language == 0) {
-                    *(s32 *)((s8 *)arg0 + 0x68) = 0x3C;
+                    *(s32 *)((s8 *)this + 0x68) = 0x3C;
                 }
-                *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) & 0xFFFFFEFF);
-                temp_r3 = *(void **)((s8 *)arg0 + 0x70);
+                *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) & 0xFFFFFEFF);
+                temp_r3 = *(void **)((s8 *)this + 0x70);
                 *(s32 *)((s8 *)temp_r3 + 0xB4) = (s32) (*(s32 *)((s8 *)temp_r3 + 0xB4) & 0xFFFFFFBF);
-                if (!(*(s32 *)((s8 *)arg0 + 0x60) & 0x40)) {
-                    TWindowKeyBoardHard__sub_8025CC48(*(void **)((s8 *)arg0 + 0x70));
+                if (!(*(s32 *)((s8 *)this + 0x60) & 0x40)) {
+                    TWindowKeyBoardHard__sub_8025CC48(*(void **)((s8 *)this + 0x70));
                 }
             }
-            update_modifier_flags__16TKeyBoardControlFPv(arg0);
-            process_all_key_states__16TKeyBoardControlFPv(arg0);
+            update_modifier_flags__16TKeyBoardControlFv(this);
+            process_all_key_states__16TKeyBoardControlFv(this);
         }
-        temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x68);
+        temp_r3_2 = *(s32 *)((s8 *)this + 0x68);
         if (temp_r3_2 > 0) {
-            *(s32 *)((s8 *)arg0 + 0x68) = (s32) (temp_r3_2 - 1);
+            *(s32 *)((s8 *)this + 0x68) = (s32) (temp_r3_2 - 1);
         }
-        initialize_subwindow__9TWindowDDFPv(arg0);
-        update_fade__17TWindowSubComCardFPv(arg0);
+        initialize_subwindow__9TWindowDDFv(this);
+        update_fade__17TWindowSubComCardFv(this);
     }
 }
 
@@ -71,7 +71,7 @@ extern s32 __vt__19TWindowKeyBoardHard[];
 void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowKeyBoardHard;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        destroy_window_base__9TWindowDDFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -89,7 +89,7 @@ u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x64) = 0;
     *(s32 *)((s8 *)arg0 + 0x68) = 0;
     *(s32 *)((s8 *)arg0 + 0x6C) = 7;
-    release_keyboard__19TWindowKeyBoardHardFPv((void *) (arg0));
+    release_keyboard__19TWindowKeyBoardHardFv((void *) (arg0));
     return arg0;
 }
 

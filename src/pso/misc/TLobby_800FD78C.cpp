@@ -1,24 +1,24 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
 u8 fn_800FD7C0(void *arg0);
-void init_range__6TLobbyFPvi(void *arg0, s32 arg1);
 s32 TCameraCtrl__sub_8006B370(f32);
 
-void init_range__6TLobbyFPvi(void *arg0, s32 arg1) {
+void TLobby::init_range(s32 arg1) {
     s32 temp_r5;
 
-    *(s32 *)((s8 *)arg0 + 4) = arg1;
+    *(s32 *)((s8 *)this + 4) = arg1;
     temp_r5 = arg1 + 1;
-    *(s32 *)((s8 *)arg0 + 8) = temp_r5;
-    *(s32 *)((s8 *)arg0 + 0xC) = temp_r5;
-    *(s32 *)((s8 *)arg0 + 0x10) = 0;
-    *(s32 *)((s8 *)arg0 + 0x14) = 0;
-    *(s32 *)((s8 *)arg0 + 0x18) = 0;
-    *(s32 *)((s8 *)arg0 + 0) = -1;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    *(s32 *)((s8 *)this + 8) = temp_r5;
+    *(s32 *)((s8 *)this + 0xC) = temp_r5;
+    *(s32 *)((s8 *)this + 0x10) = 0;
+    *(s32 *)((s8 *)this + 0x14) = 0;
+    *(s32 *)((s8 *)this + 0x18) = 0;
+    *(s32 *)((s8 *)this + 0) = -1;
+    *(s32 *)((s8 *)this + 0x1C) = 0;
+    *(s32 *)((s8 *)this + 0x20) = 0;
 }
 
 u8 fn_800FD7C0(void *arg0) {

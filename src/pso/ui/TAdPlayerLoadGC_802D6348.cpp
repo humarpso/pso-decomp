@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdPlayerLoadGC.h"
 
 typedef struct A_802D6390 { u8 pad0[0x188]; s32 f188; } A_802D6390;
 
@@ -18,27 +19,25 @@ typedef struct B_802D6390 {
 extern "C" {
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
-extern u8 forward_item_effect_callback__10TObjPlayerFii[];
+extern u8 forward_item_effect_callback__10TObjPlayerFll[];
 extern const f32 lbl_805DE7AC;
 void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *arg0, B_802D6390 *arg1);
 }
 
 extern "C" {
 
-void play_load_sound__15TAdPlayerLoadGCFPv(void *arg0);
-void send_player_load__15TAdPlayerLoadGCFi(s32 arg0);
 s32 spawn_particle_effect(s32 *, s32);
-s32 spawn_light_task__10TObjPlayerFPv(s32);
+s32 spawn_light_task__10TObjPlayerFv(s32);
 s32 fire_shot_at_target__11TItemWeaponFv(s32, s32 *, s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
-s32 draw_status_icon__10TObjPlayerFPvi(s32, s32 *);
+s32 draw_status_icon__10TObjPlayerFl(s32, s32 *);
 s32 get_player_list__10TObjPlayerFv();
 
 extern f32 lbl_805DE7A8;
 
-void play_load_sound__15TAdPlayerLoadGCFPv(void *arg0) {
+void TAdPlayerLoadGC::play_load_sound() {
     if (get_player_list__10TObjPlayerFv() == 1) {
-        translate_matrix(0, lbl_805DE7A8, *(f32 *)((s8 *)arg0 + 0x1F8), lbl_805DE7A8);
+        translate_matrix(0, lbl_805DE7A8, *(f32 *)((s8 *)this + 0x1F8), lbl_805DE7A8);
     }
 }
 
@@ -50,15 +49,15 @@ void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *arg0, B_802D6390 *arg1) {
     arg1->f44 = arg0->f188;
     arg1->f10 = 4;
     arg1->f4C = lbl_805DE7AC;
-    arg1->f70 = forward_item_effect_callback__10TObjPlayerFii;
+    arg1->f70 = forward_item_effect_callback__10TObjPlayerFll;
 }
 
-void send_player_load__15TAdPlayerLoadGCFi(s32 arg0) {
+void TAdPlayerLoadGC::send_player_load(s32 arg0) {
     s32 sp8;
 
-    draw_status_icon__10TObjPlayerFPvi(arg0, &sp8);
+    draw_status_icon__10TObjPlayerFl(arg0, &sp8);
     spawn_particle_effect(&sp8, 9);
-    spawn_light_task__10TObjPlayerFPv(arg0);
+    spawn_light_task__10TObjPlayerFv(arg0);
     fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, 0, 0);
 }
 

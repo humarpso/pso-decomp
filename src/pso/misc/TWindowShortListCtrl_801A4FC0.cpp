@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowShortListCtrl.h"
 
 struct RecoveredGlobal_801A51C0_lbl_80446980 {
     s32 value;
@@ -8,7 +10,6 @@ struct RecoveredGlobal_801A51C0_lbl_80446980 {
 extern "C" {
 s32 fn_801A51F0(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 short_list_ctrl_interval_table;
-s32 get_table_entry_by_index__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -16,10 +17,7 @@ extern "C" {
 void *construct_option_scene(void *arg0);
 s32 TWindowShortListCtrl__sub_801A513C(void* p);
 int TWindowShortListCtrl__sub_801A5144(void* p);
-void *destroy__20TWindowShortListCtrlFPvs(void *arg0, s16 arg1);
 s32 fn_801A51F0(void);
-s32 get_card_status_bits__20TWindowShortListCtrlFv(void);
-s32 get_card_window_flags__20TWindowShortListCtrlFv(void);
 void TKeyBoardControl__sub_8000F90C(int);
 void stop_audio_streams__6TLobbyFv();
 void *TWindowOptionCtrl__ct(void *, void *);
@@ -35,19 +33,19 @@ void queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_804C2298[];
 
-void *destroy__20TWindowShortListCtrlFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C2298;
+void *TWindowShortListCtrl::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804C2298;
         stop_audio_streams__6TLobbyFv();
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)((s8 *)arg0 + 0x2C) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); *(s32 *)((s8 *)arg0 + 0x28) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); *(s32 *)((s8 *)arg0 + 0x24) = 0; }
-        __dt__7TObjectFv(arg0, 0);
+        if (*(void **)((s8 *)this + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x2C)); *(s32 *)((s8 *)this + 0x2C) = 0; }
+        if (*(void **)((s8 *)this + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x28)); *(s32 *)((s8 *)this + 0x28) = 0; }
+        if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24)); *(s32 *)((s8 *)this + 0x24) = 0; }
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern void *tl_00;
@@ -88,7 +86,7 @@ void *construct_option_scene(void *arg0) {
 
 s32 TWindowShortListCtrl__sub_801A513C(void* p) { return *(s32*)((char*)p + 0x24); }
 int TWindowShortListCtrl__sub_801A5144(void* p) { return *(u8*)((char*)p + 0x1d) & 0x1; }
-s32 get_card_window_flags__20TWindowShortListCtrlFv(void) {
+s32 TWindowShortListCtrl::get_card_window_flags() {
     void *temp_r3;
 
     temp_r3 = get_character_save_record();
@@ -97,7 +95,7 @@ s32 get_card_window_flags__20TWindowShortListCtrlFv(void) {
     }
     return ((u32) *(u32 *)((s8 *)temp_r3 + 0x10) >> 0x10U) & 3;
 }
-s32 get_card_status_bits__20TWindowShortListCtrlFv(void) {
+s32 TWindowShortListCtrl::get_card_status_bits() {
     void *temp_r3;
 
     temp_r3 = get_character_save_record();
@@ -108,7 +106,7 @@ s32 get_card_status_bits__20TWindowShortListCtrlFv(void) {
 }
 
 typedef char RecoveredGlobal_801A51C0_lbl_80446980_size[sizeof(RecoveredGlobal_801A51C0_lbl_80446980) == 0x18 ? 1 : -1];
-s32 get_table_entry_by_index__6TLobbyFv(void) {
+s32 TLobby::get_table_entry_by_index() {
     return *(s32 *)((s8 *)(&short_list_ctrl_interval_table.value) + (fn_801A51F0() * 4));
 }
 

@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TCameraCtrl.h"
 struct Stack_800830B0 {
     s32 sp8;
     s32 spC;
@@ -72,15 +73,12 @@ extern "C" {
 
 void TCameraCtrl__sub_800830A8(void);
 void TCameraCtrl__sub_800830AC(void);
-void copy_position_vectors__11TCameraCtrlFPvPvPv(void *arg0, void *arg1, void *arg2);
-void *dt__11TCameraCtrlFPvs(void *arg0, s16 arg1);
-void update_single_screen__11TCameraCtrlFv(void);
 s32 load_list_texture(s32, s32, s32, s32);
 void VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 is_split_screen();
-s32 set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFl(s32);
 
 void calc_projection_screen_offset(f32 *arg0, f32 *arg1) {
     f32 dx = TCameraCtrl__data_804FF634.f8;
@@ -92,16 +90,16 @@ void calc_projection_screen_offset(f32 *arg0, f32 *arg1) {
     *arg1 = (lbl_805D93FC * dy) / lbl_805D9400;
 }
 
-void copy_position_vectors__11TCameraCtrlFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 32));
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *)((char *)arg0 + 44), arg2);
+void TCameraCtrl::copy_position_vectors(void *arg1, void *arg2) {
+    VecCopy__FP3VecPC3Vec((void *)((char *)this + 32));
+    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *)((char *)this + 44), arg2);
 }
 
 extern u32 camera_render_target_singleton;
 
-void update_single_screen__11TCameraCtrlFv(void) {
+void TCameraCtrl::update_single_screen() {
     if ((is_split_screen() == 0) && ((u32) camera_render_target_singleton != 0U)) {
-        set_global_param__8TObjFishFi(camera_render_target_singleton + 0x1C);
+        set_global_param__8TObjFishFl(camera_render_target_singleton + 0x1C);
         load_list_texture(0, 0, 0, 0);
     }
 }
@@ -163,15 +161,15 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
 }
 #pragma pop
 
-void *dt__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E5DC;
-        __dt__7TObjectFv(arg0, 0);
+void *TCameraCtrl::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_8048E5DC;
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }

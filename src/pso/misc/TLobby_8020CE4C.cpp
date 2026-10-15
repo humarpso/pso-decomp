@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct CE4C_VBase_8020ce4c { char pad[0x18]; };
 struct CE4C_VObj_8020ce4c : CE4C_VBase_8020ce4c {
@@ -84,12 +85,11 @@ struct CE4C_VObj_8020ce4c : CE4C_VBase_8020ce4c {
 
 extern "C" {
 
-void assign_display_objects__6TLobbyFPvi(u8 *arg0, s32 arg1);
 u8 *construct_enemy_from_set_row(void *);
 
 extern s32 TLobby__data_805D6144;
 
-void assign_display_objects__6TLobbyFPvi(u8 *arg0, s32 arg1) {
+void TLobby::assign_display_objects(u8 *arg0, s32 arg1) {
     s16 temp_r3;
     s16 temp_r0;
     u8 *ptr;

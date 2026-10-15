@@ -11,6 +11,12 @@ struct TObjCamera
     u32 m_60;
     u8 _pad64[0x64];
     u32 m_c8;
+    void queue_target_destruction();
+    void render();
+    static void *create(void *arg0);
+    static void release_static_resource();
+    static void load_shared_resource();
+    static void update_camera_slots();
 };
 
 #endif

@@ -9,6 +9,9 @@ struct TOWreckAncient
     u32 m_24;
     u8 _pad28[0xC];
     u32 m_34;
+    void draw_model();
+    static void free_statics();
+    static void load_resources();
 };
 
 #endif

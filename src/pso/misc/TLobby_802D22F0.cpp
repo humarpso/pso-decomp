@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct E_802D2334 { u32 a; u32 b; };
 
@@ -15,12 +16,10 @@ void TLobby__sub_802D2358(E_802D2358 *p);
 extern "C" {
 
 void TLobby__sub_802D22F0(void* p, void* q);
-void* get_trade_obj_ptr__6TLobbyFPv(void* p);
-void prepare_trade_packet__6TLobbyFPv(void* a0);
 int byteswap_trade_packet__6TLobbyFPv(void);
 
 void TLobby__sub_802D22F0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
-void* get_trade_obj_ptr__6TLobbyFPv(void* p) { return (char*)p + 0xf0; }
+void*TLobby::get_trade_obj_ptr() { return (char*)this + 0xf0; }
 
 E_802D230C *find_free_trade_slot__6TLobbyFPv(E_802D230C *p) {
     s32 i;
@@ -48,6 +47,6 @@ void TLobby__sub_802D2358(E_802D2358 *p) {
     }
 }
 
-void prepare_trade_packet__6TLobbyFPv(void* a0) { *(short*)((char*)a0 + 0x2) = local_client_id; byteswap_trade_packet__6TLobbyFPv(); }
+void TLobby::prepare_trade_packet() { *(short*)((char*)this + 0x2) = local_client_id; byteswap_trade_packet__6TLobbyFPv(); }
 
 }

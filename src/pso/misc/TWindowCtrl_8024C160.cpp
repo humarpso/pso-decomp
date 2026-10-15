@@ -49,14 +49,14 @@ TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag
 s32 is_split_screen();
 s32 get_player_count__10TObjPlayerFv();
 void queue_destruction__7TObjectFv(void *);
-void set_flag_4__9TObjLukerFPv(void *);
+void set_flag_4__9TObjLukerFv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
 void *TWindowBreakIn__ct(void *);
 void *TWindowChat__ct(void *, s32, void *);
 void open_status_112__11TWindowCtrlFv();
-void set_flag1e_bit40__11TWindowCtrlFPv(void *);
+void set_flag1e_bit40__11TWindowCtrlFv(void *);
 void *TWindowCtrlPlayer__ct(void *, void *, s32);
 void *create_party_status_window(s32);
 extern u8 __vt__11TWindowCtrl[];
@@ -172,7 +172,7 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
             p = TWindowChat__ct(p, tl_00, self->f94);
         }
         self->f38 = p;
-        set_flag1e_bit40__11TWindowCtrlFPv(self->f38);
+        set_flag1e_bit40__11TWindowCtrlFv(self->f38);
     }
     if (is_split_screen() != 0) {
         for (i = 0; i < 4; i++) {
@@ -181,7 +181,7 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
                 p = TWindowCtrlPlayer__ct(p, self, i);
             }
             self->objs[i] = p;
-            set_flag_4__9TObjLukerFPv(self->objs[i]);
+            set_flag_4__9TObjLukerFv(self->objs[i]);
         }
     } else {
         p = __nw__7TObjectFUl(0x40);
@@ -192,7 +192,7 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
         for (i = 0; i < 3; i++) {
             if (get_global_state__14TOKeyMachine01Fv() != 0xF && is_split_screen() == 0) {
                 self->wins78[i] = create_party_status_window(i);
-                set_flag_4__9TObjLukerFPv(self->wins78[i]);
+                set_flag_4__9TObjLukerFv(self->wins78[i]);
             }
         }
     }

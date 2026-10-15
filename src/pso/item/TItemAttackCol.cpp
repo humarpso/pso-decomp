@@ -12,6 +12,7 @@ struct VObj_18_f8ef8c : VBase_18_f8ef8c {
 };
 
 #include <stddef.h>
+#include "pso/item/TItemAttackCol.h"
 struct VBase_18_f2ea1e { char pad[0x18]; };
 
 struct VObj_18_f2ea1e : VBase_18_f2ea1e {
@@ -154,20 +155,18 @@ void queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 test_flags_any(void *, int);
 s32 copy_position__15TEffStarLight2DFPv(int, void *);
-s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 copy_pos__11TNowLoadingFPv(int, void *);
 f32 vec_distance_squared(void *, void *);
-void shift_collision_bounds__14TItemAttackColFPv(void *arg0);
 s32 has_game_join_id(void *);
 s32 check_hits__14TItemAttackColFPv(void *);
-void run_task__14TItemAttackColFv(u8 *arg0);
-u8 get_field_ed__10TObjPlayerFPv(int);
+u8 get_field_ed__10TObjPlayerFv(int);
 u32 find_item_by_id(int);
-u8 get_slot_count__14TItemProShieldFPv(int);
+u8 get_slot_count__14TItemProShieldFv(int);
 s32 play_weapon_hit_sound(void *);
-s32 reset_status_block__10TObjPlayerFPv(void *);
+s32 reset_status_block__10TObjPlayerFv(void *);
 s32 apply_camera_shake__10TObjPlayerFiii(int, int, int);
 u8 *get_player_by_client_id(s32);
-f32 calc_photon_blast_charge__10TObjPlayerFv(int, int);
+f32 calc_photon_blast_charge__10TObjPlayerFPvl(int, int);
 extern const f32 lbl_805DE914;
 extern const f32 lbl_805DE928;
 s32 resolve_attack_col_hit(u8 *arg0, u8 *arg1);
@@ -176,25 +175,22 @@ extern const float lbl_805DE918;
 extern const f32 lbl_805DE924;
 void TObjPlayer__sub_802E451C(S_802E451C *arg0);
 Hit_802E3D8C *csnVector(void *, void *, s32);
-void set_flags__10TObjPlayerFPvUi(void *, u32);
+void set_flags__10TObjPlayerFUl(void *, u32);
 s32 VecCopy__FP3VecPC3Vec(s32 *, s32);
-void move_with_collision__14TItemAttackColFPvPv(u8 *arg0, void *arg1);
 extern const f32 lbl_805DE910;
 u32 query_game_join_id__10TObjPlayerFv(int);
-s32 run_with_transform_context__10TObjPlayerFiii(int, void *);
+s32 run_with_transform_context__10TObjPlayerFii(int, void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 notify_fish_if_valid__10TObjPlayerFUi(void *);
+s32 notify_fish_if_valid__10TObjPlayerFUl(void *);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void add_to_active_list__14TItemAttackColFPv(void* a0);
 extern int attack_collider_render_owner;
 extern int attack_collider_active_count;
-void render__14TItemAttackColFv(u8 *arg0);
 }
 
 extern "C" {
@@ -202,25 +198,22 @@ extern "C" {
 void TItemAttackCol__vt5(s32 arg0);
 void* TObjPlayer__sub_802E449C(void* a0);
 void *__dt__14TItemAttackColFv(void *arg0, s16 arg1);
-void add_to_active_list__14TItemAttackColFPv(void* a0);
-void create__14TItemAttackColFPvPv(void *arg0, void *arg1);
-void shift_collision_bounds__14TItemAttackColFPv(void *arg0);
 s32 vec3_add_to(s32 *, s32);
 void *TItemAttackCol__ct(void *, void *, void *);
 s32 VecCopy__FP3VecPC3Vec(s32 *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_attack_collision__14TItemAttackColFPvs(void *, int);
+void destroy_attack_collision__14TItemAttackColFs(void *, int);
 int fn_802E3BA8(void*, void*);
 void queue_destruction__7TObjectFv(void *);
 
     extern int attack_collider_render_owner;
     extern int attack_collider_active_count;
-void add_to_active_list__14TItemAttackColFPv(void* a0) { fn_802E3BA8((void*)(attack_collider_render_owner), a0); attack_collider_active_count = (attack_collider_active_count + 0x1); }
+void TItemAttackCol::add_to_active_list(void* a0) { fn_802E3BA8((void*)(attack_collider_render_owner), a0); attack_collider_active_count = (attack_collider_active_count + 0x1); }
 
-void shift_collision_bounds__14TItemAttackColFPv(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x104) = (s32) (*(s32 *)((s8 *)arg0 + 0x104) + 0xCCC);
-    *(s32 *)((s8 *)arg0 + 0x11C) = (s32) (*(s32 *)((s8 *)arg0 + 0x11C) - 0xCCC);
+void TItemAttackCol::shift_collision_bounds() {
+    *(s32 *)((s8 *)this + 0x104) = (s32) (*(s32 *)((s8 *)this + 0x104) + 0xCCC);
+    *(s32 *)((s8 *)this + 0x11C) = (s32) (*(s32 *)((s8 *)this + 0x11C) - 0xCCC);
 }
 
 void TItemAttackCol__vt4(Obj_802E3C4C *o, s32 *a) {
@@ -252,18 +245,19 @@ void TItemAttackCol__vt5(s32 arg0) {
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0xD0);
     vec3_add_to(&sp8, arg0 + 0x24);
-    move_with_collision__14TItemAttackColFPvPv((u8 *)(arg0), (void *)(&sp8));
+    ((TItemAttackCol *)arg0)->move_with_collision((void *)(&sp8));
 }
 
 extern s32 __vt__14TItemAttackCol[];
 
 typedef void (*Cb_802E3D8C)(s32, void *, void *);
-void move_with_collision__14TItemAttackColFPvPv(u8 *arg0, void *arg1) {
+void TItemAttackCol::move_with_collision(void *arg1) {
+    u8 *arg0 = (u8 *)this;
     Hit_802E3D8C *hit;
     Cb_802E3D8C cb;
     hit = csnVector(arg0 + 0x24, arg1, 0x8100);
     if (hit != NULL) {
-        set_flags__10TObjPlayerFPvUi(arg0 + 0xE0, 1);
+        set_flags__10TObjPlayerFUl(arg0 + 0xE0, 1);
         VecCopy__FP3VecPC3Vec((s32 *)(arg0 + 0x24), (s32)(hit->pos));
         cb = *(Cb_802E3D8C *)((s8 *)arg0 + 0x138);
         if (cb != NULL) {
@@ -274,14 +268,15 @@ void move_with_collision__14TItemAttackColFPvPv(u8 *arg0, void *arg1) {
     }
 }
 
-void render__14TItemAttackColFv(u8 *arg0) {
+void TItemAttackCol::render() {
+    u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0xAC))) == 0U) {
         return;
     }
     {
         if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) != 0U) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0xEC) != 0U) {
-                notify_fish_if_valid__10TObjPlayerFUi(*(void **)((s8 *)arg0 + 0xEC));
+                notify_fish_if_valid__10TObjPlayerFUl(*(void **)((s8 *)arg0 + 0xEC));
             }
             begin_effect_render__13TParticleCtrlFv();
             attack_collider_render_owner = (int)arg0;
@@ -291,7 +286,7 @@ void render__14TItemAttackColFv(u8 *arg0) {
             rotate_matrix_by_node_angles((void *) (arg0 + 0xF0), (int) (1));
             rotate_matrix_by_node_angles((void *) (arg0 + 0xFC), (int) (1));
             scale_current_matrix((void *) (arg0 + 0x108));
-            run_with_transform_context__10TObjPlayerFiii((int) (*(u32 *)((s8 *)arg0 + 0xE8)), (void *) add_to_active_list__14TItemAttackColFPv);
+            run_with_transform_context__10TObjPlayerFii((int) (*(u32 *)((s8 *)arg0 + 0xE8)), (void *) TItemAttackCol::add_to_active_list);
             pop_matrix();
             attack_collider_render_owner = 0;
             end_effect_render__13TParticleCtrlFv();
@@ -299,7 +294,8 @@ void render__14TItemAttackColFv(u8 *arg0) {
     }
 }
 
-void run_task__14TItemAttackColFv(u8 *arg0) {
+void TItemAttackCol::run_task() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r3;
     u32 temp_r3_2;
     u32 temp_r3_3;
@@ -310,7 +306,7 @@ void run_task__14TItemAttackColFv(u8 *arg0) {
         return;
     }
     if (*(s32 *)((s8 *)arg0 + 0xE4) & 4) {
-        shift_collision_bounds__14TItemAttackColFPv((void *) (arg0));
+        shift_collision_bounds();
     }
     if (*(s32 *)((s8 *)arg0 + 0xE4) & 0x20) {
         *(s32 *)((s8 *)arg0 + 0x100) = (s32) (*(s32 *)((s8 *)arg0 + 0x100) + 0x888);
@@ -322,15 +318,15 @@ void run_task__14TItemAttackColFv(u8 *arg0) {
     }
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x130);
     if (temp_r3_2 != 0U) {
-        copy_pos__11TNowLoadingFPvPv((int) (temp_r3_2), (void *) (arg0 + 0x24));
+        copy_pos__11TNowLoadingFPv((int) (temp_r3_2), (void *) (arg0 + 0x24));
     }
     temp_r3_3 = *(u32 *)((s8 *)arg0 + 0x134);
     if (temp_r3_3 != 0U) {
-        copy_pos__11TNowLoadingFPvPv((int) (temp_r3_3), (void *) (arg0 + 0x24));
+        copy_pos__11TNowLoadingFPv((int) (temp_r3_3), (void *) (arg0 + 0x24));
     }
     temp_r3_4 = *(u32 *)((s8 *)arg0 + 0x140);
     if (temp_r3_4 != 0U) {
-        copy_pos__11TNowLoadingFPvPv((int) (temp_r3_4), (void *) (arg0 + 0x24));
+        copy_pos__11TNowLoadingFPv((int) (temp_r3_4), (void *) (arg0 + 0x24));
     }
     check_hits__14TItemAttackColFPv((void *) (arg0));
     if ((*(f32 *)((s8 *)arg0 + 0xDC) <= vec_distance_squared((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
@@ -345,7 +341,7 @@ void *__dt__14TItemAttackColFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0x130) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x130)); *(s32 *)((s8 *)arg0 + 0x130) = 0; }
         if (*(void **)((s8 *)arg0 + 0x134) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x134)); *(s32 *)((s8 *)arg0 + 0x134) = 0; }
         if (*(void **)((s8 *)arg0 + 0x140) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x140)); *(s32 *)((s8 *)arg0 + 0x140) = 0; }
-        destroy_attack_collision__14TItemAttackColFPvs(arg0, 0);
+        destroy_attack_collision__14TItemAttackColFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -353,7 +349,7 @@ void *__dt__14TItemAttackColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void create__14TItemAttackColFPvPv(void *arg0, void *arg1) {
+void TItemAttackCol::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x144);
     if (o != NULL) {
@@ -413,12 +409,12 @@ s32 resolve_attack_col_hit(u8 *arg0, u8 *arg1) {
             break;
         }
         temp_r31_2 = (s32) var_f31;
-        calc_photon_blast_charge__10TObjPlayerFv((int) (temp_r29), (int) (temp_r31_2));
+        calc_photon_blast_charge__10TObjPlayerFPvl((int) (temp_r29), (int) (temp_r31_2));
         ((VObj_18_f2ea1e *)(temp_r29))->m73();
         apply_camera_shake__10TObjPlayerFiii((int) (temp_r29), (int) (temp_r30), (int) (temp_r31_2));
-        reset_status_block__10TObjPlayerFPv((void *) (&stack.sp8));
-        stack.sp8 = get_field_ed__10TObjPlayerFPv((int) (temp_r28));
-        stack.sp9 = get_slot_count__14TItemProShieldFPv((int) (temp_r28));
+        reset_status_block__10TObjPlayerFv((void *) (&stack.sp8));
+        stack.sp8 = get_field_ed__10TObjPlayerFv((int) (temp_r28));
+        stack.sp9 = get_slot_count__14TItemProShieldFv((int) (temp_r28));
         stack.spC = (u8 *)(temp_r29);
         stack.sp14 = (u8 *)(temp_r30);
         stack.sp18 = *(s32 *)((s8 *)arg1 + 4);
