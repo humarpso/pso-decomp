@@ -136,6 +136,28 @@ struct Obj_80188768 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; u32 f80; s32 f84; }
 
 struct Pkt_80188768 { u16 a; u16 b; s32 c; s32 d; s32 e; };
 
+struct Vec_8018860C { f32 x, y, z; };
+
+struct ChipParam_8018860C {
+    u32 x00;
+    u32 x04;
+    u32 x08;
+    Vec_8018860C pos;
+    u8 pad18[0x20];
+    f32 y2;
+    u32 pad3C;
+    s32 res;
+    s32 x44;
+    u32 x48;
+};
+
+struct Obj_8018860C {
+    u8 pad[0x38];
+    Vec_8018860C pos;
+    u8 pad44[0x326 - 0x44];
+    s16 state;
+};
+
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
@@ -144,7 +166,6 @@ s32 set_global_param__8TObjFishFi(s32);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
-void dispatch_fish_event__6TLobbyFPv(void *a0);
 void draw_ginja_box_tree(void);
 s32 pop_matrix();
 extern void *container_breakup_model_archive;
@@ -207,6 +228,16 @@ void init_packet_67_04__6TLobbyFPv(void *);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
 f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0);
+int spawn_particle_effect_with_flags(void *, int, int);
+void *construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
+void play_container_break_sound(void *);
+s32 dispatch_fish_event__6TLobbyFPv(void *a0);
+void *__nw__7TObjectFUl(int);
+extern ChipParam_8018860C lbl_80444E5C;
+extern ChipParam_8018860C lbl_80444EA8;
+extern s32 lbl_805D5B8C;
+extern void *tl_05;
+void TObjContainerAbeEnemy__vt77(const Obj_8018860C *self);
 }
 
 extern "C" {
@@ -392,6 +423,51 @@ void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
     }
 }
+
+#pragma push
+#pragma opt_propagation off
+void TObjContainerAbeEnemy__vt77(const Obj_8018860C *self) {
+    if (self->state != 1) {
+        ChipParam_8018860C a = lbl_80444E5C;
+        f32 za;
+        f32 ya;
+        f32 xa;
+        xa = self->pos.x;
+        ya = self->pos.y;
+        za = self->pos.z;
+        a.pos.x = xa;
+        a.pos.y = ya;
+        a.pos.z = za;
+        a.y2 = ya;
+        a.res = dispatch_fish_event__6TLobbyFPv((void *)0);
+        a.x44 = lbl_805D5B8C;
+        ChipParam_8018860C b = lbl_80444EA8;
+        f32 zb;
+        f32 yb;
+        f32 xb;
+        xb = self->pos.x;
+        yb = self->pos.y;
+        zb = self->pos.z;
+        b.pos.x = xb;
+        b.pos.y = yb;
+        b.pos.z = zb;
+        b.y2 = yb;
+        b.res = dispatch_fish_event__6TLobbyFPv((void *)1);
+        b.x44 = lbl_805D5B8C;
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
+        void *o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+        }
+        o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+        }
+        play_container_break_sound((void *)self);
+    }
+}
+#pragma pop
 
 f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0) {
     s16 sp8;
