@@ -104,6 +104,7 @@ force_active:
   - TAdPlyStatusGC__status_window_box
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TAdSinglePlyChrSelectGC__sub_801FBC3C
+  - TAdSinglePlyChrSelectGC__sub_801FFCFC
   - TAdSinglePlyChrSelectGC__sub_80202D7C
   - TAdSinglePlyChrSelectGC__sub_8028EE20
   - TBGLightningCtrl__name
@@ -652,6 +653,7 @@ force_active:
   - alerted_state__14TObjEneBm5WolfFPvi
   - alloc_boss_target_slot__10TObjPlayerFPvi
   - alloc_breakup_piece_records
+  - alloc_char_records__23TAdSinglePlyChrSelectGCFi
   - allocate_network_info_cipher_key
   - anchor_state__14TObjEneBm5WolfFPvi
   - ancient_boss_warp_resource_block
@@ -659,6 +661,7 @@ force_active:
   - append_block_space__24TMessageWindowControllerFv
   - append_byte__24TMessageWindowControllerFUc
   - append_file_number__24TMessageWindowControllerFv
+  - append_inventory_item__23TAdSinglePlyChrSelectGCFPvi
   - append_quest_name__24TMessageWindowControllerFv
   - append_quest_title__24TMessageWindowControllerFv
   - append_text__24TMessageWindowControllerFPCc
@@ -805,6 +808,7 @@ force_active:
   - area_dialogue_file_space_s_u
   - area_gsl_filename_table
   - assert_light_id__9TObjLightFi
+  - assign_char_data__23TAdSinglePlyChrSelectGCFPvPv
   - at_end__24TMessageWindowControllerFv
   - attach_model__13TParticleCtrlFPviiiif
   - attack_target_history_contains
@@ -988,11 +992,13 @@ force_active:
   - build_beam_points__12TTecZondeEffFPv
   - build_box_triangles__10TObjMapCsnFPv
   - build_dead_list_window__15TObjDeadListWinFv
+  - build_default_save_file__23TAdSinglePlyChrSelectGCFv
   - build_download_list__12TQuestListVMFPv
   - build_item_list__23TShopJudgmentItemWindowFPv
   - build_menu__19TWindowSubShortMailFv
   - build_node_records__11TBreakUpMdlFPvPvi
   - build_result_text__13TObjResultWinFv
+  - build_save_file__23TAdSinglePlyChrSelectGCFv
   - build_sell_list__24TShopEquipmentSellWindowFPv
   - build_trade_menu__19TWindowSubTradeMainFPv
   - byteswap_6x75_packet__6TLobbyFPv
@@ -1138,6 +1144,7 @@ force_active:
   - check_player_hits__15TBoss6SwordWaveFPv
   - check_purchase_eligibility__20TShopArmorListWindowFPv
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
+  - check_slot_swap_allowed__23TAdSinglePlyChrSelectGCFPviPvi
   - check_system_file_status__23TAdSinglePlyChrSelectGCFv
   - check_target_collision__10TObjPlayerFPv
   - check_target_in_range__14TObjEneDolmOlmFPv
@@ -1187,6 +1194,8 @@ force_active:
   - construct_area__11TTecRaBartaFPvPvPvPv
   - construct_cane_weapon
   - construct_card_tags__17TWindowGetComCardFv
+  - construct_card_window_array__23TAdSinglePlyChrSelectGCFPv
+  - construct_card_window_array__23TAdSinglePlyChrSelectGCFi
   - construct_city_vertical_model
   - construct_dagger_weapon
   - construct_entry_array
@@ -1220,6 +1229,7 @@ force_active:
   - convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi
   - copy_challenge_result_record
   - copy_character_data__23TAdSinglePlyChrSelectGCFPvPv
+  - copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii
   - copy_chat_entry__20TWindowSubSymbolChatFPvPv
   - copy_debris_params__8TObjChipFPvPv
   - copy_drop_node
@@ -1234,9 +1244,11 @@ force_active:
   - copy_pos_with_height_offset__16TObjEneMe3StelthFPv
   - copy_pos_with_height_offset__18TObjEneMe3SinowZoaFPv
   - copy_record__13TObjTombstoneFPvi
+  - copy_request__23TAdSinglePlyChrSelectGCFPvPv
   - copy_resource_desc__9TObjEneDDFPvPv
   - copy_ring_buffer_window__15TObjBoss2TunnelFPv
   - copy_rotation_to_current_matrix
+  - copy_save_data__23TAdSinglePlyChrSelectGCFii
   - copy_stat_block__17TWindowSetLevelUpFii
   - copy_state__12TWindowTimerFPvPv
   - copy_state__16TKeyBoardControlFPvPv
@@ -1644,6 +1656,7 @@ force_active:
   - format_trade_out_of_range_message
   - forward_chg_game_mode__17TAdEnterPPPPassGCFPv
   - free_buffers__22TQuestVmDownLoadServerFv
+  - free_char_data_slots__23TAdSinglePlyChrSelectGCFPv
   - free_item_pmt
   - freeze_shell_grow
   - freeze_shell_hold
@@ -1806,6 +1819,7 @@ force_active:
   - init_floor_encounter_sections__6TLobbyFv
   - init_forward__19TItemDisconnectCtrlFv
   - init_forward_default__10TObjPlayerFv
+  - init_fresh_character_slot
   - init_from_script__12TQuestThreadFPviii
   - init_from_table_entry__9TObjGrassFPvi
   - init_gravity_globals__12TBoss1DragonFv
@@ -1886,6 +1900,7 @@ force_active:
   - is_player_in_service_range__14TShopGeneratorFPvPvf
   - is_player_near__12TBoss6ThanksFPv
   - is_player_nearby__12TBoss4ThanksFPv
+  - is_same_slot_entry__23TAdSinglePlyChrSelectGCFPviPvi
   - is_sega_logo_done
   - is_signboard_texture_buffer_missing
   - is_slot_active__14TShopGeneratorFi
@@ -2137,6 +2152,7 @@ force_active:
   - lbl_80501114
   - lbl_8050C048
   - lbl_8050EA64
+  - lbl_80513918
   - lbl_80513F00
   - lbl_80540BBC
   - lbl_805A9A90
@@ -7809,6 +7825,7 @@ force_active:
   - validate_target__11TMainCursorFPv
   - varGet32
   - varSet32
+  - verify_save_checksum__23TAdSinglePlyChrSelectGCFv
   - voiceRemovePriority
   - voiceResetLastStarted
   - volopt_hiraisin_model_data

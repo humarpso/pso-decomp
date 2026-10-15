@@ -2792,6 +2792,7 @@ pso/ui/TAdSinglePlyChrSelectGC_801A6D60.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801C50A8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801D5DAC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801E4CF0.cpp
+pso/ui/TAdSinglePlyChrSelectGC_801FBF54.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802029E8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802233A0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80242CFC.cpp

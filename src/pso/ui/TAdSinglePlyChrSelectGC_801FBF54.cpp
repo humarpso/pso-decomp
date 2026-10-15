@@ -1,4 +1,45 @@
 #include "types.h"
+struct CardFileInfo_804C88C0 {
+    char filename[0x20];
+    char comment[0x20];
+    u32 flags;
+    u8 icon[0x10];
+};
+struct CardFileComment_804C8974 {
+    char game_name[0x14];
+    char comment[0x20];
+    u32 flags;
+    u8 icon[0x10];
+};
+struct GuildCardFile_804C89BC {
+    char filename[0x20];
+    char comment[0x20];
+    u32 flags;
+    char download_name[0x10];
+    char download_dir[0x20];
+    u32 download_flags;
+};
+struct Vec2_804C8A44 { f32 x, y; };
+extern "C" {
+CardFileInfo_804C88C0 lbl_804C88C0 = {
+    "PSO_CHARACTER", "CHARACTER_FILE", 0,
+    { 0x35, 0x04, 0x08, 0x1A, 0x0A, 0x07, 'T', 'T', 'T', 'U' },
+};
+char pso_system_card_filename[0x20] = "PSO_SYSTEM";
+char lbl_804C8934[0x20] = "PSO3_SYSTEM";
+char lbl_804C8954[0x20] = "PSO3_CHARACTER";
+CardFileComment_804C8974 lbl_804C8974 = {
+    "EPISODE I & II", "SYSTEM_FILE", 0,
+    { 0x35, 0x04, 0x08, 0x1A, 0x0A, 0x07, 'U', 'T', 'T', 'T' },
+};
+GuildCardFile_804C89BC lbl_804C89BC = {
+    "PSO_GUILDCARD", "GUILDCARD_FILE", 0, "PSO______000", "PSOV2/DOWNLOAD", 0,
+};
+u8 TQuestVmDownLoadServer__memcard_key[0x10] = {
+    0x35, 0x04, 0x08, 0x1A, 0x0A, 0x07, 'V', 'T', 'T', 'T',
+};
+__declspec(section ".data") Vec2_804C8A44 lbl_804C8A44 = { 0.0f, 0.0f };
+}
 extern "C" {
 u32 lbl_805137C8[4];
 u32 chr_select_buffer_ptr_table[8];
@@ -63,7 +104,6 @@ extern "C" {
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
 void set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int);
-extern RecoveredGlobal_801FC564_lbl_804C89BC lbl_804C89BC;
 extern s32 lbl_805D49B4;
 extern s32 card_load_channel;
 extern s32 guild_card_save_file_buffer;
@@ -82,7 +122,6 @@ s32 render_frame__23TAdSinglePlyChrSelectGCFv();
 s32 init_slots__23TAdSinglePlyChrSelectGCFv();
 int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
 int memcpy(void*, void*, void*);
-extern s32 pso_system_card_filename[];
 extern s32 lbl_805D49B4;
 extern s32 system_save_payload;
 extern s32 system_save_card_channel;
@@ -107,7 +146,6 @@ void copy_name__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void set_card_disk_id__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(u8 *, u32);
 int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
-extern u8 lbl_804C8934[];
 extern s32 lbl_805D49B4;
 s32 load_system_file__23TAdSinglePlyChrSelectGCFiPv(s32 arg0, s32 *arg1);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
@@ -124,7 +162,6 @@ s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
 void xfree__FPv(void *);
 int memcpy(void*, void*, void*);
 void *memset(void *, int, u32);
-extern char lbl_804C88C0[];
 extern s32 chr_select_serial_seeds[];
 extern int card_character_save_buffer;
 extern s32 character_save_card_slot;
@@ -148,7 +185,6 @@ u32 TAdSinglePlyChrSelectGC__sub_80201204(u8 *, u32);
 s32 init_slots__23TAdSinglePlyChrSelectGCFv();
 int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
 int memcpy(void*, void*, void*);
-extern s32 pso_system_card_filename[];
 extern s32 lbl_805D49B4;
 extern s32 system_save_payload;
 extern s32 system_save_card_channel;
@@ -446,11 +482,11 @@ s32 load_player_by_slot__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     var_r0 = -1;
     card_load_channel = arg0;
     if ((arg0 >= 0) && (arg0 <= 7)) {
-        var_r0 = find_card_file__15TAdPlayerLoadGCFiPv(arg0, (s32) &lbl_804C89BC.value);
+        var_r0 = find_card_file__15TAdPlayerLoadGCFiPv(arg0, (s32) &lbl_804C89BC);
         if (var_r0 == 0) {
             set_quest_download_server__23TAdSinglePlyChrSelectGCFi(card_load_channel);
             lbl_805D49B4 = 1;
-            var_r0 = load_player_slot__23TAdSinglePlyChrSelectGCFPvii((void *) card_load_channel, (s32) &lbl_804C89BC.value, guild_card_save_file_buffer);
+            var_r0 = load_player_slot__23TAdSinglePlyChrSelectGCFPvii((void *) card_load_channel, (s32) &lbl_804C89BC, guild_card_save_file_buffer);
         }
     }
     return var_r0;
@@ -487,14 +523,14 @@ s32 load_save_from_card__23TAdSinglePlyChrSelectGCFv(void) {
     s32 size;
     s32 p;
     s32 g;
-    if (find_card_file__15TAdPlayerLoadGCFiPv(character_save_card_slot, (s32)lbl_804C88C0) == 0) {
+    if (find_card_file__15TAdPlayerLoadGCFiPv(character_save_card_slot, (s32)lbl_804C88C0.filename) == 0) {
     size = character_save_file_block_count << 13;
     buf = (u8 *)alloc__22TQuestVmDownLoadServerFPv(size);
     if (buf == NULL) {
         return 0;
     }
     memset(buf, 0, size);
-    while (TAdPlayerLoadGC__sub_801E1944(character_save_card_slot, lbl_804C88C0, buf, character_save_file_block_count) != 0) {
+    while (TAdPlayerLoadGC__sub_801E1944(character_save_card_slot, lbl_804C88C0.filename, buf, character_save_file_block_count) != 0) {
         if (probe_card_slot__15TAdPlayerLoadGCFi(character_save_card_slot) != 1) {
             xfree__FPv(buf);
             return 0;
