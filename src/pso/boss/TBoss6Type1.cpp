@@ -550,7 +550,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 M2C_UNK play_sound_effect(int, void *, int, int, void *);
 void apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *, int, int, f32);
-int TBoss6Type1__sub_802B60E8(void*);
+
 void fn_8035648C(void *, void *, int, f32);
 f32 subtract_vector(void *, void *);
 extern f32 TBoss6Type1__sword_shot_hit_radii[];
@@ -639,7 +639,7 @@ s32 TBoss6PlotFalz__sub_802AAC74(s32);
 int TBoss6Type1__sub_802B4A9C(void*);
 struct Boss_802B5AD4;
 void fire_at_all_players__11TBoss6Type1FPvf(Boss_802B5AD4 *, f32);
-int TBoss6Type1__sub_802B60E8(void*);
+
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
 int release_object__11TBoss6Type1FPv(void*);
 
@@ -1228,9 +1228,34 @@ void TBoss6Type1::update_effect_points() {
     set_effect_points__11TBoss6Type1FPvPvPv(effect_point_receiver, points, (void*)lbl_80470FAC);
 }
 
+extern "C" { extern u32 lbl_80470F90[]; }
+
+void TBoss6Type1::update_trail_points() {
+    Boss6EffectPoint points[7];
+    Boss6EffectPoint delta;
+    VecCopy__FP3VecPC3Vec(&points[0],&trail_points[0]);
+    VecCopy__FP3VecPC3Vec(&points[3],&trail_points[1]);
+    VecCopy__FP3VecPC3Vec(&delta,&trail_points[2]);
+    subtract_vector(&delta,&points[3]);
+    f32 length=((f32 (*)(const Boss6EffectPoint*))vector_length)(&delta);
+    if(length <= TBoss6Type1__data_805DE310) length=TBoss6Type1__data_805DE2E4;
+    f32 scale=TBoss6Type1__data_805DE360/length;
+    delta.x*=scale;delta.y*=scale;delta.z*=scale;
+    VecCopy__FP3VecPC3Vec(&points[1],&points[0]);
+    VecCopy__FP3VecPC3Vec(&points[5],&points[0]);
+    subtract_vector(&points[1],&delta);
+    vec3_add_to(&points[5],&delta);
+    VecCopy__FP3VecPC3Vec(&points[2],&points[1]);
+    VecCopy__FP3VecPC3Vec(&points[4],&points[1]);
+    subtract_vector(&points[2],&delta);
+    vec3_add_to(&points[4],&delta);
+    VecCopy__FP3VecPC3Vec(&points[6],&points[0]);
+    set_effect_points__11TBoss6Type1FPvPvPv(trail_point_receiver,points,lbl_80470F90);
+}
+
 extern "C" {
 
-void init_parts__11TBoss6Type1FPv(void* p) { set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5d8)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5e4)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5f0)); TBoss6Type1__sub_802B60E8(p); }
+void init_parts__11TBoss6Type1FPv(void* p) { set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5d8)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5e4)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5f0)); ((TBoss6Type1*)p)->update_trail_points(); }
 
 }
 
@@ -1555,7 +1580,7 @@ void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self) {
     f32 sc;
     f32 t;
     s32 idx;
-    TBoss6Type1__sub_802B60E8(self);
+    ((TBoss6Type1*)self)->update_trail_points();
     a = &self->a;
     b = &self->b;
     ok = 0;
@@ -2015,7 +2040,31 @@ void draw_part_motions__11TBoss6Type1FPv(Boss_802B81A4 *arg0) {
     clear_global_state__10TObjPlayerFv();
 }
 
-void copy_transform__11TBoss6Type1FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
+void set_motion_set__11TBoss6Type1FPvi(void *arg0_, s32 arg1) {
+    Boss_802B82B8 *arg0 = (Boss_802B82B8 *)arg0_;
+    f32 z;
+    s32 n;
+    Tbl_802B82B8 *t;
+    s32 i;
+    Anim_802B82B8 *a;
+
+    if (arg1 != -1 && arg1 != arg0->f43C) {
+    arg0->f43C = arg1;
+    z = TBoss6Type1__data_805DE2D0;
+    n = TBoss6Type1__data_805DE3C4;
+    t = &TBoss6Type1__motion_set_table[arg1];
+    arg0->f440 = t->f0;
+    for (i = 0; i < n; i++) {
+        a = &arg0->anim[i];
+        s32 id = get_bml_motion(arg0->f3FC, t->ids[i]);
+        a->blend = a->f10;
+        a->prevId = a->id;
+        a->prevT = a->t;
+        a->id = id;
+        a->t = z;
+    }
+    }
+}
 
 void advance_animations__11TBoss6Type1FPv(Boss_802B8384 *self) {
     s32 cur;
@@ -2059,31 +2108,7 @@ void advance_animations__11TBoss6Type1FPv(Boss_802B8384 *self) {
     }
 }
 
-void set_motion_set__11TBoss6Type1FPvi(void *arg0_, s32 arg1) {
-    Boss_802B82B8 *arg0 = (Boss_802B82B8 *)arg0_;
-    f32 z;
-    s32 n;
-    Tbl_802B82B8 *t;
-    s32 i;
-    Anim_802B82B8 *a;
-
-    if (arg1 != -1 && arg1 != arg0->f43C) {
-    arg0->f43C = arg1;
-    z = TBoss6Type1__data_805DE2D0;
-    n = TBoss6Type1__data_805DE3C4;
-    t = &TBoss6Type1__motion_set_table[arg1];
-    arg0->f440 = t->f0;
-    for (i = 0; i < n; i++) {
-        a = &arg0->anim[i];
-        s32 id = get_bml_motion(arg0->f3FC, t->ids[i]);
-        a->blend = a->f10;
-        a->prevId = a->id;
-        a->prevT = a->t;
-        a->id = id;
-        a->t = z;
-    }
-    }
-}
+void copy_transform__11TBoss6Type1FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
 
 Blk_802B8624 *copy_block__11TBoss6Type1FPvPv(Blk_802B8624 *d, Blk_802B8624 *s) {
     *d = *s;

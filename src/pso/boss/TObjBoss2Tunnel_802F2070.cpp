@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TunnelSceneController.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -118,8 +119,7 @@ u32 __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK TObjBoss7RaftSplash__ct(void *, void *, void *, void *, void *);
 M2C_UNK TObjBoss2Tunnel__sub_802F1AE0(void *, u32, int);
 u32 TObjBoss7TunnelCol__ct(void *, void *);
-M2C_UNK TObjBoss2Tunnel__sub_802F207C(void *);
-M2C_UNK TObjBoss2Tunnel__sub_802F2150(void *);
+
 extern u8 TObjBoss2Tunnel__raft_splash_offset_table[];
 extern u8 lbl_804E4A44[];
 extern M2C_UNK lbl_804E4B3C[];
@@ -149,6 +149,37 @@ extern u32 boss2_tunnel_state_flags;
 s32 TObjBoss2Tunnel__sub_802F2070(void) {
     return ((u32) boss2_tunnel_state_flags >> 0xFU) & 1;
 }
+}
+struct TunnelVector3 { f32 x,y,z; };
+extern "C" { extern const f32 lbl_805DEC9C,lbl_805DECAC,lbl_805DECB0,lbl_805DECB4; }
+void TunnelSceneController::spawn_segment_row_a() {
+    TunnelVector3 position;
+    position.x=segment_x;
+    position.y=lbl_805DEC9C;
+    for (position.z=half_length;position.z > -half_length;position.z-=lbl_805DECB4) {
+        if (lbl_805DECAC > position.z && position.z > lbl_805DECB0) {
+            ((void (*)(void*,s32,TunnelVector3*))spawn__15TObjBoss2TunnelFPvii)(this,4,&position);
+        } else {
+            ((void (*)(void*,s32,TunnelVector3*))spawn__15TObjBoss2TunnelFPvii)(this,3,&position);
+        }
+    }
+}
+
+void TunnelSceneController::spawn_segment_row_b() {
+    TunnelVector3 position;
+    position.x=segment_x;
+    position.y=lbl_805DEC9C;
+    for (position.z=half_length;position.z > -half_length;position.z-=lbl_805DECB4) {
+        if (lbl_805DECAC > position.z && position.z > lbl_805DECB0) {
+            ((void (*)(void*,s32,TunnelVector3*))spawn__15TObjBoss2TunnelFPvii)(this,0,&position);
+        } else {
+            ((void (*)(void*,s32,TunnelVector3*))spawn__15TObjBoss2TunnelFPvii)(this,2,&position);
+        }
+    }
+}
+
+extern "C" {
+
 void spawn__15TObjBoss2TunnelFPvii(void *arg0, s32 arg1, s32 arg2) {
     void *new_obj = (void *) __nw__7TObjectFUl(0x78);
     if ((u32) new_obj != 0U) {
@@ -421,7 +452,7 @@ void *TObjBoss2Tunnel__sub_802F2A2C(void *arg0p, s32 parent) {
         lbl_805D6970 = 1;
     }
     if (is_room_enemy_set_cleared(get_current_floor(), 1) == 0) {
-        TObjBoss2Tunnel__sub_802F2150(arg0);
+        ((TunnelSceneController*)arg0)->spawn_segment_row_b();
         p = __nw__7TObjectFUl(0xD8);
         if (p != 0) {
             p = TObjBoss7TunnelCol__ct((void *) p, arg0);
@@ -429,7 +460,7 @@ void *TObjBoss2Tunnel__sub_802F2A2C(void *arg0p, s32 parent) {
         M2C_FIELD(arg0, u32 *, 0x88) = p;
     } else {
         M2C_FIELD(arg0, f32 *, 0x84) = lbl_805DED0C;
-        TObjBoss2Tunnel__sub_802F207C(arg0);
+        ((TunnelSceneController*)arg0)->spawn_segment_row_a();
         M2C_FIELD(arg0, s32 *, 0x1C) = 2;
         M2C_FIELD(arg0, f32 *, 0x5C) = lbl_805DEC9C;
         M2C_FIELD(arg0, f32 *, 0x54) = lbl_805DECB8;

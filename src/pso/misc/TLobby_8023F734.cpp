@@ -70,6 +70,8 @@ M2C_UNK strncpy(void *, void *, int);
 M2C_UNK memset(void *, int, int);
 extern u8 selected_guild_card_record[];
 void load_selected_guild_card_record(Src_8024220C *arg0);
+u16 update_crc16_ccitt__6TLobbyFUsUc(u16 crc, u8 c);
+u16 calculate_crc16_ccitt(const u8* bytes, s32 count);
 }
 
 extern "C" {
@@ -577,6 +579,15 @@ void reset_sound_owner_state(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
     M2C_FIELD(arg0, f32 *, 0x2A4) = (f32) lbl_805DC9D8;
     M2C_FIELD(arg0, s32 *, 0x2AC) = 0x1E240;
+}
+
+u16 calculate_crc16_ccitt(const u8* bytes, s32 count) {
+    u16 crc = 0;
+    while (count-- > 0) {
+        crc = update_crc16_ccitt__6TLobbyFUsUc(crc, *bytes);
+        ++bytes;
+    }
+    return crc;
 }
 
 u16 update_crc16_ccitt__6TLobbyFUsUc(u16 crc, u8 c) {
