@@ -170,7 +170,7 @@ struct Obj_8018860C {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 void vfunc_6__21TObjContainerAbeEnemyFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
@@ -410,12 +410,12 @@ void TObjContainerAbeEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj_18 *)(arg0))->m77();
-            set_flag8__6TLobbyFPv((void *) (arg0));
+            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        set_flag8__6TLobbyFPv((void *) (arg0));
+        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         this->mode = 1;
     }

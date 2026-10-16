@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TCMCharacter.h"
 #include "pso/misc/CharacterShape.h"
 #include "pso/misc/CharacterCreationTextureCache.h"
@@ -135,7 +136,7 @@ void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0);
 void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
 int TAdSinglePlyChrSelectGC__sub_8029071C(void*);
 s32 TLobby__sub_803DA16C(void *);
-int set_motion_interpolation_flag(void*);
+int set_motion_interpolation_flag__10TObjMotionFv(void*);
 int draw_model_with_callback__10TObjPlayerFv(void*);
 
 extern "C" {
@@ -1481,12 +1482,12 @@ void request_creation_motion(s32 arg0) {
     if (creation_figure_object == 0 || creation_player_character == 0) {
         return;
     }
-    ((TObjEnePanarms *)creation_figure_object)->set_field_b8(arg0 * 3 + creation_motion_group(creation_player_character));
+    ((TObjMotion *)creation_figure_object)->set_field_b8(arg0 * 3 + creation_motion_group(creation_player_character));
 }
 }
 
 extern "C" {
-void TAdSinglePlyChrSelectGC::draw_player_model() { set_motion_interpolation_flag(this); draw_model_with_callback__10TObjPlayerFv(this); }
+void TAdSinglePlyChrSelectGC::draw_player_model() { set_motion_interpolation_flag__10TObjMotionFv(this); draw_model_with_callback__10TObjPlayerFv(this); }
 }
 
 extern "C" {

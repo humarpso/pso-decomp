@@ -6,6 +6,7 @@
 
 struct TTecPlayerInfluence : public TEffect {
     virtual ~TTecPlayerInfluence();
+    void sub_80237258();
     virtual void tick_lifetime();
     virtual void vfunc_7(void *);
     u8 unk_70[0x4];

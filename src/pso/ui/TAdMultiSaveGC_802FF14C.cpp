@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/ui/TAdMultiSaveGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -148,7 +149,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
         *(u32 *)((s8 *)arg0 + 0x1C) = 3U;
         return;
     case 3:
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x30)))->is_visible() != 0) {
+        if (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0x30)))->is_visible() != 0) {
             temp_r3 = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x30)));
             switch (temp_r3) {
             case 1:

@@ -6,6 +6,7 @@
 class TUnk_804D1AD0 : public TObject {
 public:
     virtual ~TUnk_804D1AD0();
+    s32 create_status_category_menu();
     virtual void render();
     virtual void run_task();
     u8 unk_1C[0x4];

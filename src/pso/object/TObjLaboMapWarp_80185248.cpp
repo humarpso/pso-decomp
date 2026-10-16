@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/object/TObjCityAreaWarp.h"
 #include "pso/object/TObjCityMainWarp.h"
 #include "pso/object/TObjCityMapWarp.h"
@@ -322,7 +324,7 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         ((TObjLaboMapWarp *)arg0)->clamp_index();
         ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
-        ((TObjCityMainWarp *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
+        ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
         calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
@@ -447,7 +449,7 @@ void TObjCityMapWarp__vt13(u8 *arg0, s32 arg1) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         ((TObjCityMapWarp *)arg0)->clamp_destination_index();
         ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
-        ((TObjCityMainWarp *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
+        ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
         calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
@@ -524,7 +526,7 @@ void TObjCityAreaWarp__vt13(void *arg0, s16 arg1) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) == 0U) {
         *(u32 *)((s8 *)arg0 + 0xB0) = ((u32 (*)(s32, s32, s16))create_window_menu)(get_window_layout_position(0x33), 1, arg1);
         ((TWindowSubTradeMain *)(*(u32 *)((s8 *)arg0 + 0xB0)))->add_text_entry(get_localized_text_entry(9, 0x24), 0xA, 0, -1);
-        ((TObjCityMainWarp *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag70_bit10();
+        ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag_40();
         ((s32 (*)(u32))calc_window_size__17TWindowSubComCardFPv)(*(u32 *)((s8 *)arg0 + 0xB0));
         ((s32 (*)(u32))align_menu_entry_positions)(*(u32 *)((s8 *)arg0 + 0xB0));
@@ -620,7 +622,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
     var_r31 = (u8 *)(arg0);
     if (TLobby::get_instance() == 0) {
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
-        if ((var_r3 != NULL) && (((TWindowSubComCard *)var_r3)->is_visible() != 0)) {
+        if ((var_r3 != NULL) && (((TWindowMenu *)var_r3)->is_visible() != 0)) {
             var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
             var_r4 = (s32 *)(&city_warp_floor_destination_table.value);
             var_r5 = (u8 *)(var_r31 + (get_selected_menu_value(var_r3) * 4));
@@ -633,7 +635,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
         return 0;
     }
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
-    if ((var_r3 != NULL) && (((TWindowSubComCard *)var_r3)->is_visible() != 0)) {
+    if ((var_r3 != NULL) && (((TWindowMenu *)var_r3)->is_visible() != 0)) {
         var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
         var_r4 = (s32 *)(&lbl_80444834.value);
         var_r5 = (u8 *)(var_r31 + (get_selected_menu_value(var_r3) * 4));
@@ -713,7 +715,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
                     }
                 }
             }
-            ((TObjCityMainWarp *)(w->win))->set_flag70_bit10();
+            ((TWindowSubComCardList *)(w->win))->set_flag70_bit10();
             ((TLobby *)(w->win))->set_loss_flag();
             ((void (*)(void *, f32))update_layout_height__17TWindowSubComCardFPvf)(w->win, lbl_805DBC9C);
             if (w->win->f3C > lbl_805DBCA0) {

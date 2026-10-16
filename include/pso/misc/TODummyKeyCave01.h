@@ -6,6 +6,7 @@
 
 struct TODummyKeyCave01 : public TUnk_804B9870 {
     virtual ~TODummyKeyCave01();
+    void sub_80165940();
     u32 m_90;
     u32 m_94;
     u16 m_98;

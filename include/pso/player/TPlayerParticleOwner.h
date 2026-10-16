@@ -7,10 +7,7 @@ class TPlayerParticleOwner : public TObject {
 public:
     TPlayerParticleOwner(TObject* parent);
     virtual ~TPlayerParticleOwner();
-    TObjPlayer* get_player();
     TParticleCtrl* get_particle();
-    void set_particle(TParticleCtrl* value);
-    void set_player_id(u16 value);
     u16 player_id;
     TParticleCtrl* particle;
 };

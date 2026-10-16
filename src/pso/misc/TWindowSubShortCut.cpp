@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSubComCardList.h"
+#include "pso/misc/TWindowMessageYesNo.h"
+#include "pso/misc/TUnk_804D0618.h"
+#include "pso/misc/TWindowSubQuestBoardSelect.h"
 #include "pso/misc/TWindowSubShortCut.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowChat.h"
@@ -40,14 +45,14 @@ u8 get_selected_menu_value(int);
 s32 select_cursor_entry__6TLobbyFv(s32);
 s32 get_window_layout_position(s32 a0);
 u32 TWindowShortCut__ct(int, int, int, void *);
-void open_com_card_list__18TWindowSubShortCutFPv(void *arg0);
+void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
 }
 
 extern "C" {
 
 void *TWindowSubShortCut__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1);
-void open_com_card_list__18TWindowSubShortCutFPv(void *arg0);
+void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
 u32 *get_chat_shortcut();
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 s32 align_menu_entry_positions(s32);
@@ -65,7 +70,7 @@ s32 get_message_10__20TWindowSubStatusDispFl(s32);
 void queue_destruction__7TObjectFv(void *);
 s32 select_cursor_entry__6TLobbyFv(s32);
 
-int TWindowSubShortCut::is_shortcut_active() { return this->m_60 & 0x4; }
+int TWindowSubQuestBoardSelect::is_shortcut_active() { return this->m_60 & 0x4; }
 
 extern const f32 lbl_805DD6C0;
 
@@ -102,15 +107,15 @@ s32 TWindowSubShortCut::open_menu() {
     } else {
         TWindowSubComCard::draw_text_gray(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x5A), 6, 9);
     }
-    ((TObjCityMainWarp *)temp_r31)->set_flag70_bit10();
+    ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
     update_layout_height__17TWindowSubComCardFPvf(temp_r31, lbl_805DD6C0);
     align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
 
-void open_com_card_list__18TWindowSubShortCutFPv(void *arg0) {
+void TWindowSubShortCut::open_com_card_list() {
     s32 tmp = get_window_layout_position((s32)(0x72));
-    ((TWindowSubShortCutList *)tmp)->create((void *)(*(s32 *)((s8 *)arg0 + 0x24)));
+    ((TWindowSubShortCutList *)tmp)->create((void *)(*(s32 *)((s8 *)this + 0x24)));
 }
 void TWindowSubShortCut::render() {  }
 
@@ -143,7 +148,7 @@ void TWindowSubShortCut::run_task() {
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c == 0U) {
-            this->m_2c = ((s32 (*)(void *))open_com_card_list__18TWindowSubShortCutFPv)((void *) (arg0));
+            this->m_2c = ((s32 (*)(void *))open_com_card_list__18TWindowSubShortCutFv)((void *) (arg0));
         }
         ((TWindowSubShortCutList *)(this->m_2c))->refresh_entries();
         ((TWindowSubItem *)(this->m_2c))->clear_selected_and_update_entry();
@@ -155,7 +160,7 @@ void TWindowSubShortCut::run_task() {
             this->m_1c = 0xBU;
             return;
         }
-        if (((TLobby *)(this->m_2c))->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)(this->m_2c))->get_status_flag() != 0) {
             this->m_1c = 3U;
         }
         break;
@@ -175,7 +180,7 @@ void TWindowSubShortCut::run_task() {
             this->m_1c = 1U;
             return;
         }
-        if (((TWindowSubComCard *)(this->m_30))->is_visible() != 0) {
+        if (((TWindowMenu *)(this->m_30))->is_visible() != 0) {
             this->m_1c = get_selected_menu_value((int) (this->m_30));
             return;
         }
@@ -232,7 +237,7 @@ void TWindowSubShortCut::run_task() {
             this->m_1c = 1U;
             return;
         }
-        if (((TWindowSubComCard *)(this->m_34))->is_child_visible() != 0) {
+        if (((TWindowMessageYesNo *)(this->m_34))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
                 store_chat_shortcut((int) (*(s32 *)&this->m_24), (void *) ((u8 *)(arg0) + 0x40));
                 this->m_1c = 1U;
@@ -253,7 +258,7 @@ void TWindowSubShortCut::run_task() {
             this->m_1c = 3U;
             return;
         }
-        if (((TWindowSubComCard *)(this->m_34))->is_child_visible() != 0) {
+        if (((TWindowMessageYesNo *)(this->m_34))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
                 select_cursor_entry__6TLobbyFv((int) (this->m_2c));
                 clear_chat_shortcut();

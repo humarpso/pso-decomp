@@ -6,6 +6,7 @@
 
 struct TObjNpcEnemy : public TObjNpcBase {
     virtual ~TObjNpcEnemy();
+    s32 sub_802D7444();
     u32 m_3b8;
     void draw_model();
     void draw_debug_info();

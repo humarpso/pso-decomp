@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TQuestListVM.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby.h"
@@ -211,7 +213,7 @@ s32 is_downloadable_new_entry__12TQuestListVMFPvPv(QL_802193F0 *q, Ent_802193F0 
 int obj_getField1c(int);
 s32 get_camera_id__11TCameraCtrlFv();
 f32 get_scale__15TShopWindowBaseFv(void *);
-void set_position_xy(u32, f32, f32);
+void set_position_xy__13TUnk_804CDFE8Fff(u32, f32, f32);
 u32 create_yes_no_window(int, u16, int, int);
 void send_and_handle__6TLobbyFii(u32, void *, int);
 u32 create_message_window__6TLobbyFllUls(int, Pair_80218D40 *, int, u16);
@@ -408,7 +410,7 @@ void TQuestListVM::update_close() {
         return;
     }
     p = *(void * *)&this->m_2374;
-    if ((p != NULL) && (((TLobby *)p)->get_status_flag() != 0)) {
+    if ((p != NULL) && (((TUnk_804D0618 *)p)->get_status_flag() != 0)) {
         set_field_20((s32)((void*)(0x11)));
     }
 }
@@ -482,7 +484,7 @@ void load_selected_slot__12TQuestListVMFPv(u8 *arg0) {
 void TQuestListVM::handle_confirm_window() {
     u8 *arg0 = (u8 *)this;
     if (*(void * *)&this->m_2378 != NULL) {
-        if (((TWindowSubComCard *)(*(void * *)&this->m_2378))->is_visible() != 0) {
+        if (((TWindowMenu *)(*(void * *)&this->m_2378))->is_visible() != 0) {
             switch (get_selected_menu_value(*(void * *)&this->m_2378)) {
             case 0:
                 TWindow__close(*(void * *)&this->m_2378);
@@ -534,7 +536,7 @@ void open_confirm_window__12TQuestListVMFPv(u8 *arg0) {
         send_and_handle__6TLobbyFii(*(u32 *)(arg0 + 0x2380), (void *)(TQuestListVM__decrypted_quest_buffer + 0xB4), 1);
         ((TLobby *)(*(u32 *)(arg0 + 0x2380)))->set_field_1c(lbl_805DC6B8);
         if (get_camera_id__11TCameraCtrlFv() >= 2) {
-            set_position_xy(*(u32 *)(arg0 + 0x2380), lbl_805DC6BC, lbl_805DC6BC);
+            set_position_xy__13TUnk_804CDFE8Fff(*(u32 *)(arg0 + 0x2380), lbl_805DC6BC, lbl_805DC6BC);
         }
     }
     if (*(u32 *)(arg0 + 0x2380) != 0U) {
@@ -546,7 +548,7 @@ void open_confirm_window__12TQuestListVMFPv(u8 *arg0) {
             u16 id = obj_getField1c(*(s32 *)(arg0 + 0x24));
             *(u32 *)(arg0 + 0x2378) = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
         }
-        set_position_xy(*(u32 *)(arg0 + 0x2378), get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
+        set_position_xy__13TUnk_804CDFE8Fff(*(u32 *)(arg0 + 0x2378), get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
         ((VObj_80218D40 *)(arg0))->m7(5, 1);
         ((TQuestListVM *)arg0)->set_field_20((s32)((void *)*(s32 *)(arg0 + 0x2370)));
     }
@@ -630,7 +632,7 @@ void TQuestListVM::update_lobby_selection(void *arg0_) {
         ((TQuestListVM *)arg0)->set_field_20((s32)((void *)0x10));
         return;
     }
-    if (arg0->f2374 != NULL && ((TLobby *)(arg0->f2374))->get_status_flag() != 0) {
+    if (arg0->f2374 != NULL && ((TUnk_804D0618 *)(arg0->f2374))->get_status_flag() != 0) {
         arg0->f2370 = 0xA;
         ((TQuestListVM *)arg0)->set_field_20((s32)((void *)8));
         return;

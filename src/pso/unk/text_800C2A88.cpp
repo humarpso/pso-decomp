@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
@@ -223,7 +224,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
     {
       case 0:
         advance_animation_playback((void *) arg0);
-        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0)
+        if (((TObjEneDD *)arg0)->get_flag_b4() != 0)
       {
         ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410 = 1;
         temp_f1 = lbl_805D9FC4 * sin_table_lookup((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_60);

@@ -95,7 +95,7 @@ struct Player_800A7CA4 : VBase18_800A7CA4 {
 
 extern "C" {
 void TObjPlayer__sub_800A7798(u8 *arg0, f32 farg0);
-void TObjPlayer__sub_800A7B54(u8 *arg0);
+void sub_800A7B54__15TObjEneDimedianFv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 void vfunc_94__15TObjEneDimedianFv(s32 arg0);
@@ -283,7 +283,8 @@ int TObjEneDimedian::vfunc_92() {
         queue_destruction__7TObjectFv(arg0);
     }
 }
-void TObjPlayer__sub_800A7B54(u8 *arg0) {
+void TObjEneDimedian::sub_800A7B54() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x334);

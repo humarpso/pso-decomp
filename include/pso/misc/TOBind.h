@@ -6,6 +6,7 @@
 
 struct TOBind : public TUnk_804AF8A0 {
     virtual ~TOBind();
+    void sub_8015860C();
     u8 unk_AC[0x4];
     u32 m_b0;
     u32 m_b4;

@@ -85,9 +85,9 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
 int queue_destruction__7TObjectFv(void*);
-int set_flag8__6TLobbyFPv(void*);
+int set_flag8__13TUnk_804AF8A0Fv(void*);
 
-void TOVS2Wall01::release() { set_flag8__6TLobbyFPv(this); queue_destruction__7TObjectFv(this); }
+void TOVS2Wall01::release() { set_flag8__13TUnk_804AF8A0Fv(this); queue_destruction__7TObjectFv(this); }
 int TOVS2Wall01::interact_player_neg1() { return submit_cursor_candidate(this, -1); }
 
 void TOVS2Wall01::run_task() {

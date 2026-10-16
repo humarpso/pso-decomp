@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/object/TObjLuker.h"
 
 extern "C" {
 
-void TObjLuker::set_flag_4() { this->m_flags |= 0x4; }
+void TObject::set_flag_4() { this->m_flags |= 0x4; }
 
 }

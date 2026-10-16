@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDelDepth.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -906,7 +908,7 @@ void TObjEneDelDepth__sub_80313954(u8 *arg0) {
     default:
         sp8 = 0x800;
         send_6x0A_enemy_state((void *) (arg0), (void *) (&sp8));
-        ((TLobby *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (0)));
+        ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (0)));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         send_entity_set_flags__6TLobbyFPv((void *) (arg0));
         TObjPlayer::apply_effect_variant_a((s32)((void *) (arg0 + 0x38)), (s32)((int) (0)));
@@ -1691,7 +1693,7 @@ void TObjEneDelDepth::init() {
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (lbl_804E8194)));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneDelDepth__shared_resource + 0x430)));
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (0));
-    ((TObjEnePanarms *)arg0)->set_field_b8((int) (0));
+    ((TObjMotion *)arg0)->set_field_b8((int) (0));
     ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x310) = (f32) TObjEneDelDepth__data_805DF258;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjEneDelDepth__data_805DF258;

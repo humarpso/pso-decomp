@@ -40,7 +40,6 @@ struct TWindowSubComCard : public TObject {
     static s32 get_card_slot(s32 arg0);
     s32 process_keyboard_input();
     void clear_flag_and_release();
-    int is_visible();
     int get_status_flag();
     s32 find_value_by_key(u16 key);
     static s32 get_com_count();
@@ -72,8 +71,6 @@ struct TWindowSubComCard : public TObject {
     void update_fade();
     void update_open_close();
     void begin_scroll(f32 farg0);
-    s16 get_field_74();
-    int is_open();
     int get_flag();
     void clear_flag_and_release2();
     void update_scroll_target_position();
@@ -86,7 +83,6 @@ struct TWindowSubComCard : public TObject {
     static void draw_text_gray(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     void draw_card_icon(s32 arg1, s32 arg2);
     void render_selected_entry(s32 arg1);
-    void reset_selection();
     void update_selected_entry();
     void update_next_entry(s32 arg1, s32 arg2, s32 arg3);
     s32 get_entry_id();
@@ -98,7 +94,6 @@ struct TWindowSubComCard : public TObject {
     void free_member();
     s32 get_slot_or_neg1();
     s32 get_card_data();
-    s32 is_child_visible();
     void update_card_display(void* a1, void* a2, void* a3, void* a4);
     void create_message_and_menu(u32 arg1, s32 arg2, u32 arg3, u32 arg4);
     void close_windows();
@@ -108,7 +103,6 @@ struct TWindowSubComCard : public TObject {
     void handle_menu_selection();
     void update_display_state();
     void close_and_update_display();
-    void open_card_info_window();
     void*init_fields(int a1, int a2);
     int is_flag_4_set();
     static f32 trunc_float(f32 farg0);};

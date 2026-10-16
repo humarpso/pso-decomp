@@ -13,7 +13,7 @@ struct VObj1 : Base1 {
 };
 
 extern "C" {
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -47,7 +47,7 @@ extern const f32 lbl_805DB460;
 void TODoorAncient07::render() {
     u8 *arg0 = (u8 *)this;
     VObj1 *self = (VObj1 *)arg0;
-    if ((self->m8(lbl_805DB450, lbl_805DB454) != 0) && (is_in_view_depth(arg0, lbl_805DB458) != 0)) {
+    if ((self->m8(lbl_805DB450, lbl_805DB454) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB458) != 0)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);

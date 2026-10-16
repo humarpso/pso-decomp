@@ -15,7 +15,7 @@ struct O_801538D4 { u8 pad[0x8C]; s32 v; };
 
 extern "C" {
 extern const f32 lbl_805DB250;
-s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
+s32 sub_80153A0C__22TObjFogCollisionSwitchFv(u8 *arg0);
 s32 TObjFogCollision__sub_80153F70(void *self);
 s32 TObjFogCollision__sub_80153F68(void *self);
 void run_task__22TObjFogCollisionPoisonFv(void *self);
@@ -27,7 +27,7 @@ extern s32 __vt__22TObjFogCollisionPoison[];
 extern s32 lbl_805D2E80;
 extern s32 local_client_id;
 void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2);
-s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
+s32 sub_80153A0C__22TObjFogCollisionSwitchFv(u8 *arg0);
 void vfunc_14__16TObjFogCollisionFv(O_801538D4 *);
 void debug_printf_at(int, void *, ...);
 extern char lbl_80440090[];
@@ -35,7 +35,7 @@ extern char lbl_804400A4[];
 extern char lbl_804400B8[];
 void vfunc_14__22TObjFogCollisionSwitchFv(O_801538D4 *arg0);
 s32 record_fog_collision_hit(s32, s32, u8);
-s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
+s32 sub_80153A0C__22TObjFogCollisionSwitchFv(u8 *arg0);
 s32 TObjFogCollision__sub_80153F68(void *self);
 s32 TObjFogCollision__sub_80153F70(void *self);
 u8 is_current_floor_switch_set(u16);
@@ -139,7 +139,7 @@ void *create__22TObjFogCollisionPoisonFPv(void *arg0) {
 void TObjFogCollisionSwitch::vfunc_14() {
     O_801538D4 *arg0 = (O_801538D4 *)this;
     vfunc_14__16TObjFogCollisionFv(arg0);
-    if (TObjFogCollisionSwitch__sub_80153A0C((u8 *)arg0) != 0) {
+    if (sub_80153A0C__22TObjFogCollisionSwitchFv((u8 *)arg0) != 0) {
         debug_printf_at(0x13001E, lbl_80440090);
     } else {
         debug_printf_at(0x13001E, lbl_804400A4);
@@ -151,7 +151,7 @@ void run_task__22TObjFogCollisionSwitchFv(void *arg0) {
     s32 st;
     u16 i;
     if (TObjFogCollision__sub_80153F70(arg0) == 0 && TObjFogCollision__sub_80153F68(arg0) == 0) {
-        st = TObjFogCollisionSwitch__sub_80153A0C((u8 *)arg0);
+        st = sub_80153A0C__22TObjFogCollisionSwitchFv((u8 *)arg0);
         if (st == is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0x8C))) {
             for (i = 0; i != 4; i++) {
                 if (((TObjFogCollision *)arg0)->check_collision(i) != 0) {
@@ -162,7 +162,8 @@ void run_task__22TObjFogCollisionSwitchFv(void *arg0) {
     }
 }
 
-s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0) {
+s32 TObjFogCollisionSwitch::sub_80153A0C() {
+    u8 *arg0 = (u8 *)this;
     return *(f32 *)((s8 *)arg0 + 0x70) >= lbl_805DB250;
 }
 

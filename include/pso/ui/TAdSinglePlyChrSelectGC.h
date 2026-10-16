@@ -8,6 +8,7 @@ struct CreationTextureCacheEntry;
 
 struct TAdSinglePlyChrSelectGC : public TObject {
     virtual ~TAdSinglePlyChrSelectGC();
+    void sub_802D4E08();
     virtual void render();
     u32 m_1c;
     u32 m_20;
@@ -36,7 +37,6 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     static u8 check_slot_flags(s32 arg0, u32 arg1);
     void cleanup();
     virtual void run_task();
-    void reset();
     static u8 get_chr_select_state();
     static s32 get_global_state();
     static int get_state();

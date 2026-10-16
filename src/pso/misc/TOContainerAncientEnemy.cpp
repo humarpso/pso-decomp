@@ -277,7 +277,7 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TOContainerAncientEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
@@ -285,7 +285,7 @@ void TOContainerAncientEnemy::vfunc_6(s16 *arg1, s32 arg2) {
             ((VObj_8015B8E8 *)this)->m77();
         }
         this->mode = 1;
-        set_flag8__6TLobbyFPv(this);
+        set_flag8__13TUnk_804AF8A0Fv(this);
         queue_destruction__7TObjectFv(this);
     }
 }

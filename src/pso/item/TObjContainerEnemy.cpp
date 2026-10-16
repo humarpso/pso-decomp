@@ -121,8 +121,8 @@ struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f32
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 request_box_item_drop(void *, void *, int);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 request_box_item_drop__13TUnk_804806E8FPvs(void *, void *, int);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 void vfunc_6__17TObjContainerItemFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -226,15 +226,15 @@ void TObjContainerItem::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj18 *) arg0)->m77();
-            request_box_item_drop((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
+            request_box_item_drop__13TUnk_804806E8FPvs((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-            set_flag8__6TLobbyFPv((void *) (arg0));
+            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-        set_flag8__6TLobbyFPv((void *) (arg0));
+        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         this->mode = 1;
     }

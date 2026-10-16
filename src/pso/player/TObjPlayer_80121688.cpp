@@ -8,7 +8,7 @@ extern "C" {
 void TObjPlayer__sub_80121708(void *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
-s32 is_owner_alive__10TObjPlayerFv();
+s32 is_owner_alive__15TItemShootModelFv();
 s32 rotate_matrix_by_node_angles(void *, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -16,7 +16,7 @@ void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 
 void TUnk_804A0AA8::render() {
     u8 *arg0 = (u8 *)this;
-    if ((is_owner_alive__10TObjPlayerFv() != 0) && ((u32) *(u32 *)&this->m_58 != 0U) && ((u32) *(u32 *)&this->m_5C != 0U)) {
+    if ((is_owner_alive__15TItemShootModelFv() != 0) && ((u32) *(u32 *)&this->m_58 != 0U) && ((u32) *(u32 *)&this->m_5C != 0U)) {
         push_matrix();
         TParticleCtrl::begin_effect_render();
         TObjPlayer::notify_fish_if_valid(*(u32 *)&this->m_5C);

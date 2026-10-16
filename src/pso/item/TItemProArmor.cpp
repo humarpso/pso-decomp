@@ -184,7 +184,7 @@ void *init_vtable__13TItemProArmorFPv(void *arg0);
 void vfunc_46__13TItemProArmorFv(void* p);
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
 void TItemObject__ct(void *);
-s32 get_tool_pmt_amount_byte(void *);
+s32 get_tool_pmt_amount_byte__11TItemObjectFv(void *);
 void TItemTimerEvent__ct(void *);
 s32 refresh_owner_stats__5TItemFPv();
 int spawn_appearance_effect__10TObjPlayerFl(void);
@@ -223,7 +223,7 @@ void apply_to_player__13TItemProArmorFPv(void *arg0) {
 
     temp_r3 = get_item_field_6__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0xF0));
     if (temp_r3 != 0) {
-        add_weapon_grind(temp_r3, get_tool_pmt_amount_byte(arg0));
+        add_weapon_grind(temp_r3, get_tool_pmt_amount_byte__11TItemObjectFv(arg0));
     }
 }
 

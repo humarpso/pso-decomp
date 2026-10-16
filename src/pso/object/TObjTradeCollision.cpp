@@ -19,7 +19,7 @@ struct RecoveredGlobal_802C8034___vt__18TObjTradeCollision {
 };
 
 extern "C" {
-s32 is_player_outside_trade_radius(void *, int);
+s32 is_player_outside_trade_radius__18TObjTradeCollisionFUl(void *, int);
 s32 clear_trade_range_bit(int);
 s32 set_trade_range_bit(int);
 s32 disallow_rendering__7TObjectFv(void *);
@@ -43,7 +43,7 @@ void run_task__18TObjTradeCollisionFv(s32 arg0) {
     s32 var_r31;
     var_r31 = 0;
     do {
-        if (is_player_outside_trade_radius((void *) (arg0), (int) (var_r31)) != 0) {
+        if (is_player_outside_trade_radius__18TObjTradeCollisionFUl((void *) (arg0), (int) (var_r31)) != 0) {
             set_trade_range_bit((int) (var_r31));
         } else {
             clear_trade_range_bit((int) (var_r31));

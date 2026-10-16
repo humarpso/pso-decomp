@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdBackTxtGC.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 
@@ -11,12 +12,13 @@ extern const f32 lbl_805DDCF8;
 extern const f32 lbl_805DDCFC;
 extern const f32 lbl_805DDD00;
 extern const f32 lbl_805DDD04;
-void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2);
+void draw_character_background_frame__12TAdBackTxtGCFll(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2) {
+void TAdBackTxtGC::draw_character_background_frame(s32 arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
   f32 buffer_8[8];
   begin_screen_draw((int) 1);
   TObjFish::set_global_param((s32)((void *) TAdBackTxtGC__backtext_texture_list));

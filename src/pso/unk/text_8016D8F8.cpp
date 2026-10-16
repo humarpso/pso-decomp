@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKurage.h"
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
@@ -12,12 +13,13 @@ extern "C" {
 s32 approach_angle_limited(int, int, int);
 extern const f32 lbl_805DB7A0;
 extern const f32 lbl_805DB7A4;
-void fn_8016D8F8(u8 *arg0);
+void sub_8016D8F8__8TOKurageFv(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_8016D8F8(u8 *arg0) {
+void TOKurage::sub_8016D8F8() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_8016D8F8, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8016D8F8, sp10) == 0x8) ? 1 : -1];
     Stack_8016D8F8 stack;

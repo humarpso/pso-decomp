@@ -10,6 +10,7 @@ public:
  void* m_20;
 public:
     virtual ~TItemEffEquip();
+    void spawn_equip_particle_effect(s32);
     virtual void run_task();
 public:
     static void create(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -31,11 +32,11 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-s32 begin_photon_summon_camera(void *, int);
+s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
 void spawn_photon_blast_opening_effects(s32, u16);
 s32 spawn_photon_blast_attachment_effects(void *, int);
 void photon_base_ct(void *);
-void TObjPlayer__sub_801AC444(void *, u8);
+void sub_801AC444__13TPhotonLeillaFv(void *, u8);
 void construct_photon_magic_square_normal(void *, void *, s32, void *, s32);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
 void play_cue_stream_file(void *);
@@ -68,7 +69,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     ((TObjPlayer *)self)->set_field_dc(photon_blast_shared_resource->f430);
     F_801AC808(self, s16, 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(self, F_801AC808(self, s16, 0xB8));
-    ((TObjEnePanarms *)self)->set_field_b8(F_801AC808(self, s16, 0xB8));
+    ((TObjMotion *)self)->set_field_b8(F_801AC808(self, s16, 0xB8));
     F_801AC808(self, s16, 0x190) = 1;
     F_801AC808(self, s32, 0x194) = pkt->first;
     F_801AC808(self, s32, 0x198) = pkt->more;
@@ -93,14 +94,14 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
         }
         break;
     }
-    TObjPlayer__sub_801AC444(self, pkt->count);
+    sub_801AC444__13TPhotonLeillaFv(self, pkt->count);
     if (F_801AC808(self, s32, 0x198) == 1) {
         F_801AC808(self, u32, 0x154) |= 1;
     }
     F_801AC808(self, f32, 0x150) = pkt->f20;
     if (F_801AC808(self, s32, 0x194) == 0) {
-        ((TObjEnePanarms *)self)->set_field_b8(0);
-        begin_photon_summon_camera(self, 2);
+        ((TObjMotion *)self)->set_field_b8(0);
+        begin_photon_summon_camera__13TUnk_804C3248FSc(self, 2);
         F_801AC808(self, s32, 0x194) = 1;
         F_801AC808(self, s16, 0x190) = 0;
         F_801AC808(self, s32, 0x19C) = 1;

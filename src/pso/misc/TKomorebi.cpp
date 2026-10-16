@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjLazerFenceExtra.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TKomorebi.h"
 #include "pso/object/TObjFish.h"
@@ -154,7 +155,7 @@ void TKomorebi::load_resources() {
     TKomorebi__resource_bundle = (u32)p;
     komorebi_last_uv_update_frame = 0;
 }
-void TObjFish::init_models() {
+void TObjLazerFenceExtra::init_models() {
     Fish_80192434 *arg0 = (Fish_80192434 *)this;
     s32 i;
     Node_80192434 *node;

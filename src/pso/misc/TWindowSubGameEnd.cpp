@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowSubGameEnd.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
@@ -77,7 +78,7 @@ void TWindowSubGameEnd::run_task() {
             (*(VObj_18_204a81 * *)&this->m_24)->m7();
             return;
         }
-        if (((TWindowSubComCard *)(*(s32 *)&this->m_28))->is_child_visible() != 0) {
+        if (((TWindowMessageYesNo *)(*(s32 *)&this->m_28))->is_child_visible() != 0) {
             slot = ((TWindowSubComCard *)(*(s32 *)&this->m_28))->get_slot_or_neg1();
             if (slot == 0) {
                 if (window_sub_game_end_active_flag != 1) {

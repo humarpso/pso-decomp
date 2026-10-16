@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -79,7 +80,7 @@ u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x64))->copy_vec2((void *) (arg1));
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x6C))->copy_vec2((void *) (arg2));
     *(s32 *)((s8 *)arg0 + 0x60) = arg4;
-    temp_r3 = (u8 *)(((TWindowSubStatusDisp *)arg0)->get_array_entry(0));
+    temp_r3 = (u8 *)(((TUnk_804CE018 *)arg0)->get_array_entry(0));
     if (temp_r3 != NULL) {
         set_text_entry_string((int) (temp_r3), (void *) (arg3), (int) (0x80));
         *(f32 *)((s8 *)temp_r3 + 8) = (f32) lbl_805DFC94;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 struct Ent_80019B78 { u8 pad[0x2c]; };
 
 struct Tbl_80019B78 { s32 f0; s32 f4; Ent_80019B78 *ents; };
@@ -9,12 +10,13 @@ extern "C" {
 void *fn_8001A3BC(void *a, Ent_80019B78 *e, Obj_80019B78 *self);
 void fn_80019EB8(void *n, f32 v);
 extern const f32 lbl_805D7DDC;
-void fn_80019B78(Obj_80019B78 *self, s32 idx);
+void sub_80019B78__15TAdDrawLineCtrlFl(Obj_80019B78 *self, s32 idx);
 }
 
 extern "C" {
 
-void fn_80019B78(Obj_80019B78 *self, s32 idx) {
+void TAdDrawLineCtrl::sub_80019B78(s32 idx) {
+    Obj_80019B78 *self = (Obj_80019B78 *)this;
     void *r = fn_8001A3BC(self->f20, &self->tbl->ents[idx], self);
     if (r != 0 && lbl_805D7DDC != self->f24) {
         fn_80019EB8(r, self->f24);

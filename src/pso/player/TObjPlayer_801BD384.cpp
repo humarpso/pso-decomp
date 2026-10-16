@@ -5,7 +5,7 @@
 extern "C" {
 
 void TObjPlayer__sub_801BD3A4(void);
-void update_body_parts__10TObjPlayerFPv(void* p);
+void update_body_parts__10TObjPlayerFv(void* p);
 void TObjPlayer__sub_801BD384(void* p);
 int copy_player_visual_record(void*);
 int TObjWaitEntryHairMoveSim__sub_800FE73C(void*);
@@ -13,10 +13,10 @@ int free_loaded_buffers__12TCharaMakingFv(void*);
 int apply_pending_effect__11TBoss6Type2FPv(void*);
 typedef void (*Fn_vpvp_801BD570)(void *, void *);
 
-void TObjPlayer__sub_801BD384(void* p) { update_body_parts__10TObjPlayerFPv(p); }
+void TObjPlayer__sub_801BD384(void* p) { update_body_parts__10TObjPlayerFv(p); }
 void TObjPlayer__sub_801BD3A4(void) {  }
 void TObjPlayer::free_chara_making() { apply_pending_effect__11TBoss6Type2FPv(this); free_loaded_buffers__12TCharaMakingFv(this); }
-void update_body_parts__10TObjPlayerFPv(void* p) { copy_player_visual_record((char*)p + 0x85c); *(int*)((char*)p + 0xcfc) = 255; ((TCharaMaking *)p)->update_body_parts(); TObjWaitEntryHairMoveSim__sub_800FE73C(p); }
+void TObjPlayer::update_body_parts() { copy_player_visual_record((char*)this + 0x85c); *(int*)((char*)this + 0xcfc) = 255; ((TCharaMaking *)this)->update_body_parts(); TObjWaitEntryHairMoveSim__sub_800FE73C(this); }
 
 void TObjPlayer__sub_801BCD54(void *);
 void TObjPlayer__sub_801BCC50(void *);
@@ -91,7 +91,7 @@ void load_char_data__10TObjPlayerFPvPv(void *, void *);
 void init_player_data__10TObjPlayerFv(void *, void *);
 void is_flag_set_550__10TObjPlayerFv(void *, void *);
 void init_from_source__10TObjPlayerFPvPv(void *, void *);
-void TObjPlayer__sub_801BD240(void *, void *);
+void sub_801BD240__10TObjPlayerFv(void *, void *);
 void TObjPlayer__sub_801BEC78(void *);
 void TObjPlayer__sub_801BF660(void *);
 void TObjPlayer__sub_801BFB4C(void *);
@@ -149,7 +149,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjPlayer *)arg0)->init_action_provider();
     *(u16 *)((s8 *)arg0 + 0x1C) = 0;
     setup_control_role__10TObjPlayerFPvi(arg0, 7);
-    ((Fn_vpvp_801BD570)update_body_parts__10TObjPlayerFPv)(arg0, arg2);
+    ((Fn_vpvp_801BD570)update_body_parts__10TObjPlayerFv)(arg0, arg2);
     init_player_data__10TObjPlayerFv(arg0, (void *)((char *)arg2 + 136));
     ((TObjPlayer *)arg0)->init_data_table_ptr();
     return arg0;
@@ -200,7 +200,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     load_char_data__10TObjPlayerFPvPv(arg0, arg2);
     ((TObjPlayer *)arg0)->update_position((s32)arg2);
     TObjPlayer__sub_801BBC2C(arg0, arg2);
-    TObjPlayer__sub_801BD240(arg0, arg2);
+    sub_801BD240__10TObjPlayerFv(arg0, arg2);
     is_flag_set_550__10TObjPlayerFv(arg0, arg2);
     init_session_technique_caps__10TObjPlayerFPvPv(arg0, arg2);
     init_from_source__10TObjPlayerFPvPv(arg0, arg2);

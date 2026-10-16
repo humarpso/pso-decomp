@@ -152,7 +152,7 @@ struct RaBarta_802377FC {
 };
 
 extern "C" {
-void TTecPlayerInfluence__sub_80237258(void* p);
+void sub_80237258__19TTecPlayerInfluenceFv(void* p);
 s32 queue_destruction__7TObjectFv(void *);
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
 s32 approach_vector_in_place(void *, void *, f32);
@@ -208,7 +208,7 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
 
-void TTecPlayerInfluence__sub_80237258(void* p);
+void sub_80237258__19TTecPlayerInfluenceFv(void* p);
 
 extern s32 __vt__19TTecPlayerInfluence[];
 
@@ -334,7 +334,8 @@ void TTecRaBarta__vt7(void *arg0) {
     }
 }
 
-void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self) {
+void TTecRaBarta::calc_parameters() {
+    RaBarta_802377FC *self = (RaBarta_802377FC *)this;
     s32 res = calc_technique_parameters(5, self->level, 0xFFFF);
     ((TTecAnti *)(&self->amount))->copy_params((u8 *)res);
     if (self->level >= 0xF && is_technique_ready__8TTecCtrlFv() == 0) {
@@ -474,7 +475,7 @@ s32 apply_technique_to_area_targets(void *, int);
 void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
 extern RafoieBursts_80237DAC rafoie_burst_table[];
 extern const f32 lbl_805DC8C8;
-void spawn_rafoie_explosion_bursts(Obj_80237DAC *self);
+void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 
@@ -630,7 +631,7 @@ void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
     return this;
 }
 
-void spawn_rafoie_explosion_bursts(Obj_80237DAC *self);
+void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
 
 void TTecRaFoie__vt7(u8 *arg0);
 void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);

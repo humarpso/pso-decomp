@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -147,7 +148,7 @@ void TWindowOptionCtrl::handle_save_result() {
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
+            if (((TWindowMessageYesNo *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
                 if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_slot_or_neg1() == 0) {
                     *(s32 *)((s8 *)arg0 + 0x1C) = 3;
                     return;
@@ -190,7 +191,7 @@ void TWindowOptionCtrl::handle_save_result() {
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
+            if (((TWindowMessageYesNo *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
                 if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_slot_or_neg1() == 0) {
                     *(s32 *)&this->m_24 = 3;
@@ -212,7 +213,7 @@ void TWindowOptionCtrl::handle_save_result() {
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
+            if (((TWindowMessageYesNo *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
                 if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_slot_or_neg1() == 0) {
                     TObjBoss2Tunnel::poll_pso_screen_load();
@@ -235,7 +236,7 @@ void TWindowOptionCtrl::handle_save_result() {
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
+            if (((TWindowMessageYesNo *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
                 if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_slot_or_neg1() == 0) {
                     *(s32 *)((s8 *)arg0 + 0x1C) = 0xD;

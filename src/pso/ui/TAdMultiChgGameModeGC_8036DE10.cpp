@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/ui/TUnk_804F3A20.h"
 
 struct RecoveredGlobal_8036E8DC_lbl_804C88C0 { s32 value; u8 remaining[0x50]; };
@@ -202,7 +203,7 @@ void update_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
     if (handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void *)((void *)((void *)(arg0))))) == 0) {
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x34);
         if (temp_r3_2 != 0U) {
-            if (((TWindowSubComCard *)temp_r3_2)->is_visible() != 0) {
+            if (((TWindowMenu *)temp_r3_2)->is_visible() != 0) {
                 temp_r3 = get_selected_menu_value((void *)(*(u32 *)((s8 *)arg0 + 0x34)));
                 switch (temp_r3) {
                 case 0:
@@ -243,7 +244,7 @@ void update_card_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
 
     if (handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void *)((void *)((void *)(arg0))))) == 0) {
         if (*(void **)((s8 *)arg0 + 0x34) != 0) {
-            if (((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x34)))->is_visible() != 0) {
+            if (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x34)))->is_visible() != 0) {
                 temp_r3 = get_selected_menu_value((void *)(*(void **)((s8 *)arg0 + 0x34)));
                 switch (temp_r3) {
                 case 0:
@@ -333,7 +334,7 @@ void handle_menu_input__21TAdMultiChgGameModeGCFPv(u8 *arg0) {
     if (handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void *)(arg0))) == 0) {
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
         if (temp_r3 != NULL) {
-            if (((int)((TWindowSubComCard *)temp_r3)->is_visible()) != 0) {
+            if (((int)((TWindowMenu *)temp_r3)->is_visible()) != 0) {
                 temp_r3_2 = get_selected_menu_value((void *) (*(u8 **)((s8 *)arg0 + 0x34)));
                 switch (temp_r3_2) {
                 case 0:

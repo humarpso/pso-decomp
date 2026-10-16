@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include <stddef.h>
 #include "pso/enemy/TObjEneMe1Canadin.h"
 #include "pso/enemy/TObjEneMe1CanadinLeader.h"
@@ -2675,7 +2676,7 @@ void vfunc_28__17TObjEneMe1CanadinFv(void);
 void * __dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1);
 u8 * TObjEneMe1Canadin__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
 void * TObjEneMe1Canadin_EffLight__ct(void *, void *, s32);
-s32 enemy_has_live_target(void *);
+s32 enemy_has_live_target__12TObjEneDD_STFv(void *);
 void TObjEneEpsilon__sub_800B92AC(void *, s32, f32);
 void enemy_init_validate_period(void *, s32);
 s32 copy_position__14TObjEneEpsilonFPv(void *, void *);
@@ -4544,7 +4545,7 @@ void TObjEneMe1Canadin::action(s32 arg1) {
             if (temp_r3 & 1) {
                 *(s32 *)((s8 *)this + 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFE);
                 transition_enemy_state(this, 3);
-            } else if (enemy_has_live_target(this) != 0) {
+            } else if (enemy_has_live_target__12TObjEneDD_STFv(this) != 0) {
                 transition_enemy_state(this, 3);
             }
         }
@@ -4954,7 +4955,7 @@ void TObjEneMe1Canadin__vt103(u8 *arg0) {
     transition_enemy_state((void *)((void *)(arg0)), (s32)((int) (6)));
 }
 
-void TObjEneMe1Canadin::update_move(void* p) { if (((int (*)(void*))enemy_has_live_target)(p) != 0) { ((int (*)(void*))enemy_copy_target_destination)(p); ((TObjEneDD *)p)->update_velocity(); ((TObjEneMe1Canadin *)p)->update_angle(); } }
+void TObjEneMe1Canadin::update_move(void* p) { if (((int (*)(void*))enemy_has_live_target__12TObjEneDD_STFv)(p) != 0) { ((int (*)(void*))enemy_copy_target_destination)(p); ((TObjEneDD *)p)->update_velocity(); ((TObjEneMe1Canadin *)p)->update_angle(); } }
 
 void TObjEneMe1Canadin::update_angle() {
     *(s32 *)((s8 *)this + 0x60) = approach_angle_limited(*(s32 *)((s8 *)this + 0x60), (s32) (lbl_8043A3C8 * atan2_float(*(f32 *)((s8 *)this + 0x3A0), *(f32 *)((s8 *)this + 0x3A8))), 0x400);
@@ -5121,7 +5122,7 @@ void TObjEneMe1Canadin::setup_enemy() {
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)(*(u8 * *)&lbl_805D4FD0) + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFv(arg0, lbl_80500930[*(s32 *)((s8 *)arg0 + 0x3C4)], lbl_8050093C[*(s32 *)((s8 *)arg0 + 0x3C4)], lbl_80500948[*(s32 *)((s8 *)arg0 + 0x3C4)]);
     ((TObjEneDD *)arg0)->check_state_flag_4();
     *(void **)((s8 *)arg0 + 0x350) = canadin_setup_param_block;

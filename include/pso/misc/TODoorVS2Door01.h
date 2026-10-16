@@ -6,6 +6,7 @@
 
 struct TODoorVS2Door01 : public TUnk_804B0BB8 {
     virtual ~TODoorVS2Door01();
+    u8 is_open();
     virtual void vfunc_20();
     virtual void vfunc_18();
     virtual void vfunc_17();

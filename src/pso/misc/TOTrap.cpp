@@ -260,7 +260,7 @@ s32 calc_attach_pos__10TObjPlayerFv();
 s32 obj_getField1c(u32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 send_code_45_1__10TObjPlayerFi(s32);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 f32 TOTrap::scale_by_table_value(f32 farg0) {
     u32 v[4];
@@ -370,7 +370,7 @@ void TOTrap::vfunc_6(s16 *arg1, s32 arg2) {
         if (arg2 == 1) {
             ((VObj_80178EF8_80178BC0 *)this)->m83();
         }
-        set_flag8__6TLobbyFPv(this);
+        set_flag8__13TUnk_804AF8A0Fv(this);
         queue_destruction__7TObjectFv(this);
     }
 }

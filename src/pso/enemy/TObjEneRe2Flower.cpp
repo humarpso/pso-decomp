@@ -4,7 +4,7 @@
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9FF8;
-void TObjEneRe2Flower__sub_800C3DC4(u8 *arg0);
+void sub_800C3DC4__16TObjEneRe2FlowerFv(u8 *arg0);
 s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
 }
 
@@ -56,7 +56,8 @@ void TObjEneRe2Flower::update_part_position() {
     set_part_local_pos__9TObjEneDDFPvPvi((void *) (arg0), (void *) (arg0 + 0x3DC), (int) (0));
 }
 
-void TObjEneRe2Flower__sub_800C3DC4(u8 *arg0) {
+void TObjEneRe2Flower::sub_800C3DC4() {
+    u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + lbl_805D9FF8);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);

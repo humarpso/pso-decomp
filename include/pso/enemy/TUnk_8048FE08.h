@@ -6,6 +6,7 @@
 class TUnk_8048FE08 : public TUnk_804928CC {
 public:
     virtual ~TUnk_8048FE08();
+    void sub_8009A11C();
     u8 unk_B0[0x24];
 };
 typedef char TUnk_8048FE08_size[sizeof(TUnk_8048FE08) == 0xD4 ? 1 : -1];

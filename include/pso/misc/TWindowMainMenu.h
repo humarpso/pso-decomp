@@ -5,6 +5,7 @@
 
 struct TWindowMainMenu
 {
+    void set_scale_f();
     u32 m_1c;
     u32 m_20;
     u32 m_24;

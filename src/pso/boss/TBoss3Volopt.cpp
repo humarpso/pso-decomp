@@ -317,8 +317,8 @@ void TBoss3Volopt__sub_8003F22C(void* p);
 void TBoss3Volopt__sub_8003F33C(void* p);
 void TBoss3Volopt__sub_8003F384(void* p);
 int TBoss3Volopt__sub_8003F398(void);
-s32 get_adjusted_angle__11TCameraCtrlFl(void *, int);
-u16 get_param_offset__11TCameraCtrlFl(void *, int);
+s32 get_adjusted_angle__12TBoss3VoloptFl(void *, int);
+u16 get_param_offset__12TBoss3VoloptFl(void *, int);
 s32 clear_volopt_cage_flag();
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 s32 is_photon_blast_active__11TCameraCtrlFPv();
@@ -350,7 +350,7 @@ s32 set_scripted_camera_pose(int, int, void *);
 u8 * get_scripted_camera_playback();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 is_local_client_floor_leader();
-s32 TObjEnemyCustom__sub_800C7860();
+s32 sub_800C7860__15TObjEnemyCustomFv();
 void __dt__15TObjEnemyCustomFv(void *, s32);
 s32 TObjEnemyCustom__ct(void *, int);
 int reset_photon_effect__10TObjPlayerFv(void*);
@@ -708,8 +708,8 @@ s32 TCameraCtrl__sub_8003D2C4(void) {
 #pragma push
 #pragma opt_lifetimes off
 #pragma fp_contract on
-#define GPO ((u16 (*)(void *, s32))get_param_offset__11TCameraCtrlFl)
-#define GAA ((s32 (*)(void *, s32))get_adjusted_angle__11TCameraCtrlFl)
+#define GPO ((u16 (*)(void *, s32))get_param_offset__12TBoss3VoloptFl)
+#define GAA ((s32 (*)(void *, s32))get_adjusted_angle__12TBoss3VoloptFl)
 void TCameraCtrl__sub_8003D340(u8 *arg0) {
     s32 r;
     void *o;
@@ -965,7 +965,7 @@ void TBoss3Volopt::update_intro_cutscene() {
     case 2:
         if (*(u16 *)((s8 *)(get_scripted_camera_playback()) + 2) & 1) {
             if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D271C) != NULL) {
-                TObjEnemyCustom__sub_800C7860();
+                sub_800C7860__15TObjEnemyCustomFv();
             }
             *(s32 *)&this->_pad384 = 0x5A;
             *(s32 *)&this->state = 3;
@@ -991,7 +991,7 @@ void TBoss3Volopt::start_phase2() {
     u8 *arg0 = (u8 *)this;
     this->m_3a8 = 1;
     if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718) != NULL) {
-        TObjEnemyCustom__sub_800C7860();
+        sub_800C7860__15TObjEnemyCustomFv();
     }
     TBoss3Volopt__sub_8003EA2C((void*)((int) (1)));
     ((s32 * (*)(void *, s32 *))VecCopy__FP3VecPC3Vec)(arg0 + 0x38, ((s32 * (*)(void *, s32 *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, &boss3_volopt_spawn_pos.value));
@@ -1545,8 +1545,8 @@ u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1) {
     TBoss3Volopt__sub_8003EA2C((void*)((int) (0)));
     ((s32 * (*)(void *, s32 *))VecCopy__FP3VecPC3Vec)(arg0 + 0x38, ((s32 * (*)(void *, s32 *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, &(*(RecoveredGlobal_8003EFF0_lbl_804FEE68 *)&boss3_volopt_spawn_pos).value));
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x06040000);
-    TBoss3Volopt__cage_entity_id = get_param_offset__11TCameraCtrlFl((void *) (arg0), (int) (0x20));
-    lbl_805D2714 = get_adjusted_angle__11TCameraCtrlFl((void *) (arg0), (int) (0x20));
+    TBoss3Volopt__cage_entity_id = get_param_offset__12TBoss3VoloptFl((void *) (arg0), (int) (0x20));
+    lbl_805D2714 = get_adjusted_angle__12TBoss3VoloptFl((void *) (arg0), (int) (0x20));
     *(s32 *)((s8 *)arg0 + 0x374) = 0;
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x3BC) = 0;

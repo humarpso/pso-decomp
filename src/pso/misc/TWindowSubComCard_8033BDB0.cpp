@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 
 struct VBase { char pad[0x18]; };
 
@@ -26,7 +27,7 @@ struct RecoveredGlobal_8033C024_lbl_804EF940 {
 struct O_8033C1CC { u8 pad[0x34]; void *p; u8 pad2[0x44 - 0x38]; s32 f44; };
 
 extern "C" {
-s32 poll_memcard_status__15TAdPlayerLoadGCFv(void *);
+s32 sub_8033BB14__16TCheckMemoryCardFv(void *);
 void TWindow__close(void *);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
 u32 get_message_10__20TWindowSubStatusDispFl(s32);
@@ -165,7 +166,7 @@ void TWindowSubComCard::reset() {
     *(s32 *)((s8 *)this + 0x38) = 0;
     *(s32 *)((s8 *)this + 0x2C) = 0;
     *(s32 *)((s8 *)this + 0x24) = 0;
-    *(s32 *)((s8 *)this + 0x28) = poll_memcard_status__15TAdPlayerLoadGCFv((void *)(this));
+    *(s32 *)((s8 *)this + 0x28) = sub_8033BB14__16TCheckMemoryCardFv((void *)(this));
     *(s32 *)((s8 *)this + 0x3C) = 0;
     *(s32 *)((s8 *)this + 0x40) = 0;
     *(s32 *)((s8 *)this + 0x44) = 0;
@@ -177,7 +178,7 @@ void TWindowSubComCard::poll_card_status() {
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x38) <= 0) {
         *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-        *(s32 *)((s8 *)arg0 + 0x28) = poll_memcard_status__15TAdPlayerLoadGCFv((void *)(arg0));
+        *(s32 *)((s8 *)arg0 + 0x28) = sub_8033BB14__16TCheckMemoryCardFv((void *)(arg0));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x28) != 0) {
             set_state((s32)((s32)((int) (1))));
             return;
@@ -191,7 +192,7 @@ void TWindowSubComCard__sub_8033C198(void) {  }
 int TWindowSubComCard__sub_8033C19C(void* p) { return update_card_display__17TWindowSubComCardFPvPvPvPv(p, 0, -1, -1, -1); }
 void TWindowSubComCard::handle_menu_selection() {
     O_8033C1CC *arg0 = (O_8033C1CC *)this;
-    if (arg0->p == 0 || ((TWindowSubComCard *)(arg0->p))->is_visible() == 0) {
+    if (arg0->p == 0 || ((TWindowMenu *)(arg0->p))->is_visible() == 0) {
         return;
     }
     switch (get_selected_menu_value(arg0->p)) {

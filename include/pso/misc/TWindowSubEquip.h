@@ -17,7 +17,6 @@ struct TWindowSubEquip : public TObject {
     u32 m_38;
     void update_displayed_item();
     void update();
-    void set_scale_f();
     static void open_submenu(s32 arg0, s32 arg1);
     void *destroy(s16 arg1);
     s32 open_equip_kind_list(u32 arg1);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneNanoDrago.h"
 #include "pso/unk/TUnk_80494E10.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNowLoading.h"
@@ -156,7 +157,7 @@ void TObjPlayer__sub_800DC444(void) {  }
 
 extern s32 lbl_80494E10[];
 
-void TObjPlayer::load_entry_params_nanodrago(s32 i) {
+void TObjEneNanoDrago::load_entry_params_nanodrago(s32 i) {
     O_800DC448 *self = (O_800DC448 *)this;
     self->f34 = nano_drago_entry_params_resource->entries[i].f8;
     self->f24 = nano_drago_entry_params_resource->entries[i].fc;

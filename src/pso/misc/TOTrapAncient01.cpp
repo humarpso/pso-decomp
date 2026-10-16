@@ -387,7 +387,7 @@ void TOTrapAncient02R__sub_80154D78(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_current_room(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TOTrap::vfunc_25(u8 *) {  }
 void TOTrapAncient01__vt84(void) {  }
@@ -399,7 +399,7 @@ void TOTrapAncient01::vfunc_6(s16 *arg1, s32 arg2) {
             ((VObj_801793A8_8017939C *)this)->m83();
         }
         ((TOTrapAncient01 *)this)->release_trapped_player();
-        set_flag8__6TLobbyFPv(this);
+        set_flag8__13TUnk_804AF8A0Fv(this);
         queue_destruction__7TObjectFv(this);
     }
 }

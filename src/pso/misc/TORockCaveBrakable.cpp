@@ -81,7 +81,7 @@ s32 spawn_particle_effect(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__10TORockCaveFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TORockCaveBrakable::vfunc_19() {  }
 void TORockCaveBrakable::vfunc_18() { play_sound_effect((void*)277521, (char*)this + 0x38, (void*)0, (void*)0); }
@@ -144,7 +144,7 @@ void TORockCaveBrakable::update_break_state() {
         }
         break;
     case 1:
-        set_flag8__6TLobbyFPv(this);
+        set_flag8__13TUnk_804AF8A0Fv(this);
         queue_destruction__7TObjectFv(this);
         break;
     }

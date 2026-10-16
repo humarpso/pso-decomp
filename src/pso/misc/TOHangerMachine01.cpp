@@ -74,7 +74,7 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void set_scale__27TOHangceilingCave01KeyQuickFPvf(void* p, f32 v);
+void set_scale__13TUnk_804B2578Ff(void* p, f32 v);
 
 void TOHangerMachine01::run_task() {
     u8 *arg0 = (u8 *)this;

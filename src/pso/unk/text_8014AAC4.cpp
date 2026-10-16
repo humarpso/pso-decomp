@@ -13,7 +13,7 @@ struct RecoveredGlobal_8014AAC4_lbl_804A92A8 {
 
 extern "C" {
 u8 * TObjNpcBase__ct(void *);
-s32 set_motion_interpolation_flag(void *);
+s32 set_motion_interpolation_flag__10TObjMotionFv(void *);
 extern RecoveredGlobal_8014AAC4_lbl_8043F9C8 town_npc_animation_init_data;
 extern RecoveredGlobal_8014AAC4_lbl_804A92A8 npc_female_tall_dispatch_table;
 extern s32 *npc_town_motion_data;
@@ -28,7 +28,7 @@ u8 *fn_8014AAC4(u8 *arg0) {
     TObjNpcBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &npc_female_tall_dispatch_table.value;
     ((TObjPlayer *)arg0)->init_npc_animation((void *) (&town_npc_animation_init_data.value), (void *) (*npc_town_motion_data), (int) (0));
-    set_motion_interpolation_flag((void *) (arg0));
+    set_motion_interpolation_flag__10TObjMotionFv((void *) (arg0));
     return arg0;
 }
 

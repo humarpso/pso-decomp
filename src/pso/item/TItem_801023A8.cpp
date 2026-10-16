@@ -11,7 +11,7 @@ void vfunc_13__13TUnk_804AF8A0Fl(void *, s32);
 s16 get_current_floor();
 void send_pick_up_item_request__6TLobbyFi(void *);
 void TLobby__sub_801030EC(void *);
-s32 fn_8010319C(s32);
+s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 can_pickup_item_by_id__10TObjPlayerFii(s32, void *);
 s32 get_player_by_client_id(u16);
 void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id);
@@ -19,14 +19,14 @@ void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id);
 
 extern "C" {
 
-s32 fn_8010319C(s32);
+s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 submit_cursor_candidate(void *, s32);
 void TItem__sub_80102420(void);
 
 void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id) {
     Msg_801022FC m;
     if ((u16)id != 0xFFFF) {
-        if (can_pickup_item_by_id__10TObjPlayerFii(get_player_by_client_id(id), p) != 0 && fn_8010319C((s32)(p)) == 0) {
+        if (can_pickup_item_by_id__10TObjPlayerFii(get_player_by_client_id(id), p) != 0 && sub_8010319C__13TUnk_804AF8A0Fv((s32)(p)) == 0) {
             vfunc_13__13TUnk_804AF8A0Fl(p, id);
             TLobby__sub_801030EC(&m);
             m.id = id;
@@ -44,7 +44,7 @@ void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id) {
 
 extern "C" {
 
-s32 fn_8010319C(s32);
+s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 submit_cursor_candidate(void *, s32);
 void TItem__sub_80102420(void);
 
@@ -54,7 +54,7 @@ void TItem::update_timer() {
 
     temp_r4 = this->rotation_y;
     this->rotation_y = (s32) (temp_r4 + 0x200);
-    if (fn_8010319C((s32) this) != 0) {
+    if (sub_8010319C__13TUnk_804AF8A0Fv((s32) this) != 0) {
         temp_r3 = *(s16 *)&this->m_e6;
         if (temp_r3 == 0x384) {
             this->m_94 = 0xFFFF;

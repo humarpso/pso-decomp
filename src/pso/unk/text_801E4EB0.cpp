@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804C57F0.h"
 struct Ent_801E4EB0 { s32 first; u8 rest[0x28]; };
 
 struct Info_801E4EB0 { u8 pad[0xC]; s32 count; };
@@ -12,12 +13,13 @@ struct Obj_801E4EB0 {
 };
 
 extern "C" {
-void quad_sprite_reset_entries(Obj_801E4EB0 *o);
+void quad_sprite_reset_entries__13TUnk_804C57F0Fv(Obj_801E4EB0 *o);
 }
 
 extern "C" {
 
-void quad_sprite_reset_entries(Obj_801E4EB0 *o) {
+void TUnk_804C57F0::quad_sprite_reset_entries() {
+    Obj_801E4EB0 *o = (Obj_801E4EB0 *)this;
     s32 i;
     for (i = 0; i < o->info->count; i++) {
         o->ents[i].first = 0;

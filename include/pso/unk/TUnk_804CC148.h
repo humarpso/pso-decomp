@@ -6,6 +6,8 @@
 class TUnk_804CC148 : public TEffect {
 public:
     virtual ~TUnk_804CC148();
+    void sub_8022C008();
+    void count_if_within_range();
     virtual void vfunc_6(void *);
     virtual void tick_lifetime();
     virtual void vfunc_8(void *);

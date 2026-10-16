@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardBase.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 
 extern "C" {
 
-int TWindowKeyBoardHard__sub_8025EB68(void* p);
+int sub_8025EB68__19TWindowKeyBoardBaseFv(void* p);
 
-int TWindowKeyBoardHard__sub_8025EB68(void* p) { return (*(u16*)((char*)p + 0x60) >> 3) & 0x1; }
+int TWindowKeyBoardBase::sub_8025EB68() { return (*(u16*)((char*)this + 0x60) >> 3) & 0x1; }
 
 int TWindowKeyBoardHard::test_card_flag_0x80() { return TWindowKeyBoardHard::test_card_flag((s32)this, (s32)128); }
 int TWindowKeyBoardHard::test_card_flag_64() { return TWindowKeyBoardHard::test_card_flag((s32)this, (s32)64); }

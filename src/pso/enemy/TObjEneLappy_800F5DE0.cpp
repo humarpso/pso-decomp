@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TWindowLockOn.h"
@@ -29,12 +30,12 @@ void TObjEneLappy::set_param(s32 v) { *(s32 *)&this->_pad370 = v; }
 int initialize_enemy_photon_effect(void* p) { return ((TBoss3Volopt *)p)->reset_photon_effect(); }
 void render_actor_shadows_default(u8 *arg0) {
     if (obj_testFlags30(arg0, 0x800) == 0) {
-        ((TObjPlayer *)arg0)->set_shadow_flag();
+        ((TUnk_804AF8A0 *)arg0)->set_shadow_flag();
         model_render_flags |= 0xC10;
         set_chunk_material_override_pair(-1, 0x800);
         set_shadow_material_state();
         ((VObj_18_2f517b *)(arg0))->m2();
-        ((TObjPlayer *)arg0)->clear_shadow_flag();
+        ((TUnk_804AF8A0 *)arg0)->clear_shadow_flag();
         model_render_flags &= ~0xC10;
     }
 }

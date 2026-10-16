@@ -31,7 +31,7 @@ extern "C" {
 void *__ct__13TAdTitleTexGCFv(void *arg0);
 s32 get_localized_text_entry(s32, s32);
 void __ct__7TObjectFP7TObject(void *);
-s32 fn_802A4D74(void *, s32, s32, s32);
+s32 sub_802A4D74__13TAdTitleTexGCFlPUcPUc(void *, s32, s32, s32);
 s32 render_status_pair__20TWindowSubStatusDispFl(void *, s32);
 
 void TAdTitleTexGC::render() {
@@ -39,7 +39,7 @@ void TAdTitleTexGC::render() {
 
     if (TMainTask::get_state_flag() != 1) {
         render_status_pair__20TWindowSubStatusDispFl(this, (*(s32 *)((s8 *)this + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF);
-        fn_802A4D74(this, (*(s32 *)((s8 *)this + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x28, 0), get_localized_text_entry(0x28, 1));
+        sub_802A4D74__13TAdTitleTexGCFlPUcPUc(this, (*(s32 *)((s8 *)this + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x28, 0), get_localized_text_entry(0x28, 1));
     }
 }
 

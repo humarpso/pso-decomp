@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -243,7 +244,7 @@ s32 TObjEneRecon__sub_8031C920(void *, void *);
 s32 TObjEneRecon__sub_8031CCFC(void *, void *);
 s32 TObjEneRecon__sub_8031CF30(void *, void *);
 s32 TObjEneRecon__sub_8031D380(void *, void *);
-s32 TObjEneRecon__sub_8031D4B0(void *, void *);
+s32 sub_8031D4B0__12TObjEneReconFl(void *, void *);
 void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2);
 void run_task__12TObjEneReconFv(u8 *arg0);
 void * __dt__12TObjEneReconFv(void *arg0, s16 arg1);
@@ -413,7 +414,7 @@ void *__vt__12TObjEneRecon[107] = {
 void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        TObjEneRecon__sub_8031D4B0((void *) (arg0), (void *) (arg2));
+        sub_8031D4B0__12TObjEneReconFl((void *) (arg0), (void *) (arg2));
         return;
     case 1:
         TObjEneRecon__sub_8031D380((void *) (arg0), (void *) (arg2));
@@ -544,7 +545,7 @@ void TObjEneRecon::init_state() {
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneRecon__recobox_static_instance + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
-    ((TObjEnePanarms *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    ((TObjMotion *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     reset_hp__9TObjEneDDFv((void *) (arg0), (void *) (lbl_805D6AF0), (int) (TObjEneRecon__attack_params), (void *) (TObjEneRecon__resistance_params));
     ((TObjEneDD *)arg0)->check_state_flag_4();
     *(void **)((s8 *)arg0 + 0x350) = (void *) TObjEneRecon__ai_parameters;

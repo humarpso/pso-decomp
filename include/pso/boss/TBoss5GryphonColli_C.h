@@ -6,6 +6,7 @@
 class TBoss5GryphonColli_C : public TUnk_804AF8A0 {
 public:
     virtual ~TBoss5GryphonColli_C();
+    void clear_entry_flags();
     virtual void render();
     u8 unk_AC[0xC];
 };

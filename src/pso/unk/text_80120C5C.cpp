@@ -3,11 +3,11 @@
 extern "C" {
 
 int release__14TItemEquipBaseFv(void*);
-int clear_equip_flags__10TObjPlayerFPvUi(void*, void*);
+int clear_equip_flags__11TItemWeaponFUl(void*, void*);
 int memset(void*, void*, void*);
 void reset_item_equip(void* p);
 
-void reset_item_equip(void* p) { memset((char*)p + 0x18c, (void*)0, (void*)16); clear_equip_flags__10TObjPlayerFPvUi(p, (void*)12); release__14TItemEquipBaseFv(p); }
+void reset_item_equip(void* p) { memset((char*)p + 0x18c, (void*)0, (void*)16); clear_equip_flags__11TItemWeaponFUl(p, (void*)12); release__14TItemEquipBaseFv(p); }
 
 }
 

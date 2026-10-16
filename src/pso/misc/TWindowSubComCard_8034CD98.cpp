@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
+#include "pso/misc/TWindowSubInformationBoard.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -25,7 +27,7 @@ s32 get_window_layout_position(s32);
 
 extern s32 lbl_80478C2C[];
 
-void TWindowSubComCard::open_card_info_window() {
+void TWindowSubInformationBoard::open_card_info_window() {
     s32 temp_r3;
     temp_r3 = get_window_layout_position(0xA5);
     TLobby::set_window_mode_4((void *)temp_r3, (s32)lbl_80478C2C, (s32)1);
@@ -53,7 +55,7 @@ void *TWindowSubComCard__sub_8034CDE0(void) {
     if (get_field_72__17TWindowSubComCardFPv(w) <= 0) {
         draw_text_gray__17TWindowSubComCardFllll(w, TWindowSubStatusDisp::get_message_10(0xD2), 6, -1);
     }
-    ((TObjCityMainWarp *)w)->set_flag70_bit10();
+    ((TWindowSubComCardList *)w)->set_flag70_bit10();
     ((TWindowSubComCard *)w)->set_scroll_target(lbl_805DFDD8, lbl_805DFDDC);
     return w;
 }

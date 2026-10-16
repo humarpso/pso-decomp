@@ -35,7 +35,7 @@ struct Msg_80269A0C {
 };
 
 extern "C" {
-Entry_80269A0C *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+Entry_80269A0C *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void measure_message_text_width(void *, f32);
 void set_text_entry_string(void *, s32, s32);
 void scroll_up_line__14TWindowMessageFPvPv(void *, void *);
@@ -57,7 +57,7 @@ s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3
     if (text == 0) {
         return 0;
     }
-    e = get_array_entry__20TWindowSubStatusDispFi(self, self->idx);
+    e = get_array_entry__13TUnk_804CE018Fi(self, self->idx);
     rec = &self->recs[self->idx];
     if (((TWindowSubComCard *)e)->get_field_20() != 0U) {
         scroll_up_line__14TWindowMessageFPvPv(self, e);

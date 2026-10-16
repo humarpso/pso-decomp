@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488E00.h"
 #include "pso/misc/TCameraCtrl.h"
 
 struct B_80068018 { u8 pad[0x18]; };
@@ -154,7 +155,7 @@ void TCameraCtrl::set_target_pos(void* q) { *(f32*)((char*)this + 0x48) = *(f32*
 
 #pragma push
 #pragma fp_contract on
-s32 TCameraCtrl::predict_obstruction() {
+s32 TUnk_80488E00::predict_obstruction() {
     Cam_8006809C *self = (Cam_8006809C *)this;
     Vec_8006835C dir;
     Vec_8006835C probe;

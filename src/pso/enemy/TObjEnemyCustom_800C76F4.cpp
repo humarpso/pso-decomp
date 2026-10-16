@@ -6,7 +6,7 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void TObjEnemyCustom__sub_800C7860(u8 *arg0);
+void sub_800C7860__15TObjEnemyCustomFv(u8 *arg0);
 void vfunc_63__15TObjEnemyCustomFv(u8 *arg0);
 void vfunc_62__15TObjEnemyCustomFv(u8 *arg0);
 s32 apply_actor_gravity(void *, s32, f32, f32);
@@ -97,7 +97,8 @@ void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {
     }
 }
 
-void TObjEnemyCustom__sub_800C7860(u8 *arg0) {
+void TObjEnemyCustom::sub_800C7860() {
+    u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(7);
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }

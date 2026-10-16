@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_8048E728.h"
 #include "pso/TParticleCtrl.h"
 
 struct Part_8008673C { u8 pad[0xAC]; u8 from_backup; };
@@ -17,7 +18,7 @@ int heap_free__5THeapFPv(void *, void *);
 extern s32 TParticleCtrl__heap;
 extern s32 alt_heap;
 
-void TParticleCtrl::free_from_heap() {
+void TUnk_8048E728::free_from_heap() {
     u8 *arg0 = (u8 *)this;
     if (arg0) {
         if (arg0[0xAC] != 0) {

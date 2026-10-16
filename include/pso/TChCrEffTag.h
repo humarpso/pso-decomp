@@ -10,6 +10,7 @@ public:
     f32 width,targetWidth;
     TObject* label;
     virtual ~TChCrEffTag();
+    void draw_chcr_tag_frame();
     virtual void render();
 public:
     void refresh_label();

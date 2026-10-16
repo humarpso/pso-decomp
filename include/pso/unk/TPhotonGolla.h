@@ -6,6 +6,7 @@
 class TPhotonGolla : public TUnk_804C3248 {
 public:
     virtual ~TPhotonGolla();
+    void sub_801AB688();
     virtual void render();
     virtual void run_task();
     u8 unk_158[0x60];

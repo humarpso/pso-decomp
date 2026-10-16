@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3Shinowa.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/enemy/TObjEneMe3ShinowaMirage.h"
 
@@ -104,7 +105,7 @@ struct Obj_800E46D4 : Base_800E46D4 {
 };
 
 extern "C" {
-s32 TObjEneMe3Shinowa__sub_800E7250();
+s32 sub_800E7250__21TObjEneMe3ShinowaRealFv();
 void transition_enemy_state(void *, s16);
 void TObjEneMe3ShinowaReal__vt105(u8 *arg0);
 s32 create__23TObjEneMe3ShinowaMirageFPvPv(void *, s32, s32, s32);
@@ -166,7 +167,7 @@ u16 TObjEneMe3ShinowaReal__sub_800E45CC(void* p) { return *(u16*)((char*)p + 0x3
 void TObjEneMe3ShinowaReal::try_spawn_mirages() {
     u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0x3C4) & 0x10) {
-        TObjEneMe3Shinowa__sub_800E7250();
+        sub_800E7250__21TObjEneMe3ShinowaRealFv();
         spawn_mirages();
     }
 }
@@ -196,7 +197,7 @@ Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *ar
     arg0->f0 = TObjEneMe3ShinowaReal_class_name;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     fn_800E762C(arg0);
-    ((TObjEneMe3ShinowaMirage *)arg0)->init_enemy();
+    ((TObjEneMe3Shinowa *)arg0)->init_enemy();
     arg0->f3D4 = 0;
     arg0->f3C4 &= 0xFFFFEFFF;
     for (i = 0; i < 4; i++) {

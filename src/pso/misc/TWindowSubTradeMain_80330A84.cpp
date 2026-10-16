@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowMessageYesNo.h"
+#include "pso/misc/TUnk_804D0618.h"
 
 typedef struct TradeMain_80330BCC {
     u8 pad0[0x1C];
@@ -64,8 +67,8 @@ s32 TWindowSubTradeMain__sub_802448E4(void *, void *);
 void update_position_if_changed__19TWindowSubTradeMainFiPvPv(s32 arg0, u8 *arg1, u8 *arg2);
 void set_flag_40__16TAdChrSelASlotGCFv(void *);
 void set_visible__19TWindowSubTradeMainFv(void *);
-void set_flag60_bit4__13TWindowSubMagFv(void *);
-void TWindowSubMag__sub_80255E24(void *);
+void set_flag60_bit4__15TWindowHelpItemFv(void *);
+void sub_80255E24__15TWindowHelpItemFv(void *);
 void clear_flag__19TWindowSubTradeMainFv(void *);
 void clear_trade_flag__19TWindowSubTradeMainFv(void *);
 void update_card_slot__17TWindowSubComCardFv(void *);
@@ -184,9 +187,9 @@ void set_child_windows_enabled__19TWindowSubTradeMainFPvi(TradeMain_80330BCC *se
     case 4:
         if (self->w4C != 0) {
             if (on != 0) {
-                TWindowSubMag__sub_80255E24(self->w4C);
+                sub_80255E24__15TWindowHelpItemFv(self->w4C);
             } else {
-                set_flag60_bit4__13TWindowSubMagFv(self->w4C);
+                set_flag60_bit4__15TWindowHelpItemFv(self->w4C);
             }
         }
         if (self->w44 != 0) {
@@ -210,9 +213,9 @@ void set_child_windows_enabled__19TWindowSubTradeMainFPvi(TradeMain_80330BCC *se
     case 11:
         if (self->w4C != 0) {
             if (on != 0) {
-                TWindowSubMag__sub_80255E24(self->w4C);
+                sub_80255E24__15TWindowHelpItemFv(self->w4C);
             } else {
-                set_flag60_bit4__13TWindowSubMagFv(self->w4C);
+                set_flag60_bit4__15TWindowHelpItemFv(self->w4C);
             }
         }
         if (self->w40 != 0) {
@@ -226,9 +229,9 @@ void set_child_windows_enabled__19TWindowSubTradeMainFPvi(TradeMain_80330BCC *se
     case 18:
         if (self->w4C != 0) {
             if (on != 0) {
-                TWindowSubMag__sub_80255E24(self->w4C);
+                sub_80255E24__15TWindowHelpItemFv(self->w4C);
             } else {
-                set_flag60_bit4__13TWindowSubMagFv(self->w4C);
+                set_flag60_bit4__15TWindowHelpItemFv(self->w4C);
             }
         }
         if (self->w3C != 0) {
@@ -596,7 +599,7 @@ void TWindowSubTradeMain::run_task() {
     case 2:
         if (((TWindowSubComCard *)(o->menu))->get_status_flag() != 0) {
             o->state = 0x17;
-        } else if (((TWindowSubComCard *)(o->menu))->is_visible() != 0) {
+        } else if (((TWindowMenu *)(o->menu))->is_visible() != 0) {
             o->state = get_selected_menu_value(o->menu);
         }
         break;
@@ -622,7 +625,7 @@ void TWindowSubTradeMain::run_task() {
         ((void (*)(void *, void *))set_displayed_item__19TWindowSubTradeMainFPvi)(o, select_cursor_entry__6TLobbyFv(o->list));
         if (((TLobby *)(o->list))->get_flag_bit2() != 0) {
             o->state = 5;
-        } else if (((TLobby *)(o->list))->get_status_flag() != 0) {
+        } else if (((TUnk_804D0618 *)(o->list))->get_status_flag() != 0) {
             o->state = 6;
         }
         break;
@@ -699,7 +702,7 @@ void TWindowSubTradeMain::run_task() {
         ((void (*)(void *, void *))set_displayed_item__19TWindowSubTradeMainFPvi)(o, select_cursor_entry__6TLobbyFv(o->request));
         if (((TLobby *)(o->request))->get_flag_bit2() != 0) {
             o->state = 0xC;
-        } else if (((TLobby *)(o->request))->get_status_flag() != 0) {
+        } else if (((TUnk_804D0618 *)(o->request))->get_status_flag() != 0) {
             o->state = 0xD;
         }
         break;
@@ -770,7 +773,7 @@ void TWindowSubTradeMain::run_task() {
         ((void (*)(void *, void *))set_displayed_item__19TWindowSubTradeMainFPvi)(o, select_cursor_entry__6TLobbyFv(o->offer));
         if (((TLobby *)(o->offer))->get_flag_bit2() != 0) {
             o->state = 0x13;
-        } else if (((TLobby *)(o->offer))->get_status_flag() != 0) {
+        } else if (((TUnk_804D0618 *)(o->offer))->get_status_flag() != 0) {
             o->state = 0x13;
         }
         break;
@@ -810,7 +813,7 @@ void TWindowSubTradeMain::run_task() {
         }
         if (((TWindowSubComCard *)(o->confirm))->get_status_flag() != 0) {
             o->state = 0x16;
-        } else if (((TWindowSubComCard *)(o->confirm))->is_visible() != 0) {
+        } else if (((TWindowMenu *)(o->confirm))->is_visible() != 0) {
             o->state = get_selected_menu_value(o->confirm);
             if (o->confirm != 0) {
                 ((TWindowSubTradeMain *)(o->confirm))->request_close();
@@ -842,7 +845,7 @@ void TWindowSubTradeMain::run_task() {
     case 24:
         if (((TWindowSubComCard *)(o->card))->get_card_data() != 0) {
             o->state = 0x19;
-        } else if (((TWindowSubComCard *)(o->card))->is_child_visible() != 0) {
+        } else if (((TWindowMessageYesNo *)(o->card))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(o->card))->get_slot_or_neg1() == 0) {
                 o->obj2C->m7();
                 o->state = 0x22;
@@ -883,7 +886,7 @@ void TWindowSubTradeMain::run_task() {
         }
         if (((TWindowSubComCard *)(o->card))->get_card_data() != 0) {
             o->state = 0x1D;
-        } else if (((TWindowSubComCard *)(o->card))->is_child_visible() != 0) {
+        } else if (((TWindowMessageYesNo *)(o->card))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(o->card))->get_slot_or_neg1() == 0) {
                 ((TWindowSubComCard *)(o->card))->close();
                 o->card = ((void *(*)(void *))update_from_lobby__19TWindowSubTradeMainFi)(o);

@@ -99,7 +99,7 @@ extern const f32 lbl_805DC684;
 s32 queue_destruction__7TObjectFv(void *);
 s32 close_message_window__13TShopSequenceFPv(void *);
 s32 __dt__13TShopSequenceFv(void *, int);
-s32 TShopWindowBase__sub_8022397C(void *);
+s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 TWindow__close(void *);
 extern RecoveredGlobal_80215EF8___vt__17TJudgmentSequence __vt__17TJudgmentSequence;
@@ -123,7 +123,7 @@ extern "C" {
 void TJudgmentSequence__sub_80215BCC(void *arg0);
 void TJudgmentSequence__vt10(void* p);
 s32 TShopWindowBase__sub_802239EC(void *);
-s32 TShopWindowBase__sub_80223A48(void *);
+s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 close_window__13TShopSequenceFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 int restore_player_state__13TShopSequenceFPv(void*);
@@ -150,7 +150,7 @@ void TJudgmentSequence__sub_80215BF8(void *arg0) {
 }
 
 void TJudgmentSequence::handle_close_input() {
-    if ((((VObj_80215C48_80215BA0 *)this)->m8() != 0) && ((TShopWindowBase__sub_80223A48(this) != 0) || (TShopWindowBase__sub_802239EC(this) != 0))) {
+    if ((((VObj_80215C48_80215BA0 *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (TShopWindowBase__sub_802239EC(this) != 0))) {
         close_window__13TShopSequenceFPv(this);
         queue_destruction__7TObjectFv(this);
     }
@@ -168,7 +168,7 @@ void open_judgment_window__17TJudgmentSequenceFPv(Seq_80215CB8 *self) {
 }
 
 void TJudgmentSequence::handle_confirm() {
-    if ((((VObj_80215D34_80215BA0 *)this)->m8() != 0) && ((TShopWindowBase__sub_80223A48(this) != 0) || (TShopWindowBase__sub_802239EC(this) != 0))) {
+    if ((((VObj_80215D34_80215BA0 *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (TShopWindowBase__sub_802239EC(this) != 0))) {
         set_field_20__12TQuestListVMFl((void*)(this), (void*)(3));
     }
 }
@@ -231,7 +231,7 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
         judgment_sequence_instance = 0;
-        *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
+        *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
         __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -259,7 +259,7 @@ u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     judgment_sequence_instance = (s32) arg0;
     set_field_20__12TQuestListVMFl((void *) (arg0), (void *) (0));
-    *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
+    *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 1;
     return arg0;
 }
 

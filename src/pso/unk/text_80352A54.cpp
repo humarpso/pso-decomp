@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 
 #include <stddef.h>
 #include "pso/item/TItemProShield.h"
@@ -23,7 +24,7 @@ void fn_80352A54(s32 arg0) {
     typedef char sp9_offset[(offsetof(Stack_80352A54, sp9) == 0x1) ? 1 : -1];
     typedef char spA_offset[(offsetof(Stack_80352A54, spA) == 0x2) ? 1 : -1];
     Stack_80352A54 stack;
-    if ((((TItemProShield *)arg0)->get_slot_count() == 0) && (((TObjPlayer *)arg0)->get_item_flags() & 0x100)) {
+    if ((((TItemProShield *)arg0)->get_slot_count() == 0) && (((TItem *)arg0)->get_item_flags() & 0x100)) {
         stack.sp8 = 3;
         stack.sp9 = 0x17;
         stack.spA = TObjPlayer__sub_80100474((void *) (arg0));

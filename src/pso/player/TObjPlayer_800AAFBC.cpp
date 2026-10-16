@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_80491460.h"
+#include "pso/unk/TObjEneDubchik.h"
 #include "pso/enemy/TObjEneShark.h"
 
 #include <stddef.h>
@@ -202,7 +204,7 @@ void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
 void vfunc_101__12TObjEneSharkFv(void);
-void apply_clamped_mode_param__10TObjPlayerFPv(u8 *arg0);
+void apply_clamped_mode_param__12TObjEneSharkFv(u8 *arg0);
 extern s32 shark_render_node_index;
 void update_particle_by_phase__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
@@ -216,7 +218,7 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0);
 f32 fabs_float(f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9B10;
-s32 TObjPlayer__sub_800AB068(u8 *arg0);
+s32 sub_800AB068__14TObjEneDubchikFv(u8 *arg0);
 s32 play_sound_effect(void *, void *, int, int);
 void vfunc_96__12TObjEneSharkFv(s32 arg0);
 s32 play_sound_effect(void *, void *, int, int);
@@ -362,7 +364,8 @@ void TObjPlayer::set_invuln_flags() {
     obj_setFlags30(arg0, 0x04000000U);
 }
 
-s32 TObjPlayer__sub_800AB068(u8 *arg0) {
+s32 TObjEneDubchik::sub_800AB068() {
+    u8 *arg0 = (u8 *)this;
   u8 *new_var;
   f32 temp_f31;
   ;
@@ -374,7 +377,7 @@ s32 TObjPlayer__sub_800AB068(u8 *arg0) {
   return 0;
 }
 
-s32 TObjPlayer::try_hit_target(int arg1) {
+s32 TUnk_80491460::try_hit_target(int arg1) {
     u8 *e = (u8 *)arg1;
     Obj_800AB0EC *o = (Obj_800AB0EC *)this;
     if (e != NULL && !(*(s32 *)(e + 0x30) & 0xA00) && !(xz_distance_squared(o->pos, e + 0x2FC) > lbl_805D9B58)) {
@@ -422,7 +425,7 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
     {
     }
     new_var = get_player_by_client_id((int) var_r31);
-    ((TObjPlayer *)arg0)->try_hit_target((int)((int) new_var));
+    ((TUnk_80491460 *)arg0)->try_hit_target((int)((int) new_var));
     var_r31 += 1;
   }
   while (var_r31 < 0xC);
@@ -615,7 +618,7 @@ void vfunc_94__12TObjEneSharkFv(u8 *arg0);
 
 void vfunc_93__12TObjEneSharkFv(Obj_800ABB38 *o);
 
-void apply_clamped_mode_param__10TObjPlayerFPv(u8 *arg0);
+void apply_clamped_mode_param__12TObjEneSharkFv(u8 *arg0);
 
 void vfunc_83__12TObjEneSharkFv(Obj_800ABCBC *arg0);
 

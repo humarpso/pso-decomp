@@ -1,4 +1,6 @@
 #include "pso/misc/TMedicalCenterMes.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/player/TObjPlayer.h"
 #include "types.h"
 
 struct TMedicalCenterMesMessagePos { s32 x; s32 y; };
@@ -166,14 +168,14 @@ extern const f32 lbl_805DC68C;
 s32 queue_destruction__7TObjectFv(void *);
 s32 close_message_window__13TShopSequenceFPv(void *);
 s32 __dt__13TShopSequenceFv(void *, int);
-s32 TShopWindowBase__sub_8022397C(void *);
+s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 TWindow__close(u32);
 extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalCenterSequence;
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1);
 s32 TShopSequence__ct(void *);
-s32 TShopWindowBase__sub_8022397C(void *);
+s32 sub_8022397C__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalCenterSequence;
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 extern s32 TMedicalCenterSequence__class_name;
@@ -184,7 +186,7 @@ extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCe
 s32 obj_getField1c(s32);
 int set_field_20__12TQuestListVMFl(void*, void*);
 f32 get_scale__15TShopWindowBaseFv(void *);
-void set_position_xy(s32, f32, f32);
+void set_position_xy__13TUnk_804CDFE8Fff(s32, f32, f32);
 s32 create_yes_no_window(s32, u16, s32, s32);
 s32 get_window_layout_position(int, f32);
 void show_fee_prompt__22TMedicalCenterSequenceFv(VObj_802164A4 *self);
@@ -202,7 +204,7 @@ s32 are_traps_full__10TObjPlayerFPv(s32);
 s32 refill_traps__10TObjPlayerFPv(s32);
 u32 get_recovery_need_flags__10TObjPlayerFPv(s32);
 int TShopWindowBase__sub_802239EC(void *);
-int TShopWindowBase__sub_80223A48(void *);
+int sub_80223A48__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(u32);
 s32 close_window__13TShopSequenceFPv(void *);
@@ -240,7 +242,7 @@ u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(s32 *)((s8 *)(&(*(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 *)&TMedicalCenterSequence__data_80513E90).value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 *)&TMedicalCenterSequence__data_80513E90).value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 1;
     return arg0;
 }
 
@@ -260,7 +262,7 @@ u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1) {
             TWindow__close((u32)(*(void **)((s8 *)arg0 + 0x30)));
             *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         }
-        *(s32 *)((s8 *)(&TMedicalCenterSequence__data_80513E90.value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
+        *(s32 *)((s8 *)(&TMedicalCenterSequence__data_80513E90.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
         __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -331,7 +333,7 @@ s32 TMedicalCenterSequence::open_greeting_window() {
 
 void TMedicalCenterSequence::handle_confirm() {
     struct VObj_80216784_802163AC *o = (struct VObj_80216784_802163AC *)this;
-    if ((o->m8() != 0) && ((TShopWindowBase__sub_80223A48((void *)(this)) != 0) || (TShopWindowBase__sub_802239EC((void *)(this)) != 0))) {
+    if ((o->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)(this)) != 0) || (TShopWindowBase__sub_802239EC((void *)(this)) != 0))) {
         if ((get_recovery_need_flags__10TObjPlayerFPv(*(s32 *)((s8 *)this + 0x24)) != 0U) || ((is_alive_and_ready__10TObjPlayerFi(*(s32 *)((s8 *)this + 0x24)) != 0) && (are_traps_full__10TObjPlayerFPv(*(s32 *)((s8 *)this + 0x24)) == 0))) {
             set_field_20__12TQuestListVMFl((void*)(this), (void*)(7));
             return;
@@ -343,7 +345,7 @@ void TMedicalCenterSequence::handle_confirm() {
 void TMedicalCenterSequence::handle_window_result() {
     s32 temp_r3;
 
-    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (((TWindowSubComCard *)((u32) *(u32 *)((s8 *)this + 0x30)))->is_visible() != 0)) {
+    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (((TWindowMenu *)((u32) *(u32 *)((s8 *)this + 0x30)))->is_visible() != 0)) {
         temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)this + 0x30));
         if (temp_r3 == 0) {
             TWindow__close(*(u32 *)((s8 *)this + 0x30));
@@ -402,20 +404,20 @@ void show_fee_prompt__22TMedicalCenterSequenceFv(VObj_802164A4 *self) {
     self->m4(0x20, 1);
     v = obj_getField1c(self->f24);
     self->f30 = create_yes_no_window(((s32 (*)(int))get_window_layout_position)(0x2B), v, 0, 0);
-    set_position_xy(self->f30, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
+    set_position_xy__13TUnk_804CDFE8Fff(self->f30, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
     set_field_20__12TQuestListVMFl(self, (void *)3);
 }
 
 s32 TMedicalCenterSequence::handle_window_input() {
     VObj_8021641C_802163AC *o = (VObj_8021641C_802163AC *)this;
-    if (o->m8() != 0 && (TShopWindowBase__sub_80223A48((void *)((void *)(this))) != 0 || TShopWindowBase__sub_802239EC((void *)((void *)(this))) != 0)) {
+    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv((void *)((void *)(this))) != 0 || TShopWindowBase__sub_802239EC((void *)((void *)(this))) != 0)) {
         o->m4(0x22, 1);
         set_field_20__12TQuestListVMFl((void*)(this), (void*)(0xa));
     }
 }
 
 void TMedicalCenterSequence__vt11(void *arg0) {
-    if ((((VObj_802163AC *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48((void *)((void *)(arg0))) != 0) || (TShopWindowBase__sub_802239EC((void *)((void *)(arg0))) != 0))) {
+    if ((((VObj_802163AC *)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)((void *)(arg0))) != 0) || (TShopWindowBase__sub_802239EC((void *)((void *)(arg0))) != 0))) {
         close_window__13TShopSequenceFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }

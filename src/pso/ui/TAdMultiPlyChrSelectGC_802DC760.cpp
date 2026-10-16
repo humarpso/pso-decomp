@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/TLevelSelect.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -76,7 +77,7 @@ void TAdMultiPlyChrSelectGC::update_input_state() {
         *(s32 *)&this->m_20 = 0x1D;
         return;
     }
-    if (((TWindowSubComCard *)(this->m_94))->is_child_visible() != 0) {
+    if (((TWindowMessageYesNo *)(this->m_94))->is_child_visible() != 0) {
         temp_r3 = ((TWindowSubComCard *)(this->m_94))->get_slot_or_neg1();
         switch (temp_r3) {
         case 0:

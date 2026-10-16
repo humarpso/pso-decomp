@@ -154,7 +154,7 @@ struct CE_80189614 { u8 pad[0x34]; s32 f34; u8 f38[0x28]; s32 f60; u8 pad2[0x326
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 void vfunc_6__18TObjContainerEnemyFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -271,13 +271,13 @@ void TObjContainerEnemy::vfunc_6(s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             ((VObj*)arg0)->m77();
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-            set_flag8__6TLobbyFPv((void *) (arg0));
+            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-        set_flag8__6TLobbyFPv((void *) (arg0));
+        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         this->mode = 1;
     }

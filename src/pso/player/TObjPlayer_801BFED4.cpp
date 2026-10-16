@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss7Crawfish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 
@@ -64,7 +65,7 @@ u8 *copy_hold_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-s16 TObjPlayer::get_floor() { return *(s16*)((char*)this + 0xb8); }
+s16 TBoss7Crawfish::get_floor() { return *(s16*)((char*)this + 0xb8); }
 int TObjPlayer__sub_801C000C(void) { return 0; }
 int TObjPlayer__sub_801C0014(void) { return 0; }
 int TObjPlayer__sub_801C001C(void) { return 0; }

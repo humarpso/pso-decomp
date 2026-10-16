@@ -5,6 +5,20 @@
 
 struct TObjEneMe1Gee
 {
+    void copy_pos();
+    void sub_800CC0C4();
+    void sub_800CBF58(f32);
+    void sub_800CBE6C();
+    void update_hover_height();
+    void update_animation_frame();
+    void update_fade_sequence();
+    void update_packed_color();
+    void sub_800CB60C();
+    void sub_800CB5F0();
+    void sub_800CB5D4();
+    void sub_800CB5B8();
+    void set_flag3c8_bit2();
+    void state_attack_loop(s32);
     void render();
     void run_task();
     u16 m_1c;

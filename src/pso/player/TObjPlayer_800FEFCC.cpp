@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjHMS_EZRope_Player.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -93,7 +94,7 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DAA58;
 extern const f32 lbl_805DAA5C;
 extern const f32 lbl_805DAA60;
-void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0);
+void sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(Obj_800FF2D0 *arg0);
 }
 
 extern "C" {
@@ -199,7 +200,8 @@ void *TObjPlayer::create_hairmove(void *arg1, void *arg2) {
     }
     return o;
 }
-void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0) {
+void TObjHMS_EZRope_Player::sub_800FF2D0() {
+    Obj_800FF2D0 *arg0 = (Obj_800FF2D0 *)this;
     Vec_800FF2D0 d;
     Rec_800FF2D0 *rec;
     Ang_800FF2D0 *ang;

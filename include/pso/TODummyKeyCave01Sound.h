@@ -7,6 +7,7 @@
 class TODummyKeyCave01Sound : public TObject {
 public:
     virtual ~TODummyKeyCave01Sound();
+    void play_cave01_key_sound();
     virtual void run_task();
 };
 

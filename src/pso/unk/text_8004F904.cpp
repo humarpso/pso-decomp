@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDFDemo5.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -12,7 +13,7 @@ u32 create_particle_emitter(void *, int);
 
 extern "C" {
 
-void TBoss4Type2::update_particle_emitters() {
+void TObjDFDemo5::update_particle_emitters() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     u32 *var_r29;

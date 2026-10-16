@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F42C.h"
 #include "pso/TItemLoad.h"
 #include "pso/TObject.h"
 
@@ -48,7 +49,7 @@ Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 
 
 extern "C" {
 
-void *TItemLoad__sub_80110010(void *arg0, s16 arg1);
+void *sub_80110010__13TUnk_8049F42CFs(void *arg0, s16 arg1);
 s32 TItemLoad__sub_801107F4(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -58,16 +59,16 @@ s32 mem_free(s32);
 
 extern s32 lbl_8049F43C[];
 
-void *TItemLoad__sub_80110010(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 *)((s8 *)arg0 + 0x14) = (s32)lbl_8049F43C;
-        ((TItemLoad *)arg0)->free_texture();
-        mem_free(*(s32 *)((s8 *)arg0 + 0));
+void *TUnk_8049F42C::sub_80110010(s16 arg1) {
+    if (this != NULL) {
+        *(s32 *)((s8 *)this + 0x14) = (s32)lbl_8049F43C;
+        ((TItemLoad *)this)->free_texture();
+        mem_free(*(s32 *)((s8 *)this + 0));
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            __dl__FPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern s32 TItemLoad__bml_resource;

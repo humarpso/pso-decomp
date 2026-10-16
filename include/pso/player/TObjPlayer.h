@@ -10,6 +10,12 @@ struct player_stats;
 
 struct TObjPlayer
 {
+    void sub_801BEE2C(s16);
+    void sub_801BEE24(s16);
+    void update_body_parts();
+    void sub_801BD318();
+    void sub_801BD240();
+    u8 sub_801A1DDC();
     void vfunc_77();
     void vfunc_76();
     void vfunc_75(f32);
@@ -348,8 +354,6 @@ struct TObjPlayer
     void dispatch_action_state();
     void *init_target_ref(s32 arg1, s32 arg2);
     static void create_render_texture();
-    void clear_shadow_flag();
-    void set_shadow_flag();
     u8 find_target_in_range(f32 farg0);
     static void alloc_from_obj_heap(void* a0);
     int lookup_inventory_item();
@@ -420,7 +424,6 @@ struct TObjPlayer
     void draw_ginja_model_tree(void *arg1);
     static bool is_hit_receivable_target(s32 arg0, u32 arg1);
     static s32 is_player_in_range(s32 arg0, s32 arg1, f32 farg0);
-    void count_players_in_warp_radius();
     void call_vt78();
     void refresh_lobby_state();
     int query_lobby_state();
@@ -430,7 +433,6 @@ struct TObjPlayer
     void horizontal_distance(u8 *arg1);
     void draw_trail_strip(void *arg1, s32 arg2);
     int render_live_monitor_screen();
-    void update_warp_occupants();
     f32 calc_photon_blast_power(s32 arg1, f32 farg0);
     static s32 is_any_teammate_in_state();
     static void set_shared_flag(int a0);
@@ -544,7 +546,6 @@ struct TObjPlayer
     static s32 check_demo_mode();
     int queue_destruction();
     void set_position_xy(f32 a, f32 b);
-    f32 get_speed();
     u8 test_action_mask(s32 arg1);
     static void free_singleton();
     static void init_render_target_singleton();
@@ -565,7 +566,6 @@ struct TObjPlayer
     void update_move_to_target();
     void update_me1_gigue_state();
     void update_control_state();
-    void set_attack_distance_flag();
     int get_flag_0x388_b24();
     void init_position_vectors();
     s32 get_field_d8();
@@ -585,7 +585,6 @@ struct TObjPlayer
     void init_level_stats(s32 arg1);
     void clear_flag_04000000();
     void set_invuln_flags();
-    s32 try_hit_target(int arg1);
     void *dt(s16 arg1);
     void cancel_action();
     s32 get_action_priority();
@@ -634,11 +633,9 @@ struct TObjPlayer
     void *create_hairmove(void *arg1, void *arg2);
     s32 get_item_ptr(s32 arg1);
     s32 interpolate_along_curve(void *arg1);
-    void apply_item_flags(s32 arg1);
     void draw_item_model();
     static s32 query_game_join_id();
     void submit_computer_command();
-    int is_flag_400();
     f32 get_mag_scale();
     static void load_projection_tex(s32 arg0, s32 arg1);
     void update_screen_particle_effect();
@@ -681,7 +678,6 @@ struct TObjPlayer
     static void invoke_menu_callback_if_set(u32 arg0);
     s32 get_entity_id();
     void init_item_data(s32 arg1);
-    s32 get_item_flags();
     void bswap_fields_x4();
     void bswap_and_send_item();
     void set_type_bytes();
@@ -690,7 +686,6 @@ struct TObjPlayer
     void *init_item_timer_event();
     static s32 count_nearby_players_with_shield(u16 idx, u8 *item);
     static void *spawn_shoot_particle(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
-    s32 is_owner_alive();
     static s32 get_item_pmt_entry(u8 arg0);
     static s32 get_shield_pmt_entry(u8 arg0);
     void register_item_drop();
@@ -702,9 +697,7 @@ struct TObjPlayer
     void reset_status_block();
     void set_flag_10000();
     void set_state_flags(u32 v);
-    void apply_scale_if_active(f32 farg0);
     void update_active_game_effect();
-    u8 is_active_in_game();
     void draw_status_icons(void* a1, void* a2);
     s32 draw_icon(s32 arg1, s32 arg2);
     void draw_status_icon(s32 arg1);
@@ -911,7 +904,6 @@ struct TObjPlayer
     void set_type(s16 v);
     u16 get_entity_type();
     static void destroy_global_buffer();
-    void update_all_slots();
     static void destroy_buffers();
     static void destroy_static_buffer_pair();
     static void destroy_buffer_pair_instance();
@@ -1020,7 +1012,6 @@ struct TObjPlayer
     s32 setup_state();
     int setup_state_helper();
     u8 *init_subobject();
-    s16 get_floor();
     int sub_802a7290_fwd();
     int is_handle_valid();
     int forward_801C210C();
@@ -1542,9 +1533,7 @@ struct TObjPlayer
     void draw_shadowed_node_tree();
     static void rebuild_players_for_stage(s32 arg0);
     s32 update_recoil_offset();
-    void release_destroyed_target();
     void pick_open_direction(f32 *dir, f32 a, f32 b);
-    void load_entry_params_nanodrago(s32 i);
     static s32 snap_to_ground(s32 arg0, s32 arg1);
     static void spawn_appearance_effect(s32 idx);
     static u8 *create_vtable_804A08B8(u8 *arg0);

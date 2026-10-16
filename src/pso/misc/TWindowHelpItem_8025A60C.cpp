@@ -20,7 +20,7 @@ struct Ctx_8025A650 { u8 p0[0x10]; f32 x; f32 y; u8 p18[0x18]; s32 f30; u8 p34[4
 
 extern "C" {
 f32 get_item_star_row_width(u8 *arg0);
-s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
+s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
 u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void begin_screen_draw(int);
@@ -31,7 +31,7 @@ void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx);
 void TWindowHelpItem__sub_8025A900(void);
 void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
-s32 destroy__20TWindowSubStatusDispFPvs(void *, s16);
+s32 destroy__13TUnk_804CF930Fs(void *, s16);
 
 extern const UV_8025A650 item_rarity_star_uv_table[4] = {
     { 0.0f, 239.0f }, { 17.0f, 239.0f }, { 34.0f, 239.0f }, { 51.0f, 239.0f },
@@ -123,7 +123,7 @@ void TWindowHelpItem__sub_8025A900(void) {  }
 void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void ***)((s8 *)arg0 + 4) = lbl_804CFA10;
-        destroy__20TWindowSubStatusDispFPvs((void *)(arg0), (s16)(0));
+        destroy__13TUnk_804CF930Fs((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -133,7 +133,7 @@ void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8025A95C_lbl_804CFA10_size[sizeof(RecoveredGlobal_8025A95C_lbl_804CFA10) == 0x18 ? 1 : -1];
 u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2) {
-    TWindowSubStatusDisp__sub_80256BDC((void *) (arg0), (void *) (arg2));
+    sub_80256BDC__13TUnk_804CF930Fs((void *) (arg0), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025A95C_lbl_804CFA10 *)&lbl_804CFA10).value;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *) (arg1 + 4));
     *(s32 *)((s8 *)arg0 + 0x10) = 0;

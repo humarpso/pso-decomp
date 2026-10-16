@@ -54,7 +54,7 @@ struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f32
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 void vfunc_6__19TObjContainerNoItemFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
@@ -151,13 +151,13 @@ void TObjContainerNoItem::vfunc_6(s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             ((VObj18*)arg0)->m77();
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-            set_flag8__6TLobbyFPv((void *) (arg0));
+            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-        set_flag8__6TLobbyFPv((void *) (arg0));
+        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -29,7 +30,7 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 begin_photon_summon_camera(void *, int);
+s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
 s32 spawn_photon_blast_opening_effects(int, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 u8 *photon_base_ct(void *);
@@ -110,7 +111,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     *(s16 *)((s8 *)arg0 + 0x198) = 1;
     *(s32 *)((s8 *)arg0 + 0x19C) = *(s32 *)((s8 *)arg1 + 0x10);
     *(s32 *)((s8 *)arg0 + 0x1A0) = *(s32 *)((s8 *)arg1 + 0x14);
@@ -143,8 +144,8 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     }
     *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
     if (*(s32 *)((s8 *)arg0 + 0x19C) == 0) {
-        ((TObjEnePanarms *)arg0)->set_field_b8(0);
-        begin_photon_summon_camera(arg0, 4);
+        ((TObjMotion *)arg0)->set_field_b8(0);
+        begin_photon_summon_camera__13TUnk_804C3248FSc(arg0, 4);
         *(s32 *)((s8 *)arg0 + 0x19C) = 1;
         *(s16 *)((s8 *)arg0 + 0x198) = 0;
         *(s32 *)((s8 *)arg0 + 0x1A4) = 1;

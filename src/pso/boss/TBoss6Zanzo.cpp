@@ -33,7 +33,7 @@ struct Obj_803209F0 { s32 f0; u8 pad[0x14]; void *vt; Src_803209F0 *arr; Src_803
 extern "C" {
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
-void copy_trail_buffer__11TBoss6ZanzoFPvPvPv(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
+void copy_trail_buffer__11TBoss6ZanzoFPvPv(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__FPv(void *);
@@ -41,7 +41,7 @@ void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__11TBoss6Zanzo[];
 Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1);
-void copy_trail_buffer__11TBoss6ZanzoFPvPvPv(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
+void copy_trail_buffer__11TBoss6ZanzoFPvPv(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
 u8 *mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -74,7 +74,10 @@ void TBoss6Type1::set_effect_points(f32 *a, u32 *b) {
     }
 }
 
-void copy_trail_buffer__11TBoss6ZanzoFPvPvPv(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2) {
+void TBoss6Zanzo::copy_trail_buffer(void *arg1_arg, void *arg2_arg) {
+    Obj_80320534 *arg0 = (Obj_80320534 *)this;
+    Src_80320534 *arg1 = (Src_80320534 *)arg1_arg;
+    Src_80320534 *arg2 = (Src_80320534 *)arg2_arg;
     u8 *src;
     u8 *dst;
     u8 *end;
@@ -102,9 +105,9 @@ void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0) {
     if (TObjPlayer::check_demo_mode() == 0) {
         base = arg0->arr;
         for (p = base + arg0->n - 1; p > base; p--) {
-            copy_trail_buffer__11TBoss6ZanzoFPvPvPv((Obj_80320534 *)arg0, p, p - 1);
+            copy_trail_buffer__11TBoss6ZanzoFPvPv((Obj_80320534 *)arg0, p, p - 1);
         }
-        copy_trail_buffer__11TBoss6ZanzoFPvPvPv((Obj_80320534 *)arg0, p, arg0->last);
+        copy_trail_buffer__11TBoss6ZanzoFPvPv((Obj_80320534 *)arg0, p, arg0->last);
         arg0->last->a = 0;
     }
 }

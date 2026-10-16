@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubInformationBoard.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -28,7 +29,7 @@ s32 get_cursor_pos__20TWindowShortListCtrlFv(int);
 s32 set_info_board_text__6TLobbyFv();
 s32 set_message_index__26TWindowSubInformationBoardFl(void *, s16);
 u32 show_card_a7__26TWindowSubInformationBoardFv(void *);
-u32 open_card_info_window__17TWindowSubComCardFv(void *);
+u32 open_card_info_window__26TWindowSubInformationBoardFv(void *);
 u32 TWindowSubComCard__sub_8034CDE0(void *);
 u32 create_info_board_menu(void *);
 extern s32 controller_input_state[];
@@ -60,7 +61,7 @@ void TWindowSubInformationBoard::run_task() {
             this->m_2c = create_info_board_menu((void *) (arg0));
         }
         if ((u32) this->m_34 == 0U) {
-            this->m_34 = open_card_info_window__17TWindowSubComCardFv((void *) (arg0));
+            this->m_34 = open_card_info_window__26TWindowSubInformationBoardFv((void *) (arg0));
         }
         ((TWindowSubComCard *)(this->m_2c))->clear_flag_and_release();
         this->m_1c = 2U;
@@ -70,7 +71,7 @@ void TWindowSubInformationBoard::run_task() {
             temp_r3 = (u8 *)(*(u8 * *)&this->m_28);
             ((VObj_18_204a81 *)(temp_r3))->m7();
             this->m_1c = 0xCU;
-        } else if (((TWindowSubComCard *)(this->m_2c))->is_visible() != 0) {
+        } else if (((TWindowMenu *)(this->m_2c))->is_visible() != 0) {
             if ((u32) this->m_34 != 0U) {
                 TWindow__close(*(void * *)&this->m_34);
                 this->m_34 = 0U;

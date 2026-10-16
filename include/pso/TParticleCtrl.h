@@ -15,10 +15,8 @@ public:
     void *init_particle_random_spread(void *a1, void *a2, void *a3);
     static u8 *create_particle_obj_90(s32 arg0);
     static u8 *create_particle_obj_ac(s32 arg0);
-    void draw_sprite_quad(s32 kind);
     void mark_active();
     static void disable_if_single_screen();
-    void free_from_heap();
     static void free_heap();
     static void init_heap(void *arg0);
     void generate_child_default(s32 arg1, s32 arg2);

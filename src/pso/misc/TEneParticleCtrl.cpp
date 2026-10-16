@@ -27,7 +27,7 @@ extern RecoveredGlobal_80338C88_lbl_804EF458 lbl_804EF458;
 extern s32 __vt__16TEneParticleCtrl[];
 extern s32 TEneParticleCtrl__name;
 u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *get_array_entry__20TWindowSubStatusDispFi(void *, s16);
+void *get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 TWindowSubStatusDisp__sub_80338740(void *, void *, void *, void *, void *, void *, void *, void *, void *);
 void fn_80338D58(O_80338D58 *arg0, void *a1, void *a2, void *a3, void *a4, void *a5, void *a6, void *a7, void *a8);
 }
@@ -88,7 +88,7 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void*TEneParticleCtrl::get_field_38_ptr() { return (char*)this + 0x38; }
 void fn_80338D58(O_80338D58 *arg0, void *a1, void *a2, void *a3, void *a4, void *a5, void *a6, void *a7, void *a8) {
     if (arg0->idx < arg0->count) {
-        TWindowSubStatusDisp__sub_80338740(get_array_entry__20TWindowSubStatusDispFi(arg0, arg0->idx), a1, a2, a3, a4, a5, a6, a7, a8);
+        TWindowSubStatusDisp__sub_80338740(get_array_entry__13TUnk_804CE018Fi(arg0, arg0->idx), a1, a2, a3, a4, a5, a6, a7, a8);
         arg0->idx += 1;
     }
 }

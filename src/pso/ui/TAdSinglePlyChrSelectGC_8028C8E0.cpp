@@ -99,7 +99,7 @@ extern s32 chr_select_preview_base_offset_table[];
 extern "C" {
 
 s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0);
-void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0, s32 *);
+void sub_8028CEEC__12TChCrLoadReqFPl(void *arg0, s32 *);
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void);
 void close_and_destroy__12TChCrLoadReqFv(void *arg0);
 s32 queue_destruction__7TObjectFv(void *);
@@ -283,9 +283,9 @@ void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self) {
     if (create_ch_cr_load_gm_nj_req(self, &r4) == 0) return;
 }
 
-void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0, s32 *) {
-    if (((s32) chr_select_load_slot_count <= 1) && ((s32) *(s32 *)((s8 *)arg0 + 0x8C) != 0)) {
-        *(s32 *)((s8 *)arg0 + 0x8C) = 0;
+void TChCrLoadReq::sub_8028CEEC(s32 *) {
+    if (((s32) chr_select_load_slot_count <= 1) && ((s32) *(s32 *)((s8 *)this + 0x8C) != 0)) {
+        *(s32 *)((s8 *)this + 0x8C) = 0;
         if (--chr_select_load_slot_count == 0) {
             return;
         }
@@ -335,7 +335,7 @@ void close_and_destroy__12TChCrLoadReqFv(void *arg0) {
         ((TAdSinglePlyChrSelectGC *)arg0)->load_preview_models();
         temp_r4 = *(s32 **)((s8 *)arg0 + 0x3C);
         *temp_r4 &= 0xFFFFFF7F;
-        TAdSinglePlyChrSelectGC__sub_8028CEEC((void *)(arg0), (s32 *)(temp_r4));
+        sub_8028CEEC__12TChCrLoadReqFPl((void *)(arg0), (s32 *)(temp_r4));
         queue_destruction__7TObjectFv(arg0);
     }
 }

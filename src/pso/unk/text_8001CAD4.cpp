@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLoadingCur.h"
 
 #include <stddef.h>
 #include "pso/misc/TNowLoading.h"
@@ -41,7 +42,7 @@ s32 pop_matrices(int);
 extern RecoveredGlobal_8001CAD4_lbl_804349FC lbl_804349FC;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern RecoveredGlobal_8001CAD4_lbl_8058D490 identity_matrix;
-void update_camera_facing_offset(u8 *arg0);
+void update_camera_facing_offset__11TLoadingCurFv(u8 *arg0);
 extern u32 camera_ctrl_instance;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern const f32 lbl_805D7E90;
@@ -53,7 +54,8 @@ extern "C" {
 typedef char RecoveredGlobal_8001CAD4_lbl_804349FC_size[sizeof(RecoveredGlobal_8001CAD4_lbl_804349FC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001CAD4_lbl_804FF5E8_size[sizeof(RecoveredGlobal_8001CAD4_lbl_804FF5E8) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_8001CAD4_lbl_8058D490_size[sizeof(RecoveredGlobal_8001CAD4_lbl_8058D490) == 0x30 ? 1 : -1];
-void update_camera_facing_offset(u8 *arg0) {
+void TLoadingCur::update_camera_facing_offset() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_8001CAD4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8001CAD4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001CAD4, sp10) == 0x8) ? 1 : -1];

@@ -5,6 +5,7 @@
 
 struct TObjEneMe3StelthReal
 {
+    void init_common();
     void vfunc_63();
     void vfunc_62();
     u8 _pad1C[0x30A];

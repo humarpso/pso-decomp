@@ -109,7 +109,7 @@ int bswap_header__6TLobbyFv(void*);
 int clear_player_status_flag__10TObjPlayerFlUl(void*, int, int);
 s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
 int queue_destruction__7TObjectFv(void*);
-int set_flag8__6TLobbyFPv(void*);
+int set_flag8__13TUnk_804AF8A0Fv(void*);
 s32 set_indexed_flags(void *, s32, s32);
 
 void TOAttackableCol__sub_80157310(void * _w0) {  }
@@ -278,7 +278,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
   return lbl_805DB2C8;
 }
 
-void TOAttackableCol::release() { set_flag8__6TLobbyFPv(this); queue_destruction__7TObjectFv(this); }
+void TOAttackableCol::release() { set_flag8__13TUnk_804AF8A0Fv(this); queue_destruction__7TObjectFv(this); }
 void TOAttackableCol::check_door_trigger() {
     s32 temp_r0;
     s32 temp_r0_2;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DDD28.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -117,7 +118,7 @@ s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 
 extern "C" {
 
-void TLobby__sub_802A7318(void* p);
+void sub_802A7318__13TUnk_804DDD28Fv(void* p);
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 void vfunc_19__23TObjSeabedSuisoBrakableFv(void);
@@ -134,7 +135,7 @@ s32 TLobby::validate_handle(s32 *arg0) {
     }
     return 0;
 }
-void TLobby__sub_802A7318(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
+void TUnk_804DDD28::sub_802A7318() { *(s32*)((char*)this + 0x0) = 0; *(s32*)((char*)this + 0x4) = 0; }
 
 extern s32 player_action_motion_buffer;
 

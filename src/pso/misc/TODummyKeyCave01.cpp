@@ -53,7 +53,7 @@ struct Obj_80165C84 {
 
 extern "C" {
 u8 * construct_world_actor_base(void *);
-s32 fn_80165940(void *, f32);
+s32 sub_80165940__16TODummyKeyCave01Fv(void *, f32);
 extern s32 __vt__16TODummyKeyCave01[];
 extern s32 TODummyKeyCave01__class_name;
 u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -224,7 +224,7 @@ u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) (0.0f);
     *(s32 *)((s8 *)arg0 + 0xB8) = 1;
-    fn_80165940((void *) (arg0), (f32) (1.0f));
+    sub_80165940__16TODummyKeyCave01Fv((void *) (arg0), (f32) (1.0f));
     *(s32 *)((s8 *)arg0 + 0xCC) = 0;
     return arg0;
 }

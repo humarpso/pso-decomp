@@ -198,7 +198,7 @@ s32 TObjVoloptPillar__sub_80048118(s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8874;
 extern const f32 lbl_805D8878;
-void TObjVoloptCage__sub_80049000(u8 *arg0);
+void sub_80049000__14TObjVoloptCageFv(u8 *arg0);
 s32 check_object_collisions__10TObjPlayerFv(void *, int);
 }
 
@@ -393,7 +393,8 @@ extern struct VObj_800490E8_80048F40 *volopt_cage_breakup_model;
 
 #pragma push
 #pragma opt_common_subs off
-void TObjVoloptCage__sub_80049000(u8 *arg0) {
+void TObjVoloptCage::sub_80049000() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
     switch (temp_r0) {

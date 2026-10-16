@@ -36,7 +36,7 @@ void draw_dialing_status__12TAdDialingGCFv(void *);
 
 extern "C" {
 
-void spawn_title_screen__12TAdDialingGCFPvi(void *arg0, s32);
+void spawn_title_screen__12TAdDialingGCFl(void *arg0, s32);
 s32 update_status_message__12TAdDialingGCFv();
 s32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 s32 TLobby__sub_803FB184(void *);
@@ -123,7 +123,7 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
         temp_r4 = *(s32 *)&this->m_a0;
         *(s32 *)&this->m_a0 = temp_r4 + 1;
         if ((s32) *(s32 *)&this->m_a0 > 0x5A) {
-            spawn_title_screen__12TAdDialingGCFPvi((void *)((void *)(this)), (s32)((s32)(temp_r4)));
+            spawn_title_screen__12TAdDialingGCFl((void *)((void *)(this)), (s32)((s32)(temp_r4)));
             show_guide_button();
             *(s32 *)&this->m_a0 = 0;
             *(s32 *)&this->m_20 = 1;
@@ -164,14 +164,14 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
 
 extern f32 lbl_805DF6E0;
 
-void spawn_title_screen__12TAdDialingGCFPvi(void *arg0, s32) {
-    if (!(*(s32 *)((s8 *)arg0 + 0xA4) & 1)) {
+void TAdDialingGC::spawn_title_screen(s32) {
+    if (!(*(s32 *)((s8 *)this + 0xA4) & 1)) {
         u32 temp_nw;
-        if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
-            __ct__10TAdTitleGCFv(temp_nw, arg0, 5);
+        if (((s32) *(s32 *)((s8 *)this + 0x1C) == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
+            __ct__10TAdTitleGCFv(temp_nw, this, 5);
         }
-        create_draw_line_ctrl__13TAdMcSelectGCFiif(arg0, 0x11, lbl_805DF6E0);
-        *(s32 *)((s8 *)arg0 + 0xA4) = (s32) (*(s32 *)((s8 *)arg0 + 0xA4) | 1);
+        create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0x11, lbl_805DF6E0);
+        *(s32 *)((s8 *)this + 0xA4) = (s32) (*(s32 *)((s8 *)this + 0xA4) | 1);
     }
 }
 
@@ -265,7 +265,7 @@ void TAdDialingGC__sub_80328730(s32 arg0) {
         TAdDialingGC__instance->f20 = 2;
         switch (TAdDialingGC__instance->state) {
         case 0:
-            ((void (*)(void *))spawn_title_screen__12TAdDialingGCFPvi)(TAdDialingGC__instance);
+            ((void (*)(void *))spawn_title_screen__12TAdDialingGCFl)(TAdDialingGC__instance);
             ((TAdDialingGC *)TAdDialingGC__instance)->show_guide_button();
             break;
         case 1:
@@ -276,7 +276,7 @@ void TAdDialingGC__sub_80328730(s32 arg0) {
             case 17:
                 return;
             }
-            ((void (*)(void *))spawn_title_screen__12TAdDialingGCFPvi)(TAdDialingGC__instance);
+            ((void (*)(void *))spawn_title_screen__12TAdDialingGCFl)(TAdDialingGC__instance);
             ((TAdDialingGC *)TAdDialingGC__instance)->show_guide_button();
             break;
         }

@@ -23,7 +23,6 @@ struct TWindowShortListCtrl : public TObject {
     void *destroy(s16 arg1);
     static s32 get_card_window_flags();
     static s32 get_card_status_bits();
-    void set_flag70_bit10();
     void set_displayed_item(s32 arg1);
     s32 is_technique_usable();
     void swap_card_entries(s32 arg1, s32 arg2);

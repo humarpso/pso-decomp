@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TDLGraph.h"
 #include "pso/TObjWarpString.h"
 
 struct E_8007F3F8 { s32 a; f32 f; };
@@ -112,24 +113,25 @@ s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 
     ((TObjWarpString *)str)->draw_string(0xFFFFFFFF, x, y);
 }
 
-void draw_percent_text(void *arg0, f32 farg0, f32 farg1) {
+void TDLGraph::draw_percent_text(f32 farg0, f32 farg1) {
     s8 sp8;
     s32 var_r5;
 
-    if (*(s32 *)((s8 *)arg0 + 0x20) & 2) {
+    if (*(s32 *)((s8 *)this + 0x20) & 2) {
         sp8 = 0;
-        var_r5 = (s32) (lbl_805D92AC * *(f32 *)((s8 *)arg0 + 0x1C));
+        var_r5 = (s32) (lbl_805D92AC * *(f32 *)((s8 *)this + 0x1C));
         if (var_r5 < 0) {
             var_r5 = 0;
         } else if (var_r5 > 0x64) {
             var_r5 = 0x64;
         }
         sprintf(&sp8, lbl_80438AD8, var_r5);
-        draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(arg0, (s32) farg0, (s32) farg1, &sp8);
+        draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(this, (s32) farg0, (s32) farg1, &sp8);
     }
 }
 
-void draw_countdown_timer(Obj_8007F0E4 *self, f32 x, f32 y) {
+void TDLGraph::draw_countdown_timer(f32 x, f32 y) {
+    Obj_8007F0E4 *self = (Obj_8007F0E4 *)this;
     char buf[16];
     s32 t;
     s32 mins;

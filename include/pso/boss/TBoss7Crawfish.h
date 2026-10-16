@@ -6,6 +6,7 @@
 
 struct TBoss7Crawfish : public TObjEnemy {
     virtual ~TBoss7Crawfish();
+    s16 get_floor();
     virtual void vfunc_50();
     virtual void vfunc_49();
     virtual void vfunc_48(s32);

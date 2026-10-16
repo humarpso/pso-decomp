@@ -43,7 +43,7 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 update_floor_switch_state__16TObjCityMainWarpFv();
 s32 update_warp_sequence__16TObjCityMainWarpFv();
-s32 update_challenge_state__16TObjCityMainWarpFv();
+s32 update_challenge_state__25TObjCityMainWarpChallengeFv();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 unregister_object_by_id(s32 *);
 s32 rotate_matrix_y(s32, s32);
@@ -61,7 +61,7 @@ void TObjCityMainWarpChallenge::update_state() {
     temp_r0 = *(s16 *)((s8 *)this + 0xDE);
     switch (temp_r0) {
     case 0:
-        update_challenge_state__16TObjCityMainWarpFv();
+        update_challenge_state__25TObjCityMainWarpChallengeFv();
         return;
     case 1:
         update_warp_sequence__16TObjCityMainWarpFv();
@@ -134,7 +134,7 @@ void TObjCityMainWarpChallenge::run_task() {
             *(s16 *)((s8 *)arg0 + 0xDE) = (s16) *(s16 *)((s8 *)arg0 + 0xDC);
             *(s16 *)((s8 *)arg0 + 0xE0) = 0;
         }
-        ((TObjPlayer *)arg0)->count_players_in_warp_radius();
+        ((TObjCityMainWarpChallenge *)arg0)->count_players_in_warp_radius();
         update_state();
         if ((void *) *(u8 **)((s8 *)arg0 + 0xD4) != NULL) {
             *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) + lbl_805DBCC4);

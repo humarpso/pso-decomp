@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDellBiter_Eff_Rush.h"
 #include <stddef.h>
 #include "pso/enemy/TObjEneDellBiter.h"
@@ -2650,7 +2651,7 @@ void state_death__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         temp_r0 = ((RecoveredFields_8030390C_arg0 *)arg0)->field_4CC;
         switch (temp_r0) {
         case 0:
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 ((TObjPlayer *)(arg0 + 0x2FC))->request_two_effects();
                 play_sound_effect((int)(0x4003A830), (void *)((u32) (arg0 + 0x2FC)), (int)(0), (int)(0));
                 ((RecoveredFields_8030390C_arg0 *)arg0)->field_4CC = 1;
@@ -2685,7 +2686,7 @@ void TObjEneDellBiter__sub_80303AA0(u8 *arg0, s32 arg1) {
         ((TObjEneDD *)arg0)->set_active();
         break;
     case 3:
-        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0 && ((TObjEneDellBiter *)arg0)->check_low_hp_transition() == 0 &&
+        if (((TObjEneDD *)arg0)->get_flag_b4() != 0 && ((TObjEneDellBiter *)arg0)->check_low_hp_transition() == 0 &&
             ((s32 (*)(void *))TObjEneDellBiter__sub_803054A8)(arg0) == 0 && ((s32 (*)(void *))TObjEneDellBiter__sub_803054FC)(arg0) == 0) {
             transition_enemy_state(arg0, *(s32 *)((s8 *)arg0 + 0x378));
         }
@@ -2751,7 +2752,7 @@ void TObjEneDellBiter__sub_80303BC0(u8 *arg0, s32 arg1) {
             ((s32 (*)(void *))noop__16TObjEneDellBiterFv)(arg0);
             break;
         case 2:
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 if (TObjEneDD::check_v2_mode() != 0) {
                     *(s32 *)((s8 *)arg0 + 0x4D0) = (s32) (*(s32 *)((s8 *)arg0 + 0x4D0) + 1);
                     if ((s32) *(s32 *)((s8 *)arg0 + 0x4D0) < 3) {
@@ -2832,7 +2833,7 @@ void TObjEneDellBiter__sub_80303F04(u8 *arg0, s32 arg1) {
         if (objInBand__FP7GameObjf((void *) (arg0), (f32) (TObjEneDellBiter__data_805DEFE4)) != 0) {
             play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, (void *)0x40039E15), arg0 + 0x38, 0, 0);
         }
-        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+        if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
             *(s32 *)((s8 *)arg0 + 0x4CC) = 1;
             *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 0x10);
             *(s32 *)((s8 *)arg0 + 0x490) = (s32) (TObjEneDellBiter__data_805DEFE8 * (f32) *(s32 *)((s8 *)TObjEneDellBiter__movement_params + 0x2C));
@@ -2864,7 +2865,7 @@ void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1) {
         return;
     case 0:
         ((s32)advance_animation_playback((void *)((void *)((void *) (arg0)))));
-        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+        if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
             *(s32 *)((s8 *)arg0 + 0x4CC) = 1;
         } else {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x4C0) != 0U) {
@@ -2942,7 +2943,7 @@ void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
             if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEFF0)) != 0) {
                 play_sound_effect((int) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (void *) (0x40039E16))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             }
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 0;
                 *(s32 *)((s8 *)arg0 + 0x4D0) = 1;
                 *(s32 *)((s8 *)arg0 + 0x4CC) = 0;
@@ -3004,7 +3005,7 @@ void TObjEneDellBiter__sub_803044AC(u8 *arg0, s32 arg1) {
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, (void *)0x40039E12), arg0 + 0x38, 0, 0);
                 ((TObjEneDellBiter *)arg0)->spawn_front_particle();
             }
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 F(s16, 0xB8) = 2;
                 F(s32, 0x4CC) = 1;
                 *(s32 *)((s8 *)(F(u8 *, 0xA4)) + 0x18) |= 0x700;
@@ -3061,7 +3062,7 @@ void TObjEneDellBiter__sub_803044AC(u8 *arg0, s32 arg1) {
             if (F(s32, 0x4D0) >= 10) {
                 F(s16, 0xB8) = 3;
                 TObjEneDellBiter__sub_803058DC((s32)arg0);
-                if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+                if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                     F(s32, 0x3C0) &= ~4;
                     F(s32, 0x4CC) = 3;
                 }
@@ -3236,7 +3237,7 @@ void TObjEneDellBiter__sub_80304D10(u8 *arg0, s32 arg1) {
             if (F(s32, 0x4CC) >= 10) {
                 F(s16, 0xB8) = 3;
                 TObjEneDellBiter__sub_803058DC((s32)arg0);
-                if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+                if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                     F(s32, 0x4D0) = 2;
                 }
                 F(f32, 0x4DC) *= lbl_805DF000;
@@ -3302,7 +3303,7 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
             break;
         case 1:
             ((s32 (*)(void *))TObjEneDellBiter__sub_803058DC)((void *) (arg0));
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x4D0) = 2;
             }
             break;
@@ -3825,7 +3826,7 @@ void TObjEneDellBiter::init_params() {
     ((TObjPlayer *)self)->set_field_dc(((Glob_80306468 *)TObjEneDellBiter__shared_model_resource)->f430);
     self->fB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->fB8);
-    ((TObjEnePanarms *)self)->set_field_b8(self->fB8);
+    ((TObjMotion *)self)->set_field_b8(self->fB8);
     reset_hp__9TObjEneDDFv(self, dellbiter_boss_stat_handle, TObjEneDellBiter__shared_handler_param, dellbiter_object_stat_handle);
     ((TObjEneDD *)self)->set_state_8();
     self->f350 = TObjEneDellBiter__param_table;

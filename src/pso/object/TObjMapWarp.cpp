@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 
 struct Base_8019D4E4 { char pad[0x18]; };
 struct VObj_8019D4E4 : Base_8019D4E4 {
@@ -142,7 +143,7 @@ void TObjMapWarp::open_player_warp_window(s32 arg1) {
         ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, 0x25), 2, 0, -1);
         calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
-        ((TObjCityMainWarp *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
+        ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
     }
 }

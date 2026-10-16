@@ -94,7 +94,7 @@ void send_45_and_close_windows__6TLobbyFv(void * _w0);
 void show_ctrl_and_play_effect__6TLobbyFPv(void* a0);
 void play_player_default_effect__6TLobbyFv(s32 _w0);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 is_visible__17TWindowSubComCardFv(u32);
+s32 is_visible__11TWindowMenuFv(u32);
 s32 get_selected_menu_value(u32);
 s32 challenge_retry_cmd_table[3] = { 1, 0, 0 };
 extern s8 controller_input_state[];
@@ -365,7 +365,7 @@ void update_challenge_retry__6TLobbyFPv(void *arg0) {
         open_loss_menu__6TLobbyFPv(arg0);
     }
     var_r31 = 0;
-    if (is_visible__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0x2C)) != 0) {
+    if (is_visible__11TWindowMenuFv(*(u32 *)((s8 *)arg0 + 0x2C)) != 0) {
         temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x2C));
         if (temp_r3 == 2) {
             var_r31 = 1;

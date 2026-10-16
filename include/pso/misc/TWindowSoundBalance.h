@@ -6,6 +6,7 @@
 
 struct TWindowSoundBalance : public TUnk_804CE018 {
     virtual ~TWindowSoundBalance();
+    int is_active();
     virtual void render();
     u8 _pad1C[0x8];
     void* m_24;

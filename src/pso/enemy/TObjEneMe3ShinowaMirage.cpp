@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneMe3Shinowa.h"
 
 struct Base_800e3a88_800E3A58 { char pad[0x14]; };
 struct VObj_800e3a88_800E3A58 : Base_800e3a88_800E3A58 {
@@ -665,7 +667,7 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *arg0, void *arg1, u8 *arg2, void *a3, void *
     fn_800E762C((void *) (arg0));
     *(s16 *)((s8 *)arg0 + 0x1C) = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
-    ((TObjEneMe3ShinowaMirage *)arg0)->init_enemy();
+    ((TObjEneMe3Shinowa *)arg0)->init_enemy();
     *(s32 *)((s8 *)arg0 + 0x3D4) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) | 0x1000);
     ((TObjEneMe3ShinowaMirage *)arg0)->set_flag_0x100();
@@ -730,7 +732,7 @@ void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1) {
         switch (temp_r0) {
         case 0:
             advance_animation_playback((void *)(arg0), (int)(arg1));
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 temp_r3 = *(s32 *)((s8 *)arg0 + 0x3C4);
                 if (temp_r3 & 0x80000) {
                     ((VObj_14_85ec0b *)((u8 *)(arg0) + (1000)))->m3();
@@ -802,7 +804,7 @@ void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1) {
         I(0x424) = 0;
         break;
     case 3:
-        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+        if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
             I(0x3B8) = I(0x3BC);
             ok = 0;
             if (V->m97() != 0 || is_player_entity_id(*(u16 *)((s8 *)arg0 + 0x38C)) != 0) {

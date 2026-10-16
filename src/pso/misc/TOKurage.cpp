@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOKurage.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/misc/TOKey.h"
@@ -71,7 +72,7 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 fn_8016D8F8(void *);
+s32 sub_8016D8F8__8TOKurageFv(void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 s32 vec3_add_to(void *, void *);
@@ -169,7 +170,7 @@ void TOKurage::run_task() {
         return;
     }
     if (o->anim != 0) {
-        ((TOBarrierEnergy01 *)o)->update_anim_phase();
+        ((TUnk_804AFBF8 *)o)->update_anim_phase();
     }
     y = 3.2f * sin_table_lookup(o->phase) + o->baseY;
     if (o->rising == 0) {
@@ -346,7 +347,7 @@ void TOKurage::run_task() {
     }
     check_player_distance();
     update_state();
-    fn_8016D8F8(o);
+    sub_8016D8F8__8TOKurageFv(o);
     o->phase += (s32)(40.0f * (3.0517578125e-05f * (f32)rand()) + 160.0f);
 }
 #pragma pop

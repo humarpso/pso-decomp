@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TPlyPhotonChair.h"
 
 extern "C" {
 u8 TBoss1Dragon__sub_80143960(u8 *arg0, s32 arg1);
-void set_motion_interpolation_flag(u8 *arg0);
+void set_motion_interpolation_flag__10TObjMotionFv(u8 *arg0);
 }
 
 extern "C" {
@@ -43,7 +44,8 @@ s32 TPlyPhotonChair__sub_80143930(void* p) { return *(s32*)((char*)p + 0x8); }
 s32 TPlyPhotonChair::get_id() { return *(s32 *)&this->m_name; }
 void TPlyPhotonChair::activate() { *(s32*)((char*)this + 0x18) = 1; }
 
-void set_motion_interpolation_flag(u8 *arg0) {
+void TObjMotion::set_motion_interpolation_flag() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     temp_r3 = *(u8 **)((s8 *)arg0 + 0xF8);
     *(u16 *)((s8 *)temp_r3 + 0xA) = (u16) (*(u16 *)((s8 *)temp_r3 + 0xA) | 0x80);

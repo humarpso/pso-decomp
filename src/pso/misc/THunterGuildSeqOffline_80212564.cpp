@@ -29,7 +29,7 @@ struct VObj_80212564 : Base_80212564 {
 };
 
 int TShopWindowBase__sub_802239EC(void *);
-int TShopWindowBase__sub_80223A48(void *);
+int sub_80223A48__15TShopWindowBaseFv(void *);
 int set_field_20__12TQuestListVMFl(void *, int);
 
 extern struct VObj_80212564 *THunterGuildSeqOffline__active_instance;
@@ -44,7 +44,7 @@ void THunterGuildSeqOffline::set_state_4() {
 
 void THunterGuildSeqOffline::handle_click() {
     VObj_802125BC_80212564 *o = (VObj_802125BC_80212564 *)this;
-    if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
+    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
         o->m7(0x19, 1);
         set_field_20__12TQuestListVMFl((void *)(this), (int)(4));
     }

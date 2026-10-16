@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804E355C.h"
 
 struct VBase_18_f8ef8c { char pad[0x18]; };
 
@@ -160,7 +161,7 @@ s32 disallow_rendering__7TObjectFv(void *);
 s32 test_flags_any(void *, int);
 s32 copy_position__15TEffStarLight2DFPv(int, void *);
 f32 vec_distance_squared(void *, void *);
-s32 has_game_join_id(void *);
+s32 has_game_join_id__13TUnk_804E355CFv(void *);
 s32 check_hits__14TItemAttackColFPv(void *);
 u32 find_item_by_id(int);
 s32 play_weapon_hit_sound(void *);
@@ -168,7 +169,7 @@ s32 apply_camera_shake__10TObjPlayerFiii(int, int, int);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805DE914;
 extern const f32 lbl_805DE928;
-s32 resolve_attack_col_hit(u8 *arg0, u8 *arg1);
+s32 resolve_attack_col_hit__13TUnk_804E355CFPUc(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805DE914;
 extern const float lbl_805DE918;
 extern const f32 lbl_805DE924;
@@ -213,7 +214,7 @@ void TItemAttackCol::shift_collision_bounds() {
 void TItemAttackCol::vfunc_6(s32 *a) {
     Obj_802E3C4C *o = (Obj_802E3C4C *)this;
     if (!(o->fE4 & 0x80)) {
-        if (resolve_attack_col_hit((u8 *)o, (u8 *)a) != 0) {
+        if (resolve_attack_col_hit__13TUnk_804E355CFPUc((u8 *)o, (u8 *)a) != 0) {
             if (o->cb != NULL) {
                 o->cb(o->fAC, a, o->fD0);
             }
@@ -295,7 +296,7 @@ void TItemAttackCol::run_task() {
     u32 temp_r3_2;
     u32 temp_r3_3;
     u32 temp_r3_4;
-    if (has_game_join_id((void *) (arg0)) == 0) {
+    if (has_game_join_id__13TUnk_804E355CFv((void *) (arg0)) == 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         disallow_rendering__7TObjectFv((void *) (arg0));
         return;
@@ -370,7 +371,8 @@ void TObjPlayer__sub_802E451C(S_802E451C *arg0) {
     arg0->f24 = 0;
 }
 
-s32 resolve_attack_col_hit(u8 *arg0, u8 *arg1) {
+s32 TUnk_804E355C::resolve_attack_col_hit(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_802E456C, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_802E456C, sp9) == 0x1) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802E456C, spC) == 0x4) ? 1 : -1];

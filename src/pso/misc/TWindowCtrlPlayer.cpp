@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TWindowCtrlPlayer.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjLuker.h"
@@ -24,7 +25,7 @@ int TWindowCtrl__sub_8024DAAC(void*);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int fn_8024E0F0(void* a0 = 0);
+int sub_8024E0F0__17TWindowCtrlPlayerFv(void* a0 = 0);
 void queue_destruction__7TObjectFv(void *);
 void run_all_updates__11TWindowCtrlFv(void* p);
 
@@ -41,7 +42,7 @@ extern u8 lbl_8044EC4C[];
 extern s32 TWindowCtrlPlayer__name;
 
 void TWindowCtrlPlayer::render() {  }
-void TWindowCtrlPlayer::run_task() { fn_8024E0F0(this); run_all_updates__11TWindowCtrlFv(this); }
+void TWindowCtrlPlayer::run_task() { sub_8024E0F0__17TWindowCtrlPlayerFv(this); run_all_updates__11TWindowCtrlFv(this); }
 
 extern s32 __vt__17TWindowCtrlPlayer[];
 
@@ -93,13 +94,13 @@ struct Ctl_8024E2A8 *TWindowCtrlPlayer__ct(struct Ctl_8024E2A8 *arg0, void *pare
     }
     arg0->f2c = create_message_information_window(get_window_layout_position(0x20), lbl_8044EC4C, arg0->f24);
     arg0->f30 = create_status_window(arg0->f24);
-    ((TObjLuker *)(arg0->f30))->set_flag_4();
+    ((TObject *)(arg0->f30))->set_flag_4();
     p = __nw__7TObjectFUl(0x78);
     if (p != 0) {
         p = TWindowActionPalette__ct(p, arg0->f24);
     }
     arg0->f34 = p;
-    ((TObjLuker *)(arg0->f34))->set_flag_4();
+    ((TObject *)(arg0->f34))->set_flag_4();
     return arg0;
 }
 

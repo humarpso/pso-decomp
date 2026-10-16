@@ -1,13 +1,14 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
 
-void set_position_xy(void* p, f32 a, f32 b);
+void set_position_xy__13TUnk_804CDFE8Fff(void* p, f32 a, f32 b);
 
 void TWindowSubStatusDisp::clear_visible_flag() { *(u16 *)&this->m_name &= 0xfffffffd; }
 void TWindowHelpItem::set_flag0_bit2() { *(u16*)((char*)this + 0x0) |= 0x2; }
-void set_position_xy(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x60) = a; *(f32*)((char*)p + 0x64) = b; }
+void TUnk_804CDFE8::set_position_xy(f32 a, f32 b) { *(f32*)((char*)this + 0x60) = a; *(f32*)((char*)this + 0x64) = b; }
 
 }

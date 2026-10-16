@@ -5,6 +5,8 @@
 
 struct TObjEneDf2Bringer
 {
+    void set_effect_pos_above_self();
+    void sub_80098DEC();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

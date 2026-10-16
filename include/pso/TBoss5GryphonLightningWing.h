@@ -6,6 +6,7 @@
 class TBoss5GryphonLightningWing : public TBoss5GryphonLightning {
 public:
     virtual ~TBoss5GryphonLightningWing();
+    void update_wing_segments();
     virtual void run_task();
     virtual void render();
 public:

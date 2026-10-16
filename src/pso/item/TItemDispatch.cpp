@@ -123,8 +123,8 @@ u16 get_id__13TItemProArmorFv(void *);
 u32 get_player_by_client_id(void *);
 s32 push_to_player_list__5TItemFPv();
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 clear_shadow_flag__10TObjPlayerFv(void *);
-s32 set_shadow_flag__10TObjPlayerFv(void *);
+s32 clear_shadow_flag__13TUnk_804AF8A0Fv(void *);
+s32 set_shadow_flag__13TUnk_804AF8A0Fv(void *);
 s8 TObjPlayer__sub_80102C30(u8 *);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(int);
@@ -191,7 +191,7 @@ void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, 
 void TItem::render_shadows() {
     u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv((void *) (arg0)) != 0) {
-        set_shadow_flag__10TObjPlayerFv((void *) (arg0));
+        set_shadow_flag__13TUnk_804AF8A0Fv((void *) (arg0));
         if ((TObjPlayer__sub_80102C30((u8 *)((void *) (arg0))) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             set_depth_buffer_settings_id__FUl((int) (1));
             lbl_805D5660 = model_render_flags;
@@ -206,7 +206,7 @@ void TItem::render_shadows() {
             reset_transform_state__10TObjPlayerFv();
             func_80141618__Fv();
         }
-        clear_shadow_flag__10TObjPlayerFv((void *) (arg0));
+        clear_shadow_flag__13TUnk_804AF8A0Fv((void *) (arg0));
     }
 }
 
@@ -324,11 +324,11 @@ struct TItem_801028D8 : VBase_18_801028D8 {
 extern "C" {
 void obj_setFlags30(void *, u32);
 void fn_8002B630(void *, void *);
-void assign_item_id__6TLobbyFv(void *);
-void apply_item_flags__10TObjPlayerFl(void *, void *);
-void TObjPlayer__sub_8010043C(void *, s32);
-u8 get_field_ec__12TOSwitchItemFv(void *);
-void set_item_count__6TLobbyFs(void *, s32);
+void assign_item_id__5TItemFv(void *);
+void apply_item_flags__5TItemFl(void *, void *);
+void sub_8010043C__5TItemFUc(void *, s32);
+u8 get_field_ec__5TItemFv(void *);
+void set_item_count__13TUnk_804B9870Fs(void *, s32);
 void TItem__sub_801031C0(void *);
 s8 get_type_nibble__9TItemDataFPv(void *);
 s32 is_rare_item__9TItemDataFPv(void *);
@@ -364,21 +364,21 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     *(s32 *)((s8 *)self + 0xF0) = 0;
     *(s32 *)((s8 *)self + 0xF4) = 0;
     *(s16 *)((s8 *)self + 0xE8) = 0;
-    apply_item_flags__10TObjPlayerFl(self, item);
+    apply_item_flags__5TItemFl(self, item);
     *(s8 *)((s8 *)self + 0xEA) = get_type_nibble__9TItemDataFPv(item);
     if (is_rare_item__9TItemDataFPv(item) != 0) {
-        TObjPlayer__sub_8010043C(self, 4);
+        sub_8010043C__5TItemFUc(self, 4);
     } else {
-        TObjPlayer__sub_8010043C(self, lbl_8043DF94[clamp_s32__10TObjPlayerFlll(get_field_ec__12TOSwitchItemFv(self), 0, 4)]);
+        sub_8010043C__5TItemFUc(self, lbl_8043DF94[clamp_s32__10TObjPlayerFlll(get_field_ec__5TItemFv(self), 0, 4)]);
     }
     if (lbl_805D5438 != 0) {
         ((TItem_801028D8 *)self)->m5(lbl_805D5438);
-        set_item_count__6TLobbyFs(self, 0xFFFF);
+        set_item_count__13TUnk_804B9870Fs(self, 0xFFFF);
         ((TItem *)self)->set_mode(0);
     } else {
         ((TItem *)self)->set_mode(3);
     }
-    assign_item_id__6TLobbyFv(self);
+    assign_item_id__5TItemFv(self);
     ((TItem *)self)->insert_sorted_by_id();
     return self;
 }
@@ -409,12 +409,12 @@ void free_obj_heap__10TObjPlayerFPv(void* a0);
 int get_item_system_generation(void);
 void advance_item_system_generation(void);
 int dispatch_item_by_type__6TLobbyFv(void*);
-void TObjPlayer__sub_80102C58(void* p);
-void TObjPlayer__sub_80102C68(void* p);
+void sub_80102C58__5TItemFv(void* p);
+void sub_80102C68__5TItemFv(void* p);
 void bswap_32__FPUl(u32* p);
 void mem_free(void*);
 void free_rock_objects__6TLobbyFis(void*, int);
-u8 get_field_ec__12TOSwitchItemFv(void* p);
+u8 get_field_ec__5TItemFv(void* p);
 u16 get_id__13TItemProArmorFv(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*);
 int heap_alloc__5THeapFUl(void*, void*);

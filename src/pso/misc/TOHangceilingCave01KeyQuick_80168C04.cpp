@@ -44,7 +44,7 @@ int vfunc_20__13TUnk_804B2578FPvf(void);
 f32 vfunc_22__13TUnk_804B2578FPvf(void);
 void vfunc_25__13TUnk_804B2578FPUc(void);
 void *destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *arg0, s16 arg1);
-void set_scale__27TOHangceilingCave01KeyQuickFPvf(void* p, f32 v);
+void set_scale__13TUnk_804B2578Ff(void* p, f32 v);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
@@ -93,6 +93,6 @@ f32 TUnk_804B2578::vfunc_22(void *, f32) {
 
 void TUnk_804B2578::vfunc_25(u8 *) {  }
 
-void set_scale__27TOHangceilingCave01KeyQuickFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x338) = v; }
+void TUnk_804B2578::set_scale(f32 v) { *(f32*)((char*)this + 0x338) = v; }
 
 }

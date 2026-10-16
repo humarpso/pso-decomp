@@ -117,7 +117,7 @@ s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 s32 play_sound_effect(s32, s32, s32, s32);
 f32 TWindowSubComCard__sub_80244784(void *);
 s32 is_window_reveal_complete();
-s32 TWindowSubAreaMapDisp__sub_80246948();
+s32 sub_80246948__13TUnk_804CE018Fv();
 s32 is_player_input_active(int);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, Rect_802AD538 *);
 Rect_802AE2B0 * open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, s32, f32, s32);
@@ -566,7 +566,7 @@ Rect_802AE2B0 *setup_content_frame__15TWindowMainMenuFPv(u8 *arg0) {
 
 void TWindowMainMenu::update_slide_position() {
     s16 temp_r4;
-    if (TWindowSubAreaMapDisp__sub_80246948() != 0) {
+    if (sub_80246948__13TUnk_804CE018Fv() != 0) {
         set_target_y(lbl_805DE158);
         temp_r4 = *(s16 *)((s8 *)this + 0x22);
         *(u32 *)((s8 *)this + 0x50) = (u32) (lbl_805DE1A8 - (f32) temp_r4);

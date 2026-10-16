@@ -5,6 +5,11 @@
 
 struct TObjCityMainWarpChallenge
 {
+    void count_players_in_warp_radius();
+    void update_challenge_state();
+    void trigger_warp_effect(s32);
+    void send_6x6A_set_boss_warp_flags(u16);
+    s32 are_all_players_in_range();
     u8 _pad1C[0x1C];
     void* m_38;
     u8 _pad3C[0x24];

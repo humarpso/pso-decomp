@@ -6,6 +6,7 @@
 class TBoss5GryphonLightningHorn : public TBoss5GryphonLightning {
 public:
     virtual ~TBoss5GryphonLightningHorn();
+    void rebuild_lightning_segments();
     virtual void run_task();
     virtual void render();
 public:

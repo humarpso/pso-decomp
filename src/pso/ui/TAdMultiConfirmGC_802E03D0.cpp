@@ -66,7 +66,7 @@ s32 set_global_param__8TObjFishFl();
 
 extern "C" {
 
-int set_motion_interpolation_flag(void*);
+int set_motion_interpolation_flag__10TObjMotionFv(void*);
 
 }
 
@@ -494,7 +494,7 @@ void TObjPlayer::update_chara_making() {
     pop_matrix();
 }
 
-void TObjPlayer::draw_model_with_arg(void* a1) { *(void* *)&this->_pad34 = a1; set_motion_interpolation_flag(this); draw_model_with_callback(); }
+void TObjPlayer::draw_model_with_arg(void* a1) { *(void* *)&this->_pad34 = a1; set_motion_interpolation_flag__10TObjMotionFv(this); draw_model_with_callback(); }
 
 void TObjPlayer__sub_802E0580(void * _w0, int _w1, void * _w2) {
     ((s32 (*)(f32))TObjPlayer__sub_802E0468)(lbl_805DE8A8);

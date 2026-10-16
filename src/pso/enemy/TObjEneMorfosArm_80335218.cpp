@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMorfosArm.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEnePanarms.h"
@@ -104,7 +105,7 @@ u8 *TObjEneMorfosArm__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
-    ((TObjEnePanarms *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    ((TObjMotion *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     return arg0;
 }
 

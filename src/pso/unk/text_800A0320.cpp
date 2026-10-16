@@ -4,10 +4,10 @@
 extern "C" {
 extern const f32 lbl_805D9958;
 s32 TObjPlayer__sub_800A0320(u8 *arg0);
-s32 calc_recoil_offsets__10TObjPlayerFPv(f32);
+s32 calc_recoil_offsets__13TUnk_80490470Fv(f32);
 extern const f32 lbl_805D995C;
 s32 TObjPlayer__sub_800A0360(u8 *arg0);
-s32 calc_recoil_offsets__10TObjPlayerFPv(f32);
+s32 calc_recoil_offsets__13TUnk_80490470Fv(f32);
 extern const f32 lbl_805D9958;
 }
 
@@ -25,7 +25,7 @@ s32 TObjPlayer__sub_800A0360(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x10));
-    calc_recoil_offsets__10TObjPlayerFPv((f32) (temp_f1));
+    calc_recoil_offsets__13TUnk_80490470Fv((f32) (temp_f1));
     return *(f32 *)((s8 *)arg0 + 0x18) >= lbl_805D995C;
 }
 s32 TObjPlayer::update_recoil_offset() {
@@ -33,7 +33,7 @@ s32 TObjPlayer::update_recoil_offset() {
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 - *(f32 *)((s8 *)arg0 + 0x10));
-    calc_recoil_offsets__10TObjPlayerFPv((f32) (temp_f1));
+    calc_recoil_offsets__13TUnk_80490470Fv((f32) (temp_f1));
     return *(f32 *)((s8 *)arg0 + 0x18) <= lbl_805D9958;
 }
 

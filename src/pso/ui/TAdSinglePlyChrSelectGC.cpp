@@ -136,7 +136,7 @@ void TAdSinglePlyChrSelectGC::run_task() {
     self->prev = self->state;
 }
 
-void TAdSinglePlyChrSelectGC::reset() {
+void TAdSinglePlyChrSelectGC::sub_802D4E08() {
     *(s32 *)((s8 *)this + 0x20) = 0;
     *(s32 *)((s8 *)this + 0x24) = (s32) *(s32 *)((s8 *)this + 0x20);
     *(s32 *)((s8 *)this + 0x2C) = 0;
@@ -177,7 +177,7 @@ u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TAdSinglePlyChrSelectGC;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F40;
-    ((TAdSinglePlyChrSelectGC *)arg0)->reset();
+    ((TAdSinglePlyChrSelectGC *)arg0)->sub_802D4E08();
     p = __nw__7TObjectFUl(0x24);
     if (p != NULL) {
         __ct__9TAdBackGCFv(p, arg0);

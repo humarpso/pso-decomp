@@ -7,6 +7,7 @@
 class TChCrLoadReq : public TObject {
 public:
     virtual ~TChCrLoadReq();
+    void sub_8028CEEC(s32 *);
 public:
     u8 unk_1C[0x44];
     s32 state;

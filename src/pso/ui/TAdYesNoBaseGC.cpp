@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/ui/TAdYesNoBaseGC.h"
 #include "pso/misc/TWindowSubComCard.h"
 
@@ -22,7 +23,7 @@ struct O_8032C118 { u8 pad[0x2C]; s32 sel; };
 extern "C" {
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
-s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0);
+s32 sub_8032C0B4__14TAdYesNoBaseGCFv(u8 *arg0);
 void align_menu_entry_positions(s32);
 void update_layout_height__17TWindowSubComCardFPvf(f32);
 s32 init_shop_judgment_window(void *);
@@ -60,7 +61,8 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 
-s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0) {
+s32 TAdYesNoBaseGC::sub_8032C0B4() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r31;
     temp_r31 = update_window_mode_from_progress__6TLobbyFPv((void *) (arg0 + 0x30), (void *) (arg0 + 0x38));
     send_and_handle__6TLobbyFii((int) (temp_r31), (void *) (((VObj_18 *)(arg0))->m8()), (int) (1));
@@ -96,12 +98,12 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        *(u32 *)((s8 *)arg0 + 0x40) = TAdYesNoBaseGC__sub_8032C0B4((u8 *)(arg0));
+        *(u32 *)((s8 *)arg0 + 0x40) = sub_8032C0B4__14TAdYesNoBaseGCFv((u8 *)(arg0));
         *(u32 *)((s8 *)arg0 + 0x44) = ((TAdYesNoBaseGC *)arg0)->create_menu_window();
         *(s32 *)((s8 *)arg0 + 0x1C) = 1;
         break;
     case 1:
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x44)))->is_visible() != 0) {
+        if (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0x44)))->is_visible() != 0) {
             temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x44));
             switch (temp_r3) {
             case 0:

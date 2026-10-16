@@ -588,7 +588,7 @@ void TItemEquipBase__sub_8010A82C(s32 arg0) {
     s32 sp8;
     s32 temp_r31;
     s32 var_r30;
-    temp_r31 = (((TOSwitchItem *)arg0)->get_field_ec() != 0) ? 3 : 0;
+    temp_r31 = (((TItem *)arg0)->get_field_ec() != 0) ? 3 : 0;
     TItemEquipBase__sub_8010B73C((void *) (&sp8));
     var_r30 = 0;
     do {
@@ -609,7 +609,7 @@ void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *
     if (row == NULL) {
         return;
     }
-    base = (((TOSwitchItem *)arg0)->get_field_ec() != 0) ? 3 : 0;
+    base = (((TItem *)arg0)->get_field_ec() != 0) ? 3 : 0;
     p = row;
     i = 0;
     do {
@@ -911,7 +911,7 @@ void TItemEquipBase::release() {
 void request_model_load__14TItemEquipBaseFPvi(u8 *arg0, s32 arg1) {
     TItemData item_data;
     init__9TItemDataFv((void *) (&item_data.data1.data_u8[0]));
-    item_data.data1.data_u8[0] = ((TOSwitchItem *)arg0)->get_field_ec();
+    item_data.data1.data_u8[0] = ((TItem *)arg0)->get_field_ec();
     item_data.data1.data_u8[1] = arg1;
     item_data.data1.data_u8[2] = ((TItemProShield *)arg0)->get_slot_count();
     *(s16 *)((s8 *)arg0 + 0x172) = request_item_model_load((void *) (&item_data.data1.data_u8[0]));

@@ -36,8 +36,6 @@ struct TObjEneMe3ShinowaMirage
     void update_by_distance();
     void apply_effect_pair();
     void update_player_state_default();
-    f32 get_node_world_y();
-    void init_enemy();
     void render();
     void clear_mirage();
     void set_flag_0x100();

@@ -1,4 +1,6 @@
 #include "pso/TMCFormatSequence.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/TObject.h"
 
 extern "C" void TWindow__close(void*);
 
@@ -1369,10 +1371,10 @@ void TQuestVmDownLoadServer::run_task() {
     case 4:
         if (lbl_805D55C0 != 0) {
             if (m_290 != NULL) {
-                ((TObjLuker *)m_290)->set_flag_4();
+                ((TObject *)m_290)->set_flag_4();
             }
             if (m_29c != NULL) {
-                ((TObjLuker *)m_29c)->set_flag_4();
+                ((TObject *)m_29c)->set_flag_4();
             }
         } else {
             if (m_290 != NULL) {
@@ -1663,7 +1665,7 @@ void TQuestVmDownLoadServer::handle_confirm_window() {
     s32 temp_r3;
 
     if ((u32) *(u32 *)&this->m_290 != 0U) {
-        if (((TWindowSubComCard *)(*(u32 *)&this->m_290))->is_visible() != 0) {
+        if (((TWindowMenu *)(*(u32 *)&this->m_290))->is_visible() != 0) {
             temp_r3 = get_selected_menu_value(*(u32 *)&this->m_290);
             if (temp_r3 == 0) {
                 if ((u32) *(u32 *)&this->m_290 != 0U) {
@@ -2021,7 +2023,7 @@ void TQuestVmDownLoadServer::check_client_connections() {
     {
         if ((s32) lbl_805D55C0 != 0) {
             if ((u32) *(u32 *)&this->m_29c != 0U) {
-                ((TObjLuker *)(*(void * *)&this->m_29c))->set_flag_4();
+                ((TObject *)(*(void * *)&this->m_29c))->set_flag_4();
             }
         } else {
             if ((u32) *(u32 *)&this->m_29c != 0U) {

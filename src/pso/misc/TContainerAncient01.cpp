@@ -65,7 +65,7 @@ s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
+s32 set_field_b8__10TObjMotionFs(void *, int);
 s32 set_field_d8__10TObjPlayerFl(void *, void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 reset_photon_effect__10TObjPlayerFv(void *);
@@ -142,7 +142,7 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&TContainerAncient01__bml_resource) + 0x430);
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
-    set_field_b8__14TObjEnePanarmsFs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    set_field_b8__10TObjMotionFs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&TContainerAncient01__collision_body_parts.value), (int) (1));
     reset_photon_effect__10TObjPlayerFv((void *) (arg0));
@@ -519,7 +519,7 @@ struct Ido_8018C7BC { u8 pad[0xCC]; s32 ids[4]; };
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 void TObjContainerJungEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 extern u32 TObjContainerIdo__model_resource;
 extern u32 container_ido_texture_gvm_handle;
@@ -644,13 +644,13 @@ void TObjContainerJungEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             ((VObj18*)arg0)->m77();
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-            set_flag8__6TLobbyFPv((void *) (arg0));
+            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-        set_flag8__6TLobbyFPv((void *) (arg0));
+        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
     }

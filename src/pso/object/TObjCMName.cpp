@@ -116,7 +116,7 @@ extern const f32 lbl_805DDBA0;
 extern const f32 lbl_805DDBA4;
 extern const f32 lbl_805DDBA8;
 extern const f32 lbl_805DDBAC;
-void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m);
+void sub_80297B18__14TObjCMMainMenuFv(Menu_80297B18 *m);
 s32 request_creation_motion(int);
 s32 TAdSinglePlyChrSelectGC__sub_802905B8();
 s32 rand();
@@ -418,7 +418,7 @@ void * create__16TObjCMAutoMkDataFPv(void *arg0);
 void * __dt__16TObjCMAutoMkDataFv(void *arg0, s16 arg1);
 u8 * TObjCMAutoMkData__ct(u8 *arg0);
 Hair_802964B0 * __ct__14TObjCMHairMenuFv(Hair_802964B0 *arg0, void *arg1);
-void TObjCMAssignMenu__sub_80296648(Menu_80296648 *self);
+void sub_80296648__16TObjCMAssignMenuFv(Menu_80296648 *self);
 void render__16TObjCMAssignMenuFv(Menu_80296928 *self);
 void * create__16TObjCMAssignMenuFPvPv(void *arg0, void *arg1);
 void * __ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind);
@@ -1079,7 +1079,8 @@ extern int fold_flush_2;
 
 #pragma push
 #pragma fp_contract on
-void TObjCMAssignMenu__sub_80296648(Menu_80296648 *self) {
+void TObjCMAssignMenu::sub_80296648() {
+    Menu_80296648 *self = (Menu_80296648 *)this;
     s32 off;
     s32 idx;
     u32 bit;
@@ -1246,11 +1247,11 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
     }
     switch (self->state) {
     case 0:
-        TObjCMAssignMenu__sub_80296648((Menu_80296648 *)(self));
+        sub_80296648__16TObjCMAssignMenuFv((Menu_80296648 *)(self));
         break;
     case 1:
         if (self->owner->flags & 0x10) {
-            TObjCMAssignMenu__sub_80296648((Menu_80296648 *)(self));
+            sub_80296648__16TObjCMAssignMenuFv((Menu_80296648 *)(self));
         } else {
             ((TObjCMAssignMenu *)self)->draw_assign_icons();
         }
@@ -1683,7 +1684,8 @@ extern int fold_flush_6;
 
 #pragma push
 #pragma fp_contract on
-void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
+void TObjCMMainMenu::sub_80297B18() {
+    Menu_80297B18 *m = (Menu_80297B18 *)this;
     s32 v14;
     s32 v10;
     s32 vC;
@@ -1962,7 +1964,8 @@ void TObjCMMainMenu::sub_802984FC() {
 #pragma push
 #pragma fp_contract on
 extern "C" {
-void update_menu_reveal__14TObjCMMainMenuFv(M_80298450 *self) {
+void TObjCMMainMenu::update_menu_reveal() {
+    M_80298450 *self = (M_80298450 *)this;
     f32 v;
     switch (TObjCMMainMenu__data_805D659C) {
     case 3:
@@ -2064,7 +2067,7 @@ void TObjCMMainMenu__sub_80298310(void) {  }
 void TObjCMMainMenu::render() {
     set_depth_buffer_settings_1__Fv();
     draw_footer_divider();
-    TObjCMMainMenu__sub_80297B18((Menu_80297B18*)this);
+    sub_80297B18__14TObjCMMainMenuFv((Menu_80297B18*)this);
     TObjCMMainMenu__sub_802979BC(this);
     render_nodes__7TObjectFv(nodes);
     draw_root_menu();

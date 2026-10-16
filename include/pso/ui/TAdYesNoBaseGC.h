@@ -6,6 +6,7 @@
 
 struct TAdYesNoBaseGC : public TObject {
     virtual ~TAdYesNoBaseGC();
+    s32 sub_8032C0B4();
     u32 m_1c;
     u32 m_20;
     u32 m_24;

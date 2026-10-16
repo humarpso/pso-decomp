@@ -95,7 +95,7 @@ s32 *TLobby__sub_80291D4C(void);
 }
 
 extern "C" {
-void calc_spherical_camera_position(CreationCamera*);
+void calc_spherical_camera_position__13TUnk_804DAB08Fv(CreationCamera*);
 int creation_camera_mode;
 }
 
@@ -156,7 +156,7 @@ void CreationCamera::run_task() {
         &CreationCamera::advance_manual,
     };
     (this->*modes[creation_camera_mode])();
-    calc_spherical_camera_position(this);
+    calc_spherical_camera_position__13TUnk_804DAB08Fv(this);
 }
 
 extern "C" {

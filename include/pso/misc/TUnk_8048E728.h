@@ -6,6 +6,10 @@
 class TUnk_8048E728 : public TObject {
 public:
     virtual ~TUnk_8048E728();
+    void free_from_heap();
+    void apply_particle_model_fade_color(s32);
+    void draw_particle_refraction_quad();
+    s32 is_particle_sprite_additive();
     u8 unk_1C[0x4];
     void * m_20;
     u8 unk_24[0x4];

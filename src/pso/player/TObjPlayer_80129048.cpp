@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/TItemShootModel.h"
 
 extern "C" {
 
 void *TObjPlayer__sub_80129048(void *arg0, s16 arg1);
 s32 TObjPlayer__sub_801290D0(u8 *arg0);
-void TObjPlayer__sub_80129118(u8 *arg0, s32 arg1, s32 arg2);
+void sub_80129118__15TItemShootModelFll(u8 *arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_80129124(void* p);
 void clear_rico_ring_flag__10TObjPlayerFUi(u32 arg0);
 int rotate_matrix_z(void*, void*);
@@ -56,7 +57,8 @@ extern "C" {
 
 }
 
-void TObjPlayer__sub_80129118(u8 *arg0, s32 arg1, s32 arg2) {
+void TItemShootModel::sub_80129118(s32 arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x58) = arg1;
     *(s32 *)((s8 *)arg0 + 0x5C) = arg2;
 }

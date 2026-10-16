@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 extern "C" void vfunc_27__13TUnk_804B6C24FPvlf();
 #include "pso/item/TObjContainerItem.h"
 #include "pso/item/TObjContainerBase.h"
@@ -195,7 +196,7 @@ extern "C" {
 
 void vfunc_80__17TObjContainerItemFv(void *arg0);
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1);
-s32 request_box_item_drop(s32, void *, s32, void *);
+s32 request_box_item_drop__13TUnk_804806E8FPvs(s32, void *, s32, void *);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 submit_cursor_candidate(void *, s32);
@@ -258,9 +259,9 @@ u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjContainerItem::spawn_item(s32 arg1) {
+void TUnk_804B6C24::spawn_item(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    request_box_item_drop(arg1, arg0 + 0x38, this->m_360, arg0);
+    request_box_item_drop__13TUnk_804806E8FPvs(arg1, arg0 + 0x38, this->m_360, arg0);
 }
 void play_container_break_sound(s32 arg0) {
     u32 temp_r3;

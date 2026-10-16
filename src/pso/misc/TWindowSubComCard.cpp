@@ -52,7 +52,7 @@ void vfunc_7__12TQuestListVMFv(void *arg0);
 void vfunc_9__12TQuestListVMFv(void *arg0);
 s32 vfunc_10__12TQuestListVMFv(void *arg0);
 
-s32 TShopWindowBase__sub_80223A48(void *);
+s32 sub_80223A48__15TShopWindowBaseFv(void *);
 u32 get_serial_access__22TQuestVmDownLoadServerFv();
 s32 poll_serial_access__22TQuestVmDownLoadServerFv();
 
@@ -82,7 +82,7 @@ int TQuestListVM::vfunc_10() {
         if (((VObj_8021845C_802183B4 *)temp_r3)->m8() == 0) {
             return 0;
         }
-        return TShopWindowBase__sub_80223A48(this) ? 1 : 0;
+        return sub_80223A48__15TShopWindowBaseFv(this) ? 1 : 0;
     }
     return 1;
 }

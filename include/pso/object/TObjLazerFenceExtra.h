@@ -5,6 +5,8 @@
 
 struct TObjLazerFenceExtra
 {
+    void draw_lazer_fence_extra_model();
+    void init_models();
     void render();
     void run_task();
     u8 _pad1C[0x14];

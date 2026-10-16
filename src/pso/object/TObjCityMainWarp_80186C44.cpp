@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCityMainWarpChallenge.h"
 #include "pso/object/TObjCityMainWarp.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -53,7 +54,7 @@ void TObjCityMainWarp::close_windows() {
     ((TWindowCtrl *)local_client_id)->unsuppress_slot();
 }
 
-void TObjCityMainWarp::send_6x6A_set_boss_warp_flags(u16 value) {
+void TObjCityMainWarpChallenge::send_6x6A_set_boss_warp_flags(u16 value) {
     Obj_80186CC8 *self = (Obj_80186CC8 *)this;
     Pkt_80186CC8 pkt;
     ((TWindowSubTradeMain *)(&pkt))->init_pkt_cmd_6A();
@@ -72,7 +73,7 @@ void TObjCityMainWarp::notify_player_warp(void *arg0, s32 arg1) {
     }
 }
 
-void TObjCityMainWarp::trigger_warp_effect(s32 arg1) {
+void TObjCityMainWarpChallenge::trigger_warp_effect(s32 arg1) {
     s32 temp_r3;
 
     temp_r3 = get_player_by_client_id(arg1);

@@ -50,15 +50,15 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon);
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1);
-int spawn_gryphon_lightning(void*);
+int spawn_gryphon_lightning__22TBoss5GryphonLightningFv(void*);
 int fn_80325F7C(void*);
-int rebuild_lightning_segments(void*);
+int rebuild_lightning_segments__26TBoss5GryphonLightningHornFv(void*);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1);
 
 void TBoss5GryphonLightningHorn::render() {  }
-void TBoss5GryphonLightningHorn::run_task() { rebuild_lightning_segments(this); fn_80325F7C(this); spawn_gryphon_lightning(this); }
+void TBoss5GryphonLightningHorn::run_task() { rebuild_lightning_segments__26TBoss5GryphonLightningHornFv(this); fn_80325F7C(this); spawn_gryphon_lightning__22TBoss5GryphonLightningFv(this); }
 TBoss5GryphonLightningHorn::~TBoss5GryphonLightningHorn() {}
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;

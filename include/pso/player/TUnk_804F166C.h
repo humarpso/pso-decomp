@@ -6,6 +6,7 @@
 class TUnk_804F166C : public TObject {
 public:
     virtual ~TUnk_804F166C();
+    void update_inward_orbit_point();
     virtual void render();
     virtual void run_task();
     u8 unk_1C[0x24];

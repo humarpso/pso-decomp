@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/TQuestThread.h"
 #include "pso/misc/TWindowSubComCard.h"
 
@@ -17,7 +18,7 @@ s32 TQuestThread::tick_com_card() {
 s32 TQuestThread::update_board_card() {
     void *temp_r3 = *(void **)((s8 *)this + 0x60);
     if (temp_r3 != NULL) {
-        return ((TWindowSubComCard *)temp_r3)->is_visible();
+        return ((TWindowMenu *)temp_r3)->is_visible();
     }
     return 0;
 }

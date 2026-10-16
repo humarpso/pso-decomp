@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TWindowSubEquip.h"
 
 extern "C" {
@@ -27,7 +28,7 @@ f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1) {
     return *(f32 *)((s8 *)arg0 + 0x58) - (f32) arg1;
 }
 
-void TWindowSubEquip::set_scale_f() { *(float*)((char*)this + 0x58) = lbl_805DD138; }
+void TWindowMainMenu::set_scale_f() { *(float*)((char*)this + 0x58) = lbl_805DD138; }
 
 void TWindowSubEquip::open_submenu(s32 arg0, s32 arg1) {
     destroy_submenu__15TWindowMainMenuFPv();

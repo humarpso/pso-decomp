@@ -242,7 +242,7 @@ struct RecoveredFields_800C3088_arg0
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(int);
-s32 get_flag_b4__21TObjEneMe3ShinowaRealFv(void *);
+s32 get_flag_b4__9TObjEneDDFv(void *);
 u32 create_particle_emitter(void *, int);
 s32 copy_pos__11TNowLoadingFPv(int, void *);
 s32 enable__13TParticleCtrlFPv(int);
@@ -265,7 +265,7 @@ extern u8 *lbl_805D5170;
 extern const f32 lbl_805D9FD8;
 extern const f32 lbl_805D9FDC;
 void fn_800C32DC(u8 *arg0, s32 arg1);
-s32 enemy_check_target_valid(void *);
+s32 enemy_check_target_valid__12TObjEneDD_STFv(void *);
 s32 enemy_validate_retained_target(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
@@ -338,7 +338,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
       else
         if (objInBand__FP7GameObjf((void *) arg0, (f32) lbl_805D9FC4) != 0)
       {
-        if (enemy_check_target_valid((void *) arg0) != 0)
+        if (enemy_check_target_valid__12TObjEneDD_STFv((void *) arg0) != 0)
         {
           temp_r3 = (u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390;
           if (PSO_VCALL_VObj_18_880cfd_m18(temp_r3, arg0, lbl_805D9FC0) != 0)
@@ -385,7 +385,7 @@ void fn_800C32DC(u8 *arg0, s32 arg1) {
         *(u32 *)((s8 *)arg0 + 0x428) = 0U;
         break;
     case 3:
-        if ((check_hit_flag__16TObjEneRe2FlowerFv((void *) (arg0)) == 0) && (get_flag_b4__21TObjEneMe3ShinowaRealFv((void *) (arg0)) != 0)) {
+        if ((check_hit_flag__16TObjEneRe2FlowerFv((void *) (arg0)) == 0) && (get_flag_b4__9TObjEneDDFv((void *) (arg0)) != 0)) {
             transition_enemy_state((void *) (arg0), (int) (3));
             break;
         }

@@ -6,6 +6,8 @@
 
 struct TWindowHelpItem
 {
+    void sub_80255E24();
+    void set_flag60_bit4();
     u32 m_00;
     u8 unk_4[0xC];
     s32 m_10;

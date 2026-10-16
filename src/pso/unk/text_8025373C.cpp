@@ -22,7 +22,7 @@ struct Mag_8025373C {
 
 extern "C" {
 void deserialize_mag__9TItemDataFPvPv(s32, Mag_8025373C *);
-Entry_8025373C *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+Entry_8025373C *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void update_mag_status_gauges__9TItemDataFPv(void *);
 s32 TWindowHelpItem__sub_80255DDC(Entry_8025373C *);
 extern const f32 TWindowHelpItem__data_805DCDE4;
@@ -40,35 +40,35 @@ s32 fn_8025373C(u8 *self) {
     s32 count;
     ((TItemData *)(&mag))->initialize_mag_data();
     deserialize_mag__9TItemDataFPvPv(*(s32 *)(self + 0x68), &mag);
-    help = get_array_entry__20TWindowSubStatusDispFi(self, 0);
-    panel = get_array_entry__20TWindowSubStatusDispFi(self, 0xF);
+    help = get_array_entry__13TUnk_804CE018Fi(self, 0);
+    panel = get_array_entry__13TUnk_804CE018Fi(self, 0xF);
     count = TWindowHelpItem__sub_80255DDC(help);
-    num = get_array_entry__20TWindowSubStatusDispFi(self, 4);
-    bar = get_array_entry__20TWindowSubStatusDispFi(self, 5);
+    num = get_array_entry__13TUnk_804CE018Fi(self, 4);
+    bar = get_array_entry__13TUnk_804CE018Fi(self, 5);
     if (num->value < ((TItemData *)(&mag))->get_stat_percent()) {
         num->value++;
         bar->timer = TWindowHelpItem__data_805DCDE4;
         count++;
         ((VEntry_8025373C *)bar)->m3();
     }
-    num = get_array_entry__20TWindowSubStatusDispFi(self, 7);
-    bar = get_array_entry__20TWindowSubStatusDispFi(self, 8);
+    num = get_array_entry__13TUnk_804CE018Fi(self, 7);
+    bar = get_array_entry__13TUnk_804CE018Fi(self, 8);
     if (num->value < ((TItemData *)(&mag))->get_percent()) {
         num->value++;
         count++;
         bar->timer = TWindowHelpItem__data_805DCDE4;
         ((VEntry_8025373C *)bar)->m3();
     }
-    num = get_array_entry__20TWindowSubStatusDispFi(self, 0xA);
-    bar = get_array_entry__20TWindowSubStatusDispFi(self, 0xB);
+    num = get_array_entry__13TUnk_804CE018Fi(self, 0xA);
+    bar = get_array_entry__13TUnk_804CE018Fi(self, 0xB);
     if (num->value < ((TItemData *)(&mag))->get_level()) {
         num->value++;
         bar->timer = TWindowHelpItem__data_805DCDE4;
         count++;
         ((VEntry_8025373C *)bar)->m3();
     }
-    num = get_array_entry__20TWindowSubStatusDispFi(self, 0xD);
-    bar = get_array_entry__20TWindowSubStatusDispFi(self, 0xE);
+    num = get_array_entry__13TUnk_804CE018Fi(self, 0xD);
+    bar = get_array_entry__13TUnk_804CE018Fi(self, 0xE);
     if (num->value < ((TItemData *)(&mag))->get_mag_mind_level()) {
         num->value++;
         bar->timer = TWindowHelpItem__data_805DCDE4;

@@ -6,7 +6,7 @@
 
 extern "C" {
 s32 advance_field28__23TAdSinglePlyChrSelectGCFv();
-s32 fn_800FFC6C();
+s32 sub_800FFC6C__18TObjTailsTailsMoveFv();
 void *__nw__7TObjectFUl(int);
 void *TObjTailsTailsMove__ct(void *, void *);
 }
@@ -29,7 +29,7 @@ void TObjTailsTailsMove::run_task() {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
     switch (temp_r0) {
     case 0:
-        fn_800FFC6C();
+        sub_800FFC6C__18TObjTailsTailsMoveFv();
         return;
     case 1:
         advance_field28__23TAdSinglePlyChrSelectGCFv();

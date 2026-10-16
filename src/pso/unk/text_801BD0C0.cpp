@@ -134,11 +134,11 @@ extern "C" {
 u16 obj_getField1c(void *);
 void select_class_action_provider__10TObjPlayerFPv(void *, s32);
 extern s32 TObjPlayer__shared_model_buffer;
-void TObjPlayer__sub_801BD240(P_801BD240 *arg0);
+void sub_801BD240__10TObjPlayerFv(P_801BD240 *arg0);
 s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s32 get_idle_animation__10TObjPlayerFPv();
-void set_motion_interpolation_flag(void *);
+void set_motion_interpolation_flag__10TObjMotionFv(void *);
 Anim_801BD0C0 *get_anim_entry__10TObjPlayerFi(void *, s32);
 s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
@@ -159,7 +159,7 @@ void TObjPlayer::apply_motion_entry() {
     self->fb0 &= ~4;
     self->fb4 = a->flags;
     if (self->fb4 & 0x20000000) {
-        set_motion_interpolation_flag(self);
+        set_motion_interpolation_flag__10TObjMotionFv(self);
     }
     if (self->frame >= self->end) {
         self->frame = TObjPlayer__data_805DC278;
@@ -171,7 +171,8 @@ void TObjPlayer::init_idle_animation() {
     ((TObjPlayer *)arg0)->init_npc_animation((void*)((void *)arg0->anim->m5(has_valid_handle__10TObjPlayerFPv(arg0), get_handle_value__10TObjPlayerFPv(arg0))), (void*)(arg0->anim->m74()), (void*)(get_idle_animation__10TObjPlayerFPv()));
 }
 
-void TObjPlayer__sub_801BD240(P_801BD240 *arg0) {
+void TObjPlayer::sub_801BD240() {
+    P_801BD240 *arg0 = (P_801BD240 *)this;
     s32 t = obj_getField1c(arg0) * 0xC00;
     arg0->fE0 = TObjPlayer__shared_model_buffer + t;
     select_class_action_provider__10TObjPlayerFPv(arg0, t);

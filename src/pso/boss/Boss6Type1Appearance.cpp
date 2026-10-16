@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Demo10_TYPE1_APPEAR.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -63,7 +64,7 @@ extern "C" {
 
 u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1);
 void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p);
-void TBoss6Demo10_TYPE1_APPEAR__draw_models(void *arg0);
+void sub_8033C7C8__25TBoss6Demo10_TYPE1_APPEARFv(void *arg0);
 void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0);
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 s32 restore_player_cameras();
@@ -78,21 +79,21 @@ s32 clear_render_callback__8TObjFishFv(s32);
 
 extern s32 lbl_80477DEC[];
 
-void TBoss6Demo10_TYPE1_APPEAR__draw_models(void *arg0) {
+void TBoss6Demo10_TYPE1_APPEAR::sub_8033C7C8() {
     push_matrix();
     TObjPlayer::set_global_flag();
     post_translate_matrix(lbl_80477DEC);
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x20));
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x1C), *(s32 *)((s8 *)arg0 + 0x24), *(f32 *)((s8 *)arg0 + 0x34));
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x2C));
-    ((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x60)))->set_draw_callback_list();
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x28), *(s32 *)((s8 *)arg0 + 0x30), *(f32 *)((s8 *)arg0 + 0x34));
-    clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0x60));
+    TObjFish::set_global_param(*(s32 *)((s8 *)this + 0x20));
+    draw_model_motion(*(s32 *)((s8 *)this + 0x1C), *(s32 *)((s8 *)this + 0x24), *(f32 *)((s8 *)this + 0x34));
+    TObjFish::set_global_param(*(s32 *)((s8 *)this + 0x2C));
+    ((TObjFish *)(*(s32 *)((s8 *)this + 0x60)))->set_draw_callback_list();
+    draw_model_motion(*(s32 *)((s8 *)this + 0x28), *(s32 *)((s8 *)this + 0x30), *(f32 *)((s8 *)this + 0x34));
+    clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)this + 0x60));
     TObjPlayer::clear_global_state();
     pop_matrix();
 }
 
-void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { TBoss6Demo10_TYPE1_APPEAR__draw_models((void *)((void *)(p))); }
+void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { sub_8033C7C8__25TBoss6Demo10_TYPE1_APPEARFv((void *)((void *)(p))); }
 
 extern const s32 __vt__25TBoss6Demo10_TYPE1_APPEAR[];
 

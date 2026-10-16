@@ -6,6 +6,9 @@
 class TUnk_8048E1A4 : public TUnk_804806E8 {
 public:
     virtual ~TUnk_8048E1A4();
+    void freeze_shell_grow();
+    s32 freeze_shell_hold();
+    void update_freeze_shell_timer();
     virtual void vfunc_25(u8 *);
     virtual f32 vfunc_24(void *, void *);
     virtual f32 vfunc_23(void *, void *, void *, s32, s32);

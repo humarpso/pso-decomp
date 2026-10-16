@@ -6,6 +6,8 @@
 class TBoss6DPB : public TObject {
 public:
     virtual ~TBoss6DPB();
+    void apply_shower_damage_to_players();
+    void sub_8035D8B0();
     virtual void run_task();
     virtual void render();
 public:

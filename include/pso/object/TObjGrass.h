@@ -6,6 +6,10 @@
 
 struct TObjGrass : public TObjEnemy {
     virtual ~TObjGrass();
+    s32 sub_800BE75C();
+    void sub_800BDD70();
+    void sub_800BD4D8();
+    s32 sub_800BCE44();
     void* m_374;
     u8 _pad378[0x8];
     void* m_380;

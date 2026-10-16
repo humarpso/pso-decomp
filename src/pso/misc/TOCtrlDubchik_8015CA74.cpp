@@ -238,8 +238,8 @@ struct Obj_8015D518 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 send_6x0A_enemy_state(void *, void *);
-s32 exchange_object_state__6TLobbyFls(void *, void *, int);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 bm_fs_obj_zombie_con_resource_descriptor;
 extern u32 TOCtrlDubchik__shared_resource;
@@ -355,13 +355,13 @@ void TOCtrlDubchik__sub_8015CA74(void *arg0_) {
 void TOCtrlDubchik::complete_and_destroy() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    if (exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
+    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
         sp8 = 1;
         send_6x0A_enemy_state((void *) (arg0), (void *) (&sp8));
-        exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&sp8), (int) (0));
+        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&sp8), (int) (0));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         TOCtrlDubchik__sub_8015CA74((void *)((void *) (arg0)));
-        set_flag8__6TLobbyFPv((void *) (arg0));
+        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/misc/TODoorAncient01.h"
 #include "pso/player/TObjPlayer.h"
@@ -149,7 +150,7 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TOBarrierEnergy01::update_anim_phase() {
+void TUnk_804AFBF8::update_anim_phase() {
     f32 temp_f0;
     f32 temp_f1;
 

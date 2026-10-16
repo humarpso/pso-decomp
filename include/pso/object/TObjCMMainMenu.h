@@ -5,6 +5,8 @@
 class TObjCMMainMenu : public TObject {
 public:
     virtual ~TObjCMMainMenu();
+    void update_menu_reveal();
+    void sub_80297B18();
     virtual void run_task();
     virtual void render();
     void handle_creation_input();

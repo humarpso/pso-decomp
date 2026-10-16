@@ -6,6 +6,7 @@
 
 struct TObjVoloptCage : public TObjEnemyCustom {
     virtual ~TObjVoloptCage();
+    void sub_80049000();
     u8 unk_38C[0x4];
     u32 m_390;
     void update_state();

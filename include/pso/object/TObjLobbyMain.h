@@ -6,6 +6,13 @@
 
 struct TObjLobbyMain : public TUnk_804AFBF8 {
     virtual ~TObjLobbyMain();
+    void update_fade();
+    void update_fade_in();
+    void advance_motion_frame();
+    void update_particles();
+    void update_emitter_positions();
+    void set_mode_index_from_state();
+    void resolve_theme_index();
     u32 m_c8;
     u8 _padCC[0x4];
     s16 m_d0;

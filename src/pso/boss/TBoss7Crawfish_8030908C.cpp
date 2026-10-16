@@ -106,7 +106,7 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
+s32 set_field_b8__10TObjMotionFs(void *, int);
 s32 fn_8002B630(void *, void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv();
@@ -218,7 +218,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)((u8 *)TBoss7Crawfish__shared_resource) + 0x430)));
     ((TBoss7Crawfish *)arg0)->set_anim_timer((int) (2));
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
-    set_field_b8__14TObjEnePanarmsFs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    set_field_b8__10TObjMotionFs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     ((TObjPlayer *)arg0)->add_flags_2e4((int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     if (TBoss7Crawfish__sub_80308AA8((void *) (arg0)) != 0) {

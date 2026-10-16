@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdGameStartShadowGC.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 
@@ -12,12 +13,13 @@ s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern s32 TAdGameStartShadowGC__texture_list;
 extern const f32 lbl_805DF478;
-void fn_80320B38(W_80320B38 *arg0);
+void sub_80320B38__20TAdGameStartShadowGCFv(W_80320B38 *arg0);
 }
 
 extern "C" {
 
-void fn_80320B38(W_80320B38 *arg0) {
+void TAdGameStartShadowGC::sub_80320B38() {
+    W_80320B38 *arg0 = (W_80320B38 *)this;
     u32 i;
     begin_screen_draw(1);
     TObjFish::set_global_param((s32)((void *)TAdGameStartShadowGC__texture_list));

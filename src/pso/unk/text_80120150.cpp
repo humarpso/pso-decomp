@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/player/TObjPlayer.h"
 
 struct WeaponCallbackBase { u8 padding[0x18]; };
@@ -77,11 +78,11 @@ typedef struct Dst_80120454 { u8 pad[3]; u8 f3; u8 f4; u8 pad2; u8 ents[6]; } Ds
 
 extern "C" {
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
-void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
+void clear_equip_flags__11TItemWeaponFUl(void *, u32);
 extern const f32 lbl_805DAC98;
 extern const f32 lbl_805DAC9C;
 extern const f32 lbl_805DACA0;
-void advance_weapon_photon_phase(u8 *arg0);
+void advance_weapon_photon_phase__11TItemWeaponFv(u8 *arg0);
 extern s16 weapon_node_material_index;
 extern s16 TObjPlayer__weapon_node_ids[];
 extern u8* weapon_render_callback_object;
@@ -124,7 +125,8 @@ void apply_weapon_node_material() {
 
 #pragma push
 #pragma opt_common_subs off
-void advance_weapon_photon_phase(u8 *arg0) {
+void TItemWeapon::advance_weapon_photon_phase() {
+    u8 *arg0 = (u8 *)this;
     if (((TObjPlayer *)arg0)->test_flags_1b8(0x02000000U) == 0U) {
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C8) + lbl_805DACA0);
     } else {
@@ -136,7 +138,7 @@ void advance_weapon_photon_phase(u8 *arg0) {
     }
     if (*(f32 *)((s8 *)arg0 + 0x1C8) <= lbl_805DAC98) {
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DAC98;
-        clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x02000000U);
+        clear_equip_flags__11TItemWeaponFUl(arg0, 0x02000000U);
     }
 }
 #pragma pop

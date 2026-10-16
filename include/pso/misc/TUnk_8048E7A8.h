@@ -6,6 +6,7 @@
 class TUnk_8048E7A8 : public TUnk_8048E728 {
 public:
     virtual ~TUnk_8048E7A8();
+    void check_radial_particle_retire();
     virtual void render();
     u8 unk_C0[0x4];
 };

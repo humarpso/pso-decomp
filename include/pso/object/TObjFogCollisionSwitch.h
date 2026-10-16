@@ -6,6 +6,7 @@
 
 struct TObjFogCollisionSwitch : public TObjFogCollision {
     virtual ~TObjFogCollisionSwitch();
+    s32 sub_80153A0C();
     virtual void vfunc_14();
     virtual void vfunc_13(s32);
     virtual void run_task();};

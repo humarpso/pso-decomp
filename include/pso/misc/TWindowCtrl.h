@@ -96,7 +96,6 @@ struct TWindowCtrl : public TObject {
     int is_enabled();
     int is_visible();
     s16 get_field_20();
-    s16 get_width();
     s32 get_active_menu();
     void update_short_list_request();
     void show_active_window();

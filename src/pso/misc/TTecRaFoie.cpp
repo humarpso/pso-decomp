@@ -94,7 +94,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 #define VecCopy__FP3VecPC3Vec ((void (*)(Vec_80237DAC *, const Vec_80237DAC *))VecCopy__FP3VecPC3Vec)
 void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
-void spawn_rafoie_explosion_bursts(Obj_80237DAC *self);
+void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
 
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
@@ -179,7 +179,8 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 #undef self
 #pragma pop
 
-void spawn_rafoie_explosion_bursts(Obj_80237DAC *self) {
+void TUnk_804CCB28::spawn_rafoie_explosion_bursts() {
+    Obj_80237DAC *self = (Obj_80237DAC *)this;
     Vec_80237DAC higher;
     u32 i;
     VecCopy__FP3VecPC3Vec(&higher, &self->position);
@@ -281,7 +282,7 @@ void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self) {
 #undef destroy_technique_base__9TTecLukerFPvs
 #undef spawn_particle_effect
 #undef mem_free
-#define spawn_rafoie_explosion_bursts ((s32 (*)(void *))spawn_rafoie_explosion_bursts)
+#define spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv ((s32 (*)(void *))spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv)
 
 #include <stddef.h>
 #include "pso/misc/TTecRaFoie.h"
@@ -794,7 +795,7 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x28));
     stack.spC += (5.0f);
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (&stack.sp8));
-    spawn_rafoie_explosion_bursts((void *) (arg0));
+    spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv((void *) (arg0));
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
@@ -830,7 +831,7 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x28));
     stack.spC += (5.0f);
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (&stack.sp8));
-    spawn_rafoie_explosion_bursts((void *) (arg0));
+    spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv((void *) (arg0));
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
@@ -1066,4 +1067,4 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level);
 
 }
 
-#undef spawn_rafoie_explosion_bursts
+#undef spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv

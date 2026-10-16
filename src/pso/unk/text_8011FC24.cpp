@@ -125,12 +125,12 @@ extern "C" {
 
 void TObjPlayer__sub_80100F34(void*);
 void bind_loaded_resources__14TItemEquipBaseFv(void*);
-void clear_equip_flags__10TObjPlayerFPvUi(void*,u32);
+void clear_equip_flags__11TItemWeaponFUl(void*,u32);
 void set_status_flags__10TObjPlayerFPvUi(void*,u32);
 s32 test_flag30_bit0x100000__10TObjPlayerFv(void*);
 void register_technique_boosts__14TItemEquipBaseFPvPv(void*,void*);
 s32 obj_isState7_324(void*);
-void advance_weapon_photon_phase(void*);
+void advance_weapon_photon_phase__11TItemWeaponFv(void*);
 s32 get_flag_40__8TItemMagFv(void*);
 void TItemEffectWeapon__sub_8036340C(void*);
 void TItemEffectWeapon__sub_80363410(void*);
@@ -222,11 +222,11 @@ void TItemWeapon::update_active_weapon() {
         bind_loaded_resources__14TItemEquipBaseFv(self);
         stage=((TItemWeapon *)self)->get_attack_stage();
         if(stage!=self->stage) {
-            clear_equip_flags__10TObjPlayerFPvUi(self,0x1000000);
+            clear_equip_flags__11TItemWeaponFUl(self,0x1000000);
             self->stage=stage;
         }
         if(stage>=0) set_status_flags__10TObjPlayerFPvUi(self,0x10);
-        else clear_equip_flags__10TObjPlayerFPvUi(self,0x10);
+        else clear_equip_flags__11TItemWeaponFUl(self,0x10);
         if(stage>=0 || test_flag30_bit0x100000__10TObjPlayerFv(self->player)) self->update_attack();
         else self->update_idle();
         if(self->motion) {
@@ -236,7 +236,7 @@ void TItemWeapon::update_active_weapon() {
         }
         register_technique_boosts__14TItemEquipBaseFPvPv(self,self->material);
         self->update_weapon();
-        if(!obj_isState7_324(self->player)) advance_weapon_photon_phase(self);
+        if(!obj_isState7_324(self->player)) advance_weapon_photon_phase__11TItemWeaponFv(self);
         if(get_flag_40__8TItemMagFv(self)) {
             count=0;
             do {

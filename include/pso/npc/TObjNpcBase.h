@@ -6,6 +6,8 @@
 
 struct TObjNpcBase : public TObjEnemy {
     virtual ~TObjNpcBase();
+    void sub_80149360(s32);
+    void sub_80149358(s32);
     virtual void vfunc_83();
     virtual void vfunc_59();
     virtual void vfunc_58();

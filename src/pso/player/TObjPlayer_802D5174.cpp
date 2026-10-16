@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804E21F8.h"
 
 struct Vec_802D52E8 { f32 x, y, z; };
 
@@ -300,7 +301,7 @@ void pop_matrix(void);
 void post_translate_matrix(void *);
 extern V_802D577C lbl_8047259C;
 extern V_802D577C player_pb_zero_vec_block;
-void TObjPlayer__sub_802D577C(void *arg0_);
+void sub_802D577C__13TUnk_804E21F8Fv(void *arg0_);
 }
 
 extern "C" {
@@ -373,14 +374,14 @@ void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x) {
     if (x < 5) self->v = x;
 }
 
-void TObjPlayer__sub_802D577C(void *arg0_) {
+void TUnk_804E21F8::sub_802D577C() {
     V_802D577C *pb;
     V_802D577C *pa;
     u8 *p;
     u8 *q;
     s32 ang2;
     s16 n;
-    u8 *arg0 = (u8 *) arg0_;
+    u8 *arg0 = (u8 *) this;
     s32 ang;
     s32 step;
     s32 step2;
@@ -431,7 +432,7 @@ void tick_mag_effect_counter__10TObjPlayerFPv(void *arg0) {
         }
         *(s16 *)((s8 *)arg0 + 0x248) = 0;
     }
-    TObjPlayer__sub_802D577C((void *)(arg0));
+    sub_802D577C__13TUnk_804E21F8Fv((void *)(arg0));
 }
 
 }
@@ -466,7 +467,7 @@ extern "C" {
 
 void reset_animation_state__10TObjPlayerFPv(void *arg0);
 f32 TObjPlayer__sub_8017A1A4(s32, s32);
-s32 TObjPlayer__sub_802D577C(void *);
+s32 sub_802D577C__13TUnk_804E21F8Fv(void *);
 
 extern f32 lbl_805DE790;
 
@@ -475,7 +476,7 @@ void reset_animation_state__10TObjPlayerFPv(void *arg0) {
     *(s16 *)((s8 *)arg0 + 0x24A) = 0;
     *(f32 *)((s8 *)arg0 + 0x24C) = (f32) (lbl_805DE790 + TObjPlayer__sub_8017A1A4(*(s32 *)((s8 *)arg0 + 0xF0), 0));
     *(s32 *)((s8 *)arg0 + 0x250) = 0;
-    TObjPlayer__sub_802D577C(arg0);
+    sub_802D577C__13TUnk_804E21F8Fv(arg0);
 }
 
 S_802D595C *init_mag_effect_state__10TObjPlayerFPv(S_802D595C *arg0) {

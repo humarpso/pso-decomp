@@ -98,7 +98,7 @@ s32 TWindowKeyBoardSoft__sub_80261DD8(void *, int);
 s32 TWindowKeyBoardSoft__sub_8026227C(void *, int);
 void render__19TWindowKeyBoardSoftFv(s32 arg0);
 s32 TWindowSubMag__sub_802627D8(s32);
-s32 get_flag_bit5__13TWindowSubMagFv();
+s32 get_flag_bit5__19TWindowKeyBoardSoftFv();
 
 extern RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_8044F124 TWindowKeyBoardSoft__data_8044F124;
 extern RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_804CB7C8 TWindowKeyBoardSoft__data_804CB7C8;
@@ -127,7 +127,7 @@ extern RecoveredGlobal_80260808_lbl_8050E208 controller_input_state;
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2) {
     switch ((s32) current_language) {
     case 0:
-        if ((get_flag_bit5__13TWindowSubMagFv() != 0) || (((TWindowSubMag *)arg0)->get_flag_bit6() != 0) || (((TWindowSubMag *)arg0)->is_cursor_locked() != 0)) {
+        if ((get_flag_bit5__19TWindowKeyBoardSoftFv() != 0) || (((TWindowKeyBoardSoft *)arg0)->get_flag_bit6() != 0) || (((TWindowKeyBoardSoft *)arg0)->is_cursor_locked() != 0)) {
             *arg1 = 4;
             *arg2 = 4;
             return;
@@ -141,7 +141,7 @@ void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg
         *arg2 = 5;
         return;
     case 1:
-        if ((get_flag_bit5__13TWindowSubMagFv() != 0) || (((TWindowSubMag *)arg0)->get_flag_bit6() != 0) || (((TWindowSubMag *)arg0)->is_cursor_locked() != 0)) {
+        if ((get_flag_bit5__19TWindowKeyBoardSoftFv() != 0) || (((TWindowKeyBoardSoft *)arg0)->get_flag_bit6() != 0) || (((TWindowKeyBoardSoft *)arg0)->is_cursor_locked() != 0)) {
             *arg1 = 0;
             *arg2 = 0;
             return;
@@ -152,7 +152,7 @@ void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg
     case 2:
     case 3:
     case 4:
-        if ((get_flag_bit5__13TWindowSubMagFv() != 0) || (((TWindowSubMag *)arg0)->get_flag_bit6() != 0) || (((TWindowSubMag *)arg0)->is_cursor_locked() != 0)) {
+        if ((get_flag_bit5__19TWindowKeyBoardSoftFv() != 0) || (((TWindowKeyBoardSoft *)arg0)->get_flag_bit6() != 0) || (((TWindowKeyBoardSoft *)arg0)->is_cursor_locked() != 0)) {
             *arg1 = 0;
             *arg2 = 0;
             return;

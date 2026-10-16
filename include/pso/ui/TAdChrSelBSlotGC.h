@@ -6,13 +6,13 @@
 
 struct TAdChrSelBSlotGC : public TObject {
     virtual ~TAdChrSelBSlotGC();
+    void sub_8030FE04();
     virtual void render();
     virtual void run_task();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
     void create_children();
-    void reset();
     static void render(void *self);
     static bool is_slot_state_one(s32 arg0, u32 arg1);
     void set_load_state();

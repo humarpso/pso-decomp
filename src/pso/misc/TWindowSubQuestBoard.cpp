@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSubQuestBoardSelect.h"
 #include "pso/misc/TUnk_804D1818.h"
 #include "pso/misc/TWindowSubQuestBoard.h"
 #include "pso/TObject.h"
@@ -38,13 +40,13 @@ extern s32 __vt__20TWindowSubQuestBoard[];
 extern void *TWindowSubTradeMessage__name;
 void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 create_option_menu_window(void *);
+s32 create_option_menu_window__13TUnk_804D1818Fv(void *);
 extern s32 __vt__19TWindowSubQuestBoard[];
 u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2);
 void TWindow__close(void *);
 s32 get_selected_menu_value(s32);
-s32 update_quest_board_card_flags(void *);
-u32 TWindowSubStatusDisp__sub_8027C884(void *, s32);
+s32 update_quest_board_card_flags__13TUnk_804D1818Fv(void *);
+u32 sub_8027C884__13TUnk_804D1818Fl(void *, s32);
 void run_task__13TUnk_804D1818Fv(void *arg0);
 s32 create_instance__17TQuestThreadBoardFi(s32);
 s8 get_page_index__20TWindowSubQuestBoardFv(s32);
@@ -83,17 +85,17 @@ void TUnk_804D1818::run_task() {
             *(u8 *)((s8 *)this + 0x1C) = 5;
             break;
         }
-        if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x28)))->is_visible() != 0) {
+        if (((TWindowMenu *)(*(s32 *)((s8 *)this + 0x28)))->is_visible() != 0) {
             *(u8 *)((s8 *)this + 0x1C) = 3;
         }
         break;
     case 3:
         t = get_selected_menu_value(*(s32 *)((s8 *)this + 0x28));
-        this->m_2c = TWindowSubStatusDisp__sub_8027C884(this, t);
+        this->m_2c = sub_8027C884__13TUnk_804D1818Fl(this, t);
         *(u8 *)((s8 *)this + 0x1C) = 4;
     case 4:
         ((TWindowSubMagPhoton *)this)->update_photon_selection();
-        update_quest_board_card_flags(this);
+        update_quest_board_card_flags__13TUnk_804D1818Fv(this);
         if (((TLobby *)(this->m_2c))->get_flag_bit2() != 0) {
             *(u8 *)((s8 *)this + 0x1C) = 1;
         }
@@ -120,7 +122,7 @@ u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8027CE74_lbl_804D1818 *)&__vt__19TWindowSubQuestBoard).value;
     *(u8 **)((s8 *)arg0 + 0x24) = arg1;
     *(s32 *)((s8 *)arg0 + 0x20) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x28) = create_option_menu_window(arg0);
+    *(s32 *)((s8 *)arg0 + 0x28) = create_option_menu_window__13TUnk_804D1818Fv(arg0);
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s8 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
@@ -160,7 +162,7 @@ void TWindowSubQuestBoard::run_task() {
             this->m_1c = 5;
             break;
         }
-        if (((TWindowSubQuestBoard *)(*(s32 *)&this->m_28))->is_open() != 0) {
+        if (((TWindowSubQuestBoardSelect *)(*(s32 *)&this->m_28))->is_open() != 0) {
             this->m_1c = 3;
         }
         break;

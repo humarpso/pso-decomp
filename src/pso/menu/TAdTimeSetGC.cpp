@@ -1,7 +1,7 @@
 #include "pso/TAdTimeSetGC.h"
 extern "C" {
-s32 poll_load_status__23TAdSinglePlyChrSelectGCFPv();
-void change_state__23TAdSinglePlyChrSelectGCFPvi(void *, int);
+s32 poll_load_status__12TAdTimeSetGCFv();
+void change_state__12TAdTimeSetGCFl(void *, int);
 }
 extern "C" {
 extern void *lbl_804E32A4[];
@@ -15,10 +15,10 @@ void queue_destruction__7TObjectFv(void *);
 #pragma opt_common_subs off
 void TAdTimeSetGC::run_task() {
   TAdTimeSetGCStateAction *entry_action;
-  load_status = poll_load_status__23TAdSinglePlyChrSelectGCFPv();
+  load_status = poll_load_status__12TAdTimeSetGCFv();
   if (load_status & 1)
   {
-    change_state__23TAdSinglePlyChrSelectGCFPvi(this, 0);
+    change_state__12TAdTimeSetGCFl(this, 0);
   }
   TAdTimeSetGCStateAction action = *(entry_action = &((TAdTimeSetGCStateActions *)lbl_804E32A4)[state_index].task);
   if (action != 0)

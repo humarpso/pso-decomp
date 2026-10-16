@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D0658.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TLobby.h"
@@ -25,17 +26,17 @@ u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 s32 TWindowSubComCard__sub_8026906C(void);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
-s32 is_open__17TWindowSubComCardFv();
-s32 get_array_entry__20TWindowSubStatusDispFi(void * a0 = 0, s16 a1 = 0);
+s32 is_open__13TUnk_804D0658Fv();
+s32 get_array_entry__13TUnk_804CE018Fi(void * a0 = 0, s16 a1 = 0);
 
 void TWindowChoiceSetting::request_close() {
-    if (!(this->m_70 & 8) && (is_open__17TWindowSubComCardFv() == 0)) {
+    if (!(this->m_70 & 8) && (is_open__13TUnk_804D0658Fv() == 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
         this->m_70 = (u16) (this->m_70 | 4);
     }
 }
 void TWindowChoiceSetting::draw() {
-    get_array_entry__20TWindowSubStatusDispFi(this, this->m_74);
+    get_array_entry__13TUnk_804CE018Fi(this, this->m_74);
     if (TWindowSubComCard__sub_8026906C() == 0) {
         play_sound_effect(0x52D01, 0, 0, 0);
         this->m_70 = (u16) (this->m_70 | 2);
@@ -146,9 +147,9 @@ s32 draw_selection_bar(s32, u16 *, s32);
 void TWindowChoiceSetting::draw_setting(s32 arg1) {
     u16 *temp_r3;
 
-    temp_r3 = ((u16 * (*)(void *, s16))get_array_entry__20TWindowSubStatusDispFi)(this, this->m_74);
+    temp_r3 = ((u16 * (*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)(this, this->m_74);
     if (*temp_r3 & 1) {
-        draw_selection_bar(arg1, temp_r3, ((s32 (*)(void *))is_open__17TWindowSubComCardFv)(this));
+        draw_selection_bar(arg1, temp_r3, ((s32 (*)(void *))is_open__13TUnk_804D0658Fv)(this));
     }
 }
 
@@ -166,7 +167,7 @@ void TWindowMenuInfomation__ct(u8 *arg0, u32 arg1) {
     *(s32 *)(arg0 + 0x78) = 0;
     *(s32 *)(arg0 + 0x7C) = 0;
     for (i = 0; i < arg1; i++) {
-        e = ((u8 *(*)(void *, u32))get_array_entry__20TWindowSubStatusDispFi)(arg0, i);
+        e = ((u8 *(*)(void *, u32))get_array_entry__13TUnk_804CE018Fi)(arg0, i);
         *(f32 *)(e + 0xC) = (f32)(i * 0x14);
     }
     ((TLobby *)arg0)->set_field_1c(lbl_805DD1F4);
@@ -221,7 +222,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
-s32 step_window_tween(void *);
+s32 step_window_tween__13TUnk_804CDFE8Fv(void *);
 s32 update_window_entry_list(void *, void *);
 extern RecoveredGlobal_80268D08_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD1F8;
@@ -264,7 +265,7 @@ void TWindowSubStatusDisp::handle_choice_input() {
     u8 *temp_r30;
     u8 *temp_r30_2;
     u8 *temp_r30_3;
-    if ((((TWindowChoiceSetting *)arg0)->is_selected() == 0) && (((s32 (*)(void *))is_open__17TWindowSubComCardFv)((void *) (arg0)) == 0)) {
+    if ((((TUnk_804D0658 *)arg0)->is_selected() == 0) && (((s32 (*)(void *))is_open__13TUnk_804D0658Fv)((void *) (arg0)) == 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r30 = (u8 *)&controller_input_state.value + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
@@ -301,7 +302,7 @@ void TWindowSubStatusDisp::handle_choice_input() {
         }
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    step_window_tween((void *) (arg0));
+    step_window_tween__13TUnk_804CDFE8Fv((void *) (arg0));
     ((TWindowChoiceSetting *)arg0)->update_scroll_offset();
     ((TWindowChoiceSetting *)arg0)->clamp_scroll();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

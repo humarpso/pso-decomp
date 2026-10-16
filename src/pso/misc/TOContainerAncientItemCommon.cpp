@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/player/TUnk_804B08BC.h"
 #include "pso/misc/TOContainerAncientItemCommon.h"
 #include "pso/object/TObjFish.h"
@@ -173,16 +174,16 @@ void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void init_ancient_container(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TOContainerAncientItemCommon::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((struct VObj_8015C098 *) this)->m77();
-            ((TObjContainerItem *)this)->spawn_item((s32)this);
+            ((TUnk_804B6C24 *)this)->spawn_item((s32)this);
         }
         this->mode = 1;
-        set_flag8__6TLobbyFPv(this);
+        set_flag8__13TUnk_804AF8A0Fv(this);
         queue_destruction__7TObjectFv(this);
     }
 }

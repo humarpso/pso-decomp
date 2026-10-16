@@ -13,7 +13,7 @@ extern "C" {
 
 void vfunc_19__23TObjSeabedSuisoBrakableFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void TLobby__sub_802A7318(void* p);
+void sub_802A7318__13TUnk_804DDD28Fv(void* p);
 s32 TLobby__sub_803DA16C(void*);
 
 struct Tbl_802A6F98 { s32 w[5]; };

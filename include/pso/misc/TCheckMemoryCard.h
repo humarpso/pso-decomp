@@ -6,6 +6,7 @@
 
 struct TCheckMemoryCard : public TObject {
     virtual ~TCheckMemoryCard();
+    s32 sub_8033BB14();
     u32 m_1c;
     u32 m_20;
     u8 _pad24[0x4];

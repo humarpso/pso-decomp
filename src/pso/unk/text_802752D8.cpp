@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowShortListCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 extern "C" {
@@ -20,7 +21,7 @@ void draw_card_list_selection(u8 *arg0, u8 *arg1) {
     temp_r0 = temp_r31 - (get_type__20TWindowSubStatusDispFv(*((u8 **) (((s8 *) arg0) + 0x8C))) * 7);
     if ((temp_r0 >= 0) && (temp_r0 < 7))
     {
-      temp_r3 = (u16 *) ((TWindowSubStatusDisp *)arg0)->get_array_entry((s32) temp_r0);
+      temp_r3 = (u16 *) ((TUnk_804CE018 *)arg0)->get_array_entry((s32) temp_r0);
       if ((*temp_r3) & 1)
       {
         draw_selection_bar(arg1, temp_r3, 1);

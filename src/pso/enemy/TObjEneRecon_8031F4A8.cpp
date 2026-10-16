@@ -132,7 +132,7 @@ extern "C" {
 s32 advance_animation_playback();
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 s32 transition_enemy_state(void *, s32);
-s32 get_flag_b4__21TObjEneMe3ShinowaRealFv();
+s32 get_flag_b4__9TObjEneDDFv();
 s32 is_out_of_range__12TObjEneReconFv();
 
 void TObjEneRecon::handle_action_state(s32 arg1) {
@@ -168,7 +168,7 @@ void TObjEneRecon::update_state(s32 arg1) {
         set_field_378__9TObjEneDDFPvi(this, 3);
         return;
     case 3:
-        if (get_flag_b4__21TObjEneMe3ShinowaRealFv() != 0) {
+        if (get_flag_b4__9TObjEneDDFv() != 0) {
             *(s32 *)((s8 *)this + 0x4D8) = 0;
             *(s32 *)((s8 *)this + 0x4DC) = 0x1E;
             transition_enemy_state(this, 4);

@@ -1,16 +1,18 @@
 #include "types.h"
+#include "pso/ui/TAdRicoRingCtrl.h"
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D7E48;
-void fn_8001B424(u8 *arg0, s32 arg1);
+void sub_8001B424__15TAdRicoRingCtrlFl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void fn_8001B424(u8 *arg0, s32 arg1) {
+void TAdRicoRingCtrl::sub_8001B424(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r4;

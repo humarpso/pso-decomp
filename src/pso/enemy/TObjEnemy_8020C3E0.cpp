@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TLobby.h"
 
@@ -36,10 +37,10 @@ s32 TObjEnemy::mask_sub_flags(s32 arg1) {
     return 0;
 }
 
-s32 set_event_source_flag(void *arg0, s32 arg1) {
+s32 TUnk_804B9870::set_event_source_flag(s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = *(void **)((s8 *)arg0 + 0x80);
+    temp_r5 = *(void **)((s8 *)this + 0x80);
     if (temp_r5 != NULL) {
         *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) | arg1);
         return 1;
@@ -47,10 +48,10 @@ s32 set_event_source_flag(void *arg0, s32 arg1) {
     return 0;
 }
 
-s32 mask_object_set_row_flags(void *arg0, s32 arg1) {
+s32 TUnk_804B9870::mask_object_set_row_flags(s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = *(void **)((s8 *)arg0 + 0x80);
+    temp_r5 = *(void **)((s8 *)this + 0x80);
     if (temp_r5 != NULL) {
         *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) & arg1);
         return 1;

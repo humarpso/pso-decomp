@@ -5,6 +5,7 @@
 
 struct TObjMistCtrl
 {
+    void sub_802AF64C();
     u8 _pad1C[0x1C];
     void* m_38;
     u8 _pad3C[0x54];

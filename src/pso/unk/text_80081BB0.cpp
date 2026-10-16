@@ -29,7 +29,7 @@ struct VObj_80081EA4 : VBase_80081EA4 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 update_freeze_shell_timer(void *);
+s32 update_freeze_shell_timer__13TUnk_8048E1A4Fv(void *);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 void run_task__13TUnk_8048E1A4Fv(void *arg0);
@@ -43,7 +43,7 @@ extern RecoveredGlobal_80081CD0_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9388;
 extern const f32 lbl_805D938C;
-void freeze_shell_grow(u8 *arg0);
+void freeze_shell_grow__13TUnk_8048E1A4Fv(u8 *arg0);
 s32 obj_testFlags30(s32, s32);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -56,7 +56,7 @@ extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9384;
-s32 freeze_shell_hold(void *arg0);
+s32 freeze_shell_hold__13TUnk_8048E1A4Fv(void *arg0);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -80,32 +80,33 @@ void render__13TUnk_8048E1A4Fv(u8 *arg0);
 
 extern "C" {
 
-s32 freeze_shell_hold(void *arg0) {
+s32 TUnk_8048E1A4::freeze_shell_hold() {
     s32 p;
-    p = find_active_entity_by_id(*(u16 *)((s8 *)arg0 + 0x358));
+    p = find_active_entity_by_id(*(u16 *)((s8 *)this + 0x358));
     if (p == 0) {
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x60) += 0x10;
+    *(s32 *)((s8 *)this + 0x60) += 0x10;
     if (obj_testFlags30(p, 0x800) == 0) {
         if (obj_testFlags30(p, 0x20) != 0) {
             return;
         }
     }
-    *(s32 *)((s8 *)arg0 + 0x334) = 2;
-    p = spawn_particle_effect((u8 *)arg0 + 0x35C, 0x153);
+    *(s32 *)((s8 *)this + 0x334) = 2;
+    p = spawn_particle_effect((u8 *)this + 0x35C, 0x153);
     if (p != 0) {
         attach_particle_model(p, get_bml_model(technique_effect_bml, 5), lbl_805D63B0, 0, 0, lbl_805D9384);
     }
-    p = spawn_particle_effect((u8 *)arg0 + 0x38, 0x33);
+    p = spawn_particle_effect((u8 *)this + 0x38, 0x33);
     if (p != 0) {
         attach_particle_model(p, get_bml_model(freeze_shell_bml_resource, 0), TObjFish__sub_8001EDB0(freeze_shell_bml_resource, 1), get_bml_motion(freeze_shell_bml_resource, 0), 0, lbl_805D9384);
-        ((TObjPlayer *)p)->set_position_xy(*(f32 *)((s8 *)arg0 + 0x68), *(f32 *)((s8 *)arg0 + 0x6C));
+        ((TObjPlayer *)p)->set_position_xy(*(f32 *)((s8 *)this + 0x68), *(f32 *)((s8 *)this + 0x6C));
     }
-    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805D9378;
+    *(f32 *)((s8 *)this + 0xC0) = lbl_805D9378;
 }
 
-void freeze_shell_grow(u8 *arg0) {
+void TUnk_8048E1A4::freeze_shell_grow() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_80081CD0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80081CD0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80081CD0, sp10) == 0x8) ? 1 : -1];
@@ -155,13 +156,13 @@ void TUnk_8048E1A4::run_task() {
     temp_r0 = *(s32 *)((s8 *)this + 0x334);
     switch (temp_r0) {
     case 0:
-        freeze_shell_grow((u8 *)(this));
+        freeze_shell_grow__13TUnk_8048E1A4Fv((u8 *)(this));
         return;
     case 1:
-        freeze_shell_hold((void *)(this));
+        freeze_shell_hold__13TUnk_8048E1A4Fv((void *)(this));
         return;
     case 2:
-        update_freeze_shell_timer(this);
+        update_freeze_shell_timer__13TUnk_8048E1A4Fv(this);
         return;
     case 3:
         ((TObjPlayer *)this)->queue_destruction();

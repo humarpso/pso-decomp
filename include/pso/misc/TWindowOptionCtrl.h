@@ -46,9 +46,7 @@ struct TWindowOptionCtrl : public TObject {
     virtual void run_task();
     static s32 get_chr_select_base_plus_1154c();
     void set_flag70_bit400();
-    void set_flag70_bit100();
     void clear_flag70_bit4();
-    int is_active();
     s16 get_field_64();
     s16 get_field_62();
     static void*get_option_entry(int a0);

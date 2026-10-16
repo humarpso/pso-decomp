@@ -14,7 +14,7 @@ s32 TObjEnePanarms__ct(s32, s32, s32);
 int TObjEnePanarms__sub_800DFBC4(void* p);
 int apply_animation_transition(void*, void*);
 s32 __nw__7TObjectFUl(s32);
-int fn_8002AE64(void*);
+int sub_8002AE64__9TObjEnemyFv(void*);
 int fn_800660B8(void*);
 
 extern s32 tl_04;
@@ -34,7 +34,7 @@ s32 TObjEnePanarms::create(s32 arg0) {
     return var_r31;
 }
 
-void TObjEnePanarms::init(void* a1) { fn_800660B8(this); apply_animation_transition(this, a1); fn_8002AE64(this); }
+void TObjEnePanarms::init(void* a1) { fn_800660B8(this); apply_animation_transition(this, a1); sub_8002AE64__9TObjEnemyFv(this); }
 
 s32 TObjEnePanarms__sub_800DFB44(O_800DFB44 *self) {
     return self->state == 7 || self->state == 8;

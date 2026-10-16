@@ -16,7 +16,7 @@ s32 rand(void);
 void TBoss6Tube__sub_802B129C(u8 *arg0);
 extern s32 TBoss6Tube__previous_scroll_phase;
 extern f32 TBoss6Tube__scroll_delta;
-void TBoss6Tube__sub_802B1218(u8 *arg0);
+void sub_802B1218__10TBoss6TubeFv(u8 *arg0);
 s32 rand(void);
 extern s32 TBoss6Tube__previous_scroll_phase;
 extern f32 TBoss6Tube__scroll_delta;
@@ -107,7 +107,8 @@ f32 TBoss6Tube::calc_tube_progress(s32 arg0) {
     return (1.0f) - ((f32) (arg0 & 0x7FFFF) / (524288.0f));
 }
 
-void TBoss6Tube__sub_802B1218(u8 *arg0) {
+void TBoss6Tube::sub_802B1218() {
+    u8 *arg0 = (u8 *)this;
     if (((0.0f) == TBoss6Tube__scroll_delta) && ((s32) TBoss6Tube__previous_scroll_phase == 0)) {
         TBoss6Tube__previous_scroll_phase = *(s32 *)((s8 *)arg0 + 0x28);
         return;

@@ -6,6 +6,8 @@
 
 struct TWindowSubTrade : public TObject {
     virtual ~TWindowSubTrade();
+    s32 open_player_message_window(s32, s32);
+    s32 open_trade_confirm_prompt(s32);
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;

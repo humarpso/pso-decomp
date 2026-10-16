@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CF0B8.h"
 #include "pso/misc/TWindowFukidasi.h"
 #include "pso/TObjCMHairMenu.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -225,13 +226,13 @@ s32 mem_alloc(s32);
 Ent_802511E4 * find_entity_by_id(u16);
 u32 get_battle_ctrl_flag__10TObjPlayerFUs(u16);
 u32 get_player_by_client_id(u32);
-s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+s32 get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 play_sound_effect(int, int, int, int);
 View_80252764 * get_draw_context__11TWindowBaseFPv(void *);
 s32 get_field_20__17TWindowSubComCardFv();
 s32 save_position__17TWindowSubComCardFPv(void *);
 s32 set_field_1c__6TLobbyFf(f32);
-s32 TWindowSubAreaMapDisp__sub_80246948(void *);
+s32 sub_80246948__13TUnk_804CE018Fv(void *);
 s32 refresh_status_display__9TWindowDDFv(int);
 void TWindowSubSymbolChat__sub_802483F0(void *, f32 *);
 s32 set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(void *, u32 *);
@@ -260,9 +261,9 @@ void draw_body_row__15TWindowFukidasiFv(Fuki_802523CC *b, Slice_802523CC *s, Ctx
 void draw_body__15TWindowFukidasiFPvPvUiPvf(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth);
 void render__15TWindowFukidasiFPv(Fuki_80252764 *b);
 s32 TWindowFukidasi__sub_80252C38(void *);
-void TWindowFukidasi__sub_80252C68(Fuki_802504C0 *);
-void clear_flag_20__15TWindowFukidasiFv();
-s32 is_balloon_visible(void *);
+void sub_80252C68__13TUnk_804CF0B8Fv(Fuki_802504C0 *);
+void clear_flag_20__13TUnk_804CF0B8Fv();
+s32 is_balloon_visible__13TUnk_804CF0B8Fv(void *);
 s32 fn_80252CBC(void);
 void draw_visible_window_entries(void *, void *, View_80252764 *);
 void update_window_entry_list(void *, void *);
@@ -349,7 +350,7 @@ void complete_speech_balloon(u8 *arg0) {
     ((s32 (*)(void *, void *))calc_text_size__15TWindowFukidasiFPvPv)(arg0, arg0 + 0x38);
     ((s32 (*)(void *))refresh_rect_placement__15TWindowFukidasiFPv)(arg0);
     TWindowFukidasi__sub_80252C38(arg0);
-    ((TWindowFukidasi *)arg0)->set_flag2c_bit100();
+    ((TUnk_804CF0B8 *)arg0)->set_flag2c_bit100();
     save_position__17TWindowSubComCardFPv(arg0);
     *(f32 *)(arg0 + 0x80) = TWindowFukidasi__data_805DCCE8;
     ((TWindowFukidasi *)arg0)->sync_display_pos();
@@ -357,7 +358,7 @@ void complete_speech_balloon(u8 *arg0) {
     t = *(u8 *)(arg0 + 0x72);
     switch (t) {
     case 0:
-        get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
+        get_array_entry__13TUnk_804CE018Fi(arg0, 0);
         reset_float_field__15TWindowHelpItemFv();
         break;
     case 1:
@@ -370,7 +371,7 @@ s32 is_speech_balloon_ready(u8 *arg0) {
     s32 t = *(u8 *)(arg0 + 0x72);
     switch (t) {
     case 0:
-        get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
+        get_array_entry__13TUnk_804CE018Fi(arg0, 0);
         return fn_80252CBC();
     case 1:
     case 2:
@@ -385,14 +386,14 @@ void rearm_balloon__15TWindowFukidasiFv(u8 *arg0, s32 arg1) {
     u8 temp_r0;
     u32 n;
 
-    if (((s32 (*)(void))TWindowSubAreaMapDisp__sub_80246948)() != 0) {
+    if (((s32 (*)(void))sub_80246948__13TUnk_804CE018Fv)() != 0) {
         *(s8 *)((s8 *)arg0 + 0x70) = 5;
     }
     ((s32 (*)(void *, void *))init_flags__15TWindowFukidasiFPvi)((void *) (arg0), (void *) (arg1));
     temp_r0 = *(u8 *)((s8 *)arg0 + 0x72);
     switch ((s32) temp_r0) {
     case 0:
-        n = TWindowKeyBoardSoft::strnlen((s8 *)(((void * (*)(void *))get_field_20__17TWindowSubComCardFv)(((void * (*)(void *, int))get_array_entry__20TWindowSubStatusDispFi)(arg0, 0))), (u32)0x100);
+        n = TWindowKeyBoardSoft::strnlen((s8 *)(((void * (*)(void *))get_field_20__17TWindowSubComCardFv)(((void * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 0))), (u32)0x100);
         *(s16 *)((s8 *)arg0 + 0x74) = (s16) ((lbl_805DCCF0 * (f32) n) + lbl_805DCCEC);
         break;
     case 1:
@@ -409,7 +410,7 @@ s32 TWindowFukidasi::check_card_match_enabled(s32 arg1) {
     if ((u8) *(u8 *)((s8 *)this + 0x72) != 0) {
         return 0;
     }
-    get_array_entry__20TWindowSubStatusDispFi(this, 0);
+    get_array_entry__13TUnk_804CE018Fi(this, 0);
     return (u32) __cntlzw(strcmp(get_field_20__17TWindowSubComCardFv(), arg1)) >> 5;
 }
 
@@ -432,7 +433,7 @@ void calc_text_size__15TWindowFukidasiFPvPv(Fuki_80250380 *b, f32 *out) {
     Entry_80250380 *e;
     switch (b->kind) {
     case 0:
-        e = ((Entry_80250380 * (*)(void *, int))get_array_entry__20TWindowSubStatusDispFi)(b, 0);
+        e = ((Entry_80250380 * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(b, 0);
         out[0] = TWindowFukidasi__data_805DCCF4 + (lbl_805DCCF8 + e->w);
         out[1] = TWindowFukidasi__data_805DCCF4 + (TWindowFukidasi__data_805DCCFC + e->h);
         break;
@@ -471,8 +472,8 @@ void TWindowFukidasi::place_rect_at_head_or_slot() {
     if (is_speaker_far_or_offscreen() != 0) {
         f32 *m;
         if ((s8)b->slot == -1) {
-            ((TWindowFukidasi *)b)->set_flag();
-            ((TWindowFukidasi *)b)->set_flag2c_bit200();
+            ((TUnk_804CF0B8 *)b)->set_flag();
+            ((TUnk_804CF0B8 *)b)->set_flag2c_bit200();
             b->slot = alloc_nearest_free_slot__11TWindowCtrlFPv(b);
         }
         m = get_message_by_type__11TWindowCtrlFScl(b->slot, b->viewport);
@@ -482,8 +483,8 @@ void TWindowFukidasi::place_rect_at_head_or_slot() {
     } else {
         f32 p[2];
         if ((s8)b->slot != -1) {
-            ((TWindowFukidasi *)b)->clear_visible_flag();
-            ((TWindowFukidasi *)b)->clear_flag2c_bit200();
+            ((TUnk_804CF0B8 *)b)->clear_visible_flag();
+            ((TUnk_804CF0B8 *)b)->clear_flag2c_bit200();
             TWindowCtrl::release_slot((s8 *)(&b->slot));
         }
         project_anchor((f32 *)(0), (f32 *)(p));
@@ -646,8 +647,8 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
     if (((TWindowFukidasi *)b)->is_speaker_far_or_offscreen() != 0) {
         f32 *m;
         if ((s8)b->slot == -1) {
-            ((TWindowFukidasi *)b)->set_flag();
-            ((TWindowFukidasi *)b)->set_flag2c_bit200();
+            ((TUnk_804CF0B8 *)b)->set_flag();
+            ((TUnk_804CF0B8 *)b)->set_flag2c_bit200();
             b->slot = alloc_nearest_free_slot__11TWindowCtrlFPv((Fuki_802504C0 *)b);
         }
         m = get_message_by_type__11TWindowCtrlFScl(b->slot, b->viewport);
@@ -661,8 +662,8 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
         f32 e[2];
         f32 *res;
         if ((s8)b->slot != -1) {
-            ((TWindowFukidasi *)b)->clear_visible_flag();
-            ((TWindowFukidasi *)b)->clear_flag2c_bit200();
+            ((TUnk_804CF0B8 *)b)->clear_visible_flag();
+            ((TUnk_804CF0B8 *)b)->clear_flag2c_bit200();
             TWindowCtrl::release_slot((s8 *)(&b->slot));
         }
         res = NULL;
@@ -746,11 +747,11 @@ s32 TWindowFukidasi::is_speaker_far_or_offscreen() {
     f32 xx;
     f32 yy;
     f32 zz;
-    clear_flag_20__15TWindowFukidasiFv();
+    clear_flag_20__13TUnk_804CF0B8Fv();
     if (project_anchor(pos, scr) == 0) {
         return 1;
     }
-    if (((TWindowFukidasi *)arg0)->is_flag_set() != 0) {
+    if (((TUnk_804CF0B8 *)arg0)->is_flag_set() != 0) {
         m = lbl_805DCD3C;
     } else {
         m = TWindowFukidasi__data_805DCD30;
@@ -787,7 +788,7 @@ s32 TWindowFukidasi::is_speaker_far_or_offscreen() {
     if (zz + (xx + yy) > lbl_805DCD44 * m + lbl_805DCD40) {
         return 1;
     }
-    TWindowFukidasi__sub_80252C68(arg0);
+    sub_80252C68__13TUnk_804CF0B8Fv(arg0);
     return ((TWindowCtrl *)arg0)->get_flag_bit1() != 0 ? 1 : 0;
 }
 extern int fold_flush_3;
@@ -966,7 +967,7 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     ((TWindowSubStatusDisp *)(arg0 + 0x24))->destroy_all_items();
     init_window_layout_entries((void *) (arg0 + 0x24), (void *) (&window_fukidasi_layout_entries.value), (int) (*((s16 *) (((s8 *) arg0) + 0x20))));
   }
-  temp_r3 = (u8 *) ((u8 * (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFi)(arg0, 0);
+  temp_r3 = (u8 *) ((u8 * (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
   if (arg2 & 1)
   {
     set_text_entry_string((int) temp_r3, (void *) arg1, (int) 0x20);
@@ -1011,7 +1012,7 @@ extern int fold_flush_7;
 void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
     *(f32 *)((s8 *)arg0 + 0x58) = (f32) TWindowFukidasi__data_805DCD30;
     set_field_1c__6TLobbyFf(lbl_805DCD58);
-    if (TWindowSubAreaMapDisp__sub_80246948(arg0) != 0) {
+    if (sub_80246948__13TUnk_804CE018Fv(arg0) != 0) {
         *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 1);
     }
     *(u8 *)((s8 *)arg0 + 0x71) = (u8) (*(u8 *)((s8 *)arg0 + 0x71) & ~0x50);
@@ -1022,8 +1023,8 @@ void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
     }
     if (arg1 & 0x20) {
         *(u8 *)((s8 *)arg0 + 0x71) = (u8) (*(u8 *)((s8 *)arg0 + 0x71) | 2);
-        ((TWindowFukidasi *)arg0)->set_flag();
-        ((TWindowFukidasi *)arg0)->set_flag2c_bit200();
+        ((TUnk_804CF0B8 *)arg0)->set_flag();
+        ((TUnk_804CF0B8 *)arg0)->set_flag2c_bit200();
         *(s8 *)((s8 *)arg0 + 0x73) = 4;
         return;
     }
@@ -1053,7 +1054,7 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
     *(f32 *)((s8 *)arg0 + 0x48) = (f32) TWindowFukidasi__data_805DCD30;
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) TWindowFukidasi__data_805DCD30;
     ((TWindowFukidasi *)arg0)->clear_flag();
-    ((TWindowFukidasi *)arg0)->clear_flag2c_bit100();
+    ((TUnk_804CF0B8 *)arg0)->clear_flag2c_bit100();
 }
 
 #pragma push
@@ -1070,7 +1071,7 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
     f32 s;
     f32 y0;
     s32 angle;
-    if (is_balloon_visible(b) != 0) {
+    if (is_balloon_visible__13TUnk_804CF0B8Fv(b) != 0) {
         ((TWindowFukidasi *)b)->project_anchor(pos, scr);
         cx = b->center[0];
         cy = b->center[1];
@@ -1223,7 +1224,7 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
     off[1] = TWindowFukidasi__data_805DCD30;
     draw_body__15TWindowFukidasiFPvPvUiPvf((struct Fukidasi_80252558 *)(b), (struct DrawCtx_80252558 *)(v), (u32)(b->color), (f32 *)(off), lbl_805DCDC0 + b->f54);
     draw_tail__15TWindowFukidasiFPvPvUiPvf((Fuki_802521E8 *)((Fuki_802521E8 *)b), (void *)(v), (u32)(b->color), (f32 *)(off), lbl_805DCD90 + b->f54);
-    if (((TWindowFukidasi *)b)->is_active() != 0) {
+    if (((TUnk_804CF0B8 *)b)->is_active() != 0) {
         draw_visible_window_entries(b, b->f24, v);
         draw_name_plate__15TWindowFukidasiFv(b, v, b->color);
     }
@@ -1241,7 +1242,7 @@ void TWindowFukidasi::run_task() {
       ((void (*)(void *, void *))calc_text_size__15TWindowFukidasiFPvPv)(arg0, ((u8 *) arg0) + 0x38);
       *((s32 *) (((s8 *) arg0) + 0x50)) = 6;
       ((TWindowFukidasi *)arg0)->clear_flag();
-      ((TWindowFukidasi *)arg0)->set_flag2c_bit100();
+      ((TUnk_804CF0B8 *)arg0)->set_flag2c_bit100();
       *((u8 *) (((s8 *) arg0) + 0x70)) = 2U;
     case 2:
       if (approach(TWindowFukidasi__data_805DCCE8) != 0)
@@ -1252,7 +1253,7 @@ void TWindowFukidasi::run_task() {
       break;
     case 3:
       ((void (*)(void *))TWindowFukidasi__sub_80252C38)(arg0);
-      ((TWindowFukidasi *)arg0)->set_flag2c_bit100();
+      ((TUnk_804CF0B8 *)arg0)->set_flag2c_bit100();
       *((u8 *) (((s8 *) arg0) + 0x70)) = 4U;
     case 4:
       if ((*((u8 *) (((s8 *) arg0) + 0x71))) & 8)
@@ -1270,7 +1271,7 @@ void TWindowFukidasi::run_task() {
       ((void (*)(void *, void *))clamp_text_size__15TWindowFukidasiFPvPv)(arg0, ((u8 *) arg0) + 0x38);
       *((s32 *) (((s8 *) arg0) + 0x50)) = 6;
       ((TWindowFukidasi *)arg0)->clear_flag();
-      ((TWindowFukidasi *)arg0)->set_flag2c_bit100();
+      ((TUnk_804CF0B8 *)arg0)->set_flag2c_bit100();
       *((u8 *) (((s8 *) arg0) + 0x70)) = 6U;
     case 6:
       if (approach(TWindowFukidasi__data_805DCD0C) != 0)
@@ -1281,7 +1282,7 @@ void TWindowFukidasi::run_task() {
       break;
     case 7:
       ((TWindowFukidasi *)arg0)->clear_flag();
-      ((TWindowFukidasi *)arg0)->clear_flag2c_bit100();
+      ((TUnk_804CF0B8 *)arg0)->clear_flag2c_bit100();
       *((s32 *) (((s8 *) arg0) + 0x2C)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x2C))) & 0xFFFFFFFE);
       *((u8 *) (((s8 *) arg0) + 0x71)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x71))) | 0x10);
       *((u8 *) (((s8 *) arg0) + 0x70)) = 8U;
@@ -1297,7 +1298,7 @@ void TWindowFukidasi::run_task() {
       break;
   }
   TWindowFukidasi__sub_80251790(arg0);
-  if (((TWindowFukidasi *)arg0)->is_active() != 0)
+  if (((TUnk_804CF0B8 *)arg0)->is_active() != 0)
   {
     update_window_entry_list(arg0, ((u8 *) arg0) + 0x24);
   }

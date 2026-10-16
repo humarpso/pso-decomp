@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjLuker.h"
@@ -180,7 +181,7 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
                 p = TWindowCtrlPlayer__ct(p, self, i);
             }
             self->objs[i] = p;
-            ((TObjLuker *)(self->objs[i]))->set_flag_4();
+            ((TObject *)(self->objs[i]))->set_flag_4();
         }
     } else {
         p = __nw__7TObjectFUl(0x40);
@@ -191,7 +192,7 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
         for (i = 0; i < 3; i++) {
             if (TOKeyMachine01::get_global_state() != 0xF && is_split_screen() == 0) {
                 self->wins78[i] = create_party_status_window(i);
-                ((TObjLuker *)(self->wins78[i]))->set_flag_4();
+                ((TObject *)(self->wins78[i]))->set_flag_4();
             }
         }
     }

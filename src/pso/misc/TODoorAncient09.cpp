@@ -72,7 +72,7 @@ struct Door_80160BA8 {
 
 extern "C" {
 s32 access_object_saved_state(void *, void *, int);
-s32 door_ancient09_sync_state(void *, void *);
+s32 door_ancient09_sync_state__15TODoorAncient09FPv(void *, void *);
 u8 is_current_floor_switch_set(int);
 void update_door_switch_state__15TODoorAncient09Fv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
@@ -127,7 +127,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 mem_free(void*);
 s32 get_main_phase();
 s32 is_split_screen();
@@ -160,7 +160,7 @@ extern const f32 lbl_805DB484;
 
 #define VCALL_m8(obj) (((TODoor9VObj_801608B4*)(obj))->m8((*(f32 *)((s8 *)(obj) + 0xC0)), (*(f32 *)((s8 *)(obj) + 0xC4))))
 
-void TODoorAncient09::play_door_sound() {
+void TODoorAncient09::sub_80160968() {
     u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)(arg0 + 0xD0) & 1)) {
         switch ((u32)TOKeyMachine01::get_global_state()) {
@@ -200,12 +200,12 @@ void TODoorAncient09::update_door_switch_state() {
     temp_r0 = this->m_cc;
     switch (temp_r0) {
     case 1:
-        ((TODoorAncient09 *)arg0)->play_door_sound();
+        ((TODoorAncient09 *)arg0)->sub_80160968();
         this->m_d0 = (s32) (this->m_d0 | 1);
         return;
     case 2:
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1)) {
-            ((TODoorAncient09 *)arg0)->play_door_sound();
+            ((TODoorAncient09 *)arg0)->sub_80160968();
             this->m_d0 = (s32) (this->m_d0 | 1);
             *(s32 *)&this->m_d8 = 1;
             return;
@@ -215,11 +215,11 @@ void TODoorAncient09::update_door_switch_state() {
         return;
     case 3:
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1)) {
-            ((TODoorAncient09 *)arg0)->play_door_sound();
+            ((TODoorAncient09 *)arg0)->sub_80160968();
             this->m_d0 = (s32) (this->m_d0 | 1);
             if (((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;
-                door_ancient09_sync_state((void *) (arg0), (void *) (&sp8));
+                door_ancient09_sync_state__15TODoorAncient09FPv((void *) (arg0), (void *) (&sp8));
                 access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
             }
         }
@@ -287,7 +287,7 @@ void TODoorAncient09::render() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
 
-    if ((VCALL_m8(arg0) != 0) && (is_in_view_depth(arg0, lbl_805DB480) != 0)) {
+    if ((VCALL_m8(arg0) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB480) != 0)) {
         temp_r0 = *(s32 *)&this->unk_AC;
         switch (temp_r0) {
         case 1:

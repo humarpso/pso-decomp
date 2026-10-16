@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm3Fly.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
@@ -61,7 +62,7 @@ s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0) {
 
 void TBoss8Dragon::refresh_and_send_entity_flags() { refresh_lobby_state__10TObjPlayerFv(this); send_entity_set_flags__6TLobbyFPv(this); }
 
-int TObjEneDD::was_hit_by_ranged() { return (*(u32*)((char*)this + 0x2dc) >> 1) & 0x1; }
+int TObjEneBm3Fly::was_hit_by_ranged() { return (*(u32*)((char*)this + 0x2dc) >> 1) & 0x1; }
 
 void clear_attack_receipts(Obj_800BB780 *self) {
     s32 i;

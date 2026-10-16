@@ -6,6 +6,10 @@
 
 struct TObjEnemyCustom : public TObjEnemy {
     virtual ~TObjEnemyCustom();
+    void sub_800C7860();
+    void release_destroyed_target();
+    void sub_8004292C();
+    void set_flags_30();
     virtual void vfunc_79();
     virtual void vfunc_65(s32, s32);
     virtual void vfunc_63();

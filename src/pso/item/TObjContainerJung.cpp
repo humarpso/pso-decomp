@@ -53,8 +53,8 @@ struct Obj_8018D4DC {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 request_box_item_drop(void *, void *, int);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 request_box_item_drop__13TUnk_804806E8FPvs(void *, void *, int);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 void vfunc_6__17TObjContainerJungFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__bml_model_resource;
@@ -201,15 +201,15 @@ void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj*)arg0)->m77();
-            request_box_item_drop((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
+            request_box_item_drop__13TUnk_804806E8FPvs((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-            set_flag8__6TLobbyFPv((void *) (arg0));
+            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-        set_flag8__6TLobbyFPv((void *) (arg0));
+        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         this->mode = 1;
     }

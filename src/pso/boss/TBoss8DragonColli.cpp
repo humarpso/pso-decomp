@@ -31,9 +31,9 @@ struct O_802F31E4 {
 
 extern "C" {
 void set_all_flags__17TBoss8DragonColliFPv(O_802F3144 *self);
-void clear_segment_flags__17TBoss8DragonColliFPv(O_802F310C *self);
+void clear_segment_flags__19TBoss8DragonColli_CFv(O_802F310C *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void clear_segment_flags__17TBoss8DragonColliFPv(O_802F310C *self);
+void clear_segment_flags__19TBoss8DragonColli_CFv(O_802F310C *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 E_802F31E4 *mem_alloc(s32);
 s32 register_entity_by_id(void *);
@@ -150,12 +150,13 @@ u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
 }
 
 void TBoss8DragonColli_C::render() {  }
-void TBoss8DragonColli__sub_802F3074(void* p) { clear_segment_flags__17TBoss8DragonColliFPv((O_802F310C *)((void*)(p))); }
+void TBoss8DragonColli__sub_802F3074(void* p) { clear_segment_flags__19TBoss8DragonColli_CFv((O_802F310C *)((void*)(p))); }
 void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); set_all_flags__17TBoss8DragonColliFPv((O_802F3144 *)((void*)(p))); }
 
 extern s32 lbl_804E4BB4[];
 
-void clear_segment_flags__17TBoss8DragonColliFPv(O_802F310C *self) {
+void TBoss8DragonColli_C::clear_segment_flags() {
+    O_802F310C *self = (O_802F310C *)this;
     s32 i;
     for (i = 0; i < self->count; i++) self->arr[i].flags &= ~1;
 }
@@ -207,7 +208,7 @@ s32 init_collision_segments__17TBoss8DragonColliFiPviPvf(int arg0, void *arg1, i
     }
     refresh_collision_body_centers(self);
     register_entity_by_id(self);
-    clear_segment_flags__17TBoss8DragonColliFPv((O_802F310C *)self);
+    clear_segment_flags__19TBoss8DragonColli_CFv((O_802F310C *)self);
     return arg0;
 }
 #undef self

@@ -6,6 +6,9 @@
 
 struct TWindowSubShortMail : public TObject {
     virtual ~TWindowSubShortMail();
+    s32 create_list_item();
+    s32 open_confirm_dialog();
+    s32 open_delete_confirm_dialog();
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;

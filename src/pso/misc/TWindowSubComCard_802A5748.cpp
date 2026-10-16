@@ -46,11 +46,11 @@ s32 TWindowSubComCard::get_card_data() {
     return ((TWindowSubComCard *)v)->get_status_flag();
 }
 
-s32 TWindowSubComCard::is_child_visible() {
+s32 TWindowMessageYesNo::is_child_visible() {
     if ((u32) this->m_2c == 0U) {
         return 0;
     }
-    return ((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_visible();
+    return ((TWindowMenu *)(*(s32 *)&this->m_2c))->is_visible();
 }
 
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {

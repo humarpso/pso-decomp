@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488838.h"
 
 struct Stack_80067EE0 {
     f32 sp8;
@@ -71,7 +72,7 @@ void * TCameraCtrl__vt7(void) {
 
 #pragma push
 #pragma fp_contract on
-void TCameraCtrl::update_orbit_camera() {
+void TUnk_80488838::update_orbit_camera() {
     Obj_80067D20 *arg0 = (Obj_80067D20 *)this;
     Pad_80067D20 *pad = arg0->pad;
     f32 d = arg0->dist;

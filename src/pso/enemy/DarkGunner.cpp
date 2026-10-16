@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TUnk_804909C4.h"
 #include "pso/enemy/TObjEneDarkGunner.h"
 #include "pso/player/TObjPlayer.h"
@@ -1529,7 +1530,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     ((TObjPlayer *)self)->set_field_d8(F(s32, 0xD8));
     F(s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(self, F(s16, 0xB8));
-    ((TObjEnePanarms *)self)->set_field_b8(F(s16, 0xB8));
+    ((TObjMotion *)self)->set_field_b8(F(s16, 0xB8));
     init_collision_body_parts(self, lbl_80490780, 1);
     F(void *, 0x350) = lbl_80490748;
     bind_enemy_combat_stats(self, lbl_805D4FF8[F(s32, 0x368)], lbl_805D4FFC[F(s32, 0x368)], lbl_805D5000[F(s32, 0x368)]);

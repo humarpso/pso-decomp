@@ -186,7 +186,7 @@ extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FBC;
 void TObjPlayer__sub_800C44C4(void);
 s32 transition_enemy_state(void * a0, s32 a1);
-s32 TObjEneRe2Flower__sub_800C3DC4(void *);
+s32 sub_800C3DC4__16TObjEneRe2FlowerFv(void *);
 void TObjEneRe2Flower__sub_800C3F70(u8 *arg0);
 s32 TObjEneDD__sub_800C2628(void *, void *);
 s32 fn_800C2A88(void *, void *);
@@ -428,7 +428,7 @@ void TObjEneRe2Flower::vfunc_28() {  }
 void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        ((TObjEneDD *)arg0)->dispatch_action((s32)((void *) (arg2)));
+        ((TObjEneRe2Flower *)arg0)->dispatch_action((s32)((void *) (arg2)));
         return;
     case 1:
         ((TObjEneDD *)arg0)->handle_state((s32)((void *) (arg2)));
@@ -482,7 +482,7 @@ void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
             transition_enemy_state((void *)((void *) (arg0)), (s32)((int) (2)));
         }
     }
-    TObjEneRe2Flower__sub_800C3DC4((void *) (arg0));
+    sub_800C3DC4__16TObjEneRe2FlowerFv((void *) (arg0));
     ((TBoss8Dragon *)arg0)->set_player_state_default();
     ((VObj_18_6eb1ad *)(arg0))->m98();
 }

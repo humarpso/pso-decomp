@@ -5,8 +5,8 @@
 struct Win_80266CF8 { u8 p0[0x72]; s16 f72; s16 f74; u8 p76[2]; s16 f78; };
 
 extern "C" {
-void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+void *get_array_entry__13TUnk_804CE018Fi(void *, s32);
+void *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void reset__20TWindowSubStatusDispFPv(void *);
 void reset_list__20TShopArmorListWindowFPv(u8 *arg0);
 }
@@ -23,10 +23,10 @@ void TShopArmorListWindow::clamp_selection_to_valid_entry() {
             w->f74 = w->f72 - 1;
             return;
         }
-        e = get_array_entry__20TWindowSubStatusDispFi(w, w->f78);
+        e = get_array_entry__13TUnk_804CE018Fi(w, w->f78);
         while (((TWindowSubStatusDisp *)e)->is_flag_4_set() == 0) {
             w->f78 = w->f78 - 1;
-            e = get_array_entry__20TWindowSubStatusDispFi(w, w->f78);
+            e = get_array_entry__13TUnk_804CE018Fi(w, w->f78);
         }
         w->f74 = w->f78;
     }
@@ -41,7 +41,7 @@ void reset_list__20TShopArmorListWindowFPv(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0x72) = 0;
     *(s16 *)((s8 *)arg0 + 0x74) = 0;
     for (i = 0; i < (u32)*(s16 *)((s8 *)arg0 + 0x76); i++) {
-        reset__20TWindowSubStatusDispFPv(get_array_entry__20TWindowSubStatusDispFi(arg0, i));
+        reset__20TWindowSubStatusDispFPv(get_array_entry__13TUnk_804CE018Fi(arg0, i));
     }
 }
 

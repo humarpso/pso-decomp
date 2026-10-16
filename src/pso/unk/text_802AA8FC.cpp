@@ -5,7 +5,7 @@ extern "C" {
 s32 get_next_point__14TBoss6PlotFalzFPvPvPv(void *arg0, s16 *arg1, s16 *arg2);
 u8 is_flag_set__14TBoss6PlotFalzFv(void);
 s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0);
-void TBoss6PlotFalz__sub_802AAC98(void* p);
+void sub_802AAC98__14TBoss6PlotFalzFv(void* p);
 s32 get_main_phase();
 s32 is_split_screen();
 
@@ -35,7 +35,7 @@ extern "C" {
 
 extern "C" {
 
-void TBoss6PlotFalz__sub_802AAC98(void* p);
+void sub_802AAC98__14TBoss6PlotFalzFv(void* p);
 s32 get_main_phase();
 s32 is_split_screen();
 
@@ -48,7 +48,7 @@ s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0) {
     return 0x1FD - temp_r0;
 }
 
-void TBoss6PlotFalz__sub_802AAC98(void* p) { *(s32*)((char*)p + 0x3c8) = 1; }
+void TBoss6PlotFalz::sub_802AAC98() { *(s32*)((char*)this + 0x3c8) = 1; }
 u8 TBoss6PlotFalz::is_ending_or_split_screen() {
     s32 var_r31;
 

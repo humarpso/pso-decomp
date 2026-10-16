@@ -6,6 +6,7 @@
 class TAdGameStartShadowGC : public TObject {
 public:
     virtual ~TAdGameStartShadowGC();
+    void sub_80320B38();
     virtual void run_task();
     virtual void render();
 };

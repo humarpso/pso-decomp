@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/object/TObjLuker.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -163,7 +164,7 @@ void *__nw__7TObjectFUl(int);
 
 void hide_part__9TObjLukerFPvUs(Obj_801A0C38 *self, u16 i) {
     if (self->parts[i] != 0) {
-        ((TObjLuker *)(self->parts[i]))->set_flag_4();
+        ((TObject *)(self->parts[i]))->set_flag_4();
         disallow_rendering__7TObjectFv(self->parts[i]);
     }
 }
@@ -213,7 +214,7 @@ void close_windows__9TObjLukerFPv(Obj_801A0DB4 *self) {
             if (!(self->wins[i]->flags & 4)) {
                 play_sound_effect(0x53704, 0, 0, 0);
             }
-            ((TObjLuker *)(self->wins[i]))->set_flag_4();
+            ((TObject *)(self->wins[i]))->set_flag_4();
             disallow_rendering__7TObjectFv(self->wins[i]);
         }
     }
@@ -236,7 +237,7 @@ void TObjLuker::open_destination_windows() {
                 ((TAdChrSelASlotGC *)(self->wins[i]))->set_flag_40();
                 calc_window_size__17TWindowSubComCardFPv(self->wins[i]);
                 align_menu_entry_positions(self->wins[i]);
-                ((TObjLuker *)(self->wins[i]))->set_flag_4();
+                ((TObject *)(self->wins[i]))->set_flag_4();
                 disallow_rendering__7TObjectFv(self->wins[i]);
             }
         }

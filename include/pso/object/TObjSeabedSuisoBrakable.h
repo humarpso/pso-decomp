@@ -6,6 +6,7 @@
 
 struct TObjSeabedSuisoBrakable : public TORockCaveBrakable {
     virtual ~TObjSeabedSuisoBrakable();
+    void sub_802A6438();
     virtual void vfunc_19();
     virtual void spawn_break_effect();
     virtual void render();
@@ -21,8 +22,6 @@ struct TObjSeabedSuisoBrakable : public TORockCaveBrakable {
     static void *create_instance(void *arg0);
     static void notify_break(u32 arg0);
     static void *create(void *arg0);
-    void update_state();
-    void init_kind_params();
     static u8 *get_bml_motion_by_index(s32 arg0);
     static void load_shared_models();};
 

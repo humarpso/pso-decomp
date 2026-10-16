@@ -46,7 +46,7 @@ void TChallenge4PResult__sub_8034B8BC(u8 *arg0);
 void TChallenge4PResult__sub_8034B918(u8 *arg0);
 
 s32 get_instance__11TCameraCtrlFv();
-s32 set_position_xy(int, f32, f32);
+s32 set_position_xy__13TUnk_804CDFE8Fff(int, f32, f32);
 s32 get_window_layout_position(int, int, void *);
 extern s32 lbl_80478BCC[];
 extern const f32 lbl_805DFDA4;
@@ -185,7 +185,7 @@ void TChallenge4PResult::show_message(s32 text_handle) {
     if (message_window != NULL) {
         ((TWindowMessagePage *)message_window)->set_message((void *)text_handle, 0x81);
         if (get_instance__11TCameraCtrlFv() > 2) {
-            set_position_xy((int) (message_window), (f32) (lbl_805DFDA4), (f32) (lbl_805DFDA4));
+            set_position_xy__13TUnk_804CDFE8Fff((int) (message_window), (f32) (lbl_805DFDA4), (f32) (lbl_805DFDA4));
         }
     }
 }

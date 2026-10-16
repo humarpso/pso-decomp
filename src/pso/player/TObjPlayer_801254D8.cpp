@@ -4,7 +4,7 @@
 
 extern "C" {
 
-s32 has_game_join_id();
+s32 has_game_join_id__13TUnk_804E355CFv();
 s32 check_hits__14TItemAttackColFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -14,7 +14,7 @@ void TUnk_804A2548::run_task() {
     f32 temp_f1;
     f32 temp_f1_2;
 
-    if (has_game_join_id() != 0) {
+    if (has_game_join_id__13TUnk_804E355CFv() != 0) {
         temp_f1 = this->m_40;
         if (temp_f1 < *(f32 *)&this->unk_C4) {
             this->m_40 = (f32) (temp_f1 + lbl_805DAD50);

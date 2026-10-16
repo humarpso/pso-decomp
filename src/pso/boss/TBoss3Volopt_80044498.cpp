@@ -748,12 +748,12 @@ extern u32 *TBoss3Volopt__data_805D4CFC;
 extern u32 *TBoss3Volopt__data_805D4CEC;
 extern u8 *TBoss3Volopt__data_805D4D00;
 extern u8 *TBoss3Volopt__data_805D4D08;
-void reset_visual_state__12TBoss3VoloptFPv(void *arg0);
+void reset_visual_state__13TUnk_80484610Fv(void *arg0);
 void TBoss3Volopt__sub_8004824C(void *);
 void broadcast_values__12TBoss3VoloptFPv(Obj_80045328 *self);
-void reset_visual_state__12TBoss3VoloptFPv(void *arg0);
+void reset_visual_state__13TUnk_80484610Fv(void *arg0);
 void advance_animation_playback(void *);
-void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
+void sub_800472D4__13TUnk_80484610Fv(Obj_800472D4 *self);
 void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(s32);
 void rebuild_parts__12TBoss3VoloptFPv(S_80045010 *o);
@@ -762,12 +762,12 @@ void update_fade_state__12TBoss3VoloptFPv(u8 *arg0);
 void update_pillar_heal_state__12TBoss3VoloptFPv(void *);
 void TBoss3Volopt__sub_80046260(void *);
 void TBoss3Volopt__sub_800465B0(void *);
-void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
+void sub_800472D4__13TUnk_80484610Fv(Obj_800472D4 *self);
 void update_state__12TBoss3VoloptFPv(void *arg0);
 void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self);
-void run_state__12TBoss3VoloptFPv(S_80047714 *o);
+void run_state__13TUnk_80484610Fv(S_80047714 *o);
 void broadcast_values__12TBoss3VoloptFPv(Obj_80045328 *self);
-void distribute_part_damage__12TBoss3VoloptFPv(Volopt_80044498 *self);
+void distribute_part_damage__13TUnk_80484610Fv(Volopt_80044498 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
@@ -892,7 +892,8 @@ s32 obj_testFlags30(void*, s32);
 extern f32 lbl_805D87B8;
 
 struct Obj_80045328;
-void distribute_part_damage__12TBoss3VoloptFPv(Volopt_80044498 *self) {
+void TUnk_80484610::distribute_part_damage() {
+    Volopt_80044498 *self = (Volopt_80044498 *)this;
     s32 v;
     u32 flags;
     s32 n;
@@ -1281,8 +1282,8 @@ void spawn_breakup_models__12TBoss3VoloptFPv(u8 *arg0) {
 }
 #pragma pop
 
-void reset_visual_state__12TBoss3VoloptFPv(void *arg0) {
-    Obj_80045928 *self = (Obj_80045928 *)arg0;
+void TUnk_80484610::reset_visual_state() {
+    Obj_80045928 *self = (Obj_80045928 *)this;
     self->color = lbl_804845C4[0];
     self->scale.x = lbl_804845AC.x;
     self->scale.y = lbl_804845AC.y;
@@ -1813,12 +1814,13 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
 #undef arg0
 #pragma pop
 
-void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self) {
+void TUnk_80484610::sub_800472D4() {
+    Obj_800472D4 *self = (Obj_800472D4 *)this;
     switch (self->state) {
     case 0:
         self->flags &= ~0x40000;
         self->anim = 0;
-        reset_visual_state__12TBoss3VoloptFPv(self);
+        reset_visual_state__13TUnk_80484610Fv(self);
         self->state = 1;
     case 1:
         advance_animation_playback(self);
@@ -1836,7 +1838,7 @@ void update_state__12TBoss3VoloptFPv(void *arg0) {
     switch (temp_r0) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x46C) = 6;
-        distribute_part_damage__12TBoss3VoloptFPv((Volopt_80044498 *)((void *)(arg0)));
+        distribute_part_damage__13TUnk_80484610Fv((Volopt_80044498 *)((void *)(arg0)));
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (lbl_805D8818 * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x46C) * 0x3000));
@@ -1923,9 +1925,10 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
     }
 }
 
-void run_state__12TBoss3VoloptFPv(S_80047714 *o) {
+void TUnk_80484610::run_state() {
+    S_80047714 *o = (S_80047714 *)this;
     switch (o->st) {
-    case 0: TBoss3Volopt__sub_800472D4((Obj_800472D4 *)(o)); return;
+    case 0: sub_800472D4__13TUnk_80484610Fv((Obj_800472D4 *)(o)); return;
     case 1: dispatch_state__12TBoss3VoloptFPv((V_80047408 *)(o)); return;
     case 2: TBoss3Volopt__sub_80046CB8((void *)(o)); return;
     case 4: update_state__12TBoss3VoloptFPv(o); return;
@@ -1957,7 +1960,7 @@ void TUnk_80484610::run_task() {
             ((VObj_18_b8f5cb *)(arg0))->m61();
         } else if (((VObj_18_b8f5cb *)(arg0))->m30() != 0) {
             if (TBoss3Volopt__sub_8003F398() != 0) {
-                distribute_part_damage__12TBoss3VoloptFPv((Volopt_80044498 *)((void *)((void *) (arg0))));
+                distribute_part_damage__13TUnk_80484610Fv((Volopt_80044498 *)((void *)((void *) (arg0))));
                 *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
                 *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss3Volopt__data_805D87E4;
             } else {
@@ -1975,13 +1978,13 @@ void TUnk_80484610::run_task() {
                 if (temp_r0 != -1) {
                     this->m_470 = temp_r0;
                     *(s32 *)&this->state = -1;
-                    run_state__12TBoss3VoloptFPv((S_80047714 *)((void *) (arg0)));
+                    run_state__13TUnk_80484610Fv((S_80047714 *)((void *) (arg0)));
                 }
                 *(s32 *)&this->m_380 = (s32) this->mode;
                 this->mode = (s16) *(s32 *)&this->next_action;
                 *(s32 *)&this->state = 0;
             }
-            run_state__12TBoss3VoloptFPv((S_80047714 *)((void *) (arg0)));
+            run_state__13TUnk_80484610Fv((S_80047714 *)((void *) (arg0)));
             ((TObjPlayer *)arg0)->update_prev_position();
             copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
             submit_cursor_candidate((void *) (arg0), (int) (-1));

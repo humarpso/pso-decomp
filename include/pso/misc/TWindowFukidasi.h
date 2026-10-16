@@ -28,15 +28,6 @@ struct TWindowFukidasi
     void follow_anchor();
     void get_boundary_offset(s32 angle, f32 *out);
     void run_task();
-    void set_flag2c_bit100();
-    void clear_flag2c_bit200();
-    void set_flag2c_bit200();
-    void clear_flag2c_bit100();
-    void clear_visible_flag();
-    void set_flag();
-    int is_flag_set();
-    void clear_flag_20();
-    int is_active();
     void clear_flag();
     void find_balloon_overlap_for(s32 arg1);
 };

@@ -26,7 +26,6 @@ struct THunterGuildSeqOffline
     static void *create(void *arg0);
     static s32 check_party_gathered();
     void update_member_proximity();
-    void open_member_name_window();
     static void set_state_close();
     static void set_state_4();
     void handle_click();

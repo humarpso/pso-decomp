@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubShortMail.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowMessageYesNo.h"
@@ -17,6 +18,6 @@ s32 create_window_menu(s32, s32, s32);
 int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 int queue_destruction__7TObjectFv(void*);
 
-void TWindowSubShortMail::notify_warp_flag70() { void* m = *(void* *)&this->m_2c; if (m) ((TObjCityMainWarp *)m)->set_flag70_bit10(); }
+void TWindowSubShortMail::notify_warp_flag70() { void* m = *(void* *)&this->m_2c; if (m) ((TWindowSubComCardList *)m)->set_flag70_bit10(); }
 
 }

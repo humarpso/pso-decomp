@@ -149,7 +149,7 @@ s32 TWindowDuelResult__sub_801C19AC(void *);
 
 s32 calc_battle_score__19TPlayerBattleCtrl4PFPvPv(void *self, u8 *arg1);
 s32 get_split_screen_battle_timer_limit(u8 *arg0);
-void set_split_screen_battle_phase(u8 *arg0, s32 arg1);
+void set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(u8 *arg0, s32 arg1);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D2A98;
@@ -173,7 +173,7 @@ extern char lbl_80475BB8[];
 extern s16 battle_event_second_table[];
 extern s32 TLobby__battle_ctrl_default_value;
 void start_duel__19TPlayerBattleCtrl4PFPv(O_80311618 *o);
-void set_split_screen_battle_phase(u8 *arg0, s32 arg1);
+void set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(u8 *arg0, s32 arg1);
 s32 rand();
 extern const f32 lbl_805DF240;
 extern const f32 lbl_805DF244;
@@ -381,7 +381,7 @@ void TPlayerBattleCtrl4P::init() {
     TPlayerBattleCtrl4P__init_flag = 1;
 }
 
-int TPlayerBattleCtrl4P::init_ctrl_default(void* p) { return ((int (*)(void*, int))set_split_screen_battle_phase)(p, 0); }
+int TPlayerBattleCtrl4P::init_ctrl_default(void* p) { return ((int (*)(void*, int))set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl)(p, 0); }
 void TPlayerBattleCtrl4P::notify_lobby(void* p, void* a1, void* a2) { play_cue_stream_file(a1); show_duel_result_window((void*)-50, a2); }
 void TPlayerBattleCtrl4P::reset_score_counters() { this->timed_event_state = 0; *(s32 *)&this->unknown_290 = 0; }
 
@@ -764,7 +764,8 @@ s32 get_split_screen_battle_timer_limit(u8 *arg0) {
 
 void TPlayerBattleCtrl4P::set_score(s32 v) { this->phase_state = v; }
 
-void set_split_screen_battle_phase(u8 *arg0, s32 arg1) {
+void TPlayerBattleCtrl4P::set_split_screen_battle_phase(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x298) = arg1;
     *(s32 *)((s8 *)arg0 + 0x29C) = 0;
 }
@@ -844,7 +845,7 @@ void TPlayerBattleCtrl4P::shuffle_order() {
         o->w1 = NULL;
     }
     close_player_windows();
-    set_split_screen_battle_phase((u8 *)o, 5);
+    set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl((u8 *)o, 5);
 }
 
 void TPlayerBattleCtrl4P::update() {

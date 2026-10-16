@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestColBase.h"
 #include "pso/TObject.h"
 #include "pso/TQuestThreadBoard.h"
 #include "pso/object/TObjQuestCol.h"
@@ -136,7 +137,7 @@ s32 TObjQuestColALock2__vt13(void *arg0) {
             return 0;
         }
         submit_cursor_candidate(arg0, -1);
-        temp_r3_2 = ((TObjQuestCol *)arg0)->update_trigger_state(*(f32 *)((s8 *)arg0 + 0xAC));
+        temp_r3_2 = ((TObjQuestColBase *)arg0)->update_trigger_state(*(f32 *)((s8 *)arg0 + 0xAC));
         if (temp_r3_2 == 1) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
         }

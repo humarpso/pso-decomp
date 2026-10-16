@@ -177,7 +177,7 @@ extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB588;
 extern const f32 lbl_805DB58C;
-void TODragonfly__sub_80164990(u8 *arg0);
+void sub_80164990__11TODragonflyFv(u8 *arg0);
 s32 is_any_player_within_radius_xz(s32, f32);
 s32 rand(void);
 extern const f32 lbl_805DB560;
@@ -227,7 +227,7 @@ f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB584;
 extern const f32 lbl_805DB590;
-void TODragonfly__sub_80164A90(O_80164A90 *arg0);
+void sub_80164A90__11TODragonflyFv(O_80164A90 *arg0);
 }
 
 extern "C" {
@@ -255,7 +255,7 @@ s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-s32 update_anim_phase__17TOBarrierEnergy01Fv(void *);
+s32 update_anim_phase__13TUnk_804AFBF8Fv(void *);
 
 #pragma push
 #pragma fp_contract on
@@ -325,7 +325,8 @@ void TODragonfly::move_toward_target() {
 
 #pragma push
 #pragma fp_contract on
-void TODragonfly__sub_80164990(u8 *arg0) {
+void TODragonfly::sub_80164990() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r5;
     temp_r5 = *(s32 *)((s8 *)arg0 + 0xCC);
     *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (temp_r5 + 1);
@@ -343,7 +344,8 @@ void TODragonfly__sub_80164990(u8 *arg0) {
 }
 #pragma pop
 
-void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
+void TODragonfly::sub_80164A90() {
+    O_80164A90 *arg0 = (O_80164A90 *)this;
     f32 t;
     f32 d;
     if (is_any_player_within_radius_xz((s32)arg0, lbl_805DB590) == 1) {
@@ -405,17 +407,17 @@ void TODragonfly::run_task() {
         ((DfV_80164cc4_80164760 *)this)->vf12();
         return;
     }
-    update_anim_phase__17TOBarrierEnergy01Fv(this);
+    update_anim_phase__13TUnk_804AFBF8Fv(this);
     temp_r0 = *(s32 *)&this->unk_AC;
     switch (temp_r0) {
     case 0:
         update_idle();
         return;
     case 1:
-        TODragonfly__sub_80164A90((O_80164A90 *)(this));
+        sub_80164A90__11TODragonflyFv((O_80164A90 *)(this));
         return;
     case 2:
-        TODragonfly__sub_80164990((u8 *)(this));
+        sub_80164990__11TODragonflyFv((u8 *)(this));
         return;
     case 3:
         move_toward_target();

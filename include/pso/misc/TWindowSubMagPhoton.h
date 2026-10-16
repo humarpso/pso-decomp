@@ -6,6 +6,7 @@
 
 struct TWindowSubMagPhoton : public TUnk_804CE018 {
     virtual ~TWindowSubMagPhoton();
+    int get_active_flag();
     virtual void render();
     u8 unk_1C[0x1];
     u8 m_1d;

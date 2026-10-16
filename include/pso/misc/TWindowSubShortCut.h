@@ -6,6 +6,7 @@
 
 struct TWindowSubShortCut : public TObject {
     virtual ~TWindowSubShortCut();
+    void open_com_card_list();
     u8 m_1c;
     u8 unk_1D[0x1];
     u16 m_1e;
@@ -18,7 +19,6 @@ struct TWindowSubShortCut : public TObject {
     u32 m_38;
     u32 m_3c;
     void* m_40;
-    int is_shortcut_active();
     s32 open_confirm_message();
     s32 open_confirm_prompt();
     s32 open_menu();

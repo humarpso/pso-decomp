@@ -1,6 +1,7 @@
 #pragma defer_codegen on
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 
 struct Base_80301690_80300CE4 { char pad[0x18]; };
@@ -725,7 +726,7 @@ s32 restore_render_scissor(int);
 s32 set_indexed_flags(void *, s32, s32);
 
 f32 calc_boss4_scale__10TObjPlayerFi();
-s32 fn_8002AE64(void *);
+s32 sub_8002AE64__9TObjEnemyFv(void *);
 s32 init_enemy_base__10TObjPlayerFv(void *, s32);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
 s32 initialize_enemy_photon_effect(void *);
@@ -1227,7 +1228,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)TObjEneDolmOlm__resource_bundle + 0x430);
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     init_collision_body_parts(arg0, (u8 *) lbl_804E68D0 + *(s32 *)((s8 *)arg0 + 0x368) * 0x2C, 1);
     bind_enemy_combat_stats(arg0, ((s32 *) dolm_olm_combat_stat_id_pair)[*(s32 *)((s8 *)arg0 + 0x368)],
         ((s32 *) TObjEneDolmOlm__shared_handler_ids)[*(s32 *)((s8 *)arg0 + 0x368)], ((s32 *) TObjEneDolmOlm__registered_object_ids)[*(s32 *)((s8 *)arg0 + 0x368)]);
@@ -1266,7 +1267,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x3A4) = ((f32 **) TObjEneDolmOlm__behavior_params_by_variant)[*(s32 *)((s8 *)arg0 + 0x368)][3];
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     *(f32 *)((s8 *)arg0 + 0x3D4) = TObjEneDolmOlm__data_805DEF54;
-    fn_8002AE64(arg0);
+    sub_8002AE64__9TObjEnemyFv(arg0);
     ((VObj_18_c99286 *) arg0)->m80();
     return arg0;
 }

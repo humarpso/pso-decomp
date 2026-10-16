@@ -6,6 +6,7 @@
 
 struct TTecRaBarta : public TUnk_804CC148 {
     virtual ~TTecRaBarta();
+    void calc_parameters();
     u32 m_ec;
     u32 m_f0;
     u32 m_f4;

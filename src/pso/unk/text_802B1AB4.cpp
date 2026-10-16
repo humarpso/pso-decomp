@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTrade.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubShortMail.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -45,7 +46,7 @@ s32 free_member__17TWindowSubComCardFv(int, int);
 s32 open_yes_no_prompt(int, int, int, int, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern const f32 lbl_805DE298;
-s32 open_trade_confirm_prompt(u8 *arg0, s32 arg1);
+s32 open_trade_confirm_prompt__15TWindowSubTradeFl(u8 *arg0, s32 arg1);
 s32 get_shared_text_buffer();
 u8 *get_player_by_client_id(s32);
 s32 text_builder_append();
@@ -53,12 +54,13 @@ s32 text_builder_reset();
 s32 create_message_window__6TLobbyFllUls(s32, void *, int, int);
 s32 get_window_layout_position(int);
 extern u8 lbl_80470AA8[];
-s32 open_player_message_window(u8 *arg0, s32 arg1, s32 arg2);
+s32 open_player_message_window__15TWindowSubTradeFll(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-s32 open_trade_confirm_prompt(u8 *arg0, s32 arg1) {
+s32 TWindowSubTrade::open_trade_confirm_prompt(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r29;
     u8 *temp_r29_2;
     temp_r29_2 = (u8 *)(get_player_by_client_id(arg1));
@@ -75,7 +77,8 @@ s32 open_trade_confirm_prompt(u8 *arg0, s32 arg1) {
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
     return temp_r29;
 }
-s32 open_player_message_window(u8 *arg0, s32 arg1, s32 arg2) {
+s32 TWindowSubTrade::open_player_message_window(s32 arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     s32 r;
     VObj_802B1B80 *p;
     p = (VObj_802B1B80 *)get_player_by_client_id(arg1);

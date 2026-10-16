@@ -66,7 +66,7 @@ void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 void create_TDPBShower(int, void *);
 extern s32 tl_02;
-void fn_8035D8B0(W_8035D8B0 *arg0);
+void sub_8035D8B0__9TBoss6DPBFv(W_8035D8B0 *arg0);
 extern const f32 lbl_805E01C8;
 u8 *__nw__7TObjectFUl(s32);
 s32 try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, void *, int);
@@ -95,12 +95,13 @@ void subtract_vector(void *, void *);
 extern s32 tl_02;
 extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D0;
-void apply_shower_damage_to_players(Shower_8035D924 *arg0);
+void apply_shower_damage_to_players__9TBoss6DPBFv(Shower_8035D924 *arg0);
 }
 
 extern "C" {
 
-void fn_8035D8B0(W_8035D8B0 *arg0) {
+void TBoss6DPB::sub_8035D8B0() {
+    W_8035D8B0 *arg0 = (W_8035D8B0 *)this;
     V_8035D8B0 v = arg0->v;
     v.b = lbl_805E01C8;
     spawn_particle_effect_with_flags(&v, 0x21C, 0x40);
@@ -110,7 +111,8 @@ void fn_8035D8B0(W_8035D8B0 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void apply_shower_damage_to_players(Shower_8035D924 *arg0) {
+void TBoss6DPB::apply_shower_damage_to_players() {
+    Shower_8035D924 *arg0 = (Shower_8035D924 *)this;
     Vec_8035D924 v;
     Dmg_8035D924 dmg;
     s32 n;
@@ -148,9 +150,9 @@ void TBoss6DPB::run_task() {
     if (((TObjEneDD *)arg0)->query_teammate_state() == 0) {
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) + 1);
         if ((f32) *(s32 *)((s8 *)arg0 + 0x30) > lbl_805E01C8) {
-            apply_shower_damage_to_players((Shower_8035D924 *)(arg0));
+            apply_shower_damage_to_players__9TBoss6DPBFv((Shower_8035D924 *)(arg0));
             play_sound_effect(0x40069411, (u32) (arg0 + 0x20), 0, 0);
-            fn_8035D8B0((W_8035D8B0 *)arg0);
+            sub_8035D8B0__9TBoss6DPBFv((W_8035D8B0 *)arg0);
             queue_destruction__7TObjectFv(arg0);
         }
     }

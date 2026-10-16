@@ -25,7 +25,7 @@ struct Vec_802F25AC { f32 x, y, z; };
 extern "C" {
 u32 __nw__7TObjectFUl(s32);
 s32 fn_802F1FB0(void *, s32, s32, f32, s32);
-void spawn__15TObjBoss2TunnelFPvii(void *arg0, s32 arg1, s32 arg2);
+void spawn__13TUnk_804E4B3CFll(void *arg0, s32 arg1, s32 arg2);
 extern u32 boss2_tunnel_state_flags;
 void TObjBoss2Tunnel__sub_802F2278(void);
 extern u32 boss2_tunnel_state_flags;
@@ -58,7 +58,7 @@ void TObjBoss2Tunnel__sub_802F2400(u8 *arg0);
 extern u32 boss2_tunnel_state_flags;
 extern s32 boss2_tunnel_spawn_timer_table[];
 extern const f32 lbl_805DEC9C;
-void spawn__15TObjBoss2TunnelFPvii(void *arg0, s32 arg1, s32 arg2);
+void spawn__13TUnk_804E4B3CFll(void *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DECB4;
 extern const f32 lbl_805DEC68;
 extern const f32 lbl_805DECFC;
@@ -142,9 +142,9 @@ void TunnelSceneController::spawn_segment_row_a() {
     position.y=lbl_805DEC9C;
     for (position.z=half_length;position.z > -half_length;position.z-=lbl_805DECB4) {
         if (lbl_805DECAC > position.z && position.z > lbl_805DECB0) {
-            ((void (*)(void*,s32,TunnelVector3*))spawn__15TObjBoss2TunnelFPvii)(this,4,&position);
+            ((void (*)(void*,s32,TunnelVector3*))spawn__13TUnk_804E4B3CFll)(this,4,&position);
         } else {
-            ((void (*)(void*,s32,TunnelVector3*))spawn__15TObjBoss2TunnelFPvii)(this,3,&position);
+            ((void (*)(void*,s32,TunnelVector3*))spawn__13TUnk_804E4B3CFll)(this,3,&position);
         }
     }
 }
@@ -155,19 +155,19 @@ void TunnelSceneController::spawn_segment_row_b() {
     position.y=lbl_805DEC9C;
     for (position.z=half_length;position.z > -half_length;position.z-=lbl_805DECB4) {
         if (lbl_805DECAC > position.z && position.z > lbl_805DECB0) {
-            ((void (*)(void*,s32,TunnelVector3*))spawn__15TObjBoss2TunnelFPvii)(this,0,&position);
+            ((void (*)(void*,s32,TunnelVector3*))spawn__13TUnk_804E4B3CFll)(this,0,&position);
         } else {
-            ((void (*)(void*,s32,TunnelVector3*))spawn__15TObjBoss2TunnelFPvii)(this,2,&position);
+            ((void (*)(void*,s32,TunnelVector3*))spawn__13TUnk_804E4B3CFll)(this,2,&position);
         }
     }
 }
 
 extern "C" {
 
-void spawn__15TObjBoss2TunnelFPvii(void *arg0, s32 arg1, s32 arg2) {
+void TUnk_804E4B3C::spawn(s32 arg1, s32 arg2) {
     void *new_obj = (void *) __nw__7TObjectFUl(0x78);
     if ((u32) new_obj != 0U) {
-        fn_802F1FB0(new_obj, *(s32 *)((s8 *)arg0 + 0x8C), arg1, *(f32 *)((s8 *)arg0 + 0x84), arg2);
+        fn_802F1FB0(new_obj, *(s32 *)((s8 *)this + 0x8C), arg1, *(f32 *)((s8 *)this + 0x84), arg2);
     }
 }
 void TObjBoss2Tunnel__sub_802F2278(void) { (*(int *)&boss2_tunnel_state_flags) = ((*(int *)&boss2_tunnel_state_flags) | 0x8); }
@@ -307,7 +307,7 @@ void TObjBoss2Tunnel::update_spawn_timer(s32 arg1, s32 arg2, s32 arg3) {
         stack.sp8 = *(f32 *)((s8 *)arg0 + 0x54);
         stack.spC = lbl_805DEC9C;
         stack.sp10 = *(f32 *)((s8 *)arg0 + 0x84) - *(f32 *)((s8 *)arg0 + 0x58);
-        spawn__15TObjBoss2TunnelFPvii(arg0, *(s32 *)((s8 *)(arg1 + (*(s32 *)((s8 *)arg0 + 0x70) * 4)) + 0), (s32) &stack.sp8);
+        spawn__13TUnk_804E4B3CFll(arg0, *(s32 *)((s8 *)(arg1 + (*(s32 *)((s8 *)arg0 + 0x70) * 4)) + 0), (s32) &stack.sp8);
     }
 }
 #pragma pop
@@ -319,7 +319,7 @@ void TObjBoss2Tunnel::advance_effect_timer() {
     }
 }
 void TObjBoss2Tunnel__sub_802F273C(void) {  }
-void TObjBoss2Tunnel::update_phase_motion() {
+void TUnk_804E4B3C::update_phase_motion() {
     u8 *arg0 = (u8 *)this;
     f32 sp8;
     s32 temp_r0;

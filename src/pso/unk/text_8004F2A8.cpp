@@ -51,7 +51,7 @@ void post_translate_matrix(void *);
 void draw_model_motion(s32, s32, f32);
 extern const f32 lbl_805D89F4;
 extern const f32 lbl_805D89F8;
-void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0);
+void sub_8004F2A8__11TObjDFDemo4Fv(Obj_8004F2A8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void set_scripted_camera_pose(void *, void *, void *);
@@ -67,9 +67,10 @@ extern const f32 lbl_805D8A00;
 extern "C" {
 
 void render__11TObjDFDemo4Fv(void* p);
-int fn_8004F1FC(void*);
+int sub_8004F1FC__11TObjDFDemo4Fv(void*);
 
-void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0) {
+void TObjDFDemo4::sub_8004F2A8() {
+    Obj_8004F2A8 *arg0 = (Obj_8004F2A8 *)this;
     f32 alpha;
     s32 i;
     alpha = 1.0f;
@@ -97,7 +98,7 @@ void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0) {
     }
 }
 
-void TObjDFDemo4::render() { TObjPlayer__sub_8004F2A8((Obj_8004F2A8 *)(this)); fn_8004F1FC(this); }
+void TObjDFDemo4::render() { sub_8004F2A8__11TObjDFDemo4Fv((Obj_8004F2A8 *)(this)); sub_8004F1FC__11TObjDFDemo4Fv(this); }
 typedef struct Self_8004F3D4 Self_8004F3D4;
 typedef struct Vec_8004F3D4 Vec_8004F3D4;
 #pragma inline_depth(1)

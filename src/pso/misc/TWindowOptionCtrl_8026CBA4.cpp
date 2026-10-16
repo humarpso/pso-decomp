@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -50,7 +51,7 @@ void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w) {
     f32 lim;
     f32 t;
     if (TWindowCtrlMain__sub_8024CE58() != 0) {
-        ((TWindowSubStatusDisp *)w)->get_scale();
+        ((TUnk_804CE018 *)w)->get_scale();
         window_depth_order_cursor -= lbl_805DD2C8;
         lim = w->f54;
         for (n = w->f10->f14; n != NULL; n = n->fC) {
@@ -85,11 +86,11 @@ void resort_window_order__15TWindowCtrlMainFPv(Node_8026CCA4 *w) {
             g->head->prev = w->prev;
         }
     }
-    scale = ((TWindowSubStatusDisp *)w)->get_scale();
+    scale = ((TUnk_804CE018 *)w)->get_scale();
     window_depth_order_cursor += lbl_805DD2C8;
     for (n = g->head; n != NULL; n = n->next) {
         last = n;
-        if (!(scale < ((TWindowSubStatusDisp *)n)->get_scale())) {
+        if (!(scale < ((TUnk_804CE018 *)n)->get_scale())) {
             break;
         }
         n->f54 += lbl_805DD2C8;

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TUnk_804C8678.h"
 #include "pso/quest/AreaDialogueScripts.h"
 #include "pso/TObject.h"
@@ -445,7 +447,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     case 6:
         break;
     case 7:
-        if (((TWindowSubComCard *)(o->win2C))->is_visible() != 0) {
+        if (((TWindowMenu *)(o->win2C))->is_visible() != 0) {
             o->ids[o->idx] = get_selected_menu_value(o->win2C);
             TWindow__close(o->win2C);
             o->win2C = NULL;
@@ -506,7 +508,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             o->ids[o->idx] = v;
             TWindowHelpItem__set_displayed_item_by_id(o->win188, v);
         }
-        if (((TLobby *)(o->win184))->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)(o->win184))->get_status_flag() != 0) {
             TWindow__close(o->win184);
             o->win184 = NULL;
             TWindow__close(o->win188);
@@ -665,7 +667,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
         }
         break;
     case 7:
-        if (((TWindowSubComCard *)(t->comCard))->is_visible() != 0) {
+        if (((TWindowMenu *)(t->comCard))->is_visible() != 0) {
             t->slots[t->slot] = get_selected_menu_value(t->comCard);
             TWindow__close(t->comCard);
             t->comCard = 0;
@@ -709,7 +711,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
             t->slots[t->slot] = sel;
             TWindowHelpItem__set_displayed_item_by_id(t->help, sel);
         }
-        if (((TLobby *)(t->list))->get_status_flag() != 0 || ((TLobby *)(t->list))->get_flag_bit2() != 0) {
+        if (((TUnk_804D0618 *)(t->list))->get_status_flag() != 0 || ((TLobby *)(t->list))->get_flag_bit2() != 0) {
             if (((TLobby *)(t->list))->get_flag_bit2() != 0) {
                 t->slots[t->slot] = -1;
             }

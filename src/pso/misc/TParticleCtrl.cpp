@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_8048E728.h"
+#include "pso/misc/TUnk_8048E778.h"
 #include "pso/misc/TUnk_8048E6DC.h"
 #include "pso/misc/TUnk_8048E6A8.h"
 #include "pso/TParticleCtrl.h"
@@ -163,7 +165,7 @@ s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_particle;
 extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-s32 is_particle_sprite_additive(u8 *arg0);
+s32 is_particle_sprite_additive__13TUnk_8048E728Fv(u8 *arg0);
 u8 * __dt__7TObjectFv(void *, s16);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1);
@@ -180,7 +182,7 @@ extern const f32 lbl_805D9478;
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 s32 set_color_blend_mode(int, int, int, int);
 s32 set_chunk_material_color(void *);
-void apply_particle_model_fade_color(Ctrl_80086418 *self, s32 mode);
+void apply_particle_model_fade_color__13TUnk_8048E728Fl(Ctrl_80086418 *self, s32 mode);
 s32 find_particle_texture_index(s32 id);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
@@ -203,7 +205,7 @@ s32 TParticleCtrl__sub_803E2A1C(void *, int);
 extern Tex_80086248 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D94D8;
-void draw_particle_refraction_quad(Ctrl_80086248 *self);
+void draw_particle_refraction_quad__13TUnk_8048E728Fv(Ctrl_80086248 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 fn_80141EB4();
 s32 setSpriteInverseColorBlend();
@@ -387,7 +389,7 @@ u8 *init_particle_obj__13TParticleCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 
 #pragma push
 #pragma fp_contract on
-void TParticleCtrl::draw_sprite_quad(s32 kind) {
+void TUnk_8048E778::draw_sprite_quad(s32 kind) {
     Particle_80085EE4 *p = (Particle_80085EE4 *)this;
     Vec_80085EE4 view;
     Vec_80085EE4 world;
@@ -480,7 +482,8 @@ void TParticleCtrl::draw_sprite_quad(s32 kind) {
 }
 #pragma pop
 
-s32 is_particle_sprite_additive(u8 *arg0) {
+s32 TUnk_8048E728::is_particle_sprite_additive() {
+    u8 *arg0 = (u8 *)this;
     return **(s32 **)((s8 *)(*(s32 *)((s8 *)(&TParticleCtrl__data_80511F70.value) + (*(u16 *)((s8 *)arg0 + 0x1C) * 4))) + 0x28) & 1;
 }
 
@@ -490,7 +493,8 @@ void TParticleCtrl::mark_active() {
 }
 typedef char RecoveredGlobal_8008655C_lbl_8048E728_size[sizeof(RecoveredGlobal_8008655C_lbl_8048E728) == 0x18 ? 1 : -1];
 
-void draw_particle_refraction_quad(Ctrl_80086248 *self) {
+void TUnk_8048E728::draw_particle_refraction_quad() {
+    Ctrl_80086248 *self = (Ctrl_80086248 *)this;
     Vec_80086248 p;
     Vtx_80086248 v[4];
     s32 frame;
@@ -529,7 +533,8 @@ void draw_particle_refraction_quad(Ctrl_80086248 *self) {
     TParticleCtrl::end_effect_render();
 }
 
-void apply_particle_model_fade_color(Ctrl_80086418 *self, s32 mode) {
+void TUnk_8048E728::apply_particle_model_fade_color(s32 mode) {
+    Ctrl_80086418 *self = (Ctrl_80086418 *)this;
     FCol_80086418 f;
     if (mode != 0) {
         set_color_blend_mode(1, 4, 1, 0);
@@ -555,7 +560,7 @@ u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1) {
         *(s32 *)((s8 *)arg0 + 0x20) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
-            ((TParticleCtrl *)arg0)->free_from_heap();
+            ((TUnk_8048E728 *)arg0)->free_from_heap();
         }
     }
     return arg0;

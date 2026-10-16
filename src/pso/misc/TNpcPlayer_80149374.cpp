@@ -12,8 +12,8 @@ extern "C" {
 
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TLobby__send_and_handle_60(void *);
-void TObjNpcBase__sub_80149358(void* p, s32 v);
-void TObjNpcBase__sub_80149360(void* p, s32 v);
+void sub_80149358__11TObjNpcBaseFl(void* p, s32 v);
+void sub_80149360__11TObjNpcBaseFl(void* p, s32 v);
 void TObjNpcBase__sub_80149368(void* p);
 void TObjNpcBase__vt86(void);
 s32 bswap_16__FPUs(s32);

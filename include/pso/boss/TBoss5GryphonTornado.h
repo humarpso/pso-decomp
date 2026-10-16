@@ -6,6 +6,7 @@
 
 struct TBoss5GryphonTornado : public TObject {
     virtual ~TBoss5GryphonTornado();
+    void sub_803554F0(u8 *);
     u32 m_1c;
     u32 m_20;
     u16 m_24;

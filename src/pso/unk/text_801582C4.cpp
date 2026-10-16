@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 struct V3_801582C4 { f32 x, y, z; };
 
 struct O_801582C4 { u8 pad[0x38]; V3_801582C4 pos; u8 pad44[0xA4 - 0x44]; u32 f; };
@@ -6,12 +7,13 @@ struct O_801582C4 { u8 pad[0x38]; V3_801582C4 pos; u8 pad44[0xA4 - 0x44]; u32 f;
 extern "C" {
 f32 get_collision_body_radius(void *, int);
 s32 matrix_mult_vec(int, void *, void *);
-s32 is_in_view_depth(O_801582C4 *arg0, f32 lim);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(O_801582C4 *arg0, f32 lim);
 }
 
 extern "C" {
 
-s32 is_in_view_depth(O_801582C4 *arg0, f32 lim) {
+s32 TUnk_804AFBF8::is_in_view_depth(f32 lim) {
+    O_801582C4 *arg0 = (O_801582C4 *)this;
     V3_801582C4 sp8;
     f32 v;
     if (arg0->f != 0U) {

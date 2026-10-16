@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CF0B8.h"
 #include "pso/misc/TWindowAddition.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowFukidasi.h"
@@ -14,8 +15,8 @@ extern s32 lbl_804CF0B8[];
 u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CF0B8;
-        if (((TWindowFukidasi *)arg0)->is_flag_set() != 0) {
-            ((TWindowFukidasi *)arg0)->clear_visible_flag();
+        if (((TUnk_804CF0B8 *)arg0)->is_flag_set() != 0) {
+            ((TUnk_804CF0B8 *)arg0)->clear_visible_flag();
             TWindowCtrl::release_slot((s8 *)(arg0 + 0x73));
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x78) != 0U) {

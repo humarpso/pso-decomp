@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorVoShip.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOBarrierEnergy01.h"
@@ -83,7 +84,7 @@ extern void *tl_05;
 void TODoorVoShip::run_task() {
     u8 *arg0 = (u8 *)this;
     if (*(s32 *)&this->m_cc & 0xE) {
-        ((TOBarrierEnergy01 *)arg0)->update_anim_phase();
+        ((TUnk_804AFBF8 *)arg0)->update_anim_phase();
         if (*(s32 *)&this->m_cc & 0x10) {
             *(f32 *)&this->m_dc = (f32) (*(f32 *)&this->m_dc + lbl_805DB530);
             if (lbl_805DB534 <= *(f32 *)&this->m_dc) {

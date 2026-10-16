@@ -31,7 +31,7 @@ int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 has_game_join_id();
+s32 has_game_join_id__13TUnk_804E355CFv();
 s32 queue_destruction__7TObjectFv(void *);
 
 void TItemEffPG::run_task() {
@@ -40,7 +40,7 @@ void TItemEffPG::run_task() {
     s32 var_r31;
 
     var_r31 = 1;
-    if (has_game_join_id() == 0) {
+    if (has_game_join_id__13TUnk_804E355CFv() == 0) {
         var_r31 = 0;
     }
     if (((PgV_8034FF4C *)this)->vf05() == 0) {

@@ -360,7 +360,7 @@ extern s32 tl_particle;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 spawn_rafoie_explosion_bursts(void *);
+s32 spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(void *);
 s32 fn_802A8210(int, int, void *);
 extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 extern const f32 TTecRaFoie__data_805DC8CC;
@@ -371,7 +371,7 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 spawn_rafoie_explosion_bursts(void *);
+s32 spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(void *);
 s32 fn_802A8210(int, int, void *);
 extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 extern const f32 TTecRaFoie__data_805DC8CC;

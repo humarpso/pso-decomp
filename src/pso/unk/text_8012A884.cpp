@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A4948.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemProShield.h"
@@ -112,46 +113,46 @@ u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2) {
     case 1:
     case 2:
         set_status_flags__10TObjPlayerFPvUi(p, 0x400000);
-        ((TItemWeapon *)self)->set_special_selector(0x1A);
+        ((TUnk_804A4948 *)self)->set_special_selector(0x1A);
         break;
     case 5:
-        ((TItemWeapon *)p)->set_special_selector(0x1A);
+        ((TUnk_804A4948 *)p)->set_special_selector(0x1A);
         break;
     case 6:
-        ((TItemWeapon *)p)->set_special_selector(0x1E);
+        ((TUnk_804A4948 *)p)->set_special_selector(0x1E);
         break;
     case 7:
-        ((TItemWeapon *)p)->set_special_selector(0x12);
+        ((TUnk_804A4948 *)p)->set_special_selector(0x12);
         break;
     case 8:
-        ((TItemWeapon *)p)->set_special_selector(0x16);
+        ((TUnk_804A4948 *)p)->set_special_selector(0x16);
         break;
     case 9:
-        ((TItemWeapon *)p)->set_special_selector(0x26);
+        ((TUnk_804A4948 *)p)->set_special_selector(0x26);
         break;
     case 10:
-        ((TItemWeapon *)p)->set_special_selector(0x22);
+        ((TUnk_804A4948 *)p)->set_special_selector(0x22);
         break;
     case 11:
-        ((TItemWeapon *)p)->set_special_selector(0xD);
+        ((TUnk_804A4948 *)p)->set_special_selector(0xD);
         break;
     case 12:
-        ((TItemWeapon *)p)->set_special_selector(0xE);
+        ((TUnk_804A4948 *)p)->set_special_selector(0xE);
         break;
     case 13:
-        ((TItemWeapon *)p)->set_special_selector(0x28);
+        ((TUnk_804A4948 *)p)->set_special_selector(0x28);
         break;
     case 14:
-        ((TItemWeapon *)p)->set_special_selector(4);
+        ((TUnk_804A4948 *)p)->set_special_selector(4);
         break;
     case 15:
-        ((TItemWeapon *)p)->set_special_selector(8);
+        ((TUnk_804A4948 *)p)->set_special_selector(8);
         break;
     case 16:
-        ((TItemWeapon *)p)->set_special_selector(0xB);
+        ((TUnk_804A4948 *)p)->set_special_selector(0xB);
         break;
     default:
-        ((TItemWeapon *)p)->set_special_selector(0);
+        ((TUnk_804A4948 *)p)->set_special_selector(0);
         break;
     }
     return (u8 *)self;

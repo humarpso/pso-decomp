@@ -15,7 +15,7 @@ extern "C" {
 
 void vfunc_84__12TOMineIcon01Fv(void);
 s16 TOMineTrap__sub_80171340(void* p);
-void TOMineTrap__sub_80171348(void* p, s16 v);
+void sub_80171348__10TOMineTrapFs(void* p, s16 v);
 int TOMineTrap__sub_80171350(void);
 u16 TOMineTrap__sub_80171358(void* p);
 void vfunc_84__6TOMineFv(void);
@@ -28,7 +28,7 @@ int read_be16_field2__10TObjPlayerFv(void*);
 void fn_80171314(void* p) { ((TObjPlayer *)p)->check_flag((s32)((void*)65536)); }
 u16 TOMineTrap::get_trap_type() { return this->m_2d8; }
 s16 TOMineTrap__sub_80171340(void* p) { return *(s16*)((char*)p + 0x326); }
-void TOMineTrap__sub_80171348(void* p, s16 v) { *(s16*)((char*)p + 0x2d8) = v; }
+void TOMineTrap::sub_80171348(s16 v) { *(s16*)((char*)this + 0x2d8) = v; }
 
     extern int mine_trap_instance_id;
 int TOMineTrap__sub_80171350(void) {  return mine_trap_instance_id; }

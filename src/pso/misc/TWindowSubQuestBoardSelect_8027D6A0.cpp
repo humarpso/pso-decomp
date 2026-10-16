@@ -28,9 +28,9 @@ extern RecoveredGlobal_8027D888_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD6B4;
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, s32, s32, s32);
 void play_sound_effect(s32, s32, s32, s32);
-void fn_8027D230(void *);
+void sub_8027D230__26TWindowSubQuestBoardSelectFv(void *);
 s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(void *, u8);
-s32 is_shortcut_active__18TWindowSubShortCutFv();
+s32 is_shortcut_active__26TWindowSubQuestBoardSelectFv();
 extern RecoveredGlobal_8027D888_lbl_8050E208 controller_input_state;
 }
 
@@ -41,7 +41,7 @@ s32 TWindowSubQuestBoardSelect::handle_page_input() {
     Win_8027D6A0 *self = (Win_8027D6A0 *)this;
     void *p;
     s8 d;
-    if (is_shortcut_active__18TWindowSubShortCutFv() == 0 &&
+    if (is_shortcut_active__26TWindowSubQuestBoardSelectFv() == 0 &&
         (apply_choice__20TWindowChoiceSettingFiiii(p = TBL_8027D6A0[0].f20, 0xC0, 6, 1) != 0 ||
         apply_choice__20TWindowChoiceSettingFiiii(TBL_8027D6A0[4].f20, 0xC0, 6, 1) != 0)) {
         play_sound_effect(0x54100, 0, 0, 0);
@@ -64,7 +64,7 @@ s32 TWindowSubQuestBoardSelect::handle_page_input() {
                     self->f61 -= 6;
                 }
             } while (get_slot_flag__26TWindowSubQuestBoardSelectFic(self, self->f61) == 0);
-            fn_8027D230(self);
+            sub_8027D230__26TWindowSubQuestBoardSelectFv(self);
         }
     }
 }
@@ -81,7 +81,7 @@ typedef char RecoveredGlobal_8027D888_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 void TWindowSubQuestBoardSelect::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
-    if (((TWindowSubQuestBoard *)arg0)->is_open() == 0) {
+    if (((TWindowSubQuestBoardSelect *)arg0)->is_open() == 0) {
         ((TWindowSubQuestBoardSelect *)arg0)->select_next();
         handle_page_input();
         temp_r31 = (u8 *)&controller_input_state.value + 0x20;

@@ -6,6 +6,7 @@
 
 struct TObjCity_Season_SonicAdv2 : public TUnk_804B5E48 {
     virtual ~TObjCity_Season_SonicAdv2();
+    s32 sub_80183C38();
     virtual void debug_draw_model_index();
     virtual void render();
     virtual void run_task();

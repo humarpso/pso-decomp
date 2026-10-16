@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneGibbles.h"
 #include <stddef.h>
 #include "pso/TParticleCtrl.h"
@@ -2729,7 +2730,7 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)TObjEneGibbles__resource_bundle + 0x430);
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     init_collision_body_parts(arg0, lbl_804E296C, 1);
     *(s16 *)((s8 *)arg0 + 0x37C) = 0;
     *(s16 *)((s8 *)arg0 + 0x37E) = 0;

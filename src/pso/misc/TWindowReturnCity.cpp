@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowReturnCity.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -131,7 +132,7 @@ void TWindowReturnCity::run_task() {
                 *(s32 *)&this->m_20 = 2;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)&this->m_1c))->is_child_visible() != 0) {
+            if (((TWindowMessageYesNo *)(*(s32 *)&this->m_1c))->is_child_visible() != 0) {
                 temp_r3 = ((TWindowSubComCard *)(*(s32 *)&this->m_1c))->get_slot_or_neg1();
                 if (temp_r3 == 0) {
                     TWindowReturnCity__client_scan_index = *(s32 *)&this->m_24;

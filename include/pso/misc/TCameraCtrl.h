@@ -71,8 +71,6 @@ struct TCameraCtrl : public TObject {
     void update_volopt_seq();
     void run_intro_camera_sequence();
     static s16 get_camera_mode();
-    s32 get_adjusted_angle(s32 arg1);
-    u16 get_param_offset(s32 arg1);
     void reset_look_state();
     void set_mode();
     static void set_player_view_flag(s32 arg0);
@@ -81,11 +79,9 @@ struct TCameraCtrl : public TObject {
     void update_target_follow();
     void init_state();
     void*init();
-    void update_orbit_camera();
     void reset_behind_player();
     void reset_state();
     void set_target_pos(void* q);
-    s32 predict_obstruction();
     static void post_update_view();
     void*get_target_ptr();
     static void copy_vec_to_default(u8 *arg0);

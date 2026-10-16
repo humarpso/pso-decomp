@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -261,7 +262,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         rotate_matrix_by_node_angles((void *) (arg0 + 0x5C), (int) (1));
         scale_current_matrix((void *) (lbl_804E3BF0));
         TObjPlayer__sub_802E8234((void *) (arg0));
-        ((TObjPlayer *)arg0)->get_speed();
+        ((TUnk_804806E8 *)arg0)->get_speed();
         apply_with_callback__10TObjPlayerFlf((int) (*(u32 *)((s8 *)arg0 + 0x7AC)), (int) (*(s32 *)((s8 *)arg0 + 0xF8)));
         pop_matrix();
         TObjPlayer::clear_global_state();

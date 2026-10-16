@@ -5,6 +5,8 @@
 
 struct TObjEneBm3FlyNest
 {
+    void init_params();
+    void state_initial_emit(s32);
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

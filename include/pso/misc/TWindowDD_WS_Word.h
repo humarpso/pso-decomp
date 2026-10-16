@@ -6,6 +6,8 @@
 class TWindowDD_WS_Word : public TUnk_804CE018 {
 public:
     virtual ~TWindowDD_WS_Word();
+    u8 sub_80342268();
+    u8 sub_80342254();
     u8 unk_1C[0x74];
 };
 typedef char TWindowDD_WS_Word_size[sizeof(TWindowDD_WS_Word) == 0x90 ? 1 : -1];

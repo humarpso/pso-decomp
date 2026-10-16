@@ -5,6 +5,7 @@
 
 struct TTecFoie
 {
+    void play_foie_cast_sound();
     void run_task();
     u32 m_1c;
     void* m_20;

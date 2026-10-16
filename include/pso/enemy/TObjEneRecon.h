@@ -5,6 +5,8 @@
 
 struct TObjEneRecon
 {
+    void update_flag_0x444();
+    void sub_8031D4B0(s32);
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
@@ -80,7 +82,6 @@ struct TObjEneRecon
     void update_if_800BB858();
     void remove_tracked_id(s32 id);
     u16 alloc_child_id();
-    void update_floor_probe();
     u8 is_anim_6();
     void handle_death_state(s32 arg1);
     void handle_action_state(s32 arg1);

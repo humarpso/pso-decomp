@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
 extern "C" {
@@ -642,7 +643,7 @@ void TBoss6PlotFalz::award_exp_and_destroy() {
     Msg_802AB490 m;
     m.a = 0x800;
     send_6x0A_enemy_state(arg0, &m);
-    ((TLobby *)arg0)->exchange_object_state((s32)(&m), (s16)0);
+    ((TObjEnemy *)arg0)->exchange_object_state((s32)(&m), (s16)0);
     ((VObj_802AB490 *)arg0)->m77(&m);
     send_entity_set_flags__6TLobbyFPv(arg0);
     queue_destruction__7TObjectFv(arg0);
@@ -1530,7 +1531,7 @@ s32 register_boss__6TLobbyFl(int);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv();
 s32 register_entity_by_id(void *);
-s32 TBoss6PlotFalz__sub_802AAC98(void *);
+s32 sub_802AAC98__14TBoss6PlotFalzFv(void *);
 s32 create_boss4_fade();
 extern s32 lbl_805D3E50;
 }
@@ -1665,15 +1666,15 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     initialize__9TObjEnemyFPv();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TBoss6PlotFalz.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E50;
-    TBoss6PlotFalz__sub_802AAC98((void *) (arg0));
+    sub_802AAC98__14TBoss6PlotFalzFv((void *) (arg0));
     TBoss6PlotFalz__instance = self;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss4DarkFalz__sub_8004B4F0((void *) (arg0 + 0x388), (void *) (arg2));
     *(s16 *)((s8 *)arg0 + 0x38A) = 0;
-    if (((TLobby *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (1))) != 0) {
+    if (((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (1))) != 0) {
         sp8.a = 0;
         sp8.c = 0;
-        ((TLobby *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (0)));
+        ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (0)));
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);

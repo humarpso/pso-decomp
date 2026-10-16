@@ -45,8 +45,8 @@ void *TObjNpcBase__ct(void *arg0, void *arg1, void *arg2);
 
 extern "C" {
 
-void TObjNpcBase__sub_80149358(void* p, s32 v);
-void TObjNpcBase__sub_80149360(void* p, s32 v);
+void sub_80149358__11TObjNpcBaseFl(void* p, s32 v);
+void sub_80149360__11TObjNpcBaseFl(void* p, s32 v);
 void TObjNpcBase__sub_80149368(void* p);
 void TObjNpcBase__vt86(void);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
@@ -117,8 +117,8 @@ void TObjNpcBase::play_voice() {
     s32 arg0 = (s32)this;
     play_sound_effect(0x40003804, arg0 + 0x38, 0, 0);
 }
-void TObjNpcBase__sub_80149358(void* p, s32 v) { *(s32*)((char*)p + 0x3ac) = v; }
-void TObjNpcBase__sub_80149360(void* p, s32 v) { *(s32*)((char*)p + 0x3a8) = v; }
+void TObjNpcBase::sub_80149358(s32 v) { *(s32*)((char*)this + 0x3ac) = v; }
+void TObjNpcBase::sub_80149360(s32 v) { *(s32*)((char*)this + 0x3a8) = v; }
 void TObjNpcBase__sub_80149368(void* p) { *(s32*)((char*)p + 0x0) = 2; }
 
 }

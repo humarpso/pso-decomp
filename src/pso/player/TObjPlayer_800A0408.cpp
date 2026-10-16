@@ -1,38 +1,39 @@
 #include "types.h"
+#include "pso/player/TUnk_80490470.h"
 
 extern "C" {
 
-void calc_recoil_offsets__10TObjPlayerFPv(void *arg0);
+void calc_recoil_offsets__13TUnk_80490470Fv(void *arg0);
 
 extern const f32 lbl_805D9958;
 extern const f32 lbl_805D995C;
 extern const f32 lbl_805D9960;
 extern const f32 lbl_805D9964;
 
-void calc_recoil_offsets__10TObjPlayerFPv(void *arg0) {
+void TUnk_80490470::calc_recoil_offsets() {
     f32 temp_f1;
     f32 var_f0;
 
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
+    temp_f1 = *(f32 *)((s8 *)this + 0x18);
     if (temp_f1 > lbl_805D9960) {
         if (temp_f1 > lbl_805D995C) {
-            *(f32 *)((s8 *)arg0 + 0) = (f32) lbl_805D9958;
+            *(f32 *)((s8 *)this + 0) = (f32) lbl_805D9958;
         } else {
-            *(f32 *)((s8 *)arg0 + 0) = (f32) (temp_f1 - lbl_805D995C);
+            *(f32 *)((s8 *)this + 0) = (f32) (temp_f1 - lbl_805D995C);
         }
-        *(f32 *)((s8 *)arg0 + 4) = (f32) lbl_805D9958;
-        *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805D9958;
-        *(f32 *)((s8 *)arg0 + 0xC) = (f32) lbl_805D9958;
+        *(f32 *)((s8 *)this + 4) = (f32) lbl_805D9958;
+        *(f32 *)((s8 *)this + 8) = (f32) lbl_805D9958;
+        *(f32 *)((s8 *)this + 0xC) = (f32) lbl_805D9958;
         return;
     }
-    *(f32 *)((s8 *)arg0 + 0) = (f32) lbl_805D9964;
-    var_f0 = *(f32 *)((s8 *)arg0 + 0x18) - lbl_805D9960;
+    *(f32 *)((s8 *)this + 0) = (f32) lbl_805D9964;
+    var_f0 = *(f32 *)((s8 *)this + 0x18) - lbl_805D9960;
     if (var_f0 < lbl_805D9964) {
         var_f0 = lbl_805D9964;
     }
-    *(f32 *)((s8 *)arg0 + 4) = var_f0;
-    *(f32 *)((s8 *)arg0 + 8) = var_f0;
-    *(f32 *)((s8 *)arg0 + 0xC) = var_f0;
+    *(f32 *)((s8 *)this + 4) = var_f0;
+    *(f32 *)((s8 *)this + 8) = var_f0;
+    *(f32 *)((s8 *)this + 0xC) = var_f0;
 }
 
 }

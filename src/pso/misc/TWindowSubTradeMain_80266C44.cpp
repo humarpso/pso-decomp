@@ -4,12 +4,12 @@
 
 extern "C" {
 
-s32 get_status_flag__6TLobbyFv();
+s32 get_status_flag__13TUnk_804D0618Fv();
 s32 set_visible__19TWindowSubTradeMainFv();
 
 void TWindowSubTradeMain::update_trade_state() {
     if ((u32) this->m_80 != 0U) {
-        if (get_status_flag__6TLobbyFv() != 0) {
+        if (get_status_flag__13TUnk_804D0618Fv() != 0) {
             ((TWindowSubStatusDisp *)(this->m_80))->set_entry_state((s32)(2));
         } else {
             ((TWindowSubStatusDisp *)(this->m_80))->set_entry_state((s32)(1));

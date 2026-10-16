@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPhotonLeilla.h"
 #include "pso/misc/TPhotonLaser.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TNowLoading.h"
@@ -75,7 +76,7 @@ extern "C" {
 
 void TObjPlayer__sub_801AC43C(void);
 void TObjPlayer__sub_801AC440(void);
-void TObjPlayer__sub_801AC444(void* a0);
+void sub_801AC444__13TPhotonLeillaFv(void* a0);
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
@@ -164,6 +165,6 @@ void TObjPlayer__sub_801AC43C(void) {  }
 void TObjPlayer__sub_801AC440(void) {  }
 
     extern const float lbl_805DC1C0;
-void TObjPlayer__sub_801AC444(void* a0) { *(float*)((char*)a0 + 0x180) = lbl_805DC1C0; *(float*)((char*)a0 + 0x184) = lbl_805DC1C0; *(float*)((char*)a0 + 0x188) = lbl_805DC1C0; *(float*)((char*)a0 + 0x18c) = lbl_805DC1C0; }
+void TPhotonLeilla::sub_801AC444() { *(float*)((char*)this + 0x180) = lbl_805DC1C0; *(float*)((char*)this + 0x184) = lbl_805DC1C0; *(float*)((char*)this + 0x188) = lbl_805DC1C0; *(float*)((char*)this + 0x18c) = lbl_805DC1C0; }
 
 }

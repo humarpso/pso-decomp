@@ -1,4 +1,5 @@
 #include "pso/ui/TChallenge4PItemSelect.h"
+#include "pso/misc/TWindowMenu.h"
 
 #include "types.h"
 
@@ -44,7 +45,7 @@ s32 fn_8034BE30(TChallenge4PResult *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 s32 get_instance__11TCameraCtrlFv();
 void queue_destruction__7TObjectFv(void *);
-s32 set_position_xy(u32, f32, f32);
+s32 set_position_xy__13TUnk_804CDFE8Fff(u32, f32, f32);
 
 }
 void TChallenge4PItemSelect::close_with_callback() {
@@ -75,7 +76,7 @@ void TChallenge4PItemSelect::submit_selected_item() {
     u8 *temp_r31;
     u8 *temp_r3;
     temp_r3 = (u8 *)((u8 *)menu_window);
-    if ((temp_r3 != NULL) && (((TWindowSubComCard *)temp_r3)->is_visible() != 0)) {
+    if ((temp_r3 != NULL) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
         temp_r31 = (u8 *)&TChallenge4PItemSelect__item_table.value + (get_selected_menu_value((u8 *)menu_window) * 0xC);
         init__9TItemDataFv(&stack.sp8);
         stack.sp8 = (s8) *(s32 *)((s8 *)temp_r31 + 0);
@@ -111,7 +112,7 @@ void TChallenge4PItemSelect::open_menu() {
             TWindowSubComCard__sub_80265500((u32 &)menu_window);
             ((TLobby *)((u32 &)menu_window))->set_field_1c(lbl_805DFDA0);
             if (get_instance__11TCameraCtrlFv() > 2) {
-                set_position_xy((u32 &)menu_window, lbl_805DFDA4, lbl_805DFDA4);
+                set_position_xy__13TUnk_804CDFE8Fff((u32 &)menu_window, lbl_805DFDA4, lbl_805DFDA4);
             }
             state = 1;
         }

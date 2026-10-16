@@ -5,6 +5,9 @@
 
 struct TObjEneRe2Flower
 {
+    void sub_800C3DC4();
+    bool sub_800C3B8C();
+    void dispatch_action(s32);
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

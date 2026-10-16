@@ -6,6 +6,8 @@
 class TUnk_8048FE7C : public TObject {
 public:
     virtual ~TUnk_8048FE7C();
+    void sub_8009A640();
+    void sub_8009A598();
     u8 unk_1C[0xE4];
 };
 typedef char TUnk_8048FE7C_size[sizeof(TUnk_8048FE7C) == 0x100 ? 1 : -1];

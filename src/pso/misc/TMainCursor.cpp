@@ -32,7 +32,7 @@ extern s32 lbl_805D62B0;
 s32 set_offset_y__11TMainCursorFs(void *, void *);
 s32 init_field_60__11TMainCursorFv(void *, void *);
 s32 TMainCursor__sub_8013E6E0(void *, void *);
-s32 TMainCursor__sub_8013E724(void *, f32);
+s32 sub_8013E724__11TMainCursorFf(void *, f32);
 s32 set_target_id_at_60__11TMainCursorFiUc(void *, void *);
 s32 set_target_index_at_60__11TMainCursorFPvPv(void *, void *);
 s32 TMainCursor__sub_8013E800(void *);
@@ -136,7 +136,7 @@ u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32
     *(s32 *)((s8 *)arg0 + 0) = (s32) main_cursor_class_name;
     set_target_index_at_60__11TMainCursorFPvPv((void *) (arg0), (void *) (arg2));
     set_target_id_at_60__11TMainCursorFiUc((void *) (arg0), (void *) (arg3));
-    TMainCursor__sub_8013E724((void *) (arg0), (f32) (farg0));
+    sub_8013E724__11TMainCursorFf((void *) (arg0), (f32) (farg0));
     TMainCursor__sub_8013E6E0((void *) (arg0), (void *) ((s32) arg4));
     init_field_60__11TMainCursorFv((void *) (arg0), (void *) ((s32) arg5));
     set_offset_y__11TMainCursorFs((void *) (arg0), (void *) (arg6));

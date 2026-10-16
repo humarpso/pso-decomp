@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdGameStartShineGC.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 
@@ -11,7 +12,7 @@ s32 set_draw_texture_and_color(int, int);
 extern s32 lbl_805D6E88;
 extern const f32 lbl_805DFD60;
 
-void TWindowSubStatusDisp::render_status_box() {
+void TAdGameStartShineGC::render_status_box() {
     u8 *arg0 = (u8 *)this;
     begin_screen_draw((int) (1));
     TObjFish::set_global_param((s32)((void *) (lbl_805D6E88)));

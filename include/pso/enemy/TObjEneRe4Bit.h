@@ -5,6 +5,9 @@
 
 struct TObjEneRe4Bit
 {
+    void sub_800ED408();
+    void call_vt_90_91();
+    void clear_state_flags_when_done();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

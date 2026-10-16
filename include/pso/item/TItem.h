@@ -7,6 +7,14 @@
 
 struct TItem : public TUnk_804AF8A0 {
     virtual ~TItem();
+    s32 get_item_flags();
+    void sub_80102C68();
+    void sub_80102C58();
+    u8 get_field_ec();
+    void refresh_if_current_player();
+    void sub_8010043C(u8);
+    void apply_item_flags(s32);
+    void assign_item_id();
     virtual void render_shadows();
     void render_ground();
     void render_owned();

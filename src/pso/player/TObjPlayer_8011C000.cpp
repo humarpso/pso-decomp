@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemDrop.h"
 #include "pso/item/TItemProShield.h"
@@ -183,7 +184,7 @@ Rule_8011C0B8 *find_item_combination_recipe(u8 *id, void *item) {
             if ((id[0] == r->k[0] || r->k[0] == 0xFF) &&
                 (id[1] == r->k[1] || r->k[1] == 0xFF) &&
                 (id[2] == r->k[2] || r->k[2] == 0xFF) &&
-                (r->k[3] == ((TOSwitchItem *)item)->get_field_ec() || r->k[3] == 0xFF) &&
+                (r->k[3] == ((TItem *)item)->get_field_ec() || r->k[3] == 0xFF) &&
                 (r->k[4] == ((TObjPlayer *)item)->get_field_ed() || r->k[4] == 0xFF) &&
                 (r->k[5] == ((TItemProShield *)item)->get_slot_count() || r->k[5] == 0xFF)) {
                 return r;

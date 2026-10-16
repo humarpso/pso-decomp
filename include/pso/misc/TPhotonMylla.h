@@ -6,6 +6,7 @@
 
 struct TPhotonMylla : public TUnk_804C3248 {
     virtual ~TPhotonMylla();
+    void sub_801AD4A8();
     u8 _pad158[0x24];
     u16 m_17c;
     u8 _pad17E[0x2];

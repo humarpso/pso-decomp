@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
@@ -78,7 +79,7 @@ s32 TObjEnemy::apply_by_index(s16 arg0) {
 }
 
 int TObjEnemy::apply_player_54a00() { return unregister_object_by_id(this); }
-void TObjPlayer::clear_shadow_flag() { *(u16*)((char*)this + 0x4) &= 0xfffffbff; }
-void TObjPlayer::set_shadow_flag() { *(u16*)((char*)this + 0x4) |= 0x400; }
+void TUnk_804AF8A0::clear_shadow_flag() { *(u16*)((char*)this + 0x4) &= 0xfffffbff; }
+void TUnk_804AF8A0::set_shadow_flag() { *(u16*)((char*)this + 0x4) |= 0x400; }
 
 }

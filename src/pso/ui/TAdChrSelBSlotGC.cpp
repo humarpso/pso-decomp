@@ -38,7 +38,7 @@ void TAdChrSelBSlotGC::create_children() {
     this->m_34 = o4;
 }
 
-void TAdChrSelBSlotGC::reset() {
+void TAdChrSelBSlotGC::sub_8030FE04() {
     *(s32 *)&this->m_1c = 0;
     *(s32 *)&this->m_20 = 0;
     *(s32 *)&this->m_24 = -1;

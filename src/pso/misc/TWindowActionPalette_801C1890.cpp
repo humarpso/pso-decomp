@@ -299,7 +299,7 @@ u8 is_item_equipped(u8 *arg0);
 u8 *TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 arg1, s32 arg2);
 void *TWindowActionPalette__sub_801C1C68(O_801C1C68 *self, s32 i);
 s32 get_field_ed__10TObjPlayerFv(void *p);
-s32 get_field_ec__12TOSwitchItemFv(void *p);
+s32 get_field_ec__5TItemFv(void *p);
 s32 is_item_stackable(u8, u8);
 void TObjPlayer__sub_801C1AC8(void *self);
 S_801C1BA8 *fn_801C1BA8(S_801C1BA8 *arg0, S_801C1BA8 *arg1);
@@ -392,7 +392,7 @@ u8 is_item_equipped(u8 *arg0) {
 }
 
 void TObjPlayer__sub_801C1AC8(void *self) {
-    is_item_stackable(get_field_ec__12TOSwitchItemFv(self), get_field_ed__10TObjPlayerFv(self));
+    is_item_stackable(get_field_ec__5TItemFv(self), get_field_ed__10TObjPlayerFv(self));
 }
 
 void TObjPlayer__sub_801C1B0C(void) {  }

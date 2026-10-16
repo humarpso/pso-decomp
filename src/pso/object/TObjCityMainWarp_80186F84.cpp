@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageYesNo.h"
+#include "pso/object/TObjCityMainWarpChallenge.h"
 #include "pso/object/TObjCityMainWarp.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -141,7 +143,7 @@ void TObjCityMainWarp::update_warp_sequence() {
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFf)(*(f32 *)((s8 *)arg0 + 0xAC)) != 0) {
             TObjCityMainWarp__sub_801875F8(arg0);
             if (*(s32 *)((s8 *)arg0 + 0x170) == 0) {
-                ((TObjCityMainWarp *)arg0)->trigger_warp_effect(local_client_id);
+                ((TObjCityMainWarpChallenge *)arg0)->trigger_warp_effect(local_client_id);
                 *(s32 *)((s8 *)arg0 + 0x170) = 1;
             }
         }
@@ -150,10 +152,10 @@ void TObjCityMainWarp::update_warp_sequence() {
                 if (*(s32 *)((s8 *)arg0 + 0x160) <= 0) {
                     r = 1;
                 } else {
-                    r = ((TObjCityMainWarp *)arg0)->are_all_players_in_range();
+                    r = ((TObjCityMainWarpChallenge *)arg0)->are_all_players_in_range();
                 }
                 if (r != 0) {
-                    ((TObjCityMainWarp *)arg0)->send_6x6A_set_boss_warp_flags(2);
+                    ((TObjCityMainWarpChallenge *)arg0)->send_6x6A_set_boss_warp_flags(2);
                     *(s16 *)((s8 *)arg0 + 0xE0) = 2;
                 }
             }
@@ -167,7 +169,7 @@ void TObjCityMainWarp::update_warp_sequence() {
     }
 }
 
-void TObjCityMainWarp::update_challenge_state() {
+void TObjCityMainWarpChallenge::update_challenge_state() {
     u8 *arg0 = (u8 *)this;
     s32 r;
     if (*(s32 *)((s8 *)arg0 + 0x15C) == 1) {
@@ -185,7 +187,7 @@ void TObjCityMainWarp::update_challenge_state() {
     case 1:
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFf)(*(f32 *)((s8 *)arg0 + 0xAC)) != 0) {
             TObjCityMainWarp__sub_801875F8(arg0);
-            ((TObjCityMainWarp *)arg0)->trigger_warp_effect(local_client_id);
+            ((TObjCityMainWarpChallenge *)arg0)->trigger_warp_effect(local_client_id);
             *(s16 *)((s8 *)arg0 + 0xE0) = 2;
             break;
         }
@@ -203,12 +205,12 @@ void TObjCityMainWarp::update_challenge_state() {
         if (*(u32 *)((s8 *)arg0 + 0x168) != 0) {
             if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x168)))->get_card_data() != 0) {
                 *(s16 *)((s8 *)arg0 + 0xE0) = 3;
-            } else if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x168)))->is_child_visible() != 0) {
+            } else if (((TWindowMessageYesNo *)(*(u32 *)((s8 *)arg0 + 0x168)))->is_child_visible() != 0) {
                 r = ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x168)))->get_slot_or_neg1();
                 if (r == 0) {
-                    ((TObjCityMainWarp *)arg0)->trigger_warp_effect(local_client_id);
+                    ((TObjCityMainWarpChallenge *)arg0)->trigger_warp_effect(local_client_id);
                     *(s32 *)((s8 *)arg0 + 0x170) = 1;
-                    ((TObjCityMainWarp *)arg0)->send_6x6A_set_boss_warp_flags(1);
+                    ((TObjCityMainWarpChallenge *)arg0)->send_6x6A_set_boss_warp_flags(1);
                     *(s16 *)((s8 *)arg0 + 0xE0) = 5;
                 } else if (r == 1) {
                     *(s16 *)((s8 *)arg0 + 0xE0) = 3;
@@ -216,8 +218,8 @@ void TObjCityMainWarp::update_challenge_state() {
             }
         }
         if (TWindowSubTradeMain::get_warp_state() != 0 && get_main_phase() == 0xF &&
-            ((s32 (*)())is_local_client_floor_leader)() != 0 && ((TObjCityMainWarp *)arg0)->are_all_players_in_range() != 0) {
-            ((TObjCityMainWarp *)arg0)->send_6x6A_set_boss_warp_flags(2);
+            ((s32 (*)())is_local_client_floor_leader)() != 0 && ((TObjCityMainWarpChallenge *)arg0)->are_all_players_in_range() != 0) {
+            ((TObjCityMainWarpChallenge *)arg0)->send_6x6A_set_boss_warp_flags(2);
             *(s16 *)((s8 *)arg0 + 0xE0) = 5;
         }
         if (*(s16 *)((s8 *)arg0 + 0xE0) != 2) {
@@ -234,8 +236,8 @@ void TObjCityMainWarp::update_challenge_state() {
             break;
         }
         if (TWindowSubTradeMain::get_warp_state() != 0 && get_main_phase() == 0xF &&
-            ((s32 (*)())is_local_client_floor_leader)() != 0 && ((TObjCityMainWarp *)arg0)->are_all_players_in_range() != 0) {
-            ((TObjCityMainWarp *)arg0)->send_6x6A_set_boss_warp_flags(2);
+            ((s32 (*)())is_local_client_floor_leader)() != 0 && ((TObjCityMainWarpChallenge *)arg0)->are_all_players_in_range() != 0) {
+            ((TObjCityMainWarpChallenge *)arg0)->send_6x6A_set_boss_warp_flags(2);
             *(s16 *)((s8 *)arg0 + 0xE0) = 5;
         }
         break;
@@ -247,7 +249,7 @@ void TObjCityMainWarp::update_challenge_state() {
     }
 }
 
-void TObjPlayer::count_players_in_warp_radius() {
+void TObjCityMainWarpChallenge::count_players_in_warp_radius() {
     u8 *arg0 = (u8 *)this;
     Warp_80187438 *self = (Warp_80187438 *)arg0;
     s32 i;

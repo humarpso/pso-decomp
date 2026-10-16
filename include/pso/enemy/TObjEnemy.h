@@ -4,6 +4,8 @@
 #include "pso/player/TUnk_804806E8.h"
 struct TObjEnemy : public TUnk_804806E8 {
     virtual ~TObjEnemy();
+    s32 exchange_object_state(s32, s16);
+    void sub_8002AE64();
     virtual void vfunc_79();
     virtual void vfunc_80(void *);
     virtual void vfunc_81(void *);

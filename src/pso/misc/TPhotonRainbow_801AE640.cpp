@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/misc/TPhotonYoulla.h"
 
 extern "C" {
 
 void TObjPlayer__sub_801AE724(void);
 void TObjPlayer__sub_801AE728(void);
-void TObjPlayer__sub_801AE72C(void* a0);
+void sub_801AE72C__13TPhotonYoullaFv(void* a0);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
 s32 construct_world_actor_base();
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
@@ -36,6 +37,6 @@ void TObjPlayer__sub_801AE724(void) {  }
 void TObjPlayer__sub_801AE728(void) {  }
 
     extern const float lbl_805DC260;
-void TObjPlayer__sub_801AE72C(void* a0) { *(float*)((char*)a0 + 0x184) = lbl_805DC260; *(float*)((char*)a0 + 0x188) = lbl_805DC260; *(float*)((char*)a0 + 0x18c) = lbl_805DC260; *(float*)((char*)a0 + 0x190) = lbl_805DC260; }
+void TPhotonYoulla::sub_801AE72C() { *(float*)((char*)this + 0x184) = lbl_805DC260; *(float*)((char*)this + 0x188) = lbl_805DC260; *(float*)((char*)this + 0x18c) = lbl_805DC260; *(float*)((char*)this + 0x190) = lbl_805DC260; }
 
 }

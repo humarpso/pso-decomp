@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -28,10 +29,10 @@ u8 *photon_base_ct(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-s32 begin_photon_summon_camera(void *, int);
+s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
 s32 spawn_photon_blast_opening_effects(int, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
-s32 TObjPlayer__sub_801AA6F8(void *, int);
+s32 sub_801AA6F8__13TPhotonEstllaFv(void *, int);
 s32 construct_photon_magic_square_normal(void *, void *, int, void *, int);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
 s32 play_cue_stream_file(void *);
@@ -68,7 +69,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     *(s16 *)((s8 *)arg0 + 0x190) = 1;
     *(s32 *)((s8 *)arg0 + 0x194) = *(s32 *)((s8 *)arg1 + 0x10);
     *(s32 *)((s8 *)arg0 + 0x198) = *(s32 *)((s8 *)arg1 + 0x14);
@@ -91,14 +92,14 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
         }
         break;
     }
-    TObjPlayer__sub_801AA6F8(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
+    sub_801AA6F8__13TPhotonEstllaFv(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
     if (*(s32 *)((s8 *)arg0 + 0x198) == 1) {
         *(s32 *)((s8 *)arg0 + 0x154) |= 1;
     }
     *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
     if (*(s32 *)((s8 *)arg0 + 0x194) == 0) {
-        ((TObjEnePanarms *)arg0)->set_field_b8(0);
-        begin_photon_summon_camera(arg0, 0);
+        ((TObjMotion *)arg0)->set_field_b8(0);
+        begin_photon_summon_camera__13TUnk_804C3248FSc(arg0, 0);
         *(s32 *)((s8 *)arg0 + 0x194) = 1;
         *(s16 *)((s8 *)arg0 + 0x190) = 0;
         *(s32 *)((s8 *)arg0 + 0x19C) = 1;

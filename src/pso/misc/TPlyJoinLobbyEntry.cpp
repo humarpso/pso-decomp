@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TUnk_804D0618.h"
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TCheckRoomSequence.h"
@@ -2030,7 +2032,7 @@ void update_com_card_window__6TLobbyFv(void) {
 
     if ((u32) lobby_com_card_window != 0U) {
         temp_r31 = get_selected_menu_value((void*)lobby_com_card_window);
-        if (((TWindowSubComCard *)lobby_com_card_window)->is_visible() != 0) {
+        if (((TWindowMenu *)lobby_com_card_window)->is_visible() != 0) {
             send_lobby_arrow__9TProtocolFUc((*(s32 *)&(*(s32 *)&TLobby__protocol_instance)), temp_r31);
             close_all_windows__6TLobbyFv();
             return;
@@ -2760,7 +2762,7 @@ void update_card_list_window__6TLobbyFv(void) {
     if (TLobby__list_window == 0) {
         return;
     }
-    if (((TLobby *)TLobby__list_window)->get_status_flag() != 0) {
+    if (((TUnk_804D0618 *)TLobby__list_window)->get_status_flag() != 0) {
         Entry_80138B7C e;
         sel = select_cursor_entry__6TLobbyFv(TLobby__list_window);
         TWindow__close(TLobby__list_window);
@@ -2876,7 +2878,7 @@ void update_make_team_menu__6TLobbyFv(void) {
                 break;
             }
         }
-        if (((TWindowSubComCard *)(*(u8 * *)&lobby_make_team_menu_window))->is_visible() != 0) {
+        if (((TWindowMenu *)(*(u8 * *)&lobby_make_team_menu_window))->is_visible() != 0) {
             ((s32 (*)(s32))TWindow__close)((s32)((*(u8 * *)&lobby_make_team_menu_window)));
             (*(u8 * *)&lobby_make_team_menu_window) = NULL;
             close_com_card_window__6TLobbyFv();
@@ -3043,7 +3045,7 @@ void TLobby__sub_80139094(void *self) {
 void update_block_jump_list__6TLobbyFv(void) {
     s32 idx;
     if (TLobby__list_window != 0U) {
-        if (((TLobby *)TLobby__list_window)->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)TLobby__list_window)->get_status_flag() != 0) {
             idx = select_cursor_entry__6TLobbyFv(TLobby__list_window);
             TWindow__close(TLobby__list_window);
             TLobby__list_window = 0U;
@@ -3061,7 +3063,7 @@ void update_block_jump_list__6TLobbyFv(void) {
 void update_ship_select_window__6TLobbyFv(void) {
     s32 idx;
     if (TLobby__list_window != 0U) {
-        if (((TLobby *)TLobby__list_window)->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)TLobby__list_window)->get_status_flag() != 0) {
             idx = select_cursor_entry__6TLobbyFv(TLobby__list_window);
             TWindow__close(TLobby__list_window);
             TLobby__list_window = 0U;
@@ -3080,7 +3082,7 @@ void handle_com_card__6TLobbyFv(void) {
     s32 temp_r3;
 
     if ((u32) lobby_com_card_window != 0U) {
-        if (((TWindowSubComCard *)lobby_com_card_window)->is_visible() != 0) {
+        if (((TWindowMenu *)lobby_com_card_window)->is_visible() != 0) {
             ((s32 (*)())close_com_card_window__6TLobbyFv)();
             temp_r3 = ((s32 (*)(u32))get_selected_menu_value)(lobby_com_card_window);
             switch (temp_r3) {
@@ -3100,7 +3102,7 @@ void handle_com_card__6TLobbyFv(void) {
 }
 void update_game_list_menu__6TLobbyFv(void) {
     if (TLobby__list_window != 0U) {
-        if (((TLobby *)TLobby__list_window)->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)TLobby__list_window)->get_status_flag() != 0) {
             lobby_selected_game_list_index = select_cursor_entry__6TLobbyFv(TLobby__list_window);
             TWindow__close(TLobby__list_window);
             TLobby__list_window = 0U;
@@ -3224,7 +3226,7 @@ void update_menu_window__6TLobbyFv(void) {
 
     if ((u32) lobby_com_card_window != 0U) {
         temp_r31 = get_selected_menu_value((void*)((void*)lobby_com_card_window));
-        if (((TWindowSubComCard *)lobby_com_card_window)->is_visible() != 0) {
+        if (((TWindowMenu *)lobby_com_card_window)->is_visible() != 0) {
             switch (temp_r31) {
             case 0:
                 ((s32 (*)())request_game_list__6TLobbyFv)();
@@ -3250,7 +3252,7 @@ void handle_warp_menu_input__6TLobbyFv(void) {
     s32 temp_r3;
 
     if ((u32) TLobby_warp_menu_window != 0U) {
-        if (((TWindowSubComCard *)TLobby_warp_menu_window)->is_visible() != 0) {
+        if (((TWindowMenu *)TLobby_warp_menu_window)->is_visible() != 0) {
             temp_r3 = get_selected_menu_value((void*)(TLobby_warp_menu_window));
             switch (temp_r3) {
             case 0:
@@ -3280,7 +3282,7 @@ void handle_game_list_select__6TLobbyFv(void) {
     s32 temp_r31;
 
     if (TLobby__list_window != 0U) {
-        if (((TLobby *)TLobby__list_window)->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)TLobby__list_window)->get_status_flag() != 0) {
             temp_r31 = select_cursor_entry__6TLobbyFv(TLobby__list_window);
             ((void (*)(void*))TWindow__close)((void*)(TLobby__list_window));
             TLobby__list_window = 0U;
@@ -3299,7 +3301,7 @@ void handle_game_list_select__6TLobbyFv(void) {
 void handle_team_select__6TLobbyFv(void) {
     s32 idx;
     if (TLobby__list_window != 0U) {
-        if (((TLobby *)TLobby__list_window)->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)TLobby__list_window)->get_status_flag() != 0) {
             idx = select_cursor_entry__6TLobbyFv(TLobby__list_window);
             ((void (*)(void*))TWindow__close)((void*)(TLobby__list_window));
             TLobby__list_window = 0U;

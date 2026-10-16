@@ -6,6 +6,7 @@
 class TUnk_804DAB08 : public TUnk_80488A28 {
 public:
     virtual ~TUnk_804DAB08();
+    void calc_spherical_camera_position();
     u8 unk_6C[0x24];
 };
 typedef char TUnk_804DAB08_size[sizeof(TUnk_804DAB08) == 0x90 ? 1 : -1];

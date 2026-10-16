@@ -6,6 +6,9 @@
 #include <stddef.h>
 
 struct TObjEneBm3Fly {
+    int was_hit_by_ranged();
+    void update_collide_flag();
+    void clamp_flight_height();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

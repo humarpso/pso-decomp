@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct Part_802480EC {
     u8 pad0[8];
@@ -87,7 +88,7 @@ s32 disallow_rendering__7TObjectFv(void *);
 s32 is_symbol_chat_preset_in_use(void *);
 s32 get_symbol_chat_preset(s32);
 s32 get_data_ptr__20TWindowSubSymbolChatFv(u32);
-s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+s32 get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u8 * draw_default_entry__9TWindowDDFl();
 s32 draw_quest_message_frame(void *, void *);
 int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int a0);
@@ -100,8 +101,8 @@ void fn_802483C8(void *arg0, u8 _w1);
 void TWindowSubSymbolChat__sub_802483F0(int a0, void* a1);
 void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1);
 void init_layout_entries__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1);
-void update_visibility__20TWindowSubSymbolChatFPv(u8 *arg0);
-void set_selection__20TWindowSubSymbolChatFPvUi(void *arg0, u32 arg1);
+void update_visibility__28TWindowSubSymbolChatPartsSetFv(u8 *arg0);
+void set_selection__28TWindowSubSymbolChatPartsSetFUl(void *arg0, u32 arg1);
 void set_from_key__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1);
 void render__17TWindowChatSymbolFv(u8 *arg0);
 s32 draw_visible_window_entries(void *, void *, void *, f32, f32, f32);
@@ -163,7 +164,7 @@ void set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii(void *arg0, s16 id, s
 #pragma pop
 
 void get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(void *arg0, s32 arg1) {
-    get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(arg1 + 0xD));
+    get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(arg1 + 0xD));
 }
 
 void apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi(Obj_80248088 *arg0, Part_80248088 *arg1, s32 arg2) {
@@ -216,15 +217,15 @@ void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(Part_802480
 }
 
 void TWindowSubSymbolChatPartsSet__sub_802482B8(s32 arg0, s32 arg1) {
-    get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(arg1 + 0x1));
+    get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(arg1 + 0x1));
 }
 
 void get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(void *arg0, s32 arg1) {
-    get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(arg1 + 9));
+    get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(arg1 + 9));
 }
 
 void get_parts_entry__28TWindowSubSymbolChatPartsSetFii(s32 arg0, s32 arg1) {
-    get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(arg1 + 5));
+    get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(arg1 + 5));
 }
 
 void fn_80248324(Ctl_80248324 *c, s32 arg1, s32 arg2) {
@@ -269,7 +270,8 @@ void init_layout_entries__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
     init_window_layout_entries((void *) (arg0), (void *) (&lbl_804CE2E8.value), (void *) (arg1));
 }
 
-void update_visibility__20TWindowSubSymbolChatFPv(u8 *arg0) {
+void TWindowSubSymbolChatPartsSet::update_visibility() {
+    u8 *arg0 = (u8 *)this;
     if (((s32) *(s32 *)((s8 *)arg0 + 0x64) == 0) && (((u32) *(u32 *)((s8 *)arg0 + 0x60) == 0U) || (is_symbol_chat_preset_in_use((void *) *(u32 *)((s8 *)arg0 + 0x60)) == 0))) {
         disallow_rendering__7TObjectFv(arg0);
         return;
@@ -278,16 +280,16 @@ void update_visibility__20TWindowSubSymbolChatFPv(u8 *arg0) {
     set_symbol_chat_parts__20TWindowSubSymbolChatFiPv((s32)(arg0 + 0x24), (void *)(get_data_ptr__20TWindowSubSymbolChatFv(*(u32 *)((s8 *)arg0 + 0x60))));
 }
 
-void set_selection__20TWindowSubSymbolChatFPvUi(void *arg0, u32 arg1) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x60) != arg1) {
-        *(u32 *)((s8 *)arg0 + 0x60) = arg1;
-        update_visibility__20TWindowSubSymbolChatFPv((u8 *)(arg0));
+void TWindowSubSymbolChatPartsSet::set_selection(u32 arg1) {
+    if ((u32) *(u32 *)((s8 *)this + 0x60) != arg1) {
+        *(u32 *)((s8 *)this + 0x60) = arg1;
+        update_visibility__28TWindowSubSymbolChatPartsSetFv((u8 *)(this));
     }
 }
 
 void set_from_key__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
     s8 *tmp = (s8 *)get_symbol_chat_preset(arg1);
-    set_selection__20TWindowSubSymbolChatFPvUi((void *)(arg0), (u32)((s32)tmp));
+    set_selection__28TWindowSubSymbolChatPartsSetFUl((void *)(arg0), (u32)((s32)tmp));
 }
 
 #pragma push

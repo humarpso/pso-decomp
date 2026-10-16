@@ -136,7 +136,7 @@ void TObjEneDD__vt92(void *arg0);
 int is_target_unobstructed__9TObjEneDDFl(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int add_flags_2e4__10TObjPlayerFUl(void*, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 fn_800BC3E8(void *, s32);
+s32 sub_800BC3E8__13TUnk_804928CCFPUc(void *, s32);
 s32 get_position__12TBoss1DragonFv(void *, s32);
 
 void TObjEneDD__vt92(void *arg0) {
@@ -226,7 +226,7 @@ extern u8 *obj_ene_dd_instance;
 extern const f32 lbl_805D9EA0;
 
 void TObjEneDD::emit_enemy_effect(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
-    fn_800BC3E8(obj_ene_dd_instance, arg0);
+    sub_800BC3E8__13TUnk_804928CCFPUc(obj_ene_dd_instance, arg0);
     get_position__12TBoss1DragonFv(obj_ene_dd_instance, arg1);
     *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
     *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;
@@ -245,7 +245,7 @@ extern u8 *obj_ene_dd_instance;
 extern const f32 lbl_805D9EA0;
 
 void TObjEneDD::setup_instance(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
-    fn_800BC3E8(obj_ene_dd_instance, arg0);
+    sub_800BC3E8__13TUnk_804928CCFPUc(obj_ene_dd_instance, arg0);
     get_position__12TBoss1DragonFv(obj_ene_dd_instance, arg1);
     *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
     *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;

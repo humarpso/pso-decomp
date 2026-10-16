@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneIllGill.h"
 #include "pso/TObject.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -203,7 +204,7 @@ extern const f32 lbl_805E02D0;
 extern const f32 lbl_805E02D4;
 s32 apply_actor_gravity(void *, int, f32);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-void fn_8002AE64(void *);
+void sub_8002AE64__9TObjEnemyFv(void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 void initialize__9TObjEnemyFPv(void *, s32, void *);
@@ -1936,8 +1937,8 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     ((TObjPlayer *)self)->set_field_d8(FIG_8036858C(s32, 0xD8));
     FIG_8036858C(s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(self, FIG_8036858C(s16, 0xB8));
-    ((TObjEnePanarms *)self)->set_field_b8(FIG_8036858C(s16, 0xB8));
-    fn_8002AE64(self);
+    ((TObjMotion *)self)->set_field_b8(FIG_8036858C(s16, 0xB8));
+    sub_8002AE64__9TObjEnemyFv(self);
     FIG_8036858C(f32, 0x68) = lbl_805E0308;
     FIG_8036858C(f32, 0x6C) = lbl_805E0308;
     FIG_8036858C(f32, 0x70) = lbl_805E0308;

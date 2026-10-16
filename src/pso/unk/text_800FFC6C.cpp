@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjTailsTailsMove.h"
 struct E_800FFC6C { void *data; };
 
 struct D_800FFC6C { u8 pad[4]; E_800FFC6C *e; };
@@ -12,12 +13,13 @@ struct A_800FFC6C { u8 pad[0x34]; B_800FFC6C *b; u8 pad38[0xCFC - 0x38]; s32 bus
 struct Obj_800FFC6C { u8 pad[0x1C]; A_800FFC6C *a; void *data; s32 ready; };
 
 extern "C" {
-void fn_800FFC6C(Obj_800FFC6C *self);
+void sub_800FFC6C__18TObjTailsTailsMoveFv(Obj_800FFC6C *self);
 }
 
 extern "C" {
 
-void fn_800FFC6C(Obj_800FFC6C *self) {
+void TObjTailsTailsMove::sub_800FFC6C() {
+    Obj_800FFC6C *self = (Obj_800FFC6C *)this;
     A_800FFC6C *a = self->a;
     B_800FFC6C *b;
     C_800FFC6C *c;

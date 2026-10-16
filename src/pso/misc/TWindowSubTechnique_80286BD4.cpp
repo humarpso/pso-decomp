@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubTechnique.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/object/TObjCityMainWarp.h"
@@ -115,8 +116,8 @@ s32 TWindowSubTechnique::create_title_window() {
   temp_r31 = create_titled_window_menu((int) get_window_layout_position((int) 0x13), (int) 5, (int) temp_r31_2, (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
   TWindowSubEquip__sub_80263AF8((int) (*((s32 *) (((s8 *) arg0) + 0x30))), (int) 1);
   set_field_1c__6TLobbyFf((int) temp_r31);
-  ((TWindowOptionCtrl *)temp_r31)->set_flag70_bit100();
-  ((TObjCityMainWarp *)temp_r31)->set_flag70_bit10();
+  ((TWindowSubComCardList *)temp_r31)->set_flag70_bit100();
+  ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
   return temp_r31;
 }
 

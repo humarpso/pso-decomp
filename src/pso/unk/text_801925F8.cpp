@@ -30,7 +30,7 @@ void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
-s32 draw_lazer_fence_extra_model(void *);
+s32 draw_lazer_fence_extra_model__19TObjLazerFenceExtraFv(void *);
 void set_global_param__8TObjFishFl(void *);
 s32 set_indexed_flags(void *, s32, s32);
 
@@ -55,7 +55,7 @@ void render__19TObjLazerFenceExtraFv(void *arg0) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
         switch (temp_r0) {
         case 0:
-            draw_lazer_fence_extra_model(arg0);
+            draw_lazer_fence_extra_model__19TObjLazerFenceExtraFv(arg0);
             return;
         case 1:
             render_lazer_fence_model((void *)(arg0));
@@ -124,7 +124,7 @@ void reset_photon_effect__10TObjPlayerFv(void *);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__10TObjPlayerFv(void *, void *);
-void init_models__8TObjFishFv(void *);
+void init_models__19TObjLazerFenceExtraFv(void *);
 extern Ent_80192874 laser_fence_collision_body_parts[];
 extern s32 __vt__19TObjLazerFenceExtra[];
 extern s32 lazer_fence_extra_class_name;
@@ -197,7 +197,7 @@ void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     } else {
         *(s32 *)((s8 *)self + 0xD8) = 1;
     }
-    init_models__8TObjFishFv(self);
+    init_models__19TObjLazerFenceExtraFv(self);
     init_collision_body_parts(self, &laser_fence_collision_body_parts[*(s32 *)((s8 *)self + 0x8C) % 2], 3);
     *(u32 *)((s8 *)self + 0x30) |= 0x40000000;
     *(f32 *)((s8 *)(*(u8 **)((s8 *)self + 0xA4)) + 0x10) = *(f32 *)((s8 *)self + 0x6C);

@@ -15,7 +15,7 @@ extern s32 lbl_805DCAB8;
 
 extern "C" {
 
-void TWindowAddition__ct(void *, void *);
+void sub_802443B4__13TUnk_804CDFE8Fv(void *, void *);
 void construct_base__9TWindowDDFPvPvsPv(void *);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFs(void *, int);
@@ -38,7 +38,7 @@ extern s32 lbl_804CDFE8[];
 void *TWindowAddition::construct_with_parent(void *arg1) {
     construct_base__9TWindowDDFPvPvsPv(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804CDFE8;
-    TWindowAddition__ct(this, arg1);
+    sub_802443B4__13TUnk_804CDFE8Fv(this, arg1);
     return this;
 }
 void TWindowSubStatusDisp::set_count_ratio_text(s32 arg1, s32 arg2) {

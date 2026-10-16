@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/object/TObjCityMainWarp.h"
 extern "C" {
@@ -29,7 +30,7 @@ s32 create_info_board_menu(void) {
     TWindowSubComCard::draw_text_gray((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFl((int) 0x117), (int) 6, (int) 3);
   }
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFl((int) 0x118), (int) 6, (int) 9);
-  ((TObjCityMainWarp *)temp_r31)->set_flag70_bit10();
+  ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
   update_layout_height__17TWindowSubComCardFPvf((int) temp_r31, (f32) lbl_805DFDE0);
   align_menu_entry_positions((int) temp_r31);
   return temp_r31;

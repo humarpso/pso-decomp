@@ -483,7 +483,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
             break;
         case 1:
             advance_animation_playback(arg0);
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 F(s32, 0x428) = 0;
                 F(s32, 0x424) = 2;
             }
@@ -555,7 +555,7 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+        if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
             F(s32, 0x424) = 3;
         } else if (is_split_screen() != 0) {
             switch (F(s32, 0x424)) {

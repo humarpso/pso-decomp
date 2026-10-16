@@ -5,6 +5,9 @@ class TPlayerSoul : public TPlayerParticleOwner {
 public:
     TPlayerSoul(TObject* parent, u16 player_id);
     virtual ~TPlayerSoul();
+    void set_player_id(u16);
+    void set_particle(TParticleCtrl*);
+    TObjPlayer*get_player();
     virtual void run_task();
 };
 typedef char TPlayerSoul_size[sizeof(TPlayerSoul) == 0x24 ? 1 : -1];

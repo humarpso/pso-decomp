@@ -653,7 +653,7 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         ((TObjEneDD *)self)->set_active();
         break;
     case 3:
-        if (((TObjEneMe3ShinowaReal *)self)->get_flag_b4() != 0) {
+        if (((TObjEneDD *)self)->get_flag_b4() != 0) {
             transition_enemy_state(self, self->field378);
         }
         break;

@@ -5,6 +5,7 @@
 
 struct TObjEneMe3ShinowaReal
 {
+    void sub_800E7250();
     void vfunc_63();
     void vfunc_62();
     u8 _pad1C[0x1C];
@@ -39,7 +40,6 @@ struct TObjEneMe3ShinowaReal
     s32 get_or_create_mirage(s32 arg1);
     void try_spawn_mirages();
     void *create();
-    int get_flag_b4();
     static f32 get_random_float();
 };
 

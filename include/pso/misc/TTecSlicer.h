@@ -4,6 +4,7 @@
 #include <stddef.h>
 
 struct TTecSlicer {
+    void set_launch_midpoint(void *, void *, void *);
     void run_task();
     static s32 create(u16* launch);
 

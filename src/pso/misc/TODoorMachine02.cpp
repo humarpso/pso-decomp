@@ -111,7 +111,7 @@ extern u32 door_machine02_model_resource;
 extern const f32 lbl_805DB51C;
 extern const f32 lbl_805DB528;
 u8 *TODoorMachine02__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -189,7 +189,7 @@ void TODoorMachine02::render() {
     Door_80163408 *arg0 = (Door_80163408 *)this;
     s32 flag;
     Node_80163408 *n;
-    if (((VObj_80163408 *)arg0)->m8(arg0->fC0, arg0->fC4) != 0 && is_in_view_depth(arg0, lbl_805DB524) != 0) {
+    if (((VObj_80163408 *)arg0)->m8(arg0->fC0, arg0->fC4) != 0 && is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB524) != 0) {
         push_matrix();
         post_translate_matrix(arg0->f38);
         rotate_matrix_y(0, arg0->f60);

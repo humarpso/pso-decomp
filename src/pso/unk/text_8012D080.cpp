@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -26,7 +27,7 @@ void update_soul_scythe_sweep(u8 *self) {
     f32 flo;
     f32 fhi;
     if (*(void **)((s8 *)self + 0xF0) != NULL) {
-        speed = ((TObjPlayer *)(*(void **)((s8 *)self + 0xF0)))->get_speed();
+        speed = ((TUnk_804806E8 *)(*(void **)((s8 *)self + 0xF0)))->get_speed();
         flag = is_flag_b0_4__10TObjPlayerFPv(*(void **)((s8 *)self + 0xF0));
         ok = 1;
         if (test_action_mask__10TObjPlayerFl(*(void **)((s8 *)self + 0xF0), 0x20) != 0) {

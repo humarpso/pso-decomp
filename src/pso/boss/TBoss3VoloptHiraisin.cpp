@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 void *TBoss3VoloptHiraisin__init_param_table[45] = {
@@ -228,7 +229,7 @@ extern "C" {
 
 void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 TObjEnemyCustom__sub_800C7860(void *, s32);
+s32 sub_800C7860__15TObjEnemyCustomFv(void *, s32);
 s32 create_breakup_mdl__12TBoss3VoloptFlllll(s32, s32 *, s32, void *, s32);
 s32 trigger_dell_biter_events__10TObjPlayerFv(void *);
 
@@ -245,7 +246,7 @@ void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0x32C) = temp_r4;
     temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x30);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (temp_r4_2 & ~0xA00);
-    TObjEnemyCustom__sub_800C7860(arg0, temp_r4_2);
+    sub_800C7860__15TObjEnemyCustomFv(arg0, temp_r4_2);
 }
 #pragma push
 #pragma fp_contract on
@@ -557,7 +558,7 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 #undef TBoss3VoloptHiraisin__breakup_model
 #define __vt__20TBoss3VoloptHiraisin ((s32 *)__vt__20TBoss3VoloptHiraisin)
 #define VecCopy__FP3VecPC3Vec ((int (*)(s32, s32))VecCopy__FP3VecPC3Vec)
-#define TObjEnemyCustom__sub_800C7860 ((void (*)(void *))TObjEnemyCustom__sub_800C7860)
+#define sub_800C7860__15TObjEnemyCustomFv ((void (*)(void *))sub_800C7860__15TObjEnemyCustomFv)
 #define TBoss3VoloptHiraisin__init_param_table (*(Param_800418C8 *)TBoss3VoloptHiraisin__init_param_table)
 #define play_sound_effect ((int (*)(int, void *, int, int))play_sound_effect)
 #define volopt_hiraisin_model_data (*(s32 **)&volopt_hiraisin_model_data)
@@ -928,14 +929,14 @@ void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self) {
     recalc_combat_stats__10TObjPlayerFv(self, lbl_805D4C70, volopt_hiraisin_shared_handler_b, volopt_hiraisin_object_handle, (1.0f), (1.0f));
     self->unkB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->unkB8);
-    ((TObjEnePanarms *)self)->set_field_b8(self->unkB8);
+    ((TObjMotion *)self)->set_field_b8(self->unkB8);
     self->hp32C = self->hp2B8;
     self->hp32E = self->hp2BA;
     self->unk33E = self->hp32C;
     ((TObjEneLappy *)self)->set_param(0x2E);
     ((TBoss3Volopt *)self)->reset_photon_effect();
     ((TBoss3VoloptHiraisin *)self)->load_params_from_table((s32)(0x10));
-    TObjEnemyCustom__sub_800C7860(self);
+    sub_800C7860__15TObjEnemyCustomFv(self);
     ((TObjPlayer *)self)->add_flags_2e4(4);
     obj_setFlags30(self, 0x8000);
     self->m80();
@@ -1088,7 +1089,7 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
 }
 #undef __vt__20TBoss3VoloptHiraisin
 #undef VecCopy__FP3VecPC3Vec
-#undef TObjEnemyCustom__sub_800C7860
+#undef sub_800C7860__15TObjEnemyCustomFv
 #undef TBoss3VoloptHiraisin__init_param_table
 #undef play_sound_effect
 #undef volopt_hiraisin_model_data

@@ -9,7 +9,7 @@ u8 is_current_floor_switch_set(u16);
 s32 spawn_particle_effect(void *, s32);
 s32 TOWreckAncientBrakable__sub_8017D444(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TOWreckAncientBrakable::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -35,7 +35,7 @@ void TOWreckAncientBrakable::run_task() {
         }
         return;
     case 1:
-        set_flag8__6TLobbyFPv(arg0);
+        set_flag8__13TUnk_804AF8A0Fv(arg0);
         queue_destruction__7TObjectFv(arg0);
         break;
     }

@@ -59,7 +59,7 @@ extern int olga_flow_subordinate_actions_enabled;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
 s32 queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 has_game_join_id();
+s32 has_game_join_id__13TUnk_804E355CFv();
 s32 check_hits__14TItemAttackColFPv(void *);
 extern const f32 lbl_805E0030;
 extern const f32 lbl_805E0034;
@@ -235,7 +235,7 @@ extern s32 __vt__20TItemEffOrgaFlowShot[];
 void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
     s32 temp_r3;
     s32 var_r30;
-    if (has_game_join_id() != 0) {
+    if (has_game_join_id__13TUnk_804E355CFv() != 0) {
         check_hits__14TItemAttackColFPv((void *) (arg0));
     } else {
         queue_destruction__7TObjectFv((void *) (arg0));

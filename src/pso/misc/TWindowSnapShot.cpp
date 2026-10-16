@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSnapShot.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowDuelResult.h"
@@ -161,7 +162,7 @@ u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1) {
     if (verify_snapshot_checksum__15TObjBoss2TunnelFv() == 0) {
         *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) | 2);
     }
-    temp_r31 = ((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
+    temp_r31 = ((TUnk_804CE018 *)arg0)->get_array_entry(1);
     TWindowDuelResult::set_default_status((void *) temp_r31, get_localized_text_entry((s32)(0xF), (s32)(0x13)));
     return arg0;
 }

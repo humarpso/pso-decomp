@@ -6,6 +6,8 @@
 
 struct TBoss3VoloptMonitor : public TObjEnemyCustom {
     virtual ~TBoss3VoloptMonitor();
+    void sub_80042944(s32);
+    void sub_80042510();
     virtual void render();
     virtual void run_task();
     s16 m_38c;
@@ -15,7 +17,6 @@ struct TBoss3VoloptMonitor : public TObjEnemyCustom {
     static void release();
     static void load_resources();
     static void *create(void *arg0);
-    void set_flags_30();
     u8 unk_392[0x2];
 };
 

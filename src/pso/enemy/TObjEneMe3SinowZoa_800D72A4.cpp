@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 
 struct O_800D72A4 { u8 pad[0x18]; f32 f18; };
 
@@ -15,7 +16,7 @@ extern const f32 lbl_805DA34C;
 extern const float lbl_805DA350;
 extern const f32 lbl_805DA354;
 extern const f32 lbl_805DA358;
-void TObjEneMe3SinowZoa__sub_800D741C(u8 *arg0);
+void sub_800D741C__13TUnk_80494938Fv(u8 *arg0);
 extern const float lbl_805DA348;
 extern const f32 lbl_805DA34C;
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self);
@@ -41,7 +42,7 @@ void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void) { set_flags_and_appl
 
 s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0) {
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (*(f32 *)((s8 *)arg0 + 0x18) + *(f32 *)((s8 *)arg0 + 0x10));
-    TObjEneMe3SinowZoa__sub_800D741C((u8 *)(arg0));
+    sub_800D741C__13TUnk_80494938Fv((u8 *)(arg0));
     return *(f32 *)((s8 *)arg0 + 0x18) >= farg0;
 }
 
@@ -49,7 +50,7 @@ s32 advance_progress_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x10));
-    TObjEneMe3SinowZoa__sub_800D741C((u8 *)(arg0));
+    sub_800D741C__13TUnk_80494938Fv((u8 *)(arg0));
     return *(f32 *)((s8 *)arg0 + 0x18) >= lbl_805DA34C;
 }
 
@@ -57,11 +58,12 @@ s32 update_timer_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 - *(f32 *)((s8 *)arg0 + 0x10));
-    TObjEneMe3SinowZoa__sub_800D741C((u8 *)(arg0));
+    sub_800D741C__13TUnk_80494938Fv((u8 *)(arg0));
     return *(f32 *)((s8 *)arg0 + 0x18) <= (*(const f32 *)&lbl_805DA348);
 }
 
-void TObjEneMe3SinowZoa__sub_800D741C(u8 *arg0) {
+void TUnk_80494938::sub_800D741C() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x18);
     if (temp_f2 <= (*(const f32 *)&lbl_805DA348)) {

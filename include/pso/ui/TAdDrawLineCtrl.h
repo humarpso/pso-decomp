@@ -6,6 +6,7 @@
 class TAdDrawLineCtrl : public TObject {
 public:
     virtual ~TAdDrawLineCtrl();
+    void sub_80019B78(s32);
     virtual void run_task();
     virtual void render();
     void *line_data;

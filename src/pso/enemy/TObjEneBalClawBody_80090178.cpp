@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClawClaw.h"
 #include "pso/player/TObjPlayer.h"
 struct E_80090418 { u8 pad[8]; s32 x8; s32 xc; };
 
@@ -18,7 +19,7 @@ struct Body_80090178 {
 
 extern "C" {
 extern G_80090418 *lbl_805D4F20;
-void TObjPlayer__sub_80090418(O_80090418 *self, s32 i);
+void sub_80090418__18TObjEneBalClawClawFl(O_80090418 *self, s32 i);
 void queue_destruction__7TObjectFv(void *);
 void __dt__14TObjEneBalClawFv(void *, int);
 void *find_entity_by_id(u16);
@@ -64,7 +65,8 @@ Body_80090178 *TObjEneBalClawBody__sub_80090178(Body_80090178 *self, s16 flag) {
     return self;
 }
 
-void TObjPlayer__sub_80090418(O_80090418 *self, s32 i) {
+void TObjEneBalClawClaw::sub_80090418(s32 i) {
+    O_80090418 *self = (O_80090418 *)this;
     self->x34 = lbl_805D4F20->tbl[i].x8;
     self->x24 = lbl_805D4F20->tbl[i].xc;
 }

@@ -232,7 +232,7 @@ void copy_pos__13TBoss6MagMineFi(s32 arg0);
 s32 create__13TBoss6MagMineFi(s32 arg0);
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 void render__13TUnk_804F322CFv(void* p);
-void update_linked_state__13TBoss6MagMineFPv(void *arg0);
+void update_linked_state__13TUnk_804F322CFv(void *arg0);
 s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 int post_translate_matrix(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
@@ -267,23 +267,23 @@ void copy_pos__13TBoss6MagMineFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
 }
 
-void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
+void TUnk_804F322C::update_linked_state() {
     s32 temp_r31;
     s32 temp_r31_2;
     s32 temp_r30;
 
     TObjPlayer::set_global_flag();
-    temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)((s8 *)arg0 + 0x374), 2);
-    temp_r30 = get_bml_model(*(s32 *)((s8 *)arg0 + 0x374), 2);
-    temp_r31_2 = get_bml_motion(*(s32 *)((s8 *)arg0 + 0x374), 0);
+    temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)((s8 *)this + 0x374), 2);
+    temp_r30 = get_bml_model(*(s32 *)((s8 *)this + 0x374), 2);
+    temp_r31_2 = get_bml_motion(*(s32 *)((s8 *)this + 0x374), 0);
     TObjFish::set_global_param(temp_r31);
-    TBoss6PlotFalz__sub_802AC008(*(f32 *)((s8 *)arg0 + 0x3A8), 0.0f);
-    draw_model_motion(temp_r30, temp_r31_2, *(f32 *)((s8 *)arg0 + 0x398));
+    TBoss6PlotFalz__sub_802AC008(*(f32 *)((s8 *)this + 0x3A8), 0.0f);
+    draw_model_motion(temp_r30, temp_r31_2, *(f32 *)((s8 *)this + 0x398));
     TBoss6PlotFalz::update_camera_target();
     TObjPlayer::clear_global_state();
 }
 
-void TUnk_804F322C::render() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(this)); pop_matrix(); }
+void TUnk_804F322C::render() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x3ac)); update_linked_state__13TUnk_804F322CFv((void *)(this)); pop_matrix(); }
 
 void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_80368AB8, sp8) == 0x0) ? 1 : -1];
@@ -542,10 +542,10 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x384, arg2 + 0x4C);
     ((TObjPlayer *)self)->add_flags_2e4(8);
     ((VObj_18_aa4667 *)(self))->m79(arg2);
-    if (((TLobby *)self)->exchange_object_state((s32)(&key), (s16)1) != 0) {
+    if (((TObjEnemy *)self)->exchange_object_state((s32)(&key), (s16)1) != 0) {
         key.a = 0;
         key.c = 0;
-        ((TLobby *)self)->exchange_object_state((s32)(&key), (s16)0);
+        ((TObjEnemy *)self)->exchange_object_state((s32)(&key), (s16)0);
     }
     *(s32 *)((s8 *)self + 0x374) = TObjFish::get_fish_count();
     *(s32 *)((s8 *)self + 0x24) = 0;

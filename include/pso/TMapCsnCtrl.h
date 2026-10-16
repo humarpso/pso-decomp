@@ -7,6 +7,7 @@
 class TMapCsnCtrl : public TObject {
 public:
     virtual ~TMapCsnCtrl();
+    void sub_80140F44();
 };
 
 #endif

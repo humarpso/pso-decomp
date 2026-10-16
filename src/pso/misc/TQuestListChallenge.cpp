@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestListVM.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -103,7 +105,7 @@ s32 obj_getField1c(s32);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 get_quest_list_text(int, int, int);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 set_position_xy(void *, f32, f32);
+s32 set_position_xy__13TUnk_804CDFE8Fff(void *, f32, f32);
 s32 TWindow__close(void *);
 void *create_yes_no_window(s32, u16, s32, s32);
 s32 select_cursor_entry__6TLobbyFv(s32);
@@ -246,7 +248,7 @@ void handle_confirm_select__19TQuestListChallengeFv(void *arg0) {
 
     temp_r3 = *(VObj_80288C78_80288B5C **)((s8 *)arg0 + 0x30);
     if (temp_r3->m8() != 0) {
-        if ((*(void **)((s8 *)arg0 + 0x34) != NULL) && (((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x34)))->is_visible() == 1)) {
+        if ((*(void **)((s8 *)arg0 + 0x34) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x34)))->is_visible() == 1)) {
             temp_r3_2 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x34));
             if (temp_r3_2 == 0) {
                 temp_r0 = select_cursor_entry__6TLobbyFv(*(s32 *)((s8 *)arg0 + 0x38));
@@ -307,7 +309,7 @@ void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self) {
         ((TQuestListVM *)self)->set_field_20(4);
         return;
     }
-    if (self->f38 != NULL && ((TLobby *)(self->f38))->get_status_flag() == 1) {
+    if (self->f38 != NULL && ((TUnk_804D0618 *)(self->f38))->get_status_flag() == 1) {
     sel = select_cursor_entry__6TLobbyFv((s32)self->f38);
     if (self->f40 == NULL) {
         p.a = lbl_80450AB4[0].a;
@@ -318,13 +320,13 @@ void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self) {
         ((TLobby *)(self->f40))->send_and_handle(text2, 0x80);
         ((TLobby *)(self->f40))->set_field_1c(37000.0f);
         if (get_camera_id__11TCameraCtrlFv() >= 2) {
-            set_position_xy(self->f40, 0.75f, 0.75f);
+            set_position_xy__13TUnk_804CDFE8Fff(self->f40, 0.75f, 0.75f);
         }
     }
     if (self->f34 == NULL) {
         id = (u16)obj_getField1c(self->f24);
         self->f34 = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
-        set_position_xy(self->f34, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
+        set_position_xy__13TUnk_804CDFE8Fff(self->f34, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
         if (self->obj != NULL) {
             self->obj->m7(5, 0x80);
         }

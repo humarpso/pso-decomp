@@ -46,7 +46,7 @@ void TObjPlayer__sub_800A0654(void *);
 s32 TObjPlayer__sub_800A06B4(void *);
 void fn_800A0798(void *);
 void fn_800A0884(void *);
-void TObjEneDarkGunner__ct(void *);
+void sub_800A0994__20TObjEneDarkGunCenterFv(void *);
 void TObjEneDarkGunCenter__sub_800A0B18(void);
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(s32);
@@ -245,7 +245,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
         ((void (*)(void *))TObjEneDarkGunCenter__sub_800A0B18)(self);
         return;
     }
-    TObjEneDarkGunner__ct(self);
+    sub_800A0994__20TObjEneDarkGunCenterFv(self);
     switch (self->state) {
     case 0:
         if (self->m17(0x1e) != 0) {

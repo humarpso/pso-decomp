@@ -35,15 +35,10 @@ struct TWindowSubMag : public TObject {
     static void render();
     static void run_task(void *arg0);
     s32 get_selected_blast();
-    int get_active_flag();
     void set_flag60_bit8();
     void clear_flag60_bit8();
     s32 get_mag_state();
     void update_help_item();
-    void set_flag60_bit4();
-    int is_cursor_locked();
-    int get_flag_bit6();
-    int get_flag_bit5();
     void set_mag_slot_state(s32 arg1);
     void init_and_setup(void* a1);
     void start_scroll(f32 farg0);};

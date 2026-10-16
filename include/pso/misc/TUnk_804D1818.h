@@ -6,6 +6,9 @@
 class TUnk_804D1818 : public TObject {
 public:
     virtual ~TUnk_804D1818();
+    s32 create_option_menu_window();
+    s32 sub_8027C884(s32);
+    void update_quest_board_card_flags();
     virtual void render();
     virtual void run_task();
     u8 unk_1C[0x8];

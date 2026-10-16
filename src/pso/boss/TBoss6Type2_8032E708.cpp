@@ -1459,7 +1459,7 @@ struct Key_80330724 { s32 a; s16 b; s16 c; s32 d; s32 e; };
 
 extern "C" {
 void initialize__9TObjEnemyFPv(void *, s32, void *);
-s32 exchange_object_state__6TLobbyFls(void *, Key_80330724 *, s32);
+s32 exchange_object_state__9TObjEnemyFls(void *, Key_80330724 *, s32);
 void init_collision_body_parts(void *, void *, s32);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
@@ -1482,10 +1482,10 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x384) = *(s32 *)((s8 *)arg2 + 0x54);
     TBoss6Type2__instance_slots[*(s32 *)((s8 *)arg0 + 0x384)] = arg0;
     ((VObj_18_9b9a88 *)arg0)->m79(arg2);
-    if (exchange_object_state__6TLobbyFls(arg0, &key, 1) != 0) {
+    if (exchange_object_state__9TObjEnemyFls(arg0, &key, 1) != 0) {
         key.a = 0;
         key.c = 0;
-        exchange_object_state__6TLobbyFls(arg0, &key, 0);
+        exchange_object_state__9TObjEnemyFls(arg0, &key, 0);
     }
     *(s32 *)((s8 *)arg0 + 0x374) = TObjFish::get_fish_count();
     *(s32 *)((s8 *)arg0 + 0x37C) = 0;

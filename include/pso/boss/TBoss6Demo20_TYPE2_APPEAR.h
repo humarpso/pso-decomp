@@ -6,6 +6,10 @@
 class TBoss6Demo20_TYPE2_APPEAR : public TObject {
 public:
     virtual ~TBoss6Demo20_TYPE2_APPEAR();
+    void draw_fading_model_pair();
+    void draw_fading_model_4();
+    void draw_fading_model_1_pair();
+    void draw_model_12();
     virtual void render();
     virtual void run_task();
     u8 unk_1C[0xD4];

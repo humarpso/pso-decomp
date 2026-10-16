@@ -6,6 +6,7 @@
 
 struct TMainCursor : public TObject {
     virtual ~TMainCursor();
+    void sub_8013E724(f32);
     u32 m_1c;
     void* m_20;
     void* m_24;

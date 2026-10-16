@@ -238,7 +238,7 @@ Win_802649C0 *TWindowMainMenu__ct(Win_802649C0 *arg0, void *arg1, s32 arg2) {
     arg0->x20 = 0;
     arg0->x24 = 0;
     arg0->x5C = 0;
-    ((TWindowSubEquip *)arg0)->set_scale_f();
+    ((TWindowMainMenu *)arg0)->set_scale_f();
     return arg0;
 }
 

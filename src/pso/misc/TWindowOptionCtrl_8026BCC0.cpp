@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSoundBalance.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TLobby.h"
@@ -94,7 +97,7 @@ void TWindowOptionCtrl::run_task() {
     case 2:
         if (((TWindowSubComCard *)(self->f28))->get_status_flag() != 0) {
             self->state = 0x1B;
-        } else if (((TWindowSubComCard *)(self->f28))->is_visible() != 0) {
+        } else if (((TWindowMenu *)(self->f28))->is_visible() != 0) {
             self->state = get_selected_menu_value(self->f28);
         }
         break;
@@ -133,7 +136,7 @@ void TWindowOptionCtrl::run_task() {
                 break;
             }
         }
-        if (((TWindowSubComCard *)(self->f2C))->is_visible() != 0) {
+        if (((TWindowMenu *)(self->f2C))->is_visible() != 0) {
             ((TWindowOptionCtrl *)self)->apply_and_close(get_selected_menu_value(self->f2C));
             ((TWindowSubComCard *)(self->f2C))->clear_flag_and_release();
         }
@@ -161,7 +164,7 @@ void TWindowOptionCtrl::run_task() {
             s16 b = get_field_64__17TWindowOptionCtrlFv(self->f38);
             ((void (*)(void *, s16, s16)) set_params__17TWindowOptionCtrlFPvsSc)(self, (s16)((TWindowOptionCtrl *)(self->f38))->get_field_62(), b);
             self->state = 1;
-        } else if (((TWindowOptionCtrl *)(self->f38))->is_active() != 0) {
+        } else if (((TWindowSoundBalance *)(self->f38))->is_active() != 0) {
             s16 b = get_field_64__17TWindowOptionCtrlFv(self->f38);
             ((void (*)(void *, s16, s16)) set_params__17TWindowOptionCtrlFPvsSc)(self, (s16)((TWindowOptionCtrl *)(self->f38))->get_field_62(), b);
             self->state = 1;
@@ -237,7 +240,7 @@ void TWindowOptionCtrl::run_task() {
     case 17:
         if (((TWindowSubComCard *)(self->f2C))->get_status_flag() != 0) {
             self->state = 1;
-        } else if (((TWindowSubComCard *)(self->f2C))->is_visible() != 0) {
+        } else if (((TWindowMenu *)(self->f2C))->is_visible() != 0) {
             self->state = get_selected_menu_value(self->f2C);
         }
         break;
@@ -261,7 +264,7 @@ void TWindowOptionCtrl::run_task() {
         if (((TWindowSubComCard *)(self->f30))->get_status_flag() != 0) {
             self->state = 0x10;
         }
-        if (((TWindowSubComCard *)(self->f30))->is_visible() != 0) {
+        if (((TWindowMenu *)(self->f30))->is_visible() != 0) {
             self->state = 0x17;
         }
         break;
@@ -281,7 +284,7 @@ void TWindowOptionCtrl::run_task() {
     case 24:
         if (((TWindowSubComCard *)(self->f40))->get_card_data() != 0) {
             self->state = 0x10;
-        } else if (((TWindowSubComCard *)(self->f40))->is_child_visible() != 0) {
+        } else if (((TWindowMessageYesNo *)(self->f40))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(self->f40))->get_slot_or_neg1() == 0) {
                 if (get_selected_menu_value(self->f2C) == 0x14) {
                     self->f24 = 1;

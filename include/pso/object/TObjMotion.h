@@ -5,6 +5,9 @@
 class TUnk_804B9870 : public TObject {
 public:
     virtual ~TUnk_804B9870();
+    s32 mask_object_set_row_flags(s32);
+    s32 set_event_source_flag(s32);
+    void set_item_count(s16);
     virtual void vfunc_6(s16 *, s32);
     virtual void vfunc_7(void *);
     virtual void reset_motion_fields();
@@ -42,6 +45,10 @@ public:
 class TUnk_804AF8A0 : public TUnk_804B9870 {
 public:
     virtual ~TUnk_804AF8A0();
+    s32 set_flag8();
+    u8 sub_8010319C();
+    void set_shadow_flag();
+    void clear_shadow_flag();
     virtual void vfunc_13(s32);
     u8 unk_90[0x4];
     u16 m_94;
@@ -52,6 +59,8 @@ public:
 class TObjMotion : public TUnk_804AF8A0 {
 public:
     virtual ~TObjMotion();
+    void set_motion_interpolation_flag();
+    void set_field_b8(s16);
     u32 unknownAC;
     u32 animationFlags;
     u8 unk_B4[0x4];

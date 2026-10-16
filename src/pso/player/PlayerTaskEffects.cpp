@@ -612,9 +612,9 @@ void set_stat_scale__10TObjPlayerFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x0) 
 }
 }
 
-void TPlayerParticleOwner::set_player_id(u16 value) { player_id = value; }
+void TPlayerSoul::set_player_id(u16 value) { player_id = value; }
 
-void TPlayerParticleOwner::set_particle(TParticleCtrl* value) { particle = value; }
+void TPlayerSoul::set_particle(TParticleCtrl*value) { particle = value; }
 
 namespace accessors {
 extern "C" {
@@ -946,7 +946,7 @@ TParticleCtrl* TPlayerParticleOwner::get_particle() {
     return particle;
 }
 
-TObjPlayer* TPlayerParticleOwner::get_player() {
+TObjPlayer*TPlayerSoul::get_player() {
     return (TObjPlayer*)get_player_by_client_id(player_id);
 }
 

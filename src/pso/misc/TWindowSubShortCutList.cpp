@@ -44,7 +44,7 @@ void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 s32 draw_selected_list_entry(void *, s32);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
-s32 get_status_flag__6TLobbyFv(void *);
+s32 get_status_flag__13TUnk_804D0618Fv(void *);
 
 void TWindowSubShortCutList::refresh_entries() {
     s32 *temp_r3;
@@ -111,7 +111,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
 
 void TWindowSubShortCutList::run_task() {
     update_item_list_window();
-    if ((get_status_flag__6TLobbyFv(this) == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_88) != 0)) {
+    if ((get_status_flag__13TUnk_804D0618Fv(this) == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_88) != 0)) {
         refresh_entries();
     }
 }
@@ -144,7 +144,7 @@ void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
         p = init__21TWindowSubComCardListFiii(p, row, 5, local_client_id);
     }
     ((Obj_8027E558 *)arg0)->list = p;
-    ((TWindowShortListCtrl *)arg0)->set_flag70_bit10();
+    ((TWindowSubShortCutList *)arg0)->set_flag70_bit10();
     ((TWindowSubShortCutList *)arg0)->refresh_entries();
     set_cursor_index__20TWindowSubStatusDispFPvs(arg0, col);
     return arg0;

@@ -6,6 +6,9 @@ class TUnk_804CF930 {
 public:
     u8 unk_0[0x4];
     virtual ~TUnk_804CF930();
+    void draw_status_gauge_bar(void *, void *, f32, f32);
+    void sub_80256BDC(s16);
+    void *destroy(s16);
 };
 
 #endif

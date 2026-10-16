@@ -7,6 +7,9 @@
 class TAdTimeSetGC : public TObject {
 public:
     virtual ~TAdTimeSetGC();
+    void sub_802E1F14();
+    void change_state(s32);
+    s32 poll_load_status();
     virtual void run_task();
     s32 state_index;
     u8 unknown_20[0x24];

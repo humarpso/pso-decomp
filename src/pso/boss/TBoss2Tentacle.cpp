@@ -96,8 +96,8 @@ void TBoss2Tentacle__sub_8003998C(void);
 void TBoss2Tentacle__sub_80039CB4(void* p);
 void TBoss2Tentacle__sub_80039D50(void* p);
 void TBoss2Tentacle__sub_80039D64(void* a0);
-void TBoss2Tentacle__sub_80039D88(void* p);
-void TBoss2Tentacle__sub_80039DA4(void* p);
+void sub_80039D88__14TBoss2TentacleFv(void* p);
+void sub_80039DA4__14TBoss2TentacleFv(void* p);
 void TBoss2Tentacle__sub_80039DBC(void* p);
 void TBoss2Tentacle__sub_80039DD4(void* p);
 s32 approach_angle_limited(s32, s32, s32);
@@ -151,9 +151,9 @@ void TBoss2Tentacle__sub_80039990(void);
 void TBoss2Tentacle__sub_80039CB4(void* p);
 void TBoss2Tentacle__sub_80039D50(void* p);
 void TBoss2Tentacle__sub_80039D64(void* a0);
-void TBoss2Tentacle__sub_80039D88(void* p);
+void sub_80039D88__14TBoss2TentacleFv(void* p);
 void TBoss2Tentacle__sub_80039D98(void* p);
-void TBoss2Tentacle__sub_80039DA4(void* p);
+void sub_80039DA4__14TBoss2TentacleFv(void* p);
 void TBoss2Tentacle__sub_80039DB0(void* p);
 void TBoss2Tentacle__sub_80039DBC(void* p);
 void TBoss2Tentacle__sub_80039DC8(void* p);
@@ -221,7 +221,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
     if (F(s32, 0x20) != F(s32, 0x1C)) {
         switch (F(s32, 0x20)) {
         case 0:
-            TBoss2Tentacle__sub_80039D88(arg0);
+            sub_80039D88__14TBoss2TentacleFv(arg0);
             break;
         case 1:
             TBoss2Tentacle__sub_80039D64(arg0);
@@ -257,7 +257,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
     case 2:
         F(s32, 0x11C) = approach_angle_limited(F(s32, 0x11C), 0, 0x80);
         if (F(s32, 0x11C) == 0) {
-            TBoss2Tentacle__sub_80039DA4(arg0);
+            sub_80039DA4__14TBoss2TentacleFv(arg0);
         }
         break;
     case 3: {
@@ -440,9 +440,9 @@ void TBoss2Tentacle__sub_80039D50(void* p) { *(s32*)((char*)p + 0x11c) = 0; *(s3
     extern int TBoss2Tentacle__rest_angles[];
 void TBoss2Tentacle__sub_80039D64(void* a0) { *(int*)((char*)a0 + 0x11c) = TBoss2Tentacle__rest_angles[*(int*)((char*)a0 + 0x2c)]; *(int*)((char*)a0 + 0x120) = 0; }
 
-void TBoss2Tentacle__sub_80039D88(void* p) { *(s32*)((char*)p + 0x120) = 0; *(s32*)((char*)p + 0x11c) = 0; }
+void TBoss2Tentacle::sub_80039D88() { *(s32*)((char*)this + 0x120) = 0; *(s32*)((char*)this + 0x11c) = 0; }
 void TBoss2Tentacle__sub_80039D98(void* p) { *(s32*)((char*)p + 0x20) = 5; }
-void TBoss2Tentacle__sub_80039DA4(void* p) { *(s32*)((char*)p + 0x20) = 3; }
+void TBoss2Tentacle::sub_80039DA4() { *(s32*)((char*)this + 0x20) = 3; }
 void TBoss2Tentacle__sub_80039DB0(void* p) { *(s32*)((char*)p + 0x20) = 2; }
 void TBoss2Tentacle__sub_80039DBC(void* p) { *(s32*)((char*)p + 0x20) = 4; }
 void TBoss2Tentacle__sub_80039DC8(void* p) { *(s32*)((char*)p + 0x20) = 1; }

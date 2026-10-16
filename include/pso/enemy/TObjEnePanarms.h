@@ -5,6 +5,7 @@
 
 struct TObjEnePanarms
 {
+    s32 sub_800DE390();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
@@ -117,7 +118,6 @@ struct TObjEnePanarms
     void draw();
     static s32 create_bara(s32 arg0, s32 arg1);
     int find_nearest_enemy_with_flag_alt_target(s32 arg1, f32 farg0);
-    void set_field_b8(s16 v);
     static s32 create(s32 arg0);
     void init(void* a1);
     int get_state_flag();

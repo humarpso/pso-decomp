@@ -143,7 +143,7 @@ void TObjNpcEnemy__vt91(u8 *arg0);
 void *memmove(void *, const void *, u32);
 extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__entry_table;
 extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__entry_table;
-s32 TObjNpcEnemy__sub_802D7444(void *arg0);
+s32 sub_802D7444__12TObjNpcEnemyFv(void *arg0);
 }
 
 extern "C" {
@@ -228,8 +228,8 @@ void TObjNpcEnemy::reset_all_anim_fields() {
     }
 }
 
-s32 TObjNpcEnemy__sub_802D7444(void *arg0) {
-    return (**(s16 **)((s8 *)arg0 + 0x3B8) != 0x3F) ? 1 : 0;
+s32 TObjNpcEnemy::sub_802D7444() {
+    return (**(s16 **)((s8 *)this + 0x3B8) != 0x3F) ? 1 : 0;
 }
 
 void TObjNpcEnemy__vt86(void *arg0) {
@@ -353,7 +353,7 @@ void TObjNpcEnemy::render() {
 
     if (((void *) *(void * *)&this->m_3b8 != NULL) && (((NpcV_802d7748_802D745C *)arg0)->m8(*(f32 *)&this->unk_398, this->m_39c) != 0) && ((s32) *(s32 *)&this->m_390 == 1)) {
         select_actor_lighting((void *) (arg0));
-        if (TObjNpcEnemy__sub_802D7444((void *)((void *) (arg0))) != 0) {
+        if (sub_802D7444__12TObjNpcEnemyFv((void *)((void *) (arg0))) != 0) {
             model_render_flags |= 1;
         }
         TObjFish::set_global_param((int) (this->texture_id));
@@ -364,7 +364,7 @@ void TObjNpcEnemy::render() {
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         update_state();
         pop_matrix();
-        if (TObjNpcEnemy__sub_802D7444((void *)((void *) (arg0))) != 0) {
+        if (sub_802D7444__12TObjNpcEnemyFv((void *)((void *) (arg0))) != 0) {
             model_render_flags &= 0xFFFFFFFE;
         }
         restore_scene_lighting();

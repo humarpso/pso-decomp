@@ -13,7 +13,7 @@ s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_item_list_capacity(void *, int, int, int);
 s32 draw_selected_list_entry(void *, int);
 s32 draw_window_scrollbar(void *, int, void *);
-s32 fn_8027ACF8(void *, int);
+s32 sub_8027ACF8__18TWindowSubItemListFPUc(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 u8 *__nw__7TObjectFUl(s32);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
@@ -52,7 +52,7 @@ void TWindowSubItemList::render() {
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     draw_selected_list_entry((void *) (arg0), (int) (temp_r3));
-    fn_8027ACF8((void *) (arg0), (int) (temp_r3));
+    sub_8027ACF8__18TWindowSubItemListFPUc((void *) (arg0), (int) (temp_r3));
     draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (*(s32 *)((s8 *)arg0 + 0x8C)), (int) (0x1E));
     if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(void **)((s8 *)arg0 + 0x80), (int) (temp_r3));

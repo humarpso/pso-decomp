@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
@@ -138,7 +140,7 @@ void update__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x20) = 3;
         return;
     }
-    if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x8C)))->is_child_visible() != 0) {
+    if (((TWindowMessageYesNo *)(*(s32 *)((s8 *)arg0 + 0x8C)))->is_child_visible() != 0) {
         temp_r3 = ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x8C)))->get_slot_or_neg1();
         switch (temp_r3) {
         case 1:
@@ -183,7 +185,7 @@ void update_card_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x20) = 5;
         return;
     }
-    if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x98)))->is_child_visible() != 0) {
+    if (((TWindowMessageYesNo *)(*(u32 *)((s8 *)arg0 + 0x98)))->is_child_visible() != 0) {
         temp_r3 = ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x98)))->get_slot_or_neg1();
         switch (temp_r3) {
         case 1:
@@ -226,7 +228,7 @@ void update_state_option__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x20) = 3;
         return;
     }
-    if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x7C)))->is_visible() != 0) {
+    if (((TWindowMenu *)(*(s32 *)((s8 *)arg0 + 0x7C)))->is_visible() != 0) {
         temp_r3 = get_selected_menu_value(*(s32 *)((s8 *)arg0 + 0x7C));
         switch (temp_r3) {
         case 0:
@@ -280,7 +282,7 @@ void update_card_confirm__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x20) = 3;
         return;
     }
-    if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x90)))->is_child_visible() != 0) {
+    if (((TWindowMessageYesNo *)(*(u32 *)((s8 *)arg0 + 0x90)))->is_child_visible() != 0) {
         temp_r3 = ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x90)))->get_slot_or_neg1();
         switch (temp_r3) {
         case 1:

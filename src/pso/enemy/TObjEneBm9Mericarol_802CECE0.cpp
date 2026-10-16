@@ -984,7 +984,7 @@ void TObjEneBm9Mericarol__sub_802CEDA0(u8 *arg0, s32 arg1) {
                     *(f32 *)((s8 *)mericarol_phase_param_table[PHASE(arg0)] + 0x10));
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3A80A), arg0 + 0x38, 0, 0);
             }
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x490) = 3;
             }
             break;
@@ -1078,7 +1078,7 @@ void TObjEneBm9Mericarol::state_burrow(s32 arg1) {
     {
       case 0:
         ((s32)advance_animation_playback((void *)((void *)((void *) arg0))));
-        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0)
+        if (((TObjEneDD *)arg0)->get_flag_b4() != 0)
       {
         *((s32 *) (((s8 *) arg0) + 0x490)) = 1;
         temp_f1 = lbl_805DE710 * sin_table_lookup((int) (*((s32 *) (((s8 *) arg0) + 0x60))));
@@ -1124,7 +1124,7 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *arg0, s32 arg1) {
       play_sound_effect((s32)(((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), (s32)((int) 0x3AA0C)))), (void *)((u32) (arg0 + 0x38)), (s32)(0), (s32)(0));
       return;
     case 3:
-      if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0)
+      if (((TObjEneDD *)arg0)->get_flag_b4() != 0)
     {
       temp_r3 = *((s16 *) (((s8 *) arg0) + 0x2B8));
       temp_r4 = *((s16 *) (((s8 *) arg0) + 0x32C));
@@ -1477,7 +1477,7 @@ void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
         *(u32 *)((s8 *)arg0 + 0x4AC) = 0;
         break;
     case 3:
-        if (try_set_mode8_if_flag2__19TObjEneBm9MericarolFv() == 0 && ((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+        if (try_set_mode8_if_flag2__19TObjEneBm9MericarolFv() == 0 && ((TObjEneDD *)arg0)->get_flag_b4() != 0) {
             transition_enemy_state(arg0, 3);
         }
         break;

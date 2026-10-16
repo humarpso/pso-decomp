@@ -18,7 +18,7 @@ extern s32 (*model_node_visit_callback)(void *);
 extern u8 *model_node_matrix_output_cursor;
 void draw_model_node_tree(u8 *arg0);
 u16 obj_getField1c(void *);
-s32 set_item_count__6TLobbyFs(s32, s32);
+s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 s32 TLobby__sub_80103B04();
 s32 set_indexed_flags(void *, int, int);
 s32 unregister_object_by_id(void *);
@@ -37,7 +37,7 @@ void is_rare_item__9TItemDataFPv(void *);
 s32 pop_free_id__6TLobbyFv();
 int disallow_rendering__7TObjectFv(void*);
 int queue_destruction__7TObjectFv(void*);
-s32 set_item_count__6TLobbyFs(s32, s32);
+s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 
 void TItem::update_item_data() {
     s32 sp8[4];
@@ -90,14 +90,14 @@ void TItem::unregister_from_world() {
     unregister_object_by_id((void *) arg0);
     obj_getField1c((void *)((void *) arg0));
     TLobby__sub_80103B04();
-    set_item_count__6TLobbyFs((s32)((void *) arg0), (s32)((int) 0xFFFF));
+    set_item_count__13TUnk_804B9870Fs((s32)((void *) arg0), (s32)((int) 0xFFFF));
     set_indexed_flags((void *) arg0, (int) 0, (int) 1);
   }
 }
 
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
     if ((u16) obj_getField1c((void *)(arg0)) == 0xFFFF) {
-        set_item_count__6TLobbyFs(arg0, pop_free_id__6TLobbyFv());
+        set_item_count__13TUnk_804B9870Fs(arg0, pop_free_id__6TLobbyFv());
         ((TObjPlayer *)arg0)->reset_photon_effect();
         if (arg1 != 0) {
             ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);

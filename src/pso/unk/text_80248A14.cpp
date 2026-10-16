@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubItem.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -16,7 +17,7 @@ void advance_matching_entries__22THunterGuildSeqOfflineFPvii(Obj_80248A14 *arg0,
     s32 i;
     s32 e;
     for (i = 0; i < arg0->count; i++) {
-        e = ((TWindowSubStatusDisp *)arg0)->get_array_entry(i);
+        e = ((TUnk_804CE018 *)arg0)->get_array_entry(i);
         if (e != 0 && ((TWindowSubStatusDisp *)e)->is_flag_4_set() != 0 && arg2 == ((TWindowSubItem *)e)->get_cursor_pos()) {
             if (arg1 != 0) {
                 finalize_state__20TWindowSubStatusDispFPv(e);

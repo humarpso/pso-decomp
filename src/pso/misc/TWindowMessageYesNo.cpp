@@ -19,7 +19,7 @@ void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
 s32 create_window_menu(s32, s32, s32);
 s32 get_selected_menu_value(s32);
 s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
-int is_child_visible__17TWindowSubComCardFv(void* a0 = 0);
+int is_child_visible__19TWindowMessageYesNoFv(void* a0 = 0);
 int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -31,7 +31,7 @@ s32 set_status_flag_80__12TQuestThreadFPv(s32);
 
 void TWindowMessageYesNo::render() {  }
 
-void TWindowMessageYesNo::run_task() { if (is_child_visible__17TWindowSubComCardFv(this) != 0) { ((TWindowMenu *)(*(void* *)&this->m_28))->confirm_selection(); } }
+void TWindowMessageYesNo::run_task() { if (is_child_visible__19TWindowMessageYesNoFv(this) != 0) { ((TWindowMenu *)(*(void* *)&this->m_28))->confirm_selection(); } }
 
 extern s32 __vt__19TWindowMessageYesNo[];
 

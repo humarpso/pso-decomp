@@ -70,7 +70,7 @@ void clear_global_state__10TObjPlayerFv();
 extern const f32 lbl_805D8988;
 extern const f32 lbl_805D898C;
 extern const f32 lbl_805D89A0;
-void draw_fading_model__10TObjPlayerFPv(Obj_8004E2C8 *arg0);
+void draw_fading_model__11TObjDFDemo1Fv(Obj_8004E2C8 *arg0);
 void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 Outer_8004E068 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
@@ -91,7 +91,7 @@ extern const f32 lbl_805D8990;
 extern const f32 lbl_805D8994;
 extern const f32 lbl_805D8998;
 extern const f32 lbl_805D899C;
-void TObjPlayer__sub_8004E068(Self_8004E068 *self);
+void sub_8004E068__11TObjDFDemo1Fv(Self_8004E068 *self);
 }
 
 extern "C" {
@@ -114,7 +114,8 @@ typedef struct Outer_8004E068 Outer_8004E068;
 typedef struct Rec_8004E068 Rec_8004E068;
 typedef struct Self_8004E068 Self_8004E068;
 typedef struct Tbl_8004E068 Tbl_8004E068;
-void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
+void TObjDFDemo1::sub_8004E068() {
+    Self_8004E068 *self = (Self_8004E068 *)this;
   f32 alpha;
   unsigned int new_var2;
   s32 hi;
@@ -193,7 +194,8 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
   }
 }
 
-void draw_fading_model__10TObjPlayerFPv(Obj_8004E2C8 *arg0) {
+void TObjDFDemo1::draw_fading_model() {
+    Obj_8004E2C8 *arg0 = (Obj_8004E2C8 *)this;
     f32 max;
     f32 alpha;
     f32 f;
@@ -233,7 +235,7 @@ void draw_fading_model__10TObjPlayerFPv(Obj_8004E2C8 *arg0) {
     }
 }
 
-void TObjDFDemo1::render() { draw_fading_model__10TObjPlayerFPv((Obj_8004E2C8 *)(this)); TObjPlayer__sub_8004E068((Self_8004E068 *)(this)); }
+void TObjDFDemo1::render() { draw_fading_model__11TObjDFDemo1Fv((Obj_8004E2C8 *)(this)); sub_8004E068__11TObjDFDemo1Fv((Self_8004E068 *)(this)); }
 
 }
 

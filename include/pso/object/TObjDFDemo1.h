@@ -6,6 +6,8 @@
 class TObjDFDemo1 : public TUnk_804B9870 {
 public:
     virtual ~TObjDFDemo1();
+    void draw_fading_model();
+    void sub_8004E068();
     virtual void render();
     u8 unk_90[0xA0];
 };

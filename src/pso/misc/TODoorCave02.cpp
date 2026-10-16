@@ -47,7 +47,7 @@ s32 draw_ginja_model_with_motion(void *, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 
 void TODoorCave02::vfunc_20() {  }
 
@@ -126,7 +126,7 @@ s32 TODoorCave02::draw_parts(void *arg1_) {
 
 void TODoorCave02::render() {
     u8 *arg0 = (u8 *)this;
-    if ((((VObj_80161D38 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) && (is_in_view_depth(arg0, lbl_805DB4C4) != 0)) {
+    if ((((VObj_80161D38 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB4C4) != 0)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);

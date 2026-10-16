@@ -117,7 +117,7 @@ void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 update_anim_phase__17TOBarrierEnergy01Fv();
+s32 update_anim_phase__13TUnk_804AFBF8Fv();
 
 void TOKeyGenericSw__vt23(void) {  }
 
@@ -152,7 +152,7 @@ void TOKeyGenericSw::render() {
 }
 
 void TOKeyGenericSw__vt15(void *arg0) {
-    update_anim_phase__17TOBarrierEnergy01Fv();
+    update_anim_phase__13TUnk_804AFBF8Fv();
     ((VObj_8016CB88_8016CA60*)arg0)->m18();
     *(s32 *)((s8 *)arg0 + 0xF4) = 1;
     *(s32 *)((s8 *)arg0 + 0xEC) = 0;
@@ -161,7 +161,7 @@ void TOKeyGenericSw__vt15(void *arg0) {
 }
 
 void TOKeyGenericSw__vt14(void *arg0) {
-    update_anim_phase__17TOBarrierEnergy01Fv();
+    update_anim_phase__13TUnk_804AFBF8Fv();
     ((VObj_8016CBE4_8016CA60*)arg0)->m18();
     *(s32 *)((s8 *)arg0 + 0xEC) = 1;
     *(s32 *)((s8 *)arg0 + 0xF4) = 0;

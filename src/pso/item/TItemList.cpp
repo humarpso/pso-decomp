@@ -1,4 +1,5 @@
 #include "pso/TItemList.h"
+#include "pso/item/TUnk_804C4480.h"
 
 TItemList::~TItemList() {}
 
@@ -13,7 +14,7 @@ void clear_placement_search_slot(u8 *arg0, s32 arg1);
 void* get_ptr_0x44__9TItemListFPv(void* p);
 void copy_position__9TItemListFPv(void *, s32);
 void *TItemList__sub_801D598C(int, int);
-void TItemList__sub_801D5A70(u8 *arg0);
+void sub_801D5A70__13TUnk_804C4480Fv(u8 *arg0);
 void __construct_array(void *, void *, int, int, int);
 int TObjPlayer__sub_801C2098(void);
 extern s32 lbl_804C4444[];
@@ -60,7 +61,8 @@ void TItemList__sub_801D5A64(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 
 extern s32 TItemList__name;
 
-void TItemList__sub_801D5A70(u8 *arg0) {
+void TUnk_804C4480::sub_801D5A70() {
+    u8 *arg0 = (u8 *)this;
     copy_position__9TItemListFPv(TItemList__sub_801D598C(*(s32 *)(arg0 + 0x54), ((s8)((TItemList *)arg0)->get_item_count())), ((s32)get_ptr_0x44__9TItemListFPv((void*)(arg0))));
 }
 

@@ -6,6 +6,8 @@
 
 struct TWindowKeyBoardHard : public TUnk_804CE018 {
     virtual ~TWindowKeyBoardHard();
+    int sub_80260438();
+    int sub_8026042C();
     u8 _pad1C[0x44];
     u32 m_60;
     u32 m_64;

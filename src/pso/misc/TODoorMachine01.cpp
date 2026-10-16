@@ -120,10 +120,10 @@ extern u32 TODoorMachine01__model_resource;
 extern const f32 lbl_805DB4FC;
 extern const f32 lbl_805DB508;
 u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void play_door_sound(void *);
+void play_door_sound__13TUnk_804B0BB8Fv(void *);
 u8 is_current_floor_switch_set(u16);
 void update_door_switch_state__15TODoorMachine01Fv(Door_80162A70 *self);
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 int rotate_matrix_y(int, int);
 int push_matrix();
 int pop_matrix();
@@ -209,7 +209,7 @@ void TODoorMachine01::update_door_switch_state() {
     s32 k;
     switch (self->fCC) {
     case 1:
-        play_door_sound(self);
+        play_door_sound__13TUnk_804B0BB8Fv(self);
         self->fD0 |= 0xF0001;
         self->fD4 = 4;
         break;
@@ -234,7 +234,7 @@ void TODoorMachine01::update_door_switch_state() {
             }
         }
         if (self->fD4 == 4) {
-            play_door_sound(self);
+            play_door_sound__13TUnk_804B0BB8Fv(self);
             self->fD0 |= 1;
         } else {
             self->fD0 &= ~1;
@@ -258,7 +258,7 @@ void TODoorMachine01::update_door_switch_state() {
             }
         }
         if (self->fD4 == 4) {
-            play_door_sound(self);
+            play_door_sound__13TUnk_804B0BB8Fv(self);
             self->fD0 |= 1;
         }
         break;
@@ -300,7 +300,7 @@ void TODoorMachine01::render() {
     u32 bit;
     Node_80162D7C *n;
     u32 fl;
-    if (self->m8(self->fC0, self->fC4) != 0 && is_in_view_depth(self, lbl_805DB504) != 0) {
+    if (self->m8(self->fC0, self->fC4) != 0 && is_in_view_depth__13TUnk_804AFBF8Ff(self, lbl_805DB504) != 0) {
         push_matrix();
         post_translate_matrix((u8 *)self + 0x38);
         rotate_matrix_y(0, self->f60);

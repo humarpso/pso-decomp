@@ -150,7 +150,7 @@ struct RaBarta_802377FC {
 };
 
 extern "C" {
-void TTecPlayerInfluence__sub_80237258(void* p);
+void sub_80237258__19TTecPlayerInfluenceFv(void* p);
 void queue_destruction__7TObjectFv(void *);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
@@ -219,12 +219,12 @@ void TTecPlayerInfluence::tick_lifetime() {
     }
 }
 
-void TTecPlayerInfluence__sub_80237258(void* p) { *(f32*)((char*)p + 0xbc) = *(f32*)((char*)p + 0x3c); }
+void TTecPlayerInfluence::sub_80237258() { *(f32*)((char*)this + 0xbc) = *(f32*)((char*)this + 0x3c); }
 
 extern s32 __vt__19TTecPlayerInfluence[];
 
 void TTecPlayerInfluence::run_task() {
-    TTecPlayerInfluence__sub_80237258((void*)(this));
+    sub_80237258__19TTecPlayerInfluenceFv((void*)(this));
     ((VObj_18 *)(this))->m4();
 }
 

@@ -1,4 +1,5 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/misc/TUnk_8048E728.h"
 #include "pso/misc/TUnk_8048E7A8.h"
 
 #include "types.h"
@@ -115,7 +116,7 @@ int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
 extern const f32 TParticleCtrl__data_805D94F8;
 extern const f32 TParticleCtrl__data_805D94FC;
-void retire_ballistic_particle_if_done(u8 *arg0);
+void retire_ballistic_particle_if_done__13TUnk_8048E778Fv(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
 extern s32 TParticleCtrl__data_8048E778[];
 void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
@@ -128,7 +129,7 @@ void *init_random_particle__13TParticleCtrlFPvPvPvPvPv(void *arg0, void *arg1, v
 void * alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
-void retire_orbit_particle(u8 *arg0);
+void retire_orbit_particle__13TUnk_8048E790Fv(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
 extern s32 TParticleCtrl__data_8048E790[];
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
@@ -140,7 +141,7 @@ int queue_destruction__7TObjectFv(void *);
 extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 f32 vec_squared_length(void *);
-void check_radial_particle_retire(u8 *arg0);
+void check_radial_particle_retire__13TUnk_8048E7A8Fv(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
 extern s32 TParticleCtrl__data_8048E7A8[];
 void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1);
@@ -186,9 +187,9 @@ void load_particle_entry_resources(void);
 s32 is_split_screen();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
-s32 is_particle_sprite_additive(void *, s32);
-s32 draw_particle_refraction_quad(void *);
-s32 apply_particle_model_fade_color(void *, s32);
+s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
+s32 draw_particle_refraction_quad__13TUnk_8048E728Fv(void *);
+s32 apply_particle_model_fade_color__13TUnk_8048E728Fl(void *, s32);
 s32 set_depth_buffer_settings_id__FUl(s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -214,9 +215,9 @@ s32 is_split_screen();
 f32 atan2_float(f32, f32);
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
-s32 is_particle_sprite_additive(void *, s32);
-s32 draw_particle_refraction_quad(void *);
-s32 apply_particle_model_fade_color(void *, s32);
+s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
+s32 draw_particle_refraction_quad__13TUnk_8048E728Fv(void *);
+s32 apply_particle_model_fade_color__13TUnk_8048E728Fl(void *, s32);
 s32 set_depth_buffer_settings_id__FUl(s32);
 void direction_to_rotation_xz(void *, s32 *, s32 *);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
@@ -376,7 +377,8 @@ void * create_random_particle(void *arg0, void *arg1, void *arg2) {
     }
     return o;
 }
-void check_radial_particle_retire(u8 *arg0) {
+void TUnk_8048E7A8::check_radial_particle_retire() {
+    u8 *arg0 = (u8 *)this;
     if ((*(f32 *)((s8 *)arg0 + 0x58) >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == vec_squared_length((void *) (arg0 + 0x3C)))) {
         queue_destruction__7TObjectFv((void *)(arg0));
     }
@@ -456,10 +458,10 @@ void TUnk_8048E7A8::render() {
                 s32 temp_r4 = model_render_flags;
                 lbl_805D5660 = temp_r4;
                 model_render_flags = temp_r4 | 0x8021;
-                if (is_particle_sprite_additive(arg0, temp_r4) != 0) {
-                    apply_particle_model_fade_color(arg0, 1);
+                if (is_particle_sprite_additive__13TUnk_8048E728Fv(arg0, temp_r4) != 0) {
+                    apply_particle_model_fade_color__13TUnk_8048E728Fl(arg0, 1);
                 } else {
-                    apply_particle_model_fade_color(arg0, 0);
+                    apply_particle_model_fade_color__13TUnk_8048E728Fl(arg0, 0);
                 }
             }
             TObjFish::set_global_param(*(u32 *)&this->unk_B4);
@@ -479,7 +481,7 @@ void TUnk_8048E7A8::render() {
         }
     } else {
         if (flags & 0x2000) {
-            draw_particle_refraction_quad(arg0);
+            draw_particle_refraction_quad__13TUnk_8048E728Fv(arg0);
             return;
         }
         if (*(u8 *)((s8 *)(this->m_20) + 0x88) & 0x20) {
@@ -495,7 +497,7 @@ void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = TParticleCtrl__data_8048E7A8;
         TParticleCtrl__sub_8008655C(arg0, 0);
         if (arg1 > 0) {
-            ((TParticleCtrl *)arg0)->free_from_heap();
+            ((TUnk_8048E728 *)arg0)->free_from_heap();
         }
     }
     return arg0;

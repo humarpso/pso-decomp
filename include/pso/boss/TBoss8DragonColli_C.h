@@ -6,6 +6,7 @@
 class TBoss8DragonColli_C : public TUnk_804AF8A0 {
 public:
     virtual ~TBoss8DragonColli_C();
+    void clear_segment_flags();
     virtual void render();
     u8 unk_AC[0xC];
 };

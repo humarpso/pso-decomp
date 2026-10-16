@@ -26,7 +26,7 @@ struct Self_801AE744 {
 extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
+s32 set_photon_blast_joint_callback__13TUnk_804C3248Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -42,11 +42,11 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-s32 set_field_b8__14TObjEnePanarmsFs(void *, s32);
+s32 set_field_b8__10TObjMotionFs(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 * find_entity_by_id(u16);
 u8 * photon_base_ct(void *);
-void TObjPlayer__sub_801AE72C(void *, u8);
+void sub_801AE72C__13TPhotonYoullaFv(void *, u8);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_photon_blast_opening_effects(int, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
@@ -65,7 +65,7 @@ void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1);
 s32 advance_animation_playback(void *);
 s32 get_game_play_mode();
 int is_locally_controlled__10TObjPlayerFPv(void*);
-s32 update_photon_blast_attachments(void *);
+s32 update_photon_blast_attachments__13TUnk_804C3248Fv(void *);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 TObjPlayer__sub_801AF868(s32);
 int TObjPlayer__sub_801BEF60(void*, void*);
@@ -78,12 +78,12 @@ void __dl__7TObjectFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 check_flag_800000__10TObjPlayerFPv(s32);
 void destroy_photon_motion_object(void *, int);
-void free_photon__10TObjPlayerFPv(void *);
+void free_photon__13TUnk_804C3248Fv(void *);
 s32 get_main_phase();
 s32 is_technique_ready__8TTecCtrlFv();
 s32 queue_destruction__7TObjectFv(void *);
 s32 reset_volopt_state__10TObjPlayerFv(s32);
-s32 set_field_b8__14TObjEnePanarmsFs(void *, s32);
+s32 set_field_b8__10TObjMotionFs(void *, s32);
 void stop_force_if_alive__10TObjPlayerFPv(void* p);
 int test_flag_2000000__10TObjPlayerFPv(void*);
 void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
@@ -113,7 +113,7 @@ void TPhotonYoulla::render() {
         set_material_alpha_compare_reference(0);
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
-        set_photon_blast_joint_callback__10TObjPlayerFPv(self);
+        set_photon_blast_joint_callback__13TUnk_804C3248Fv(self);
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
         set_material_alpha_compare_reference(0xBF);
@@ -136,11 +136,11 @@ void TPhotonYoulla::run_task() {
     if ((lbl_805DC264 == (f32) *(s32 *)&this->m_1a4) && ((s16) this->m_b8 == 1)) {
         spawn_photon_blast_attachment_effects(this, 6);
         *(s32 *)&this->m_1a4 = 0;
-        set_field_b8__14TObjEnePanarmsFs(this, 0);
+        set_field_b8__10TObjMotionFs(this, 0);
     }
     *(s16 *)&this->m_194 = (s16) this->m_b8;
     advance_animation_playback(this);
-    update_photon_blast_attachments(this);
+    update_photon_blast_attachments__13TUnk_804C3248Fv(this);
     *(s16 *)((s8 *)this + 0x14C) = (s16) (*(s16 *)((s8 *)this + 0x14C) + 0xF);
     *(s16 *)((s8 *)this + 0x14C) = (s16) (u8) *(s16 *)((s8 *)this + 0x14C);
     *(s32 *)&this->m_1a4 = (s32) (*(s32 *)&this->m_1a4 + 1);
@@ -160,7 +160,7 @@ extern s32 __vt__13TPhotonYoulla[];
 void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TPhotonYoulla;
-        free_photon__10TObjPlayerFPv(arg0);
+        free_photon__13TUnk_804C3248Fv(arg0);
         destroy_photon_motion_object(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -190,15 +190,15 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    set_field_b8__14TObjEnePanarmsFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_field_b8__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     *(s16 *)((s8 *)arg0 + 0x194) = 1;
     *(s32 *)((s8 *)arg0 + 0x198) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
     *(s32 *)((s8 *)arg0 + 0x19C) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
     *(s32 *)((s8 *)arg0 + 0x1A0) = 0;
-    TObjPlayer__sub_801AE72C(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
+    sub_801AE72C__13TPhotonYoullaFv(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
     *(s32 *)((s8 *)arg0 + 0x1A4) = 0;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x198) == 0) {
-        set_field_b8__14TObjEnePanarmsFs(arg0, 0);
+        set_field_b8__10TObjMotionFs(arg0, 0);
         *(s32 *)((s8 *)arg0 + 0x198) = 1;
         *(s16 *)((s8 *)arg0 + 0x194) = 0;
         *(s32 *)((s8 *)arg0 + 0x1A0) = 1;

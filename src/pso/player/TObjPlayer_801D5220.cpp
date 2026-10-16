@@ -144,7 +144,7 @@ void TObjPlayer__sub_801D52A8(Node_801D52A8 *arg0) {
     for (n = arg0->child; n != NULL; n = n->next) {
         if (is_item_valid__9TItemListFl(n) != 0) {
             o = ((TObjPlayer *)n)->get_owner_if_alive();
-            if ((o != 0) && (is_item_equipped() != 0) && (((TOSwitchItem *)o)->get_field_ec() == 0)) {
+            if ((o != 0) && (is_item_equipped() != 0) && (((TItem *)o)->get_field_ec() == 0)) {
                 ((TItem *)o)->copy_to_item_data((s32 *)(player_item_collect_cursor + 8));
                 *(s32 *)(player_item_collect_cursor + 4) = ((TObjPlayer *)o)->get_field_d8();
                 player_item_collect_cursor += 0x1C;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -27,7 +28,7 @@ void TObjPlayer::bswap_6x12_packet() { read_be16_field2(); bswap_16__FPUs((char*
 void TObjPlayer::set_type_dragon() { *(u8*)((char*)this + 0x0) = 18; *(u8*)((char*)this + 0x1) = 5; }
 void TObjPlayer::bswap_dragon_boss_fields() { read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
 void TObjPlayer::bswap_stats() { read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
-s32 TLobby::exchange_object_state(s32 arg1, s16 arg2) {
+s32 TObjEnemy::exchange_object_state(s32 arg1, s16 arg2) {
     u8 *arg0 = (u8 *)this;
     s16 temp_r31;
     temp_r31 = *(s16 *)((s8 *)arg0 + 0x2C);

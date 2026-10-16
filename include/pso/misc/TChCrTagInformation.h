@@ -5,6 +5,7 @@
 
 struct TChCrTagInformation
 {
+    void draw_char_info_sprites();
     int render();
     void update_selected_char();
     void run_task();

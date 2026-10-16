@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80484610.h"
 #include "pso/player/TUnk_80484840.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/player/TObjPlayer.h"
@@ -63,7 +64,7 @@ f32 TBoss3Volopt__sub_8004812C(s32 arg0) {
     return *(f32 *)((s8 *)(lbl_805D4CDC + (arg0 * 4)) + 0);
 }
 
-void TBoss3Volopt::load_params_from_table(s32 i) {
+void TUnk_80484610::load_params_from_table(s32 i) {
     O_8004813C *self = (O_8004813C *)this;
     self->f34 = lbl_805D4CE4->entries[i].c;
     self->f24 = lbl_805D4CE4->entries[i].d;

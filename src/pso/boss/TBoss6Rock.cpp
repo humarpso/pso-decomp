@@ -167,7 +167,7 @@ void VecCopy__FP3VecPC3Vec(void *, const void *);
 u32 create__10TObjMapCsnFl(void *, void *, f32);
 extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
 extern u8 lbl_80479280[];
-void TBoss6Rock__sub_80353F5C(Obj_80353F5C *o);
+void sub_80353F5C__10TBoss6RockFv(Obj_80353F5C *o);
 }
 
 extern "C" {
@@ -432,7 +432,8 @@ typedef struct Blk_80353F5C Blk_80353F5C;
 typedef struct Elem_80353F5C Elem_80353F5C;
 typedef struct Obj_80353F5C Obj_80353F5C;
 typedef struct Vec_80353F5C Vec_80353F5C;
-void TBoss6Rock__sub_80353F5C(Obj_80353F5C *o) {
+void TBoss6Rock::sub_80353F5C() {
+    Obj_80353F5C *o = (Obj_80353F5C *)this;
   Elem_80353F5C *new_var;
   Blk_80353F5C blk;
   u8 *new_var2;
@@ -519,7 +520,7 @@ void TBoss6Rock::update_fall() {
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss6Rock__data_805DFF50;
         *(f32 *)((s8 *)arg0 + 0xCC) = (f32) TBoss6Rock__data_805DFF50;
         TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), (s32)((int) (1)));
-        TBoss6Rock__sub_80353F5C((Obj_80353F5C *)((void *) (arg0)));
+        sub_80353F5C__10TBoss6RockFv((Obj_80353F5C *)((void *) (arg0)));
         play_sound_effect((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));

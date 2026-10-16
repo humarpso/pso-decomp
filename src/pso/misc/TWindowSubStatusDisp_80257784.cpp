@@ -6,7 +6,7 @@ struct RecoveredGlobal_80258100_lbl_804CF998 {
 };
 
 extern "C" {
-int TWindowSubStatusDisp__sub_80256BDC(void *, s16);
+int sub_80256BDC__13TUnk_804CF930Fs(void *, s16);
 extern unsigned char lbl_804CF998[];
 u8 *init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
 }
@@ -19,11 +19,11 @@ void* reset_entry__20TWindowSubStatusDispFPv(void* a0, s16 _w1);
 
     extern unsigned char lbl_804CF998[];
     extern const float lbl_805DCEF8;
-void* reset_entry__20TWindowSubStatusDispFPv(void* a0, s16 _w1) { TWindowSubStatusDisp__sub_80256BDC((void *)(a0), _w1); *(int*)((char*)a0 + 0x4) = (int)lbl_804CF998; *(float*)((char*)a0 + 0x8) = lbl_805DCEF8; *(float*)((char*)a0 + 0xc) = lbl_805DCEF8; *(float*)((char*)a0 + 0x10) = lbl_805DCEF8; *(float*)((char*)a0 + 0x14) = lbl_805DCEF8; return a0; }
+void* reset_entry__20TWindowSubStatusDispFPv(void* a0, s16 _w1) { sub_80256BDC__13TUnk_804CF930Fs((void *)(a0), _w1); *(int*)((char*)a0 + 0x4) = (int)lbl_804CF998; *(float*)((char*)a0 + 0x8) = lbl_805DCEF8; *(float*)((char*)a0 + 0xc) = lbl_805DCEF8; *(float*)((char*)a0 + 0x10) = lbl_805DCEF8; *(float*)((char*)a0 + 0x14) = lbl_805DCEF8; return a0; }
 
 typedef char RecoveredGlobal_80258100_lbl_804CF998_size[sizeof(RecoveredGlobal_80258100_lbl_804CF998) == 0x18 ? 1 : -1];
 u8 *init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
-    TWindowSubStatusDisp__sub_80256BDC((void *)(arg0), arg2);
+    sub_80256BDC__13TUnk_804CF930Fs((void *)(arg0), arg2);
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_80258100_lbl_804CF998 *)&lbl_804CF998).value;
     *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 4);
     *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 8);
@@ -588,7 +588,7 @@ extern "C" {
 s32 get_field_ed__10TObjPlayerFv(void *);
 s32 check_flag_400__20TWindowSubStatusDispFv(void *);
 s32 lookup_item_data__20TWindowSubStatusDispFv(void *);
-s32 get_field_ec__12TOSwitchItemFv(void *);
+s32 get_field_ec__5TItemFv(void *);
 s32 TObjPlayer__sub_801C1AC8(void *);
 #define update_stat_line_if_positive__20TWindowSubStatusDispFPvi ((s32 (*)(void *, s32))update_stat_line_if_positive__20TWindowSubStatusDispFPvi)
 #define update_item_icon_colors__20TWindowSubStatusDispFPvPv ((s32 (*)(void *, void *))update_item_icon_colors__20TWindowSubStatusDispFPvPv)
@@ -604,7 +604,7 @@ void set_inventory_item__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s
 void update_from_player__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s32 arg2, s32 arg3);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 get_shared_text_buffer();
-s32 get_field_ec__12TOSwitchItemFv(void *);
+s32 get_field_ec__5TItemFv(void *);
 s32 get_field_ed__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801C1AC8(void *);
 s32 check_flag_400__20TWindowSubStatusDispFv(void *);
@@ -620,7 +620,7 @@ void set_inventory_item__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s
 
     *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805DCF08;
     temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
-    select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__12TOSwitchItemFv(arg1), get_field_ed__10TObjPlayerFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
+    select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__10TObjPlayerFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
     *(s32 *)((s8 *)arg0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, ((VObj_80258D38 *) arg1)->m10(), *(s32 *)((s8 *)arg0 + 0x20), 8, 1);
     if (TObjPlayer__sub_801C1AC8(arg1) != 0) {
         update_stat_line_if_positive__20TWindowSubStatusDispFPvi(arg0, arg2);
@@ -639,7 +639,7 @@ void update_from_player__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s
 
     *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805DCF08;
     temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
-    select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__12TOSwitchItemFv(arg1), get_field_ed__10TObjPlayerFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
+    select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__10TObjPlayerFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
     *(s32 *)((s8 *)arg0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, ((V_A_80258e2c *) arg1)->m10(), *(s32 *)((s8 *)arg0 + 0x20), 8, 1);
     if (get_camera_id__11TCameraCtrlFv() <= 2) {
         text_builder_reset();
@@ -654,7 +654,7 @@ void init_item_row__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg
     s32 temp_r29;
     *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805DCF08;
     temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
-    select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__12TOSwitchItemFv(arg1), get_field_ed__10TObjPlayerFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
+    select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__10TObjPlayerFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
     *(s32 *)((s8 *)arg0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, ((V_80258F34 *) arg1)->m10(), *(s32 *)((s8 *)arg0 + 0x20), 8, 1);
     if (TObjPlayer__sub_801C1AC8(arg1) != 0) {
         s32 v = ((V_80258F34 *) arg1)->m34();

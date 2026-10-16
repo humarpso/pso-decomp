@@ -69,9 +69,9 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self);
 extern "C" {
 
 int TObjPlayer__sub_800FEE84(void* p);
-int TObjPlayer__sub_800FF2D0(void*);
+int sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(void*);
 
-int TObjPlayer__sub_800FEE84(void* p) { return TObjPlayer__sub_800FF2D0(p); }
+int TObjPlayer__sub_800FEE84(void* p) { return sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(p); }
 void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
     RotSrc_800FEEA4 *rs;
     RotDst_800FEEA4 *rd;

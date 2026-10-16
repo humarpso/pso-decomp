@@ -47,7 +47,7 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void TObjPlayer__sub_80100070(u8 *arg0);
-void TObjPlayer__sub_8010043C(u8 *arg0, u8 arg1);
+void sub_8010043C__5TItemFUc(u8 *arg0, u8 arg1);
 }
 
 extern "C" {
@@ -75,7 +75,7 @@ s32 is_usable__9TItemDataFPv(s32);
 s32 set_depth_buffer_settings_id__FUl(s32);
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
 
-void TObjPlayer::apply_item_flags(s32 arg1) {
+void TItem::apply_item_flags(s32 arg1) {
     if (is_usable__9TItemDataFPv(arg1) != 0) {
         *(s32 *)((s8 *)this + 0xDC) = (s32) (*(s32 *)((s8 *)this + 0xDC) | 0x100);
         *(s16 *)((s8 *)this + 0xE8) = get_packed_value__9TItemDataFPv(arg1);
@@ -147,7 +147,8 @@ void TObjPlayer::draw_item_model() {
     }
 }
 
-void TObjPlayer__sub_8010043C(u8 *arg0, u8 arg1) {
+void TItem::sub_8010043C(u8 arg1) {
+    u8 *arg0 = (u8 *)this;
     u8 temp_r0;
     *(u8 *)((s8 *)arg0 + 0xEF) = arg1;
     temp_r0 = *(u8 *)((s8 *)arg0 + 0xEF);

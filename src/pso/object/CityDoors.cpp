@@ -178,7 +178,7 @@ s32 pop_matrix();
 extern s32 city_common_texture_list;
 extern const f32 lbl_805DBBE0;
 extern const f32 lbl_805DBBE4;
-void process_lobby_action_14__6TLobbyFPv(u8 *arg0);
+void process_lobby_action_14__18TObjCityDoor_LobbyFv(u8 *arg0);
 }
 
 extern "C" {
@@ -214,8 +214,9 @@ void load_city_common_resources(void) {
     (*(s32 *)&city_common_model_archive) = var_r0;
     (*(u8 * *)&city_common_texture_list) = load_gvm_texture_file((s32)city_common_texture_filename);
 }
-void TObjCityDoor_Lobby::render() { if (is_phase_e__9TObjEneDDFPv(this) != 0) { process_lobby_action_14__6TLobbyFPv((u8 *)((u8 *)(this))); } }
-void process_lobby_action_14__6TLobbyFPv(u8 *arg0) {
+void TObjCityDoor_Lobby::render() { if (is_phase_e__9TObjEneDDFPv(this) != 0) { process_lobby_action_14__18TObjCityDoor_LobbyFv((u8 *)((u8 *)(this))); } }
+void TObjCityDoor_Lobby::process_lobby_action_14() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_80181AE8 *)arg0)->m8(lbl_805DBBE0, lbl_805DBBE4) != 0) {
         set_global_param__8TObjFishFl((*(s32 *)&city_common_texture_list));
         push_matrix();
@@ -235,17 +236,17 @@ extern "C" {
 
 void run_task__18TObjCityDoor_LobbyFv(void);
 void dispatch_lobby_action__10TObjPlayerFi(s32 arg0);
-void process_lobby_action_14__6TLobbyFPv(u8 *);
-s32 build_door_collision_triangles__10TObjPlayerFi(s32);
+void process_lobby_action_14__18TObjCityDoor_LobbyFv(u8 *);
+s32 build_door_collision_triangles__18TObjCityDoor_LobbyFv(s32);
 int is_phase_e__9TObjEneDDFPv(void *);
 
 void TObjCityDoor_Lobby::run_task() {  }
 void dispatch_lobby_action__10TObjPlayerFi(s32 arg0) {
     if (is_phase_e__9TObjEneDDFPv((void *)arg0) != 0) {
-        build_door_collision_triangles__10TObjPlayerFi(arg0);
+        build_door_collision_triangles__18TObjCityDoor_LobbyFv(arg0);
         return;
     }
-    process_lobby_action_14__6TLobbyFPv((u8 *)arg0);
+    process_lobby_action_14__18TObjCityDoor_LobbyFv((u8 *)arg0);
 }
 
 #pragma push
@@ -287,7 +288,8 @@ extern const f32 lbl_805DBBEC;
 
 #define self ((Obj_80181BAC *)arg0)
 
-s32 build_door_collision_triangles__10TObjPlayerFi(s32 arg0) {
+s32 TObjCityDoor_Lobby::build_door_collision_triangles() {
+    s32 arg0 = (s32)this;
     Vec_80181BAC v[3];
     Vec_80181BAC sum;
     Tri_80181BAC *t1;
@@ -445,7 +447,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 u32 get_map_count__10TObjMapCsnFv();
 void register_slot(u32, void *);
-s32 build_door_collision_triangles__10TObjPlayerFi(s32);
+s32 build_door_collision_triangles__18TObjCityDoor_LobbyFv(s32);
 int is_phase_e__9TObjEneDDFPv(void *);
 void construct_world_actor_base(void *, void *);
 extern s32 __vt__18TObjCityDoor_Lobby[];
@@ -472,7 +474,7 @@ Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2) {
     self->xac = self->buf1d8;
     self->x250 = 0;
     if (is_phase_e__9TObjEneDDFPv(self) != 0) {
-        build_door_collision_triangles__10TObjPlayerFi((s32)self);
+        build_door_collision_triangles__18TObjCityDoor_LobbyFv((s32)self);
         if (get_map_count__10TObjMapCsnFv() != 0) {
             register_slot(get_map_count__10TObjMapCsnFv(), &self->x90);
             self->x250 = 1;

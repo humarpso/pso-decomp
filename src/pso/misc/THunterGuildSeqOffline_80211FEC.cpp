@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMemberCheck.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -152,7 +153,7 @@ void THunterGuildSeqOffline::update_member_proximity() {
         } while (var_r30 < 4);
     }
 }
-void THunterGuildSeqOffline::open_member_name_window() {
+void TMemberCheck::open_member_name_window() {
     Seq_80212304 *self = (Seq_80212304 *)this;
     s32 i;
     if (self->win != 0) {

@@ -21,7 +21,7 @@ s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(s32 arg0, s8 arg1) {
 
 extern "C" {
 
-u16 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+u16 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 
 void update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *arg0) {
     s32 var_r30;
@@ -32,7 +32,7 @@ void update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *arg0) {
     var_r29 = 1;
     var_r30 = 0;
     do {
-        temp_r31 = get_array_entry__20TWindowSubStatusDispFi(arg0, var_r30 + 2);
+        temp_r31 = get_array_entry__13TUnk_804CE018Fi(arg0, var_r30 + 2);
         if (((s32 (*)(void *, s8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(arg0, (s8) var_r30) == 0) {
             *temp_r31 |= 2;
         } else {
@@ -41,7 +41,7 @@ void update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *arg0) {
         }
         var_r30 += 1;
     } while (var_r30 < 6);
-    temp_r3 = get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
+    temp_r3 = get_array_entry__13TUnk_804CE018Fi(arg0, 1);
     if (var_r29 != 0) {
         *(s8 *)((s8 *)arg0 + 0x61) = -1;
         *temp_r3 |= 2;
@@ -59,13 +59,13 @@ void update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *arg0) {
 
 extern "C" {
 
-s32 fn_8027D230(void *);
-s32 is_shortcut_active__18TWindowSubShortCutFv();
+s32 sub_8027D230__26TWindowSubQuestBoardSelectFv(void *);
+s32 is_shortcut_active__26TWindowSubQuestBoardSelectFv();
 
 void TWindowSubQuestBoardSelect::select_next() {
     u8 temp_r3;
 
-    if ((is_shortcut_active__18TWindowSubShortCutFv() == 0) && (((s32 (*)(void *, u8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(this, this->m_61) == 0)) {
+    if ((is_shortcut_active__26TWindowSubQuestBoardSelectFv() == 0) && (((s32 (*)(void *, u8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(this, this->m_61) == 0)) {
         do {
             this->m_61 = (u8) (this->m_61 + 1);
             temp_r3 = this->m_61;
@@ -73,7 +73,7 @@ void TWindowSubQuestBoardSelect::select_next() {
                 this->m_61 = (u8) (temp_r3 - 6);
             }
         } while (((s32 (*)(void *, u8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(this, this->m_61) == 0);
-        fn_8027D230(this);
+        sub_8027D230__26TWindowSubQuestBoardSelectFv(this);
     }
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TODummyKeyCave01Sound.h"
 #include "pso/misc/TODragonflyMachine01.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -63,20 +64,20 @@ extern const f32 lbl_805DB5B4;
 extern "C" {
 
 void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1);
-void play_cave01_key_sound(void *arg0);
+void play_cave01_key_sound__21TODummyKeyCave01SoundFv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 f32 sin_table_lookup(s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonflyMachine01__sub_80164F50(void *);
 s32 move_toward_target__11TODragonflyFv(void *);
-s32 TODragonfly__sub_80164990(void *);
-s32 TODragonfly__sub_80164A90(void *);
+s32 sub_80164990__11TODragonflyFv(void *);
+s32 sub_80164A90__11TODragonflyFv(void *);
 s32 update_idle__11TODragonflyFv(void *);
 s32 rotate_matrix_y(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TODragonflyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 update_anim_phase__17TOBarrierEnergy01Fv(void *);
+s32 update_anim_phase__13TUnk_804AFBF8Fv(void *);
 
 extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
@@ -97,7 +98,7 @@ void TODragonflyMachine01::run_task() {
         ((DfV_801651B0 *)this)->vf12();
         return;
     }
-    update_anim_phase__17TOBarrierEnergy01Fv(this);
+    update_anim_phase__13TUnk_804AFBF8Fv(this);
     temp_r0 = *(s32 *)&this->unk_AC;
     switch (temp_r0) {
     case 0:
@@ -105,11 +106,11 @@ void TODragonflyMachine01::run_task() {
         update_idle__11TODragonflyFv(this);
         return;
     case 1:
-        TODragonfly__sub_80164A90(this);
+        sub_80164A90__11TODragonflyFv(this);
         return;
     case 2:
         TODragonflyMachine01__sub_80164F50(this);
-        TODragonfly__sub_80164990(this);
+        sub_80164990__11TODragonflyFv(this);
         return;
     case 3:
         move_toward_target__11TODragonflyFv(this);
@@ -195,12 +196,12 @@ u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
 }
 #pragma pop
 
-void play_cave01_key_sound(void *arg0) {
+void TODummyKeyCave01Sound::play_cave01_key_sound() {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
     switch (temp_r0) {
     case 1:
         play_sound_effect(0x4005281F, 0, 0, 0);

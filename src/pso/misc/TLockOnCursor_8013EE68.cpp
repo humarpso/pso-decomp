@@ -3,7 +3,7 @@
 
 extern "C" {
 
-void TLockOnCursor__sub_8013EEC0(void* p, s16 v);
+void sub_8013EEC0__13TLockOnCursorFs(void* p, s16 v);
 s32 __dl__FPv(void *);
 s32 free_if_valid__14TPlyDispConfigFis(void *, s16);
 
@@ -20,6 +20,6 @@ void *TLockOnCursor::destroy(s16 arg1) {
     return this;
 }
 
-void TLockOnCursor__sub_8013EEC0(void* p, s16 v) { *(s16*)((char*)p + 0x20) = v; }
+void TLockOnCursor::sub_8013EEC0(s16 v) { *(s16*)((char*)this + 0x20) = v; }
 
 }

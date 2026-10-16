@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDFDemo5.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -113,7 +114,7 @@ extern "C" {
 void darkfalz_death_update(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
-    ((TBoss4Type2 *)arg0)->update_particle_emitters();
+    ((TObjDFDemo5 *)arg0)->update_particle_emitters();
     if ((s32) *(s32 *)((s8 *)arg0 + 0xE4) == 0x8C) {
         play_cue_stream_file((s32) "dfdeath.adx");
         TBoss3Volopt::queue_event_1D(0xC0, 0xF);

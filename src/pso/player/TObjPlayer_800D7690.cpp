@@ -22,7 +22,7 @@ void run_task__13TUnk_80494968Fv(Trail_800D76E8 *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_800D7818(void *arg0, s32 arg1, s32 arg2);
+void sub_800D7818__13TUnk_80494968Fll(void *arg0, s32 arg1, s32 arg2);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TUnk_80494968::render() {
@@ -76,9 +76,9 @@ void TUnk_80494968::run_task() {
     arg0->e[0].tb = tb;
 }
 
-void TObjPlayer__sub_800D7818(void *arg0, s32 arg1, s32 arg2) {
-    *(s32 *)((s8 *)arg0 + 0x120) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x124) = arg2;
+void TUnk_80494968::sub_800D7818(s32 arg1, s32 arg2) {
+    *(s32 *)((s8 *)this + 0x120) = arg1;
+    *(s32 *)((s8 *)this + 0x124) = arg2;
 }
 
 }

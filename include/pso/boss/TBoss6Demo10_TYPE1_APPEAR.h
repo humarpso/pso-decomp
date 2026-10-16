@@ -6,6 +6,7 @@
 class TBoss6Demo10_TYPE1_APPEAR : public TObject {
 public:
     virtual ~TBoss6Demo10_TYPE1_APPEAR();
+    void sub_8033C7C8();
     virtual void render();
     virtual void run_task();
     u8 unk_1C[0x4C];

@@ -191,7 +191,7 @@ extern const f32 lbl_805D9668;
 s32 apply_actor_gravity(void *, s32, f32);
 s32 update_enemy_wander_move(void *, Vec_8008FAD0 *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss3VoloptMonitor__sub_8004292C(void *);
+s32 sub_8004292C__15TObjEnemyCustomFv(void *);
 s32 reset_enemy_state__10TObjPlayerFv();
 s32 advance_animation_playback(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
@@ -647,7 +647,7 @@ void TObjPlayer__sub_8008FAD0(u8 *arg0) {
     switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x30) &= 0xFBFFFEFF;
-        TBoss3VoloptMonitor__sub_8004292C(arg0);
+        sub_8004292C__15TObjEnemyCustomFv(arg0);
         v = 6;
         if (*(s32 *)((s8 *)arg0 + 0x388) & 0x01000000) {
             v = 1;

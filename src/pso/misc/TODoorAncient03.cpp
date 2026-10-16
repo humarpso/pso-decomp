@@ -97,7 +97,7 @@ struct RecoveredGlobal_8015E634___vt__15TODoorAncient03 {
 };
 
 extern "C" {
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -173,7 +173,7 @@ void TODoorAncient03::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     u8 *temp_r31_4;
-    if ((((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) && (is_in_view_depth((void *) (arg0), (f32) (lbl_805DB3F8)) != 0)) {
+    if ((((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff((void *) (arg0), (f32) (lbl_805DB3F8)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
@@ -25,7 +26,7 @@ u8 fn_80100CC8(void) {
     }
     return (u8)var_r31;
 }
-int TObjPlayer::is_flag_400() { return *(u16*)((char*)this + 0x4) & 0x400; }
+int TItemWeapon::is_flag_400() { return *(u16*)((char*)this + 0x4) & 0x400; }
 s32 item_model_is_shown(void *arg0) {
     if ((get_flag_40__8TItemMagFv() == 0) && ((u32) *(u32 *)((s8 *)arg0 + 0xF4) != 0U)) {
         return 1;

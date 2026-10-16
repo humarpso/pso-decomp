@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TWindowFukidasi.h"
 #include "pso/misc/TLanguage.h"
@@ -15,7 +16,7 @@ s32 is_trade_active();
 s32 is_com_card_active();
 s32 is_guild_card_receive_active();
 void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0);
-u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self);
+u8 sub_80246948__13TUnk_804CE018Fv(Obj_80246948 *self);
 s32 TLobby__sub_8023E554(void *, void *);
 extern s32 lbl_8044E658[];
 extern s32 lbl_8044E688[];
@@ -82,7 +83,8 @@ void load_hud_palette_textures(void) {
     window_ui_theme_index = 0;
 }
 
-u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self) {
+u8 TUnk_804CE018::sub_80246948() {
+    Obj_80246948 *self = (Obj_80246948 *)this;
     return !(self->f2c & 1);
 }
 
@@ -100,14 +102,14 @@ void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0) {
     u32 temp_r26;
     u32 temp_r25;
     u32 temp_r24;
-    temp_r31 = ((TWindowSubStatusDisp *)arg0)->get_array_entry((int) (7));
-    temp_r30 = ((TWindowSubStatusDisp *)arg0)->get_array_entry((int) (6));
-    temp_r29 = ((TWindowSubStatusDisp *)arg0)->get_array_entry((int) (5));
-    temp_r28 = ((TWindowSubStatusDisp *)arg0)->get_array_entry((int) (4));
-    temp_r27 = ((TWindowSubStatusDisp *)arg0)->get_array_entry((int) (3));
-    temp_r26 = ((TWindowSubStatusDisp *)arg0)->get_array_entry((int) (2));
-    temp_r25 = ((TWindowSubStatusDisp *)arg0)->get_array_entry((int) (1));
-    temp_r24 = ((TWindowSubStatusDisp *)arg0)->get_array_entry((int) (0));
+    temp_r31 = ((TUnk_804CE018 *)arg0)->get_array_entry((int) (7));
+    temp_r30 = ((TUnk_804CE018 *)arg0)->get_array_entry((int) (6));
+    temp_r29 = ((TUnk_804CE018 *)arg0)->get_array_entry((int) (5));
+    temp_r28 = ((TUnk_804CE018 *)arg0)->get_array_entry((int) (4));
+    temp_r27 = ((TUnk_804CE018 *)arg0)->get_array_entry((int) (3));
+    temp_r26 = ((TUnk_804CE018 *)arg0)->get_array_entry((int) (2));
+    temp_r25 = ((TUnk_804CE018 *)arg0)->get_array_entry((int) (1));
+    temp_r24 = ((TUnk_804CE018 *)arg0)->get_array_entry((int) (0));
     if (is_guild_card_receive_active() != 0) {
         if (temp_r31 != 0U) {
             ((TWindowSubStatusDisp *)temp_r31)->clear_visible_flag();

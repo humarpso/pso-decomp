@@ -35,7 +35,7 @@ void *__nw__7TObjectFUl(int);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 poll_memcard_status(void *);
+s32 poll_memcard_status__9TSaveChCrFv(void *);
 extern RecoveredGlobal_8033A34C___vt__9TSaveChCr __vt__9TSaveChCr;
 extern s32 TSaveChCr__name;
 u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2);
@@ -105,7 +105,7 @@ void TSaveChCr::set_state(s32 arg1) {
 void TSaveChCr::run_task() {
   TSaveChCrStateActions *entry;
   TChCrCharSelect::reset_proportions();
-  card_status = poll_memcard_status(this);
+  card_status = poll_memcard_status__9TSaveChCrFv(this);
   if (card_status & 1)
   {
     set_state(0);
@@ -142,7 +142,7 @@ u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x20) = arg2;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = poll_memcard_status(arg0);
+    *(s32 *)((s8 *)arg0 + 0x2C) = poll_memcard_status__9TSaveChCrFv(arg0);
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     ((TSaveChCr *)arg0)->create_backgrounds();

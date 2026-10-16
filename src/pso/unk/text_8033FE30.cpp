@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
 
 struct RecoveredGlobal_8033FE30_lbl_80478554 {
     s32 value;
@@ -13,7 +14,7 @@ extern RecoveredGlobal_8033FE30_lbl_80478554 lbl_80478554;
 extern const f32 lbl_805DFAFC;
 extern const f32 lbl_805DFB00;
 extern const f32 lbl_805DFB04;
-void fn_8033FE30(u8 *arg0);
+void sub_8033FE30__23TBoss6Demo15_TYPE2_WAITFv(u8 *arg0);
 }
 
 extern "C" {
@@ -21,7 +22,8 @@ extern "C" {
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_8033FE30_lbl_80478554_size[sizeof(RecoveredGlobal_8033FE30_lbl_80478554) == 0xC ? 1 : -1];
-void fn_8033FE30(u8 *arg0) {
+void TBoss6Demo15_TYPE2_WAIT::sub_8033FE30() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f29;
     f32 temp_f30;
     f32 temp_f31;

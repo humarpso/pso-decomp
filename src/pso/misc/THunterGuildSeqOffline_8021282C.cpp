@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/THunterGuildWarning.h"
 #include "pso/TObject.h"
@@ -90,7 +91,7 @@ void THunterGuildSeqOffline__sub_8021E180();
 void fn_802233F8(void *);
 void close_window__13TShopSequenceFPv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
-s32 TShopWindowBase__sub_80223A48(void *);
+s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
 extern void *tl_00;
 void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0);
@@ -112,7 +113,7 @@ struct VObj_80212858_8021282C : Base_80212858_8021282C {
 
 int TKeyBoardControl__sub_8000F950(void);
 s32 TShopWindowBase__sub_802239EC(void *);
-s32 TShopWindowBase__sub_80223A48(void *);
+s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 
     extern int evt2_random_enemies_mode;
@@ -135,7 +136,7 @@ void THunterGuildSeqOffline::handle_cancel_choice() {
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x2C));
     if (temp_r3 != NULL) {
-        if (((TWindowSubComCard *)temp_r3)->is_visible() != 0) {
+        if (((TWindowMenu *)temp_r3)->is_visible() != 0) {
             temp_r3_2 = get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0x2C));
             if (temp_r3_2 == 0) {
                 TWindow__close(*(u8 **)((s8 *)arg0 + 0x2C));
@@ -180,7 +181,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     if (arg0->m8() == 0) {
         return;
     }
-    if (TShopWindowBase__sub_80223A48(arg0) == 0 && TShopWindowBase__sub_802239EC(arg0) == 0) {
+    if (sub_80223A48__15TShopWindowBaseFv(arg0) == 0 && TShopWindowBase__sub_802239EC(arg0) == 0) {
         return;
     }
     switch (arg0->f38) {
@@ -272,7 +273,7 @@ void THunterGuildSeqOffline::handle_window_input() {
         }
     } else {
 block_3:
-        if ((((V_A_8021282C *) this)->m8() != 0) && ((TShopWindowBase__sub_80223A48(this) != 0) || (TShopWindowBase__sub_802239EC(this) != 0))) {
+        if ((((V_A_8021282C *) this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (TShopWindowBase__sub_802239EC(this) != 0))) {
             ((V_A_8021282C *) this)->m7(0xC, 1);
             *(s32 *)((s8 *)this + 0x38) = 1;
             set_field_20__12TQuestListVMFl(this, 5);

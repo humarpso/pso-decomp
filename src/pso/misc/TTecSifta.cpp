@@ -79,7 +79,7 @@ extern const f32 lbl_805DC940;
 u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-void play_sifta_cast_sound(Obj_8023ACA8 *arg0);
+void play_sifta_cast_sound__9TTecSiftaFv(Obj_8023ACA8 *arg0);
 s32 obj_getField1c(int);
 s32 is_split_screen();
 s32 is_script_controlled__10TObjPlayerFv(void *);
@@ -91,7 +91,7 @@ void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
 s32 obj_getField1c(int);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 int TTecSifta__sub_8023AC88(void* p);
-void play_sifta_cast_sound(Obj_8023ACA8 *arg0);
+void play_sifta_cast_sound__9TTecSiftaFv(Obj_8023ACA8 *arg0);
 void copy_technique_target_list(void *, void *);
 extern s32 __vt__9TTecSifta[];
 extern s32 lbl_805D3820;
@@ -114,7 +114,8 @@ int TTecSifta__sub_8023AC88(void* p) { return spawn_support_tec_range_effect(p);
 
 extern const f64 lbl_8044DC18;
 
-void play_sifta_cast_sound(Obj_8023ACA8 *arg0) {
+void TTecSifta::play_sifta_cast_sound() {
+    Obj_8023ACA8 *arg0 = (Obj_8023ACA8 *)this;
     s32 r;
     switch (arg0->state) {
     case 0:
@@ -246,7 +247,7 @@ void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4)
     }
     if (*(s32 *)((s8 *)arg0 + 0xAC) != 0) {
         TTecSifta__sub_8023AC88((void*)(arg0));
-        play_sifta_cast_sound((Obj_8023ACA8 *)arg0);
+        play_sifta_cast_sound__9TTecSiftaFv((Obj_8023ACA8 *)arg0);
     }
     return arg0_;
 }
@@ -271,7 +272,7 @@ u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c((int) (temp_r3_2));
     }
     TTecSifta__sub_8023AC88((void*)((void *) (arg0)));
-    play_sifta_cast_sound((Obj_8023ACA8 *)((void *)((void *) (arg0))));
+    play_sifta_cast_sound__9TTecSiftaFv((Obj_8023ACA8 *)((void *)((void *) (arg0))));
     return arg0;
 }
 

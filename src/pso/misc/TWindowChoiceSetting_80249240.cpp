@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D0658.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -22,7 +23,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
-s32 step_window_tween(void *);
+s32 step_window_tween__13TUnk_804CDFE8Fv(void *);
 s32 fn_80249078(void *);
 s32 update_window_entry_list(void *, void *);
 extern RecoveredGlobal_802492C8_lbl_8050E208 controller_input_state;
@@ -62,7 +63,7 @@ void TWindowChoiceSetting::run_task() {
     u8 *temp_r30;
     u8 *temp_r30_2;
     u8 *temp_r30_3;
-    if ((((TWindowChoiceSetting *)arg0)->is_selected() == 0) && (((TWindowSubComCard *)arg0)->is_open() == 0)) {
+    if ((((TUnk_804D0658 *)arg0)->is_selected() == 0) && (((TUnk_804D0658 *)arg0)->is_open() == 0)) {
         if (this->m_70 & 0x10) {
             temp_r30 = (u8 *)&controller_input_state.value + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
@@ -100,7 +101,7 @@ void TWindowChoiceSetting::run_task() {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     fn_80249078((void *) (arg0));
-    step_window_tween((void *) (arg0));
+    step_window_tween__13TUnk_804CDFE8Fv((void *) (arg0));
     ((TWindowChoiceSetting *)arg0)->update_scroll_offset();
     ((TWindowChoiceSetting *)arg0)->clamp_scroll();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

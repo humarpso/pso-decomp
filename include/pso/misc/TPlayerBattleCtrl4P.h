@@ -6,6 +6,7 @@ class TPlayerBattleCtrl4P : public TObject {
 private:
     TPlayerBattleCtrl4P();
     virtual ~TPlayerBattleCtrl4P();
+    void set_split_screen_battle_phase(s32);
 public:
     TPlayerBattleCtrl4P* construct(TObject* parent);
     TPlayerBattleCtrl4P* destroy(s16 should_free);

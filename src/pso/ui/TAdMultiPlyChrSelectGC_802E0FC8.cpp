@@ -15,7 +15,7 @@ s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 
 extern "C" {
 
 void TAdChrSelPlayerGC__sub_802E10A0(void);
-void TAdChrSelPlayerGC__ct(void *, void *);
+void sub_802E0F58__13TUnk_804E3008Fl(void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
 void TObjMotion__ct(void *);
 
@@ -26,7 +26,7 @@ void *TAdMultiPlyChrSelectGC::init_player(void *arg1, void *arg2, void *arg3, vo
     *(s32 **)((s8 *)this + 0x18) = multi_chr_select_player_actor_ops;
     *(void **)((s8 *)this + 0x10C) = arg4;
     *(void **)((s8 *)this + 0x108) = arg3;
-    TAdChrSelPlayerGC__ct(this, arg2);
+    sub_802E0F58__13TUnk_804E3008Fl(this, arg2);
     return this;
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODummyKeyCave01.h"
 #include "pso/misc/TOKeyMachine01.h"
 typedef struct Pair_80165940 { u32 a; u32 b; } Pair_80165940;
 
@@ -31,12 +32,13 @@ extern void *TOKeyCave01__resource_bundle;
 extern Pair_80165940 *TOKeyCave01__texture_lists;
 extern void *key_machine_model_archive;
 extern Pair_80165940 *TOKeyMachine01__texture_lists;
-void fn_80165940(Key_80165940 *self);
+void sub_80165940__16TODummyKeyCave01Fv(Key_80165940 *self);
 }
 
 extern "C" {
 
-void fn_80165940(Key_80165940 *self) {
+void TODummyKeyCave01::sub_80165940() {
+    Key_80165940 *self = (Key_80165940 *)this;
     self->fD0 = 0;
     self->f98 = self->f84;
     if (self->f98 < 0x100) {

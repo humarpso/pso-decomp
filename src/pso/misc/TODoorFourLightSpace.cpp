@@ -71,7 +71,7 @@ extern const f32 lbl_805DD8F8;
 u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2);
 void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, s32);
-void play_door_sound(void *);
+void play_door_sound__13TUnk_804B0BB8Fv(void *);
 u8 is_current_floor_switch_set(u16);
 void update_door_switch_state__20TODoorFourLightSpaceFv(u8 *arg0);
 s32 post_translate_matrix(void *);
@@ -119,7 +119,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 get_main_phase();
 s32 set_global_param__8TObjFishFl();
 
@@ -160,7 +160,7 @@ void TODoorFourLightSpace::update_door_switch_state() {
     s32 i;
     switch (this->m_cc) {
     case 1:
-        play_door_sound(arg0);
+        play_door_sound__13TUnk_804B0BB8Fv(arg0);
         this->m_d0 |= 1;
         break;
     case 2:
@@ -173,7 +173,7 @@ void TODoorFourLightSpace::update_door_switch_state() {
         if (fail != 0) {
             this->m_d0 &= ~1;
         } else {
-            play_door_sound(arg0);
+            play_door_sound__13TUnk_804B0BB8Fv(arg0);
             this->m_d0 |= 1;
         }
         break;
@@ -188,7 +188,7 @@ void TODoorFourLightSpace::update_door_switch_state() {
                 }
             }
             if (bad == 0) {
-                play_door_sound(arg0);
+                play_door_sound__13TUnk_804B0BB8Fv(arg0);
                 this->m_d0 |= 1;
             } else {
                 this->m_d0 &= ~1;
@@ -277,7 +277,7 @@ void TODoorFourLightSpace::render() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if ((((VObj_802898E8 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) && (is_in_view_depth(arg0, lbl_805DD8F0) == 1)) {
+    if ((((VObj_802898E8 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DD8F0) == 1)) {
         temp_r0 = *(s32 *)&this->unk_AC;
         switch (temp_r0) {
         case 1:
@@ -389,7 +389,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 get_main_phase();
 s32 set_global_param__8TObjFishFl();
 
@@ -431,7 +431,7 @@ void TODoorFourLightRuins::update_door_switch_state() {
     s32 j;
     switch (this->m_cc) {
     case 1:
-        ((s32 (*)(void *))play_door_sound)(arg0);
+        ((s32 (*)(void *))play_door_sound__13TUnk_804B0BB8Fv)(arg0);
         this->m_d0 |= 1;
         break;
     case 2:
@@ -444,7 +444,7 @@ void TODoorFourLightRuins::update_door_switch_state() {
         if (off != 0) {
             this->m_d0 &= ~1;
         } else {
-            ((s32 (*)(void *))play_door_sound)(arg0);
+            ((s32 (*)(void *))play_door_sound__13TUnk_804B0BB8Fv)(arg0);
             this->m_d0 |= 1;
         }
         break;
@@ -461,7 +461,7 @@ void TODoorFourLightRuins::update_door_switch_state() {
         if (off2 != 0) {
             this->m_d0 &= ~1;
         } else {
-            ((s32 (*)(void *))play_door_sound)(arg0);
+            ((s32 (*)(void *))play_door_sound__13TUnk_804B0BB8Fv)(arg0);
             this->m_d0 |= 1;
         }
         if (off2 == 0 && *(u32 *)&this->m_80 != 0 && ((s32 (*)(void *, void *, int))access_object_saved_state)(arg0, &sp8, 1) == 1) {
@@ -538,7 +538,7 @@ void TODoorFourLightRuins::render() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if ((((VObj_8028A030 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) && (is_in_view_depth(arg0, lbl_805DD8F0) == 1)) {
+    if ((((VObj_8028A030 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DD8F0) == 1)) {
         temp_r0 = *(s32 *)&this->unk_AC;
         switch (temp_r0) {
         case 1:

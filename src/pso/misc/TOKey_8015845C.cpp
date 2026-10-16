@@ -19,7 +19,7 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
 };
 
 extern "C" {
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -52,7 +52,7 @@ void TUnk_804AFBF8::render() {
     u32 temp_r4;
     temp_f2 = this->m_c0;
     temp_r3 = ((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DB2E8 * temp_f2, temp_f2, *(f32 *)&this->unk_C4);
-    if ((temp_r3 != 0) && (is_in_view_depth((void *) (arg0), (f32) (lbl_805DB2EC)) != 0)) {
+    if ((temp_r3 != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff((void *) (arg0), (f32) (lbl_805DB2EC)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));

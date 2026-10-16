@@ -109,7 +109,7 @@ struct Win_8021F9EC {
 };
 
 extern "C" {
-s32 TShopWindowBase__sub_8022397C(void *);
+s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __ct__15TShopWindowBaseFv(void *);
 extern s32 __vt__19TShopItemListWindow[];
 extern s32 TShopItemListWindow__class_name;
@@ -122,7 +122,7 @@ void vfunc_11__19TShopItemListWindowFv(u8 *arg0);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 count_items_by_id__10TObjPlayerFPvi(s32, void *);
 s32 TShopWindowBase__sub_802239EC(void *);
-s32 TShopWindowBase__sub_80223A48(void *);
+s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(int, int, int, int);
 s32 select_cursor_entry__6TLobbyFv(void *);
 s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
@@ -134,7 +134,7 @@ s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 count_items_by_id__10TObjPlayerFPvi(s32, void *);
 s32 TShopItemTecSequence__sub_8021FE6C();
 s32 get_shop_text(int);
-s32 TShopWindowBase__sub_8022397C(void *);
+s32 sub_8022397C__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
 void *__ct__15TWindowHelpItemFPvUs(void *, s32, u16);
 s32 reset_list__20TShopArmorListWindowFPv(void *);
@@ -153,7 +153,7 @@ void vfunc_6__19TShopItemListWindowFv(void *arg0);
 void vfunc_7__19TShopItemListWindowFv(void *arg0);
 void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1);
 s32 TShopWindowBase__sub_802239EC(void *);
-s32 TShopWindowBase__sub_80223A48(void *);
+s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
@@ -179,7 +179,7 @@ void TShopItemListWindow::vfunc_6() {
 
 s32 TShopItemListWindow::handle_confirm() {
     VObj_8021F678_8021F134 *o = (VObj_8021F678_8021F134 *)this;
-    if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
+    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
         o->m4(0xB, 1);
         ((TWindowSubItem *)(*(s32 *)((s8 *)this + 0x28)))->clear_selected_and_update_entry();
         set_field_20__12TQuestListVMFl(this, 1);
@@ -188,7 +188,7 @@ s32 TShopItemListWindow::handle_confirm() {
 
 s32 TShopItemListWindow::update() {
     VObj_8021F708_8021F134 *o = (VObj_8021F708_8021F134 *)this;
-    if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
+    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
         o->m4(0xB, 1);
         ((TWindowSubItem *)(*(s32 *)((s8 *)this + 0x28)))->clear_selected_and_update_entry();
         set_field_20__12TQuestListVMFl(this, 1);
@@ -221,7 +221,7 @@ s32 TShopItemListWindow::handle_tool_list_select(void *p) {
         play_sound_effect(0x52D01, 0, 0, 0);
         return;
     }
-    if (TShopWindowBase__sub_80223A48(W) != 0) {
+    if (sub_80223A48__15TShopWindowBaseFv(W) != 0) {
         play_sound_effect(0x52D01, 0, 0, 0);
         switch (((TShopItemListWindow *)W)->check_purchase_eligibility()) {
         case 0:
@@ -272,10 +272,10 @@ void TShopItemListWindow::build_item_list(void *p) {
     u8 *e;
     s32 n;
     void *c;
-    TShopWindowBase__sub_8022397C(W);
+    sub_8022397C__15TShopWindowBaseFv(W);
     W->count = TShopItemTecSequence__sub_8021FE6C();
     for (i = 0; i < W->count; i++) {
-        ((TLobby *)(&tmp))->copy_shop_item_entry(i, TShopWindowBase__sub_8022397C(W));
+        ((TLobby *)(&tmp))->copy_shop_item_entry(i, sub_8022397C__15TShopWindowBaseFv(W));
         copy_item_data__6TLobbyFPvPv(&W->recs[i], &tmp);
     }
     r = W->recs;
@@ -400,7 +400,7 @@ u8 *TShopItemListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     *(s32 *)((s8 *)arg0 + 0x54) = 0;
     ((TShopGetItemWindow *)(*(s32 *)((s8 *)arg0 + 0x24)))->calc_item_count((s32 *)(&sp8));
-    TLobby::set_6264_and_call_2244B0((int)((void *) (TShopWindowBase__sub_8022397C((void *) (arg0)))), (int)((int) (sp8)));
+    TLobby::set_6264_and_call_2244B0((int)((void *) (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)))), (int)((int) (sp8)));
     return arg0;
 }
 

@@ -69,7 +69,7 @@ void TItem::use_combination_recipe() {
         consume_item_by_id();
     }
 }
-void TLobby::assign_item_id() {
+void TItem::assign_item_id() {
     Obj_800FFF68 *o = (Obj_800FFF68 *)this;
     Pk_800FFF68 p;
     if (get_main_phase() == 15) {

@@ -6,6 +6,7 @@
 
 struct TTecReverser : public TUnk_804CC148 {
     virtual ~TTecReverser();
+    void sub_8022BE64(u8 *, s32);
     virtual void vfunc_6(void *);
     virtual void run_task();
     u32 m_ec;

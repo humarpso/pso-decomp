@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TOSwitchItem.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -148,17 +149,17 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
                 var_r30 += 1;
                 break;
             case 1:
-                if (((TOSwitchItem *)temp_r27)->get_field_ec() == 0) {
+                if (((TItem *)temp_r27)->get_field_ec() == 0) {
                     var_r30 += 1;
                 }
                 break;
             case 2:
-                if ((((TOSwitchItem *)temp_r27)->get_field_ec() == 1) && (((TObjPlayer *)temp_r27)->get_field_ed() == 1)) {
+                if ((((TItem *)temp_r27)->get_field_ec() == 1) && (((TObjPlayer *)temp_r27)->get_field_ed() == 1)) {
                     var_r30 += 1;
                 }
                 break;
             case 3:
-                if ((((TOSwitchItem *)temp_r27)->get_field_ec() == 1) && (((TObjPlayer *)temp_r27)->get_field_ed() == 2)) {
+                if ((((TItem *)temp_r27)->get_field_ec() == 1) && (((TObjPlayer *)temp_r27)->get_field_ed() == 2)) {
                     var_r30 += 1;
                 }
                 break;
@@ -168,17 +169,17 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
                 }
                 break;
             case 5:
-                if (((TOSwitchItem *)temp_r27)->get_field_ec() == 2) {
+                if (((TItem *)temp_r27)->get_field_ec() == 2) {
                     var_r30 += 1;
                 }
                 break;
             case 6:
-                if (((TOSwitchItem *)temp_r27)->get_field_ec() == 3) {
+                if (((TItem *)temp_r27)->get_field_ec() == 3) {
                     var_r30 += ((VObj_18_1753c2 *)(temp_r27))->m34();
                 }
                 break;
             case 7:
-                if (((TOSwitchItem *)temp_r27)->get_field_ec() == 4) {
+                if (((TItem *)temp_r27)->get_field_ec() == 4) {
                     var_r30 += copy_item_data_and_process__5TItemFv((int) (temp_r27));
                 }
                 break;

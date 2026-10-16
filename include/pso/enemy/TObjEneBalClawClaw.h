@@ -6,7 +6,7 @@
 
 struct TObjEneBalClawClaw : public TObjEneBalClaw {
     virtual ~TObjEneBalClawClaw();
-    void clear_attack_flag();
+    void sub_80090418(s32);
     void update_state();
     void *create(void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
     void *create();

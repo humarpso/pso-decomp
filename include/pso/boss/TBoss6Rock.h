@@ -6,6 +6,7 @@
 
 struct TBoss6Rock : public TUnk_804AF8A0 {
     virtual ~TBoss6Rock();
+    void sub_80353F5C();
     virtual void run_task();
     u32 m_ac;
     u32 m_b0;

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSubComCardList.h"
+#include "pso/misc/TUnk_804CF0B8.h"
 #include "pso/misc/TWindowFukidasi.h"
 #include "pso/misc/TWindowGetComCard.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -62,9 +65,9 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
 extern "C" {
 
 void TWindowFukidasi__sub_80252C38(void* p);
-void TWindowFukidasi__sub_80252C68(void* p);
+void sub_80252C68__13TUnk_804CF0B8Fv(void* p);
 void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1);
-int is_balloon_visible(void* p);
+int is_balloon_visible__13TUnk_804CF0B8Fv(void* p);
 int fn_80252CBC(void* p);
 s32 TLobby__sub_8024AC20(s32);
 u32 get_player_by_client_id(s32);
@@ -76,14 +79,14 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 init_parts__10TObjPlayerFPv();
 
 void TWindowFukidasi__sub_80252C38(void* p) { *(u8*)((char*)p + 0x71) |= 0x4; }
-void TWindowFukidasi::clear_visible_flag() { *(u8*)((char*)this + 0x71) &= 0xfe; }
-void TWindowFukidasi::set_flag() { *(u8*)((char*)this + 0x71) |= 0x1; }
-void TWindowFukidasi__sub_80252C68(void* p) { *(u8*)((char*)p + 0x71) |= 0x20; }
-int TWindowFukidasi::is_flag_set() { return *(u8*)((char*)this + 0x71) & 0x1; }
-void TWindowFukidasi::clear_flag_20() { *(u8*)((char*)this + 0x71) &= 0xffffffdf; }
-int TWindowFukidasi::is_active() { return (*(u8*)((char*)this + 0x71) >> 2) & 0x1; }
+void TUnk_804CF0B8::clear_visible_flag() { *(u8*)((char*)this + 0x71) &= 0xfe; }
+void TUnk_804CF0B8::set_flag() { *(u8*)((char*)this + 0x71) |= 0x1; }
+void TUnk_804CF0B8::sub_80252C68() { *(u8*)((char*)this + 0x71) |= 0x20; }
+int TUnk_804CF0B8::is_flag_set() { return *(u8*)((char*)this + 0x71) & 0x1; }
+void TUnk_804CF0B8::clear_flag_20() { *(u8*)((char*)this + 0x71) &= 0xffffffdf; }
+int TUnk_804CF0B8::is_active() { return (*(u8*)((char*)this + 0x71) >> 2) & 0x1; }
 void TWindowFukidasi::clear_flag() { *(u8*)((char*)this + 0x71) &= 0xfffffffb; }
-int is_balloon_visible(void* p) { return (*(u8*)((char*)p + 0x71) >> 5) & 0x1; }
+int TUnk_804CF0B8::is_balloon_visible() { return (*(u8*)((char*)this + 0x71) >> 5) & 0x1; }
 int fn_80252CBC(void* p) { return *(u16*)((char*)p + 0x0) & 0x10; }
 void TWindowGetComCard::render() {  }
 
@@ -110,7 +113,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
         }
         if (self->win == 0) {
             self->win = init_shop_judgment_window(TWindowGetComCard__window_rect);
-            ((TObjCityMainWarp *)(self->win))->set_flag70_bit10();
+            ((TWindowSubComCardList *)(self->win))->set_flag70_bit10();
         }
         ((TWindowSubComCard *)(self->win))->clear_flag_and_release();
         self->state = 3;
@@ -119,7 +122,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
             TWindowGetComCard__sub_8007B54C();
             queue_destruction__7TObjectFv(self);
             self->state = 6;
-        } else if (((TWindowSubComCard *)(self->win))->is_visible() != 0) {
+        } else if (((TWindowMenu *)(self->win))->is_visible() != 0) {
             s32 r = get_selected_menu_value(self->win);
             if (r == 0) {
                 self->state = 4;

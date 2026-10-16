@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -236,8 +237,8 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 s32 TObjEneRecon__sub_8031F408(void *, void *);
 s32 TObjEneRecon__sub_8031F600(void *, void *);
-s32 TObjEneRecon__sub_8031F6C0(void *, void *);
-void TObjEneRecon__sub_8031F800(void *);
+s32 sub_8031F6C0__14TObjEneRecoboxFl(void *, void *);
+void sub_8031F800__14TObjEneRecoboxFv(void *);
 void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2);
 void fn_8031FD3C(u8 *arg0);
 Obj_8031FE14 * fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1);
@@ -450,7 +451,7 @@ void *TObjEneRecobox__vtable[107] = {
 void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        TObjEneRecon__sub_8031F6C0((void *) (arg0), (void *) (arg2));
+        sub_8031F6C0__14TObjEneRecoboxFl((void *) (arg0), (void *) (arg2));
         return;
     case 1:
         ((TObjEneRecon *)arg0)->handle_state((s32)((void *) (arg2)));
@@ -488,7 +489,7 @@ void fn_8031FD3C(u8 *arg0) {
     ((TObjEneRecon *)arg0)->restore_position();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
     ((VObj_18 *)(arg0))->m98();
-    ((TObjEneRecon *)arg0)->update_floor_probe();
+    ((TObjEneRecobox *)arg0)->update_floor_probe();
 }
 
 Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {
@@ -525,13 +526,13 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)TObjEneRecobox__static_instance + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFv(arg0, recobox_boss_register_id, lbl_805D6B14, TObjEneRecobox__shared_object_handle);
     ((TObjEneDD *)arg0)->check_state_flag_4();
     *(u8 **)((s8 *)arg0 + 0x350) = TObjEneRecobox__attack_params;
     initialize_enemy_state__9TObjEneDDFv(arg0, 0x43);
     *(f32 *)((s8 *)arg0 + 0x37C) = lbl_805DF468;
-    TObjEneRecon__sub_8031F800(arg0);
+    sub_8031F800__14TObjEneRecoboxFv(arg0);
     n = *(s16 *)((s8 *)arg2 + 2);
     if (n <= 1) {
         *(s32 *)((s8 *)arg0 + 0x3F4) = 0;

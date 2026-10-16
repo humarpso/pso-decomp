@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrEffTag.h"
 
 struct Stack_8029A97C {
     f32 sp8;
@@ -20,7 +21,7 @@ extern const f32 lbl_805DDC80;
 extern const f32 lbl_805DDC84;
 extern const f32 lbl_805DDC88;
 extern const f32 lbl_805DDC8C;
-void draw_chcr_tag_frame(A_8029A9B8 *arg0);
+void draw_chcr_tag_frame__11TChCrEffTagFv(A_8029A9B8 *arg0);
 }
 
 extern "C" {
@@ -31,7 +32,8 @@ void draw_chcr_tag_heading_frame(void) {
     stack.spC = lbl_805DDC74;
     draw_default_sprite__12TChCrEffWallFv(0x36, &stack.sp8, lbl_805DDC78);
 }
-void draw_chcr_tag_frame(A_8029A9B8 *arg0) {
+void TChCrEffTag::draw_chcr_tag_frame() {
+    A_8029A9B8 *arg0 = (A_8029A9B8 *)this;
     f32 sp10[2];
     f32 sp8[2];
     f32 a;

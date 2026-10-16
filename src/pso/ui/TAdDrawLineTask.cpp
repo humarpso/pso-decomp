@@ -1,4 +1,5 @@
 #include "pso/TAdDrawLineTask.h"
+#include "pso/TObject.h"
 
 TAdDrawLineTask::~TAdDrawLineTask() {}
 
@@ -50,7 +51,7 @@ void run_task__15TAdDrawLineTaskFv(void *arg0) {
             fn_80019B08(temp, *(s32 *)((s8 *)arg0 + 0x20));
         }
     }
-    ((TObjLuker *)arg0)->set_flag_4();
+    ((TObject *)arg0)->set_flag_4();
 }
 
 }

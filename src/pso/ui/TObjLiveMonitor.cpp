@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjLiveCameraCtrl.h"
 
 struct O_8030B370 { u8 pad[0x24]; u32 a; s32 t; };
 
@@ -248,7 +249,7 @@ u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(s32);
 u32 TBoss8Dragon__sub_802F3348(int);
 s32 TBoss8Dragon__sub_802FCCBC(int);
-void TBoss8Dragon__sub_8030B818(u8 *arg0, int);
+void sub_8030B818__18TObjLiveCameraCtrlFi(u8 *arg0, int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern const f32 lbl_805DF1A8;
@@ -293,7 +294,8 @@ s32 TObjPlayer__sub_80082CCC(void *);
     extern int local_client_id;
 int TBoss8Dragon__sub_8030B80C(void) {  return (local_client_id & 0xffff); }
 
-void TBoss8Dragon__sub_8030B818(u8 *arg0, int _w1) {
+void TObjLiveCameraCtrl::sub_8030B818(int _w1) {
+    u8 *arg0 = (u8 *)this;
   s32 temp_r0;
   s32 var_r3;
   s32 new_var;
@@ -408,7 +410,7 @@ void TBoss8Dragon::update_live_camera() {
             this->m_40 = (f32) ((lbl_805DF1C4 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
             *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805DF1C8 + *(f32 *)((s8 *)temp_r3_2 + 0x3C));
             this->m_48 = (f32) ((lbl_805DF1C4 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x40));
-            TBoss8Dragon__sub_8030B818((u8 *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)temp_r3_2 + 0x60) - 0x8000)));
+            sub_8030B818__18TObjLiveCameraCtrlFi((u8 *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)temp_r3_2 + 0x60) - 0x8000)));
             return;
         }
         break;
@@ -421,7 +423,7 @@ void TBoss8Dragon::update_live_camera() {
             this->m_40 = (f32) ((lbl_805DF1D0 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
             *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805DF1D4 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
             this->m_48 = (f32) ((lbl_805DF1D0 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
-            TBoss8Dragon__sub_8030B818((u8 *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)temp_r3_3 + 0x60) - 0x8000)));
+            sub_8030B818__18TObjLiveCameraCtrlFi((u8 *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)temp_r3_3 + 0x60) - 0x8000)));
             return;
         }
         break;

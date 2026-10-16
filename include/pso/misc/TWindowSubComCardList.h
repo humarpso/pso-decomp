@@ -6,6 +6,8 @@
 
 struct TWindowSubComCardList : public TWindowMenu {
     virtual ~TWindowSubComCardList();
+    void set_flag70_bit100();
+    void set_flag70_bit10();
     virtual void render();
     u32 m_8c;
     u32 m_90;

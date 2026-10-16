@@ -8,7 +8,7 @@ s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 mem_alloc(s32);
-s32 quad_sprite_reset_entries(void *);
+s32 quad_sprite_reset_entries__13TUnk_804C57F0Fv(void *);
 void mem_free(void *);
 
 extern s32 lbl_804C57F0[];
@@ -39,7 +39,7 @@ void *quad_sprite_base_ct(void *arg0, void *arg_r4, void *arg2) {
     temp_r31 = *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x28)) + 0xC);
     *(s32 *)((s8 *)arg0 + 0x1C) = mem_alloc(temp_r31 * 0x2C);
     *(s32 *)((s8 *)arg0 + 0x20) = mem_alloc(temp_r31 * 4);
-    quad_sprite_reset_entries(arg0);
+    quad_sprite_reset_entries__13TUnk_804C57F0Fv(arg0);
     return arg0;
 }
 

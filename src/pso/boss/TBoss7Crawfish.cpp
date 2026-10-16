@@ -96,7 +96,7 @@ extern const f32 TBoss7Crawfish__data_805DF0D8;
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
 s32 spawn_particle_effect(void *, int);
 extern const f32 TBoss7Crawfish__data_805DF0D8;
-s32 exchange_object_state__6TLobbyFls(void *, void *, int);
+s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 s32 get_mode__11TCameraCtrlFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern RecoveredGlobal_80308840_lbl_8047559C lbl_8047559C;
@@ -250,10 +250,10 @@ void TBoss7Crawfish::clear_object_state_exchange() {
     typedef char sp8_offset[(offsetof(Stack_80308B38, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_80308B38, spE) == 0x6) ? 1 : -1];
     Stack_80308B38 stack;
-    if (exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
+    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
         stack.sp8 = 0;
         stack.spE = 0;
-        exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
     }
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A4D70.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Base_8011F5E0 { char pad[0x18]; };
@@ -20,7 +21,7 @@ extern "C" {
 
 s32 restore_action_type__11TItemWeaponFv(void *);
 s32 remap_extra_attack_type(void *);
-s32 is_active_in_game__10TObjPlayerFv();
+s32 is_active_in_game__11TItemWeaponFv();
 
 struct Base_8011F578 { char pad[0x18]; };
 struct VObj_8011F578 : Base_8011F578 {
@@ -43,10 +44,10 @@ struct VObj_8011F578 : Base_8011F578 {
     virtual void m64(); virtual void m65(f32);
 };
 
-void TObjPlayer::apply_scale_if_active(f32 farg0) {
+void TUnk_804A4D70::apply_scale_if_active(f32 farg0) {
     void *temp_r3;
 
-    if (is_active_in_game__10TObjPlayerFv() != 0) {
+    if (is_active_in_game__11TItemWeaponFv() != 0) {
         remap_extra_attack_type(this);
         temp_r3 = *(void **)((s8 *)this + 0xF0);
         ((VObj_8011F578 *)temp_r3)->m65(farg0);
@@ -59,7 +60,7 @@ extern f32 lbl_805DAC9C;
 void TObjPlayer::update_active_game_effect() {
     void *temp_r3;
 
-    if (is_active_in_game__10TObjPlayerFv() != 0) {
+    if (is_active_in_game__11TItemWeaponFv() != 0) {
         remap_extra_attack_type(this);
         temp_r3 = *(void **)((s8 *)this + 0xF0);
         ((VObj_8011F5E0 *)temp_r3)->v67(lbl_805DAC9C);

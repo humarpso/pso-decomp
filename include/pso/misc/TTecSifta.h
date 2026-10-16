@@ -6,6 +6,7 @@
 
 struct TTecSifta : public TTecPlayerInfluence {
     virtual ~TTecSifta();
+    void play_sifta_cast_sound();
     virtual void vfunc_7(void *);
     virtual void run_task();
     u32 m_e0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/item/TItemData.h"
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TWindowHelpItem.h"
@@ -52,16 +53,16 @@ s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
     ((TItemData *)sp8)->initialize_mag_data();
     var_r31 = 0;
     deserialize_mag__9TItemDataFPvPv((int) (*(s32 *)((s8 *)arg0 + 0x68)), (void *) (sp8));
-    a = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0);
-    b = ((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
-    c = ((TWindowSubStatusDisp *)arg0)->get_array_entry(2);
-    d = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xF);
+    a = ((TUnk_804CE018 *)arg0)->get_array_entry(0);
+    b = ((TUnk_804CE018 *)arg0)->get_array_entry(1);
+    c = ((TUnk_804CE018 *)arg0)->get_array_entry(2);
+    d = ((TUnk_804CE018 *)arg0)->get_array_entry(0xF);
     ((TWindowSubStatusDisp *)a)->clear_visible_flag();
     ((TWindowHelpItem *)d)->set_flag0_bit2();
     ((TWindowHelpItem *)b)->set_compare_color((s32) ((TItemMag *)sp8)->get_sync());
     ((TWindowHelpItem *)c)->set_compare_color((s32) ((TItemMag *)sp8)->get_item_type());
-    b = ((TWindowSubStatusDisp *)arg0)->get_array_entry(4);
-    a = ((TWindowSubStatusDisp *)arg0)->get_array_entry(5);
+    b = ((TUnk_804CE018 *)arg0)->get_array_entry(4);
+    a = ((TUnk_804CE018 *)arg0)->get_array_entry(5);
     if ((s32) *(s32 *)((s8 *)b + 0x20) < ((TItemData *)sp8)->get_stat_percent()) {
         var_r31 = 1;
         *(f32 *)((s8 *)a + 0x24) = (f32) lbl_805DCDF0;
@@ -71,8 +72,8 @@ s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
         }
         *(f32 *)((s8 *)a + 0x24) = (f32) TItemData__sub_801146F8(sp8);
     }
-    b = ((TWindowSubStatusDisp *)arg0)->get_array_entry(7);
-    a = ((TWindowSubStatusDisp *)arg0)->get_array_entry(8);
+    b = ((TUnk_804CE018 *)arg0)->get_array_entry(7);
+    a = ((TUnk_804CE018 *)arg0)->get_array_entry(8);
     if ((s32) *(s32 *)((s8 *)b + 0x20) < ((TItemData *)sp8)->get_percent()) {
         var_r31 = 1;
         *(f32 *)((s8 *)a + 0x24) = (f32) lbl_805DCDF0;
@@ -82,8 +83,8 @@ s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
         }
         *(f32 *)((s8 *)a + 0x24) = (f32) TItemData__sub_801146DC(sp8);
     }
-    a = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xA);
-    b = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xB);
+    a = ((TUnk_804CE018 *)arg0)->get_array_entry(0xA);
+    b = ((TUnk_804CE018 *)arg0)->get_array_entry(0xB);
     if ((s32) *(s32 *)((s8 *)a + 0x20) < ((TItemData *)sp8)->get_level()) {
         var_r31 = 1;
         *(f32 *)((s8 *)b + 0x24) = (f32) lbl_805DCDF0;
@@ -93,8 +94,8 @@ s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
         }
         *(f32 *)((s8 *)b + 0x24) = (f32) TItemData__sub_801146C0(sp8);
     }
-    b = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xD);
-    a = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xE);
+    b = ((TUnk_804CE018 *)arg0)->get_array_entry(0xD);
+    a = ((TUnk_804CE018 *)arg0)->get_array_entry(0xE);
     if ((s32) *(s32 *)((s8 *)b + 0x20) < ((TItemData *)sp8)->get_mag_mind_level()) {
         var_r31 = 1;
         *(f32 *)((s8 *)a + 0x24) = (f32) lbl_805DCDF0;
@@ -121,10 +122,10 @@ void TWindowHelpItem__vt10(u8 *arg0) {
     init_window_layout_entries(arg0 + 0x24, lbl_804CF30C, *(s16 *)((s8 *)arg0 + 0x20));
     *(PM_80253D10 *)((s8 *)arg0 + 0xB0) = TWindowHelpItem__mag_growth_update_callback;
     deserialize_mag__9TItemDataFPvPv(*(s32 *)((s8 *)arg0 + 0x68), sp8);
-    lv = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0);
-    sy = ((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
-    iq = ((TWindowSubStatusDisp *)arg0)->get_array_entry(2);
-    up = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xF);
+    lv = ((TUnk_804CE018 *)arg0)->get_array_entry(0);
+    sy = ((TUnk_804CE018 *)arg0)->get_array_entry(1);
+    iq = ((TUnk_804CE018 *)arg0)->get_array_entry(2);
+    up = ((TUnk_804CE018 *)arg0)->get_array_entry(0xF);
     set_help_text__15TWindowHelpItemFUl((void *) lv, get_message_10__20TWindowSubStatusDispFl(0xA2));
     set_help_text__15TWindowHelpItemFUl((void *) sy, get_message_10__20TWindowSubStatusDispFl(0xA3));
     set_help_text__15TWindowHelpItemFUl((void *) iq, get_message_10__20TWindowSubStatusDispFl(0xA4));
@@ -135,30 +136,30 @@ void TWindowHelpItem__vt10(u8 *arg0) {
     refresh_status_display__9TWindowDDFv((void *) up);
     *(f32 *)((s8 *)up + 8) = -(lbl_805DCDF8 * *(f32 *)((s8 *)up + 0x10) - lbl_805DCDF4);
     ((TWindowHelpItem *)up)->set_flag0_bit2();
-    a = ((TWindowSubStatusDisp *)arg0)->get_array_entry(3);
-    b = ((TWindowSubStatusDisp *)arg0)->get_array_entry(4);
-    c = ((TWindowSubStatusDisp *)arg0)->get_array_entry(5);
+    a = ((TUnk_804CE018 *)arg0)->get_array_entry(3);
+    b = ((TUnk_804CE018 *)arg0)->get_array_entry(4);
+    c = ((TUnk_804CE018 *)arg0)->get_array_entry(5);
     ((TWindowHelpItem *)a)->reset_float_field();
     *(s32 *)((s8 *)b + 0x20) = ((TItemData *)sp8)->get_stat_percent();
     *(f32 *)((s8 *)c + 0x24) = (f32) TItemData__sub_801146F8(sp8);
     ((VBar_80253D10 *) c)->m3();
-    a = ((TWindowSubStatusDisp *)arg0)->get_array_entry(6);
-    b = ((TWindowSubStatusDisp *)arg0)->get_array_entry(7);
-    c = ((TWindowSubStatusDisp *)arg0)->get_array_entry(8);
+    a = ((TUnk_804CE018 *)arg0)->get_array_entry(6);
+    b = ((TUnk_804CE018 *)arg0)->get_array_entry(7);
+    c = ((TUnk_804CE018 *)arg0)->get_array_entry(8);
     ((TWindowHelpItem *)a)->reset_float_field();
     *(s32 *)((s8 *)b + 0x20) = ((TItemData *)sp8)->get_percent();
     *(f32 *)((s8 *)c + 0x24) = (f32) TItemData__sub_801146DC(sp8);
     ((VBar_80253D10 *) c)->m3();
-    a = ((TWindowSubStatusDisp *)arg0)->get_array_entry(9);
-    b = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xA);
-    c = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xB);
+    a = ((TUnk_804CE018 *)arg0)->get_array_entry(9);
+    b = ((TUnk_804CE018 *)arg0)->get_array_entry(0xA);
+    c = ((TUnk_804CE018 *)arg0)->get_array_entry(0xB);
     ((TWindowHelpItem *)a)->reset_float_field();
     *(s32 *)((s8 *)b + 0x20) = ((TItemData *)sp8)->get_level();
     *(f32 *)((s8 *)c + 0x24) = (f32) TItemData__sub_801146C0(sp8);
     ((VBar_80253D10 *) c)->m3();
-    a = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xC);
-    b = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xD);
-    c = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0xE);
+    a = ((TUnk_804CE018 *)arg0)->get_array_entry(0xC);
+    b = ((TUnk_804CE018 *)arg0)->get_array_entry(0xD);
+    c = ((TUnk_804CE018 *)arg0)->get_array_entry(0xE);
     ((TWindowHelpItem *)a)->reset_float_field();
     *(s32 *)((s8 *)b + 0x20) = ((TItemData *)sp8)->get_mag_mind_level();
     *(f32 *)((s8 *)c + 0x24) = (f32) TItemData__sub_801146A4(sp8);

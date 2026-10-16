@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TUnk_804EEF64.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -48,8 +50,8 @@ extern int lobby_game_mode_state;
 extern int lobby_game_mode_state;
 void TLobby__sub_8033633C(void);
 s32 queue_destruction__7TObjectFv(void*);
-void TLobby__sub_8033645C(void* p);
-void TLobby__sub_8033645C(void* p);
+void sub_8033645C__13TUnk_804EEF64Fv(void* p);
+void sub_8033645C__13TUnk_804EEF64Fv(void* p);
 s32 TCameraCtrl__sub_800694A8();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
@@ -198,7 +200,7 @@ void update_title_idle_transition(Obj_80336340 *arg0) {
         TLobby__sub_803362A4((void *) (arg0));
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x38) == (s32) *(s32 *)((s8 *)arg0 + 0x34)) {
-        ((TObjLuker *)(*(void **)((s8 *)arg0 + 0x24)))->set_flag_4();
+        ((TObject *)(*(void **)((s8 *)arg0 + 0x24)))->set_flag_4();
         TWindowOptionCtrl__sub_802273B4((int) (0x1E));
     }
     if (((s32) *(s32 *)((s8 *)arg0 + 0x38) < (s32) *(s32 *)((s8 *)arg0 + 0x34)) && (((TAdSinglePlyChrSelectGC *)arg0)->start_offline_seq() != 0)) {
@@ -209,7 +211,7 @@ void update_title_idle_transition(Obj_80336340 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) (*(s32 *)((s8 *)arg0 + 0x34) + 1);
 }
 
-void TLobby__sub_8033645C(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { queue_destruction__7TObjectFv((void*)((void*)(*(void**)((char*)p + 0x2c)))); *(int*)((char*)p + 0x2c) = 0; } }
+void TUnk_804EEF64::sub_8033645C() { if (*(unsigned int*)((char*)this + 0x2c) != 0) { queue_destruction__7TObjectFv((void*)((void*)(*(void**)((char*)this + 0x2c)))); *(int*)((char*)this + 0x2c) = 0; } }
 void *TLobby::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EEF64;
@@ -217,7 +219,7 @@ void *TLobby::destroy(s16 arg1) {
         if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
             queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)this + 0x20)));
         }
-        TLobby__sub_8033645C((void*)(this));
+        sub_8033645C__13TUnk_804EEF64Fv((void*)(this));
         TCameraCtrl__sub_800694A8();
         TLobby::stop_audio_streams();
         __dt__7TObjectFv(this, 0);
@@ -265,7 +267,7 @@ u8 *TLobby::construct_title_scene() {
     *(void **)((s8 *)arg0 + 0x20) = p;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     if (*(void **)((s8 *)arg0 + 0x24) != 0) {
-        ((TObjLuker *)(*(void **)((s8 *)arg0 + 0x24)))->set_flag_4();
+        ((TObject *)(*(void **)((s8 *)arg0 + 0x24)))->set_flag_4();
     }
     TAdMultiChgGameModeGC::apply_bgm_col_ctrl((s32)lbl_80477824);
     {

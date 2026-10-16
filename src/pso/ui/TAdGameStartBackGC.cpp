@@ -11,7 +11,7 @@ struct RecoveredGlobal_803074FC___vt__18TAdGameStartBackGC {
 };
 
 extern "C" {
-void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
+void clear_equip_flags__11TItemWeaponFUl(void *, u32);
 void TObjPlayer__sub_803075EC(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_803074FC___vt__18TAdGameStartBackGC __vt__18TAdGameStartBackGC;
@@ -122,7 +122,7 @@ u8 *__ct__18TAdGameStartBackGCFv(u8 *arg0, u8 *arg1) {
 
 void TObjPlayer__sub_803075EC(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x1F8) = 5;
-    clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x800U);
+    clear_equip_flags__11TItemWeaponFUl(arg0, 0x800U);
 }
 
 }

@@ -326,7 +326,7 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
   sp8.sub2 = tmp2;
   if (arg1 != 0U)
   {
-    temp_r3 = ((TOSwitchItem *)arg1)->get_field_ec();
+    temp_r3 = ((TItem *)arg1)->get_field_ec();
     switch ((s32) temp_r3)
     {
       case 0:

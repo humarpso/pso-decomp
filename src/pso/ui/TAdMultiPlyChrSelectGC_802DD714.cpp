@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/ui/TAdChrMoveEffectGC.h"
@@ -48,7 +49,7 @@ void TAdMultiPlyChrSelectGC::update_state_wait_card() {
         *(s32 *)&this->m_20 = 0xC;
         return;
     }
-    if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x88)))->is_child_visible() != 0) {
+    if (((TWindowMessageYesNo *)(*(s32 *)((s8 *)this + 0x88)))->is_child_visible() != 0) {
         temp_r3 = ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x88)))->get_slot_or_neg1();
         switch (temp_r3) {
         case 1:

@@ -6,6 +6,8 @@
 
 struct TItemObject
 {
+    u8 get_tool_pmt_amount_byte();
+    u8 sub_80115D7C();
     void*vfunc_9();
     void store_encoded_value(s32 value);
     s32 load_encoded_value();

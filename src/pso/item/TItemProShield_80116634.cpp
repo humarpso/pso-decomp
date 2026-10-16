@@ -102,7 +102,7 @@ extern s32 tl_05;
 u8 *TItemProShield__sub_80116744(u8 *arg0);
 void add_actor_hp(s32, s16);
 s32 get_slot_count__14TItemProShieldFv(void *);
-u8 get_tool_pmt_amount_byte(void *);
+u8 get_tool_pmt_amount_byte__11TItemObjectFv(void *);
 extern s32 game_difficulty_selection;
 void apply_mate_hp_recovery(Obj_80116634 *arg0);
 }
@@ -128,7 +128,7 @@ void apply_mate_hp_recovery(Obj_80116634 *arg0) {
   if (new_var2(arg0) != 2)
   {
     int new_var;
-    t = get_tool_pmt_amount_byte(arg0);
+    t = get_tool_pmt_amount_byte__11TItemObjectFv(arg0);
     new_var = game_difficulty_selection;
     new_var = t + (new_var * (t / 2));
     add_actor_hp(arg0->f0, new_var);
@@ -200,7 +200,7 @@ extern "C" {
 s32 obj_getField1c(void *);
 int get_type_id__10TObjPlayerFv();
 s32 TObjPlayer__sub_80116620(s32, s32);
-s32 is_current_room__10TObjRoomIdFPv(void *);
+s32 sub_801A1DDC__10TObjPlayerFv(void *);
 s32 send_6x33_revive_player(s32, s32);
 void apply_moon_atomizer(void *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
@@ -267,7 +267,7 @@ void apply_moon_atomizer(void *arg0) {
     s32 temp_r3;
     u32 temp_r424;
     int temp_r31;
-    if (is_current_room__10TObjRoomIdFPv(*(void **)((s8 *)arg0 + 0xF0)) != 0) {
+    if (sub_801A1DDC__10TObjPlayerFv(*(void **)((s8 *)arg0 + 0xF0)) != 0) {
         temp_r424 = (u32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF0)) + 0x424);
         if (temp_r424 != 0U) {
             temp_r3 = ((TMainCursor *)temp_r424)->find_by_pos(4, 9);

@@ -5,7 +5,7 @@
 extern "C" {
 
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 set_flag70_bit100__17TWindowOptionCtrlFv();
+s32 set_flag70_bit100__21TWindowSubComCardListFv();
 s32 align_menu_entry_positions(s32);
 s32 draw_text_gray__17TWindowSubComCardFllll(s32, s32 *, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
@@ -25,7 +25,7 @@ s32 TWindowOptionCtrl::create_list_window() {
 
     fn_8036A514(2);
     temp_r30 = check_room_seq_4__16TAdChrSelASlotGCFl(get_option_entry__17TWindowOptionCtrlFi(0xCF), 0x31);
-    set_flag70_bit100__17TWindowOptionCtrlFv();
+    set_flag70_bit100__21TWindowSubComCardListFv();
     var_r31 = 0;
     do {
         if (fn_8036A620(var_r31) != 0) {

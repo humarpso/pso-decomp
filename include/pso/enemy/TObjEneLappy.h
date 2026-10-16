@@ -8,6 +8,14 @@ struct LappyObjectHeader { u8 object_header[0x18]; };
 
 struct TObjEneLappy : LappyObjectHeader
 {
+    void sub_800C20C0();
+    void sub_800C20B0();
+    void set_speed_params(s32);
+    void update_invuln_timer();
+    s32 apply_move_friction();
+    void set_boss4_state();
+    void apply_variant_speeds();
+    void clear_flags_60();
     virtual void virtual_00();
     virtual void virtual_01();
     virtual void virtual_02();

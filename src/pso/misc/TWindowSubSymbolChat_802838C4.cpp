@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
 
 struct Obj_80283944 { u8 pad[0x60]; s8 f60; };
@@ -25,7 +26,7 @@ s16 TWindowSubSymbolChat::get_cursor_x() {
     return *(s16 *)((s8 *)this + 0x6A);
 }
 
-s32 TWindowSubSymbolChat::is_active() {
+s32 TWindowSubSymbolChatPartsSet::is_active() {
     return *(u8 *)((s8 *)this + 0x68) & 1;
 }
 

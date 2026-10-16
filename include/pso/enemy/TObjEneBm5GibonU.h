@@ -5,6 +5,7 @@
 
 struct TObjEneBm5GibonU
 {
+    void update_center_position();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

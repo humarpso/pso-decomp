@@ -5,6 +5,8 @@
 #include "pso/misc/RenderFadeState.h"
 
 struct TObjEneShark {
+    void sub_800AC9DC(s32);
+    void apply_clamped_mode_param();
     void vfunc_83();
     void vfunc_101();
     void vfunc_98();

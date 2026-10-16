@@ -109,7 +109,7 @@ void *item_equip_variant_deleting_dtor_8012463C(void *arg0, s16 arg1);
 void *TObjPlayer__sub_80124694(void *arg0);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80124708(u8 *arg0);
-s32 is_owner_alive__10TObjPlayerFv();
+s32 is_owner_alive__15TItemShootModelFv();
 s32 rotate_matrix_x(int, int);
 
 void TObjPlayer__sub_8012480C(void);
@@ -436,7 +436,7 @@ void TUnk_804A2148::render() {
     u8 *temp_r3;
     u8 *temp_r3_2;
 
-    if (is_owner_alive__10TObjPlayerFv() != 0) {
+    if (is_owner_alive__15TItemShootModelFv() != 0) {
         temp_r3 = (unsigned char *) (*(void * *)&this->m_58);
         if ((temp_r3 != NULL) && ((u32) *(u32 *)&this->m_5C != 0U)) {
             temp_r3_2 = (unsigned char *) (*(void **)((s8 *)temp_r3 + 0x2C));

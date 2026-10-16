@@ -6,6 +6,8 @@
 class TBoss2Tentacle : public TObject {
 public:
     virtual ~TBoss2Tentacle();
+    void sub_80039DA4();
+    void sub_80039D88();
     virtual void render();
     virtual void run_task();
 public:

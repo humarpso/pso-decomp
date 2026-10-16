@@ -1,15 +1,17 @@
 #include "types.h"
+#include "pso/item/TItemProShield.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 u8 get_slot_count__14TItemProShieldFv();
-void fn_80117FEC(u8 *arg0);
+void sub_80117FEC__14TItemProShieldFv(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_80117FEC(u8 *arg0) {
+void TItemProShield::sub_80117FEC() {
+    u8 *arg0 = (u8 *)this;
     u8 temp_r0;
     u8 temp_r3;
     temp_r3 = get_slot_count__14TItemProShieldFv();

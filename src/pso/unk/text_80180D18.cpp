@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TObjCityAirCar_Car.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
@@ -180,7 +181,8 @@ void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self) {
         }
     }
 }
-s32 update_path_motion__18TObjCityAirCar_CarFv(Car_80181074 *self) {
+s32 TObjCityAirCar_Car::update_path_motion() {
+    Car_80181074 *self = (Car_80181074 *)this;
     Vec_80181074 a;
     Vec_80181074 b;
     s32 ang;

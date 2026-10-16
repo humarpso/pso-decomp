@@ -25,7 +25,6 @@ struct TObjEneSlimeOne : public TObjEnemy {
     s32 get_attack_target();
     s32 is_in_water_bomb_states();
     static int get_instance();
-    int find_nearest_enemy_masked(f32 farg0);
     int is_timer_active();
     int find_nearest_enemy_with_flag(s32 arg1, f32 farg0);
     int check_player_field_7cc();

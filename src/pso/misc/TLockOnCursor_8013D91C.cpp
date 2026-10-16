@@ -85,7 +85,7 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2);
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
 s32 TLockOnCursor__sub_8013EB80(s32);
 s32 TLockOnCursor__sub_8013EB8C(s32);
-void TLockOnCursor__sub_8013EEC0(void *, void *);
+void sub_8013EEC0__13TLockOnCursorFs(void *, void *);
 s32 is_channel_active__11TMainCursorFv(s32);
 void TMainCursor__sub_8013F1F0(void *);
 void __construct_array(void *, void *, void *, int, int);
@@ -263,7 +263,7 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     ((TLockOnCursor *)((char *)arg0 + 1296))->init_cursor();
     ((TLockOnCursor *)((char *)arg0 + 1312))->init_vtable();
     *(void **)((s8 *)arg0 + 0x0) = lock_on_cursor_class_name;
-    TLockOnCursor__sub_8013EEC0(arg0, arg2);
+    sub_8013EEC0__13TLockOnCursorFs(arg0, arg2);
     ((TObjPlayer *)(self->f_1C))->clear_id();
     return arg0;
 }

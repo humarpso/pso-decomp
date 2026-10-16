@@ -38,8 +38,8 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
-s32 TContainerAncient01__sub_8018B284(void *);
-s32 TContainerAncient01__sub_8018B48C(void *);
+s32 sub_8018B284__19TContainerAncient01Fv(void *);
+s32 sub_8018B48C__19TContainerAncient01Fv(void *);
 s32 submit_cursor_candidate(void *, int, f32);
 s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01__bml_resource;
@@ -139,10 +139,10 @@ void TContainerAncient01::run_task() {
                 ((TContainerAncient01 *)arg0)->update_wait_for_player();
                 break;
             case 1:
-                TContainerAncient01__sub_8018B48C((void *) (arg0));
+                sub_8018B48C__19TContainerAncient01Fv((void *) (arg0));
                 break;
             case 2:
-                TContainerAncient01__sub_8018B284((void *) (arg0));
+                sub_8018B284__19TContainerAncient01Fv((void *) (arg0));
                 break;
             default:
                 this->mode = 0;

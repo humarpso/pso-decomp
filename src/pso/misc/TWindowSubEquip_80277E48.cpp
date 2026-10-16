@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D0618.h"
+#include "pso/misc/TWindowSubShortCutList.h"
 #include "pso/misc/TWindowSubEquip.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TShopArmorListWindow.h"
@@ -61,7 +63,7 @@ s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
     TWindowSubEquip__sub_80263AF8((int) (*(s32 *)&this->m_2c), (int) (1));
     set_field_1c__6TLobbyFf((int) (temp_r31));
     ((TWindowSubStatusDisp *)temp_r31)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
-    ((TWindowShortListCtrl *)temp_r31)->set_flag70_bit10();
+    ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
     switch (arg1) {
     case 6:
         ((TWindowSubMag *)temp_r31)->init_and_setup((void*)0);
@@ -120,7 +122,7 @@ void TWindowSubEquip::run_task() {
             this->m_1c = 6U;
             return;
         }
-        if (((TLobby *)(this->m_34))->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)(this->m_34))->get_status_flag() != 0) {
             this->m_1c = 3U;
         }
         break;
@@ -137,7 +139,7 @@ void TWindowSubEquip::run_task() {
             this->m_1c = 1U;
             return;
         }
-        if (((TLobby *)(this->m_38))->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)(this->m_38))->get_status_flag() != 0) {
             this->m_1c = 5U;
             return;
         }
@@ -182,7 +184,7 @@ u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = create_equip_list_window(get_window_layout_position(0), lbl_8044F918, *(s32 *)((s8 *)arg0 + 0x28));
     TWindowSubEquip__sub_80263AF8(*(s32 *)((s8 *)arg0 + 0x2C), 0);
     set_field_1c__6TLobbyFf(*(s32 *)((s8 *)arg0 + 0x34));
-    ((TWindowShortListCtrl *)(*(s32 *)((s8 *)arg0 + 0x34)))->set_flag70_bit10();
+    ((TWindowSubShortCutList *)(*(s32 *)((s8 *)arg0 + 0x34)))->set_flag70_bit10();
     p = __nw__7TObjectFUl(0xBC);
     if (p != 0) {
         p = (void *)__ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(2), *(s32 *)((s8 *)arg0 + 0x28));

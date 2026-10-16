@@ -6,6 +6,12 @@
 class TUnk_804C3248 : public TObjMotion {
 public:
     virtual ~TUnk_804C3248();
+    void setup_photon_blast_camera();
+    void update_state();
+    void free_photon();
+    void update_photon_blast_attachments();
+    void set_photon_blast_joint_callback();
+    void begin_photon_summon_camera(s8);
     virtual void enter_scene();
     virtual void update_if_active();
     u8 unk_FC[0x4C];

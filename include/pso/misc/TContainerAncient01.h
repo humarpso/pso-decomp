@@ -6,6 +6,9 @@
 
 struct TContainerAncient01 : public TUnk_804806E8 {
     virtual ~TContainerAncient01();
+    void sub_8018B700();
+    void sub_8018B48C();
+    void sub_8018B284();
     virtual void vfunc_6(s16 *, s32);
     virtual s32 vfunc_27(void *, s32, f32);
     virtual s32 vfunc_26(s32, s32);
@@ -24,11 +27,7 @@ struct TContainerAncient01 : public TUnk_804806E8 {
     u8 unk_358[0x4];
     u32 m_35c;
     void* m_360;
-    void reset_hp();
-    void update_spawning();
-    void check_open_trigger();
     void init_positions();
-    void open_container();
     static void spawn_effect(void* p, void* a1, void* a2);
     void reset_state();
     void update_wait_for_player();

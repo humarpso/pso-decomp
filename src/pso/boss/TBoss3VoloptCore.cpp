@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TUnk_80483A10.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -1621,7 +1622,7 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
     recalc_combat_stats__10TObjPlayerFv(arg0, (*(s32 *)&lbl_805D4C50), (*(s32 *)&lbl_805D4C54), (*(s32 *)&lbl_805D4C58), lbl_805D86B0, lbl_805D86B0);
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x2B8);
     *(s16 *)((s8 *)arg0 + 0x32E) = *(s16 *)((s8 *)arg0 + 0x2BA);
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);

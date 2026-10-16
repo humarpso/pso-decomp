@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/misc/TLobby.h"
 struct O_80340040 { u8 pad[0x60]; void *o[10]; };
@@ -35,7 +36,7 @@ f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 extern const f32 lbl_805DFAF8;
 extern const f32 lbl_805DFB10;
-void check_any_player_near(O_8033FF78 *arg0);
+void check_any_player_near__23TBoss6Demo15_TYPE2_WAITFv(O_8033FF78 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create__10TObjMapCsnFl(void *);
 extern E_8034009C lbl_8047843C[];
@@ -44,7 +45,8 @@ void fn_8034009C(O_8034009C *arg0);
 
 extern "C" {
 
-void check_any_player_near(O_8033FF78 *arg0) {
+void TBoss6Demo15_TYPE2_WAIT::check_any_player_near() {
+    O_8033FF78 *arg0 = (O_8033FF78 *)this;
     Vec_8033FF78 v;
     s32 n;
     s32 i;

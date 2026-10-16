@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowMeseta.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -54,7 +55,7 @@ void TWindowMeseta::run_task() {
     temp_r3 = get_meseta_value__13TWindowMesetaFv();
     if (temp_r3 != (s32) *(s32 *)&this->m_68) {
         *(s32 *)&this->m_68 = temp_r3;
-        ((TWindowSubStatusDisp *)(((TWindowSubStatusDisp *)arg0)->get_array_entry(1)))->set_animated_target(*(s32 *)&this->m_68, lbl_805DD200);
+        ((TWindowSubStatusDisp *)(((TUnk_804CE018 *)arg0)->get_array_entry(1)))->set_animated_target(*(s32 *)&this->m_68, lbl_805DD200);
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     update_window_entry_list(arg0, arg0 + 0x24);
@@ -81,8 +82,8 @@ void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     self->name = TWindowMeseta__class_name;
     self->x64 = arg2;
     self->meseta = ((s32 (*)(void *))get_meseta_value__13TWindowMesetaFv)(arg0);
-    a = (Sub_80269244 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(0);
-    b = (Sub_80269244 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
+    a = (Sub_80269244 *)((TUnk_804CE018 *)arg0)->get_array_entry(0);
+    b = (Sub_80269244 *)((TUnk_804CE018 *)arg0)->get_array_entry(1);
     set_text_entry_string(a, arg3, 0);
     ((TWindowSubStatusDisp *)b)->set_all_values(self->meseta);
     self->x38 = lbl_805DD204 + b->x8;

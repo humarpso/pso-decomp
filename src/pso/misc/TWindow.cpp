@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TUnk_804D0618.h"
+#include "pso/misc/TQuestListOffline.h"
 #include "pso/misc/TWindow.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestListVM.h"
@@ -105,7 +108,7 @@ u16 obj_getField1c(void *);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 get_quest_list_text(s32, s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 set_position_xy(void *, f32, f32);
+s32 set_position_xy__13TUnk_804CDFE8Fff(void *, f32, f32);
 s32 TWindow__close(void *);
 void *create_yes_no_window(void *, s32, s32, s32);
 s32 select_cursor_entry__6TLobbyFv(s32);
@@ -127,7 +130,7 @@ void *get_window_layout_position(s32);
 void *create_item_list_window(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
 extern void *story_quest_list_resource;
-void init_quest_list_window__17TQuestListOfflineFPv(Win_80216F50 *self);
+void init_quest_list_window__17TQuestListOfflineFv(Win_80216F50 *self);
 }
 
 extern "C" {
@@ -166,7 +169,7 @@ void handle_confirm_dialog(void *arg0) {
 
     temp_r3 = *(VObj_80216BCC_80216B44 **)((s8 *)arg0 + 0x34);
     if (temp_r3->m8() != 0) {
-        if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && (((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x38)))->is_visible() != 0)) {
+        if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x38)))->is_visible() != 0)) {
             temp_r3_2 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x38));
             if (temp_r3_2 == 0) {
                 temp_r0 = select_cursor_entry__6TLobbyFv(*(s32 *)((s8 *)arg0 + 0x3C));
@@ -220,7 +223,7 @@ void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self) {
         ((TQuestListVM *)self)->set_field_20(5);
         return;
     }
-    if (self->f3C != NULL && ((TLobby *)(self->f3C))->get_status_flag() != 0) {
+    if (self->f3C != NULL && ((TUnk_804D0618 *)(self->f3C))->get_status_flag() != 0) {
         sel = select_cursor_entry__6TLobbyFv((s32)self->f3C);
         if (self->f54[sel].f14 & 1) {
             ((TQuestListVM *)self)->set_field_20(4);
@@ -234,12 +237,12 @@ void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self) {
             ((TLobby *)(self->f44))->send_and_handle(msg2, 0x80);
             ((TLobby *)(self->f44))->set_field_1c(lbl_805DC694);
             if (get_camera_id__11TCameraCtrlFv() >= 2) {
-                set_position_xy(self->f44, lbl_805DC698, lbl_805DC698);
+                set_position_xy__13TUnk_804CDFE8Fff(self->f44, lbl_805DC698, lbl_805DC698);
             }
         }
         if (self->f38 == NULL) {
             self->f38 = create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(self->f24), 0, 0);
-            set_position_xy(self->f38, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
+            set_position_xy__13TUnk_804CDFE8Fff(self->f38, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
             if (self->f34 != NULL) {
                 self->f34->m7(5, 1);
             }
@@ -247,7 +250,8 @@ void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self) {
         }
     }
 }
-void init_quest_list_window__17TQuestListOfflineFPv(Win_80216F50 *self) {
+void TQuestListOffline::init_quest_list_window() {
+    Win_80216F50 *self = (Win_80216F50 *)this;
     void *t;
     Entry_80216F50 *e;
     s32 i;

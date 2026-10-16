@@ -194,7 +194,7 @@ void TObjEneDD::handle_state(s32 arg1) {
     }
 }
 
-void TObjEneDD::dispatch_action(s32 arg1) {
+void TObjEneRe2Flower::dispatch_action(s32 arg1) {
     switch (arg1) {
     case 4:
         ((VObj_800C3A00_800C38D0 *)this)->m93();

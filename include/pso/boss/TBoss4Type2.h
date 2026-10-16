@@ -107,7 +107,6 @@ struct TBoss4Type2
     void set_state3_unless_2or3();
     static s32 create(s32 arg0);
     static s32 pick_weighted_random(s32 n, f32 *w, s32 *t);
-    void update_particle_emitters();
 };
 
 #endif

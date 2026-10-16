@@ -23,7 +23,7 @@ extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 update_window_entry_list(void *, void *);
-s32 is_active__17TWindowOptionCtrlFv();
+s32 is_active__19TWindowSoundBalanceFv();
 s32 TWindowSoundBalance__sub_8027095C(void *);
 extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -32,7 +32,7 @@ s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
 State_80270DCC *get_global_state__23TAdSinglePlyChrSelectGCFv();
 u32 calc_text_width();
-u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 get_field_20__17TWindowSubComCardFv();
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, s32, s32);
 s32 refresh_status_display__9TWindowDDFv(u8 *);
@@ -45,7 +45,7 @@ extern const f32 lbl_805DD414;
 extern const f32 lbl_805DD418;
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1);
 s16 obj_getS16_2BA(void *);
-u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
 u8 *get_player_by_client_id();
 s32 draw_right_aligned_number(void *);
@@ -117,7 +117,7 @@ typedef char RecoveredGlobal_80270C98_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 void TWindowSoundBalance::run_task() {
     s32 arg0 = (s32)this;
     u8 *temp_r31;
-    if (is_active__17TWindowOptionCtrlFv() == 0) {
+    if (is_active__19TWindowSoundBalanceFv() == 0) {
         handle_lr_input();
         TWindowSoundBalance__sub_8027095C((void *) (arg0));
         temp_r31 = (u8 *)&controller_input_state.value + 0x20;
@@ -155,11 +155,11 @@ u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     *(s8 *)((s8 *)arg0 + 0x61) = 0;
     *(s16 *)((s8 *)arg0 + 0x62) = 1;
     *(s16 *)((s8 *)arg0 + 0x64) = 1;
-    e = get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
+    e = get_array_entry__13TUnk_804CE018Fi(arg0, 0);
     get_field_20__17TWindowSubComCardFv();
     *(f32 *)((s8 *)e + 8) = lbl_805DD414 - lbl_805DD418 * calc_text_width();
     refresh_status_display__9TWindowDDFv(e);
-    e = get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
+    e = get_array_entry__13TUnk_804CE018Fi(arg0, 1);
     get_field_20__17TWindowSubComCardFv();
     *(f32 *)((s8 *)e + 8) = lbl_805DD414 - lbl_805DD418 * calc_text_width();
     refresh_status_display__9TWindowDDFv(e);

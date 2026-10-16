@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/TObject.h"
 
 struct VBase18_8035DD68 { char pad[0x18]; };
@@ -1402,7 +1403,7 @@ s32 reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
 s32 init_position_vectors__9TObjEneDDFPv(void *);
-s32 TObjEneMe3Stelth__sub_800F5874(void *, int);
+s32 sub_800F5874__12TObjEneDD_STFl(void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 set_indexed_flags(void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
@@ -1685,7 +1686,7 @@ void TObjEneEpsilonGuard::init_model_and_state() {
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)lbl_805D6FA0 + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFv(arg0, epsilon_guard_boss_stat_handle, epsilon_guard_shared_handler_b, epsilon_guard_registered_object_handle);
     set_indexed_flags(arg0, 0, 0x80020);
     ((TObjEneDD *)arg0)->check_state_flag_4();
@@ -1712,7 +1713,7 @@ void TObjEneEpsilonGuard::init_model_and_state() {
     *(void **)((s8 *)arg0 + 0x45C) = o;
     init_collision_body_parts(*(void **)((s8 *)arg0 + 0x45C), (u8 *) TObjEneEpsilonGuard__model_desc + 0x2C, 1);
     *(s32 *)((s8 *)arg0 + 0x440) = 0;
-    TObjEneMe3Stelth__sub_800F5874(arg0, 0x3F);
+    sub_800F5874__12TObjEneDD_STFl(arg0, 0x3F);
 #undef arg0
 }
 

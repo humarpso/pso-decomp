@@ -278,8 +278,8 @@ u32 check_actor_body_contact(void *, void *, f32);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 access_object_saved_state(void *, int);
-s32 fn_80166E64(void *);
-s32 fn_80166EA8(void *, int);
+s32 sub_80166E64__13TUnk_804B1B80Fv(void *);
+s32 sub_80166EA8__13TUnk_804B1B80Fi(void *, int);
 void TOFenceAncient04__vt14(void);
 void TOFenceAncient04__vt13(void* p);
 void TOFenceAncient04__vt12(void* p);
@@ -305,7 +305,7 @@ void fn_80168398(u8 *arg0);
 void fn_80168488(VO_80168488 *arg0);
 void destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *, int);
 void init_base__27TOHangceilingCave01KeyQuickFPvii(void *);
-void set_scale__27TOHangceilingCave01KeyQuickFPvf(void *, f32);
+void set_scale__13TUnk_804B2578Ff(void *, f32);
 void * get_player_by_client_id(s32);
 s32 load_gvm_texture_file(void *);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
@@ -453,7 +453,7 @@ u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80167C78___vt__27TOHangceilingCave01KeyQuick *)&__vt__27TOHangceilingCave01KeyQuick).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOHangceilingCave01KeyQuick__class_name;
     ((TOHangceilingCave01 *)arg0)->init_geometry();
-    set_scale__27TOHangceilingCave01KeyQuickFPvf(arg0, lbl_805DB688 + *(f32 *)((s8 *)arg0 + 0x70));
+    set_scale__13TUnk_804B2578Ff(arg0, lbl_805DB688 + *(f32 *)((s8 *)arg0 + 0x70));
     return arg0;
 }
 
@@ -881,7 +881,7 @@ void TOHangceilingCave01::init_geometry() {
     }
     temp_f2 = lbl_805DB690 + *(f32 *)((s8 *)this + 0x68);
     *(f32 *)((s8 *)this + 0x350) = (f32) (temp_f2 - lbl_805DB654);
-    ((void (*)(void *, f32, f32))set_scale__27TOHangceilingCave01KeyQuickFPvf)(this, lbl_805DB688 + *(f32 *)((s8 *)this + 0x70), temp_f2);
+    ((void (*)(void *, f32, f32))set_scale__13TUnk_804B2578Ff)(this, lbl_805DB688 + *(f32 *)((s8 *)this + 0x70), temp_f2);
     self->v77();
     *(f32 *)((s8 *)this + 0x354) = (f32) (lbl_805DB654 - *(f32 *)((s8 *)this + 0x6C));
 }

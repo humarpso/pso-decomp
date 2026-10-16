@@ -1,4 +1,5 @@
 #include "pso/misc/TPlayerBattleCtrl4P.h"
+#include "pso/misc/TWindowMenu.h"
 
 #include "types.h"
 #include "pso/misc/TCheckRoomSequence.h"
@@ -41,7 +42,7 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, int, int
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, int);
 void *get_window_layout_position(int);
-s32 set_split_screen_battle_phase(void *, int);
+s32 set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(void *, int);
 extern u8 lbl_80475B70[];
 extern s32 local_client_id;
 void TLobby__sub_801036CC();
@@ -244,7 +245,7 @@ void TPlayerBattleCtrl4P::update_rematch_menu() {
             ((TCheckRoomSequence *)(((O_80311C2C *)this)->w1))->set_ready_flag();
         }
         if (((O_80311C2C *)this)->w1 != NULL) {
-            if (((TWindowSubComCard *)(((O_80311C2C *)this)->w1))->is_visible() != 0) {
+            if (((TWindowMenu *)(((O_80311C2C *)this)->w1))->is_visible() != 0) {
                 switch (get_selected_menu_value(((O_80311C2C *)this)->w1)) {
                 case 1:
                     shuffle_order();
@@ -252,7 +253,7 @@ void TPlayerBattleCtrl4P::update_rematch_menu() {
                 case 2:
                     break;
                 case 3:
-                    set_split_screen_battle_phase(((O_80311C2C *)this), 4);
+                    set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(((O_80311C2C *)this), 4);
                     break;
                 }
             } else {

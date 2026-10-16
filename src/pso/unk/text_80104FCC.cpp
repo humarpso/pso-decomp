@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TLobby.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -87,7 +88,7 @@ s32 TObjPlayer__sub_80104840(s32);
 extern s32 TLobby__designated_client_id;
 extern Entry_8010567C *TLobby__data_805D6140;
 extern s32 local_client_id;
-void request_box_item_drop(Obj_8010567C *self, void *unused, s16 arg2);
+void request_box_item_drop__13TUnk_804806E8FPvs(Obj_8010567C *self, void *unused, s16 arg2);
 int check_class_equip_permission(Player_80105348 *player, s32 perm);
 void *get_player_by_client_id(s32);
 s8 get_current_floor();
@@ -198,7 +199,8 @@ void send_6x60_standard_drop_item_request(Obj_80105538 *self) {
     }
 }
 
-void request_box_item_drop(Obj_8010567C *self, void *unused, s16 arg2) {
+void TUnk_804806E8::request_box_item_drop(void *unused, s16 arg2) {
+    Obj_8010567C *self = (Obj_8010567C *)this;
     void *p1;
     void *p2;
     if (self != 0) {

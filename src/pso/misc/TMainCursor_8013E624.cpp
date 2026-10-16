@@ -19,7 +19,7 @@ u16 TMainCursor__sub_8013E4A0(void* p);
 s16 TMainCursor__sub_8013E570(void* p);
 void TMainCursor__sub_8013E694(void* p, s16 v);
 int TMainCursor__sub_8013E6E0(void* p);
-void TMainCursor__sub_8013E724(void* p, f32 v);
+void sub_8013E724__11TMainCursorFf(void* p, f32 v);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
 int set_target_index_at_60__11TMainCursorFPvPv(void* p);
 s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
@@ -75,6 +75,6 @@ int TMainCursor::init_field_60() { return ((TMainCursor *)((char*)this + 0x60))-
 int TMainCursor::get_action_palette() { return set_slot__20TWindowActionPaletteFUc(this); }
 int TMainCursor__sub_8013E6E0(void* p) { return ((TMainCursor *)((char*)p + 0x60))->update_action_palette(); }
 int TMainCursor::update_action_palette() { return set_mode__20TWindowActionPaletteFUc(this); }
-void TMainCursor__sub_8013E724(void* p, f32 v) { *(f32*)((char*)p + 0x2c) = v; }
+void TMainCursor::sub_8013E724(f32 v) { *(f32*)((char*)this + 0x2c) = v; }
 
 }

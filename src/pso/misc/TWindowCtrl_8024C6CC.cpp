@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSimpleStatus.h"
 
 extern "C" {
 
@@ -96,6 +97,6 @@ int TWindowCtrl::is_enabled() { return (this->m_1c >> 3) & 0x1; }
 int TWindowCtrl__sub_8024C7F8(void* p) { return (*(u16*)((char*)p + 0x1c) >> 4) & 0x1; }
 int TWindowCtrl::is_visible() { return this->m_1c & 0x1; }
 s16 TWindowCtrl::get_field_20() { return *(s16 *)&this->m_20; }
-s16 TWindowCtrl::get_width() { return *(s16 *)&this->m_20; }
+s16 TWindowSimpleStatus::get_width() { return *(s16 *)&this->m_20; }
 
 }

@@ -1,13 +1,15 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTechnique.h"
 
 extern "C" {
 s32 get_selected_menu_value(int);
-s32 fn_80286AA8(u8 *arg0);
+s32 sub_80286AA8__19TWindowSubTechniqueFv(u8 *arg0);
 }
 
 extern "C" {
 
-s32 fn_80286AA8(u8 *arg0) {
+s32 TWindowSubTechnique::sub_80286AA8() {
+    u8 *arg0 = (u8 *)this;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x34) == 0U) {
         return 0;
     }

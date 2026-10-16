@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 
@@ -216,7 +217,7 @@ struct Rec_801031CC { u8 d[0x2c]; };
 struct Tbl_801031CC { u8 pad[0x1c]; Rec_801031CC r[1]; };
 
 extern "C" {
-u8 fn_8010319C(u8 *arg0);
+u8 sub_8010319C__13TUnk_804AF8A0Fv(u8 *arg0);
 void init__9TItemDataFv(void *);
 extern const f32 lbl_805DAA88;
 s32 __ct__13TItemAttackerFv(void *, void *, void *, s32, void *);
@@ -255,7 +256,7 @@ void TLobby__sub_801030EC(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
-void TLobby::set_item_count(s16 v) { *(s16*)((char*)this + 0x1c) = v; }
+void TUnk_804B9870::set_item_count(s16 v) { *(s16*)((char*)this + 0x1c) = v; }
 s32 TLobby::drop_stacked_item_passthrough() {
     s32 arg0 = (s32)this;
     init_floor_item_entry();
@@ -274,7 +275,8 @@ void TLobby::init_floor_item_entry() {
     init__9TItemDataFv(arg0 + 0x10);
 }
 
-u8 fn_8010319C(u8 *arg0) {
+u8 TUnk_804AF8A0::sub_8010319C() {
+    u8 *arg0 = (u8 *)this;
     return (u8) (*(u16 *)((s8 *)arg0 + 0x94) != 0xFFFF);
 }
 

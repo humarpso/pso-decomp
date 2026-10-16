@@ -130,7 +130,7 @@ s16 obj_getS16_32C(s32);
 s16 obj_getField1c(void *);
 s32 get_item_field_6__10TObjPlayerFPv(int);
 u8 get_field_ed__10TObjPlayerFv(s32);
-void set_flag_4__9TObjLukerFv(void *);
+void set_flag_4__7TObjectFv(void *);
 u8 * get_type__8TItemMagFPv(s32);
 s32 set_type__10TObjPlayerFl(s32, s32);
 void construct_target_cursor_records__10TObjPlayerFv(void *);
@@ -586,7 +586,7 @@ void TItemMag::set_subs_visible(s32 on) {
             if (on) {
                 clear_flag4_bit4__22TQuestVmDownLoadServerFv(self->subs[i]);
             } else {
-                set_flag_4__9TObjLukerFv(self->subs[i]);
+                set_flag_4__7TObjectFv(self->subs[i]);
             }
         }
     }
@@ -1506,7 +1506,7 @@ struct Rec_80113B6C {
 };
 
 extern "C" {
-s32 refresh_if_current_player__20TWindowSubStatusDispFv(void *);
+s32 refresh_if_current_player__5TItemFv(void *);
 int get_mag_mind_level__9TItemDataFv(void*);
 int get_stat_percent__9TItemDataFv(void*);
 int get_level__9TItemDataFv(void*);
@@ -1648,7 +1648,7 @@ int TItemMag__vt13(void* p) { return ((int (*)(void*))tick_fullness_timer__8TIte
 
 void TItemMag__vt12(s32 arg0) {
     if ((get_mag_total_level((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_mag_mind_level__9TItemDataFv((void*)((void *) (arg0 + 0x198)))) < 0)) {
-        refresh_if_current_player__20TWindowSubStatusDispFv((void *) (arg0));
+        refresh_if_current_player__5TItemFv((void *) (arg0));
     }
 }
 

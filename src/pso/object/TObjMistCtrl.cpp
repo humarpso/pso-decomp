@@ -53,12 +53,12 @@ f32 horizontal_distance_squared(void *, void *);
 s32 set_texture_num(int);
 void __dl__7TObjectFPv(void *);
 s32 restore_saved_depth_alpha_state();
-int fn_802AF64C(void*);
+int sub_802AF64C__12TObjMistCtrlFv(void*);
 s32 draw_particle_strip(void *, int, int);
 void queue_destruction__7TObjectFv(void *);
 s32 set_depth_buffer_settings_1__Fv();
 
-int TObjMistCtrl::run_task() { return fn_802AF64C(this); }
+int TObjMistCtrl::run_task() { return sub_802AF64C__12TObjMistCtrlFv(this); }
 
 extern s32 __vt__12TObjMistCtrl[];
 

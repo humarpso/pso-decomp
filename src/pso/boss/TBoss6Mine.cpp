@@ -196,7 +196,7 @@ f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 exchange_object_state__6TLobbyFls(void *, void *, int);
+s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 u32 create_particle_emitter(void *, int);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 init_collision_body_parts(void *, void *, int);
@@ -518,10 +518,10 @@ s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)THIS + 0x388) = *(s32 *)((s8 *)arg2 + 0x60);
     ((TObjPlayer *)THIS)->add_flags_2e4(8);
     ((VObj_18_f05d67 *)THIS)->m79((void *)arg2);
-    if (exchange_object_state__6TLobbyFls(THIS, &tmp, 1) != 0) {
+    if (exchange_object_state__9TObjEnemyFls(THIS, &tmp, 1) != 0) {
         tmp.a = 0;
         tmp.b = 0;
-        exchange_object_state__6TLobbyFls(THIS, &tmp, 0);
+        exchange_object_state__9TObjEnemyFls(THIS, &tmp, 0);
     }
     *(s32 *)((s8 *)THIS + 0x374) = TObjFish::get_fish_count();
     *(s32 *)((s8 *)THIS + 0x24) = 0;

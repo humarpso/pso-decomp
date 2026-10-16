@@ -3,6 +3,7 @@
 #pragma dont_inline off
 
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 
 struct Base_80221844 { char pad[0x18]; };
 struct VObj_80221844 : Base_80221844 {
@@ -96,7 +97,7 @@ extern "C" {
 u32 obj_getField1c(s32);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 set_position_xy(u32, f32, f32);
+s32 set_position_xy__13TUnk_804CDFE8Fff(u32, f32, f32);
 void TWindow__close(void *);
 u32 create_yes_no_window(s32, s32, s32, s32);
 s32 get_window_layout_position(s32);
@@ -109,7 +110,7 @@ s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 get_item_record__23TShopJudgmentItemWindowFPv(s32, s32, s32);
 s32 store_item_in_bank(void *, s32, s32);
 s32 copy_bank_to_card_window(s32);
-s32 TShopWindowBase__sub_8022397C(void *);
+s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
@@ -133,7 +134,7 @@ void vfunc_6__19TShopKeepItemWindowFv(void *arg0);
 void vfunc_7__19TShopKeepItemWindowFv(void *arg0);
 void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1);
 void sort_bank_items(s32 slot);
-s32 TShopWindowBase__sub_8022397C(void *);
+s32 sub_8022397C__15TShopWindowBaseFv(void *);
 void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
@@ -165,7 +166,7 @@ s32 TShopKeepItemWindow::close_with_cancel_callback() {
     if (temp_r12 != NULL) {
         temp_r12(*(s32 *)&this->m_380);
     }
-    sort_bank_items(TShopWindowBase__sub_8022397C(this));
+    sort_bank_items(sub_8022397C__15TShopWindowBaseFv(this));
     queue_destruction__7TObjectFv(this);
 }
 
@@ -176,7 +177,7 @@ s32 TShopKeepItemWindow::close_with_ok_callback() {
     if (temp_r12 != NULL) {
         temp_r12(*(s32 *)&this->m_380);
     }
-    sort_bank_items(TShopWindowBase__sub_8022397C(this));
+    sort_bank_items(sub_8022397C__15TShopWindowBaseFv(this));
     queue_destruction__7TObjectFv(this);
 }
 
@@ -196,8 +197,8 @@ void TShopKeepItemWindow::handle_deposit_confirm() {
     s32 i;
     void *win;
     win = self->f388;
-    if (win != NULL && ((TWindowSubComCard *)win)->is_visible() != 0) {
-        base = TShopWindowBase__sub_8022397C(this);
+    if (win != NULL && ((TWindowMenu *)win)->is_visible() != 0) {
+        base = sub_8022397C__15TShopWindowBaseFv(this);
         r = get_selected_menu_value(self->f388);
         if (r == 0) {
             i = select_cursor_entry__6TLobbyFv(self->f384);
@@ -243,7 +244,7 @@ void TShopKeepItemWindow::update_number_input() {
             this->m_388 = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
             ((TCheckRoomSequence *)(this->m_388))->set_ready_flag();
             temp_f31 = get_scale__15TShopWindowBaseFv(this);
-            set_position_xy(this->m_388, get_scale__15TShopWindowBaseFv(this), temp_f31);
+            set_position_xy__13TUnk_804CDFE8Fff(this->m_388, get_scale__15TShopWindowBaseFv(this), temp_f31);
         }
         *(s32 *)&this->m_378 = ((TShopEquipmentSellWindow *)(this->m_38c))->get_result();
         TWindow__close((void *)(this->m_38c));

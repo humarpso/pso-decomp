@@ -5,6 +5,7 @@
 
 struct TBoss2DeRolLe
 {
+    void clear_play_flags();
     u16 m_1c;
     u8 _pad1E[0x6];
     u32 m_24;

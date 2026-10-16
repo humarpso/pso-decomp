@@ -40,7 +40,7 @@ struct Win_80217344 {
 void queue_destruction__7TObjectFv(void *);
 void handle_confirm_dialog(void *arg0);
 void update_list_navigation__17TQuestListOfflineFPv(QuestList_802171BC *);
-void init_quest_list_window__17TQuestListOfflineFPv(QuestList_802171BC *);
+void init_quest_list_window__17TQuestListOfflineFv(QuestList_802171BC *);
 void vfunc_11__17TQuestListOfflineFv(QuestList_802171BC *self);
 void * close_shop_subwindows__7TWindowFPvs(void *arg0, s16 arg1);
 void __dt__15TShopWindowBaseFv(void *, int);
@@ -161,7 +161,7 @@ void TQuestListOffline::vfunc_11() {
     QuestList_802171BC *self = (QuestList_802171BC *)this;
     switch (self->state) {
     case 0:
-        init_quest_list_window__17TQuestListOfflineFPv(self);
+        init_quest_list_window__17TQuestListOfflineFv(self);
         break;
     case 1:
         update_list_navigation__17TQuestListOfflineFPv(self);

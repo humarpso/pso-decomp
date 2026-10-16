@@ -11,6 +11,11 @@ struct WeaponPlayerPrefix { u8 object[0x60]; s32 heading; };
 struct WeaponMotionRecord { u32 unknown; u32 frame_count; };
 
 struct TItemWeapon : WeaponObjectPrefix {
+    void sub_80121208(s32);
+    void clear_equip_flags(u32);
+    void advance_weapon_photon_phase();
+    u8 is_active_in_game();
+    int is_flag_400();
     virtual void reserved_0();
     virtual void reserved_1();
     virtual void reserved_2();
@@ -89,7 +94,6 @@ struct TItemWeapon : WeaponObjectPrefix {
     u8 remaining_weapon_fields[0x1F8-0x1E4];
     void roll_technique();
     u8 get_special_selector();
-    void set_special_selector(u8 value);
     void dispatch_attack_marker();
     void update_active_weapon();
     void restore_action_type();

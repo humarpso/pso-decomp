@@ -6,6 +6,8 @@
 class TPhotonFarlla : public TUnk_804C3248 {
 public:
     virtual ~TPhotonFarlla();
+    void update_all_slots();
+    void sub_801AAE6C();
     virtual void render();
     virtual void run_task();
     u8 unk_158[0x24];

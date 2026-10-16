@@ -17,7 +17,6 @@ struct TOSwitchItem
     void update_anim();
     void render();
     static void *create(void *arg0);
-    u8 get_field_ec();
 };
 
 #endif

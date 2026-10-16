@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/TPlayerFootStamp.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/object/TObjOnlineEnding.h"
 
 struct Obj_802B0204 { u8 pad[0xbe]; s16 fbe; };
 
 extern "C" {
-void TPlayerFootStamp__sub_802B0204(Obj_802B0204 *self, s32 v);
+void sub_802B0204__16TPlayerFootStampFl(Obj_802B0204 *self, s32 v);
 }
 
 extern "C" {
@@ -20,7 +21,8 @@ int load_gvm_texture_file(void*);
     extern int player_footstamp_texture_gvm_handle;
 void load_player_footstamp(void) { player_footstamp_texture_gvm_handle = load_gvm_texture_file(lbl_80470908); }
 
-void TPlayerFootStamp__sub_802B0204(Obj_802B0204 *self, s32 v) {
+void TPlayerFootStamp::sub_802B0204(s32 v) {
+    Obj_802B0204 *self = (Obj_802B0204 *)this;
     if (v < 0 || v > 1) {
         self->fbe = 0;
     } else {

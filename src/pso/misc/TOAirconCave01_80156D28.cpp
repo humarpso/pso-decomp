@@ -33,7 +33,7 @@ s32 TObjPlayer__sub_800D96D0(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
 s32 __dl__FPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*, void*);
-void fn_80156CEC(void *);
+void sub_80156CEC__13TUnk_804AF8D8Fv(void *);
 
     extern unsigned char saved_model_draw_color[];
     extern unsigned char model_material_color[];
@@ -75,7 +75,7 @@ extern s32 lbl_804AF8D8[];
 void *TOAirconCave01::init_vtable_804AF8D8() {
     TObjPlayer__sub_800D9718(this);
     *(s32 * *)&this->m_down = lbl_804AF8D8;
-    fn_80156CEC(this);
+    sub_80156CEC__13TUnk_804AF8D8Fv(this);
     return this;
 }
 

@@ -212,7 +212,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u16 obj_getField1c(void *);
 s32 get_item_field_6__10TObjPlayerFPv(void *);
-u8 get_field_ec__12TOSwitchItemFv();
+u8 get_field_ec__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern RecoveredGlobal_803589F8_lbl_804F15C8 weapon_special_effect_callbacks;
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
@@ -228,7 +228,7 @@ extern const f32 lbl_805E0070;
 u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
-void update_inward_orbit_point(u8 *arg0);
+void update_inward_orbit_point__13TUnk_804F166CFv(u8 *arg0);
 s32 rotate_matrix_z(int, int);
 void TObjPlayer__sub_80357954(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -522,7 +522,8 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void update_inward_orbit_point(u8 *arg0) {
+void TUnk_804F166C::update_inward_orbit_point() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) ((*(f32 *)((s8 *)arg0 + 0x40) * sin_table_lookup((void *)(*(s32 *)((s8 *)arg0 + 0x44)))) + *(f32 *)((s8 *)arg0 + 0x1C));
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg0 + 0x20);
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x40) * cos_table_lookup((void *)(*(s32 *)((s8 *)arg0 + 0x44)))) + *(f32 *)((s8 *)arg0 + 0x24));
@@ -539,7 +540,7 @@ void TUnk_804F166C::run_task() {
     u8 *temp_r3;
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) - 0x1999);
     this->m_40 = (f32) (this->m_40 - lbl_805E006C);
-    update_inward_orbit_point((u8 *)((void *)(arg0)));
+    update_inward_orbit_point__13TUnk_804F166CFv((u8 *)((void *)(arg0)));
     temp_r3 = (u8 *)(*(u8 * *)&this->unk_4C);
     if (temp_r3 != NULL) {
         ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x34);
@@ -582,7 +583,7 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805E0070;
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (arg3 - 0x4000);
     *(s32 *)((s8 *)arg0 + 0x48) = 0xA;
-    update_inward_orbit_point((u8 *)((void *) (arg0)));
+    update_inward_orbit_point__13TUnk_804F166CFv((u8 *)((void *) (arg0)));
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804793E4.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804793E4.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804793E4.value) + 8);
@@ -877,7 +878,7 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 (*temp_r12)(s32, u32, s32, s32);
     s32 temp_r3;
     u8 temp_r3_2;
-    if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *) (arg0)) < 0xC) && (reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *) (arg0)), ((temp_r3 == 0) == 0)) && (get_field_ec__12TOSwitchItemFv() == 0)) {
+    if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *) (arg0)) < 0xC) && (reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *) (arg0)), ((temp_r3 == 0) == 0)) && (get_field_ec__5TItemFv() == 0)) {
         if (((TObjPlayer *)temp_r3)->test_flags_1b8((int) (0x400020)) != 0U) {
             TObjPlayer::update_battle_control_on_unlock((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)), (s32)((void *) (arg3)));
             return;

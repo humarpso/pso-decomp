@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 extern "C" void vfunc_101__12TObjEneBeastFv();
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 #include "pso/enemy/TObjEneBeast.h"
@@ -461,7 +462,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     F(arg0, u32, 0xDC) = F(ene_beast_bml_resource, u32, 0x430);
     F(arg0, s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, F(arg0, s16, 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(F(arg0, s16, 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(F(arg0, s16, 0xB8));
     init_collision_body_parts(arg0, &((Rec2C_800927DC *)beast_collision_body_table)[F(arg0, s32, 0x334)], 1);
     bind_enemy_combat_stats(arg0, ((u32 *)ene_beast_boss_id_buffer)[F(arg0, s32, 0x334)],
                             ((u32 *)TObjEneBeast__boss4_rock_handler_ids)[F(arg0, s32, 0x334)],

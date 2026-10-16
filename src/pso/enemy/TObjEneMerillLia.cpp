@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 
 struct Obj_800D5614 { u8 pad0[0x38]; u8 pos[0xC]; u8 pad44[0x2A8 - 0x44]; void *f2a8; u8 pad2ac[0x326 - 0x2AC]; s16 f326; s16 f328; u8 pad32a[0x338 - 0x32A]; u16 f338; u8 pad33a[0x350 - 0x33A]; f32 *f350; u8 pad354[0x3D0 - 0x354]; f32 f3d0; };
@@ -496,7 +497,7 @@ extern u32 TObjEneMerillLia__entry_params_resource;
 extern s32 game_difficulty_selection;
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback(void *);
-void TObjEneMerillLia__sub_800D5570(Obj_800D5570 *arg0);
+void sub_800D5570__16TObjEneMerillLiaFv(Obj_800D5570 *arg0);
 s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void *, s32);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
@@ -1072,7 +1073,8 @@ typedef struct VObj_18_ca64a0 VObj_18_ca64a0;
 #define PSO_VCALL_VObj_14_fddec9_m6(_self) (((VObj_14_fddec9 *)(_self))->m6())
 #define PSO_VCALL_VObj_14_fddec9_m7(_self) (((VObj_14_fddec9 *)(_self))->m7())
 
-void TObjEneMerillLia__sub_800D5570(Obj_800D5570 *arg0) {
+void TObjEneMerillLia::sub_800D5570() {
+    Obj_800D5570 *arg0 = (Obj_800D5570 *)this;
     switch (arg0->state) {
     case 0:
     default:
@@ -1684,7 +1686,7 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
         TObjEneMerillLia::search_target((void *) arg0);
         break;
       case 13:
-        TObjEneMerillLia__sub_800D5570((Obj_800D5570 *)((void *) arg0));
+        sub_800D5570__16TObjEneMerillLiaFv((Obj_800D5570 *)((void *) arg0));
         break;
     }
   }
@@ -1790,7 +1792,7 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)TObjEneMerillLia__entry_params_resource + 0x430);
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     init_collision_body_parts(arg0, (u8 *) lbl_804946A4 + *(s32 *)((s8 *)arg0 + 0x334) * 0x2C, 1);
     bind_enemy_combat_stats(arg0, ((s32 *) TObjEneMerillLia__rock_stats_table)[*(s32 *)((s8 *)arg0 + 0x334)],
         ((s32 *) merill_lia_rock_buffer)[*(s32 *)((s8 *)arg0 + 0x334)], ((s32 *) merill_lia_rock_aux_buffer)[*(s32 *)((s8 *)arg0 + 0x334)]);

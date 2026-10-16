@@ -12,7 +12,7 @@ s32 get_main_phase(void);
 s32 get_current_floor(void);
 s32 get_player_by_client_id(u32);
 f32 xz_distance_squared(void *, void *);
-bool is_player_outside_trade_radius(u8 *arg0, u32 arg1);
+bool is_player_outside_trade_radius__18TObjTradeCollisionFUl(u8 *arg0, u32 arg1);
 s32 queue_destruction__7TObjectFv(void *);
 s32 draw_color_lines(void *, int, int, f32);
 s32 draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, int, int, f32, f32, f32);
@@ -171,7 +171,8 @@ void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
-bool is_player_outside_trade_radius(u8 *arg0, u32 arg1) {
+bool TObjTradeCollision::is_player_outside_trade_radius(u32 arg1) {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f31;
     s32 temp_r31;

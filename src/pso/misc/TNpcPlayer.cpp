@@ -414,7 +414,7 @@ s32 find_active_entity_by_id(void *);
 f32 horizontal_distance_squared(void *, void *);
 u32 mem_alloc(s32);
 void TNpcPlayer__sub_8014DC3C(void *, s32);
-void partner_request_physical_attack(void *);
+void partner_request_physical_attack__10TNpcPlayerFv(void *);
 void deliver_partner_chatter(Npc_8014E250 *self);
 s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out);
 void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
@@ -2940,7 +2940,7 @@ void update_combat_action__10TNpcPlayerFv(Npc_80150B90 *self) {
         if (alt == 0) {
             if (fabs_float(TNpcPlayer__data_805DB1F4 * (lbl_805DB244 * (f32)rand())) >
                 (*(const f32 *)&TNpcPlayer__data_805DB22C) * (f32)self->f53) {
-                partner_request_physical_attack(self);
+                partner_request_physical_attack__10TNpcPlayerFv(self);
                 return;
             }
         }
@@ -2957,7 +2957,7 @@ void update_combat_action__10TNpcPlayerFv(Npc_80150B90 *self) {
             return;
         }
     }
-    partner_request_physical_attack(self);
+    partner_request_physical_attack__10TNpcPlayerFv(self);
 }
 
 void TNpcPlayer::send_run_request() {

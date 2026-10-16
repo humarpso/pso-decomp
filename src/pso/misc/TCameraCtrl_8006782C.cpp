@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488E00.h"
 
 #include <stddef.h>
 #include "pso/misc/TCameraCtrl.h"
@@ -135,7 +136,7 @@ void TCameraCtrl__sub_80067AB0(u8 *arg0) {
     stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x188) - *(f32 *)((s8 *)arg0 + 0x4C);
     stack.sp10 = *(f32 *)((s8 *)camera_ctrl_instance + 0x18C) - *(f32 *)((s8 *)arg0 + 0x50);
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) ((lbl_805D8F54 * vector_length((void *) (&stack.sp8))) / lbl_805D8F4C);
-    if (((TCameraCtrl *)arg0)->predict_obstruction() != 0) {
+    if (((TUnk_80488E00 *)arg0)->predict_obstruction() != 0) {
         *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (*(s32 *)((s8 *)arg0 + 0xFC) | 1);
     } else {
         *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (*(s32 *)((s8 *)arg0 + 0xFC) & 0xFFFFFFFE);

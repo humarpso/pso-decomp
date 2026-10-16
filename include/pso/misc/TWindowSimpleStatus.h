@@ -6,6 +6,7 @@
 
 struct TWindowSimpleStatus : public TUnk_804CE018 {
     virtual ~TWindowSimpleStatus();
+    s16 get_width();
     virtual void render();
     u8 _pad1C[0x4];
     u16 m_20;

@@ -113,7 +113,7 @@ extern s32 TODoorCave03__class_name;
 extern u32 TODoorCave03__model_resource;
 extern const f32 TODoorCave03__data_805DB4D4;
 u8 *TODoorCave03__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
@@ -212,7 +212,7 @@ void TODoorCave03::play_proximity_sound() {
 void render__12TODoorCave03Fv(u8 *arg0) {
     Model_801625AC *m;
     if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)(arg0 + 0xC0), *(f32 *)(arg0 + 0xC4)) != 0 &&
-        is_in_view_depth(arg0, lbl_805DB4E8) != 0) {
+        is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB4E8) != 0) {
         TObjFish::set_global_param(*(s32 *)(arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);

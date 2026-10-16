@@ -36,11 +36,11 @@ extern s32 single_ply_quest_download_server;
 void init_logo_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void noop__23TAdSinglePlyChrSelectGCFv(void);
 int safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
-void free_buffer__23TAdSinglePlyChrSelectGCFPv(void* p);
+void free_buffer__13TUnk_804EF8C0Fv(void* p);
 int memset(void*, void*, void*);
-void clear_buffer(void* p);
+void clear_buffer__13TUnk_804EF8C0Fv(void* p);
 u32 alloc__22TQuestVmDownLoadServerFv(s32);
-void alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+void alloc_download_buffer__13TUnk_804EF8C0Fv(void *arg0);
 extern s32 lbl_805D6D90;
 void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0);
 int queue_destruction__7TObjectFv(void*);
@@ -86,7 +86,7 @@ int forward_trade_action_default__16TObjCityMainWarpFPviii(void*, void*, void*, 
 extern unsigned char lbl_80477D58[];
 extern const float lbl_805DFA30;
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
-s32 is_visible__17TWindowSubComCardFv(int);
+s32 is_visible__11TWindowMenuFv(int);
 s32 init__22THunterGuildSeqOfflineFPvPv(u32, int, void *);
 u32 __nw__7TObjectFUl(int);
 s32 get_selected_menu_value(int);
@@ -228,12 +228,12 @@ void init_logo_state__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     single_ply_quest_download_server = 0xFFFF;
 }
 void noop__23TAdSinglePlyChrSelectGCFv(void) {  }
-void free_buffer__23TAdSinglePlyChrSelectGCFPv(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { safe_free__23TAdSinglePlyChrSelectGCFUl(*(void**)((char*)p + 0x20)); *(int*)((char*)p + 0x20) = 0; *(int*)((char*)p + 0x1c) = 0; } }
-void clear_buffer(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { memset(*(void**)((char*)p + 0x20), (void*)0, *(void**)((char*)p + 0x1c)); } }
-void alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x20) == 0U) {
-        *(s32 *)((s8 *)arg0 + 0x1C) = 0x16000;
-        *(u32 *)((s8 *)arg0 + 0x20) = alloc__22TQuestVmDownLoadServerFv(*(s32 *)((s8 *)arg0 + 0x1C));
+void TUnk_804EF8C0::free_buffer() { if (*(unsigned int*)((char*)this + 0x20) != 0) { safe_free__23TAdSinglePlyChrSelectGCFUl(*(void**)((char*)this + 0x20)); *(int*)((char*)this + 0x20) = 0; *(int*)((char*)this + 0x1c) = 0; } }
+void TUnk_804EF8C0::clear_buffer() { if (*(unsigned int*)((char*)this + 0x20) != 0) { memset(*(void**)((char*)this + 0x20), (void*)0, *(void**)((char*)this + 0x1c)); } }
+void TUnk_804EF8C0::alloc_download_buffer() {
+    if ((u32) *(u32 *)((s8 *)this + 0x20) == 0U) {
+        *(s32 *)((s8 *)this + 0x1C) = 0x16000;
+        *(u32 *)((s8 *)this + 0x20) = alloc__22TQuestVmDownLoadServerFv(*(s32 *)((s8 *)this + 0x1C));
     }
 }
 void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0) {
@@ -245,7 +245,7 @@ void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0) {
 int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
 void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0) {
-    if (is_visible__17TWindowSubComCardFv(arg0->f3c) != 0) {
+    if (is_visible__11TWindowMenuFv(arg0->f3c) != 0) {
         switch (get_selected_menu_value(arg0->f3c)) {
         case 0:
             arg0->f2c = 0;
@@ -606,7 +606,7 @@ u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
 void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void free_buffer__23TAdSinglePlyChrSelectGCFPv(void *);
+void free_buffer__13TUnk_804EF8C0Fv(void *);
 extern void* lbl_804EF8C0[];
 void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0);
 s32 TWindow__close(void *);
@@ -677,7 +677,7 @@ void TUnk_804EF8C0::run_task() {
 void *TAdSinglePlyChrSelectGC::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = (s32*)lbl_804EF8C0;
-        free_buffer__23TAdSinglePlyChrSelectGCFPv(this);
+        free_buffer__13TUnk_804EF8C0Fv(this);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -708,8 +708,8 @@ void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (p != NULL) {
         __ct__12TAdBackTxtGCFv(p, arg0);
     }
-    ((s32 (*)(void *))alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv)(arg0);
-    ((s32 (*)(void *))clear_buffer)(arg0);
+    ((s32 (*)(void *))alloc_download_buffer__13TUnk_804EF8C0Fv)(arg0);
+    ((s32 (*)(void *))clear_buffer__13TUnk_804EF8C0Fv)(arg0);
     TAdSinglePlyChrSelectGC::init_slots();
     return arg0;
 }

@@ -99,7 +99,7 @@ struct P_80142B3C { D_80142B3C *d0; s32 pad; };
 struct O_80142B3C { u8 pad[0xD8]; A_80142B3C *tab; struct { u32 x; R_80142B3C *r; } *tab2; };
 
 int set_field_d8__10TObjPlayerFl(void*);
-f32 get_speed__10TObjPlayerFv();
+f32 get_speed__13TUnk_804806E8Fv();
 void TObjEnePanarms__sub_800E2DE4(void *, int);
 s32 restore_actor_draw_lighting(s32);
 s32 setup_actor_draw_lighting();
@@ -110,7 +110,7 @@ void draw_motion_model_saving_joints(u8 *arg0);
 void apply_animation_transition(void *, s16);
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void advance_animation_playback(Anim_80143504 *a);
-void set_motion_interpolation_flag(void *);
+void set_motion_interpolation_flag__10TObjMotionFv(void *);
 s32 TBoss1Dragon__sub_80143960(void *, int);
 s32 draw_ginja_model_tree__10TObjPlayerFPv(s32, void *, f32);
 s32 draw_ginja_model__10TObjPlayerFl(s32, s32, f32);
@@ -296,7 +296,7 @@ f32 TObjPlayer::get_speed_or_default() {
     if (*(s32 *)((s8 *)this + 0xB0) & 4) {
         return (*(f32 *)&lbl_805DB168);
     }
-    return get_speed__10TObjPlayerFv();
+    return get_speed__13TUnk_804806E8Fv();
 }
 
 }
@@ -411,7 +411,7 @@ void apply_animation_transition(void *arg0, s16 idx) {
         self->mode = e->mode;
         self->frameCount = self->motion->frameCount;
         if (self->actionFlags & 0x20000000) {
-            set_motion_interpolation_flag(self);
+            set_motion_interpolation_flag__10TObjMotionFv(self);
         }
         if (self->flags & 0x80) {
             self->flags &= ~0x80;
@@ -448,7 +448,7 @@ void apply_animation_transition(void *arg0, s16 idx) {
             self->speed = self->blendSpeed;
         }
         if (self->actionFlags & 0x20000000) {
-            set_motion_interpolation_flag(self);
+            set_motion_interpolation_flag__10TObjMotionFv(self);
         }
     }
     self->currentAction = idx;
@@ -479,7 +479,7 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB168;
     *(s16 *)((s8 *)arg0 + 0xBC) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
     if (*(s32 *)((s8 *)arg0 + 0xB4) & 0x20000000) {
-        set_motion_interpolation_flag(arg0);
+        set_motion_interpolation_flag__10TObjMotionFv(arg0);
     }
 }
 

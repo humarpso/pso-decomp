@@ -23,7 +23,7 @@ extern "C" {
 
 void update_collide_flag__12TObjEneReconFPv(void *arg0);
 void set_flag2__12TObjEneReconFPv(void *arg0);
-void update_flag_0x444__12TObjEneReconFPv(void *arg0);
+void update_flag_0x444__12TObjEneReconFv(void *arg0);
 u32 move_with_wall_slide_commit__9TObjEneDDFfff();
 u32 TObjEneEpsilon__sub_800B92F8(void *, s32, void *, f32);
 
@@ -48,12 +48,12 @@ void set_flag2__12TObjEneReconFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) & 0xFFFFFFFD);
 }
 
-void update_flag_0x444__12TObjEneReconFPv(void *arg0) {
-    if (((VObj_8031DE2C *)arg0)->v102() != 0U) {
-        *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
+void TObjEneRecon::update_flag_0x444() {
+    if (((VObj_8031DE2C *)this)->v102() != 0U) {
+        *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) | 2);
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) & 0xFFFFFFFD);
+    *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) & 0xFFFFFFFD);
 }
 
 }

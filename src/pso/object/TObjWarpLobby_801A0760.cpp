@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/object/TObjWarpLobby.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -71,7 +73,7 @@ void TObjWarpLobby::open_lobby_menu() {
     }
     calc_window_size__17TWindowSubComCardFPv(*(s32 *)&this->m_cc);
     align_menu_entry_positions(*(s32 *)&this->m_cc);
-    ((TObjCityMainWarp *)(*(s32 *)&this->m_cc))->set_flag70_bit10();
+    ((TWindowSubComCardList *)(*(s32 *)&this->m_cc))->set_flag70_bit10();
     request_active_window_close();
 }
 
@@ -102,7 +104,7 @@ void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
         if (((u32) *(u32 *)((s8 *)arg0 + 0xB0) == 0U) && (is_idle__6TLobbyFv() != 0)) {
             ((TObjWarpLobby *)arg0)->open_lobby_menu();
         }
-        if (((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) && (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0xB0)))->is_visible() != 0)) {
+        if (((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) && (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0xB0)))->is_visible() != 0)) {
             temp_r31 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0xB0));
             if (*(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
                 queue_destruction__7TObjectFv(*(u32 *)((s8 *)arg0 + 0xB0));

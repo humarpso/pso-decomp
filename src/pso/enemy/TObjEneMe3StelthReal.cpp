@@ -99,8 +99,8 @@ struct RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal {
 
 extern "C" {
 s32 invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
-s32 setup_move_bounds__16TObjEneMe3StelthFPv(void *);
-s32 init_common__16TObjEneMe3StelthFPv(void *);
+s32 setup_move_bounds__16TObjEneMe3StelthFv(void *);
+s32 init_common__20TObjEneMe3StelthRealFv(void *);
 s32 TObjEneMe3Stelth__ct();
 extern s32 __vt__20TObjEneMe3StelthReal[];
 extern s32 lbl_805D2AFC;
@@ -162,8 +162,8 @@ u8 *TObjEneMe3StelthReal__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal *)&__vt__20TObjEneMe3StelthReal).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AFC;
     invoke_initialization_hook__9TObjEneDDFPv((void *) (arg0), (void *) (arg2));
-    setup_move_bounds__16TObjEneMe3StelthFPv((void *) (arg0));
-    init_common__16TObjEneMe3StelthFPv((void *) (arg0));
+    setup_move_bounds__16TObjEneMe3StelthFv((void *) (arg0));
+    init_common__20TObjEneMe3StelthRealFv((void *) (arg0));
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     ((VObj_18_be4a70 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
     return arg0;

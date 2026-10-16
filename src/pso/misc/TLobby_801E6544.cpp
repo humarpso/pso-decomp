@@ -2068,7 +2068,7 @@ int reset_state__9TCineCtrlFl(void*);
 int reset__9TCineCtrlFl(void*);
 int count_active_cards__17TWindowSubComCardFv(void);
 void * get_state__23TAdSinglePlyChrSelectGCFv();
-volatile unsigned long get_actor_section_id(int);
+volatile unsigned long get_actor_section_id__15TPlyPhotonChairFv(int);
 u32 create_timed_particle_emitter(void* v, s32 a, s32 b, s32 c);
 void set_flags__11TBoss4Type2FUl(void*, s32);
 s32 clear_flag_3__7TObjectFv(void *);
@@ -2137,7 +2137,7 @@ int load_memcard_file(void);
 int TLobby__sub_80197F74(void);
 s32 fn_80197FD0(void *, int);
 s32 get_dest_area__17TObjAreaWarpQuestFv(void *);
-s32 is_current_room__10TObjRoomIdFPv();
+s32 sub_801A1DDC__10TObjPlayerFv();
 int clear_counter__6TLobbyFv(void);
 int clear_quest_state__6TLobbyFv(void*);
 int reset_quest_counter__6TLobbyFv(void*);
@@ -3194,7 +3194,7 @@ void store_player_section_id__6TLobbyFv(void) {
   temp_r31 = (u8) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7C5C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 4)));
   if (temp_r3 != 0U)
   {
-    *((s32 *) (((s8 *) ((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC))) + 0)) = get_actor_section_id((int) temp_r3);
+    *((s32 *) (((s8 *) ((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC))) + 0)) = get_actor_section_id__15TPlyPhotonChairFv((int) temp_r3);
     return;
   }
   *((s32 *) (((s8 *) ((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC))) + 0)) = -1;
@@ -5858,7 +5858,7 @@ void apply_to_player_by_client_id_b__6TLobbyFi(s32 arg0) {
 void TLobby__sub_801EBCA0(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)))))), (int)((int)((int)((int) ((*(s32 *)&TLobby__script_reg_array)))))));
-    if ((temp_r3 != 0) && (is_current_room__10TObjRoomIdFPv() != 0)) {
+    if ((temp_r3 != 0) && (sub_801A1DDC__10TObjPlayerFv() != 0)) {
         draw_small_label__15TFontSmallLobbyFi((int) (temp_r3));
     }
 }
@@ -5880,7 +5880,7 @@ void TLobby__sub_801EBCA0(s32 arg0) {
 void TLobby__sub_801EBCF0(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array))))));
-    if ((temp_r3 != 0) && (is_current_room__10TObjRoomIdFPv() != 0)) {
+    if ((temp_r3 != 0) && (sub_801A1DDC__10TObjPlayerFv() != 0)) {
         TLobby__sub_801B1254((int) (temp_r3));
     }
 }

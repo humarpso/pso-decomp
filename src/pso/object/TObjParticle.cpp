@@ -55,7 +55,7 @@ extern "C" {
 void *__dt__12TObjParticleFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 f32 xyz_distance_squared(void *, s32);
-void mask_object_set_row_flags(void *, int);
+void mask_object_set_row_flags__13TUnk_804B9870Fl(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern s32 camera_ctrl_instance;
@@ -100,7 +100,7 @@ void *__dt__12TObjParticleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjParticle;
         if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)arg0 + 0x90))); *(s32 *)((s8 *)arg0 + 0x90) = 0; }
-        mask_object_set_row_flags(arg0, -3);
+        mask_object_set_row_flags__13TUnk_804B9870Fl(arg0, -3);
         TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

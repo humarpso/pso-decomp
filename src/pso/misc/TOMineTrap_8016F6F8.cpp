@@ -362,7 +362,7 @@ void set_indexed_flags(void *, s32, s32);
 int refresh_collision_body_centers(void*);
 s32 access_object_saved_state(void*, s16 *, s32);
 void TOMineTrap__sub_8017070C(u8 *arg0);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2);
 u16 obj_getField1c(void *);
 void *get_player_data__10TObjPlayerFi(s32);
@@ -638,7 +638,7 @@ void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
         if (arg2 == 1) {
             TOMineTrap__sub_8017070C((u8 *)((void *) (arg0)));
         }
-        set_flag8__6TLobbyFPv((void *) (arg0));
+        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         access_object_saved_state((void*)((void *) (arg0)), (s16 *)((void *) (arg1)), (s32)((int) (0)));
         return;

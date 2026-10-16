@@ -1,4 +1,5 @@
 #include "pso/items/TItemWeapon.h"
+#include "pso/unk/TUnk_804A4948.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -16,6 +17,6 @@ u8 TItemWeapon::get_special_selector() {
     return special_selector;
 }
 
-void TItemWeapon::set_special_selector(u8 value) {
+void TUnk_804A4948::set_special_selector(u8 value) {
     special_selector = value;
 }

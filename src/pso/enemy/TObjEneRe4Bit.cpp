@@ -284,7 +284,7 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 clear_attack_receipts(void *);
 s32 transition_enemy_state(void *, s32);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
-void clear_state_flags_when_done__13TObjEneRe4BitFPv(u8 *arg0);
+void clear_state_flags_when_done__13TObjEneRe4BitFv(u8 *arg0);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 s32 transition_enemy_state(void *, s32);
 void update_homing_velocity__13TObjEneRe4BitFPv(Obj_800ED4BC *arg0);
@@ -756,7 +756,8 @@ void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2) {
     }
 }
 
-void clear_state_flags_when_done__13TObjEneRe4BitFPv(u8 *arg0) {
+void TObjEneRe4Bit::clear_state_flags_when_done() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x3CC);
     if (temp_r3 & 4) {
@@ -978,7 +979,7 @@ struct VObj_18_bcad77 : VBase_18_bcad77 {
 };
 
 extern "C" {
-void call_vt_90_91__18TObjEneRe4SorcererFPv(u8 *arg0);
+void call_vt_90_91__13TObjEneRe4BitFv(u8 *arg0);
 void invoke_state_callbacks__18TObjEneRe4SorcererFPv(u8 *arg0);
 }
 
@@ -997,7 +998,8 @@ void set_state_flags__18TObjEneRe4SorcererFPv(u8 *arg0);
 
 void set_flag3cc_bit2000__18TObjEneRe4SorcererFPv(void* p) { *(u32*)((char*)p + 0x3cc) |= 0x2000; }
 
-void call_vt_90_91__18TObjEneRe4SorcererFPv(u8 *arg0) {
+void TObjEneRe4Bit::call_vt_90_91() {
+    u8 *arg0 = (u8 *)this;
     ((VObj_18 *)(arg0))->m90();
     ((VObj_18 *)(arg0))->m91();
 }
@@ -1053,7 +1055,7 @@ int TObjEneRe4Sorcerer__sub_800ED498(u8 *arg0);
 
 extern "C" {
 
-void TObjEneRe4Sorcerer__sub_800ED408(void* p);
+void sub_800ED408__13TObjEneRe4BitFv(void* p);
 void TObjEneRe4Sorcerer__sub_800ED47C(void* p);
 void* get_spell_data__18TObjEneRe4SorcererFPv(void* p);
 s32 get_state__18TObjEneRe4SorcererFPv(void* p);
@@ -1066,7 +1068,7 @@ void set_flag_and_notify__18TObjEneRe4SorcererFPv(void *arg0) {
         ((s32 (*)())set_hold_flags__18TObjEneRe4SorcererFPv)();
     }
 }
-void TObjEneRe4Sorcerer__sub_800ED408(void* p) { *(u32*)((char*)p + 0x3cc) &= 0xfffffeff; }
+void TObjEneRe4Bit::sub_800ED408() { *(u32*)((char*)this + 0x3cc) &= 0xfffffeff; }
 void set_attack_flag__18TObjEneRe4SorcererFPv(void* p) { *(u32*)((char*)p + 0x3cc) |= 0x2; }
 
 void set_state_flag_and_mode__18TObjEneRe4SorcererFPvi(u8 *arg0, s32 arg1) {
@@ -1550,7 +1552,7 @@ void run_task__13TObjEneRe4BitFv(u8 *arg0) {
     }
     if ((((VObj_18_p4 *)(arg0))->m81() == 1) || (temp_r3 = *(s32 *)((s8 *)arg0 + 0x3CC), (((temp_r3 & 0x2000) == 0) != 0))) {
         ((VObj_18_p4 *)(arg0))->m83();
-        ((s32 (*)(void *))clear_state_flags_when_done__13TObjEneRe4BitFPv)((void *) (arg0));
+        ((s32 (*)(void *))clear_state_flags_when_done__13TObjEneRe4BitFv)((void *) (arg0));
     } else {
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (temp_r3 & 0xFFFFDFFF);
     }
@@ -1611,8 +1613,8 @@ void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
     self->x404 = 0;
     self->x408 = 0;
     self->x40C = 0;
-    ((int (*)(void *))TObjEneRe4Sorcerer__sub_800ED408)(self);
-    ((int (*)(void *))call_vt_90_91__18TObjEneRe4SorcererFPv)(self);
+    ((int (*)(void *))sub_800ED408__13TObjEneRe4BitFv)(self);
+    ((int (*)(void *))call_vt_90_91__13TObjEneRe4BitFv)(self);
     self->state = 0;
     self->m85(self->state, 4);
 }

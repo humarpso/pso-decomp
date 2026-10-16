@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjCityMainWarpChallenge.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/object/TObjCityMainWarp.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -138,7 +140,7 @@ s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor) {
 
 void TObjCityMainWarp__sub_80186AB8(void) {  }
 void TObjCityMainWarp::reset() { clear_enabled_main_warps(); update_main_warp_visible_mask((s32)(0)); }
-void TObjCityMainWarp::set_flag70_bit10() { *(u16*)((char*)this + 0x70) |= 0x10; }
+void TWindowSubComCardList::set_flag70_bit10() { *(u16*)((char*)this + 0x70) |= 0x10; }
 
 typedef char RecoveredGlobal_80186AF4_lbl_804FF800_size[sizeof(RecoveredGlobal_80186AF4_lbl_804FF800) == 0x20 ? 1 : -1];
 s32 *TObjCityMainWarp__sub_80186AF4(void) {
@@ -149,7 +151,7 @@ s32 TObjCityMainWarp::get_phase_flag() {
     return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;
 }
 
-s32 TObjCityMainWarp::are_all_players_in_range() {
+s32 TObjCityMainWarpChallenge::are_all_players_in_range() {
     Obj_80186B34 *arg0 = (Obj_80186B34 *)this;
     s32 r;
     s32 i;

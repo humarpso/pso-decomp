@@ -21,7 +21,7 @@ s32 TKeyBoardControl__sub_8000F9CC(s32);
 int TSaveChCr__sub_80339F30(void*);
 s32 TSaveChCr__sub_8033A138(void *);
 int close_and_advance__9TSaveChCrFPv(void*, int);
-s32 poll_memcard_status();
+s32 poll_memcard_status__9TSaveChCrFv();
 int queue_destruction__7TObjectFv(void*);
 s32 save_character__9TSaveChCrFv(void *);
 
@@ -34,7 +34,7 @@ void TSaveChCr::update_save_status() {
 
     if ((s32) this->timer <= 0) {
         this->m_28 = 0;
-        this->card_status = poll_memcard_status();
+        this->card_status = poll_memcard_status__9TSaveChCrFv();
         if ((s32) this->card_status != 0) {
             set_state((s32)((void*)(1)));
             return;

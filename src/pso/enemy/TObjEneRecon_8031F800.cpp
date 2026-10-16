@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
 
 struct Vec_8031F8C4 { f32 x, y, z; };
@@ -27,7 +28,7 @@ struct Recon_8031F8C4 {
 
 extern "C" {
 extern const f32 lbl_805DF44C;
-void TObjEneRecon__sub_8031F800(u8 *arg0);
+void sub_8031F800__14TObjEneRecoboxFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_8031F8C4 *, Vec_8031F8C4 *);
 void play_sound_effect(s32, void *, s32, s32);
 u32 create__12TObjEneReconFPvPvPvPvPv(void *, u16, s32, Vec_8031F8C4 *, Vec_8031F8C4 *);
@@ -46,7 +47,8 @@ extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjEneRecon__sub_8031F800(u8 *arg0) {
+void TObjEneRecobox::sub_8031F800() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     *(s32 *)((s8 *)arg0 + 0x3DC) = (s32) *(s32 *)((s8 *)arg0 + 0x368);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3DC) <= 0) {

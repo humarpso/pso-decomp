@@ -82,7 +82,7 @@ u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
 s32 lookup_item_pmt_record(void *);
-s32 fn_80117FEC(void *);
+s32 sub_80117FEC__14TItemProShieldFv(void *);
 extern s32 __vt__14TItemProShield[];
 extern s32 lbl_805D2C38;
 extern int TItemProShield__shield_table;
@@ -252,7 +252,7 @@ u8 *TItemProShield__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s8 *)((s8 *)arg0 + 0x199) = get_bswap16_field8__9TItemDataFPv(arg2);
     *(s32 *)((s8 *)arg0 + 0x19C) = 0;
     ((TItemEquipBase *)arg0)->set_equip_flag((int) (0x24));
-    fn_80117FEC((void *) (arg0));
+    sub_80117FEC__14TItemProShieldFv((void *) (arg0));
     return arg0;
 }
 

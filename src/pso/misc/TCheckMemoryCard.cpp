@@ -55,7 +55,7 @@ void TCheckMemoryCard::run_task() {
     Stack_8033C424 stack;
     u8 *temp_r6;
     *(s32 *)&this->m_3c = 0;
-    *(s32 *)&this->m_28 = ((TAdPlayerLoadGC *)arg0)->poll_memcard_status();
+    *(s32 *)&this->m_28 = ((TCheckMemoryCard *)arg0)->sub_8033BB14();
     if (*(s32 *)&this->m_28 & 1) {
         ((TWindowSubComCard *)arg0)->set_state((s32)((int) (0)));
     }

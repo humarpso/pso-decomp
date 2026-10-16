@@ -5,6 +5,9 @@
 
 struct TObjEneRecobox
 {
+    void sub_8031F800();
+    void sub_8031F6C0(s32);
+    void update_floor_probe();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

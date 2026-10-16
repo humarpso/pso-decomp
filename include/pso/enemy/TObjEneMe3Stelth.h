@@ -5,6 +5,15 @@
 
 struct TObjEneMe3Stelth
 {
+    void copy_pos_with_height_offset();
+    void setup_move_bounds();
+    f32 get_node_world_y();
+    u8 test_body_collision(s32, f32);
+    s32 sub_800F4850();
+    s32 is_angle_in_range();
+    u8 sub_800F47D4();
+    void sub_800F4758();
+    void sub_800F42B8(s32);
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

@@ -31,8 +31,8 @@ extern s32 lbl_8044F098[];
 extern "C" {
 
 void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1);
-s32 TWindowChat__sub_8025CB10(void *);
-s32 TWindowKeyBoardHard__sub_8025EB68();
+s32 sub_8025CB10__19TWindowKeyBoardBaseFv(void *);
+s32 sub_8025EB68__19TWindowKeyBoardBaseFv();
 s32 draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_8025E6DC(void *, s32);
 void __dl__7TObjectFPv(void *);
@@ -44,7 +44,7 @@ int update_fade__17TWindowSubComCardFv(void*);
 void TWindowKeyBoardBase::render() {
     s32 temp_r31;
 
-    if ((TWindowKeyBoardHard__sub_8025EB68() == 0) && ((TWindowChat__sub_8025CB10(this) != 0) || (this->m_62 & 2))) {
+    if ((sub_8025EB68__19TWindowKeyBoardBaseFv() == 0) && ((sub_8025CB10__19TWindowKeyBoardBaseFv(this) != 0) || (this->m_62 & 2))) {
         temp_r31 = TWindowDD::draw_default_entry((s32)this);
         if (this->m_62 & 2) {
             draw_window_frame(this, temp_r31);

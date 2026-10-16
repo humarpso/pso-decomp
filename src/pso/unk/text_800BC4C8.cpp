@@ -12,7 +12,7 @@ struct RecoveredGlobal_800BC4C8_lbl_804928CC {
 };
 
 extern "C" {
-s32 fn_800BC3E8(void *, void *);
+s32 sub_800BC3E8__13TUnk_804928CCFPUc(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_800BC4C8_lbl_804928A0 construct_collision_body_parts;
 extern RecoveredGlobal_800BC4C8_lbl_804928CC collision_body_vtable;
@@ -28,7 +28,7 @@ u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &collision_body_vtable.value;
     init_collision_body_parts((void *) (arg0), (void *) (&construct_collision_body_parts.value), (int) (1));
     if (arg2 != 0U) {
-        fn_800BC3E8((void *) (arg0), (void *) (arg2));
+        sub_800BC3E8__13TUnk_804928CCFPUc((void *) (arg0), (void *) (arg2));
     } else {
         *(s32 *)((s8 *)arg0 + 0xAC) = 0;
     }

@@ -6,6 +6,7 @@
 class TUnk_804C57F0 : public TObject {
 public:
     virtual ~TUnk_804C57F0();
+    void quad_sprite_reset_entries();
     virtual void render();
     u8 unk_1C[0x10];
 };

@@ -45,7 +45,7 @@ extern s32 lobby_player_count;
 void TAdVIConfigGC__vt5(void* p);
 void *VIGetDTVStatus(void *);
 void TAdVIConfigGC__vt4(void *arg0);
-void set_flag_4__9TObjLukerFv(void *);
+void set_flag_4__7TObjectFv(void *);
 s32 allow_rendering__7TObjectFv(u32);
 void disallow_rendering__7TObjectFv(void *);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFv(void *);
@@ -131,7 +131,7 @@ void update_visibility__13TAdVIConfigGCFPv(u8 *arg0) {
             allow_rendering__7TObjectFv((u32)(*(u8 **)((s8 *)arg0 + 0x24)));
             return;
         }
-        set_flag_4__9TObjLukerFv(temp_r3_2);
+        set_flag_4__7TObjectFv(temp_r3_2);
         disallow_rendering__7TObjectFv(*(u8 **)((s8 *)arg0 + 0x24));
     }
 }

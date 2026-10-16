@@ -144,10 +144,10 @@ void check_enemy_body_collisions(void *);
 s32 play_sound_effect(void *, void *, int, int);
 extern Parm_800D47B4 lbl_8043C464[];
 extern const f32 lbl_805DA2C0;
-void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0);
+void sub_800D47B4__19TObjGyaranzoMissileFv(Missile_800D47B4 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
-void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0);
+void sub_800D47B4__19TObjGyaranzoMissileFv(Missile_800D47B4 *arg0);
 Target_800D4990 *find_active_entity_by_id(u16);
 int direction_to_rotation_xy(void *, void *, void *);
 void check_enemy_body_collisions(void *);
@@ -235,7 +235,8 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     return arg0;
 }
 
-void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0) {
+void TObjGyaranzoMissile::sub_800D47B4() {
+    Missile_800D47B4 *arg0 = (Missile_800D47B4 *)this;
     void *owner;
     s32 i;
     Obj_800D47B4 *q;
@@ -300,7 +301,7 @@ void TObjGyaranzoMissile::run_task() {
     self->xCC += self->xD0;
     if (self->timer >= 10) {
         if (csnVector(&self->prev, &self->pos, -1) != 0) {
-            TObjGyaranzoMissile__sub_800D47B4((Missile_800D47B4 *)self);
+            sub_800D47B4__19TObjGyaranzoMissileFv((Missile_800D47B4 *)self);
             return;
         }
         Vec_800D4990 p = self->pos;
@@ -311,7 +312,7 @@ void TObjGyaranzoMissile::run_task() {
                 ((TObjPlayer *)self)->check_object_collisions();
                 check_enemy_body_collisions(self);
                 if (self->col->flags & 0x180000) {
-                    TObjGyaranzoMissile__sub_800D47B4((Missile_800D47B4 *)self);
+                    sub_800D47B4__19TObjGyaranzoMissileFv((Missile_800D47B4 *)self);
                     return;
                 }
             } else {
@@ -322,7 +323,7 @@ void TObjGyaranzoMissile::run_task() {
     }
     self->timer++;
     if (self->timer > gyaranzo_missile_volley_end_time) {
-        TObjGyaranzoMissile__sub_800D47B4((Missile_800D47B4 *)self);
+        sub_800D47B4__19TObjGyaranzoMissileFv((Missile_800D47B4 *)self);
     }
 }
 

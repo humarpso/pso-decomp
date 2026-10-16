@@ -6,6 +6,7 @@
 
 struct TShopGenerator : public TUnk_804B9870 {
     virtual ~TShopGenerator();
+    bool is_player_in_service_range(u8 *, f32);
     virtual void run_task();
     u32 m_90;
     u32 m_94;

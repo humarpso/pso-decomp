@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/object/TObjSeabedSuiso_CH.h"
 
 extern "C" {
 
@@ -156,11 +158,11 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 extern RecoveredGlobal_802A6438_lbl_804DD388 TObjSeabedSuisoBrakable__chip_record_set_table;
 extern const f32 lbl_805DDFFC;
-void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
+void sub_802A6438__23TObjSeabedSuisoBrakableFv(u8 *arg0);
 f32 fabs_float(f32);
 u8 * TORockCaveBrakable__ct(void *);
 s32 init_collision_body_parts(void *, int, int);
-void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
+void sub_802A6438__23TObjSeabedSuisoBrakableFv(u8 *arg0);
 RecoveredGlobal_802A6668_lbl_804DD6E8 lbl_804DD6E8 = { 0, { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0x20, 0x00, 0x00, 0x41, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0x20, 0x00, 0x00, 0x41, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0xA0, 0x00, 0x00, 0x41, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 } };
 extern void *__vt__23TObjSeabedSuisoBrakable[];
 extern s32 TObjSeabedSuisoBrakable__name;
@@ -239,7 +241,8 @@ void render__23TObjSeabedSuisoBrakableFv(void *arg0) {
 }
 
 typedef char RecoveredGlobal_802A6438_lbl_804DD388_size[sizeof(RecoveredGlobal_802A6438_lbl_804DD388) == 0x360 ? 1 : -1];
-void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0) {
+void TObjSeabedSuisoBrakable::sub_802A6438() {
+    u8 *arg0 = (u8 *)this;
     s32 *var_r3;
     f32 var_f0;
     u8 *var_r31;
@@ -329,7 +332,7 @@ u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) > 2) {
         *(s32 *)((s8 *)arg0 + 0xBC) = 2;
     }
-    TObjSeabedSuisoBrakable__sub_802A6438((u8 *)((void *) (arg0)));
+    sub_802A6438__23TObjSeabedSuisoBrakableFv((u8 *)((void *) (arg0)));
     *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
@@ -358,7 +361,7 @@ void *TObjSeabedSuisoBrakable::create(void *arg0) {
     return o;
 }
 
-void update_anim_if_active__23TObjSeabedSuisoBrakableFPv(void* p) { if (*(unsigned int*)((char*)p + 0xbc) != 0) { ((TOBarrierEnergy01 *)p)->update_anim_phase(); } }
+void update_anim_if_active__23TObjSeabedSuisoBrakableFPv(void* p) { if (*(unsigned int*)((char*)p + 0xbc) != 0) { ((TUnk_804AFBF8 *)p)->update_anim_phase(); } }
 
 extern s32 actor_frame_tick;
 extern s32 suiso_brakable_last_frame_tick;
@@ -466,7 +469,7 @@ void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0);
 
 extern "C" {
 
-void TObjSeabedSuisoBrakable::update_state() {
+void TObjSeabedSuiso_CH::update_state() {
     s32 temp_r0;
 
     temp_r0 = *(s32 *)((s8 *)this + 0xC8);
@@ -484,7 +487,7 @@ void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0) {
     void *p;
     if (((VObj *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         TParticleCtrl::end_effect_render();
-        ((TObjSeabedSuisoBrakable *)arg0)->update_state();
+        ((TObjSeabedSuiso_CH *)arg0)->update_state();
         ((s32 (*)(s32))get_instance__23TObjSeabedSuisoBrakableFv)(0);
         set_global_param__8TObjFishFl();
         push_matrix();
@@ -595,7 +598,7 @@ extern s32 TObjSeabedSuiso_CH__name;
 extern const f32 lbl_805DDFF8;
 #pragma push
 #pragma opt_propagation off
-void TObjSeabedSuisoBrakable::init_kind_params() {
+void TObjSeabedSuiso_CH::init_kind_params() {
     Obj_802A6BD0 *self = (Obj_802A6BD0 *)this;
     u32 v;
 
@@ -636,7 +639,7 @@ Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *self, s32 arg1, s32 arg2) {
     *(s32 **)((u8 *)self + 0x18) = (s32 *)__vt__18TObjSeabedSuiso_CH;
     *(s32 *)self = TObjSeabedSuiso_CH__name;
     self->m5(arg2);
-    ((TObjSeabedSuisoBrakable *)self)->init_kind_params();
+    ((TObjSeabedSuiso_CH *)self)->init_kind_params();
     self->kind = (s32)fabs_float((f32)self->f84);
     if (self->kind > 3) {
         self->kind = 3;

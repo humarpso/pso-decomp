@@ -5,6 +5,8 @@
 
 struct TLoadingCur
 {
+    int sub_8001CCD4();
+    void update_camera_facing_offset();
     u32 m_1c;
     void* m_20;
     u8 _pad24[0x8];

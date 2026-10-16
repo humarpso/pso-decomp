@@ -35,7 +35,7 @@ extern "C" {
 void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1);
 void run_task__13TUnk_8049F038Fv(u8 *arg0);
 u8 *vfunc_9__13TUnk_8049F038Fv(u8 *arg0);
-s32 set_item_count__6TLobbyFs(void *, s32);
+s32 set_item_count__13TUnk_804B9870Fs(void *, s32);
 s32 TLobby__sub_80103B04();
 s32 unregister_object_by_id(void *);
 u8 *get_player_by_client_id(u16);
@@ -71,7 +71,7 @@ void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
 s32 spawn_particle_effect(s32, s32);
 void *__nw__7TObjectFUl(int);
 struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
-s32 spawn_equip_particle_effect(void *, void *);
+s32 spawn_equip_particle_effect__13TItemEffEquipFl(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 retire_equipment_effect[];
 extern s32 TItemEffEquip__sub_801088F8[];
@@ -94,7 +94,7 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     self->x20 = 0;
     self->x24 = arg5;
     if (self->src != NULL) {
-        spawn_equip_particle_effect(arg0, arg4);
+        spawn_equip_particle_effect__13TItemEffEquipFl(arg0, arg4);
         TItemAttacker::spawn_item_timer((s32)arg0, (s32)TItemEffEquip__sub_801088F8, (s32)0xA);
         TItemAttacker::spawn_item_timer((s32)arg0, (s32)retire_equipment_effect, (s32)0x14);
     } else {
@@ -278,7 +278,7 @@ void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
             clear_obj_links(arg0);
             obj_getField1c(arg0);
             TLobby__sub_80103B04();
-            set_item_count__6TLobbyFs(arg0, 0xFFFF);
+            set_item_count__13TUnk_804B9870Fs(arg0, 0xFFFF);
         }
         ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
@@ -295,7 +295,7 @@ Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 
     self->f_B0 = b;
     fn_8002B630(self->sub, lbl_8043E1A0);
     if ((u16)obj_getField1c(self) == 0xFFFF) {
-        set_item_count__6TLobbyFs(self, pop_free_id__6TLobbyFv());
+        set_item_count__13TUnk_804B9870Fs(self, pop_free_id__6TLobbyFv());
     }
     initialize_linked_object_reference(self, self->sub);
     ((TObjPlayer *)self)->reset_photon_effect();

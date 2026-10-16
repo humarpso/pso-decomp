@@ -539,7 +539,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
             }
         case 2:
             advance_animation_playback(arg0);
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 arg0->timer = 0;
                 arg0->state = 3;
             }
@@ -623,7 +623,7 @@ void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+        if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
             *(s32 *)((s8 *)arg0 + 0x434) = 1;
         }
         ((VObj_18_8bca97 *)(arg0))->m100();
@@ -657,7 +657,7 @@ void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+        if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
             *(s32 *)((s8 *)arg0 + 0x434) = 1;
         }
         ((VObj_18_8bca97 *)(arg0))->m100();

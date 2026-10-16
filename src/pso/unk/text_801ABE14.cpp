@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -30,10 +31,10 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 init_collision_body_parts(void *, void *, int);
 s32 refresh_collision_body_centers(void *);
-s32 begin_photon_summon_camera(void *, int);
+s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
 s32 spawn_photon_blast_opening_effects(int, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
-void TObjPlayer__sub_801AB688(void *);
+void sub_801AB688__12TPhotonGollaFv(void *);
 void collect_hit_targets__12TPhotonGollaFPv(void *);
 s32 TPhotonMagicSquare__ct(int, void *, int, void *, int, f32);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
@@ -109,7 +110,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     *(s16 *)((s8 *)arg0 + 0x1B8) = 1;
     *(s32 *)((s8 *)arg0 + 0x1BC) = *(s32 *)((s8 *)arg1 + 0x10);
     *(s32 *)((s8 *)arg0 + 0x1C0) = *(s32 *)((s8 *)arg1 + 0x14);
@@ -134,14 +135,14 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x19C) = 0;
     collect_hit_targets__12TPhotonGollaFPv(arg0);
-    ((void (*)(void *, int)) TObjPlayer__sub_801AB688)(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
+    ((void (*)(void *, int)) sub_801AB688__12TPhotonGollaFv)(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
     if (*(s32 *)((s8 *)arg0 + 0x1C0) == 1) {
         *(s32 *)((s8 *)arg0 + 0x154) |= 1;
     }
     *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
     if (*(s32 *)((s8 *)arg0 + 0x1BC) == 0) {
-        ((TObjEnePanarms *)arg0)->set_field_b8(0);
-        begin_photon_summon_camera(arg0, 5);
+        ((TObjMotion *)arg0)->set_field_b8(0);
+        begin_photon_summon_camera__13TUnk_804C3248FSc(arg0, 5);
         *(s32 *)((s8 *)arg0 + 0x1BC) = 1;
         *(s16 *)((s8 *)arg0 + 0x1B8) = 0;
         *(s32 *)((s8 *)arg0 + 0x1C4) = 1;

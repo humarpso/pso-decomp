@@ -97,7 +97,7 @@ extern u32 door_vs2_shared_bml_archive;
 extern s32 *TODoorVS2Door01__texture_lists;
 u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void vfunc_18__15TODoorVS2Door01Fv(u8 *arg0);
-u8 is_open__15TODoorVS2Door01FPv(void *arg0);
+u8 is_open__15TODoorVS2Door01Fv(void *arg0);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
@@ -113,7 +113,7 @@ void play_proximity_sound__15TODoorVS2Door01Fv(u8 *arg0);
 void vfunc_17__15TODoorVS2Door01Fv(u8 *arg0);
 void vfunc_20__15TODoorVS2Door01Fv(void);
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1);
-u8 is_open__15TODoorVS2Door01FPv(void *arg0);
+u8 is_open__15TODoorVS2Door01Fv(void *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);
@@ -121,7 +121,7 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 is_in_view_depth();
+s32 is_in_view_depth__13TUnk_804AFBF8Ff();
 s32 mem_free(void*);
 s32 set_indexed_flags(void *, s32, s32);
 
@@ -167,11 +167,11 @@ void TODoorVS2Door01::play_proximity_sound() {
     }
 }
 
-u8 is_open__15TODoorVS2Door01FPv(void *arg0) {
+u8 TODoorVS2Door01::is_open() {
     int var_r31;
 
     var_r31 = 0;
-    if ((is_in_view_depth() != 0) || ((s32) *(s32 *)((s8 *)arg0 + 0xAC) != 0)) {
+    if ((is_in_view_depth__13TUnk_804AFBF8Ff() != 0) || ((s32) *(s32 *)((s8 *)this + 0xAC) != 0)) {
         var_r31 = 1;
     }
     return (u8) var_r31;
@@ -183,7 +183,7 @@ void TODoorVS2Door01::render() {
     Door_80163FB4 *self = (Door_80163FB4 *)this;
     Node_80163FB4 *n;
     f32 v;
-    if (self->m8(self->fC0, self->fC4) != 0 && ((s32 (*)(void *, f32))is_open__15TODoorVS2Door01FPv)(self, 30.0f) != 0) {
+    if (self->m8(self->fC0, self->fC4) != 0 && ((s32 (*)(void *, f32))is_open__15TODoorVS2Door01Fv)(self, 30.0f) != 0) {
         push_matrix();
         post_translate_matrix(self->mtx);
         rotate_matrix_y(0, self->f60);

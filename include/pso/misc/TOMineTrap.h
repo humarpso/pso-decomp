@@ -6,6 +6,7 @@
 
 struct TOMineTrap : public TOMine {
     virtual ~TOMineTrap();
+    void sub_80171348(s16);
     virtual int vfunc_12();
     virtual void run_task();
     u32 m_374;

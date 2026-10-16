@@ -6,6 +6,7 @@
 
 struct TWindowMessageYesNo : public TObject {
     virtual ~TWindowMessageYesNo();
+    s32 is_child_visible();
     u32 m_1c;
     u32 m_20;
     u32 m_24;

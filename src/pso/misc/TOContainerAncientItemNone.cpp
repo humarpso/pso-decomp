@@ -91,7 +91,7 @@ void *TOContainerAncientItemNone__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__26TOContainerAncientItemRareFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
 void TOContainerAncientItemNone::vfunc_6(s16 *arg1, s32 arg2) {
@@ -100,7 +100,7 @@ void TOContainerAncientItemNone::vfunc_6(s16 *arg1, s32 arg2) {
             ((VObj_8015BE34 *)this)->m77();
         }
         this->mode = 1;
-        set_flag8__6TLobbyFPv(this);
+        set_flag8__13TUnk_804AF8A0Fv(this);
         queue_destruction__7TObjectFv(this);
     }
 }

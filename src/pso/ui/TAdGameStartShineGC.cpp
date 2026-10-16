@@ -51,13 +51,13 @@ Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self);
 extern "C" {
 
 s32 set_cached_blend_factor(s32, s32);
-s32 render_status_box__20TWindowSubStatusDispFv(void *);
+s32 render_status_box__19TAdGameStartShineGCFv(void *);
 
 void TAdGameStartShineGC::render() {
     if ((TMainTask::get_state_flag() != 1) && ((s32) *(s32 *)((s8 *)this + 0x7C) != 0)) {
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        render_status_box__20TWindowSubStatusDispFv(this);
+        render_status_box__19TAdGameStartShineGCFv(this);
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
     }

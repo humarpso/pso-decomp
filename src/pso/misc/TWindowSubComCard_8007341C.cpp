@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -39,7 +40,7 @@ char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 fn_80071A9C(void *, void *, void *);
 u8 *get_player_by_client_id(s32);
-void set_position_xy(void *, f32, f32);
+void set_position_xy__13TUnk_804CDFE8Fff(void *, f32, f32);
 void send_and_handle__6TLobbyFii(void *, char *, s32);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
 void *get_window_layout_position(s32);
@@ -74,7 +75,7 @@ extern char lbl_805D9128[2];
 extern char lbl_805D912C[2];
 extern char lbl_805D9130[2];
 s32 get_camera_id__11TCameraCtrlFv();
-void set_position_xy(void *, f32, f32);
+void set_position_xy__13TUnk_804CDFE8Fff(void *, f32, f32);
 void send_and_handle__6TLobbyFii(void *, char *, s32);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
 void *get_window_layout_position(s32);
@@ -93,7 +94,7 @@ void TLobby__sub_800738F4(void *arg0, s32 arg1);
 
 extern "C" {
 
-int TWindowSubComCard::is_visible() { return (*(u16*)((char*)this + 0x70) >> 1) & 0x1; }
+int TWindowMenu::is_visible() { return (*(u16*)((char*)this + 0x70) >> 1) & 0x1; }
 typedef char RecoveredGlobal_800739BC_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800739BC_lbl_8048C9D8) == 0x748 ? 1 : -1];
 
 #define CHAL ((Chal_80073738 *)&challenge_mode_state)
@@ -168,7 +169,7 @@ void TLobby::open_challenge_window(s32 arg0, s32 arg1) {
     }
     ((TLobby *)win)->set_field_1c(lbl_805D9134);
     if (get_camera_id__11TCameraCtrlFv() >= 2) {
-        set_position_xy((*(Chal_8007369C *)&challenge_mode_state).window, lbl_805D9138, lbl_805D9138);
+        set_position_xy__13TUnk_804CDFE8Fff((*(Chal_8007369C *)&challenge_mode_state).window, lbl_805D9138, lbl_805D9138);
     }
     TAdSinglePlyChrSelectGC::format_challenge_stage_times((s32)(arg0), (s32)(arg1));
     send_and_handle__6TLobbyFii((*(Chal_8007369C *)&challenge_mode_state).window, challenge_progress_text_buffer, 0);
@@ -187,7 +188,7 @@ void TLobby::open_challenge_progress_window(void *arg1) {
     }
     ((TLobby *)win)->set_field_1c(lbl_805D9134);
     if (get_camera_id__11TCameraCtrlFv() >= 2) {
-        set_position_xy(CHAL->window, lbl_805D9138, lbl_805D9138);
+        set_position_xy__13TUnk_804CDFE8Fff(CHAL->window, lbl_805D9138, lbl_805D9138);
     }
     sprintf(challenge_progress_text_buffer, lbl_80438628, TQuestVmDownLoadServer__sub_8006EF6C(0x4F));
     rec = CHAL->recs;

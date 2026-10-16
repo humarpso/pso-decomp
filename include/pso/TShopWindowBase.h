@@ -6,6 +6,8 @@
 class TShopWindowBase : public TObject {
 public:
     virtual ~TShopWindowBase();
+    bool sub_80223A48();
+    u16 sub_8022397C();
     virtual void vfunc_6();
     virtual void vfunc_7();
     virtual void vfunc_8();

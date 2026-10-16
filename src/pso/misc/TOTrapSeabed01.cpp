@@ -163,7 +163,7 @@ f32 horizontal_distance_squared(void *, void *);
 f32 TObjPlayer__sub_8017A1A4(int, int);
 s32 send_6x2C_impose_hold(int, void *, int, int, f32);
 u32 get_player_by_client_id(u32);
-s32 fn_802C9C18(void *, int);
+s32 sub_802C9C18__14TOTrapSeabed01Fl(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 local_client_id;
 void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
@@ -180,7 +180,7 @@ u32 spawn_particle_effect(void *, int);
 s32 copy_transform__8TObjChipFPvPv(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__13TObjSuisoChipFv(void *, void *, void *);
-s32 fn_802C9C18(void *, int);
+s32 sub_802C9C18__14TOTrapSeabed01Fl(void *, int);
 s32 matrix_mult_vec(void *, void *, void *);
 s32 translate_matrix_vec3(void *, void *);
 s32 set_matrix_identity(void *);
@@ -204,10 +204,10 @@ void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0);
 s32 set_triggered_state__6TOTrapFPvUi(s32, s32, f32);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 fn_802C9D38();
+s32 sub_802C9D38__14TOTrapSeabed01Fv();
 
 void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0) {
-    fn_802C9D38();
+    sub_802C9D38__14TOTrapSeabed01Fv();
     set_triggered_state__6TOTrapFPvUi(arg0, arg1, farg0);
 }
 
@@ -242,7 +242,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
             set_position_xy__10TObjPlayerFff(lbl_805DE648, lbl_805DE648);
         }
     }
-    fn_802C9C18(self, 1);
+    sub_802C9C18__14TOTrapSeabed01Fl(self, 1);
 }
 
 s32 TOTrapSeabed01__vt65(Trap_802C9F70 *self) {
@@ -282,7 +282,7 @@ void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0) {
             } else if ((s32) *(u16 *)((s8 *)arg0 + 0x33C) == (s32) local_client_id) {
                 send_6x2C_impose_hold((int) (temp_r3), (void *) (arg0 + 0x38), (int) (-1), (int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x338)));
             }
-            fn_802C9C18((void *) (arg0), (int) (0));
+            sub_802C9C18__14TOTrapSeabed01Fl((void *) (arg0), (int) (0));
             return;
         }
         *(u16 *)((s8 *)arg0 + 0x33C) = 0xFFFFU;
@@ -702,7 +702,7 @@ void __dt__6TOTrapFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TOTrapSeabed01__vt82(void) {  }
 
@@ -813,8 +813,8 @@ void TOTrapSeabed01::vfunc_6(s16 *arg1, s32 arg2) {
             tmp = -1;
             *(s32 *)&this->m_358 = tmp;
         }
-        ((s32 (*)(void *))fn_802C9D38)(this);
-        set_flag8__6TLobbyFPv(this);
+        ((s32 (*)(void *))sub_802C9D38__14TOTrapSeabed01Fv)(this);
+        set_flag8__13TUnk_804AF8A0Fv(this);
         queue_destruction__7TObjectFv(this);
     }
 }

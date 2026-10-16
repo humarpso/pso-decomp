@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClaw.h"
 #include "pso/enemy/TObjEneBalClawClaw.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/player/TObjPlayer.h"
@@ -114,10 +115,10 @@ void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
                         ((TObjEneMe1GiGue *)arg0)->update_if_active(9);
                         break;
                     case 1:
-                        ((TObjEneBalClawClaw *)arg0)->clear_attack_flag();
+                        ((TObjEneBalClaw *)arg0)->clear_attack_flag();
                         break;
                     case 2:
-                        ((TObjPlayer *)arg0)->set_attack_distance_flag();
+                        ((TObjEneBalClaw *)arg0)->set_attack_distance_flag();
                         break;
                     }
                 }

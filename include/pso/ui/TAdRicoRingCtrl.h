@@ -6,6 +6,7 @@
 
 struct TAdRicoRingCtrl : public TObject {
     virtual ~TAdRicoRingCtrl();
+    void sub_8001B424(s32);
     virtual void render();
     u32 m_1c;
     u32 m_20;

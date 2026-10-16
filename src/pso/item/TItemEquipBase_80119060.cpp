@@ -26,7 +26,7 @@ void TItemEquipBase__sub_8011919C(int arg0);
 void TItemEquipBase__sub_801191D0(int arg0);
 void fn_80119204(int arg0);
 void notify_stealth_enemies_10(int arg0);
-s32 TObjEneMe3Stelth__sub_800F5864(u32, s32);
+s32 sub_800F5864__12TObjEneDD_STFl(u32, s32);
 u32 get_player_by_client_id(u16);
 
 typedef char RecoveredGlobal_80119060_lbl_80506228_size[sizeof(RecoveredGlobal_80119060_lbl_80506228) == 0x20 ? 1 : -1];
@@ -54,42 +54,42 @@ void TItemEquipBase::apply_equip_slot_effect(u16 arg0, u32 arg1) {
 void TItemEquipBase__sub_80119100(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        TObjEneMe3Stelth__sub_800F5864(temp, 0x20);
+        sub_800F5864__12TObjEneDD_STFl(temp, 0x20);
     }
 }
 
 void notify_stealth_enemies_10(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        TObjEneMe3Stelth__sub_800F5864(temp, 0x10);
+        sub_800F5864__12TObjEneDD_STFl(temp, 0x10);
     }
 }
 
 void TItemEquipBase__sub_80119168(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        TObjEneMe3Stelth__sub_800F5864(temp, 8);
+        sub_800F5864__12TObjEneDD_STFl(temp, 8);
     }
 }
 
 void TItemEquipBase__sub_8011919C(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        TObjEneMe3Stelth__sub_800F5864(temp, 4);
+        sub_800F5864__12TObjEneDD_STFl(temp, 4);
     }
 }
 
 void TItemEquipBase__sub_801191D0(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        TObjEneMe3Stelth__sub_800F5864(temp, 2);
+        sub_800F5864__12TObjEneDD_STFl(temp, 2);
     }
 }
 
 void fn_80119204(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        TObjEneMe3Stelth__sub_800F5864(temp, 1);
+        sub_800F5864__12TObjEneDD_STFl(temp, 1);
     }
 }
 

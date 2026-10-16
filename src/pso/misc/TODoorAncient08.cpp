@@ -107,7 +107,7 @@ struct Door_80160000 {
 
 extern "C" {
 s32 access_object_saved_state(void *, void *, int);
-s32 door_ancient08_sync_state(void *, void *);
+s32 door_ancient08_sync_state__15TODoorAncient08FPv(void *, void *);
 u8 is_current_floor_switch_set(int);
 void update_door_switch_state__15TODoorAncient08Fv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
@@ -172,7 +172,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 is_in_view_depth(void *, f32);
+s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 mem_free(void*);
 s32 get_main_phase();
 s32 is_split_screen();
@@ -262,7 +262,7 @@ void TODoorAncient08::update_door_switch_state() {
             this->m_d0 = (s32) (this->m_d0 | 1);
             if (((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;
-                door_ancient08_sync_state((void *) (arg0), (void *) (&sp8));
+                door_ancient08_sync_state__15TODoorAncient08FPv((void *) (arg0), (void *) (&sp8));
                 access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
             }
         }
@@ -343,7 +343,7 @@ void TODoorAncient08::render() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
 
-    if ((VCALL_m8(arg0) != 0) && (is_in_view_depth(arg0, lbl_805DB470) != 0)) {
+    if ((VCALL_m8(arg0) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB470) != 0)) {
         temp_r0 = *(s32 *)&this->unk_AC;
         switch (temp_r0) {
         case 1:

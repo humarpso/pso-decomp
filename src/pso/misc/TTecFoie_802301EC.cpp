@@ -14,11 +14,11 @@ struct Foie_802301EC { u8 pad[0x1C]; u32 owner; u8 pos[0xA6]; s16 band; u16 owne
 
 extern "C" {
 u16 obj_getField1c(void *);
-void play_foie_cast_sound(void *);
+void play_foie_cast_sound__8TTecFoieFv(void *);
 u8 * construct_aimed_technique_projectile(void *, s32, void *, void *, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 u16 obj_getField1c(void *);
-void play_foie_cast_sound(void *);
+void play_foie_cast_sound__8TTecFoieFv(void *);
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 extern s32 TTecFoie__name;
@@ -62,7 +62,7 @@ u8 *TTecFoie::construct_aimed(s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     }
     ((TTecFoie *)arg0)->init_projectile_params();
     ((TTecFoie *)arg0)->create_particle_emitters();
-    play_foie_cast_sound(arg0);
+    play_foie_cast_sound__8TTecFoieFv(arg0);
     return arg0;
 }
 u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
@@ -76,7 +76,7 @@ u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
     }
     ((TTecFoie *)arg0)->init_projectile_params();
     ((TTecFoie *)arg0)->create_particle_emitters();
-    play_foie_cast_sound(arg0);
+    play_foie_cast_sound__8TTecFoieFv(arg0);
     return arg0;
 }
 

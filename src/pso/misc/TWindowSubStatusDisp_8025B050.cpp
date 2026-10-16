@@ -29,10 +29,10 @@ void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
 void set_sprite_dimensions(void* p, f32 a, f32 b);
 void set_sprite_uv_bounds(void* p, f32 a, f32 b, f32 c, f32 d);
 s32 __dl__FPv(void *);
-s32 destroy__20TWindowSubStatusDispFPvs(void *, s16);
+s32 destroy__13TUnk_804CF930Fs(void *, s16);
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
-s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
+s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
 
 void *window_uv_sprite_part_vtable[6] = {
     0, 0,
@@ -134,7 +134,7 @@ void TWindowSubStatusDisp::update_palette_sprite() {  }
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
-        destroy__20TWindowSubStatusDispFPvs(arg0, 0);
+        destroy__13TUnk_804CF930Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -143,7 +143,7 @@ void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
 }
 
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
-    TWindowSubStatusDisp__sub_80256BDC((void *)((void *) (arg0)), (void *)((int) (arg2)));
+    sub_80256BDC__13TUnk_804CF930Fs((void *)((void *) (arg0)), (void *)((int) (arg2)));
     *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *) (arg1 + 4));
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x10))->copy_vec2((void *) (arg1 + 0xC));
@@ -160,7 +160,7 @@ u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2)
 }
 
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
-    TWindowSubStatusDisp__sub_80256BDC((void *)(arg0), (void *)((void *) (arg2)));
+    sub_80256BDC__13TUnk_804CF930Fs((void *)(arg0), (void *)((void *) (arg2)));
     *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *) (arg1 + 4));
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x10))->copy_vec2((void *) (arg1 + 0xC));

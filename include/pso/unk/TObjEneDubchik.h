@@ -6,6 +6,8 @@
 class TObjEneDubchik : public TObjEnemyCustom {
 public:
     virtual ~TObjEneDubchik();
+    s32 sub_800AB068();
+    f32 sub_800AAF78(s32);
     virtual void vfunc_59();
     virtual void vfunc_58();
     u8 unk_38C[0x90];

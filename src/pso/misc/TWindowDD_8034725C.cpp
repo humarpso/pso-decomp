@@ -56,7 +56,7 @@ extern const f32 lbl_805DFBEC;
 extern const f32 lbl_805DFC28;
 void TWindowDD__sub_80347E04(W_80347E04 *arg0, s32 arg1);
 s32 update_state__9TWindowDDFv(void *, u32, u16);
-E_80347CC8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+E_80347CC8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 refresh_status_display__9TWindowDDFv(void *);
 extern s32 local_client_id;
 extern u32 TWindowDD__work_buffer;
@@ -334,7 +334,7 @@ void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1) {
     update_state__9TWindowDDFv(arg1, TWindowDD__work_buffer, local_client_id);
     s = arg0->f70;
     if (s != NULL) {
-        e = get_array_entry__20TWindowSubStatusDispFi(s, 0);
+        e = get_array_entry__13TUnk_804CE018Fi(s, 0);
         if (e != NULL) {
             refresh_status_display__9TWindowDDFv(e);
             x = 10.0f + e->f10;

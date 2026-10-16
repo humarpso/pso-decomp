@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerJungEx.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/item/TObjContainerItem.h"
@@ -113,7 +114,7 @@ struct Obj_8018CFD4 { u8 pad[0x38]; Vec_8018CFD4 pos; };
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__6TLobbyFPv(void *);
+s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 void vfunc_6__19TObjContainerJungExFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
@@ -214,13 +215,13 @@ void TObjContainerJungEx::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj_18 *)(arg0))->m77();
-            ((TObjContainerItem *)arg0)->spawn_item((s32)((void *) (arg0)));
-            set_flag8__6TLobbyFPv((void *) (arg0));
+            ((TUnk_804B6C24 *)arg0)->spawn_item((s32)((void *) (arg0)));
+            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        set_flag8__6TLobbyFPv((void *) (arg0));
+        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         this->mode = 1;
     }

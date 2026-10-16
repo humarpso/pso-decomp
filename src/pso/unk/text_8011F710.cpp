@@ -114,7 +114,7 @@ extern const f32 lbl_805DAC98;
 void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 lookup_item_data__20TWindowSubStatusDispFv(void *);
 Item_8011F760 *get_weapon_range_record(void *, s32);
-s32 is_active_in_game__10TObjPlayerFv(void*);
+s32 is_active_in_game__11TItemWeaponFv(void*);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void play_weapon_owner_sounds(void*);
 u32 test_flags_1b8__10TObjPlayerFUl(void*,u32);
@@ -213,7 +213,7 @@ void TItemWeapon::dispatch_attack_marker() {
     WeaponMarkerPacket packet;
     WeaponVector gun_point;
     WeaponVector fallback_point;
-    if (is_active_in_game__10TObjPlayerFv(self) && !((TItemMag *)self)->get_flag_40() && reset_key_machine_state__10TObjPlayerFv()) {
+    if (is_active_in_game__11TItemWeaponFv(self) && !((TItemMag *)self)->get_flag_40() && reset_key_machine_state__10TObjPlayerFv()) {
         self->heading=self->player->heading;
         self->stage=((TItemWeapon *)self)->get_attack_stage();
         ((TObjPlayer *)(&packet))->reset_status_block();

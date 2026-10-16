@@ -6,6 +6,7 @@
 
 struct TWindowTimer : public TUnk_804CE018 {
     virtual ~TWindowTimer();
+    void ease_window_timer_position();
     virtual void render();
     virtual void run_task();
     u8 _pad1C[0x8];

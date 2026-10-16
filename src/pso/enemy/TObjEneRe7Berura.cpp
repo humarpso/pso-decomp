@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -1193,7 +1194,7 @@ void TObjEneRe7Berura::init_enemy() {
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)(*(u8 * *)&TObjEneRe7Berura__shared_resource) + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFv(arg0, TObjEneRe7Berura__stat_handle_table[TObjEneRe7Berura__data_80439DA8[0]],
         TObjEneRe7Berura__data_805007D4[TObjEneRe7Berura__data_80439DB0[0]],
         TObjEneRe7Berura__shared_object_handles[TObjEneRe7Berura__data_80439DB8[0]]);

@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/TBoss5GryphonLightningWing.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/TNowLoading.h"
 
 extern "C" {
 
-void update_wing_segments(u8 *arg0);
+void update_wing_segments__26TBoss5GryphonLightningWingFv(u8 *arg0);
 s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, int, int, void *, f32);
 int VecCopy__FP3VecPC3Vec(s32, s32, s32);
 
@@ -13,7 +14,8 @@ void TBoss8Dragon::copy_position(s32 arg1) {
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x20, arg0);
 }
 
-void update_wing_segments(u8 *arg0) {
+void TBoss5GryphonLightningWing::update_wing_segments() {
+    u8 *arg0 = (u8 *)this;
     eval_bezier_curve__12TBoss8DragonFPviiPvf((void *) (arg0 + 0x48), (int) (*(s32 *)((s8 *)arg0 + 0x90)), (int) (0), (void *) (arg0 + 0x20), (f32) (*(f32 *)((s8 *)arg0 + 0x88)));
     eval_bezier_curve__12TBoss8DragonFPviiPvf((void *) (arg0 + 0x48), (int) (*(s32 *)((s8 *)arg0 + 0x90)), (int) (0), (void *) (arg0 + 0x2C), (f32) (*(f32 *)((s8 *)arg0 + 0x8C)));
     if (*(void **)((s8 *)arg0 + 0x38) != 0) {

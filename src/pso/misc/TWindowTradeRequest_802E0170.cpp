@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowTradeRequest.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -85,7 +86,7 @@ void TWindowTradeRequest::run_task() {
             arg0->state = 3;
             break;
         }
-        if (((TWindowSubComCard *)(arg0->card))->is_child_visible() != 0) {
+        if (((TWindowMessageYesNo *)(arg0->card))->is_child_visible() != 0) {
             slot = ((TWindowSubComCard *)(arg0->card))->get_slot_or_neg1();
             if (slot == 0) {
                 TLobby::send_trade_proposal_modify();

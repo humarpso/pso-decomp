@@ -27,7 +27,6 @@ public:
     void approach_value();
     void*init_object(s32 _w1, void * _w2);
     u8 *create_instance();
-    s32 poll_memcard_status();
     static s32 get_or_set_channel_flag(s32 arg0, s32 arg1);
     static s32 get_load_state();
     static void step_set_attributes(s32 arg0);

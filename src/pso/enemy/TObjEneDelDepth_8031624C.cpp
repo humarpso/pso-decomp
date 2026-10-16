@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDelDepth.h"
 #include "pso/enemy/TObjEneDelDepthBomb.h"
 #include "pso/enemy/TObjEnePanarms.h"
@@ -161,7 +162,7 @@ void TObjEneDelDepth::set_motion(s32 arg1) {
         if (flag != 0) {
             ((TObjEnePanarms *)(self->obj))->init((void*)((s16)id));
         } else {
-            ((TObjEnePanarms *)(self->obj))->set_field_b8((s16)id);
+            ((TObjMotion *)(self->obj))->set_field_b8((s16)id);
         }
     } else if (id < 0xA) {
         s32 data = TObjEneDelDepth::get_data();

@@ -29,7 +29,7 @@ typedef struct List_801D4744 {
 } List_801D4744;
 
 extern "C" {
-u8 get_field_ec__12TOSwitchItemFv(void *, int);
+u8 get_field_ec__5TItemFv(void *, int);
 s32 is_item_equipped(void *, int);
 void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1);
 s8 TObjPlayer__sub_80102C30(void *);
@@ -143,7 +143,7 @@ int reset(void* p) { return memset(p, 0, 28); }
 s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
     if (((TItem *)arg0)->copy_to_item_data((void *) (arg1 + 8)) != 0) {
         *(s8 *)((s8 *)arg1 + 0) = TObjPlayer__sub_80102C30((void *) (arg0));
-        *(s32 *)((s8 *)arg1 + 4) = ((TObjPlayer *)arg0)->get_item_flags();
+        *(s32 *)((s8 *)arg1 + 4) = ((TItem *)arg0)->get_item_flags();
         return 1;
     }
     return 0;
@@ -153,9 +153,9 @@ void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1) {
     s32 temp_r4;
     u8 temp_r3;
     *arg0 = 0;
-    temp_r4 = get_field_ec__12TOSwitchItemFv((void *) (arg1), (int) (arg1)) << 0x19;
+    temp_r4 = get_field_ec__5TItemFv((void *) (arg1), (int) (arg1)) << 0x19;
     *arg0 |= temp_r4;
-    if (get_field_ec__12TOSwitchItemFv((void *) (arg1), (int) (temp_r4)) == 1) {
+    if (get_field_ec__5TItemFv((void *) (arg1), (int) (temp_r4)) == 1) {
         *arg0 |= (((TObjPlayer *)arg1)->get_field_ed() << 0x11) & 0x01FE0000;
     } else {
         *arg0 |= (((TObjPlayer *)arg1)->get_field_ed() << 8) & 0xFF00;

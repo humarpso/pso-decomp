@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdScrollWinGC.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 
@@ -11,7 +12,7 @@ s32 set_draw_texture_and_color(int, int);
 extern s32 scroll_win_texture_handle;
 extern const f32 lbl_805DF698;
 
-void TWindowSubStatusDisp::render_status_value() {
+void TAdScrollWinGC::render_status_value() {
     u8 *arg0 = (u8 *)this;
     begin_screen_draw((int) (1));
     TObjFish::set_global_param((s32)((void *) (scroll_win_texture_handle)));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneLappy.h"
@@ -216,13 +217,13 @@ struct VObj_18_b8f5cb : VBase_18_b8f5cb {
 };
 
 extern "C" {
-void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
+void sub_8004292C__15TObjEnemyCustomFv(u8 *arg0);
 s32 TObjEnemyCustom__ct(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D2740;
 u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern G_80042944 *volopt_monitor_resource_ptr;
-void TBoss3VoloptMonitor__sub_80042944(O_80042944 *self, s32 i);
+void sub_80042944__19TBoss3VoloptMonitorFl(O_80042944 *self, s32 i);
 s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
@@ -253,8 +254,8 @@ extern const f32 lbl_805D8740;
 extern const f32 lbl_805D8748;
 extern const f32 lbl_805D874C;
 extern const f32 lbl_805D8750;
-void TBoss3VoloptMonitor__sub_80042510(u8 *arg0);
-void TBoss3VoloptMonitor__sub_80042944(O_80042944 *self, s32 i);
+void sub_80042510__19TBoss3VoloptMonitorFv(u8 *arg0);
+void sub_80042944__19TBoss3VoloptMonitorFl(O_80042944 *self, s32 i);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(s32);
 s32 rotate_matrix_y(s32, s32);
@@ -272,7 +273,7 @@ void render__19TBoss3VoloptMonitorFv(void *arg0);
 s32 obj_testFlags30(void *, int);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 void TBoss3VoloptMonitor__sub_800420D8(void);
-void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
+void sub_8004292C__15TObjEnemyCustomFv(u8 *arg0);
 s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
 s32 scroll_ginja_mesh_uvs(int, int, int, int, int);
@@ -440,7 +441,7 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
     s32 hit;
     if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x02000000) && ((VObj_80041F6C *)arg0)->m8(lbl_805D8738, lbl_805D873C) != 0) {
         if (*(s32 *)((s8 *)arg0 + 0x30) & 0x800) {
-            TBoss3VoloptMonitor__sub_80042944((O_80042944 *)arg0, (&volopt_monitor_model_indices[*(s32 *)((s8 *)arg0 + 0x368)])[8]);
+            sub_80042944__19TBoss3VoloptMonitorFl((O_80042944 *)arg0, (&volopt_monitor_model_indices[*(s32 *)((s8 *)arg0 + 0x368)])[8]);
             v = 0x18;
         } else {
             hit = 0;
@@ -448,10 +449,10 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
                 hit = 1;
             }
             if (hit != 0) {
-                TBoss3VoloptMonitor__sub_80042944((O_80042944 *)arg0, (&volopt_monitor_model_indices[*(s32 *)((s8 *)arg0 + 0x368)])[4]);
+                sub_80042944__19TBoss3VoloptMonitorFl((O_80042944 *)arg0, (&volopt_monitor_model_indices[*(s32 *)((s8 *)arg0 + 0x368)])[4]);
                 v = *(s16 *)((s8 *)arg0 + 0x38E) + 0x10;
             } else {
-                TBoss3VoloptMonitor__sub_80042944((O_80042944 *)arg0, ((s32 (*)[4])volopt_monitor_model_indices)[0][*(s32 *)((s8 *)arg0 + 0x368)]);
+                sub_80042944__19TBoss3VoloptMonitorFl((O_80042944 *)arg0, ((s32 (*)[4])volopt_monitor_model_indices)[0][*(s32 *)((s8 *)arg0 + 0x368)]);
                 v = *(s16 *)((s8 *)arg0 + 0x38E);
                 if (*(s32 *)((s8 *)arg0 + 0x388) & 0x10000) {
                     v += 8;
@@ -556,9 +557,9 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
         }
     }
     if (var_r4 != 0) {
-        TBoss3VoloptMonitor__sub_8004292C(arg0);
+        sub_8004292C__15TObjEnemyCustomFv(arg0);
     } else {
-        ((TBoss3VoloptMonitor *)arg0)->set_flags_30();
+        ((TObjEnemyCustom *)arg0)->set_flags_30();
     }
     ((VObj_18_b8f5cb *)(arg0))->m53();
 }
@@ -595,7 +596,8 @@ void *TBoss3VoloptMonitor::create(void *arg0) {
     return o;
 }
 
-void TBoss3VoloptMonitor__sub_80042510(u8 *arg0) {
+void TBoss3VoloptMonitor::sub_80042510() {
+    u8 *arg0 = (u8 *)this;
     *(u8 **)((s8 *)arg0 + 0x350) = TBoss3VoloptMonitor__init_param_block;
     *(s16 *)((s8 *)volopt_monitor_boss_stats_ptr_a + 6) = fn_80042960(*(s16 *)((s8 *)arg0 + 0x38C) % 4 != 0);
     recalc_combat_stats__10TObjPlayerFv(arg0, volopt_monitor_boss_stats_ptr_a, volopt_monitor_boss_stats_ptr_b, volopt_monitor_object_handle, lbl_805D8748, lbl_805D8748);
@@ -692,10 +694,10 @@ u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2,
     *(s16 *)((s8 *)arg0 + 0x38C) = arg4;
     *(s32 *)((s8 *)arg0 + 0x368) = arg4 & 3;
     *(s16 *)((s8 *)arg0 + 0x33C) = arg5;
-    TBoss3VoloptMonitor__sub_80042510(arg0);
+    sub_80042510__19TBoss3VoloptMonitorFv(arg0);
     t = (arg4 / 4) * 0x3C;
     *(s32 *)((s8 *)arg0 + 0x60) = (s32)(lbl_805D8754 * (f32)t);
-    TBoss3VoloptMonitor__sub_80042944((O_80042944 *)arg0, volopt_monitor_model_indices[*(s32 *)((s8 *)arg0 + 0x368)]);
+    sub_80042944__19TBoss3VoloptMonitorFl((O_80042944 *)arg0, volopt_monitor_model_indices[*(s32 *)((s8 *)arg0 + 0x368)]);
     push_matrix();
     set_matrix_identity(0);
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -721,18 +723,20 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     *(s32 *)((s8 *)arg0 + 0x368) = 0;
     *(s16 *)((s8 *)arg0 + 0x33C) = 0;
-    TBoss3VoloptMonitor__sub_80042510((u8 *)((void *) (arg0)));
+    sub_80042510__19TBoss3VoloptMonitorFv((u8 *)((void *) (arg0)));
     init_collision_body_parts((void *) (arg0), (void *) (&TBoss3VoloptMonitor__collision_body_part_table.value), (int) (1));
-    TBoss3VoloptMonitor__sub_80042944((O_80042944 *)((void *) (arg0)), (s32)((int) (1)));
+    sub_80042944__19TBoss3VoloptMonitorFl((O_80042944 *)((void *) (arg0)), (s32)((int) (1)));
     return arg0;
 }
 
-void TBoss3VoloptMonitor::set_flags_30() { this->actorFlags |= 0x4040000; }
+void TObjEnemyCustom::set_flags_30() { this->actorFlags |= 0x4040000; }
 
-void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0) {
+void TObjEnemyCustom::sub_8004292C() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFBFBFFFF);
 }
-void TBoss3VoloptMonitor__sub_80042944(O_80042944 *self, s32 i) {
+void TBoss3VoloptMonitor::sub_80042944(s32 i) {
+    O_80042944 *self = (O_80042944 *)this;
     self->f34 = volopt_monitor_resource_ptr->entries[i].f8;
 }
 

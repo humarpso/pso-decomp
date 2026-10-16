@@ -4,7 +4,7 @@ extern "C" {
 
 int TChCrTagPlBack__vt4(void);
 int render__14TChCrTagPlBackFv(void* p);
-int draw_frame__16TObjCMAssignMenuFv(void*);
+int draw_frame__14TChCrTagPlBackFv(void*);
 void *__dt__8TChCrTagFv(void *self, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void update_fade__8TChCrTagFPv(void *);
@@ -12,7 +12,7 @@ void render_shadows__7TObjectFv(void *);
 void *__dt__14TChCrTagPlBackFv(void *self, s16 arg1);
 extern void *__vt__14TChCrTagPlBack[6];
 
-int render__14TChCrTagPlBackFv(void* p) { return draw_frame__16TObjCMAssignMenuFv(p); }
+int render__14TChCrTagPlBackFv(void* p) { return draw_frame__14TChCrTagPlBackFv(p); }
 int TChCrTagPlBack__vt4(void) { return 0; }
 void *__dt__14TChCrTagPlBackFv(void *self, s16 arg1) {
     if (self != NULL) {

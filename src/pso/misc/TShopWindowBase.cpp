@@ -16,7 +16,7 @@ struct RecoveredGlobal_80223A48_lbl_8050E208 {
 extern "C" {
 s32 obj_getField1c(void *);
 s32 TShopGenerator__sub_80222DAC(int);
-u16 TShopWindowBase__sub_8022397C(u8 *arg0);
+u16 sub_8022397C__15TShopWindowBaseFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
@@ -24,7 +24,7 @@ bool TShopWindowBase__sub_802239EC(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
-bool TShopWindowBase__sub_80223A48(u8 *arg0);
+bool sub_80223A48__15TShopWindowBaseFv(u8 *arg0);
 }
 
 extern "C" {
@@ -62,7 +62,8 @@ f32 TShopWindowBase::get_scale() {
     return lbl_805DC72C;
 }
 
-u16 TShopWindowBase__sub_8022397C(u8 *arg0) {
+u16 TShopWindowBase::sub_8022397C() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r3;
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x24);
     if (temp_r3 != 0U) {
@@ -90,7 +91,8 @@ bool TShopWindowBase__sub_802239EC(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_80223A48_lbl_8050E208_size[sizeof(RecoveredGlobal_80223A48_lbl_8050E208) == 0x1B0 ? 1 : -1];
-bool TShopWindowBase__sub_80223A48(u8 *arg0) {
+bool TShopWindowBase::sub_80223A48() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + (get_map_id__13TRaderMapCoreFPv((int) (*(s32 *)((s8 *)arg0 + 0x24))) * 0x50)) + 0x28) & 4) {
         return 1;
     }

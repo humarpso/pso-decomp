@@ -58,10 +58,10 @@ struct Cur_801D32A0 { u8 pad[0x28]; f32 x28; f32 x2c; f32 x30; u8 pad2[8]; f32 x
 struct Pl_801D32A0 { u8 pad[0x424]; void *cursor; };
 
 extern "C" {
-void TObjPlayer__sub_801BEE24(void* p, s16 v);
-void TObjPlayer__sub_801BEE24(void* p, s16 v);
-void TObjPlayer__sub_801BEE2C(void* p, s16 v);
-void TObjPlayer__sub_801BEE2C(void* p, s16 v);
+void sub_801BEE24__10TObjPlayerFs(void* p, s16 v);
+void sub_801BEE24__10TObjPlayerFs(void* p, s16 v);
+void sub_801BEE2C__10TObjPlayerFs(void* p, s16 v);
+void sub_801BEE2C__10TObjPlayerFs(void* p, s16 v);
 void bswap_32__FPUl(void *);
 void TObjPlayer__sub_801BEEE0(void* p, void* q);
 void TObjPlayer__sub_801BEEE0(void* p, void* q);
@@ -192,9 +192,9 @@ void TObjPlayer::set_meseta(s32 arg1) {
     *(s32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x20) = arg1;
 }
 
-void TObjPlayer__sub_801BEE24(void* p, s16 v) { *(s16*)((char*)p + 0x2be) = v; }
+void TObjPlayer::sub_801BEE24(s16 v) { *(s16*)((char*)this + 0x2be) = v; }
 
-void TObjPlayer__sub_801BEE2C(void* p, s16 v) { *(s16*)((char*)p + 0x2bc) = v; }
+void TObjPlayer::sub_801BEE2C(s16 v) { *(s16*)((char*)this + 0x2bc) = v; }
 
 void TObjPlayer::bswap_status_effect_data() {
     bswap_32__FPUl(this);

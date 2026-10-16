@@ -333,12 +333,12 @@ extern const f64 lbl_8043F550[];
 extern s32 local_client_id;
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
-void TObjNpcBase__sub_80149358(void *, s32);
-void TObjNpcBase__sub_80149360(void *, s32);
+void sub_80149358__11TObjNpcBaseFl(void *, s32);
+void sub_80149360__11TObjNpcBaseFl(void *, s32);
 extern const f32 lbl_805DB1B8;
 extern const f32 lbl_805DB1BC;
 extern const f32 lbl_805DB1C0;
-s32 fn_8010319C();
+s32 sub_8010319C__13TUnk_804AF8A0Fv();
 u32 get_player_by_client_id();
 s32 debug_printf_at(s32, const char *, ...);
 extern char lbl_8043F544[];
@@ -380,7 +380,7 @@ void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
 #define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
 
 void TObjNpcFemaleBase::debug_draw_talk() {
-    if ((fn_8010319C() != 0) && (((u32 (*)(u16))get_player_by_client_id)(this->m_94) != 0)) {
+    if ((sub_8010319C__13TUnk_804AF8A0Fv() != 0) && (((u32 (*)(u16))get_player_by_client_id)(this->m_94) != 0)) {
         debug_printf_at(0x1A0020, lbl_8043F544);
     }
 }
@@ -406,8 +406,8 @@ void TObjNpcBase::apply_set_params(s32 arg1, s32 arg2) {
     } else {
         *(s32 *)&this->m_3a4 = (s32) *(f32 *)((s8 *)arg0 + 0x35C);
     }
-    TObjNpcBase__sub_80149360(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x364));
-    TObjNpcBase__sub_80149358(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x360));
+    sub_80149360__11TObjNpcBaseFl(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x364));
+    sub_80149358__11TObjNpcBaseFl(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x360));
     this->m_384 = (s32) this->rotation_y;
     if ((s32) *(s32 *)&this->m_3ac > 0) {
         *(f32 *)&this->unk_398 = (f32) lbl_805DB1BC;

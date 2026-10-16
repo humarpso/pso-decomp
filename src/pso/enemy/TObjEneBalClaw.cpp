@@ -158,7 +158,7 @@ u8 *TObjEneBalClaw__ct(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000);
     *(s32 *)((s8 *)arg0 + 0x3B8) = 0;
     *(f32 *)((s8 *)arg0 + 0x3BC) = (f32) lbl_805D960C;
-    ((TObjEneBalClawClaw *)arg0)->clear_attack_flag();
+    ((TObjEneBalClaw *)arg0)->clear_attack_flag();
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x20000);
     return arg0;
 }
@@ -166,7 +166,7 @@ u8 *TObjEneBalClaw__ct(u8 *arg0) {
 void TObjEneBalClaw::vfunc_61() {  }
 void TObjEneBalClaw::vfunc_59() {  }
 s32 TObjEneBalClaw::vfunc_30() { return 0; }
-void TObjEneBalClawClaw::clear_attack_flag() { this->m_388 &= 0xfffeffff; }
+void TObjEneBalClaw::clear_attack_flag() { this->m_388 &= 0xfffeffff; }
 void TObjEneBalClawClaw__sub_8008DC14(void) {  }
 
 }

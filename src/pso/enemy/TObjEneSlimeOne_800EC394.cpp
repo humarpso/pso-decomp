@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/enemy/TObjEneSlimeWaterBomb.h"
 #include "pso/enemy/TObjEneSlimeOne.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -103,7 +105,7 @@ s32 TObjEneSlimeOne::is_in_water_bomb_states() {
 
 int TObjEneSlimeOne::get_instance() {  return slime_bml_resource; }
 
-int TObjEneSlimeOne::find_nearest_enemy_masked(f32 farg0) {
+int TObjEneSlimeWaterBomb::find_nearest_enemy_masked(f32 farg0) {
     u8 *arg0 = (u8 *)this;
     u16 temp_r3;
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x02000000);
@@ -284,7 +286,7 @@ void TObjEneSlimeOne::set_motion_state(s32 arg1) {
     }
     else
     {
-      ((TObjEnePanarms *)(arg0->obj))->set_field_b8(arg0->state);
+      ((TObjMotion *)(arg0->obj))->set_field_b8(arg0->state);
     }
     return;
   }

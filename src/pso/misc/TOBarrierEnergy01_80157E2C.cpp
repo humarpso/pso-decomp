@@ -5,12 +5,12 @@
 extern "C" {
 
 void vfunc_17__17TOBarrierEnergy01Fv(void *arg0);
-s32 update_anim_phase__17TOBarrierEnergy01Fv();
+s32 update_anim_phase__13TUnk_804AFBF8Fv();
 
 extern s32 *TOBarrierEnergy01__texture_lists;
 
 void TOBarrierEnergy01::vfunc_17() {
-    update_anim_phase__17TOBarrierEnergy01Fv();
+    update_anim_phase__13TUnk_804AFBF8Fv();
     ((TOBarrierEnergy01 *)this)->play_ambient_loop_sound();
     if (!(this->m_d0 & 1)) {
         *(s32 *)&this->unk_AC = 3;

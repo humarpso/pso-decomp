@@ -5,6 +5,7 @@
 
 struct TObjEneDD
 {
+    int get_flag_b4();
     u8 _pad1C[0x14];
     u32 m_30;
     u8 _pad34[0x4];
@@ -27,7 +28,6 @@ struct TObjEneDD
     u32 m_380;
     u32 m_384;
     u32 m_388;
-    int was_hit_by_ranged();
     static f32 calc_elapsed_scaled();
     void init_float_params();
     void update_velocity();
@@ -85,7 +85,6 @@ struct TObjEneDD
     static void create_instance();
     static int get_enemy_count();
     void handle_state(s32 arg1);
-    void dispatch_action(s32 arg1);
     static void noop();
     void state_damaged(s32 arg1);
     void state_chase_target(s32 arg1);

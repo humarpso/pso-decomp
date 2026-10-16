@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
 
 struct Stack_8031EE54 {
@@ -60,7 +61,7 @@ u16 TObjEneRecon::alloc_child_id() {
 }
 #pragma pop
 
-void TObjEneRecon::update_floor_probe() {
+void TObjEneRecobox::update_floor_probe() {
     u8 *arg0 = (u8 *)this;
     Stack_8031EE54 stack;
     u8 *temp_r3;

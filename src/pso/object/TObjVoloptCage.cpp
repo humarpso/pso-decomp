@@ -138,7 +138,7 @@ void obj_clear_flag30_20000(void *arg0);
 void obj_set_flag_20000(void *arg0);
 s32 update_breakup__14TObjVoloptCageFv();
 s32 update_collision_state__14TObjVoloptCageFv();
-s32 TObjVoloptCage__sub_80049000();
+s32 sub_80049000__14TObjVoloptCageFv();
 s32 obj_clearFlags30(void *, s32);
 s32 obj_setFlags30(void *, s32);
 s32 update_capture__14TObjVoloptCageFPv();
@@ -149,7 +149,7 @@ void TObjVoloptCage::update_state() {
     temp_r0 = this->mode;
     switch (temp_r0) {
     case 7:
-        TObjVoloptCage__sub_80049000();
+        sub_80049000__14TObjVoloptCageFv();
         return;
     case 1:
         update_capture__14TObjVoloptCageFPv();

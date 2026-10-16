@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TShopEquipmentSellWindow.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/item/TItem.h"
@@ -167,10 +168,10 @@ void *get_owner_if_alive__10TObjPlayerFv(u32);
 s32 get_shop_text(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 int TShopWindowBase__sub_802239EC(void *);
-int TShopWindowBase__sub_80223A48(void *);
+int sub_80223A48__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
-s32 set_position_xy(u32, f32, f32);
+s32 set_position_xy__13TUnk_804CDFE8Fff(u32, f32, f32);
 void TWindowHelpItem__set_displayed_item_by_id(void *arg0, s32 arg1);
 void *__ct__18TWindowInputNumberFPvllls(void *, s32, s32, s32, s32, s16);
 s32 align_menu_entry_positions(u32);
@@ -198,7 +199,7 @@ void *__dt__24TShopEquipmentSellWindowFv(void *arg0, s16 arg1);
 u32 create_window_menu(s32, s32, u16);
 s32 get_shop_text(s32);
 int TShopWindowBase__sub_802239EC(void *);
-int TShopWindowBase__sub_80223A48(void *);
+int sub_80223A48__15TShopWindowBaseFv(void *);
 s32 align_menu_entry_positions(u32);
 s32 calc_window_size__17TWindowSubComCardFPv(u32);
 s32 get_window_layout_position(s32);
@@ -211,7 +212,7 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 void memset(void *, int, int);
 s32 obj_getField1c(s32);
 int set_field_20__12TQuestListVMFl(void *, int);
-s32 set_position_xy(u32, f32, f32);
+s32 set_position_xy__13TUnk_804CDFE8Fff(u32, f32, f32);
 
 void TShopEquipmentSellWindow::vfunc_7() {
     struct VObj_8021C870 *o = (struct VObj_8021C870 *)*(void **)((s8 *)this + 0x388);
@@ -229,7 +230,7 @@ void TShopEquipmentSellWindow::vfunc_6() {
 
 s32 TShopEquipmentSellWindow::update() {
     VObj_8021C8E0_8021C870 *o = (VObj_8021C8E0_8021C870 *)this;
-    if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
+    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
         o->m4(0xc, 1);
         set_field_20__12TQuestListVMFl((void *)(this), (int)(5));
     }
@@ -238,7 +239,7 @@ s32 TShopEquipmentSellWindow::update() {
 void TShopEquipmentSellWindow::handle_sell_confirm() {
     Win_8021C968 *w = (Win_8021C968 *)this;
     s32 r;
-    if (w->card != NULL && ((TWindowSubComCard *)(w->card))->is_visible() != 0) {
+    if (w->card != NULL && ((TWindowMenu *)(w->card))->is_visible() != 0) {
         r = get_selected_menu_value(w->card);
         if (r == 0) {
             s32 i = select_cursor_entry__6TLobbyFv(w->list);
@@ -283,7 +284,7 @@ void TShopEquipmentSellWindow::handle_input_window_result() {
             align_menu_entry_positions(*(u32 *)((s8 *)this + 0x390));
             ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x390)))->set_ready_flag();
             temp_f31 = get_scale__15TShopWindowBaseFv(this);
-            set_position_xy(*(u32 *)((s8 *)this + 0x390), get_scale__15TShopWindowBaseFv(this), temp_f31);
+            set_position_xy__13TUnk_804CDFE8Fff(*(u32 *)((s8 *)this + 0x390), get_scale__15TShopWindowBaseFv(this), temp_f31);
         }
         *(s32 *)((s8 *)this + 0x37C) = ((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)this + 0x394)))->get_result();
         TWindow__close((void *)(*(u32 *)((s8 *)this + 0x394)));
@@ -334,7 +335,7 @@ void TShopEquipmentSellWindow::handle_selection() {
         play_sound_effect(0x52D01, 0, 0, 0);
         return;
     }
-    if (TShopWindowBase__sub_80223A48(w) != 0) {
+    if (sub_80223A48__15TShopWindowBaseFv(w) != 0) {
         w->f37c = 1;
         i = select_cursor_entry__6TLobbyFv(w->list_win);
         if (w->entries[i].item.b[0] == 3) {
@@ -359,7 +360,7 @@ void TShopEquipmentSellWindow::handle_selection() {
             calc_window_size__17TWindowSubComCardFPv(w->menu_win);
             align_menu_entry_positions(w->menu_win);
             ((TCheckRoomSequence *)(w->menu_win))->set_ready_flag();
-            set_position_xy(w->menu_win, get_scale__15TShopWindowBaseFv(w), get_scale__15TShopWindowBaseFv(w));
+            set_position_xy__13TUnk_804CDFE8Fff(w->menu_win, get_scale__15TShopWindowBaseFv(w), get_scale__15TShopWindowBaseFv(w));
             set_field_20__12TQuestListVMFl(w, 2);
         }
     }

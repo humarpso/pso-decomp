@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -53,7 +54,7 @@ void TUnk_80493450::vfunc_97() {  }
 void TUnk_80493450::vfunc_98() {  }
 void TUnk_80493450::vfunc_101() {  }
 u16 get_enemy_target_id(void* p) { return *(u16*)((char*)p + 0x338); }
-void TObjPlayer::release_destroyed_target() {
+void TObjEnemyCustom::release_destroyed_target() {
     O_800C6A18 *self = (O_800C6A18 *)this;
     if (self->p != 0 && (self->p->flags & 0x800)) {
         self->p = 0;

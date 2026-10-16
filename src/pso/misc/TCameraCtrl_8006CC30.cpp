@@ -905,7 +905,7 @@ void TCameraCtrl::update_follow_flags() {
     } else {
         arg0->flags &= ~4;
     }
-    if (((TCameraCtrl *)arg0)->predict_obstruction() != 0) {
+    if (((TUnk_80488E00 *)arg0)->predict_obstruction() != 0) {
         if (is_split_screen() != 0) {
             src = &camera_ctrl_instance->split_positions[get_camera_mode__11TCameraCtrlFv()];
         } else {

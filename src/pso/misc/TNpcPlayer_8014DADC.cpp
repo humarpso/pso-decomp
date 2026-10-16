@@ -19,7 +19,7 @@ u32 get_npc_state__10TNpcPlayerFv(s32);
 s32 npc_counter_reset_if_reached(void *, s32, s32);
 s32 set_partner_counter(void *, s32, s32);
 u32 TNpcPlayer__sub_80152978(s32);
-void partner_request_physical_attack(u8 *arg0);
+void partner_request_physical_attack__10TNpcPlayerFv(u8 *arg0);
 u8 *find_active_entity_by_id(s32);
 u8 *get_state_ptr__10TObjPlayerFv(void *);
 void reset_partner_counter(void *, s32);
@@ -33,7 +33,7 @@ void init_6x44_attack_packet(void *);
 void init_6x43_attack_packet(void *);
 void set_field2__10TNpcPlayerFs(void *, s32);
 void set_field_0__10TNpcPlayerFs(void *, s32);
-void send_partner_attack_stage_request(Self_8014DC5C *self);
+void send_partner_attack_stage_request__10TNpcPlayerFv(Self_8014DC5C *self);
 }
 
 extern "C" {
@@ -78,7 +78,8 @@ void TNpcPlayer__sub_8014DC30(void) { TNpcPlayer__data_805D5864 = 1; }
 int TNpcPlayer__sub_8014DC3C(void* p) { return request_technique_cast__10TNpcPlayerFPvi(p); }
 
 typedef u16 (*GetState_8014DC5C)(void *);
-void send_partner_attack_stage_request(Self_8014DC5C *self) {
+void TNpcPlayer::send_partner_attack_stage_request() {
+    Self_8014DC5C *self = (Self_8014DC5C *)this;
     Msg_8014DC5C m0;
     Msg_8014DC5C m1;
     Msg_8014DC5C m2;
@@ -142,7 +143,8 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
 
 #pragma push
 #pragma scheduling off
-void partner_request_physical_attack(u8 *arg0) {
+void TNpcPlayer::partner_request_physical_attack() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r31;
     u32 temp_r3;
     temp_r31 = TNpcPlayer__sub_80152978(*(s32 *)((s8 *)arg0 + 0x78));
@@ -151,7 +153,7 @@ void partner_request_physical_attack(u8 *arg0) {
         set_partner_counter(arg0 + 0x5C, 1, 0);
     }
     npc_counter_reset_if_reached(arg0 + 0x5C, 1, 3);
-    send_partner_attack_stage_request((Self_8014DC5C *)(arg0));
+    send_partner_attack_stage_request__10TNpcPlayerFv((Self_8014DC5C *)(arg0));
 }
 #pragma pop
 

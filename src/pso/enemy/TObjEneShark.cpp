@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TUnk_80493450.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 #include "pso/enemy/TObjEneShark.h"
@@ -194,7 +195,7 @@ void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
 void vfunc_101__12TObjEneSharkFv(void);
 void set_param__12TObjEneLappyFl(void *, s32);
-void apply_clamped_mode_param__10TObjPlayerFPv(u8 *arg0);
+void apply_clamped_mode_param__12TObjEneSharkFv(u8 *arg0);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 extern s32 shark_render_node_index;
@@ -210,7 +211,7 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0);
 f32 fabs_float(f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9B10;
-s32 TObjPlayer__sub_800AB068(u8 *arg0);
+s32 sub_800AB068__14TObjEneDubchikFv(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
 void vfunc_96__12TObjEneSharkFv(s32 arg0);
@@ -358,7 +359,7 @@ void TObjPlayer__sub_800AAFF0(void* p, f32 v);
 
 extern s32 lbl_80491460[];
 
-s32 TObjPlayer__sub_800AB068(u8 *arg0);
+s32 sub_800AB068__14TObjEneDubchikFv(u8 *arg0);
 
 void TObjPlayer__sub_800AB1C8(u8 *arg0);
 
@@ -452,7 +453,8 @@ void TObjEneShark::vfunc_93() {
     }
 }
 
-void apply_clamped_mode_param__10TObjPlayerFPv(u8 *arg0) {
+void TObjEneShark::apply_clamped_mode_param() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x334);
@@ -735,7 +737,7 @@ struct Act_800AC318 { s32 a; s32 idx; f32 c; s32 d; };
 
 extern "C" {
 extern u32 shark_bml_resource;
-void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i);
+void sub_800AC9DC__12TObjEneSharkFl(O_800AC9DC *self, s32 i);
 extern s32 game_difficulty_selection;
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
@@ -1212,14 +1214,14 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->m79(arg2);
     ((TObjPlayer *)self)->init_position_vectors();
     self->f334 = self->f368;
-    apply_clamped_mode_param__10TObjPlayerFPv((u8 *)self);
-    TObjPlayer__sub_800AC9DC((O_800AC9DC *)self, self->f368);
+    apply_clamped_mode_param__12TObjEneSharkFv((u8 *)self);
+    sub_800AC9DC__12TObjEneSharkFl((O_800AC9DC *)self, self->f368);
     self->fD8 = TObjEneShark__action_table;
     ((TObjPlayer *)self)->set_field_d8((s32)(self->fD8));
     self->fDC = *(s32 *)(shark_bml_resource + 0x430);
     self->fB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->fB8);
-    ((TObjEnePanarms *)self)->set_field_b8(self->fB8);
+    ((TObjMotion *)self)->set_field_b8(self->fB8);
     init_collision_body_parts(self, lbl_80491608 + self->f334 * 0x2C, 1);
     bind_enemy_combat_stats(self, ((s32 *)TObjEneShark__resource_node)[self->f334], ((s32 *)TObjEneShark__resource_buf)[self->f334],
                             ((s32 *)shark_resource_data)[self->f334]);
@@ -1286,7 +1288,8 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
 extern "C" {
 void TUnk_80493450::vfunc_99() {  }
 
-void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i) {
+void TObjEneShark::sub_800AC9DC(s32 i) {
+    O_800AC9DC *self = (O_800AC9DC *)this;
     self->x34 = (*(G_800AC9DC * *)&shark_bml_resource)->tbl[i].x8;
     self->x24 = (*(G_800AC9DC * *)&shark_bml_resource)->tbl[i].xc;
 }

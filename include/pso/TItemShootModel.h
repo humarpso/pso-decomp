@@ -14,6 +14,8 @@ public:
 public:
     TItemShootModel(void* owner, const Vec* pos, const Vec* dir, f32 life);
     virtual ~TItemShootModel();
+    void sub_80129118(s32, s32);
+    s32 is_owner_alive();
     virtual void render();
 };
 

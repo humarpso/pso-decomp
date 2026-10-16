@@ -6,6 +6,7 @@ class TUnk_804DDD28 {
 public:
     u8 unk_0[0x8];
     virtual ~TUnk_804DDD28();
+    void sub_802A7318();
 };
 
 #endif

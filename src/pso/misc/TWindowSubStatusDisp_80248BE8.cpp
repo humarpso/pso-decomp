@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D0618.h"
+#include "pso/misc/TUnk_804CE7E8.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowDD.h"
@@ -83,7 +85,7 @@ void TWindowSubStatusDisp::handle_input() {
     u8 *temp_r29_2;
     u8 *temp_r29_3;
     temp_r31 = is_player_input_active((int) ((s32) this->m_20));
-    if ((((TWindowSubStatusDisp *)arg0)->get_flag() == 0) && (((TLobby *)arg0)->get_status_flag() == 0) && (fn_80244994((void *) (arg0)) != 0)) {
+    if ((((TUnk_804D0618 *)arg0)->get_flag() == 0) && (((TUnk_804D0618 *)arg0)->get_status_flag() == 0) && (fn_80244994((void *) (arg0)) != 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r29 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
@@ -103,7 +105,7 @@ void TWindowSubStatusDisp::handle_input() {
         }
         temp_r29_3 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
-            ((TWindowSubStatusDisp *)arg0)->sync_level_field();
+            ((TUnk_804CE7E8 *)arg0)->sync_level_field();
         }
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
             ((TWindowSubStatusDisp *)arg0)->set_flag4();

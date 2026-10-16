@@ -280,7 +280,7 @@ void destroy_submenu__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void set_scale_f__15TWindowSubEquipFv(void *);
+void set_scale_f__15TWindowMainMenuFv(void *);
 void destroy_submenu__15TWindowMainMenuFPv(void *);
 s32 TWindowSubAreaMap__ct(int, void *, int);
 s32 TWindowSubComCard__ct(int, void *, int);
@@ -307,14 +307,14 @@ void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1);
 extern "C" {
 
 void *__nw__7TObjectFUl(int);
-void set_scale_f__15TWindowSubEquipFv(void *);
+void set_scale_f__15TWindowMainMenuFv(void *);
 void destroy_submenu__15TWindowMainMenuFPv(void *);
 void *construct_character_select_transition(void *, void *, void *);
 
 void TWindowMainMenu1P::create_char_select_slot() {
     void *o;
     destroy_submenu__15TWindowMainMenuFPv(this);
-    set_scale_f__15TWindowSubEquipFv(this);
+    set_scale_f__15TWindowMainMenuFv(this);
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
         o = construct_character_select_transition(o, this, *(void **)((s8 *)this + 0x54));
@@ -362,7 +362,7 @@ void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1) {
     s32 var_r0_9;
     *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (*(s32 *)((s8 *)arg0 + 0x4C) | 4);
     destroy_submenu__15TWindowMainMenuFPv((void *) (arg0));
-    set_scale_f__15TWindowSubEquipFv((void *) (arg0));
+    set_scale_f__15TWindowMainMenuFv((void *) (arg0));
     switch (arg1) {
     case 25:
         temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x2C)));

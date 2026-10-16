@@ -6,6 +6,7 @@
 class TUnk_804CCB28 : public TObject {
 public:
     virtual ~TUnk_804CCB28();
+    void spawn_rafoie_explosion_bursts();
     virtual void render();
     virtual void run_task();
     u8 unk_1C[0x18];

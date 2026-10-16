@@ -432,7 +432,7 @@ void obj_setFlags30(void *, s32);
 s32 is_split_screen();
 s32 get_current_floor();
 s32 queue_destruction__7TObjectFv(void *);
-s32 exchange_object_state__6TLobbyFls(void *, void *, int);
+s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 s32 set_flag_3__7TObjectFv(int);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
@@ -657,7 +657,7 @@ s32 update_and_send_enemy_hit_state(u8 *self, s32 kind) {
     s32 ret;
     ret = 0;
     if (*(u16 *)(self + 0x1C) >= 0x1000 && *(u16 *)(self + 0x1C) < 0x4000) {
-        exchange_object_state__6TLobbyFls(self, &pkt, 1);
+        exchange_object_state__9TObjEnemyFls(self, &pkt, 1);
         pkt.diff = *(s16 *)(self + 0x2B8) - *(s16 *)(self + 0x32C);
         pkt.id = *(s32 *)(self + 0x30);
         switch (kind) {
@@ -672,7 +672,7 @@ s32 update_and_send_enemy_hit_state(u8 *self, s32 kind) {
             pkt.bv = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(self, 3) / lbl_805DA8C4 - lbl_805DA8C8);
             break;
         }
-        ret = exchange_object_state__6TLobbyFls(self, &pkt, 0);
+        ret = exchange_object_state__9TObjEnemyFls(self, &pkt, 0);
         if (ret != 0) {
             send_6x0A_enemy_state(self, &pkt);
         }

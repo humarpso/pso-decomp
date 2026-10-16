@@ -6,6 +6,7 @@
 
 struct TWindowSubTechnique : public TObject {
     virtual ~TWindowSubTechnique();
+    s32 sub_80286AA8();
     u8 m_1c;
     u8 _pad1D[0x1];
     u16 m_1e;

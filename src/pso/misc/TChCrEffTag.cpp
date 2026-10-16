@@ -26,10 +26,10 @@ extern "C" {
 
 int restore_saved_depth_alpha_state(void);
 int draw_chcr_tag_heading_frame(void*);
-int draw_chcr_tag_frame(void*);
+int draw_chcr_tag_frame__11TChCrEffTagFv(void*);
 int set_depth_buffer_settings_1__Fv(void*);
 
-void TChCrEffTag::render() { set_depth_buffer_settings_1__Fv(this); draw_chcr_tag_frame(this); draw_chcr_tag_heading_frame(this); restore_saved_depth_alpha_state(); }
+void TChCrEffTag::render() { set_depth_buffer_settings_1__Fv(this); draw_chcr_tag_frame__11TChCrEffTagFv(this); draw_chcr_tag_heading_frame(this); restore_saved_depth_alpha_state(); }
 typedef char RecoveredGlobal_8029AA74_lbl_804652A4_size[sizeof(RecoveredGlobal_8029AA74_lbl_804652A4) == 0x34 ? 1 : -1];
 void TChCrEffTag::refresh_label() {
     u8 *arg0 = (u8 *)this;

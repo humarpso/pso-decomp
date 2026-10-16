@@ -7,7 +7,7 @@
 extern "C" {
 s32 get_camera_id__11TCameraCtrlFv(void);
 
-void get_array_entry__20TWindowSubStatusDispFi(void *, int);
+void get_array_entry__13TUnk_804CE018Fi(void *, int);
 s32 save_position__17TWindowSubComCardFPv(void *);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, s32 *, s16, void *);
 extern s32 lbl_804D0058[];
@@ -34,7 +34,7 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void set_sprite_uv_bounds(f32, f32, f32, f32);
 s32 fn_8026287C(void *);
-void get_array_entry__20TWindowSubStatusDispFi(void *, int);
+void get_array_entry__13TUnk_804CE018Fi(void *, int);
 int initialize_subwindow__9TWindowDDFv(void*);
 void queue_destruction__7TObjectFv(void *);
 int update_fade__17TWindowSubComCardFv(void*);
@@ -50,7 +50,7 @@ void *TWindowLoadItemTexture::create(void *arg1) {
     if (o != NULL) {
         o = TWindowLoadItemTexture__ct((void *)(o), (void *)(this), (void *)(lbl_8044F280), (void *)(arg1));
     }
-    get_array_entry__20TWindowSubStatusDispFi(o, 0);
+    get_array_entry__13TUnk_804CE018Fi(o, 0);
     set_sprite_uv_bounds(lbl_805DD0EC, lbl_805DD0EC, lbl_805DD0F4, lbl_805DD0F8);
     return o;
 }
@@ -108,7 +108,7 @@ void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3)
     *(f32 *)((s8 *)arg0 + 0x38) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)arg2 + 4);
     save_position__17TWindowSubComCardFPv(arg0);
-    e = ((void *(*)(void *, int))get_array_entry__20TWindowSubStatusDispFi)(arg0, 0);
+    e = ((void *(*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
     *(f32 *)((s8 *)e + 0x10) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)e + 0x14) = *(f32 *)((s8 *)arg2 + 4);
     *(s32 *)((s8 *)arg0 + 0x6C) = (s32)TItemTexLoad::create((TObject*)tl_07);

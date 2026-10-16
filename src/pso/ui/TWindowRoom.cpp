@@ -24,7 +24,7 @@ struct RoomTitleEntry {
 
 extern "C" {
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
-int get_array_entry__20TWindowSubStatusDispFi(void*, int);
+int get_array_entry__13TUnk_804CE018Fi(void*, int);
 s32 save_position__17TWindowSubComCardFPv(void *);
 void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
 void refresh_status_display__9TWindowDDFv(void *);
@@ -49,18 +49,18 @@ s32 set_text_entry_string(s32, s32, s32);
 s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
 s32 draw_default_entry__9TWindowDDFl();
-int get_array_entry__20TWindowSubStatusDispFi(void*, int);
+int get_array_entry__13TUnk_804CE018Fi(void*, int);
 int initialize_subwindow__9TWindowDDFv(void*);
 
 }
 
 void *TWindowRoom::get_title_entry() {
-    return (void *)get_array_entry__20TWindowSubStatusDispFi(this, 0);
+    return (void *)get_array_entry__13TUnk_804CE018Fi(this, 0);
 }
 
 extern "C" {
 void TWindowSubStatusDisp::set_entry_display_value(s32 arg1) {
-    set_text_entry_string(get_array_entry__20TWindowSubStatusDispFi((void*)(this), 0), arg1, 0x60);
+    set_text_entry_string(get_array_entry__13TUnk_804CE018Fi((void*)(this), 0), arg1, 0x60);
 }
 }
 
@@ -100,7 +100,7 @@ TWindowRoom::TWindowRoom(char *title) {
                                     (void *)get_window_layout_position(0xAF));
     objectVtable = __vt__11TWindowRoom;
     className = TWindowRoom__class_name;
-    entry = (RoomTitleEntry *)get_array_entry__20TWindowSubStatusDispFi(this, 0);
+    entry = (RoomTitleEntry *)get_array_entry__13TUnk_804CE018Fi(this, 0);
     set_text_entry_string((s32)entry, (s32)title, 0x60);
     refresh_status_display__9TWindowDDFv(entry);
     width = lbl_805DD2F0 + (entry->positionX + entry->width);

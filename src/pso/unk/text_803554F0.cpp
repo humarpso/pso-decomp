@@ -1,14 +1,16 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonTornado.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 extern "C" {
 s32 get_player_by_client_id(u32);
 extern const f32 lbl_805DFFA8;
-void fn_803554F0(u8 *arg0, u8 *arg1);
+void sub_803554F0__20TBoss5GryphonTornadoFPUc(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
 
-void fn_803554F0(u8 *arg0, u8 *arg1) {
+void TBoss5GryphonTornado::sub_803554F0(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
   unsigned short new_var;
   u16 temp_r3;
   u8 *temp_r3_2;

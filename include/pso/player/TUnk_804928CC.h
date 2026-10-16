@@ -6,6 +6,7 @@
 class TUnk_804928CC : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_804928CC();
+    void sub_800BC3E8(u8 *);
     virtual void vfunc_14();
     virtual s32 vfunc_15(void *, s32, void *, f32);
     virtual void vfunc_16(void *, void *);

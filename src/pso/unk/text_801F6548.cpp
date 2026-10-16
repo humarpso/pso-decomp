@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/TMCFormatSequence.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby.h"
@@ -119,7 +120,7 @@ void TMCFormatSequence::process_format_result() {
         this->m_24 = 3;
         return;
     }
-    if (((u32) *(u32 *)&this->m_38 != 0U) && (((TWindowSubComCard *)(*(u32 *)&this->m_38))->is_visible() != 0)) {
+    if (((u32) *(u32 *)&this->m_38 != 0U) && (((TWindowMenu *)(*(u32 *)&this->m_38))->is_visible() != 0)) {
         temp_r3 = get_selected_menu_value(*(u32 *)&this->m_38);
         if (temp_r3 == 0) {
             if (TAdPlayerLoadGC__sub_801E24F8(*(s32 *)((s8 *)this + 0x28), 0, 0, 0, 0) == 0) {

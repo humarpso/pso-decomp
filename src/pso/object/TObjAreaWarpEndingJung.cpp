@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/TObjWarpString.h"
 #include "pso/object/TObjMapWarpForest.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -753,7 +755,7 @@ void *TObjMapForceWarp__ct(void *arg0) {
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0xB4) != 0U) {
         disallow_rendering__7TObjectFv(*(void **)((s8 *)arg0 + 0xB4));
-        ((TObjLuker *)(*(u32 *)((s8 *)arg0 + 0xB4)))->set_flag_4();
+        ((TObject *)(*(u32 *)((s8 *)arg0 + 0xB4)))->set_flag_4();
     }
     return arg0;
 }
@@ -796,7 +798,7 @@ void TObjAreaWarpEnding::open_confirm_window(s16 arg1) {
         }
         calc_window_size__17TWindowSubComCardFPv(this->m_cc);
         align_menu_entry_positions(this->m_cc);
-        ((TObjCityMainWarp *)(this->m_cc))->set_flag70_bit10();
+        ((TWindowSubComCardList *)(this->m_cc))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(this->m_cc))->set_flag_40();
         *(s16 *)((s8 *)this + 0xB8) = arg1;
     }
@@ -1286,7 +1288,7 @@ void TObjAreaWarp::open_confirm_window(u16 arg1) {
         }
         calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)this + 0xB0));
         align_menu_entry_positions(*(u32 *)((s8 *)this + 0xB0));
-        ((TObjCityMainWarp *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag70_bit10();
+        ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag_40();
         *(u16 *)((s8 *)this + 0xB8) = arg1;
         temp_r3 = ((u32 (*)(s32))get_player_by_client_id)((s32)(*(u16 *)((s8 *)this + 0xB8)));

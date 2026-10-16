@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
@@ -12,6 +13,6 @@ int bswap_32__FPUl(void*);
 int TLobby__send_and_handle_60(void*);
 f64 floor();
 
-void TObjEnePanarms::set_field_b8(s16 v) { this->m_b8 = v; }
+void TObjMotion::set_field_b8(s16 v) { this->m_b8 = v; }
 
 }

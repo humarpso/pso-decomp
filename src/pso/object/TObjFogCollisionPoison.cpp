@@ -73,7 +73,7 @@ extern "C" {
 void *TObjFogCollisionPoison__sub_8015302C(void *arg0, s16 arg1);
 void TObjFogCollisionPoison__sub_801533BC(void);
 u8 is_current_floor_switch_set(u16);
-s32 TObjFogCollisionSwitch__sub_80153A0C();
+s32 sub_80153A0C__22TObjFogCollisionSwitchFv();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(s32);
@@ -237,7 +237,7 @@ void TObjFogCollisionPoison::vfunc_14() {
 u8 TObjFogCollisionPoison::check_switch() {
     s32 temp_r31;
 
-    temp_r31 = TObjFogCollisionSwitch__sub_80153A0C();
+    temp_r31 = sub_80153A0C__22TObjFogCollisionSwitchFv();
     return (u8) (temp_r31 == is_current_floor_switch_set((u16) *(s32 *)&this->unk_8C));
 }
 

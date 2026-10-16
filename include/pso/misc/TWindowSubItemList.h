@@ -5,6 +5,7 @@
 
 struct TWindowSubItemList
 {
+    void sub_8027ACF8(u8 *);
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x40];

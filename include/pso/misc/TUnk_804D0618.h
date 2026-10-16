@@ -6,6 +6,8 @@
 class TUnk_804D0618 : public TUnk_804CDFE8 {
 public:
     virtual ~TUnk_804D0618();
+    int get_flag();
+    int get_status_flag();
     u8 unk_1C[0x4];
     s16 m_20;
     u8 unk_22[0x4E];

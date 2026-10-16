@@ -12,7 +12,7 @@ s32 obj_isState2_324(void *);
 u16 obj_getField1c(void *);
 s32 check_flag__10TObjPlayerFl(void *, int);
 s32 reset_cameras_to_actor(void *, int);
-s32 is_current_room__10TObjRoomIdFPv(void *);
+s32 sub_801A1DDC__10TObjPlayerFv(void *);
 s32 is_single_screen__10TObjPlayerFv();
 s32 is_key_machine_ready__10TObjPlayerFv();
 s32 play_effect_default__10TObjPlayerFii(void *, int);
@@ -80,7 +80,7 @@ void TObjPlayer::place_on_area_entry() {
     clear_movement_history(arg0 + 0x6AC);
     if (is_single_screen__10TObjPlayerFv() != 0) {
         reset_cameras_to_actor(arg0, 0);
-    } else if (is_current_room__10TObjRoomIdFPv(arg0) != 0) {
+    } else if (sub_801A1DDC__10TObjPlayerFv(arg0) != 0) {
         if (is_locally_controlled__10TObjPlayerFPv(arg0) == 0 && (p = get_player_by_client_id(local_client_id)) != NULL) {
             reset_cameras_to_actor(p, 0);
         } else {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/object/TObjWarpJung.h"
 #include "pso/object/TObjWarpJungMain.h"
 #include "pso/TParticleCtrl.h"
@@ -210,7 +212,7 @@ void TObjWarpJungMain::render() {
 s32 TObjWarpJungMain__vt16(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB0));
-    if ((temp_r3 != NULL) && (((TWindowSubComCard *)temp_r3)->is_visible() != 0)) {
+    if ((temp_r3 != NULL) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
         *(s32 *)((s8 *)arg0 + 0xBC) = (s32) *(s32 *)((s8 *)(&jungle_warp_destination_ids.value) + (get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0xB0)) * 4));
         return 1;
     }
@@ -230,7 +232,7 @@ void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
         }
         calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0xB0));
         align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0xB0));
-        ((TObjCityMainWarp *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag70_bit10();
+        ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag70_bit10();
         ((TLobby *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_loss_flag();
         request_active_window_close();
         *(s16 *)((s8 *)arg0 + 0xB8) = arg1;

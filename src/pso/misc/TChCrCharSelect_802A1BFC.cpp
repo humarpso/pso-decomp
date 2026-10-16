@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TChCrTagInformation.h"
 #include "pso/TChCrCharSelect.h"
 #include "pso/TObjCMAssignMenu.h"
 
@@ -33,7 +34,7 @@ extern "C" {
 
     extern int TChCrCharSelect__input_mode;
 int TChCrCharSelect::get_selected_index() {  return TChCrCharSelect__input_mode; }
-void TObjCMAssignMenu::draw_char_info_sprites() {
+void TChCrTagInformation::draw_char_info_sprites() {
     Self_802A1C04 *self = (Self_802A1C04 *)this;
     f32 alpha;
     s32 c;

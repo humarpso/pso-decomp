@@ -7,6 +7,7 @@
 class TObjLiveCameraCtrl : public TObject {
 public:
     virtual ~TObjLiveCameraCtrl();
+    void sub_8030B818(int);
     virtual void run_task();
     u8 unknown_1c[0x18];
     f32 vector_34[3];

@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/misc/TPhotonEstlla.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void* TObjPlayer__sub_801AA66C(void* p, void* a1);
 void TObjPlayer__sub_801AA6E4(u8 *arg0, u8 *arg1);
-void TObjPlayer__sub_801AA6F8(void* a0);
+void sub_801AA6F8__13TPhotonEstllaFv(void* a0);
 s32 TObjPlayer__sub_801AA584(s32 arg0, s16 arg1);
 void* TObjPlayer__sub_801AA61C(void* p);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
@@ -21,6 +22,6 @@ void TObjPlayer__sub_801AA6E4(u8 *arg0, u8 *arg1) {
 }
 
     extern const float lbl_805DC138;
-void TObjPlayer__sub_801AA6F8(void* a0) { *(float*)((char*)a0 + 0x180) = lbl_805DC138; *(float*)((char*)a0 + 0x184) = lbl_805DC138; *(float*)((char*)a0 + 0x188) = lbl_805DC138; *(float*)((char*)a0 + 0x18c) = lbl_805DC138; }
+void TPhotonEstlla::sub_801AA6F8() { *(float*)((char*)this + 0x180) = lbl_805DC138; *(float*)((char*)this + 0x184) = lbl_805DC138; *(float*)((char*)this + 0x188) = lbl_805DC138; *(float*)((char*)this + 0x18c) = lbl_805DC138; }
 
 }

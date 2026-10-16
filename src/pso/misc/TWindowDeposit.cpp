@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDeposit.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -100,8 +101,8 @@ u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1) {
   sp8 = 0x43300000;
   temp_f31 = (f32) temp_r3_2;
   *((f32 *) (((s8 *) arg0) + 0x60)) = TWindowSubStatusDisp__sub_802877A4(lbl_805DCC60 + (lbl_805DCC64 + temp_f31));
-  temp_r30 = (u8 *) ((u8 *)((TWindowSubStatusDisp *)arg0)->get_array_entry((s32)(0)));
-  temp_r31 = (u8 *) ((u8 *)((TWindowSubStatusDisp *)arg0)->get_array_entry((s32)(1)));
+  temp_r30 = (u8 *) ((u8 *)((TUnk_804CE018 *)arg0)->get_array_entry((s32)(0)));
+  temp_r31 = (u8 *) ((u8 *)((TUnk_804CE018 *)arg0)->get_array_entry((s32)(1)));
   set_text_entry_string((int) temp_r30, (int) temp_r3, (int) 0);
   *((f32 *) (((s8 *) temp_r31) + 8)) = (f32) (lbl_805DCC60 + (lbl_805DCC64 + (lbl_805DCC68 + temp_f31)));
   *((f32 *) (((s8 *) arg0) + 0x38)) = TWindowSubStatusDisp::get_base_y(*((f32 *) (((s8 *) arg0) + 0x60)));

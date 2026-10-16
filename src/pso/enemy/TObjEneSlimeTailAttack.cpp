@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include <stddef.h>
 #include "pso/enemy/TObjEneSlimeOne.h"
 #include "pso/enemy/TObjEneSlimeWaterBomb.h"
@@ -402,7 +403,7 @@ f32 * dispatch_shared_handler_a__6TLobbyFl(s32);
 u8 * get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 exchange_object_state__6TLobbyFls(void *, void *, int);
+s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 void transform_to_view__11TCameraCtrlFii(s32, s32);
 u32 csnLookAt(void *, void *);
 s32 spawn_particle_effect(void *, int);
@@ -1263,7 +1264,7 @@ void *TObjEneSlimeTailAttack__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32
   ((TObjPlayer *)arg0)->set_field_dc(*((s32 *) (((s8 *) inst) + 0x430)));
   *((s16 *) (((s8 *) arg0) + 0xB8)) = 6;
   set_animation__10TObjPlayerFPvs((void *)(arg0), (s16)(*((s16 *) (((s8 *) arg0) + 0xB8))));
-  ((TObjEnePanarms *)arg0)->set_field_b8(*((s16 *) (((s8 *) arg0) + 0xB8)));
+  ((TObjMotion *)arg0)->set_field_b8(*((s16 *) (((s8 *) arg0) + 0xB8)));
   *((s32 *) (((s8 *) arg0) + 0x60)) = arg3;
   VecCopy__FP3VecPC3Vec(((u8 *) arg0) + 0x38, (void *) arg2);
   *((s32 *) (((s8 *) arg0) + 0x378)) = 1;
@@ -1295,7 +1296,7 @@ s32 water_bomb_hit_nearby(u8 *arg0) {
             hit = 1;
         }
     }
-    id2 = ((TObjEneSlimeOne *)arg0)->find_nearest_enemy_masked(lbl_805DA6A8);
+    id2 = ((TObjEneSlimeWaterBomb *)arg0)->find_nearest_enemy_masked(lbl_805DA6A8);
     if (id2 != 0xFFFF) {
         e2 = get_enemy_entity(id2);
         if (e2 != NULL && !(horizontal_distance_squared(arg0 + 0x2FC, (u8 *)e2 + 0x2FC) > lbl_805DA6A8)) {
@@ -2177,7 +2178,7 @@ void initialize_slime_instance_state(u8 *arg0) {
   ((TObjPlayer *)arg0)->set_field_d8((s32)(lbl_8049639C));
   ((TObjPlayer *)arg0)->set_field_dc(*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x380)))) + 0x430)));
   set_animation__10TObjPlayerFPvs(arg0, 0);
-  ((TObjEnePanarms *)arg0)->set_field_b8(0);
+  ((TObjMotion *)arg0)->set_field_b8(0);
   VecCopy__FP3VecPC3Vec(new_var = arg0 + 0x2FC, arg0 + 0x38);
   *((f32 *) (((s8 *) arg0) + 0x310)) = lbl_805DA6B4;
   *((f32 *) (((s8 *) arg0) + 0x30C)) = lbl_805DA6B4;
@@ -2222,10 +2223,10 @@ u8 *TObjEneSlimeOne__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneSlimeOne_class_name;
     ((TObjPlayer *)arg0)->add_flags_2e4((int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg3);
-    if (exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
+    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
         stack.sp8 = 0;
         stack.spE = 0;
-        exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
     }
     *(s32 *)((s8 *)arg0 + 0x3F0) = arg2;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3DC), (void *) (arg4));
@@ -2243,10 +2244,10 @@ u8 *init__15TObjEneSlimeOneFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneSlimeOne_class_name;
     ((TObjPlayer *)arg0)->add_flags_2e4((int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg3);
-    if (exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
+    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
         stack.sp8 = 0;
         stack.spE = 0;
-        exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
     }
     *(s32 *)((s8 *)arg0 + 0x3F0) = arg2;
     initialize_slime_instance_state((u8 *)((void *) (arg0)));

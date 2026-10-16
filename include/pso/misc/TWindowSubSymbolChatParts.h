@@ -6,6 +6,7 @@
 
 struct TWindowSubSymbolChatParts : public TUnk_804CDFE8 {
     virtual ~TWindowSubSymbolChatParts();
+    s32 sub_80283974();
     virtual void render();
     virtual void run_task();
     u8 _pad1C[0x4];

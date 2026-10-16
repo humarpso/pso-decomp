@@ -6,6 +6,8 @@
 
 struct TBoss3Volopt : public TObjEnemyCustom {
     virtual ~TBoss3Volopt();
+    u16 get_param_offset(s32);
+    s32 get_adjusted_angle(s32);
     u8 unk_38C[0x1C];
     s32 m_3a8;
     u8 unk_3AC[0x10];
@@ -33,7 +35,6 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     void send_update_60();
     void set_player_flag_08000000();
     void set_flag_08000000();
-    void load_params_from_table(s32 i);
     void update_and_send_60();
     void swap_6x18_fields();
     void broadcast_state();

@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s8 TObjPlayer__sub_80102C30();
 
-u8 TObjPlayer::is_active_in_game() {
+u8 TItemWeapon::is_active_in_game() {
     int var_r31;
 
     var_r31 = 0;

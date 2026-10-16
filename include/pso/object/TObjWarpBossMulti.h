@@ -31,14 +31,7 @@ struct TObjWarpBossMulti
     void update();
     static s32 is_lobby_active();
     static s32 get_boss_warp_flag();
-    s32 are_all_players_in_range();
-    void send_cmd_6A(u16 value);
     static void notify_player(void *arg0, s32 arg1);
-    void warp_player(s32 arg1);
-    void update_floor_switch_state();
-    void update_state();
-    void update_warp_state();
-    s32 update_warp_dialogs();
 };
 
 #endif

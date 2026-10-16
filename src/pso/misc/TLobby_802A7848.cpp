@@ -80,7 +80,7 @@ extern s32 snapshot_buffer_size;
 s32 free__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1);
-s32 TLobby__sub_802A7318(void *);
+s32 sub_802A7318__13TUnk_804DDD28Fv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7B50(u8 *arg0);
 s32 *TItemDrop__sub_800F9448(s32, s32);
@@ -180,7 +180,7 @@ u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802A7B50_lbl_804DDD28_size[sizeof(RecoveredGlobal_802A7B50_lbl_804DDD28) == 0x138 ? 1 : -1];
 u8 *TLobby__sub_802A7B50(u8 *arg0) {
     *(s32 **)((s8 *)arg0 + 8) = &(*(RecoveredGlobal_802A7B50_lbl_804DDD28 *)&lbl_804DDD28).value;
-    TLobby__sub_802A7318((void *) (arg0));
+    sub_802A7318__13TUnk_804DDD28Fv((void *) (arg0));
     return arg0;
 }
 

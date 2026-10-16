@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
 
 struct Base_8031F6C0 { char pad[0x18]; };
@@ -75,25 +76,25 @@ struct V_Sub_8031f748 : Base_Sub_8031f748 {
 
 extern "C" {
 
-void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1);
+void sub_8031F6C0__14TObjEneRecoboxFl(void *arg0, s32 arg1);
 s32 advance_animation_playback();
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 
-void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1) {
+void TObjEneRecobox::sub_8031F6C0(s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {
     case 4:
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x40C) | 1;
-        *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        ((VObj_8031F6C0 *)arg0)->m93(temp_r4);
-        set_field_378__9TObjEneDDFPvi((void *)(arg0), (int)(0));
+        temp_r4 = *(s32 *)((s8 *)this + 0x40C) | 1;
+        *(s32 *)((s8 *)this + 0x40C) = temp_r4;
+        *(s16 *)((s8 *)this + 0xB8) = 0;
+        ((VObj_8031F6C0 *)this)->m93(temp_r4);
+        set_field_378__9TObjEneDDFPvi((void *)(this), (int)(0));
         return;
     case 3:
-        transition_enemy_state((void *)(arg0), (int)(1));
+        transition_enemy_state((void *)(this), (int)(1));
     case 5:
     case 0:
         return;

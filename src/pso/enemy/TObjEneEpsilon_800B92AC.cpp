@@ -131,7 +131,7 @@ u8 * try_move_actor_xz_on_ground(void *, void *);
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0);
 void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
 void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
-s32 enemy_has_live_target(void *);
+s32 enemy_has_live_target__12TObjEneDD_STFv(void *);
 s32 tick_period_counter(s32, void *, s32);
 s32 transform_relative_position__9TObjEneDDFPv(void *, int);
 s32 enemy_validate_retained_target(u8 *arg0);
@@ -253,7 +253,7 @@ s32 enemy_validate_retained_target(u8 *arg0) {
         }
         goto block_5;
     }
-    if (enemy_has_live_target(arg0) != 0) {
+    if (enemy_has_live_target__12TObjEneDD_STFv(arg0) != 0) {
         return 1;
     }
 block_5:
@@ -392,7 +392,7 @@ struct VObj_18_8e9c4f : VBase_18_8e9c4f {
 };
 
 extern "C" {
-s32 enemy_has_live_target(void *);
+s32 enemy_has_live_target__12TObjEneDD_STFv(void *);
 s32 enemy_tick_target_acquisition(u8 *arg0, s32 *counter, s32 limit, f32 scale);
 }
 
@@ -409,7 +409,7 @@ s32 enemy_tick_target_acquisition(u8 *arg0, s32 *counter, s32 limit, f32 scale) 
     if (tick_period_counter(arg0, counter, limit) != 0) {
         var_r31 = ((VObj_18_8e9c4f *)(arg0))->m102(scale);
     } else {
-        var_r31 = enemy_has_live_target(arg0);
+        var_r31 = enemy_has_live_target__12TObjEneDD_STFv(arg0);
         if (var_r31 == 0) {
             enemy_clear_target((void *) (arg0));
         }

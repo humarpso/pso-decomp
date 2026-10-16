@@ -100,7 +100,7 @@ s16 TWindowDD__sub_8034214C(u8 *arg0);
 s32 TWindowDD__sub_8034217C(u8 *arg0);
 s32 update_window_entry_list(void *, void *);
 s32 apply_both_choices__9TWindowDDFll(void *, int);
-s32 TWindowDD__sub_80342268();
+s32 sub_80342268__17TWindowDD_WS_WordFv();
 extern const f32 TWindowDD__data_805DFB20;
 extern const float TWindowDD__data_805DFCA8;
 int TWindowDD__sub_80342158(u8 *arg0);
@@ -108,7 +108,7 @@ s32 init_window_layout_entries(void *, void *, int);
 extern RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
 extern const f32 TWindowDD__data_805DFB20;
 s16 *mem_alloc(int);
-s32 get_array_entry__20TWindowSubStatusDispFi(void * a0, s32 a1);
+s32 get_array_entry__13TUnk_804CE018Fi(void * a0, s32 a1);
 int refresh_status_display__9TWindowDDFv(void *);
 int set_text_entry_string(void *, s32, int);
 Elem_80341FFC *get_element_ptr__9TWindowDDFl(s32);
@@ -118,7 +118,7 @@ s32 TWindowDD__sub_80348B70(s32);
 extern "C" {
 
 void mem_free(void *);
-s32 get_array_entry__20TWindowSubStatusDispFi(void * a0 = 0, s32 a1 = 0);
+s32 get_array_entry__13TUnk_804CE018Fi(void * a0 = 0, s32 a1 = 0);
 s32 get_field_20__17TWindowSubComCardFv(void);
 
 void TWindowDD::set_mode_2() { *(s32*)((char*)this + 0x64) = 2; }
@@ -138,7 +138,7 @@ void TWindowDD::handle_scroll_input() {
     s32 temp_r5;
     s32 var_r30;
     s32 var_r30_2;
-    if (TWindowDD__sub_80342268() != 0) {
+    if (sub_80342268__17TWindowDD_WS_WordFv() != 0) {
         if (apply_both_choices__9TWindowDDFll((void *) (arg0 + 0x60), (int) (0x20)) != 0) {
             temp_r4 = *(s32 *)((s8 *)arg0 + 0x68);
             if (temp_r4 < (s32) (*(s32 *)((s8 *)arg0 + 0x74) - 1)) {
@@ -271,7 +271,7 @@ void TWindowDD::load_element_list() {
     }
     self->shown = n;
     for (i = 0; i < self->shown; i++) {
-        ent = (Entry_80341FFC *)get_array_entry__20TWindowSubStatusDispFi(self, i);
+        ent = (Entry_80341FFC *)get_array_entry__13TUnk_804CE018Fi(self, i);
         set_text_entry_string(ent, TWindowDD__sub_80348B70(self->buf[i]), 0xC0);
         ent->y = i * 20;
         refresh_status_display__9TWindowDDFv(ent);
@@ -306,7 +306,7 @@ s32 TWindowDD__sub_8034217C(u8 *arg0) {
 s32 TWindowDD::get_cursor_index() { return *(s32*)((char*)this + 0x6c); }
 s32 TWindowDD::update_if_field28_set() {
     if ((u32) *(u32 *)((s8 *)this + 0x28) != 0U) {
-        get_array_entry__20TWindowSubStatusDispFi(this, *(s32 *)((s8 *)this + 0x6C));
+        get_array_entry__13TUnk_804CE018Fi(this, *(s32 *)((s8 *)this + 0x6C));
         return get_field_20__17TWindowSubComCardFv();
     }
     return 0;

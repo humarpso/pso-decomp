@@ -54,10 +54,10 @@ extern const f32 lbl_805D8114;
 extern const f32 lbl_805D8118;
 extern const f32 lbl_805D811C;
 u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1);
-void clear_segment_flags__17TBoss1DragonColliFPv(O_8002B3F4 *self);
+void clear_segment_flags__19TBoss1DragonColli_CFv(O_8002B3F4 *self);
 void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void clear_segment_flags__17TBoss1DragonColliFPv(O_8002B3F4 *self);
+void clear_segment_flags__19TBoss1DragonColli_CFv(O_8002B3F4 *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 E_8002B4CC *mem_alloc(s32);
 s32 register_entity_by_id(void *);
@@ -164,11 +164,12 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
 
 void TBoss1DragonColli_C::render() {  }
 
-void TBoss1DragonColli__sub_8002B35C(void* p) { clear_segment_flags__17TBoss1DragonColliFPv((O_8002B3F4 *)((void*)(p))); }
+void TBoss1DragonColli__sub_8002B35C(void* p) { clear_segment_flags__19TBoss1DragonColli_CFv((O_8002B3F4 *)((void*)(p))); }
 
 void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); set_elem_flags__17TBoss1DragonColliFPv((O_8002B42C *)((void*)(p))); }
 
-void clear_segment_flags__17TBoss1DragonColliFPv(O_8002B3F4 *self) {
+void TBoss1DragonColli_C::clear_segment_flags() {
+    O_8002B3F4 *self = (O_8002B3F4 *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
         self->elems[i].flags &= ~1;
@@ -227,7 +228,7 @@ s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scal
     }
     refresh_collision_body_centers(self);
     register_entity_by_id(self);
-    clear_segment_flags__17TBoss1DragonColliFPv((O_8002B3F4 *)self);
+    clear_segment_flags__19TBoss1DragonColli_CFv((O_8002B3F4 *)self);
     return arg0;
 }
 #undef self

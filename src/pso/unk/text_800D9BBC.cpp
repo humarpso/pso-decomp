@@ -1,17 +1,19 @@
 #include "types.h"
+#include "pso/enemy/TObjEneNanoDrago.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_actor_to_ground(void *, void *, s32);
-void fn_800D9BBC(u8 *arg0);
+void sub_800D9BBC__16TObjEneNanoDragoFv(u8 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void fn_800D9BBC(u8 *arg0) {
+void TObjEneNanoDrago::sub_800D9BBC() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r4;
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x388);
     if (temp_r4 & 0x40000) {

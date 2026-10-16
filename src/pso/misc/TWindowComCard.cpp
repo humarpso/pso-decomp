@@ -290,13 +290,13 @@ s32 get_status_effect_icon_index(u32 arg0) {
 extern "C" {
 
 void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1);
-s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
+s32 get_array_entry__13TUnk_804CE018Fi(void *, s32);
 
 void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1) {
     s32 temp;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x70) != arg1) {
         *(s32 *)((s8 *)arg0 + 0x70) = arg1;
-        temp = get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
+        temp = get_array_entry__13TUnk_804CE018Fi(arg0, 0);
         ((s32 (*)(s32, s32))set_help_mode__14TWindowComCardFPvi)(temp, *(s32 *)((s8 *)arg0 + 0x70));
     }
 }
@@ -416,7 +416,7 @@ Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *par
     o->x = lbl_805DCBD0 * (f32)o->col + (o->parent->x + o->ofs.x);
     o->y = o->parent->y + o->ofs.y;
     save_position__17TWindowSubComCardFPv(o);
-    ((s32 (*)(s32, s32))set_help_mode__14TWindowComCardFPvi)((s32)((void * (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFi)(o, 0), mode);
+    ((s32 (*)(s32, s32))set_help_mode__14TWindowComCardFPvi)((s32)((void * (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(o, 0), mode);
     return o;
 }
 #pragma pop

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TDLGraph.h"
 
 struct E_8007F574 { s32 a; f32 b; };
 
@@ -12,16 +13,17 @@ extern const f32 lbl_805D929C;
 extern const f32 lbl_805D92C0;
 extern const f32 lbl_805D92C4;
 extern const f32 lbl_805D92C8;
-void fn_8007F5A4(u8 *arg0);
+void sub_8007F5A4__8TDLGraphFv(u8 *arg0);
 extern const f32 lbl_805D92B8;
-void init_dl_graph_entries(O_8007F574 *self);
+void init_dl_graph_entries__8TDLGraphFv(O_8007F574 *self);
 }
 
 extern "C" {
 
 #pragma fp_contract on
 
-void init_dl_graph_entries(O_8007F574 *self) {
+void TDLGraph::init_dl_graph_entries() {
+    O_8007F574 *self = (O_8007F574 *)this;
     s32 i;
     self->x40 = 0;
     for (i = 0; i < 4; i++) {
@@ -30,7 +32,8 @@ void init_dl_graph_entries(O_8007F574 *self) {
     }
 }
 
-void fn_8007F5A4(u8 *arg0) {
+void TDLGraph::sub_8007F5A4() {
+    u8 *arg0 = (u8 *)this;
   int new_var;
   s32 temp_r3;
   s32 temp_r3_2;

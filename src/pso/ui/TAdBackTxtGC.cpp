@@ -14,7 +14,7 @@ void render_shadows__7TObjectFv(void);
 void *__dt__12TAdBackTxtGCFv(void *self, s16 arg1);
 s32 set_cached_blend_factor(s32, s32);
 s32 restore_saved_depth_alpha_state();
-s32 draw_character_background_frame(void *, s32, s32);
+s32 draw_character_background_frame__12TAdBackTxtGCFll(void *, s32, s32);
 s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
@@ -28,7 +28,7 @@ void render__12TAdBackTxtGCFv(void *arg0) {
 block_4:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        draw_character_background_frame(arg0, (s32) *(s32 *)((s8 *)arg0 + 0x1C) / 3, -1);
+        draw_character_background_frame__12TAdBackTxtGCFll(arg0, (s32) *(s32 *)((s8 *)arg0 + 0x1C) / 3, -1);
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {

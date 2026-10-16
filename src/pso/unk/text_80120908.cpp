@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/item/TItemMag.h"
@@ -23,7 +24,7 @@ s32 get_attach_joint__14TItemEquipBaseFv(void *);
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
 s32 TObjPlayer__sub_80101088();
 s32 get_attach_joint__14TItemEquipBaseFv(void *);
-s32 TObjPlayer__sub_80121208(void *, void *);
+s32 sub_80121208__11TItemWeaponFl(void *, void *);
 s32 reset_model_node_counter();
 s32 set_shadow_material_state();
 s32 set_model_fade_alpha__10TObjPlayerFf();
@@ -55,7 +56,7 @@ s32 draw_weapon_model(void *arg0) {
     }
     {
         reset_model_node_counter();
-        if (((TObjPlayer *)arg0)->is_flag_400() != 0) {
+        if (((TItemWeapon *)arg0)->is_flag_400() != 0) {
             var_r30 = 1;
         } else {
             var_r30 = ((VObj_18_26a62c *)(arg0))->m8(lbl_805DACA8, lbl_805DACAC);
@@ -71,7 +72,7 @@ s32 draw_weapon_model(void *arg0) {
             TObjPlayer__weapon_node_ids[1] = (s16) *(u8 *)((s8 *)temp_r4 + 0x22);
             TObjPlayer__weapon_node_ids[2] = (s16) *(u8 *)((s8 *)temp_r4 + 0x23);
             if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
-                TObjPlayer__sub_80121208((void *) (arg0), (void *) (apply_weapon_node_material));
+                sub_80121208__11TItemWeaponFl((void *) (arg0), (void *) (apply_weapon_node_material));
             } else {
                 TObjEneRe7Berura::set_global_state((s32)((void *) (apply_weapon_node_material)));
             }
@@ -79,7 +80,7 @@ s32 draw_weapon_model(void *arg0) {
             model_render_flags &= 0xFFFFFFEF;
             ((TObjPlayer *)arg0)->get_mag_scale();
             set_model_fade_alpha__10TObjPlayerFf();
-            if (((TObjPlayer *)arg0)->is_flag_400() != 0) {
+            if (((TItemWeapon *)arg0)->is_flag_400() != 0) {
                 model_render_flags |= 0x8011;
                 set_color_blend_mode((int) (1), (int) (4), (int) (5), (int) (0));
                 set_shadow_material_state();
@@ -115,7 +116,7 @@ s32 draw_weapon_model(void *arg0) {
             TObjPlayer::warn_if_gauge_low();
             TObjPlayer__sub_8036414C();
             if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
-                TObjPlayer__sub_80121208((void *) (arg0), (void *) (NULL));
+                sub_80121208__11TItemWeaponFl((void *) (arg0), (void *) (NULL));
             } else {
                 TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
             }

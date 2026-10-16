@@ -6,6 +6,7 @@
 
 struct TODoorAncient08 : public TUnk_804B0BB8 {
     virtual ~TODoorAncient08();
+    void door_ancient08_sync_state(void *);
     virtual void vfunc_20();
     virtual s32 init_door_switch_binding();
     virtual void vfunc_17();

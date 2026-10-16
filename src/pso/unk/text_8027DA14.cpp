@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -50,7 +51,7 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     }
     *(s32 *)((s8 *)arg0 + 0x64) = var_r30;
     *(s8 *)((s8 *)arg0 + 0x60) = 0;
-    temp_r30 = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0);
+    temp_r30 = ((TUnk_804CE018 *)arg0)->get_array_entry(0);
     set_text_entry_string((int) (temp_r30), (int) (get_quest_name__12TQuestThreadFv()), (int) (0));
     ((TWindowSubComCard *)temp_r30)->get_field_20();
     temp_f2 = (f32) calc_text_width();

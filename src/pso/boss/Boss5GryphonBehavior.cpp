@@ -3853,7 +3853,7 @@ void TBoss3Volopt__sub_800627E4(u8 *arg0, u32 arg1) {
         switch (*(s32 *)((s8 *)arg0 + 0x6DC)) {
         case 0:
             ((s32 (*)(void *))advance_animation_playback)((void *) (arg0));
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x6DC) = 1;
                 TWindowCtrl::init_all_slots2();
                 *(s16 *)((s8 *)arg0 + 0xB8) = 4;
@@ -3985,7 +3985,7 @@ void TBoss8Dragon__sub_80062BA0(u8 *arg0, u32 arg1) {
         }
         switch (F(s32, 0x6DC)) {
         case 0:
-            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
+            if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 F(s32, 0x6DC) = 1;
                 F(s32, 0x6E0) = 0;
             }

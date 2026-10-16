@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TUnk_804D0658.h"
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -80,7 +82,7 @@ void TWindowMakeTeam::run_task() {
         if (((TWindowSubComCard *)(self->menu))->get_flag() != 0) {
             self->flags |= 2;
             self->state = 11;
-        } else if (((TWindowSubComCard *)(self->menu))->is_open() != 0) {
+        } else if (((TUnk_804D0658 *)(self->menu))->is_open() != 0) {
             ((TWindowMakeTeam *)self)->set_state(update_selected_entry__17TWindowSubComCardFv(self->menu));
         }
         break;
@@ -147,7 +149,7 @@ void TWindowMakeTeam::run_task() {
     case 8:
         if (((TWindowSubComCard *)(self->window))->get_status_flag() != 0) {
             self->state = 1;
-        } else if (((TWindowSubComCard *)(self->window))->is_visible() != 0) {
+        } else if (((TWindowMenu *)(self->window))->is_visible() != 0) {
             self->sel1E = get_selected_menu_value(self->window);
             set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, draw_entry_0x110__15TWindowMakeTeamFSc(self->sel1E), 2);
             ((TWindowMakeTeam *)self)->send_state();
@@ -160,7 +162,7 @@ void TWindowMakeTeam::run_task() {
     case 10:
         if (((TWindowSubComCard *)(self->window))->get_status_flag() != 0) {
             self->state = 1;
-        } else if (((TWindowSubComCard *)(self->window))->is_visible() != 0) {
+        } else if (((TWindowMenu *)(self->window))->is_visible() != 0) {
             self->sel1F = get_selected_menu_value(self->window);
             set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, init_status_disp__15TWindowMakeTeamFc(self->sel1F), 3);
             self->state = 1;

@@ -2,7 +2,7 @@
 
 extern "C" {
 s32 count_members__6TLobbyFv(void);
-void open_member_name_window__22THunterGuildSeqOfflineFv(void*);
+void open_member_name_window__12TMemberCheckFv(void*);
 void update_member_proximity__22THunterGuildSeqOfflineFv(void*);
 void TWindow__close(s32);
 void* memset(void*, int, unsigned long);
@@ -14,7 +14,7 @@ void TMemberCheck::run_task() {
     s32 n = count_members__6TLobbyFv();
     if (TMemberCheck__previous_member_count != n) {
         TMemberCheck__previous_member_count = n;
-        open_member_name_window__22THunterGuildSeqOfflineFv(this);
+        open_member_name_window__12TMemberCheckFv(this);
     }
     update_member_proximity__22THunterGuildSeqOfflineFv(this);
 }
@@ -30,5 +30,5 @@ TMemberCheck::TMemberCheck(TObject* parent) : TObject(parent) {
     m_1C = 0;
     memset(m_20, 0, 0x60);
     TMemberCheck__previous_member_count = count_members__6TLobbyFv();
-    open_member_name_window__22THunterGuildSeqOfflineFv(this);
+    open_member_name_window__12TMemberCheckFv(this);
 }

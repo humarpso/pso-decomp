@@ -15,7 +15,6 @@ struct TLobby
     static s32 clear_record_flags_a();
     static s32 clear_record_flags_b();
     static void free_nodes_with_id(u32 arg0);
-    void assign_item_id();
     static void create_time_window(void * _w0);
     void update_battle_cleanup_flag();
     void set_challenge_record_page(s32 v);
@@ -147,7 +146,6 @@ struct TLobby
     void link_into_list();
     static void set_ending_callback();
     void init_range(s32 arg1);
-    void set_item_count(s16 v);
     s32 drop_stacked_item_passthrough();
     void init_floor_item_entry();
     static void clear_object_count();
@@ -190,7 +188,6 @@ struct TLobby
     void bswap_fields();
     void bswap_header_3words();
     void bswap_6x6B();
-    int get_status_flag();
     int get_flag_bit2();
     u8 get_mode();
     static void init_serial_access();
@@ -782,7 +779,6 @@ struct TLobby
     s32 tmp_buf_release();
     static s32 tmp_buf_use_req(const char *name);
     void handle_quest_download_chunk();
-    s32 exchange_object_state(s32 arg1, s16 arg2);
     static u16 alloc_actor_ids(s32 arg);
     void clear_item_list();
     void reduce_owner_matched_items();

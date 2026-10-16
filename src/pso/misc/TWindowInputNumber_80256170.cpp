@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/ui/TWindowInputNumber.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -109,12 +110,12 @@ void align_digits__18TWindowInputNumberFv(InNum_802561E8 *self) {
     pos = scale * (self->x - lbl_805DCE20) + scale * (f32)(self->ndigits * 12);
     pos -= lbl_805DCE18;
     for (; i < self->ndigits; i++) {
-        Digit_802561E8 *d = (Digit_802561E8 *)((TWindowSubStatusDisp *)self)->get_array_entry((int)(i));
+        Digit_802561E8 *d = (Digit_802561E8 *)((TUnk_804CE018 *)self)->get_array_entry((int)(i));
         d->x = scale * d->w + pos;
         pos -= step;
     }
     for (; i < 6; i++) {
-        Digit_802561E8 *d = (Digit_802561E8 *)((TWindowSubStatusDisp *)self)->get_array_entry((int)(i));
+        Digit_802561E8 *d = (Digit_802561E8 *)((TUnk_804CE018 *)self)->get_array_entry((int)(i));
         d->flags |= 2;
     }
 }
@@ -128,7 +129,7 @@ void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0) {
   var_r29 = *((s32 *) (((s8 *) arg0) + 0x6C));
   do
   {
-    temp_r3 = (u8 *) ((TWindowSubStatusDisp *)arg0)->get_array_entry((int)(var_r30));
+    temp_r3 = (u8 *) ((TUnk_804CE018 *)arg0)->get_array_entry((int)(var_r30));
     *((s32 *) (((s8 *) temp_r3) + 0x20)) = (s32) (var_r29 % 10);
     draw_right_aligned_number(temp_r3);
     var_r29 = var_r29 / 10;
@@ -159,7 +160,7 @@ void render__18TWindowInputNumberFv(u8 *arg0) {
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     temp_r31 = ((TWindowInputNumber *)arg0)->is_confirmed();
-    draw_arrows__18TWindowInputNumberFv((void *) (arg0), (int) (temp_r3), (int) (((TWindowSubStatusDisp *)arg0)->get_array_entry((int) *(s8 *)((s8 *)arg0 + 0x63))), (int) (temp_r31));
+    draw_arrows__18TWindowInputNumberFv((void *) (arg0), (int) (temp_r3), (int) (((TUnk_804CE018 *)arg0)->get_array_entry((int) *(s8 *)((s8 *)arg0 + 0x63))), (int) (temp_r31));
     {
         void *temp_ptr = (void *) *(u32 *)((s8 *)arg0 + 0x70);
         if (temp_ptr != NULL) {

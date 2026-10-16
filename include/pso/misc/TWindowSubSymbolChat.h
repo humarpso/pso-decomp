@@ -6,6 +6,8 @@
 
 struct TWindowSubSymbolChat : public TObject {
     virtual ~TWindowSubSymbolChat();
+    void sub_80281CC4();
+    void sub_80281C60();
     u8 m_1c;
     u8 _pad1D[0x1];
     s16 m_1e;
@@ -84,13 +86,11 @@ struct TWindowSubSymbolChat : public TObject {
     static void clear_flag_bit2(s32 *arg0);
     s16 get_cursor_pos();
     s16 get_cursor_x();
-    s32 is_active();
     void clear_flag60_bit2();
     void clear_flag60_bit4();
     void set_pos_and_flag(s32 arg1, s32 arg2);
     void set_flag60_bit1();
     void set_flag60_bit2();
-    s32 is_open();
     void set_selection_and_refresh(s32 arg1);
     static void update_display(s32 arg0);};
 

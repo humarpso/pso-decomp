@@ -225,7 +225,7 @@ void *__nw__7TObjectFUl(u32);
 extern Pair_800C2E64 lbl_8043BA60[];
 void TObjEneRe2Flower__sub_800C2E64(Obj_800C2E64 *self, s32 state);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 get_flag_b4__21TObjEneMe3ShinowaRealFv();
+s32 get_flag_b4__9TObjEneDDFv();
 void clear_attack_receipts(void *);
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 s32 transition_enemy_state(void *, s32);
@@ -252,7 +252,7 @@ void TObjEneDD::state_damaged(s32 arg1) {
         TObjPlayer::play_effect_if_v2(-0x200);
         break;
     case 3:
-        if (get_flag_b4__21TObjEneMe3ShinowaRealFv() != 0) {
+        if (get_flag_b4__9TObjEneDDFv() != 0) {
             if (F(s32, 0x378) == 8) {
                 transition_enemy_state(arg0, F(s32, 0x378));
             } else if (F(s16, 0x32C) < F(s16, 0x2B8) / 4) {

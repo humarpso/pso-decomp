@@ -57,7 +57,7 @@ s32 get_palette_consumable_count(u16, s32);
 void get_help_text_string(s32);
 void toggle_help_window_on_button(s32, s32);
 extern s32 current_language;
-void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
+void update_customize_help_text__13TUnk_804D1160FPv(Win_802758C8 *self, Ev_802758C8 *ev);
 s32 get_card_entry__17TWindowSubComCardFi(s32);
 s32 count_active_cards__17TWindowSubComCardFv(void);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
@@ -89,7 +89,7 @@ void *__nw__7TObjectFUl(u32);
 s32 TWindow__close(void *);
 s32 set_field_1c__6TLobbyFf(void *);
 s32 TWindowSubEquip__sub_80263AF8(void *, s32);
-void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
+void update_customize_help_text__13TUnk_804D1160FPv(Win_802758C8 *self, Ev_802758C8 *ev);
 s32 fn_80275D90(void *);
 s32 TWindowSubCustomEquip__sub_80275DA8(s32);
 Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFv(void *);
@@ -112,7 +112,7 @@ void __dt__11TWindowMenuFv(void *, int);
 void delete_if_allocated(void *, int);
 s32 draw_card_list_selection(void *, s32);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
-s32 is_visible__17TWindowSubComCardFv(void *);
+s32 is_visible__11TWindowMenuFv(void *);
 s32 run_task__11TWindowMenuFv();
 s32 set_selected_index__17TWindowSubComCardFs(void *, s32);
 
@@ -134,7 +134,7 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
 
 void TWindowSubComCardList::run_task() {
     run_task__11TWindowMenuFv();
-    if ((is_visible__17TWindowSubComCardFv(this) == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_8c) != 0)) {
+    if ((is_visible__11TWindowMenuFv(this) == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_8c) != 0)) {
         set_selected_index__17TWindowSubComCardFs(this, 0);
         TWindowSubComCardList__sub_80275360(this);
     }
@@ -173,10 +173,10 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     *(s32 *)(arg0 + 0x94) = get_card_entry__17TWindowSubComCardFi(0);
     *(s32 *)(arg0 + 0x98) = 0xD2;
     *(s8 *)(arg0 + 0x9C) = 0;
-    ((TWindowOptionCtrl *)arg0)->set_flag70_bit100();
+    ((TWindowSubComCardList *)arg0)->set_flag70_bit100();
     set_selected_index__17TWindowSubComCardFs(arg0, 0);
     TWindowSubComCardList__sub_80275360(arg0);
-    ((TObjCityMainWarp *)arg0)->set_flag70_bit10();
+    ((TWindowSubComCardList *)arg0)->set_flag70_bit10();
     ((TWindowSubComCard *)arg0)->set_scroll_target(lbl_805DD544, lbl_805DD548);
     return arg0;
 }
@@ -200,15 +200,17 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     *(s32 *)(arg0 + 0x94) = 0;
     *(s32 *)(arg0 + 0x98) = arg3;
     *(s8 *)(arg0 + 0x9C) = arg4;
-    ((TWindowOptionCtrl *)arg0)->set_flag70_bit100();
+    ((TWindowSubComCardList *)arg0)->set_flag70_bit100();
     set_selected_index__17TWindowSubComCardFs(arg0, 0);
     TWindowSubComCardList__sub_80275360(arg0);
-    ((TObjCityMainWarp *)arg0)->set_flag70_bit10();
+    ((TWindowSubComCardList *)arg0)->set_flag70_bit10();
     ((TWindowSubComCard *)arg0)->set_scroll_target(lbl_805DD544, lbl_805DD548);
     return arg0;
 }
 
-void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
+void TUnk_804D1160::update_customize_help_text(void *ev_arg) {
+    Win_802758C8 *self = (Win_802758C8 *)this;
+    Ev_802758C8 *ev = (Ev_802758C8 *)ev_arg;
     u8 *pl;
     s32 lvl;
     toggle_help_window_on_button(self->lobby, self->player);
@@ -285,7 +287,7 @@ void TUnk_804D1160::run_task() {
         self->state = 2;
     case 2:
         ((TWindowSubCustomEquip *)(self->f28))->get_cursor_pos(&ev);
-        update_customize_help_text((Win_802758C8 *)self, &ev);
+        update_customize_help_text__13TUnk_804D1160FPv((Win_802758C8 *)self, &ev);
         if (TWindowSubCustomEquip__sub_80275DA8(self->f28) != 0) {
             self->f24->v7();
             self->state = 5;
@@ -303,7 +305,7 @@ void TUnk_804D1160::run_task() {
         set_field_1c__6TLobbyFf(self->f2c);
         self->state = 4;
     case 4:
-        update_customize_help_text((Win_802758C8 *)self, calc_equip_index__21TWindowSubCustomEquipFv(self->f2c));
+        update_customize_help_text__13TUnk_804D1160FPv((Win_802758C8 *)self, calc_equip_index__21TWindowSubCustomEquipFv(self->f2c));
         if (fn_80275D90(self->f2c) != 0) {
             self->state = 1;
         }

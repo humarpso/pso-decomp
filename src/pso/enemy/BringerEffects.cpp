@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TUnk_8048FE7C.h"
+#include "pso/enemy/TUnk_8048FE08.h"
 
 struct Vec_80099F0C { f32 x, y, z; };
 
@@ -46,7 +48,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void *csnVector(void *, void *, s32);
 f32 update_scale__15TObjBoss2TunnelFv(void *);
 void create_timed_particle_emitter(void *, s32, s32, s32);
-void TObjEneDf2Bringer__sub_8009A11C(void* p);
+void sub_8009A11C__13TUnk_8048FE08Fv(void* p);
 void update_enemy_collision_flags__10TObjPlayerFv(void *);
 void subtract_vector(void *, void *);
 extern u8 lbl_8043A164[];
@@ -56,7 +58,7 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self);
 
 extern "C" {
 
-void TObjEneDf2Bringer__sub_8009A11C(void* p);
+void sub_8009A11C__13TUnk_8048FE08Fv(void* p);
 void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1);
 void setup_dir_shot__17TObjEneDf2BringerFPvPvif(u8 *arg0, const void *arg1, s32 arg2, f32 farg0);
 f32 sin_table_lookup(int);
@@ -107,7 +109,7 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
     self->col->fC = 0.5f * step;
     update_enemy_collision_flags__10TObjPlayerFv(self);
     if (self->col->flags & 0x200000) {
-        TObjEneDf2Bringer__sub_8009A11C((void*)(self));
+        sub_8009A11C__13TUnk_8048FE08Fv((void*)(self));
         return;
     }
     arg.a = lbl_8043A16C[0];
@@ -115,12 +117,12 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
     self->m12(lbl_8043A164, &arg, self->fC4);
     self->timer--;
     if (hit != 0 || self->timer < 0) {
-        TObjEneDf2Bringer__sub_8009A11C((void*)(self));
+        sub_8009A11C__13TUnk_8048FE08Fv((void*)(self));
     }
 }
 #pragma pop
 
-void TObjEneDf2Bringer__sub_8009A11C(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
+void TUnk_8048FE08::sub_8009A11C() { *(s32*)((char*)this + 0xb0) = 0; }
 void setup_dir_shot__17TObjEneDf2BringerFPvPvif(u8 *arg0, const void *arg1, s32 arg2, f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), arg1);
     *(s32 *)((s8 *)arg0 + 0x60) = arg2;
@@ -261,13 +263,13 @@ struct Obj_8009A4B8 {
 
 extern "C" {
 extern Vec_8009A640 bringer_effect_vec_table[6];
-void fn_8009A640(Obj_8009A640 *self);
+void sub_8009A640__13TUnk_8048FE7CFv(Obj_8009A640 *self);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 u32 __cvt_fp2unsigned();
 extern u32 bringer_effect_color_table[];
-void fn_8009A598(Obj_8009A598 *arg0);
-void fn_8009A598(Obj_8009A598 *arg0);
-void fn_8009A640(Obj_8009A640 *self);
+void sub_8009A598__13TUnk_8048FE7CFv(Obj_8009A598 *arg0);
+void sub_8009A598__13TUnk_8048FE7CFv(Obj_8009A598 *arg0);
+void sub_8009A640__13TUnk_8048FE7CFv(Obj_8009A640 *self);
 void update_expanding_fade_effect(Obj_8009A4B8 *self);
 }
 
@@ -281,7 +283,7 @@ void update_expanding_fade_effect(Obj_8009A4B8 *self) {
             self->scale = self->scale_max;
             self->state = 1;
         }
-        fn_8009A640((Obj_8009A640 *)(self));
+        sub_8009A640__13TUnk_8048FE7CFv((Obj_8009A640 *)(self));
         break;
     case 1:
         self->alpha = self->alpha - 0.05f;
@@ -297,10 +299,11 @@ void update_expanding_fade_effect(Obj_8009A4B8 *self) {
     if (self->frame >= 12) {
         self->frame = 0;
     }
-    fn_8009A598((Obj_8009A598 *)(self));
+    sub_8009A598__13TUnk_8048FE7CFv((Obj_8009A598 *)(self));
 }
 
-void fn_8009A598(Obj_8009A598 *arg0) {
+void TUnk_8048FE7C::sub_8009A598() {
+    Obj_8009A598 *arg0 = (Obj_8009A598 *)this;
     s32 i;
     s32 n;
     Ent_8009A598 *p;
@@ -320,7 +323,8 @@ void fn_8009A598(Obj_8009A598 *arg0) {
     }
 }
 
-void fn_8009A640(Obj_8009A640 *self) {
+void TUnk_8048FE7C::sub_8009A640() {
+    Obj_8009A640 *self = (Obj_8009A640 *)this;
     s32 i;
     f32 outer = 3.0f + self->radius;
     f32 inner = self->radius - 3.0f;
@@ -387,8 +391,8 @@ u8 *construct_bringer_tp_absorb_ring(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0) {
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     *(f32 *)((s8 *)arg0 + 0x2C) = (f32) 1.0f;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    fn_8009A640((Obj_8009A640 *)arg0);
-    fn_8009A598((Obj_8009A598 *)arg0);
+    sub_8009A640__13TUnk_8048FE7CFv((Obj_8009A640 *)arg0);
+    sub_8009A598__13TUnk_8048FE7CFv((Obj_8009A598 *)arg0);
     return arg0;
 }
 

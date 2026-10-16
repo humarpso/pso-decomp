@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include <stddef.h>
 typedef char GyaranzoPositionOffset[offsetof(TObjEneGyaranzo, position) == 0x38 ? 1 : -1];
@@ -691,7 +692,7 @@ void TObjPlayer__sub_800D37F4(u8 *arg0);
 void apply_actor_gravity(void *, int, f32);
 void enemy_turn_toward_dest(void *, s32);
 #define VecCopy__FP3VecPC3Vec ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)
-void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
+void sub_8004292C__15TObjEnemyCustomFv(u8 *arg0);
 s32 spawn_particle_effect(void *, int);
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_800D3314, void *, f32, f32);
 #define render_anim_model_at_pos__12TBoss3VoloptFPv ((void (*)(void *))render_anim_model_at_pos__12TBoss3VoloptFPv)
@@ -902,7 +903,7 @@ s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 VObj_800D3BA0_800D3B38 * init__11TBreakUpMdlFPviif(void *, s32, s32, f32);
 u32 load_enemy_bml_resource_named(void *, void *);
-s32 TObjEnemyCustom__sub_800C7860(void *);
+s32 sub_800C7860__15TObjEnemyCustomFv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 s32 TObjEnemyCustom__ct(void *);
 #define update_walk_to_target__10TObjPlayerFPv ((s32 (*)(void *))update_walk_to_target__10TObjPlayerFPv)
@@ -1567,7 +1568,7 @@ void TObjPlayer__sub_800D3314(u8 *arg0) {
         p = *(u8 **)((s8 *)arg0 + 0xA4);
         *(u32 *)((s8 *)p + 0x18) &= ~0x380000;
         *(u32 *)((s8 *)arg0 + 0x30) &= ~0x100;
-        TBoss3VoloptMonitor__sub_8004292C(arg0);
+        sub_8004292C__15TObjEnemyCustomFv(arg0);
         *(f32 *)((s8 *)arg0 + 0x39C) = lbl_805DA258;
         *(f32 *)((s8 *)arg0 + 0x3A4) = lbl_805DA258;
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
@@ -1917,7 +1918,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     init_params_from_table__19TObjGyaranzoMissileFPv((void *) (arg0));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
-    ((TObjEnePanarms *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    ((TObjMotion *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
     *(s16 *)((s8 *)arg0 + 0x32E) = (s16) *(s16 *)((s8 *)arg0 + 0x2BA);
     *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
@@ -1937,7 +1938,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x38);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x3C);
     if (*(s16 *)((s8 *)arg2 + 0xA) != 0) {
-        TObjEnemyCustom__sub_800C7860((void *) (arg0));
+        sub_800C7860__15TObjEnemyCustomFv((void *) (arg0));
     }
     for (var_r29 = 0; var_r29 < 4; var_r29++) {
         ((TObjPlayer *)(&((Gy_800D3ED8 *) arg0)->e3EC[var_r29]))->activate_and_dispatch();

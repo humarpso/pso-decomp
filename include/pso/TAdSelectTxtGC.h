@@ -6,6 +6,7 @@
 class TAdSelectTxtGC : public TObject {
 public:
     virtual ~TAdSelectTxtGC();
+    void init_slot_entries(void *, void *);
     virtual void run_task();
     virtual void render();
 public:

@@ -7,6 +7,7 @@
 class TSaveChCr : public TObject {
 public:
     virtual ~TSaveChCr();
+    s32 poll_memcard_status();
     virtual void run_task();
     s32 state_index;
     u8 unk_20[0x8];

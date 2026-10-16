@@ -438,7 +438,7 @@ s32 get_state_flag__9TMainTaskFv();
 void * get_bml_model(void *, int);
 void TLobby__sub_8001FE7C(void*, int);
 void * load_resource_from_descriptor(void *, int, char *, int, int, int);
-void fn_8002AE64(void *);
+void sub_8002AE64__9TObjEnemyFv(void *);
 s32 check_player_flag1__6TLobbyFv();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 setup_particle_tev(int);
@@ -1088,7 +1088,7 @@ void TOTrapAncient02__vt80(Trap_8017ADC4 *self) {
     case 2:
         if (self->target != NULL) {
             obj_setFlags30(self->target, 0x200);
-            fn_8002AE64(self->target);
+            sub_8002AE64__9TObjEnemyFv(self->target);
             TObjPlayer__sub_800A7798(self->target, lbl_805DBA78);
             self->timer--;
             if (self->timer < 0) {

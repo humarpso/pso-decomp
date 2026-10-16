@@ -6,6 +6,8 @@
 
 struct TWindowMenu : public TUnk_804CDFE8 {
     virtual ~TWindowMenu();
+    void reset_selection();
+    int is_visible();
     virtual void render();
     u8 _pad1C[0x4];
     s16 m_20;

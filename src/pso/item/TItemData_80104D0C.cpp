@@ -29,7 +29,7 @@ struct MagData_80104DAC { u8 b[0x10]; };
 struct Rec_80104DAC { u8 pad0[6]; u8 b6; u8 b7; u8 b8; u8 b9; u8 bA; u8 bB; u8 bC; };
 
 extern "C" {
-s32 get_actor_section_id(void *);
+s32 get_actor_section_id__15TPlyPhotonChairFv(void *);
 void *find_unique_combination_target(void *, u8 *);
 s32 check_equip_requirements(void *, void *, int);
 void deserialize_mag__9TItemDataFPvPv(void *, void *);
@@ -102,7 +102,7 @@ s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1) {
         }
         v = rec->bC;
         if (v != 0xFF) {
-            if (v != get_actor_section_id(o)) {
+            if (v != get_actor_section_id__15TPlyPhotonChairFv(o)) {
                 return 0;
             }
         }

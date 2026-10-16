@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSubComCardList.h"
+#include "pso/item/TItem.h"
+#include "pso/misc/TWindowSubShortCutList.h"
+#include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowShortListCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOSwitchItem.h"
@@ -121,7 +126,7 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 init_parts__10TObjPlayerFPv(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag70_bit10__16TObjCityMainWarpFv();
+s32 set_flag70_bit10__21TWindowSubComCardListFv();
 
 void TWindowShortListCtrl::set_displayed_item(s32 arg1) {
     if (((u32) this->m_34 != 0U) && (arg1 != (s32) *(s32 *)&this->m_38)) {
@@ -183,7 +188,7 @@ void TWindowShortListCtrl::assign_item_to_palette(u32 arg0, u32 arg1) {
             var_r3 = var_r31;
             temp_r3 = (unsigned long) (find_item_by_id((s32) var_r3));
             var_r31 = temp_r3;
-            if ((var_r31 != 0) && (((TOSwitchItem *)temp_r3)->get_field_ec() == 3)) {
+            if ((var_r31 != 0) && (((TItem *)temp_r3)->get_field_ec() == 3)) {
                 var_r3 = var_r31;
                 var_r31 = TItemObject__sub_80115DE8((int) (var_r3));
                 if ((s32) var_r31 != -1) {
@@ -304,9 +309,9 @@ void *TWindowShortListCtrl::create_window(s32 arg1, s32 arg2) {
     void *temp_r31;
 
     temp_r31 = create_window_menu(arg1, 0x13, *(s32 *)&this->m_24);
-    set_flag70_bit10__16TObjCityMainWarpFv();
+    set_flag70_bit10__21TWindowSubComCardListFv();
     *(s32 *)((s8 *)temp_r31 + 0x5C) = 0x01000000;
-    ((TWindowOptionCtrl *)temp_r31)->set_flag70_bit100();
+    ((TWindowSubComCardList *)temp_r31)->set_flag70_bit100();
     refresh_technique_rows__20TWindowShortListCtrlFPviPv((Wn_8026EBB0 *)((void*)((void*)(this))), (s32)((void*)((void*)(temp_r31))), (Sc_8026EBB0 *)((void*)((void*)(arg2))));
     return temp_r31;
 }
@@ -332,7 +337,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
     case 0:
         if (self->list_win == NULL) {
             self->list_win = create_equip_kind_window(get_window_layout_position(1), lbl_8044F5A0, self->player_id);
-            ((TWindowShortListCtrl *)(self->list_win))->set_flag70_bit10();
+            ((TWindowSubShortCutList *)(self->list_win))->set_flag70_bit10();
             ((TWindowShortListCtrl *)(self->list_win))->update_variant_c();
             *(s32 *) ((u8 *) self->list_win + 0x5C) = 0x01000000;
         }
@@ -358,7 +363,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        if (((TLobby *)(self->list_win))->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)(self->list_win))->get_status_flag() != 0) {
             self->state = 2;
         }
         break;
@@ -377,7 +382,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
     case 3:
         if (self->list_win == NULL) {
             self->list_win = create_equip_kind_window(get_window_layout_position(1), lbl_8044F5A0, self->player_id);
-            ((TWindowShortListCtrl *)(self->list_win))->set_flag70_bit10();
+            ((TWindowSubShortCutList *)(self->list_win))->set_flag70_bit10();
             ((TWindowShortListCtrl *)(self->list_win))->update_variant_b();
             *(s32 *) ((u8 *) self->list_win + 0x5C) = 0x01000000;
         }
@@ -388,7 +393,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        if (((TLobby *)(self->list_win))->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)(self->list_win))->get_status_flag() != 0) {
             self->state = 5;
         }
         break;
@@ -412,7 +417,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
     case 6:
         if (self->list_win == NULL) {
             self->list_win = create_equip_kind_window(get_window_layout_position(1), lbl_8044F5A0, self->player_id);
-            ((TWindowShortListCtrl *)(self->list_win))->set_flag70_bit10();
+            ((TWindowSubShortCutList *)(self->list_win))->set_flag70_bit10();
             ((TWindowShortListCtrl *)(self->list_win))->update_variant_a();
             *(s32 *) ((u8 *) self->list_win + 0x5C) = 0x01000000;
         }
@@ -423,7 +428,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        if (((TLobby *)(self->list_win))->get_status_flag() != 0) {
+        if (((TUnk_804D0618 *)(self->list_win))->get_status_flag() != 0) {
             self->state = 8;
         }
         break;
@@ -468,7 +473,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
                 ((TWindowShortListCtrl *)((u8 *) self->tech_win))->update_cursor_pos();
             } else {
                 ((TWindowShortListCtrl *)arg0)->swap_card_entries(((TWindowShortListCtrl *)(self->tech_win))->get_selected_index(), ((TWindowShortListCtrl *)(self->tech_win))->get_cursor_pos());
-                ((TWindowSubComCard *)(self->tech_win))->reset_selection();
+                ((TWindowMenu *)(self->tech_win))->reset_selection();
                 refresh_technique_rows__20TWindowShortListCtrlFPviPv((Wn_8026EBB0 *) self, (s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
             }
         }
@@ -476,7 +481,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        if (((TWindowSubComCard *)(self->tech_win))->is_visible() != 0) {
+        if (((TWindowMenu *)(self->tech_win))->is_visible() != 0) {
             self->state = 11;
         }
         break;

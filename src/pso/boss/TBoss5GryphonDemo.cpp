@@ -82,10 +82,10 @@ s32 __dl__7TObjectFPv(void *);
 s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 
 void TBoss5GryphonColli_C::render() {  }
-void TBoss5GryphonDemo__sub_8006626C(void* p) { ((TBoss5GryphonDemo *)p)->clear_entry_flags(); }
+void TBoss5GryphonDemo__sub_8006626C(void* p) { ((TBoss5GryphonColli_C *)p)->clear_entry_flags(); }
 void TBoss5GryphonDemo::draw_model(void* a1, s32 a2) { push_matrix(this); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)this + 0xac, (char*)this + 0x38); pop_matrix(); *(s32*)((char*)this + 0x60) = a2; refresh_collision_body_centers(this); set_all_entry_flags(); }
 
-void TBoss5GryphonDemo::clear_entry_flags() {
+void TBoss5GryphonColli_C::clear_entry_flags() {
     O_80066304 *self = (O_80066304 *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
@@ -146,7 +146,7 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 
     }
     refresh_collision_body_centers(arg0);
     register_entity_by_id(arg0);
-    ((TBoss5GryphonDemo *)arg0)->clear_entry_flags();
+    ((TBoss5GryphonColli_C *)arg0)->clear_entry_flags();
     return arg0;
 }
 

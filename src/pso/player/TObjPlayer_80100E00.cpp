@@ -45,8 +45,8 @@ struct Stack_801012DC {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_80102C58(void *);
-s32 TObjPlayer__sub_80102C68(void *);
+s32 sub_80102C58__5TItemFv(void *);
+s32 sub_80102C68__5TItemFv(void *);
 s32 is_flag_20000_set__10TObjPlayerFv(int);
 s32 test_flag_2000000__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -110,13 +110,13 @@ void TItem::update_owner_visibility() {
     temp_r0 = this->m_f0;
     if (temp_r0 != 0U) {
         if ((test_flag_2000000__10TObjPlayerFPv((int) (temp_r0)) == 0) && (reset_key_machine_state__10TObjPlayerFv() == 1) && (is_flag_20000_set__10TObjPlayerFv((int) (this->m_f0)) == 0)) {
-            TObjPlayer__sub_80102C68((void *) (arg0));
+            sub_80102C68__5TItemFv((void *) (arg0));
             return;
         }
-        TObjPlayer__sub_80102C58((void *) (arg0));
+        sub_80102C58__5TItemFv((void *) (arg0));
         return;
     }
-    TObjPlayer__sub_80102C58((void *) (arg0));
+    sub_80102C58__5TItemFv((void *) (arg0));
 }
 
 void TObjPlayer::load_projection_tex(s32 arg0, s32 arg1) {

@@ -6,6 +6,9 @@
 
 struct TWindowSubSymbolChatFaceType : public TUnk_804CE018 {
     virtual ~TWindowSubSymbolChatFaceType();
+    void update_parts_entries();
+    void handle_input();
+    s32 is_open();
     virtual void render();
     virtual void run_task();
     u8 _pad1C[0x4];

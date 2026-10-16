@@ -6,6 +6,7 @@
 class TUnk_80490470 : public TUnk_80494AE0 {
 public:
     virtual ~TUnk_80490470();
+    void calc_recoil_offsets();
     u8 unk_18[0x4];
 };
 

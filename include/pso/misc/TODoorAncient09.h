@@ -6,6 +6,8 @@
 
 struct TODoorAncient09 : public TUnk_804B0BB8 {
     virtual ~TODoorAncient09();
+    void sub_80160968();
+    void door_ancient09_sync_state(void *);
     virtual void vfunc_20();
     virtual s32 init_door_switch_binding();
     virtual void vfunc_17();
@@ -18,7 +20,6 @@ struct TODoorAncient09 : public TUnk_804B0BB8 {
     u32 m_dc;
     u32 m_e0;
     u32 m_e4;
-    void play_door_sound();
     void draw_model();
     virtual void render();
     static void *create(void *arg0);

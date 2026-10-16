@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjGrass.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -428,8 +429,8 @@ extern u32 lbl_805D515C;
 s32 get_current_floor();
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 void TObjGrass__sub_800BCA2C(void *);
-s32 TObjGrass__sub_800BCE44(u8 *arg0);
-s32 TObjGrass__sub_800BE75C(Grass_800BE75C *o);
+s32 sub_800BCE44__9TObjGrassFv(u8 *arg0);
+s32 sub_800BE75C__9TObjGrassFv(Grass_800BE75C *o);
 u8 *get_enemy_entity(u16);
 s32 submit_cursor_candidate(void *, int);
 u8 *get_player_by_client_id(u16);
@@ -456,7 +457,7 @@ s32 post_translate_matrix(void *);
 extern s32 enable_v2_features;
 extern u32 lbl_805D5158;
 extern u32 lbl_805D515C;
-void TObjGrass__sub_800BDD70(u8 *arg0);
+void sub_800BDD70__9TObjGrassFv(u8 *arg0);
 f32 enemy_move_toward(void *, s32, void *, s32, f32);
 void enemy_pursue_point(void *, s32, void *, f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -575,7 +576,7 @@ extern u8 identity_matrix[];
 extern s32 enable_v2_features;
 extern s32 game_difficulty_selection;
 extern s32 local_client_id;
-void TObjGrass__sub_800BD4D8(void *arg0_);
+void sub_800BD4D8__9TObjGrassFv(void *arg0_);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 obj_setFlags30(void *, u32);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
@@ -884,7 +885,8 @@ void TObjGrass__vt61(u8 *arg0) {
 }
 
 #pragma fp_contract on
-s32 TObjGrass__sub_800BCE44(u8 *arg0) {
+s32 TObjGrass::sub_800BCE44() {
+    u8 *arg0 = (u8 *)this;
   u8 *temp_r3;
   obj_clearFlags30((void *)((void *) arg0), (u32)((int) 0x04040000));
   advance_animation_playback((void *) arg0);
@@ -1047,8 +1049,8 @@ s32 TObjGrass::update_web_attack() {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjGrass__sub_800BD4D8(void *arg0_) {
-    Grass_800BD4D8 *o = (Grass_800BD4D8 *)arg0_;
+void TObjGrass::sub_800BD4D8() {
+    Grass_800BD4D8 *o = (Grass_800BD4D8 *)this;
     if (o->f338 < 0x1000) {
         u8 *p = get_player_by_client_id(o->f338);
         if (p != NULL && ((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
@@ -1227,7 +1229,8 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
 }
 #pragma pop
 
-void TObjGrass__sub_800BDD70(u8 *arg0) {
+void TObjGrass::sub_800BDD70() {
+    u8 *arg0 = (u8 *)this;
     Vec_800BDD70 sp20;
     Vec_800BDD70 sp14;
     Vec_800BDD70 sp8;
@@ -1481,7 +1484,8 @@ void TObjGrass::update_chase_target(void *arg0_) {
 }
 #undef arg0
 
-s32 TObjGrass__sub_800BE75C(Grass_800BE75C *o) {
+s32 TObjGrass::sub_800BE75C() {
+    Grass_800BE75C *o = (Grass_800BE75C *)this;
     Vec_800BE75C v;
     f32 d;
     f32 lo2;
@@ -1914,16 +1918,16 @@ void TObjGrass::run_task() {
             TObjGrass::update_ai((void *)((void *) (arg0)));
             break;
         case 1:
-            TObjGrass__sub_800BE75C((Grass_800BE75C *)((void *) (arg0)));
+            sub_800BE75C__9TObjGrassFv((Grass_800BE75C *)((void *) (arg0)));
             break;
         case 2:
             TObjGrass::update_chase_target((void *)((void *) (arg0)));
             break;
         case 3:
-            TObjGrass__sub_800BDD70((u8 *)((void *) (arg0)));
+            sub_800BDD70__9TObjGrassFv((u8 *)((void *) (arg0)));
             break;
         case 4:
-            TObjGrass__sub_800BD4D8((void *)((void *) (arg0)));
+            sub_800BD4D8__9TObjGrassFv((void *)((void *) (arg0)));
             break;
         case 5:
             update_web_attack();
@@ -1932,7 +1936,7 @@ void TObjGrass::run_task() {
             update();
             break;
         case 7:
-            TObjGrass__sub_800BCE44((u8 *)((void *) (arg0)));
+            sub_800BCE44__9TObjGrassFv((u8 *)((void *) (arg0)));
             break;
         case 8:
             TObjGrass::update_dying((void *)((void *) (arg0)));
@@ -2079,7 +2083,7 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     }
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     init_collision_body_parts(arg0, &((E2C_800BF924 *)lbl_80492A00)[*(s32 *)((s8 *)arg0 + 0x368)], 1);
     *(s16 *)((s8 *)arg0 + 0x39E) = 0;
     bind_enemy_combat_stats(arg0, lbl_805D5140, ((u32 *)TObjGrass__bml_resource)[*(s16 *)((s8 *)arg0 + 0x39E)], grass_combat_stats_handle);

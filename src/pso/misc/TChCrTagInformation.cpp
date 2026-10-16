@@ -18,12 +18,12 @@ extern "C" {
 int TChCrTagInformation__vt4(void);
 void *__dt__19TChCrTagInformationFv(void *arg0, s16 arg1);
 int update_fade__8TChCrTagFPv(void*);
-int draw_char_info_sprites__16TObjCMAssignMenuFv(void*);
+int draw_char_info_sprites__19TChCrTagInformationFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__8TChCrTagFv(void *, int);
 void fn_803098DC(void);
 
-int TChCrTagInformation::render() { return draw_char_info_sprites__16TObjCMAssignMenuFv(this); }
+int TChCrTagInformation::render() { return draw_char_info_sprites__19TChCrTagInformationFv(this); }
 
 void TChCrTagInformation::update_selected_char() {
     Tag_802A1E8C *arg0 = (Tag_802A1E8C *)this;

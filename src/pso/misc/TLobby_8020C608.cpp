@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 
@@ -12,10 +13,10 @@ s32 send_entity_set_flags__6TLobbyFPv(void *arg0) {
     return 0;
 }
 
-s32 set_flag8__6TLobbyFPv(void *arg0) {
+s32 TUnk_804AF8A0::set_flag8() {
     void *temp_r4;
 
-    temp_r4 = *(void **)((s8 *)arg0 + 0x80);
+    temp_r4 = *(void **)((s8 *)this + 0x80);
     if (temp_r4 != NULL) {
         *(s16 *)((s8 *)temp_r4 + 2) = (s16) (*(s16 *)((s8 *)temp_r4 + 2) | 8);
         return 1;

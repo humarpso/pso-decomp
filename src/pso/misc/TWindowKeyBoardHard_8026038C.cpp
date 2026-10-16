@@ -3,8 +3,8 @@
 
 extern "C" {
 
-int TWindowKeyBoardHard__sub_8026042C(void* p);
-int TWindowKeyBoardHard__sub_80260438(void* p);
+int sub_8026042C__19TWindowKeyBoardHardFv(void* p);
+int sub_80260438__19TWindowKeyBoardHardFv(void* p);
 
 void TWindowKeyBoardHard::set_bits_shift7(s32 arg0, s32 arg1) {
     TWindowKeyBoardHard::set_card_window_flags((void *)arg0, (s32)(arg1 << 7), (s32)(-0x81));
@@ -18,8 +18,8 @@ void TWindowKeyBoardHard::clear_card_window_flag(s32 arg0, s32 arg1) {
 void TWindowKeyBoardHard::set_card_window_flag(s32 arg0, s32 arg1) {
     TWindowKeyBoardHard::set_card_window_flags((void *)arg0, (s32)(arg1 << 5), (s32)(-0x21));
 }
-int TWindowKeyBoardHard__sub_8026042C(void* p) { return (*(u32*)((char*)p + 0x60) >> 6) & 0x1; }
-int TWindowKeyBoardHard__sub_80260438(void* p) { return (*(u32*)((char*)p + 0x60) >> 10) & 0x1; }
+int TWindowKeyBoardHard::sub_8026042C() { return (*(u32*)((char*)this + 0x60) >> 6) & 0x1; }
+int TWindowKeyBoardHard::sub_80260438() { return (*(u32*)((char*)this + 0x60) >> 10) & 0x1; }
 int TWindowKeyBoardHard::is_key_active() { return this->m_60 & 0x200; }
 
 }

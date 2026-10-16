@@ -6,6 +6,8 @@
 
 struct TObjEneDimedian : public TUnk_80493450 {
     virtual ~TObjEneDimedian();
+    void load_dimedian_param_entry(s32);
+    void sub_800A7B54();
     virtual void vfunc_83();
     virtual void vfunc_101();
     virtual void vfunc_99();

@@ -13,7 +13,7 @@ struct Stack_800F5D80 {
 };
 
 extern "C" {
-s32 exchange_object_state__6TLobbyFls(void *, void *, int);
+s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 void clear_lobby_object_state__9TObjEnemyFv(s32 arg0);
 }
 
@@ -49,10 +49,10 @@ void TObjEnemy::clear_lobby_object_state() {
     typedef char sp8_offset[(offsetof(Stack_800F5D80, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_800F5D80, spE) == 0x6) ? 1 : -1];
     Stack_800F5D80 stack;
-    if (exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
+    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
         stack.sp8 = 0;
         stack.spE = 0;
-        exchange_object_state__6TLobbyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
     }
 }
 

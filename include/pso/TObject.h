@@ -132,6 +132,7 @@ public:
 
     TObject(TObject *parent = NULL);
     virtual ~TObject();
+    void set_flag_4();
 
     void *operator new(size_t size);
     void  operator delete(void *ptr);

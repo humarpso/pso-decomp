@@ -6,6 +6,7 @@
 
 struct TPhotonEstlla : public TUnk_804C3248 {
     virtual ~TPhotonEstlla();
+    void sub_801AA6F8();
     u8 _pad158[0x24];
     u16 m_17c;
     u8 _pad17E[0x2];

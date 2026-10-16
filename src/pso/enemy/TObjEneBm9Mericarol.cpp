@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -494,7 +495,7 @@ void *construct_collider_proxy__10TObjPlayerFv(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);
-void fn_8002AE64(void *);
+void sub_8002AE64__9TObjEnemyFv(void *);
 void init_and_activate__10TObjPlayerFv(void *);
 extern const s32 lbl_80472318[];
 extern s32 lbl_805D3F28;
@@ -780,7 +781,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     ((TObjPlayer *)self)->set_field_dc(((Res_802D0D3C *)lbl_805D6868)->f430);
     self->fB8 = 2;
     set_animation__10TObjPlayerFPvs(self, self->fB8);
-    ((TObjEnePanarms *)self)->set_field_b8(self->fB8);
+    ((TObjMotion *)self)->set_field_b8(self->fB8);
     ph = ((TObjEneBm9Mericarol *)self)->get_phase();
     reset_hp__9TObjEneDDFv(self, bm9_mericarol_phase_hp_table[ph], lbl_80540B64[ph], lbl_80540B70[ph]);
     self->f3C0 = create__12TObjEneSaverFPvPv(0xA0303030, lbl_80472318[ph]);
@@ -830,7 +831,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     ((TObjEneDD *)self)->transform_part_positions();
     self->f326 = 0;
     ((VObj18_802D0D3C *)self)->m85(self->f326, 4);
-    fn_8002AE64(self);
+    sub_8002AE64__9TObjEnemyFv(self);
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(self->a3C8[i]))->activate_and_dispatch();
     }

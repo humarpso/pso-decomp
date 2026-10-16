@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TTecReverser.h"
 #include "pso/unk/TUnk_804CC148.h"
 
 struct V3_8022BEAC { s32 x; s32 y; s32 z; };
@@ -8,7 +9,7 @@ struct V3_8022BEAC { s32 x; s32 y; s32 z; };
 struct T_8022BEAC { u8 pad[0x20]; u8 f20[0xC]; u8 f2c[0x10]; f32 f3c; u8 pad2[0x2c]; s32 state; };
 
 extern "C" {
-void fn_8022BE64(u8 *arg0, u8 *arg1, s32 arg2);
+void sub_8022BE64__12TTecReverserFPUcl(u8 *arg0, u8 *arg1, s32 arg2);
 void approach_vector_in_place(void *, void *, f32);
 void TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern V3_8022BEAC TTecLuker__render_scale_vec;
@@ -27,8 +28,8 @@ extern "C" {
 #include "types.h"
 
 extern "C" {
-void TTecLuker__sub_8022C008(u8 *arg0);
-void count_if_within_range__9TTecLukerFPv(u8 *arg0);
+void sub_8022C008__13TUnk_804CC148Fv(u8 *arg0);
+void count_if_within_range__13TUnk_804CC148Fv(u8 *arg0);
 extern u8 lbl_804CC148[];
 }
 
@@ -50,7 +51,8 @@ s32 queue_destruction__7TObjectFv(void *);
 
 extern const f64 lbl_8044CDF0;
 
-void fn_8022BE64(u8 *arg0, u8 *arg1, s32 arg2) {
+void TTecReverser::sub_8022BE64(u8 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg1 + 0) = (f32) (*(f32 *)((s8 *)arg1 + 0) + (f32) arg2);
     *(f32 *)((s8 *)arg0 + 0x64) = (f32) *(f32 *)((s8 *)arg1 + 4);
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) *(f32 *)((s8 *)arg1 + 8);
@@ -77,7 +79,8 @@ void TUnk_804CC148::tick_lifetime() {
     }
 }
 
-void count_if_within_range__9TTecLukerFPv(u8 *arg0) {
+void TUnk_804CC148::count_if_within_range() {
+    u8 *arg0 = (u8 *)this;
     Stack_8022BF8C_more_8022be64_1 stack;
     f32 temp_f1;
     stack.sp8 = *(f32 *)((s8 *)arg0 + 0x20) - *(f32 *)((s8 *)arg0 + 0x7C);
@@ -89,7 +92,8 @@ void count_if_within_range__9TTecLukerFPv(u8 *arg0) {
     }
 }
 
-void TTecLuker__sub_8022C008(u8 *arg0) {
+void TUnk_804CC148::sub_8022C008() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
 
     temp_r3 = (long) (arg0 + 0x20);
@@ -102,8 +106,8 @@ void TTecLuker__sub_8022C008(u8 *arg0) {
 
 #include "types.h"
 
-#define TTecLuker__sub_8022C008 ((s32 (*)())TTecLuker__sub_8022C008)
-#define count_if_within_range__9TTecLukerFPv ((s32 (*)(void *))count_if_within_range__9TTecLukerFPv)
+#define sub_8022C008__13TUnk_804CC148Fv ((s32 (*)())sub_8022C008__13TUnk_804CC148Fv)
+#define count_if_within_range__13TUnk_804CC148Fv ((s32 (*)(void *))count_if_within_range__13TUnk_804CC148Fv)
 #define lbl_804CC148 ((s32 *)lbl_804CC148)
 
 struct Base_8022C03C_8022BEAC { char pad[0x18]; };
@@ -130,8 +134,8 @@ void TUnk_804CC148::run_task() {
     temp_r0 = *(s32 *)&this->field_6c;
     switch (temp_r0) {
     case 0:
-        TTecLuker__sub_8022C008();
-        count_if_within_range__9TTecLukerFPv(this);
+        sub_8022C008__13TUnk_804CC148Fv();
+        count_if_within_range__13TUnk_804CC148Fv(this);
         return;
     case 1:
         ((VObj_8022C03C_8022BEAC *)this)->m5();
@@ -153,8 +157,8 @@ void *destroy_technique_base__9TTecLukerFPvs(void *arg0, s16 arg1) {
 
 }
 
-#undef TTecLuker__sub_8022C008
-#undef count_if_within_range__9TTecLukerFPv
+#undef sub_8022C008__13TUnk_804CC148Fv
+#undef count_if_within_range__13TUnk_804CC148Fv
 #undef lbl_804CC148
 
 #include "types.h"

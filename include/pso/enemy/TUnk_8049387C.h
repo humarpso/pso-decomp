@@ -6,6 +6,8 @@
 class TUnk_8049387C : public TObjEneMe1Gee {
 public:
     virtual ~TUnk_8049387C();
+    void sub_800CB764(s32);
+    void sub_800C84C8();
     u8 unk_474[0x24];
 };
 

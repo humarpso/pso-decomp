@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 #include <stddef.h>
 #include "pso/misc/TPhotonEstlla.h"
@@ -53,10 +54,10 @@ struct Self_801AA818 {
 extern "C" {
 s32 advance_animation_playback(void *);
 u8 *find_entity_by_id(u16);
-s32 begin_photon_summon_camera(void *, int);
-s32 update_photon_blast_attachments(void *);
+s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
+s32 update_photon_blast_attachments__13TUnk_804C3248Fv(void *);
 s32 spawn_photon_blast_attachment_effects(void *, int);
-s32 update_state__10TSceneSoraFPv(void *);
+s32 update_state__13TUnk_804C3248Fv(void *);
 s32 construct_photon_magic_square_normal(int, void *, int, void *, int);
 s32 play_persistent_sound(int, void *, int, int, int);
 u32 __nw__7TObjectFUl(int);
@@ -79,7 +80,7 @@ extern const f32 lbl_805DC13C;
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
+s32 set_photon_blast_joint_callback__13TUnk_804C3248Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -136,7 +137,7 @@ void TPhotonEstlla::render() {
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
-        set_photon_blast_joint_callback__10TObjPlayerFPv(self);
+        set_photon_blast_joint_callback__13TUnk_804C3248Fv(self);
         lbl_805D5660 = model_render_flags;
         copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -181,15 +182,15 @@ void TPhotonEstlla::run_task() {
         }
     }
     if (((s32) *(s32 *)&this->m_1a0 == 0x64) && ((s16) this->m_b8 == 1)) {
-        begin_photon_summon_camera((void *) (arg0), (int) (0));
+        begin_photon_summon_camera__13TUnk_804C3248FSc((void *) (arg0), (int) (0));
         *(s32 *)&this->m_1a0 = 0;
-        ((TObjEnePanarms *)arg0)->set_field_b8((int) (0));
+        ((TObjMotion *)arg0)->set_field_b8((int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (1));
     }
     *(s16 *)&this->m_190 = (s16) this->m_b8;
-    update_state__10TSceneSoraFPv((void *) (arg0));
+    update_state__13TUnk_804C3248Fv((void *) (arg0));
     advance_animation_playback((void *) (arg0));
-    update_photon_blast_attachments((void *) (arg0));
+    update_photon_blast_attachments__13TUnk_804C3248Fv((void *) (arg0));
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if (lbl_805DC144 == (f32) *(s32 *)&this->m_1a0) {

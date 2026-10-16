@@ -8,8 +8,8 @@ struct Obj_8022ACB4 { u8 pad[0xA6]; s16 state; };
 extern "C" {
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-void play_anti_cast_sound(void *p) {
-    Obj_8022ACB4 *arg0 = (Obj_8022ACB4 *)p;
+void TTecAnti::play_anti_cast_sound() {
+    Obj_8022ACB4 *arg0 = (Obj_8022ACB4 *)this;
     s32 r;
     switch (arg0->state) {
     case 0:
@@ -136,7 +136,7 @@ struct Anti_8022AEF8 {
 
 extern "C" {
 s32 obj_getField1c(int);
-void play_anti_cast_sound(void *);
+void play_anti_cast_sound__8TTecAntiFv(void *);
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
@@ -333,7 +333,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
         *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c((int) (temp_r3_2));
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0xAC) != 0) {
-        play_anti_cast_sound((void *) (arg0));
+        play_anti_cast_sound__8TTecAntiFv((void *) (arg0));
         TTecAnti__sub_8022AD74((void*)((void *) (arg0)));
     }
     return arg0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
 #include <stddef.h>
 #include "pso/misc/TWindowSubSymbolChat.h"
@@ -126,7 +127,7 @@ s32 draw_window_frame(void *, s32);
 void clamp_list_scroll_offset(s32, Vec2_80284D68 *, Vec2_80284D68 *);
 s32 draw_window_scrollbar(s32, s32, void *);
 void * reset_selection__20TWindowSubStatusDispFv(void *, Vec2_80285D38 *);
-s32 TWindowSubSymbolChat__sub_80283974();
+s32 sub_80283974__25TWindowSubSymbolChatPartsFv();
 void fn_80284C04(u8 *arg0);
 void select_symbol_chat_slot(void);
 s32 calc_symbol_index__20TWindowSubSymbolChatFPv(void *arg0);
@@ -216,7 +217,7 @@ extern int fold_flush_1;
 #pragma pop
 
 void TWindowSubSymbolChatParts::handle_cancel() {
-    if (TWindowSubSymbolChat__sub_80283974() == 0) {
+    if (sub_80283974__25TWindowSubSymbolChatPartsFv() == 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
         this->m_70 = (u8) (this->m_70 | 2);
     }
@@ -313,8 +314,8 @@ void fn_802857C4(Win_802857C4 *arg0, Rect_802857C4 *arg1) {
     f32 x;
     f32 h;
     row = 0;
-    e1 = (f32 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
-    e0 = (f32 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(0);
+    e1 = (f32 *)((TUnk_804CE018 *)arg0)->get_array_entry(1);
+    e0 = (f32 *)((TUnk_804CE018 *)arg0)->get_array_entry(0);
     h = lbl_805DD7F8;
     for (i = 0; i < arg0->count; row++) {
         off = lbl_805DD7D4 * (f32)row;
@@ -380,7 +381,7 @@ void run_task__25TWindowSubSymbolChatPartsFv(Parts_80285B84 *arg0) {
     if (!(arg0->flags & 2)) {
         arg0->timer = 0x01000000;
     }
-    if (((s32 (*)(void *))TWindowSubSymbolChat__sub_80283974)(arg0) == 0) {
+    if (((s32 (*)(void *))sub_80283974__25TWindowSubSymbolChatPartsFv)(arg0) == 0) {
         ((void (*)(void *))fn_80285054)(arg0);
         pad = ((u8 *)&controller_input_state) + 0x20;
         if (TWindowShortListCtrl__check_controller_button(pad, 4) != 0 || test_flag_4c__23TAdSinglePlyChrSelectGCFv(((u8 *)&controller_input_state) + 0x160, 4) != 0) {

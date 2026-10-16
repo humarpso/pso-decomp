@@ -6,6 +6,7 @@
 
 struct TWindowSubShortCutList : public TUnk_804D0618 {
     virtual ~TWindowSubShortCutList();
+    void set_flag70_bit10();
     virtual void render();
     u32 m_88;
     void refresh_entries();

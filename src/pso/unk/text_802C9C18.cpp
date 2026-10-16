@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapSeabed01.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TRaderMapCore.h"
 
@@ -11,15 +12,16 @@ s32 check_player_flag1__6TLobbyFv();
 s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
-void fn_802C9D38(u8 *arg0);
+void sub_802C9D38__14TOTrapSeabed01Fv(u8 *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern Sounds_802C9C18 lbl_804720B8;
-void fn_802C9C18(u8 *arg0, s32 arg1);
+void sub_802C9C18__14TOTrapSeabed01Fl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-void fn_802C9C18(u8 *arg0, s32 arg1) {
+void TOTrapSeabed01::sub_802C9C18(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     Sounds_802C9C18 s = lbl_804720B8;
     switch (TOKeyMachine01::get_global_state()) {
     case 0x17:
@@ -44,7 +46,8 @@ void fn_802C9C18(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void fn_802C9D38(u8 *arg0) {
+void TOTrapSeabed01::sub_802C9D38() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     s32 temp_r3_2;
     if (TRaderMapCore::is_not_split_screen() == 1) {

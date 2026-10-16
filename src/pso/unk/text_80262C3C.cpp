@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
+#include "pso/item/TItem.h"
 #include <stddef.h>
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/TObject.h"
@@ -272,17 +274,17 @@ void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self) {
     i = 0;
     do {
         mode = get_status_effect_icon_index(obj_getArrWord_254(ent, i));
-        set_help_mode__14TWindowComCardFPvi(((TWindowSubStatusDisp *)self)->get_array_entry(i + 3), mode);
+        set_help_mode__14TWindowComCardFPvi(((TUnk_804CE018 *)self)->get_array_entry(i + 3), mode);
         i++;
     } while (i < 4);
     {
-        g = (Gauge_80262E90 *)((TWindowSubStatusDisp *)self)->get_array_entry(7);
+        g = (Gauge_80262E90 *)((TUnk_804CE018 *)self)->get_array_entry(7);
         g->cur = ((TItemProShield *)ent)->get_field_2b8();
         g->max = ent->f32c;
         ((TWindowHelpItem *)g)->set_flag0_bit2();
     }
     {
-        g = (Gauge_80262E90 *)((TWindowSubStatusDisp *)self)->get_array_entry(8);
+        g = (Gauge_80262E90 *)((TUnk_804CE018 *)self)->get_array_entry(8);
         g->cur = obj_getS16_2BA(ent);
         g->max = ent->f32e;
         ((TWindowHelpItem *)g)->set_flag0_bit2();
@@ -293,7 +295,7 @@ void TWindowLockOn::refresh_ground_item() {  }
 
 void TWindowLockOn::update_photon_blast_marker() {
     u8 *arg0 = (u8 *)this;
-    update_photon_blast_player_marker(((TWindowSubStatusDisp *)arg0)->get_array_entry(0), (u32) this->m_60);
+    update_photon_blast_player_marker(((TUnk_804CE018 *)arg0)->get_array_entry(0), (u32) this->m_60);
 }
 
 struct Obj_80263014;
@@ -349,11 +351,11 @@ void TWindowLockOn__update_for_enemy(s32 a0, s32 a1) {
 
     init_window_layout_entries(arg0->sub, d->m6c, arg0->player);
     arg0->cb = d->cb;
-    e = ((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
+    e = ((TUnk_804CE018 *)arg0)->get_array_entry(1);
     TWindowDuelResult::set_default_status((void *)e, get_message_10__20TWindowSubStatusDispFl(0xA5));
     ((TWindowHelpItem *)e)->reset_float_field();
     width = calc_text_width(((TWindowSubComCard *)e)->get_field_20());
-    e = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0);
+    e = ((TUnk_804CE018 *)arg0)->get_array_entry(0);
     TWindowDuelResult::set_default_status((void *)e, enemy_name_for_rt_index(((TWindowLockOn *)obj)->get_target_id()));
     ((TWindowHelpItem *)e)->reset_float_field();
     arg0->w = (f32)calc_text_width(((TWindowSubComCard *)e)->get_field_20());
@@ -374,7 +376,7 @@ void TWindowLockOn__update_for_enemy(s32 a0, s32 a1) {
     } else {
         kind = 4;
     }
-    e = ((TWindowSubStatusDisp *)arg0)->get_array_entry(2);
+    e = ((TUnk_804CE018 *)arg0)->get_array_entry(2);
     np = d->names;
     TWindowDuelResult::set_default_status((void *)e, np[kind]);
     ((TWindowHelpItem *)e)->reset_float_field();
@@ -389,11 +391,11 @@ void TWindowLockOn__update_for_enemy(s32 a0, s32 a1) {
     arg0->w += TWindowLockOn__data_805DD110;
     arg0->dist = get_target_distance__13TWindowLockOnFv(0x1E) - arg0->h * arg0->scale;
     arg0->i50 = 0;
-    p = (Ent_80263014 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(7);
+    p = (Ent_80263014 *)((TUnk_804CE018 *)arg0)->get_array_entry(7);
     p->x14 = arg0->w - TWindowLockOn__data_805DD110;
     p->x20 = (f32)((TItemProShield *)obj)->get_field_2b8();
     p->x24 = (f32)*(s16 *)((u8 *)obj + 0x32C);
-    p = (Ent_80263014 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(8);
+    p = (Ent_80263014 *)((TUnk_804CE018 *)arg0)->get_array_entry(8);
     p->x14 = arg0->w - TWindowLockOn__data_805DD110;
     p->x20 = (f32)obj_getS16_2BA((Ent_80262E90 *)obj);
     p->x24 = (f32)*(s16 *)((u8 *)obj + 0x32E);
@@ -412,7 +414,7 @@ s32 TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     f32 r;
     init_window_layout_entries(arg0->sub, lockon_window_layout_entries, arg0->player);
     arg0->cb = lbl_804D0288;
-    e = (Ent_80263370 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(0);
+    e = (Ent_80263370 *)((TUnk_804CE018 *)arg0)->get_array_entry(0);
     init_item_row__20TWindowSubStatusDispFPvPvi(e, item, 0);
     calc_row_width__20TWindowSubStatusDispFv(e);
     e->y = lbl_805DD114;
@@ -421,8 +423,8 @@ s32 TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     }
     arg0->w = e->w;
     arg0->h = lbl_805DD11C;
-    e2 = (Ent_80263370 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
-    if (((TOSwitchItem *)item)->get_field_ec() == 0 || ((TOSwitchItem *)item)->get_field_ec() == 1) {
+    e2 = (Ent_80263370 *)((TUnk_804CE018 *)arg0)->get_array_entry(1);
+    if (((TItem *)item)->get_field_ec() == 0 || ((TItem *)item)->get_field_ec() == 1) {
         ((Ent2_80263370 *)e2)->grade = calc_display_grade__5TItemFv(item);
         arg0->h += lbl_805DD120;
         e2->flags &= ~2;
@@ -450,7 +452,7 @@ s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1) {
     u16 id;
     init_window_layout_entries(arg0->sub, &lock_on_window_params, arg0->player);
     arg0->cb = lockon_photon_blast_marker_callback;
-    w = (Ent_802634E8 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
+    w = (Ent_802634E8 *)((TUnk_804CE018 *)arg0)->get_array_entry(1);
     id = obj_getField1c(arg1);
     update_for_player_index__13TWindowLockOnFPvi(w, id);
     ((TWindowHelpItem *)w)->reset_float_field();

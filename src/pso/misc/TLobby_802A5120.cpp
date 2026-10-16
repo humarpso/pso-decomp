@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrTagPlBack.h"
 #include "pso/TObjCMAssignMenu.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -39,7 +40,7 @@ void TLobby::free_dialing_gc() {
         lbl_805D6668 = 0U;
     }
 }
-void TObjCMAssignMenu::draw_frame() {
+void TChCrTagPlBack::draw_frame() {
     Tag_802A5208 *self = (Tag_802A5208 *)this;
     f32 a;
     a = lbl_805DDFC8;

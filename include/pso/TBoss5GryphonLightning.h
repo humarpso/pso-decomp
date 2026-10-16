@@ -13,6 +13,7 @@ public:
  void* m_44;
 public:
     virtual ~TBoss5GryphonLightning();
+    void spawn_gryphon_lightning();
 };
 
 #endif

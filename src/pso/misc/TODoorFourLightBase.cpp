@@ -103,7 +103,7 @@ s32 pop_matrix();
 f32 post_translate_matrix(void *);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
-s32 play_door_sound(void *);
+s32 play_door_sound__13TUnk_804B0BB8Fv(void *);
 u8 is_current_floor_switch_set(int);
 void update_door_switch_state__19TODoorFourLightBaseFv(u8 *arg0);
 s32 rotate_matrix_y(int, int);
@@ -157,7 +157,7 @@ void TODoorFourLightBase::update_door_switch_state() {
     s16 sp8;
     switch (this->m_cc) {
     case 1:
-        play_door_sound(arg0);
+        play_door_sound__13TUnk_804B0BB8Fv(arg0);
         this->m_d0 |= 1;
         break;
     case 2: {
@@ -171,7 +171,7 @@ void TODoorFourLightBase::update_door_switch_state() {
         if (found != 0) {
             this->m_d0 &= ~1;
         } else {
-            play_door_sound(arg0);
+            play_door_sound__13TUnk_804B0BB8Fv(arg0);
             this->m_d0 |= 1;
         }
         break;
@@ -191,7 +191,7 @@ void TODoorFourLightBase::update_door_switch_state() {
         if (found != 0) {
             this->m_d0 &= ~1;
         } else {
-            play_door_sound(arg0);
+            play_door_sound__13TUnk_804B0BB8Fv(arg0);
             this->m_d0 |= 1;
         }
         if (found == 0 && this->m_80 != NULL && access_object_saved_state(arg0, &sp8, 1) == 1) {

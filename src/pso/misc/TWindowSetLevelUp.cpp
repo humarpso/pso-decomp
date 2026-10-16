@@ -188,7 +188,8 @@ void *TWindowSubStatusDisp::reset_selection() {
     return this;
 }
 
-void update_stat_messages__17TWindowSetLevelUpFv(LvUp_8026DA44 *self) {
+void TWindowSetLevelUp::update_stat_messages() {
+    LvUp_8026DA44 *self = (LvUp_8026DA44 *)this;
     VObj_8026DA44 *pl;
 
     text_builder_reset();

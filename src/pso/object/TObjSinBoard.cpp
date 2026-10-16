@@ -76,7 +76,7 @@ extern u8 gogo_ball_configuration[];
 extern void *tl_05;
 extern s32 tl_06;
 extern const f32 lbl_805DBF40;
-void update_effects__14TOSwitchAttackFPv(void *self);
+void update_effects__13TUnk_804B8DD0Fv(void *self);
 }
 
 extern "C" {
@@ -200,7 +200,7 @@ void TUnk_804B8DD0::run_task() {
     if (this->m_28 != 0) {
         if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (this->m_40 != 0 ? 0x10 : 1)) {
             *(s32 *)((s8 *)this + 0x3C) = 1;
-            update_effects__14TOSwitchAttackFPv((void *)(this));
+            update_effects__13TUnk_804B8DD0Fv((void *)(this));
         } else {
             *(s32 *)((s8 *)this + 0x3C) = 0;
             this->m_30 = 0;
@@ -208,7 +208,7 @@ void TUnk_804B8DD0::run_task() {
     } else {
         if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (this->m_40 != 0 ? 0x20 : 2)) {
             *(s32 *)((s8 *)this + 0x3C) = 1;
-            update_effects__14TOSwitchAttackFPv((void *)(this));
+            update_effects__13TUnk_804B8DD0Fv((void *)(this));
         } else {
             *(s32 *)((s8 *)this + 0x3C) = 0;
             this->m_30 = 0;
@@ -220,8 +220,8 @@ void TUnk_804B8DD0::run_task() {
         queue_destruction__7TObjectFv(this);
     }
 }
-void update_effects__14TOSwitchAttackFPv(void *self) {
-    u8 *arg0 = (u8 *)self;
+void TUnk_804B8DD0::update_effects() {
+    u8 *arg0 = (u8 *)this;
     Vec_80198504 v6;
     Vec_80198504 v2a;
     Vec_80198504 v2b;

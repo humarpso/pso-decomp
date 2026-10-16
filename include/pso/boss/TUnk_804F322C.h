@@ -6,6 +6,7 @@
 class TUnk_804F322C : public TObjEnemy {
 public:
     virtual ~TUnk_804F322C();
+    void update_linked_state();
     virtual void vfunc_63();
     virtual void vfunc_62();
     virtual void render();

@@ -5,6 +5,17 @@
 
 struct TObjWarpBoss
 {
+    s32 update_warp_dialogs();
+    void update_warp_occupants();
+    void update_warp_state();
+    void update_state();
+    void warp_boss_handle_window();
+    void update_floor_switch_state();
+    void warp_player(s32);
+    void send_cmd_6A(u16);
+    s32 are_all_players_in_range();
+    s32 sub_8019E418();
+    void update_warp_boss_visibility();
     u8 _pad1C[0x1C];
     void* m_38;
     u8 _pad3C[0x24];

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdMultiSelGameModeGC.h"
@@ -215,7 +217,7 @@ void TAdSinglePlyChrSelectGC::handle_card_select() {
         *(s32 *)&this->m_20 = 0;
         return;
     }
-    if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x50)))->is_child_visible() != 0) {
+    if (((TWindowMessageYesNo *)(*(s32 *)((s8 *)this + 0x50)))->is_child_visible() != 0) {
         temp_r3 = ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x50)))->get_slot_or_neg1();
         switch (temp_r3) {
         case 0:
@@ -242,7 +244,7 @@ void TAdSinglePlyChrSelectGC::handle_card_select2() {
         *(s32 *)&this->m_20 = 0;
         return;
     }
-    if (((TWindowSubComCard *)(this->m_4c))->is_child_visible() != 0) {
+    if (((TWindowMessageYesNo *)(this->m_4c))->is_child_visible() != 0) {
         temp_r3 = ((TWindowSubComCard *)(this->m_4c))->get_slot_or_neg1();
         switch (temp_r3) {
         case 0:
@@ -269,7 +271,7 @@ void TAdSinglePlyChrSelectGC::update_card_input() {
         *(s32 *)&this->m_20 = 0;
         return;
     }
-    if (((TWindowSubComCard *)(this->m_44))->is_child_visible() != 0) {
+    if (((TWindowMessageYesNo *)(this->m_44))->is_child_visible() != 0) {
         temp_r3 = ((TWindowSubComCard *)(this->m_44))->get_slot_or_neg1();
         switch (temp_r3) {
         case 0:
@@ -294,7 +296,7 @@ void TAdSinglePlyChrSelectGC::update() {
         *(s32 *)&this->m_20 = 0;
         return;
     }
-    if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x48)))->is_child_visible() != 0) {
+    if (((TWindowMessageYesNo *)(*(s32 *)((s8 *)this + 0x48)))->is_child_visible() != 0) {
         temp_r3 = ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x48)))->get_slot_or_neg1();
         switch (temp_r3) {
         case 0:
@@ -326,7 +328,7 @@ void TAdSinglePlyChrSelectGC::handle_menu_selection() {
         *(s32 *)&this->m_20 = 0;
         return;
     }
-    if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x38)))->is_visible() != 0) {
+    if (((TWindowMenu *)(*(s32 *)((s8 *)arg0 + 0x38)))->is_visible() != 0) {
         this->m_5c = get_selected_menu_value((int) (*(s32 *)((s8 *)arg0 + 0x38)));
         temp_r0 = this->m_5c;
         switch (temp_r0) {

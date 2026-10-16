@@ -80,8 +80,8 @@ extern const f32 lbl_805DB484;
 u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
 void update_and_send_60__6TLobbyFPv(void *);
-void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src);
-void play_door_sound(u8 *arg0);
+void send_state__12TODoorCave01FPv(Self_80161320 *self, State_80161320 *src);
+void play_door_sound__13TUnk_804B0BB8Fv(u8 *arg0);
 u8 is_current_floor_switch_set(u16);
 }
 
@@ -127,7 +127,9 @@ u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TODoorCave01::vfunc_20() {  }
 
-void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src) {
+void TODoorCave01::send_state(void *src_arg) {
+    Self_80161320 *self = (Self_80161320 *)this;
+    State_80161320 *src = (State_80161320 *)src_arg;
     State_80161320 st;
     Obj_80161320 *obj;
     if (src != 0) {
@@ -212,7 +214,7 @@ void TODoorCave01::update_door_switch_state() {
 
     switch (d->state) {
     case 1:
-        play_door_sound(arg0);
+        play_door_sound__13TUnk_804B0BB8Fv(arg0);
         d->flags |= 0xF0001;
         d->count = 4;
         break;
@@ -228,7 +230,7 @@ void TODoorCave01::update_door_switch_state() {
             d->flags |= 1 << (i + 0x10);
         }
         if (d->count == 4) {
-            play_door_sound(arg0);
+            play_door_sound__13TUnk_804B0BB8Fv(arg0);
             d->flags |= 1;
         } else {
             d->flags &= ~1;
@@ -250,11 +252,11 @@ void TODoorCave01::update_door_switch_state() {
             d->flags |= 1 << (i + 0x10);
         }
         if (d->count == 4) {
-            play_door_sound(arg0);
+            play_door_sound__13TUnk_804B0BB8Fv(arg0);
             d->flags |= 1;
             if (d->obj != NULL && ((s32 (*)(u8 *, void *, s16))access_object_saved_state)(arg0, &st, 1) != 0) {
                 st.a = 1;
-                send_state__12TODoorCave01FPvPv((Self_80161320 *)arg0, &st);
+                send_state__12TODoorCave01FPv((Self_80161320 *)arg0, &st);
                 ((s32 (*)(u8 *, void *, s16))access_object_saved_state)(arg0, &st, 0);
             }
         }

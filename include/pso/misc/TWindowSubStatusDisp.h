@@ -52,7 +52,6 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     void increment_counter();
     static s32 destroy_allocation(s32 arg0, s16 arg1);
     void *reset_selection();
-    s32 get_array_entry(int i);
     static s32 get_status_index(int arg0);
     static s32 get_status_index_or_default(u16 *arg0);
     static s32 *get_status_window(int arg0);
@@ -61,7 +60,6 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     static void render_forward(void* p);
     static void begin_render(s32 _w0);
     static u8 check_flag_400();
-    void refresh_if_current_player();
     void clear_fields();
     static int get_download_server();
     static u32 calc_text_width(char *s);
@@ -80,11 +78,9 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     void set_selected_index(s16 arg1);
     static void draw_status(s32 arg1, s32 arg2, s32 arg3);
     static void dispatch_without_flags(s32 arg1, s32 arg2, s32 arg3);
-    void sync_level_field();
     static void refresh_with_default_list(s32 a, s32 b);
     void handle_input();
     int is_flag_4_set();
-    int get_flag();
     u8 get_type();
     void set_input_mode(u8 v);
     s16 get_item_type();
@@ -121,7 +117,6 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     void *destroy_item_list_resources(s16 arg1);
     int is_flag80_set();
     void add_text_entry(s32 arg1, s32 arg2);
-    f32 get_scale();
     void set_entry1_field20(s32 arg1);
     void *deleting_dtor(s16 arg1);
     void start_hp_text_color_transition();
@@ -140,12 +135,10 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     void fill_card_text_entries(s32 arg1);
     void render_status();
     void render_status_pair(s32 arg1);
-    void render_status_value();
     static s32 query_status_field(void *arg0, s8 arg1);
     static s32 get_flag_or_zero(void *arg0, s8 arg1);
     void *destroy_with_free(s16 arg1);
     void*init_state(int a1, int a2);
-    void render_status_box();
     static void draw_split_screen_dividers();
     static void draw_tiled_background();
     static void draw_bottom_bar();

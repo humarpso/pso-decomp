@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 #include <stddef.h>
 #include <stddef.h>
@@ -106,10 +107,10 @@ s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 advance_animation_playback(void *);
 s32 queue_photon_blast_hit(int, int, int, f32);
-s32 begin_photon_summon_camera(void *, int);
-s32 update_photon_blast_attachments(void *);
+s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
+s32 update_photon_blast_attachments__13TUnk_804C3248Fv(void *);
 s32 spawn_photon_blast_attachment_effects(void *, int);
-s32 update_state__10TSceneSoraFPv(void *);
+s32 update_state__13TUnk_804C3248Fv(void *);
 u8 *__nw__7TObjectFUl(s32, f32);
 extern const f32 lbl_805DC1FC;
 extern const f32 lbl_805DC200;
@@ -123,7 +124,7 @@ extern const f32 lbl_805DC21C;
 extern const f32 lbl_805DC220;
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
+s32 set_photon_blast_joint_callback__13TUnk_804C3248Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -142,12 +143,12 @@ extern s32 model_render_flags;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 * find_entity_by_id(u16);
-s32 begin_photon_summon_camera(void *, int);
+s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
 void spawn_photon_blast_opening_effects(s32, u16);
 s32 spawn_photon_blast_attachment_effects(void *, int);
 void photon_base_ct(void *);
 u8 * TPhotonMagicSquare__ct(void *, s32, s32, s32, s32, f32);
-void TPhotonMylla__sub_801AD4A8(void* a0);
+void sub_801AD4A8__12TPhotonMyllaFv(void* a0);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
 void TPhotonYoulla__ct(void *, void *);
 void play_cue_stream_file(void *);
@@ -173,14 +174,14 @@ struct VObj_801AD8FC_801AD4A8 : Base_801AD8FC_801AD4A8 {
     virtual void m12(); virtual void m13();
 };
 
-void TPhotonMylla__sub_801AD4A8(void* a0);
+void sub_801AD4A8__12TPhotonMyllaFv(void* a0);
 void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 destroy_photon_motion_object(void *, s32);
-s32 free_photon__10TObjPlayerFPv(void *);
+s32 free_photon__13TUnk_804C3248Fv(void *);
 
     extern const float lbl_805DC1F8;
-void TPhotonMylla__sub_801AD4A8(void* a0) { *(float*)((char*)a0 + 0x184) = lbl_805DC1F8; *(float*)((char*)a0 + 0x188) = lbl_805DC1F8; *(float*)((char*)a0 + 0x18c) = lbl_805DC1F8; *(float*)((char*)a0 + 0x190) = lbl_805DC1F8; }
+void TPhotonMylla::sub_801AD4A8() { *(float*)((char*)this + 0x184) = lbl_805DC1F8; *(float*)((char*)this + 0x188) = lbl_805DC1F8; *(float*)((char*)this + 0x18c) = lbl_805DC1F8; *(float*)((char*)this + 0x190) = lbl_805DC1F8; }
 
 extern s32 __vt__12TPhotonMylla[];
 
@@ -212,7 +213,7 @@ void TPhotonMylla::render() {
         set_material_alpha_compare_reference(0);
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
-        set_photon_blast_joint_callback__10TObjPlayerFPv(self);
+        set_photon_blast_joint_callback__13TUnk_804C3248Fv(self);
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
         set_material_alpha_compare_reference(0xBF);
@@ -258,15 +259,15 @@ void TPhotonMylla::run_task() {
         }
     }
     if ((lbl_805DC204 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) && ((s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8 == 1)) {
-        begin_photon_summon_camera((void *) (arg0), (int) (3));
+        begin_photon_summon_camera__13TUnk_804C3248FSc((void *) (arg0), (int) (3));
         ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 = 0;
-        ((TObjEnePanarms *)arg0)->set_field_b8((int) (0));
+        ((TObjMotion *)arg0)->set_field_b8((int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (5));
     }
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_194 = (s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8;
-    update_state__10TSceneSoraFPv((void *) (arg0));
+    update_state__13TUnk_804C3248Fv((void *) (arg0));
     advance_animation_playback((void *) (arg0));
-    update_photon_blast_attachments((void *) (arg0));
+    update_photon_blast_attachments__13TUnk_804C3248Fv((void *) (arg0));
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_14C = (s16) (((RecoveredFields_801AD5D8_arg0 *)arg0)->field_14C + 0xF);
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_14C = (s16) (u8) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_14C;
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 = (s32) (((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 + 1);
@@ -315,7 +316,7 @@ void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1) {
         struct VObj_801AD8FC_801AD4A8 *o = (struct VObj_801AD8FC_801AD4A8 *)arg0;
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TPhotonMylla;
         o->m13();
-        free_photon__10TObjPlayerFPv(arg0);
+        free_photon__13TUnk_804C3248Fv(arg0);
         destroy_photon_motion_object(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -343,7 +344,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     ((TObjPlayer *)self)->set_field_dc(photon_blast_shared_resource->f430);
     F_801AD970(self, s16, 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(self, F_801AD970(self, s16, 0xB8));
-    ((TObjEnePanarms *)self)->set_field_b8(F_801AD970(self, s16, 0xB8));
+    ((TObjMotion *)self)->set_field_b8(F_801AD970(self, s16, 0xB8));
     F_801AD970(self, s16, 0x194) = 1;
     F_801AD970(self, s32, 0x198) = pkt->first;
     F_801AD970(self, s32, 0x19C) = pkt->more;
@@ -361,7 +362,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
             TPhotonYoulla__ct(o, &y);
         }
     }
-    ((void (*)(void *, u8))TPhotonMylla__sub_801AD4A8)(self, pkt->count);
+    ((void (*)(void *, u8))sub_801AD4A8__12TPhotonMyllaFv)(self, pkt->count);
     F_801AD970(self, s32, 0x134) = 3;
     self->m12();
     F_801AD970(self, s32, 0x1A4) = 0;
@@ -391,8 +392,8 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     }
     F_801AD970(self, f32, 0x150) = pkt->f20;
     if (F_801AD970(self, s32, 0x198) == 0) {
-        ((TObjEnePanarms *)self)->set_field_b8(0);
-        begin_photon_summon_camera(self, 3);
+        ((TObjMotion *)self)->set_field_b8(0);
+        begin_photon_summon_camera__13TUnk_804C3248FSc(self, 3);
         F_801AD970(self, s32, 0x198) = 1;
         F_801AD970(self, s16, 0x194) = 0;
         F_801AD970(self, s32, 0x1A0) = 1;

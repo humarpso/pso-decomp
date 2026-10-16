@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODoorAncient09.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 struct State_80160838 { s16 a; s16 b; };
@@ -12,12 +13,14 @@ struct Self_80160838 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; Obj_80160838
 extern "C" {
 s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
 void update_and_send_60__6TLobbyFPv(void *);
-void door_ancient09_sync_state(Self_80160838 *self, State_80160838 *src);
+void door_ancient09_sync_state__15TODoorAncient09FPv(Self_80160838 *self, State_80160838 *src);
 }
 
 extern "C" {
 
-void door_ancient09_sync_state(Self_80160838 *self, State_80160838 *src) {
+void TODoorAncient09::door_ancient09_sync_state(void *src_arg) {
+    Self_80160838 *self = (Self_80160838 *)this;
+    State_80160838 *src = (State_80160838 *)src_arg;
     State_80160838 st;
     Obj_80160838 *obj;
     if (src != 0) {

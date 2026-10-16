@@ -5,6 +5,13 @@
 
 struct TObjEneMe3Shinowa
 {
+    void init_enemy();
+    f32 get_node_world_y();
+    u8 check_body_collision_at(s32, f32);
+    s32 sub_800E701C();
+    s32 sub_800E6FE0();
+    void sub_800E6F64();
+    void sub_800E6BB8(s32);
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

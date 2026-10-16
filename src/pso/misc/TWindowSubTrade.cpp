@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowSubTrade.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -32,8 +34,8 @@ s32 play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
 s32 is_player_input_active(int);
 s32 get_selected_menu_value(int);
-u32 open_trade_confirm_prompt(void *, int);
-u32 open_player_message_window(void *, int, int);
+u32 open_trade_confirm_prompt__15TWindowSubTradeFl(void *, int);
+u32 open_player_message_window__15TWindowSubTradeFll(void *, int, int);
 u32 TWindowSubComCard__sub_802B1C1C(void *);
 s32 cancel_trade__6TLobbyFv();
 s32 send_modify_trade_proposal__6TLobbyFi(int);
@@ -76,7 +78,7 @@ void TWindowSubTrade::run_task() {
         if (((TWindowSubComCard *)(this->m_2c))->get_status_flag() != 0) {
             ((VObj_18_204a81 *)(*(u8 * *)&this->m_28))->m7();
             this->m_1c = 7U;
-        } else if (((TWindowSubComCard *)(this->m_2c))->is_visible() != 0) {
+        } else if (((TWindowMenu *)(this->m_2c))->is_visible() != 0) {
             this->m_1c = 3U;
         }
         break;
@@ -85,13 +87,13 @@ void TWindowSubTrade::run_task() {
             *(s32 *)&this->m_24 = get_selected_menu_value(*(s32 *)&this->m_2c);
         }
         if ((u32) this->m_34 == 0U) {
-            this->m_34 = open_trade_confirm_prompt((void *) (arg0), (int) (*(s32 *)&this->m_24));
+            this->m_34 = open_trade_confirm_prompt__15TWindowSubTradeFl((void *) (arg0), (int) (*(s32 *)&this->m_24));
         }
         this->m_1c = 4U;
     case 4:
         if (((TWindowSubComCard *)(this->m_34))->get_card_data() != 0) {
             this->m_1c = 1U;
-        } else if (((TWindowSubComCard *)(this->m_34))->is_child_visible() != 0) {
+        } else if (((TWindowMessageYesNo *)(this->m_34))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
                 this->m_1c = 5U;
             } else {
@@ -105,7 +107,7 @@ void TWindowSubTrade::run_task() {
             this->m_34 = 0U;
         }
         if ((u32) this->m_30 == 0U) {
-            this->m_30 = open_player_message_window((void *) (arg0), (int) (*(s32 *)&this->m_24), (int) (TWindowSubStatusDisp::get_message_10((int) (0xD7))));
+            this->m_30 = open_player_message_window__15TWindowSubTradeFll((void *) (arg0), (int) (*(s32 *)&this->m_24), (int) (TWindowSubStatusDisp::get_message_10((int) (0xD7))));
         }
         send_modify_trade_proposal__6TLobbyFi((int) (*(s32 *)&this->m_24));
         this->m_1c = 6U;

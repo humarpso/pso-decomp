@@ -377,7 +377,7 @@ s32 is_area_transfer_pending(void);
 s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c();
-s32 get_actor_section_id(void *);
+s32 get_actor_section_id__15TPlyPhotonChairFv(void *);
 void find_leader_section_id(struct Out_800FD614 *out, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 u32 calc_small_font_text_width(char *);
@@ -437,7 +437,7 @@ void find_leader_section_id(struct Out_800FD614 *out, s32 arg1) {
         p = (VObj_800FD614 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && arg1 == obj_getField1c()) {
             out->a = p->m14();
-            out->b = get_actor_section_id(p);
+            out->b = get_actor_section_id__15TPlyPhotonChairFv(p);
         }
     }
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TItemEffEquip.h"
 #include "pso/TParticleCtrl.h"
 
 struct VBase_18_7128e8 { char pad[0x18]; };
@@ -17,12 +18,13 @@ struct VObj_18_7128e8 : VBase_18_7128e8 {
 extern "C" {
 u16 obj_getField1c(void *);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
-void spawn_equip_particle_effect(u8 *arg0, s32 arg1);
+void spawn_equip_particle_effect__13TItemEffEquipFl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-void spawn_equip_particle_effect(u8 *arg0, s32 arg1) {
+void TItemEffEquip::spawn_equip_particle_effect(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     *(s32 *)((s8 *)arg0 + 0x20) = spawn_continuous_particle_effect_with_flags(((VObj_18_7128e8 *)(temp_r3))->m7(), arg1, 0x10);

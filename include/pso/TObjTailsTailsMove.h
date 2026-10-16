@@ -7,6 +7,7 @@
 class TObjTailsTailsMove : public TObject {
 public:
     virtual ~TObjTailsTailsMove();
+    void sub_800FFC6C();
     virtual void run_task();
 public:
     static void *create(void *arg0);

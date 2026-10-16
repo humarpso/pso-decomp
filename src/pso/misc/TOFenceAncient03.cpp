@@ -48,8 +48,8 @@ extern u32 TOFenceAncient03__texture_lists;
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 init_fields__16TOFenceAncient01Fv();
-s32 fn_80166E64(void *);
-s32 fn_80166EA8(void *, int);
+s32 sub_80166E64__13TUnk_804B1B80Fv(void *);
+s32 sub_80166EA8__13TUnk_804B1B80Fi(void *, int);
 extern RecoveredGlobal_801674E0_lbl_804B1DB8 TOFenceAncient03_collision_body_parts;
 extern s32 __vt__16TOFenceAncient03[];
 extern s32 TOFenceAncient03__class_name;
@@ -165,7 +165,7 @@ u8 *TOFenceAncient03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     temp_r4 = (u8 *)(*(u8 **)((s8 *)TOFenceAncient03__shared_resource_object + 0x42C));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)temp_r4 + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)((*(s32 *)&TOFenceAncient03__texture_lists) + (fn_80166EA8((void *) (arg0), (int) (temp_r4)) * 4)) + 0);
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)((*(s32 *)&TOFenceAncient03__texture_lists) + (sub_80166EA8__13TUnk_804B1B80Fi((void *) (arg0), (int) (temp_r4)) * 4)) + 0);
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)TOFenceAncient03__shared_resource_object + 0x430)) + 4));
     temp_r6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xBC));
     temp_f1 = (f32) *(u32 *)((s8 *)temp_r6 + 4);
@@ -173,7 +173,7 @@ u8 *TOFenceAncient03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (&TOFenceAncient03_collision_body_parts.value), (int) (8), (int) (temp_r6), (f32) (temp_f1));
     refresh_collision_body_centers((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    fn_80166E64((void *) (arg0));
+    sub_80166E64__13TUnk_804B1B80Fv((void *) (arg0));
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB634;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB638;
     return arg0;

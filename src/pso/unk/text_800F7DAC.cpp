@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/unk/TUnk_80499988.h"
+#include "pso/unk/TUnk_80499970.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TLobby.h"
@@ -61,9 +64,9 @@ void init_object__12TBoss3VoloptFPv(void *, void *);
 void TCameraCtrl__sub_80068EF0(void);
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 void step_fade_opacity_increase(u8 *arg0);
-void step_fade_opacity_decrease(u8 *arg0);
+void step_fade_opacity_decrease__13TUnk_80499970Fv(u8 *arg0);
 u8 * dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1);
-s32 TLobby__sub_800F8250(void *arg0, f32 farg0);
+s32 sub_800F8250__13TUnk_80499988Ff(void *arg0, f32 farg0);
 void TLobby__sub_800F838C(u8 *arg0);
 u8 * TLobby__sub_800F8428(u8 *arg0, s16 arg1);
 void * TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
@@ -173,7 +176,7 @@ void TLobby::dispatch_state() {
     temp_r0 = *(s32 *)((s8 *)this + 0x24);
     switch (temp_r0) {
     case 1:
-        step_fade_opacity_decrease((u8 *)(this));
+        step_fade_opacity_decrease__13TUnk_80499970Fv((u8 *)(this));
         return;
     case 2:
         step_fade_opacity_increase((u8 *)(this));
@@ -233,7 +236,8 @@ void TLobby::init_fadeout_state(s32 arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void step_fade_opacity_decrease(u8 *arg0) {
+void TUnk_80499970::step_fade_opacity_decrease() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)();
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) - (8.0f));
     if (*(f32 *)((s8 *)arg0 + 0x1C) <= (0.0f)) {
@@ -288,24 +292,24 @@ void *TLobby::ct_register() {
 
 #pragma push
 #pragma fp_contract on
-s32 TLobby__sub_800F8250(void *arg0, f32 farg0) {
+s32 TUnk_80499988::sub_800F8250(f32 farg0) {
     u8 temp_r10;
     u8 temp_r11;
     u8 temp_r12;
     u8 temp_r31;
 
-    temp_r10 = *(u8 *)((s8 *)arg0 + 0x29);
-    temp_r12 = *(u8 *)((s8 *)arg0 + 0x2A);
-    temp_r11 = *(u8 *)((s8 *)arg0 + 0x28);
-    temp_r31 = *(u8 *)((s8 *)arg0 + 0x2B);
-    return (((((((s32) ((farg0 * (f32) (*(u8 *)((s8 *)arg0 + 0x2C) - temp_r11)) + (f32) temp_r11) << 0x18)) | (((s32) ((farg0 * (f32) (*(u8 *)((s8 *)arg0 + 0x2D) - temp_r10)) + (f32) temp_r10) << 0x10) & 0xFF0000 & ~0xFF000000)) & ~0xFF00) | (((s32) ((farg0 * (f32) (*(u8 *)((s8 *)arg0 + 0x2E) - temp_r12)) + (f32) temp_r12) << 8) & 0xFF00)) & ~0xFF) | ((s32) ((farg0 * (f32) (*(u8 *)((s8 *)arg0 + 0x2F) - temp_r31)) + (f32) temp_r31) & 0xFF);
+    temp_r10 = *(u8 *)((s8 *)this + 0x29);
+    temp_r12 = *(u8 *)((s8 *)this + 0x2A);
+    temp_r11 = *(u8 *)((s8 *)this + 0x28);
+    temp_r31 = *(u8 *)((s8 *)this + 0x2B);
+    return (((((((s32) ((farg0 * (f32) (*(u8 *)((s8 *)this + 0x2C) - temp_r11)) + (f32) temp_r11) << 0x18)) | (((s32) ((farg0 * (f32) (*(u8 *)((s8 *)this + 0x2D) - temp_r10)) + (f32) temp_r10) << 0x10) & 0xFF0000 & ~0xFF000000)) & ~0xFF00) | (((s32) ((farg0 * (f32) (*(u8 *)((s8 *)this + 0x2E) - temp_r12)) + (f32) temp_r12) << 8) & 0xFF00)) & ~0xFF) | ((s32) ((farg0 * (f32) (*(u8 *)((s8 *)this + 0x2F) - temp_r31)) + (f32) temp_r31) & 0xFF);
 }
 extern int fold_flush_4;
 #pragma pop
 
 void TLobby__sub_800F838C(u8 *arg0) {
     s32 temp_r3;
-    TWindowCtrlMain::set_value((s32)local_client_id, (s32)(TLobby__sub_800F8250(arg0, (f32) *(s32 *)((s8 *)arg0 + 0x20) / (f32) *(s32 *)((s8 *)arg0 + 0x24))));
+    TWindowCtrlMain::set_value((s32)local_client_id, (s32)(sub_800F8250__13TUnk_80499988Ff(arg0, (f32) *(s32 *)((s8 *)arg0 + 0x20) / (f32) *(s32 *)((s8 *)arg0 + 0x24))));
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x20) + 1;
     *(s32 *)((s8 *)arg0 + 0x20) = temp_r3;
     if (temp_r3 > (s32) *(s32 *)((s8 *)arg0 + 0x24)) {
@@ -316,7 +320,7 @@ void TLobby__sub_800F838C(u8 *arg0) {
 u8 *TLobby__sub_800F8428(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &lbl_80499988.value;
-        TWindowCtrlMain::set_value((s32)local_client_id, (s32)(TLobby__sub_800F8250(arg0, (1.0f))));
+        TWindowCtrlMain::set_value((s32)local_client_id, (s32)(sub_800F8250__13TUnk_80499988Ff(arg0, (1.0f))));
         ((u8 * (*)(void *, s16))__dt__7TObjectFv)(arg0, 0);
         if (arg1 > 0) {
             ((void (*)(s32))__dl__7TObjectFPv)((s32) arg0);
@@ -356,7 +360,7 @@ void TLobby::update_fade_in_alpha() {
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        ((TObjLuker *)arg0)->set_flag_4();
+        ((TObject *)arg0)->set_flag_4();
     }
     *(s8 *)((s8 *)arg0 + 0x23) = (s8) *(f32 *)((s8 *)arg0 + 0x1C);
     TWindowCtrlMain::set_value((s32)(*(s32 *)((s8 *)arg0 + 0x24)), (s32)(*(s32 *)((s8 *)arg0 + 0x20)));
@@ -387,7 +391,7 @@ void TLobby__sub_800F8690(u8 *arg0) {
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        ((TObjLuker *)arg0)->set_flag_4();
+        ((TObject *)arg0)->set_flag_4();
     }
 }
 extern int fold_flush_5;
@@ -426,7 +430,7 @@ void TLobby__sub_800F87B4(u8 *arg0) {
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        ((TObjLuker *)arg0)->set_flag_4();
+        ((TObject *)arg0)->set_flag_4();
     }
 }
 extern int fold_flush_6;

@@ -6,6 +6,7 @@
 
 struct TEffIndirectCtrl : public TObject {
     virtual ~TEffIndirectCtrl();
+    void sub_802A955C();
     virtual void run_task();
     u32 m_1c;
     u32 m_20;

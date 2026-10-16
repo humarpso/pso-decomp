@@ -428,7 +428,7 @@ extern "C" {
 void handle_retry_menu_select__6TLobbyFPv(void *arg0);
 s32 set_retry_selection__6TLobbyFl(s32);
 
-s32 is_visible__17TWindowSubComCardFv(u32);
+s32 is_visible__11TWindowMenuFv(u32);
 s32 get_selected_menu_value(u32);
 
 extern s32 lbl_804DBE90[];
@@ -440,7 +440,7 @@ void handle_retry_menu_select__6TLobbyFPv(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) == 0U) {
         open_giveup_window__6TLobbyFPv(arg0);
     }
-    if (is_visible__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0x2C)) != 0) {
+    if (is_visible__11TWindowMenuFv(*(u32 *)((s8 *)arg0 + 0x2C)) != 0) {
         temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x2C));
         if (temp_r3 != 2) {
             set_retry_selection__6TLobbyFl(lbl_804DBE90[temp_r3]);

@@ -6,6 +6,7 @@
 class TObjEnePanBARA : public TObjEnemy {
 public:
     virtual ~TObjEnePanBARA();
+    void calc_part_position(u8 *, s32 *);
     virtual void vfunc_63();
     virtual void vfunc_62();
     virtual void vfunc_61();

@@ -6,6 +6,7 @@
 class TWindowSetLevelUp : public TObject {
 public:
     virtual ~TWindowSetLevelUp();
+    void update_stat_messages();
     virtual void run_task();
     virtual void render();
 public:

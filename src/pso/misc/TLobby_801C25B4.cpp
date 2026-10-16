@@ -915,7 +915,7 @@ extern const f32 lbl_805D5DC8;
 void apply_game_settings__6TLobbyFii(s32 arg0, s32 arg1);
 void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFv(void *);
-s32 is_visible__17TWindowSubComCardFv(void *);
+s32 is_visible__11TWindowMenuFv(void *);
 s32 get_status_flag__17TWindowSubComCardFv(void *);
 s32 __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, int);
 s32 set_ready_flag__18TCheckRoomSequenceFv(void *);
@@ -1655,7 +1655,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
                     set_ready_flag__18TCheckRoomSequenceFv(*(void **)((s8 *)arg0 + 0x50));
                 }
                 if (*(void **)((s8 *)arg0 + 0x50) != NULL) {
-                    if (is_visible__17TWindowSubComCardFv(*(void **)((s8 *)arg0 + 0x50)) != 0) {
+                    if (is_visible__11TWindowMenuFv(*(void **)((s8 *)arg0 + 0x50)) != 0) {
                         switch (get_selected_menu_value(*(void **)((s8 *)arg0 + 0x50))) {
                         case 1:
                             send_6x7D_set_battle_mode_data(arg0);

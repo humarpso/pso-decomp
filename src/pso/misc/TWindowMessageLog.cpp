@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -68,8 +69,8 @@ void update_scroll_position__17TWindowMessageLogFPv(u8 *arg0) {
     if (var_r30 < 0) {
         var_r30 = *(s32 *)((s8 *)arg0 + 0x8C) - 1;
     }
-    temp_r31 = ((TWindowSubStatusDisp *)arg0)->get_array_entry(temp_r4);
-    temp_r3 = ((TWindowSubStatusDisp *)arg0)->get_array_entry(var_r30);
+    temp_r31 = ((TUnk_804CE018 *)arg0)->get_array_entry(temp_r4);
+    temp_r3 = ((TUnk_804CE018 *)arg0)->get_array_entry(var_r30);
     stack.sp8 = (*(f32 *)((s8 *)arg0 + 0x48) - lbl_805DD248) - lbl_805DD24C;
     stack.spC = (*(f32 *)((s8 *)temp_r3 + 0xC) + *(f32 *)((s8 *)temp_r3 + 0x14)) - *(f32 *)((s8 *)temp_r31 + 0xC);
     ((TWindowMenu *)(*(u8 **)((s8 *)arg0 + 0x90)))->copy_position(&stack.sp8);

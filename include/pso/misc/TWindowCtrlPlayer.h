@@ -6,6 +6,7 @@
 
 struct TWindowCtrlPlayer : public TObject {
     virtual ~TWindowCtrlPlayer();
+    void sub_8024E0F0();
     u16 m_1c;
     u16 m_1e;
     u16 m_20;

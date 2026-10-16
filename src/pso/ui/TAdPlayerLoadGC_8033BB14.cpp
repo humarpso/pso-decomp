@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCheckMemoryCard.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -8,7 +9,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdSinglePlyChrSelectGC__sub_8033BA84(s32);
 s32 fn_8033BAB4(void *);
 
-s32 TAdPlayerLoadGC::poll_memcard_status() {
+s32 TCheckMemoryCard::sub_8033BB14() {
     s32 var_r31;
 
     if (((TAdPlayerLoadGC *)0)->probe_card_slot() == 0) {

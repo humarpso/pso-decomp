@@ -42,7 +42,7 @@ s32 TWindowCtrl__sub_8024C7E0(void *);
 s32 bind_target__13TWindowLockOnFv(void *, s32);
 u32 create_for_target__13TWindowLockOnFlUs(int, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
-void fn_8024E0F0(u8 *arg0);
+void sub_8024E0F0__17TWindowCtrlPlayerFv(u8 *arg0);
 s32 is_split_screen();
 s32 TKeyBoardControl__sub_801A58B0();
 s32 TKeyBoardControl__sub_801A58D8();
@@ -288,7 +288,8 @@ void TWindowCtrl::update_trade_window_visibility() {
 void TWindowCtrl::run_all_updates() { update_trade_window_visibility(); update_child_window_visibility(); update_target_info_window(); update_main_menu_request(); show_active_window(); update_short_list_request(); TWindowCtrl__sub_8024DAAC((void *)(this)); }
 #pragma push
 #pragma scheduling off
-void fn_8024E0F0(u8 *arg0) {
+void TWindowCtrlPlayer::sub_8024E0F0() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     s16 temp_r3_3;
     u32 temp_r3;

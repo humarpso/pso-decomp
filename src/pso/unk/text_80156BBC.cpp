@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AF8D8.h"
 #include "pso/misc/TRaderMapCore.h"
 
 struct VBase_14 { char pad[0x14]; };
@@ -18,7 +19,7 @@ struct Laser_80156CA0 {
 };
 
 extern "C" {
-void fn_80156CEC(u8 *arg0);
+void sub_80156CEC__13TUnk_804AF8D8Fv(u8 *arg0);
 s32 fn_80156C88(f32 *arg0);
 f32 xz_distance_squared(void *, void *);
 s32 fn_80156C88(f32 *arg0);
@@ -65,7 +66,8 @@ void step_laser_fence_fade(struct Laser_80156CA0 *p) {
     p->value = x;
 }
 
-void fn_80156CEC(u8 *arg0) {
+void TUnk_804AF8D8::sub_80156CEC() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x18) = 1;
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (3e+02f);
     ((VObj_14 *)(arg0))->m3();

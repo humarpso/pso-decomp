@@ -5,6 +5,9 @@
 
 struct TWindowKeyBoardSoft
 {
+    int get_flag_bit5();
+    int get_flag_bit6();
+    int is_cursor_locked();
     void render();
     u8 _pad1C[0x44];
     u16 m_60;

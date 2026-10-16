@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestColBase.h"
 #include "pso/object/TObjQuestCol.h"
 
 extern "C" {
@@ -17,7 +18,7 @@ void *TObjQuestCol__ct(void *arg0) {
     return arg0;
 }
 
-s32 TObjQuestCol::update_trigger_state(f32 farg0) {
+s32 TObjQuestColBase::update_trigger_state(f32 farg0) {
     if (is_within_range__16TObjQuestColBaseFf(farg0 * farg0) != 0) {
         if ((s32) *(s32 *)&this->m_b4 != 0) {
             *(s32 *)&this->m_b4 = 0;

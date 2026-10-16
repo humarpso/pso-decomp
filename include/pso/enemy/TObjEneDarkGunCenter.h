@@ -6,6 +6,7 @@
 
 struct TObjEneDarkGunCenter : public TObjEnemy {
     virtual ~TObjEneDarkGunCenter();
+    void sub_800A0994();
     u32 m_374;
     u32 m_378;
     u32 m_37c;

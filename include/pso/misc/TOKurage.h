@@ -6,6 +6,7 @@
 
 struct TOKurage : public TUnk_804AFBF8 {
     virtual ~TOKurage();
+    void sub_8016D8F8();
     u32 m_c8;
     u8 _padCC[0xC];
     void* m_d8;

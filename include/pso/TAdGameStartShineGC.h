@@ -6,6 +6,7 @@
 class TAdGameStartShineGC : public TObject {
 public:
     virtual ~TAdGameStartShineGC();
+    void render_status_box();
     virtual void run_task();
     virtual void render();
 };

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/object/TObjLuker.h"
 #include "pso/player/TObjPlayer.h"
@@ -387,7 +388,7 @@ extern u32 quest_mission_manager;
 
 void free_luker_object__6TLobbyFv(void) {
     if ((u32) quest_mission_manager != 0U) {
-        ((TObjLuker *)quest_mission_manager)->set_flag_4();
+        ((TObject *)quest_mission_manager)->set_flag_4();
     }
 }
 
