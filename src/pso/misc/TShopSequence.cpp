@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopSequence.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/ui/TMessageWindowController.h"
@@ -29,15 +30,15 @@ s32 __dl__7TObjectFPv(void *);
 
 extern "C" {
 
-void TShopSequence__sub_802236A0(void* p);
+void vfunc_8__13TShopSequenceFv(void* p);
 void close_if_single_screen__13TShopSequenceFv(void);
 void close_message_window__13TShopSequenceFPv(void *arg0);
 void close_window__13TShopSequenceFPv(void *arg0);
-void free_member_0x28__13TShopSequenceFPv(void* p);
-void free_member_0x28_variant__13TShopSequenceFPv(void* p);
+void vfunc_9__13TShopSequenceFv(void* p);
+void vfunc_7__13TShopSequenceFv(void* p);
 void free_member__13TShopSequenceFPv(void* p);
 void restore_player_state__13TShopSequenceFPv(void *arg0);
-s32 update_download_server__13TShopSequenceFPv(void *arg0);
+s32 vfunc_10__13TShopSequenceFv(void *arg0);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32);
 s32 activate_body_collision__10TObjPlayerFPv();
 s32 deactivate_body_collision__10TObjPlayerFPv();
@@ -53,8 +54,8 @@ s32 obj_getField1c(u32);
 int send_message__24TMessageWindowControllerFll(void*);
 int format_shop_message__24TMessageWindowControllerFll(void*);
 
-s32 update_download_server__13TShopSequenceFPv(void *arg0) {
-    void *temp_r3 = *(void **)((s8 *)arg0 + 0x28);
+int TShopSequence::vfunc_10() {
+    void *temp_r3 = *(void **)((s8 *)this + 0x28);
     if (temp_r3 != NULL) {
         return ((TMessageWindowController *)temp_r3)->is_ready();
     }
@@ -88,9 +89,9 @@ u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     return 0U;
 }
 
-void free_member_0x28__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_guild_message__24TMessageWindowControllerFll(m); }
-void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) send_message__24TMessageWindowControllerFll(m); }
-void free_member_0x28_variant__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) display_message__24TMessageWindowControllerFPCcl(m); }
+void TShopSequence::vfunc_9() { void* m = *(void**)((char*)this + 0x28); if (m) format_guild_message__24TMessageWindowControllerFll(m); }
+void TShopSequence::vfunc_8() { void* m = *(void**)((char*)this + 0x28); if (m) send_message__24TMessageWindowControllerFll(m); }
+void TShopSequence::vfunc_7() { void* m = *(void**)((char*)this + 0x28); if (m) display_message__24TMessageWindowControllerFPCcl(m); }
 void free_member__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_shop_message__24TMessageWindowControllerFll(m); }
 void close_if_single_screen__13TShopSequenceFv(void) {
     if ((TAdSinglePlyChrSelectGC::get_game_mode() != 0) && (is_split_screen() == 0)) {

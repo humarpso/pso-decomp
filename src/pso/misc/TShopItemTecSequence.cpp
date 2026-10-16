@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopItemTecSequence.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TCheckRoomSequence.h"
@@ -131,7 +132,7 @@ s32 handle_select__20TShopItemTecSequenceFPv(void *arg0);
 s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0);
 s32 open_greeting__20TShopItemTecSequenceFPv(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
-void TShopItemTecSequence__vt9(u8 *arg0);
+void vfunc_11__20TShopItemTecSequenceFv(u8 *arg0);
 extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__slot_table;
 void TShopItemTecSequence__sub_80220560(void);
 extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__slot_table;
@@ -302,7 +303,8 @@ s32 open_greeting__20TShopItemTecSequenceFPv(u8 *arg0) {
 typedef char RecoveredGlobal_802203E4___vt__20TShopItemTecSequence_size[sizeof(RecoveredGlobal_802203E4___vt__20TShopItemTecSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0_size[sizeof(RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0) == 0x10 ? 1 : -1];
 
-void TShopItemTecSequence__vt9(u8 *arg0) {
+void TShopItemTecSequence::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {

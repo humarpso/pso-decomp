@@ -6,6 +6,10 @@
 
 struct TObjEneMe1Gee : public TObjEneDD_ST {
     virtual ~TObjEneMe1Gee();
+    virtual void vfunc_28();
+    virtual void vfunc_63();
+    virtual void vfunc_62();
+    virtual void vfunc_61();
     void copy_pos();
     void sub_800CC0C4();
     void sub_800CBF58(f32);

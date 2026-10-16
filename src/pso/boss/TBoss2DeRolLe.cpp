@@ -7,18 +7,18 @@ extern "C" {
 extern "C" void render_body__13TBoss2DeRolLeFPv();
 extern "C" void dispatch_action__13TBoss2DeRolLeFiUii();
 extern "C" void update_colliders_from_offsets__13TBoss2DeRolLeFi();
-extern "C" void TBoss2DeRolLe__sub_80034FD8();
+extern "C" void vfunc_61__13TBoss2DeRolLeFv();
 extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv();
-extern "C" void TBoss2DeRolLe__sub_80035084();
-extern "C" void TBoss2DeRolLe__sub_80035088();
+extern "C" void vfunc_63__13TBoss2DeRolLeFv();
+extern "C" void vfunc_28__13TBoss2DeRolLeFv();
 extern "C" void __dt__13TBoss2DeRolLeFPvs();
-extern "C" void TBoss2DeRolLe__sub_80036288();
-extern "C" void TBoss2DeRolLe__sub_8003628C();
-extern "C" void TBoss2DeRolLe__sub_80036290();
-extern "C" void TBoss2DeRolLe__sub_80036294();
-extern "C" void TBoss2DeRolLe__sub_80036298();
-extern "C" void TBoss2DeRolLe__sub_8003629C();
-extern "C" void TBoss2DeRolLe__sub_800362A0();
+extern "C" void vfunc_44__13TBoss2DeRolLeFv();
+extern "C" void vfunc_45__13TBoss2DeRolLeFv();
+extern "C" void vfunc_46__13TBoss2DeRolLeFv();
+extern "C" void vfunc_47__13TBoss2DeRolLeFv();
+extern "C" void vfunc_48__13TBoss2DeRolLeFl();
+extern "C" void vfunc_49__13TBoss2DeRolLeFv();
+extern "C" void vfunc_50__13TBoss2DeRolLeFv();
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TObjEneDD__vt100();
 extern "C" void TObjEneDD__vt77();
@@ -39,7 +39,7 @@ extern "C" void TObjEneDD__vt97();
 extern "C" void TObjEneDD__vt98();
 extern "C" void TObjEneDD__vt99();
 extern "C" void TObjEneEpsilon__vt101();
-extern "C" void TObjEneEpsilon__vt81();
+extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void TObjLight__sub_8002F238();
 extern "C" void render__13TBoss2DeRolLeFPv();
 extern "C" void TObjPlayer__sub_8000FF3C();
@@ -233,20 +233,20 @@ void *__vt__13TBoss2DeRolLe[107] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&TBoss2DeRolLe__sub_80035088, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
+    (void *)&vfunc_28__13TBoss2DeRolLeFv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&TBoss2DeRolLe__sub_80036288, (void *)&TBoss2DeRolLe__sub_8003628C, (void *)&TBoss2DeRolLe__sub_80036290, (void *)&TBoss2DeRolLe__sub_80036294,
-    (void *)&TBoss2DeRolLe__sub_80036298, (void *)&TBoss2DeRolLe__sub_8003629C, (void *)&TBoss2DeRolLe__sub_800362A0, (void *)&apply_attack_stat_status__10TObjPlayerFv,
+    (void *)&vfunc_44__13TBoss2DeRolLeFv, (void *)&vfunc_45__13TBoss2DeRolLeFv, (void *)&vfunc_46__13TBoss2DeRolLeFv, (void *)&vfunc_47__13TBoss2DeRolLeFv,
+    (void *)&vfunc_48__13TBoss2DeRolLeFl, (void *)&vfunc_49__13TBoss2DeRolLeFv, (void *)&vfunc_50__13TBoss2DeRolLeFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
-    (void *)&TObjPlayer__sub_80014890, (void *)&TBoss2DeRolLe__sub_80034FD8, (void *)&apply_damage_taken__13TBoss2DeRolLeFPv, (void *)&TBoss2DeRolLe__sub_80035084,
+    (void *)&TObjPlayer__sub_80014890, (void *)&vfunc_61__13TBoss2DeRolLeFv, (void *)&apply_damage_taken__13TBoss2DeRolLeFPv, (void *)&vfunc_63__13TBoss2DeRolLeFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&dispatch_action__13TBoss2DeRolLeFiUii,
     (void *)&update_colliders_from_offsets__13TBoss2DeRolLeFi, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&update_check__13TBoss2DeRolLeFPv, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -4788,7 +4788,7 @@ void set_state_and_send__13TBoss2DeRolLeFPvi(Obj_80034E90 *self, s32 kind);
 
 extern "C" {
 
-void TBoss2DeRolLe__sub_80034FD8(void);
+void vfunc_61__13TBoss2DeRolLeFv(void);
 s32 TBoss2Joint_get_shell_max_hp(void);
 void backup_pos__13TBoss2DeRolLeFi(s32 arg0);
 void emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1);
@@ -5004,7 +5004,7 @@ void backup_pos__13TBoss2DeRolLeFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
-void TBoss2DeRolLe__sub_80034FD8(void) {  }
+void TBoss2DeRolLe::vfunc_61() {  }
 void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 temp_r4;
     temp_r4 = *(s16 *)((s8 *)arg0 + 0x2B8) - *(s16 *)((s8 *)arg0 + 0x32C);
@@ -5401,16 +5401,16 @@ s32 advance_scalar_motion_profile(void *arg0);
 
 extern "C" {
 
-void TBoss2DeRolLe__sub_80035084(void);
-void TBoss2DeRolLe__sub_80035088(void);
+void vfunc_63__13TBoss2DeRolLeFv(void);
+void vfunc_28__13TBoss2DeRolLeFv(void);
 void TBoss2DeRolLe__sub_8003508C(void *arg0);
-void TBoss2DeRolLe__sub_80036288(void);
-void TBoss2DeRolLe__sub_8003628C(void);
-void TBoss2DeRolLe__sub_80036290(void);
-void TBoss2DeRolLe__sub_80036294(void);
-void TBoss2DeRolLe__sub_80036298(void);
-void TBoss2DeRolLe__sub_8003629C(void);
-void TBoss2DeRolLe__sub_800362A0(void);
+void vfunc_44__13TBoss2DeRolLeFv(void);
+void vfunc_45__13TBoss2DeRolLeFv(void);
+void vfunc_46__13TBoss2DeRolLeFv(void);
+void vfunc_47__13TBoss2DeRolLeFv(void);
+void vfunc_48__13TBoss2DeRolLeFl(void);
+void vfunc_49__13TBoss2DeRolLeFv(void);
+void vfunc_50__13TBoss2DeRolLeFv(void);
 void TBoss2DeRolLe__sub_80036358(void* p);
 void TBoss2DeRolLe__sub_800363A0(void* p);
 void *create__13TBoss2DeRolLeFPv(void *arg0);
@@ -5439,8 +5439,8 @@ int bswap_32__FPUl(void*);
 s32 clear_target_ref__10TObjPlayerFv();
 int read_be16_field2__10TObjPlayerFv(void*);
 
-void TBoss2DeRolLe__sub_80035084(void) {  }
-void TBoss2DeRolLe__sub_80035088(void) {  }
+void TBoss2DeRolLe::vfunc_63() {  }
+void TBoss2DeRolLe::vfunc_28() {  }
 
 void TBoss2DeRolLe__sub_8003508C(void *arg0) {
     struct VBase_8003508C_80035084 *o = (struct VBase_8003508C_80035084 *)arg0;
@@ -5800,18 +5800,18 @@ extern const f32 TBoss2DeRolLe__data_805D8334;
 extern "C" void render_body__13TBoss2DeRolLeFPv();
 extern "C" void dispatch_action__13TBoss2DeRolLeFiUii();
 extern "C" void update_colliders_from_offsets__13TBoss2DeRolLeFi();
-extern "C" void TBoss2DeRolLe__sub_80034FD8();
+extern "C" void vfunc_61__13TBoss2DeRolLeFv();
 extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv();
-extern "C" void TBoss2DeRolLe__sub_80035084();
-extern "C" void TBoss2DeRolLe__sub_80035088();
+extern "C" void vfunc_63__13TBoss2DeRolLeFv();
+extern "C" void vfunc_28__13TBoss2DeRolLeFv();
 extern "C" void __dt__13TBoss2DeRolLeFPvs();
-extern "C" void TBoss2DeRolLe__sub_80036288();
-extern "C" void TBoss2DeRolLe__sub_8003628C();
-extern "C" void TBoss2DeRolLe__sub_80036290();
-extern "C" void TBoss2DeRolLe__sub_80036294();
-extern "C" void TBoss2DeRolLe__sub_80036298();
-extern "C" void TBoss2DeRolLe__sub_8003629C();
-extern "C" void TBoss2DeRolLe__sub_800362A0();
+extern "C" void vfunc_44__13TBoss2DeRolLeFv();
+extern "C" void vfunc_45__13TBoss2DeRolLeFv();
+extern "C" void vfunc_46__13TBoss2DeRolLeFv();
+extern "C" void vfunc_47__13TBoss2DeRolLeFv();
+extern "C" void vfunc_48__13TBoss2DeRolLeFl();
+extern "C" void vfunc_49__13TBoss2DeRolLeFv();
+extern "C" void vfunc_50__13TBoss2DeRolLeFv();
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TObjEneDD__vt100();
 extern "C" void TObjEneDD__vt77();
@@ -5832,7 +5832,7 @@ extern "C" void TObjEneDD__vt97();
 extern "C" void TObjEneDD__vt98();
 extern "C" void TObjEneDD__vt99();
 extern "C" void TObjEneEpsilon__vt101();
-extern "C" void TObjEneEpsilon__vt81();
+extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void TObjLight__sub_8002F238();
 extern "C" void render__13TBoss2DeRolLeFPv();
 extern "C" void TObjPlayer__sub_8000FF3C();
@@ -6433,13 +6433,13 @@ s32 get_instance__13TBoss2DeRolLeFv(void) {
     return TBoss2DeRolLe__instance;
 }
 
-void TBoss2DeRolLe__sub_80036288(void) {  }
-void TBoss2DeRolLe__sub_8003628C(void) {  }
-void TBoss2DeRolLe__sub_80036290(void) {  }
-void TBoss2DeRolLe__sub_80036294(void) {  }
-void TBoss2DeRolLe__sub_80036298(void) {  }
-void TBoss2DeRolLe__sub_8003629C(void) {  }
-void TBoss2DeRolLe__sub_800362A0(void) {  }
+void TBoss2DeRolLe::vfunc_44() {  }
+void TBoss2DeRolLe::vfunc_45() {  }
+void TBoss2DeRolLe::vfunc_46() {  }
+void TBoss2DeRolLe::vfunc_47() {  }
+void TBoss2DeRolLe::vfunc_48(s32) {  }
+void TBoss2DeRolLe::vfunc_49() {  }
+void TBoss2DeRolLe::vfunc_50() {  }
 void swap_endian__13TBoss2DeRolLeFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void swap_6x13_fields__13TBoss2DeRolLeFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 void send_6x13__13TBoss2DeRolLeFPv(void* p) { swap_6x13_fields__13TBoss2DeRolLeFPv((void*)(p)); TLobby__send_and_handle_60(p); }

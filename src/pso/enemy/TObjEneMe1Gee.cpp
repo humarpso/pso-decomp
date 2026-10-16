@@ -41,8 +41,8 @@ void sub_800CC0C4__13TObjEneMe1GeeFv(u8 *arg0);
 void init_state__13TObjEneMe1GeeFPv(u8 *arg0);
 void TObjEneMe1Gee__vt112(void* p);
 void TObjEneMe1Gee__vt113(u8 *arg0);
-void TObjEneMe1Gee__vt60(void* p);
-void TObjEneMe1Gee__vt61(u8 *arg0);
+void vfunc_62__13TObjEneMe1GeeFv(void* p);
+void vfunc_63__13TObjEneMe1GeeFv(u8 *arg0);
 void TObjEneMe1Gee__vt85(Ene_800CB3A4 *arg0, u32 arg1, s32 arg2);
 void TObjEneMe1Gee__vt86(void *arg0);
 void TObjEneMe1Gee__vt99(void *arg0);
@@ -67,8 +67,8 @@ extern s32 gee_resource_bundle_ptr;
 #define TObjEneMe1Gee__vt102 ((void (*)())TObjEneMe1Gee__vt102)
 #define TObjEneMe1Gee__vt112 ((void (*)())TObjEneMe1Gee__vt112)
 #define TObjEneMe1Gee__vt113 ((void (*)())TObjEneMe1Gee__vt113)
-#define TObjEneMe1Gee__vt60 ((void (*)())TObjEneMe1Gee__vt60)
-#define TObjEneMe1Gee__vt61 ((void (*)())TObjEneMe1Gee__vt61)
+#define vfunc_62__13TObjEneMe1GeeFv ((void (*)())vfunc_62__13TObjEneMe1GeeFv)
+#define vfunc_63__13TObjEneMe1GeeFv ((void (*)())vfunc_63__13TObjEneMe1GeeFv)
 #define TObjEneMe1Gee__vt85 ((void (*)())TObjEneMe1Gee__vt85)
 #define TObjEneMe1Gee__vt86 ((void (*)())TObjEneMe1Gee__vt86)
 #define TObjEneMe1Gee__vt87 ((void (*)())TObjEneMe1Gee__vt87)
@@ -80,8 +80,8 @@ extern s32 gee_resource_bundle_ptr;
 #define TObjEneMe1Gee__sub_800C86E0 ((void (*)())TObjEneMe1Gee__sub_800C86E0)
 #define handle_message__13TObjEneMe1GeeFPvi ((void (*)())handle_message__13TObjEneMe1GeeFPvi)
 extern "C" {
-extern "C" void TObjEneMe1Gee__vt26();
-extern "C" void TObjEneMe1Gee__vt59();
+extern "C" void vfunc_28__13TObjEneMe1GeeFv();
+extern "C" void vfunc_61__13TObjEneMe1GeeFv();
 
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TObjEneDD__vt100();
@@ -101,7 +101,7 @@ extern "C" void TObjEneDD__vt95();
 extern "C" void TObjEneDD__vt96();
 extern "C" void TObjEneDD__vt97();
 extern "C" void TObjEneDD__vt99();
-extern "C" void TObjEneEpsilon__vt81();
+extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void TObjEneMe1Gee__sub_800C81DC(u8 *, s32);
 extern "C" void TObjEneMe1Gee__sub_800C86DC();
 extern "C" void TObjPlayer__sub_8000FF3C();
@@ -241,7 +241,7 @@ void *me1_gee_dispatch_table[118] = {
     (void *)get_actor_level_index, (void *)update_actor_ground_y, (void *)TObjPlayer__sub_80018E6C, (void *)is_actor_cadence_frame,
     (void *)select_melee_contact_body__10TObjPlayerFv, (void *)calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)receive_physical_attack__10TObjPlayerFv, (void *)receive_direct_attack__10TObjPlayerFv,
     (void *)receive_weapon_special_attack__10TObjPlayerFv, (void *)apply_knockback_from_attacker, (void *)try_start_action__10TObjPlayerFPvii, (void *)roll_physical_accuracy__10TObjPlayerFv,
-    (void *)TObjEneMe1Gee__vt26, (void *)TObjPlayer__sub_8000FF3C, (void *)is_target_in_attack_range__10TObjPlayerFv, (void *)test_flag_256__10TObjPlayerFPv,
+    (void *)vfunc_28__13TObjEneMe1GeeFv, (void *)TObjPlayer__sub_8000FF3C, (void *)is_target_in_attack_range__10TObjPlayerFv, (void *)test_flag_256__10TObjPlayerFPv,
     (void *)test_flag30_512__10TObjPlayerFPv, (void *)has_flag_0x800__10TObjPlayerFPv, (void *)test_flag_1000__10TObjPlayerFPv, (void *)update_poison_status__10TObjPlayerFv,
     (void *)update_action_hold_status__10TObjPlayerFv, (void *)update_action_timer__10TObjPlayerFPv, (void *)update_flag30_timer__10TObjPlayerFPv, (void *)update_movement_status__10TObjPlayerFv,
     (void *)update_shock_clock__10TObjPlayerFPv, (void *)update_attack_stat_status, (void *)update_defense_stat_status, (void *)TObjPlayer__sub_800172CC,
@@ -249,12 +249,12 @@ void *me1_gee_dispatch_table[118] = {
     (void *)apply_movement_ailment__10TObjPlayerFv, (void *)apply_shock_status__10TObjPlayerFv, (void *)clear_harmful_statuses__10TObjPlayerFv, (void *)apply_attack_stat_status__10TObjPlayerFv,
     (void *)apply_defense_stat_status__10TObjPlayerFlPv, (void *)cure_poison_ailment, (void *)cure_paralysis__10TObjPlayerFv, (void *)clear_all_status_effects,
     (void *)apply_action_hold_status, (void *)apply_anti_technique__10TObjPlayerFv, (void *)TObjPlayer__sub_80014898, (void *)TObjPlayer__sub_80014894,
-    (void *)TObjPlayer__sub_80014890, (void *)TObjEneMe1Gee__vt59, (void *)TObjEneMe1Gee__vt60, (void *)TObjEneMe1Gee__vt61,
+    (void *)TObjPlayer__sub_80014890, (void *)vfunc_61__13TObjEneMe1GeeFv, (void *)vfunc_62__13TObjEneMe1GeeFv, (void *)vfunc_63__13TObjEneMe1GeeFv,
     (void *)reset_pose__10TObjPlayerFPv, (void *)TObjPlayer__sub_80014840, (void *)TObjPlayer__sub_80014838, (void *)TObjPlayer__sub_80014830,
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)update_and_send_enemy_hit_state, (void *)fn_80010EC8,
     (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)TObjEneDD__vt77,
-    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state__9TObjEnemyFv, (void *)TObjEneEpsilon__vt81,
+    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state__9TObjEnemyFv, (void *)vfunc_83__12TObjEneDD_STFv,
     (void *)TObjEneDD__vt82, (void *)TObjEneDD__vt83, (void *)TObjEneDD__vt84, (void *)TObjEneMe1Gee__vt85,
     (void *)TObjEneMe1Gee__vt86, (void *)TObjEneMe1Gee__vt87, (void *)TObjEneDD__vt87, (void *)TObjEneDD__vt88,
     (void *)TObjEneDD__vt89, (void *)TObjEneDD__vt90, (void *)TObjEneDD__vt91, (void *)TObjEneDD__vt92,
@@ -281,8 +281,8 @@ f32 gee_camera_ctrl_vec[4];
 #undef TObjEneMe1Gee__vt102
 #undef TObjEneMe1Gee__vt112
 #undef TObjEneMe1Gee__vt113
-#undef TObjEneMe1Gee__vt60
-#undef TObjEneMe1Gee__vt61
+#undef vfunc_62__13TObjEneMe1GeeFv
+#undef vfunc_63__13TObjEneMe1GeeFv
 #undef TObjEneMe1Gee__vt85
 #undef TObjEneMe1Gee__vt86
 #undef TObjEneMe1Gee__vt87
@@ -3459,8 +3459,8 @@ void sub_800CBF58__13TObjEneMe1GeeFf(u8 *arg0, f32 farg0);
 void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1);
 void TObjEneMe1Gee__vt104(void *arg0);
 void copy_pos__13TObjEneMe1GeeFv(u8 *arg0);
-void TObjEneMe1Gee__vt59(void);
-void TObjEneMe1Gee__vt26(void);
+void vfunc_61__13TObjEneMe1GeeFv(void);
+void vfunc_28__13TObjEneMe1GeeFv(void);
 int TObjEneMe1Gee__sub_800CC2BC(void);
 void run_task__13TObjEneMe1GeeFv(u8 *arg0);
 void * __dt__13TObjEneMe1GeeFv(void *arg0, s16 arg1);
@@ -5356,11 +5356,12 @@ void TObjEneMe1Gee::copy_pos() {
     ((s32 (*)(void *, void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC), (void *) (arg0));
 }
 
-void TObjEneMe1Gee__vt59(void) {  }
+void TObjEneMe1Gee::vfunc_61() {  }
 
-void TObjEneMe1Gee__vt60(void* p) { if (*(short*)((char*)p + 0x326) != 13) { ((int (*)(void*, void*))transition_enemy_state)(p, (void*)13); } }
+void TObjEneMe1Gee::vfunc_62() { if (*(short*)((char*)this + 0x326) != 13) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)13); } }
 
-void TObjEneMe1Gee__vt61(u8 *arg0) {
+void TObjEneMe1Gee::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if ((temp_r0 != 0xE) && (temp_r0 != 0xC)) {
@@ -5368,7 +5369,7 @@ void TObjEneMe1Gee__vt61(u8 *arg0) {
     }
 }
 
-void TObjEneMe1Gee__vt26(void) {  }
+void TObjEneMe1Gee::vfunc_28() {  }
 
 int TObjEneMe1Gee__sub_800CC2BC(void) {  return TObjEneMe1Gee__resource_bundle; }
 

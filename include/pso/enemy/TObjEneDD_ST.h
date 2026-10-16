@@ -6,6 +6,7 @@
 class TObjEneDD_ST : public TObjEneDD {
 public:
     virtual ~TObjEneDD_ST();
+    virtual void vfunc_83();
     void *init_object();
     void sub_800F5874(s32);
     void sub_800F5864(s32);

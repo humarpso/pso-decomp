@@ -184,7 +184,7 @@ void render__9TBoss6MagFv(void* p);
 f32 get_conditional_rate__10TObjPlayerFPv(void *arg0);
 f32 fn_80330240(O_80330240 *arg0, void *arg1, P_80330240 arg2, void *arg3, void *arg4, void *arg5);
 void spawn_ground_effect__10TObjPlayerFPv(u8 *arg0);
-void TObjPlayer__sub_8033030C(u8 *arg0);
+void vfunc_63__9TBoss6MagFv(u8 *arg0);
 void TLobby__sub_801A1FD8();
 void TObjPlayer__sub_8000FF3C();
 void TObjPlayer__sub_80010A80();
@@ -286,7 +286,7 @@ void *lbl_804EDDEC[83] = {
     (void *)apply_movement_ailment__10TObjPlayerFv, (void *)apply_shock_status__10TObjPlayerFv, (void *)clear_harmful_statuses__10TObjPlayerFv, (void *)apply_attack_stat_status__10TObjPlayerFv,
     (void *)TObjPlayer::apply_defense_stat_status, (void *)cure_poison_ailment, (void *)cure_paralysis__10TObjPlayerFv, (void *)clear_all_status_effects,
     (void *)apply_action_hold_status, (void *)apply_anti_technique__10TObjPlayerFv, (void *)TObjPlayer__sub_80014898, (void *)TObjPlayer__sub_80014894,
-    (void *)TObjPlayer__sub_80014890, (void *)TObjPlayer__sub_8001488C, (void *)spawn_ground_effect__10TObjPlayerFPv, (void *)TObjPlayer__sub_8033030C,
+    (void *)TObjPlayer__sub_80014890, (void *)TObjPlayer__sub_8001488C, (void *)spawn_ground_effect__10TObjPlayerFPv, (void *)vfunc_63__9TBoss6MagFv,
     (void *)reset_pose__10TObjPlayerFPv, (void *)TObjPlayer__sub_80014840, (void *)TObjPlayer__sub_80014838, (void *)TObjPlayer__sub_80014830,
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)update_and_send_enemy_hit_state, (void *)fn_80010EC8,
@@ -1213,7 +1213,7 @@ f32 fn_80330240(O_80330240 *arg0, void *arg1, P_80330240 arg2, void *arg3, void 
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BD340(int);
-void TObjPlayer__sub_8033030C(u8 *arg0);
+void vfunc_63__9TBoss6MagFv(u8 *arg0);
 f32 get_conditional_rate__10TObjPlayerFPv(void *arg0);
 f32 receive_physical_attack__10TObjPlayerFv();
 
@@ -1223,7 +1223,8 @@ f32 get_conditional_rate__10TObjPlayerFPv(void *arg0) {
     }
     return (0.0f);
 }
-void TObjPlayer__sub_8033030C(u8 *arg0) {
+void TBoss6Mag::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     switch (*(s32 *)((s8 *)arg0 + 0x380)) {
     case 3:
     case 4:

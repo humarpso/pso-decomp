@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1Crater.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjFish.h"
@@ -92,7 +93,7 @@ struct V3_8002C288 { f32 x, y, z; };
 
 extern "C" {
 s32 TBoss1Dragon__sub_8002AB6C(void *);
-void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, s32 arg2, s32 *arg3);
+void vfunc_21__15TObjBoss1CraterFPvPfPv(Src_8002C3FC *arg0, VObj_18_5c1903 *self, s32 arg2, s32 *arg3);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 isV2Mode__12TBoss1DragonFv();
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
@@ -133,7 +134,8 @@ extern u8 *lbl_805D4B50;
 extern s32 dragon_common_texture_list;
 extern s32 model_render_flags;
 
-void render__15TObjBoss1CraterFv(u8 *arg0) {
+void TObjBoss1Crater::render() {
+    u8 *arg0 = (u8 *)this;
     push_matrix();
     TObjFish::set_global_param((s32)((void *) (dragon_common_texture_list)));
     post_translate_matrix((void *) (arg0 + 0x38));
@@ -146,7 +148,8 @@ void render__15TObjBoss1CraterFv(u8 *arg0) {
 
 extern s32 __vt__15TObjBoss1Crater[];
 
-void run_task__15TObjBoss1CraterFv(Crater_8002C288 *self) {
+void TObjBoss1Crater::run_task() {
+    Crater_8002C288 *self = (Crater_8002C288 *)this;
     s32 n;
     if (self->fAC == 0) {
         return;
@@ -183,7 +186,10 @@ void run_task__15TObjBoss1CraterFv(Crater_8002C288 *self) {
     }
 }
 
-void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, s32 arg2, s32 *arg3) {
+void TObjBoss1Crater::vfunc_21(void *self_arg, f32 *arg2, void *arg3_arg) {
+    Src_8002C3FC *arg0 = (Src_8002C3FC *)this;
+    VObj_18_5c1903 *self = (VObj_18_5c1903 *)self_arg;
+    s32 *arg3 = (s32 *)arg3_arg;
     s32 off;
     s32 i;
     Ent_8002C3FC *e;

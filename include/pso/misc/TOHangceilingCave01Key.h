@@ -6,6 +6,8 @@
 
 struct TOHangceilingCave01Key : public TUnk_804B2578 {
     virtual ~TOHangceilingCave01Key();
+    virtual void vfunc_80();
+    virtual void vfunc_79();
     u8 unk_35C[0x4];
 };
 

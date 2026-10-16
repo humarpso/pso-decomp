@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlyPltAnimGC.h"
 #include "pso/ui/TAdPlyPltAnimCtrlGC.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -74,7 +75,8 @@ void TLobby__sub_803DA16C(void*);
 
 #pragma push
 #pragma fp_contract on
-void render__15TAdPlyPltAnimGCFv(u8 *arg0) {
+void TAdPlyPltAnimGC::render() {
+    u8 *arg0 = (u8 *)this;
     if (((s32) *(s32 *)((s8 *)arg0 + 0x74) != 0) && (TMainTask::get_state_flag() != 1)) {
         TObjPlayer::init_xyz_limits();
         begin_screen_draw(1);
@@ -112,7 +114,8 @@ void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(Obj_80355D5C *o, V2_80355D5C *p
 
 #pragma push
 #pragma fp_contract on
-void run_task__15TAdPlyPltAnimGCFv(Anim_80355DE0 *o) {
+void TAdPlyPltAnimGC::run_task() {
+    Anim_80355DE0 *o = (Anim_80355DE0 *)this;
     if (o->active != 0) {
         o->time++;
         if (o->time < ply_plt_anim_duration_table[o->idx] + 1) {

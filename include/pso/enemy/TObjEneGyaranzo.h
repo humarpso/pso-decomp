@@ -7,6 +7,10 @@
 
 struct TObjEneGyaranzo : public TObjEnemyCustom {
     virtual ~TObjEneGyaranzo();
+    virtual void vfunc_58();
+    virtual s32 vfunc_30();
+    virtual void vfunc_59();
+    virtual void vfunc_61();
     void spawn_missile();
     u32 m_38c;
     u8 _pad390[0x18];

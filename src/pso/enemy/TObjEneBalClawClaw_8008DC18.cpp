@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClawBody.h"
 
 #include <stddef.h>
 #include "pso/enemy/TObjEneBalClawClaw.h"
@@ -55,7 +56,7 @@ void TObjEneBalClawClaw__sub_8008DC90(void) {  }
 
 extern f32 lbl_805D961C;
 
-void TObjEneBalClawClaw::check_claw_distance() {
+void TObjEneBalClawBody::vfunc_58() {
     s32 arg0 = (s32)this;
     if (xz_distance_squared(arg0 + 0x38, arg0 + 0x50) > lbl_805D961C) {
         ((TObjEneMe1GiGue *)arg0)->update_if_active(8);

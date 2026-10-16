@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/object/TUnk_8049442C.h"
 
 #include <dolphin/mtx.h>
@@ -104,10 +105,10 @@ extern const f32 lbl_805DA2B0;
 
 extern "C" {
 
-void TObjGyaranzoMissile__sub_800D40D8(void);
-void TObjGyaranzoMissile__sub_800D40DC(void);
-int TObjGyaranzoMissile__sub_800D40E0(void);
-void TObjGyaranzoMissile__sub_800D40E8(void);
+void vfunc_61__15TObjEneGyaranzoFv(void);
+void vfunc_59__15TObjEneGyaranzoFv(void);
+int vfunc_30__15TObjEneGyaranzoFv(void);
+void vfunc_58__15TObjEneGyaranzoFv(void);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 s32 draw_chunk_object(s32);
@@ -115,10 +116,10 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 
-void TObjGyaranzoMissile__sub_800D40D8(void) {  }
-void TObjGyaranzoMissile__sub_800D40DC(void) {  }
-int TObjGyaranzoMissile__sub_800D40E0(void) { return 0; }
-void TObjGyaranzoMissile__sub_800D40E8(void) {  }
+void TObjEneGyaranzo::vfunc_61() {  }
+void TObjEneGyaranzo::vfunc_59() {  }
+s32 TObjEneGyaranzo::vfunc_30() { return 0; }
+void TObjEneGyaranzo::vfunc_58() {  }
 
 extern s32 model_render_flags;
 

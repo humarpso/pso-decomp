@@ -6,6 +6,7 @@
 
 struct TShopItemTecSequence : public TShopSequence {
     virtual ~TShopItemTecSequence();
+    virtual void vfunc_11();
     u8 unk_1C[0x1C];
 };
 

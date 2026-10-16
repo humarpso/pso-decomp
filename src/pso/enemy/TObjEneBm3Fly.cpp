@@ -3699,7 +3699,7 @@ void is_target_in_attack_range__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
 void receive_physical_attack__10TObjPlayerFv();
 void receive_weapon_special_attack__10TObjPlayerFv();
-void render_shadow__17TObjEneBm3FlyNestFv();
+void render_shadows__17TObjEneBm3FlyNestFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void roll_physical_accuracy__10TObjPlayerFv();
@@ -3810,7 +3810,7 @@ extern const f32 lbl_805D9E88;
 extern s32 model_render_flags;
 extern void *tl_04;
 
-extern "C" void TObjEneEpsilon__vt81();
+extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void render_actor_shadows_default();
 extern "C" void run_task__13TObjEneBm3FlyFv();
 void *bm3_fly_decision_row[7] = {
@@ -3850,7 +3850,7 @@ void *__vt__13TObjEneBm3Fly[107] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneBm3Fly__vt85,
     (void *)&TObjEneBm3Fly__vt86, (void *)&TObjEneBm3Fly__vt87, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,

@@ -6,6 +6,9 @@
 
 struct TObjBoss1Crater : public TUnk_804928CC {
     virtual ~TObjBoss1Crater();
+    virtual void vfunc_21(void *, f32 *, void *);
+    virtual void run_task();
+    virtual void render();
     u8 unk_B0[0x1C];
 };
 

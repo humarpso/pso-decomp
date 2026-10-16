@@ -11,7 +11,6 @@ struct TObjEneBalClawClaw : public TObjEneBalClaw {
     void *create(void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
     void *create();
     static void spawn_child_enemy();
-    void check_claw_distance();
     u8 unk_3C0[0x68];
 };
 

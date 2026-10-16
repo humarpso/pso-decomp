@@ -6,6 +6,8 @@
 
 struct TAdPlyPltAnimGC : public TObject {
     virtual ~TAdPlyPltAnimGC();
+    virtual void run_task();
+    virtual void render();
     u8 unk_1C[0x34];
     u8 m_6c;
     u8 _pad6D[0x3];

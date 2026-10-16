@@ -5,6 +5,10 @@
 #include "pso/TShopWindowBase.h"
 
 struct TShopSequence : public TShopWindowBase {
-    virtual ~TShopSequence();};
+    virtual ~TShopSequence();
+    virtual void vfunc_7();
+    virtual void vfunc_8();
+    virtual void vfunc_9();
+    virtual int vfunc_10();};
 
 #endif

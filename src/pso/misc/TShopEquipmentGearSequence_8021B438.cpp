@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopEquipmentGearSequence.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TCheckRoomSequence.h"
 #include "pso/misc/TQuestListVM.h"
@@ -142,7 +143,7 @@ s32 handle_confirm__26TShopEquipmentGearSequenceFPv(void *);
 s32 try_close__26TShopEquipmentGearSequenceFPv(void *);
 s32 open_greeting__26TShopEquipmentGearSequenceFPv(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
-void TShopEquipmentGearSequence__vt9(u8 *arg0);
+void vfunc_11__26TShopEquipmentGearSequenceFv(u8 *arg0);
 extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
 void clear_window_slot_table__26TShopEquipmentGearSequenceFv(void);
 extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
@@ -253,7 +254,8 @@ s32 open_greeting__26TShopEquipmentGearSequenceFPv(u8 *arg0) {
 typedef char RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence_size[sizeof(RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0_size[sizeof(RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0) == 0x10 ? 1 : -1];
 
-void TShopEquipmentGearSequence__vt9(u8 *arg0) {
+void TShopEquipmentGearSequence::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {

@@ -194,10 +194,10 @@ void TOFenceAncient04__vt13(void* p);
 void TOFenceAncient04__vt12(void* p);
 void * __dt__16TOFenceAncient04Fv(void *arg0, s16 arg1);
 u8 * TOFenceAncient04__ct(u8 *arg0, s32 arg1, s32 arg2);
-void TOHangceilingCave01KeyQuick__vt78(u8 *arg0);
+void vfunc_80__27TOHangceilingCave01KeyQuickFv(u8 *arg0);
 void * __dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1);
 u8 * TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1);
-void TOHangceilingCave01Key__vt78(u8 *arg0);
+void vfunc_80__22TOHangceilingCave01KeyFv(u8 *arg0);
 void * __dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1);
 void * TOHangceilingCave01Key__ct(void *arg0);
 void vfunc_79__25TOHangceilingCave01NormalFv(void *arg0);
@@ -277,22 +277,23 @@ extern const char lbl_804417FC[] = "TOHangceilingCave01Normal";
 extern const char lbl_80441818[] = "TOHangceilingCave01Key";
 extern const char TOHangceilingCave01KeyQuick__class_name_string[] = "TOHangceilingCave01KeyQuick";
 
-void TOHangceilingCave01KeyQuick__vt77(void *arg0) {
+void TOHangceilingCave01KeyQuick::vfunc_79() {
     u8 *p;
 
-    *(s32 *)((s8 *)arg0 + 0x24) = turiten_singo_texture_lists[1];
-    *(void **)((s8 *)arg0 + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, 1);
-    *(f32 *)((s8 *)arg0 + 0x354) = lbl_805DB650;
-    ((s32 (*)(void *, int))fn_801682E4)(arg0, 3);
-    p = *(u8 **)((s8 *)arg0 + 0xA4);
+    *(s32 *)((s8 *)this + 0x24) = turiten_singo_texture_lists[1];
+    *(void **)((s8 *)this + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, 1);
+    *(f32 *)((s8 *)this + 0x354) = lbl_805DB650;
+    ((s32 (*)(void *, int))fn_801682E4)(this, 3);
+    p = *(u8 **)((s8 *)this + 0xA4);
     *(s32 *)((s8 *)p + 0x18) &= ~8;
-    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB650;
-    *(f32 *)((s8 *)arg0 + 0xC8) = lbl_805DB654;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF8)) + 4) - lbl_805DB654;
-    ((s32 (*)(void *))reset_state)(arg0);
+    *(f32 *)((s8 *)this + 0xC0) = lbl_805DB650;
+    *(f32 *)((s8 *)this + 0xC8) = lbl_805DB654;
+    *(f32 *)((s8 *)this + 0xC4) = (f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)this + 0xF8)) + 4) - lbl_805DB654;
+    ((s32 (*)(void *))reset_state)(this);
 }
 
-void TOHangceilingCave01KeyQuick__vt78(u8 *arg0) {
+void TOHangceilingCave01KeyQuick::vfunc_80() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     s16 temp_r0;
     u8 *temp_r3;
@@ -366,22 +367,23 @@ u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-void TOHangceilingCave01Key__vt77(void *arg0) {
+void TOHangceilingCave01Key::vfunc_79() {
     u8 *p;
 
-    *(s32 *)((s8 *)arg0 + 0x24) = turiten_singo_texture_lists[1];
-    *(void **)((s8 *)arg0 + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, 1);
-    *(f32 *)((s8 *)arg0 + 0x354) = lbl_805DB650;
-    ((s32 (*)(void *, int))fn_801682E4)(arg0, 3);
-    p = *(u8 **)((s8 *)arg0 + 0xA4);
+    *(s32 *)((s8 *)this + 0x24) = turiten_singo_texture_lists[1];
+    *(void **)((s8 *)this + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, 1);
+    *(f32 *)((s8 *)this + 0x354) = lbl_805DB650;
+    ((s32 (*)(void *, int))fn_801682E4)(this, 3);
+    p = *(u8 **)((s8 *)this + 0xA4);
     *(s32 *)((s8 *)p + 0x18) &= ~8;
-    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB650;
-    *(f32 *)((s8 *)arg0 + 0xC8) = lbl_805DB654;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF8)) + 4) - lbl_805DB654;
-    ((s32 (*)(void *))reset_state)(arg0);
+    *(f32 *)((s8 *)this + 0xC0) = lbl_805DB650;
+    *(f32 *)((s8 *)this + 0xC8) = lbl_805DB654;
+    *(f32 *)((s8 *)this + 0xC4) = (f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)this + 0xF8)) + 4) - lbl_805DB654;
+    ((s32 (*)(void *))reset_state)(this);
 }
 
-void TOHangceilingCave01Key__vt78(u8 *arg0) {
+void TOHangceilingCave01Key::vfunc_80() {
+    u8 *arg0 = (u8 *)this;
     switch (*(s16 *)(arg0 + 0x326)) {
     case 3:
         if (is_current_floor_switch_set((u16)*(s32 *)(arg0 + 0x35C)) == 1 && *(f32 *)(arg0 + 0xC0) <= *(f32 *)(arg0 + 0xC4)) {
