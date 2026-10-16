@@ -47,10 +47,10 @@ struct VObj_80218538_802183B4 : Base_80218538_802183B4 {
 
 extern "C" {
 
-void TQuestListVM__vt4(void *arg0);
-void TQuestListVM__vt5(void *arg0);
-void TQuestListVM__vt7(void *arg0);
-s32 TQuestListVM__vt8(void *arg0);
+void vfunc_6__12TQuestListVMFv(void *arg0);
+void vfunc_7__12TQuestListVMFv(void *arg0);
+void vfunc_9__12TQuestListVMFv(void *arg0);
+s32 vfunc_10__12TQuestListVMFv(void *arg0);
 
 s32 TShopWindowBase__sub_80223A48(void *);
 u32 get_serial_access__22TQuestVmDownLoadServerFv();
@@ -74,35 +74,35 @@ void TQuestListVM::poll_download() {
     }
 }
 
-s32 TQuestListVM__vt8(void *arg0) {
+int TQuestListVM::vfunc_10() {
     void *temp_r3;
 
-    temp_r3 = *(void **)((s8 *)arg0 + 0x23A0);
+    temp_r3 = *(void **)((s8 *)this + 0x23A0);
     if (temp_r3 != NULL) {
         if (((VObj_8021845C_802183B4 *)temp_r3)->m8() == 0) {
             return 0;
         }
-        return TShopWindowBase__sub_80223A48(arg0) ? 1 : 0;
+        return TShopWindowBase__sub_80223A48(this) ? 1 : 0;
     }
     return 1;
 }
 
-void TQuestListVM__vt7(void *arg0) {
-    struct VObj_802184C8_802183B4 *o = (struct VObj_802184C8_802183B4 *)*(void **)((s8 *)arg0 + 0x23A0);
+void TQuestListVM::vfunc_9() {
+    struct VObj_802184C8_802183B4 *o = (struct VObj_802184C8_802183B4 *)*(void **)((s8 *)this + 0x23A0);
     if (o != NULL) {
         o->m7();
     }
 }
 
-void TQuestListVM__vt5(void *arg0) {
-    struct VObj_80218500_802183B4 *o = (struct VObj_80218500_802183B4 *)*(void **)((s8 *)arg0 + 0x23A0);
+void TQuestListVM::vfunc_7() {
+    struct VObj_80218500_802183B4 *o = (struct VObj_80218500_802183B4 *)*(void **)((s8 *)this + 0x23A0);
     if (o != NULL) {
         o->m5();
     }
 }
 
-void TQuestListVM__vt4(void *arg0) {
-    struct VObj_80218538_802183B4 *o = (struct VObj_80218538_802183B4 *)*(void **)((s8 *)arg0 + 0x23A0);
+void TQuestListVM::vfunc_6() {
+    struct VObj_80218538_802183B4 *o = (struct VObj_80218538_802183B4 *)*(void **)((s8 *)this + 0x23A0);
     if (o != NULL) {
         o->m4();
     }

@@ -1,13 +1,15 @@
 #include "types.h"
+#include "pso/TItemEffNeedle.h"
 
 extern "C" {
 
-s32 TItemEffNeedle__vt4(u8 *arg0);
+s32 vfunc_6__14TItemEffNeedleFv(u8 *arg0);
 u8 *find_entity_by_id(u16);
 s32 VecCopy__FP3VecPC3Vec(void *, s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
-s32 TItemEffNeedle__vt4(u8 *arg0) {
+int TItemEffNeedle::vfunc_6() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r5;
     u8 *temp_r3;
 

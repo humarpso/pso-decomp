@@ -108,8 +108,8 @@ extern u32 rock_cave_model_resource;
 extern "C" {
 
 void *TORockCave__ct(void *arg0);
-void TORockCave__sub_80175460(void);
-void TORockCave__sub_80175464(void);
+void vfunc_14__10TORockCaveFv(void);
+void vfunc_15__10TORockCaveFv(void);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void TOSensor__sub_80175468(void);
@@ -203,8 +203,8 @@ void *TORockCave__ct(void *arg0) {
     return arg0;
 }
 
-void TORockCave__sub_80175460(void) {  }
-void TORockCave__sub_80175464(void) {  }
+void TORockCave::vfunc_14() {  }
+void TORockCave::vfunc_15() {  }
 
 }
 

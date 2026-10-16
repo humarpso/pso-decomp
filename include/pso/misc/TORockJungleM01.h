@@ -6,6 +6,10 @@
 
 struct TORockJungleM01 : public TORockCaveBrakable {
     virtual ~TORockJungleM01();
+    virtual void vfunc_16();
+    virtual void vfunc_15();
+    virtual void vfunc_14();
+    virtual void vfunc_18();
     void* m_bc;
     u8 _padC0[0x10];
     u32 m_d0;

@@ -99,7 +99,7 @@ s32 init_technique_effect_base(void *, void *, void *, void *);
 extern s32 __vt__10TTecGrants[];
 extern s32 lbl_805D37D0;
 u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void TTecGrants__vt4(u8 *self, u8 *target);
+void vfunc_6__10TTecGrantsFPv(u8 *self, u8 *target);
 }
 
 extern "C" {
@@ -113,7 +113,9 @@ void TTecGrants::render() {  }
 
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_802385EC_lbl_804CCB28_size[sizeof(RecoveredGlobal_802385EC_lbl_804CCB28) == 0x18 ? 1 : -1];
-void TTecGrants__vt4(u8 *self, u8 *target) {
+void TTecGrants::vfunc_6(void *target_arg) {
+    u8 *self = (u8 *)this;
+    u8 *target = (u8 *)target_arg;
     Damage_802386F8 d;
     d.kind = 0x4;
     d.power = *(f32 *)(self + 0x88);

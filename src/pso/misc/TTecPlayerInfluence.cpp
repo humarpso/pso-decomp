@@ -189,7 +189,7 @@ void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 
 extern "C" {
 
-void TTecPlayerInfluence__vt5(void);
+void vfunc_7__19TTecPlayerInfluenceFPv(void);
 void TTecRaBarta__vt7(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -299,7 +299,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
   return self;
 }
 
-void TTecPlayerInfluence__vt5(void) {  }
+void TTecPlayerInfluence::vfunc_7(void *) {  }
 
 typedef struct Emitter_80237494 Emitter_80237494;
 typedef struct Profile_80237494 Profile_80237494;

@@ -100,7 +100,7 @@ s32 select_cursor_entry__6TLobbyFv(int);
 void handle_withdraw_confirm__18TShopGetItemWindowFPv(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 void handle_withdraw_confirm__18TShopGetItemWindowFPv(u8 *arg0);
-void TShopGetItemWindow__vt9(u8 *arg0);
+void vfunc_11__18TShopGetItemWindowFv(u8 *arg0);
 s32 obj_getField1c(s32);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 copy_bank_item_with_stack_limit(s32, u8 *, s32 *, s32);
@@ -367,7 +367,8 @@ void TShopGetItemWindow::rebuild_item_list() {
     }
 }
 
-void TShopGetItemWindow__vt9(u8 *arg0) {
+void TShopGetItemWindow::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     s32 (*temp_r12_2)(s32);
     u32 temp_r0;

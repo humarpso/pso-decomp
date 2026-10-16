@@ -71,8 +71,8 @@ struct E4E50Obj_80174e50_80174CC0 : E4E50Base_80174e50_80174CC0 {
 };
 
 void *TORockCaveBrakable__ct(void *arg0);
-void TORockCaveBrakable__sub_80174CC0(void);
-void TORockCaveBrakable__sub_80174CC4(void* p);
+void vfunc_19__18TORockCaveBrakableFv(void);
+void vfunc_18__18TORockCaveBrakableFv(void* p);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
 int play_sound_effect(void*, void*, void*, void*);
 u8 is_current_floor_switch_set(u16);
@@ -83,10 +83,10 @@ void __dt__10TORockCaveFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 
-void TORockCaveBrakable__sub_80174CC0(void) {  }
-void TORockCaveBrakable__sub_80174CC4(void* p) { play_sound_effect((void*)277521, (char*)p + 0x38, (void*)0, (void*)0); }
+void TORockCaveBrakable::vfunc_19() {  }
+void TORockCaveBrakable::vfunc_18() { play_sound_effect((void*)277521, (char*)this + 0x38, (void*)0, (void*)0); }
 
-void TORockCaveBrakable::spawn_debris() {
+void TORockCaveBrakable::vfunc_16() {
     u8 *arg0 = (u8 *)this;
     Vec_80174CFC v;
     Offs_80174CFC offs;

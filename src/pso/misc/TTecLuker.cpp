@@ -313,7 +313,7 @@ extern const f32 lbl_805DC870;
 extern const f32 lbl_805DC874;
 void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res);
 extern const f32 lbl_805DC858;
-void TTecLuker__vt4(G_802346F8 *self, VObj_802346F8 *o);
+void vfunc_6__9TTecLukerFPv(G_802346F8 *self, VObj_802346F8 *o);
 }
 
 extern "C" {
@@ -772,7 +772,9 @@ void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res) {
 }
 #pragma pop
 
-void TTecLuker__vt4(G_802346F8 *self, VObj_802346F8 *o) {
+void TTecLuker::vfunc_6(void *o_arg) {
+    G_802346F8 *self = (G_802346F8 *)this;
+    VObj_802346F8 *o = (VObj_802346F8 *)o_arg;
     P_802346F8 d;
     d.t = 0xE;
     d.v = lbl_805DC858;

@@ -118,7 +118,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 handle_amount_confirm__19TShopItemListWindowFv(void *);
 s32 prepare_tool_purchase__19TShopItemListWindowFv(void *);
-void TShopItemListWindow__vt9(u8 *arg0);
+void vfunc_11__19TShopItemListWindowFv(u8 *arg0);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 count_items_by_id__10TObjPlayerFPvi(s32, void *);
 s32 TShopWindowBase__sub_802239EC(void *);
@@ -149,8 +149,8 @@ extern const f32 lbl_805DC6F8;
 
 extern "C" {
 
-void TShopItemListWindow__vt4(void *arg0);
-void TShopItemListWindow__vt5(void *arg0);
+void vfunc_6__19TShopItemListWindowFv(void *arg0);
+void vfunc_7__19TShopItemListWindowFv(void *arg0);
 void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -159,19 +159,19 @@ void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 
-void TShopItemListWindow__vt5(void *arg0) {
+void TShopItemListWindow::vfunc_7() {
     struct VObj_8021F134 *temp_r3;
 
-    temp_r3 = (struct VObj_8021F134 *)*(void **)((s8 *)arg0 + 0x2C);
+    temp_r3 = (struct VObj_8021F134 *)*(void **)((s8 *)this + 0x2C);
     if (temp_r3 != NULL) {
         temp_r3->m5();
     }
 }
 
-void TShopItemListWindow__vt4(void *arg0) {
+void TShopItemListWindow::vfunc_6() {
     struct VObj_8021F16C_8021F134 *temp_r3;
 
-    temp_r3 = (struct VObj_8021F16C_8021F134 *)*(void **)((s8 *)arg0 + 0x2C);
+    temp_r3 = (struct VObj_8021F16C_8021F134 *)*(void **)((s8 *)this + 0x2C);
     if (temp_r3 != NULL) {
         temp_r3->m4();
     }
@@ -326,7 +326,8 @@ void TShopItemListWindow::build_item_list(void *p) {
 #undef W
 #pragma pop
 
-void TShopItemListWindow__vt9(u8 *arg0) {
+void TShopItemListWindow::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);

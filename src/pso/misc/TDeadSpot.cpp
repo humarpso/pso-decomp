@@ -1,6 +1,8 @@
 #ifndef PSO_TDEADSPOT_H
 #define PSO_TDEADSPOT_H
 #include "pso/TObject.h"
+#include "pso/misc/TUnk_804949D8.h"
+#include "pso/misc/TUnk_804949F4.h"
 #include "types.h"
 class TDeadSpot : public TObject {
 public:
@@ -87,7 +89,7 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DA380;
-void TDeadSpot__sub_800D7E94(u8 *arg0);
+void vfunc_6__13TUnk_804949F4Fv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804949F4[];
@@ -96,7 +98,7 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DA380;
-void place_particle_on_ground__9TDeadSpotFPv(u8 *arg0);
+void vfunc_6__13TUnk_804949D8Fv(u8 *arg0);
 u32 __cvt_fp2unsigned(f32);
 extern const f32 TDeadSpot__data_805DA388;
 extern const f32 TDeadSpot__data_805DA38C;
@@ -161,7 +163,8 @@ extern s32 lbl_804949D8[];
 
 #pragma push
 #pragma opt_common_subs off
-void place_particle_on_ground__9TDeadSpotFPv(u8 *arg0) {
+void TUnk_804949D8::vfunc_6() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_800D7CF4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800D7CF4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800D7CF4, sp10) == 0x8) ? 1 : -1];
@@ -215,7 +218,8 @@ void update_lifetime__9TDeadSpotFPv(void *arg0) {
 extern s32 lbl_804949F4[];
 
 typedef struct Stack_800D7E94 Stack_800D7E94;
-void TDeadSpot__sub_800D7E94(u8 *arg0) {
+void TUnk_804949F4::vfunc_6() {
+    u8 *arg0 = (u8 *)this;
   Stack_800D7E94 stack;
   f32 temp_f1;
   s32 temp_r3;

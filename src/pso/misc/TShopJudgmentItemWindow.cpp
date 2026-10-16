@@ -163,7 +163,7 @@ extern s32 lbl_8044C1D4[];
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
-void TShopJudgmentItemWindow__vt9(u8 *arg0);
+void vfunc_11__23TShopJudgmentItemWindowFv(u8 *arg0);
 u16 obj_getField1c(s32);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 apply_shop_judgment__10TObjPlayerFPvi(s32, void *);
@@ -212,8 +212,8 @@ extern const f32 lbl_805DC708;
 extern "C" {
 
 void *TShopJudgmentItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-void TShopJudgmentItemWindow__vt5(void *arg0);
-void TShopJudgmentItemWindow__vt6(void *arg0);
+void vfunc_7__23TShopJudgmentItemWindowFv(void *arg0);
+void vfunc_8__23TShopJudgmentItemWindowFv(void *arg0);
 void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 create_yes_no_window(s32, u16, s32, s32);
@@ -230,19 +230,19 @@ int queue_destruction__7TObjectFv(void*);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 set_position_xy(s32, f32, f32);
 
-void TShopJudgmentItemWindow__vt5(void *arg0) {
+void TShopJudgmentItemWindow::vfunc_7() {
     struct VObj_802205E4 *temp_r3;
 
-    temp_r3 = (struct VObj_802205E4 *)*(void **)((s8 *)arg0 + 0x164);
+    temp_r3 = (struct VObj_802205E4 *)*(void **)((s8 *)this + 0x164);
     if (temp_r3 != NULL) {
         temp_r3->m5();
     }
 }
 
-void TShopJudgmentItemWindow__vt6(void *arg0) {
+void TShopJudgmentItemWindow::vfunc_8() {
     struct VObj_8022061C_802205E4 *temp_r3;
 
-    temp_r3 = (struct VObj_8022061C_802205E4 *)*(void **)((s8 *)arg0 + 0x164);
+    temp_r3 = (struct VObj_8022061C_802205E4 *)*(void **)((s8 *)this + 0x164);
     if (temp_r3 != NULL) {
         temp_r3->m6();
     }
@@ -668,7 +668,8 @@ void TShopJudgmentItemWindow::close() { if (*(unsigned int*)((char*)this + 0x50)
 
 extern s32 __vt__23TShopJudgmentItemWindow[];
 
-void TShopJudgmentItemWindow__vt9(u8 *arg0) {
+void TShopJudgmentItemWindow::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {

@@ -1,13 +1,14 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 
 extern "C" {
 
-void TShopWindowBase__sub_80217454(void);
-void TShopWindowBase__sub_80217458(void);
-int TShopWindowBase__is_ready(void);
+void vfunc_7__15TShopWindowBaseFv(void);
+void vfunc_9__15TShopWindowBaseFv(void);
+int vfunc_10__15TShopWindowBaseFv(void);
 
-void TShopWindowBase__sub_80217454(void) {  }
-void TShopWindowBase__sub_80217458(void) {  }
-int TShopWindowBase__is_ready(void) { return 1; }
+void TShopWindowBase::vfunc_7() {  }
+void TShopWindowBase::vfunc_9() {  }
+int TShopWindowBase::vfunc_10() { return 1; }
 
 }

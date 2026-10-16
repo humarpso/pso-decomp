@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjSuisoChip.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSnapShot.h"
 
@@ -28,13 +29,13 @@ void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
 void draw_ginja_object(s32);
-void TObjSuisoChip__vt10(O_802A60CC *arg0);
+void vfunc_12__13TObjSuisoChipFv(O_802A60CC *arg0);
 }
 
 extern "C" {
 
-void TObjSuisoChip__vt6(void);
-void TObjSuisoChip__vt8(void* p);
+void vfunc_8__13TObjSuisoChipFv(void);
+void vfunc_10__13TObjSuisoChipFv(void* p);
 s32 TObjChip__vt6();
 int TObjChip__vt8(void*, void*);
 int free_buffer__15TWindowSnapShotFPv(void*);
@@ -50,12 +51,13 @@ void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
 
 int TLobby::get_max_players() { return 8; }
 
-void TObjSuisoChip__vt6(void) {
+void TObjSuisoChip::vfunc_8() {
     TObjChip__vt6();
 }
 
-void TObjSuisoChip__vt8(void* p) { TObjChip__vt8(p, (char*)p + 0x234); }
-void TObjSuisoChip__vt10(O_802A60CC *arg0) {
+void TObjSuisoChip::vfunc_10() { TObjChip__vt8(this, (char*)this + 0x234); }
+void TObjSuisoChip::vfunc_12() {
+    O_802A60CC *arg0 = (O_802A60CC *)this;
     Chip_802A60CC *p;
     s32 i;
     if (arg0->f244 != 1) {

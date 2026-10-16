@@ -197,7 +197,7 @@ u8 *TQuestListVM__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 TQuestListVM__sub_8021884C(void *);
 s32 quest_vm_load(void *arg0);
-void TQuestListVM__vt9(u8 *arg0);
+void vfunc_11__12TQuestListVMFv(u8 *arg0);
 int memset(void*, void*, void*);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 select_cursor_entry__6TLobbyFv(u32);
@@ -891,7 +891,8 @@ extern s32 TQuestListVM__data_8044BF20[];
 extern s32 __vt__12TQuestListVM[];
 extern s32 quest_list_vm_instance;
 
-void TQuestListVM__vt9(u8 *arg0) {
+void TQuestListVM::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     if (((TQuestListVM *)arg0)->update_load_status() != 0) {
         ((VObj_18_a70a39 *)(arg0))->m5(TQuestVmDownLoadServer__sub_8006EF6C((s32)((int) (0x44))), 1);

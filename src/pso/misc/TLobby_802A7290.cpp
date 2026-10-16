@@ -120,7 +120,7 @@ extern "C" {
 void TLobby__sub_802A7318(void* p);
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
-void TObjSeabedSuisoBrakable__vt17(void);
+void vfunc_19__23TObjSeabedSuisoBrakableFv(void);
 
 s32 TLobby::get_valid_child() {
     if (is_valid_player_motion_variant((void*)(*(s32 *)((s8 *)this + 4))) != 0) {

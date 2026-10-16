@@ -663,7 +663,7 @@ u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
 
 extern const char lbl_80444250[];
-void debug_draw_model_index(void *self);
+void debug_draw_model_index__25TObjCity_Season_SonicAdv2Fv(void *self);
 
 void draw_oriented_shadow__9TObjEneDDFllUl(Vec_80183AF0 *, Vec_80183AF0 *, s32, Vec_80183AF0 *);
 s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
@@ -685,8 +685,8 @@ u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x90) = 0;
     return arg0;
 }
-void debug_draw_model_index(void *self) {
-    TObjCity_Season_SonicAdv2__sub_80183C38(self);
+void TObjCity_Season_SonicAdv2::debug_draw_model_index() {
+    TObjCity_Season_SonicAdv2__sub_80183C38(this);
     ((void (*)(s32 arg0))set_global_count__12TObjNpcEnemyFl)(0xFF00FF);
     ((void (*)(s32 id, const char *fmt, ...))debug_printf_at)(0x130020, lbl_80444250);
     ((void (*)(s32 arg0))set_global_count__12TObjNpcEnemyFl)(0xF0F0F0FF);

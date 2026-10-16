@@ -6,6 +6,7 @@
 class TUnk_804A0608 : public TItemTimerEvent {
 public:
     virtual ~TUnk_804A0608();
+    virtual void vfunc_6();
 };
 typedef char TUnk_804A0608_size[sizeof(TUnk_804A0608) == 0x2C ? 1 : -1];
 

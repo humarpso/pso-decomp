@@ -62,8 +62,8 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
 
 extern "C" {
 
-int TNeedleShoot__vt4(void* p);
-void TNeedleShoot__vt7(void);
+int vfunc_6__12TNeedleShootFv(void* p);
+void vfunc_9__12TNeedleShootFPv(void);
 void *__dt__12TNeedleShootFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -136,8 +136,8 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
     return self;
 }
 
-int TNeedleShoot__vt4(void* p) { return queue_destruction__7TObjectFv(p); }
+int TNeedleShoot::vfunc_6() { return queue_destruction__7TObjectFv(this); }
 int TNeedleShoot::queue_destruction() { return queue_destruction__7TObjectFv(this); }
-void TNeedleShoot__vt7(void) {  }
+void TNeedleShoot::vfunc_9(void *) {  }
 
 }

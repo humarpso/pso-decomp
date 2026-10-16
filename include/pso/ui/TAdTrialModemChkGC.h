@@ -6,6 +6,8 @@
 
 struct TAdTrialModemChkGC : public TAdWarningBaseGC {
     virtual ~TAdTrialModemChkGC();
+    virtual void vfunc_7();
+    virtual int vfunc_6();
     static void check_modem_result();
     virtual void render();
     virtual void run_task();

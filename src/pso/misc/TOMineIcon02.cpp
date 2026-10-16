@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOMineIcon03.h"
 #include "pso/misc/TOMineIcon02.h"
 #include "pso/misc/TOMineTrap.h"
 #include "pso/player/TObjPlayer.h"
@@ -62,7 +63,7 @@ void *TOMineIcon02__ct(void *arg0, void *arg1, void *arg2);
 
 extern "C" {
 
-void TOMineIcon03__vt82(void);
+void vfunc_84__12TOMineIcon03Fv(void);
 void *__dt__12TOMineIcon02Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
@@ -139,9 +140,10 @@ void *TOMineIcon02__ct(void *arg0, void *arg1, void *arg2) {
 }
 #pragma pop
 
-void TOMineIcon03__vt82(void) {  }
+void TOMineIcon03::vfunc_84() {  }
 
-void TOMineIcon03__vt80(s32 arg0) {
+void TOMineIcon03::vfunc_82() {
+    s32 arg0 = (s32)this;
     spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x8D));
     spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x8D));
 }

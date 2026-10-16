@@ -6,6 +6,7 @@
 
 struct TObjSeabedSuisoBrakable : public TORockCaveBrakable {
     virtual ~TObjSeabedSuisoBrakable();
+    virtual void vfunc_19();
     virtual void render();
     u32 m_bc;
     static void free_static_resources();

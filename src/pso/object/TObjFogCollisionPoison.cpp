@@ -53,10 +53,10 @@ extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
-void TObjFogCollisionSwitch__vt12(void *self);
+void vfunc_14__22TObjFogCollisionSwitchFv(void *self);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80440078[];
-void TObjFogCollisionPoison__vt12(void *self);
+void vfunc_14__22TObjFogCollisionPoisonFv(void *self);
 s16 obj_getS16_32C(s32);
 s32 obj_getField1c(s32);
 s32 is_valid_target__9TObjEneDDFv(s32);
@@ -229,8 +229,8 @@ void TObjFogCollisionPoison::clear_state_array() {
     }
 }
 
-void TObjFogCollisionPoison__vt12(void *self) {
-    TObjFogCollisionSwitch__vt12(self);
+void TObjFogCollisionPoison::vfunc_14() {
+    vfunc_14__22TObjFogCollisionSwitchFv(this);
     debug_printf_at(0x13001D, lbl_80440078);
 }
 

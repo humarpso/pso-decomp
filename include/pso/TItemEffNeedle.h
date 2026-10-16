@@ -7,6 +7,7 @@
 class TItemEffNeedle : public TItemEffNeedleBase {
 public:
     virtual ~TItemEffNeedle();
+    virtual int vfunc_6();
     virtual int hook();
 };
 

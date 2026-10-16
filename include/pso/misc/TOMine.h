@@ -6,6 +6,14 @@
 
 struct TOMine : public TUnk_804806E8 {
     virtual ~TOMine();
+    virtual void vfunc_79();
+    virtual void vfunc_80();
+    virtual void vfunc_81();
+    virtual void vfunc_82();
+    virtual void vfunc_83();
+    virtual void vfunc_84();
+    virtual void vfunc_85();
+    virtual void vfunc_86();
     void* m_334;
     u8 _pad338[0x8];
     u32 m_340;

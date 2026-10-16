@@ -6,6 +6,8 @@
 
 struct TORockJungleS01 : public TORockCaveBrakable {
     virtual ~TORockJungleS01();
+    virtual void vfunc_16();
+    virtual void vfunc_18();
     u32 m_bc;
     static void *create(void *arg0);
     static u8 *get_model(s32 arg0);

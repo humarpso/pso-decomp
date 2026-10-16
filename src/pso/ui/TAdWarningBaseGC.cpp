@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdWarningBaseGC.h"
 #include "pso/TMainTask.h"
 
 struct B_8032D214 { u8 pad[0x18]; };
@@ -23,7 +24,7 @@ struct VObj_18_df5984 : VBase_18_df5984 {
 };
 
 extern "C" {
-void TAdWarningBaseGC__vt5(void *self);
+void vfunc_9__16TAdWarningBaseGCFv(void *self);
 void send_and_handle__6TLobbyFii(s32, void *, int);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_80477334[];
@@ -37,7 +38,7 @@ s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF7B0;
-void TAdWarningBaseGC__vt4(u8 *arg0);
+void vfunc_8__16TAdWarningBaseGCFv(u8 *arg0);
 }
 
 extern "C" {
@@ -58,7 +59,7 @@ void clear_aram_request_busy(void) { aram_request_busy_flag = 0; }
 
 extern s32 __vt__16TAdWarningBaseGC[];
 
-void TAdWarningBaseGC__vt5(void *self) {
+void TAdWarningBaseGC::vfunc_9() {
     if (TMainTask::get_state_flag() == 1) { return;
     }
 }
@@ -69,7 +70,8 @@ s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0) {
     return r;
 }
 
-void TAdWarningBaseGC__vt4(u8 *arg0) {
+void TAdWarningBaseGC::vfunc_8() {
+    u8 *arg0 = (u8 *)this;
     u8 *a;
     u8 *b;
     *(s32 *)((s8 *)arg0 + 0x20) = *(s32 *)((s8 *)arg0 + 0x1C);

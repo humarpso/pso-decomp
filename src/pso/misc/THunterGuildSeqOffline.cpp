@@ -176,7 +176,7 @@ extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGui
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__instance_table;
 void THunterGuildSeqOffline__sub_8021339C(void);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
-void THunterGuildSeqOffline__vt9(Guild_8021317C *self);
+void vfunc_11__22THunterGuildSeqOfflineFv(Guild_8021317C *self);
 u16 obj_getField1c(s32);
 s32 queue_destruction__7TObjectFv(int);
 void THunterGuildSeqOffline__sub_8021E180(void);
@@ -285,7 +285,8 @@ void THunterGuildSeqOffline__vt10(void* p) { restore_player_state__13TShopSequen
 
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 
-void THunterGuildSeqOffline__vt9(Guild_8021317C *self) {
+void THunterGuildSeqOffline::vfunc_11() {
+    Guild_8021317C *self = (Guild_8021317C *)this;
     switch (self->phase) {
     case 0: self->begin(); break;
     case 1: ((THunterGuildSeqOffline *)self)->open_greeting(); break;

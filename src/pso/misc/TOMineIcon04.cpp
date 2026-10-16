@@ -43,7 +43,7 @@ struct Icon_80171E7C {
 
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
-void TOMineIcon04__vt78(s32 arg0);
+void vfunc_80__12TOMineIcon04Fv(s32 arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void refresh_collision_body_centers(void *);
@@ -64,8 +64,8 @@ void *TOMineIcon04__ct(void *arg0, void *arg1, void *arg2);
 
 extern "C" {
 
-int TOMineIcon04__vt80(void* p);
-void TOMineIcon04__vt82(void);
+int vfunc_82__12TOMineIcon04Fv(void* p);
+void vfunc_84__12TOMineIcon04Fv(void);
 void *__dt__12TOMineIcon04Fv(void *arg0, s16 arg1);
 int spawn_particle_effect(void*, int);
 s32 free_collision_body_parts(void *);
@@ -74,8 +74,8 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__6TOMineFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
-void TOMineIcon04__vt82(void) {  }
-int TOMineIcon04__vt80(void* p) { return spawn_particle_effect((char*)p + 0x2fc, 140); }
+void TOMineIcon04::vfunc_84() {  }
+void TOMineIcon04::vfunc_82() { spawn_particle_effect((char*)this + 0x2fc, 140); }
 
 extern void *tl_05;
 
@@ -236,16 +236,17 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)fn_80010EC0,
     (void *)fn_80010EBC,
     (void *)TOMineTrap__sub_80170354,
-    (void *)TOMineIcon04__vt78,
+    (void *)vfunc_80__12TOMineIcon04Fv,
     (void *)spawn_effect__10TOMineTrapFv,
-    (void *)TOMineIcon04__vt80,
+    (void *)vfunc_82__12TOMineIcon04Fv,
     (void *)spawn_disp_objects__10TOMineTrapFPv,
-    (void *)TOMineIcon04__vt82,
+    (void *)vfunc_84__12TOMineIcon04Fv,
     (void *)TOMineTrap__sub_80170570,
     (void *)TOMineTrap__sub_80170A5C,
 };
 
-void TOMineIcon04__vt78(s32 arg0) {
+void TOMineIcon04::vfunc_80() {
+    s32 arg0 = (s32)this;
     u32 temp_r3;
     temp_r3 = TOKeyMachine01::get_global_state();
     switch (temp_r3) {

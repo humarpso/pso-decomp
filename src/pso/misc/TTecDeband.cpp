@@ -85,7 +85,7 @@ void run_task__10TTecDebandFv(Deband_8022F73C *self);
 s32 obj_getField1c(int);
 s32 is_split_screen();
 s32 is_script_controlled__10TObjPlayerFv(void *);
-void TTecDeband__vt5(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1);
+void vfunc_7__10TTecDebandFPv(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1);
 s32 obj_getField1c(int);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 void copy_technique_target_list(void *, void *, s32);
@@ -116,7 +116,9 @@ void TTecDeband::update_effect_params() {
     *(f32 *)((s8 *)arg0 + 0x74) = (f32) (*(s16 *)((s8 *)arg0 + 0x98) * *(s16 *)((s8 *)arg0 + 0xA4));
 }
 
-void TTecDeband__vt5(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1) {
+void TTecDeband::vfunc_7(void *arg1_arg) {
+    Obj_8022F588 *arg0 = (Obj_8022F588 *)this;
+    VObj_18_b27ba1 *arg1 = (VObj_18_b27ba1 *)arg1_arg;
     HitInfo_8022F588 h;
     h.type = 0xA;
     h.power = arg0->power;

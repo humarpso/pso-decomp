@@ -194,7 +194,7 @@ extern s32 TShopEquipmentListWindow__class_name;
 u8 *TShopEquipmentListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFl(void*, int);
-void TShopEquipmentListWindow__vt9(u8 *arg0);
+void vfunc_11__24TShopEquipmentListWindowFv(u8 *arg0);
 s32 obj_getPtr2B0_20(void *);
 s32 check_equip_requirements(void *, Rec_8021C33C *, u32 *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Rec_8021C33C *);
@@ -251,8 +251,8 @@ s32 select_cursor_entry__6TLobbyFv(void *);
 extern "C" {
 
 int TShopEquipmentListWindow__sub_8021C85C(int a0);
-void TShopEquipmentListWindow__vt4(void *arg0);
-void TShopEquipmentListWindow__vt5(void *arg0);
+void vfunc_6__24TShopEquipmentListWindowFv(void *arg0);
+void vfunc_7__24TShopEquipmentListWindowFv(void *arg0);
 void *__dt__24TShopEquipmentListWindowFv(void *arg0, s16 arg1);
 u32 create_window_menu(s32, s32, u16);
 s32 get_shop_text(s32);
@@ -271,15 +271,15 @@ s32 obj_getField1c(s32);
 int set_field_20__12TQuestListVMFl(void*, int);
 s32 set_position_xy(u32, f32, f32);
 
-void TShopEquipmentListWindow__vt5(void *arg0) {
-    struct VObj_8021B974 *o = (struct VObj_8021B974 *)*(void **)((s8 *)arg0 + 0x28);
+void TShopEquipmentListWindow::vfunc_7() {
+    struct VObj_8021B974 *o = (struct VObj_8021B974 *)*(void **)((s8 *)this + 0x28);
     if (o != NULL) {
         o->m5();
     }
 }
 
-void TShopEquipmentListWindow__vt4(void *arg0) {
-    struct VObj_8021B9AC_8021B974 *o = (struct VObj_8021B9AC_8021B974 *)*(void **)((s8 *)arg0 + 0x28);
+void TShopEquipmentListWindow::vfunc_6() {
+    struct VObj_8021B9AC_8021B974 *o = (struct VObj_8021B9AC_8021B974 *)*(void **)((s8 *)this + 0x28);
     if (o != NULL) {
         o->m4();
     }
@@ -577,7 +577,8 @@ void TShopEquipmentListWindow::create_buy_list_windows(void *p) {
 #undef W
 #pragma pop
 
-void TShopEquipmentListWindow__vt9(u8 *arg0) {
+void TShopEquipmentListWindow::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);

@@ -6,6 +6,7 @@
 
 struct TTecGrants : public TUnk_804CC148 {
     virtual ~TTecGrants();
+    virtual void vfunc_6(void *);
     virtual void run_task();
     u32 m_ec;
     u16 m_f0;

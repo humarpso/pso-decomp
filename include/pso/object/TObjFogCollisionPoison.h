@@ -6,6 +6,7 @@
 
 struct TObjFogCollisionPoison : public TObjFogCollisionSwitch {
     virtual ~TObjFogCollisionPoison();
+    virtual void vfunc_14();
     virtual void run_task();
     u32 m_98;
     void update_poison_damage();

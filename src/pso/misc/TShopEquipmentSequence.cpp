@@ -125,7 +125,7 @@ u8 *TShopEquipmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 TShopEquipmentSequence__sub_8021D65C(void);
 s32 restore_player_state__13TShopSequenceFPv(void *);
-void TShopEquipmentSequence__vt9(u8 *arg0);
+void vfunc_11__22TShopEquipmentSequenceFv(u8 *arg0);
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__slot_active_flags;
 void TShopEquipmentSequence__sub_8021DC08(void);
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__slot_active_flags;
@@ -294,7 +294,8 @@ s32 TShopEquipmentSequence::open_greeting() {
 typedef char RecoveredGlobal_8021DA90___vt__22TShopEquipmentSequence_size[sizeof(RecoveredGlobal_8021DA90___vt__22TShopEquipmentSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0_size[sizeof(RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0) == 0x10 ? 1 : -1];
 
-void TShopEquipmentSequence__vt9(u8 *arg0) {
+void TShopEquipmentSequence::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {

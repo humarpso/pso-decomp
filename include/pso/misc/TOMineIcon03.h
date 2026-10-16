@@ -6,6 +6,8 @@
 
 struct TOMineIcon03 : public TOMine {
     virtual ~TOMineIcon03();
+    virtual void vfunc_84();
+    virtual void vfunc_82();
     u32 m_374;
     u32 m_378;
     static void *create(void *arg0);};

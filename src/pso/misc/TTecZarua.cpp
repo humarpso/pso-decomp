@@ -146,7 +146,7 @@ struct Zarua_8023C2D0 {
 };
 
 extern "C" {
-void TTecZarua__vt4(u8 *self, u8 *target);
+void vfunc_6__9TTecZaruaFPv(u8 *self, u8 *target);
 s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 apply_technique_to_area_targets(void *);
@@ -193,7 +193,9 @@ void TTecZarua::calc_range() {
 
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_802385EC_lbl_804CCB28_size[sizeof(RecoveredGlobal_802385EC_lbl_804CCB28) == 0x18 ? 1 : -1];
-void TTecZarua__vt4(u8 *self, u8 *target) {
+void TTecZarua::vfunc_6(void *target_arg) {
+    u8 *self = (u8 *)this;
+    u8 *target = (u8 *)target_arg;
     Damage_802386F8 d;
     d.kind = 0xc;
     d.power = *(f32 *)(self + 0x88);

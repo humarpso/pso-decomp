@@ -47,20 +47,21 @@ extern const f32 lbl_805DDD18;
 
 extern "C" {
 
-void TAdRayGC__sub_8029C054(u8 *arg0);
+void vfunc_15__15TORockJungleL01Fv(u8 *arg0);
 int run_task__15TORockJungleL01Fv(void* p);
 int update_obstruction_fade(void*);
 s32 set_cull_none__8TObjFishFv();
 
 void TORockJungleL01::run_task() { update_obstruction_fade((char*)this + 0xb4); }
 
-void TAdRayGC__sub_8029C054(u8 *arg0) {
+void TORockJungleL01::vfunc_15() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 0) {
         ((VObj_8029c054_8029C030*)(arg0 + 0xB4))->m7();
     }
     set_cull_none__8TObjFishFv();
 }
-void TBoss8Dragon::update_near_fade() {
+void TORockJungleL01::vfunc_14() {
     Rd_8029C094 *arg0 = (Rd_8029C094 *)this;
     Vec_8029C094 v;
     set_cull_back__8TObjFishFv();

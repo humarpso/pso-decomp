@@ -115,7 +115,7 @@ void TJudgmentSequence__sub_80215BF8(void *arg0);
 extern void *tl_05;
 void open_judgment_window__17TJudgmentSequenceFPv(Seq_80215CB8 *self);
 void open_judgment_window__17TJudgmentSequenceFPv(Seq_80215CB8 *self);
-void TJudgmentSequence__vt9(void *arg0);
+void vfunc_11__17TJudgmentSequenceFv(void *arg0);
 }
 
 extern "C" {
@@ -196,22 +196,22 @@ typedef char RecoveredGlobal_80215EF8___vt__17TJudgmentSequence_size[sizeof(Reco
 typedef char RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80_size[sizeof(RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80) == 0x10 ? 1 : -1];
 
 struct Seq_80215CB8;
-void TJudgmentSequence__vt9(void *arg0) {
-    switch (*(s32 *)((s8 *)arg0 + 0x20)) {
+void TJudgmentSequence::vfunc_11() {
+    switch (*(s32 *)((s8 *)this + 0x20)) {
     case 0:
-        ((VtObj80215E74*)arg0)->m10();
+        ((VtObj80215E74*)this)->m10();
         break;
     case 1:
-        ((TJudgmentSequence *)arg0)->setup_counter_camera();
+        ((TJudgmentSequence *)this)->setup_counter_camera();
         break;
     case 2:
-        ((TJudgmentSequence *)arg0)->handle_confirm();
+        ((TJudgmentSequence *)this)->handle_confirm();
         break;
     case 3:
-        open_judgment_window__17TJudgmentSequenceFPv((Seq_80215CB8 *)arg0);
+        open_judgment_window__17TJudgmentSequenceFPv((Seq_80215CB8 *)this);
         break;
     case 4:
-        ((TJudgmentSequence *)arg0)->handle_close_input();
+        ((TJudgmentSequence *)this)->handle_close_input();
         break;
     case 5:
         break;
@@ -248,7 +248,7 @@ extern s32 TJudgmentSequence__class_name;
 u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TJudgmentSequence__sub_80216030(void);
 void TJudgmentSequence__sub_80216058(void);
-void TShopWindowBase__sub_80216080(void);
+void vfunc_8__15TShopWindowBaseFv(void);
 
 u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TShopSequence__ct((void *) (arg0));
@@ -277,5 +277,5 @@ void TJudgmentSequence__sub_80216058(void) {
     }
 }
 
-void TShopWindowBase__sub_80216080(void) {  }
+void TShopWindowBase::vfunc_8() {  }
 }

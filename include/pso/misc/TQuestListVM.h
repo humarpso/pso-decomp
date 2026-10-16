@@ -6,6 +6,11 @@
 
 struct TQuestListVM : public TShopWindowBase {
     virtual ~TQuestListVM();
+    virtual void vfunc_11();
+    virtual int vfunc_10();
+    virtual void vfunc_9();
+    virtual void vfunc_7();
+    virtual void vfunc_6();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;

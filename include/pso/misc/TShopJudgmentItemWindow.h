@@ -6,6 +6,9 @@
 
 struct TShopJudgmentItemWindow : public TShopWindowBase {
     virtual ~TShopJudgmentItemWindow();
+    virtual void vfunc_11();
+    virtual void vfunc_8();
+    virtual void vfunc_7();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;

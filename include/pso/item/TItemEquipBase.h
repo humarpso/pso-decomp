@@ -6,6 +6,14 @@
 
 struct TItemEquipBase : public TItem {
     virtual ~TItemEquipBase();
+    virtual void vfunc_44();
+    virtual void vfunc_45();
+    virtual void vfunc_46();
+    virtual void release();
+    virtual void vfunc_48();
+    virtual void vfunc_49();
+    virtual void vfunc_50();
+    virtual s32 vfunc_51(u8 *, s32, s32, s32);
     u8 unk_F8[0x78];
     u8 m_170;
     u8 m_171;
@@ -30,7 +38,6 @@ struct TItemEquipBase : public TItem {
     void update_equip();
     void unequip();
     void equip();
-    void release();
     void update_with_player();
     void init_slot();
     int check_flag_32();

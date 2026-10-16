@@ -6,6 +6,7 @@
 
 struct TItemAttackCol : public TUnk_804E355C {
     virtual ~TItemAttackCol();
+    virtual void vfunc_7();
     void* m_c4;
     u8 _padC8[0x8];
     void* m_d0;

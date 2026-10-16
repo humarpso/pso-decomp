@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TUnk_804A0668.h"
+#include "pso/item/TUnk_804A0688.h"
 #include "pso/item/TItemTimerEvent.h"
 #include "pso/boss/TBoss3Volopt.h"
 
@@ -39,7 +41,7 @@ u8 *TItemTimerEvent__ct(u8 *arg0, s32 arg1, s16 arg2, s32 arg3);
 
 extern "C" {
 
-void TItemTimerEvent__sub_8011DA9C(void *arg0);
+void vfunc_7__13TUnk_804A0668Fv(void *arg0);
 void *TItemTimerEvent__sub_8011DCF8(void *arg0, s16 arg1);
 void *TItemTimerEvent__sub_8011DD50(void *arg0, s16 arg1);
 void *TItemTimerEvent__sub_8011DDA8(void *arg0, s16 arg1);
@@ -51,7 +53,7 @@ void *TItemTimerEvent__sub_8011DF60(void *arg0, s16 arg1);
 void *TItemTimerEvent__sub_8011DFB8(void *arg0, s16 arg1);
 void *TItemTimerEvent__sub_8011E010(void *arg0, s16 arg1);
 void *TItemTimerEvent__vt0(void *arg0, s16 arg1);
-void TItemTimerEvent__vt4(void *arg0);
+void vfunc_7__15TItemTimerEventFv(void *arg0);
 s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 is_item_area_enabled();
 s32 TObjectV8047c128_subtract_hp(s32, s32);
@@ -63,27 +65,27 @@ s32 obj_isState3_324(s32);
 s32 obj_testFlags30(s32, s32);
 s32 set_flag_10000__10TObjPlayerFv();
 
-void TItemTimerEvent__sub_8011DA9C(void *arg0) {
-    if (test_action_mask__10TObjPlayerFl(*(s32 *)((s8 *)arg0 + 0x28), 0x1C) != 0) {
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
+void TUnk_804A0668::vfunc_7() {
+    if (test_action_mask__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x28), 0x1C) != 0) {
+        *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
     }
 }
 
-void TItemTimerEvent::tick_hp_drain() {
+void TUnk_804A0688::vfunc_6() {
     ((TBoss3Volopt *)(*(s32 *)((s8 *)this + 0x28)))->get_field_3e0();
     if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)((s8 *)this + 0x28)) == 0) && (obj_testFlags30(*(s32 *)((s8 *)this + 0x28), 0x800) == 0)) {
         TObjectV8047c128_subtract_hp(*(s32 *)((s8 *)this + 0x28), 1);
     }
 }
 
-void TItemTimerEvent::update_timer() {
+void TUnk_804A0688::vfunc_7() {
     if (test_action_mask__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x28), 0x1C) != 0) {
         *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
     }
 }
 
-void TItemTimerEvent__vt4(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
+void TItemTimerEvent::vfunc_7() {
+    *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
 }
 
 extern s32 __vt__15TItemTimerEvent[];

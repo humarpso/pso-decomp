@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecReverser.h"
 #include "pso/misc/TUnk_804CCBC0.h"
 #include "pso/misc/TTecResta.h"
 #include "pso/misc/TTecAnti.h"
@@ -145,7 +146,7 @@ void *__nw__7TObjectFUl(int);
 void construct_delayed_point_sound(void *, void *, s32, s32, s32);
 Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
 extern s32 tl_07;
-void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1);
+void vfunc_7__9TTecRestaFPv(Obj_8023985C *arg0, VObj_8023985C *arg1);
 s32 obj_getField1c(int);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 s32 copy_technique_target_list(void *, void *);
@@ -156,7 +157,7 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__nw__7TObjectFUl(int);
 void construct_delayed_point_sound(void *, void *, s32, s32, s32);
 extern s32 tl_07;
-void TTecReverser__vt4(Obj_80239CF4 *arg0, VObj_18_9c98dd *arg1);
+void vfunc_6__12TTecReverserFPv(Obj_80239CF4 *arg0, VObj_18_9c98dd *arg1);
 }
 
 extern "C" {
@@ -273,7 +274,9 @@ void TTecResta::create(void *arg0, void *arg1, void *arg2) {
 
 #pragma push
 #pragma opt_common_subs off
-void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1) {
+void TTecResta::vfunc_7(void *arg1_arg) {
+    Obj_8023985C *arg0 = (Obj_8023985C *)this;
+    VObj_8023985C *arg1 = (VObj_8023985C *)arg1_arg;
     HitInfo_8023985C h;
     if (is_script_controlled__10TObjPlayerFv(arg1) != 0) {
         return;
@@ -408,7 +411,9 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     return arg0;
 }
-void TTecReverser__vt4(Obj_80239CF4 *arg0, VObj_18_9c98dd *arg1) {
+void TTecReverser::vfunc_6(void *arg1_arg) {
+    Obj_80239CF4 *arg0 = (Obj_80239CF4 *)this;
+    VObj_18_9c98dd *arg1 = (VObj_18_9c98dd *)arg1_arg;
     HitInfo_80239CF4 h;
     h.type = 8;
     h.power = arg0->power;

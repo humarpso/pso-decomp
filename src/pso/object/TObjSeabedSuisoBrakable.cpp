@@ -11,7 +11,7 @@ int match_coordinate_pair(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TObjSeabedSuisoBrakable__vt17(void);
+void vfunc_19__23TObjSeabedSuisoBrakableFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void TLobby__sub_802A7318(void* p);
 s32 TLobby__sub_803DA16C(void*);
@@ -120,7 +120,7 @@ int TObjSeabedSuisoBrakable::get_table0_entry(int a0) {  return TObjSeabedSuisoB
     extern int suiso_brakable_linked_switch_counts[];
 int TObjSeabedSuisoBrakable::get_table1_entry(int a0) {  return suiso_brakable_linked_switch_counts[a0]; }
 
-void TObjSeabedSuisoBrakable__vt17(void) {  }
+void TObjSeabedSuisoBrakable::vfunc_19() {  }
 
 int match_coordinate_pair(u8 *arg0, s32 arg1, s32 arg2) {
     u8 var_r6;

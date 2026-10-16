@@ -140,7 +140,7 @@ struct Win_8021C968 : VObj_8021C968 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-void TShopEquipmentSellWindow__vt9(u8 *arg0);
+void vfunc_11__24TShopEquipmentSellWindowFv(u8 *arg0);
 int count_matching_items__10TObjPlayerFPvi(void *a0, u32 *a1);
 int reset_list__20TShopArmorListWindowFPv(void *);
 s32 get_shop_text(s32);
@@ -192,8 +192,8 @@ s32 select_cursor_entry__6TLobbyFv(void *);
 extern "C" {
 
 void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-void TShopEquipmentSellWindow__vt4(void *arg0);
-void TShopEquipmentSellWindow__vt5(void *arg0);
+void vfunc_6__24TShopEquipmentSellWindowFv(void *arg0);
+void vfunc_7__24TShopEquipmentSellWindowFv(void *arg0);
 void *__dt__24TShopEquipmentSellWindowFv(void *arg0, s16 arg1);
 u32 create_window_menu(s32, s32, u16);
 s32 get_shop_text(s32);
@@ -213,15 +213,15 @@ s32 obj_getField1c(s32);
 int set_field_20__12TQuestListVMFl(void *, int);
 s32 set_position_xy(u32, f32, f32);
 
-void TShopEquipmentSellWindow__vt5(void *arg0) {
-    struct VObj_8021C870 *o = (struct VObj_8021C870 *)*(void **)((s8 *)arg0 + 0x388);
+void TShopEquipmentSellWindow::vfunc_7() {
+    struct VObj_8021C870 *o = (struct VObj_8021C870 *)*(void **)((s8 *)this + 0x388);
     if (o != NULL) {
         o->m5();
     }
 }
 
-void TShopEquipmentSellWindow__vt4(void *arg0) {
-    struct VObj_8021C8A8_8021C870 *o = (struct VObj_8021C8A8_8021C870 *)*(void **)((s8 *)arg0 + 0x388);
+void TShopEquipmentSellWindow::vfunc_6() {
+    struct VObj_8021C8A8_8021C870 *o = (struct VObj_8021C8A8_8021C870 *)*(void **)((s8 *)this + 0x388);
     if (o != NULL) {
         o->m4();
     }
@@ -454,7 +454,8 @@ void TShopEquipmentSellWindow::build_sell_list() {
     }
 }
 
-void TShopEquipmentSellWindow__vt9(u8 *arg0) {
+void TShopEquipmentSellWindow::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     s32 (*temp_r12_2)(s32);
     u32 temp_r0;

@@ -6,6 +6,9 @@
 class TUnk_804EDD44 : public TObject {
 public:
     virtual ~TUnk_804EDD44();
+    virtual void vfunc_6();
+    virtual void vfunc_7();
+    virtual void vfunc_8();
     u8 unk_1C[0x54];
 };
 typedef char TUnk_804EDD44_size[sizeof(TUnk_804EDD44) == 0x70 ? 1 : -1];

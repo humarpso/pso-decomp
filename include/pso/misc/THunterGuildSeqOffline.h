@@ -5,6 +5,7 @@
 
 struct THunterGuildSeqOffline
 {
+    void vfunc_11();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;

@@ -197,7 +197,7 @@ void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 
 extern "C" {
 
-void TTecPlayerInfluence__vt5(void);
+void vfunc_7__19TTecPlayerInfluenceFPv(void);
 void TTecRaBarta__vt7(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -218,7 +218,7 @@ typedef struct Obj_80237310 Obj_80237310;
 typedef struct Owner_80237310 Owner_80237310;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
 
-void TTecPlayerInfluence__vt5(void);
+void vfunc_7__19TTecPlayerInfluenceFPv(void);
 
 extern "C" {
 extern const Emitter_80237494 lbl_8044D920[3] = {{473, 0, 0.0f}, {475, 0, 0.0f}, {479, 0x20060, 1.0f}};

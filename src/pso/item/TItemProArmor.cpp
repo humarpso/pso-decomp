@@ -166,7 +166,7 @@ void *construct_timer_event__10TObjPlayerFv(void *, void *, s32, s32);
 void *init_item_timer_event__10TObjPlayerFv(void *, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
 void *__nw__15TItemHeapObjectFUl(int);
-void TItemProArmor__vt42(Armor_80117954 *self);
+void vfunc_44__13TItemProArmorFv(Armor_80117954 *self);
 }
 
 extern "C" {
@@ -181,7 +181,7 @@ void *__dt__13TItemProArmorFv(void *arg0, s16 arg1);
 void apply_to_player__13TItemProArmorFPv(void *arg0);
 void *ct__13TItemProArmorFPv(void *arg0);
 void *init_vtable__13TItemProArmorFPv(void *arg0);
-void update_armor__13TItemProArmorFPv(void* p);
+void vfunc_46__13TItemProArmorFv(void* p);
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
 void TItemObject__ct(void *);
 s32 get_tool_pmt_amount_byte(void *);
@@ -467,16 +467,17 @@ void *__vt__13TItemProArmor[51] = {
     (void *)TItem__sub_801005E4,
     (void *)TItem__sub_801005D8,
     (void *)TObjPlayer__sub_80102BD8,
-    (void *)TItemProArmor__vt42,
+    (void *)vfunc_44__13TItemProArmorFv,
     (void *)TItemEquipBase__sub_8010A940,
-    (void *)update_armor__13TItemProArmorFPv,
+    (void *)vfunc_46__13TItemProArmorFv,
     (void *)release__14TItemEquipBaseFv,
     (void *)TItemEquipBase__sub_8010A93C,
     (void *)TItemEquipBase__sub_8010A938,
     (void *)TItemEquipBase__sub_8010A788,
 };
 
-void TItemProArmor__vt42(Armor_80117954 *self) {
+void TItemProArmor::vfunc_44() {
+    Armor_80117954 *self = (Armor_80117954 *)this;
     void *o;
     if (self->owner == NULL) {
         return;
@@ -539,7 +540,7 @@ void TItemProArmor__vt14(void *arg0) {
     }
 }
 
-void update_armor__13TItemProArmorFPv(void* p) { if (((TItemMag *)p)->get_flag_40() == 0) { obj_getField1c(*(void**)((char*)p + 0xf0)); spawn_appearance_effect__10TObjPlayerFl(); } }
+void TItemProArmor::vfunc_46() { if (((TItemMag *)this)->get_flag_40() == 0) { obj_getField1c(*(void**)((char*)this + 0xf0)); spawn_appearance_effect__10TObjPlayerFl(); } }
 
 typedef char RecoveredGlobal_80117B98___vt__13TItemProArmor_size[sizeof(RecoveredGlobal_80117B98___vt__13TItemProArmor) == 0xCC ? 1 : -1];
 u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2) {

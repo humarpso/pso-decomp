@@ -7,6 +7,7 @@
 class TItemEffNeedleBase : public TObject {
 public:
     virtual ~TItemEffNeedleBase();
+    virtual int vfunc_6();
     virtual void run_task();
     virtual void render();
     virtual int hook();

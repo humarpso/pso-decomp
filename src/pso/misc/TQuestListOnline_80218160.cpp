@@ -6,7 +6,7 @@ struct Obj_802181B0 { u8 pad[0x20]; u32 state; };
 
 extern "C" {
 
-void TQuestListOnline__vt9(Obj_802181B0 *arg0);
+void vfunc_11__16TQuestListOnlineFv(Obj_802181B0 *arg0);
 }
 
 extern "C" {
@@ -22,7 +22,8 @@ int set_field_20__12TQuestListVMFl(void*, void*);
 void TQuestListOnline::request_menu() { ((TProtocol *)TLobby__protocol_instance)->send_quest_menu_request(); online_quest_bin_data = 0; quest_bin_decompressed_size = 0; online_quest_dat_buffer = 0; online_quest_list_decompressed_size = 0; set_field_20__12TQuestListVMFl(this, (void*)12); }
 extern "C" {
 
-void TQuestListOnline__vt9(Obj_802181B0 *arg0) {
+void TQuestListOnline::vfunc_11() {
+    Obj_802181B0 *arg0 = (Obj_802181B0 *)this;
     switch (arg0->state) {
     case 0: ((TQuestListOnline*)arg0)->request_menu(); break;
     case 1: ((TQuestListOnline*)arg0)->build_list_window(); break;

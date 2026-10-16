@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopGetItemWindow.h"
 #include "pso/misc/TJudgmentSequence.h"
 
 struct Base_8021E524_8021E4C4 { char pad[0x18]; };
@@ -22,8 +23,8 @@ struct VObj_8021E55C_8021E4C4 : Base_8021E55C_8021E4C4 {
 extern "C" {
 
 int get_judgment_shop_slot_flags(int a0);
-void TShopGetItemWindow__vt4(void *arg0);
-void TShopGetItemWindow__vt5(void *arg0);
+void vfunc_6__18TShopGetItemWindowFv(void *arg0);
+void vfunc_7__18TShopGetItemWindowFv(void *arg0);
 void *TJudgmentSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -40,15 +41,15 @@ void *TJudgmentSequence::create(void *arg0) {
     extern int TJudgmentSequence__slot_flags[];
 int get_judgment_shop_slot_flags(int a0) {  return TJudgmentSequence__slot_flags[a0]; }
 
-void TShopGetItemWindow__vt5(void *arg0) {
-    struct VObj_8021E524_8021E4C4 *o = (struct VObj_8021E524_8021E4C4 *)*(void **)((s8 *)arg0 + 0x5C);
+void TShopGetItemWindow::vfunc_7() {
+    struct VObj_8021E524_8021E4C4 *o = (struct VObj_8021E524_8021E4C4 *)*(void **)((s8 *)this + 0x5C);
     if (o != NULL) {
         o->m5();
     }
 }
 
-void TShopGetItemWindow__vt4(void *arg0) {
-    struct VObj_8021E55C_8021E4C4 *o = (struct VObj_8021E55C_8021E4C4 *)*(void **)((s8 *)arg0 + 0x5C);
+void TShopGetItemWindow::vfunc_6() {
+    struct VObj_8021E55C_8021E4C4 *o = (struct VObj_8021E55C_8021E4C4 *)*(void **)((s8 *)this + 0x5C);
     if (o != NULL) {
         o->m4();
     }

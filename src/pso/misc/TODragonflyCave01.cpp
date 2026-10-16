@@ -245,7 +245,7 @@ struct VObj_80164c34_80164760 : Base_80164c34_80164760 {
     virtual s32 m8(f32, f32);
 };
 
-void TODragonfly__sub_80164760(void);
+void vfunc_14__11TODragonflyFv(void);
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
 f32 sin_table_lookup(s32);
 s32 post_translate_matrix(void *);
@@ -281,7 +281,7 @@ u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1) {
 }
 #pragma pop
 
-void TODragonfly__sub_80164760(void) {  }
+void TODragonfly::vfunc_14() {  }
 
 extern const f32 lbl_805DB580;
 

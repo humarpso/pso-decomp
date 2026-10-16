@@ -6,6 +6,10 @@
 
 struct TNeedleShoot : public TObject {
     virtual ~TNeedleShoot();
+    virtual int vfunc_6();
+    virtual int queue_destruction();
+    virtual void vfunc_8();
+    virtual void vfunc_9(void *);
     u32 m_1c;
     u8 _pad20[0x14];
     u16 m_34;
@@ -29,10 +33,7 @@ struct TNeedleShoot : public TObject {
     u32 m_b8;
     virtual void run_task();
     virtual void render();
-    void update_position();
-    int queue_destruction();
-    void tick_lifetime();
-    void init_velocity();};
+    void update_position();};
 
 typedef char TNeedleShoot_size[sizeof(TNeedleShoot) == 0xBC ? 1 : -1];
 #endif

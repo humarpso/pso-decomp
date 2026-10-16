@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804F0C08.h"
 #include "pso/item/TUnk_804F0BF0.h"
 #include "pso/item/TItemEffPG.h"
 #include "pso/TParticleCtrl.h"
@@ -195,7 +196,7 @@ u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     return arg0;
 }
 
-s32 TItemEffPG::countdown_timer() {
+s32 TUnk_804F0C08::vfunc_7() {
     s32 temp_r4;
 
     temp_r4 = *(s32 *)((s8 *)this + 0xD4);

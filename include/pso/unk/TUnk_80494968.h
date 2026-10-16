@@ -6,6 +6,8 @@
 class TUnk_80494968 : public TAttackTrace {
 public:
     virtual ~TUnk_80494968();
+    virtual void vfunc_6(void *, void *);
+    virtual void shift_line_buffer_down();
     virtual void render();
     virtual void run_task();
     u8 unk_1C[0x10C];

@@ -62,7 +62,7 @@ s32 init_item_timer_event__10TObjPlayerFv(int, int, void *, int);
 s32 init_timer_event__12TItemProUnitFv(int, int, void *, int);
 s32 __nw__15TItemHeapObjectFUl(int);
 extern const f32 lbl_805DABFC;
-void TItemProUnit__vt42(u8 *arg0);
+void vfunc_44__12TItemProUnitFv(u8 *arg0);
 extern const f32 TItemProUnit__data_805DABF8;
 extern const f32 lbl_805DAC00;
 void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out);
@@ -71,12 +71,12 @@ void TItemProUnit__vt14(Self_80118A78 *self);
 u8 get_technique_learn_limit(u8, u8);
 u8 get_cast_technique_level(void *, s16);
 void set_technique_level_entry(void *, s16, u8);
-void TItemProUnit__vt46(Unit_80118AD4 *self);
+void vfunc_48__12TItemProUnitFv(Unit_80118AD4 *self);
 u8 get_cast_technique_level(void *, s16);
 void set_technique_level_entry(void *, s16, u8);
 s32 memset(void *, s32, s32);
 extern const f32 TItemProUnit__data_805DABF8;
-void TItemProUnit__vt47(u8 *arg0);
+void vfunc_49__12TItemProUnitFv(u8 *arg0);
 }
 
 extern "C" {
@@ -104,7 +104,7 @@ struct VItemProUnit_8011892C {
 };
 
 u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2);
-void TItemProUnit__vt43(void *arg0);
+void vfunc_45__12TItemProUnitFv(void *arg0);
 void TItem__sub_8011892C(void);
 u8 *lookup_item_pmt_record(void *);
 s32 TItemEquipBase__ct();
@@ -128,7 +128,8 @@ void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out) {
     ((TItemData *)out)->set_unit_modifier(self->s1bc);
 }
 
-void TItemProUnit__vt47(u8 *arg0) {
+void TItemProUnit::vfunc_49() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r30;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x18C) == 0x13) {
         ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp(TItemProUnit__data_805DABF8);
@@ -141,8 +142,8 @@ void TItemProUnit__vt47(u8 *arg0) {
     memset(arg0 + 0x192, 0, 0x26);
 }
 
-void TItemProUnit__vt43(void *arg0) {
-    struct VObj_80118A48_8011892C *o = (struct VObj_80118A48_8011892C *)arg0;
+void TItemProUnit::vfunc_45() {
+    struct VObj_80118A48_8011892C *o = (struct VObj_80118A48_8011892C *)this;
     o->m17(9);
 }
 
@@ -160,7 +161,8 @@ void TItemProUnit__vt14(Self_80118A78 *self) {
 
 #pragma push
 #pragma opt_common_subs off
-void TItemProUnit__vt46(Unit_80118AD4 *self) {
+void TItemProUnit::vfunc_48() {
+    Unit_80118AD4 *self = (Unit_80118AD4 *)this;
     u8 v;
     s16 i;
     u8 cap;
@@ -189,7 +191,8 @@ void TItemProUnit__vt46(Unit_80118AD4 *self) {
 }
 #pragma pop
 
-void TItemProUnit__vt42(u8 *arg0) {
+void TItemProUnit::vfunc_44() {
+    u8 *arg0 = (u8 *)this;
   s16 temp_r0;
   s32 temp_r3;
   s32 temp_r3_2;
@@ -321,12 +324,12 @@ void *__vt__12TItemProUnit[51] = {
     (void *)TItem__sub_801005E4,
     (void *)TItem__sub_801005D8,
     (void *)TObjPlayer__sub_80102BD8,
-    (void *)TItemProUnit__vt42,
-    (void *)TItemProUnit__vt43,
+    (void *)vfunc_44__12TItemProUnitFv,
+    (void *)vfunc_45__12TItemProUnitFv,
     (void *)TItemEquipBase__sub_8010B620,
     (void *)release__14TItemEquipBaseFv,
-    (void *)TItemProUnit__vt46,
-    (void *)TItemProUnit__vt47,
+    (void *)vfunc_48__12TItemProUnitFv,
+    (void *)vfunc_49__12TItemProUnitFv,
     (void *)TItemEquipBase__sub_8010A788,
 };
 

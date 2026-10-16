@@ -44,7 +44,7 @@ f32 vector_length(void *, f32);
 
 extern "C" {
 
-void tick_lifetime__9TTecLukerFPv(void *arg0);
+void tick_lifetime__13TUnk_804CC148Fv(void *arg0);
 s32 approach_vector_fixed_distance(int, void *, int, f32);
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -69,11 +69,11 @@ void TUnk_804CC148::render() {
     TObjRoomId__sub_80141CF4(self->f20, self->f2c, self->f3c);
 }
 
-void tick_lifetime__9TTecLukerFPv(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x6C) = 1;
-    *(s32 *)((s8 *)arg0 + 0x68) = (s32) (*(s32 *)((s8 *)arg0 + 0x68) + 1);
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x68) > *(f32 *)((s8 *)arg0 + 0x70)) {
-        queue_destruction__7TObjectFv(arg0);
+void TUnk_804CC148::tick_lifetime() {
+    *(s32 *)((s8 *)this + 0x6C) = 1;
+    *(s32 *)((s8 *)this + 0x68) = (s32) (*(s32 *)((s8 *)this + 0x68) + 1);
+    if ((f32) *(s32 *)((s8 *)this + 0x68) > *(f32 *)((s8 *)this + 0x70)) {
+        queue_destruction__7TObjectFv(this);
     }
 }
 

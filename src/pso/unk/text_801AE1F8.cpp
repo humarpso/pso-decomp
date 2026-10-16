@@ -51,11 +51,11 @@ extern "C" void TParticleCtrl__sub_801A2124();
 extern "C" void apply_object_set_data();
 extern "C" void classify_actor_view_detail();
 extern "C" void destroy__12TPhotonPillaFPvs();
-extern "C" void enter_scene__10TSceneSoraFi();
+extern "C" void enter_scene__13TUnk_804C3248Fv();
 extern "C" void render__12TPhotonPillaFv();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void reset_movement__10TObjPlayerFv();
-extern "C" void update_if_active__10TSceneSoraFPv();
+extern "C" void update_if_active__13TUnk_804C3248Fv();
 extern "C" void update_object_view_visibility();
 extern "C" void run_task__12TPhotonPillaFv();
 u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1);
@@ -83,7 +83,7 @@ void *lbl_804C3ACC[17] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__12TPhotonPillaFPvs, (void *)&run_task__12TPhotonPillaFv,
     (void *)&render__12TPhotonPillaFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_movement__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&enter_scene__10TSceneSoraFi, (void *)&update_if_active__10TSceneSoraFPv,
+    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&enter_scene__13TUnk_804C3248Fv, (void *)&update_if_active__13TUnk_804C3248Fv,
     (void *)0x0,
 };
 u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {

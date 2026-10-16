@@ -32,10 +32,10 @@ struct VObj_8017E184_8017E154 : Base_8017E184_8017E154 {
 
 extern "C" {
 
-void TObjContainerIdo__vt12(void);
-void TObjContainerIdo__vt13(void);
+void vfunc_14__13TUnk_804B97C0Fv(void);
+void vfunc_15__13TUnk_804B97C0Fv(void);
 
-void TObjContainerIdo__vt12(void) {  }
+void TUnk_804B97C0::vfunc_14() {  }
 
 void TUnk_804B97C0::run_task() {
     struct VObj_8017E158_8017E154 *o = (struct VObj_8017E158_8017E154 *)this;
@@ -49,6 +49,6 @@ void TUnk_804B97C0::render() {
     }
 }
 
-void TObjContainerIdo__vt13(void) {  }
+void TUnk_804B97C0::vfunc_15() {  }
 
 }

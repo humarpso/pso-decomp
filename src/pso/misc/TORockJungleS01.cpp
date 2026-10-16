@@ -104,12 +104,12 @@ extern Offs_8029C7DC lbl_8046581C;
 extern Spawn_8029C7DC lbl_80465828;
 extern u8 identity_matrix[];
 extern s32 tl_05;
-void TORockJungleS01__vt14(Rock_8029C7DC *self);
+void vfunc_16__15TORockJungleS01Fv(Rock_8029C7DC *self);
 }
 
 extern "C" {
 
-void TORockJungleS01__vt16(s32 arg0);
+void vfunc_18__15TORockJungleS01Fv(s32 arg0);
 void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
@@ -121,11 +121,13 @@ void __dt__18TORockCaveBrakableFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
 
-void TORockJungleS01__vt16(s32 arg0) {
+void TORockJungleS01::vfunc_18() {
+    s32 arg0 = (s32)this;
     play_sound_effect(0x4BC19, arg0 + 0x38, 0, 0);
 }
 
-void TORockJungleS01__vt14(Rock_8029C7DC *self) {
+void TORockJungleS01::vfunc_16() {
+    Rock_8029C7DC *self = (Rock_8029C7DC *)this;
     Offs_8029C7DC off = lbl_8046581C;
     Spawn_8029C7DC p = lbl_80465828;
     Vec_8029C7DC v;

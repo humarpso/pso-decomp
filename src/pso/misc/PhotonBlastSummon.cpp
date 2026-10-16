@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 extern "C" { void setup_photon_blast_camera(u8 *); }
 #pragma push
 
@@ -410,8 +411,8 @@ void update_state__10TSceneSoraFPv(void *arg0);
 
 extern "C" {
 
-void enter_scene__10TSceneSoraFi(s32 arg0);
-void update_if_active__10TSceneSoraFPv(void *arg0);
+void enter_scene__13TUnk_804C3248Fv(s32 arg0);
+void update_if_active__13TUnk_804C3248Fv(void *arg0);
 
 s32 TObjPlayer__sub_800D8A60();
 s32 TObjPlayer__sub_800D8A6C();
@@ -422,11 +423,11 @@ void update__11TCameraCtrlFv();
 
 extern void *tl_05;
 
-void update_if_active__10TSceneSoraFPv(void *arg0) {
-    if (!(*(s32 *)((s8 *)arg0 + 0x154) & 1)) {
+void TUnk_804C3248::update_if_active() {
+    if (!(*(s32 *)((s8 *)this + 0x154) & 1)) {
         update__11TCameraCtrlFv();
-        update__10TSceneSoraFv((s32)(arg0));
-        ((s32 (*)(void *))update_all_default__8TFogCtrlFv)(arg0);
+        update__10TSceneSoraFv((s32)(this));
+        ((s32 (*)(void *))update_all_default__8TFogCtrlFv)(this);
         TObjPlayer__sub_800D8A6C();
     }
     if (tl_05 != 0) {
@@ -436,7 +437,8 @@ void update_if_active__10TSceneSoraFPv(void *arg0) {
 
 extern void *tl_05;
 
-void enter_scene__10TSceneSoraFi(s32 arg0) {
+void TUnk_804C3248::enter_scene() {
+    s32 arg0 = (s32)this;
     ((s32 (*)(void))setup_photon_blast_camera)();
     reset_state__10TSceneSoraFv((s32)(arg0));
     ((s32 (*)(s32))apply_all_default__8TFogCtrlFv)(arg0);

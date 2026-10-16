@@ -199,7 +199,7 @@ extern s32 TShopArmorListWindow__class_name;
 u8 *TShopArmorListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFl(void*, int);
-void TShopArmorListWindow__vt9(u8 *arg0);
+void vfunc_11__20TShopArmorListWindowFv(u8 *arg0);
 s32 obj_getPtr2B0_20(void *);
 s32 check_equip_requirements(void *, Rec_8021AD24 *, u32 *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Rec_8021AD24 *);
@@ -255,8 +255,8 @@ extern const f32 lbl_805DC6C0;
 
 extern "C" {
 
-void TShopArmorListWindow__vt4(void *arg0);
-void TShopArmorListWindow__vt5(void *arg0);
+void vfunc_6__20TShopArmorListWindowFv(void *arg0);
+void vfunc_7__20TShopArmorListWindowFv(void *arg0);
 void *__dt__20TShopArmorListWindowFv(void *arg0, s16 arg1);
 u32 create_window_menu(s32, s32, u16);
 s32 get_shop_text(s32);
@@ -275,15 +275,15 @@ s32 obj_getField1c(s32);
 int set_field_20__12TQuestListVMFl(void*, int);
 s32 set_position_xy(u32, f32, f32);
 
-void TShopArmorListWindow__vt5(void *arg0) {
-    struct VObj_8021A394 *o = (struct VObj_8021A394 *)*(void **)((s8 *)arg0 + 0x28);
+void TShopArmorListWindow::vfunc_7() {
+    struct VObj_8021A394 *o = (struct VObj_8021A394 *)*(void **)((s8 *)this + 0x28);
     if (o != NULL) {
         o->m5();
     }
 }
 
-void TShopArmorListWindow__vt4(void *arg0) {
-    struct VObj_8021A3CC_8021A394 *o = (struct VObj_8021A3CC_8021A394 *)*(void **)((s8 *)arg0 + 0x28);
+void TShopArmorListWindow::vfunc_6() {
+    struct VObj_8021A3CC_8021A394 *o = (struct VObj_8021A3CC_8021A394 *)*(void **)((s8 *)this + 0x28);
     if (o != NULL) {
         o->m4();
     }
@@ -581,7 +581,8 @@ void TShopArmorListWindow::refresh_item_list(void *p) {
 #undef W
 #pragma pop
 
-void TShopArmorListWindow__vt9(u8 *arg0) {
+void TShopArmorListWindow::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);

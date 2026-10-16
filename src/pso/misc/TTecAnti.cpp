@@ -167,7 +167,7 @@ void *__nw__7TObjectFUl(int);
 Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 int construct_delayed_point_sound(void *, void *, int, int, void *);
 extern void *tl_07;
-void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl);
+void vfunc_7__8TTecAntiFPv(Anti_8022AEF8 *self, Player_8022AEF8 *pl);
 }
 
 extern "C" {
@@ -223,7 +223,9 @@ Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, con
     return self;
 }
 
-void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl) {
+void TTecAnti::vfunc_7(void *pl_arg) {
+    Anti_8022AEF8 *self = (Anti_8022AEF8 *)this;
+    Player_8022AEF8 *pl = (Player_8022AEF8 *)pl_arg;
     Hit_8022AEF8 hit;
     void *o;
     hit.type = 7;

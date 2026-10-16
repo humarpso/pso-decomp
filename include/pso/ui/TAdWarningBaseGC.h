@@ -6,6 +6,10 @@
 
 struct TAdWarningBaseGC : public TObject {
     virtual ~TAdWarningBaseGC();
+    virtual int vfunc_6();
+    virtual void vfunc_7();
+    virtual void vfunc_8();
+    virtual void vfunc_9();
     u32 m_1c;
     u32 m_20;
     u32 m_24;

@@ -753,13 +753,13 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
 s32 create_particle_emitter(void *, int);
 s32 mem_alloc(int);
 extern struct Profile_80238C6C TTecRaZonde__band_profile_table[];
-void TTecRaZonde__vt6(struct Self_80238C6C *self);
+void vfunc_8__11TTecRaZondeFPv(struct Self_80238C6C *self);
 u16 obj_getField1c(void *);
 void fn_80044330(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 extern s32 __vt__10TTecRaFoie[];
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
-void TTecRaZonde__vt4(u8 *arg0, u8 *arg1);
+void vfunc_6__11TTecRaZondeFPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -1002,9 +1002,9 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
     return self;
 }
 
-void TTecRaZonde__vt6(struct Self_80238C6C *self);
+void vfunc_8__11TTecRaZondeFPv(struct Self_80238C6C *self);
 
-void TTecRaZonde__vt4(u8 *arg0, u8 *arg1);
+void vfunc_6__11TTecRaZondeFPv(u8 *arg0, u8 *arg1);
 
 }
 

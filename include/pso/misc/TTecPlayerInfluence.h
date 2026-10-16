@@ -6,6 +6,8 @@
 
 struct TTecPlayerInfluence : public TEffect {
     virtual ~TTecPlayerInfluence();
+    virtual void tick_lifetime();
+    virtual void vfunc_7(void *);
     u8 unk_70[0x30];
     u32 m_a0;
     s16 m_a4;
@@ -20,7 +22,6 @@ struct TTecPlayerInfluence : public TEffect {
     u8 _padCC[0x10];
     u32 m_dc;
     virtual void render();
-    void tick_lifetime();
     virtual void run_task();};
 
 typedef char TTecPlayerInfluence_size[sizeof(TTecPlayerInfluence) == 0xE0 ? 1 : -1];

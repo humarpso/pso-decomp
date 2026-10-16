@@ -113,7 +113,7 @@ s32 isFading__15RenderFadeStateCFv(void *);
 void set_cull_back__8TObjFishFv();
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
-void TORockJungleM01__vt12(Rd_8029C6FC *arg0);
+void vfunc_14__15TORockJungleM01Fv(Rd_8029C6FC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -127,13 +127,13 @@ extern Offs_8029C390 lbl_80465884;
 extern ChipParam_8029C390 lbl_80465890;
 extern u8 identity_matrix[];
 extern void *tl_05;
-void TORockJungleM01__vt14(Rock_8029C390 *self);
+void vfunc_16__15TORockJungleM01Fv(Rock_8029C390 *self);
 }
 
 extern "C" {
 
-void TORockJungleM01__vt13(u8 *arg0);
-void TORockJungleM01__vt16(s32 arg0);
+void vfunc_15__15TORockJungleM01Fv(u8 *arg0);
+void vfunc_18__15TORockJungleM01Fv(s32 arg0);
 void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
@@ -149,11 +149,13 @@ int update_break_state__18TORockCaveBrakableFv(void*);
 
 void TORockJungleM01::run_task() { update_obstruction_fade((char*)this + 0xbc); update_break_state__18TORockCaveBrakableFv(this); }
 
-void TORockJungleM01__vt16(s32 arg0) {
+void TORockJungleM01::vfunc_18() {
+    s32 arg0 = (s32)this;
     play_sound_effect(0x4BC19, arg0 + 0x38, 0, 0);
 }
 
-void TORockJungleM01__vt14(Rock_8029C390 *self) {
+void TORockJungleM01::vfunc_16() {
+    Rock_8029C390 *self = (Rock_8029C390 *)this;
     Offs_8029C390 a = lbl_80465884;
     ChipParam_8029C390 chip = lbl_80465890;
     Vec_8029C390 v;
@@ -237,13 +239,15 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-void TORockJungleM01__vt13(u8 *arg0) {
+void TORockJungleM01::vfunc_15() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0xD8) != 0) {
         ((VObj_8029C320*)(arg0 + 0xBC))->m7();
     }
     set_cull_none__8TObjFishFv();
 }
-void TORockJungleM01__vt12(Rd_8029C6FC *arg0) {
+void TORockJungleM01::vfunc_14() {
+    Rd_8029C6FC *arg0 = (Rd_8029C6FC *)this;
     Vec_8029C6FC v;
     set_cull_back__8TObjFishFv();
     matrix_mult_vec(0, arg0->pos, &v);

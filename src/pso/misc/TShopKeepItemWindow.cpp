@@ -101,7 +101,7 @@ void TWindow__close(void *);
 u32 create_yes_no_window(s32, s32, s32, s32);
 s32 get_window_layout_position(s32);
 s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
-void TShopKeepItemWindow__vt9(u8 *arg0);
+void vfunc_11__19TShopKeepItemWindowFv(u8 *arg0);
 void memset(void *, int, int);
 int sprintf(char *, const char *, ...);
 extern char message_number_format[4];
@@ -129,8 +129,8 @@ extern f32 lbl_805DC710;
 extern "C" {
 
 void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-void TShopKeepItemWindow__vt4(void *arg0);
-void TShopKeepItemWindow__vt5(void *arg0);
+void vfunc_6__19TShopKeepItemWindowFv(void *arg0);
+void vfunc_7__19TShopKeepItemWindowFv(void *arg0);
 void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1);
 void sort_bank_items(s32 slot);
 s32 TShopWindowBase__sub_8022397C(void *);
@@ -142,17 +142,17 @@ void memset(void *, int, int);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 
-void TShopKeepItemWindow__vt5(void *arg0) {
+void TShopKeepItemWindow::vfunc_7() {
     struct VObj_80221844 *temp_r3;
 
-    temp_r3 = (struct VObj_80221844 *)*(void **)((s8 *)arg0 + 0x380);
+    temp_r3 = (struct VObj_80221844 *)*(void **)((s8 *)this + 0x380);
     if (temp_r3 != NULL) {
         temp_r3->m5();
     }
 }
 
-void TShopKeepItemWindow__vt4(void *arg0) {
-    struct VObj_8022187C_80221844 *o = (struct VObj_8022187C_80221844 *)*(void **)((s8 *)arg0 + 0x380);
+void TShopKeepItemWindow::vfunc_6() {
+    struct VObj_8022187C_80221844 *o = (struct VObj_8022187C_80221844 *)*(void **)((s8 *)this + 0x380);
     if (o != NULL) {
         o->m4();
     }
@@ -313,7 +313,8 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
     }
 }
 
-void TShopKeepItemWindow__vt9(u8 *arg0) {
+void TShopKeepItemWindow::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {

@@ -178,7 +178,7 @@ extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalC
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 extern s32 TMedicalCenterSequence__class_name;
 u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-void TMedicalCenterSequence__vt9(u8 *arg0);
+void vfunc_11__22TMedicalCenterSequenceFv(u8 *arg0);
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 s32 obj_getField1c(s32);
@@ -272,7 +272,8 @@ u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence_size[sizeof(RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90_size[sizeof(RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90) == 0x10 ? 1 : -1];
 
-void TMedicalCenterSequence__vt9(u8 *arg0) {
+void TMedicalCenterSequence::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {

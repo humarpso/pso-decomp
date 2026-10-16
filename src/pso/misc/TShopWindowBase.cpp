@@ -43,14 +43,14 @@ struct VObj_80223AA4_80223938 : Base_80223AA4_80223938 {
     virtual void m9();
 };
 
-void TShopWindowBase__vt9(void);
+void vfunc_11__15TShopWindowBaseFv(void);
 void *__ct__15TShopWindowBaseFv(void *arg0);
 void run_task__15TShopWindowBaseFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_instance__11TCameraCtrlFv();
 s32 obj_getField1c(void *);
 
-void TShopWindowBase__vt9(void) {  }
+void TShopWindowBase::vfunc_11() {  }
 
 extern f32 lbl_805DC728;
 extern f32 lbl_805DC72C;
@@ -132,10 +132,10 @@ void *__ct__15TShopWindowBaseFv(void *arg0) {
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
 void TShopWindowBase__sub_802115F0();
-void TShopWindowBase__sub_80217454();
-void TShopWindowBase__sub_80216080();
-void TShopWindowBase__sub_80217458();
-void TShopWindowBase__is_ready();
+void vfunc_7__15TShopWindowBaseFv();
+void vfunc_8__15TShopWindowBaseFv();
+void vfunc_9__15TShopWindowBaseFv();
+void vfunc_10__15TShopWindowBaseFv();
 s32 __vt__15TShopWindowBase[12] = {
     0,
     0,
@@ -144,10 +144,10 @@ s32 __vt__15TShopWindowBase[12] = {
     (s32)render__7TObjectFv,
     (s32)render_shadows__7TObjectFv,
     (s32)TShopWindowBase__sub_802115F0,
-    (s32)TShopWindowBase__sub_80217454,
-    (s32)TShopWindowBase__sub_80216080,
-    (s32)TShopWindowBase__sub_80217458,
-    (s32)TShopWindowBase__is_ready,
-    (s32)TShopWindowBase__vt9,
+    (s32)vfunc_7__15TShopWindowBaseFv,
+    (s32)vfunc_8__15TShopWindowBaseFv,
+    (s32)vfunc_9__15TShopWindowBaseFv,
+    (s32)vfunc_10__15TShopWindowBaseFv,
+    (s32)vfunc_11__15TShopWindowBaseFv,
 };
 }

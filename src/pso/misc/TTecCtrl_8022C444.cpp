@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804CC148.h"
 #include "pso/TTecCtrl.h"
 #include "pso/item/TItemEquipBase.h"
 
@@ -16,18 +17,18 @@ void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2);
 
 extern "C" {
 
-void TTecCtrl__sub_8022C444(void);
-void TTecCtrl__sub_8022C448(void);
-void TTecCtrl__sub_8022C44C(void);
+void vfunc_6__13TUnk_804CC148FPv(void);
+void vfunc_8__13TUnk_804CC148FPv(void);
+void vfunc_9__13TUnk_804CC148Fv(void);
 f32 calc_technique_boost(s32, u16);
 f32 get_battle_value__10TObjPlayerFiii(void *, s32, s16);
 void *get_player_by_client_id(u16);
 extern const f32 lbl_805DC7D8;
 s32 calc_technique_parameters();
 
-void TTecCtrl__sub_8022C444(void) {  }
-void TTecCtrl__sub_8022C448(void) {  }
-void TTecCtrl__sub_8022C44C(void) {  }
+void TUnk_804CC148::vfunc_6(void *) {  }
+void TUnk_804CC148::vfunc_8(void *) {  }
+void TUnk_804CC148::vfunc_9() {  }
 
 extern f32 lbl_805DC7D0;
 extern f32 lbl_805DC7D4;

@@ -6,6 +6,7 @@
 class TQuestListOffline : public TShopWindowBase {
 public:
     virtual ~TQuestListOffline();
+    virtual void vfunc_11();
     u8 unk_1C[0x3C];
 };
 typedef char TQuestListOffline_size[sizeof(TQuestListOffline) == 0x58 ? 1 : -1];

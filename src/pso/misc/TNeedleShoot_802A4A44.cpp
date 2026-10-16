@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TObjEneMe1Gee_NEEDLE.h"
 
 struct VBase_18_174c10 { char pad[0x18]; };
 
@@ -31,7 +32,7 @@ struct Pair_802A4AEC { s32 a; f32 b; };
 
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-void emit_effect_and_destroy__12TNeedleShootFPvPv(u8 *arg0, VObj_18_174c10 *arg1);
+void vfunc_9__20TObjEneMe1Gee_NEEDLEFPv(u8 *arg0, VObj_18_174c10 *arg1);
 }
 
 extern "C" {
@@ -59,7 +60,7 @@ int queue_destruction__7TObjectFv(void*);
 
 extern "C" {
 
-void TNeedleShoot::tick_lifetime() {
+int TObjEneMe1Gee_NEEDLE::queue_destruction() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xC0) - 1;
@@ -69,7 +70,7 @@ void TNeedleShoot::tick_lifetime() {
     }
 }
 
-void TNeedleShoot::init_velocity() {
+int TObjEneMe1Gee_NEEDLE::vfunc_6() {
     u8 *arg0 = (u8 *)this;
     if (TOKeyMachine01::get_global_state() == 0x22) {
         play_sound_effect((int) (0x4003B20E), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
@@ -83,7 +84,9 @@ void TNeedleShoot::init_velocity() {
 
 extern s32 __vt__20TObjEneMe1Gee_NEEDLE[];
 
-void emit_effect_and_destroy__12TNeedleShootFPvPv(u8 *arg0, VObj_18_174c10 *arg1) {
+void TObjEneMe1Gee_NEEDLE::vfunc_9(void *arg1_arg) {
+    u8 *arg0 = (u8 *)this;
+    VObj_18_174c10 *arg1 = (VObj_18_174c10 *)arg1_arg;
     Pair_802A4AEC t;
     t.a = 0;
     t.b = *(f32 *)(arg0 + 0xBC);

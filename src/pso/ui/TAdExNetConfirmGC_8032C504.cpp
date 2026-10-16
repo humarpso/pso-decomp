@@ -42,7 +42,7 @@ u8 *TAdExNetConfirmGC__ct(u8 *arg0);
 
 extern "C" {
 
-int TAdExNetConfirmGC__vt4(void* p);
+int vfunc_6__17TAdExNetConfirmGCFv(void* p);
 void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1);
 void TAdWarningBaseGC__vt0(void *, int);
 void __dl__7TObjectFPv(void *);
@@ -53,7 +53,7 @@ void TAdExNetConfirmGC::render() {
     o->m7();
 }
 
-void TAdExNetConfirmGC__vt5(void) {
+void TAdExNetConfirmGC::vfunc_7() {
     if (TAdExNetConfirmGC::is_confirmed() != 0) {
         get_localized_text_entry((int) (0x22), (int) (1));
         return;
@@ -61,7 +61,7 @@ void TAdExNetConfirmGC__vt5(void) {
     get_localized_text_entry((int) (0x22), (int) (0));
 }
 
-int TAdExNetConfirmGC__vt4(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
+int TAdExNetConfirmGC::vfunc_6() { return request_scene_change__21TAdMultiChgGameModeGCFv(this); }
 
 void TAdExNetConfirmGC::run_task() {
     struct VObj_8032C594_8032C504 *o = (struct VObj_8032C594_8032C504 *)this;

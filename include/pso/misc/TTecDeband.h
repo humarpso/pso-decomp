@@ -6,6 +6,7 @@
 
 struct TTecDeband : public TTecPlayerInfluence {
     virtual ~TTecDeband();
+    virtual void vfunc_7(void *);
     virtual void run_task();
     u32 m_e0;
     u8 _padE4[0x58];

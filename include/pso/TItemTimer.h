@@ -14,9 +14,6 @@ public:
 public:
     void invoke_callback();
     void reset_fields();
-    void apply_to_player();
-    void set_owner_flag_800();
-    void update_owner_state();
 };
 
 #endif

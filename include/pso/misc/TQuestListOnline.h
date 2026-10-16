@@ -3,6 +3,7 @@
 #include "types.h"
 
 struct TQuestListOnline {
+    void vfunc_11();
     u8 base_prefix[0x1C];
     u32 unknown1c;
     u32 state;

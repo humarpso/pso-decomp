@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestListOffline.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestListVM.h"
 
@@ -40,7 +41,7 @@ void queue_destruction__7TObjectFv(void *);
 void handle_confirm_dialog(void *arg0);
 void update_list_navigation__17TQuestListOfflineFPv(QuestList_802171BC *);
 void init_quest_list_window__17TQuestListOfflineFPv(QuestList_802171BC *);
-void dispatch_list_state__17TQuestListOfflineFPv(QuestList_802171BC *self);
+void vfunc_11__17TQuestListOfflineFv(QuestList_802171BC *self);
 void * close_shop_subwindows__7TWindowFPvs(void *arg0, s16 arg1);
 void __dt__15TShopWindowBaseFv(void *, int);
 void __ct__15TShopWindowBaseFv(void *, s32);
@@ -50,10 +51,10 @@ void TWindow__close(void *);
 extern s32 TQuestListOffline__class_name;
 
 extern "C" void TShopWindowBase__sub_802115F0();
-extern "C" void TShopWindowBase__sub_80216080();
-extern "C" void TShopWindowBase__sub_80217454();
-extern "C" void TShopWindowBase__sub_80217458();
-extern "C" void TShopWindowBase__is_ready();
+extern "C" void vfunc_8__15TShopWindowBaseFv();
+extern "C" void vfunc_7__15TShopWindowBaseFv();
+extern "C" void vfunc_9__15TShopWindowBaseFv();
+extern "C" void vfunc_10__15TShopWindowBaseFv();
 extern "C" void run_task__15TShopWindowBaseFv();
 extern "C" u8 lbl_8044BDA0[];
 extern "C" u8 lbl_8044BDA8[];
@@ -151,12 +152,13 @@ void *lbl_804C9C10[35] = {
 };
 void *lbl_804C9C9C[12] = {
     (void *)0x0, (void *)0x0, (void *)&close_shop_subwindows__7TWindowFPvs, (void *)&run_task__15TShopWindowBaseFv,
-    (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv, (void *)&TShopWindowBase__sub_802115F0, (void *)&TShopWindowBase__sub_80217454,
-    (void *)&TShopWindowBase__sub_80216080, (void *)&TShopWindowBase__sub_80217458, (void *)&TShopWindowBase__is_ready, (void *)&dispatch_list_state__17TQuestListOfflineFPv,
+    (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv, (void *)&TShopWindowBase__sub_802115F0, (void *)&vfunc_7__15TShopWindowBaseFv,
+    (void *)&vfunc_8__15TShopWindowBaseFv, (void *)&vfunc_9__15TShopWindowBaseFv, (void *)&vfunc_10__15TShopWindowBaseFv, (void *)&vfunc_11__17TQuestListOfflineFv,
 };
 #define lbl_804C9C9C ((s32 *)lbl_804C9C9C)
 
-void dispatch_list_state__17TQuestListOfflineFPv(QuestList_802171BC *self) {
+void TQuestListOffline::vfunc_11() {
+    QuestList_802171BC *self = (QuestList_802171BC *)this;
     switch (self->state) {
     case 0:
         init_quest_list_window__17TQuestListOfflineFPv(self);

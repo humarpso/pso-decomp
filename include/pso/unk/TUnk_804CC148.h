@@ -6,6 +6,10 @@
 class TUnk_804CC148 : public TEffect {
 public:
     virtual ~TUnk_804CC148();
+    virtual void vfunc_6(void *);
+    virtual void tick_lifetime();
+    virtual void vfunc_8(void *);
+    virtual void vfunc_9();
     virtual void render();
     virtual void run_task();
     u8 unk_70[0x7C];

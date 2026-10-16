@@ -25,12 +25,12 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1);
 extern "C" {
 
 void TItemProArmorParticle__vt14(void *arg0);
-void TItemProArmorParticle__vt42(void *arg0);
-void TItemProArmorParticle__vt43(void *arg0);
+void vfunc_44__21TItemProArmorParticleFv(void *arg0);
+void vfunc_45__21TItemProArmorParticleFv(void *arg0);
 void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1);
 s32 TItemEffArmorParticle__ct(u32, s32, s32, s32, s32);
 s32 TItemEquipBase__sub_8010A940();
-s32 TItemProArmor__vt42();
+s32 vfunc_44__13TItemProArmorFv();
 void TItemTimerEvent__ct(void *);
 s32 is_item_area_enabled();
 void __dt__13TItemProArmorFv(void *, int);
@@ -63,21 +63,21 @@ void TItemProArmorParticle__vt14(void *arg0) {
     }
 }
 
-void TItemProArmorParticle__vt43(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1A0) == 2) {
-        *(s32 *)((s8 *)arg0 + 0x198) = -1;
+void TItemProArmorParticle::vfunc_45() {
+    if ((s32) *(s32 *)((s8 *)this + 0x1A0) == 2) {
+        *(s32 *)((s8 *)this + 0x198) = -1;
     }
     TItemEquipBase__sub_8010A940();
 }
 
-void TItemProArmorParticle__vt42(void *arg0) {
+void TItemProArmorParticle::vfunc_44() {
     s32 temp_r3;
 
-    TItemProArmor__vt42();
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x1A0) == 1) && ((u32) *(u32 *)((s8 *)arg0 + 0x174) != 0U)) {
+    vfunc_44__13TItemProArmorFv();
+    if (((s32) *(s32 *)((s8 *)this + 0x1A0) == 1) && ((u32) *(u32 *)((s8 *)this + 0x174) != 0U)) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
-            ((TItemProArmorParticle *)temp_r3)->initialize((void *)(*(u32 *)((s8 *)arg0 + 0x174)), (void *)(get_id__13TItemProArmorFv(arg0)), (void *)(0x78), (void *)(*(s32 *)((s8 *)arg0 + 0x19C)));
+            ((TItemProArmorParticle *)temp_r3)->initialize((void *)(*(u32 *)((s8 *)this + 0x174)), (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)(*(s32 *)((s8 *)this + 0x19C)));
         }
     }
 }

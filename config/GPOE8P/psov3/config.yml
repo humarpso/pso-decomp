@@ -187,9 +187,6 @@ force_active:
   - TOMekaFish00__resource_descriptor
   - TOMekaFish01__name
   - TOMekaFish01__shared_resource_descriptor
-  - TOMineIcon04__vt78
-  - TOMineIcon04__vt80
-  - TOMineIcon04__vt82
   - TOSensorAncient01__resource_descriptor
   - TOSensorGeneral01__resource_descriptor
   - TOSensor__sub_8017546C
@@ -1444,7 +1441,6 @@ force_active:
   - dispatch_action_state__10TObjPlayerFv
   - dispatch_by_index__19TWindowKeyBoardSoftFv
   - dispatch_callback
-  - dispatch_list_state__17TQuestListOfflineFPv
   - dispatch_lobby_callback
   - dispatch_page_init__20TWindowSubStatusDispFv
   - dispatch_page_update__20TWindowSubStatusDispFv
@@ -8210,6 +8206,15 @@ force_active:
   - varGet32
   - varSet32
   - verify_save_checksum__23TAdSinglePlyChrSelectGCFv
+  - vfunc_11__17TQuestListOfflineFv
+  - vfunc_44__12TItemProUnitFv
+  - vfunc_45__12TItemProUnitFv
+  - vfunc_48__12TItemProUnitFv
+  - vfunc_49__12TItemProUnitFv
+  - vfunc_6__18TItemEffNeedleBaseFv
+  - vfunc_80__12TOMineIcon04Fv
+  - vfunc_82__12TOMineIcon04Fv
+  - vfunc_84__12TOMineIcon04Fv
   - voiceRemovePriority
   - voiceResetLastStarted
   - volopt_hiraisin_model_data

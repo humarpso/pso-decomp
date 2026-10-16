@@ -5,6 +5,10 @@
 
 struct TItemProUnit
 {
+    void vfunc_49();
+    void vfunc_48();
+    void vfunc_45();
+    void vfunc_44();
     u8 _pad1C[0xD4];
     u32 m_f0;
     u8 _padF4[0x80];

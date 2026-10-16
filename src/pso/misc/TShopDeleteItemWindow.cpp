@@ -72,7 +72,7 @@ void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0);
 s32 TShopDeleteItemWindow__sub_80337E2C(void *);
-void TShopDeleteItemWindow__vt9(u8 *arg0);
+void vfunc_11__21TShopDeleteItemWindowFv(u8 *arg0);
 u16 obj_getField1c(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
@@ -108,8 +108,8 @@ struct VObj_80337980_80337910 : Base_80337980_80337910 {
 };
 
 void *TShopDeleteItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-void TShopDeleteItemWindow__vt4(void *arg0);
-void TShopDeleteItemWindow__vt5(void *arg0);
+void vfunc_6__21TShopDeleteItemWindowFv(void *arg0);
+void vfunc_7__21TShopDeleteItemWindowFv(void *arg0);
 void *__dt__21TShopDeleteItemWindowFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
@@ -118,15 +118,15 @@ void __dt__15TShopWindowBaseFv(void *, int);
 void init__9TItemDataFv(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 
-void TShopDeleteItemWindow__vt5(void *arg0) {
-    struct VObj_80337910 *o = (struct VObj_80337910 *)*(void **)((s8 *)arg0 + 0x64);
+void TShopDeleteItemWindow::vfunc_7() {
+    struct VObj_80337910 *o = (struct VObj_80337910 *)*(void **)((s8 *)this + 0x64);
     if (o != NULL) {
         o->m5();
     }
 }
 
-void TShopDeleteItemWindow__vt4(void *arg0) {
-    struct VObj_80337948_80337910 *o = (struct VObj_80337948_80337910 *)*(void **)((s8 *)arg0 + 0x64);
+void TShopDeleteItemWindow::vfunc_6() {
+    struct VObj_80337948_80337910 *o = (struct VObj_80337948_80337910 *)*(void **)((s8 *)this + 0x64);
     if (o != NULL) {
         o->m4();
     }
@@ -255,7 +255,8 @@ s32 TShopDeleteItemWindow::update_item_select(void *arg0) {
 #undef self
 #pragma pop
 
-void TShopDeleteItemWindow__vt9(u8 *arg0) {
+void TShopDeleteItemWindow::vfunc_11() {
+    u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     s32 (*temp_r12_2)(s32);
     u32 temp_r0;

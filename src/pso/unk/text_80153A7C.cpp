@@ -106,7 +106,7 @@ extern char lbl_804400C8[];
 extern char lbl_804400D4[];
 extern char lbl_804400E0[];
 extern char lbl_805DB268;
-void TObjFogCollision__vt12(O_80153D98 *arg0);
+void vfunc_14__16TObjFogCollisionFv(O_80153D98 *arg0);
 s32 record_fog_collision_hit(s32, s32, u8);
 int TObjFogCollision__sub_80153F68(void * _w0);
 int TObjFogCollision__sub_80153F70(void);
@@ -183,7 +183,8 @@ void TObjFogCollision::render() {
     }
 }
 
-void TObjFogCollision__vt12(O_80153D98 *arg0) {
+void TObjFogCollision::vfunc_14() {
+    O_80153D98 *arg0 = (O_80153D98 *)this;
     debug_printf_at(0x13001C, &lbl_805DB268);
     debug_printf_at(0x130020, lbl_804400C8);
     if (arg0->mode == 0) {
