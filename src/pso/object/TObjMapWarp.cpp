@@ -169,7 +169,7 @@ void TObjMapWarp::closePlayerWindow(u16 arg1) {
 }
 #pragma pop
 
-void TObjMapWarp::slot38() {
+void TObjMapWarp::vfunc_14() {
     for(s32 slot=0;slot<4;++slot)closePlayerWindow((u16)slot);
 }
 

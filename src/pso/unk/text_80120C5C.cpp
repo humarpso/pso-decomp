@@ -6,9 +6,9 @@ extern "C" {
 int release__14TItemEquipBaseFv(void*);
 int clear_equip_flags__11TItemWeaponFUl(void*, void*);
 int memset(void*, void*, void*);
-void reserved_45__11TItemWeaponFv(void* p);
+void release__11TItemWeaponFv(void* p);
 
-void TItemWeapon::reserved_45() { memset((char*)this + 0x18c, (void*)0, (void*)16); clear_equip_flags__11TItemWeaponFUl(this, (void*)12); release__14TItemEquipBaseFv(this); }
+void TItemWeapon::release() { memset((char*)this + 0x18c, (void*)0, (void*)16); clear_equip_flags__11TItemWeaponFUl(this, (void*)12); release__14TItemEquipBaseFv(this); }
 
 }
 
@@ -74,7 +74,7 @@ extern T_80120C5C lbl_8043E828[];
 
 extern "C" {
 
-void TItemWeapon::reserved_44() {
+void TItemWeapon::vfunc_46() {
     Pl_80120C5C *arg0 = (Pl_80120C5C *)this;
     u8 v = get_field_ed__10TObjPlayerFv();
     if (v >= 0xAA) {

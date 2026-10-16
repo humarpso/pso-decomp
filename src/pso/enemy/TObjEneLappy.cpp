@@ -484,7 +484,7 @@ s32 TObjEneLappy::advance_flee_step() {
     VecCopy__FP3VecPC3Vec(&arg0->previous_position, &arg0->position);
     VecCopy__FP3VecPC3Vec(&sp20, &arg0->center);
     vec3_add_to(&sp20, &arg0->velocity);
-    if (arg0->has_update_cadence(0x1E) != 0) {
+    if (arg0->vfunc_19(0x1E) != 0) {
         if (csnVector(&arg0->center, &sp20, -1) != 0U) {
             return 0;
         }
@@ -1066,7 +1066,7 @@ void select_target__12TObjEneLappyFPv(u8 *arg0) {
     u8 *p;
     f32 best;
     f32 d;
-    if (((TObjEneLappy *)(arg0))->has_update_cadence(0x1E) != 0) {
+    if (((TObjEneLappy *)(arg0))->vfunc_19(0x1E) != 0) {
         if (*(s32 *)((s8 *)arg0 + 0x30) & 0x1000) {
             if ((*(f32 *)((s8 *)arg0 + 0x2B4) -= lbl_805D9F60) < lbl_805D9F4C) {
                 *(u16 *)((s8 *)arg0 + 0x338) = 0xFFFFU;

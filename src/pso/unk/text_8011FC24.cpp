@@ -30,7 +30,7 @@ s32 get_field_d8__10TObjPlayerFv(void *);
 u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
 void render_trail__17TItemEffectWeaponFv(void *);
 void push_id_to_list__10TObjPlayerFl(s32);
-void reserved_24__11TItemWeaponFv(u8 *arg0);
+void vfunc_26__11TItemWeaponFv(u8 *arg0);
 }
 
 extern "C" {
@@ -51,14 +51,14 @@ void TItemWeapon::update_trails() {
     }
 }
 
-void TItemWeapon::reserved_26() {
+void TItemWeapon::vfunc_28() {
     u8 *arg0 = (u8 *)this;
     if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U)) {
         this->reserved_53();
         update_trails();
     }
 }
-void TItemWeapon::reserved_25() {
+void TItemWeapon::vfunc_27() {
     u8 *arg0 = (u8 *)this;
     if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x1000U) == 0U)) {
         this->reserved_53();
@@ -72,7 +72,7 @@ void TItemWeapon::reserved_25() {
         }
     }
 }
-void TItemWeapon::reserved_24() {
+void TItemWeapon::vfunc_26() {
     s32 count;
     if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(((u8 *)this), 0x80U) == 0U)) {
         if (test_flags_1b8__10TObjPlayerFUl(((u8 *)this), 0x800U) != 0U) {
@@ -93,7 +93,7 @@ void TItemWeapon::reserved_24() {
 }
 
 }
-void TItemWeapon::reserved_14() {
+void TItemWeapon::vfunc_16() {
     TItemWeapon* self=this;
     s32 stage;
     u32 frames;
@@ -146,14 +146,14 @@ struct Data_801200C0 { u8 pad[0x16]; u8 max; u8 pad17[0x27 - 0x17]; u8 flags; };
 struct Self_801200C0 { u8 pad[0x1a4]; Pair_801200C0 pairs[3]; u8 pad1aa[0x1d1 - 0x1aa]; u8 cur; u8 pad1d2[0x1dc - 0x1d2]; Data_801200C0 *data; };
 
 extern "C" {
-void reserved_12__11TItemWeaponFv(Self_801200C0 *self);
+void vfunc_14__11TItemWeaponFv(Self_801200C0 *self);
 }
 
 extern "C" {
 
-int reserved_48__11TItemWeaponFv(void* p);
+int vfunc_50__11TItemWeaponFv(void* p);
 
-void TItemWeapon::reserved_12() {
+void TItemWeapon::vfunc_14() {
     Self_801200C0 *self = (Self_801200C0 *)this;
     s32 i;
     Pair_801200C0 *p;
@@ -180,8 +180,8 @@ void TItemWeapon::reserved_12() {
 
 extern "C" {
 
-int reserved_48__11TItemWeaponFv(void* p);
+int vfunc_50__11TItemWeaponFv(void* p);
 
-void TItemWeapon::reserved_48() { ((int (*)(void *, int))set_status_flags__10TObjPlayerFPvUi)(this, 4); }
+void TItemWeapon::vfunc_50() { ((int (*)(void *, int))set_status_flags__10TObjPlayerFPvUi)(this, 4); }
 
 }

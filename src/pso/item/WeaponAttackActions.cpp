@@ -511,7 +511,7 @@ void TObjPlayer::copy_field6_from(void* a1) { memcpy((char*)this + 0x6, (char*)a
 
 }
 
-void TItemWeapon::set_technique_roll(s32 value) {
+void TItemWeapon::vfunc_17(s32 value) {
     technique_roll = value;
 }
 
@@ -574,7 +574,7 @@ void TItemWeapon::copy_item_to_data(s32 arg0) {
     ((TItemData *)sp8)->check_item_flags();
 }
 
-void TItemWeapon::reserved_32() {
+void TItemWeapon::vfunc_34() {
     struct VObj_8011E828 *o = (struct VObj_8011E828 *)this;
     if (o->m33() == 0) {
         *(u8 *)((s8 *)o + 0x1D2) = *(u8 *)((s8 *)o + 0x1D2) & 0x7F;

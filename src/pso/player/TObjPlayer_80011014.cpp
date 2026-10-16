@@ -4170,7 +4170,7 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
 }
 
 f32 update_enemy_wander_move(Obj_80017ABC *arg0, Vec_800180E8 arg1, s32 arg2, f32 farg0) {
-    if (((TObjEneLappy *)(arg0))->has_update_cadence(0x1E) != 0) {
+    if (((TObjEneLappy *)(arg0))->vfunc_19(0x1E) != 0) {
         if (((s32 (*)(void *, Vec_800180E8, int)) select_enemy_destination)(arg0, arg1, arg2) != 0) {
             ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, arg0->cur);
         }

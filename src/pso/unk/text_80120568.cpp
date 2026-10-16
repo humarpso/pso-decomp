@@ -171,7 +171,7 @@ extern "C" {
 void TItemEquipBase__sub_8010A82C(void *);
 void clear_equip_flags__11TItemWeaponFUl(void *, u32);
 void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
-void reserved_43__11TItemWeaponFv(Pl_80120568 *arg0);
+void vfunc_45__11TItemWeaponFv(Pl_80120568 *arg0);
 s32 obj_getField1c(s32);
 s32 test_flags_any(void *, s32);
 s32 obj_isState7_324(s32);
@@ -187,7 +187,7 @@ extern void *tl_05;
 
 extern "C" {
 
-void TItemWeapon::reserved_43() {
+void TItemWeapon::vfunc_45() {
     Pl_80120568 *arg0 = (Pl_80120568 *)this;
     if (arg0->ctl->m64(arg0->m31()) == 0) {
         set_action_provider_variant__10TObjPlayerFPvs(arg0->ctl, 0);
@@ -197,7 +197,7 @@ void TItemWeapon::reserved_43() {
     clear_equip_flags__11TItemWeaponFUl(arg0, 0x03000000);
 }
 
-void TItemWeapon::reserved_46() {
+void TItemWeapon::vfunc_48() {
     Self_801205F4 *self = (Self_801205F4 *)this;
     s32 i;
     ((TObjPlayer *)self)->apply_model_params();
@@ -207,7 +207,7 @@ void TItemWeapon::reserved_46() {
         }
     }
 }
-void TItemWeapon::reserved_42() {
+void TItemWeapon::vfunc_44() {
     Player_8012065C *arg0 = (Player_8012065C *)this;
     if (test_flags_any((u8 *)arg0 + 0x178, 1) != 0) {
         if (!(((TItem *)arg0)->get_item_flags() & 0x20) && reset_key_machine_state__10TObjPlayerFv() != 0) {
