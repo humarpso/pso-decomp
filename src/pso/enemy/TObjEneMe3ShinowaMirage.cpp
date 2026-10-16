@@ -519,8 +519,8 @@ void vfunc_105__23TObjEneMe3ShinowaMirageFv(void);
 int can_hit_same_target__23TObjEneMe3ShinowaMirageFv(void);
 int vfunc_107__23TObjEneMe3ShinowaMirageFv(void* p);
 void vfunc_108__23TObjEneMe3ShinowaMirageFv(void);
-s32 vfunc_109__23TObjEneMe3ShinowaMirageFv(s32 arg0);
-void vfunc_110__23TObjEneMe3ShinowaMirageFv(s32 arg0);
+s32 update_effect__23TObjEneMe3ShinowaMirageFv(s32 arg0);
+void dispatch_if_active__23TObjEneMe3ShinowaMirageFv(s32 arg0);
 void vfunc_112__23TObjEneMe3ShinowaMirageFv(void);
 void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1);
 s32 enemy_set_target_id(void *, int);
@@ -550,7 +550,7 @@ void TObjEneMe3ShinowaMirage::render() {
 
 void TObjEneMe3ShinowaMirage::vfunc_112() {  }
 
-void TObjEneMe3ShinowaMirage::vfunc_110() {
+void TObjEneMe3ShinowaMirage::dispatch_if_active() {
     s32 arg0 = (s32)this;
     u8 *temp_r3;
 
@@ -560,7 +560,7 @@ void TObjEneMe3ShinowaMirage::vfunc_110() {
 
 extern s32 model_render_flags;
 
-s32 TObjEneMe3ShinowaMirage::vfunc_109() {
+s32 TObjEneMe3ShinowaMirage::update_effect() {
     s32 arg0 = (s32)this;
     model_render_flags |= 0x820;
     set_chunk_material_color(arg0 + 0x430);

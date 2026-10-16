@@ -10,9 +10,9 @@ struct TAdAgreementBaseGC : public TObject {
     virtual void vfunc_7();
     virtual void vfunc_8();
     virtual void vfunc_9();
-    virtual void vfunc_10();
-    virtual void vfunc_11();
-    virtual void vfunc_12();
+    virtual void create_agreement_callback();
+    virtual void update_state();
+    virtual void check_main_task_state();
     u32 m_1c;
     u8 _pad20[0x4];
     u32 m_24;

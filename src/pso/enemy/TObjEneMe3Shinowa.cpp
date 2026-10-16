@@ -2470,10 +2470,10 @@ extern "C" {
 void vfunc_108__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void vfunc_109__23TObjEneMe3ShinowaMirageFv();
+void update_effect__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void vfunc_110__23TObjEneMe3ShinowaMirageFv();
+void dispatch_if_active__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
 void vfunc_112__23TObjEneMe3ShinowaMirageFv();
@@ -2806,7 +2806,7 @@ void *__vt__23TObjEneMe3ShinowaMirage[119] = {
     (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
     (void *)&select_and_apply_target__23TObjEneMe3ShinowaMirageFPv, (void *)&vfunc_105__23TObjEneMe3ShinowaMirageFv, (void *)&can_hit_same_target__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_107__23TObjEneMe3ShinowaMirageFv,
-    (void *)&vfunc_108__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_109__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_110__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_111__17TObjEneMe3ShinowaFv,
+    (void *)&vfunc_108__23TObjEneMe3ShinowaMirageFv, (void *)&update_effect__23TObjEneMe3ShinowaMirageFv, (void *)&dispatch_if_active__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_111__17TObjEneMe3ShinowaFv,
     (void *)&vfunc_112__23TObjEneMe3ShinowaMirageFv, (void *)&action__17TObjEneMe3ShinowaFl, (void *)&vfunc_114__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__vt113,
     (void *)&vfunc_116__17TObjEneMe3ShinowaFv, (void *)&update_mirage__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__sub_800E47DC,
 };
@@ -3988,7 +3988,7 @@ void TObjEneMe3Shinowa::dispatch_if_active() {
     }
 }
 
-s32 TObjEneMe3Shinowa::vfunc_109() {
+s32 TObjEneMe3Shinowa::update_effect() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 

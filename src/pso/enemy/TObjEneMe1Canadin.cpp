@@ -584,7 +584,7 @@ extern s32 lbl_8043A3A8[];
 extern s32 lbl_8043A3BC[];
 extern const f32 lbl_805D98A0;
 extern const f32 lbl_805D98A4;
-void vfunc_115__17TObjEneMe1CanadinFv(u8 *arg0);
+void render_canadin_model_with_debug_type__17TObjEneMe1CanadinFv(u8 *arg0);
 }
 
 extern "C" {
@@ -3165,7 +3165,7 @@ void *__vt__23TObjEneMe1CanadinLeader[118] = {
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__17TObjEneMe1CanadinFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
     (void *)&select_and_apply_target__17TObjEneMe1CanadinFPv, (void *)&TObjEneMe1CanadinLeader__vt103, (void *)&TObjEneMe1CanadinLeader__vt104, (void *)&TObjEneMe1CanadinLeader__vt105,
     (void *)&TObjEneMe1CanadinLeader__vt106, (void *)&TObjEneMe1CanadinLeader__vt107, (void *)&TObjEneMe1CanadinLeader__vt108, (void *)&TObjEneMe1CanadinLeader__vt109,
-    (void *)&TObjEneMe1CanadinLeader__vt110, (void *)&TObjEneMe1CanadinLeader__vt111, (void *)&update_if_ready__17TObjEneMe1CanadinFv, (void *)&vfunc_115__17TObjEneMe1CanadinFv,
+    (void *)&TObjEneMe1CanadinLeader__vt110, (void *)&TObjEneMe1CanadinLeader__vt111, (void *)&update_if_ready__17TObjEneMe1CanadinFv, (void *)&render_canadin_model_with_debug_type__17TObjEneMe1CanadinFv,
     (void *)&TObjEneMe1CanadinLeader__vt114, (void *)&TObjEneMe1CanadinLeader__vt115,
 };
 #define canadin_setup_param_block ((u8 *)canadin_setup_param_block)
@@ -3647,7 +3647,7 @@ void *TObjEneMe1CanadinLeader::create(void *arg0) {
     return o;
 }
 
-void TObjEneMe1Canadin::vfunc_115() {
+void TObjEneMe1Canadin::render_canadin_model_with_debug_type() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     if ((((s32)get_target_info__9TObjEneDDFPv((void*)(arg0))) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 0)) {

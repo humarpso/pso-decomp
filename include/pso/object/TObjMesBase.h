@@ -7,7 +7,7 @@
 struct TObjMesBase : public TUnk_804AF8A0 {
     virtual ~TObjMesBase();
     virtual void vfunc_14();
-    virtual void vfunc_15();
+    virtual void clear_ref_if_destroyed();
     virtual void vfunc_16();
     virtual void run_task();
     void* messageChild;
@@ -16,7 +16,7 @@ struct TObjMesBase : public TUnk_804AF8A0 {
     s32 messageBank;
     void start_message();
     void debug_draw_label();
-    void clear_ref_if_destroyed();};
+};
 typedef char TObjMesBaseSizeCheck[sizeof(TObjMesBase) == 0xBC ? 1 : -1];
 
 #endif

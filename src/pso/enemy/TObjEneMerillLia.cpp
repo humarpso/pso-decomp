@@ -553,7 +553,7 @@ s32 minimap_render_dot(void *, int, int, int);
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA31C;
 extern const f32 lbl_805DA320;
-void vfunc_86__16TObjEneMerillLiaFv(u8 *arg0);
+void beast_update_approach__16TObjEneMerillLiaFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 u8 * csnVectorUnder(s32, void *, s32);
@@ -583,7 +583,7 @@ f32 normalize_vector(void *);
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA314;
 extern const f32 lbl_805DA318;
-void vfunc_87__16TObjEneMerillLiaFv(Obj_800D6110 *arg0);
+void beast_update_group_chase__16TObjEneMerillLiaFv(Obj_800D6110 *arg0);
 s32 apply_actor_gravity(void *, int, f32);
 void enemy_wander_home(void *, s32, f32, f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -669,10 +669,10 @@ extern "C" void apply_poison_status__10TObjPlayerFv();
 extern "C" void vfunc_81__9TObjEnemyFPv();
 extern "C" void apply_shock_status__10TObjPlayerFv();
 extern "C" void apply_switch_attack__10TObjPlayerFi();
-extern "C" void vfunc_92__13TUnk_80493450Fv();
+extern "C" void beast_retire_corpse__13TUnk_80493450Fv();
 extern "C" void beast_select_target();
 extern "C" void beast_update_attack();
-extern "C" void vfunc_91__13TUnk_80493450Fv();
+extern "C" void beast_update_dead__13TUnk_80493450Fv();
 extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
 extern "C" void call_vt78__10TObjPlayerFv();
 extern "C" void classify_actor_view_detail();
@@ -815,9 +815,9 @@ void *lbl_80494728[103] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__16TObjEneMerillLiaFv,
-    (void *)&TObjEneMerillLia__sub_800D5BCC, (void *)&update_turn_toward_target__10TObjPlayerFv, (void *)&vfunc_86__16TObjEneMerillLiaFv, (void *)&vfunc_87__16TObjEneMerillLiaFv,
-    (void *)&beast_update_attack, (void *)&vfunc_89__13TUnk_80493450Fv, (void *)&TObjEneMerillLia__sub_800D59E4, (void *)&vfunc_91__13TUnk_80493450Fv,
-    (void *)&vfunc_92__13TUnk_80493450Fv, (void *)&vfunc_93__16TObjEneMerillLiaFv, (void *)&vfunc_94__16TObjEneMerillLiaFv, (void *)&vfunc_95__13TUnk_80493450Fv,
+    (void *)&TObjEneMerillLia__sub_800D5BCC, (void *)&update_turn_toward_target__10TObjPlayerFv, (void *)&beast_update_approach__16TObjEneMerillLiaFv, (void *)&beast_update_group_chase__16TObjEneMerillLiaFv,
+    (void *)&beast_update_attack, (void *)&vfunc_89__13TUnk_80493450Fv, (void *)&TObjEneMerillLia__sub_800D59E4, (void *)&beast_update_dead__13TUnk_80493450Fv,
+    (void *)&beast_retire_corpse__13TUnk_80493450Fv, (void *)&vfunc_93__16TObjEneMerillLiaFv, (void *)&vfunc_94__16TObjEneMerillLiaFv, (void *)&vfunc_95__13TUnk_80493450Fv,
     (void *)&vfunc_96__16TObjEneMerillLiaFv, (void *)&vfunc_97__16TObjEneMerillLiaFv, (void *)&vfunc_98__16TObjEneMerillLiaFv, (void *)&vfunc_99__16TObjEneMerillLiaFv,
     (void *)&vfunc_100__13TUnk_80493450Fv, (void *)&vfunc_101__16TObjEneMerillLiaFv, (void *)&request_stand_action__13TUnk_80493450Fv,
 };
@@ -1343,7 +1343,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneMerillLia::vfunc_87() {
+void TObjEneMerillLia::beast_update_group_chase() {
     Obj_800D6110 *arg0 = (Obj_800D6110 *)this;
     Vec_800D6110 save;
     Vec_800D6110 to;
@@ -1474,7 +1474,7 @@ void TObjEneMerillLia::vfunc_83() {
     advance_animation_playback(arg0);
 }
 
-void TObjEneMerillLia::vfunc_86() {
+void TObjEneMerillLia::beast_update_approach() {
     u8 *arg0 = (u8 *)this;
     Vec_800D6618 sp14;
     f32 r;
@@ -1643,16 +1643,16 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
         (((TObjEneMerillLia *)(arg0))->vfunc_83());
         break;
       case 1:
-        (((TObjEneMerillLia *)(arg0))->vfunc_84());
+        (((TObjEneMerillLia *)(arg0))->beast_idle_update());
         break;
       case 2:
         (((TObjEneMerillLia *)(arg0))->vfunc_85());
         break;
       case 3:
-        (((TObjEneMerillLia *)(arg0))->vfunc_86());
+        (((TObjEneMerillLia *)(arg0))->beast_update_approach());
         break;
       case 4:
-        (((TObjEneMerillLia *)(arg0))->vfunc_87());
+        (((TObjEneMerillLia *)(arg0))->beast_update_group_chase());
         break;
       case 5:
         (((TObjEneMerillLia *)(arg0))->vfunc_88());
@@ -1661,13 +1661,13 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
         (((TObjEneMerillLia *)(arg0))->vfunc_89());
         break;
       case 7:
-        (((TObjEneMerillLia *)(arg0))->vfunc_90());
+        (((TObjEneMerillLia *)(arg0))->beast_update_hurt());
         break;
       case 8:
-        (((TObjEneMerillLia *)(arg0))->vfunc_91());
+        (((TObjEneMerillLia *)(arg0))->beast_update_dead());
         break;
       case 9:
-        (((TObjEneMerillLia *)(arg0))->vfunc_92());
+        (((TObjEneMerillLia *)(arg0))->beast_retire_corpse());
         break;
       case 10:
         TObjEneMerillLia::update_kafun_attack((void *)((void *) arg0));

@@ -10,8 +10,8 @@ struct TObjEneMe3ShinowaMirage : public TObjEneMe3Shinowa {
     virtual u8 can_hit_same_target();
     virtual void vfunc_107();
     virtual void vfunc_108();
-    virtual s32 vfunc_109();
-    virtual void vfunc_110();
+    virtual s32 update_effect();
+    virtual void dispatch_if_active();
     virtual void vfunc_112();
     void vfunc_63();
     void vfunc_62();

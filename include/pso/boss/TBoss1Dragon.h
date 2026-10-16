@@ -26,7 +26,7 @@ struct DragonAnimationEntry { u32 unknown00; s32 motionIndex; u8 unknown08[8]; }
 struct TBoss1Dragon : public TObjEneDD_ST {
     virtual ~TBoss1Dragon();
     virtual int vfunc_105();
-    virtual void vfunc_106();
+    virtual void render_low_detail();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
@@ -38,7 +38,6 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     void vfunc_45();
     void vfunc_44();
     void vfunc_28();
-    void render_low_detail();
     static bool isV2Mode();
     static DragonModelNode* cloneModelHierarchy(DragonModelNode* source, DragonModelNode* output, void* model);
     static s32 countModelNodes(DragonModelNode* source);

@@ -983,7 +983,7 @@ extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA038;
 extern const f32 lbl_805DA03C;
 extern const f32 lbl_805DA040;
-void vfunc_91__13TUnk_80493450Fv(u8 *arg0);
+void beast_update_dead__13TUnk_80493450Fv(u8 *arg0);
 s32 obj_testFlags30(void *, int);
 void TObjPlayer__sub_800C4E08(u8 *arg0);
 int unlink_enemy_group_relations(void*);
@@ -1044,7 +1044,7 @@ s32 minimap_render_dot(void *, int, int, int);
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA044;
 extern const f32 lbl_805DA054;
-void vfunc_86__13TUnk_80493450Fv(u8 *arg0);
+void beast_update_approach__13TUnk_80493450Fv(u8 *arg0);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
@@ -1072,7 +1072,7 @@ f32 enemy_backstep_from_point(void *, void *, f32);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 advance_animation_playback();
 s32 minimap_render_dot(void *, int, int, int);
-void vfunc_87__13TUnk_80493450Fv(Self_800C57F0 *arg0);
+void beast_update_group_chase__13TUnk_80493450Fv(Self_800C57F0 *arg0);
 s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void * a0, s32 a1);
 void vfunc_59__13TUnk_80493450Fv(u8 *arg0);
@@ -1091,7 +1091,7 @@ extern const f32 lbl_805DA034;
 
 extern "C" {
 
-int vfunc_92__13TUnk_80493450Fv(void* p);
+int beast_retire_corpse__13TUnk_80493450Fv(void* p);
 void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);

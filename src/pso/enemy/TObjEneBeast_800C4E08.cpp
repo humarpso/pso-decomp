@@ -980,7 +980,7 @@ extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA038;
 extern const f32 lbl_805DA03C;
 extern const f32 lbl_805DA040;
-void vfunc_91__13TUnk_80493450Fv(u8 *arg0);
+void beast_update_dead__13TUnk_80493450Fv(u8 *arg0);
 s32 obj_testFlags30(void *, int);
 void TObjPlayer__sub_800C4E08(u8 *arg0);
 int unlink_enemy_group_relations(void*);
@@ -1050,7 +1050,7 @@ s32 minimap_render_dot(void *, int, int, int);
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA044;
 extern const f32 lbl_805DA054;
-void vfunc_86__13TUnk_80493450Fv(u8 *arg0);
+void beast_update_approach__13TUnk_80493450Fv(u8 *arg0);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
@@ -1079,7 +1079,7 @@ s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 advance_animation_playback();
 s32 minimap_render_dot(void *, int, int, int);
-void vfunc_87__13TUnk_80493450Fv(Self_800C57F0 *arg0);
+void beast_update_group_chase__13TUnk_80493450Fv(Self_800C57F0 *arg0);
 s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void * a0, s32 a1);
 void vfunc_59__13TUnk_80493450Fv(u8 *arg0);
@@ -1099,7 +1099,7 @@ extern const f32 lbl_805DA034;
 
 extern "C" {
 
-int vfunc_92__13TUnk_80493450Fv(void* p);
+int beast_retire_corpse__13TUnk_80493450Fv(void* p);
 void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
@@ -1156,8 +1156,8 @@ s32 update_target_near_flag(void *arg0) {
     }
 }
 
-int TUnk_80493450::vfunc_92() { return queue_destruction__7TObjectFv((void*)(this)); }
-void TUnk_80493450::vfunc_91() {
+int TUnk_80493450::beast_retire_corpse() { return queue_destruction__7TObjectFv((void*)(this)); }
+void TUnk_80493450::beast_update_dead() {
     u8 *arg0 = (u8 *)this;
     advance_animation_playback();
     if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DA034)) != 0) {
@@ -1180,7 +1180,7 @@ void TUnk_80493450::vfunc_91() {
     }
 }
 void TObjPlayer::enter_state_8() { if (*(short *)&this->m_326 != 8) { *(short *)&this->m_326 = 8; *(short*)((char*)this + 0xb8) = 8; unlink_enemy_group_relations(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__6TLobbyFPv(this); } }
-void TUnk_80493450::vfunc_90() {
+void TUnk_80493450::beast_update_hurt() {
     u8 *arg0 = (u8 *)this;
     Obj_800C5164 *o = (Obj_800C5164 *)arg0;
     Vec_800C5164 v;
@@ -1371,7 +1371,7 @@ s32 TUnk_80493450::vfunc_36() {
 #define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
 #define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
 
-void TUnk_80493450::vfunc_87() {
+void TUnk_80493450::beast_update_group_chase() {
     Self_800C57F0 *arg0 = (Self_800C57F0 *)this;
     f32 d;
     f32 r;
@@ -1399,7 +1399,7 @@ void TUnk_80493450::vfunc_87() {
     minimap_render_dot((u8 *)arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
-void TUnk_80493450::vfunc_86() {
+void TUnk_80493450::beast_update_approach() {
     u8 *arg0 = (u8 *)this;
     Vec_800C5900 sp14;
     f32 r;
@@ -1537,7 +1537,7 @@ void TUnk_80493450::vfunc_59() {
     }
 }
 
-void TUnk_80493450::vfunc_84() {
+void TUnk_80493450::beast_idle_update() {
     u8 *arg0 = (u8 *)this;
     f32 r;
     f32 dist;

@@ -276,7 +276,7 @@ void TObjEneDimedian::vfunc_93() {
     }
 }
 
-int TObjEneDimedian::vfunc_92() {
+int TObjEneDimedian::beast_retire_corpse() {
     u8 *arg0 = (u8 *)this;
     this->m_390 = 1;
     if (((A7B00Obj_800a7b00_800A7764*)(arg0 + 0x3A8))->m4() == 1) {

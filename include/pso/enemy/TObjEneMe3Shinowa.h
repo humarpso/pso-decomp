@@ -12,8 +12,8 @@ struct TObjEneMe3Shinowa : public TObjEneDD_ST {
     virtual u8 can_hit_same_target();
     virtual void vfunc_107();
     virtual void vfunc_108();
-    virtual s32 vfunc_109();
-    virtual void vfunc_110();
+    virtual s32 update_effect();
+    virtual void dispatch_if_active();
     virtual void vfunc_111();
     virtual void vfunc_112();
     virtual void action(s32);
@@ -43,7 +43,6 @@ struct TObjEneMe3Shinowa : public TObjEneDD_ST {
     void* m_3cc;
     u8 unk_3D0[0x18];
     void* m_3e8;
-    void dispatch_if_active();
     void copy_position_vector();};
 
 #endif

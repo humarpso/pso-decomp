@@ -6,8 +6,8 @@
 
 struct TObjEneMerillLia : public TUnk_80493450 {
     virtual ~TObjEneMerillLia();
-    virtual void vfunc_86();
-    virtual void vfunc_87();
+    virtual void beast_update_approach();
+    virtual void beast_update_group_chase();
     virtual void vfunc_93();
     virtual void vfunc_94();
     virtual void vfunc_96();

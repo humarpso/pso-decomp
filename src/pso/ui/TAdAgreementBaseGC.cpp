@@ -78,7 +78,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-void TAdAgreementBaseGC::vfunc_12() {
+void TAdAgreementBaseGC::check_main_task_state() {
     if (get_state_flag__9TMainTaskFv() == 1) { return;
     }
 }
@@ -104,11 +104,11 @@ extern s32 __vt__18TAdAgreementBaseGC[];
 typedef char RecoveredGlobal_80329830_lbl_8050E208_size[sizeof(RecoveredGlobal_80329830_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredGlobal_80329830_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80329830_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 
-void TAdAgreementBaseGC::vfunc_10() {
+void TAdAgreementBaseGC::create_agreement_callback() {
     TAdEnterSerialAccessGC::create_callback(lbl_804770BC, lbl_804770C4, (void *)TAdAgreementBaseGC::draw_agreement_text);
 }
 
-void TAdAgreementBaseGC::vfunc_11() {
+void TAdAgreementBaseGC::update_state() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r3;

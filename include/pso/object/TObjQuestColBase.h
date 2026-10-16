@@ -6,7 +6,7 @@
 
 struct TObjQuestColBase : public TUnk_804AF8A0 {
     virtual ~TObjQuestColBase();
-    virtual void vfunc_14();
+    virtual void update_room_id_check();
     virtual int vfunc_15();
     virtual int vfunc_16();
     s32 update_trigger_state(f32);
@@ -16,7 +16,6 @@ struct TObjQuestColBase : public TUnk_804AF8A0 {
     u32 m_b4;
     u32 m_b8;
     s32 is_within_range(f32 farg0);
-    void update_room_id_check();
     virtual void run_task();};
 
 typedef char TObjQuestColBase_size[sizeof(TObjQuestColBase) == 0xBC ? 1 : -1];

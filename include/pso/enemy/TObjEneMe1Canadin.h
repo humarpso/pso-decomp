@@ -19,7 +19,7 @@ struct TObjEneMe1Canadin : public TObjEneDD_ST {
     virtual void vfunc_112(s32);
     virtual void vfunc_113();
     virtual void update_if_ready();
-    virtual void vfunc_115();
+    virtual void render_canadin_model_with_debug_type();
     virtual int vfunc_116();
     virtual void vfunc_117();
     void vfunc_63();

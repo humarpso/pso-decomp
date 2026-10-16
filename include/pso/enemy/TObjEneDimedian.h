@@ -17,7 +17,7 @@ struct TObjEneDimedian : public TUnk_80493450 {
     virtual void vfunc_95();
     virtual void vfunc_94();
     virtual void vfunc_93();
-    virtual int vfunc_92();
+    virtual int beast_retire_corpse();
     void* m_3a8;
     u8 _pad3AC[0x18];
     u32 m_3c4;
