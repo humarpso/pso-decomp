@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClawClaw.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/object/TObjMotion.h"
 
@@ -142,7 +143,7 @@ void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0);
 extern "C" {
 
 void TObjEneBalClawClaw__sub_80090824(void);
-void TObjEneBalClawClaw__sub_80090828(void);
+void vfunc_58__18TObjEneBalClawClawFv(void);
 
 typedef char RecoveredFields_8009060C_arg0_37C_offset[offsetof(RecoveredFields_8009060C_arg0, field_37C) == 0x37C ? 1 : -1];
 typedef char RecoveredFields_8009060C_arg0_388_offset[offsetof(RecoveredFields_8009060C_arg0, field_388) == 0x388 ? 1 : -1];
@@ -230,7 +231,7 @@ void set_claw_flags__18TObjEneBalClawClawFPv(u8 *arg0) {
 
 void TObjEneBalClawClaw__sub_80090824(void) {  }
 
-void TObjEneBalClawClaw__sub_80090828(void) {  }
+void TObjEneBalClawClaw::vfunc_58() {  }
 int reset_active_state__18TObjEneBalClawClawFPv(void* p) { return update_if_active__15TObjEneMe1GiGueFl(p, 0); }
 void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self) {
     switch (self->state) {
@@ -1207,7 +1208,7 @@ extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
 extern "C" void apply_paralysis__10TObjPlayerFv();
 extern "C" void apply_poison_status__10TObjPlayerFv();
-extern "C" void apply_set_data__9TObjEnemyFPvPv();
+extern "C" void vfunc_81__9TObjEnemyFPv();
 extern "C" void apply_shock_status__10TObjPlayerFv();
 extern "C" void apply_switch_attack__10TObjPlayerFi();
 extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
@@ -1280,13 +1281,13 @@ void *__vt__18TObjEneBalClawClaw[83] = {
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
-    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjEneBalClawClaw__sub_80090828, (void *)&vfunc_59__14TObjEneBalClawFv,
+    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__18TObjEneBalClawClawFv, (void *)&vfunc_59__14TObjEneBalClawFv,
     (void *)&vfunc_60__15TObjEnemyCustomFv, (void *)&vfunc_61__14TObjEneBalClawFv, (void *)&vfunc_62__14TObjEneBalClawFv, (void *)&vfunc_63__15TObjEnemyCustomFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__15TObjEnemyCustomFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 #define __vt__18TObjEneBalClawClaw ((s32 *)__vt__18TObjEneBalClawClaw)
 

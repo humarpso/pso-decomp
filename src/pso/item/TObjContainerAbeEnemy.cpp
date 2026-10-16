@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerAbeEnemy.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerBase.h"
 #include "pso/item/TObjContainerItem.h"
@@ -49,7 +50,7 @@ void draw_ginja_box_tree(void);
 s32 pop_matrix();
 extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
-void TObjContainerBase__vt79(Obj_80188C8C *self);
+void vfunc_81__17TObjContainerBaseFv(Obj_80188C8C *self);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 s32 play_container_break_sound(void *);
@@ -64,7 +65,7 @@ void TObjContainerBase__vt77(const Obj_80188B3C *self);
 
 extern "C" {
 
-void TObjContainerAbeEnemy__vt78(void *arg0);
+void vfunc_80__21TObjContainerAbeEnemyFv(void *arg0);
 void *TObjContainerBase__create(void *arg0);
 void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1);
 void *TObjContainerBase__ct(void *, void *, void *);
@@ -74,14 +75,14 @@ s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void TObjContainerAbeEnemy__vt78(void *arg0) {
+void TObjContainerAbeEnemy::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
-            submit_cursor_candidate(arg0, -1);
+        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+            submit_cursor_candidate(this, -1);
         }
     case 1:
         return;
@@ -188,7 +189,8 @@ void TObjContainerBase__vt77(const Obj_80188B3C *self) {
 }
 #pragma pop
 
-void TObjContainerBase__vt79(Obj_80188C8C *self) {
+void TObjContainerBase::vfunc_81() {
+    Obj_80188C8C *self = (Obj_80188C8C *)this;
     if (container_breakup_model_archive != 0) {
         switch (self->state) {
         case 0:

@@ -202,7 +202,7 @@ struct VObj_18_444bc5 : VBase_18_444bc5 {
 struct J_802EEB88 { u8 pad[0x38C]; u8 sub; };
 
 extern "C" {
-void TBoss7Joint__vt61(void* p);
+void vfunc_63__11TBoss7JointFv(void* p);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805DEBB8;
@@ -231,15 +231,15 @@ extern "C" {
 
 struct VOff_802EE9A4_arg0_802EE9A4 { char pad_0[0x2FC]; char f_2FC[1]; };
 
-void TBoss7Joint__vt26(void);
-void TBoss7Joint__vt42(void);
-void TBoss7Joint__vt43(void);
-void TBoss7Joint__vt44(void);
-void TBoss7Joint__vt45(void);
-void TBoss7Joint__vt46(void);
-void TBoss7Joint__vt47(void);
-void TBoss7Joint__vt48(void);
-void TBoss7Joint__vt59(void);
+void vfunc_28__11TBoss7JointFv(void);
+void vfunc_44__11TBoss7JointFv(void);
+void vfunc_45__11TBoss7JointFv(void);
+void vfunc_46__11TBoss7JointFv(void);
+void vfunc_47__11TBoss7JointFv(void);
+void vfunc_48__11TBoss7JointFl(void);
+void vfunc_49__11TBoss7JointFv(void);
+void vfunc_50__11TBoss7JointFv(void);
+void vfunc_61__11TBoss7JointFv(void);
 void TBoss7Joint__vt60(u8 *arg0);
 void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
@@ -347,17 +347,17 @@ u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5) 
 }
 
 void TBoss7Joint__vt85(void) {  }
-void TBoss7Joint__vt26(void) {  }
+void TBoss7Joint::vfunc_28() {  }
 
-void TBoss7Joint__vt61(void* p) { *(u32*)((char*)p + 0x30) &= 0xfffff7ff; }
+void TBoss7Joint::vfunc_63() { *(u32*)((char*)this + 0x30) &= 0xfffff7ff; }
 
-void TBoss7Joint__vt59(void) {  }
-void TBoss7Joint__vt42(void) {  }
-void TBoss7Joint__vt43(void) {  }
-void TBoss7Joint__vt44(void) {  }
-void TBoss7Joint__vt45(void) {  }
-void TBoss7Joint__vt46(void) {  }
-void TBoss7Joint__vt47(void) {  }
-void TBoss7Joint__vt48(void) {  }
+void TBoss7Joint::vfunc_61() {  }
+void TBoss7Joint::vfunc_44() {  }
+void TBoss7Joint::vfunc_45() {  }
+void TBoss7Joint::vfunc_46() {  }
+void TBoss7Joint::vfunc_47() {  }
+void TBoss7Joint::vfunc_48(s32) {  }
+void TBoss7Joint::vfunc_49() {  }
+void TBoss7Joint::vfunc_50() {  }
 
 }

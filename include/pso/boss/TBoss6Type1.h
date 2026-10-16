@@ -7,6 +7,14 @@
 struct Boss6EffectPoint { f32 x, y, z; };
 struct TBoss6Type1 : public TObjEnemy {
     virtual ~TBoss6Type1();
+    virtual void vfunc_50();
+    virtual void vfunc_49();
+    virtual void vfunc_48(s32);
+    virtual void vfunc_47();
+    virtual void vfunc_46();
+    virtual void vfunc_45();
+    virtual void vfunc_44();
+    virtual void vfunc_63();
     void run_task();
     void update_effect_points();
     void update_trail_points();

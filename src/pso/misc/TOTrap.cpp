@@ -250,8 +250,8 @@ struct VObj_80178EF8_80178BC0 : Base_80178EF8_80178BC0 {
 #undef VM
 };
 
-void TOTrap__sub_80178BC0(void);
-void TOTrap__vt80(void *arg0);
+void vfunc_89__6TOTrapFv(void);
+void vfunc_82__6TOTrapFv(void *arg0);
 s32 spawn_particle_effect(s32, s32);
 s32 refresh_collision_body_centers(void *);
 s32 submit_cursor_candidate(void *, s32);
@@ -271,11 +271,11 @@ f32 TOTrap::scale_by_table_value(f32 farg0) {
     return farg0 * ((f32*)v)[game_difficulty_selection];
 }
 
-void TOTrap__sub_80178BC0(void) {  }
+void TOTrap::vfunc_89() {  }
 
 extern const f32 TOTrap__data_805DBA38;
 
-s32 TOTrap::is_any_player_matching_stat() {
+s32 TOTrap::vfunc_83() {
     s32 i;
     void *p;
     for (i = 0; i < 4; i++) {
@@ -289,15 +289,15 @@ s32 TOTrap::is_any_player_matching_stat() {
     return 0;
 }
 
-void TOTrap__vt80(void *arg0) {
+void TOTrap::vfunc_82() {
     s32 temp_r31;
 
     calc_attach_pos__10TObjPlayerFv();
-    refresh_collision_body_centers(arg0);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x84) < 0) {
+    refresh_collision_body_centers(this);
+    if ((s32) *(s32 *)((s8 *)this + 0x84) < 0) {
         u32 p;
-        ((V_A_80178BC0 *)arg0)->m20(*(u32 *)((s8 *)arg0 + 0x2A8), TOTrap__data_805DBA38);
-        p = *(u32 *)((s8 *)arg0 + 0x2A8);
+        ((V_A_80178BC0 *)this)->m20(*(u32 *)((s8 *)this + 0x2A8), TOTrap__data_805DBA38);
+        p = *(u32 *)((s8 *)this + 0x2A8);
         if (p != 0U) {
             u32 v = (u16) obj_getField1c(p);
             if (v < 0x1000U) {
@@ -308,7 +308,7 @@ void TOTrap__vt80(void *arg0) {
             }
         }
     }
-    submit_cursor_candidate(arg0, -1);
+    submit_cursor_candidate(this, -1);
 }
 
 void TOTrap__vt79(Obj_80178CF8 *self) {
@@ -334,13 +334,13 @@ void TOTrap__vt79(Obj_80178CF8 *self) {
     }
 }
 
-void TOTrap::submit_cursor_and_notify() {
+void TOTrap::vfunc_80() {
     u8 *arg0 = (u8 *)this;
     submit_cursor_candidate((void *)((void *) (arg0)), (s32)((int) (-1)));
     ((VObj_18_f90cfc *)(arg0))->m77();
 }
 
-void TOTrap::find_target_player() {
+void TOTrap::vfunc_79() {
     Obj_80178E10 *arg0 = (Obj_80178E10 *)this;
     calc_attach_pos__10TObjPlayerFv();
     arg0->idx = find_nearest_visible_player(arg0, 0, arg0->range);
@@ -359,7 +359,7 @@ void TOTrap::find_target_player() {
     }
 }
 
-void TOTrap::play_sounds() {
+void TOTrap::vfunc_85() {
     s32 arg0 = (s32)this;
     spawn_particle_effect(arg0 + 0x2FC, 0x45);
     spawn_particle_effect(arg0 + 0x2FC, 0x46);

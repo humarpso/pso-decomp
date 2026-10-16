@@ -1506,7 +1506,7 @@ void state_initial_emit__17TObjEneBm3FlyNestFl(u8 *arg0, s32 arg1);
 void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
 void init_params__17TObjEneBm3FlyNestFv(void *arg0);
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
-void init_nest_sub__17TObjEneBm3FlyNestFPv(void* p);
+void vfunc_88__17TObjEneBm3FlyNestFv(void* p);
 void vfunc_61__17TObjEneBm3FlyNestFv(void);
 void vfunc_62__17TObjEneBm3FlyNestFv(void *arg0);
 void vfunc_63__17TObjEneBm3FlyNestFv(void *arg0);
@@ -1617,7 +1617,7 @@ void apply_movement_ailment__10TObjPlayerFv();
 void apply_object_set_data();
 void apply_paralysis__10TObjPlayerFv();
 void apply_poison_status__10TObjPlayerFv();
-void apply_set_data__9TObjEnemyFPvPv();
+void vfunc_81__9TObjEnemyFPv();
 void apply_shock_status__10TObjPlayerFv();
 void apply_switch_attack__10TObjPlayerFi();
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
@@ -1707,9 +1707,9 @@ void *lbl_80491EE4[106] = {
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)update_and_send_enemy_hit_state, (void *)fn_80010EC8,
     (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)vfunc_79__9TObjEneDDFv,
-    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state__9TObjEnemyFv, (void *)vfunc_83__9TObjEneDDFv,
+    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)vfunc_81__9TObjEnemyFPv, (void *)clear_lobby_object_state__9TObjEnemyFv, (void *)vfunc_83__9TObjEneDDFv,
     (void *)TObjEneDD__vt82, (void *)vfunc_85__9TObjEneDDFv, (void *)vfunc_86__9TObjEneDDFv, (void *)dispatch_state__17TObjEneBm3FlyNestFiUii,
-    (void *)init_nest_sub__17TObjEneBm3FlyNestFPv, (void *)vfunc_89__9TObjEneDDFv, (void *)vfunc_90__9TObjEneDDFv, (void *)vfunc_91__9TObjEneDDFv,
+    (void *)vfunc_88__17TObjEneBm3FlyNestFv, (void *)vfunc_89__9TObjEneDDFv, (void *)vfunc_90__9TObjEneDDFv, (void *)vfunc_91__9TObjEneDDFv,
     (void *)vfunc_92__9TObjEneDDFv, (void *)vfunc_93__9TObjEneDDFv, (void *)vfunc_94__9TObjEneDDFv, (void *)vfunc_95__9TObjEneDDFv,
     (void *)vfunc_96__9TObjEneDDFv, (void *)vfunc_97__9TObjEneDDFv, (void *)vfunc_98__9TObjEneDDFv, (void *)vfunc_99__9TObjEneDDFv,
     (void *)vfunc_100__9TObjEneDDFv, (void *)vfunc_101__9TObjEneDDFPUc, (void *)vfunc_102__9TObjEneDDFv, (void *)vfunc_103__9TObjEneDDFPUc,
@@ -2508,7 +2508,7 @@ void TObjEneBm3FlyNest::update_replenish() {
     }
 }
 
-void init_nest_sub__17TObjEneBm3FlyNestFPv(void* p) { set_part_local_pos__9TObjEneDDFPvPvi(p, (char*)p + 0x2fc, (void*)0); }
+void TObjEneBm3FlyNest::vfunc_88() { set_part_local_pos__9TObjEneDDFPvPvi(this, (char*)this + 0x2fc, (void*)0); }
 
 void TObjEneBm3FlyNest::copy_pos() { ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((char*)this + 0x74, (char*)this + 0x2fc); }
 

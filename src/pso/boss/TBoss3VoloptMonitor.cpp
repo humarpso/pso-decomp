@@ -266,7 +266,7 @@ extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
 extern "C" void apply_paralysis__10TObjPlayerFv();
 extern "C" void apply_poison_status__10TObjPlayerFv();
-extern "C" void apply_set_data__9TObjEnemyFPvPv();
+extern "C" void vfunc_81__9TObjEnemyFPv();
 extern "C" void apply_shock_status__10TObjPlayerFv();
 extern "C" void apply_switch_attack__10TObjPlayerFi();
 extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
@@ -610,7 +610,7 @@ void *__vt__19TBoss3VoloptMonitor[84] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__15TObjEnemyCustomFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)0x0,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)0x0,
 };
 u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 t;

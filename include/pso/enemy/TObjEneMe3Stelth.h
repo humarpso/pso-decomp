@@ -6,6 +6,10 @@
 
 struct TObjEneMe3Stelth : public TObjEneDD_ST {
     virtual ~TObjEneMe3Stelth();
+    virtual void vfunc_88();
+    virtual void vfunc_95();
+    virtual void vfunc_96();
+    virtual void vfunc_89();
     virtual void attack_and_unequip();
     virtual u8 check_target_in_range();
     virtual void vfunc_107();

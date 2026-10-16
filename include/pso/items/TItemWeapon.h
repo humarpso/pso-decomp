@@ -94,15 +94,12 @@ struct TItemWeapon : WeaponObjectPrefix {
     u8 remaining_weapon_fields[0x1F8-0x1E4];
     void roll_technique();
     u8 get_special_selector();
-    void update_active_weapon();
     void restore_action_type();
     u8 *get_motion_ptr();
     static void copy_item_to_data(s32 arg0);
     s32 get_attack_stage();
     u32 get_attack_flags();
     void update_trails();
-    void update_weapon_trails();
-    void draw_equipped_weapon();
 };
 
 struct WeaponMarkerPacket { s8 kind,variant; u8 pad[2]; WeaponPlayerPrefix* player; s32 unobserved[3]; };

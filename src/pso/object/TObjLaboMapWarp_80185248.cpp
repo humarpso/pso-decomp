@@ -171,7 +171,7 @@ void TObjCityAreaWarp__vt18(void* p);
 void TObjCityAreaWarp__vt13(void *arg0, s16 arg1);
 void * __dt__16TObjCityAreaWarpFv(void *arg0, s16 arg1);
 void * TObjCityAreaWarp__ct(void *arg0);
-void TObjCityMainWarp__vt18(Obj_80185E14 *arg0);
+void vfunc_20__16TObjCityMainWarpFv(Obj_80185E14 *arg0);
 s32 TObjCityMainWarp__vt14(s32 arg0);
 void TObjCityMainWarp__vt16(void *arg0);
 s32 TObjCityMainWarp__vt15(u8 *arg0);
@@ -563,7 +563,8 @@ void *TObjCityAreaWarp__ct(void *arg0) {
     return arg0;
 }
 
-void TObjCityMainWarp__vt18(Obj_80185E14 *arg0) {
+void TObjCityMainWarp::vfunc_20() {
+    Obj_80185E14 *arg0 = (Obj_80185E14 *)this;
     arg0->f150 = arg0->f88;
     if (arg0->f150 < 0) {
         arg0->f150 = 0;

@@ -102,7 +102,7 @@ void fn_80010EC4();
 void fn_80010EC0();
 void fn_80010EBC();
 void TObjContainerAbeEnemy__vt77();
-void TObjContainerAbeEnemy__vt78();
+void vfunc_80__21TObjContainerAbeEnemyFv();
 void TObjContainerAbeEnemy__vt79();
 void TObjContainerAbeEnemy__vt80();
 void *__vt__21TObjContainerAbeEnemy[83] = {
@@ -186,7 +186,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)fn_80010EC0,
     (void *)fn_80010EBC,
     (void *)TObjContainerAbeEnemy__vt77,
-    (void *)TObjContainerAbeEnemy__vt78,
+    (void *)vfunc_80__21TObjContainerAbeEnemyFv,
     (void *)TObjContainerAbeEnemy__vt79,
     (void *)TObjContainerAbeEnemy__vt80,
 };

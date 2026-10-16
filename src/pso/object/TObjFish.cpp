@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyJungleMain.h"
 
 struct Base_8029D3A4_8029CF68;
 struct Base_8029CF68;
@@ -137,7 +138,7 @@ s32 end_effect_render__13TParticleCtrlFv();
 s32 set_global_param__8TObjFishFl();
 extern u32 TOKeyJungleMain__static_model_resource;
 void render__15TOKeyJungleMainFv(u8 *arg0);
-void TOKeyJungleMain__vt15(void *arg0);
+void vfunc_17__15TOKeyJungleMainFv(void *arg0);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
@@ -163,7 +164,7 @@ void load_static_resource__15TOKeyJungleMainFv(void);
 s32 dispatch_by_phase__15TOKeyJungleMainFiUs(void *, int);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern s32 game_difficulty_selection;
-void TOKeyJungleMain__vt19(u8 *arg0);
+void vfunc_21__15TOKeyJungleMainFv(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -178,7 +179,7 @@ s32 set_global_count__12TObjNpcEnemyFl(s32);
 void debug_printf_at(s32, const char *, ...);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern char lbl_80465A2C[];
-void TOKeyJungleMain__vt24(void *arg0);
+void vfunc_26__15TOKeyJungleMainFv(void *arg0);
 }
 
 extern "C" {
@@ -215,16 +216,16 @@ void load_static_resource__15TOKeyJungleMainFv(void) {
     (*(s32 *)&TOKeyJungleMain__static_model_resource) = var_r0;
 }
 
-void TOKeyJungleMain__vt24(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0xC8) = *(s32 *)((s8 *)arg0 + 0x84);
-    if (*(s32 *)((s8 *)arg0 + 0xC8) < 0) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+void TOKeyJungleMain::vfunc_26() {
+    *(s32 *)((s8 *)this + 0xC8) = *(s32 *)((s8 *)this + 0x84);
+    if (*(s32 *)((s8 *)this + 0xC8) < 0) {
+        *(s32 *)((s8 *)this + 0xC8) = 0;
     }
-    if (*(s32 *)((s8 *)arg0 + 0xC8) > 2) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 2;
+    if (*(s32 *)((s8 *)this + 0xC8) > 2) {
+        *(s32 *)((s8 *)this + 0xC8) = 2;
     }
     set_global_count__12TObjNpcEnemyFl(0xFF00FF);
-    debug_printf_at(0x130020, lbl_80465A2C, ((s32 *)&TOKeyJungleMain__data_804653C8)[*(s32 *)((s8 *)arg0 + 0xC8)]);
+    debug_printf_at(0x130020, lbl_80465A2C, ((s32 *)&TOKeyJungleMain__data_804653C8)[*(s32 *)((s8 *)this + 0xC8)]);
     set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
 }
 
@@ -258,7 +259,8 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8_size[sizeof(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8) == 0xC ? 1 : -1];
-void TOKeyJungleMain__vt19(u8 *arg0) {
+void TOKeyJungleMain::vfunc_21() {
+    u8 *arg0 = (u8 *)this;
     dispatch_by_phase__15TOKeyJungleMainFiUs((void *) (game_difficulty_selection), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value) + (*(s32 *)((s8 *)arg0 + 0xC8) * 4))));
 }
 
@@ -299,8 +301,8 @@ void TOKeyJungleMain__vt14(u8 *arg0) {
   }
 }
 
-void TOKeyJungleMain__vt15(void *arg0) {
-    struct VObj_8029D3A4_8029CF68 *o = (struct VObj_8029D3A4_8029CF68 *)arg0;
+void TOKeyJungleMain::vfunc_17() {
+    struct VObj_8029D3A4_8029CF68 *o = (struct VObj_8029D3A4_8029CF68 *)this;
     o->m18();
 }
 void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1) {

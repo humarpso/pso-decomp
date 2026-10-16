@@ -6,6 +6,14 @@
 
 struct TObjGrass : public TObjEnemy {
     virtual ~TObjGrass();
+    virtual s32 vfunc_36();
+    virtual s32 vfunc_39();
+    virtual void vfunc_58();
+    virtual void vfunc_59();
+    virtual void vfunc_60();
+    virtual void vfunc_61();
+    virtual void vfunc_62();
+    virtual void vfunc_63();
     s32 sub_800BE75C();
     void sub_800BDD70();
     void sub_800BD4D8();

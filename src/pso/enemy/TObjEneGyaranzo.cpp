@@ -890,8 +890,8 @@ s32 TObjEnemyCustom__ct(void *);
 #define update__19TObjGyaranzoMissileFPv ((s32 (*)(void *))update__19TObjGyaranzoMissileFPv)
 s32 fn_800D2A68(void *);
 void TObjPlayer__sub_800D2E8C(Ene_800D2E8C *arg0);
-void TObjPlayer__sub_800D306C(u8 *arg0);
-void TObjPlayer__sub_800D31EC(u8 *arg0);
+void vfunc_63__15TObjEneGyaranzoFv(u8 *arg0);
+void vfunc_62__15TObjEneGyaranzoFv(u8 *arg0);
 void TObjPlayer__sub_800D35D4(void);
 void TObjPlayer__sub_800D35D8(u8 *arg0);
 void update_main__10TObjPlayerFPv(u8 *arg0);
@@ -1040,7 +1040,7 @@ extern "C" {
 void apply_poison_status__10TObjPlayerFv();
 }
 extern "C" {
-void apply_set_data__9TObjEnemyFPvPv();
+void vfunc_81__9TObjEnemyFPv();
 }
 extern "C" {
 void apply_shock_status__10TObjPlayerFv();
@@ -1286,12 +1286,12 @@ void *gyaranzo_actor_vtable_ops[83] = {
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__15TObjEneGyaranzoFv, (void *)&vfunc_59__15TObjEneGyaranzoFv,
-    (void *)&vfunc_60__15TObjEnemyCustomFv, (void *)&vfunc_61__15TObjEneGyaranzoFv, (void *)&TObjPlayer__sub_800D31EC, (void *)&TObjPlayer__sub_800D306C,
+    (void *)&vfunc_60__15TObjEnemyCustomFv, (void *)&vfunc_61__15TObjEneGyaranzoFv, (void *)&vfunc_62__15TObjEneGyaranzoFv, (void *)&vfunc_63__15TObjEneGyaranzoFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__15TObjEnemyCustomFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 #define bm_ene_gyaranzo_resource_descriptor ((s32 *)bm_ene_gyaranzo_resource_descriptor)
 #define gyaranzo_resource_index_table ((s16 *)gyaranzo_resource_index_table)
@@ -1463,7 +1463,8 @@ void TObjPlayer::update_death_breakup() {
     }
 }
 
-void TObjPlayer__sub_800D306C(u8 *arg0) {
+void TObjEneGyaranzo::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(5);
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
@@ -1501,7 +1502,8 @@ void TObjPlayer__sub_800D30A8(Obj_800D30A8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_800D31EC(u8 *arg0) {
+void TObjEneGyaranzo::vfunc_62() {
+    u8 *arg0 = (u8 *)this;
   s32 temp_r0;
   unsigned long var_r3;
   if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != 4)

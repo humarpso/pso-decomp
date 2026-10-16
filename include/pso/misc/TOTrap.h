@@ -27,10 +27,6 @@ struct TOTrap : public TUnk_804806E8 {
     u8 _pad33E[0x2];
     u32 m_340;
     static f32 scale_by_table_value(f32 farg0);
-    s32 is_any_player_matching_stat();
-    void submit_cursor_and_notify();
-    void find_target_player();
-    void play_sounds();
     virtual void render();
     f32 check_trigger_range(u32 arg1);
     f32 get_scale(u32 arg1);};

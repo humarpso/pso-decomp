@@ -21,7 +21,6 @@ struct TObjEneBeast : public TUnk_80493450 {
     void select_subtype();
     static void *create(void *arg0);
     static void load_resources();
-    s32 update_action_hold();
     void select_model_record(s32 i);};
 
 #include <stddef.h>

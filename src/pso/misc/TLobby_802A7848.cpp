@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DDD28.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSnapShot.h"
 #include "pso/player/TObjPlayer.h"
@@ -50,11 +51,11 @@ s32 mem_alloc(s32);
 s32 mem_free(s32);
 void copy_motion_pair(void* p, void* q);
 int TLobby__sub_802A7B8C(void);
-int TLobby__sub_802A7B94(void);
-int TLobby__sub_802A7B9C(void);
-int TLobby__sub_802A7BA4(void);
+int vfunc_4__13TUnk_804DDD28Fv(void);
+int vfunc_8__13TUnk_804DDD28Fv(void);
+int vfunc_9__13TUnk_804DDD28Fv(void);
 void TLobby__sub_802A7BAC(void);
-int TLobby__sub_802A7BB0(void);
+int vfunc_75__13TUnk_804DDD28Fv(void);
 void TLobby__sub_802A7BC8(void* p);
 s32 mem_free(s32);
 extern u32 snapshot_image_buffer;
@@ -185,11 +186,11 @@ u8 *TLobby__sub_802A7B50(u8 *arg0) {
 }
 
 int TLobby__sub_802A7B8C(void) { return 0; }
-int TLobby__sub_802A7B94(void) { return 0; }
-int TLobby__sub_802A7B9C(void) { return 0; }
-int TLobby__sub_802A7BA4(void) { return 0; }
+int TUnk_804DDD28::vfunc_4() { return 0; }
+int TUnk_804DDD28::vfunc_8() { return 0; }
+int TUnk_804DDD28::vfunc_9() { return 0; }
 void TLobby__sub_802A7BAC(void) {  }
-int TLobby__sub_802A7BB0(void) { return 0; }
+int TUnk_804DDD28::vfunc_75() { return 0; }
 s32 TLobby::get_param() { return *(s32*)((char*)this + 0x0); }
 s32 TLobby::get_field_04() { return *(s32*)((char*)this + 0x4); }
 void TLobby__sub_802A7BC8(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }

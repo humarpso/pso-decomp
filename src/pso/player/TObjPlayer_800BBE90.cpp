@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 
@@ -146,7 +147,7 @@ extern const f32 lbl_805D9EB4;
 extern const f32 lbl_805D9EB4;
 void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
 void subtract_vector(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
-void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
+void vfunc_20__13TUnk_804928CCFPvf(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
 s32 obj_isState2_324(void *);
 void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
 s32 obj_is_hit_receivable();
@@ -221,7 +222,9 @@ void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *r
 
 #pragma push
 #pragma fp_contract on
-void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s) {
+void TUnk_804928CC::vfunc_20(void *b_arg, f32 s) {
+    Obj_800BBFD0 *a = (Obj_800BBFD0 *)this;
+    Obj_800BBFD0 *b = (Obj_800BBFD0 *)b_arg;
     Vec_800BBFD0 v;
     VecCopy__FP3VecPC3Vec(&v, &b->pos);
     subtract_vector(&v, &a->pos);

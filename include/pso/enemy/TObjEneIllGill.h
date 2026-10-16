@@ -6,6 +6,13 @@
 
 struct TObjEneIllGill : public TObjEnemy {
     virtual ~TObjEneIllGill();
+    virtual s32 vfunc_36();
+    virtual s32 vfunc_39();
+    virtual void vfunc_59();
+    virtual void vfunc_60();
+    virtual void vfunc_61();
+    virtual void vfunc_62();
+    virtual void vfunc_63();
     virtual void vfunc_58();
     void* m_374;
     u8 _pad378[0x10];

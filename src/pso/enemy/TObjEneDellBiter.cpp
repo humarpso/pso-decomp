@@ -1947,7 +1947,7 @@ void run_task__25TObjEneDellBiter_Eff_RushFv(u8 *arg0);
 void * __dt__25TObjEneDellBiter_Eff_RushFv(void *arg0, s16 arg1);
 u8 * TObjEneDellBiter_Eff_Rush__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0);
-void vfunc_105__16TObjEneDellBiterFv(u8 *arg0);
+void vfunc_106__16TObjEneDellBiterFv(u8 *arg0);
 void vfunc_83__16TObjEneDellBiterFv(void* p);
 void state_death__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 void TObjEneDellBiter__sub_80303AA0(u8 *arg0, s32 arg1);
@@ -2223,7 +2223,7 @@ extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
 extern "C" void apply_paralysis__10TObjPlayerFv();
 extern "C" void apply_poison_status__10TObjPlayerFv();
-extern "C" void apply_set_data__9TObjEnemyFPvPv();
+extern "C" void vfunc_81__9TObjEnemyFPv();
 extern "C" void apply_shock_status__10TObjPlayerFv();
 extern "C" void apply_switch_attack__10TObjPlayerFi();
 extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
@@ -2373,13 +2373,13 @@ void *__vt__16TObjEneDellBiter[107] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__9TObjEneDDFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
     (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&TObjEneDellBiter__vt85,
     (void *)&vfunc_88__16TObjEneDellBiterFv, (void *)&vfunc_89__9TObjEneDDFv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
     (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
     (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
-    (void *)&TObjEneDellBiter__vt102, (void *)&vfunc_83__16TObjEneDellBiterFv, (void *)&vfunc_105__16TObjEneDellBiterFv,
+    (void *)&TObjEneDellBiter__vt102, (void *)&vfunc_83__16TObjEneDellBiterFv, (void *)&vfunc_106__16TObjEneDellBiterFv,
 };
 #define dell_biter_param_table (*(RecoveredGlobal_8031B170_lbl_804E8880 *)dell_biter_param_table)
 #define __vt__16TObjEneDellBiter ((s32 *)__vt__16TObjEneDellBiter)
@@ -2464,7 +2464,7 @@ s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0) {
     return 0;
 }
 
-void TObjEneDellBiter::vfunc_105() {
+void TObjEneDellBiter::vfunc_106() {
     u8 *arg0 = (u8 *)this;
     if (get_target_info__9TObjEneDDFPv(arg0) != 0) {
         debug_printf_at(pack_debug_text_position(0, 2), lbl_804752AC);

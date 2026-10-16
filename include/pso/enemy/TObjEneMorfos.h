@@ -6,8 +6,12 @@
 
 struct TObjEneMorfos : public TObjEneDD_ST {
     virtual ~TObjEneMorfos();
+    virtual void vfunc_28();
+    virtual void vfunc_63();
+    virtual void vfunc_62();
+    virtual void vfunc_61();
+    virtual void vfunc_88();
     virtual s32 vfunc_83();
-    virtual void vfunc_105();
     virtual void vfunc_106();
     void render();
     void run_task();

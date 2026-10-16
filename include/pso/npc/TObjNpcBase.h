@@ -38,11 +38,7 @@ struct TObjNpcBase : public TObjEnemy {
     u32 m_3b0;
     u32 m_3b4;
     static void free_static();
-    void setup_common();
-    void apply_set_params(s32 arg1, s32 arg2);
-    void update_conversation();
-    void update_wandering();
-    void update_standing();};
+    void setup_common();};
 
 typedef char NpcBaseSize[(sizeof(TObjNpcBase) == 0x3B8) ? 1 : -1];
 

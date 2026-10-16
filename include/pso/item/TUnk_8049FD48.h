@@ -6,6 +6,7 @@
 class TUnk_8049FD48 : public TItemObject {
 public:
     virtual ~TUnk_8049FD48();
+    virtual void vfunc_44();
     void *init(void *, void *);
 };
 

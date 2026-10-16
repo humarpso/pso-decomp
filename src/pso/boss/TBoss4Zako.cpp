@@ -1509,7 +1509,7 @@ void vfunc_12__9TObjEnemyFv();
 void update_and_send_enemy_hit_state();
 void apply_hit_message_flags__10TObjPlayerFPvPv();
 void call_vt78__10TObjPlayerFv();
-void apply_set_data__9TObjEnemyFPvPv();
+void vfunc_81__9TObjEnemyFPv();
 void apply_object_set_data();
 void TLobby__sub_801A1FD8();
 void classify_actor_view_detail();
@@ -1596,7 +1596,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)fn_80010EBC,
     (s32)call_vt78__10TObjPlayerFv,
     (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
-    (s32)apply_set_data__9TObjEnemyFPvPv,
+    (s32)vfunc_81__9TObjEnemyFPv,
     (s32)clear_lobby_object_state__9TObjEnemyFv,
 };
 s32 __vt__9TBoss4Uro[83] = {
@@ -1681,7 +1681,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)fn_80010EBC,
     (s32)call_vt78__10TObjPlayerFv,
     (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
-    (s32)apply_set_data__9TObjEnemyFPvPv,
+    (s32)vfunc_81__9TObjEnemyFPv,
     (s32)clear_lobby_object_state__9TObjEnemyFv,
 };
 s32 __vt__10TBoss4Zako[83] = {
@@ -1766,7 +1766,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)fn_80010EBC,
     (s32)call_vt78__10TObjPlayerFv,
     (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
-    (s32)apply_set_data__9TObjEnemyFPvPv,
+    (s32)vfunc_81__9TObjEnemyFPv,
     (s32)clear_lobby_object_state__9TObjEnemyFv,
 };
 }

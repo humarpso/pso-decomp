@@ -1790,7 +1790,7 @@ void TBoss4Type2::update_main() {
     *(f32 *)((s8 *)arg0 + 0x3F4) = (f32)*(s16 *)((s8 *)arg0 + 0x32C) / (f32)*(s16 *)((s8 *)arg0 + 0x33E);
 }
 
-void TBoss4Type2::set_state3_unless_2or3() {
+void TUnk_80486924::vfunc_63() {
     s32 temp_r0;
 
     temp_r0 = *(s32 *)((s8 *)this + 0x374);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TObjEneEpsilonBody.h"
 
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
@@ -818,7 +819,7 @@ f32 receive_physical_attack_guarded__19TObjEneEpsilonGuardFPvPvf(u8 *arg0, u8 *a
 s32 get_bml_model(s32, s32);
 s32 set_indexed_flags(void *, s32, s32);
 extern s32 lbl_805D6FA0;
-void TObjEneEpsilonGuard__sub_803601D0(void);
+void vfunc_106__18TObjEneEpsilonBodyFv(void);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 get_bml_model(s32, s32);
@@ -1293,7 +1294,7 @@ void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1) {
     }
     advance_animation_playback((void *)((void *)((void *)((void *)((void *)(arg0))))));
 }
-void TObjEneEpsilonGuard__sub_803601D0(void) {  }
+void TObjEneEpsilonBody::vfunc_106() {  }
 
 void TObjEneEpsilonGuard::record_camera_angle_samples() {
     switch (epsilon_guard_camera_sample_phase) {
@@ -2134,7 +2135,7 @@ extern const f32 lbl_805E0240;
 extern "C" {
 
 void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1);
-void TObjEneEpsilonGuard__sub_80361E20(void);
+void vfunc_105__18TObjEneEpsilonBodyFv(void);
 #define transition_enemy_state ((s32 (*)(void *, int))transition_enemy_state)
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 #define set_field_378__9TObjEneDDFPvi ((s32 (*)(void *, int))set_field_378__9TObjEneDDFPvi)
@@ -2165,7 +2166,7 @@ void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1) {
     }
 }
 
-void TObjEneEpsilonGuard__sub_80361E20(void) {  }
+void TObjEneEpsilonBody::vfunc_105() {  }
 
 extern const f32 lbl_805E0238;
 
@@ -2223,15 +2224,15 @@ extern "C" {
 
 extern "C" {
 
-void TObjEneEpsilonGuard__sub_80361FE8(void);
-void TObjEneEpsilonGuard__sub_80362038(void);
-void TObjEneEpsilonGuard__sub_803620B0(void);
+void vfunc_88__18TObjEneEpsilonBodyFv(void);
+void vfunc_61__18TObjEneEpsilonBodyFv(void);
+void vfunc_28__18TObjEneEpsilonBodyFv(void);
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
 int vfunc_89__9TObjEneDDFv(void*);
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)
 
 void TObjEneEpsilonGuard::update_step() { vfunc_89__9TObjEneDDFv(this); update_position(); }
-void TObjEneEpsilonGuard__sub_80361FE8(void) {  }
+void TObjEneEpsilonBody::vfunc_88() {  }
 
 extern const f32 lbl_805E0214;
 
@@ -2243,8 +2244,8 @@ void TObjEneEpsilonGuard::update_position() {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC), (void *) (arg0), (f32) (lbl_805E0214));
 }
 
-void TObjEneEpsilonGuard__sub_80362038(void) {  }
-void TObjEneEpsilonGuard::request_state8() {
+void TObjEneEpsilonBody::vfunc_61() {  }
+void TObjEneEpsilonBody::vfunc_62() {
     s32 temp_r4;
 
     if ((s16) *(s16 *)((s8 *)this + 0x326) != 8) {
@@ -2254,8 +2255,8 @@ void TObjEneEpsilonGuard::request_state8() {
         }
     }
 }
-void TObjEneEpsilonGuard::set_action_9() { if (*(short*)((char*)this + 0x326) != 9) { transition_enemy_state(this, (void*)9); } }
-void TObjEneEpsilonGuard__sub_803620B0(void) {  }
+void TObjEneEpsilonBody::vfunc_63() { if (*(short*)((char*)this + 0x326) != 9) { transition_enemy_state(this, (void*)9); } }
+void TObjEneEpsilonBody::vfunc_28() {  }
 void TObjEneEpsilonGuard::dispatch_state(u32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
     switch (arg1) {

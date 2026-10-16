@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjGrass.h"
 #include "pso/enemy/TUnk_80494938.h"
 extern "C" void render__12TObjGrassWebFv();
 #include "pso/object/TObjMotion.h"
@@ -349,7 +350,7 @@ struct E2C_800BF924 { u8 pad[0x2C]; };
 extern "C" {
 s32 spawn_particle_effect(s32, s32);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
-void TObjGrass__vt61(u8 *arg0);
+void vfunc_63__9TObjGrassFv(u8 *arg0);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void obj_clearFlags30(void *, u32);
@@ -361,7 +362,7 @@ s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 play_sound_effect(void *, void *, int, int);
 extern u32 TObjGrass__resource_bundle;
 void TObjGrass__sub_800BFB68(O_800BFB68 *self);
-void TObjGrass__vt56(Obj_800BEE2C *self);
+void vfunc_58__9TObjGrassFv(Obj_800BEE2C *self);
 s32 queue_destruction__7TObjectFv(void *);
 s32 __dt__18TObjEneMe3SinowZoaFPvs(void *, s16);
 void __dt__9TObjEnemyFv(void *, int);
@@ -598,12 +599,12 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-s32 TObjGrass__vt34(void *arg0);
-s32 TObjGrass__vt37(void *arg0);
-void TObjGrass__vt57(void *arg0);
-void TObjGrass__vt58(void *arg0);
-void TObjGrass__vt59(void *arg0);
-void TObjGrass__vt60(void *arg0);
+s32 vfunc_36__9TObjGrassFv(void *arg0);
+s32 vfunc_39__9TObjGrassFv(void *arg0);
+void vfunc_59__9TObjGrassFv(void *arg0);
+void vfunc_60__9TObjGrassFv(void *arg0);
+void vfunc_61__9TObjGrassFv(void *arg0);
+void vfunc_62__9TObjGrassFv(void *arg0);
 s32 advance_animation_playback(void *);
 void TLobby__sub_8001FE7C(void*, int);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
@@ -860,7 +861,8 @@ void TObjGrass::update_camera_vec_by_stage() {
     TObjGrass__render_node_index++;
 }
 
-void TObjGrass__vt61(u8 *arg0) {
+void TObjGrass::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r6;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 8) {
         *(s16 *)((s8 *)arg0 + 0x326) = 8;
@@ -910,13 +912,13 @@ s32 TObjGrass::sub_800BCE44() {
   minimap_render_dot((void *)((void *) (arg0 + 0x38)), (s32)((int) (-0x5DB4)), (s32)((int) 1), (s32)((int) 0));
 }
 
-void TObjGrass__vt60(void *arg0) {
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 7) {
-        *(s16 *)((s8 *)arg0 + 0x326) = 7;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 5;
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
+void TObjGrass::vfunc_62() {
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 7) {
+        *(s16 *)((s8 *)this + 0x326) = 7;
+        *(s16 *)((s8 *)this + 0xB8) = 5;
+        *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFFBFFFF);
     }
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFDFFFFF);
 }
 
 s32 TObjGrass::update() {
@@ -941,12 +943,12 @@ s32 TObjGrass::update() {
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
-void TObjGrass__vt59(void *arg0) {
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 6) {
-        *(s16 *)((s8 *)arg0 + 0x326) = 6;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+void TObjGrass::vfunc_61() {
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 6) {
+        *(s16 *)((s8 *)this + 0x326) = 6;
+        *(s16 *)((s8 *)this + 0xB8) = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFF9BFFFF);
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFF9BFFFF);
 }
 
 s32 TObjGrass::update_web_attack() {
@@ -1326,29 +1328,29 @@ void TObjGrass::sub_800BDD70() {
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
-void TObjGrass__vt58(void *arg0) {
+void TObjGrass::vfunc_60() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x39E);
+    temp_r0 = *(s16 *)((s8 *)this + 0x39E);
     switch (temp_r0) {
     default:
-        *(s16 *)((s8 *)arg0 + 0x39E) = 0;
+        *(s16 *)((s8 *)this + 0x39E) = 0;
     case 0:
-        *(s16 *)((s8 *)arg0 + 0x326) = 3;
+        *(s16 *)((s8 *)this + 0x326) = 3;
         break;
     case 1:
-        *(s16 *)((s8 *)arg0 + 0x326) = 5;
+        *(s16 *)((s8 *)this + 0x326) = 5;
         break;
     case 2:
-        *(s16 *)((s8 *)arg0 + 0x326) = 4;
-        *(f32 *)((s8 *)arg0 + 0x398) = (f32) (0.0f);
-        TObjGrass__sub_800BFB68((O_800BFB68 *)(arg0));
+        *(s16 *)((s8 *)this + 0x326) = 4;
+        *(f32 *)((s8 *)this + 0x398) = (f32) (0.0f);
+        TObjGrass__sub_800BFB68((O_800BFB68 *)(this));
         break;
     }
-    *(s16 *)((s8 *)arg0 + 0x328) = 0;
-    *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x200000);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
+    *(s16 *)((s8 *)this + 0x328) = 0;
+    *(s16 *)((s8 *)this + 0xB8) = 1;
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) | 0x200000);
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFFBFFFF);
 }
 
 struct Vec_800BE1CC { f32 x, y, z; };
@@ -1503,19 +1505,19 @@ s32 TObjGrass::sub_800BE75C() {
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
 }
 
-void TObjGrass__vt57(void *arg0) {
+void TObjGrass::vfunc_59() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     if ((temp_r0 >= 3) || (temp_r0 < 1)) {
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-        if ((s16) *(s16 *)((s8 *)arg0 + 0x39C) == 2) {
-            *(s16 *)((s8 *)arg0 + 0x326) = 1;
+        *(s16 *)((s8 *)this + 0xB8) = 1;
+        if ((s16) *(s16 *)((s8 *)this + 0x39C) == 2) {
+            *(s16 *)((s8 *)this + 0x326) = 1;
         } else {
-            *(s16 *)((s8 *)arg0 + 0x326) = 2;
+            *(s16 *)((s8 *)this + 0x326) = 2;
         }
-        *(s16 *)((s8 *)arg0 + 0x328) = 0;
-        obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
+        *(s16 *)((s8 *)this + 0x328) = 0;
+        obj_clearFlags30((void *)(this), (u32)(0x04040000));
     }
 }
 
@@ -1636,7 +1638,8 @@ void TObjGrass::update_ai(void *arg0) {
 #undef o
 #pragma pop
 
-void TObjGrass__vt56(Obj_800BEE2C *self) {
+void TObjGrass::vfunc_58() {
+    Obj_800BEE2C *self = (Obj_800BEE2C *)this;
     switch (self->f326) {
     case 0:
         switch (self->f328) {
@@ -1664,28 +1667,28 @@ void TObjGrass__vt56(Obj_800BEE2C *self) {
     }
 }
 
-s32 TObjGrass__vt37(void *arg0) {
+s32 TObjGrass::vfunc_39() {
     if (update_movement_status__10TObjPlayerFv() != 0) {
-        switch (*(s16 *)((s8 *)arg0 + 0x326)) {
+        switch (*(s16 *)((s8 *)this + 0x326)) {
         case 0:
-            *(s32 *)((s8 *)arg0 + 0x3AC) = 0;
-            *(s16 *)((s8 *)arg0 + 0x328) = 2;
-            *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-            obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
+            *(s32 *)((s8 *)this + 0x3AC) = 0;
+            *(s16 *)((s8 *)this + 0x328) = 2;
+            *(s16 *)((s8 *)this + 0xB8) = 1;
+            obj_clearFlags30((void *)(this), (u32)(0x04040000));
         }
         return 1;
     }
     return 0;
 }
 
-s32 TObjGrass__vt34(void *arg0) {
+s32 TObjGrass::vfunc_36() {
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
-        switch (*(s16 *)((s8 *)arg0 + 0x326)) {
+        switch (*(s16 *)((s8 *)this + 0x326)) {
         case 0:
-            *(s32 *)((s8 *)arg0 + 0x3AC) = 0;
-            *(s16 *)((s8 *)arg0 + 0x328) = 2;
-            *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-            obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
+            *(s32 *)((s8 *)this + 0x3AC) = 0;
+            *(s16 *)((s8 *)this + 0x328) = 2;
+            *(s16 *)((s8 *)this + 0xB8) = 1;
+            obj_clearFlags30((void *)(this), (u32)(0x04040000));
         }
         return 1;
     }

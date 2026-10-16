@@ -333,9 +333,9 @@ extern "C" {
 s32 render_actor_shadows_default(void *);
 void set_flag_800__11TBoss7JointFPv(void* p);
 
-void fn_802E7B10(void *arg0) {
-    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {
-        render_actor_shadows_default(arg0);
+void TBoss7DeRolLeC::render_shadows() {
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 1) {
+        render_actor_shadows_default(this);
     }
 }
 

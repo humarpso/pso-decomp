@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804F0AF8.h"
 #include "pso/player/TUnk_804F0908.h"
 #include "pso/player/TUnk_804F0810.h"
 
@@ -188,7 +189,7 @@ void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F948(void *arg0, s16 arg1);
 void TObjPlayer__sub_8034F8B8(void* p);
-void TObjPlayer__sub_8034F900(void* p);
+void update_attack__13TUnk_804F0AF8Fv(void* p);
 int apply_recoil_forward__10TObjPlayerFPv(void* p);
 void return_gi_gue_bazooka_angles__10TObjPlayerFPv(void* p);
 void pose_gi_gue_bazooka_nodes__10TObjPlayerFPv(void *arg0);
@@ -464,7 +465,7 @@ void TObjPlayer::reset_animation_flags() { draw_weapon_at_joint(this, (void*)49)
 
 void TObjPlayer__sub_8034F8B8(void* p) { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x1f8), (void*)((void*)-8192), (void*)((void*)-30947)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-7281)); }
 
-void TObjPlayer__sub_8034F900(void* p) { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x1f8), (void*)((void*)16384), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x1fc), (void*)((void*)3640), (void*)((void*)0)); }
+void TUnk_804F0AF8::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)16384), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)3640), (void*)((void*)0)); }
 
 extern s32 lbl_804F0AF8[];
 

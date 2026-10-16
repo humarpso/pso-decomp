@@ -170,7 +170,7 @@ extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern const f32 lbl_805DC8C0;
 extern const f32 lbl_805DC8C4;
-void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
+void vfunc_8__11TTecRaBartaFPv(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 calc_technique_parameters(s32, s32, s32);
 extern Params_802377FC tech_high_level_linear_power_table;
@@ -181,7 +181,7 @@ void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 extern "C" {
 
 void vfunc_7__19TTecPlayerInfluenceFPv(void);
-void TTecRaBarta__vt7(void *arg0);
+void vfunc_9__11TTecRaBartaFv(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
@@ -296,9 +296,9 @@ typedef struct Emitter_80237494 Emitter_80237494;
 typedef struct Profile_80237494 Profile_80237494;
 typedef struct Rabarta_80237494 Rabarta_80237494;
 typedef struct Vec_80237494 Vec_80237494;
-void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
+void vfunc_8__11TTecRaBartaFPv(Rabarta_80237494 *self, void *pos);
 
-void TTecRaBarta__vt7(void *arg0);
+void vfunc_9__11TTecRaBartaFv(void *arg0);
 
 void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 

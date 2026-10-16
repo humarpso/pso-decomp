@@ -363,7 +363,7 @@ extern "C" void vfunc_102__9TObjEneDDFv();
 extern "C" void TObjEneEpsilon__vt101();
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void vfunc_83__13TObjEneRe4BitFv();
-extern "C" void vfunc_105__13TObjEneRe4BitFv();
+extern "C" void vfunc_106__13TObjEneRe4BitFv();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
 extern "C" void consume_timer_field__10TObjPlayerFPvi();
@@ -383,7 +383,7 @@ extern "C" void apply_anti_technique__10TObjPlayerFv();
 extern "C" void apply_hit_message_flags__10TObjPlayerFPvPv();
 extern "C" void apply_knockback_from_attacker();
 extern "C" void apply_object_set_data();
-extern "C" void apply_set_data__9TObjEnemyFPvPv();
+extern "C" void vfunc_81__9TObjEnemyFPv();
 extern "C" void apply_switch_attack__10TObjPlayerFi();
 extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
 extern "C" void classify_actor_view_detail();
@@ -481,13 +481,13 @@ void *__vt__13TObjEneRe4Bit[107] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__9TObjEneDDFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
     (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&TObjEneRe4Bit__vt85,
     (void *)&vfunc_88__13TObjEneRe4BitFv, (void *)&vfunc_89__9TObjEneDDFv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
     (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
     (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
-    (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_83__13TObjEneRe4BitFv, (void *)&vfunc_105__13TObjEneRe4BitFv,
+    (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_83__13TObjEneRe4BitFv, (void *)&vfunc_106__13TObjEneRe4BitFv,
 };
 #define re4_bit_init_params ((u8 *)re4_bit_init_params)
 #define re4_bit_model_node_desc ((u8 *)re4_bit_model_node_desc)

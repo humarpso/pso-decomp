@@ -6,6 +6,13 @@
 
 struct TObjEneMe3ShinowaMirage : public TObjEneMe3Shinowa {
     virtual ~TObjEneMe3ShinowaMirage();
+    virtual void vfunc_105();
+    virtual u8 can_hit_same_target();
+    virtual void vfunc_107();
+    virtual void vfunc_108();
+    virtual s32 vfunc_109();
+    virtual void vfunc_110();
+    virtual void vfunc_112();
     void vfunc_63();
     void vfunc_62();
     u8 _pad3EC[0x10];
@@ -19,8 +26,6 @@ struct TObjEneMe3ShinowaMirage : public TObjEneMe3Shinowa {
     void state_cast_support(s32 arg1);
     void state_chase_target(s32 arg1);
     void update_by_distance();
-    void apply_effect_pair();
-    void update_player_state_default();
     void render();
     void clear_mirage();
     void set_flag_0x100();

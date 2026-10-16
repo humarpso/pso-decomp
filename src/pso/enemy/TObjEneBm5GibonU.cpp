@@ -188,7 +188,7 @@ extern char lbl_8043C0AC[];
 extern char lbl_8043C0B8[];
 extern char lbl_8043C0C8[];
 extern char lbl_8043C0D8[];
-void update_state__16TObjEneBm5GibonUFv(u8 *arg0);
+void render_debug__16TObjEneBm5GibonUFv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 get_flag_b4__9TObjEneDDFv(void *);
 s32 enemy_validate_retained_target(void *);
@@ -557,7 +557,7 @@ extern "C" {
 void apply_poison_status__10TObjPlayerFv();
 }
 extern "C" {
-void apply_set_data__9TObjEnemyFPvPv();
+void vfunc_81__9TObjEnemyFPv();
 }
 extern "C" {
 void apply_shock_status__10TObjPlayerFv();
@@ -812,13 +812,13 @@ void *lbl_80493F04[107] = {
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)update_and_send_enemy_hit_state, (void *)fn_80010EC8,
     (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)vfunc_79__9TObjEneDDFv,
-    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state__9TObjEnemyFv, (void *)vfunc_83__12TObjEneDD_STFv,
+    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)vfunc_81__9TObjEnemyFPv, (void *)clear_lobby_object_state__9TObjEnemyFv, (void *)vfunc_83__12TObjEneDD_STFv,
     (void *)TObjEneDD__vt82, (void *)vfunc_85__9TObjEneDDFv, (void *)vfunc_86__9TObjEneDDFv, (void *)TObjEneBm5GibonU__sub_800D0738,
     (void *)vfunc_88__16TObjEneBm5GibonUFv, (void *)vfunc_89__9TObjEneDDFv, (void *)vfunc_90__9TObjEneDDFv, (void *)vfunc_91__9TObjEneDDFv,
     (void *)vfunc_92__9TObjEneDDFv, (void *)vfunc_93__9TObjEneDDFv, (void *)vfunc_94__9TObjEneDDFv, (void *)vfunc_95__9TObjEneDDFv,
     (void *)vfunc_96__9TObjEneDDFv, (void *)vfunc_97__9TObjEneDDFv, (void *)vfunc_98__9TObjEneDDFv, (void *)vfunc_99__9TObjEneDDFv,
     (void *)vfunc_100__9TObjEneDDFv, (void *)vfunc_101__9TObjEneDDFPUc, (void *)vfunc_102__9TObjEneDDFv, (void *)vfunc_103__9TObjEneDDFPUc,
-    (void *)TObjEneEpsilon__vt101, (void *)vfunc_83__16TObjEneBm5GibonUFv, (void *)update_state__16TObjEneBm5GibonUFv,
+    (void *)TObjEneEpsilon__vt101, (void *)vfunc_83__16TObjEneBm5GibonUFv, (void *)render_debug__16TObjEneBm5GibonUFv,
 };
 __declspec(section ".data") u32 TObjEneBm5GibonU__data_80500E78[2];
 __declspec(section ".data") u32 lbl_80500E80[2];
@@ -2454,7 +2454,7 @@ __declspec(section ".sdata2") const f32 TObjEneBm5GibonU__data_805DA18C[1] = { -
 #define TObjEneBm5GibonU__data_805DA184 (TObjEneBm5GibonU__data_805DA184[0])
 #define TObjEneBm5GibonU__data_805DA188 (TObjEneBm5GibonU__data_805DA188[0])
 #define TObjEneBm5GibonU__data_805DA18C (TObjEneBm5GibonU__data_805DA18C[0])
-void TObjEneBm5GibonU::update_state() {
+void TObjEneBm5GibonU::render_debug() {
     u8 *arg0 = (u8 *)this;
     Gibon_800CCE80 *self = (Gibon_800CCE80 *)arg0;
     Vec_800CCE80 v;

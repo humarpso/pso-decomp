@@ -6,6 +6,11 @@
 class TObjEneEpsilonBody : public TObjEneEpsilon {
 public:
     virtual ~TObjEneEpsilonBody();
+    virtual void vfunc_28();
+    virtual void vfunc_63();
+    virtual void vfunc_62();
+    virtual void vfunc_61();
+    virtual void vfunc_88();
     virtual void vfunc_105();
     virtual void vfunc_106();
     virtual f32 vfunc_23(void *, void *, void *, s32, s32);

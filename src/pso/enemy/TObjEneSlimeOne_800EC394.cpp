@@ -88,7 +88,7 @@ extern void *lbl_80496C90[10];
 extern "C" {
 
 void vfunc_83__13TObjEneRe4BitFv(void);
-void vfunc_105__13TObjEneRe4BitFv(void);
+void vfunc_106__13TObjEneRe4BitFv(void);
 void TObjEneSlimeOne__sub_800EC470(void* p);
 s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1);
 void fn_800ECA28(void *arg0, s32 arg1);
@@ -332,7 +332,7 @@ void fn_800ECA28(void *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 4) = -1;
 }
 
-void TObjEneRe4Bit::vfunc_105() {  }
+void TObjEneRe4Bit::vfunc_106() {  }
 s32 TObjEneRe4Bit::vfunc_83() {  }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -185,7 +186,7 @@ void render__12TObjEneReconFPv(u8 *arg0);
 
 extern "C" {
 
-void TObjEneRecon::draw_with_debug_info() {
+void TObjEneRecobox::draw_with_debug_info() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;

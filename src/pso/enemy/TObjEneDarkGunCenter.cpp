@@ -106,7 +106,7 @@ void apply_movement_ailment__10TObjPlayerFv();
 void apply_object_set_data();
 void apply_paralysis__10TObjPlayerFv();
 void apply_poison_status__10TObjPlayerFv();
-void apply_set_data__9TObjEnemyFPvPv();
+void vfunc_81__9TObjEnemyFPv();
 void apply_shock_status__10TObjPlayerFv();
 void apply_switch_attack__10TObjPlayerFi();
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
@@ -231,7 +231,7 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)fn_80010EBC,
     (void *)call_vt78__10TObjPlayerFv,
     (void *)apply_hit_message_flags__10TObjPlayerFPvPv,
-    (void *)apply_set_data__9TObjEnemyFPvPv,
+    (void *)vfunc_81__9TObjEnemyFPv,
     (void *)clear_lobby_object_state__9TObjEnemyFv,
 };
 

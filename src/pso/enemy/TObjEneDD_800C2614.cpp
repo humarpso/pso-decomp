@@ -177,7 +177,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void vfunc_83__16TObjEneRe2FlowerFv(void);
+void vfunc_105__16TObjEneRe2FlowerFv(void);
 void TObjEneDD__sub_800C2618(void* p);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -187,7 +187,7 @@ s32 noop__9TObjEneDDFv(void *, s32);
 s32 objInBand__FP7GameObjf(f32);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 
-s32 TObjEneRe2Flower::vfunc_83() {  }
+void TObjEneRe2Flower::vfunc_105() {  }
 void TObjEneDD__sub_800C2618(void* p) { *(u32*)((char*)p + 0x3c4) |= 0x2; }
 
 extern const f32 lbl_805D9FC0;

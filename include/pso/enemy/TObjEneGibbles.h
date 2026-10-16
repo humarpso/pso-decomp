@@ -6,6 +6,15 @@
 
 struct TObjEneGibbles : public TObjEnemy {
     virtual ~TObjEneGibbles();
+    virtual s32 vfunc_36();
+    virtual s32 vfunc_39();
+    virtual void vfunc_58();
+    virtual void vfunc_59();
+    virtual s32 vfunc_30();
+    virtual void vfunc_60();
+    virtual int test_flag_256();
+    virtual void vfunc_61();
+    virtual void vfunc_63();
     void*vfunc_9();
     u32 resolve_sound_id(u32 sound_id);
     s32 m_374;

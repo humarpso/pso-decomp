@@ -6,6 +6,18 @@
 
 struct TBoss2Joint : public TObjEneDD {
     virtual ~TBoss2Joint();
+    virtual void vfunc_50();
+    virtual void vfunc_49();
+    virtual void vfunc_48(s32);
+    virtual void vfunc_47();
+    virtual void vfunc_46();
+    virtual void vfunc_45();
+    virtual void vfunc_44();
+    virtual void vfunc_28();
+    virtual void vfunc_63();
+    virtual void vfunc_61();
+    virtual void vfunc_88();
+    virtual void vfunc_93();
     virtual void vfunc_105();
     u32 m_390;
     u32 m_394;

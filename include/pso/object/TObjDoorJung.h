@@ -6,6 +6,8 @@
 
 struct TObjDoorJung : public TUnk_804B0BB8 {
     virtual ~TObjDoorJung();
+    virtual void run_task();
+    virtual void render();
     u8 unk_D4[0x4];
 };
 

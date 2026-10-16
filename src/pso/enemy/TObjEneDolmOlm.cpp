@@ -1,6 +1,7 @@
 #pragma defer_codegen on
 
 #include "types.h"
+#include "pso/enemy/TObjEneDolmOlm.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
@@ -535,7 +536,7 @@ extern const f32 lbl_805DEF64;
 void TObjEneDolmOlm__sub_80301148(u8 *arg0);
 s32 obj_testFlags30(void *, u32);
 void obj_clearFlags30(void *, u32);
-void TObjEneDolmOlm__sub_8030158C(u8 *arg0);
+void vfunc_59__14TObjEneDolmOlmFv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
 void obj_clearFlags30(void *, u32);
 s32 obj_setFlags30(void *, s32);
@@ -656,7 +657,7 @@ void vfunc_101__14TObjEneDolmOlmFv(void);
 void request_stand_action__14TObjEneDolmOlmFv(void* p);
 void vfunc_100__14TObjEneDolmOlmFv(void *arg0);
 s32 render_model_if_visible__14TObjEneDolmOlmFPv(u8 *arg0);
-void update_state__14TObjEneDolmOlmFPv(void *arg0);
+void vfunc_58__14TObjEneDolmOlmFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 void *TObjControl__ct(void *, void *);
@@ -732,7 +733,7 @@ extern "C" {
 void vfunc_99__13TUnk_80493450Fv();
 }
 extern "C" {
-void TObjPlayer__sub_800C53B4();
+void vfunc_89__13TUnk_80493450Fv();
 }
 extern "C" {
 void update_turn_toward_target__10TObjPlayerFv();
@@ -776,7 +777,7 @@ extern "C" {
 void apply_poison_status__10TObjPlayerFv();
 }
 extern "C" {
-void apply_set_data__9TObjEnemyFPvPv();
+void vfunc_81__9TObjEnemyFPv();
 }
 extern "C" {
 void apply_shock_status__10TObjPlayerFv();
@@ -785,28 +786,28 @@ extern "C" {
 void apply_switch_attack__10TObjPlayerFi();
 }
 extern "C" {
-void beast_idle_update();
+void vfunc_84__13TUnk_80493450Fv();
 }
 extern "C" {
-void beast_retire_corpse();
+void vfunc_92__13TUnk_80493450Fv();
 }
 extern "C" {
 void beast_select_target();
 }
 extern "C" {
-void beast_update_approach();
+void vfunc_86__13TUnk_80493450Fv();
 }
 extern "C" {
 void beast_update_attack();
 }
 extern "C" {
-void beast_update_dead();
+void vfunc_91__13TUnk_80493450Fv();
 }
 extern "C" {
-void beast_update_group_chase();
+void vfunc_87__13TUnk_80493450Fv();
 }
 extern "C" {
-void beast_update_hurt();
+void vfunc_90__13TUnk_80493450Fv();
 }
 extern "C" {
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
@@ -955,7 +956,7 @@ extern "C" {
 extern "C" {
 }
 extern "C" {
-void tick_freeze_and_reset_appearance();
+void vfunc_39__13TUnk_80493450Fv();
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -964,7 +965,7 @@ extern "C" {
 void try_start_action__10TObjPlayerFPvii();
 }
 extern "C" {
-void update_action_hold__12TObjEneBeastFv();
+void vfunc_36__13TUnk_80493450Fv();
 }
 extern "C" {
 void update_action_timer__10TObjPlayerFPv();
@@ -1048,21 +1049,21 @@ void *lbl_804E6928[103] = {
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
     (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_80493450Fv,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&update_action_hold__12TObjEneBeastFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&tick_freeze_and_reset_appearance,
+    (void *)&vfunc_36__13TUnk_80493450Fv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&vfunc_39__13TUnk_80493450Fv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
-    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&update_state__14TObjEneDolmOlmFPv, (void *)&TObjEneDolmOlm__sub_8030158C,
+    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__14TObjEneDolmOlmFv, (void *)&vfunc_59__14TObjEneDolmOlmFv,
     (void *)&check_target_in_range__14TObjEneDolmOlmFPv, (void *)&clear_flag_0x100__10TObjPlayerFv, (void *)&enter_state7__10TObjPlayerFv, (void *)&enter_state_8__10TObjPlayerFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__14TObjEneDolmOlmFv,
-    (void *)&beast_idle_update, (void *)&update_turn_toward_target__10TObjPlayerFv, (void *)&beast_update_approach, (void *)&beast_update_group_chase,
-    (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&beast_update_hurt, (void *)&beast_update_dead,
-    (void *)&beast_retire_corpse, (void *)&vfunc_93__14TObjEneDolmOlmFv, (void *)&vfunc_94__14TObjEneDolmOlmFv, (void *)&vfunc_95__14TObjEneDolmOlmFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__14TObjEneDolmOlmFv,
+    (void *)&vfunc_84__13TUnk_80493450Fv, (void *)&update_turn_toward_target__10TObjPlayerFv, (void *)&vfunc_86__13TUnk_80493450Fv, (void *)&vfunc_87__13TUnk_80493450Fv,
+    (void *)&beast_update_attack, (void *)&vfunc_89__13TUnk_80493450Fv, (void *)&vfunc_90__13TUnk_80493450Fv, (void *)&vfunc_91__13TUnk_80493450Fv,
+    (void *)&vfunc_92__13TUnk_80493450Fv, (void *)&vfunc_93__14TObjEneDolmOlmFv, (void *)&vfunc_94__14TObjEneDolmOlmFv, (void *)&vfunc_95__14TObjEneDolmOlmFv,
     (void *)&vfunc_96__14TObjEneDolmOlmFv, (void *)&vfunc_97__14TObjEneDolmOlmFv, (void *)&vfunc_98__14TObjEneDolmOlmFv, (void *)&vfunc_99__13TUnk_80493450Fv,
     (void *)&vfunc_100__14TObjEneDolmOlmFv, (void *)&vfunc_101__14TObjEneDolmOlmFv, (void *)&request_stand_action__14TObjEneDolmOlmFv,
 };
@@ -1101,8 +1102,8 @@ void TObjEneDolmOlm__sub_80301148(u8 *arg0);
 void check_path_ahead__14TObjEneDolmOlmFPvif(u8 *arg0, s32 arg1, f32 farg0);
 void request_stand_action__14TObjEneDolmOlmFv(void* p);
 void check_target_in_range__14TObjEneDolmOlmFPv(u8 *arg0);
-void TObjEneDolmOlm__sub_8030158C(u8 *arg0);
-void update_state__14TObjEneDolmOlmFPv(void *arg0);
+void vfunc_59__14TObjEneDolmOlmFv(u8 *arg0);
+void vfunc_58__14TObjEneDolmOlmFv(void *arg0);
 s32 TObjEneDolmOlm__sub_8030177C(void *arg0_);
 s32 TObjEneDolmOlm__sub_80301C3C(void *arg0_);
 void vfunc_100__14TObjEneDolmOlmFv(void *arg0);
@@ -1726,42 +1727,43 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
 }
 #undef arg0
 #pragma pop
-void update_state__14TObjEneDolmOlmFPv(void *arg0) {
+void TObjEneDolmOlm::vfunc_58() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 1:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x390) != 0) {
-            *(s16 *)((s8 *)arg0 + 0x326) = 0;
-            *(s16 *)((s8 *)arg0 + 0x328) = 0;
+        if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
+            *(s16 *)((s8 *)this + 0x326) = 0;
+            *(s16 *)((s8 *)this + 0x328) = 0;
         }
         break;
     case 10:
         break;
     case 0:
-        switch ((s16) *(s16 *)((s8 *)arg0 + 0x328)) {
+        switch ((s16) *(s16 *)((s8 *)this + 0x328)) {
         case 2:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x390) != 0) {
-                *(s16 *)((s8 *)arg0 + 0x328) = 0;
+            if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
+                *(s16 *)((s8 *)this + 0x328) = 0;
             }
             break;
         }
         break;
     default:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x390) != 0) {
-            *(s16 *)((s8 *)arg0 + 0x326) = 0;
+        if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
+            *(s16 *)((s8 *)this + 0x326) = 0;
         } else {
-            *(s16 *)((s8 *)arg0 + 0x326) = 1;
+            *(s16 *)((s8 *)this + 0x326) = 1;
         }
-        *(s16 *)((s8 *)arg0 + 0x328) = 0;
-        ((VObj_80301690_80300CE4 *) arg0)->m100();
-        obj_setFlags30(arg0, 0x04040000);
-        set_indexed_flags(arg0, 0, 0x0A000000);
+        *(s16 *)((s8 *)this + 0x328) = 0;
+        ((VObj_80301690_80300CE4 *) this)->m100();
+        obj_setFlags30(this, 0x04040000);
+        set_indexed_flags(this, 0, 0x0A000000);
         break;
     }
 }
-void TObjEneDolmOlm__sub_8030158C(u8 *arg0) {
+void TObjEneDolmOlm::vfunc_59() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     if (obj_testFlags30(arg0, 0x1000U) != 0) {
         *(s16 *)((s8 *)arg0 + 0x326) = 4;

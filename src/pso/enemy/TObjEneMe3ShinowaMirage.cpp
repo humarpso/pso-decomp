@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3ShinowaMirage.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3Shinowa.h"
 
@@ -514,13 +515,13 @@ void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void TObjEneMe3ShinowaMirage__vt103(void);
-int TObjEneMe3ShinowaMirage__vt104(void);
-int TObjEneMe3ShinowaMirage__vt105(void* p);
-void TObjEneMe3ShinowaMirage__vt106(void);
-s32 TObjEneMe3ShinowaMirage__vt107(s32 arg0);
-void TObjEneMe3ShinowaMirage__vt108(s32 arg0);
-void TObjEneMe3ShinowaMirage__vt110(void);
+void vfunc_105__23TObjEneMe3ShinowaMirageFv(void);
+int can_hit_same_target__23TObjEneMe3ShinowaMirageFv(void);
+int vfunc_107__23TObjEneMe3ShinowaMirageFv(void* p);
+void vfunc_108__23TObjEneMe3ShinowaMirageFv(void);
+s32 vfunc_109__23TObjEneMe3ShinowaMirageFv(s32 arg0);
+void vfunc_110__23TObjEneMe3ShinowaMirageFv(s32 arg0);
+void vfunc_112__23TObjEneMe3ShinowaMirageFv(void);
 void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1);
 s32 enemy_set_target_id(void *, int);
 int transition_enemy_state(void*, int);
@@ -547,9 +548,10 @@ void TObjEneMe3ShinowaMirage::render() {
     }
 }
 
-void TObjEneMe3ShinowaMirage__vt110(void) {  }
+void TObjEneMe3ShinowaMirage::vfunc_112() {  }
 
-void TObjEneMe3ShinowaMirage__vt108(s32 arg0) {
+void TObjEneMe3ShinowaMirage::vfunc_110() {
+    s32 arg0 = (s32)this;
     u8 *temp_r3;
 
     temp_r3 = (unsigned char *) (arg0 + 0x3E8);
@@ -558,7 +560,8 @@ void TObjEneMe3ShinowaMirage__vt108(s32 arg0) {
 
 extern s32 model_render_flags;
 
-s32 TObjEneMe3ShinowaMirage__vt107(s32 arg0) {
+s32 TObjEneMe3ShinowaMirage::vfunc_109() {
+    s32 arg0 = (s32)this;
     model_render_flags |= 0x820;
     set_chunk_material_color(arg0 + 0x430);
     set_chunk_material_override_pair(0xFF00, 0x800);
@@ -610,10 +613,10 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
     }
 }
 
-void TObjEneMe3ShinowaMirage__vt106(void) {  }
-int TObjEneMe3ShinowaMirage__vt105(void* p) { return transition_enemy_state((void*)(p), (int)(4)); }
-int TObjEneMe3ShinowaMirage__vt104(void) { return 0; }
-void TObjEneMe3ShinowaMirage__vt103(void) {  }
+void TObjEneMe3ShinowaMirage::vfunc_108() {  }
+void TObjEneMe3ShinowaMirage::vfunc_107() { transition_enemy_state((void*)(this), (int)(4)); }
+u8 TObjEneMe3ShinowaMirage::can_hit_same_target() { return 0; }
+void TObjEneMe3ShinowaMirage::vfunc_105() {  }
 
 void TObjEneMe3ShinowaMirage::vfunc_62() {
     if (*(s16 *)((s8 *)this + 0x326) != 15) {

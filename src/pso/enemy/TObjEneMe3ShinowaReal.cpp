@@ -107,7 +107,7 @@ struct Obj_800E46D4 : Base_800E46D4 {
 extern "C" {
 s32 sub_800E7250__21TObjEneMe3ShinowaRealFv();
 void transition_enemy_state(void *, s16);
-void can_hit_same_target__21TObjEneMe3ShinowaRealFv(u8 *arg0);
+void vfunc_107__21TObjEneMe3ShinowaRealFv(u8 *arg0);
 s32 create__23TObjEneMe3ShinowaMirageFPvPv(void *, s32, s32, s32);
 s32 find_entity_by_id(s32);
 u16 obj_getField1c();
@@ -122,7 +122,7 @@ Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *ar
 extern "C" {
 
 u16 TObjEneMe3ShinowaReal__sub_800E45CC(void* p);
-void vfunc_110__21TObjEneMe3ShinowaRealFv(void* p);
+void vfunc_111__21TObjEneMe3ShinowaRealFv(void* p);
 void vfunc_62__21TObjEneMe3ShinowaRealFv(void* p);
 void vfunc_63__21TObjEneMe3ShinowaRealFv(void* p);
 void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1);
@@ -134,9 +134,9 @@ void *__nw__7TObjectFUl(int);
 int init_mirage__23TObjEneMe3ShinowaMirageFv(void);
 
 void TObjEneMe3ShinowaReal::spawn_mirages() { { int i; for (i = 0; i < 4; i++) { get_or_create_mirage((s32)((void*)((void*)i))); init_mirage__23TObjEneMe3ShinowaMirageFv(); } } }
-void TObjEneMe3ShinowaReal::vfunc_110() { ((TObjEneMe3ShinowaReal *)this)->try_spawn_mirages(); }
+void TObjEneMe3ShinowaReal::vfunc_111() { ((TObjEneMe3ShinowaReal *)this)->try_spawn_mirages(); }
 
-u8 TObjEneMe3ShinowaReal::can_hit_same_target() {
+void TObjEneMe3ShinowaReal::vfunc_107() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x3D8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3D8) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3D8) >= 2) {

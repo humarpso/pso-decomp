@@ -6,8 +6,8 @@
 
 struct TObjEneMe3StelthReal : public TObjEneMe3Stelth {
     virtual ~TObjEneMe3StelthReal();
-    virtual u8 check_target_in_range();
-    virtual s32 check_flag();
+    virtual void vfunc_107();
+    virtual void vfunc_111();
     void init_common();
     void vfunc_63();
     void vfunc_62();

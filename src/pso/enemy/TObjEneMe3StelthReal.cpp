@@ -111,8 +111,8 @@ extern "C" {
 
 typedef struct EneStelth_800F0CE8 EneStelth_800F0CE8;
 
-void check_target_in_range__20TObjEneMe3StelthRealFv(void *arg0);
-void check_flag__20TObjEneMe3StelthRealFv(void);
+void vfunc_107__20TObjEneMe3StelthRealFv(void *arg0);
+void vfunc_111__20TObjEneMe3StelthRealFv(void);
 int vfunc_62__20TObjEneMe3StelthRealFv(void* p);
 int vfunc_63__20TObjEneMe3StelthRealFv(void* p);
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1);
@@ -124,11 +124,11 @@ void __dt__16TObjEneMe3StelthFv(void *, int);
 void *__nw__7TObjectFUl(int);
 f32 calc_boss4_scale__10TObjPlayerFi();
 
-s32 TObjEneMe3StelthReal::check_flag() {  }
+void TObjEneMe3StelthReal::vfunc_111() {  }
 
 extern const f32 lbl_805DA81C;
 
-u8 TObjEneMe3StelthReal::check_target_in_range() {
+void TObjEneMe3StelthReal::vfunc_107() {
     EneStelth_800F0CE8 *self = (EneStelth_800F0CE8 *)this;
     *(s32 *)((s8 *)this + 0x3EC) = *(s32 *)((s8 *)this + 0x3EC) + 1;
     if ((*(s32 *)((s8 *)this + 0x3EC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DA81C)) {

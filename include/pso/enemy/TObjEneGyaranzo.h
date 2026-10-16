@@ -7,6 +7,8 @@
 
 struct TObjEneGyaranzo : public TObjEnemyCustom {
     virtual ~TObjEneGyaranzo();
+    virtual void vfunc_62();
+    virtual void vfunc_63();
     virtual void vfunc_58();
     virtual s32 vfunc_30();
     virtual void vfunc_59();

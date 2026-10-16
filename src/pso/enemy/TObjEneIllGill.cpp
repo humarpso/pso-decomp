@@ -361,10 +361,10 @@ struct Obj_80367B00 {
 
 extern "C" {
 int obj_clearFlags30(void*, int);
-void TObjEneIllGill__vt57(u8 *arg0);
+void vfunc_59__14TObjEneIllGillFv(u8 *arg0);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 s32 spawn_particle_effect(void *, int);
-void TObjEneIllGill__vt61(u8 *arg0);
+void vfunc_63__14TObjEneIllGillFv(u8 *arg0);
 int obj_clearFlags30(void*, int);
 s32 apply_actor_gravity(void *, int, f32);
 s32 advance_animation_playback(void *);
@@ -397,14 +397,14 @@ extern const f32 TObjEneIllGill__data_805E02BC;
 void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1);
 s32 update_movement_status__10TObjPlayerFv(void *);
 int obj_clearFlags30(void*, int);
-s32 TObjEneIllGill__vt37(u8 *arg0);
+s32 vfunc_39__14TObjEneIllGillFv(u8 *arg0);
 s32 update_action_hold_status__10TObjPlayerFv(void *);
 int obj_clearFlags30(void*, int);
-s32 TObjEneIllGill__vt34(u8 *arg0);
+s32 vfunc_36__14TObjEneIllGillFv(u8 *arg0);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 extern const f32 TObjEneIllGill__data_805E02BC;
-void TObjEneIllGill__vt58(Gill_803671A4 *o);
+void vfunc_60__14TObjEneIllGillFv(Gill_803671A4 *o);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 void submit_cursor_candidate(void *, int);
 void TObjEneIllGill__sub_803669B0(u8 *arg0);
@@ -509,8 +509,8 @@ extern const f32 TObjEneIllGill__data_805E02DC;
 
 extern "C" {
 
-int TObjEneIllGill__vt59(void* p);
-void TObjEneIllGill__vt60(void *arg0);
+int vfunc_61__14TObjEneIllGillFv(void* p);
+void vfunc_62__14TObjEneIllGillFv(void *arg0);
 void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1);
 int TLobby__sub_8001FE7C(void*, void*);
 void *TObjControl__ct(void *, void *);
@@ -1052,7 +1052,8 @@ void TObjEneIllGill::update_death_fall() {
   }
 }
 
-void TObjEneIllGill__vt61(u8 *arg0) {
+void TObjEneIllGill::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r5;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 8) {
         *(s16 *)((s8 *)arg0 + 0x326) = 8;
@@ -1093,26 +1094,26 @@ void TObjEneIllGill__sub_803667B8(u8 *arg0) {
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
-void TObjEneIllGill__vt60(void *arg0) {
+void TObjEneIllGill::vfunc_62() {
     s16 temp_r0;
     void *temp_r3;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0xB8);
+    temp_r0 = *(s16 *)((s8 *)this + 0xB8);
     if ((temp_r0 == 2) || (temp_r0 == 3)) {
-        *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
-        *(s32 *)((s8 *)arg0 + 0x2DC) = 0;
-        temp_r3 = *(void **)((s8 *)arg0 + 0xA4);
+        *(s16 *)((s8 *)this + 0x33E) = (s16) *(s16 *)((s8 *)this + 0x32C);
+        *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFFFFDFF);
+        *(s32 *)((s8 *)this + 0x2DC) = 0;
+        temp_r3 = *(void **)((s8 *)this + 0xA4);
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFBFFFFFF);
         return;
     }
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 7) {
-        *(s16 *)((s8 *)arg0 + 0x326) = 7;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 5;
-        ((TObjEneIllGill *)arg0)->free_resources();
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 7) {
+        *(s16 *)((s8 *)this + 0x326) = 7;
+        *(s16 *)((s8 *)this + 0xB8) = 5;
+        ((TObjEneIllGill *)this)->free_resources();
     }
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFFBFFFF);
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFDFFFFF);
 }
 
 void TObjEneIllGill__sub_803669B0(u8 *arg0) {
@@ -1133,7 +1134,7 @@ void TObjEneIllGill__sub_803669B0(u8 *arg0) {
     minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
 }
 
-int TObjEneIllGill__vt59(void* p) { return obj_clearFlags30((void*)(p), (int)(256)); }
+void TObjEneIllGill::vfunc_61() { obj_clearFlags30((void*)(this), (int)(256)); }
 void TObjEneIllGill::free_resources() {
     if ((u32) this->m_414 != 0U) {
         TBoss4Type2::request_destroy((u32)(*(void * *)&this->m_414));
@@ -1351,7 +1352,8 @@ void TObjEneIllGill__sub_80366AE4(u8 *arg0) {
     minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
 }
 
-void TObjEneIllGill__vt58(Gill_803671A4 *o) {
+void TObjEneIllGill::vfunc_60() {
+    Gill_803671A4 *o = (Gill_803671A4 *)this;
     switch (o->x394) {
     default:
         o->x394 = 0;
@@ -1510,7 +1512,8 @@ void TObjEneIllGill::update_chase_target(void *arg0_) {
 }
 #undef arg0
 
-void TObjEneIllGill__vt57(u8 *arg0) {
+void TObjEneIllGill::vfunc_59() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if ((temp_r0 >= 3) || (temp_r0 < 1)) {
@@ -1667,7 +1670,8 @@ void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1) {
 }
 
 typedef struct RecoveredFields_80367EFC_arg0 RecoveredFields_80367EFC_arg0;
-s32 TObjEneIllGill__vt37(u8 *arg0) {
+s32 TObjEneIllGill::vfunc_39() {
+    u8 *arg0 = (u8 *)this;
   if (update_movement_status__10TObjPlayerFv((void *) arg0) != 0)
   {
     if (((RecoveredFields_80367EFC_arg0 *) arg0)->field_326 != 0)
@@ -1689,7 +1693,8 @@ s32 TObjEneIllGill__vt37(u8 *arg0) {
 }
 
 typedef struct RecoveredFields_80367F6C_arg0 RecoveredFields_80367F6C_arg0;
-s32 TObjEneIllGill__vt34(u8 *arg0) {
+s32 TObjEneIllGill::vfunc_36() {
+    u8 *arg0 = (u8 *)this;
   if (0 != update_action_hold_status__10TObjPlayerFv((void *) arg0))
   {
     if (((RecoveredFields_80367F6C_arg0 *) arg0)->field_326 != 0)

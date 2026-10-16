@@ -445,7 +445,7 @@ void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
 s32 send_6x0A_enemy_state(void *, void *);
 s32 update_and_send_enemy_hit_state(u8 *self, s32 kind);
 void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673C *arg1);
-void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1);
+void vfunc_81__9TObjEnemyFPv(A_800F698C *arg0, B_800F698C *arg1);
 void distribute_experience(TObjPlayer_800F6B68 *self);
 void award_enemy_experience(u8 *arg0, s32 arg1);
 void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
@@ -729,7 +729,9 @@ void TObjPlayer::call_vt78() {
     o->m78();
 }
 
-void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1) {
+void TObjEnemy::vfunc_81(void *arg1_arg) {
+    A_800F698C *arg0 = (A_800F698C *)this;
+    B_800F698C *arg1 = (B_800F698C *)arg1_arg;
     s32 i;
     arg0->f1C = arg1->f6;
     VecCopy__FP3VecPC3Vec(&arg0->v50, &arg1->v10);

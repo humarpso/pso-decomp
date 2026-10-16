@@ -109,8 +109,8 @@ u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void is_target_in_range__22TObjEneMe3SinowZoaRealFv(void *arg0);
-void try_run_effect_m7__22TObjEneMe3SinowZoaRealFv(void);
+void vfunc_107__22TObjEneMe3SinowZoaRealFv(void *arg0);
+void vfunc_111__22TObjEneMe3SinowZoaRealFv(void);
 int vfunc_62__22TObjEneMe3SinowZoaRealFv(void* p);
 int vfunc_63__22TObjEneMe3SinowZoaRealFv(void* p);
 void *__dt__22TObjEneMe3SinowZoaRealFv(void *arg0, s16 arg1);
@@ -122,13 +122,13 @@ void __dt__18TObjEneMe3SinowZoaFv(void *, int);
 void *__nw__7TObjectFUl(int);
 f32 calc_boss4_scale__10TObjPlayerFi();
 
-s32 TObjEneMe3SinowZoaReal::try_run_effect_m7() {  }
+void TObjEneMe3SinowZoaReal::vfunc_111() {  }
 
 extern const f32 lbl_805DF304;
 
 struct Ene_80316898;
 
-u8 TObjEneMe3SinowZoaReal::is_target_in_range() {
+void TObjEneMe3SinowZoaReal::vfunc_107() {
     struct Ene_80316898 *self = (struct Ene_80316898 *) this;
     *(s32 *)((s8 *)this + 0x3FC) = *(s32 *)((s8 *)this + 0x3FC) + 1;
     if ((*(s32 *)((s8 *)this + 0x3FC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DF304)) {

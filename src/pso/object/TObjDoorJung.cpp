@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoorJung.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TODoorAncient01.h"
@@ -138,7 +139,8 @@ void clamp_state__12TObjDoorJungFPv(void *arg0) {
     }
 }
 
-void render__12TObjDoorJungFv(u8 *arg0) {
+void TObjDoorJung::render() {
+    u8 *arg0 = (u8 *)this;
     s32 i;
     s32 j;
 
@@ -202,7 +204,8 @@ void TObjDoorJung__vt12(Jung_8018F808 *arg0) {
     ((TObjPlayer *)arg0)->clear_player_status_flag((s32)(0), (s32)(8));
 }
 
-void run_task__12TObjDoorJungFv(u8 *arg0) {
+void TObjDoorJung::run_task() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) switch_doors_force_closed != 0) {
         *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFFFFFFE);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);

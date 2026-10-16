@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A66D8.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -87,7 +88,7 @@ struct Self_8012FB08 : VObj_8012FB08 {
 };
 
 extern "C" {
-void twin_psychogun_draw(u8 *arg0);
+void reserved_53__13TUnk_804A66D8Fv(u8 *arg0);
 u8 * initialize_effect_object__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -144,7 +145,8 @@ void twin_psychogun_marker(Self_8012FB08 *self) {
     }
 }
 
-void twin_psychogun_draw(u8 *arg0) {
+void TUnk_804A66D8::reserved_53() {
+    u8 *arg0 = (u8 *)this;
     ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1F8, arg0 + 0x204);
 }
 

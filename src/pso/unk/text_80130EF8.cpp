@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A6CC8.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Obj_80131070 { u8 pad[0x208]; s32 state; };
@@ -7,7 +8,7 @@ extern "C" {
 extern const f32 lbl_805DB038;
 void yasminkov_2000h_idle(u8 *arg0);
 extern const f32 lbl_805DB03C;
-void yasminkov_2000h_active(u8 *arg0);
+void update_attack__13TUnk_804A6CC8Fv(u8 *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
@@ -17,7 +18,7 @@ extern const f32 lbl_805DB044;
 extern const f32 lbl_805DB048;
 void yasminkov_2000h_update_recoil(u8 *arg0);
 void spawn_particle_effect(void *buf, s32 n);
-void yasminkov_2000h_marker(Obj_80131070 *self);
+void emit_marker_effects__13TUnk_804A6CC8Fv(Obj_80131070 *self);
 }
 
 extern "C" {
@@ -32,7 +33,8 @@ void yasminkov_2000h_idle(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) lbl_805DB038;
     }
 }
-void yasminkov_2000h_active(u8 *arg0) {
+void TUnk_804A6CC8::update_attack() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1F8);
     if (temp_r0 == 0) {
@@ -82,7 +84,8 @@ void yasminkov_2000h_update_recoil(u8 *arg0) {
 }
 #pragma pop
 
-void yasminkov_2000h_marker(Obj_80131070 *self) {
+void TUnk_804A6CC8::emit_marker_effects() {
+    Obj_80131070 *self = (Obj_80131070 *)this;
     u8 buf[0x18];
     self->state = 2;
     ((TObjPlayer *)self)->draw_status_icon((s32)buf);

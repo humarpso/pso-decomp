@@ -37,8 +37,6 @@ struct TObjEneEpsilonGuard : public TObjEneEpsilon {
     void init_params();
     void update_step();
     void update_position();
-    void request_state8();
-    void set_action_9();
     void dispatch_state(u32 arg1, s32 arg2);
     static s32 create_damage_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     static void free_shared_resources();

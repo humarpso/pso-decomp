@@ -7,7 +7,6 @@
 struct TObjEneRe2Flower : public TObjEneDD_ST {
     virtual ~TObjEneRe2Flower();
     virtual void vfunc_88();
-    virtual s32 vfunc_83();
     virtual void vfunc_105();
     virtual void vfunc_106();
     void sub_800C3DC4();

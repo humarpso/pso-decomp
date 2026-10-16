@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A64E8.h"
 
 extern "C" {
 
@@ -6,7 +7,7 @@ extern "C" {
 void TObjPlayer__sub_8012F6CC(void* a0) { *(int*)((char*)a0 + 0x204) = 0; *(float*)((char*)a0 + 0x200) = lbl_805DAFB8; *(float*)((char*)a0 + 0x1fc) = lbl_805DAFB8; *(float*)((char*)a0 + 0x1f8) = lbl_805DAFB8; }
 
     extern const float lbl_805DAFBC;
-void TObjPlayer__sub_8012F6E8(void* a0) { *(int*)((char*)a0 + 0x204) = 10922; *(float*)((char*)a0 + 0x200) = lbl_805DAFBC; *(float*)((char*)a0 + 0x1fc) = lbl_805DAFBC; *(float*)((char*)a0 + 0x1f8) = lbl_805DAFBC; }
+void TUnk_804A64E8::update_attack() { *(int*)((char*)this + 0x204) = 10922; *(float*)((char*)this + 0x200) = lbl_805DAFBC; *(float*)((char*)this + 0x1fc) = lbl_805DAFBC; *(float*)((char*)this + 0x1f8) = lbl_805DAFBC; }
 
 }
 

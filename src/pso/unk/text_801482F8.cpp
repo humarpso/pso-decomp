@@ -379,13 +379,13 @@ void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
 
 #define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
 
-void TObjNpcFemaleBase::debug_draw_talk() {
+void TObjNpcBase::vfunc_89() {
     if ((sub_8010319C__13TUnk_804AF8A0Fv() != 0) && (((u32 (*)(u16))get_player_by_client_id)(this->m_94) != 0)) {
         debug_printf_at(0x1A0020, lbl_8043F544);
     }
 }
 
-void TObjNpcBase::apply_set_params(s32 arg1, s32 arg2) {
+void TObjNpcBase::vfunc_87(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)&this->variant;
@@ -416,7 +416,7 @@ void TObjNpcBase::apply_set_params(s32 arg1, s32 arg2) {
     *(f32 *)&this->unk_398 = (f32) lbl_805DB1C0;
 }
 
-void TObjNpcBase::update_conversation() {
+void TObjNpcBase::vfunc_86() {
     u8 *arg0 = (u8 *)this;
     Pkt_8014854C pkt1;
     Pkt_8014854C pkt2;
@@ -551,7 +551,7 @@ void TObjNpcBase::update_conversation() {
     ((TObjPlayer *)arg0)->update_collisions();
 }
 
-void TObjNpcBase::update_wandering() {
+void TObjNpcBase::vfunc_85() {
     u8 *arg0 = (u8 *)this;
     switch (this->phase) {
     case 0: {
@@ -610,7 +610,7 @@ void TObjNpcBase::update_wandering() {
     ((TObjPlayer *)arg0)->update_collisions();
 }
 
-void TObjNpcBase::update_standing() {
+void TObjNpcBase::vfunc_84() {
     u8 *arg0 = (u8 *)this;
     switch (this->phase) {
     case 0:

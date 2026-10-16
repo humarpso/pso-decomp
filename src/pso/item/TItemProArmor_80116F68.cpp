@@ -109,7 +109,7 @@ void technique_disk_apply_use(s32 arg0);
 extern "C" {
 
 void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1);
-void apply_telepipe(void *arg0);
+void vfunc_44__13TUnk_8049FD48Fv(void *arg0);
 void *TItemProArmor__sub_80117160(void *arg0, s16 arg1);
 void TItemObject__ct(void *);
 u8 get_tool_pmt_amount_byte__11TItemObjectFv();
@@ -180,8 +180,8 @@ u8 *create_technique_disk_item(u8 *arg0) {
     return NULL;
 }
 
-void apply_telepipe(void *arg0) {
-    launch_technique__10TObjPlayerFv(0xE, 0, *(s32 *)((s8 *)arg0 + 0xF0));
+void TUnk_8049FD48::vfunc_44() {
+    launch_technique__10TObjPlayerFv(0xE, 0, *(s32 *)((s8 *)this + 0xF0));
 }
 
 extern s32 lbl_8049FD48[];

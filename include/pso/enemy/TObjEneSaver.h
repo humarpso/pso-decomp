@@ -6,6 +6,11 @@
 
 struct TObjEneSaver : public TObjEnemy {
     virtual ~TObjEneSaver();
+    virtual void*vfunc_9();
+    virtual void vfunc_58();
+    virtual void vfunc_59();
+    virtual void vfunc_60();
+    virtual void vfunc_62();
     void* m_390;
     u8 _pad394[0x8];
     u32 m_39c;

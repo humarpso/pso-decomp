@@ -1255,15 +1255,15 @@ void send_flow_action_if_idle__11TBoss6Type1FPvc(u8 *arg0, s8 arg1);
 
 extern "C" {
 
-void TBoss6Type1__vt42(void);
-void TBoss6Type1__vt43(void);
-void TBoss6Type1__vt44(void);
-void TBoss6Type1__vt45(void);
-void TBoss6Type1__vt46(void);
-void TBoss6Type1__vt47(void);
-void TBoss6Type1__vt48(void);
+void vfunc_44__11TBoss6Type1Fv(void);
+void vfunc_45__11TBoss6Type1Fv(void);
+void vfunc_46__11TBoss6Type1Fv(void);
+void vfunc_47__11TBoss6Type1Fv(void);
+void vfunc_48__11TBoss6Type1Fl(void);
+void vfunc_49__11TBoss6Type1Fv(void);
+void vfunc_50__11TBoss6Type1Fv(void);
 void TBoss6Type1__vt60(u8 *arg0);
-void TBoss6Type1__vt61(void* p);
+void vfunc_63__11TBoss6Type1Fv(void* p);
 void build_6xA4_olga_flow_boss_actions(void* p);
 s32 play_sound_effect(int, void *, int, int, void *);
 s32 TBoss6Type1__ct(s32, s32, s32);
@@ -2098,7 +2098,7 @@ void TBoss6Type1::render_shadows() {
     }
 }
 
-void TBoss6Type1__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 40) { set_action_state__11TBoss6Type1FPvi((Boss_802B865C *)(p), (s32)((void*)40)); } }
+void TBoss6Type1::vfunc_63() { if (*(int*)((char*)this + 0x374) != 40) { set_action_state__11TBoss6Type1FPvi((Boss_802B865C *)(this), (s32)((void*)40)); } }
 
 extern const f32 TBoss6Type1__data_805DE2E4;
 
@@ -2490,13 +2490,13 @@ s32 TBoss6Type1::create(s32 arg0) {
     return var_r31;
 }
 
-void TBoss6Type1__vt42(void) {  }
-void TBoss6Type1__vt43(void) {  }
-void TBoss6Type1__vt44(void) {  }
-void TBoss6Type1__vt45(void) {  }
-void TBoss6Type1__vt46(void) {  }
-void TBoss6Type1__vt47(void) {  }
-void TBoss6Type1__vt48(void) {  }
+void TBoss6Type1::vfunc_44() {  }
+void TBoss6Type1::vfunc_45() {  }
+void TBoss6Type1::vfunc_46() {  }
+void TBoss6Type1::vfunc_47() {  }
+void TBoss6Type1::vfunc_48(s32) {  }
+void TBoss6Type1::vfunc_49() {  }
+void TBoss6Type1::vfunc_50() {  }
 void*TBoss6Type1::get_mag_mine_ptr() { return (char*)this + 0x388; }
 int TBoss6Type1::is_idle() { return this->m_374 == 0; }
 int TBoss6Type1::read_be16_field2() { return read_be16_field2__10TObjPlayerFv(this); }

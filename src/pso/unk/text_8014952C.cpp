@@ -110,7 +110,7 @@ extern "C" void vfunc_93__11TObjNpcBaseFv();
 extern "C" void vfunc_30__11TObjNpcBaseFv();
 extern "C" void vfunc_92__11TObjNpcBaseFv();
 extern "C" void vfunc_91__11TObjNpcBaseFv();
-extern "C" void debug_draw_talk__17TObjNpcFemaleBaseFv();
+extern "C" void vfunc_89__11TObjNpcBaseFv();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
 extern "C" void consume_timer_field__10TObjPlayerFPvi();
@@ -140,8 +140,8 @@ extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
 extern "C" void apply_paralysis__10TObjPlayerFv();
 extern "C" void apply_poison_status__10TObjPlayerFv();
-extern "C" void apply_set_data__9TObjEnemyFPvPv();
-extern "C" void apply_set_params__11TObjNpcBaseFll();
+extern "C" void vfunc_81__9TObjEnemyFPv();
+extern "C" void vfunc_87__11TObjNpcBaseFll();
 extern "C" void apply_shock_status__10TObjPlayerFv();
 extern "C" void apply_switch_attack__10TObjPlayerFi();
 extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
@@ -182,14 +182,14 @@ extern "C" void update_action_timer__10TObjPlayerFPv();
 extern "C" void update_actor_ground_y();
 extern "C" void update_attack_stat_status();
 extern "C" void vfunc_28__11TObjNpcBaseFv();
-extern "C" void update_conversation__11TObjNpcBaseFv();
+extern "C" void vfunc_86__11TObjNpcBaseFv();
 extern "C" void update_defense_stat_status();
 extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__10TObjPlayerFv();
-extern "C" void update_standing__11TObjNpcBaseFv();
-extern "C" void update_wandering__11TObjNpcBaseFv();
+extern "C" void vfunc_84__11TObjNpcBaseFv();
+extern "C" void vfunc_85__11TObjNpcBaseFv();
 extern s32 TObjNpcBringer__name;
 extern u8 *TObjEneDf2Bringer__resource_bundle;
 u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2);
@@ -230,9 +230,9 @@ void *__vt__14TObjNpcBringer[94] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__11TObjNpcBaseFv,
-    (void *)&update_standing__11TObjNpcBaseFv, (void *)&update_wandering__11TObjNpcBaseFv, (void *)&update_conversation__11TObjNpcBaseFv, (void *)&apply_set_params__11TObjNpcBaseFll,
-    (void *)&TNpcPlayer__sub_80149448, (void *)&debug_draw_talk__17TObjNpcFemaleBaseFv, (void *)&vfunc_90__11TObjNpcBaseFv, (void *)&vfunc_91__11TObjNpcBaseFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__11TObjNpcBaseFv,
+    (void *)&vfunc_84__11TObjNpcBaseFv, (void *)&vfunc_85__11TObjNpcBaseFv, (void *)&vfunc_86__11TObjNpcBaseFv, (void *)&vfunc_87__11TObjNpcBaseFll,
+    (void *)&TNpcPlayer__sub_80149448, (void *)&vfunc_89__11TObjNpcBaseFv, (void *)&vfunc_90__11TObjNpcBaseFv, (void *)&vfunc_91__11TObjNpcBaseFv,
     (void *)&vfunc_92__11TObjNpcBaseFv, (void *)&vfunc_93__11TObjNpcBaseFv,
 };
 u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2) {

@@ -409,7 +409,7 @@ void vfunc_23__16TOTrapAncient02RFPvPvPvll();
 void vfunc_24__16TOTrapAncient02RFPvPv();
 void TOTrapAncient02R__vt84();
 void TOTrapAncient02R__vt86();
-void TOTrap__sub_80178BC0();
+void vfunc_89__6TOTrapFv();
 void vfunc_25__6TOTrapFPUc();
 void TObjPlayer__sub_8000FF3C();
 void TObjPlayer__sub_80010A78();
@@ -457,7 +457,7 @@ void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
 void is_actor_cadence_frame();
 void is_target_in_attack_range__10TObjPlayerFv();
-void play_sounds__6TOTrapFv();
+void vfunc_85__6TOTrapFv();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
@@ -612,11 +612,11 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&TOTrapAncient02R__vt80,
     (s32)&ret_8017B878,
     (s32)&TOTrapAncient02__sub_8017ACA0,
-    (s32)&play_sounds__6TOTrapFv,
+    (s32)&vfunc_85__6TOTrapFv,
     (s32)&TOTrapAncient02R__vt84,
     (s32)&TOTrap::scale_by_table_value,
     (s32)&TOTrapAncient02R__vt86,
-    (s32)&TOTrap__sub_80178BC0
+    (s32)&vfunc_89__6TOTrapFv
 };
 
 void TOTrapAncient02R::calc_trap_count() {

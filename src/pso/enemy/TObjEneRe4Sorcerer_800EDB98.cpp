@@ -6,7 +6,7 @@
 
 extern "C" {
 
-void vfunc_105__18TObjEneRe4SorcererFv(u8 *arg0);
+void vfunc_106__18TObjEneRe4SorcererFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 update_player_state__9TObjEneDDFv(void *, int, int);
 s32 TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
@@ -56,7 +56,7 @@ __declspec(section ".sdata2") extern void *const TObjEneRe4Sorcerer__data_805DA7
 #define TObjEneRe4Sorcerer__data_805DA790 (*(const f32 *)TObjEneRe4Sorcerer__data_805DA790)
 #define TObjEneRe4Sorcerer__data_805DA794 (*(const f32 *)TObjEneRe4Sorcerer__data_805DA794)
 
-void TObjEneRe4Sorcerer::vfunc_105() {
+void TObjEneRe4Sorcerer::vfunc_106() {
     u8 *arg0 = (u8 *)this;
     get_target_info__9TObjEneDDFPv();
     if (((VObj *)arg0)->m8(lbl_805DA788, TObjEneRe4Sorcerer__data_805DA78C) != 0) {
@@ -1553,7 +1553,7 @@ extern "C" {
 void apply_poison_status__10TObjPlayerFv();
 }
 extern "C" {
-void apply_set_data__9TObjEnemyFPvPv();
+void vfunc_81__9TObjEnemyFPv();
 }
 extern "C" {
 void apply_shock_status__10TObjPlayerFv();
@@ -1771,13 +1771,13 @@ void *__vt__18TObjEneRe4Sorcerer[107] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__9TObjEneDDFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
     (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&TObjEneRe4Sorcerer__vt85,
     (void *)&vfunc_88__18TObjEneRe4SorcererFv, (void *)&vfunc_89__9TObjEneDDFv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
     (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
     (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__18TObjEneRe4SorcererFPUc, (void *)&vfunc_102__18TObjEneRe4SorcererFv, (void *)&vfunc_103__9TObjEneDDFPUc,
-    (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_83__18TObjEneRe4SorcererFv, (void *)&vfunc_105__18TObjEneRe4SorcererFv,
+    (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_83__18TObjEneRe4SorcererFv, (void *)&vfunc_106__18TObjEneRe4SorcererFv,
 };
 #define re4_sorcerer_collision_body_part_table ((f32 *)re4_sorcerer_collision_body_part_table)
 #define bm_ene_re4_sorcerer_resource_descriptor ((u8 *)bm_ene_re4_sorcerer_resource_descriptor)

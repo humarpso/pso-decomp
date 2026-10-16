@@ -1544,7 +1544,6 @@ force_active:
   - drill_launcher_marker
   - drill_launcher_node_callback
   - drill_launcher_return_timer
-  - drill_launcher_update
   - dspInitCallback
   - dspResumeCallback
   - dt_item_shoot_model__13TUnk_804A2148Fs
@@ -1930,6 +1929,7 @@ force_active:
   - hide_title_layers_and_release
   - hit_object_in_radius__10TObjPlayerFPvPvPv
   - hit_target_in_range__13TObjEneMorfosFPvPvPv
+  - hook__13TUnk_804A2148Fv
   - hook__15TItemEffBringerFv
   - howling_state__14TObjEneBm5WolfFPvi
   - hurt_state__14TObjEneBm5WolfFl
@@ -8250,6 +8250,7 @@ force_active:
   - update_warp_dialogs__12TObjWarpBossFv
   - update_warp_occupants__12TObjWarpBossFv
   - update_warp_state__12TObjWarpBossFv
+  - update_weapon__13TUnk_804A2164Fv
   - update_web_attack__9TObjGrassFv
   - update_when_camera_active__13TObjWarnChimeFv
   - update_with_default_state__14TObjEneBm5WolfFv
@@ -8267,7 +8268,7 @@ force_active:
   - vfunc_101__14TObjEneDolmOlmFv
   - vfunc_101__18TObjEneRe4SorcererFPUc
   - vfunc_102__18TObjEneRe4SorcererFv
-  - vfunc_105__18TObjEneRe4SorcererFv
+  - vfunc_106__18TObjEneRe4SorcererFv
   - vfunc_11__17TQuestListOfflineFv
   - vfunc_13__13TUnk_804B5C08Fl
   - vfunc_16__12TItemProUnitFv
@@ -8310,7 +8311,10 @@ force_active:
   - vfunc_49__13TObjEneRe4BitFv
   - vfunc_50__13TObjEneRe4BitFv
   - vfunc_51__13TObjEneRe4BitFPv
+  - vfunc_58__14TObjEneDolmOlmFv
   - vfunc_58__15TObjEneMe1GiGueFv
+  - vfunc_58__18TObjEneBalClawClawFv
+  - vfunc_59__14TObjEneDolmOlmFv
   - vfunc_59__15TObjEneMe1GiGueFv
   - vfunc_60__15TObjEneMe1GiGueFv
   - vfunc_61__13TObjEneBm3FlyFv
@@ -8344,6 +8348,7 @@ force_active:
   - vfunc_83__18TObjEneRe4SorcererFv
   - vfunc_84__12TOMineIcon04Fv
   - vfunc_88__13TObjEneRe4BitFv
+  - vfunc_88__17TObjEneBm3FlyNestFv
   - vfunc_88__18TObjEneRe4SorcererFv
   - vfunc_88__19TObjEneEpsilonGuardFv
   - vfunc_89__19TObjEneEpsilonGuardFv

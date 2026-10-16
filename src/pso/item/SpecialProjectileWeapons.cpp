@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2164.h"
 #include "pso/item/TUnk_804A2148.h"
 #include "pso/item/TUnk_804A2018.h"
 
@@ -46,7 +47,7 @@ void drill_launcher_marker(RecoilWeaponView *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 draw_ginja_object(void *);
 void drill_launcher_node_callback(void *arg0);
-void drill_launcher_update(void *arg0);
+void update_weapon__13TUnk_804A2164Fv(void *arg0);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void *item_equip_variant_deleting_dtor_80124AEC(void *arg0, s16 arg1);
@@ -112,7 +113,7 @@ u8 *TObjPlayer__sub_80124708(u8 *arg0);
 s32 is_owner_alive__15TItemShootModelFv();
 s32 rotate_matrix_x(int, int);
 
-void TObjPlayer__sub_8012480C(void);
+void hook__13TUnk_804A2148Fv(void);
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 s32 spawn_slot_emitter__18TItemShootParticleFPvii(s32, s32, s32);
 u32 spawn_shoot_particle__10TObjPlayerFUlllf(s32, s32, s32, f32);
@@ -302,8 +303,8 @@ extern "C" void reserved_53__11TItemWeaponFv();
 extern "C" void TItemWeapon__sub_8011E5D8();
 extern "C" void update_attack__11TItemWeaponFv();
 extern "C" void set_technique_roll__11TItemWeaponFl();
-extern "C" void TItemWeapon__sub_801200C0();
-extern "C" void TItemWeapon__sub_8012012C();
+extern "C" void reserved_12__11TItemWeaponFv();
+extern "C" void reserved_48__11TItemWeaponFv();
 extern "C" void reserved_43__11TItemWeaponFv();
 extern "C" void TItemWeapon__sub_80121064();
 extern "C" void TItemWeapon__write_item_data();
@@ -321,7 +322,7 @@ extern "C" void classify_actor_view_detail();
 extern "C" void deliver_hit__11TItemWeaponFPviPviif();
 extern "C" void reserved_28__11TItemWeaponFv();
 extern "C" void dispatch_state__5TItemFv();
-extern "C" void draw_equipped_weapon__11TItemWeaponFv();
+extern "C" void reserved_25__11TItemWeaponFv();
 extern "C" void draw_weapon_trails__11TItemWeaponFPv();
 extern "C" void equip__14TItemEquipBaseFv();
 extern "C" void get_attack_flags__11TItemWeaponFv();
@@ -345,48 +346,48 @@ extern "C" void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();
 extern "C" void subtract_item_stat_bonus__14TItemEquipBaseFllPs();
 extern "C" void try_pick_up_item__5TItemFPvi();
 extern "C" void unequip__14TItemEquipBaseFv();
-extern "C" void update_active_weapon__11TItemWeaponFv();
+extern "C" void reserved_14__11TItemWeaponFv();
 extern "C" void update_equip__14TItemEquipBaseFv();
 extern "C" void reserved_32__11TItemWeaponFv();
-extern "C" void update_weapon_trails__11TItemWeaponFv();
+extern "C" void reserved_26__11TItemWeaponFv();
 void *megid_projectile_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_8012463C, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
-    (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&TItemWeapon__sub_801200C0, (void *)&TItem__sub_801005E0,
-    (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
+    (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&reserved_12__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
+    (void *)&reserved_14__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
-    (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&draw_equipped_weapon__11TItemWeaponFv,
-    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&reserved_28__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
+    (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&reserved_25__11TItemWeaponFv,
+    (void *)&reserved_26__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&reserved_28__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
     (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&reserved_32__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&reserved_42__11TItemWeaponFv, (void *)&reserved_43__11TItemWeaponFv, (void *)&reserved_44__11TItemWeaponFv, (void *)&reserved_45__11TItemWeaponFv,
-    (void *)&reserved_46__11TItemWeaponFv, (void *)&reserved_47__11TItemWeaponFv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
+    (void *)&reserved_46__11TItemWeaponFv, (void *)&reserved_47__11TItemWeaponFv, (void *)&reserved_48__11TItemWeaponFv, (void *)&launch_shot__11TItemWeaponFPvPviii,
     (void *)&cast_megid__10TObjPlayerFPv, (void *)&update_attack__11TItemWeaponFv, (void *)&TItemWeapon__sub_8011E5D8, (void *)&draw_held_item__10TObjPlayerFPv,
     (void *)&update_blink__10TObjPlayerFPv, (void *)&init_armor__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&TObjPlayer__sub_8012443C, (void *)&deliver_hit__11TItemWeaponFPviPviif, (void *)0x0,
 };
 void *recoil_weapon_shoot_model_vtable[7] = {
     (void *)0x0, (void *)0x0, (void *)&dt_item_shoot_model__13TUnk_804A2148Fs, (void *)&run_task__10TItemShootFv,
-    (void *)&render__13TUnk_804A2148Fv, (void *)&render_shadows__7TObjectFv, (void *)&TObjPlayer__sub_8012480C,
+    (void *)&render__13TUnk_804A2148Fv, (void *)&render_shadows__7TObjectFv, (void *)&hook__13TUnk_804A2148Fv,
 };
 void *recoiling_projectile_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_80124AEC, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
-    (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&TItemWeapon__sub_801200C0, (void *)&TItem__sub_801005E0,
-    (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
+    (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&reserved_12__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
+    (void *)&reserved_14__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
-    (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&draw_equipped_weapon__11TItemWeaponFv,
-    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&reserved_28__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
+    (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&reserved_25__11TItemWeaponFv,
+    (void *)&reserved_26__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&reserved_28__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
     (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&reserved_32__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&reserved_42__11TItemWeaponFv, (void *)&reserved_43__11TItemWeaponFv, (void *)&reserved_44__11TItemWeaponFv, (void *)&reserved_45__11TItemWeaponFv,
-    (void *)&reserved_46__11TItemWeaponFv, (void *)&reserved_47__11TItemWeaponFv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
+    (void *)&reserved_46__11TItemWeaponFv, (void *)&reserved_47__11TItemWeaponFv, (void *)&reserved_48__11TItemWeaponFv, (void *)&launch_shot__11TItemWeaponFPvPviii,
     (void *)&drill_launcher_marker, (void *)&update_attack__11TItemWeaponFv, (void *)&TItemWeapon__sub_8011E5D8, (void *)&reserved_53__11TItemWeaponFv,
-    (void *)&drill_launcher_update, (void *)&TItemWeapon__sub_8011E5CC, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
+    (void *)&update_weapon__13TUnk_804A2164Fv, (void *)&TItemWeapon__sub_8011E5CC, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&drill_launcher_node_callback, (void *)&deliver_hit__11TItemWeaponFPviPviif, (void *)0x0,
 };
 #define megid_projectile_weapon_vtable ((s32 *)megid_projectile_weapon_vtable)
@@ -455,7 +456,7 @@ void TUnk_804A2148::render() {
     }
 }
 
-void TObjPlayer__sub_8012480C(void) {  }
+void TUnk_804A2148::hook() {  }
 
 void *ct_shoot_model__10TObjPlayerFPv(void *arg0) {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(arg0);
@@ -522,36 +523,36 @@ void drill_launcher_node_callback(void *arg0) {
         }
     }
 }
-void drill_launcher_update(void *arg0) {
+void TUnk_804A2164::update_weapon() {
     s32 temp_r0;
     void *temp_r4;
     void *temp_r4_2;
-    *(s32 *)((s8 *)arg0 + 0x1FC) = (s32) (*(s32 *)((s8 *)arg0 + 0x1FC) + 0x1999);
-    temp_r4 = *(void **)((s8 *)arg0 + 0x188);
+    *(s32 *)((s8 *)this + 0x1FC) = (s32) (*(s32 *)((s8 *)this + 0x1FC) + 0x1999);
+    temp_r4 = *(void **)((s8 *)this + 0x188);
     if (temp_r4 != NULL) {
         temp_r4_2 = *(void **)((s8 *)temp_r4 + 0x2C);
         *(s32 *)((s8 *)temp_r4_2 + 0) = (s32) (*(s32 *)((s8 *)temp_r4_2 + 0) & 0xFFFFFFFD);
-        *(s32 *)((s8 *)temp_r4_2 + 0x18) = (s32) *(s32 *)((s8 *)arg0 + 0x1FC);
+        *(s32 *)((s8 *)temp_r4_2 + 0x18) = (s32) *(s32 *)((s8 *)this + 0x1FC);
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x204);
+    temp_r0 = *(s32 *)((s8 *)this + 0x204);
     switch (temp_r0) {
     case 1:
-        *(s32 *)((s8 *)arg0 + 0x200) = (s32) (*(s32 *)((s8 *)arg0 + 0x200) + 0xE38);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x200) >= 0) {
-            *(s32 *)((s8 *)arg0 + 0x200) = 0;
-            *(s32 *)((s8 *)arg0 + 0x204) = 0;
+        *(s32 *)((s8 *)this + 0x200) = (s32) (*(s32 *)((s8 *)this + 0x200) + 0xE38);
+        if ((s32) *(s32 *)((s8 *)this + 0x200) >= 0) {
+            *(s32 *)((s8 *)this + 0x200) = 0;
+            *(s32 *)((s8 *)this + 0x204) = 0;
         }
         return;
     case 2:
-        *(s32 *)((s8 *)arg0 + 0x200) = (s32) (*(s32 *)((s8 *)arg0 + 0x200) - 0xE38);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x200) <= -0x31C7) {
-            *(s32 *)((s8 *)arg0 + 0x200) = -0x31C7;
-            *(s32 *)((s8 *)arg0 + 0x204) = 3;
+        *(s32 *)((s8 *)this + 0x200) = (s32) (*(s32 *)((s8 *)this + 0x200) - 0xE38);
+        if ((s32) *(s32 *)((s8 *)this + 0x200) <= -0x31C7) {
+            *(s32 *)((s8 *)this + 0x200) = -0x31C7;
+            *(s32 *)((s8 *)this + 0x204) = 3;
             return;
         }
         break;
     case 3:
-        *(s32 *)((s8 *)arg0 + 0x204) = 1;
+        *(s32 *)((s8 *)this + 0x204) = 1;
         return;
     }
 }

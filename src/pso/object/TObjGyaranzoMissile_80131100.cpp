@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_804A6DC0.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -58,7 +59,7 @@ extern const f32 lbl_805DB058;
 extern const f32 lbl_805DB05C;
 void yasminkov_7000v_update_recoil(u8 *arg0);
 void spawn_particle_effect(void *buf, s32 n);
-void yasminkov_7000v_marker(Obj_80131334 *self);
+void emit_marker_effects__13TUnk_804A6DC0Fv(Obj_80131334 *self);
 extern u8 lbl_80506250[];
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
 }
@@ -138,7 +139,8 @@ void yasminkov_7000v_update_recoil(u8 *arg0) {
 }
 #pragma pop
 
-void yasminkov_7000v_marker(Obj_80131334 *self) {
+void TUnk_804A6DC0::emit_marker_effects() {
+    Obj_80131334 *self = (Obj_80131334 *)this;
     u8 buf[0x18];
     self->state = 2;
     ((TObjPlayer *)self)->draw_status_icon((s32)buf);

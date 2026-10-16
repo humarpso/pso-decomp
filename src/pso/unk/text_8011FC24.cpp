@@ -51,14 +51,14 @@ void TItemWeapon::update_trails() {
     }
 }
 
-void TItemWeapon::update_weapon_trails() {
+void TItemWeapon::reserved_26() {
     u8 *arg0 = (u8 *)this;
     if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U)) {
         this->reserved_53();
         update_trails();
     }
 }
-void TItemWeapon::draw_equipped_weapon() {
+void TItemWeapon::reserved_25() {
     u8 *arg0 = (u8 *)this;
     if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x1000U) == 0U)) {
         this->reserved_53();
@@ -93,7 +93,7 @@ void draw_weapon_trails__11TItemWeaponFPv(u8 *arg0) {
 }
 
 }
-void TItemWeapon::update_active_weapon() {
+void TItemWeapon::reserved_14() {
     TItemWeapon* self=this;
     s32 stage;
     u32 frames;
@@ -146,14 +146,15 @@ struct Data_801200C0 { u8 pad[0x16]; u8 max; u8 pad17[0x27 - 0x17]; u8 flags; };
 struct Self_801200C0 { u8 pad[0x1a4]; Pair_801200C0 pairs[3]; u8 pad1aa[0x1d1 - 0x1aa]; u8 cur; u8 pad1d2[0x1dc - 0x1d2]; Data_801200C0 *data; };
 
 extern "C" {
-void TItemWeapon__sub_801200C0(Self_801200C0 *self);
+void reserved_12__11TItemWeaponFv(Self_801200C0 *self);
 }
 
 extern "C" {
 
-int TItemWeapon__sub_8012012C(void* p);
+int reserved_48__11TItemWeaponFv(void* p);
 
-void TItemWeapon__sub_801200C0(Self_801200C0 *self) {
+void TItemWeapon::reserved_12() {
+    Self_801200C0 *self = (Self_801200C0 *)this;
     s32 i;
     Pair_801200C0 *p;
     if (self->data->max < self->cur) {
@@ -179,8 +180,8 @@ void TItemWeapon__sub_801200C0(Self_801200C0 *self) {
 
 extern "C" {
 
-int TItemWeapon__sub_8012012C(void* p);
+int reserved_48__11TItemWeaponFv(void* p);
 
-int TItemWeapon__sub_8012012C(void* p) { return ((int (*)(void *, int))set_status_flags__10TObjPlayerFPvUi)(p, 4); }
+void TItemWeapon::reserved_48() { ((int (*)(void *, int))set_status_flags__10TObjPlayerFPvUi)(this, 4); }
 
 }

@@ -878,7 +878,7 @@ s32 check_attack_hits__19TObjEneBm9MericarolFPv(Ene_802CF6AC *o);
 
 extern "C" {
 
-void vfunc_83__19TObjEneBm9MericarolFv(void);
+void vfunc_105__19TObjEneBm9MericarolFv(void);
 void TObjEneBm9Mericarol__sub_802CED40(void* p);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 TObjEneBm9Mericarol__sub_802D093C(void *);
@@ -903,7 +903,7 @@ void TObjEneBm9Mericarol::update_particle_effect() {
     lbl_805D686C += 1;
 }
 
-s32 TObjEneBm9Mericarol::vfunc_83() {  }
+void TObjEneBm9Mericarol::vfunc_105() {  }
 void TObjEneBm9Mericarol__sub_802CED40(void* p) { *(u32*)((char*)p + 0x438) |= 0x2; }
 
 extern const f32 lbl_805DE6F4;

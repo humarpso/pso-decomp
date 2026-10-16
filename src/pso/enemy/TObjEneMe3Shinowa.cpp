@@ -2294,11 +2294,11 @@ s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void * create__12TObjEneSaverFPvPv(void *arg0, void *arg1);
 s32 TBoss3Volopt__sub_800D8D88(void *, f32);
-void update_mirage__23TObjEneMe3ShinowaMirageFPv(void* p);
+void update_mirage__17TObjEneMe3ShinowaFv(void* p);
 void draw_model__23TObjEneMe3ShinowaMirageFPv(u8 *arg0);
-void TObjEneMe3ShinowaMirage__sub_800E4DC4(void);
-void TObjEneMe3ShinowaMirage__sub_800E4DC8(void);
-void TObjEneMe3ShinowaMirage__sub_800E4DCC(void);
+void vfunc_116__17TObjEneMe3ShinowaFv(void);
+void vfunc_115__17TObjEneMe3ShinowaFv(void);
+void vfunc_114__17TObjEneMe3ShinowaFv(void);
 void TObjEneMe3ShinowaMirage__sub_800E4FE8(u8 *arg0, s32 arg1);
 void TObjEneMe3ShinowaMirage__sub_800E50D8(u8 *arg0, s32 arg1);
 void TObjEneMe3ShinowaMirage__sub_800E5220(void *arg0, s32 arg1);
@@ -2307,24 +2307,24 @@ void TObjEneMe3ShinowaMirage__sub_800E66FC(u8 *, s32);
 s32 enemy_has_live_target__12TObjEneDD_STFv(void *);
 void TObjEneMe3ShinowaMirage__sub_800E69F0(u8 *arg0, s32 arg1);
 void sub_800E6BB8__17TObjEneMe3ShinowaFl(u8 *arg0, s32 arg1);
-void action__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1);
+void action__17TObjEneMe3ShinowaFl(u8 *arg0, s32 arg1);
 void dispatch_action__23TObjEneMe3ShinowaMirageFPvUii(Obj_800E6DD8 *arg0, u32 arg1, s32 arg2);
 void TObjEneMe3ShinowaMirage__sub_800E6F0C(Obj_800E6F0C *self);
 void sub_800E6F64__17TObjEneMe3ShinowaFv(u8 *arg0);
 s32 sub_800E6FE0__17TObjEneMe3ShinowaFv(u8 *arg0);
 int select_and_apply_target__23TObjEneMe3ShinowaMirageFPv(void* p);
 s32 sub_800E701C__17TObjEneMe3ShinowaFv(u8 *arg0);
-void update_collision__23TObjEneMe3ShinowaMirageFPv(void *arg0);
-void TObjEneMe3Shinowa__sub_800E71A8(void);
+void vfunc_89__17TObjEneMe3ShinowaFv(void *arg0);
+void vfunc_111__17TObjEneMe3ShinowaFv(void);
 void sub_800E7250__21TObjEneMe3ShinowaRealFv(u8 *arg0);
 void TObjEneMe3Shinowa__sub_800E7268(u8 *arg0);
-void TObjEneMe3Shinowa__vt105(void);
+void vfunc_107__17TObjEneMe3ShinowaFv(void);
 u8 can_hit_same_target__23TObjEneMe3ShinowaMirageFPv(E_800E728C *arg0);
-void TObjEneMe3ShinowaMirage__sub_800E7378(u8 *arg0);
+void vfunc_105__17TObjEneMe3ShinowaFv(u8 *arg0);
 s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 u8 check_body_collision_at__17TObjEneMe3ShinowaFlf(Obj_800E750C *arg0, s32 arg1, f32 farg0);
 void fn_800E762C(void);
-void TObjEneMe3Shinowa__sub_800E7630(u8 *arg0);
+void vfunc_88__17TObjEneMe3ShinowaFv(u8 *arg0);
 void vfunc_61__17TObjEneMe3ShinowaFv(void);
 void vfunc_62__17TObjEneMe3ShinowaFv(u8 *arg0);
 void vfunc_63__17TObjEneMe3ShinowaFv(void* p);
@@ -2458,25 +2458,25 @@ extern "C" {
 void TObjEneMe3ShinowaMirage__sub_800E47DC();
 }
 extern "C" {
-void TObjEneMe3ShinowaMirage__vt103();
+void vfunc_105__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void TObjEneMe3ShinowaMirage__vt104();
+void can_hit_same_target__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void TObjEneMe3ShinowaMirage__vt105();
+void vfunc_107__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void TObjEneMe3ShinowaMirage__vt106();
+void vfunc_108__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void TObjEneMe3ShinowaMirage__vt107();
+void vfunc_109__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void TObjEneMe3ShinowaMirage__vt108();
+void vfunc_110__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void TObjEneMe3ShinowaMirage__vt110();
+void vfunc_112__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
 void TObjEneMe3ShinowaMirage__vt113();
@@ -2571,7 +2571,7 @@ extern "C" {
 void apply_poison_status__10TObjPlayerFv();
 }
 extern "C" {
-void apply_set_data__9TObjEnemyFPvPv();
+void vfunc_81__9TObjEnemyFPv();
 }
 extern "C" {
 void apply_shock_status__10TObjPlayerFv();
@@ -2799,16 +2799,16 @@ void *__vt__23TObjEneMe3ShinowaMirage[119] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__9TObjEneDDFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
     (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&dispatch_action__23TObjEneMe3ShinowaMirageFPvUii,
-    (void *)&TObjEneMe3Shinowa__sub_800E7630, (void *)&update_collision__23TObjEneMe3ShinowaMirageFPv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
+    (void *)&vfunc_88__17TObjEneMe3ShinowaFv, (void *)&vfunc_89__17TObjEneMe3ShinowaFv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
     (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
     (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
-    (void *)&select_and_apply_target__23TObjEneMe3ShinowaMirageFPv, (void *)&TObjEneMe3ShinowaMirage__vt103, (void *)&TObjEneMe3ShinowaMirage__vt104, (void *)&TObjEneMe3ShinowaMirage__vt105,
-    (void *)&TObjEneMe3ShinowaMirage__vt106, (void *)&TObjEneMe3ShinowaMirage__vt107, (void *)&TObjEneMe3ShinowaMirage__vt108, (void *)&TObjEneMe3Shinowa__sub_800E71A8,
-    (void *)&TObjEneMe3ShinowaMirage__vt110, (void *)&action__23TObjEneMe3ShinowaMirageFPvi, (void *)&TObjEneMe3ShinowaMirage__sub_800E4DCC, (void *)&TObjEneMe3ShinowaMirage__vt113,
-    (void *)&TObjEneMe3ShinowaMirage__sub_800E4DC4, (void *)&update_mirage__23TObjEneMe3ShinowaMirageFPv, (void *)&TObjEneMe3ShinowaMirage__sub_800E47DC,
+    (void *)&select_and_apply_target__23TObjEneMe3ShinowaMirageFPv, (void *)&vfunc_105__23TObjEneMe3ShinowaMirageFv, (void *)&can_hit_same_target__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_107__23TObjEneMe3ShinowaMirageFv,
+    (void *)&vfunc_108__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_109__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_110__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_111__17TObjEneMe3ShinowaFv,
+    (void *)&vfunc_112__23TObjEneMe3ShinowaMirageFv, (void *)&action__17TObjEneMe3ShinowaFl, (void *)&vfunc_114__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__vt113,
+    (void *)&vfunc_116__17TObjEneMe3ShinowaFv, (void *)&update_mirage__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__sub_800E47DC,
 };
 #define shinowa_mirage_model_init_data ((u8 *)shinowa_mirage_model_init_data)
 
@@ -2824,7 +2824,7 @@ extern "C" {
 extern Info_800E6F0C *TObjEneMe3ShinowaMirage__mirage_info_table[];
 }
 
-void update_mirage__23TObjEneMe3ShinowaMirageFPv(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { ((int (*)(void*))fn_800E762C)(p); sub_800E6F64__17TObjEneMe3ShinowaFv((u8 *)(p)); } }
+void TObjEneMe3Shinowa::update_mirage() { if (get_target_info__9TObjEneDDFPv(this) != 0) { ((int (*)(void*))fn_800E762C)(this); sub_800E6F64__17TObjEneMe3ShinowaFv((u8 *)(this)); } }
 
 void draw_model__23TObjEneMe3ShinowaMirageFPv(u8 *arg0) {
     s32 var_r31;
@@ -2892,11 +2892,11 @@ void TObjEneMe3ShinowaMirage::advance_camera_ctrl_step() {
     TObjEneMe3ShinowaMirage__render_node_index += 1;
 }
 
-void TObjEneMe3ShinowaMirage__sub_800E4DC4(void) {  }
+void TObjEneMe3Shinowa::vfunc_116() {  }
 
-void TObjEneMe3ShinowaMirage__sub_800E4DC8(void) {  }
+void TObjEneMe3Shinowa::vfunc_115() {  }
 
-void TObjEneMe3ShinowaMirage__sub_800E4DCC(void) {  }
+void TObjEneMe3Shinowa::vfunc_114() {  }
 
 #pragma push
 #pragma fp_contract on
@@ -3803,7 +3803,8 @@ void TObjEneMe3Shinowa::sub_800E6BB8(s32 arg1) {
     }
 }
 
-void action__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
+void TObjEneMe3Shinowa::action(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
@@ -3928,11 +3929,11 @@ s32 TObjEneMe3Shinowa::sub_800E701C() {
     return *(f32 *)((s8 *)arg0 + 0x354) < TObjEneMe3ShinowaMirage__data_805DA5DC;
 }
 
-void update_collision__23TObjEneMe3ShinowaMirageFPv(void *arg0) {
-    struct VObj_800E7034_800E47DC *o = (struct VObj_800E7034_800E47DC *)arg0;
+void TObjEneMe3Shinowa::vfunc_89() {
+    struct VObj_800E7034_800E47DC *o = (struct VObj_800E7034_800E47DC *)this;
     o->m86();
-    ((TObjPlayer *)arg0)->check_object_collisions();
-    check_enemy_body_collisions(arg0);
+    ((TObjPlayer *)this)->check_object_collisions();
+    check_enemy_body_collisions(this);
 }
 
 void TObjEneMe3ShinowaMirage::update_by_distance() {
@@ -3945,7 +3946,7 @@ void TObjEneMe3ShinowaMirage::update_by_distance() {
     o->m96();
 }
 
-void TObjEneMe3ShinowaMirage::apply_effect_pair() {
+void TObjEneMe3Shinowa::vfunc_112() {
     u8 *arg0 = (u8 *)this;
     s32 sp8[8];
     u32 temp_r3;
@@ -3975,7 +3976,7 @@ void TObjEneMe3ShinowaMirage::apply_effect_pair() {
 #undef PAD_VIRT
 #undef PADV
 #undef PADV4
-void TObjEneMe3Shinowa__sub_800E71A8(void) {  }
+void TObjEneMe3Shinowa::vfunc_111() {  }
 
 void TObjEneMe3Shinowa::dispatch_if_active() {
     u8 *arg0 = (u8 *)this;
@@ -3987,7 +3988,7 @@ void TObjEneMe3Shinowa::dispatch_if_active() {
     }
 }
 
-s32 TObjEneMe3Shinowa::update_effect() {
+s32 TObjEneMe3Shinowa::vfunc_109() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
@@ -4009,7 +4010,7 @@ void TObjEneMe3Shinowa__sub_800E7268(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0x2CC) = (s16) ((s16) *(s16 *)((s8 *)arg0 + 0x3DC) / 2);
 }
 
-void TObjEneMe3Shinowa__vt105(void) {  }
+void TObjEneMe3Shinowa::vfunc_107() {  }
 
 #pragma push
 #pragma fp_contract on
@@ -4034,7 +4035,7 @@ extern int fold_flush_2;
 
 #pragma push
 #pragma fp_contract on
-void TObjEneMe3ShinowaMirage::update_player_state_default() {
+void TObjEneMe3Shinowa::vfunc_108() {
     u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_800E7324, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800E7324, spC) == 0x4) ? 1 : -1];
@@ -4053,7 +4054,8 @@ extern int fold_flush_3;
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-void TObjEneMe3ShinowaMirage__sub_800E7378(u8 *arg0) {
+void TObjEneMe3Shinowa::vfunc_105() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;
@@ -4142,7 +4144,8 @@ extern int fold_flush_7;
 
 void fn_800E762C(void) {  }
 
-void TObjEneMe3Shinowa__sub_800E7630(u8 *arg0) {
+void TObjEneMe3Shinowa::vfunc_88() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) (*(f32 *)((s8 *)arg0 + 0x3CC) + (*(f32 *)((s8 *)arg0 + 0x300) - *(f32 *)((s8 *)arg0 + 0x3C)));
 }
 

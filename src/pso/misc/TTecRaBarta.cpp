@@ -177,7 +177,7 @@ void *create_particle_emitter(void *, int);
 void **mem_alloc(int);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
-void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
+void vfunc_8__11TTecRaBartaFPv(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 calc_technique_parameters(s32, s32, s32);
 extern Params_802377FC tech_high_level_linear_power_table;
@@ -189,7 +189,7 @@ void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 extern "C" {
 
 void vfunc_7__19TTecPlayerInfluenceFPv(void);
-void TTecRaBarta__vt7(void *arg0);
+void vfunc_9__11TTecRaBartaFv(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
@@ -230,7 +230,8 @@ typedef struct Emitter_80237494 Emitter_80237494;
 typedef struct Profile_80237494 Profile_80237494;
 typedef struct Rabarta_80237494 Rabarta_80237494;
 typedef struct Vec_80237494 Vec_80237494;
-void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
+void TTecRaBarta::vfunc_8(void *pos) {
+    Rabarta_80237494 *self = (Rabarta_80237494 *)this;
   u32 i;
   Vec_80237494 point;
   Emitter_80237494 *binding;
@@ -284,40 +285,40 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
 
 extern const f32 lbl_805DC8C4 = 5.0f;
 
-void TTecRaBarta__vt7(void *arg0) {
+void TTecRaBarta::vfunc_9() {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x7A);
+    temp_r0 = *(s16 *)((s8 *)this + 0x7A);
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0xEC);
+        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFl(temp_r3, 0x100, 0);
         }
         return;
     case 1:
-        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
+        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
         return;
     case 2:
     case 3:
-        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0xEC);
+        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFl(temp_r3, -0x180, 0);
         }
         break;
     case 4:
-        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0xEC);
+        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFl(temp_r3, -0x250, 0);
         }
         break;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0xEC);
+        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFl(temp_r3, -0x100, 0);
         }

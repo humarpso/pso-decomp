@@ -326,7 +326,7 @@ s32 vfunc_93__9TObjEneDDFv(void *);
 extern const f32 lbl_805D8258;
 extern const f32 lbl_805D847C;
 extern const f32 lbl_805D8480;
-void TBoss2Joint__vt86(u8 *arg0);
+void vfunc_88__11TBoss2JointFv(u8 *arg0);
 void TBoss2Joint__sub_8003688C(u8 *arg0);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_common_from__9TObjEneDDFPvPv(void *, void *);
@@ -358,18 +358,18 @@ extern const f32 lbl_805D8490;
 
 extern "C" {
 
-void TBoss2Joint__vt26(void);
-void TBoss2Joint__vt42(void);
-void TBoss2Joint__vt43(void);
-void TBoss2Joint__vt44(void);
-void TBoss2Joint__vt45(void);
-void TBoss2Joint__vt46(void);
-void TBoss2Joint__vt47(void);
-void TBoss2Joint__vt48(void);
-void TBoss2Joint__vt59(void);
+void vfunc_28__11TBoss2JointFv(void);
+void vfunc_44__11TBoss2JointFv(void);
+void vfunc_45__11TBoss2JointFv(void);
+void vfunc_46__11TBoss2JointFv(void);
+void vfunc_47__11TBoss2JointFv(void);
+void vfunc_48__11TBoss2JointFl(void);
+void vfunc_49__11TBoss2JointFv(void);
+void vfunc_50__11TBoss2JointFv(void);
+void vfunc_61__11TBoss2JointFv(void);
 void TBoss2Joint__vt60(u8 *arg0);
-void TBoss2Joint__vt61(void* p);
-void TBoss2Joint__vt91(void *arg0);
+void vfunc_63__11TBoss2JointFv(void* p);
+void vfunc_93__11TBoss2JointFv(void *arg0);
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
 s32 spawn_offset_particle__13TBoss2DeRolLeFiff(void *, f32, f32);
 s32 apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(s32, s32, u16);
@@ -460,15 +460,16 @@ void TBoss2Joint__vt102(Obj_80036ACC *self) {
     }
 }
 
-void TBoss2Joint__vt91(void *arg0) {
-    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 6) {
-        vfunc_93__9TObjEneDDFv((void *)(arg0));
+void TBoss2Joint::vfunc_93() {
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 6) {
+        vfunc_93__9TObjEneDDFv((void *)(this));
         return;
     }
-    vfunc_94__9TObjEneDDFv((void *)(arg0));
+    vfunc_94__9TObjEneDDFv((void *)(this));
 }
 
-void TBoss2Joint__vt86(u8 *arg0) {
+void TBoss2Joint::vfunc_88() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     if (*(f32 *)((s8 *)arg0 + 0x3C) < (lbl_805D8258 - lbl_805D847C)) {
         vfunc_94__9TObjEneDDFv((void *)(arg0));
@@ -490,7 +491,7 @@ void TBoss2Joint::update_position_history() {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
-void TBoss2Joint__vt59(void) {  }
+void TBoss2Joint::vfunc_61() {  }
 
 extern const f32 lbl_805D8484;
 extern const f32 lbl_805D8488;
@@ -515,8 +516,8 @@ void TBoss2Joint__vt60(u8 *arg0) {
     clear_attack_receipts(arg0);
 }
 
-void TBoss2Joint__vt61(void* p) { *(u32*)((char*)p + 0x30) &= 0xfffff7ff; }
-void TBoss2Joint__vt26(void) {  }
+void TBoss2Joint::vfunc_63() { *(u32*)((char*)this + 0x30) &= 0xfffff7ff; }
+void TBoss2Joint::vfunc_28() {  }
 
 extern s32 __vt__11TBoss2Joint[];
 
@@ -598,13 +599,13 @@ u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, 
     return arg0;
 }
 
-void TBoss2Joint__vt42(void) {  }
-void TBoss2Joint__vt43(void) {  }
-void TBoss2Joint__vt44(void) {  }
-void TBoss2Joint__vt45(void) {  }
-void TBoss2Joint__vt46(void) {  }
-void TBoss2Joint__vt47(void) {  }
-void TBoss2Joint__vt48(void) {  }
+void TBoss2Joint::vfunc_44() {  }
+void TBoss2Joint::vfunc_45() {  }
+void TBoss2Joint::vfunc_46() {  }
+void TBoss2Joint::vfunc_47() {  }
+void TBoss2Joint::vfunc_48(s32) {  }
+void TBoss2Joint::vfunc_49() {  }
+void TBoss2Joint::vfunc_50() {  }
 
 void TUnk_80482C58::run_task() {
     Laser_80037074 *self = (Laser_80037074 *)this;

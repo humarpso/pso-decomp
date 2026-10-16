@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A6BD0.h"
 #include "pso/player/TObjPlayer.h"
 typedef struct Obj_80130CD8 { u8 pad[0x200]; f32 f200; s32 f204; } Obj_80130CD8;
 
@@ -19,7 +20,7 @@ extern "C" {
 extern const f32 lbl_805DB024;
 extern const f32 lbl_805DB028;
 extern const f32 lbl_805DB02C;
-void yasminkov_3000r_update_recoil(Obj_80130CD8 *arg0);
+void update_weapon__13TUnk_804A6BD0Fv(Obj_80130CD8 *arg0);
 s32 spawn_particle_effect(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -48,7 +49,8 @@ void yasminkov_3000r_marker(struct Pl_80130C2C *arg0) {
     spawn_particle_effect(&sp8, 9);
 }
 
-void yasminkov_3000r_update_recoil(Obj_80130CD8 *arg0) {
+void TUnk_804A6BD0::update_weapon() {
+    Obj_80130CD8 *arg0 = (Obj_80130CD8 *)this;
     f32 temp_f1;
     f32 temp_f2;
     switch (arg0->f204) {

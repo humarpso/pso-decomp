@@ -8,7 +8,6 @@ struct TObjEneRe4Bit : public TObjEneDD_ST {
     virtual ~TObjEneRe4Bit();
     virtual void vfunc_88();
     virtual s32 vfunc_83();
-    virtual void vfunc_105();
     virtual void vfunc_106();
     void sub_800ED408();
     void call_vt_90_91();

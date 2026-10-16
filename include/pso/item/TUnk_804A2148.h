@@ -6,6 +6,7 @@
 class TUnk_804A2148 : public TItemShootModel {
 public:
     virtual ~TUnk_804A2148();
+    virtual void hook();
     void *dt_item_shoot_model(s16);
     virtual void render();
 };
