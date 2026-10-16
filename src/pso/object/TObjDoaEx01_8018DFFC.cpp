@@ -104,7 +104,7 @@ u8 *TObjDoaEx01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018E064___vt__11TObjDoaEx01 *)&__vt__11TObjDoaEx01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDoaEx01__name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    ((VObj_18_4a4f5b *)(arg0))->m17();
+    ((TObjDoaEx01 *)(arg0))->init_door_switch_binding();
     init_collision_body_parts((void *) (arg0), (void *) (&TObjDoaEx01__collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();

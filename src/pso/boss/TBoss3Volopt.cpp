@@ -1553,7 +1553,7 @@ u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1) {
     TBoss4DarkFalz::dispatch_by_main_phase((int) (0x29U));
     (*(s32 *)&lbl_805D4C20) = 0;
     (*(s32 *)&volopt_active_player_id) = -1;
-    ((VObj_18_c99286 *)(arg0))->m80();
+    ((TBoss3Volopt *)(arg0))->clear_lobby_object_state();
     return arg0;
 }
 

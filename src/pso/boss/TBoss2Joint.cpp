@@ -524,7 +524,7 @@ void TBoss2Joint::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
         VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
-        ((VObj_18 *)(arg0))->m81();
+        this->vfunc_83();
         if (((VObj_18 *)(arg0))->m84() == 0) {
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 3);
         }

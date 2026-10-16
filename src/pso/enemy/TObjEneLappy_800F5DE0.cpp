@@ -1,17 +1,10 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/player/TObjPlayer.h"
-
-struct VBase_18_2f517b { char pad[0x18]; };
-
-struct VObj_18_2f517b : VBase_18_2f517b {
-    virtual void m0();
-    virtual void m1();
-    virtual s32 m2();
-};
 
 extern "C" {
 s32 obj_testFlags30(void *, s32);
@@ -34,7 +27,7 @@ void render_actor_shadows_default(u8 *arg0) {
         model_render_flags |= 0xC10;
         set_chunk_material_override_pair(-1, 0x800);
         set_shadow_material_state();
-        ((VObj_18_2f517b *)(arg0))->m2();
+        ((TObjEnemy *)(arg0))->render();
         ((TUnk_804AF8A0 *)arg0)->clear_shadow_flag();
         model_render_flags &= ~0xC10;
     }

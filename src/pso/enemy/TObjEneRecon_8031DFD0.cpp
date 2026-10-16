@@ -468,7 +468,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x2DC) = (s32) (*(s32 *)((s8 *)arg0 + 0x2DC) | 4);
         ((TObjPlayer *)arg0)->set_hp_clamped((int) (0));
         obj_setFlags30(arg0, 0xA00U);
-        ((VObj_18_825e13 *)(arg0))->m72(0);
+        ((TObjEneRecon *)(arg0))->vfunc_74(0);
     }
     if (((VObj_18_825e13 *)(arg0))->m81() != 4) {
         ((VObj_18_825e13 *)(arg0))->m83();

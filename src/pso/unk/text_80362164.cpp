@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TObjEneEpsilonBody.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneEpsilonGuard.h"
 #include "pso/player/TObjPlayer.h"
@@ -125,7 +126,7 @@ void fn_80362164(u8 *arg0) {
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((TObjEneEpsilonGuard *)arg0)->update_guard_flag();
-        ((VObj_18 *)(arg0))->m83();
+        ((TObjEneEpsilonBody *)(arg0))->vfunc_106();
     } else if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 1) {
         transition_enemy_state((void *) (arg0), (int) (0));
     }

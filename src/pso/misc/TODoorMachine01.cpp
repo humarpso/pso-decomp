@@ -419,7 +419,7 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorMachine01__collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((VObj_18_4a4f5b *)(arg0))->m17();
+    ((TODoorMachine01 *)(arg0))->init_door_switch_binding();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x88);
     if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0x88) = 0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include <stddef.h>
@@ -629,29 +630,6 @@ struct VObj_800D3314 : VBase_800D3314 {
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/object/TObjFish.h"
-struct VBase_18_cc39a7 { char pad[0x18]; };
-
-struct VObj_18_cc39a7 : VBase_18_cc39a7 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17(s32);
-};
-
 struct Stack_800D2CE4 {
     s32 sp8;
     s32 spC;
@@ -1398,7 +1376,7 @@ void update_aim_and_fire__10TObjPlayerFPv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
         var_r30 = 0;
-        if (((VObj_18_cc39a7 *)(arg0))->m17(0x1E) != 0) {
+        if (((TObjEnemy *)(arg0))->vfunc_19(0x1E) != 0) {
             ((TObjPlayer *)arg0)->find_target_in_range((f32) (lbl_805DA274));
         }
         temp_r6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x2A8));

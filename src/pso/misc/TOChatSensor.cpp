@@ -3,13 +3,6 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
 
-struct VB_8015B06C { u8 pad[0x18]; };
-
-struct VO_8015B06C : VB_8015B06C {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual void m5(void *);
-};
-
 extern "C" {
 s32 TOChatSensorFolder__ct(int, int);
 u32 __nw__7TObjectFUl(int);
@@ -50,7 +43,7 @@ u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2) {
     construct_world_actor_base((void *) arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOChatSensor;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2ED8;
-    ((VO_8015B06C *) arg0)->m5(arg2);
+    ((TOChatSensor *)arg0)->vfunc_7(arg2);
     *(s32 *)((s8 *)arg0 + 0xC4) = 0;
     *(s32 *)((s8 *)arg0 + 0xA0) = 0;
     ((TOChatSensor *)arg0)->init_params();

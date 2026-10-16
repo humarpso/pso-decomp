@@ -110,16 +110,6 @@ void TUnk_804CC148::sub_8022C008() {
 #define count_if_within_range__13TUnk_804CC148Fv ((s32 (*)(void *))count_if_within_range__13TUnk_804CC148Fv)
 #define lbl_804CC148 ((s32 *)lbl_804CC148)
 
-struct Base_8022C03C_8022BEAC { char pad[0x18]; };
-struct VObj_8022C03C_8022BEAC : Base_8022C03C_8022BEAC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-};
-
 extern "C" {
 
 void *destroy_technique_base__9TTecLukerFPvs(void *arg0, s16 arg1);
@@ -138,7 +128,7 @@ void TUnk_804CC148::run_task() {
         count_if_within_range__13TUnk_804CC148Fv(this);
         return;
     case 1:
-        ((VObj_8022C03C_8022BEAC *)this)->m5();
+        this->tick_lifetime();
         return;
     }
 }

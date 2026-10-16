@@ -281,25 +281,6 @@ void TObjPlayer::create_and_init_effect(s32 arg0, u32 *arg1, s32 arg2) {
 
 struct O_8032DFF8 { u8 pad[0x1C]; void *o[3]; };
 
-struct VBase_18_95e344 { char pad[0x18]; };
-
-struct VObj_18_95e344 : VBase_18_95e344 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-    virtual s32 m5();
-    virtual s32 m6();
-};
-
-struct VBase_8032E11C { u8 pad[0x18]; };
-
-struct VObj_8032E11C : VBase_8032E11C {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6();
-};
-
 extern "C" {
 u32 create_particle_emitter(void *, int);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
@@ -395,15 +376,15 @@ void run_card_effect(u8 *arg0) {
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x30) == 0) {
-        ((VObj_8032E11C *)arg0)->m4();
+        ((TUnk_804EDD44 *)arg0)->start_card_effect_flash();
     } else if (*(s32 *)((s8 *)arg0 + 0x30) == 6) {
         ((TObjPlayer *)arg0)->destroy_effect_objects();
-        ((VObj_8032E11C *)arg0)->m5();
+        ((TUnk_804EDD44 *)arg0)->start_card_effect_trail();
     } else if (*(s32 *)((s8 *)arg0 + 0x30) == 12) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    ((VObj_8032E11C *)arg0)->m6();
+    ((TUnk_804EDD44 *)arg0)->vfunc_8();
     (*(s32 *)((s8 *)arg0 + 0x30))++;
 }
 

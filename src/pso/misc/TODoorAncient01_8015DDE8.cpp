@@ -9,29 +9,6 @@ struct VBase { char pad[0x18]; };
 
 struct VObj : VBase { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12();
-    virtual s32 m13();
-    virtual s32 m14();
-    virtual s32 m15();
-    virtual s32 m16();
-    virtual s32 m17();
-};
-
 struct RecoveredGlobal_8016BF68_lbl_80441B4C {
     s32 value;
     u8 remaining[0x8C];
@@ -267,7 +244,7 @@ u8 *TODoorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient01__collision_body.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((VObj_18_4a4f5b *)(arg0))->m17();
+    ((TODoorAncient01 *)(arg0))->init_door_switch_binding();
     return arg0;
 }
 

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOHangceilingCave01KeyQuick.h"
+#include "pso/misc/TOHangceilingCave01Key.h"
 #include "pso/misc/TOHangceilingCave01Normal.h"
 #include "pso/misc/TUnk_804B2578.h"
 #include "pso/misc/TOHangceilingCave01.h"
@@ -10,17 +12,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
 
 struct RecoveredGlobal_80167878_lbl_804B1F80 {
     s32 value;
@@ -37,89 +28,6 @@ struct Inner_8016775C { u8 pad[0xC]; s32 f0C; };
 struct Big_8016775C { u8 pad[0x42C]; Inner_8016775C *p; };
 
 struct Buf_8016775C { s32 a; s32 b; s32 c; s32 d; };
-
-struct VBase_18_f90cfc { char pad[0x18]; };
-
-struct VObj_18_f90cfc : VBase_18_f90cfc {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual s32 m77();
-};
 
 typedef char RecoveredGlobal_80167878_lbl_804B1F80_size[sizeof(RecoveredGlobal_80167878_lbl_804B1F80) == 0x160 ? 1 : -1];
 
@@ -405,7 +313,7 @@ void TOHangceilingCave01KeyQuick__vt78(u8 *arg0) {
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF7);
         }
         if (lbl_805DB660 == *(f32 *)((s8 *)arg0 + 0xC0)) {
-            ((VObj_18_f90cfc *)(arg0))->m77();
+            ((TOHangceilingCave01KeyQuick *)(arg0))->vfunc_79();
         }
         break;
     case 2:
@@ -487,7 +395,7 @@ void TOHangceilingCave01Key__vt78(u8 *arg0) {
         if (lbl_805DB65C == *(f32 *)(arg0 + 0xC0)) {
             *(s32 *)(*(u8 **)(arg0 + 0xA4) + 0x18) &= ~8;
         } else if (lbl_805DB660 == *(f32 *)(arg0 + 0xC0)) {
-            ((VObj_18_f90cfc *)(arg0))->m77();
+            ((TOHangceilingCave01Key *)(arg0))->vfunc_79();
             clear_current_floor_switch((u16)*(s32 *)(arg0 + 0x35C));
         }
         break;
@@ -760,89 +668,6 @@ struct VObj_80168588 : VBase_80168588 {
     virtual void v72(); virtual void v73(); virtual void v74(); virtual void v75();
     virtual void v76(); virtual void v77();
 };
-struct VObj_80168834_80168588 {
-    char pad[0x18];
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-};
-
 struct VBase_18_26a62c { char pad[0x18]; };
 struct VObj_18_26a62c : VBase_18_26a62c {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -963,7 +788,7 @@ void TUnk_804B2578::render() {
 void TUnk_804B2578::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
-        ((VObj_80168834_80168588*)arg0)->m78();
+        this->vfunc_80();
         fn_80168398(arg0);
         if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) this->mode != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
             spawn_particle_effect(arg0 + 0x38, 0x64);

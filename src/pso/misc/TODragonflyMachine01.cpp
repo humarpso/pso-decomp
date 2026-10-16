@@ -5,14 +5,6 @@
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
 
-struct DfBase_801651B0 { char pad[0x18]; };
-struct DfV_801651B0 : DfBase_801651B0 {
-    virtual void vf00(); virtual void vf01(); virtual void vf02(); virtual void vf03();
-    virtual void vf04(); virtual void vf05(); virtual void vf06(); virtual void vf07();
-    virtual void vf08(); virtual void vf09(); virtual void vf10(); virtual void vf11();
-    virtual void vf12();
-};
-
 struct VBase_18_c5489a { char pad[0x18]; };
 
 struct VObj_18_c5489a : VBase_18_c5489a {
@@ -95,7 +87,7 @@ void TODragonflyMachine01::run_task() {
     *(s32 *)&this->m_fc = (s32) (*(s32 *)&this->m_fc + *(s32 *)&this->m_f8);
     *(f32 *)((s8 *)this + 0xF0) = (f32) (this->m_ec * sin_table_lookup(*(s32 *)&this->m_fc));
     if (TObjPlayer::check_demo_mode() == 1) {
-        ((DfV_801651B0 *)this)->vf12();
+        this->vfunc_14();
         return;
     }
     update_anim_phase__13TUnk_804AFBF8Fv(this);

@@ -15,21 +15,6 @@ struct Obj_80237DAC {
     Vec_80237DAC position;
 };
 
-struct VBase_18_80237CCC { char pad[0x18]; };
-
-struct VObj_18_80237CCC : VBase_18_80237CCC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(s32);
-    virtual void m7();
-};
-
-typedef struct Ids_80237CCC { u8 pad[0xF8]; u16 ids[32]; } Ids_80237CCC;
-
 typedef struct Vec_80237FB8 { f32 x, y, z; } Vec_80237FB8;
 
 typedef struct TTecRaFoie_80237FB8 {
@@ -46,19 +31,6 @@ typedef struct TObjPlayer_80237FB8 {
     u8 pad0[0x2FC];
     Vec_80237FB8 pos;
 } TObjPlayer_80237FB8;
-
-struct VBase_18_80237BD8 { char pad[0x18]; };
-
-struct VObj_18_80237BD8 : VBase_18_80237BD8 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(s32);
-    virtual void m7();
-};
 
 struct Eff_80237BD8 { u8 pad[0xc]; f32 scale; };
 
@@ -345,18 +317,6 @@ struct Vec_80239070 { f32 x, y, z; };
 struct Eff_80239070 { u8 pad[0xC]; f32 scale; };
 
 struct Holder_80239070 { u8 pad[0xA4]; Eff_80239070 *eff; };
-
-struct VBase_80239070 { char pad[0x18]; };
-
-struct VObj_80239070 : VBase_80239070 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(s32);
-};
 
 struct Self_80239070 {
     u32 f0;
@@ -645,19 +605,6 @@ struct VObj_802386F8 : VBase_802386F8 {
     virtual s32 m21(s32, Damage_802386F8, s32, s32, s32, void *);
 };
 
-struct VBase_18_80238BA4 { char pad[0x18]; };
-
-struct VObj_18_80238BA4 : VBase_18_80238BA4 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(s32);
-    virtual void m7();
-};
-
 typedef struct Point_80238C6C { f32 x, y, z; } Point_80238C6C;
 
 struct Entry_80238C6C { s32 entry; u8 pad[8]; };
@@ -692,33 +639,6 @@ struct Obj_80238AE8 : VObj_18_acd6eb {
 struct Sub_80238AE8 { u8 pad[0xA4]; u8 *inner; };
 
 struct Elec_80238E14 { s32 type; f32 val; };
-
-struct VBase_18_9c98dd { char pad[0x18]; };
-
-struct VObj_18_9c98dd : VBase_18_9c98dd {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual s32 m21(s32, Elec_80238E14, s32, s32, s32);
-};
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
@@ -998,8 +918,8 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
     if (proxy != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)proxy + 0xA4)) + 0xC) = *(f32 *)((s8 *)self + 0x90);
     }
-    ((VObj_18_80238BA4 *) self)->m6(0);
-    ((VObj_18_80238BA4 *) self)->m7();
+    ((TTecRaFoie *)self)->vfunc_8(0);
+    ((TTecRaFoie *)self)->vfunc_9();
     return self;
 }
 

@@ -351,73 +351,6 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
 
 extern "C" {
 
-struct VObjBase_8004394c_800430AC {
-    char pad[0x18];
-};
-
-struct VObj_8004394c_800430AC : VObjBase_8004394c_800430AC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-};
-
 struct VBos_800430AC { char pad[0x18]; };
 
 struct TBoss3VoloptP01_800430AC : VBos_800430AC {
@@ -1258,7 +1191,7 @@ void TBoss3VoloptP01::run_state_machine() {
         ((TObjEnemyCustom *)arg0)->set_flags_30();
         if (TBoss3VoloptP01__sub_80042FCC((u8 *)((void *)((void *) (arg0)))) == 1) {
             reset_look_state__11TCameraCtrlFv(*(u8 * *)&this->m_3b8);
-            ((VObj_18_62ff9d *)(arg0))->m56();
+            this->vfunc_58();
         }
         break;
     case -1:
@@ -1411,7 +1344,7 @@ void TBoss3VoloptP01::update_state() {
                 temp_r3_2 = *(s32 *)&this->m_388;
                 if (temp_r3_2 & 0x10000) {
                     *(s32 *)&this->m_388 = (s32) (temp_r3_2 & 0xFFFFFFFE);
-                    ((VObj_8004394c_800430AC*)arg0)->m58();
+                    this->vfunc_60();
                 } else if (temp_r3_2 & 0x20000) {
                     *(s32 *)&this->m_388 = (s32) (temp_r3_2 & 0xFFFFFFFE);
                     TBoss3VoloptP01__sub_80042F84((u8 *)(arg0));
@@ -1425,7 +1358,7 @@ void TBoss3VoloptP01::update_state() {
     case 2:
         if (TBoss3VoloptP01__sub_80042FCC((u8 *)((void *)(arg0))) == 1) {
             *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
-            ((VObj_8004394c_800430AC*)arg0)->m56();
+            this->vfunc_58();
         }
         break;
     case -1:
@@ -1495,10 +1428,10 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
         TBoss3VoloptP01__sub_80043CA8((void *)((void *) (arg0)));
         return;
     }
-    if (((VObj_18 *)(arg0))->m31() != 0) {
-        ((VObj_18 *)(arg0))->m61();
-    } else if ((((VObj_18 *)(arg0))->m30() != 0) && !(*(s32 *)((s8 *)arg0 + 0x30) & 0x04000000)) {
-        ((VObj_18 *)(arg0))->m60();
+    if (((TBoss3VoloptP01 *)(arg0))->has_flag_0x800() != 0) {
+        ((TBoss3VoloptP01 *)(arg0))->vfunc_63();
+    } else if ((((TBoss3VoloptP01 *)(arg0))->test_flag30_512() != 0) && !(*(s32 *)((s8 *)arg0 + 0x30) & 0x04000000)) {
+        ((TBoss3VoloptP01 *)(arg0))->vfunc_62();
     }
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
         if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {

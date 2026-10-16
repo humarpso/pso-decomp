@@ -5,27 +5,6 @@
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjFish.h"
 
-struct Base_80148DCC { char pad[0x18]; };
-struct VObj_80148DCC : Base_80148DCC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32  m17(s32);
-};
 struct Base1_80148e54 { char pad[0x18]; };
 struct VObj1_80148e54 : Base1_80148e54 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -154,7 +133,7 @@ void TObjNpcBase::vfunc_28() {
     f32 *temp_r5;
 
     if ((s16) *(s16 *)((s8 *)this + 0x326) != 3) {
-        if (((VObj_80148DCC *)this)->m17(30) != 0) {
+        if (this->vfunc_19(30) != 0) {
             temp_r5 = *(f32 **)((s8 *)this + 0x350);
             *(u16 *)((s8 *)this + 0x338) = find_nearest_visible_player(this, 0, temp_r5, *temp_r5);
             {
@@ -196,10 +175,6 @@ void TObjPlayer::draw_model() {
 }
 typedef struct VBase_18_3eea3b VBase_18_3eea3b;
 typedef struct VObj_18_3eea3b VObj_18_3eea3b;
-#define PSO_VCALL_VObj_18_3eea3b_m81(_self) (((VObj_18_3eea3b *)(_self))->m81())
-#define PSO_VCALL_VObj_18_3eea3b_m82(_self) (((VObj_18_3eea3b *)(_self))->m82())
-#define PSO_VCALL_VObj_18_3eea3b_m83(_self) (((VObj_18_3eea3b *)(_self))->m83())
-#define PSO_VCALL_VObj_18_3eea3b_m84(_self) (((VObj_18_3eea3b *)(_self))->m84())
 void run_task__11TObjNpcBaseFPv(u8 *arg0) {
   s16 temp_r0;
   s32 temp_r4;
@@ -246,16 +221,16 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
   switch (temp_r0)
   {
     case 0:
-      PSO_VCALL_VObj_18_3eea3b_m81(arg0);
+      (((TObjNpcBase *)(arg0))->vfunc_83());
       break;
     case 1:
-      PSO_VCALL_VObj_18_3eea3b_m82(arg0);
+      (((VObj_18_3eea3b *)(arg0))->m82());
       break;
     case 2:
-      PSO_VCALL_VObj_18_3eea3b_m83(arg0);
+      (((VObj_18_3eea3b *)(arg0))->m83());
       break;
     case 3:
-      PSO_VCALL_VObj_18_3eea3b_m84(arg0);
+      (((VObj_18_3eea3b *)(arg0))->m84());
       break;
   }
   advance_animation_playback((void *) arg0);

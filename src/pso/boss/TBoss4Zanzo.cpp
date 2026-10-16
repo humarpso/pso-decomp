@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80486924.h"
 #include "pso/TBoss4Zanzo.h"
 #include <stddef.h>
 #include "pso/TObjBs4CutAtk.h"
@@ -22,32 +23,6 @@
 #include "pso/misc/TTecResta.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-
-struct VBase_18_800579A0 { char pad[0x18]; };
-struct VObj_18_800579A0 : VBase_18_800579A0 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
-    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
-    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
-    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
-    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
-    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
-    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
-    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
-    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
-    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
-    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
-    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
-    virtual void m76(); virtual void m77(); virtual void m78();
-    virtual void m79(void *);
-    virtual void m80();
-};
 
 struct Arr_800579A0 { u8 pad[0x42C]; s32 f42C[8]; };
 
@@ -303,14 +278,6 @@ typedef char RecoveredGlobal_80054530_lbl_80485EC8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8005455C_lbl_80485EC8_size[sizeof(RecoveredGlobal_8005455C_lbl_80485EC8) == 0x1E0 ? 1 : -1];
 
-struct O_80058D70 { u8 pad[0x398]; s32 f398; u8 pad2[0x1c]; u16 f3b8; };
-
-struct Obj_80059010 { u8 pad[0x398]; s32 f398; u8 pad39c[0x1C]; u16 f3b8; u16 f3ba; };
-
-struct Obj_80059390 { u8 pad[0x30]; u32 flags; u8 pad34[0x384]; u16 f3b8; u16 f3ba; };
-
-struct Obj_80058E64 { u8 pad[0x32C]; s16 f32c; u8 pad2[0x6A]; s32 f398; u8 pad3[0x1C]; u16 f3b8; u16 f3ba; u8 pad4[0x24]; s32 f3e0; };
-
 struct Vec_80058848 { f32 x, y, z; };
 
 struct O_80058848 {
@@ -319,8 +286,6 @@ struct O_80058848 {
     u8 pad44[0x398 - 0x44];
     s32 f398;
 };
-
-struct Grant_80058A48 { s32 f0; u16 f4; s16 f6; u8 pad[0x58]; };
 
 struct O_80058BA0 {
     u8 pad0[0x38];
@@ -427,11 +392,7 @@ struct Obj_80059F64 { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8
 
 struct Obj_8005A2A4 { u8 pad[0x404]; void *parts[13]; };
 
-struct Obj_80059ABC { u8 pad[0x60]; s32 f60; };
-
 struct Ply_80059ABC { u8 pad[0x38]; f32 f38; u8 pad3c[4]; f32 f40; };
-
-struct Obj_8005A300 { u8 pad[0x38]; u8 f38[0x3CC]; u32 f404[13]; };
 
 class TBoss4Type3_8005A398 { public: u8 pad[0x374]; s32 f374; };
 
@@ -501,27 +462,9 @@ typedef char RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8_size[sizeof(Rec
 
 struct Obj_80056DF0 { u8 pad0[0x3AC]; s32 i3AC; s32 i3B0; f32 f3B4; f32 f3B8; f32 f3BC; };
 
-struct S_80058380 {
-    u8 pad0[0x398];
-    s32 f398;
-    f32 f39c;
-};
-
 struct Vec_80059C20 { f32 x, y, z; };
 
 struct Dmg_8005B218 { s32 type; f32 val; };
-
-struct VBase_8005B218 { char pad[0x18]; };
-
-struct VObj_8005B218 : VBase_8005B218 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20();
-    virtual void m21(s32, Dmg_8005B218 *, s32, s32, s32);
-};
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -1895,8 +1838,8 @@ u8 *TBoss4Type2__ct(u8 *arg0, s32 arg1, s32 *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D27D8;
     ((TObjPlayer *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x38C) = arg2[0];
-    ((VObj_18_800579A0 *) arg0)->m79(arg2 + 1);
-    ((VObj_18_800579A0 *) arg0)->m80();
+    ((TUnk_80486924 *)arg0)->vfunc_81(arg2 + 1);
+    ((TUnk_80486924 *)arg0)->clear_lobby_object_state();
     *(s32 *)((s8 *)arg0 + 0x390) = TBoss4Uro::get_instance_count();
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;

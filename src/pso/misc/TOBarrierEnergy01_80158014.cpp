@@ -144,7 +144,7 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFB34.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((VObj_18_4a4f5b *)(arg0))->m17();
+    ((TOBarrierEnergy01 *)(arg0))->init_door_switch_binding();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB2E0;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB2E4;
     return arg0;

@@ -7,17 +7,6 @@ struct Pkt_80190BA0 { u32 header; s32 target; s32 event; };
 
 struct Row_80190AA0 { u32 cue; s32 mode; };
 
-struct VBase_80190AA0 { char pad[0x18]; };
-
-struct VObj_80190AA0 : VBase_80190AA0 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(void *);
-};
-
 struct Obj_80190AA0 {
     s32 unk0;
     u8 pad4[0x18 - 0x4];
@@ -98,7 +87,7 @@ void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
     construct_world_actor_base(self, parent);
     self->vtbl = __vt__12TObjEnvSound;
     self->unk0 = TObjEnvSound__class_name;
-    ((VObj_80190AA0 *)self)->m5(arg2);
+    ((TObjEnvSound *)self)->vfunc_7(arg2);
     table = environment_sound_tables_by_area[TOKeyMachine01::get_global_state()];
     if (table != NULL) {
         copy_pair__18TObjEnvSoundGlobalFPvPv(&self->sound, &table[self->index]);

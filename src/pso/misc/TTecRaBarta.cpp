@@ -1,15 +1,6 @@
 #include "types.h"
 #pragma readonly_strings on
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-};
-
 #include <stddef.h>
 #include "pso/misc/TTecRaBarta.h"
 #include "pso/misc/TTecAnti.h"
@@ -397,19 +388,6 @@ struct Obj_80237DAC {
     Vec_80237DAC position;
 };
 
-struct VBase_18_80237CCC { char pad[0x18]; };
-
-struct VObj_18_80237CCC : VBase_18_80237CCC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(s32);
-    virtual void m7();
-};
-
 typedef struct Ids_80237CCC { u8 pad[0xF8]; u16 ids[32]; } Ids_80237CCC;
 
 typedef struct Vec_80237FB8 { f32 x, y, z; } Vec_80237FB8;
@@ -623,8 +601,8 @@ void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
         ((Ids_80237CCC *) this)->ids[i] = 0xFFFF;
     }
     *(s32 *)&this->m_138 = 0;
-    ((VObj_18_80237CCC *) this)->m6(0);
-    ((VObj_18_80237CCC *) this)->m7();
+    this->vfunc_8(0);
+    this->vfunc_9();
     if (*(void * *)&this->source != NULL) {
         this->m_b4 = obj_getField1c(*(void * *)&this->source);
     }

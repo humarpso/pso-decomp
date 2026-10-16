@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOMine.h"
 #include "pso/misc/TOMineTrap.h"
 #include "pso/TObject.h"
 #include "pso/misc/TLobby.h"
@@ -28,204 +29,6 @@ void *__nw__7TObjectFUl(u32);
 extern s32 local_client_id;
 void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0);
 }
-
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual s32 m81();
-};
-
-struct Base_801708A4_8016F6F8 { char pad[0x18]; };
-
-struct VObj_801708A4_8016F6F8 : Base_801708A4_8016F6F8 {
-    virtual int v00();
-    virtual int v01();
-    virtual int v02();
-    virtual int v03();
-    virtual int v04();
-    virtual int v05();
-    virtual int v06();
-    virtual int v07();
-    virtual int v08();
-    virtual int v09();
-    virtual int v10();
-    virtual int v11();
-    virtual int v12();
-    virtual int v13();
-    virtual int v14();
-    virtual int v15();
-    virtual int v16();
-    virtual int v17();
-    virtual int v18();
-    virtual int v19();
-    virtual void v20(int, f32);
-};
-
-struct VBase_18_d0f3c0 { char pad[0x18]; };
-
-struct VObj_18_d0f3c0 : VBase_18_d0f3c0 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual s32 m79();
-};
 
 struct VBase_18_33b813
 {
@@ -579,7 +382,7 @@ void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
 void TOMineTrap::init_object_set_pos() {
     u8 *arg0 = (u8 *)this;
     apply_object_set_data();
-    ((VObj_18 *)(arg0))->m81();
+    this->vfunc_83();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x334), (void *) (arg0 + 0x38));
 }
 void TOMineTrap__sub_80170570(void) {  }
@@ -627,8 +430,8 @@ void TOMineTrap::detonate_if_triggered() {
 }
 void TOMineTrap__sub_8017070C(u8 *arg0) {
     spawn_particle_effect((s32)((void *) (arg0 + 0x2FC)), (s32)((int) (0x47)));
-    ((VObj_18 *)(arg0))->m80();
-    ((VObj_18 *)(arg0))->m78();
+    ((TOMine *)(arg0))->vfunc_82();
+    ((TOMine *)(arg0))->vfunc_80();
 }
 
 void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
@@ -649,7 +452,7 @@ void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
         ((TObjPlayer *)arg0)->calc_attach_pos();
         refresh_collision_body_centers((void*)((void *) (arg0)));
-        ((VObj_18_d0f3c0 *)(arg0))->m79();
+        ((TOMine *)(arg0))->vfunc_81();
         access_object_saved_state((void*)((void *) (arg0)), (s16 *)((void *) (arg1)), (s32)((int) (0)));
         ((TObject *)arg0)->queue_destruction_for_each_node();
     }
@@ -669,14 +472,13 @@ f32 TOMineTrap::calc_trigger_range(s32 arg1) {
         return lbl_805DB85C;
     }
     if ((is_locally_controlled__10TObjPlayerFPv((u32)(arg1)) != 0) && (obj_getS16_116(arg1) != 0)) {
-        ((VObj_801708A4_8016F6F8 *)this)->v20(0, TOMineTrap__data_805DB868);
+        this->vfunc_22(0, TOMineTrap__data_805DB868);
     }
     return lbl_805DB85C;
 }
 
 typedef struct VBase_18_33b813 VBase_18_33b813;
 typedef struct VObj_18_33b813 VObj_18_33b813;
-#define PSO_VCALL_VObj_18_33b813_m20(_self, _arg0, _arg1) (((VObj_18_33b813 *)(_self))->m20((_arg0), (_arg1)))
 f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
   s32 temp_r0;
   s32 var_r31;
@@ -715,7 +517,7 @@ f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
     else
     {
       block_13:
-      PSO_VCALL_VObj_18_33b813_m20(arg0, 0, (*(const f32 *)&TOMineTrap__data_805DB868));
+      (((TOMine *)(arg0))->vfunc_22((0), ((*(const f32 *)&TOMineTrap__data_805DB868))));
     }
   }
   return (*(const f32 *)&lbl_805DB85C);
@@ -735,7 +537,7 @@ void TOMineTrap__sub_80170A5C(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
     ((TObjPlayer *)arg0)->calc_attach_pos();
     refresh_collision_body_centers((void*)((void *) (arg0)));
-    ((VObj_18_d0f3c0 *)(arg0))->m79();
+    ((TOMine *)(arg0))->vfunc_81();
 }
 
 typedef struct Stack_80170AC8 Stack_80170AC8;
@@ -836,7 +638,7 @@ void detonate__10TOMineTrapFPv(u8 *arg0) {
     }
     *(s16 *)(arg0 + 0x326) = 6;
     ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
-    ((VObj_18_1da615 *)arg0)->m20(0, TOMineTrap__data_805DB868);
+    ((TOMine *)arg0)->vfunc_22(0, TOMineTrap__data_805DB868);
 }
 
 }

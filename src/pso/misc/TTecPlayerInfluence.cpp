@@ -1,14 +1,5 @@
 #include "types.h"
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-};
-
 #include <stddef.h>
 #include "pso/misc/TTecPlayerInfluence.h"
 #include "pso/misc/TTecAnti.h"
@@ -225,7 +216,7 @@ extern s32 __vt__19TTecPlayerInfluence[];
 
 void TTecPlayerInfluence::run_task() {
     sub_80237258__19TTecPlayerInfluenceFv((void*)(this));
-    ((VObj_18 *)(this))->m4();
+    this->tick_lifetime();
 }
 
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1) {

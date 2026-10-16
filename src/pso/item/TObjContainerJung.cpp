@@ -200,7 +200,7 @@ void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
-            ((VObj*)arg0)->m77();
+            this->vfunc_79();
             request_box_item_drop__13TUnk_804806E8FPvs((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));

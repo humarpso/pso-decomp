@@ -2,25 +2,6 @@
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void * m15();
-};
 struct VBase_18_3f4583 { char pad[0x18]; };
 
 struct VObj_18_3f4583 : VBase_18_3f4583 {
@@ -337,7 +318,7 @@ u8 *TObjEneDD__vt99(u8 *arg0) {
     f32 temp_f31;
     u8 *temp_r3;
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x3C);
-    temp_r3 = (unsigned char *) (((VObj_18 *)(arg0))->m15());
+    temp_r3 = (unsigned char *) (((TObjEneDD *)(arg0))->vfunc_17());
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
     }

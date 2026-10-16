@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubShortCutList.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
@@ -115,7 +116,6 @@ struct Win_80221440 {
     void *list;
 };
 
-struct VBase_18 { char pad[0x18]; };
 struct VBase_802209D8 { char pad[0x18]; };
 struct VObj_802209D8 : VBase_802209D8 {
     virtual void m0();
@@ -285,7 +285,7 @@ void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r31;
 
-    if (((VObj_18 *)(arg0))->m8() != 0) {
+    if (((TShopWindowBase *)(arg0))->vfunc_10() != 0) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x158) == 0U) {
             temp_r31 = obj_getField1c((s32) (*(s32 *)((s8 *)arg0 + 0x24)));
             *(s32 *)((s8 *)arg0 + 0x158) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
@@ -359,7 +359,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
     VObj_802209D8 *item;
     u32 eq;
 
-    if (((VObj_18 *)(arg0))->m8() != 0) {
+    if (this->vfunc_10() != 0) {
         if (F(0x158, void *) == NULL) {
             id = obj_getField1c(F(0x24, s32));
             F(0x158, s32) = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
@@ -434,7 +434,7 @@ void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
     f32 temp_f31;
     s32 temp_r3;
     s32 temp_r31;
-    if (((VObj_18 *)(arg0))->m8() != 0) {
+    if (((TShopWindowBase *)(arg0))->vfunc_10() != 0) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x158) == 0U) {
             temp_r31 = obj_getField1c((s32) (*(s32 *)((s8 *)arg0 + 0x24)));
             *(s32 *)((s8 *)arg0 + 0x158) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);

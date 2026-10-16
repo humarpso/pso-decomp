@@ -484,20 +484,6 @@ struct RecoveredGlobal_8019A880___vt__8TObjTank {
     u8 remaining[0x38];
 };
 
-struct Base { char pad[0x18]; };
-
-struct VObj : Base {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
 struct Obj_8018CBF0 { u8 pad0[0x84]; s32 id; };
 
 struct Obj_8018CB44 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; u32 f80; s32 f84; };
@@ -642,7 +628,7 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void TObjContainerJungEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
-            ((VObj18*)arg0)->m77();
+            ((TObjContainerJungEnemy *)arg0)->vfunc_79();
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));

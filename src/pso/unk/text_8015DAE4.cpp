@@ -2,30 +2,6 @@
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12();
-    virtual s32 m13();
-    virtual s32 m14();
-    virtual s32 m15();
-    virtual s32 m16();
-    virtual void m17();
-    virtual s32 m18();
-};
-
 extern "C" {
 s32 play_door_sound__13TUnk_804B0BB8Fv(void *);
 u8 is_current_floor_switch_set(int);
@@ -69,7 +45,7 @@ void TUnk_804B0BB8::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     if (TObjPlayer::check_demo_mode() == 1) {
-        ((VObj_18 *)(arg0))->m18();
+        this->vfunc_20();
         return;
     }
     if ((s32) switch_doors_force_closed != 0) {
@@ -77,21 +53,21 @@ void TUnk_804B0BB8::run_task() {
         this->m_d0 = (s32) (this->m_d0 & 0xFFFFFFFE);
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (8));
     } else {
-        ((VObj_18 *)(arg0))->m12();
+        this->update_door_switch_state();
     }
     temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
-        ((VObj_18 *)(arg0))->m13();
+        this->play_proximity_sound();
         break;
     case 1:
-        ((VObj_18 *)(arg0))->m14();
+        this->vfunc_16();
         break;
     case 2:
-        ((VObj_18 *)(arg0))->m15();
+        this->vfunc_17();
         break;
     case 3:
-        ((VObj_18 *)(arg0))->m16();
+        this->vfunc_18();
         break;
     }
     if (this->m_d0 & 1) {

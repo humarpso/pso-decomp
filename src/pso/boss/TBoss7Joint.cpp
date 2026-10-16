@@ -290,7 +290,7 @@ void TBoss7Joint::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
         VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x3C0))));
-        ((VObj_18 *)(arg0))->m81();
+        this->vfunc_83();
         store_position();
         ((VObj_18 *)(arg0))->m86();
         if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {

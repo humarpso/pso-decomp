@@ -1073,10 +1073,6 @@ typedef struct VBase_14_fddec9 VBase_14_fddec9;
 typedef struct VBase_18_ca64a0 VBase_18_ca64a0;
 typedef struct VObj_14_fddec9 VObj_14_fddec9;
 typedef struct VObj_18_ca64a0 VObj_18_ca64a0;
-#define PSO_VCALL_VObj_18_ca64a0_m9(_self, _arg0, _arg1, _arg2) (((VObj_18_ca64a0 *)(_self))->m9((_arg0), (_arg1), (_arg2)))
-#define PSO_VCALL_VObj_14_fddec9_m8(_self) (((VObj_14_fddec9 *)(_self))->m8())
-#define PSO_VCALL_VObj_14_fddec9_m6(_self) (((VObj_14_fddec9 *)(_self))->m6())
-#define PSO_VCALL_VObj_14_fddec9_m7(_self) (((VObj_14_fddec9 *)(_self))->m7())
 
 void TObjEneMerillLia::sub_800D5570() {
     Obj_800D5570 *arg0 = (Obj_800D5570 *)this;
@@ -1532,7 +1528,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
   s16 temp_r0;
   s32 temp_r3;
   s32 var_r29;
-  temp_r3 = PSO_VCALL_VObj_18_ca64a0_m9(arg0, lbl_805DA324, lbl_805DA328, lbl_805DA314);
+  temp_r3 = (((VObj_18_ca64a0 *)(arg0))->m9((lbl_805DA324), (lbl_805DA328), (lbl_805DA314)));
   if (temp_r3 != 0)
   {
     lbl_805D5660 = model_render_flags;
@@ -1554,11 +1550,11 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
       if (((s16) ((RecoveredFields_800D6810_arg0 *) arg0)->field_326) == 0xD)
       {
         var_r29 = 1;
-        var_r30 = PSO_VCALL_VObj_14_fddec9_m8(((u8 *) arg0) + 936);
+        var_r30 = (((VObj_14_fddec9 *)(((u8 *) arg0) + 936))->m8());
       }
       if (var_r29 != 0)
       {
-        PSO_VCALL_VObj_14_fddec9_m6(((u8 *) arg0) + 936);
+        (((VObj_14_fddec9 *)(((u8 *) arg0) + 936))->m6());
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) arg0) != 0)
         {
           var_r30 = 0;
@@ -1582,7 +1578,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
       TParticleCtrl::end_effect_render();
       if (var_r29 != 0)
       {
-        PSO_VCALL_VObj_14_fddec9_m7(((u8 *) arg0) + 936);
+        (((VObj_14_fddec9 *)(((u8 *) arg0) + 936))->m7());
       }
     }
     pop_matrix();
@@ -1631,22 +1627,11 @@ void TObjEneMerillLia::select_action_by_distance() {
 
 typedef struct VBase_18_477421 VBase_18_477421;
 typedef struct VObj_18_477421 VObj_18_477421;
-#define PSO_VCALL_VObj_18_477421_m99(_self) (((VObj_18_477421 *)(_self))->m99())
-#define PSO_VCALL_VObj_18_477421_m81(_self) (((VObj_18_477421 *)(_self))->m81())
-#define PSO_VCALL_VObj_18_477421_m82(_self) (((VObj_18_477421 *)(_self))->m82())
-#define PSO_VCALL_VObj_18_477421_m83(_self) (((VObj_18_477421 *)(_self))->m83())
-#define PSO_VCALL_VObj_18_477421_m84(_self) (((VObj_18_477421 *)(_self))->m84())
-#define PSO_VCALL_VObj_18_477421_m85(_self) (((VObj_18_477421 *)(_self))->m85())
-#define PSO_VCALL_VObj_18_477421_m86(_self) (((VObj_18_477421 *)(_self))->m86())
-#define PSO_VCALL_VObj_18_477421_m87(_self) (((VObj_18_477421 *)(_self))->m87())
-#define PSO_VCALL_VObj_18_477421_m88(_self) (((VObj_18_477421 *)(_self))->m88())
-#define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
-#define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
 void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)
   {
-    PSO_VCALL_VObj_18_477421_m99(arg0);
+    (((TObjEneMerillLia *)(arg0))->vfunc_101());
     return;
   }
   temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
@@ -1654,34 +1639,34 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
     switch (temp_r0)
     {
       case 0:
-        PSO_VCALL_VObj_18_477421_m81(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_83());
         break;
       case 1:
-        PSO_VCALL_VObj_18_477421_m82(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_84());
         break;
       case 2:
-        PSO_VCALL_VObj_18_477421_m83(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_85());
         break;
       case 3:
-        PSO_VCALL_VObj_18_477421_m84(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_86());
         break;
       case 4:
-        PSO_VCALL_VObj_18_477421_m85(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_87());
         break;
       case 5:
-        PSO_VCALL_VObj_18_477421_m86(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_88());
         break;
       case 6:
-        PSO_VCALL_VObj_18_477421_m87(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_89());
         break;
       case 7:
-        PSO_VCALL_VObj_18_477421_m88(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_90());
         break;
       case 8:
-        PSO_VCALL_VObj_18_477421_m89(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_91());
         break;
       case 9:
-        PSO_VCALL_VObj_18_477421_m90(arg0);
+        (((TObjEneMerillLia *)(arg0))->vfunc_92());
         break;
       case 10:
         TObjEneMerillLia::update_kafun_attack((void *)((void *) arg0));

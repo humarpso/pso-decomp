@@ -264,15 +264,6 @@ void *__vt__13TBoss2DeRolLe[107] = {
 #pragma push
 namespace body_animation_view {
 
-struct Base_8002E784 { char pad[0xC]; };
-struct VObj_8002E784 : Base_8002E784 {
-    virtual void m0(int);
-};
-
-typedef struct Unit { u8 pad[0x2C]; } Unit;
-
-typedef struct Boss2 { u8 pad[0x20]; Unit units[0x13]; } Boss2;
-
 struct Rec_8002ECC4 { u8 pad[0x10]; u8 f10[0xC]; };
 
 struct Obj_8002ECC4 { u8 pad[4]; Rec_8002ECC4 *recs; };
@@ -284,12 +275,6 @@ struct Obj_8002ED48 { u8 pad[4]; Rec_8002ED48 *recs; };
 typedef struct Vec_8002EA64 {
     f32 x, y, z;
 } Vec_8002EA64;
-
-typedef struct Src_8002EA64 {
-    u8 pad0[4];
-    Vec_8002EA64 a;
-    Vec_8002EA64 b;
-} Src_8002EA64;
 
 typedef struct Part_8002EA64 {
     Vec_8002EA64 pos;
@@ -307,20 +292,6 @@ typedef struct Obj_8002EA64 {
     u8 pad1C[4];
     Part_8002EA64 parts[19];
 } Obj_8002EA64;
-
-struct VBase_18_38992e { char pad[0x18]; };
-
-struct VObj_18_38992e : VBase_18_38992e {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
 
 struct Vec_8002EFE8 { s32 x, y, z; };
 
@@ -484,7 +455,7 @@ void render_body__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 idx;
     f32 frame;
     f32 max;
-    ((VObj_18_38992e *)(arg0))->m8(lbl_805D8278, lbl_805D8278);
+    ((TBoss2DeRolLe *)(arg0))->update_object_view_visibility(lbl_805D8278, lbl_805D8278);
     lbl_805D5660 = model_render_flags;
     clear_global_flag_400__9TObjEneDDFv();
     push_matrix();
@@ -5300,8 +5271,6 @@ struct Vec_800363B4 { f32 x, y, z; };
 
 struct Seg_800363B4 { s8 n; u8 pad1[0xF]; void *model1; void *model2; };
 
-struct Ang_800363B4 { s32 yaw; u8 pad4[0xC]; };
-
 typedef struct Slot_80035D24 {
     s32 kind;
     s32 f04;
@@ -5486,13 +5455,6 @@ extern u32 lbl_805D4BA4;
 
 typedef struct VBase_18_bd2ad6 VBase_18_bd2ad6;
 typedef struct VObj_18_bd2ad6 VObj_18_bd2ad6;
-#define PSO_VCALL_VObj_18_bd2ad6_m103(_self) (((VObj_18_bd2ad6 *)(_self))->m103())
-#define PSO_VCALL_VObj_18_bd2ad6_m39(_self) (((VObj_18_bd2ad6 *)(_self))->m39())
-#define PSO_VCALL_VObj_18_bd2ad6_m40(_self) (((VObj_18_bd2ad6 *)(_self))->m40())
-#define PSO_VCALL_VObj_18_bd2ad6_m85(_self, _arg0, _arg1) (((VObj_18_bd2ad6 *)(_self))->m85((_arg0), (_arg1)))
-#define PSO_VCALL_VObj_18_bd2ad6_m30(_self) (((VObj_18_bd2ad6 *)(_self))->m30())
-#define PSO_VCALL_VObj_18_bd2ad6_m60(_self) (((VObj_18_bd2ad6 *)(_self))->m60())
-#define PSO_VCALL_VObj_18_bd2ad6_m86(_self) (((VObj_18_bd2ad6 *)(_self))->m86())
 void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
   s16 temp_r0_2;
   s32 temp_r0;
@@ -5502,7 +5464,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
   u32 temp_r3_2;
   if (get_target_info__9TObjEneDDFPv((void *) arg0) != 0)
   {
-    PSO_VCALL_VObj_18_bd2ad6_m103(arg0);
+    (((VObj_18_bd2ad6 *)(arg0))->m103());
     return;
   }
   temp_r3 = *((s32 *) (((s8 *) arg0) + 0x3C0));
@@ -5551,8 +5513,8 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
     }
   }
   temp_r30 = query_teammate_state__9TObjEneDDFv();
-  PSO_VCALL_VObj_18_bd2ad6_m39(arg0);
-  PSO_VCALL_VObj_18_bd2ad6_m40(arg0);
+  (((TBoss2DeRolLe *)(arg0))->vfunc_41());
+  (((TBoss2DeRolLe *)(arg0))->vfunc_42());
   if (temp_r30 == 0)
   {
     temp_r0_2 = *((s16 *) (((s8 *) arg0) + 0x326));
@@ -5576,33 +5538,33 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
         }
         else
         {
-          PSO_VCALL_VObj_18_bd2ad6_m85(arg0, *((s16 *) (((s8 *) arg0) + 0x326)), 2);
+          (((VObj_18_bd2ad6 *)(arg0))->m85((*((s16 *) (((s8 *) arg0) + 0x326))), (2)));
         }
       }
       else
       {
         TBoss2DeRolLe__sub_8003508C((void *) arg0);
       }
-      if (PSO_VCALL_VObj_18_bd2ad6_m30(arg0) != 0)
+      if ((((TBoss2DeRolLe *)(arg0))->test_flag30_512()) != 0)
       {
-        PSO_VCALL_VObj_18_bd2ad6_m60(arg0);
+        (((TBoss2DeRolLe *)(arg0))->vfunc_62());
       }
-      PSO_VCALL_VObj_18_bd2ad6_m85(arg0, *((s16 *) (((s8 *) arg0) + 0x326)), 8);
-      PSO_VCALL_VObj_18_bd2ad6_m85(arg0, *((s16 *) (((s8 *) arg0) + 0x326)), 0);
+      (((VObj_18_bd2ad6 *)(arg0))->m85((*((s16 *) (((s8 *) arg0) + 0x326))), (8)));
+      (((VObj_18_bd2ad6 *)(arg0))->m85((*((s16 *) (((s8 *) arg0) + 0x326))), (0)));
     }
     else
     {
-      if (PSO_VCALL_VObj_18_bd2ad6_m30(arg0) != 0)
+      if ((((TBoss2DeRolLe *)(arg0))->test_flag30_512()) != 0)
       {
-        PSO_VCALL_VObj_18_bd2ad6_m60(arg0);
+        (((TBoss2DeRolLe *)(arg0))->vfunc_62());
       }
-      PSO_VCALL_VObj_18_bd2ad6_m85(arg0, *((s16 *) (((s8 *) arg0) + 0x326)), 0);
+      (((VObj_18_bd2ad6 *)(arg0))->m85((*((s16 *) (((s8 *) arg0) + 0x326))), (0)));
     }
     advance_phase_wrap__13TBoss2DeRolLeFPv((void *) arg0);
     update_projectile_spawns__13TBoss2DeRolLeFPv((void *) arg0);
   }
   TObjEneDD__sub_800BBA0C((void *) arg0);
-  PSO_VCALL_VObj_18_bd2ad6_m86(arg0);
+  (((VObj_18_bd2ad6 *)(arg0))->m86());
   backup_pos__13TBoss2DeRolLeFi((void *) arg0);
   set_player_state_default__12TBoss8DragonFv((void *) arg0);
   add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) 1, (int) 1, (f32) TBoss2DeRolLe__data_805D82A0);
@@ -5788,8 +5750,6 @@ struct VObj_18_bd2ad6 : VBase_18_bd2ad6 {
     virtual void m84();
     virtual s32 m85(s16, s32);
 };
-struct Data_8003563C { u8 pad0[0x48]; s32 f48[10]; s32 f70[10]; s32 f98; };
-
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 set_field_b8__10TObjMotionFs(void *, int);
 s32 set_field_dc__10TObjPlayerFl(void *, int);

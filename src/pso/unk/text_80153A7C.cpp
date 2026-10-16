@@ -39,24 +39,6 @@ void *TObjFogCollisionSwitch__ct(void *arg0) {
 
 }
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12();
-    virtual s32 m13();
-};
-
 struct VBase_18_26a62c { char pad[0x18]; };
 
 struct VObj_18_26a62c : VBase_18_26a62c {
@@ -176,10 +158,10 @@ void TObjFogCollision::draw_volume() {
 void TObjFogCollision::render() {
     u8 *arg0 = (u8 *)this;
     if (((s32)TObjFogCollision__sub_80153F70()) != 0) {
-        ((VObj_18 *)(arg0))->m12();
+        this->vfunc_14();
     }
     if (((s32)TObjFogCollision__sub_80153F68((void *)((void *) (arg0)))) != 0) {
-        ((VObj_18 *)(arg0))->m13();
+        this->draw_volume();
     }
 }
 

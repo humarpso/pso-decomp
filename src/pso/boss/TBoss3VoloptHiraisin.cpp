@@ -493,11 +493,6 @@ void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0) {
 
 typedef struct VBase_18_6fcf4f VBase_18_6fcf4f;
 typedef struct VObj_18_6fcf4f VObj_18_6fcf4f;
-#define PSO_VCALL_VObj_18_6fcf4f_m31(_self) (((VObj_18_6fcf4f *)(_self))->m31())
-#define PSO_VCALL_VObj_18_6fcf4f_m61(_self) (((VObj_18_6fcf4f *)(_self))->m61())
-#define PSO_VCALL_VObj_18_6fcf4f_m30(_self) (((VObj_18_6fcf4f *)(_self))->m30())
-#define PSO_VCALL_VObj_18_6fcf4f_m60(_self) (((VObj_18_6fcf4f *)(_self))->m60())
-#define PSO_VCALL_VObj_18_6fcf4f_m53(_self, _arg0, _arg1) (((VObj_18_6fcf4f *)(_self))->m53((_arg0), (_arg1)))
 void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
   s32 temp_r4;
   u8 *new_var;
@@ -505,14 +500,14 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
   {
     if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != 5)
     {
-      if (PSO_VCALL_VObj_18_6fcf4f_m31(arg0) != 0)
+      if ((((VObj_18_6fcf4f *)(arg0))->m31()) != 0)
       {
-        PSO_VCALL_VObj_18_6fcf4f_m61(arg0);
+        (((VObj_18_6fcf4f *)(arg0))->m61());
       }
       else
-        if (PSO_VCALL_VObj_18_6fcf4f_m30(arg0) != 0)
+        if ((((VObj_18_6fcf4f *)(arg0))->m30()) != 0)
       {
-        PSO_VCALL_VObj_18_6fcf4f_m60(arg0);
+        (((VObj_18_6fcf4f *)(arg0))->m60());
       }
     }
     if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != ((s32) (*((s32 *) (((s8 *) arg0) + 0x374)))))
@@ -537,7 +532,7 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
     temp_r4 = *((s32 *) (((s8 *) volopt_hiraisin_model_data) + 0x18));
     new_var = volopt_hiraisin_model_data;
     *((s32 *) (((s8 *) new_var) + 0x18)) = (s32) (temp_r4 + 0x4000);
-    PSO_VCALL_VObj_18_6fcf4f_m53(arg0, temp_r4, new_var);
+    (((VObj_18_6fcf4f *)(arg0))->m53((temp_r4), (new_var)));
   }
 }
 
@@ -562,92 +557,6 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 #define TBoss3VoloptHiraisin__init_param_table (*(Param_800418C8 *)TBoss3VoloptHiraisin__init_param_table)
 #define play_sound_effect ((int (*)(int, void *, int, int))play_sound_effect)
 #define volopt_hiraisin_model_data (*(s32 **)&volopt_hiraisin_model_data)
-
-struct Base_80041C78_80041770 { char pad[0x18]; };
-struct VObj_80041C78_80041770 : Base_80041C78_80041770 {
-    virtual void pad0(); virtual void pad1(); virtual void pad2(); virtual void pad3();
-    virtual void pad4(); virtual void pad5(); virtual void pad6(); virtual void pad7();
-    virtual void pad8(); virtual void pad9(); virtual void pad10(); virtual void pad11();
-    virtual void pad12(); virtual void pad13(); virtual void pad14(); virtual void pad15();
-    virtual void pad16(); virtual void pad17(); virtual void pad18(); virtual void pad19();
-    virtual void pad20(); virtual void pad21(); virtual void pad22(); virtual void pad23();
-    virtual void pad24(); virtual void pad25(); virtual void pad26(); virtual void pad27();
-    virtual void pad28(); virtual void pad29(); virtual void pad30(); virtual void pad31();
-    virtual void pad32(); virtual void pad33(); virtual void pad34(); virtual void pad35();
-    virtual void pad36(); virtual void pad37(); virtual void pad38(); virtual void pad39();
-    virtual void pad40(); virtual void pad41(); virtual void pad42(); virtual void pad43();
-    virtual void pad44(); virtual void pad45(); virtual void pad46(); virtual void pad47();
-    virtual void pad48(); virtual void pad49(); virtual void pad50(); virtual void pad51();
-    virtual void pad52(); virtual void pad53(); virtual void pad54(); virtual void pad55();
-    virtual void pad56(); virtual void m57();
-};
-
-struct VBase_18_8712ff { char pad[0x18]; };
-
-struct VObj_18_8712ff : VBase_18_8712ff {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual s32 m61();
-};
 
 #include <stddef.h>
 #include "pso/boss/TBoss3VoloptHiraisin.h"
@@ -986,7 +895,7 @@ void TBoss3VoloptHiraisin::set_hit_flags_and_notify() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 0x40000);
     obj_setFlags30(arg0, 0x800U);
-    ((VObj_18_8712ff *)(arg0))->m61();
+    this->vfunc_63();
 }
 
 void TBoss3VoloptHiraisin::spawn_effects() {
@@ -1022,7 +931,7 @@ void TBoss3VoloptHiraisin::update_state() {
         temp_r4 -= 1;
         *(s16 *)&this->timer = temp_r4;
         if (temp_r4 <= 0) {
-            ((VObj_80041C78_80041770 *)this)->m57();
+            this->vfunc_59();
         }
         break;
     case -1:

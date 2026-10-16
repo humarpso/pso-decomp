@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODoorAncient09.h"
 #include "pso/misc/TODoorCave01.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOBarrierEnergy01.h"
@@ -116,7 +117,7 @@ u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else if (temp_r0 > 0xFE) {
         *(s32 *)((s8 *)arg0 + 0x84) = 0xFE;
     }
-    ((VObj_18_4a4f5b *)(arg0))->m17();
+    ((TODoorAncient09 *)(arg0))->init_door_switch_binding();
     *(s16 *)((s8 *)arg0 + 0xD4) = (s16) (*(s32 *)((s8 *)arg0 + 0x84) + 1);
     *(s32 *)((s8 *)arg0 + 0xD8) = 0;
     *(s32 *)((s8 *)arg0 + 0xDC) = 0;

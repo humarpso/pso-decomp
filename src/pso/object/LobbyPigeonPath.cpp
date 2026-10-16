@@ -256,20 +256,6 @@ struct RecoveredGlobal_8019A880___vt__8TObjTank {
     u8 remaining[0x38];
 };
 
-struct Base { char pad[0x18]; };
-
-struct VObj : Base {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
 struct Vec_802C1660 { f32 x, y, z; };
 
 struct Entry_802C1660 { s32 a; f32 b; f32 c; f32 d; s32 e; };
@@ -1668,7 +1654,7 @@ void __dl__7TObjectFPv(void *);
 void TObjPathObj::render() {
     u8 *arg0 = (u8 *)this;
     if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18 *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0x90), this->m_94) != 0)) {
-        ((VObj_18 *)(arg0))->m12();
+        this->vfunc_14();
     }
 }
 

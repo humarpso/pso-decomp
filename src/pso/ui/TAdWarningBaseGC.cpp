@@ -13,16 +13,6 @@ struct V_8032D214 : B_8032D214 {
     virtual void *m5();
 };
 
-struct VBase_18_df5984 { char pad[0x18]; };
-
-struct VObj_18_df5984 : VBase_18_df5984 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-};
-
 extern "C" {
 void vfunc_9__16TAdWarningBaseGCFv(void *self);
 void send_and_handle__6TLobbyFii(s32, void *, int);
@@ -104,7 +94,7 @@ void TAdWarningBaseGC::vfunc_8() {
         }
         break;
     case 4:
-        ((V_8032D214 *)arg0)->m4();
+        this->vfunc_6();
         break;
     }
     if (*(s32 *)&this->m_20 != *(s32 *)&this->m_1c) {

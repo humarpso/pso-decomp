@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODragonflyCave01.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
 extern "C" {
@@ -15,16 +16,6 @@ extern const char *fs_obj_ex_entombo_model_names[2];
 extern const char *fs_obj_ex_entombo_motion_names[2];
 extern BmlResourceDescriptor TODragonflyCave01__resource_descriptor;
 }
-
-struct VBase_18_1a504b { char pad[0x18]; };
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(void *);
-};
 
 extern "C" {
 u8 *TODragonfly__ct(u8 *arg0);
@@ -139,14 +130,6 @@ extern const f32 lbl_805DB57C;
 #include "pso/misc/TOKey.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-
-struct DfBase_80164cc4_80164760 { char pad[0x18]; };
-struct DfV_80164cc4_80164760 : DfBase_80164cc4_80164760 {
-    virtual void vf00(); virtual void vf01(); virtual void vf02(); virtual void vf03();
-    virtual void vf04(); virtual void vf05(); virtual void vf06(); virtual void vf07();
-    virtual void vf08(); virtual void vf09(); virtual void vf10(); virtual void vf11();
-    virtual void vf12();
-};
 
 struct RecoveredGlobal_80164764_lbl_8050BEE0 {
     s32 value;
@@ -263,7 +246,7 @@ u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1) {
     TODragonfly__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TODragonflyCave01;
     *(s32 *)((s8 *)arg0 + 0) = TODragonflyCave01__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    ((TODragonflyCave01 *)(arg0))->vfunc_7(arg1);
     *(void **)((s8 *)arg0 + 0x34) = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 0xC);
     *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x430)) + 4);
@@ -404,7 +387,7 @@ void TODragonfly::run_task() {
     *(s32 *)&this->m_fc = (s32) (*(s32 *)&this->m_fc + *(s32 *)&this->m_f8);
     *(f32 *)((s8 *)this + 0xF0) = (f32) (this->m_ec * sin_table_lookup(*(s32 *)&this->m_fc));
     if (TObjPlayer::check_demo_mode() == 1) {
-        ((DfV_80164cc4_80164760 *)this)->vf12();
+        this->vfunc_14();
         return;
     }
     update_anim_phase__13TUnk_804AFBF8Fv(this);

@@ -185,49 +185,6 @@ struct RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik {
     u8 remaining[0x148];
 };
 
-struct VBase_18_9ebd6c { char pad[0x18]; };
-
-struct VObj_18_9ebd6c : VBase_18_9ebd6c {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual s32 m37();
-};
-
 struct Pair_8015D518 { s32 a; s32 b; };
 
 struct Obj_8015D518 {
@@ -472,7 +429,7 @@ void TOCtrlDubchik::run_task() {
     }
     if (obj_testFlags30(arg0, 0x800) != 0) {
         *(s16 *)(arg0 + 0x326) = 6;
-    } else if (((VObj_18_9ebd6c *)(arg0))->m37() != 0) {
+    } else if (this->vfunc_39() != 0) {
         refresh_collision_body_centers(arg0);
         submit_cursor_candidate(arg0, -1);
         return;

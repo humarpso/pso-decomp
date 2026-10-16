@@ -1,26 +1,9 @@
 #include "types.h"
+#include "pso/unk/TPhotonFarlla.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
-
-struct VBase_18_801AB370 { char pad[0x18]; };
-
-struct VObj_18_801AB370 : VBase_18_801AB370 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-};
 
 struct Stack_801AB370 { f32 x, y, z; };
 
@@ -111,7 +94,7 @@ u8 *TPhotonFarlla__ct(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x19C) = *(s32 *)((s8 *)arg1 + 0x14);
     *(s32 *)((s8 *)arg0 + 0x1A0) = 0;
     *(s32 *)((s8 *)arg0 + 0x134) = 1;
-    ((VObj_18_801AB370 *) arg0)->m12();
+    ((TPhotonFarlla *)arg0)->enter_scene();
     *(s32 *)((s8 *)arg0 + 0x1A4) = 0;
     switch (TOKeyMachine01::get_global_state()) {
     case 11: case 12: case 13: case 14:

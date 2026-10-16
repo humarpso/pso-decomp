@@ -161,7 +161,7 @@ u8 *TODoorCave02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorCave02__collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((VObj_18_4a4f5b *)(arg0))->m17();
+    ((TODoorCave02 *)(arg0))->init_door_switch_binding();
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) lbl_805DB4B8;
     *(f32 *)((s8 *)arg0 + 0xD8) = (f32) lbl_805DB4B8;
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB4B8;

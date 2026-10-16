@@ -14,15 +14,6 @@ public:
 
 #include "types.h"
 
-struct Base_800D7E10_800D7D74 { char pad[0x18]; };
-struct VObj_800D7E10_800D7D74 : Base_800D7E10_800D7D74 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-};
-
 struct Stack_800D7E94
 {
   f32 sp8;
@@ -211,7 +202,7 @@ void update_lifetime__9TDeadSpotFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x2C) >= (s32) *(s32 *)((s8 *)arg0 + 0x30)) {
         *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-        ((VObj_800D7E10_800D7D74 *)arg0)->m4();
+        ((TUnk_804949F4 *)arg0)->vfunc_6();
     }
 }
 

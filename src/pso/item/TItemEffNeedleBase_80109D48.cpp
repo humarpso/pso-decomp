@@ -4,16 +4,6 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_c1c33b { char pad[0x18]; };
-
-struct VObj_18_c1c33b : VBase_18_c1c33b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-};
-
 struct Needle_80109D48 {
     u8 pad0[0x1C];
     u8 m_1c[0x10];
@@ -86,7 +76,7 @@ void TItemEffNeedleBase::run_task() {
         return;
     }
     allow_rendering__7TObjectFv((void *) (arg0));
-    if (((VObj_18_c1c33b *)(arg0))->m4() != 0) {
+    if (this->vfunc_6() != 0) {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) - lbl_805DAB50);
         if (*(f32 *)((s8 *)arg0 + 0x1C) <= lbl_805DAB54) {
             queue_destruction__7TObjectFv((void *) (arg0));

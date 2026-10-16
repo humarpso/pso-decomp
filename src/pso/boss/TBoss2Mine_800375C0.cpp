@@ -847,7 +847,6 @@ typedef struct VObj_18_444bc5 VObj_18_444bc5;
 #pragma auto_inline off
 #pragma dont_inline off
 typedef char RecoveredGlobal_800384C8_lbl_80435AB0_size[((sizeof(RecoveredGlobal_800384C8_lbl_80435AB0)) == 0x14) ? (1) : (-1)];
-#define PSO_VCALL_VObj_18_444bc5_m94(_self) (((VObj_18_444bc5 *)(_self))->m94())
 void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
   struct CopyStack_800384C8
   {
@@ -858,7 +857,7 @@ void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
   switch (arg1)
   {
     case 4:
-      PSO_VCALL_VObj_18_444bc5_m94(arg0);
+      (((VObj_18_444bc5 *)(arg0))->m94());
       *((s32 *) (((s8 *) arg0) + 0x38C)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x38C))) & 0xFFFFFFF8);
       *((s32 *) (((s8 *) arg0) + 0x3B0)) = 0;
       *((s32 *) (((s8 *) arg0) + 0x3C8)) = 0;
@@ -1357,7 +1356,7 @@ void TBoss2Mine::run_task() {
         ((VObj_18 *)(arg0))->m107();
         return;
     }
-    ((VObj_18 *)(arg0))->m81();
+    this->vfunc_83();
     if (((VObj_18 *)(arg0))->m84() == 0) {
         ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 3);
     }

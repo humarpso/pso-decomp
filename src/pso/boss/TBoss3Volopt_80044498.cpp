@@ -134,73 +134,6 @@ struct Stack_80045A04 {
     f32 sp10;
 };
 
-struct VBase_18_b8f5cb { char pad[0x18]; };
-
-struct VObj_18_b8f5cb : VBase_18_b8f5cb {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual s32 m30();
-    virtual s32 m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual s32 m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual s32 m60();
-    virtual s32 m61();
-};
-
 struct VBase_18_f1aa6a { char pad[0x18]; };
 
 struct VObj_18_f1aa6a : VBase_18_f1aa6a {
@@ -1957,15 +1890,15 @@ void TUnk_80484610::run_task() {
     *(s8 *)((s8 *)TBoss3Volopt__data_805D4D00 + 4) = (s8) fabs_float(temp_f1 * this->m_48c);
     this->m_47c = (s32) (this->m_47c + *(s32 *)((s8 *)arg0 + 0x480));
     if (TObjPlayer::check_demo_mode() != 1) {
-        if (((VObj_18_b8f5cb *)(arg0))->m31() != 0) {
-            ((VObj_18_b8f5cb *)(arg0))->m61();
-        } else if (((VObj_18_b8f5cb *)(arg0))->m30() != 0) {
+        if (this->has_flag_0x800() != 0) {
+            this->vfunc_63();
+        } else if (this->test_flag30_512() != 0) {
             if (TBoss3Volopt__sub_8003F398() != 0) {
                 distribute_part_damage__13TUnk_80484610Fv((Volopt_80044498 *)((void *)((void *) (arg0))));
                 *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
                 *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss3Volopt__data_805D87E4;
             } else {
-                ((VObj_18_b8f5cb *)(arg0))->m60();
+                this->vfunc_62();
             }
         }
         if (obj_testFlags30((void*)(arg0), (s32)(0x4000)) != 0) {
@@ -1991,7 +1924,7 @@ void TUnk_80484610::run_task() {
             submit_cursor_candidate((void *) (arg0), (int) (-1));
             minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
             update_obstruction_fade((void *) (arg0 + 0x490));
-            ((VObj_18_b8f5cb *)(arg0))->m53();
+            this->vfunc_55();
         }
     }
 }

@@ -97,7 +97,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             TObjEneBm9Mericarol__sub_802CED40(find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0)));
             if (*(s32 *)((s8 *)arg0 + 0xF0) == 0 && this->m_108 != 0) {
                 *(s32 *)((s8 *)arg0 + 0xF0) = 0x12;
-                ((VObj_18_64db54 *)(arg0))->m14(arg0 + 0xE4, arg0 + 0xF0);
+                this->vfunc_16(arg0 + 0xE4, arg0 + 0xF0);
             }
             queue_destruction__7TObjectFv(arg0);
             return;

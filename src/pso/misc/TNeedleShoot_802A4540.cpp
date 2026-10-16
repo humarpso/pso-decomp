@@ -14,16 +14,6 @@ struct RecoveredGlobal_802A45D4_lbl_80466678 {
     u8 remaining[0xC];
 };
 
-struct VBase_18_df5984 { char pad[0x18]; };
-
-struct VObj_18_df5984 : VBase_18_df5984 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-};
-
 struct Stack_802A4544 {
     f32 sp8;
     f32 spC;
@@ -69,7 +59,7 @@ void check_wall_hit__12TNeedleShootFPv(u8 *arg0) {
     temp_r3 = (u8 *)(csnVector(&stack.sp8, &stack.sp14, 0x100));
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x6C), (int) (*(s32 *)((s8 *)temp_r3 + 4)));
-        ((VObj_18_df5984 *)(arg0))->m4();
+        ((TNeedleShoot *)(arg0))->vfunc_6();
     }
 }
 #pragma pop

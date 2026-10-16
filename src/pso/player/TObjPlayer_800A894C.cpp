@@ -300,29 +300,6 @@ struct Self_800AA334 { u8 pad[0x3B0]; VObj_14_fddec9 sub; };
 
 struct Vec_800AA334 { s32 x, y, z; };
 
-struct VBase_18_cc39a7 { char pad[0x18]; };
-
-struct VObj_18_cc39a7 : VBase_18_cc39a7 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17(s32);
-};
-
 typedef struct Vec_800A9E9C { f32 x, y, z; } Vec_800A9E9C;
 
 extern "C" {
@@ -1076,12 +1053,12 @@ void TObjPlayer__sub_800AA10C(u8 *arg0) {
     switch (temp_r0) {
     case 8:
     case 0:
-        if ((((VObj_18_cc39a7 *)(arg0))->m17(0x1E) != 0) && (find_target_in_range__10TObjPlayerFf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0x3D0))) != 0)) {
+        if ((((TObjEneDubchik *)(arg0))->vfunc_19(0x1E) != 0) && (find_target_in_range__10TObjPlayerFf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0x3D0))) != 0)) {
             ((TObjEneMe1GiGue *)arg0)->update_if_active((int) (1));
         }
         break;
     case 1:
-        if (((VObj_18_cc39a7 *)(arg0))->m17(0x1E) != 0) {
+        if (((TObjEneDubchik *)(arg0))->vfunc_19(0x1E) != 0) {
             find_target_in_range__10TObjPlayerFf((void *) (arg0), (f32) (lbl_805D9B10 + *(f32 *)((s8 *)arg0 + 0x3D0)));
         }
         temp_r0_2 = *(u32 *)((s8 *)arg0 + 0x2A8);
@@ -1112,7 +1089,7 @@ void TObjPlayer__sub_800AA10C(u8 *arg0) {
                 ((TObjEneMe1GiGue *)arg0)->update_if_active((int) (2));
                 return;
             }
-        } else if (((VObj_18_cc39a7 *)(arg0))->m17(0x1E) != 0) {
+        } else if (((TObjEneDubchik *)(arg0))->vfunc_19(0x1E) != 0) {
             find_target_in_range__10TObjPlayerFf((void *) (arg0), (f32) (lbl_805D9B10 + *(f32 *)((s8 *)arg0 + 0x3D0)));
         }
         break;

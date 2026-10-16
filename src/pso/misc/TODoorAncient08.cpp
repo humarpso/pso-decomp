@@ -7,29 +7,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12();
-    virtual s32 m13();
-    virtual s32 m14();
-    virtual s32 m15();
-    virtual s32 m16();
-    virtual s32 m17();
-};
-
 struct RecoveredGlobal_8016BF68_lbl_80441B4C {
     s32 value;
     u8 remaining[0x8C];
@@ -521,7 +498,7 @@ u8 *TODoorAncient08__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else if (temp_r0 > 0xFC) {
         *(s32 *)((s8 *)arg0 + 0x84) = 0xFC;
     }
-    ((VObj_18_4a4f5b *)(arg0))->m17();
+    ((TODoorAncient08 *)(arg0))->init_door_switch_binding();
     *(s16 *)((s8 *)arg0 + 0xD4) = (s16) (*(s32 *)((s8 *)arg0 + 0x84) + 1);
     *(s16 *)((s8 *)arg0 + 0xD6) = (s16) (*(s32 *)((s8 *)arg0 + 0x84) + 2);
     *(s16 *)((s8 *)arg0 + 0xD8) = (s16) (*(s32 *)((s8 *)arg0 + 0x84) + 3);

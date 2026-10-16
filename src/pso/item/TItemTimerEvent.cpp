@@ -9,16 +9,6 @@ struct VObj_8011E140_8011DA9C : Base_8011E140_8011DA9C {
     virtual void m0(int);
 };
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-    virtual s32 m5();
-};
-
 struct RecoveredGlobal_8011DC90___vt__15TItemTimerEvent {
     s32 value;
     u8 remaining[0x1C];
@@ -97,11 +87,11 @@ void TItemTimerEvent::run_task() {
         return;
     }
     if ((s32) *(s32 *)&this->m_24 == (s32) *(s32 *)&this->m_20) {
-        ((VObj_18 *)(this))->m4();
+        this->vfunc_6();
         *(s32 *)&this->m_24 = 0;
         return;
     }
-    ((VObj_18 *)(this))->m5();
+    this->vfunc_7();
 }
 
 void *TItemTimerEvent__vt0(void *arg0, s16 arg1) {

@@ -1,124 +1,6 @@
 #include "types.h"
 #include "pso/items/TItemWeapon.h"
 
-struct VBase_18_4841bb { char pad[0x18]; };
-
-struct VObj_18_4841bb : VBase_18_4841bb {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual s32 m53();
-};
-
-struct VBase_18_8011FE04 { char pad[0x18]; };
-
-struct VObj_18_8011FE04 : VBase_18_8011FE04 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual s32 m53();
-};
-
 struct Trails_8011FE04 { u8 pad[0x18C]; void *trails[4]; };
 
 extern "C" {
@@ -172,14 +54,14 @@ void TItemWeapon::update_trails() {
 void TItemWeapon::update_weapon_trails() {
     u8 *arg0 = (u8 *)this;
     if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U)) {
-        ((VObj_18_4841bb *)(arg0))->m53();
+        this->reserved_53();
         update_trails();
     }
 }
 void TItemWeapon::draw_equipped_weapon() {
     u8 *arg0 = (u8 *)this;
     if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x1000U) == 0U)) {
-        ((VObj_18_4841bb *)(arg0))->m53();
+        this->reserved_53();
         if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x400U) != 0U) {
             draw_weapon_at_joint((void *) (arg0), (int) (0x30));
             draw_weapon_at_joint((void *) (arg0), (int) (0x23));
@@ -197,7 +79,7 @@ void draw_weapon_trails__11TItemWeaponFPv(u8 *arg0) {
             push_id_to_list__10TObjPlayerFl(get_field_d8__10TObjPlayerFv(arg0));
             return;
         }
-        ((VObj_18_8011FE04 *)(arg0))->m53();
+        ((TItemWeapon *)(arg0))->reserved_53();
         ((TItemWeapon *)arg0)->update_trails();
         count = 0;
         do {

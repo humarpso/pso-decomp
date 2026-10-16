@@ -138,20 +138,6 @@ struct RecoveredGlobal_8019A880___vt__8TObjTank {
     u8 remaining[0x38];
 };
 
-struct Base { char pad[0x18]; };
-
-struct VObj : Base {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -257,23 +243,6 @@ struct Door_8029B524 {
     u8 xf[0x98];
     u32 flags;
     s32 count;
-};
-
-struct VBase_18_26c409 { char pad[0x18]; };
-struct VObj_18_26c409 : VBase_18_26c409 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12();
 };
 
 #pragma push
@@ -399,7 +368,7 @@ void TODoorJungleMain::run_task() {
     s32 flag;
     f32 t;
 
-    ((VObj_18_26c409 *)(arg0))->m12();
+    this->update_door_switch_state();
     if (this->m_d0 & 1) {
         flag = 0;
         *(f32 *)&this->m_b4 += this->m_b8;

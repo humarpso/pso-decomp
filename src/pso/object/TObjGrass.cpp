@@ -56,16 +56,6 @@ typedef struct Grass_800BE75C {
 
 struct Vec_800BEF8C { f32 x, y, z; };
 
-struct VBase_18_800BEF8C { char pad[0x18]; };
-
-struct VObj_18_800BEF8C : VBase_18_800BEF8C {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
-    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
-    virtual void m15(); virtual void m16();
-    virtual s32 m17(s32);
-};
-
 struct Vec_800BF66C { f32 x, y, z; };
 
 struct Quad_800BF66C { s32 a, b, c, d; };
@@ -354,8 +344,6 @@ struct VObj_18_c99286 : VBase_18_c99286 {
 struct E1C_800BF924 { u8 pad[0x1C]; };
 
 struct E2C_800BF924 { u8 pad[0x2C]; };
-
-struct T_800BF924 { u8 pad[0x3C]; u8 f3C[0x80]; E1C_800BF924 e1[1]; E2C_800BF924 e2[4]; };
 
 extern "C" {
 s32 spawn_particle_effect(s32, s32);
@@ -1714,7 +1702,7 @@ void TObjGrass__vt26(u8 *arg0) {
     f32 d;
     u8 *q;
     u16 tid;
-    if (((VObj_18_800BEF8C *)(arg0))->m17(0x1E) != 0) {
+    if (((TObjGrass *)(arg0))->vfunc_19(0x1E) != 0) {
         if (*(s32 *)((s8 *)arg0 + 0x3AC) == 1) {
             *(u16 *)((s8 *)arg0 + 0x338) = 0xFFFFU;
             *(u8 **)((s8 *)arg0 + 0x2A8) = NULL;
@@ -2105,7 +2093,7 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x3CC) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     *(s32 *)((s8 *)arg0 + 0x3D0) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     *(s32 *)((s8 *)arg0 + 0x3A8) = 0;
-    ((VObj_18_c99286 *)(arg0))->m80();
+    ((TObjGrass *)(arg0))->clear_lobby_object_state();
     return arg0;
 }
 

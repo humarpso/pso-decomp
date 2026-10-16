@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
@@ -213,8 +214,8 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         }
     }
     temp_r30 = query_teammate_state__9TObjEneDDFv();
-    ((VObj_18 *)(arg0))->m39();
-    ((VObj_18 *)(arg0))->m40();
+    ((TBoss7DeRolLeC *)(arg0))->vfunc_41();
+    ((TBoss7DeRolLeC *)(arg0))->vfunc_42();
     if (temp_r30 == 0) {
         if ((*(s16 *)((s8 *)arg0 + 0x326) == 0x1C) || (*(s16 *)((s8 *)arg0 + 0x326) == 0x1D) || (*(s16 *)((s8 *)arg0 + 0x326) == 0x1B)) {
             *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x800);
@@ -232,14 +233,14 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
             } else {
                 ((TObjPlayer *)arg0)->update_or_dispatch();
             }
-            if (((VObj_18 *)(arg0))->m30() != 0) {
-                ((VObj_18 *)(arg0))->m60();
+            if (((TBoss7DeRolLeC *)(arg0))->test_flag30_512() != 0) {
+                ((TBoss7DeRolLeC *)(arg0))->vfunc_62();
             }
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 8);
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
         } else {
-            if (((VObj_18 *)(arg0))->m30() != 0) {
-                ((VObj_18 *)(arg0))->m60();
+            if (((TBoss7DeRolLeC *)(arg0))->test_flag30_512() != 0) {
+                ((TBoss7DeRolLeC *)(arg0))->vfunc_62();
             }
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
         }

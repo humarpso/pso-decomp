@@ -269,7 +269,7 @@ void TObjContainerEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
-            ((VObj*)arg0)->m77();
+            this->vfunc_79();
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));

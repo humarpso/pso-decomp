@@ -149,73 +149,6 @@ struct VObj_80041F6C : VBase_80041F6C {
     virtual s32 m8(f32, f32);
 };
 
-struct VBase_18_b8f5cb { char pad[0x18]; };
-
-struct VObj_18_b8f5cb : VBase_18_b8f5cb {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual s32 m30();
-    virtual s32 m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual s32 m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual s32 m60();
-    virtual s32 m61();
-};
-
 extern "C" {
 void sub_8004292C__15TObjEnemyCustomFv(u8 *arg0);
 s32 TObjEnemyCustom__ct(void *);
@@ -507,10 +440,10 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
         ((void (*)(void *))TBoss3VoloptMonitor__sub_800420D8)(arg0);
         return;
     }
-    if (((VObj_18_b8f5cb *)(arg0))->m31() != 0) {
-        ((VObj_18_b8f5cb *)(arg0))->m61();
-    } else if (((VObj_18_b8f5cb *)(arg0))->m30() != 0) {
-        ((VObj_18_b8f5cb *)(arg0))->m60();
+    if (((TBoss3VoloptMonitor *)(arg0))->has_flag_0x800() != 0) {
+        ((TBoss3VoloptMonitor *)(arg0))->vfunc_63();
+    } else if (((TBoss3VoloptMonitor *)(arg0))->test_flag30_512() != 0) {
+        ((TBoss3VoloptMonitor *)(arg0))->vfunc_62();
     }
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != (s32) *(s32 *)((s8 *)arg0 + 0x374)) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x37C) != -1) {
@@ -561,7 +494,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     } else {
         ((TObjEnemyCustom *)arg0)->set_flags_30();
     }
-    ((VObj_18_b8f5cb *)(arg0))->m53();
+    ((TBoss3VoloptMonitor *)(arg0))->vfunc_55();
 }
 
 void TBoss3VoloptMonitor::release() {

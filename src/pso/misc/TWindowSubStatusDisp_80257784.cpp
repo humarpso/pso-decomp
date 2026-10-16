@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 
 struct RecoveredGlobal_80258100_lbl_804CF998 {
     s32 value;
@@ -520,30 +521,9 @@ void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 arg
 
 #include "types.h"
 
-struct Base_80258D38 { char pad[0x18]; };
-struct VObj_80258D38 : Base_80258D38 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual s32 m10();
-};
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
 #define PADV virtual void CAT(f,__LINE__)();
-struct Base_A_80258e2c { char pad[0x18]; };
-struct V_A_80258e2c : Base_A_80258e2c {
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    virtual s32 m10();
-};
-
 struct Base_80258F34 { char pad[0x18]; };
 
 struct V_80258F34 : Base_80258F34 {
@@ -621,7 +601,7 @@ void set_inventory_item__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s
     *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805DCF08;
     temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
     select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__10TObjPlayerFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
-    *(s32 *)((s8 *)arg0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, ((VObj_80258D38 *) arg1)->m10(), *(s32 *)((s8 *)arg0 + 0x20), 8, 1);
+    *(s32 *)((s8 *)arg0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, ((TItem *)arg1)->vfunc_12(), *(s32 *)((s8 *)arg0 + 0x20), 8, 1);
     if (TObjPlayer__sub_801C1AC8(arg1) != 0) {
         update_stat_line_if_positive__20TWindowSubStatusDispFPvi(arg0, arg2);
     }
@@ -640,7 +620,7 @@ void update_from_player__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s
     *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805DCF08;
     temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
     select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__10TObjPlayerFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
-    *(s32 *)((s8 *)arg0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, ((V_A_80258e2c *) arg1)->m10(), *(s32 *)((s8 *)arg0 + 0x20), 8, 1);
+    *(s32 *)((s8 *)arg0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, ((TItem *)arg1)->vfunc_12(), *(s32 *)((s8 *)arg0 + 0x20), 8, 1);
     if (get_camera_id__11TCameraCtrlFv() <= 2) {
         text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(arg2);
@@ -655,7 +635,7 @@ void init_item_row__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg
     *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805DCF08;
     temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
     select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__10TObjPlayerFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
-    *(s32 *)((s8 *)arg0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, ((V_80258F34 *) arg1)->m10(), *(s32 *)((s8 *)arg0 + 0x20), 8, 1);
+    *(s32 *)((s8 *)arg0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, ((TItem *)arg1)->vfunc_12(), *(s32 *)((s8 *)arg0 + 0x20), 8, 1);
     if (TObjPlayer__sub_801C1AC8(arg1) != 0) {
         s32 v = ((V_80258F34 *) arg1)->m34();
         update_stat_line_if_positive__20TWindowSubStatusDispFPvi(arg0, v);

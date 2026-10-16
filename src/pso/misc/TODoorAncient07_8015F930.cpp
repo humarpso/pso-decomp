@@ -147,7 +147,7 @@ u8 *TODoorAncient07__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (&door_ancient07_collision_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((VObj_18_4a4f5b *)(arg0))->m17();
+    ((TODoorAncient07 *)(arg0))->init_door_switch_binding();
     return arg0;
 }
 

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/enemy/TObjEneLappy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/DamageBookkeeping.h"
@@ -532,29 +534,6 @@ struct RecoveredGlobal_8001806C_lbl_8058D490 { s32 value; u8 remaining[0x2C]; };
 
 typedef char RecoveredGlobal_8001806C_lbl_8058D490_size[sizeof(RecoveredGlobal_8001806C_lbl_8058D490) == 0x30 ? 1 : -1];
 
-struct VBase_18_cc39a7 { char pad[0x18]; };
-
-struct VObj_18_cc39a7 : VBase_18_cc39a7 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17(s32);
-};
-
 struct Vec_80018660 { f32 x, y, z; };
 
 struct Obj_80018660 { u8 pad[0x38]; Vec_80018660 pos; u8 pad44[0x1c]; s32 angle; u8 pad64[0x238]; Vec_80018660 dest; };
@@ -809,48 +788,6 @@ typedef struct Obj_800162E0 {
     u8 pad2CE[0x2DC - 0x2CE];
     s32 flags2DC;
 } Obj_800162E0;
-
-struct VBase_800166DC { char pad[0x18]; };
-
-struct VObj_800166DC : VBase_800166DC {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
-    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
-    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24();
-    virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29();
-    virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34();
-    virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44();
-    virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49();
-    virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54();
-    virtual void m55(); virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63(); virtual void m64();
-    virtual void m65(); virtual void m66(); virtual void m67(); virtual void m68();
-    virtual void m69();
-    virtual void m70();
-};
-
-struct VBase_80016944 { char pad[0x18]; };
-
-struct VObj_80016944 : VBase_80016944 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
-    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
-    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24();
-    virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29();
-    virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34();
-    virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44();
-    virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49();
-    virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54();
-    virtual void m55(); virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63(); virtual void m64();
-    virtual void m65(); virtual void m66(); virtual void m67(); virtual void m68();
-    virtual void m69();
-    virtual void m70();
-};
 
 struct Motion_80018990 { s16 f0; s16 f2; s16 f4; s16 f6; s16 f8; s16 fa; s16 fc; u8 padE[0x18 - 0xE]; s32 f18; };
 
@@ -3230,7 +3167,7 @@ f32 receive_physical_attack__10TObjPlayerFv(Obj_80014108 *self, Obj_80014108 *at
         }
     }
     if (immune == 0) {
-        ((VObj_18_d805cd *)self)->m72(0);
+        ((TUnk_804806E8 *)self)->vfunc_74(0);
     }
     if (is_locally_controlled__10TObjPlayerFPv(self) != 0) {
         TObjPlayer::calc_photon_blast_charge(self, (s32)(20.0f * total));
@@ -3820,13 +3757,13 @@ s32 update_defense_stat_status(u8 *arg0) {
                 case 11:
                     break;
                 case 10:
-                    ((VObj_800166DC *)arg0)->m69();
+                    ((TUnk_804806E8 *)arg0)->vfunc_71();
                     if ((((s32 (*)(void *, s32))obj_testFlags30)(arg0, 0x10000000) == 0) || (((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) {
                         ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x40022C2C, arg0 + 0x38, 0, 0);
                     }
                     break;
                 case 12:
-                    ((VObj_800166DC *)arg0)->m70();
+                    ((TUnk_804806E8 *)arg0)->vfunc_72();
                     if ((((s32 (*)(void *, s32))obj_testFlags30)(arg0, 0x10000000) == 0) || (((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) {
                         ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x4002362D, arg0 + 0x38, 0, 0);
                     }
@@ -3860,13 +3797,13 @@ s32 update_attack_stat_status(u8 *arg0) {
                 case 10:
                     break;
                 case 9:
-                    ((VObj_80016944 *)arg0)->m67();
+                    ((TUnk_804806E8 *)arg0)->vfunc_69();
                     if ((((s32 (*)(void *, s32))obj_testFlags30)(arg0, 0x10000000) == 0) || (((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) {
                         ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x4002462A, arg0 + 0x38, 0, 0);
                     }
                     break;
                 case 11:
-                    ((VObj_80016944 *)arg0)->m68();
+                    ((TUnk_804806E8 *)arg0)->vfunc_70();
                     if ((((s32 (*)(void *, s32))obj_testFlags30)(arg0, 0x10000000) == 0) || (((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) {
                         ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x4002442B, arg0 + 0x38, 0, 0);
                     }
@@ -4137,7 +4074,7 @@ s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p) {
 }
 
 f32 enemy_move_toward(u8 *arg0, s32 arg1, Vec_800180E8 arg2, s32 arg3, f32 farg0) {
-    if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < (1e-05f) || ((VObj_18_cc39a7 *)(arg0))->m17(0x1E) != 0) {
+    if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < (1e-05f) || ((TObjEnemy *)(arg0))->vfunc_19(0x1E) != 0) {
         if (((s32 (*)(void *, Vec_800180E8, int)) select_enemy_destination)(arg0, arg2, arg3) != 0) {
             ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, *(Vec_800180E8 *)(arg0 + 0x2FC));
         }
@@ -4166,7 +4103,7 @@ f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 far
     d0 = horizontal_distance_squared(arg0 + 0x2FC, arg0 + 0x290);
     d1 = horizontal_distance_squared(arg0 + 0x290, arg0 + 0x29C);
     d2 = horizontal_distance_squared(arg0 + 0x2FC, arg0 + 0x29C);
-    if (farg1 * farg1 <= d0 || d1 < (1e-05f) || d2 < (1e-05f) || ((VObj_18_cc39a7 *)(arg0))->m17(0x96) != 0) {
+    if (farg1 * farg1 <= d0 || d1 < (1e-05f) || d2 < (1e-05f) || ((TObjEnemy *)(arg0))->vfunc_19(0x96) != 0) {
         VecCopy__FP3VecPC3Vec((s32)&d, (s32)&arg2);
         subtract_vector(&d, arg0 + 0x2FC);
         a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(d.x, d.z));
@@ -4202,7 +4139,7 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
     f32 var_f31;
     s32 ang;
     var_f31 = horizontal_distance_squared((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x29C));
-    if ((var_f31 < (farg0 * farg0)) || (((VObj_18_cc39a7 *)(arg0))->m17(0x96) != 0)) {
+    if ((var_f31 < (farg0 * farg0)) || (((TObjEnemy *)(arg0))->vfunc_19(0x96) != 0)) {
         v.x = v.y = (0.0f);
         v.z = (1.0f);
         ang = (s32) ((182.04445f) * ((3.6e+02f) * ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(arg0)));
@@ -4230,7 +4167,7 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
 }
 
 f32 update_enemy_wander_move(Obj_80017ABC *arg0, Vec_800180E8 arg1, s32 arg2, f32 farg0) {
-    if (((VObj_18_cc39a7 *)(arg0))->m17(0x1E) != 0) {
+    if (((TObjEneLappy *)(arg0))->has_update_cadence(0x1E) != 0) {
         if (((s32 (*)(void *, Vec_800180E8, int)) select_enemy_destination)(arg0, arg1, arg2) != 0) {
             ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, arg0->cur);
         }

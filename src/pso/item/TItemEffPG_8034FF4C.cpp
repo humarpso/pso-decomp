@@ -2,12 +2,6 @@
 #include "pso/item/TItemEffPG.h"
 #include "pso/item/TItemAttackCol.h"
 
-struct PgBase_8034FF4C { char pad[0x18]; };
-struct PgV_8034FF4C : PgBase_8034FF4C {
-    virtual void vf00(); virtual void vf01(); virtual void vf02(); virtual void vf03();
-    virtual void vf04(); virtual s32 vf05();
-};
-
 struct RecoveredGlobal_8035007C___vt__10TItemEffPG { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_8035007C___vt__10TItemEffPG_size[sizeof(RecoveredGlobal_8035007C___vt__10TItemEffPG) == 0x20 ? 1 : -1];
 
@@ -43,7 +37,7 @@ void TItemEffPG::run_task() {
     if (has_game_join_id__13TUnk_804E355CFv() == 0) {
         var_r31 = 0;
     }
-    if (((PgV_8034FF4C *)this)->vf05() == 0) {
+    if (this->vfunc_7() == 0) {
         var_r31 = 0;
     }
     if (var_r31 != 0) {

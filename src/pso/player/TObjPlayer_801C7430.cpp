@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/PlayerAttackController.h"
 #include "pso/TObject.h"
@@ -1202,27 +1203,6 @@ struct Slot_801D3224 { s16 a; s16 idx; };
 typedef char RecoveredGlobal_801D2CF4_lbl_804C43CC_size[sizeof(RecoveredGlobal_801D2CF4_lbl_804C43CC) == 0xC ? 1 : -1];
 
 typedef char RecoveredGlobal_801D2CF4_lbl_804C43D8_size[sizeof(RecoveredGlobal_801D2CF4_lbl_804C43D8) == 0x10 ? 1 : -1];
-
-struct VBase_18_d7a0b2 { char pad[0x18]; };
-
-struct VObj_18_d7a0b2 : VBase_18_d7a0b2 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual s32 m15();
-};
 
 typedef struct Msg_801CACD8 {
     u8 pad0[2];
@@ -2688,7 +2668,7 @@ void update_warp_relocation__10TObjPlayerFv(u8 *arg0) {
             ((TBoss4DarkFalz *)arg0)->set_position_from(arg0 + 0x660);
             refresh_equipment_slot__10TObjPlayerFv(arg0);
             ((TObjPlayer *)arg0)->clear_flag_4000();
-            ((VObj_18_d7a0b2 *)(arg0))->m15();
+            ((TUnk_804806E8 *)(arg0))->vfunc_17();
             if (((s32 (*)(void *))is_on_current_floor__10TObjPlayerFi)(arg0) != 0) {
                 ((s32 (*)(void *, int))send_field_state_if_active__10TObjPlayerFii)(arg0, 0x40003206);
             }

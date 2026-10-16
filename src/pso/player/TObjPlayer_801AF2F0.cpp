@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss7Crawfish.h"
@@ -274,8 +275,6 @@ struct V_801AF454 : B_801AF454 {
 
 struct O_801AF454 { u8 pad[0x380]; V_801AF454 *obj; };
 
-struct Rec_801CD078 { u8 pad[0x10]; s16 cost; };
-
 struct Player_801CD078 { u8 pad[0x32E]; s16 tp; u8 pad330[0x428 - 0x330]; u8 techs[4]; };
 
 struct Node_801CD424 { u8 pad[0x1C]; f32 pos[3]; u8 pad28[0x2C - 0x28]; };
@@ -304,23 +303,6 @@ struct Player_801CD424 {
 struct Sub_801CD188 { u8 pad[0x508]; u16 f508; };
 
 struct Player_801CD188 { u8 pad[0xB0]; u32 flags; u8 padb4[0x424 - 0xB4]; Sub_801CD188 *sub; };
-
-typedef struct Msg1_801CD72C {
-    u8 pad0[2];
-    u16 id;
-    u8 level;
-    u8 pad5[3];
-} Msg1_801CD72C;
-
-typedef struct Msg2_801CD72C {
-    u8 pad0[2];
-    s16 id;
-    u8 tech;
-    u8 pad5;
-    u8 lv;
-    u8 count;
-    u32 data[13];
-} Msg2_801CD72C;
 
 typedef struct Player_801CD72C {
     u8 pad0[0x424];
@@ -388,22 +370,6 @@ typedef struct Pkt_801B0300
 } Pkt_801B0300;
 
 typedef struct Pkt_801B0300 Pkt_801B0300;
-
-struct Base_801B0520 { char pad[0x18]; };
-
-struct VObj_801B0520 : Base_801B0520 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual s32 m10();
-};
 
 struct Cmd_801B0690 { u16 hdr; u16 client; s32 team; };
 
@@ -3582,7 +3548,7 @@ int update_trap_sub__10TOMineTrapFPv(void* p) { return ((int (*)(void*))accumula
 void draw_player_status(s32 arg0, void *arg1, s32 arg2) {
     s32 temp_r3;
 
-    temp_r3 = ((VObj_801B0520 *)arg1)->m10();
+    temp_r3 = ((TUnk_804B6C24 *)arg1)->vfunc_12();
     if (temp_r3 != 0) {
         if (check_value_equals__13TQuestColCtrlFPll(arg1, lbl_805D3530) != 0) {
             ((s32 (*)(s32, s32, s32, s32))draw_status_line)(arg0, arg2, temp_r3, ((s32 (*)(void *))TObjPlayer__sub_801AFFD0)(arg1));
@@ -6916,7 +6882,6 @@ void handle_6x83_place_trap(void *arg0) {
     }
 }
 
-struct P_801B89B0 { u8 pad[0x7C4]; u8 traps[0x30]; };
 s8 clamp_char_at__10TObjPlayerFl(u8 *, s32);
 s32 TWindowCtrl__sub_8024A228(u16);
 void bswap_body_words_and_send__10TObjPlayerFPv(Pkt_801B8908 *);

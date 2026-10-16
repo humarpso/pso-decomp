@@ -16,17 +16,6 @@ struct Suisou_80369BF4 {
     f32 cc;
 };
 
-struct VBase_80369ED4 { char pad[0x18]; };
-
-struct VObj_80369ED4 : VBase_80369ED4 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(void *);
-};
-
 struct Vec_80369ED4 { s32 x, y, z; };
 
 struct Self_80369ED4 {
@@ -221,7 +210,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
     init_map_object_base(arg0, arg1);
     *(void ***)((u8 *)arg0 + 0x18) = ((void * *)__vt__15TObjSuisouLobby);
     *(s32 *)arg0 = (s32)lbl_805D44C4;
-    ((VObj_80369ED4 *)arg0)->m5(arg2);
+    ((TObjSuisouLobby *)arg0)->vfunc_7(arg2);
     {
         Vec_80369ED4 v = lbl_8047A3D0[0];
         push_matrix();

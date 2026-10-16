@@ -1,28 +1,11 @@
 #include "types.h"
+#include "pso/unk/TPhotonPilla.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Vec_801AE1F8 { f32 x, y, z; };
-
-struct VBase_801AE1F8 { char pad[0x18]; };
-
-struct VObj_801AE1F8 : VBase_801AE1F8 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-};
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -117,7 +100,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x1A0) = *(s32 *)((s8 *)arg1 + 0x14);
     *(s32 *)((s8 *)arg0 + 0x1A4) = 0;
     *(s32 *)((s8 *)arg0 + 0x134) = 4;
-    ((VObj_801AE1F8 *) arg0)->m12();
+    ((TPhotonPilla *)arg0)->enter_scene();
     *(s32 *)((s8 *)arg0 + 0x1A8) = 0;
     state = TOKeyMachine01::get_global_state();
     switch (state) {

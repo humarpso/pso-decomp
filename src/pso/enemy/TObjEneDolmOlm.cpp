@@ -21,40 +21,6 @@ struct VObj_80301690_80300CE4 : Base_80301690_80300CE4 {
 #undef V
 };
 
-struct Base_A_802cf040_802CECE0 { char pad[0x18]; };
-
-struct V_A_802cf040_802CECE0 : Base_A_802cf040_802CECE0 {
-    virtual void p0(); virtual void p1(); virtual void p2(); virtual void p3();
-    virtual void p4(); virtual void p5(); virtual void p6(); virtual void p7();
-    virtual void p8(); virtual void p9(); virtual void p10(); virtual void p11();
-    virtual void p12(); virtual void p13(); virtual void p14(); virtual void p15();
-    virtual void p16(); virtual void p17(); virtual void p18(); virtual void p19();
-    virtual void p20(); virtual void p21(); virtual void p22(); virtual void p23();
-    virtual void p24(); virtual void p25(); virtual void p26(); virtual void p27();
-    virtual void p28(); virtual void p29(); virtual void p30(); virtual void p31();
-    virtual void p32(); virtual void p33(); virtual void p34(); virtual void p35();
-    virtual void p36(); virtual void p37(); virtual void p38(); virtual void p39();
-    virtual void p40(); virtual void p41(); virtual void p42(); virtual void p43();
-    virtual void p44(); virtual void p45(); virtual void p46(); virtual void p47();
-    virtual void p48(); virtual void p49(); virtual void p50(); virtual void p51();
-    virtual void p52(); virtual void p53(); virtual void p54(); virtual void p55();
-    virtual void p56(); virtual void p57(); virtual void p58(); virtual void p59();
-    virtual void p60(); virtual void p61(); virtual void p62(); virtual void p63();
-    virtual void p64(); virtual void p65(); virtual void p66(); virtual void p67();
-    virtual void p68(); virtual void p69(); virtual void p70(); virtual void p71();
-    virtual void p72(); virtual void p73(); virtual void p74(); virtual void p75();
-    virtual void p76(); virtual void p77(); virtual void p78(); virtual void p79();
-    virtual void p80(); virtual void p81(); virtual void p82(); virtual void p83();
-    virtual void p84(); virtual void p85();
-    virtual void m86();
-    virtual void p87(); virtual void p88(); virtual void p89(); virtual void p90();
-    virtual void p91(); virtual void p92(); virtual void p93();
-    virtual void m94();
-    virtual void p95(); virtual void p96(); virtual void p97(); virtual void p98();
-    virtual void p99();
-    virtual void m100();
-};
-
 #include <stddef.h>
 #include "pso/enemy/TObjEneDolmOlm.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -229,13 +195,6 @@ struct Ene_80302004 {
 
 struct Ene_80302A34 { u8 pad0[0x18]; void *vt; u8 pad1[0x3a8 - 0x1c]; u8 sub[0x1c]; void *obj[2]; };
 
-struct VBase_14_800A7BEC { char pad[0x14]; };
-
-struct VObj_14_800A7BEC : VBase_14_800A7BEC {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual s32 m5();
-};
-
 struct Obj_800A7BEC { u8 pad0[0x38]; u8 sub38[0x326 - 0x38]; s16 f326; s16 state; u8 pad32a[0x390 - 0x32A]; s32 f390; };
 
 typedef struct Vec_800A7A14 {
@@ -264,16 +223,6 @@ typedef struct Obj_800A7A14 {
     u8 padC4[0x3C4 - 0xC4];
     VObj_800A7A14 *effs[2];
 } Obj_800A7A14;
-
-struct A7B00Base_800a7b00_800A7764 { char pad[0x14]; };
-
-struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-};
 
 typedef struct Vec_80300D00 { f32 x, y, z; } Vec_80300D00;
 
@@ -1126,17 +1075,6 @@ extern void *tl_04;
 typedef struct RecoveredFields_8030247C_arg0 RecoveredFields_8030247C_arg0;
 typedef struct VBase_18_477421 VBase_18_477421;
 typedef struct VObj_18_477421 VObj_18_477421;
-#define PSO_VCALL_VObj_18_477421_m99(_self) (((VObj_18_477421 *)(_self))->m99())
-#define PSO_VCALL_VObj_18_477421_m81(_self) (((VObj_18_477421 *)(_self))->m81())
-#define PSO_VCALL_VObj_18_477421_m82(_self) (((VObj_18_477421 *)(_self))->m82())
-#define PSO_VCALL_VObj_18_477421_m83(_self) (((VObj_18_477421 *)(_self))->m83())
-#define PSO_VCALL_VObj_18_477421_m84(_self) (((VObj_18_477421 *)(_self))->m84())
-#define PSO_VCALL_VObj_18_477421_m85(_self) (((VObj_18_477421 *)(_self))->m85())
-#define PSO_VCALL_VObj_18_477421_m86(_self) (((VObj_18_477421 *)(_self))->m86())
-#define PSO_VCALL_VObj_18_477421_m87(_self) (((VObj_18_477421 *)(_self))->m87())
-#define PSO_VCALL_VObj_18_477421_m88(_self) (((VObj_18_477421 *)(_self))->m88())
-#define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
-#define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
 
 extern u32 dolm_olm_combat_stat_id_pair;
 extern u32 TObjEneDolmOlm__shared_handler_ids;
@@ -1268,7 +1206,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     *(f32 *)((s8 *)arg0 + 0x3D4) = TObjEneDolmOlm__data_805DEF54;
     sub_8002AE64__9TObjEnemyFv(arg0);
-    ((VObj_18_c99286 *) arg0)->m80();
+    ((TObjEneDolmOlm *)arg0)->clear_lobby_object_state();
     return arg0;
 }
 Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag) {
@@ -1392,7 +1330,7 @@ void run_task__14TObjEneDolmOlmFPv(u8 *arg0) {
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)
   {
-    PSO_VCALL_VObj_18_477421_m99(arg0);
+    (((TObjEneDolmOlm *)(arg0))->vfunc_101());
     return;
   }
   temp_r0 = ((RecoveredFields_8030247C_arg0 *) arg0)->field_326;
@@ -1400,36 +1338,36 @@ void run_task__14TObjEneDolmOlmFPv(u8 *arg0) {
     switch (temp_r0)
     {
       case 0:
-        PSO_VCALL_VObj_18_477421_m81(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_83());
         break;
       case 1:
-        PSO_VCALL_VObj_18_477421_m82(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_84());
         break;
       case 2:
-        PSO_VCALL_VObj_18_477421_m83(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_85());
         break;
       case 3:
-        PSO_VCALL_VObj_18_477421_m84(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_86());
         ((TObjEneDolmOlm *)arg0)->init_body_sub();
         break;
       case 4:
-        PSO_VCALL_VObj_18_477421_m85(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_87());
         ((TObjEneDolmOlm *)arg0)->init_body_sub();
         break;
       case 5:
-        PSO_VCALL_VObj_18_477421_m86(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_88());
         break;
       case 6:
-        PSO_VCALL_VObj_18_477421_m87(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_89());
         break;
       case 7:
-        PSO_VCALL_VObj_18_477421_m88(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_90());
         break;
       case 8:
-        PSO_VCALL_VObj_18_477421_m89(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_91());
         break;
       case 9:
-        PSO_VCALL_VObj_18_477421_m90(arg0);
+        (((TObjEneDolmOlm *)(arg0))->vfunc_92());
         break;
       case 10:
         TObjEneDolmOlm__sub_80301C3C((void *) arg0);

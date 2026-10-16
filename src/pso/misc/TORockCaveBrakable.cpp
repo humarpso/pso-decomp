@@ -2,18 +2,6 @@
 #include "pso/misc/TORockCaveBrakable.h"
 #include "pso/player/TObjPlayer.h"
 
-struct Base_80174EA0_80174CC0 { char pad[0x18]; };
-struct VObj_80174EA0_80174CC0 : Base_80174EA0_80174CC0 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-};
-
 #pragma inline_depth(1)
 #pragma auto_inline on
 #pragma dont_inline off
@@ -48,27 +36,6 @@ extern s32 tl_05;
 }
 
 extern "C" {
-
-struct E4E50Base_80174e50_80174CC0 { char pad[0x18]; };
-struct E4E50Obj_80174e50_80174CC0 : E4E50Base_80174e50_80174CC0 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-};
 
 void *TORockCaveBrakable__ct(void *arg0);
 void vfunc_19__18TORockCaveBrakableFv(void);
@@ -118,7 +85,7 @@ void TORockCaveBrakable::vfunc_16() {
 
 void TORockCaveBrakable::spawn_break_effect() {
     u8 *arg0 = (u8 *)this;
-    ((E4E50Obj_80174e50_80174CC0*)arg0)->m16();
+    this->vfunc_18();
     spawn_particle_effect(arg0 + 0x38, 0x45);
     spawn_particle_effect(arg0 + 0x38, 0x46);
 }
@@ -128,7 +95,7 @@ void TORockCaveBrakable::update_break_state() {
     s32 temp_r0_2;
 
     if (TObjPlayer::check_demo_mode() == 1) {
-        ((VObj_80174EA0_80174CC0 *)this)->m17();
+        this->vfunc_19();
         return;
     }
     temp_r0 = *(s32 *)&this->m_b4;
@@ -139,8 +106,8 @@ void TORockCaveBrakable::update_break_state() {
         temp_r0_2 = *(s32 *)&this->m_b8;
         if ((temp_r0_2 >= 0) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)) {
             *(s32 *)&this->m_b4 = 1;
-            ((VObj_80174EA0_80174CC0 *)this)->m15();
-            ((VObj_80174EA0_80174CC0 *)this)->m14();
+            this->spawn_break_effect();
+            this->vfunc_16();
         }
         break;
     case 1:

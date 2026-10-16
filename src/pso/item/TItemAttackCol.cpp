@@ -1,17 +1,6 @@
 #include "types.h"
 #include "pso/item/TUnk_804E355C.h"
 
-struct VBase_18_f8ef8c { char pad[0x18]; };
-
-struct VObj_18_f8ef8c : VBase_18_f8ef8c {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5();
-};
-
 #include <stddef.h>
 #include "pso/item/TItemAttackCol.h"
 #include "pso/TParticleCtrl.h"
@@ -307,7 +296,7 @@ void TItemAttackCol::run_task() {
     if (*(s32 *)&this->m_e4 & 0x20) {
         *(s32 *)&this->m_100 = (s32) (*(s32 *)&this->m_100 + 0x888);
     }
-    ((VObj_18_f8ef8c *)(arg0))->m5();
+    this->vfunc_7();
     temp_r3 = this->m_12c;
     if (temp_r3 != 0U) {
         copy_position__15TEffStarLight2DFPv((int) (temp_r3), (void *) (arg0 + 0x24));
