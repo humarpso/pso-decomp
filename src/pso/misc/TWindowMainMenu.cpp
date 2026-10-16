@@ -66,7 +66,7 @@ s32 TWindowMainMenu__sub_802ADADC(int, int);
 s32 append_child_rows__15TWindowMainMenuFPvi(int, void *);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 u8 * __dt__7TObjectFv(void *, s16);
-void init_parts__10TObjPlayerFPv(s32);
+void init_parts__10TObjPlayerFv(s32);
 s32 get_player_by_client_id(u32);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8026492C___vt__15TWindowMainMenu __vt__15TWindowMainMenu;
@@ -198,7 +198,7 @@ u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1) {
         if (*(s32 *)((s8 *)arg0 + 0x4C) & 1) {
             temp_r3 = get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54));
             if (temp_r3 != 0U) {
-                init_parts__10TObjPlayerFPv((s32) temp_r3);
+                init_parts__10TObjPlayerFv((s32) temp_r3);
             }
         }
         ((TWindowMainMenu *)arg0)->close_child_window();

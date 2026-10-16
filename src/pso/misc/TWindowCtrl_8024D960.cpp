@@ -62,7 +62,7 @@ extern Pad_8024DCE8 controller_input_state[];
 void queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 u32 get_player_by_client_id(int);
-u32 is_action_active__10TObjPlayerFPv(void *);
+u32 is_action_active__10TObjPlayerFv(void *);
 s32 is_player_input_active(s32);
 s32 TWindowCtrl__sub_8024C7D4(void *);
 s32 get_function_key_menu__16TKeyBoardControlFPv(void *arg0);
@@ -221,7 +221,7 @@ void TWindowCtrl::update_main_menu_request() {
         TWindowCtrl::update_focused();
         return;
     }
-    if (is_action_active__10TObjPlayerFPv((void *) p) != 0) {
+    if (is_action_active__10TObjPlayerFv((void *) p) != 0) {
         return;
     }
     if (key == 0x1F) {

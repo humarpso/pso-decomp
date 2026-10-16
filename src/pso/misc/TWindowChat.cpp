@@ -59,7 +59,7 @@ extern s32 local_client_id;
 s32 end_player_keyboard_hold(s32);
 s32 reset_input__11TWindowChatFv(int);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
-s32 init_parts__10TObjPlayerFPv(s32);
+s32 init_parts__10TObjPlayerFv(s32);
 s32 set_flag60_bit200__16TKeyBoardControlFv(s32);
 s32 clear_flag60_bit200__16TKeyBoardControlFv(s32);
 s32 fn_8002AE08(s32);
@@ -74,7 +74,7 @@ s32 TKeyBoardControl__sub_8025EC04(s32);
 s32 TWindow__close(void *);
 s32 queue_destruction__7TObjectFv(void *);
 extern s32 local_client_id;
-s32 init_parts__10TObjPlayerFPv(s32);
+s32 init_parts__10TObjPlayerFv(s32);
 s32 get_player_by_client_id(s32);
 s32 end_player_keyboard_hold(s32);
 s32 reset_input__11TWindowChatFv(int);
@@ -83,7 +83,7 @@ s32 fn_8002AE08(s32);
 s32 is_key_held__16TKeyBoardControlFv(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
-s32 init_parts__10TObjPlayerFPv(s32);
+s32 init_parts__10TObjPlayerFv(s32);
 s32 reset_equip_slots__10TObjPlayerFv(int);
 s32 get_player_by_client_id(s32);
 s32 begin_player_keyboard_hold(void *);
@@ -104,7 +104,7 @@ s32 end_player_keyboard_hold(s32);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 init_parts__10TObjPlayerFPv(s32);
+s32 init_parts__10TObjPlayerFv(s32);
 s32 queue_destruction__7TObjectFv(void *);
 void *__dt__11TWindowChatFv(void *, s16);
 extern s32 __vt__11TWindowChat[];
@@ -230,7 +230,7 @@ void TWindowChat::update() {
         temp_r3 = get_player_by_client_id(local_client_id);
         if ((temp_r3 != 0) && !(this->flags & 2) && (is_mode_bit6() != 0)) {
             if (has_player_active_menu__11TWindowCtrlFv(local_client_id) == 0) {
-                init_parts__10TObjPlayerFPv(temp_r3);
+                init_parts__10TObjPlayerFv(temp_r3);
             }
             end_player_keyboard_hold(local_client_id);
         }
@@ -338,7 +338,7 @@ void TWindowChat::handle_input() {
             case 0:
                 if ((((TWindowChat*)((u8 *)(this)))->submit_keyboard_input() != 0) && (sub_80247EC0() != 0)) {
                     if (is_mode_bit6() != 0) {
-                        init_parts__10TObjPlayerFPv(temp_r3);
+                        init_parts__10TObjPlayerFv(temp_r3);
                         end_player_keyboard_hold(local_client_id);
                     }
                     ((TWindowChat*)((void *)((void *)(this))))->close_all_children();
@@ -349,7 +349,7 @@ void TWindowChat::handle_input() {
             case 1:
                 if ((sub_80247128() != 0) && (sub_80247EC0() != 0)) {
                     if (is_mode_bit6() != 0) {
-                        init_parts__10TObjPlayerFPv(temp_r3);
+                        init_parts__10TObjPlayerFv(temp_r3);
                         end_player_keyboard_hold(local_client_id);
                     }
                     ((TWindowChat*)((void *)((void *)(this))))->close_all_children();
@@ -360,7 +360,7 @@ void TWindowChat::handle_input() {
             case 2:
                 if ((sub_80247080() != 0) && (sub_80247EC0() != 0)) {
                     if (is_mode_bit6() != 0) {
-                        init_parts__10TObjPlayerFPv(temp_r3);
+                        init_parts__10TObjPlayerFv(temp_r3);
                         end_player_keyboard_hold(local_client_id);
                     }
                     ((TWindowChat*)((void *)((void *)(this))))->close_all_children();
@@ -407,7 +407,7 @@ void TWindowChat::handle_chat_input() {
       ((TWindowChat*)((u8 *)((void *)((u8 *)((void *) arg0)))))->open_next_input_window();
       if (is_mode_bit6() != 0)
       {
-        init_parts__10TObjPlayerFPv((s32)((int) temp_r3));
+        init_parts__10TObjPlayerFv((s32)((int) temp_r3));
         end_player_keyboard_hold((s32)((void *) local_client_id));
       }
     }
@@ -507,7 +507,7 @@ void *__dt__11TWindowChatFv(void *arg0, s16 arg1) {
         if (temp_r3 != 0) {
             if (!(*(u16 *)((s8 *)arg0 + 0x1E) & 2)) {
                 if (((TWindowChat *)arg0)->is_mode_bit6() != 0) {
-                    init_parts__10TObjPlayerFPv(temp_r3);
+                    init_parts__10TObjPlayerFv(temp_r3);
                     end_player_keyboard_hold(local_client_id);
                 }
             }

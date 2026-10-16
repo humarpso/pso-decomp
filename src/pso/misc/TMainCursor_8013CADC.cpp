@@ -59,7 +59,7 @@ extern u8 *camera_ctrl_instance;
 extern const f32 TMainCursor__data_805DB0C0;
 s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 is_effect_channel_active__10TObjPlayerFll(s32, s32);
-s32 get_action_palette_entry__10TObjPlayerFii(s32, s32);
+s32 get_action_palette_entry__10TObjPlayerFl(s32, s32);
 s32 TObjPlayer__sub_801B5AF8(s32, s32);
 s32 try_camera_action__10TObjPlayerFll(s32, u16);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -131,7 +131,7 @@ s32 TMainCursor::get_action_cursor_priority(void *arg0, s32 arg1, s32 arg2) {
     u16 kind;
     u16 sub;
     kind = TObjPlayer__sub_801B5AF8(arg1, arg2);
-    sub = get_action_palette_entry__10TObjPlayerFii(arg1, arg2);
+    sub = get_action_palette_entry__10TObjPlayerFl(arg1, arg2);
     switch (kind) {
     case 1:
         if (is_effect_channel_active__10TObjPlayerFll(arg1, 0) != 0) {

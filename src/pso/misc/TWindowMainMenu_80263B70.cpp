@@ -76,7 +76,7 @@ s32 get_player_by_client_id(s32);
 s32 populate_menu__15TWindowMainMenuFPvPv(void *, s32);
 void close_child_window__15TWindowMainMenuFv(void* p);
 
-s32 init_parts__10TObjPlayerFPv();
+s32 init_parts__10TObjPlayerFv();
 s32 reset_equip_slots__10TObjPlayerFv(s32);
 void update_keyboard_card_state__15TWindowMainMenuFv(void *arg0);
 
@@ -89,7 +89,7 @@ void TWindowMainMenu::close_and_clear_flags() {
     destroy_submenu__15TWindowMainMenuFv(this);
     close();
     if (get_player_by_client_id((s32)(*(s32 *)((s8 *)this + 0x54))) != 0U) {
-        init_parts__10TObjPlayerFPv();
+        init_parts__10TObjPlayerFv();
     }
 }
 

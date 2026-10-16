@@ -19,7 +19,7 @@ s32 play_effect_default__10TObjPlayerFii(void *, int);
 void *get_player_by_client_id(s32);
 s32 has_active_camera_event__10TObjPlayerFv(void *);
 u8 *find_player_arrival_set(void *, s32);
-s32 set_position_history_entry__10TObjPlayerFiiff(void *, int, f32, f32);
+s32 set_position_history_entry__10TObjPlayerFlff(void *, int, f32, f32);
 s32 TObjPlayer__sub_801BF954(void *, int);
 s32 TObjPlayer__sub_801BF95C(void *);
 s32 TForceOperate__ct(void *, s32, u16);
@@ -76,7 +76,7 @@ void TObjPlayer::place_on_area_entry() {
     ((TBoss4DarkFalz *)arg0)->save_position();
     ((TObjPlayer *)arg0)->calc_attach_pos();
     ((TObjPlayer *)(arg0 + 0x84C))->copy_offset_position(arg0);
-    set_position_history_entry__10TObjPlayerFiiff(arg0, 0, *(f32 *)&this->m_38, this->m_40);
+    set_position_history_entry__10TObjPlayerFlff(arg0, 0, *(f32 *)&this->m_38, this->m_40);
     clear_movement_history(arg0 + 0x6AC);
     if (is_single_screen__10TObjPlayerFv() != 0) {
         reset_cameras_to_actor(arg0, 0);

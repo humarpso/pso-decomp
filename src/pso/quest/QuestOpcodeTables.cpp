@@ -18,17 +18,17 @@ void quest_vm_push_u16_argument();
 void quest_vm_push_u8_argument();
 void qst_op_arg_pushl();
 void op_push_reg_to_stack__6TLobbyFUc();
-void load_op_arg_window__6TLobbyFi();
+void load_op_arg_window__6TLobbyFl();
 void request_1c38_1_7__6TLobbyFv();
 void reset_and_set_mode__6TLobbyFv();
 void open_scroll_message_window__6TLobbyFv();
 void TLobby__sub_801E72B4();
-void dispatch_story_select_by_op__6TLobbyFi();
+void dispatch_story_select_by_op__6TLobbyFl();
 void TLobby__sub_801E7408();
 void open_quest_message_window__6TLobbyFv();
 void spawn_lobby_object__6TLobbyFv();
 void close_active_window__6TLobbyFi();
-void op_play_sound_from_reg__6TLobbyFi();
+void op_play_sound_from_reg__6TLobbyFl();
 void create_help_window__6TLobbyFv();
 void send_data__6TLobbyFv();
 void fill_player_present_flags__6TLobbyFUc();
@@ -64,21 +64,21 @@ void op_player_cmd_b__6TLobbyFv();
 void TLobby__sub_801E8440();
 void clear_flag3__6TLobbyFv();
 void free_static__6TLobbyFv();
-void count_player_items_to_global__6TLobbyFii();
+void count_player_items_to_global__6TLobbyFll();
 void update_card_window_slot__6TLobbyFv();
 void TLobby__sub_801E85B4();
 void store_tan_table_entry__6TLobbyFv();
 void op_cos__6TLobbyFv();
 void op_sin__6TLobbyFv();
-void op_fdiv_reg__6TLobbyFUci();
+void op_fdiv_reg__6TLobbyFUcl();
 void op_fdiv_reg_reg__6TLobbyFUcUc();
-void mul_reg_by_immediate_float__6TLobbyFUci();
+void mul_reg_by_immediate_float__6TLobbyFUcl();
 void mul_reg_by_reg_float__6TLobbyFUcUc();
-void sub_register_float_imm__6TLobbyFUci();
+void sub_register_float_imm__6TLobbyFUcl();
 void sub_register_float_reg__6TLobbyFUcUc();
-void add_imm_float_to_reg__6TLobbyFUci();
+void add_imm_float_to_reg__6TLobbyFUcl();
 void add_reg_to_reg_float__6TLobbyFUcUc();
-void op_move_reg_reg__6TLobbyFii();
+void op_move_reg_reg__6TLobbyFll();
 void op_store_float_bits__6TLobbyFUcUc();
 void spawn_object_from_registers__6TLobbyFUcUc();
 void spawn_quest_col_alock__6TLobbyFUcUc();
@@ -98,35 +98,35 @@ void load_reg_table_f20__6TLobbyFUcUc();
 void TLobby__sub_801E93E0();
 void TLobby__sub_801E9400();
 void set_fixed_camera_from_table__6TLobbyFv();
-void set_quest_object_position__6TLobbyFii();
-void op_close_windows_by_flags__6TLobbyFi();
+void set_quest_object_position__6TLobbyFll();
+void op_close_windows_by_flags__6TLobbyFl();
 void TLobby__sub_801E95B0();
 void find_player_143__6TLobbyFv();
-void op_window_ctrl_mode_b__6TLobbyFi();
-void start_slot_mode_10__6TLobbyFi();
+void op_window_ctrl_mode_b__6TLobbyFl();
+void start_slot_mode_10__6TLobbyFl();
 void TLobby__sub_801E9654();
 void TLobby__sub_801E9684();
 void TLobby__sub_801E96B4();
-void dispatch_slot_event_6__6TLobbyFi();
-void dispatch_slot_event_5__6TLobbyFi();
-void op_window_ctrl_mode4__6TLobbyFi();
-void op_window_ctrl_mode3__6TLobbyFi();
-void start_slot_mode_2__6TLobbyFi();
+void dispatch_slot_event_6__6TLobbyFl();
+void dispatch_slot_event_5__6TLobbyFl();
+void op_window_ctrl_mode4__6TLobbyFl();
+void op_window_ctrl_mode3__6TLobbyFl();
+void start_slot_mode_2__6TLobbyFl();
 void TLobby__sub_801E97D4();
 void TLobby__sub_801E9804();
 void TLobby__sub_801E9834();
 void TLobby__sub_801E9864();
 void TLobby__sub_801E989C();
-void end_camera_pan_for_slot__6TLobbyFi();
+void end_camera_pan_for_slot__6TLobbyFl();
 void TLobby__sub_801E99A0();
 void create_hunter_guild_seq__6TLobbyFv();
 void TLobby__sub_801E9A50();
 void create_challenge_4p_results__6TLobbyFUc();
 void TLobby__sub_801E9AF8();
 void update_and_apply_alloc__6TLobbyFv();
-void set_lobby_mode_slot__6TLobbyFi();
+void set_lobby_mode_slot__6TLobbyFl();
 void TLobby__sub_801E9C40();
-void set_story_select__6TLobbyFi();
+void set_story_select__6TLobbyFl();
 void TLobby__sub_801E9CD0();
 void cache_player_field__6TLobbyFv();
 void update_by_screen_mode__6TLobbyFv();
@@ -139,13 +139,13 @@ void quest_vm_store_s8_indirect();
 void quest_vm_load_s32_indirect();
 void quest_vm_load_s16_indirect();
 void load_reg_from_signed_byte__6TLobbyFv();
-void set_unit_list_flag__6TLobbyFi();
-void set_unit_name_flag__6TLobbyFi();
+void set_unit_list_flag__6TLobbyFl();
+void set_unit_name_flag__6TLobbyFl();
 void set_handler__6TLobbyFi();
 void TLobby__sub_801EA094();
 void store_card_stats__6TLobbyFUc();
 void TLobby__sub_801EA1B4();
-void op_set_reg_from_flag__6TLobbyFi();
+void op_set_reg_from_flag__6TLobbyFl();
 void TLobby__sub_801EA274();
 void quest_set_player_shrink_size();
 void spawn_symbolchat_colli__6TLobbyFUc();
@@ -160,12 +160,12 @@ void load_setting_13_from_table__6TLobbyFv();
 void draw_or_send__6TLobbyFv();
 void TLobby__sub_801EA84C();
 void TLobby__sub_801EA8E8();
-void roll_random_in_range__6TLobbyFii();
+void roll_random_in_range__6TLobbyFl();
 void quest_vm_shift_right_arithmetic_register();
 void quest_vm_shift_left_register();
 void copy_script_register_from_buffer__6TLobbyFUcUc();
 void load_chr_select_word__6TLobbyFUcUc();
-void broadcast_entry__6TLobbyFi();
+void broadcast_entry__6TLobbyFl();
 void TLobby__sub_801EAB90();
 void TLobby__sub_801EABEC();
 void TLobby__sub_801EAC48();
@@ -176,34 +176,34 @@ void TLobby__sub_801EB048();
 void TLobby__sub_801EB0A0();
 void TLobby__sub_801EB0F8();
 void TLobby__sub_801EB10C();
-void update_player_status__6TLobbyFii();
+void update_player_status__6TLobbyFll();
 void TLobby__sub_801EB46C();
 void TLobby__sub_801EB478();
 void TLobby__sub_801EB484();
 void copy_table_value__6TLobbyFUcUc();
 void write_state_s32_to_buffer__6TLobbyFv();
-void forward_802272B4__6TLobbyFPv();
+void forward_802272B4__6TLobbyFv();
 void TLobby__sub_801EB588();
 void TLobby__sub_801EB5A8();
 void decompress_indexed_resource__6TLobbyFv();
-void update_client_slot_from_player__6TLobbyFii();
+void update_client_slot_from_player__6TLobbyFll();
 void write_state_s16_to_buffer__6TLobbyFv();
 void TLobby__sub_801EB6B8();
-void store_player_name_by_client__6TLobbyFi();
-void eval_op_add_ratio__6TLobbyFi();
+void store_player_name_by_client__6TLobbyFl();
+void eval_op_add_ratio__6TLobbyFv();
 void TLobby__sub_801EB85C();
 void acquire_serial_access_for_slot__6TLobbyFUc();
 void TLobby__sub_801EB914();
-void store_chr_select_value__6TLobbyFi();
-void qst_op_try_spend_meseta__6TLobbyFii();
-void fill_player_team_flags__6TLobbyFii();
-void store_player_state_flag__6TLobbyFii();
-void apply_to_player_by_client_id_a__6TLobbyFi();
-void apply_to_player_by_client_id_b__6TLobbyFi();
+void store_chr_select_value__6TLobbyFl();
+void qst_op_try_spend_meseta__6TLobbyFll();
+void fill_player_team_flags__6TLobbyFll();
+void store_player_state_flag__6TLobbyFll();
+void apply_to_player_by_client_id_a__6TLobbyFl();
+void apply_to_player_by_client_id_b__6TLobbyFl();
 void TLobby__sub_801EBCA0();
 void TLobby__sub_801EBCF0();
 void TLobby__sub_801EBD40();
-void store_boss_phase_flag__6TLobbyFi();
+void store_boss_phase_flag__6TLobbyFl();
 void TLobby__sub_801EBE6C();
 void enable_mine_trap__6TLobbyFv();
 void init_menu_state__6TLobbyFi();
@@ -216,14 +216,14 @@ void TLobby__sub_801EC31C();
 void init_window__6TLobbyFv();
 void init_state__6TLobbyFv();
 void TLobby__sub_801EC43C();
-void write_mag_stats__6TLobbyFi();
+void write_mag_stats__6TLobbyFl();
 void give_pending_item_to_local_player__6TLobbyFv();
 void add_to_free_slot__6TLobbyFv();
 void clear_reg_block__6TLobbyFv();
 void TLobby__sub_801EC64C();
 void load_setting_17_from_table__6TLobbyFv();
 void TLobby__sub_801EC694();
-void update_main_phase__6TLobbyFv();
+void update_main_phase__6TLobbyFii();
 void handle_player_event_from_data__6TLobbyFv();
 void forward_item_to_player__6TLobbyFUc();
 void TLobby__sub_801EC7A0();
@@ -232,7 +232,7 @@ void dispatch_first_player__6TLobbyFv();
 void TLobby__sub_801EC834();
 void TLobby__sub_801EC854();
 void TLobby__sub_801EC874();
-void forward_801F36D8__6TLobbyFPv();
+void forward_801F36D8__6TLobbyFv();
 void TLobby__sub_801EC8B4();
 void apply_global_805D3614__6TLobbyFv();
 void TLobby__sub_801EC90C();
@@ -246,28 +246,28 @@ void TLobby__sub_801ECA3C();
 void TLobby__sub_801ECA88();
 void TLobby__sub_801ECB0C();
 void TLobby__sub_801ECB90();
-void calc_stat_ratio_3544__6TLobbyFi();
-void calc_stat_ratio_3540__6TLobbyFi();
-void op_fdiv_to_global_a__6TLobbyFi();
-void op_fdiv_to_global_b__6TLobbyFi();
-void calc_ratio_value__6TLobbyFi();
+void calc_stat_ratio_3544__6TLobbyFv();
+void calc_stat_ratio_3540__6TLobbyFv();
+void op_fdiv_to_global_a__6TLobbyFv();
+void op_fdiv_to_global_b__6TLobbyFv();
+void calc_ratio_value__6TLobbyFv();
 void TLobby__sub_801ECEA8();
 void TLobby__sub_801ECF2C();
-void copy_player_visual_record_by_index__6TLobbyFi();
+void copy_player_visual_record_by_index__6TLobbyFv();
 void TLobby__sub_801ECFBC();
 void TLobby__sub_801ECFDC();
 void TLobby__sub_801ED0CC();
 void qst_op_unshrink();
 void qst_op_shrink();
-void store_floor_switch_state__6TLobbyFi();
-void update_floor_switch_state__6TLobbyFi();
+void store_floor_switch_state__6TLobbyFl();
+void update_floor_switch_state__6TLobbyFv();
 void send_6x05_switch_changed_off__6TLobbyFv();
 void send_6x05_switch_changed_on__6TLobbyFv();
-void reset_player_floor_by_slot__6TLobbyFi();
-void store_player_kill_count__6TLobbyFii();
-void warp_player_to_area__6TLobbyFii();
+void reset_player_floor_by_slot__6TLobbyFl();
+void store_player_kill_count__6TLobbyFll();
+void warp_player_to_area__6TLobbyFll();
 void TLobby__sub_801ED50C();
-void op_set_control_override__6TLobbyFi();
+void op_set_control_override__6TLobbyFl();
 void TLobby__sub_801ED55C();
 void TLobby__sub_801ED5B4();
 void TLobby__sub_801ED60C();
@@ -294,14 +294,14 @@ void send_font_state_if_player_exists__6TLobbyFii();
 void qst_op_map_designate_ex();
 void TLobby__sub_801EDDDC();
 void TLobby__sub_801EDE00();
-void store_player_position__6TLobbyFii();
+void store_player_position__6TLobbyFll();
 void store_status__6TLobbyFi();
-void qst_op_get_difficulty_level2__6TLobbyFi();
+void qst_op_get_difficulty_level2__6TLobbyFl();
 void create_quest_bgm_ctrl__6TLobbyFv();
-void send_switch_changed_from_args__6TLobbyFi();
+void send_switch_changed_from_args__6TLobbyFl();
 void quest_vm_get_designated_client_id();
 void quest_vm_get_local_client_id();
-void forward_801F36E4__6TLobbyFPv();
+void forward_801F36E4__6TLobbyFv();
 void qst_op_warp_on();
 void send_packet_67_04__6TLobbyFv();
 void TLobby__sub_801EE09C();
@@ -320,14 +320,14 @@ void process_static_805D53A0__6TLobbyFv();
 void TLobby__sub_801EE4D4();
 void TLobby__sub_801EE4D8();
 void notify_guild_offline__6TLobbyFUs();
-void qst_op_get_difficulty_level_v1__6TLobbyFi();
+void qst_op_get_difficulty_level_v1__6TLobbyFl();
 void TLobby__sub_801EE54C();
 void qst_op_clear_quest_board_handler();
 void qst_op_set_quest_board_handler();
 void set_table_entry__6TLobbyFi();
 void qst_op_winset_time();
 void qst_op_winend_time();
-void create_alt_timer__6TLobbyFPv();
+void create_alt_timer__6TLobbyFv();
 void open_door__6TLobbyFv();
 void update_doors__6TLobbyFv();
 void qst_op_map_designate();
@@ -360,7 +360,7 @@ void qst_op_npc_talk_kill();
 void qst_op_npc_talk_pl();
 void qst_op_p_talk_guild();
 void qst_op_p_return_guild();
-void forward_npc_player__6TLobbyFPv();
+void forward_npc_player__6TLobbyFv();
 void cleanup_luker_and_quest_flag__6TLobbyFv();
 void clear_quest_vm__6TLobbyFv();
 void set_partner_remark_from_state__6TLobbyFv();
@@ -438,8 +438,8 @@ void qst_op_fadeout();
 void qst_op_fadein();
 void qst_op_list();
 void qst_op_message();
-void pop_stack_into_slots__6TLobbyFii();
-void push_op_args_from_table__6TLobbyFii();
+void pop_stack_into_slots__6TLobbyFll();
+void push_op_args_from_table__6TLobbyFll();
 void set_slot__6TLobbyFi();
 void qst_op_nop_42_stack_push();
 void qst_op_switch_call();
@@ -468,7 +468,7 @@ void qst_op_jmp_off();
 void qst_op_jmp_on();
 void qst_op_call();
 void quest_vm_modulo_unsigned_immediate();
-void op_mod_reg__6TLobbyFii();
+void op_mod_reg__6TLobbyFll();
 void qst_op_jmp();
 void qst_op_xori();
 void qst_op_xor();
@@ -511,7 +511,7 @@ void qst_getargs_801F27A0(s32 opcode);
 void qst_getargs_801F2828(s32 opcode);
 void qst_getargs_801F28AC(s32 opcode);
 void qst_getargs_801F2910(s32 opcode);
-void dispatch_command__6TLobbyFi(s32 opcode);
+void dispatch_command__6TLobbyFl(s32 opcode);
 void qst_getargs_801F29CC(s32 opcode);
 void qst_getargs_801F2A14(s32 opcode);
 void qst_getargs_801F2A5C(s32 opcode);
@@ -535,13 +535,13 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F29CC, qst_op_thread },
     { qst_getargs_801F2B94, reset_and_set_mode__6TLobbyFv },
     { qst_getargs_801F2B94, request_1c38_1_7__6TLobbyFv },
-    { qst_getargs_801F29CC, load_op_arg_window__6TLobbyFi },
+    { qst_getargs_801F29CC, load_op_arg_window__6TLobbyFl },
     { qst_getargs_801F2AB4, qst_op_let },
     { qst_getargs_801F2A5C, qst_op_leti },
     { qst_getargs_801F2AB4, qst_op_leta_letb },
-    { dispatch_command__6TLobbyFi, quest_vm_assign_u16_immediate },
+    { dispatch_command__6TLobbyFl, quest_vm_assign_u16_immediate },
     { qst_getargs_801F2AB4, quest_vm_get_register_address },
-    { dispatch_command__6TLobbyFi, TLobby__sub_801F2570 },
+    { dispatch_command__6TLobbyFl, TLobby__sub_801F2570 },
     { 0, 0 },
     { 0, 0 },
     { qst_getargs_801F2B0C, qst_op_set },
@@ -566,7 +566,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2A5C, qst_op_ori },
     { qst_getargs_801F2AB4, qst_op_xor },
     { qst_getargs_801F2A5C, qst_op_xori },
-    { qst_getargs_801F2AB4, op_mod_reg__6TLobbyFii },
+    { qst_getargs_801F2AB4, op_mod_reg__6TLobbyFll },
     { qst_getargs_801F2A5C, quest_vm_modulo_unsigned_immediate },
     { qst_getargs_801F29CC, qst_op_jmp },
     { qst_getargs_801F29CC, qst_op_call },
@@ -596,8 +596,8 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F27A0, qst_op_switch_call },
     { qst_getargs_801F2B0C, qst_op_nop_42_stack_push },
     { qst_getargs_801F2B0C, set_slot__6TLobbyFi },
-    { qst_getargs_801F2A5C, push_op_args_from_table__6TLobbyFii },
-    { qst_getargs_801F2A5C, pop_stack_into_slots__6TLobbyFii },
+    { qst_getargs_801F2A5C, push_op_args_from_table__6TLobbyFll },
+    { qst_getargs_801F2A5C, pop_stack_into_slots__6TLobbyFll },
     { 0, 0 },
     { 0, 0 },
     { qst_getargs_801F2B0C, op_push_reg_to_stack__6TLobbyFUc },
@@ -713,7 +713,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2AB4, qst_op_item_delete2 },
     { qst_getargs_801F2AB4, qst_op_item_check },
     { qst_getargs_801F2B54, TLobby__sub_801EE54C },
-    { qst_getargs_801F2B0C, qst_op_get_difficulty_level_v1__6TLobbyFi },
+    { qst_getargs_801F2B0C, qst_op_get_difficulty_level_v1__6TLobbyFl },
     { qst_getargs_801F29CC, notify_guild_offline__6TLobbyFUs },
     { qst_getargs_801F2B94, TLobby__sub_801EE4D8 },
     { qst_getargs_cstring, TLobby__sub_801EE4D4 },
@@ -727,7 +727,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B0C, qst_op_map_designate },
     { qst_getargs_801F2B94, update_doors__6TLobbyFv },
     { qst_getargs_801F2B94, open_door__6TLobbyFv },
-    { qst_getargs_801F2B94, create_alt_timer__6TLobbyFPv },
+    { qst_getargs_801F2B94, create_alt_timer__6TLobbyFv },
     { qst_getargs_801F2B94, qst_op_winend_time },
     { qst_getargs_801F2B0C, qst_op_winset_time },
     { qst_getargs_801F2B0C, set_table_entry__6TLobbyFi },
@@ -735,7 +735,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B54, qst_op_clear_quest_board_handler },
     { qst_getargs_801F2B0C, qst_op_particle_id },
     { qst_getargs_801F2B0C, quest_construct_selected_scripted_player },
-    { qst_getargs_801F2B94, forward_npc_player__6TLobbyFPv },
+    { qst_getargs_801F2B94, forward_npc_player__6TLobbyFv },
     { qst_getargs_801F2B94, TLobby__sub_801EF748 },
     { qst_getargs_801F2AB4, TLobby__sub_801EE77C },
     { qst_getargs_801F2B94, process_static_805D53A0__6TLobbyFv },
@@ -757,14 +757,14 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B0C, qst_set_camera_offsets__6TLobbyFUc },
     { qst_getargs_801F2B54, send_packet_67_04__6TLobbyFv },
     { qst_getargs_801F2B94, qst_op_warp_on },
-    { qst_getargs_801F2B94, forward_801F36E4__6TLobbyFPv },
+    { qst_getargs_801F2B94, forward_801F36E4__6TLobbyFv },
     { qst_getargs_801F2B0C, quest_vm_get_local_client_id },
     { qst_getargs_801F2B0C, quest_vm_get_designated_client_id },
     { qst_getargs_801F2B54, TLobby__sub_801EE374 },
-    { qst_getargs_801F2AB4, op_mod_reg__6TLobbyFii },
+    { qst_getargs_801F2AB4, op_mod_reg__6TLobbyFll },
     { qst_getargs_801F2A5C, quest_vm_modulo_unsigned_immediate },
     { qst_getargs_801F2B54, qst_op_force_bgm__6TLobbyFv },
-    { qst_getargs_801F2B0C, send_switch_changed_from_args__6TLobbyFi },
+    { qst_getargs_801F2B0C, send_switch_changed_from_args__6TLobbyFl },
     { qst_getargs_801F2B94, create_quest_bgm_ctrl__6TLobbyFv },
     { qst_getargs_801F2B54, notify_battle_ctrl_player__6TLobbyFv },
     { qst_getargs_801F2B54, send_6x77_sync_quest_register },
@@ -792,9 +792,9 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { 0, 0 },
     { 0, 0 },
     { 0, 0 },
-    { qst_getargs_801F2B0C, qst_op_get_difficulty_level2__6TLobbyFi },
+    { qst_getargs_801F2B0C, qst_op_get_difficulty_level2__6TLobbyFl },
     { qst_getargs_801F2B0C, store_status__6TLobbyFi },
-    { qst_getargs_801F2AB4, store_player_position__6TLobbyFii },
+    { qst_getargs_801F2AB4, store_player_position__6TLobbyFll },
     { qst_getargs_801F2B94, TLobby__sub_801EDE00 },
     { qst_getargs_801F2B94, TLobby__sub_801EDDDC },
     { qst_getargs_801F2B0C, qst_op_map_designate_ex },
@@ -824,15 +824,15 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B0C, TLobby__sub_801ED60C },
     { qst_getargs_801F2B0C, TLobby__sub_801ED5B4 },
     { qst_getargs_801F2B0C, TLobby__sub_801ED55C },
-    { qst_getargs_801F2AB4, warp_player_to_area__6TLobbyFii },
-    { qst_getargs_801F2AB4, store_player_kill_count__6TLobbyFii },
-    { qst_getargs_801F2B0C, reset_player_floor_by_slot__6TLobbyFi },
+    { qst_getargs_801F2AB4, warp_player_to_area__6TLobbyFll },
+    { qst_getargs_801F2AB4, store_player_kill_count__6TLobbyFll },
+    { qst_getargs_801F2B0C, reset_player_floor_by_slot__6TLobbyFl },
     { qst_getargs_801F2B54, send_6x05_switch_changed_on__6TLobbyFv },
     { qst_getargs_801F2B54, send_6x05_switch_changed_off__6TLobbyFv },
-    { qst_getargs_801F2B0C, update_floor_switch_state__6TLobbyFi },
-    { qst_getargs_801F2B0C, store_floor_switch_state__6TLobbyFi },
+    { qst_getargs_801F2B0C, update_floor_switch_state__6TLobbyFv },
+    { qst_getargs_801F2B0C, store_floor_switch_state__6TLobbyFl },
     { 0, 0 },
-    { qst_getargs_801F2B0C, op_set_control_override__6TLobbyFi },
+    { qst_getargs_801F2B0C, op_set_control_override__6TLobbyFl },
     { qst_getargs_801F2B94, TLobby__sub_801ED50C },
     { 0, 0 },
     { 0, 0 },
@@ -849,7 +849,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B54, TLobby__sub_801EC8B4 },
     { 0, 0 },
     { qst_getargs_801F2B94, TLobby__sub_801ECFBC },
-    { qst_getargs_801F29CC, copy_player_visual_record_by_index__6TLobbyFi },
+    { qst_getargs_801F29CC, copy_player_visual_record_by_index__6TLobbyFv },
     { 0, 0 },
     { 0, 0 },
     { 0, 0 },
@@ -857,17 +857,17 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { 0, 0 },
     { 0, 0 },
     { qst_getargs_801F2B0C, TLobby__sub_801ECEA8 },
-    { qst_getargs_801F2B0C, calc_ratio_value__6TLobbyFi },
-    { qst_getargs_801F2B0C, op_fdiv_to_global_b__6TLobbyFi },
-    { qst_getargs_801F2B0C, op_fdiv_to_global_a__6TLobbyFi },
-    { qst_getargs_801F2B0C, calc_stat_ratio_3540__6TLobbyFi },
-    { qst_getargs_801F2B0C, calc_stat_ratio_3544__6TLobbyFi },
+    { qst_getargs_801F2B0C, calc_ratio_value__6TLobbyFv },
+    { qst_getargs_801F2B0C, op_fdiv_to_global_b__6TLobbyFv },
+    { qst_getargs_801F2B0C, op_fdiv_to_global_a__6TLobbyFv },
+    { qst_getargs_801F2B0C, calc_stat_ratio_3540__6TLobbyFv },
+    { qst_getargs_801F2B0C, calc_stat_ratio_3544__6TLobbyFv },
     { qst_getargs_801F2B0C, TLobby__sub_801ECB90 },
     { qst_getargs_801F2B0C, TLobby__sub_801ECB0C },
     { qst_getargs_801F2B0C, TLobby__sub_801ECA88 },
     { qst_getargs_801F2B0C, TLobby__sub_801ECA3C },
     { qst_getargs_801F2B54, TLobby__sub_801ECA1C },
-    { qst_getargs_801F2B94, forward_801F36D8__6TLobbyFPv },
+    { qst_getargs_801F2B94, forward_801F36D8__6TLobbyFv },
     { qst_getargs_801F2B94, TLobby__sub_801EC874 },
     { qst_getargs_801F2B94, TLobby__sub_801EC854 },
     { qst_getargs_801F2B94, TLobby__sub_801EC834 },
@@ -876,14 +876,14 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B94, TLobby__sub_801EC7A0 },
     { qst_getargs_801F2B0C, forward_item_to_player__6TLobbyFUc },
     { qst_getargs_801F2B54, handle_player_event_from_data__6TLobbyFv },
-    { qst_getargs_801F2B94, update_main_phase__6TLobbyFv },
+    { qst_getargs_801F2B94, update_main_phase__6TLobbyFii },
     { qst_getargs_801F2B54, TLobby__sub_801EC694 },
     { qst_getargs_801F2B54, load_setting_17_from_table__6TLobbyFv },
     { qst_getargs_801F2B54, TLobby__sub_801EC64C },
     { qst_getargs_801F2B94, clear_reg_block__6TLobbyFv },
     { qst_getargs_801F2B54, add_to_free_slot__6TLobbyFv },
     { qst_getargs_801F2B54, give_pending_item_to_local_player__6TLobbyFv },
-    { qst_getargs_801F2B0C, write_mag_stats__6TLobbyFi },
+    { qst_getargs_801F2B0C, write_mag_stats__6TLobbyFl },
     { qst_getargs_801F2B54, TLobby__sub_801EC43C },
     { qst_getargs_801F2B94, init_state__6TLobbyFv },
     { qst_getargs_801F2B94, init_window__6TLobbyFv },
@@ -899,21 +899,21 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B54, copy_clamped_setting_to_slot__6TLobbyFv },
     { qst_getargs_801F2B54, TLobby__sub_801EC984 },
     { qst_getargs_801F2B54, TLobby__sub_801EC954 },
-    { qst_getargs_801F2B0C, store_boss_phase_flag__6TLobbyFi },
+    { qst_getargs_801F2B0C, store_boss_phase_flag__6TLobbyFl },
     { qst_getargs_801F2B54, TLobby__sub_801EBD40 },
     { qst_getargs_801F2B0C, TLobby__sub_801EBCF0 },
     { qst_getargs_801F2B0C, TLobby__sub_801EBCA0 },
-    { qst_getargs_801F2B0C, apply_to_player_by_client_id_b__6TLobbyFi },
-    { qst_getargs_801F2B0C, apply_to_player_by_client_id_a__6TLobbyFi },
-    { qst_getargs_801F2AB4, store_player_state_flag__6TLobbyFii },
-    { qst_getargs_801F2AB4, fill_player_team_flags__6TLobbyFii },
-    { qst_getargs_801F2AB4, qst_op_try_spend_meseta__6TLobbyFii },
-    { qst_getargs_801F2B0C, store_chr_select_value__6TLobbyFi },
+    { qst_getargs_801F2B0C, apply_to_player_by_client_id_b__6TLobbyFl },
+    { qst_getargs_801F2B0C, apply_to_player_by_client_id_a__6TLobbyFl },
+    { qst_getargs_801F2AB4, store_player_state_flag__6TLobbyFll },
+    { qst_getargs_801F2AB4, fill_player_team_flags__6TLobbyFll },
+    { qst_getargs_801F2AB4, qst_op_try_spend_meseta__6TLobbyFll },
+    { qst_getargs_801F2B0C, store_chr_select_value__6TLobbyFl },
     { qst_getargs_801F2B0C, TLobby__sub_801EB914 },
     { qst_getargs_801F2B0C, acquire_serial_access_for_slot__6TLobbyFUc },
     { qst_getargs_801F2AB4, TLobby__sub_801EB85C },
-    { qst_getargs_801F2B0C, eval_op_add_ratio__6TLobbyFi },
-    { qst_getargs_801F2B0C, store_player_name_by_client__6TLobbyFi },
+    { qst_getargs_801F2B0C, eval_op_add_ratio__6TLobbyFv },
+    { qst_getargs_801F2B0C, store_player_name_by_client__6TLobbyFl },
     { qst_getargs_801F2B0C, TLobby__sub_801EB6B8 },
     { qst_getargs_801F2AB4, count_nearby_players__6TLobbyFUcUc },
     { qst_getargs_801F2B54, write_state_s16_to_buffer__6TLobbyFv },
@@ -922,7 +922,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2AB4, TLobby__sub_801EB484 },
     { qst_getargs_801F2B94, TLobby__sub_801EB478 },
     { qst_getargs_801F2B94, TLobby__sub_801EB46C },
-    { qst_getargs_801F2AB4, update_player_status__6TLobbyFii },
+    { qst_getargs_801F2AB4, update_player_status__6TLobbyFll },
     { qst_getargs_801F2B54, TLobby__sub_801EB10C },
     { qst_getargs_801F2B0C, TLobby__sub_801EB0F8 },
     { qst_getargs_801F2B0C, TLobby__sub_801EB0A0 },
@@ -933,12 +933,12 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F29CC, TLobby__sub_801EAC48 },
     { qst_getargs_801F29CC, TLobby__sub_801EABEC },
     { qst_getargs_801F29CC, TLobby__sub_801EAB90 },
-    { qst_getargs_801F29CC, broadcast_entry__6TLobbyFi },
+    { qst_getargs_801F29CC, broadcast_entry__6TLobbyFl },
     { qst_getargs_801F2AB4, load_chr_select_word__6TLobbyFUcUc },
     { qst_getargs_801F2AB4, copy_script_register_from_buffer__6TLobbyFUcUc },
     { qst_getargs_801F2AB4, quest_vm_shift_left_register },
     { qst_getargs_801F2AB4, quest_vm_shift_right_arithmetic_register },
-    { qst_getargs_801F2AB4, roll_random_in_range__6TLobbyFii },
+    { qst_getargs_801F2AB4, roll_random_in_range__6TLobbyFl },
     { qst_getargs_801F2B94, TLobby__sub_801EA8E8 },
     { qst_getargs_801F2B0C, TLobby__sub_801EA84C },
     { qst_getargs_801F2B94, draw_or_send__6TLobbyFv },
@@ -953,13 +953,13 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B0C, spawn_symbolchat_colli__6TLobbyFUc },
     { qst_getargs_801F2AB4, quest_set_player_shrink_size },
     { qst_getargs_801F2B54, TLobby__sub_801EA274 },
-    { qst_getargs_801F2B0C, op_set_reg_from_flag__6TLobbyFi },
+    { qst_getargs_801F2B0C, op_set_reg_from_flag__6TLobbyFl },
     { qst_getargs_801F2B0C, TLobby__sub_801EA1B4 },
     { qst_getargs_801F2B0C, store_card_stats__6TLobbyFUc },
     { qst_getargs_801F2B0C, TLobby__sub_801EA094 },
     { qst_getargs_801F2B0C, set_handler__6TLobbyFi },
-    { qst_getargs_801F2B0C, set_unit_name_flag__6TLobbyFi },
-    { qst_getargs_801F2B0C, set_unit_list_flag__6TLobbyFi },
+    { qst_getargs_801F2B0C, set_unit_name_flag__6TLobbyFl },
+    { qst_getargs_801F2B0C, set_unit_list_flag__6TLobbyFl },
     { qst_getargs_801F2B54, load_reg_from_signed_byte__6TLobbyFv },
     { qst_getargs_801F2B54, quest_vm_load_s16_indirect },
     { qst_getargs_801F2B54, quest_vm_load_s32_indirect },
@@ -972,29 +972,29 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B94, update_by_screen_mode__6TLobbyFv },
     { qst_getargs_801F2B94, cache_player_field__6TLobbyFv },
     { qst_getargs_801F2B0C, TLobby__sub_801E9CD0 },
-    { qst_getargs_801F2A14, set_story_select__6TLobbyFi },
+    { qst_getargs_801F2A14, set_story_select__6TLobbyFl },
     { 0, 0 },
     { 0, 0 },
     { 0, 0 },
     { qst_getargs_801F2B54, TLobby__sub_801E9C40 },
-    { qst_getargs_801F2B0C, set_lobby_mode_slot__6TLobbyFi },
+    { qst_getargs_801F2B0C, set_lobby_mode_slot__6TLobbyFl },
     { qst_getargs_801F2B94, update_and_apply_alloc__6TLobbyFv },
     { qst_getargs_801F2B0C, TLobby__sub_801E9AF8 },
     { qst_getargs_801F2B0C, create_challenge_4p_results__6TLobbyFUc },
     { qst_getargs_801F2B0C, TLobby__sub_801E9A50 },
     { qst_getargs_801F2B94, create_hunter_guild_seq__6TLobbyFv },
     { qst_getargs_801F2AB4, TLobby__sub_801E99A0 },
-    { qst_getargs_801F2B0C, end_camera_pan_for_slot__6TLobbyFi },
+    { qst_getargs_801F2B0C, end_camera_pan_for_slot__6TLobbyFl },
     { qst_getargs_801F2AB4, TLobby__sub_801E989C },
     { qst_getargs_801F2AB4, TLobby__sub_801E9864 },
     { qst_getargs_801F2B0C, TLobby__sub_801E9834 },
     { qst_getargs_801F2B0C, TLobby__sub_801E9804 },
     { qst_getargs_801F2B0C, TLobby__sub_801E97D4 },
-    { qst_getargs_801F2B0C, start_slot_mode_2__6TLobbyFi },
-    { qst_getargs_801F2B0C, op_window_ctrl_mode3__6TLobbyFi },
-    { qst_getargs_801F2B0C, op_window_ctrl_mode4__6TLobbyFi },
-    { qst_getargs_801F2B0C, dispatch_slot_event_5__6TLobbyFi },
-    { qst_getargs_801F2B0C, dispatch_slot_event_6__6TLobbyFi },
+    { qst_getargs_801F2B0C, start_slot_mode_2__6TLobbyFl },
+    { qst_getargs_801F2B0C, op_window_ctrl_mode3__6TLobbyFl },
+    { qst_getargs_801F2B0C, op_window_ctrl_mode4__6TLobbyFl },
+    { qst_getargs_801F2B0C, dispatch_slot_event_5__6TLobbyFl },
+    { qst_getargs_801F2B0C, dispatch_slot_event_6__6TLobbyFl },
     { qst_getargs_801F2B0C, TLobby__sub_801E96B4 },
     { qst_getargs_801F2B0C, TLobby__sub_801E9684 },
     { qst_getargs_801F2B0C, TLobby__sub_801E9654 },
@@ -1011,21 +1011,21 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B94, clear_flag__6TLobbyFv },
     { qst_getargs_801F2B94, TLobby__sub_801E9084 },
     { qst_getargs_801F2B94, TLobby__sub_801E905C },
-    { qst_getargs_801F2B0C, start_slot_mode_10__6TLobbyFi },
-    { qst_getargs_801F2B0C, op_window_ctrl_mode_b__6TLobbyFi },
-    { qst_getargs_801F2B0C, op_close_windows_by_flags__6TLobbyFi },
-    { qst_getargs_801F2AB4, set_quest_object_position__6TLobbyFii },
+    { qst_getargs_801F2B0C, start_slot_mode_10__6TLobbyFl },
+    { qst_getargs_801F2B0C, op_window_ctrl_mode_b__6TLobbyFl },
+    { qst_getargs_801F2B0C, op_close_windows_by_flags__6TLobbyFl },
+    { qst_getargs_801F2AB4, set_quest_object_position__6TLobbyFll },
     { qst_getargs_801F2AB4, spawn_quest_col__6TLobbyFUcUc },
     { qst_getargs_801F2AB4, spawn_object_from_script_args5__6TLobbyFUcUc },
     { qst_getargs_801F2AB4, TLobby__sub_801E8D44 },
     { qst_getargs_801F2AB4, spawn_object_from_script_args6__6TLobbyFUcUc },
     { qst_getargs_801F2AB4, spawn_quest_col_alock__6TLobbyFUcUc },
     { qst_getargs_801F2AB4, spawn_object_from_registers__6TLobbyFUcUc },
-    { qst_getargs_801F2AB4, update_client_slot_from_player__6TLobbyFii },
+    { qst_getargs_801F2AB4, update_client_slot_from_player__6TLobbyFll },
     { qst_getargs_801F2B54, decompress_indexed_resource__6TLobbyFv },
     { qst_getargs_801F2B94, TLobby__sub_801EB5A8 },
     { qst_getargs_801F2B94, TLobby__sub_801EB588 },
-    { qst_getargs_801F2B94, forward_802272B4__6TLobbyFPv },
+    { qst_getargs_801F2B94, forward_802272B4__6TLobbyFv },
     { qst_getargs_801F2B54, compute_path_point__6TLobbyFv },
     { qst_getargs_801F2B54, spawn_flagged_particle_emitter__6TLobbyFv },
     { 0, 0 },
@@ -1042,22 +1042,22 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { 0, 0 },
     { 0, 0 },
     { qst_getargs_801F2AB4, op_store_float_bits__6TLobbyFUcUc },
-    { qst_getargs_801F2AB4, op_move_reg_reg__6TLobbyFii },
+    { qst_getargs_801F2AB4, op_move_reg_reg__6TLobbyFll },
     { qst_getargs_801F2AB4, qst_op_let },
     { qst_getargs_801F2A5C, qst_op_leti },
     { 0, 0 },
     { 0, 0 },
     { 0, 0 },
     { qst_getargs_801F2AB4, add_reg_to_reg_float__6TLobbyFUcUc },
-    { qst_getargs_801F2A5C, add_imm_float_to_reg__6TLobbyFUci },
+    { qst_getargs_801F2A5C, add_imm_float_to_reg__6TLobbyFUcl },
     { qst_getargs_801F2AB4, sub_register_float_reg__6TLobbyFUcUc },
-    { qst_getargs_801F2A5C, sub_register_float_imm__6TLobbyFUci },
+    { qst_getargs_801F2A5C, sub_register_float_imm__6TLobbyFUcl },
     { qst_getargs_801F2AB4, mul_reg_by_reg_float__6TLobbyFUcUc },
-    { qst_getargs_801F2A5C, mul_reg_by_immediate_float__6TLobbyFUci },
+    { qst_getargs_801F2A5C, mul_reg_by_immediate_float__6TLobbyFUcl },
     { qst_getargs_801F2AB4, op_fdiv_reg_reg__6TLobbyFUcUc },
-    { qst_getargs_801F2A5C, op_fdiv_reg__6TLobbyFUci },
+    { qst_getargs_801F2A5C, op_fdiv_reg__6TLobbyFUcl },
     { qst_getargs_801F2B54, update_card_window_slot__6TLobbyFv },
-    { qst_getargs_801F2AB4, count_player_items_to_global__6TLobbyFii },
+    { qst_getargs_801F2AB4, count_player_items_to_global__6TLobbyFll },
     { qst_getargs_801F2B94, free_static__6TLobbyFv },
     { qst_getargs_801F2B94, clear_flag3__6TLobbyFv },
     { qst_getargs_801F2B54, TLobby__sub_801E8440 },
@@ -1083,14 +1083,14 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B0C, fill_player_present_flags__6TLobbyFUc },
     { qst_getargs_801F2B54, send_data__6TLobbyFv },
     { qst_getargs_801F2B54, create_help_window__6TLobbyFv },
-    { qst_getargs_801F2B0C, op_play_sound_from_reg__6TLobbyFi },
+    { qst_getargs_801F2B0C, op_play_sound_from_reg__6TLobbyFl },
     { qst_getargs_801F2B0C, close_active_window__6TLobbyFi },
     { qst_getargs_801F2B54, spawn_lobby_object__6TLobbyFv },
     { qst_getargs_801F2B54, run_vm_helper_with_regs__6TLobbyFv },
     { qst_getargs_801F2B54, TLobby__sub_801E7CCC },
     { qst_getargs_801F2B54, open_quest_message_window__6TLobbyFv },
     { qst_getargs_801F2B54, TLobby__sub_801E7408 },
-    { qst_getargs_801F2B0C, dispatch_story_select_by_op__6TLobbyFi },
+    { qst_getargs_801F2B0C, dispatch_story_select_by_op__6TLobbyFl },
     { qst_getargs_801F2B0C, TLobby__sub_801E72B4 },
     { qst_getargs_801F2B54, open_scroll_message_window__6TLobbyFv },
     { qst_getargs_801F2B54, init_graph__6TLobbyFPv },

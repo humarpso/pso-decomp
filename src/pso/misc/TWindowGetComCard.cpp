@@ -74,7 +74,7 @@ s32 TWindowReturnCity__sub_8024ACA8(s32);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 init_parts__10TObjPlayerFPv();
+s32 init_parts__10TObjPlayerFv();
 
 void TWindowFukidasi__sub_80252C38(void* p) { *(u8*)((char*)p + 0x71) |= 0x4; }
 void TUnk_804CF0B8::clear_visible_flag() { *(u8*)((char*)this + 0x71) &= 0xfe; }
@@ -171,7 +171,7 @@ void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1) {
         TWindowReturnCity__sub_8024ACA8(local_client_id);
         TLobby__sub_8024AC20(local_client_id);
         if ((TWindowCtrl__sub_8024A314() == 0) && (get_player_by_client_id(local_client_id) != 0U)) {
-            init_parts__10TObjPlayerFPv();
+            init_parts__10TObjPlayerFv();
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

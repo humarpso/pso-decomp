@@ -40,7 +40,7 @@ struct Obj_802E0174 { u8 pad[0x1C]; s32 state; void *card; };
 
 extern "C" {
 s32 __dt__7TObjectFv(void *, int);
-s32 init_parts__10TObjPlayerFPv();
+s32 init_parts__10TObjPlayerFv();
 u32 get_player_by_client_id(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 fn_8024AADC(void *, int);
@@ -117,7 +117,7 @@ u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1) {
         TWindowReturnCity__sub_8024ACA8((void *) (local_client_id));
         TLobby__sub_8024AC20((void *) (local_client_id));
         if (get_player_by_client_id((void *) (local_client_id)) != 0U) {
-            init_parts__10TObjPlayerFPv();
+            init_parts__10TObjPlayerFv();
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 2U) {
             fn_8024AADC((void *) (local_client_id), (int) (0x1D));

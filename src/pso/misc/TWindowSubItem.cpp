@@ -156,7 +156,7 @@ void send_trap_packet__10TObjPlayerFi(s32, s32);
 void request_meseta_drop__10TObjPlayerFl(s32, s32);
 void request_item_drop__10TObjPlayerFll(s32, s32, s32);
 s32 get_player_by_client_id(s32);
-u32 is_action_active__10TObjPlayerFPv(s32);
+u32 is_action_active__10TObjPlayerFv(s32);
 void decrement_clamped(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
 s32 __nw__7TObjectFUl(s32);
@@ -726,7 +726,7 @@ void TWindowSubItem::run_task() {
             }
             break;
         case 22:
-            if (is_action_active__10TObjPlayerFPv(p) == 0) {
+            if (is_action_active__10TObjPlayerFv(p) == 0) {
                 F(u8, 0x1C) = 1;
             }
             break;

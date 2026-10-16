@@ -116,7 +116,7 @@ s32 TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 init_parts__10TObjPlayerFPv(s32);
+s32 init_parts__10TObjPlayerFv(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag70_bit10__21TWindowSubComCardListFv();
@@ -510,7 +510,7 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__20TWindowShortListCtrl;
         temp_r3 = get_player_by_client_id((s32)(*(s32 *)((s8 *)arg0 + 0x24)));
         if ((temp_r3 != 0) && (has_player_active_menu__11TWindowCtrlFv(*(s32 *)((s8 *)arg0 + 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
-            init_parts__10TObjPlayerFPv(temp_r3);
+            init_parts__10TObjPlayerFv(temp_r3);
         }
         end_player_keyboard_hold(*(s32 *)((s8 *)arg0 + 0x24));
         TWindowCtrl::clear_flag_8();

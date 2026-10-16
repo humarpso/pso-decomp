@@ -302,7 +302,7 @@ typedef struct Rec_801D8F60 { f32 a, b, c; } Rec_801D8F60;
 
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
-s32 clamp_index_to_max__10TObjPlayerFi(s32);
+s32 clamp_index_to_max__10TObjPlayerFl(s32);
 extern int ply_level_table;
 s32 get_ply_level_table_row(s8 arg0, s32 arg1);
 s8 get_class_index__10TObjPlayerFPv(s32);
@@ -371,7 +371,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void select_class_action_provider__10TObjPlayerFv(void *);
 void TObjPlayer__ct(void *, void *);
-void set_floor_index__10TObjPlayerFPvi(void *, s32);
+void set_floor_index__10TObjPlayerFl(void *, s32);
 void assign_lobby_slot_if_flagged__10TObjPlayerFlPv(void *, void *);
 s32 translate_matrix_vec3(int, void *);
 s32 rotate_matrix_y(int, int);
@@ -417,8 +417,8 @@ extern s32 ending_sequence_player_vtable[];
 Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src) {
     TObjPlayer__ct(self, parent);
     self->vt = ((s32 *)&ending_sequence_player_vtable);
-    set_floor_index__10TObjPlayerFPvi(self, 1);
-    set_floor_index__10TObjPlayerFPvi(self, 1);
+    set_floor_index__10TObjPlayerFl(self, 1);
+    set_floor_index__10TObjPlayerFl(self, 1);
     VecCopy__FP3VecPC3Vec(self->pos, ((TObjPlayer *)(src->sub))->get_sub_object());
     self->ang = ((TObjPlayer *)(src->sub))->get_lock_timer();
     select_class_action_provider__10TObjPlayerFv(self);
@@ -691,7 +691,7 @@ s32 get_ply_level_table_row(s8 arg0, s32 arg1) {
   s32 temp_r31;
   temp_r30 = *(*(s32 * *)&ply_level_table);
   ;
-  return (*((s32 *) (((s8 *) temp_r30) + (TObjPlayer__sub_801AFDBC(arg0) * 4)))) + (clamp_index_to_max__10TObjPlayerFi(arg1) * 0xC);
+  return (*((s32 *) (((s8 *) temp_r30) + (TObjPlayer__sub_801AFDBC(arg0) * 4)))) + (clamp_index_to_max__10TObjPlayerFl(arg1) * 0xC);
 }
 
 void TObjPlayer__sub_801D92A4(void) { TLobby::free_nodes_with_id((u32)((void*)(ply_level_table))); }

@@ -1839,6 +1839,27 @@ struct TObjPlayer
     static void init_default_config();
     void copy_config(void* q);
     static bool is_slot_within_limit(s32 arg0, s32 arg1, u8 arg2);
+    s32 can_use_camera_field();
+    void init_parts();
+    s32 get_action_palette_entry(s32 arg1);
+    int is_action_active();
+    u8 get_battle_mode();
+    u8 get_byte_339();
+    int get_equip_flags();
+    int get_inventory_state();
+    int get_field_374_state();
+    int get_field_374();
+    static s32 clamp_index_to_max(s32 arg0);
+    void clamp_nested_index();
+    void set_flag_2000000();
+    void set_flag_02000000();
+    void set_position_history_entry(s32 arg1, f32 farg0, f32 farg1);
+    void set_action_flag_2();
+    int check_flag_48();
+    int is_status_locked();
+    int is_status_flag_200();
+    int start_freeze_self();
+    void set_floor_index(s32 v);
 };
 
 #include <stddef.h>
