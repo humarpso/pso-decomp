@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_8048E1A4.h"
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
@@ -31,7 +32,7 @@ s32 disallow_rendering__7TObjectFv(void *);
 s32 update_freeze_shell_timer(void *);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-void freeze_shell_update(void *arg0);
+void run_task__13TUnk_8048E1A4Fv(void *arg0);
 s32 create_timed_particle_emitter(void *, int, int, int);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -74,7 +75,7 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9390;
 extern const f32 lbl_805D9394;
-void freeze_shell_draw(u8 *arg0);
+void render__13TUnk_8048E1A4Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -132,42 +133,43 @@ void freeze_shell_grow(u8 *arg0) {
     }
 }
 
-void freeze_shell_update(void *arg0) {
+void TUnk_8048E1A4::run_task() {
     s32 temp_r0;
     u32 var_r3;
-    u16 id = *(u16 *)((s8 *)arg0 + 0x358);
+    u16 id = *(u16 *)((s8 *)this + 0x358);
     if ((id != 0xffffU) && (id < 0x4000U)) {
         var_r3 = find_active_entity_by_id(id);
     } else {
         var_r3 = 0U;
     }
     if (var_r3 == 0U) {
-        queue_destruction__7TObjectFv(arg0);
-        disallow_rendering__7TObjectFv(arg0);
+        queue_destruction__7TObjectFv(this);
+        disallow_rendering__7TObjectFv(this);
         return;
     }
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0) {
-        disallow_rendering__7TObjectFv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        disallow_rendering__7TObjectFv(this);
+        queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x334);
+    temp_r0 = *(s32 *)((s8 *)this + 0x334);
     switch (temp_r0) {
     case 0:
-        freeze_shell_grow((u8 *)(arg0));
+        freeze_shell_grow((u8 *)(this));
         return;
     case 1:
-        freeze_shell_hold((void *)(arg0));
+        freeze_shell_hold((void *)(this));
         return;
     case 2:
-        update_freeze_shell_timer(arg0);
+        update_freeze_shell_timer(this);
         return;
     case 3:
-        ((TObjPlayer *)arg0)->queue_destruction();
+        ((TObjPlayer *)this)->queue_destruction();
         return;
     }
 }
-void freeze_shell_draw(u8 *arg0) {
+void TUnk_8048E1A4::render() {
+    u8 *arg0 = (u8 *)this;
     s32 ok;
     VObj_80081EA4 *p;
     ok = 1;

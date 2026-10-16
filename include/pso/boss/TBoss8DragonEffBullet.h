@@ -19,8 +19,8 @@ struct TBoss8DragonEffBullet : public TObject {
     u32 m_4c;
     u32 m_50;
     u32 m_54;
-    static void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TBoss8DragonEffBullet_size[sizeof(TBoss8DragonEffBullet) == 0x58 ? 1 : -1];
 #endif

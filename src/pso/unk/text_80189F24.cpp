@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerBase.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -232,7 +233,7 @@ extern "C" {
 extern f32 lbl_805DBCF0;
 extern f32 lbl_805DBCF4;
 
-void TObjContainerBase::render() {
+void TUnk_804B6C24::render() {
     Obj_80189F24 *self = (Obj_80189F24 *)this;
     if (self->m8(self->x334, self->x338) != 1) {
         return;
@@ -250,7 +251,7 @@ void TObjContainerBase::render() {
     }
 }
 
-void TObjPlayer::step_laser_fence() {
+void TUnk_804B6C24::run_task() {
     u8 *arg0 = (u8 *)this;
     step_laser_fence_fade((void *) (arg0 + 0x340));
     ((VObj_18 *)(arg0))->m78();

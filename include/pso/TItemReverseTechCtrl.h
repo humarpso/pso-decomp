@@ -6,6 +6,7 @@
 class TItemReverseTechCtrl : public TObject {
 public:
     virtual ~TItemReverseTechCtrl();
+    virtual void run_task();
 public:
     static void *create(void *arg0);
 };

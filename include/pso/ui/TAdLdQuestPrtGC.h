@@ -6,6 +6,7 @@
 
 struct TAdLdQuestPrtGC : public TObject {
     virtual ~TAdLdQuestPrtGC();
+    virtual void run_task();
     u8 _pad1C[0x40];
     u32 m_5c;
     u8 _pad60[0x4];
@@ -34,7 +35,7 @@ struct TAdLdQuestPrtGC : public TObject {
     u32 m_bc;
     u32 m_c0;
     u32 m_c4;
-    static void render();
+    virtual void render();
     int get_abs();
     u8 unk_C8[0x90];
 };

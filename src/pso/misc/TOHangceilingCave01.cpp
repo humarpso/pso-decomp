@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804B2578.h"
 #include "pso/misc/TOHangceilingCave01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOFenceAncient01.h"
@@ -900,7 +901,7 @@ void TOHangceilingCave01__sub_80168640(void) {  }
 
 extern const f32 lbl_805DB694;
 
-void TOHangceilingCave01::draw_model() {
+void TUnk_804B2578::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f2;
@@ -957,7 +958,7 @@ void TOHangceilingCave01::draw_model() {
     }
 }
 
-void TOHangceilingCave01::check_player_trigger() {
+void TUnk_804B2578::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
         ((VObj_80168834_80168588*)arg0)->m78();

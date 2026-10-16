@@ -44,7 +44,7 @@ int TAdMcSelectGC__sub_8032A15C();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 
-void TAdMcSelectGC::render(void *self) {
+void TAdMcSelectGC::render() {
     if (TMainTask::get_state_flag() == 1) { return;
     }
 }

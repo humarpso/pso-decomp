@@ -10,8 +10,8 @@ struct TObjParticleLobby : public TUnk_804AFBF8 {
     u8 _padCC[0x4];
     u32 m_d0;
     u32 m_d4;
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void setup_emitter();
     static void *create(void *arg0);};
 

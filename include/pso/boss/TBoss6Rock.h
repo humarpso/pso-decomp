@@ -6,6 +6,7 @@
 
 struct TBoss6Rock : public TUnk_804AF8A0 {
     virtual ~TBoss6Rock();
+    virtual void run_task();
     u32 m_ac;
     u32 m_b0;
     u32 m_b4;
@@ -19,8 +20,6 @@ struct TBoss6Rock : public TUnk_804AF8A0 {
     u8 _padD8[0xC];
     u32 m_e4;
     void set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0);
-    void render_if_active();
-    void check_and_destroy();
     void *destroy(s16 arg1);
     void *init_object(void *);
     static void *create();
@@ -35,7 +34,7 @@ struct TBoss6Rock : public TUnk_804AF8A0 {
     void update_fall();
     void init_spin_params();
     void draw_model();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static u8 is_active();
     static void create_rock_pool(s32 arg0);

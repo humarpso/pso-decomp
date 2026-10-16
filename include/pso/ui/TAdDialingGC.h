@@ -18,8 +18,8 @@ struct TAdDialingGC : public TObject {
     u32 m_a0;
     u32 m_a4;
     static void select_dial_image(void *self, s32 x);
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void update_dial_state();
     void update_state();
     void update_dial_state(s32 arg1);

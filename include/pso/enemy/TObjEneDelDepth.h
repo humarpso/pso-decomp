@@ -35,8 +35,8 @@ struct TObjEneDelDepth : public TObjEnemy {
     void init_params();
     static int set_default_depth_offset(void* p);
     s32 draw_if_visible();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void update_target_depth();
     void init();
     static void free_shared_data();

@@ -6,6 +6,7 @@
 
 struct TOTrapSeabed01 : public TOTrap {
     virtual ~TOTrapSeabed01();
+    virtual void render();
     u32 m_344;
     u32 m_348;
     u32 m_34c;

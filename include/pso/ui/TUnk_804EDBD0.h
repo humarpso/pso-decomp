@@ -6,6 +6,7 @@
 class TUnk_804EDBD0 : public TObject {
 public:
     virtual ~TUnk_804EDBD0();
+    virtual void run_task();
     u8 unk_1C[0x4];
 };
 typedef char TUnk_804EDBD0_size[sizeof(TUnk_804EDBD0) == 0x20 ? 1 : -1];

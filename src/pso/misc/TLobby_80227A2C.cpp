@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804CC048.h"
 
 struct RecoveredGlobal_80227AA8_lbl_80514F64 {
     s32 value;
@@ -564,7 +565,7 @@ extern char lbl_805DC788[4];
 u32 strlen(const char *s);
 char *strcpy(char *dst, const char *src);
 s32 debug_printf_at(u32, void *, ...);
-void TLobby__sub_8022884C(L_8022884C *self);
+void render__13TUnk_804CC048Fv(L_8022884C *self);
 s32 TLobby__sub_80226B64(int);
 extern s32 floor_sound_bank_table[];
 extern s32 floor_sound_bank_volume_table[];
@@ -781,7 +782,8 @@ struct O_80228A74;
 
 #pragma push
 #pragma opt_propagation off
-void TLobby__sub_8022884C(L_8022884C *self) {
+void TUnk_804CC048::render() {
+    L_8022884C *self = (L_8022884C *)this;
     s32 off;
     s32 i;
     s32 t;

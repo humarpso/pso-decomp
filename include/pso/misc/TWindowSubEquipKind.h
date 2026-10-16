@@ -6,9 +6,10 @@
 
 struct TWindowSubEquipKind : public TUnk_804D0618 {
     virtual ~TWindowSubEquipKind();
+    virtual void render();
     s16 m_88;
     s16 m_8a;
-    void run_task();};
+    virtual void run_task();};
 
 typedef char TWindowSubEquipKind_size[sizeof(TWindowSubEquipKind) == 0x8C ? 1 : -1];
 #endif

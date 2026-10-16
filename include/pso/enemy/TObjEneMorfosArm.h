@@ -10,8 +10,8 @@ struct TObjEneMorfosArm : public TObjMotion {
     u16 m_100;
     static void *create(void *arg0, void *arg1);
     static void init_global();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     u8 unk_102[0x2];
 };
 

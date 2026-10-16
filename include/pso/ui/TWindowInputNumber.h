@@ -6,6 +6,7 @@
 #include "pso/TObject.h"
 
 struct TWindowInputNumber {
+    void render();
     u32 className;
     u8 unknown04[0x14];
     void *objectVtable;

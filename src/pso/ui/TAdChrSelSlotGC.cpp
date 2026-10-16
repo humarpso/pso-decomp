@@ -1,4 +1,5 @@
 #include "pso/ui/TAdChrSelSlotGC.h"
+#include "pso/ui/TUnk_804E0B28.h"
 
 #include "types.h"
 
@@ -119,7 +120,7 @@ extern u32 lbl_805D67F0;
 extern const f32 lbl_805DE5C8;
 s32 get_main_phase();
 extern const f32 lbl_805DE5B4, lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
-void update_character_select_transition(CharacterSelectTransitionState* self);
+void run_task__13TUnk_804E0B28Fv(CharacterSelectTransitionState* self);
 s32 __ct__7TObjectFP7TObject(CharacterSelectTransitionState*, TObject* parent);
 void* __nw__7TObjectFUl(u32 size);
 StatusWindow* TWindowSubStatusDisp__ct(void* storage, s32 client);
@@ -132,7 +133,7 @@ CharacterSelectTransitionState* construct_character_select_transition(CharacterS
 
 extern "C" {
 
-void TAdChrSelSlotGC__sub_802C70AC(void);
+void render__13TUnk_804E0B28Fv(void);
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
 void TLobby__sub_802C78EC(void);
 void *destroy_character_select_transition(void *arg0, s16 arg1);
@@ -145,7 +146,7 @@ s32 restore_saved_depth_alpha_state();
 s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
-void TAdChrSelSlotGC__sub_802C70AC(void) {  }
+void TUnk_804E0B28::render() {  }
 
 extern s32 lbl_804E0B28[];
 extern s32 lbl_805D67E8;
@@ -156,7 +157,8 @@ extern s32 lbl_805D67E8;
 typedef char TransitionClientOffset[offsetof(CharacterSelectTransitionState, client) == 0x3C ? 1 : -1];
 typedef char TransitionParentOffset[offsetof(CharacterSelectTransitionState, parent) == 0x44 ? 1 : -1];
 typedef char TransitionWindowOffset[offsetof(CharacterSelectTransitionState, statusWindow) == 0x48 ? 1 : -1];
-void update_character_select_transition(CharacterSelectTransitionState* self) {
+void TUnk_804E0B28::run_task() {
+    CharacterSelectTransitionState*self = (CharacterSelectTransitionState*)this;
     self->position0X = lbl_805DE5B4 * (self->target0X - self->position0X) + self->position0X;
     self->position0Y = lbl_805DE5B4 * (self->target0Y - self->position0Y) + self->position0Y;
     self->position1X = lbl_805DE5B4 * (self->target1X - self->position1X) + self->position1X;

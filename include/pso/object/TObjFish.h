@@ -6,6 +6,8 @@
 
 struct TObjFish : public TUnk_804B9870 {
     virtual ~TObjFish();
+    virtual void render();
+    virtual void run_task();
     u8 unk_90[0x4];
     u32 m_94;
     u32 m_98;

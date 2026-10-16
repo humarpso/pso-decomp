@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C2298.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TCheckMemoryCard.h"
@@ -40,12 +41,13 @@ extern Vec_801A4D30 lbl_8044694C;
 extern Pair_801A4D30 lbl_80446958[];
 extern Pair_801A4D30 lbl_80446960[];
 extern const f32 lbl_805DC0A8;
-void run_memcard_check_scene(Obj_801A4D30 *self);
+void run_task__13TUnk_804C2298Fv(Obj_801A4D30 *self);
 }
 
 extern "C" {
 
-void run_memcard_check_scene(Obj_801A4D30 *self) {
+void TUnk_804C2298::run_task() {
+    Obj_801A4D30 *self = (Obj_801A4D30 *)this;
     Vec_801A4D30 pos = lbl_80446940;
     Vec_801A4D30 target = lbl_8044694C;
     activate_camera_mode(9);

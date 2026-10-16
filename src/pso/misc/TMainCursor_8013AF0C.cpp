@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLOC_End.h"
 #include "pso/misc/TMainCursor.h"
 
 struct Part_8013AF50 { u8 pad[0x124]; };
@@ -29,7 +30,7 @@ int init__13TLockOnCursorFPvPv(void);
     extern unsigned char lbl_804A71C4[];
     extern int lockon_list_clear_task_name;
 void*TMainCursor::init_lockon() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A71C4; *(int*)((char*)this + 0x0) = lockon_list_clear_task_name; return this; }
-void TMainCursor::refresh_all_lists() {
+void TLOC_End::run_task() {
     s32 arg0 = (s32)this;
     s32 i;
     if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) == 0) {

@@ -11,8 +11,8 @@ struct TBoss6Tube : public TObject {
     u32 m_24;
     u32 m_28;
     u32 m_2c;
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     static f32 scale_by_const(f32 farg0);
     static f32 calc_tube_progress(s32 arg0);
     static void reset_state();

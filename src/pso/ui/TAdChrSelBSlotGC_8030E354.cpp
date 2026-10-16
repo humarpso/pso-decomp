@@ -72,7 +72,7 @@ void TAdChrSelBSlotGC__sub_8030E620(void);
 s32 encrypt_and_save__23TAdSinglePlyChrSelectGCFv();
 s32 open_confirm_window__23TAdSinglePlyChrSelectGCFv();
 
-void TAdChrSelBSlotGC::render(void *self) {
+void TAdChrSelBSlotGC::render() {
     if (TMainTask::get_state_flag() == 1) { return;
     }
 }

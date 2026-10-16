@@ -7,6 +7,7 @@
 
 struct TItem : public TUnk_804AF8A0 {
     virtual ~TItem();
+    virtual void render_shadows();
     void render_ground();
     void render_owned();
     void render_following_owner();
@@ -26,9 +27,8 @@ struct TItem : public TUnk_804AF8A0 {
     u8 model_index;
     u32 m_f0;
     u32 m_f4;
-    void render();
     void dispatch_state();
-    void run_task();
+    virtual void run_task();
     void use_combination_recipe();
     void notify_owner(s32 arg1);
     void apply_switch_attack(s32 arg1);

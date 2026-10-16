@@ -26,7 +26,6 @@ struct TItemProArmor : public TItemEquipBase {
     void apply_armor_stat();
     void *construct(void * _w1, void * _w2);
     u8 *create();
-    void tick_lifetime();
     void *dt(s16 arg1);
     void create_armor();
     u8 unk_197[0x1];

@@ -6,6 +6,7 @@
 
 struct TForceOperate : public TObject {
     virtual ~TForceOperate();
+    virtual void run_task();
     void* m_1c;
     static s32 destroy(s32 arg0, s16 arg1);
     void set_field_0(s16 v);

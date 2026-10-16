@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_8049EFB8.h"
 
 extern "C" {
 s32 obj_getField1c(int);
@@ -8,12 +9,13 @@ s32 TObjPlayer__sub_80117E50();
 s32 get_player_by_client_id(int);
 s32 is_item_area_enabled();
 extern const f32 lbl_805DAAE8;
-void fn_80107C9C(u8 *arg0);
+void run_task__13TUnk_8049EFB8Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_80107C9C(u8 *arg0) {
+void TUnk_8049EFB8::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     if (lbl_805DAAE8 <= (f32) *(s32 *)((s8 *)arg0 + 0x1C)) {
         temp_r3 = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x20)));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80484AFC.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
@@ -91,7 +92,7 @@ s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_80484AFC[];
 
-void TBoss3Volopt::update_homing_projectile() {
+void TUnk_80484AFC::run_task() {
     Self_80049C10 *self = (Self_80049C10 *)this;
     Tgt_80049C10 *t;
     t = get_player_by_client_id(self->fcc);

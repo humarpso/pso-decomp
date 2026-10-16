@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804B8DD0.h"
 #include "pso/misc/TWindowTimer.h"
 #include "pso/object/TObjSinBoard.h"
 #include "pso/player/TObjPlayer.h"
@@ -155,7 +156,7 @@ void *TObjSinBoard__create(void *arg0) {
     }
     return o;
 }
-void TObjPlayer::draw_hinged_model() {
+void TUnk_804B8DD0::render() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3C) != 0) {
@@ -194,7 +195,7 @@ void TObjPlayer::draw_hinged_model() {
         pop_matrix();
     }
 }
-void TWindowTimer::update_input_hold() {
+void TUnk_804B8DD0::run_task() {
     s32 t;
     if (*(s32 *)((s8 *)this + 0x28) != 0) {
         if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (*(s32 *)((s8 *)this + 0x40) != 0 ? 0x10 : 1)) {

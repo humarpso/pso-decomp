@@ -26,8 +26,8 @@ void __ct__15TObjLiveMonitorFv(void *);
 void *__nw__7TObjectFUl(s32);
 int fn_8030B370(void*);
 
-int render__20TObjLiveMonitorSmallFv(void* p) { return ((TObjPlayer *)p)->render_live_monitor_screen(); }
-int run_task__20TObjLiveMonitorSmallFv(void* p) { return fn_8030B370(p); }
+void TObjLiveMonitorSmall::render() { ((TObjPlayer *)this)->render_live_monitor_screen(); }
+void TObjLiveMonitorSmall::run_task() { fn_8030B370(this); }
 
 extern s32 __vt__20TObjLiveMonitorSmall[];
 extern void *TObjLiveMonitorSmall__name;

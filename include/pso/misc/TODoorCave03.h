@@ -6,6 +6,7 @@
 
 struct TODoorCave03 : public TUnk_804B0BB8 {
     virtual ~TODoorCave03();
+    virtual void render();
     void* m_d4;
     static void *create(void *arg0);
     static void free_shared_data();

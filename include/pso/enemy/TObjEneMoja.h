@@ -11,6 +11,7 @@ struct MojaCollisionState {
     s32 flags;
 };
 struct TObjEneMoja {
+    void render();
     void bindModel(int index);
     void enter_idle_state();
     void enter_approach_state();

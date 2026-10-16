@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TUnk_804F3428.h"
 #include "pso/ui/TAdDialingMessageWindow.h"
 
 extern "C" {
@@ -8,7 +9,7 @@ void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-void TAdDialingMessageWindow::tick_countdown() {
+void TUnk_804F3428::run_task() {
     u32 temp_r3;
     void *temp2_r3;
 

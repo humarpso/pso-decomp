@@ -64,7 +64,7 @@ struct TBoss6PlotFalz
     void scroll_strips_uv(s32 dx, s32 dy);
     void free_buffer_pairs();
     static void freeze_all_players();
-    static void render();
+    void render();
     void run_task();
     void send_6xA3_action(s8 v);
     static void free_all();

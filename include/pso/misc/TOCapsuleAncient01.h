@@ -7,7 +7,7 @@
 struct TOCapsuleAncient01 : public TUnk_804B27D8 {
     virtual ~TOCapsuleAncient01();
     u32 m_e4;
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void destroy_static_instance();
     static void load_resource_instance();};

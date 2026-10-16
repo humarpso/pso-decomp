@@ -6,6 +6,8 @@
 class TAdDrawLineTask : public TObject {
 public:
     virtual ~TAdDrawLineTask();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

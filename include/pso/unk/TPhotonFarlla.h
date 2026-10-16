@@ -6,6 +6,8 @@
 class TPhotonFarlla : public TUnk_804C3248 {
 public:
     virtual ~TPhotonFarlla();
+    virtual void render();
+    virtual void run_task();
     u8 unk_158[0x50];
 };
 typedef char TPhotonFarlla_size[sizeof(TPhotonFarlla) == 0x1A8 ? 1 : -1];

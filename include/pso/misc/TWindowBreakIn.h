@@ -8,8 +8,8 @@ struct TWindowBreakIn : public TUnk_804CE018 {
     virtual ~TWindowBreakIn();
     u8 _pad1C[0x8];
     void* m_24;
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     u8 unk_28[0x38];
 };
 

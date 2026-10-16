@@ -16,8 +16,8 @@ struct TOHealGeneral : public TUnk_804AFBF8 {
     u32 m_ec;
     u32 m_f0;
     u16 m_f4;
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     void *create();
     static void close_dialog_window();
     static void load_resources();

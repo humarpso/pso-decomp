@@ -21,8 +21,8 @@ struct TObjLuker : public TUnk_804B9870 {
     void update_floor_name_windows();
     void open_destination_windows();
     void transfer_to_town();
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void set_flag_4();
     static int get_stat_table_entry(int a0);};
 

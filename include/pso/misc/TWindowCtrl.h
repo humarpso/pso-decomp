@@ -22,8 +22,8 @@ struct TWindowCtrl : public TObject {
     u32 m_44;
     u8 _pad48[0x4C];
     void* m_94;
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static s32 get_flag_bit3();
     int is_player_flag_4000_set();
     static s32 is_map_visible();

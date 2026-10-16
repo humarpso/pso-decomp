@@ -22,8 +22,8 @@ struct TWindowMainMenu
     void close_submenu(void* a1);
     void refresh_submenu(void* a1);
     void close();
-    static void render();
-    static void run_task();
+    void render();
+    void run_task();
     static void set_entry_field_20(s32 arg0, s32 arg1);
     int is_item_active();
     void set_symbol_chat_parts(void * _w1);

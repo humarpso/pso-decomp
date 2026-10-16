@@ -6,12 +6,13 @@
 
 struct TWindowDeposit : public TUnk_804CE018 {
     virtual ~TWindowDeposit();
+    virtual void render();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x3C];
     void* m_64;
     void render_status(s32 arg1);
-    void run_task();
+    virtual void run_task();
     u8 unk_68[0x4];
 };
 

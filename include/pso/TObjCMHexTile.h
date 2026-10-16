@@ -6,6 +6,8 @@
 class TObjCMHexTile : public TObject {
 public:
     virtual ~TObjCMHexTile();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

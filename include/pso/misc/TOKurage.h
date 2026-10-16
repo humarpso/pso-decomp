@@ -23,8 +23,8 @@ struct TOKurage : public TUnk_804AFBF8 {
     void update_state();
     void debug_print_ranges();
     void init();
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     static void *create(void *arg0);
     static void destroy_static_instance();
     static void load_static_resource();

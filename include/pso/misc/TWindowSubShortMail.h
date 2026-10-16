@@ -30,9 +30,8 @@ struct TWindowSubShortMail : public TObject {
     void close();
     void update_mail_count();
     s32 refresh_mail_list(void *arg1);
-    static void render();
-    void run_task();
-    void update();
+    virtual void render();
+    virtual void run_task();
     void *destroy(s16 arg1);
     void notify_warp_flag70();
     void advance_line(s32 arg1);};

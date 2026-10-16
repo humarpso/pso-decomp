@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_8048E5DC.h"
 
 #include <stddef.h>
 #include "pso/misc/TCameraCtrl.h"
@@ -57,7 +58,7 @@ extern const f32 lbl_805D9408;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9410;
 extern s32 lbl_805E1210;
-void TCameraCtrl__sub_800830B0(u8 *arg0);
+void render_shadows__13TUnk_8048E5DCFv(u8 *arg0);
 extern G_80082FCC TCameraCtrl__data_804FF634;
 extern const f32 lbl_805D93EC;
 extern const f32 lbl_805D93F0;
@@ -70,8 +71,8 @@ void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
 
 extern "C" {
 
-void TCameraCtrl__sub_800830A8(void);
-void TCameraCtrl__sub_800830AC(void);
+void render__13TUnk_8048E5DCFv(void);
+void run_task__13TUnk_8048E5DCFv(void);
 s32 load_list_texture(s32, s32, s32, s32);
 void VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
@@ -102,8 +103,8 @@ void TCameraCtrl::update_single_screen() {
     }
 }
 
-void TCameraCtrl__sub_800830A8(void) {  }
-void TCameraCtrl__sub_800830AC(void) {  }
+void TUnk_8048E5DC::render() {  }
+void TUnk_8048E5DC::run_task() {  }
 
 extern s32 lbl_8048E5DC[];
 
@@ -111,7 +112,8 @@ extern s32 lbl_8048E5DC[];
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_800830B0_lbl_80439348_size[sizeof(RecoveredGlobal_800830B0_lbl_80439348) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_800830B0_main_task_size[sizeof(RecoveredGlobal_800830B0_main_task) == 0x34 ? 1 : -1];
-void TCameraCtrl__sub_800830B0(u8 *arg0) {
+void TUnk_8048E5DC::render_shadows() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_800830B0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800830B0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800830B0, sp10) == 0x8) ? 1 : -1];

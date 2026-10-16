@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2148.h"
+#include "pso/item/TUnk_804A2018.h"
 
 #include "pso/items/TItemWeapon.h"
 #include "pso/TItemAttacker.h"
@@ -98,7 +100,7 @@ void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1);
 s8 TObjPlayer__sub_80102C30();
 s32 copy_position__15TEffStarLight2DFPv(u32, s32 *);
 s32 queue_destruction__7TObjectFv(void *);
-void update_item_camera_target__10TObjPlayerFPv(void *arg0);
+void run_task__13TUnk_804A2018Fv(void *arg0);
 }
 
 extern "C" {
@@ -120,30 +122,30 @@ typedef s32 (*Fn_80124810_5)(s32, s32, s32, s32, f32);
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();
 void *weapon_star_light_follower_vtable[6] = {
-    (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_8012417C, (void *)&update_item_camera_target__10TObjPlayerFPv,
+    (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_8012417C, (void *)&run_task__13TUnk_804A2018Fv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
 #define weapon_star_light_follower_vtable ((u8 *)weapon_star_light_follower_vtable)
 
-void update_item_camera_target__10TObjPlayerFPv(void *arg0) {
+void TUnk_804A2018::run_task() {
     s32 sp8;
     s32 temp_r3;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != ((u32)get_item_system_generation())) {
-        queue_destruction__7TObjectFv(arg0);
+    if ((u32) *(u32 *)((s8 *)this + 0x28) != ((u32)get_item_system_generation())) {
+        queue_destruction__7TObjectFv(this);
         return;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-        temp_r3 = ((s32)find_item_by_id(*(s32 *)((s8 *)arg0 + 0x1C)));
-        if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)temp_r3)->draw_icon((s32)((s32)(*(s32 *)((s8 *)arg0 + 0x20))), (s32)((s32 *)(&sp8))) != 0)) {
+    if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
+        temp_r3 = ((s32)find_item_by_id(*(s32 *)((s8 *)this + 0x1C)));
+        if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)temp_r3)->draw_icon((s32)((s32)(*(s32 *)((s8 *)this + 0x20))), (s32)((s32 *)(&sp8))) != 0)) {
             if (((TItemMag *)temp_r3)->get_flag_40() == 0) {
-                copy_position__15TEffStarLight2DFPv(*(u32 *)((s8 *)arg0 + 0x24), &sp8);
+                copy_position__15TEffStarLight2DFPv(*(u32 *)((s8 *)this + 0x24), &sp8);
                 return;
             }
-            ((TObjCamera *)(*(u32 *)((s8 *)arg0 + 0x24)))->queue_target_destruction();
+            ((TObjCamera *)(*(u32 *)((s8 *)this + 0x24)))->queue_target_destruction();
             return;
         }
     }
-    queue_destruction__7TObjectFv(arg0);
+    queue_destruction__7TObjectFv(this);
 }
 
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1) {
@@ -291,7 +293,7 @@ void init_armor__10TObjPlayerFPv(void *arg0) {
     ((TItemWeapon *)arg0)->roll_technique();
 }
 
-void drill_launcher_shot_render(u8 *);
+void render__13TUnk_804A2148Fv(u8 *);
 extern "C" void TItemEquipBase__sub_8010A77C();
 extern "C" void TItemWeapon__sub_8011E5C4();
 extern "C" void TItemWeapon__sub_8011E5C8();
@@ -329,7 +331,7 @@ extern "C" void load_weapon_model__11TItemWeaponFv();
 extern "C" void register_attack__5TItemFv();
 extern "C" void release_member_90__10TObjPlayerFv();
 extern "C" void remove_equip_stats__14TItemEquipBaseFPvi();
-extern "C" void render__5TItemFv();
+extern "C" void render_shadows__5TItemFv();
 extern "C" void reset_entries__11TItemWeaponFv();
 extern "C" void reset_item_equip();
 extern "C" void ret_8010064C();
@@ -349,7 +351,7 @@ extern "C" void update_model_flags__11TItemWeaponFv();
 extern "C" void update_weapon_trails__11TItemWeaponFv();
 void *megid_projectile_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_8012463C, (void *)&run_task__5TItemFv,
-    (void *)&dispatch_state__5TItemFv, (void *)&render__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&TItemWeapon__sub_801200C0, (void *)&TItem__sub_801005E0,
     (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
@@ -367,11 +369,11 @@ void *megid_projectile_weapon_vtable[63] = {
 };
 void *recoil_weapon_shoot_model_vtable[7] = {
     (void *)0x0, (void *)0x0, (void *)&dt_item_shoot_model__10TObjPlayerFPvs, (void *)&run_task__10TItemShootFv,
-    (void *)&drill_launcher_shot_render, (void *)&render_shadows__7TObjectFv, (void *)&TObjPlayer__sub_8012480C,
+    (void *)&render__13TUnk_804A2148Fv, (void *)&render_shadows__7TObjectFv, (void *)&TObjPlayer__sub_8012480C,
 };
 void *recoiling_projectile_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_80124AEC, (void *)&run_task__5TItemFv,
-    (void *)&dispatch_state__5TItemFv, (void *)&render__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&TItemWeapon__sub_801200C0, (void *)&TItem__sub_801005E0,
     (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
@@ -428,7 +430,8 @@ u8 *TObjPlayer__sub_80124708(u8 *arg0) {
     return NULL;
 }
 
-void drill_launcher_shot_render(u8 *arg0) {
+void TUnk_804A2148::render() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;

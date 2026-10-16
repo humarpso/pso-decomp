@@ -10,8 +10,8 @@ struct TObjEneSlime : public TObjEnemy {
     u8 _pad378[0x3C];
     u32 m_3b4;
     void release_split_slimes();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static void free_instance();
     static void spawn_pair();
     static s32 create(s32 arg0);

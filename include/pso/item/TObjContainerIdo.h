@@ -6,6 +6,8 @@
 
 struct TObjContainerIdo : public TUnk_804B97C0 {
     virtual ~TObjContainerIdo();
+    virtual void render();
+    virtual void run_task();
     void* m_b4;
     u8 _padB8[0x8];
     void* m_c0;
@@ -16,8 +18,6 @@ struct TObjContainerIdo : public TUnk_804B97C0 {
     void* m_f0;
     u8 _padF4[0x10];
     u32 m_104;
-    void run();
-    void check_and_trigger();
     void *dt(s16 arg1);
     void*init_positions();
     static void free_resources();

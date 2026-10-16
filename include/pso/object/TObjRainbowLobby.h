@@ -7,8 +7,8 @@
 struct TObjRainbowLobby : public TUnk_804AFBF8 {
     virtual ~TObjRainbowLobby();
     u32 m_c8;
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static void *create(void *arg0);
     static void free_static_data();
     static void load_shared_resource();

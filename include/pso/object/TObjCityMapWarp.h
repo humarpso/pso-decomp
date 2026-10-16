@@ -6,8 +6,8 @@
 
 struct TObjCityMapWarp : public TObjMapWarp {
     virtual ~TObjCityMapWarp();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     int is_field88_zero();
     void clamp_destination_index();
     static void *create(void *arg0);

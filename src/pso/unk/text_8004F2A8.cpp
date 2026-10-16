@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDFDemo4.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TNowLoading.h"
@@ -65,7 +66,7 @@ extern const f32 lbl_805D8A00;
 
 extern "C" {
 
-void TObjPlayer__sub_8004F3A0(void* p);
+void render__11TObjDFDemo4Fv(void* p);
 int fn_8004F1FC(void*);
 
 void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0) {
@@ -96,13 +97,13 @@ void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8004F3A0(void* p) { TObjPlayer__sub_8004F2A8((Obj_8004F2A8 *)(p)); fn_8004F1FC(p); }
+void TObjDFDemo4::render() { TObjPlayer__sub_8004F2A8((Obj_8004F2A8 *)(this)); fn_8004F1FC(this); }
 typedef struct Self_8004F3D4 Self_8004F3D4;
 typedef struct Vec_8004F3D4 Vec_8004F3D4;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss4Type2::update_effect_timeline() {
+void TObjDFDemo4::run_task() {
     Self_8004F3D4 *self = (Self_8004F3D4 *)this;
   f32 f;
   const f32 *new_var;

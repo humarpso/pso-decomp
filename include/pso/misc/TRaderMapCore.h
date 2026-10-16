@@ -19,6 +19,7 @@ struct RadarViewportParameters
 
 struct TRaderMapCore : public TUnk_804B9870 {
     virtual ~TRaderMapCore();
+    virtual void run_task();
     s32 m_90;
     u8 player_marker_records[0xA0];
     s32 m_134;
@@ -67,7 +68,7 @@ struct TRaderMapCore : public TUnk_804B9870 {
     void copy_transform(void* q);
     void setup_view(s32 arg1);
     void render_region_records(void * _w1);
-    void render();
+    virtual void render();
     s32 is_render_admitted(void *arg1);
     void update_pan_zoom_input();
     void update_target();

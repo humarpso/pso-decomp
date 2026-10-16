@@ -6,6 +6,8 @@
 class TDeadSpot : public TObject {
 public:
     virtual ~TDeadSpot();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

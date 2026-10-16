@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TUnk_804F3A20.h"
 
 struct RecoveredGlobal_8036E8DC_lbl_804C88C0 { s32 value; u8 remaining[0x50]; };
 typedef char RecoveredGlobal_8036E8DC_lbl_804C88C0_size[sizeof(RecoveredGlobal_8036E8DC_lbl_804C88C0) == 0x54 ? 1 : -1];
@@ -112,7 +113,7 @@ extern RecoveredGlobal_8036DE10_lbl_804F37D4 multi_chg_game_mode_text_table_b;
 s32 TAdMultiChgGameModeGC__sub_8036DE10(s32 arg0, s32 arg1, s32 arg2);
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
 extern RecoveredGlobal_8036EA24_lbl_804F3908 multi_chg_game_mode_entry_table;
-void check_save_file_and_dispatch__21TAdMultiChgGameModeGCFPv(u8 *arg0);
+void run_task__13TUnk_804F3A20Fv(u8 *arg0);
 extern RecoveredGlobal_8036EA24_lbl_804F3908 multi_chg_game_mode_entry_table;
 void set_state__21TAdMultiChgGameModeGCFPvi(u8 *arg0, s32 arg1);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
@@ -509,7 +510,8 @@ void TAdMultiChgGameModeGC__sub_8036E9EC(void* p) { close_window_30__21TAdMultiC
 
 typedef char MemberActionStorage_8036EA24_size[sizeof(MemberActionStorage_8036EA24) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8036EA24_lbl_804F3908_size[sizeof(RecoveredGlobal_8036EA24_lbl_804F3908) == 0x108 ? 1 : -1];
-void check_save_file_and_dispatch__21TAdMultiChgGameModeGCFPv(u8 *arg0) {
+void TUnk_804F3A20::run_task() {
+    u8 *arg0 = (u8 *)this;
     MemberActionStorage_8036EA24 member_action;
     typedef char sp8_offset[(offsetof(Stack_8036EA24, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8036EA24, spC) == 0x4) ? 1 : -1];

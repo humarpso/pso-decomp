@@ -11,7 +11,7 @@ s32 TOWreckAncientBrakable__sub_8017D444(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 
-void TOWreckAncientBrakable::update_break_state() {
+void TOWreckAncientBrakable::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;

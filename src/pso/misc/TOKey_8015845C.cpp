@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOKey.h"
 #include "pso/object/TObjFish.h"
 
@@ -44,7 +45,7 @@ void __dl__7TObjectFPv(void *);
 
 extern s32 lbl_804AFBF8[];
 
-void TOKey::render() {
+void TUnk_804AFBF8::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     s32 temp_r3;

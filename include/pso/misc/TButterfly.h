@@ -15,8 +15,8 @@ struct TButterfly : public TUnk_804B9870 {
     u8 m_b9;
     u8 m_ba;
     void init_motion();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static void destroy_instance();
     void draw_model();
     u8 unk_BB[0x1];

@@ -314,7 +314,7 @@ typedef void *(*Ctor4_80117954)(void *, void *, s32, s32);
 extern "C" {
 void run_task__5TItemFv();
 void dispatch_state__5TItemFv();
-void render__5TItemFv();
+void render_shadows__5TItemFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
 void release_member_90__10TObjPlayerFv();
@@ -379,7 +379,7 @@ void *lbl_8049FF88[46] = {
     (void *)TItemProArmor__sub_80117730,
     (void *)run_task__5TItemFv,
     (void *)dispatch_state__5TItemFv,
-    (void *)render__5TItemFv,
+    (void *)render_shadows__5TItemFv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv,
@@ -428,7 +428,7 @@ void *__vt__13TItemProArmor[51] = {
     (void *)__dt__13TItemProArmorFv,
     (void *)run_task__5TItemFv,
     (void *)dispatch_state__5TItemFv,
-    (void *)render__5TItemFv,
+    (void *)render_shadows__5TItemFv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv,

@@ -12,7 +12,7 @@ public:
     s32 state;
     s32 timer;
     s32 calc_preview_last_index(s32 display_index, s32 region_index);
-    void run_task();
+    virtual void run_task();
     void close_and_destroy();
     void try_advance_state();
     void update_load_progress();

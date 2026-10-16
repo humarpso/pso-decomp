@@ -6,6 +6,7 @@
 
 struct TWindowShortListCtrl : public TObject {
     virtual ~TWindowShortListCtrl();
+    virtual void run_task();
     u8 m_1c;
     u8 m_1d;
     s16 m_1e;
@@ -29,7 +30,7 @@ struct TWindowShortListCtrl : public TObject {
     static void assign_item_to_palette(u32 arg0, u32 arg1);
     void destroy_children();
     void *create_window(s32 arg1, s32 arg2);
-    static void render();
+    virtual void render();
     static void set_card_window_flags(s32 arg0, s32 arg1);
     s16 get_cursor_pos();
     void update_cursor_pos();

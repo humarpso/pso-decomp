@@ -21,8 +21,8 @@ struct TWindowSubShortCut : public TObject {
     s32 open_confirm_message();
     s32 open_confirm_prompt();
     s32 open_menu();
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void set_flag1e_bit80();
     void close_and_clear_flag();
     void free_icon();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TObjEneMe1Gee_NEEDLE.h"
 #include "pso/enemy/TObjEneMe1Gee.h"
 #include "pso/TParticleCtrl.h"
 
@@ -38,7 +39,7 @@ s32 pop_matrix();
 
 extern u32 me1gee_cached_model_handle;
 
-void TObjEneMe1Gee::draw_model() {
+void TObjEneMe1Gee_NEEDLE::render() {
     u8 *arg0 = (u8 *)this;
     if ((u32) me1gee_cached_model_handle == 0U) {
         queue_destruction__7TObjectFv((void *)(arg0));
@@ -56,7 +57,7 @@ void TObjEneMe1Gee::draw_model() {
     TParticleCtrl::end_effect_render();
     pop_matrix();
 }
-void TObjEneMe1Gee::update_missile() {
+void TObjEneMe1Gee_NEEDLE::run_task() {
     *(u32 *)((s8 *)this + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)this + 0x34));
     if ((u32) *(u32 *)((s8 *)this + 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void *)(this));

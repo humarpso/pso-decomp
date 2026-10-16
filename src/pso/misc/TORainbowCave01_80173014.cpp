@@ -150,7 +150,7 @@ void TORainbowCave01::run_task() {
         }
         break;
     }
-    ((TORainbowCave01 *)self)->update();
+    ((TORainbowCave01 *)self)->TUnk_804AFBF8::run_task();
 }
 
 void *TORainbowCave01::create(void *arg0) {

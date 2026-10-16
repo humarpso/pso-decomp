@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLOC_ListClear.h"
 #include "pso/misc/TMainCursor.h"
 
 extern "C" {
@@ -8,7 +9,7 @@ s32 TObjPlayer__sub_8013DEF8(s32);
 s32 TObjPlayer__sub_801C6DAC(void *);
 s32 __dl__7TObjectFPv(void *);
 
-void TMainCursor::update_target_player() {
+void TLOC_ListClear::run_task() {
     s32 arg0 = (s32)this;
     if ((TObjPlayer__sub_801C6DAC((void *)(arg0 + 0x1C)) != 0) && ((u32) *(u32 *)((s8 *)(((TMainCursor *)(arg0 + 0x1C))->get_state()) + 0x424) != 0U)) {
         TObjPlayer__sub_8013DEF8(*(s32 *)((s8 *)(((TMainCursor *)(arg0 + 0x1C))->get_state()) + 0x424) + 0x520);

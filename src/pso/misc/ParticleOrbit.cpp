@@ -1,4 +1,5 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/misc/TUnk_8048E790.h"
 
 #include "types.h"
 #pragma inline_depth(1)
@@ -287,7 +288,7 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D9528;
 extern const f32 lbl_805D9540;
-void draw_orbit_particle_sprite(u8 *arg0);
+void render__13TUnk_8048E790Fv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
 f32 atan2_float(f32, f32);
@@ -319,7 +320,7 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9564;
-void draw_radial_sprite_particle(u8 *arg0);
+void render__13TUnk_8048E7A8Fv(u8 *arg0);
 u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
 extern s32 TParticleCtrl__data_8048E790[];
@@ -484,7 +485,8 @@ void retire_orbit_particle(u8 *arg0) {
     }
 }
 
-void draw_orbit_particle_sprite(u8 *arg0) {
+void TUnk_8048E790::render() {
+    u8 *arg0 = (u8 *)this;
     Vec_8008A92C sp8;
     f32 temp_f1;
     f32 temp_f1_2;

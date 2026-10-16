@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFogCollision_Manager.h"
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/misc/TFogCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -35,7 +36,7 @@ struct RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 {
 };
 
 extern "C" {
-void update_fog_region_arbitration(u8 *arg0);
+void run_task__24TObjFogCollision_ManagerFv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804AF7B0[];
 u8 *init_base__22TObjFogCollisionPoisonFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
@@ -102,7 +103,8 @@ u8 *init_base__22TObjFogCollisionPoisonFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
     return arg0;
 }
 
-void update_fog_region_arbitration(u8 *arg0) {
+void TObjFogCollision_Manager::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 var_r4;
     if (TObjPlayer::is_any_teammate_in_state() == 0) {

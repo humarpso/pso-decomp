@@ -48,7 +48,7 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DA084;
 extern const f32 lbl_805DA088;
 
-void TObjEnemyCustom::draw() {
+void TObjEnemyCustom::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_800c76f4 *)arg0)->m8(lbl_805DA084, lbl_805DA088) != 0) {
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));

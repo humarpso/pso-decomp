@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/unk/TObjCityAirCar_Ctrl.h"
 
 extern "C" {
 
-void fn_8018130C(void);
+void render__19TObjCityAirCar_CtrlFv(void);
 
-void fn_8018130C(void) {  }
+void TObjCityAirCar_Ctrl::render() {  }
 
 }

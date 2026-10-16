@@ -28,8 +28,8 @@ struct TWindowMakeTeam : public TObject {
     void set_sub_position(u8 *arg1);
     int get_keyboard_field_6c();
     static s32 create_menu();
-    static void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TWindowMakeTeam_size[sizeof(TWindowMakeTeam) == 0x38 ? 1 : -1];
 #endif

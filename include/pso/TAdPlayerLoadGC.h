@@ -6,6 +6,8 @@
 class TAdPlayerLoadGC : public TObject {
 public:
     virtual ~TAdPlayerLoadGC();
+    virtual void render();
+    virtual void run_task();
 public:
     static s32 get_instance();
     static void set_state(int a0);

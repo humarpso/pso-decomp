@@ -6,6 +6,8 @@
 
 struct TObjDFDemoF : public TUnk_804B9870 {
     virtual ~TObjDFDemoF();
+    virtual void render();
+    virtual void run_task();
     u32 m_90;
     static void *create(void *arg0);
     u8 unk_94[0x28];

@@ -6,6 +6,8 @@
 class TLogo : public TObject {
 public:
     virtual ~TLogo();
+    virtual void render();
+    virtual void run_task();
 public:
     static void free_held_object();
     static void request_exit();

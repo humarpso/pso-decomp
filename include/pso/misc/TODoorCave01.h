@@ -6,6 +6,7 @@
 
 struct TODoorCave01 : public TUnk_804B0BB8 {
     virtual ~TODoorCave01();
+    virtual void render();
     u32 m_d4;
     u32 m_d8;
     static s32 draw_door_model(void *p0, int p1, int arg2);

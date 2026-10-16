@@ -30,8 +30,8 @@ struct TTecBarta : public TUnk_804CCC68 {
     void init_parameters();
     void create(void *arg1, void *arg2, void *arg3);
     void create_ex(void *arg1, void *arg2, void *arg3);
-    void run_task();
-    static void render();};
+    virtual void run_task();
+    virtual void render();};
 typedef char TTecBarta_size[sizeof(TTecBarta)==0x178?1:-1];
 
 #endif

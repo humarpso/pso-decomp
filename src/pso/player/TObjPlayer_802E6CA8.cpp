@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804E3BC0.h"
+#include "pso/player/TUnk_804E3BA8.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -114,7 +116,7 @@ extern Col_802E6CB0 lbl_80472C9C;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void TObjPlayer__sub_802E6CB0(u8 *arg0);
+void render__13TUnk_804E3BA8Fv(u8 *arg0);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
@@ -188,7 +190,8 @@ int TObjPlayer::get_instance() {  return multiplay_texture_f512_handle; }
 
 extern s32 lbl_804E3BA8[];
 
-void TObjPlayer__sub_802E6CB0(u8 *arg0) {
+void TUnk_804E3BA8::render() {
+    u8 *arg0 = (u8 *)this;
     Node_802E6CB0 *node;
     Part_802E6CB0 *part;
     s32 i;
@@ -275,7 +278,7 @@ void TObjPlayer__sub_802E7088(void) {  }
 
 extern s32 lbl_804E3BC0[];
 
-void TObjPlayer::draw_boss_effect_parts() {
+void TUnk_804E3BC0::render() {
     u8 *arg0 = (u8 *)this;
     Node_802E708C *node;
     Part_802E708C *part;

@@ -14,8 +14,8 @@ struct TBoss6RockChase : public TUnk_804AF8A0 {
     u32 m_c0;
     u32 m_c4;
     s32 damage_players_in_range();
-    void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TBoss6RockChase_size[sizeof(TBoss6RockChase) == 0xC8 ? 1 : -1];
 #endif

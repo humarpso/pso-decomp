@@ -10,8 +10,8 @@ struct TWindowReturnCity : public TObject {
     u32 m_20;
     u32 m_24;
     s32 query_battle_state();
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static void clear_flag_bit5();};
 
 typedef char TWindowReturnCity_size[sizeof(TWindowReturnCity) == 0x28 ? 1 : -1];

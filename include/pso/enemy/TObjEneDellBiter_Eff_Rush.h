@@ -6,6 +6,8 @@
 class TObjEneDellBiter_Eff_Rush : public TObject {
 public:
     virtual ~TObjEneDellBiter_Eff_Rush();
+    virtual void render();
+    virtual void run_task();
     u8 unk_1C[0x18];
 };
 typedef char TObjEneDellBiter_Eff_Rush_size[sizeof(TObjEneDellBiter_Eff_Rush) == 0x34 ? 1 : -1];

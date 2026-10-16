@@ -6,6 +6,7 @@
 
 struct TWindowSubCustomEquip : public TUnk_804CE018 {
     virtual ~TWindowSubCustomEquip();
+    virtual void render();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -21,7 +22,6 @@ struct TWindowSubCustomEquip : public TUnk_804CE018 {
     s16 m_66;
     u32 m_68;
     u32 m_6c;
-    void update_customize_state();
     void set_relative_pos(void *arg1);
     int layout_selection_parts(void *arg1);
     void layout_entry_group(void *arg1);
@@ -30,7 +30,7 @@ struct TWindowSubCustomEquip : public TUnk_804CE018 {
     void update_rotate_anim();
     void handle_cancel();
     void handle_decide();
-    void run_task();
+    virtual void run_task();
     s32 calc_equip_index();
     int is_selected();
     void clear_flag_and_set_entry_state();

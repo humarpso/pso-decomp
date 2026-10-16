@@ -6,6 +6,7 @@
 
 struct TORockJungleL01 : public TORockCave {
     virtual ~TORockJungleL01();
+    virtual void run_task();
     void* m_b4;
     u8 _padB8[0x1C];
     u32 m_d4;

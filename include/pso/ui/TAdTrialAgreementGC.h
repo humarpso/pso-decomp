@@ -7,9 +7,9 @@
 struct TAdTrialAgreementGC : public TAdAgreementBaseGC {
     virtual ~TAdTrialAgreementGC();
     u32 m_38;
-    void render();
+    virtual void render();
     static void wait_for_load();
-    void run_task();
+    virtual void run_task();
     static void draw_record_with_camera(s32 arg0, s32 arg1, s32 arg2);
     void update_title_prompt();
     void handle_cursor_input();

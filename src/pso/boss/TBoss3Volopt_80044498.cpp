@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80484610.h"
 
 struct VBase_18_b5cc36 { char pad[0x18]; };
 struct VObj_18_b5cc36 : VBase_18_b5cc36 {
@@ -689,7 +690,7 @@ s32 update_obstruction_fade(void *);
 s32 submit_cursor_candidate(void *, int);
 extern u8 *TBoss3Volopt__data_805D4D00;
 extern const f32 TBoss3Volopt__data_805D87E4;
-void TBoss3Volopt__sub_800477A0(u8 *arg0);
+void run_task__13TUnk_80484610Fv(u8 *arg0);
 void set_flag8_list__12TBoss3VoloptFPv(void *);
 void render_anim_model_at_pos__12TBoss3VoloptFPv(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
@@ -1942,7 +1943,8 @@ void run_state__12TBoss3VoloptFPv(S_80047714 *o) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss3Volopt__sub_800477A0(u8 *arg0) {
+void TUnk_80484610::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     s32 temp_r0;
     temp_f1 = sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x47C));

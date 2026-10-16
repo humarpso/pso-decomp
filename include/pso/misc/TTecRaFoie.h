@@ -6,13 +6,14 @@
 
 struct TTecRaFoie : public TUnk_804CC148 {
     virtual ~TTecRaFoie();
+    virtual void run_task();
     u32 m_ec;
     u16 m_f0;
     u8 _padF2[0x56];
     u32 m_148;
     static void update_technique_slot(s32 arg0);
     void calc_area_parameters();
-    static void render();
+    virtual void render();
     void update_detonation(void *arg1);
     void create(void *arg1, void *arg2, void *arg3);
     void create_ex(void *arg1, void *arg2, void *arg3);};

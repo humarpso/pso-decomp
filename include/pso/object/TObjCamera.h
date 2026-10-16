@@ -6,9 +6,10 @@
 
 struct TObjCamera : public TUnk_804AFBF8 {
     virtual ~TObjCamera();
+    virtual void run_task();
     u32 m_c8;
     void queue_target_destruction();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void release_static_resource();
     static void load_shared_resource();

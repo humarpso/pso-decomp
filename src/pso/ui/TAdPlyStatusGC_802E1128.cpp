@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/menu/T_ATS_DrawCalendar.h"
 #include "pso/ui/TAdPlyStatusGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -64,7 +65,7 @@ void TAdPlyStatusGC__sub_802E11BC(void* p) { *(s32*)((char*)p + 0x1c) = 0; }
 void TAdPlyStatusGC__sub_802E11C8(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 #pragma push
 #pragma fp_contract on
-void TAdSinglePlyChrSelectGC::draw_date_time() {
+void T_ATS_DrawCalendar::render() {
     Clock_802E11D4 *self = (Clock_802E11D4 *)this;
     char buf[0x24];
     Date_802E11D4 date;

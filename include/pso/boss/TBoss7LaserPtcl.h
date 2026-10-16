@@ -17,14 +17,14 @@ struct TBoss7LaserPtcl : public TObject {
     u8 unknown50[4];
     u32 m_54;
 
-    void run_task();
+    virtual void run_task();
     u8 is_state_2();
     void calc_world_position(void *arg1);
     void update_position();
     void init_laser();
     void calc_position(u8 *arg1, u8 *arg2);
     void destroy_particles();
-    static void render();};
+    virtual void render();};
 
 typedef char TBoss7LaserPtcl_size[sizeof(TBoss7LaserPtcl) == 0x58 ? 1 : -1];
 #endif

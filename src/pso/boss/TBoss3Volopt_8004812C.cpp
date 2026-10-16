@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80484840.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -77,7 +78,7 @@ void TBoss3Volopt__sub_800481B4(void* p) { *(u8*)((char*)p + 0x0) = 133; *(u8*)(
 void TBoss3Volopt::swap_6x18_fields() { read_be16_field2__10TObjPlayerFv(this); { int i; for (i = 0; i < 4; i++) { bswap_16__FPUs((char*)this + 0x4 + i * 2); } } }
 void TBoss3Volopt::broadcast_state() { swap_6x18_fields(); TLobby__send_and_handle_60(this); }
 void TBoss3Volopt__sub_8004824C(void* p) { *(u8*)((char*)p + 0x0) = 24; *(u8*)((char*)p + 0x1) = 3; }
-void TObjPlayer::draw_direction_line() {
+void TUnk_80484840::render() {
     Obj_80048260 *self = (Obj_80048260 *)this;
     Vec_80048260 *dst;
     s32 a;

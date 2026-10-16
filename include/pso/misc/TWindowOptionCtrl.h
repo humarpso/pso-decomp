@@ -42,8 +42,8 @@ struct TWindowOptionCtrl : public TObject {
     static s32 create_list_window();
     static s32 create_select_menu_window();
     static s32 create_menu();
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static s32 get_chr_select_base_plus_1154c();
     void set_flag70_bit400();
     void set_flag70_bit100();

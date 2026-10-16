@@ -44,8 +44,8 @@ struct TWindowSubTradeMain : public TObject {
     s32 open_confirm_yes_no();
     s32 create_trade_menu();
     s32 build_trade_menu();
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     u8 unk_58[0x50];
 };
 

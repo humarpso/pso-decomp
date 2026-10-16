@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80482C58.h"
 #include "pso/boss/TBoss2Joint.h"
 #include "pso/boss/TBoss2LaserLight.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -605,7 +606,7 @@ void TBoss2Joint__vt46(void) {  }
 void TBoss2Joint__vt47(void) {  }
 void TBoss2Joint__vt48(void) {  }
 
-void TBoss2LaserLight::update_particle_trail() {
+void TUnk_80482C58::run_task() {
     Laser_80037074 *self = (Laser_80037074 *)this;
     if (self->ptcl == NULL) {
         self->ptcl = spawn_continuous_particle_effect_with_flags(self->pts, self->unk118, 0x40);

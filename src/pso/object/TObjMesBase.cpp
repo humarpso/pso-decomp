@@ -119,7 +119,7 @@ void TObjMesBase::clear_ref_if_destroyed() {
 }
 void TObjMesBase__vt12(void) {  }
 
-void TObjMesBase::dispatch_state() {
+void TObjMesBase::run_task() {
     s32 temp_r0;
 
     temp_r0 = *(s32 *)((s8 *)this + 0xB0);

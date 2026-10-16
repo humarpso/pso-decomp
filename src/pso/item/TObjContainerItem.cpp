@@ -29,8 +29,8 @@ void play_container_break_sound(s32 arg0);
 
 extern "C" {
 void __dt__21TObjContainerAbeEnemyFv();
-void step_laser_fence__10TObjPlayerFv();
-void render__17TObjContainerBaseFv();
+void run_task__13TUnk_804B6C24Fv();
+void render__13TUnk_804B6C24Fv();
 void render_shadows__7TObjectFv();
 void TObjContainerAbeEnemy__vt4();
 void apply_object_set_data();
@@ -107,8 +107,8 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     0,
     0,
     (void *)__dt__21TObjContainerAbeEnemyFv,
-    (void *)step_laser_fence__10TObjPlayerFv,
-    (void *)render__17TObjContainerBaseFv,
+    (void *)run_task__13TUnk_804B6C24Fv,
+    (void *)render__13TUnk_804B6C24Fv,
     (void *)render_shadows__7TObjectFv,
     (void *)TObjContainerAbeEnemy__vt4,
     (void *)apply_object_set_data,

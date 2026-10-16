@@ -20,8 +20,8 @@ struct TOChatSensor : public TUnk_804B9870 {
     void set_trigger_text(void *arg1);
     void handle_chat_message(void *arg1);
     void init_params();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void send_state();
     void swap_state_endian();
     void init_packet_type();

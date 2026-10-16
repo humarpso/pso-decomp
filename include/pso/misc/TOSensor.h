@@ -5,6 +5,7 @@
 
 struct TOSensor
 {
+    void render();
     u8 _pad1C[0x1C];
     void* m_38;
     u8 _pad3C[0x14];

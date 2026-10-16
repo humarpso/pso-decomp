@@ -8,7 +8,7 @@ struct TODoorFourLightSpace : public TUnk_804B0BB8 {
     virtual ~TODoorFourLightSpace();
     u32 m_d4;
     s32 draw_lights();
-    void render();
+    virtual void render();
     u8 unk_D8[0x20];
 };
 

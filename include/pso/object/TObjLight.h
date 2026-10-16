@@ -18,8 +18,8 @@ struct TObjLight : public TUnk_804B9870 {
     void* m_cc;
     u8 _padD0[0x8];
     void* m_d8;
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void*init_light(int a1);
     void unregister_and_free();
     static u32 alloc_light_slot();

@@ -1,4 +1,5 @@
 #include "pso/TItemEffEquip.h"
+#include "pso/item/TUnk_8049F038.h"
 
 extern "C" void request_destroy__11TBoss4Type2FUl(void*);
 extern "C" void queue_destruction__7TObjectFv(TObject*);
@@ -32,7 +33,7 @@ void *__dt__13TItemEffEquipFv(Equip_Self *self, s16 arg1) {
 extern "C" {
 
 void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1);
-void notify_hit__13TItemEffFlameFPv(u8 *arg0);
+void run_task__13TUnk_8049F038Fv(u8 *arg0);
 u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0);
 s32 set_item_count__6TLobbyFs(void *, s32);
 s32 TLobby__sub_80103B04();
@@ -256,7 +257,8 @@ struct VObj80108BB0_80108bb0 : VBase0x18_2_80108bb0 {
     virtual void m63(s32, void *);
 };
 
-void notify_hit__13TItemEffFlameFPv(u8 *arg0) {
+void TUnk_8049F038::run_task() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
 
     temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
@@ -325,7 +327,7 @@ void *__vt__13TItemEffEquip[6] = {
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
 };
 void *lbl_8049F038[14] = {
-    0, 0, (void *)destroy__13TItemEffFlameFPvs, (void *)notify_hit__13TItemEffFlameFPv,
+    0, 0, (void *)destroy__13TItemEffFlameFPvs, (void *)run_task__13TUnk_8049F038Fv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
     (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv, (void *)notify_hit_and_get_pos__13TItemEffFlameFPv,

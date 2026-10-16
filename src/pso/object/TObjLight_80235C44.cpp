@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_804CCAA8.h"
 #include "pso/object/TObjLight.h"
 
 struct Stack_80235E9C {
@@ -63,7 +64,7 @@ u32 get_player_by_client_id(int);
 extern Base_80235C44 TObjLight__scene_light_state;
 extern const f32 lbl_805DC890;
 extern const f32 lbl_805DC894;
-void update_actor_light_task(Light_80235C44 *arg0);
+void run_task__13TUnk_804CCAA8Fv(Light_80235C44 *arg0);
 }
 
 extern "C" {
@@ -76,7 +77,8 @@ extern s32 lbl_804CCAA8[];
 
 #pragma push
 #pragma fp_contract on
-void update_actor_light_task(Light_80235C44 *arg0) {
+void TUnk_804CCAA8::run_task() {
+    Light_80235C44 *arg0 = (Light_80235C44 *)this;
     Vec_80235C44 baseDir;
     Col_80235C44 baseColor;
     Col_80235C44 unused;

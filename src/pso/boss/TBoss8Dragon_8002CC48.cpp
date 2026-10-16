@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1MokoHill_SoloM.h"
+#include "pso/boss/TObjBoss1MokoHill_Solo.h"
 #include <stddef.h>
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss1Rock.h"
@@ -203,11 +205,11 @@ void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void set_chunk_material_color(void *);
 
-void update_dragon_trail_piece(Trail_8002CC48 *self);
+void run_task__22TObjBoss1MokoHill_SoloFv(Trail_8002CC48 *self);
 s32 get_state__12TBoss8DragonFv(void);
 void *__dt__22TObjBoss1MokoHill_SoloFv(void *arg0, s16 arg1);
-void render_dragon_trail(Obj_8002CE78 *arg0);
-void update_dragon_trail(Trail_8002CFB8 *self);
+void render__23TObjBoss1MokoHill_SoloMFv(Obj_8002CE78 *arg0);
+void run_task__23TObjBoss1MokoHill_SoloMFv(Trail_8002CFB8 *self);
 s32 is_dragon_trail_damaging(u8 *arg0);
 void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1);
 u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
@@ -220,7 +222,8 @@ f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1);
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
 f32 rand_signed_unit(void);
 
-void update_dragon_trail_piece(Trail_8002CC48 *self) {
+void TObjBoss1MokoHill_Solo::run_task() {
+    Trail_8002CC48 *self = (Trail_8002CC48 *)this;
     switch (self->state) {
     case 0:
         self->f34 += lbl_805D8178;
@@ -286,7 +289,8 @@ void *TObjBoss1MokoHill_Solo__ct(void *arg0_, void *arg1, int arg2) {
 }
 #undef arg0
 
-void render_dragon_trail(Obj_8002CE78 *arg0) {
+void TObjBoss1MokoHill_SoloM::render() {
+    Obj_8002CE78 *arg0 = (Obj_8002CE78 *)this;
     Ent_8002CE78 *p;
     s32 i;
     if (arg0->active != 0) {
@@ -320,7 +324,8 @@ void render_dragon_trail(Obj_8002CE78 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void update_dragon_trail(Trail_8002CFB8 *self) {
+void TObjBoss1MokoHill_SoloM::run_task() {
+    Trail_8002CFB8 *self = (Trail_8002CFB8 *)this;
     Vec_8002CFB8 pos;
     Vec_8002CFB8 vel;
     f32 d;

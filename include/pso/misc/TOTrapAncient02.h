@@ -6,6 +6,7 @@
 
 struct TOTrapAncient02 : public TOTrap {
     virtual ~TOTrapAncient02();
+    virtual void render();
     f32 h344;
     f32 h348;
     u32 m_34c;

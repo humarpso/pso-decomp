@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -305,7 +306,7 @@ void TObjEneBm9Mericarol__sub_802D093C(void);
 void TObjEneBm9Mericarol__sub_802D0940(void);
 void TObjEneBm9Mericarol__sub_802D09AC(void);
 void TObjEneBm9Mericarol__sub_802D0A2C(void);
-void TObjPlayer__sub_802D14B4(u8 *arg0);
+void render__24TObjEneBm9Mericarol_BombFv(u8 *arg0);
 void change_state__19TObjEneBm9MericarolFPv(void *arg0);
 void set_state_a__19TObjEneBm9MericarolFPv(void *arg0);
 void update_shadow_height__19TObjEneBm9MericarolFPv(void *arg0);
@@ -941,7 +942,8 @@ s32 apply_area_attack_hits__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, 
     return hit;
 }
 
-void TObjPlayer__sub_802D14B4(u8 *arg0) {
+void TObjEneBm9Mericarol_Bomb::render() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x10C) != 0) {
         ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xD8), (s32)0, (u32)0);
     }

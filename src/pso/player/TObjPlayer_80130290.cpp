@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A69C0.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -13,7 +14,7 @@ s32 push_matrix();
 s32 pop_matrix();
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 
-void TObjPlayer::draw_textured_model() {
+void TUnk_804A69C0::render() {
     u8 *arg0 = (u8 *)this;
     if ((is_owner_alive__10TObjPlayerFv() != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x58) != 0U) && ((u32) *(u32 *)((s8 *)arg0 + 0x5C) != 0U)) {
         push_matrix();

@@ -20,6 +20,7 @@ s16 TWindowDD_read_resolved_value(s32 entry_id, s32 value_index);
 
 struct TWindowDD
 {
+    void run_task();
     u16 m_1c;
     u8 _pad1E[0x2];
     u32 m_20;
@@ -106,7 +107,7 @@ struct TWindowDD
     void update_transition();
     void update();
     static s32 get_element_ptr(s32 arg0);
-    static void render();
+    void render();
     void reset_selection();
     void update_selected_id();
     static void build_player_word_lists();

@@ -17,7 +17,7 @@ struct TCharaMaking : public TObject {
     static s32 is_end();
     s32 get_display_index();
     void update_light_direction();
-    void run_task();
+    virtual void run_task();
     static void *create(void *arg0, void *arg1);};
 
 typedef char TCharaMaking_size[sizeof(TCharaMaking) == 0x24 ? 1 : -1];

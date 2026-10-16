@@ -188,7 +188,7 @@ void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, 
     }
 }
 
-void TItem::render() {
+void TItem::render_shadows() {
     u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv((void *) (arg0)) != 0) {
         set_shadow_flag__10TObjPlayerFv((void *) (arg0));

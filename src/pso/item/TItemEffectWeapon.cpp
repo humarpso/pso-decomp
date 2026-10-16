@@ -49,7 +49,7 @@ void TItemEffectWeapon__sub_80363410(void) {  }
 
 }
 
-void TItemEffectWeapon::step() {
+void TItemEffectWeapon::run_task() {
     s32 offset;
     TrailVertex* segment;
     s32 i;

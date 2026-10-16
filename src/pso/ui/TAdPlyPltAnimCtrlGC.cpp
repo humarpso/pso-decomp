@@ -45,7 +45,7 @@ u8 fn_8035510C(s32 *arg0, s32 arg1) {
     return (u8) (arg1 == (arg1 & *arg0));
 }
 
-void TAdPlyPltAnimCtrlGC::render(void *self) {
+void TAdPlyPltAnimCtrlGC::render() {
     if (TMainTask::get_state_flag() == 1) {
         return;
     }

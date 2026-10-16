@@ -17,8 +17,8 @@ struct TBoss7TentacleNeedle : public TObject {
     u32 m_40;
     u8 _pad44[0x34];
     u32 m_78;
-    void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TBoss7TentacleNeedle_size[sizeof(TBoss7TentacleNeedle) == 0x7C ? 1 : -1];
 #endif

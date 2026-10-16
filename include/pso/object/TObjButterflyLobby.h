@@ -19,9 +19,9 @@ struct TObjButterflyLobby : public TUnk_804B9870 {
     static void free_singleton_805D4E6C();
     static void alloc_scene_buffer();
     void init_params();
-    void render();
+    virtual void render();
     void update_fade();
-    void run_task();
+    virtual void run_task();
     static void destroy_instance();};
 
 typedef char TObjButterflyLobby_size[sizeof(TObjButterflyLobby) == 0xCC ? 1 : -1];

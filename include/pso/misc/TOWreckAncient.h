@@ -6,7 +6,7 @@
 
 struct TOWreckAncient : public TUnk_804AF8A0 {
     virtual ~TOWreckAncient();
-    void draw_model();
+    virtual void render();
     static void free_statics();
     static void load_resources();
     u8 unk_AC[0x8];

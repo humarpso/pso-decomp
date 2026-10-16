@@ -6,6 +6,8 @@
 
 struct TObjEnemyCustom : public TObjEnemy {
     virtual ~TObjEnemyCustom();
+    virtual void render();
+    virtual void run_task();
     u32 next_action;
     u32 m_378;
     u32 state;
@@ -13,7 +15,6 @@ struct TObjEnemyCustom : public TObjEnemy {
     u8 _pad384[0x4];
     u32 m_388;
     static void update_camera_if_active();
-    void draw();
     void update_knockback_state();
     void update_state_machine();
     void update();

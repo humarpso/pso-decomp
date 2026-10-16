@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_80494968.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 
@@ -16,7 +17,7 @@ typedef struct Trail_800D76E8 {
 } Trail_800D76E8;
 
 extern "C" {
-void TObjPlayer__sub_800D76E8(Trail_800D76E8 *arg0);
+void run_task__13TUnk_80494968Fv(Trail_800D76E8 *arg0);
 }
 
 extern "C" {
@@ -24,7 +25,7 @@ extern "C" {
 void TObjPlayer__sub_800D7818(void *arg0, s32 arg1, s32 arg2);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
-void TObjPlayer::flush_dropped_meseta() {
+void TUnk_80494968::render() {
     u8 *arg0 = (u8 *)this;
     if ((toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 1)) {
         TObjPlayer::init_xyz_limits();
@@ -32,7 +33,8 @@ void TObjPlayer::flush_dropped_meseta() {
     }
 }
 
-void TObjPlayer__sub_800D76E8(Trail_800D76E8 *arg0) {
+void TUnk_80494968::run_task() {
+    Trail_800D76E8 *arg0 = (Trail_800D76E8 *)this;
     s32 ta;
     s32 tb;
     s32 r;

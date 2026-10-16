@@ -8,8 +8,8 @@ struct TObjEneMe1GiGueMissile : public TNeedleShoot {
     virtual ~TObjEneMe1GiGueMissile();
     void explode(void *pos);
     static void create(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void update_lifetime();
     u8 unk_BC[0x8];
 };

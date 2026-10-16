@@ -9,7 +9,7 @@ struct TObjTombstone : public TUnk_804AF8A0 {
     u8 unk_AC[0x184];
     u32 m_230;
     u32 m_234;
-    void render();
+    virtual void render();
     f32 get_distance_to_local_player_xz(void * _w1);
     void format_date_text();
     void format_quoted_name();
@@ -31,7 +31,7 @@ struct TObjTombstone : public TUnk_804AF8A0 {
     void init_parts();
     s32 is_player_nearby();
     void update_rise();
-    void run_task();
+    virtual void run_task();
     void setup(s32 arg1, s32 arg2);
     static s32 copy_record(void *arg0, s32 arg1);
     void *init(s32 arg1, s32 arg2, s32 arg3);

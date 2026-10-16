@@ -12,7 +12,7 @@ struct TOKeyCol
     u32 m_d4;
     void send_switch_changed(s32 flags);
     void run_task();
-    static void render();
+    void render();
     static void *create(void *arg0);
 };
 

@@ -8,8 +8,8 @@ struct TObjBoss5PillarCtrl : public TObject {
     virtual ~TObjBoss5PillarCtrl();
     u32 m_1c;
     u32 m_20;
-    static void render();
-    static void run_task();
+    virtual void render();
+    virtual void run_task();
     void *create();
     int update_pillar();
     int forward_pillar_2B710();

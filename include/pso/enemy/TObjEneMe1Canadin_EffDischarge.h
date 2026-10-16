@@ -6,6 +6,8 @@
 class TObjEneMe1Canadin_EffDischarge : public TObject {
 public:
     virtual ~TObjEneMe1Canadin_EffDischarge();
+    virtual void render();
+    virtual void run_task();
     u8 unk_1C[0x4C];
 };
 typedef char TObjEneMe1Canadin_EffDischarge_size[sizeof(TObjEneMe1Canadin_EffDischarge) == 0x68 ? 1 : -1];

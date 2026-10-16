@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -1022,7 +1023,7 @@ int queue_destruction__7TObjectFv(void*);
 s32 is_alive__9TObjEneDDFv(s32);
 s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
-void TObjPlayer__sub_800C4B78(Obj_800C4B78 *o);
+void run_task__26TObjEneRe2Flower_EffCurse3Fv(Obj_800C4B78 *o);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 obj_setFlags30(void *, s32);
@@ -1091,7 +1092,7 @@ extern "C" {
 int beast_retire_corpse(void* p);
 void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0);
+void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -1117,12 +1118,12 @@ void render_shadows__7TObjectFv();
 void update_object_view_visibility();
 void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0);
-void TObjPlayer__sub_800C4B78(struct Obj_800C4B78 *o);
+void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
+void run_task__26TObjEneRe2Flower_EffCurse3Fv(struct Obj_800C4B78 *o);
 extern const char lbl_8043BC48[0x1C] = "TObjEneRe2Flower_EffCurse3";
 s32 lbl_805D2A58 = (s32)lbl_8043BC48;
 void *TObjEneRe2Flower_EffCurse3__vtable[6] = {
-    (void *)0x0, (void *)0x0, (void *)&dt_with_child_destroy__10TObjPlayerFPvs, (void *)&TObjPlayer__sub_800C4B78,
+    (void *)0x0, (void *)0x0, (void *)&dt_with_child_destroy__10TObjPlayerFPvs, (void *)&run_task__26TObjEneRe2Flower_EffCurse3Fv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
 }
@@ -1131,7 +1132,8 @@ extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_800C4B78(Obj_800C4B78 *o) {
+void TObjEneRe2Flower_EffCurse3::run_task() {
+    Obj_800C4B78 *o = (Obj_800C4B78 *)this;
     Vec_800C4B78 a;
     Vec_800C4B78 b;
     o->timer++;

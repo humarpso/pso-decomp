@@ -6,6 +6,8 @@
 
 struct TObjEneSlimeOne : public TObjEnemy {
     virtual ~TObjEneSlimeOne();
+    virtual void render();
+    virtual void run_task();
     u8 unk_374[0x10];
     u32 m_384;
     u32 m_388;

@@ -14,8 +14,8 @@ struct TObjEneReconBomb : public TUnk_804806E8 {
     u32 m_358;
     u32 m_35c;
     u32 m_360;
-    void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TObjEneReconBomb_size[sizeof(TObjEneReconBomb) == 0x364 ? 1 : -1];
 #endif

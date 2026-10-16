@@ -13,12 +13,12 @@ struct TAdScrollWinGC : public TObject {
     u32 m_48;
     u32 m_4c;
     u32 m_50;
-    void render();
+    virtual void render();
     s32 get_scroll_delay_for_mode();
     void advance_scroll(f32 v);
     void close();
     void close_window();
-    void run_task();};
+    virtual void run_task();};
 
 typedef char TAdScrollWinGC_size[sizeof(TAdScrollWinGC) == 0x54 ? 1 : -1];
 #endif

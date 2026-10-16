@@ -550,7 +550,7 @@ void dispatch_state__5TItemFv();
 void load_encoded_value__11TItemObjectFv();
 void register_attack__5TItemFv();
 void release_member_90__10TObjPlayerFv();
-void render__5TItemFv();
+void render_shadows__5TItemFv();
 void ret_8010064C();
 void ret_8010066C();
 void run_task__5TItemFv();
@@ -561,7 +561,7 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&TItemProShield__sub_801166B0,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
-    (void *)&render__5TItemFv,
+    (void *)&render_shadows__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
@@ -609,7 +609,7 @@ void *item_mag_transform_vtable[46] = {
     (void *)&TItemProShield__sub_801167E8,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
-    (void *)&render__5TItemFv,
+    (void *)&render_shadows__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
@@ -657,7 +657,7 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&TItemProShield__sub_80116970,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
-    (void *)&render__5TItemFv,
+    (void *)&render_shadows__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
@@ -705,7 +705,7 @@ void *item_status_cure_vtable[46] = {
     (void *)&TItemProShield__sub_80116AD0,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
-    (void *)&render__5TItemFv,
+    (void *)&render_shadows__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
@@ -753,7 +753,7 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&item_object_variant_deleting_dtor_80116BEC,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
-    (void *)&render__5TItemFv,
+    (void *)&render_shadows__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
@@ -801,7 +801,7 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&item_object_variant_deleting_dtor_80116CFC,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
-    (void *)&render__5TItemFv,
+    (void *)&render_shadows__5TItemFv,
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,

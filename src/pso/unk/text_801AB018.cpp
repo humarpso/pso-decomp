@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TPhotonFarlla.h"
 
 #include <stddef.h>
 #include "pso/enemy/TObjEnePanarms.h"
@@ -37,14 +38,15 @@ extern const f32 lbl_805DC174;
 extern const f32 lbl_805DC178;
 extern const f32 lbl_805DC17C;
 extern const f32 lbl_805DC180;
-void run_task__13TPhotonFarllaFPv(u8 *arg0);
+void run_task__13TPhotonFarllaFv(u8 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void run_task__13TPhotonFarllaFPv(u8 *arg0) {
+void TPhotonFarlla::run_task() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_801AB018, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801AB018, spC) == 0x4) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_801AB018, sp14) == 0xC) ? 1 : -1];

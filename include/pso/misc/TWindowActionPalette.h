@@ -4,6 +4,7 @@
 #include "types.h"
 
 struct TWindowActionPalette {
+    void run_task();
     struct ChildList {
         u32 count;
         void **entries;

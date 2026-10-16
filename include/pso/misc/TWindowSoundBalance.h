@@ -6,6 +6,7 @@
 
 struct TWindowSoundBalance : public TUnk_804CE018 {
     virtual ~TWindowSoundBalance();
+    virtual void render();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x38];
@@ -15,7 +16,7 @@ struct TWindowSoundBalance : public TUnk_804CE018 {
     u16 m_64;
     void play_open_sound();
     void handle_lr_input();
-    void run_task();
+    virtual void run_task();
     void apply_balance(void *arg1);
     void handle_cancel();
     u8 unk_66[0x2];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D1AD0.h"
 #include "pso/misc/TWindowSubShortMail.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TShopArmorListWindow.h"
@@ -389,7 +390,7 @@ struct VObj_8027FBF0_8027E620 : VObj_8027FBF0_Base_8027fbf0_8027E620 {
 };
 
 void *TWindowSubShortMail__ct(void *arg0, void *arg1, void *arg2);
-void TWindowSubShortMail__sub_8027FBEC(void);
+void render__13TUnk_804D1AD0Fv(void);
 void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1);
 s32 TLobby__sub_802258C8();
 s32 get_selected_menu_value(s32);
@@ -762,9 +763,9 @@ s32 create_status_category_menu(u8 *arg0) {
   return var_r31;
 }
 
-void TWindowSubShortMail__sub_8027FBEC(void) {  }
+void TUnk_804D1AD0::render() {  }
 
-void TWindowSubShortMail::update() {
+void TUnk_804D1AD0::run_task() {
     is_player_input_active(*(s32 *)((s8 *)this + 0x1C));
     if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x24)))->get_status_flag() != 0) {
         ((VObj_8027FBF0_8027E620 *) *(void **)((s8 *)this + 0x20))->m7();

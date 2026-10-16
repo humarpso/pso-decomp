@@ -17,16 +17,14 @@ struct TMainCursor : public TObject {
     void* m_60;
     void update_position();
     int check_type_and_enabled(void* _w1, void* _w2);
-    void update_target_player();
     void*init_lockon();
-    void refresh_all_lists();
     void*init_vtable();
     void*init();
     s32 sort_actions_by_priority();
     void reset_state();
     void update_photon_chair();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void reset_cursor_parts();
     static void quick_sort(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     void reset_slots();

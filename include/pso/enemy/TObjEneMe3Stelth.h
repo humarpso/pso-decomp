@@ -5,6 +5,8 @@
 
 struct TObjEneMe3Stelth
 {
+    void render();
+    void run_task();
     u8 _pad1C[0x30A];
     s16 m_326;
     u8 _pad328[0x98];

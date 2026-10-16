@@ -7,8 +7,8 @@
 struct TAdLicAgreementGC : public TAdAgreementBaseGC {
     virtual ~TAdLicAgreementGC();
     u32 m_38;
-    void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TAdLicAgreementGC_size[sizeof(TAdLicAgreementGC) == 0x3C ? 1 : -1];
 #endif

@@ -12,7 +12,7 @@ extern "C" {
 
 int TObjEnemyCustom__sub_800C7DD0(void* p);
 void TObjEnemyCustom__sub_800C7DF4(void);
-void handle_state_transition__15TObjEnemyCustomFPv(u8 *arg0);
+void run_task__15TObjEnemyCustomFv(u8 *arg0);
 int update_if_active__15TObjEnemyCustomFPv(void* p);
 s32 advance_animation_playback(void *);
 s32 apply_actor_gravity(void *, s32, f32);
@@ -21,7 +21,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 
 void __dt__15TObjEnemyCustomFv();
-void draw__15TObjEnemyCustomFv();
+void render__15TObjEnemyCustomFv();
 void render_actor_shadows_default();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
@@ -96,8 +96,8 @@ void *__vt__15TObjEnemyCustom[83] = {
     0,
     0,
     (void *)__dt__15TObjEnemyCustomFv,
-    (void *)handle_state_transition__15TObjEnemyCustomFPv,
-    (void *)draw__15TObjEnemyCustomFv,
+    (void *)run_task__15TObjEnemyCustomFv,
+    (void *)render__15TObjEnemyCustomFv,
     (void *)render_actor_shadows_default,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
@@ -218,7 +218,8 @@ void TObjEnemyCustom::dispatch_state() {
     }
 }
 
-void handle_state_transition__15TObjEnemyCustomFPv(u8 *arg0) {
+void TObjEnemyCustom::run_task() {
+    u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 1) {
         TObjVoloptCage__sub_800C76F0(arg0);
         return;

@@ -6,6 +6,8 @@
 
 struct TPhotonConcentrate : public TUnk_804AF8A0 {
     virtual ~TPhotonConcentrate();
+    virtual void render();
+    virtual void run_task();
     void* m_ac;
     u8 _padB0[0x8];
     u32 m_b8;

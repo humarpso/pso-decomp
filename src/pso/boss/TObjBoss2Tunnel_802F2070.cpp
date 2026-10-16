@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_804E4B3C.h"
 #include "pso/boss/TunnelSceneController.h"
 
 #include <stddef.h>
@@ -197,7 +198,7 @@ s32 TObjBoss2Tunnel::check_both(s32 arg0) {
     return temp_r3 | temp_r31;
 }
 
-void TObjBoss2Tunnel::draw_segments() {
+void TUnk_804E4B3C::render() {
     u8 *arg0 = (u8 *)this;
     Nd_802F2348 *n;
     if (query_teammate_state__9TObjEneDDFv() == 0) {

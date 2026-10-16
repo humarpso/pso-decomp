@@ -6,6 +6,8 @@
 class TChCrTagInformationStr : public TObject {
 public:
     virtual ~TChCrTagInformationStr();
+    virtual void render();
+    virtual void run_task();
 public:
     static void *create(void *arg0, void *arg1);
 };

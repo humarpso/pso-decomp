@@ -7,7 +7,7 @@
 struct TObjMapForceWarp : public TObjMapWarp {
     virtual ~TObjMapForceWarp();
     u32 m_fc;
-    static void render();
+    virtual void render();
     static int run_task(void* p);
     static void register_warp(void* a0);};
 

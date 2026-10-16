@@ -27,8 +27,8 @@ struct TNeedleShoot : public TObject {
     u32 m_b0;
     u8 _padB4[0x4];
     u32 m_b8;
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     void update_position();
     int queue_destruction();
     void tick_lifetime();

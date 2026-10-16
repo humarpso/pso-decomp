@@ -201,7 +201,7 @@ extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD50;
 extern const f32 lbl_805DBD54;
 extern const f32 lbl_805DBD58;
-void update_state_machine__19TContainerAncient01FPv(u8 *arg0);
+void run_task__20TContainerAncient01RFv(u8 *arg0);
 f32 xyz_distance_squared(void *, void *, void *);
 extern const f32 TContainerAncient01__data_805DBD44;
 s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1);
@@ -284,7 +284,7 @@ extern "C" {
 
 int TContainerAncient01__sub_8018ACC0(void);
 f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2);
-void draw__19TContainerAncient01FPv(u8 *arg0);
+void render__20TContainerAncient01RFv(u8 *arg0);
 void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 arg2);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
@@ -413,8 +413,8 @@ void *TContainerAncient01__anim_table[12] = {
     (void *)0x20000, (void *)0x1, (void *)0x3f800000, (void *)0x4,
 };
 void *__vt__20TContainerAncient01R[79] = {
-    (void *)0x0, (void *)0x0, (void *)&dt__20TContainerAncient01RFPvs, (void *)&update_state_machine__19TContainerAncient01FPv,
-    (void *)&draw__19TContainerAncient01FPv, (void *)&render_shadows__7TObjectFv, (void *)&set_target_value__19TContainerAncient01FPvPvi, (void *)&apply_object_set_data,
+    (void *)0x0, (void *)0x0, (void *)&dt__20TContainerAncient01RFPvs, (void *)&run_task__20TContainerAncient01RFv,
+    (void *)&render__20TContainerAncient01RFv, (void *)&render_shadows__7TObjectFv, (void *)&set_target_value__19TContainerAncient01FPvPvi, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
@@ -637,7 +637,8 @@ s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1) {
     return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *) (arg0)) < TContainerAncient01__data_805DBD44;
 }
 
-void draw__19TContainerAncient01FPv(u8 *arg0) {
+void TContainerAncient01R::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj8018AD04_8018A584 *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix();
@@ -654,7 +655,8 @@ void draw__19TContainerAncient01FPv(u8 *arg0) {
         pop_matrix();
     }
 }
-void update_state_machine__19TContainerAncient01FPv(u8 *arg0) {
+void TContainerAncient01R::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f1_2;
     s16 temp_r0;

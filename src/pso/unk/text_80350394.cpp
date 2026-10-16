@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/object/TUnk_804F0D1C.h"
 
 extern "C" {
 
 int get_quest_bgm_issued_flag(void*);
 int queue_destruction__7TObjectFv(void*);
-void queue_quest_bgm_destruction(void* p);
+void run_task__13TUnk_804F0D1CFv(void* p);
 
-void queue_quest_bgm_destruction(void* p) { if (get_quest_bgm_issued_flag(p) != 0) { queue_destruction__7TObjectFv(p); } }
+void TUnk_804F0D1C::run_task() { if (get_quest_bgm_issued_flag(this) != 0) { queue_destruction__7TObjectFv(this); } }
 
 }

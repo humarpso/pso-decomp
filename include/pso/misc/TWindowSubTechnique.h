@@ -21,8 +21,8 @@ struct TWindowSubTechnique : public TObject {
     void rebuildTechniqueList(s32 list, s32 category);
     s32 open_menu();
     void update_selected_help(s32 arg1);
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void clear_flag70_bit80();
     static void get_selection(s16 *arg0, s32 *arg1, s32 arg2);
     static s32 update_selection(s16 *arg0, s32 *arg1);

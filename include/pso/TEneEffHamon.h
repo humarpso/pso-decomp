@@ -6,6 +6,8 @@
 class TEneEffHamon : public TObject {
 public:
     virtual ~TEneEffHamon();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

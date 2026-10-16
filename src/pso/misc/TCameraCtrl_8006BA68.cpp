@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488B68.h"
+#include "pso/misc/TUnk_80488B38.h"
 
 struct E_8006BAC8 { f32 x; f32 y; f32 z; };
 
@@ -35,7 +37,7 @@ E_8006BAB4 *TCameraCtrl__sub_8006BAB4(O_8006BAB4 *self, s32 i);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Pad_8006BB1C controller_input_state;
-void update_debug_orbit_camera__11TCameraCtrlFPv(Obj_8006BB1C *arg0);
+void run_task__13TUnk_80488B38Fv(Obj_8006BB1C *arg0);
 }
 
 extern "C" {
@@ -78,7 +80,8 @@ extern s32 lbl_80488B38[];
 
 #pragma push
 #pragma fp_contract on
-void update_debug_orbit_camera__11TCameraCtrlFPv(Obj_8006BB1C *arg0) {
+void TUnk_80488B38::run_task() {
+    Obj_8006BB1C *arg0 = (Obj_8006BB1C *)this;
     Pad_8006BB1C *pad = &controller_input_state;
     u32 btn = pad->buttons;
     s16 sx = pad->sx;
@@ -471,7 +474,8 @@ extern const f32 lbl_805D9028;
 extern const f32 lbl_805D902C;
 extern const f32 lbl_805D9030;
 
-void update_scripted_camera(Cam_8006C28C *s) {
+void TUnk_80488B68::run_task() {
+    Cam_8006C28C *s = (Cam_8006C28C *)this;
     Stack_8006C28C st;
     Vec_8006C28C tmp;
     Vec_8006C28C p2;

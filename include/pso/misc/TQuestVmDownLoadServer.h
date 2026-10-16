@@ -63,7 +63,6 @@ public:
     static s32 is_ready();
     int get_serial_access();
     int poll_serial_access();
-    int update();
     u8 *init_object();
     static void destroy_instance();
     static void reset_download();

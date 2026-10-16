@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804F3640.h"
 
 struct Obj_8036B2E8 { u8 pad0[0x1C]; u32 base; s32 t[4]; };
 struct Obj_8036B340 { u8 pad0[0x1C]; u32 base; s32 t[4]; };
@@ -42,7 +43,7 @@ void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1);
 void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1);
 s32 TLobby__sub_8036B1AC(s32);
 void start_entry_timer__6TLobbyFPvUsi(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2);
-void TLobby__sub_8036B340(Obj_8036B340 *arg0);
+void run_task__13TUnk_804F3640Fv(Obj_8036B340 *arg0);
 
 extern u32 slot_entity_dispatcher_instance;
 
@@ -78,7 +79,8 @@ void start_entry_timer__6TLobbyFPvUsi(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2) {
     }
 }
 
-void TLobby__sub_8036B340(Obj_8036B340 *arg0) {
+void TUnk_804F3640::run_task() {
+    Obj_8036B340 *arg0 = (Obj_8036B340 *)this;
     s32 i;
     for (i = 0; i != 4; i++) {
         if (arg0->t[i] != 0) {

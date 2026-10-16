@@ -7,8 +7,8 @@
 struct TAdTrialModemChkGC : public TAdWarningBaseGC {
     virtual ~TAdTrialModemChkGC();
     static void check_modem_result();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static s32 init_modem_check_params();};
 
 typedef char TAdTrialModemChkGC_size[sizeof(TAdTrialModemChkGC) == 0x30 ? 1 : -1];

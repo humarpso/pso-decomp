@@ -6,6 +6,7 @@
 
 struct TOMineTrapDisp : public TOMineDisp {
     virtual ~TOMineTrapDisp();
+    virtual void run_task();
     u16 m_ac;
     u8 unk_AE[0x2];
 };

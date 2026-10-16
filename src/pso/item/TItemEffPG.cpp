@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804F0BF0.h"
 #include "pso/item/TItemEffPG.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -14,7 +15,7 @@ void disallow_rendering__7TObjectFv(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
-void TItemEffPG__visual_run(u8 *arg0);
+void run_task__13TUnk_804F0BF0Fv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -86,7 +87,7 @@ void TItemEffPG__begin_visual_fade(void* p) { *(s32*)((char*)p + 0x58) = 1; }
 
 extern s32 lbl_804F0BF0[];
 
-void TItemEffPG::draw_effect_models() {
+void TUnk_804F0BF0::render() {
     u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x1C))) == 0U) {
         return;
@@ -124,7 +125,8 @@ void TItemEffPG::draw_effect_models() {
     }
 }
 
-void TItemEffPG__visual_run(u8 *arg0) {
+void TUnk_804F0BF0::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f1_2;

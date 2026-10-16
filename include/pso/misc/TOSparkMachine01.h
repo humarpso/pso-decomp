@@ -12,8 +12,8 @@ struct TOSparkMachine01 : public TUnk_804B9870 {
     u8 m_a2;
     u8 m_a3;
     void update_spark_toggle(s32 i);
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     void *create();
     static void destroy_static_instance();
     static void load_static_resource();

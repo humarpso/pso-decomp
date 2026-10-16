@@ -14,8 +14,8 @@ struct TWindowSubTrade : public TObject {
     u32 m_2c;
     u32 m_30;
     u32 m_34;
-    static void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TWindowSubTrade_size[sizeof(TWindowSubTrade) == 0x38 ? 1 : -1];
 #endif

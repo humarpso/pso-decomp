@@ -6,8 +6,8 @@
 
 struct TObjSinBoard : public TUnk_804B9870 {
     virtual ~TObjSinBoard();
-    void render();
-    static void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TObjSinBoard_size[sizeof(TObjSinBoard) == 0x90 ? 1 : -1];
 #endif

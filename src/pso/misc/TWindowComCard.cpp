@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE964.h"
 
 struct RecoveredGlobal_80249BA8_lbl_804CE8D0 {
     s32 value;
@@ -59,9 +60,9 @@ extern "C" u8 lbl_8044EB48[];
 extern "C" u8 lbl_805D63F0[];
 extern "C" u8 lbl_805DCBC8[];
 extern "C" void render_shadows__7TObjectFv();
-void TWindowComCard__sub_80249E24(u8 *arg0);
+void run_task__13TUnk_804CE964Fv(u8 *arg0);
 void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1);
-void update_status_disp__14TWindowComCardFi(s32 arg0);
+void render__13TUnk_804CE964Fv(s32 arg0);
 extern void *lbl_804CE820[44];
 extern void *lbl_804CE918[14];
 void *lbl_804CE820[44] = {
@@ -100,8 +101,8 @@ void *TWindowComCard__window_desc_b[5] = {
     (void *)0x82b,
 };
 void *lbl_804CE964[6] = {
-    (void *)0x0, (void *)0x0, (void *)&TWindowComCard__sub_80249E80, (void *)&TWindowComCard__sub_80249E24,
-    (void *)&update_status_disp__14TWindowComCardFi, (void *)&render_shadows__7TObjectFv,
+    (void *)0x0, (void *)0x0, (void *)&TWindowComCard__sub_80249E80, (void *)&run_task__13TUnk_804CE964Fv,
+    (void *)&render__13TUnk_804CE964Fv, (void *)&render_shadows__7TObjectFv,
 };
 #define TWindowComCard__window_desc (*(RecoveredGlobal_80249BA8_lbl_804CE8D0 *)TWindowComCard__window_desc)
 #define __vt__14TWindowComCard ((s32 *)__vt__14TWindowComCard)
@@ -354,7 +355,7 @@ typedef struct Win_80249ED8 {
 void save_position__17TWindowSubComCardFPv(void *p);
 s32 get_zero_vec2();
 extern const f32 lbl_805DCBD0;
-void TWindowComCard__sub_80249E24(u8 *arg0);
+void run_task__13TUnk_804CE964Fv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 extern struct Obj054_80249DE4 *TWindowCtrl__active_window;
 extern u16 lbl_805D63FC;
@@ -366,18 +367,20 @@ struct Obj054_80249DE4 { char pad[0x38]; u32 field38; };
 
 void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1);
 void request_active_window_close(void);
-void update_status_disp__14TWindowComCardFi(s32 arg0);
+void render__13TUnk_804CE964Fv(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFs(void *, int);
 s32 draw_default_entry__9TWindowDDFl();
 s32 set_flag1e_bit8__11TWindowCtrlFPv(void*);
 
-void update_status_disp__14TWindowComCardFi(s32 arg0) {
+void TUnk_804CE964::render() {
+    s32 arg0 = (s32)this;
     s8 *tmp = (s8 *)draw_default_entry__9TWindowDDFl();
     ((s32 (*)(s32, s32, s32))draw_visible_window_entries)(arg0, arg0 + 0x24, (s32)tmp);
 }
 
-void TWindowComCard__sub_80249E24(u8 *arg0) {
+void TUnk_804CE964::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     u8 *temp_r4;
     temp_r4 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x60));

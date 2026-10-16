@@ -16,7 +16,7 @@ u32 create_particle_emitter(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805D89D0;
 extern const f32 lbl_805D89DC;
-void update_timed_effect__11TBoss4Type2FPv(u8 *arg0);
+void run_task__11TObjDFDemo3Fv(u8 *arg0);
 s32 TObjPlayer__sub_80052390(f32);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 rotate_matrix_y(s32, s32);
@@ -26,7 +26,7 @@ s32 post_translate_matrix(void *);
 s32 func_803e11e8__FUl(u32);
 s32 func_803e11f0__Fv();
 s32 draw_model_motion(s32, s32, f32);
-void TObjPlayer__sub_8004ED28(u8 *arg0);
+void render__11TObjDFDemo3Fv(u8 *arg0);
 struct Ent_8004EB78 { s32 a; s32 b; s32 c; };
 struct Obj_8004EB78 {
     s32 vt0;
@@ -100,13 +100,14 @@ void *lbl_804856E0[3] = {
     (void *)0x60000, (void *)0x0, (void *)0x3f800000,
 };
 void *__vt__11TObjDFDemo3[13] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo3Fv, (void *)&update_timed_effect__11TBoss4Type2FPv,
-    (void *)&TObjPlayer__sub_8004ED28, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo3Fv, (void *)&run_task__11TObjDFDemo3Fv,
+    (void *)&render__11TObjDFDemo3Fv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
 
-void TObjPlayer__sub_8004ED28(u8 *arg0) {
+void TObjDFDemo3::render() {
+    u8 *arg0 = (u8 *)this;
     f32 a = 1.0f;
     s32 t = *(s32 *)((s8 *)arg0 + 0xB0);
     if (t < 5) {
@@ -141,7 +142,8 @@ void TObjPlayer__sub_8004ED28(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void update_timed_effect__11TBoss4Type2FPv(u8 *arg0) {
+void TObjDFDemo3::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 cur;
     f32 nxt;
     s32 temp_r0;

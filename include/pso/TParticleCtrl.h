@@ -13,8 +13,6 @@ public:
     void clear_active_flag();
     static void *create_random_spread(void *arg0, void *arg1, void *arg2);
     void *init_particle_random_spread(void *a1, void *a2, void *a3);
-    void apply_demo_mode_color();
-    void check_player_proximity();
     static u8 *create_particle_obj_90(s32 arg0);
     static u8 *create_particle_obj_ac(s32 arg0);
     void draw_sprite_quad(s32 kind);
@@ -33,8 +31,6 @@ public:
     static void end_effect_render();
     static void reset_emitter_table();
     static void create_quad_sprites();
-    void render_marker();
-    void update_lifetime();
     static void set_tev_direct(s32 arg0);
     int get_object();
     static void reset_ind_tev_stages(void * _w0);

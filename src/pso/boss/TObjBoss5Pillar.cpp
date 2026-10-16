@@ -70,7 +70,7 @@ void TObjBoss5Pillar::render() {
 
 extern s32 __vt__15TObjBoss5Pillar[];
 
-void TObjBoss5Pillar::update_collapse_state() {
+void TObjBoss5Pillar::run_task() {
     Pillar_8028B488 *arg0 = (Pillar_8028B488 *)this;
     u32 last;
     switch (arg0->state) {

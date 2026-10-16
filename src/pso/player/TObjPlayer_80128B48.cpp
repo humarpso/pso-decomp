@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A4020.h"
 
 extern "C" {
 
@@ -20,7 +21,7 @@ s32 is_owner_alive__10TObjPlayerFv();
 
 extern "C" {
 
-void TObjPlayer::notify_and_detach_target() {
+void TUnk_804A4020::render() {
     u8 *arg0 = (u8 *)this;
     if ((is_owner_alive__10TObjPlayerFv() != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x58) != 0U) && ((u32) *(u32 *)((s8 *)arg0 + 0x5C) != 0U)) {
         push_matrix();

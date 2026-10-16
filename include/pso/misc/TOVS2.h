@@ -6,6 +6,7 @@
 class TOVS2 : public TUnk_804AFBF8 {
 public:
     virtual ~TOVS2();
+    virtual void render();
     u8 unk_C8[0x8];
 };
 typedef char TOVS2_size[sizeof(TOVS2) == 0xD0 ? 1 : -1];

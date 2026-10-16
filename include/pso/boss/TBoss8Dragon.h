@@ -6,6 +6,8 @@
 
 struct TBoss8Dragon
 {
+    void render_shadows();
+    void run_task();
     s32 hasActiveRenderFade();
 
     u8 _pad00[0x24];
@@ -191,7 +193,6 @@ struct TBoss8Dragon
     void set_mode_params(s8 arg1);
     void draw_motion_model();
     void render_nodes_flagged();
-    void try_update();
     void copy_vectors();
     void send_swapped_packet();
     void bswap_packet();

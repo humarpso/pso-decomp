@@ -6,6 +6,7 @@
 
 struct TPhotonLaser : public TUnk_804806E8 {
     virtual ~TPhotonLaser();
+    virtual void run_task();
     void* m_334;
     u8 _pad338[0x8];
     void* m_340;
@@ -16,7 +17,7 @@ struct TPhotonLaser : public TUnk_804806E8 {
     u8 _pad368[0x4];
     u32 m_36c;
     u16 m_370;
-    static void render();
+    virtual void render();
     u8 unk_372[0xE];
 };
 

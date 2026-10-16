@@ -1,4 +1,5 @@
 #include "pso/TBoss5GryphonDemo.h"
+#include "pso/boss/TBoss5GryphonColli_C.h"
 
 #include "types.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -66,7 +67,7 @@ Obj_800665FC *__ct__17TBoss5GryphonDemoFv(Obj_800665FC *self, void *parent, s32 
 
 extern "C" {
 
-void TBoss5GryphonDemo__sub_80066268(void);
+void render__20TBoss5GryphonColli_CFv(void);
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
@@ -80,7 +81,7 @@ int pop_matrix(void);
 s32 __dl__7TObjectFPv(void *);
 s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 
-void TBoss5GryphonDemo__sub_80066268(void) {  }
+void TBoss5GryphonColli_C::render() {  }
 void TBoss5GryphonDemo__sub_8006626C(void* p) { ((TBoss5GryphonDemo *)p)->clear_entry_flags(); }
 void TBoss5GryphonDemo::draw_model(void* a1, s32 a2) { push_matrix(this); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)this + 0xac, (char*)this + 0x38); pop_matrix(); *(s32*)((char*)this + 0x60) = a2; refresh_collision_body_centers(this); set_all_entry_flags(); }
 

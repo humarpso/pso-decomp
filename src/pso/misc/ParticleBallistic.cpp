@@ -1,4 +1,5 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/misc/TUnk_8048E778.h"
 
 #include "types.h"
 #pragma inline_depth(1)
@@ -270,7 +271,7 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D9528;
 extern const f32 lbl_805D9540;
-void draw_orbit_particle_sprite(u8 *arg0);
+void render__13TUnk_8048E790Fv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
 f64 atan2_float(f32, f32);
@@ -300,7 +301,7 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9564;
-void draw_radial_sprite_particle(u8 *arg0);
+void render__13TUnk_8048E7A8Fv(u8 *arg0);
 void rotate_vec_xz(void *, void *, s32);
 u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
@@ -353,7 +354,7 @@ extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805D951C;
-void draw_ballistic_sprite_particle(Part_800890F4 *p);
+void render__13TUnk_8048E778Fv(Part_800890F4 *p);
 }
 
 extern "C" {
@@ -507,7 +508,8 @@ void retire_ballistic_particle_if_done(u8 *arg0) {
     }
 }
 
-void draw_ballistic_sprite_particle(Part_800890F4 *p) {
+void TUnk_8048E778::render() {
+    Part_800890F4 *p = (Part_800890F4 *)this;
     u16 flags;
     int id;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0) {

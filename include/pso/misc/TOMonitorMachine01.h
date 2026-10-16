@@ -6,8 +6,8 @@
 
 struct TOMonitorMachine01 : public TUnk_804AFBF8 {
     virtual ~TOMonitorMachine01();
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     void *create();
     static void reset_static_state();
     static void load_resources();

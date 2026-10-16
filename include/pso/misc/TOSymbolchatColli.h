@@ -6,9 +6,10 @@
 
 struct TOSymbolchatColli : public TUnk_804806E8 {
     virtual ~TOSymbolchatColli();
+    virtual void run_task();
     s32 get_state();
     void init_collision_params();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void free_rock();
     static void load_symbol_chat_data();

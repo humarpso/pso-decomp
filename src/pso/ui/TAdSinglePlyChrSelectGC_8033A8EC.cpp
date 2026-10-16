@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/ui/TUnk_804EF8C0.h"
 #include "pso/TObject.h"
 
 struct RecoveredGlobal_8033B264_lbl_804EF728 {
@@ -661,7 +662,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC::dispatch_state() {
+void TUnk_804EF8C0::run_task() {
     Sel_8033B640 *arg0 = (Sel_8033B640 *)this;
     static SelFn_8033B640 table[15] = {
         &Sel_8033B640::s0, &Sel_8033B640::s1, &Sel_8033B640::s2,

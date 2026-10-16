@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/boss/TBoss8DragonColli_C.h"
 class TBoss8DragonColli : public TObject {
 public:
     virtual void render();
@@ -89,7 +90,7 @@ u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void TBoss8DragonColli__sub_802F3070(void);
+void render__19TBoss8DragonColli_CFv(void);
 void TBoss8DragonColli__sub_802F3074(void* p);
 void *destroy__17TBoss8DragonColliFPvs(void *arg0, s16 arg1);
 void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2);
@@ -148,7 +149,7 @@ u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-void TBoss8DragonColli__sub_802F3070(void) {  }
+void TBoss8DragonColli_C::render() {  }
 void TBoss8DragonColli__sub_802F3074(void* p) { clear_segment_flags__17TBoss8DragonColliFPv((O_802F310C *)((void*)(p))); }
 void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); set_all_flags__17TBoss8DragonColliFPv((O_802F3144 *)((void*)(p))); }
 
@@ -240,7 +241,7 @@ s32 lbl_804E4BB4[] = {
     0,
     (s32)destroy__17TBoss8DragonColliFPvs,
     (s32)run_task__7TObjectFv,
-    (s32)TBoss8DragonColli__sub_802F3070,
+    (s32)render__19TBoss8DragonColli_CFv,
     (s32)render_shadows__7TObjectFv,
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,

@@ -14,7 +14,7 @@ struct TODoorAncient09 : public TUnk_804B0BB8 {
     u32 m_e4;
     void play_door_sound();
     void draw_model();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void free_rocks();
     static void load_resources();};

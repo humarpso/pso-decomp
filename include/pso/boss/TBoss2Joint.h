@@ -33,7 +33,7 @@ struct TBoss2Joint
     void update_position_history();
     void run_task();
     s32 init_params();
-    static void render();
+    void render();
 };
 
 #endif

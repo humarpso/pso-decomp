@@ -45,7 +45,7 @@ struct VObj_80223AA4_80223938 : Base_80223AA4_80223938 {
 
 void TShopWindowBase__vt9(void);
 void *__ct__15TShopWindowBaseFv(void *arg0);
-void draw_if_ready__15TShopWindowBaseFPv(void *arg0);
+void run_task__15TShopWindowBaseFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_instance__11TCameraCtrlFv();
 s32 obj_getField1c(void *);
@@ -97,9 +97,9 @@ bool TShopWindowBase__sub_80223A48(u8 *arg0) {
     return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (4)) != 0;
 }
 
-void draw_if_ready__15TShopWindowBaseFPv(void *arg0) {
+void TShopWindowBase::run_task() {
     if ((s32) lbl_805D55C0 == 0) {
-        ((VObj_80223AA4_80223938 *)arg0)->m9();
+        ((VObj_80223AA4_80223938 *)this)->m9();
     }
 }
 
@@ -140,7 +140,7 @@ s32 __vt__15TShopWindowBase[12] = {
     0,
     0,
     (s32)__dt__15TShopWindowBaseFv,
-    (s32)draw_if_ready__15TShopWindowBaseFPv,
+    (s32)run_task__15TShopWindowBaseFv,
     (s32)render__7TObjectFv,
     (s32)render_shadows__7TObjectFv,
     (s32)TShopWindowBase__sub_802115F0,

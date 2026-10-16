@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804E71A0.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -46,8 +47,8 @@ char *get_shared_capture_texture_list(void);
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1);
-void TObjPlayer__sub_803078BC(void);
-void TObjPlayer__sub_80307908(void);
+void render__13TUnk_804E71A0Fv(void);
+void run_task__13TUnk_804E71A0Fv(void);
 void *TObjPlayer__sub_8030790C(void *arg0, s16 arg1);
 void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0);
 void update_invincible_blink__10TObjPlayerFPv(void *arg0);
@@ -147,7 +148,7 @@ char *get_shared_capture_texture_list(void) {
     return shared_capture_texture_list;
 }
 
-void TObjPlayer__sub_803078BC(void) {  }
+void TUnk_804E71A0::render() {  }
 
 extern s32 ending_movie_active_flag;
 
@@ -161,7 +162,7 @@ void TObjPlayer::disable_keyboard_control() {
     TKeyBoardControl__sub_8000F9CC(0x12);
 }
 
-void TObjPlayer__sub_80307908(void) {  }
+void TUnk_804E71A0::run_task() {  }
 
 extern s32 lbl_804E71A0[];
 

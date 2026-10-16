@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488A28.h"
 
 struct Cam_80069F20 {
     s32 f0;
@@ -490,7 +491,7 @@ extern s16 TCameraCtrl__viewport_y;
 
 extern "C" {
 
-void TCameraCtrl__sub_800687BC(void);
+void run_task__13TUnk_80488A28Fv(void);
 void TCameraCtrl__sub_800689E8(void);
 f32 TCameraCtrl__sub_80068A04(void);
 s32 TCameraCtrl__ct(void *, s32);
@@ -498,7 +499,7 @@ void * __nw__7TObjectFUl(s32);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 is_split_screen();
 
-void TCameraCtrl__sub_800687BC(void) {  }
+void TUnk_80488A28::run_task() {  }
 void*TCameraCtrl::get_target_ptr() { return (char*)this + 0x44; }
 
     extern int TCameraCtrl__pose_snap_flags;

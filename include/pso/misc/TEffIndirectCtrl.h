@@ -6,6 +6,7 @@
 
 struct TEffIndirectCtrl : public TObject {
     virtual ~TEffIndirectCtrl();
+    virtual void run_task();
     u32 m_1c;
     u32 m_20;
     u8 m_24;
@@ -20,7 +21,7 @@ struct TEffIndirectCtrl : public TObject {
     u16 m_44;
     u16 m_46;
     static void free_buffers();
-    static void render();
+    virtual void render();
     void copy_and_flush_texture(s32 arg1);
     static void free_all();
     void update_scroll_mode();

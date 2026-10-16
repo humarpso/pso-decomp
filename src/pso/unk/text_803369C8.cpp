@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804EEF80.h"
 #include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -20,12 +21,12 @@ extern const f32 lbl_805DF968;
 extern const f32 lbl_805DF96C;
 extern const f32 lbl_805DF970;
 extern const f32 lbl_805DF974;
-void draw_title_background_layers(u8 *arg0);
+void render__13TUnk_804EEF80Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void TLobby__sub_80336D98(void *arg0);
+void run_task__13TUnk_804EEF80Fv(void *arg0);
 void *TLobby__sub_80336DA8(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -46,7 +47,8 @@ void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 fa
 }
 #pragma pop
 
-void draw_title_background_layers(u8 *arg0) {
+void TUnk_804EEF80::render() {
+    u8 *arg0 = (u8 *)this;
     if (TMainTask::get_state_flag() != 0) {
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
@@ -59,8 +61,8 @@ void draw_title_background_layers(u8 *arg0) {
     }
 }
 
-void TLobby__sub_80336D98(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) + 1);
+void TUnk_804EEF80::run_task() {
+    *(s32 *)((s8 *)this + 0x20) = (s32) (*(s32 *)((s8 *)this + 0x20) + 1);
 }
 
 extern s32 lbl_804EEF80[];

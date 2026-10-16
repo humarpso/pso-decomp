@@ -40,7 +40,7 @@ extern "C" void TAdRayGC__sub_8029C054();
 extern "C" void update_near_fade__12TBoss8DragonFv();
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void draw_model__10TORockCaveFv();
-extern "C" void TORockJungleL01__sub_8029C030();
+extern "C" void run_task__15TORockJungleL01Fv();
 extern "C" void TObjPlayer__sub_80019568();
 extern "C" void TObjRoomId__sub_801A1E2C();
 extern "C" void TParticleCtrl__sub_801A2124();
@@ -89,7 +89,7 @@ void *rock_jungle_vec3_table[9] = {
     (void *)0x41400000,
 };
 void *lbl_804DC448[16] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__15TORockJungleL01Fs, (void *)&TORockJungleL01__sub_8029C030,
+    (void *)0x0, (void *)0x0, (void *)&destroy__15TORockJungleL01Fs, (void *)&run_task__15TORockJungleL01Fv,
     (void *)&draw_model__10TORockCaveFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&update_near_fade__12TBoss8DragonFv, (void *)&TAdRayGC__sub_8029C054,

@@ -4,6 +4,7 @@
 #include <stddef.h>
 
 struct TTecSlicer {
+    void run_task();
     static s32 create(u16* launch);
 
     u8 base[0x24];

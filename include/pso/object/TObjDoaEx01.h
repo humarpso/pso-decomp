@@ -6,7 +6,7 @@
 
 struct TObjDoaEx01 : public TUnk_804B0BB8 {
     virtual ~TObjDoaEx01();
-    void render();
+    virtual void render();
     s32 draw_object_tree(s32 arg1);
     static void free_resource();
     static void load_resources();

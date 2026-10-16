@@ -10,8 +10,8 @@ struct TWindowSubGameEnd : public TObject {
     u32 m_20;
     u32 m_24;
     u32 m_28;
-    static void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TWindowSubGameEnd_size[sizeof(TWindowSubGameEnd) == 0x2C ? 1 : -1];
 #endif

@@ -6,7 +6,7 @@
 
 struct TOAirconCave02 : public TUnk_804AFBF8 {
     virtual ~TOAirconCave02();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void release_static_resource();
     static void load_shared_resource();};

@@ -173,7 +173,7 @@ void TObjFogCollision::draw_volume() {
     }
 }
 
-void TObjFogCollision::dispatch_collision_virtuals() {
+void TObjFogCollision::render() {
     u8 *arg0 = (u8 *)this;
     if (((s32)TObjFogCollision__sub_80153F70()) != 0) {
         ((VObj_18 *)(arg0))->m12();

@@ -18,10 +18,10 @@ struct TOMine : public TUnk_804806E8 {
     u32 m_370;
     int get_player_state();
     int find_target_player();
-    void run_task();
+    virtual void run_task();
     void free_sub_objects();
     void free_parts();
-    void render();
+    virtual void render();
     static void free_instance();
     static void load_static_resource();};
 

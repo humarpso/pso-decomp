@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C8678.h"
 #include "pso/quest/AreaDialogueScripts.h"
 #include "pso/TObject.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -204,7 +205,7 @@ void handle_6x77_sync_quest_register(u8 *arg0);
 char * get_quest_name__12TQuestThreadFv(void);
 void clear_thread_state__12TQuestThreadFv(void);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
-void TQuestThread__sub_801F5ECC(void);
+void run_task__13TUnk_804C8678Fv(void);
 void * destroy__12TQuestThreadFPvs(void *arg0, s16 arg1);
 void destroy_quest_obj__12TQuestThreadFv(void);
 s32 create_by_mode__12TQuestThreadFv(void);
@@ -850,7 +851,7 @@ s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1) {
     return 0;
 }
 
-void TQuestThread__sub_801F5ECC(void) {  }
+void TUnk_804C8678::run_task() {  }
 
 void *destroy__12TQuestThreadFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

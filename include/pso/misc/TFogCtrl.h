@@ -6,6 +6,7 @@
 
 struct TFogCtrl : public TObject {
     virtual ~TFogCtrl();
+    virtual void run_task();
     u32 m_1c;
     u32 m_20;
     u8 _pad24[0x15C];
@@ -34,7 +35,7 @@ struct TFogCtrl : public TObject {
     void apply_slot_params(s32 idx);
     static s32 is_controller_animated(s32 arg0, s32 arg1);
     void load_entry_into_slot(s32 i, s32 entry);
-    static void render();
+    virtual void render();
     static void update_fog_entries();
     static void reset();
     static void create_instance();

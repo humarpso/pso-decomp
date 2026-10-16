@@ -90,7 +90,7 @@ s32 TItemObject__vt35(void *arg0, s32 arg1);
 s32 TItemObject__vt36(void *arg0, s32 arg1);
 void TItemObject__vt42(void *arg0);
 s32 load_encoded_value__11TItemObjectFv(void);
-void run_task__5TItemFv(); void dispatch_state__5TItemFv(); void render__5TItemFv();
+void run_task__5TItemFv(); void dispatch_state__5TItemFv(); void render_shadows__5TItemFv();
 void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
 void TItem__sub_80100B8C(); void classify_actor_view_detail(); void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFPvi(); void TItem__sub_801005E0(); void TItem__sub_801005DC();
@@ -104,7 +104,7 @@ void TItem__sub_801005E4(); void TItem__sub_801005D8(); void TObjPlayer__sub_801
 void *__vt__11TItemObject[] = {
     0, 0,
     (void *)__dt__11TItemObjectFv, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv,
-    (void *)render__5TItemFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
+    (void *)render_shadows__5TItemFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv, (void *)TItemObject__vt7, (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFPvi,
     (void *)TItemObject__vt12, (void *)TItem__sub_801005E0, (void *)TItem__sub_801005DC,

@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/unk/TUnk_804CC148.h"
 
 struct V3_8022BEAC { s32 x; s32 y; s32 z; };
 
@@ -12,7 +13,7 @@ void approach_vector_in_place(void *, void *, f32);
 void TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern V3_8022BEAC TTecLuker__render_scale_vec;
 extern const f32 lbl_805DC7B0;
-void render__9TTecLukerFv(T_8022BEAC *self);
+void render__13TUnk_804CC148Fv(T_8022BEAC *self);
 }
 
 extern "C" {
@@ -55,7 +56,8 @@ void fn_8022BE64(u8 *arg0, u8 *arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) *(f32 *)((s8 *)arg1 + 8);
 }
 
-void render__9TTecLukerFv(T_8022BEAC *self) {
+void TUnk_804CC148::render() {
+    T_8022BEAC *self = (T_8022BEAC *)this;
     V3_8022BEAC v = TTecLuker__render_scale_vec;
     switch (self->state) {
     case 0:
@@ -117,22 +119,22 @@ struct VObj_8022C03C_8022BEAC : Base_8022C03C_8022BEAC {
 extern "C" {
 
 void *destroy_technique_base__9TTecLukerFPvs(void *arg0, s16 arg1);
-void dispatch_state__9TTecLukerFPv(void *arg0);
+void run_task__13TUnk_804CC148Fv(void *arg0);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
 
-void dispatch_state__9TTecLukerFPv(void *arg0) {
+void TUnk_804CC148::run_task() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x6C);
+    temp_r0 = *(s32 *)((s8 *)this + 0x6C);
     switch (temp_r0) {
     case 0:
         TTecLuker__sub_8022C008();
-        count_if_within_range__9TTecLukerFPv(arg0);
+        count_if_within_range__9TTecLukerFPv(this);
         return;
     case 1:
-        ((VObj_8022C03C_8022BEAC *)arg0)->m5();
+        ((VObj_8022C03C_8022BEAC *)this)->m5();
         return;
     }
 }

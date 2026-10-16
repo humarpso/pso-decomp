@@ -15,8 +15,8 @@ struct TOSwitchTimer : public TUnk_804B9870 {
     u16 m_a8;
     u8 _padAA[0x6];
     u8 m_b0;
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static void *create(void *arg0);
     u8 unk_B1[0x7];
 };

@@ -8,8 +8,8 @@ struct TObjDFUsoTower : public TUnk_804B9870 {
     virtual ~TObjDFUsoTower();
     u32 m_90;
     static void *create(void *arg0);
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     u8 unk_94[0x4];
 };
 

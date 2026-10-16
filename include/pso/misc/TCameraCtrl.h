@@ -6,6 +6,8 @@
 
 struct TCameraCtrl : public TObject {
     virtual ~TCameraCtrl();
+    virtual void render();
+    virtual void run_task();
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;
@@ -38,7 +40,6 @@ struct TCameraCtrl : public TObject {
     void set_mode();
     static void set_player_view_flag(s32 arg0);
     static void set_flag_08000000(s32 arg0);
-    void update_follow_position();
     void set_target(u32 arg1);
     void update_target_follow();
     void init_state();

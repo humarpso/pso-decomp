@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_804E4788.h"
 #include "pso/misc/TNowLoading.h"
 
 struct TBJ_8003688C { char pad[0x18]; };
@@ -254,14 +255,15 @@ typedef struct Laser_80037074 {
 extern "C" {
 void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
 void enable__13TParticleCtrlFPv(void *);
-void fn_802EED20(Laser_80037074 *self);
+void run_task__13TUnk_804E4788Fv(Laser_80037074 *self);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80036FC8___vt__11TBoss2Joint_size[sizeof(RecoveredGlobal_80036FC8___vt__11TBoss2Joint) == 0x1A8 ? 1 : -1];
-void fn_802EED20(Laser_80037074 *self) {
+void TUnk_804E4788::run_task() {
+    Laser_80037074 *self = (Laser_80037074 *)this;
     if (self->ptcl == NULL) {
         self->ptcl = spawn_continuous_particle_effect_with_flags(self->pts, self->unk118, 0x40);
         if (self->ptcl != NULL) {

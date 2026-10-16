@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D1160.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubCustomEquip.h"
 #include "pso/misc/TLobby.h"
@@ -97,7 +98,7 @@ void *TWindowSubCustomSelect__ct(void *, s32);
 
 extern "C" {
 
-void TWindowSubCustomEquip__sub_80275A88(void);
+void render__13TUnk_804D1160Fv(void);
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1);
 void render__21TWindowSubComCardListFv(u8 *arg0);
 s32 handle_list_page_flip_input(s32);
@@ -268,8 +269,8 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
     ((TLobby *)(self->lobby))->send_and_handle(get_shared_text_buffer(), 0x82);
 }
 
-void TWindowSubCustomEquip__sub_80275A88(void) {  }
-void TWindowSubCustomEquip::update_customize_state() {
+void TUnk_804D1160::render() {  }
+void TUnk_804D1160::run_task() {
     Self_80275A8C *self = (Self_80275A8C *)this;
     Ev_802758C8 ev;
     void *p;

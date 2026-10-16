@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CC0E8.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -183,7 +184,7 @@ int queue_destruction__7TObjectFv(void*);
 
 int TTecAnti__sub_8022AD74(void* p) { return spawn_support_tec_range_effect(p); }
 void TTecAnti__sub_8022AD94(void * _w0) {  }
-int TTecAnti::queue_destruction() { return queue_destruction__7TObjectFv(this); }
+void TUnk_804CC0E8::run_task() { queue_destruction__7TObjectFv(this); }
 
 extern s32 lbl_804CC0E8[];
 

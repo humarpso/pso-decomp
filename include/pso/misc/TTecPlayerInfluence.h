@@ -19,9 +19,9 @@ struct TTecPlayerInfluence : public TEffect {
     u32 m_c8;
     u8 _padCC[0x10];
     u32 m_dc;
-    void render();
+    virtual void render();
     void tick_lifetime();
-    void run_task();};
+    virtual void run_task();};
 
 typedef char TTecPlayerInfluence_size[sizeof(TTecPlayerInfluence) == 0xE0 ? 1 : -1];
 #endif

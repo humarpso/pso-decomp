@@ -54,7 +54,7 @@ extern s32 __vt__18TItemEffNeedleBase[];
 extern s32 TItemEffNeedleBase__class_name;
 extern const f32 lbl_805DAB4C;
 
-void TItemEffNeedleBase::draw_model() {
+void TItemEffNeedleBase::render() {
     Needle_80109D48 *self = (Needle_80109D48 *)this;
     if (((TObject *)self)->all_parents_unqueued_for_destruction() == 0 ||
         query_game_join_id__10TObjPlayerFv(*(int *)self->m_2c) == 0) {

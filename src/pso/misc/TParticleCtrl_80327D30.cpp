@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804ED598.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -61,7 +62,7 @@ extern u8 *camera_ctrl_instance;
 
 extern "C" {
 
-void TParticleCtrl::render_marker() {
+void TUnk_804ED598::render() {
     Obj_80327D30 *o = (Obj_80327D30 *)this;
     Vtx_80327D30 v[4];
     if (o->f40 != NULL && o->f38 != 0) {
@@ -117,7 +118,7 @@ void TParticleCtrl::render_marker() {
     }
 }
 
-void TParticleCtrl::update_lifetime() {
+void TUnk_804ED598::run_task() {
     s32 temp_r0;
     s32 temp_r4;
 

@@ -19,8 +19,8 @@ struct TPhotonMagicSquare : public TUnk_804B9870 {
     u32 m_c4;
     u8 _padC8[0x4];
     u32 m_cc;
-    void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TPhotonMagicSquare_size[sizeof(TPhotonMagicSquare) == 0xD0 ? 1 : -1];
 #endif

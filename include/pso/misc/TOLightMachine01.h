@@ -10,8 +10,8 @@ struct TOLightMachine01 : public TUnk_804B9870 {
     u32 m_a4;
     u32 m_a8;
     u32 m_ac;
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     static void *create(void *arg0);
     static void destroy_instance();
     static void load_assets();};

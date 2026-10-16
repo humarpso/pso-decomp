@@ -5,6 +5,8 @@
 
 struct TObjLaboDesignBase
 {
+    void render();
+    void run_task();
     u8 _pad1C[0x2];
     s16 m_1e;
     u8 _pad20[0x18];

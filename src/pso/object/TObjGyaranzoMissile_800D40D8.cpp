@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_8049442C.h"
 
 #include <dolphin/mtx.h>
 #include <stddef.h>
@@ -185,7 +186,7 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void TObjGyaranzoMissile::draw() {
+void TUnk_8049442C::render() {
     u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xC8));
     push_matrix();
@@ -196,7 +197,7 @@ void TObjGyaranzoMissile::draw() {
     draw_chunk_object(*(s32 *)((s8 *)arg0 + 0xC4));
     pop_matrix();
 }
-void TObjGyaranzoMissile::update_flight() {
+void TUnk_8049442C::run_task() {
     Missile_800D43B4 *self = (Missile_800D43B4 *)this;
     self->timer++;
     switch (self->state) {

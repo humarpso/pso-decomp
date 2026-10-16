@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804EE470.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -58,7 +59,7 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 };
 
 extern "C" {
-void TLobby__sub_80335F40(void);
+void run_task__13TUnk_804EE470Fv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 lbl_804EE470[];
@@ -101,7 +102,7 @@ void TLobby__sub_80335E74(void) {  }
 void TLobby__sub_80335E78(void) {  }
 
 typedef struct Stack_80335E7C Stack_80335E7C;
-void TLobby::draw_title_screen() {
+void TUnk_804EE470::render() {
   Stack_80335E7C stack;
   TParticleCtrl::begin_effect_render();
   TCameraCtrl::restore_full_screen_view();
@@ -126,7 +127,7 @@ void TLobby::draw_title_screen() {
   TParticleCtrl::end_effect_render();
 }
 
-void TLobby__sub_80335F40(void) {  }
+void TUnk_804EE470::run_task() {  }
 void *TLobby::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EE470;

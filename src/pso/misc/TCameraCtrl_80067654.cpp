@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804887C8.h"
 #include "pso/misc/TCameraCtrl.h"
 
 struct Stack_800676A0 {
@@ -58,7 +59,7 @@ void * TCameraCtrl__vt11(void) {
 
 #pragma push
 #pragma fp_contract on
-void TCameraCtrl::update_follow_position() {
+void TUnk_804887C8::run_task() {
     u8 *arg0 = (u8 *)this;
     Stack_800676A0 stack;
     f32 temp_f1;

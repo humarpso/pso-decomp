@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/boss/TBoss1DragonColli_C.h"
 class TBoss1DragonColli : public TObject {
 public:
     TObject *objects[3];
@@ -100,7 +101,7 @@ void fn_8002B630(u8 *arg0, u8 *arg1);
 
 extern "C" {
 
-void TBoss1DragonColli__sub_8002B358(void);
+void render__19TBoss1DragonColli_CFv(void);
 void TBoss1DragonColli__sub_8002B35C(void* p);
 void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1);
 void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2);
@@ -161,7 +162,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-void TBoss1DragonColli__sub_8002B358(void) {  }
+void TBoss1DragonColli_C::render() {  }
 
 void TBoss1DragonColli__sub_8002B35C(void* p) { clear_segment_flags__17TBoss1DragonColliFPv((O_8002B3F4 *)((void*)(p))); }
 
@@ -270,7 +271,7 @@ s32 __vt__19TBoss1DragonColli_C[] = {
     0,
     (s32)__dt__19TBoss1DragonColli_CFv,
     (s32)run_task__7TObjectFv,
-    (s32)TBoss1DragonColli__sub_8002B358,
+    (s32)render__19TBoss1DragonColli_CFv,
     (s32)render_shadows__7TObjectFv,
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,

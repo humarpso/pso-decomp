@@ -116,7 +116,7 @@ void TLobby__sub_80070254(L_80070254 *arg0);
 
 extern "C" {
 
-void TLobby__sub_80070550(void);
+void render__10TChallengeFv(void);
 
 s32 is_quest_active();
 s32 update_card_save_info__6TLobbyFv(void *);
@@ -572,7 +572,7 @@ s32 TLobby::destroy_on_phase_change() {
     return 0;
 }
 
-void TLobby__sub_80070550(void) {  }
+void TChallenge::render() {  }
 void TChallenge::update_active() { void *p = this; if (((TLobby *)p)->destroy_on_phase_change() == 0) { TLobby__sub_80070170((void *)(p)); ((TLobby *)p)->update_battle_cleanup_flag(); } }
 void TChallenge::wait_for_quest() {
     u8 *arg0 = (u8 *)this;
@@ -638,7 +638,7 @@ void *lbl_8048D0B0[22] = {
 };
 void *lbl_8048D108[6] = {
     (void *)0x0, (void *)0x0, (void *)&TLobby__sub_80070774, (void *)&run_task__10TChallengeFv,
-    (void *)&TLobby__sub_80070550, (void *)&render_shadows__7TObjectFv,
+    (void *)&render__10TChallengeFv, (void *)&render_shadows__7TObjectFv,
 };
 
 void __dt__7TObjectFv(void *, s32);

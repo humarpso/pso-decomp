@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CCD78.h"
 #include "pso/misc/TTecGiZonde.h"
 
 struct RecoveredGlobal_8023CE54_lbl_804CCD78 {
@@ -21,7 +22,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();
 
-void TTecGiZonde::tick_lifetime() {
+void TUnk_804CCD78::run_task() {
     *(s32 *)((s8 *)this + 0x38) = (s32) (*(s32 *)((s8 *)this + 0x38) + 1);
     if ((s32) *(s32 *)((s8 *)this + 0x38) >= 0x46) {
         queue_destruction__7TObjectFv();

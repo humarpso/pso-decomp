@@ -10,8 +10,8 @@ struct TObjCollision : public TUnk_804AF8A0 {
     u8 _padB0[0x10];
     u32 m_c0;
     u32 m_c4;
-    static void render();
-    static void run_task();
+    virtual void render();
+    virtual void run_task();
     static void *create(void *arg0);
     u8 unk_C8[0x10];
 };

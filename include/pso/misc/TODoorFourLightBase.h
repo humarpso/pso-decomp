@@ -6,6 +6,7 @@
 
 struct TODoorFourLightBase : public TUnk_804B0BB8 {
     virtual ~TODoorFourLightBase();
+    virtual void render();
     u32 m_d4;
     u8 _padD8[0x20];
     u32 m_f8;

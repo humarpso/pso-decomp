@@ -6,11 +6,11 @@
 
 struct TObjFogCollision : public TUnk_804B9870 {
     virtual ~TObjFogCollision();
+    virtual void render();
     u32 m_90;
     u32 m_94;
     void draw_volume();
-    void dispatch_collision_virtuals();
-    void run_task();
+    virtual void run_task();
     s32 check_collision(u16 arg1);};
 
 typedef char TObjFogCollision_size[sizeof(TObjFogCollision) == 0x98 ? 1 : -1];

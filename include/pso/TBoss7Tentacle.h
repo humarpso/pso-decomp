@@ -6,6 +6,8 @@
 class TBoss7Tentacle : public TObject {
 public:
     virtual ~TBoss7Tentacle();
+    virtual void render();
+    virtual void run_task();
 public:
     void restart_particle_effect();
     s32 advance_anim_time_wrapped(f32 d);

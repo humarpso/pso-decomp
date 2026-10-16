@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DCB64.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TLobby.h"
 
@@ -34,8 +35,8 @@ void *TKeyBoardControl__sub_802A12CC(void *arg0, s16 arg1);
 
 extern "C" {
 
-void TKeyBoardControl__sub_802A12B8(void);
-void TKeyBoardControl__sub_802A12BC(void);
+void render__13TUnk_804DCB64Fv(void);
+void run_task__13TUnk_804DCB64Fv(void);
 s32 init_fresh_character_card();
 s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
@@ -104,8 +105,8 @@ void TKeyBoardControl::update_menu_scene() {
     render_tick__Fv();
 }
 
-void TKeyBoardControl__sub_802A12B8(void) {  }
-void TKeyBoardControl__sub_802A12BC(void) {  }
+void TUnk_804DCB64::render() {  }
+void TUnk_804DCB64::run_task() {  }
 void set_movie_finished_flag(void) { (*(unsigned char *)&movie_finished_flag) = 1; }
 void *TKeyBoardControl__sub_802A12CC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

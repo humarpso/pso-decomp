@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_80482090.h"
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -119,7 +120,7 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_8002EDCC(void *);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
-void TObjPlayer__sub_8002E53C(u8 *arg0);
+void run_task__13TUnk_80482090Fv(u8 *arg0);
 s32 TObjLight__sub_801337F8(s32);
 s32 rotate_matrix_z(int, int);
 s32 translate_matrix(int, f32, f32, f32);
@@ -195,7 +196,7 @@ extern s32 lbl_80482090[];
 struct Ctr;
 typedef struct Ctr Ctr;
 
-void TObjPlayer::draw_part_models() {
+void TUnk_80482090::render() {
     Obj_8002E3D4 *self = (Obj_8002E3D4 *)this;
     Node_8002E3D4 *n;
     Part_8002E3D4 *p;
@@ -241,7 +242,8 @@ void TObjPlayer::draw_part_models() {
     TObjLight__sub_801337F8(current_scene_light);
 }
 
-void TObjPlayer__sub_8002E53C(u8 *arg0) {
+void TUnk_80482090::run_task() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r30;
     s32 var_r29;
     Boss2 *self;

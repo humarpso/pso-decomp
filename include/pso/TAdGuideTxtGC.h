@@ -6,6 +6,8 @@
 class TAdGuideTxtGC : public TObject {
 public:
     virtual ~TAdGuideTxtGC();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

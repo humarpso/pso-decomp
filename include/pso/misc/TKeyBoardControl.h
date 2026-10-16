@@ -6,6 +6,8 @@
 
 struct TKeyBoardControl : public TObject {
     virtual ~TKeyBoardControl();
+    virtual void render();
+    virtual void run_task();
     u16 m_1c;
     s16 m_1e;
     u32 m_20;

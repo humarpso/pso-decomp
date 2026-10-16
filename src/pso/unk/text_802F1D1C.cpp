@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804E4B24.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss7TunnelCol.h"
 #include "pso/object/TObjFish.h"
@@ -13,7 +14,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 copy_position__16TBoss8DragonDemoFv(int, void *);
 f32 TBoss8DragonDemo__sub_802F2CB4(int);
 f32 TBoss8DragonDemo__sub_802F2CBC(int);
-void fn_802F1ED0(u8 *arg0);
+void run_task__13TUnk_804E4B24Fv(u8 *arg0);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(int);
 s32 draw_ginja_object(int);
@@ -102,7 +103,8 @@ void fn_802F1E54(u8 *arg0) {
     }
 }
 
-void fn_802F1ED0(u8 *arg0) {
+void TUnk_804E4B24::run_task() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x1C) = TBoss8DragonDemo__sub_802F2CBC((int) (*(s32 *)((s8 *)arg0 + 0x34)));
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) - TBoss8DragonDemo__sub_802F2CB4((int) (*(s32 *)((s8 *)arg0 + 0x34))));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x40) == 4) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_804E4AD4.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 
 struct RecoveredGlobal_802F1AE0_lbl_804E4AD4 { s32 value; u8 remaining[0x14]; };
@@ -23,7 +24,7 @@ void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_804E4AD4[];
 
-void TObjBoss2Tunnel::advance_wrapped_scroll() {
+void TUnk_804E4AD4::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f1;

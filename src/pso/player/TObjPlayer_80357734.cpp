@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804F166C.h"
 
 struct Base_8035836C_80357734 { char pad[0x18]; };
 struct VObj_8035836C_80357734 : Base_8035836C_80357734 {
@@ -206,7 +207,7 @@ struct Info_80357784 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805E006C;
-void update_inward_orbit_effect(u8 *arg0);
+void run_task__13TUnk_804F166CFv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u16 obj_getField1c(void *);
@@ -298,7 +299,7 @@ struct VObj_80358984_80357734 : Base_80358984_80357734 {
 void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1);
 void TObjPlayer__sub_8035776C(void *arg0, void *arg1);
 int TObjPlayer__sub_803579F4(void* p);
-void TObjPlayer__sub_80357F5C(void);
+void render__13TUnk_804F166CFv(void);
 void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -528,11 +529,12 @@ void update_inward_orbit_point(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_80357F5C(void) {  }
+void TUnk_804F166C::render() {  }
 
 extern s32 inward_orbit_effect_vtable[];
 
-void update_inward_orbit_effect(u8 *arg0) {
+void TUnk_804F166C::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3_2;
     u8 *temp_r3;
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) - 0x1999);

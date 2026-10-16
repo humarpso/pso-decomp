@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct RecoveredGlobal_8006ABAC_lbl_804FF610 {
     s32 value;
@@ -755,7 +756,7 @@ int get_camera_id__11TCameraCtrlFv(void);
 int get_instance__11TCameraCtrlFv(void);
 s32 get_mode__11TCameraCtrlFPv(void* p);
 int reset_battle_camera__11TCameraCtrlFPv(void* p);
-void reset_split_flag__11TCameraCtrlFPv(void *arg0);
+void render__11TCameraCtrlFv(void *arg0);
 void set_target__11TCameraCtrlFii(int a0, int a1);
 void set_target_coords__11TCameraCtrlFii(int a0, int a1);
 int reset_to_local_player__11TCameraCtrlFv(void*);
@@ -798,7 +799,7 @@ void render_shadows__7TObjectFv();
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_805D283C;
 extern const f32 lbl_805D8FE4;
-void update_view__11TCameraCtrlFPv(u8 *arg0);
+void run_task__11TCameraCtrlFv(u8 *arg0);
 void *camera_controller_registry[13] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -812,16 +813,16 @@ void *lbl_80488A8C[13] = {
     (void *)&TCameraCtrl__vt12,
 };
 void *lbl_80488AC0[6] = {
-    (void *)0x0, (void *)0x0, (void *)&TCameraCtrl__sub_8006AA90, (void *)&update_view__11TCameraCtrlFPv,
-    (void *)&reset_split_flag__11TCameraCtrlFPv, (void *)&render_shadows__7TObjectFv,
+    (void *)0x0, (void *)0x0, (void *)&TCameraCtrl__sub_8006AA90, (void *)&run_task__11TCameraCtrlFv,
+    (void *)&render__11TCameraCtrlFv, (void *)&render_shadows__7TObjectFv,
 };
 
-void reset_split_flag__11TCameraCtrlFPv(void *arg0) {
+void TCameraCtrl::render() {
     if ((is_split_screen() == 0) && (TMainTask::get_state_flag() != 1)) {
-        if ((u8) *(u8 *)((s8 *)arg0 + 0x1C) == 0) {
-            setup_default_view__11TCameraCtrlFPvPv((Obj_8006AF9C *)(arg0), (Vec_8006AF9C *)(0));
+        if ((u8) *(u8 *)((s8 *)this + 0x1C) == 0) {
+            setup_default_view__11TCameraCtrlFPvPv((Obj_8006AF9C *)(this), (Vec_8006AF9C *)(0));
         }
-        *(u8 *)((s8 *)arg0 + 0x1C) = 0U;
+        *(u8 *)((s8 *)this + 0x1C) = 0U;
     }
 }
 
@@ -895,7 +896,8 @@ void calc_rotated_axes__11TCameraCtrlFPv(u8 *arg0) {
 #define ISNAN(x) TCameraCtrl__sub_8006B370(x)
 #define G (camera_ctrl_instance)
 #define GF(o) (*(f32 *)(G + (o)))
-void update_view__11TCameraCtrlFPv(u8 *arg0) {
+void TCameraCtrl::run_task() {
+    u8 *arg0 = (u8 *)this;
     V3_8006AD34 v;
     u8 *t;
     s32 i;

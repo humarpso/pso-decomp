@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CCA90.h"
 #include "pso/misc/TTecMegid.h"
 
 extern "C" {
@@ -9,7 +10,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 
-void TTecMegid::update_lifetime() {
+void TUnk_804CCA90::run_task() {
     u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 0x1E) = (s16) (*(s16 *)((s8 *)arg0 + 0x1E) + 1);
     if ((s16) *(s16 *)((s8 *)arg0 + 0x1E) > (s16) *(s16 *)((s8 *)arg0 + 0x1C)) {

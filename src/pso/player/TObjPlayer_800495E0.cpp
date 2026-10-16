@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TUnk_80484AFC.h"
+#include "pso/player/TUnk_80484A94.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
@@ -58,7 +60,7 @@ s32 play_persistent_sound(int, void *, void *, int, int);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *, int);
 extern const f32 lbl_805D8890;
-void TObjPlayer__sub_800496D8(u8 *arg0);
+void run_task__13TUnk_80484A94Fv(u8 *arg0);
 extern s32 lbl_805D4D1C;
 f32 TObjPlayer__sub_800499FC(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -100,9 +102,9 @@ s32 TObjPlayer__sub_800495F8(void *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_800496D4(void);
+void render__13TUnk_80484A94Fv(void);
 void TObjPlayer__sub_80049A0C(void* p);
-void draw_obj_model(u8 *arg0);
+void render__13TUnk_80484AFCFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 void free_collision_body_parts(void *);
@@ -143,12 +145,13 @@ s32 TObjPlayer__sub_800495F8(void *arg0) {
     return 0;
 }
 
-void TObjPlayer__sub_800496D4(void) {  }
+void TUnk_80484A94::render() {  }
 
 extern s32 lbl_80484A94[];
 
 typedef struct Stack_800496D8 Stack_800496D8;
-void TObjPlayer__sub_800496D8(u8 *arg0) {
+void TUnk_80484A94::run_task() {
+    u8 *arg0 = (u8 *)this;
   Stack_800496D8 stack;
   s32 temp_r0;
   s32 temp_r5;
@@ -276,7 +279,8 @@ void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void draw_obj_model(u8 *arg0) {
+void TUnk_80484AFC::render() {
+    u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xB0));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);

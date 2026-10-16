@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_804B5C08.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 extern const f32 lbl_805DBC00;
@@ -59,11 +60,11 @@ extern s32 city_common_texture_list;
 extern const f32 lbl_805DBC00;
 extern const f32 lbl_805DBC04;
 extern const f32 lbl_805DBC08;
-void render_city_vertical_model(u8 *arg0);
+void render__13TUnk_804B5C08Fv(u8 *arg0);
 extern const f32 city_vertical_model_min_y_offset;
 extern const f32 city_vertical_model_max_y_offset;
 extern const f32 city_vertical_model_y_step;
-void update_city_vertical_model(u8 *arg0);
+void run_task__13TUnk_804B5C08Fv(u8 *arg0);
 void *__nw__7TObjectFUl(int);
 extern void *tl_05;
 void *create_city_vertical_model(void *arg0);
@@ -84,7 +85,8 @@ typedef struct VBase_18_26a62c VBase_18_26a62c;
 typedef struct VObj_18_26a62c VObj_18_26a62c;
 #pragma fp_contract on
 #define PSO_VCALL_VObj_18_26a62c_m8(_self, _arg0, _arg1) (((VObj_18_26a62c *)(_self))->m8((_arg0), (_arg1)))
-void render_city_vertical_model(u8 *arg0) {
+void TUnk_804B5C08::render() {
+    u8 *arg0 = (u8 *)this;
   u8 *new_var2;
   unsigned char new_var;
   new_var = ((s32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_90) != 0;
@@ -108,7 +110,8 @@ void render_city_vertical_model(u8 *arg0) {
 }
 #pragma fp_contract on
 #define PSO_VCALL_VObj_18_26a62c_m8(_self, _arg0, _arg1) (((VObj_18_26a62c *)(_self))->m8((_arg0), (_arg1)))
-void update_city_vertical_model(u8 *arg0) {
+void TUnk_804B5C08::run_task() {
+    u8 *arg0 = (u8 *)this;
   s32 temp_r0;
   temp_r0 = *((s32 *) (((s8 *) arg0) + 0x90));
   switch (temp_r0)
@@ -202,8 +205,8 @@ s32 city_vertical_model_vtable[14] = {
     0,
     0,
     (s32)destroy_city_vertical_model,
-    (s32)update_city_vertical_model,
-    (s32)render_city_vertical_model,
+    (s32)run_task__13TUnk_804B5C08Fv,
+    (s32)render__13TUnk_804B5C08Fv,
     (s32)render_shadows__7TObjectFv,
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,

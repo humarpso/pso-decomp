@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_80494E10.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjGyaranzoMissile.h"
@@ -210,7 +211,7 @@ s32 TObjPlayer::snap_to_ground(s32 arg0, s32 arg1) {
     return 1;
 }
 
-void TObjPlayer::update_projectile() {
+void TUnk_80494E10::run_task() {
     Me_800DC648 *arg0 = (Me_800DC648 *)this;
     void *att;
     s32 i;

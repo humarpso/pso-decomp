@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804B7C1C.h"
+#include "pso/misc/TUnk_804B7C04.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/player/TObjPlayer.h"
@@ -70,7 +72,7 @@ extern void *tl_07;
 extern "C" {
 
 void TLobby__sub_80190FD0(int a0);
-void TLobby__sub_80190FD8(void);
+void render__13TUnk_804B7C1CFv(void);
 u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1);
 s32 build_npc_player_record__10TNpcPlayerFl(s32);
 s32 send_6x24_teleport_player(u16, void *, s32);
@@ -81,7 +83,7 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 set_player_quest_control_flag(void *);
 int queue_destruction__7TObjectFv(void*);
 
-void TNpcPlayer::queue_destruction_if_dead() { if (*(int*)((char*)this + 0x2c) == 1) { queue_destruction__7TObjectFv(this); } }
+void TUnk_804B7C04::run_task() { if (*(int*)((char*)this + 0x2c) == 1) { queue_destruction__7TObjectFv(this); } }
 
 extern s32 lbl_804B7C04[];
 
@@ -125,11 +127,11 @@ Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2,
 
 void TLobby__sub_80190FD0(int a0) { npc_proximity_target_id = a0; }
 
-void TLobby__sub_80190FD8(void) {  }
+void TUnk_804B7C1C::render() {  }
 typedef char RecoveredGlobal_8019118C_lbl_804B7BD8_size[sizeof(RecoveredGlobal_8019118C_lbl_804B7BD8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8019118C_lbl_804B7C1C_size[sizeof(RecoveredGlobal_8019118C_lbl_804B7C1C) == 0x3C ? 1 : -1];
 
-void TLobby::update_npc_proximity() {
+void TUnk_804B7C1C::run_task() {
     Npc_80190FDC *arg0 = (Npc_80190FDC *)this;
     Ply_80190FDC *p;
     void *o;

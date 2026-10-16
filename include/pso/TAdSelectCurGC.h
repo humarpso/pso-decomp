@@ -6,9 +6,10 @@
 class TAdSelectCurGC : public TObject {
 public:
     virtual ~TAdSelectCurGC();
+    virtual void run_task();
 public:
     u8 check_flag_0x48();
-    void render();
+    virtual void render();
 };
 
 #endif

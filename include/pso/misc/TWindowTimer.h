@@ -6,6 +6,8 @@
 
 struct TWindowTimer : public TUnk_804CE018 {
     virtual ~TWindowTimer();
+    virtual void render();
+    virtual void run_task();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x38];
@@ -15,8 +17,7 @@ struct TWindowTimer : public TUnk_804CE018 {
     void set_time(u32 secs);
     static void draw_tab(s32 arg0, s32 arg1);
     static s32 create();
-    static s32 create_alt();
-    void update_input_hold();};
+    static s32 create_alt();};
 
 typedef char TWindowTimer_size[sizeof(TWindowTimer) == 0x64 ? 1 : -1];
 #endif

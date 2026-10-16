@@ -17,8 +17,8 @@ struct TAdMcSelectCursorGC : public TObject {
     u32 m_138;
     u32 m_13c;
     void render_cursor();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static u32 get_instance(s32 arg0);
     static void release_cursor_entry();
     static void init_resource();

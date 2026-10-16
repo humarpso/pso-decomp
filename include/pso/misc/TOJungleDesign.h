@@ -9,7 +9,7 @@ struct TOJungleDesign : public TUnk_804AF8A0 {
     u32 m_ac;
     u32 m_b0;
     void init_design_variant();
-    void render();};
+    virtual void render();};
 
 typedef char TOJungleDesign_size[sizeof(TOJungleDesign) == 0xB4 ? 1 : -1];
 #endif

@@ -109,7 +109,7 @@ s32 calc_window_size__17TWindowSubComCardFPv(s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 
-void TAdSinglePlyChrSelectGC::render(void *self) {
+void TAdSinglePlyChrSelectGC::render() {
     if (get_state_flag__9TMainTaskFv() == 1) return;
 }
 

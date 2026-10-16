@@ -6,6 +6,7 @@
 class TObjDFDemo1 : public TUnk_804B9870 {
 public:
     virtual ~TObjDFDemo1();
+    virtual void render();
     u8 unk_90[0xA0];
 };
 typedef char TObjDFDemo1_size[sizeof(TObjDFDemo1) == 0x130 ? 1 : -1];

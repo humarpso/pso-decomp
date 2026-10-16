@@ -5,6 +5,7 @@
 
 struct TBoss4Uro
 {
+    void run_task();
     u8 _pad1C[0x1C];
     u32 m_38;
     u32 m_3c;

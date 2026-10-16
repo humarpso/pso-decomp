@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_80480938.h"
 
 #pragma push
 #pragma inline_depth(1)
@@ -121,8 +122,8 @@ extern s8 player_light_index;
 
 extern "C" {
 
-void TObjPlayer__sub_8001A860(void);
-void TObjPlayer__sub_8001A864(void* p);
+void render__13TUnk_80480938Fv(void);
+void run_task__13TUnk_80480938Fv(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 get_ending_scene_active();
@@ -180,8 +181,8 @@ void TObjPlayer::update_flag890_state(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_8001A860(void) {  }
-void TObjPlayer__sub_8001A864(void* p) { TObjPlayer__sub_8001A77C((void *)(p)); TObjPlayer::publish_light_color((void *)(p)); }
+void TUnk_80480938::render() {  }
+void TUnk_80480938::run_task() { TObjPlayer__sub_8001A77C((void *)(this)); TObjPlayer::publish_light_color((void *)(this)); }
 
 extern s32 lbl_80480938[];
 

@@ -6,7 +6,7 @@
 
 struct TOBoss4Tower : public TOBoss4 {
     virtual ~TOBoss4Tower();
-    void render();};
+    virtual void render();};
 
 typedef char TOBoss4Tower_size[sizeof(TOBoss4Tower) == 0x98 ? 1 : -1];
 #endif

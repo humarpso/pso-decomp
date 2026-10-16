@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488838.h"
 #include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
 
-void TCameraCtrl__sub_80067F8C(void* p);
+void run_task__13TUnk_80488838Fv(void* p);
 int target_player0__11TCameraCtrlFi(void*);
 
-void TCameraCtrl__sub_80067F8C(void* p) { target_player0__11TCameraCtrlFi(p); ((TCameraCtrl *)p)->update_orbit_camera(); }
+void TUnk_80488838::run_task() { target_player0__11TCameraCtrlFi(this); ((TCameraCtrl *)this)->update_orbit_camera(); }
 
 }

@@ -522,7 +522,7 @@ extern const f32 lbl_805D98A0;
 extern const f32 lbl_805D98A4;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
-void TObjPlayer__sub_8009BA04(u8 *arg0);
+void render__17TObjEneMe1CanadinFv(u8 *arg0);
 f64 atan2_float(f32, f32);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 void TObjEneMe1Canadin__sub_8009E930(u8 *arg0);
@@ -3136,7 +3136,7 @@ void *canadin_leader_fade_sequence_table[5] = {
 };
 void *__vt__23TObjEneMe1CanadinLeader[118] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__23TObjEneMe1CanadinLeaderFv, (void *)&run_task__23TObjEneMe1CanadinLeaderFv,
-    (void *)&TObjPlayer__sub_8009BA04, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&render__17TObjEneMe1CanadinFv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
@@ -3673,7 +3673,8 @@ void render_canadin_model_with_debug_type(u8 *arg0) {
 
 void update_if_ready__17TObjEneMe1CanadinFPv(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { ((TObjEneMe1Canadin *)p)->update_by_field_0x354(); } }
 
-void TObjPlayer__sub_8009BA04(u8 *arg0) {
+void TObjEneMe1Canadin::render() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     s16 temp_r0_2;
     s32 var_r30;

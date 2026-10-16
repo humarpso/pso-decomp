@@ -25,7 +25,7 @@ struct RecoveredGlobal_8011DC90___vt__15TItemTimerEvent {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 u32 get_player_by_client_id(u16);
-void TItemTimerEvent__vt1(void *arg0);
+void run_task__15TItemTimerEventFv(void *arg0);
 void fn_8011085C(void *, s32);
 extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 void fn_801108C8(void *, s32);
@@ -88,18 +88,18 @@ void TItemTimerEvent__vt4(void *arg0) {
 
 extern s32 __vt__15TItemTimerEvent[];
 
-void TItemTimerEvent__vt1(void *arg0) {
-    *(u32 *)((s8 *)arg0 + 0x28) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x1C));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x28) == 0U) {
-        queue_destruction__7TObjectFv(arg0);
+void TItemTimerEvent::run_task() {
+    *(u32 *)((s8 *)this + 0x28) = get_player_by_client_id(*(u16 *)((s8 *)this + 0x1C));
+    if ((u32) *(u32 *)((s8 *)this + 0x28) == 0U) {
+        queue_destruction__7TObjectFv(this);
         return;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == (s32) *(s32 *)((s8 *)arg0 + 0x20)) {
-        ((VObj_18 *)(arg0))->m4();
-        *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    if ((s32) *(s32 *)((s8 *)this + 0x24) == (s32) *(s32 *)((s8 *)this + 0x20)) {
+        ((VObj_18 *)(this))->m4();
+        *(s32 *)((s8 *)this + 0x24) = 0;
         return;
     }
-    ((VObj_18 *)(arg0))->m5();
+    ((VObj_18 *)(this))->m5();
 }
 
 void *TItemTimerEvent__vt0(void *arg0, s16 arg1) {

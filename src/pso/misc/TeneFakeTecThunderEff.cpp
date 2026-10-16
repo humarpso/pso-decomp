@@ -1,4 +1,5 @@
 #include "pso/TEneEffHamon.h"
+#include "pso/misc/TeneFakeTecThunderEff.h"
 
 #include "types.h"
 #include "pso/misc/TWindowDD.h"
@@ -109,7 +110,7 @@ extern s32 TObjPlayer__effect_count;
 extern const f32 lbl_805D99F8;
 extern const f32 lbl_805D9A04;
 extern const f32 lbl_805D9A08;
-void TObjPlayer__sub_800A4064(Obj_800A4064 *self);
+void run_task__21TeneFakeTecThunderEffFv(Obj_800A4064 *self);
 f32 newton_sqrtf(f32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_chunk_material_color(void *);
@@ -121,7 +122,7 @@ extern s32 model_render_flags;
 extern const f32 lbl_805D99F0;
 extern const f32 lbl_805D99FC;
 extern const f32 lbl_805D9A00;
-void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o);
+void render__21TeneFakeTecThunderEffFv(Obj_800A3D1C *o);
 }
 
 extern "C" {
@@ -289,7 +290,8 @@ void build_beam_points__12TTecZondeEffFPv(Obj_800A39A8 *o) {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
+void TeneFakeTecThunderEff::render() {
+    Obj_800A3D1C *o = (Obj_800A3D1C *)this;
     Vtx_800A3D1C verts[34];
     Vec_800A3D1C out[17];
     f32 sa[17];
@@ -405,7 +407,8 @@ void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_800A4064(Obj_800A4064 *self) {
+void TeneFakeTecThunderEff::run_task() {
+    Obj_800A4064 *self = (Obj_800A4064 *)this;
     s32 i;
     if (self->active != 0) {
         build_beam_points__12TTecZondeEffFPv((Obj_800A39A8 *)self);

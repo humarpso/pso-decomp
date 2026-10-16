@@ -13,7 +13,6 @@ struct TObjEneDarkGunner : public TObjEnemyCustom {
     u8 render_control[0x1C];
     s32 material_phase;
     u8 unknown428[4];
-    void decay_timer_and_destroy();
     void *deleting_dtor(s16 arg1);};
 typedef char DarkGunnerSize[(sizeof(TObjEneDarkGunner)==0x42C)?1:-1];
 #endif

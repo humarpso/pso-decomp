@@ -6,6 +6,8 @@
 class TBoss6Demo20_TYPE2_APPEAR : public TObject {
 public:
     virtual ~TBoss6Demo20_TYPE2_APPEAR();
+    virtual void render();
+    virtual void run_task();
     u8 unk_1C[0xD4];
 };
 typedef char TBoss6Demo20_TYPE2_APPEAR_size[sizeof(TBoss6Demo20_TYPE2_APPEAR) == 0xF0 ? 1 : -1];

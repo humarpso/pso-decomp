@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488B08.h"
+#include "pso/misc/TUnk_80488AF0.h"
+#include "pso/misc/TUnk_80488AD8.h"
 #include "pso/misc/TCameraCtrl.h"
 
 struct RecoveredGlobal_8006BA08_lbl_80488B08 {
@@ -75,7 +78,7 @@ s32 approach_camera_vector(void *, void *, f32);
 extern RecoveredGlobal_8006B4A0_lbl_804381E0 fixed_npc_camera_destination_table;
 extern s32 TCameraCtrl__fixed_npc_camera_active;
 extern const f32 lbl_805D8FF8;
-void update_fixed_npc_camera(u8 *arg0);
+void run_task__13TUnk_80488AD8Fv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen(void);
 void set_active_camera_pose(void *, void *);
@@ -99,13 +102,13 @@ void queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006BADC(void);
 void approach_vector_fixed_distance(Vec_8006B6A8 *, Vec_8006B6A8 *, Vec_8006B6A8 *, f32);
 extern u32 camera_ctrl_instance;
-void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0);
+void run_task__13TUnk_80488AF0Fv(Cam_8006B6A8 *arg0);
 }
 
 extern "C" {
 
 void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1);
-void fixed_view_camera_update(void);
+void run_task__13TUnk_80488B08Fv(void);
 void *TCameraCtrl__vt9(void);
 s32 restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);
@@ -152,7 +155,8 @@ u8 *create_conversation_camera(s32 arg0) {
 }
 
 typedef char RecoveredGlobal_8006B4A0_lbl_804381E0_size[sizeof(RecoveredGlobal_8006B4A0_lbl_804381E0) == 0x1E0 ? 1 : -1];
-void update_fixed_npc_camera(u8 *arg0) {
+void TUnk_80488AD8::run_task() {
+    u8 *arg0 = (u8 *)this;
     approach_camera_vector(arg0 + 0x1C, (u8 *)&fixed_npc_camera_destination_table.value + (*(s32 *)((s8 *)arg0 + 0x34) * 0x18), lbl_805D8FF8);
     approach_camera_vector(arg0 + 0x28, (u8 *)&fixed_npc_camera_destination_table.value + (*(s32 *)((s8 *)arg0 + 0x34) * 0x18) + 0xC, lbl_805D8FF8);
     TCameraCtrl__fixed_npc_camera_active = 1;
@@ -207,7 +211,8 @@ void TCameraCtrl::create(s32 arg0, s32 arg1, s32 arg2) {
 
 extern s32 lbl_80488AF0[];
 
-void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0) {
+void TUnk_80488AF0::run_task() {
+    Cam_8006B6A8 *arg0 = (Cam_8006B6A8 *)this;
     approach_vector_fixed_distance(&arg0->v34, &arg0->v28, &arg0->v34, arg0->f1C);
     if (TCameraCtrl__sub_8006BADC() == 1) {
         TCameraCtrl::set_fixed_position_and_target((u8 *)(camera_ctrl_instance + 0x178), (u8 *)(&arg0->v34));
@@ -293,7 +298,7 @@ void TCameraCtrl::copy_camera_params() {
     }
 }
 
-void fixed_view_camera_update(void) {  }
+void TUnk_80488B08::run_task() {  }
 typedef char RecoveredGlobal_8006BA08_lbl_80488B08_size[sizeof(RecoveredGlobal_8006BA08_lbl_80488B08) == 0x30 ? 1 : -1];
 u8 *TCameraCtrl__sub_8006BA08(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

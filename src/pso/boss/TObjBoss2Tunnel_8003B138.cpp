@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_804835D8.h"
 
 struct Base_8003B138 { char pad[0x18]; };
 struct VObj_8003B138 : Base_8003B138 {
@@ -961,7 +962,7 @@ extern s32 lbl_804835D8[];
 
 #pragma push
 #pragma opt_common_subs off
-void TObjBoss2Tunnel::update_fade_out_and_destroy() {
+void TUnk_804835D8::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804EDAC0.h"
 #include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8032BD64_lbl_804EDAC0 {
@@ -27,7 +28,7 @@ void TLobby__sub_8032BE3C(void);
 int clear_password__18TAdEnterPasswordGCFPv(void*);
 int update_children__18TAdEnterPasswordGCFPv(void*);
 
-void TLobby::run_locked_update() { *(int*)((char*)this + 0x1c) = 1; update_children__18TAdEnterPasswordGCFPv(this); *(int*)((char*)this + 0x1c) = 0; clear_password__18TAdEnterPasswordGCFPv(this); }
+void TUnk_804EDAC0::render() { *(int*)((char*)this + 0x1c) = 1; update_children__18TAdEnterPasswordGCFPv(this); *(int*)((char*)this + 0x1c) = 0; clear_password__18TAdEnterPasswordGCFPv(this); }
 
     extern int lbl_805D6CB8;
 

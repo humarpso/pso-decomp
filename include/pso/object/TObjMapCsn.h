@@ -17,7 +17,7 @@ struct TObjMapCsn : public TUnk_804AF8A0 {
     void* m_d4;
     u8 _padD8[0x11C];
     void* m_1f4;
-    static void render();
+    virtual void render();
     void update_state();
     s32 build_box_triangles();
     static s32 create(s32 arg0);

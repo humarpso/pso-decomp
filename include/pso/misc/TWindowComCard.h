@@ -6,6 +6,8 @@
 
 struct TWindowComCard : public TUnk_804CE018 {
     virtual ~TWindowComCard();
+    virtual void render();
+    virtual void run_task();
     u8 _pad1C[0x8];
     void* m_24;
     u8 unk_28[0x38];

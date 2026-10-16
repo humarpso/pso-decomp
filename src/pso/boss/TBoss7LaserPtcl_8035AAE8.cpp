@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss7LaserPtcl.h"
+#include "pso/boss/TUnk_804F1C88.h"
 #include <stddef.h>
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjOnlineEnding.h"
@@ -64,12 +65,12 @@ void reset_global_table(void);
 void emit_hit_effect__18TBoss7PhotonBulletFPvPv(void *, void *);
 extern const f32 lbl_805E0110;
 extern const f32 lbl_805E0114;
-void TBoss7LaserPtcl__sub_8035AD68(u8 *arg0);
+void run_task__13TUnk_804F1C88Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void TBoss7LaserPtcl__sub_8035AD64(void);
+void render__13TUnk_804F1C88Fv(void);
 void *TBoss7LaserPtcl__sub_8035ADFC(void *arg0, s16 arg1);
 void TBoss7LaserPtcl__sub_8035AF0C(void);
 void TBoss7LaserPtcl__sub_8035AF10(void);
@@ -155,11 +156,12 @@ u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     return arg0;
 }
 
-void TBoss7LaserPtcl__sub_8035AD64(void) {  }
+void TUnk_804F1C88::render() {  }
 
 extern s32 lbl_804F1C88[];
 
-void TBoss7LaserPtcl__sub_8035AD68(u8 *arg0) {
+void TUnk_804F1C88::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 i;
     Ptcl_8035AD68 *o = (Ptcl_8035AD68 *)arg0;
     o->x40 += lbl_805E0110;

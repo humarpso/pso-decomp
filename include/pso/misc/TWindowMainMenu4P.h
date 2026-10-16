@@ -9,7 +9,7 @@ struct TWindowMainMenu4P
     u32 m_4c;
     u8 _pad50[0x4];
     u32 m_54;
-    static void render();
+    void render();
     void run_task();
 };
 

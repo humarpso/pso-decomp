@@ -5,6 +5,7 @@
 
 struct TTecMegid
 {
+    void run_task();
     u32 m_1c;
     void* m_20;
     u8 _pad24[0x34];
@@ -23,9 +24,8 @@ struct TTecMegid
     void init_parameters();
     static void create(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     static void create_ex(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-    static void render();
+    void render();
     u8 *construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4);
-    void update_lifetime();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1Canadin_EffLineFade.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Stack_800A01C0 {
@@ -10,12 +11,13 @@ struct Stack_800A01C0 {
 
 extern "C" {
 s32 draw_line_list(void *, int, int);
-void fn_800A01C0(s32 arg0);
+void render__29TObjEneMe1Canadin_EffLineFadeFv(s32 arg0);
 }
 
 extern "C" {
 
-void fn_800A01C0(s32 arg0) {
+void TObjEneMe1Canadin_EffLineFade::render() {
+    s32 arg0 = (s32)this;
     Stack_800A01C0 stack;
     stack.sp8 = arg0 + 0x1C;
     stack.spC = arg0 + 0x34;

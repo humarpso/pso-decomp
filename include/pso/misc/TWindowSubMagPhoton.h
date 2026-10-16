@@ -6,6 +6,7 @@
 
 struct TWindowSubMagPhoton : public TUnk_804CE018 {
     virtual ~TWindowSubMagPhoton();
+    virtual void render();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -22,7 +23,7 @@ struct TWindowSubMagPhoton : public TUnk_804CE018 {
     void play_open_sound();
     void update_selection_input();
     s32 draw_cursor(int arg1);
-    void run_task();
+    virtual void run_task();
     void update_photon_selection();
     void get_cursor_origin(void *xy);};
 

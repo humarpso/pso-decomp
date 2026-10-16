@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804C3F48.h"
 
 struct RecoveredGlobal_801C5380_lbl_804C3F48 {
     s32 value;
@@ -36,7 +37,7 @@ extern const f32 lbl_805DC310;
 extern const f32 lbl_805DC314;
 extern const f32 lbl_805DC318;
 extern const f32 lbl_805DC31C;
-void fn_801C51D4(Self_801C51D4 *self);
+void run_task__13TUnk_804C3F48Fv(Self_801C51D4 *self);
 }
 
 extern "C" {
@@ -47,7 +48,8 @@ typedef char RecoveredGlobal_801C5320_lbl_804C3F48_size[sizeof(RecoveredGlobal_8
 
 #pragma push
 #pragma fp_contract on
-void fn_801C51D4(Self_801C51D4 *self) {
+void TUnk_804C3F48::run_task() {
+    Self_801C51D4 *self = (Self_801C51D4 *)this;
     s32 i;
     Ply_801C51D4 *p;
     f32 min;

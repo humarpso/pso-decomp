@@ -11,8 +11,8 @@ struct TObjCGrass : public TObjMotion {
     u32 m_104;
     u32 m_108;
     void* m_10c;
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static void release_global_805D5130();
     static void load_resources();
     u8 unk_110[0x3C];

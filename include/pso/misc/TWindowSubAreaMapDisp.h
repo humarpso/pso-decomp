@@ -15,8 +15,8 @@ struct TWindowSubAreaMapDisp : public TUnk_804CE018 {
     u32 m_70;
     u32 m_74;
     void update_manual_scroll();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void update_visibility();};
 
 typedef char TWindowSubAreaMapDisp_size[sizeof(TWindowSubAreaMapDisp) == 0x78 ? 1 : -1];

@@ -36,7 +36,7 @@ extern "C" u8 lbl_804401D0[];
 extern "C" void release_member_90__10TObjPlayerFv();
 extern "C" void render__17TOBarrierEnergy01Fv();
 extern "C" void render_shadows__7TObjectFv();
-extern "C" void run_switch_door_task();
+extern "C" void run_task__13TUnk_804B0BB8Fv();
 extern "C" void update_door_switch_state();
 extern "C" void update_object_view_visibility();
 extern void *bm_fs_obj_lazerguard_model_names[3];
@@ -56,7 +56,7 @@ void *lbl_804AFB34[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *__vt__17TOBarrierEnergy01[21] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__17TOBarrierEnergy01Fv, (void *)&run_switch_door_task,
+    (void *)0x0, (void *)0x0, (void *)&__dt__17TOBarrierEnergy01Fv, (void *)&run_task__13TUnk_804B0BB8Fv,
     (void *)&render__17TOBarrierEnergy01Fv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&update_door_switch_state, (void *)&TOBarrierEnergy01__vt13,

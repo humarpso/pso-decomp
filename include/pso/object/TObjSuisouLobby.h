@@ -6,6 +6,8 @@
 
 struct TObjSuisouLobby : public TUnk_804AFBF8 {
     virtual ~TObjSuisouLobby();
+    virtual void render();
+    virtual void run_task();
     u32 m_c8;
     u8 _padCC[0x8];
     u32 m_d4;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TPhotonGolla.h"
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
@@ -119,7 +120,7 @@ u32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805DC1A0;
 extern const f32 lbl_805DC1A4;
 extern const f32 lbl_805DC1A8;
-void run_task__12TPhotonGollaFPv(u8 *arg0);
+void run_task__12TPhotonGollaFv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
@@ -139,7 +140,7 @@ extern void *golla_photon_blast_buffer_pair;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__12TPhotonGollaFPv(Self_801ABAA0 *self);
+void render__12TPhotonGollaFv(Self_801ABAA0 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 find_entity_by_id(int);
 u32 __nw__7TObjectFUl(int);
@@ -332,7 +333,8 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
 #pragma pop
 #undef self
 
-void render__12TPhotonGollaFPv(Self_801ABAA0 *self) {
+void TPhotonGolla::render() {
+    Self_801ABAA0 *self = (Self_801ABAA0 *)this;
     if (self->started != 0) {
         scroll_strip_uvs(golla_photon_blast_buffer_pair, self->f14C, 0);
         TParticleCtrl::begin_effect_render();
@@ -361,7 +363,8 @@ void render__12TPhotonGollaFPv(Self_801ABAA0 *self) {
     }
 }
 
-void run_task__12TPhotonGollaFPv(u8 *arg0) {
+void TPhotonGolla::run_task() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_801ABBAC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801ABBAC, spC) == 0x4) ? 1 : -1];
     Stack_801ABBAC stack;

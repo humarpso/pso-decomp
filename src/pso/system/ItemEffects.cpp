@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/TUnk_804A2660.h"
 
 #include "dolphin/mtx.h"
 #include "pso/player/TObjPlayer.h"
@@ -33,7 +34,7 @@ extern s32 tl_05;
 
 extern "C" {
 
-void update_item_follow_effect(void *arg0);
+void run_task__13TUnk_804A2660Fv(void *arg0);
 void *destroy_item_follow_effect(void *arg0, s16 arg1);
 s32 find_item_by_id(s32);
 u32 get_item_system_generation();
@@ -46,35 +47,35 @@ void queue_destruction__7TObjectFv(void *);
 
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
-s32 item_follow_effect_vtable[6] = { 0, 0, (s32)&destroy_item_follow_effect, (s32)&update_item_follow_effect, (s32)&render__7TObjectFv, (s32)&render_shadows__7TObjectFv };
-void update_item_follow_effect(void *arg0) {
+s32 item_follow_effect_vtable[6] = { 0, 0, (s32)&destroy_item_follow_effect, (s32)&run_task__13TUnk_804A2660Fv, (s32)&render__7TObjectFv, (s32)&render_shadows__7TObjectFv };
+void TUnk_804A2660::run_task() {
     s32 sp8[5];
     s32 var_r31;
     s32 var_r30;
 
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != get_item_system_generation()) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+    if ((u32) *(u32 *)((s8 *)this + 0x28) != get_item_system_generation()) {
+        queue_destruction__7TObjectFv((void *)(this));
         return;
     }
     var_r31 = 0;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-        var_r30 = find_item_by_id(*(s32 *)((s8 *)arg0 + 0x1C));
+    if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
+        var_r30 = find_item_by_id(*(s32 *)((s8 *)this + 0x1C));
         if ((var_r30 != 0) && (TObjPlayer__sub_80102C30() == 2)) {
             var_r31 = 1;
-            if (((TObjPlayer *)var_r30)->draw_icon((s32)(*(s32 *)((s8 *)arg0 + 0x20)), (s32)sp8) != 0) {
-                ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x24)))->copy_pos(sp8);
+            if (((TObjPlayer *)var_r30)->draw_icon((s32)(*(s32 *)((s8 *)this + 0x20)), (s32)sp8) != 0) {
+                ((TNowLoading *)(*(u32 *)((s8 *)this + 0x24)))->copy_pos(sp8);
                 if ((((TItemMag *)var_r30)->get_flag_40() == 0) || (obj_testFlags30(var_r30, 0x08000000) == 0)) {
-                    ((TParticleCtrl *)(*(u32 *)((s8 *)arg0 + 0x24)))->clear_active_flag();
+                    ((TParticleCtrl *)(*(u32 *)((s8 *)this + 0x24)))->clear_active_flag();
                 } else {
-                    enable__13TParticleCtrlFPv(*(u32 *)((s8 *)arg0 + 0x24));
+                    enable__13TParticleCtrlFPv(*(u32 *)((s8 *)this + 0x24));
                 }
             } else {
-                enable__13TParticleCtrlFPv(*(u32 *)((s8 *)arg0 + 0x24));
+                enable__13TParticleCtrlFPv(*(u32 *)((s8 *)this + 0x24));
             }
         }
     }
     if (var_r31 == 0) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+        queue_destruction__7TObjectFv((void *)(this));
     }
 }
 

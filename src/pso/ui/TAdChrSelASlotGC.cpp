@@ -133,7 +133,7 @@ s32 queue_destruction__7TObjectFv(void *);
 
 extern f32 lbl_805DF210;
 
-void TAdChrSelASlotGC::render(void *self) {
+void TAdChrSelASlotGC::render() {
     if (TMainTask::get_state_flag() == 1) { return;
     }
 }

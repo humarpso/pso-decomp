@@ -55,7 +55,7 @@ extern "C" u8 lbl_8043F0D0[];
 extern "C" u8 bm_ply_lock_on_cursor_motion_names[];
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();
-extern "C" void update_target_player__11TMainCursorFv();
+extern "C" void run_task__14TLOC_ListClearFv();
 extern void *bm_ply_lock_on_cursor_model_names[4];
 void *bm_ply_lock_on_cursor_model_names[4] = {
     (void *)&lbl_8043F090, (void *)&lbl_8043F0A4, (void *)&lbl_8043F0B8, (void *)0x0,
@@ -76,7 +76,7 @@ void *target_cursor_color_table[24] = {
     (void *)0x3f800000, (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *lbl_804A71C4[6] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__11TMainCursorFPvs, (void *)&update_target_player__11TMainCursorFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__11TMainCursorFPvs, (void *)&run_task__14TLOC_ListClearFv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
 

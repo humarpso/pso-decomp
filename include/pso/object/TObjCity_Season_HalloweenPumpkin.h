@@ -6,6 +6,8 @@
 
 struct TObjCity_Season_HalloweenPumpkin : public TUnk_804B9870 {
     virtual ~TObjCity_Season_HalloweenPumpkin();
+    virtual void render();
+    virtual void run_task();
 };
 
 typedef char TObjCity_Season_HalloweenPumpkin_size[sizeof(TObjCity_Season_HalloweenPumpkin) == 0x90 ? 1 : -1];

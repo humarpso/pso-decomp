@@ -6,11 +6,12 @@
 
 struct TTecJelin : public TUnk_804CC148 {
     virtual ~TTecJelin();
+    virtual void run_task();
     u32 m_ec;
     u32 m_f0;
     void init_tech_params();
     static void create(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-    static void render();
+    virtual void render();
     u8 unk_F4[0x58];
 };
 

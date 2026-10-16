@@ -6,6 +6,7 @@
 class TObjFogCollision_Manager : public TObject {
 public:
     virtual ~TObjFogCollision_Manager();
+    virtual void run_task();
     u8 unk_1C[0x14];
 };
 typedef char TObjFogCollision_Manager_size[sizeof(TObjFogCollision_Manager) == 0x30 ? 1 : -1];

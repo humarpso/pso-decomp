@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DC7C4.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -88,7 +89,7 @@ extern const f32 lbl_805DDDB0;
 
 extern "C" {
 
-void TSceneSora__sub_8029F3E4(void);
+void render__13TUnk_804DC7C4Fv(void);
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
 
@@ -133,7 +134,7 @@ void TObjPlayer::setup_projection_texture(s32 arg0, s32 arg1, s32 arg2) {
     }
 }
 
-void TSceneSora::render_reflections() {
+void TUnk_804DC7C4::render_shadows() {
     Sora_8029EFFC *o = (Sora_8029EFFC *)this;
     Cam_8029EFFC c3;
     Cam_8029EFFC c2;
@@ -261,7 +262,7 @@ void TSceneSora::render_reflections() {
     set_scene_flag__10TSceneSoraFi(o->f1C + 0x1C);
 }
 
-void TSceneSora__sub_8029F3E4(void) {  }
+void TUnk_804DC7C4::render() {  }
 int set_scene_callbacks__6TSceneFv(void) {
     set_id__6TSceneFi((void *)TObjPlayer::setup_projection_texture);
     set_active_scene__6TSceneFi((void *)TObjPlayer::clear_state_if_flag80);

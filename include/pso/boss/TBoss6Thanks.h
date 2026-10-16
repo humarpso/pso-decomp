@@ -17,8 +17,8 @@ struct TBoss6Thanks : public TObject {
     s32 texture1;
     void *motions[2];
     void *motion1;
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     static u8 check_ship_door();
     static int dispatch_darkfalz_phase();
     void update_particle_emitters();

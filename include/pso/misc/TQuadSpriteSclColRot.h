@@ -5,7 +5,8 @@
 #include "pso/unk/TUnk_804C57F0.h"
 
 struct TQuadSpriteSclColRot : public TUnk_804C57F0 {
-    virtual ~TQuadSpriteSclColRot();};
+    virtual ~TQuadSpriteSclColRot();
+    virtual void render();};
 
 typedef char TQuadSpriteSclColRot_size[sizeof(TQuadSpriteSclColRot) == 0x2C ? 1 : -1];
 #endif

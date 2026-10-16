@@ -6,6 +6,8 @@
 
 struct TObjCityDoor_Warp : public TUnk_804B5BA8 {
     virtual ~TObjCityDoor_Warp();
+    virtual void render();
+    virtual void run_task();
 };
 
 typedef char TObjCityDoor_Warp_size[sizeof(TObjCityDoor_Warp) == 0xBC ? 1 : -1];

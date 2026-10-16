@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80484840.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -8,7 +9,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();
 
-void TObjPlayer::tick_countdown_destroy() {
+void TUnk_80484840::run_task() {
     s32 temp_r0;
 
     *(s32 *)((s8 *)this + 0x2C) = (s32) (*(s32 *)((s8 *)this + 0x2C) + *(s32 *)((s8 *)this + 0x38));

@@ -52,8 +52,8 @@ extern "C" void update_object_view_visibility();
 struct Obj_802E4E44;
 struct Obj_802E4C70;
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1);
-void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0);
-void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0);
+void run_task__16TObjOnlineEndingFv(Obj_802E4E44 *arg0);
+void render__16TObjOnlineEndingFv(Obj_802E4C70 *arg0);
 extern void *onlineending_dat_model_names[2];
 extern void *onlineending_dat_motion_names[26];
 __declspec(section ".data") void *onlineending_dat_model_names[2] = {
@@ -155,8 +155,8 @@ void *online_ending_quad_vertices[8] = {
     (void *)0x43000000, (void *)0x0, (void *)0x44008000, (void *)0x0,
 };
 void *__vt__16TObjOnlineEnding[13] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__16TObjOnlineEndingFPvs, (void *)&update__16TObjOnlineEndingFPv,
-    (void *)&draw_scene__16TObjOnlineEndingFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)0x0, (void *)0x0, (void *)&destroy__16TObjOnlineEndingFPvs, (void *)&run_task__16TObjOnlineEndingFv,
+    (void *)&render__16TObjOnlineEndingFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
@@ -219,7 +219,7 @@ void VecCopy__FP3VecPC3Vec(Vec_802E4E44 *, const Vec_802E4E44 *);
 s32 queue_destruction__7TObjectFv(void *);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
-void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0);
+void run_task__16TObjOnlineEndingFv(Obj_802E4E44 *arg0);
 u32 calc_text_width(void *);
 s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
 s32 scale_matrix(int, f32, f32, f32);
@@ -239,7 +239,7 @@ extern const f32 lbl_805DE938;
 extern const f32 lbl_805DE93C;
 extern const f32 lbl_805DE940;
 extern const f32 lbl_805DE944;
-void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0);
+void render__16TObjOnlineEndingFv(Obj_802E4C70 *arg0);
 }
 
 extern "C" {
@@ -278,7 +278,8 @@ void TObjOnlineEnding::create_result_window() {
     }
 }
 
-void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
+void TObjOnlineEnding::render() {
+    Obj_802E4C70 *arg0 = (Obj_802E4C70 *)this;
     s32 i;
     Ent_802E4C70 *e;
     if (online_ending_scene_translation_initialized == 0) {
@@ -321,7 +322,8 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
     TParticleCtrl::end_effect_render();
 }
 
-void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0) {
+void TObjOnlineEnding::run_task() {
+    Obj_802E4E44 *arg0 = (Obj_802E4E44 *)this;
     s32 i;
     for (i = 0; i < arg0->count; i++) {
         if (arg0->ent[i].active != 0 && get_player_by_client_id(arg0->ent[i].id) == 0) {

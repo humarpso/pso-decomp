@@ -26,8 +26,8 @@ struct TWindowSubItem : public TObject {
     static void add_meseta_purpose_actions(s32 arg0, s32 arg1);
     s32 create_count_input(s32 arg1);
     s32 create_menu_window();
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void set_flag60_bit10();
     void clear_flag_and_release();
     void reset_selected();

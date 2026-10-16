@@ -34,7 +34,6 @@ struct TOKey
     void init_switch_id();
     void init_key();
     void bswap_6x05_switch_flag();
-    void render();
     void *destroy_key_base(s16 arg1);
     void *destroy_key_object(s16 arg1);
     void *init();

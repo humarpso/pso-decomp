@@ -7,7 +7,7 @@
 struct TMotorcycle : public TObjMesBase {
     virtual ~TMotorcycle();
     u32 m_bc;
-    void render();
+    virtual void render();
     void *create();
     static void free_statics();
     static void load_resources();

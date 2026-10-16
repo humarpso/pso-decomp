@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80483A10.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneLappy.h"
@@ -653,9 +654,9 @@ s32 fn_8003CFEC(void *);
 s32 TBoss3Volopt__sub_8003F398();
 s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1);
 void TObjPlayer__sub_8003F81C(u8 *arg0);
-void teardown_render_state__10TObjPlayerFPv(u8 *arg0);
+void render__13TUnk_80483A10Fv(u8 *arg0);
 void TObjPlayer__sub_80040558(void * _w0);
-void TObjPlayer__sub_800405D8(u8 *arg0);
+void run_task__13TUnk_80483A10Fv(u8 *arg0);
 void TBoss3VoloptCore__sub_80040788(void);
 void cache_volopt_resource_ptrs(void);
 void * TBoss3VoloptCore__sub_800407E0(void *arg0);
@@ -959,8 +960,8 @@ void *lbl_804839E4[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *TBoss3VoloptCore__vtable[83] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__16TBoss3VoloptCoreFPvs, (void *)&TObjPlayer__sub_800405D8,
-    (void *)&teardown_render_state__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)0x0, (void *)0x0, (void *)&destroy__16TBoss3VoloptCoreFPvs, (void *)&run_task__13TUnk_80483A10Fv,
+    (void *)&render__13TUnk_80483A10Fv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
@@ -1471,7 +1472,8 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
     minimap_render_dot((void *)(arg0 + 0x38), (s32)(-0x5DB4), (s32)(1), (s32)(0));
 }
 
-void teardown_render_state__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_80483A10::render() {
+    u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x02000000) && (((Fn80040464VObj_80040464_8003F4C0*)arg0)->m8(lbl_805D86E8, lbl_805D86EC) != 0)) {
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix();
@@ -1510,7 +1512,8 @@ void TObjPlayer::dispatch_reaction_state() {
     }
 }
 
-void TObjPlayer__sub_800405D8(u8 *arg0) {
+void TUnk_80483A10::run_task() {
+    u8 *arg0 = (u8 *)this;
   f32 var_f1;
   s32 temp_r3;
   vol_opt_active_hit_zone = ((TObjPlayer *)arg0)->calc_hit_zone_index();

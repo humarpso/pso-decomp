@@ -463,7 +463,7 @@ void TOTrapAncient02__vt84(void);
 void TOTrapAncient02__vt86(void);
 void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self);
 void TOTrapAncient02__vt80(Trap_8017ADC4 *self);
-void draw_model__15TOTrapAncient02FPv(void *arg0);
+void render__15TOTrapAncient02Fv(void *arg0);
 void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
 void * TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2);
 void TOTrapAncient02R__vt78(void *arg0);
@@ -580,7 +580,7 @@ void update_movement_status__10TObjPlayerFv();
 void update_object_view_visibility();
 void update_poison_status__10TObjPlayerFv();
 void update_shock_clock__10TObjPlayerFPv();
-void update_trap_state__6TOTrapFv();
+void run_task__6TOTrapFv();
 extern char lbl_80442E70[];
 extern char lbl_80442E88[];
 extern char lbl_80442EA4[];
@@ -632,8 +632,8 @@ s32 __vt__16TOTrapAncient02R[90] = {
     0,
     0,
     (s32)&__dt__16TOTrapAncient02RFv,
-    (s32)&update_trap_state__6TOTrapFv,
-    (s32)&draw_model__15TOTrapAncient02FPv,
+    (s32)&run_task__6TOTrapFv,
+    (s32)&render__15TOTrapAncient02Fv,
     (s32)&render_shadows__7TObjectFv,
     (s32)&trigger__6TOTrapFPsl,
     (s32)&apply_object_set_data,
@@ -1285,15 +1285,15 @@ void TOTrapAncient02::draw_effect_chain() {
     pop_matrix();
 }
 
-void draw_model__15TOTrapAncient02FPv(void *arg0) {
+void TOTrapAncient02::render() {
     if (get_state_flag__9TMainTaskFv() != 1) {
-        *(s32 *)((s8 *)arg0 + 0x340) = ((V_B_8017AC98 *) arg0)->m8(lbl_805DBAA4, lbl_805DBA94);
-        if (((s32) *(s32 *)((s8 *)arg0 + 0x340) == 1) && (((s32) *(s32 *)((s8 *)arg0 + 0x358) == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(arg0) == 0))) {
+        *(s32 *)((s8 *)this + 0x340) = ((V_B_8017AC98 *) this)->m8(lbl_805DBAA4, lbl_805DBA94);
+        if (((s32) *(s32 *)((s8 *)this + 0x340) == 1) && (((s32) *(s32 *)((s8 *)this + 0x358) == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(this) == 0))) {
             set_depth_buffer_settings_id__FUl(3);
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x358) != 0) {
-                ((TOTrapAncient02 *)arg0)->render_particle_chain();
+            if ((s32) *(s32 *)((s8 *)this + 0x358) != 0) {
+                ((TOTrapAncient02 *)this)->render_particle_chain();
             } else {
-                ((TOTrapAncient02 *)arg0)->draw_effect_chain();
+                ((TOTrapAncient02 *)this)->draw_effect_chain();
             }
             func_80141618__Fv();
         }

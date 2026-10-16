@@ -6,6 +6,7 @@
 
 struct TWindowChoiceSetting : public TUnk_804D0658 {
     virtual ~TWindowChoiceSetting();
+    virtual void render();
     u16 m_80;
     void request_close();
     void draw();
@@ -14,7 +15,7 @@ struct TWindowChoiceSetting : public TUnk_804D0658 {
     void update_scroll_offset();
     void clamp_scroll();
     void draw_setting(s32 arg1);
-    void run_task();
+    virtual void run_task();
     int is_selected();
     u8 unk_82[0x2];
 };

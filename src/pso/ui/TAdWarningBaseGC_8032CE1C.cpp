@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TUnk_804EDBD0.h"
 #include "pso/misc/TLobby.h"
 
 struct TAdWarningBaseGC {
@@ -83,7 +84,8 @@ void enter_request_state__16TAdWarningBaseGCFv(void* p) { *(s32*)((char*)p + 0x1
 
     extern int TAdWarningBaseGC__aram_alloc_size;
 
-void dispatch_state_action__16TAdWarningBaseGCFPv(TAdWarningBaseGC_8032CEB4 *self) {
+void TUnk_804EDBD0::run_task() {
+    TAdWarningBaseGC_8032CEB4 *self = (TAdWarningBaseGC_8032CEB4 *)this;
     static Act_8032CEB4 tbl[4] = {
         &TAdWarningBaseGC::enter_request_state,
         (Act_8032CEB4)&TAdWarningBaseGC::request_aram_load_state,

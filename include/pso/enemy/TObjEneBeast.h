@@ -50,7 +50,6 @@ struct TObjEneBeast
     static void *create(void *arg0);
     static void load_resources();
     s32 update_action_hold();
-    void run_task();
     static int is_lying_down();
     void request_stand_action();
     void select_model_record(s32 i);

@@ -5,6 +5,8 @@
 
 struct TAdEnterPasswordGC
 {
+    void render();
+    void run_task();
     u32 m_1c;
     u8 _pad20[0x4];
     u32 m_24;

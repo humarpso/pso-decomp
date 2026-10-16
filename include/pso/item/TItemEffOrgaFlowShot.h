@@ -6,6 +6,7 @@
 
 struct TItemEffOrgaFlowShot : public TUnk_804E355C {
     virtual ~TItemEffOrgaFlowShot();
+    virtual void run_task();
     void* m_c4;
     u8 _padC8[0x18];
     u32 m_e0;
@@ -31,7 +32,7 @@ struct TItemEffOrgaFlowShot : public TUnk_804E355C {
     void bswap_6xAD_subordinate_action();
     void update_segments();
     void update_position_from_velocity();
-    void render();
+    virtual void render();
     static void create(void *arg0, void *arg1);};
 
 typedef char TItemEffOrgaFlowShot_size[sizeof(TItemEffOrgaFlowShot) == 0x1A0 ? 1 : -1];

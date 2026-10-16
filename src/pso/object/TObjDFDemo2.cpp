@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDFDemo2.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -36,13 +37,13 @@ typedef struct Obj_8004EA2C {
 } Obj_8004EA2C;
 
 extern "C" {
-void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0);
-void fn_8004EA2C(Obj_8004EA2C *arg0);
+void render__11TObjDFDemo2Fv(Obj_8004E918 *arg0);
+void run_task__11TObjDFDemo2Fv(Obj_8004EA2C *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 u32 spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-void update_timed_effect__11TBoss4Type2FPv(u8 *arg0);
+void run_task__11TObjDFDemo3Fv(u8 *arg0);
 s32 TObjPlayer__sub_80052390(f32);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 rotate_matrix_y(s32, s32);
@@ -52,7 +53,7 @@ s32 post_translate_matrix(void *);
 s32 func_803e11e8__FUl(u32);
 s32 func_803e11f0__Fv();
 s32 draw_model_motion(s32, s32, f32);
-void TObjPlayer__sub_8004ED28(u8 *arg0);
+void render__11TObjDFDemo3Fv(u8 *arg0);
 struct Ent_8004EB78 { s32 a; s32 b; s32 c; };
 struct Obj_8004EB78 {
     s32 vt0;
@@ -102,13 +103,14 @@ void *lbl_80485680[3] = {
     (void *)0x0, (void *)0x0, (void *)0x3f000000,
 };
 void *__vt__11TObjDFDemo2[13] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo2Fv, (void *)&fn_8004EA2C,
-    (void *)&TObjPlayer__sub_8004E918, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo2Fv, (void *)&run_task__11TObjDFDemo2Fv,
+    (void *)&render__11TObjDFDemo2Fv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
 
-void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0) {
+void TObjDFDemo2::render() {
+    Obj_8004E918 *arg0 = (Obj_8004E918 *)this;
     f32 alpha;
     s32 i;
     alpha = 1.0f;
@@ -140,7 +142,8 @@ void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0) {
         TObjPlayer::sync_player_globals();
     }
 }
-void fn_8004EA2C(Obj_8004EA2C *arg0) {
+void TObjDFDemo2::run_task() {
+    Obj_8004EA2C *arg0 = (Obj_8004EA2C *)this;
     void *e;
     if (arg0->ftimer == 0x90) {
         e = (void *)spawn_particle_effect(arg0->fac, 0xC3);

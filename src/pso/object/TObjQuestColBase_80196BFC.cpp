@@ -104,7 +104,7 @@ u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TObjQuestColBase__sub_80196CC4(void);
+void render__16TObjQuestColBaseFv(void);
 u32 get_player_by_client_id(s32);
 f32 xyz_distance_squared(s32, s32);
 
@@ -129,7 +129,7 @@ void TObjQuestColBase::update_room_id_check() {
     }
 }
 
-void TObjQuestColBase__sub_80196CC4(void) {  }
+void TObjQuestColBase::render() {  }
 void TObjQuestColBase::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;

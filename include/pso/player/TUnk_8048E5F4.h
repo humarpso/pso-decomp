@@ -6,6 +6,9 @@
 class TUnk_8048E5F4 : public TObject {
 public:
     virtual ~TUnk_8048E5F4();
+    virtual void render_shadows();
+    virtual void render();
+    virtual void run_task();
     u8 unk_1C[0x4];
 };
 typedef char TUnk_8048E5F4_size[sizeof(TUnk_8048E5F4) == 0x20 ? 1 : -1];

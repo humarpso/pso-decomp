@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Mag.h"
 
 struct Stack_8032EAE4
 {
@@ -178,8 +179,8 @@ struct P_80330240 { s32 a; s32 b; };
 struct O_80330240 { u8 pad[0x388]; s32 f388; };
 extern "C" {
 void *fn_8033068C(void *arg0, s16 arg1);
-void update_main__11TBoss6Type2FPv(u8 *arg0);
-void TObjPlayer__sub_8033051C(void* p);
+void run_task__9TBoss6MagFv(u8 *arg0);
+void render__9TBoss6MagFv(void* p);
 f32 get_conditional_rate__10TObjPlayerFPv(void *arg0);
 f32 fn_80330240(O_80330240 *arg0, void *arg1, P_80330240 arg2, void *arg3, void *arg4, void *arg5);
 void spawn_ground_effect__10TObjPlayerFPv(u8 *arg0);
@@ -270,8 +271,8 @@ __declspec(section ".data") void *TBoss6Type2__instance_slots[2] = {
 };
 void *lbl_804EDDEC[83] = {
 
-    (void *)0x0, (void *)0x0, (void *)fn_8033068C, (void *)update_main__11TBoss6Type2FPv,
-    (void *)TObjPlayer__sub_8033051C, (void *)render_actor_shadows_default, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
+    (void *)0x0, (void *)0x0, (void *)fn_8033068C, (void *)run_task__9TBoss6MagFv,
+    (void *)render__9TBoss6MagFv, (void *)render_actor_shadows_default, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
     (void *)reset_actor_action_state, (void *)get_actor_body_center, (void *)update_object_view_visibility, (void *)classify_actor_view_detail,
     (void *)get_enemy_name__14TObjEnePanarmsFv, (void *)TObjPlayer__sub_80019568, (void *)add_actor_exp, (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index, (void *)update_actor_ground_y, (void *)TObjPlayer__sub_80018E6C, (void *)is_actor_cadence_frame,
@@ -1258,7 +1259,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 s32 break_rocks_in_radius__10TBoss6RockFPvf(void *, f32);
-void TObjPlayer__sub_8033051C(void* p);
+void render__9TBoss6MagFv(void* p);
 void spawn_trap_by_stat__10TObjPlayerFPv(u8 *arg0);
 s32 play_persistent_sound(int, void *, void *, int, int);
 
@@ -1309,9 +1310,10 @@ void spawn_trap_by_stat__10TObjPlayerFPv(u8 *arg0) {
     play_persistent_sound(var_r3, arg0, arg0 + 0x38, 0, 0);
 }
 
-void TObjPlayer__sub_8033051C(void* p) { TObjPlayer__sub_8033040C((u8 *)(p)); }
+void TBoss6Mag::render() { TObjPlayer__sub_8033040C((u8 *)(this)); }
 
-void update_main__11TBoss6Type2FPv(u8 *arg0) {
+void TBoss6Mag::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 var_r4;
 
     if (TObjPlayer::check_demo_mode() == 0) {

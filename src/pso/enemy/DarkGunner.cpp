@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_804909C4.h"
 #include "pso/enemy/TObjEneDarkGunner.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -1615,7 +1616,7 @@ s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id) {
     return result;
 }
 
-void TObjPlayer::update_projectile_lifetime() {
+void TUnk_804909C4::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));

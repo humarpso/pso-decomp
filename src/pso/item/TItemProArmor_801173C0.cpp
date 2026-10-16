@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049FEB8.h"
 #include "pso/item/TItemProArmor.h"
 #include "pso/item/TItemTimerEvent.h"
 
@@ -138,7 +139,7 @@ u8 *TItemProArmor::create() {
     return NULL;
 }
 
-void TItemProArmor::tick_lifetime() {
+void TUnk_8049FEB8::run_task() {
     s32 temp_r3;
 
     if (get_player_by_client_id(*(u16 *)((s8 *)this + 0x1C)) == 0U) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_804F2B60.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjTreeLobby.h"
 #include "pso/TParticleCtrl.h"
@@ -202,7 +203,7 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) tree_lobby_type;
     return arg0;
 }
-void TObjTreeLobby::send_destroy_to_player() {
+void TUnk_804F2B60::run_task() {
     Obj_80364B6C *arg0 = (Obj_80364B6C *)this;
     Ctrl_80364B6C *c = get_player_by_client_id(arg0->h20);
     if (c != 0) {

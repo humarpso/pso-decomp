@@ -6,6 +6,8 @@
 
 struct TWindowMenuMainMenu : public TUnk_804CE018 {
     virtual ~TWindowMenuMainMenu();
+    virtual void render();
+    virtual void run_task();
     u8 _pad1C[0x4];
     u16 m_20;
     u8 _pad22[0x3E];

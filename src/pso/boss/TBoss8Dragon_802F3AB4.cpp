@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_804E4BF0.h"
 
 extern "C" {
 s32 TBoss8Dragon__sub_802F3C94(void *arg0, s32 arg1);
@@ -18,10 +19,10 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 extern s32 lbl_804E4BF0[];
 extern void *boss8_dragon_leader_part;
-void TBoss8Dragon__sub_802F3B54(void);
-void TBoss8Dragon__sub_802F3B54(void);
-void TBoss8Dragon__sub_802F3B50(void);
-void TBoss8Dragon__sub_802F3B50(void);
+void run_task__13TUnk_804E4BF0Fv(void);
+void run_task__13TUnk_804E4BF0Fv(void);
+void render__13TUnk_804E4BF0Fv(void);
+void render__13TUnk_804E4BF0Fv(void);
 s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4);
 void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 s32 TBoss8Dragon__sub_802F3C94(void *arg0, s32 arg1);
@@ -54,9 +55,9 @@ s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 
 }
 }
 
-void TBoss8Dragon__sub_802F3B50(void) {  }
+void TUnk_804E4BF0::render() {  }
 
-void TBoss8Dragon__sub_802F3B54(void) {  }
+void TUnk_804E4BF0::run_task() {  }
 
 void *TBoss8Dragon::dt(s16 arg1) {
     if (this != NULL) {

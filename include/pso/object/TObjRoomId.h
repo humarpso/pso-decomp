@@ -6,6 +6,8 @@
 
 struct TObjRoomId : public TUnk_804B9870 {
     virtual ~TObjRoomId();
+    virtual void render();
+    virtual void run_task();
     void* m_90;
     static void draw_debug_line(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
     u8 unk_94[0x8];

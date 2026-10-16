@@ -331,14 +331,14 @@ void * __dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1);
 void * TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2);
 s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1);
 void TOTrapChainSaw__sub_802C9090(void);
-void update_demo_if_in_range__14TOTrapChainSawFPv(u8 *arg0);
+void render__14TOTrapChainSawFv(u8 *arg0);
 int clear_field_d8__14TOTrapChainSawFPv(void* p);
 void set_hit_cooldown_for_player__14TOTrapChainSawFPvPv(S_802C9124 *arg0, void *arg1);
 s32 consume_counter__14TOTrapChainSawFPvPv(S_802C9174 *arg0, void *arg1);
 int check_player_contact__14TOTrapChainSawFPv(void *arg0);
 void update_sweep__14TOTrapChainSawFPv(void *arg0);
 void update_state__14TOTrapChainSawFPv(u8 *arg0);
-void update_active_flag__14TOTrapChainSawFPv(void *arg0);
+void run_task__14TOTrapChainSawFv(void *arg0);
 void decode_params__14TOTrapChainSawFPv(void *arg0);
 void * __dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
 u8 * TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -873,7 +873,8 @@ void TOTrapChainSaw::update_demo() {
 
 void TOTrapChainSaw__sub_802C9090(void) {  }
 
-void update_demo_if_in_range__14TOTrapChainSawFPv(u8 *arg0) {
+void TOTrapChainSaw::render() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_18_52534d *)(arg0))->m8((4e+02f), (5e+01f)) == 1) {
         ((VObj_18_52534d *)(arg0))->m23();
         ((TOTrapChainSaw *)arg0)->update_demo();
@@ -1000,14 +1001,14 @@ void update_state__14TOTrapChainSawFPv(u8 *arg0) {
 }
 #pragma pop
 
-void update_active_flag__14TOTrapChainSawFPv(void *arg0) {
-    ((VObj_802C96EC_802C9040 *) arg0)->m22();
-    ((VObj_802C96EC_802C9040 *) arg0)->m15();
-    if (is_current_floor_switch_set((u16) *(s32 *)((s8 *)arg0 + 0xE8)) == 1) {
-        *(s32 *)((s8 *)arg0 + 0xF0) = 1;
+void TOTrapChainSaw::run_task() {
+    ((VObj_802C96EC_802C9040 *) this)->m22();
+    ((VObj_802C96EC_802C9040 *) this)->m15();
+    if (is_current_floor_switch_set((u16) *(s32 *)((s8 *)this + 0xE8)) == 1) {
+        *(s32 *)((s8 *)this + 0xF0) = 1;
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0xF0) = 0;
+    *(s32 *)((s8 *)this + 0xF0) = 0;
 }
 
 void decode_params__14TOTrapChainSawFPv(void *arg0) {
@@ -1095,8 +1096,8 @@ s32 __vt__18TOTrapChainSawEdge[31] = {
     0,
     0,
     (s32)&__dt__18TOTrapChainSawEdgeFv,
-    (s32)&update_active_flag__14TOTrapChainSawFPv,
-    (s32)&update_demo_if_in_range__14TOTrapChainSawFPv,
+    (s32)&run_task__14TOTrapChainSawFv,
+    (s32)&render__14TOTrapChainSawFv,
     (s32)&render_shadows__7TObjectFv,
     (s32)&TLobby__sub_801A1FD8,
     (s32)&apply_object_set_data,
@@ -1128,8 +1129,8 @@ s32 __vt__17TOTrapChainSawKey[31] = {
     0,
     0,
     (s32)&__dt__17TOTrapChainSawKeyFv,
-    (s32)&update_active_flag__14TOTrapChainSawFPv,
-    (s32)&update_demo_if_in_range__14TOTrapChainSawFPv,
+    (s32)&run_task__14TOTrapChainSawFv,
+    (s32)&render__14TOTrapChainSawFv,
     (s32)&render_shadows__7TObjectFv,
     (s32)&TLobby__sub_801A1FD8,
     (s32)&apply_object_set_data,
@@ -1161,8 +1162,8 @@ s32 __vt__20TOTrapChainSawDamage[31] = {
     0,
     0,
     (s32)&__dt__20TOTrapChainSawDamageFv,
-    (s32)&update_active_flag__14TOTrapChainSawFPv,
-    (s32)&update_demo_if_in_range__14TOTrapChainSawFPv,
+    (s32)&run_task__14TOTrapChainSawFv,
+    (s32)&render__14TOTrapChainSawFv,
     (s32)&render_shadows__7TObjectFv,
     (s32)&TLobby__sub_801A1FD8,
     (s32)&apply_object_set_data,
@@ -1194,8 +1195,8 @@ s32 __vt__14TOTrapChainSaw[31] = {
     0,
     0,
     (s32)&__dt__14TOTrapChainSawFv,
-    (s32)&update_active_flag__14TOTrapChainSawFPv,
-    (s32)&update_demo_if_in_range__14TOTrapChainSawFPv,
+    (s32)&run_task__14TOTrapChainSawFv,
+    (s32)&render__14TOTrapChainSawFv,
     (s32)&render_shadows__7TObjectFv,
     (s32)&TLobby__sub_801A1FD8,
     (s32)&apply_object_set_data,

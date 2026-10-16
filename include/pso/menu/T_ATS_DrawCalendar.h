@@ -6,6 +6,7 @@
 class T_ATS_DrawCalendar : public TObject {
 public:
     virtual ~T_ATS_DrawCalendar();
+    virtual void render();
     u8 unk_1C[0xC];
 };
 typedef char T_ATS_DrawCalendar_size[sizeof(T_ATS_DrawCalendar) == 0x28 ? 1 : -1];

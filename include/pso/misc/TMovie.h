@@ -6,6 +6,7 @@
 
 struct TMovie : public TObject {
     virtual ~TMovie();
+    virtual void run_task();
     u32 m_1c;
     u32 m_20;
     void* m_24;

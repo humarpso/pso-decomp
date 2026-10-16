@@ -6,6 +6,7 @@
 
 struct TWindowSubSymbolChatPartsSet : public TWindowChatSymbol {
     virtual ~TWindowSubSymbolChatPartsSet();
+    virtual void render();
     u8 m_68;
     u8 _pad69[0x1];
     u16 m_6a;
@@ -23,7 +24,7 @@ struct TWindowSubSymbolChatPartsSet : public TWindowChatSymbol {
     void handle_decide();
     void toggle_selected_part();
     void handle_cursor_input();
-    void run_task();
+    virtual void run_task();
     u8 unk_8C[0xC];
 };
 

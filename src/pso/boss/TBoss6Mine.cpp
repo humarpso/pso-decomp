@@ -243,7 +243,7 @@ void __dt__9TObjEnemyFv(void *, int);
 s32 __nw__7TObjectFUl(s32);
 int queue_destruction__7TObjectFv(void*);
 
-void TBoss6Mine::render_shadow_if_visible() {
+void TBoss6Mine::render_shadows() {
     u8 *arg0 = (u8 *)this;
     if (*(f32 *)((s8 *)arg0 + 0x3C) >= (*(const f32 *)&TBoss6Mine__data_805DF580)) {
         render_actor_shadows_default();
@@ -282,7 +282,7 @@ void TBoss6Mine::draw() {
     TObjPlayer::clear_global_state();
 }
 
-void TBoss6Mine::draw_parts() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x390)); rotate_matrix_x((void*)0, *(void**)((char*)this + 0x394)); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x398)); draw(); pop_matrix(); }
+void TBoss6Mine::render() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x390)); rotate_matrix_x((void*)0, *(void**)((char*)this + 0x394)); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x398)); draw(); pop_matrix(); }
 
 void TBoss6Mine::update_facing_angles() {
     u8 *arg0 = (u8 *)this;

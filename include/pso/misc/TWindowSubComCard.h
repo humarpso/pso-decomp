@@ -6,6 +6,8 @@
 
 struct TWindowSubComCard : public TObject {
     virtual ~TWindowSubComCard();
+    virtual void render();
+    virtual void run_task();
     u8 m_1c;
     u8 m_1d;
     u8 _pad1E[0x2];

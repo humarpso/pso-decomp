@@ -17,8 +17,8 @@ struct TWindowCtrlPlayer : public TObject {
     u32 m_34;
     u32 m_38;
     u32 m_3c;
-    static void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TWindowCtrlPlayer_size[sizeof(TWindowCtrlPlayer) == 0x40 ? 1 : -1];
 #endif

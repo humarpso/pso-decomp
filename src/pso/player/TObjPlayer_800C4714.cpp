@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjEneRe2Flower_Bomb.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/TObject.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -1023,7 +1024,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
-void TObjPlayer__sub_800C4B78(Obj_800C4B78 *o);
+void run_task__26TObjEneRe2Flower_EffCurse3Fv(Obj_800C4B78 *o);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 obj_setFlags30(void *, s32);
@@ -1092,7 +1093,7 @@ extern "C" {
 int beast_retire_corpse(void* p);
 void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0);
+void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -1193,15 +1194,15 @@ void render_shadows__7TObjectFv();
 void update_object_view_visibility();
 void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0);
-void TObjPlayer__sub_800C4B78(struct Obj_800C4B78 *o);
-void update_falling_projectile__10TObjPlayerFPv(Obj_800C4754 *o);
+void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
+void run_task__26TObjEneRe2Flower_EffCurse3Fv(struct Obj_800C4B78 *o);
+void run_task__21TObjEneRe2Flower_BombFv(Obj_800C4754 *o);
 extern const u32 lbl_8043BC10[5] = { 0xF, 0x40000000, 0x40000000, 0x0, 0x1 };
 extern const char lbl_8043BC24[] = "TObjEneRe2Flower_Bomb";
 s32 lbl_805D2A50 = (s32)lbl_8043BC24;
 void *lbl_804933D8[24] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy_and_free__10TObjPlayerFPvs, (void *)&update_falling_projectile__10TObjPlayerFPv,
-    (void *)&update_equip_effect_if_active__10TObjPlayerFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)0x0, (void *)0x0, (void *)&destroy_and_free__10TObjPlayerFPvs, (void *)&run_task__21TObjEneRe2Flower_BombFv,
+    (void *)&render__21TObjEneRe2Flower_BombFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&call_vt13_with_default__10TObjPlayerFv, (void *)&hit_area_targets__10TObjPlayerFPvPviUif,
     (void *)&TObjPlayer__sub_800BC220, (void *)&call_vt16_with_default__10TObjPlayerFv, (void *)&area_attack_deliver_physical, (void *)&dispatch_vt15__10TObjPlayerFPv,
@@ -1212,14 +1213,16 @@ void *lbl_804933D8[24] = {
 #define lbl_804933D8 ((s32 *)lbl_804933D8)
 extern "C" {
 
-void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0) {
+void TObjEneRe2Flower_Bomb::render() {
+    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x100) != 0) {
         ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xD8), (s32)0, (u32)0);
     }
 }
 }
 extern "C" {
-void update_falling_projectile__10TObjPlayerFPv(Obj_800C4754 *o) {
+void TObjEneRe2Flower_Bomb::run_task() {
+    Obj_800C4754 *o = (Obj_800C4754 *)this;
     Vec_800C4754 tmp;
     Rot_800C4754 rot;
     Hit_800C4754 *hit;

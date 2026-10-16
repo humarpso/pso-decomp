@@ -6,6 +6,7 @@
 
 struct TAdMcSelectGC : public TObject {
     virtual ~TAdMcSelectGC();
+    virtual void render();
     u32 m_1c;
     u8 _pad20[0x4];
     u32 m_24;
@@ -17,7 +18,7 @@ struct TAdMcSelectGC : public TObject {
     static void update_state();
     static s32 get_selected_slot_index();
     static void select_if_mc_present();
-    void run_task();
+    virtual void run_task();
     static void *create(void *arg0);
     static void open();
     static void close();

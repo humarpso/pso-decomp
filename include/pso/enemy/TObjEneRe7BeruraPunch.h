@@ -23,10 +23,10 @@ struct TObjEneRe7BeruraPunch : public TUnk_804928CC {
     u32 m_10c;
     void snap_to_ground();
     void reset();
-    void run_task();
+    virtual void run_task();
     void init();
     int is_patrol_active();
-    void render();
+    virtual void render();
     void update_velocity_and_snap();
     void launch(s32 arg1, s32 arg2);
     u8 unk_110[0xC];

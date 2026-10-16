@@ -18,8 +18,8 @@ struct TContainerAncient01 : public TUnk_804806E8 {
     void reset_state();
     void update_wait_for_player();
     void init_state_vectors();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static void *create(void *arg0);
     static void release_static_resource();
     static void load_resources();

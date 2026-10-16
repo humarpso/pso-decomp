@@ -17,8 +17,8 @@ struct TOBoss4Bird : public TOBoss4 {
     u32 m_dc;
     u32 m_e0;
     u32 m_e4;
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     static void *create(void *arg0);};
 
 typedef char TOBoss4Bird_size[sizeof(TOBoss4Bird) == 0xE8 ? 1 : -1];

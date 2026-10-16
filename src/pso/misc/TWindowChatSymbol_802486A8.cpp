@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE7D0.h"
 #include "pso/misc/TWindowChatSymbol.h"
 #include "pso/misc/TWindowDD.h"
 
@@ -23,7 +24,7 @@ u8 *TWindowChatSymbol__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TWindowChatSymbol__sub_80248774(void);
+void render__13TUnk_804CE7D0Fv(void);
 void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1);
 s32 get_selected_menu_value(s32);
 void TWindow__close(void *);
@@ -56,8 +57,8 @@ u8 *TWindowChatSymbol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TWindowChatSymbol__sub_80248774(void) {  }
-void TWindowChatSymbol::apply_symbol_from_card() {
+void TUnk_804CE7D0::render() {  }
+void TUnk_804CE7D0::run_task() {
     set_from_key__20TWindowSubSymbolChatFii(*(s32 *)((s8 *)this + 0x20), get_selected_menu_value(*(s32 *)((s8 *)this + 0x1C)));
 }
 

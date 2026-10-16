@@ -6,7 +6,7 @@
 
 struct TQuadSpriteCol : public TUnk_804C57F0 {
     virtual ~TQuadSpriteCol();
-    void render();};
+    virtual void render();};
 
 typedef char TQuadSpriteCol_size[sizeof(TQuadSpriteCol) == 0x2C ? 1 : -1];
 #endif

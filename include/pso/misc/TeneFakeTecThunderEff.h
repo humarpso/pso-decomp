@@ -6,6 +6,8 @@
 class TeneFakeTecThunderEff : public TObject {
 public:
     virtual ~TeneFakeTecThunderEff();
+    virtual void render();
+    virtual void run_task();
     u8 unk_1C[0x32C];
 };
 typedef char TeneFakeTecThunderEff_size[sizeof(TeneFakeTecThunderEff) == 0x348 ? 1 : -1];

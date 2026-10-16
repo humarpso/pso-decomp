@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TBoss6Demo11_TYPE1_DEAD.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/object/TObjFish.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -19,7 +20,7 @@ void *create_particle_emitter(void *, int);
 s32 play_persistent_sound(int, void *, int, int, int);
 s32 play_sound_effect(int, int, int, int);
 extern Range_8033CDF8 fish_spawn_entry_table[];
-void TObjFish__sub_8033CDF8(u8 *arg0);
+void run_task__23TBoss6Demo11_TYPE1_DEADFv(u8 *arg0);
 int clear_render_callback__8TObjFishFv(void);
 s32 push_matrix(void);
 s32 pop_matrix(void);
@@ -32,7 +33,7 @@ extern const f32 lbl_805DFA60;
 
 extern "C" {
 
-void TObjFish__sub_8033CDD8(void* p);
+void render__23TBoss6Demo11_TYPE1_DEADFv(void* p);
 void restore_player_cameras();
 void *TObjFish__sub_8033D1AC(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -72,12 +73,13 @@ void TObjFish::render_fade_model() {
     }
 }
 
-void TObjFish__sub_8033CDD8(void* p) { ((TObjFish *)p)->render_fade_model(); }
+void TBoss6Demo11_TYPE1_DEAD::render() { ((TObjFish *)this)->render_fade_model(); }
 
 extern s32 lbl_804EF9EC[];
 
 #define F(T, o) (*(T *)(arg0 + (o)))
-void TObjFish__sub_8033CDF8(u8 *arg0) {
+void TBoss6Demo11_TYPE1_DEAD::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 found;
     s32 i;
     Vec_8033CDF8 *p;

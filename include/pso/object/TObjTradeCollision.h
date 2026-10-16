@@ -6,7 +6,8 @@
 
 struct TObjTradeCollision : public TUnk_804AF8A0 {
     virtual ~TObjTradeCollision();
-    static void render();
+    virtual void run_task();
+    virtual void render();
     u8 unk_AC[0x4];
 };
 

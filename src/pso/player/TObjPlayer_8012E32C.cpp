@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A5D10.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -14,7 +15,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 
-void TObjPlayer::notify_joined_game_entity() {
+void TUnk_804A5D10::render() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r31;
     u8 *temp_r3;

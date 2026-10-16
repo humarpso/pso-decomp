@@ -4,13 +4,12 @@
 #include "types.h"
 
 class TItemEffectWeapon {
+    void run_task();
 public:
     struct TrailVertex {
         f32 x, y, z;
         u32 color;
     };
-
-    void step();
     void render_trail();
     void push_trail_entry(const f32* first, const f32* second);
     static TrailVertex* allocate_trail_buffer();

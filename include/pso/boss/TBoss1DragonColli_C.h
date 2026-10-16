@@ -6,6 +6,7 @@
 class TBoss1DragonColli_C : public TUnk_804AF8A0 {
 public:
     virtual ~TBoss1DragonColli_C();
+    virtual void render();
     u8 unk_AC[0xC];
 };
 typedef char TBoss1DragonColli_C_size[sizeof(TBoss1DragonColli_C) == 0xB8 ? 1 : -1];

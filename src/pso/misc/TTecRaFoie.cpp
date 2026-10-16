@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CCB28.h"
 #pragma readonly_strings on
 
 struct Vec_80237DAC { f32 x, y, z; };
@@ -379,7 +380,7 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 approach_position_if_far(void *, void *, f32);
 s32 approach_alpha_clamped(void *, void *, f32);
-void update_rafoie_explosion(u8 *arg0);
+void run_task__13TUnk_804CCB28Fv(u8 *arg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
@@ -401,7 +402,7 @@ extern s32 lbl_805D5660;
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern s32 model_render_flags;
-void render_rafoie_explosion(RaFoie_802381F8 *o);
+void render__13TUnk_804CCB28Fv(RaFoie_802381F8 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
@@ -447,7 +448,8 @@ void TTecRaFoie::calc_area_parameters() {
   }
 }
 
-void render_rafoie_explosion(RaFoie_802381F8 *o) {
+void TUnk_804CCB28::render() {
+    RaFoie_802381F8 *o = (RaFoie_802381F8 *)this;
     f32 x;
     f32 y;
     f32 z;
@@ -497,7 +499,8 @@ void render_rafoie_explosion(RaFoie_802381F8 *o) {
     TParticleCtrl::end_effect_render();
 }
 
-void update_rafoie_explosion(u8 *arg0) {
+void TUnk_804CCB28::run_task() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_80238388, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80238388, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80238388, sp10) == 0x8) ? 1 : -1];

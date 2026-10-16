@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804C3E60.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowDuelResult.h"
 
@@ -10,7 +11,7 @@ struct RecoveredGlobal_801C241C_lbl_804C3E60 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DC2E0;
-void fn_801C247C(u8 *arg0);
+void run_task__13TUnk_804C3E60Fv(u8 *arg0);
 u8 *__nw__7TObjectFUl(s32);
 extern u8 *duel_result_window;
 extern s32 tl_00;
@@ -54,7 +55,8 @@ u8 *fn_801C241C(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void fn_801C247C(u8 *arg0) {
+void TUnk_804C3E60::run_task() {
+    u8 *arg0 = (u8 *)this;
   s32 temp_r0;
   s32 temp_r0_2;
   int new_var;

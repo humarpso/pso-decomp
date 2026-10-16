@@ -13,7 +13,7 @@ struct TWindowKeyBoardHard : public TUnk_804CE018 {
     u32 m_6c;
     u32 m_70;
     void release_keyboard();
-    void render();
+    virtual void render();
     static s32 test_card_flag(s32 arg1, s32 arg2);
     static void set_card_window_flags(void *arg0, s32 arg1, s32 arg2);
     int is_card_flag_set();
@@ -21,7 +21,7 @@ struct TWindowKeyBoardHard : public TUnk_804CE018 {
     int test_card_flag_64();
     int call_1A529C_with_32();
     int test_card_flag_16();
-    void run_task();
+    virtual void run_task();
     static void set_bits_shift7(s32 arg0, s32 arg1);
     static void update_card_window_page_flags(s32 arg0, s32 arg1);
     static void clear_card_window_flag(s32 arg0, s32 arg1);

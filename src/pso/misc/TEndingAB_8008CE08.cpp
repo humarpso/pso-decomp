@@ -177,7 +177,7 @@ int run_task__9TEndingABFv(void* p);
 void TLobby__sub_803DA16C(void*);
 int advance_fade_sequence__9TEndingABFv(void*);
 
-int run_task__9TEndingABFv(void* p) { return advance_fade_sequence__9TEndingABFv(p); }
+void TEndingAB::run_task() { advance_fade_sequence__9TEndingABFv(this); }
 
 extern u32 ending_ab_wall_texture_list;
 

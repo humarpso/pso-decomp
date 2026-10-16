@@ -6,6 +6,8 @@
 class TChCrTagName : public TChCrTag {
 public:
     virtual ~TChCrTagName();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

@@ -5,6 +5,8 @@
 
 struct TObjEneEpsilonGuard
 {
+    void render();
+    void run_task();
     u16 m_1c;
     u8 _pad1E[0xA];
     u16 m_28;

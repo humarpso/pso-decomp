@@ -108,7 +108,7 @@ extern const f32 TTecRaFoie__data_805DC8CC;
 extern const f32 lbl_805DC8D8;
 extern const f32 lbl_805DC8DC;
 extern const f32 lbl_805DC8E0;
-void update_rafoie_explosion(u8 *arg0);
+void run_task__13TUnk_804CCB28Fv(u8 *arg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
@@ -132,7 +132,7 @@ extern void *lbl_805D63B0;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC8D0;
 extern const f32 lbl_805DC8D4;
-void render_rafoie_explosion(RaFoie_802381F8 *o);
+void render__13TUnk_804CCB28Fv(RaFoie_802381F8 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
@@ -161,9 +161,9 @@ typedef struct RecoveredGlobal_80230D9C_lbl_804CC55C RecoveredGlobal_80230D9C_lb
 typedef char RecoveredGlobal_80230D9C_lbl_804CC510_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
 
-void render_rafoie_explosion(RaFoie_802381F8 *o);
+void render__13TUnk_804CCB28Fv(RaFoie_802381F8 *o);
 
-void update_rafoie_explosion(u8 *arg0);
+void run_task__13TUnk_804CCB28Fv(u8 *arg0);
 #pragma pop
 
 }

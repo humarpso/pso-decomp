@@ -8,8 +8,8 @@ public:
     virtual ~TAdMcSelectMcGC();
 public:
     void draw_status_window();
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

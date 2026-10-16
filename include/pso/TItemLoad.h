@@ -11,7 +11,6 @@ public:
     int update_item();
     void clear_slots();
     int get_ring_lobby();
-    void update_load();
     void *init(void *arg1, void *arg2, void *arg3, void *arg4);
     static void update_all();
     static void free_all_models();

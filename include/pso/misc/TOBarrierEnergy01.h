@@ -8,7 +8,7 @@ struct TOBarrierEnergy01 : public TUnk_804B0BB8 {
     virtual ~TOBarrierEnergy01();
     void*init();
     void play_ambient_loop_sound();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void free_resources();
     static void load_resources();

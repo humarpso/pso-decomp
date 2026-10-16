@@ -935,7 +935,7 @@ void update_movement_status__10TObjPlayerFv();
 void update_object_view_visibility();
 void update_poison_status__10TObjPlayerFv();
 void update_shock_clock__10TObjPlayerFPv();
-void update_trap_state__6TOTrapFv();
+void run_task__6TOTrapFv();
 extern const char lbl_80471FB8[];
 extern const char lbl_80471FD0[];
 extern const char lbl_80471FF0[];
@@ -957,7 +957,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     0,
     0,
     (void *)&__dt__14TOTrapSeabed01Fv,
-    (void *)&update_trap_state__6TOTrapFv,
+    (void *)&run_task__6TOTrapFv,
     (void *)&render__14TOTrapSeabed01Fv,
     (void *)&render_shadows__7TObjectFv,
     (void *)&TOTrapSeabed01__vt4,

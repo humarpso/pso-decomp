@@ -6,6 +6,8 @@
 class TObjCMIcon : public TObject {
 public:
     virtual ~TObjCMIcon();
+    virtual void render();
+    virtual void run_task();
 public:
     static void *create(void *arg0);
     static void reset_icon_flags();

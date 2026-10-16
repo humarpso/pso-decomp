@@ -4,6 +4,8 @@
 #include "pso/object/TObjMotion.h"
 struct TObjDoor : public TUnk_804AF8A0 {
     virtual ~TObjDoor();
+    virtual void render();
+    virtual void run_task();
     s32 state;
     s32 behavior;
     f32 frame;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D1818.h"
 #include "pso/misc/TWindowSubQuestBoard.h"
 #include "pso/TObject.h"
 #include "pso/misc/TLobby.h"
@@ -44,7 +45,7 @@ void TWindow__close(void *);
 s32 get_selected_menu_value(s32);
 s32 update_quest_board_card_flags(void *);
 u32 TWindowSubStatusDisp__sub_8027C884(void *, s32);
-void TWindowSubQuestBoard__sub_8027CCCC(void *arg0);
+void run_task__13TUnk_804D1818Fv(void *arg0);
 s32 create_instance__17TQuestThreadBoardFi(s32);
 s8 get_page_index__20TWindowSubQuestBoardFv(s32);
 s32 TWindowSubQuestBoard__sub_8027D1DC(s32);
@@ -54,47 +55,47 @@ extern Ent_8027CFC8 quest_board_handlers[];
 
 extern "C" {
 
-void TWindowSubQuestBoard__sub_8027CCC8(void);
+void render__13TUnk_804D1818Fv(void);
 void TWindowSubQuestBoard__sub_8027CF50(s32 arg0, s32 arg1);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int set_card_window_flags__19TWindowKeyBoardHardFPvll(void*, int, int);
 
-void TWindowSubQuestBoard__sub_8027CCC8(void) {  }
+void TUnk_804D1818::render() {  }
 
 extern s32 __vt__19TWindowSubQuestBoard[];
 
-void TWindowSubQuestBoard__sub_8027CCCC(void *arg0) {
+void TUnk_804D1818::run_task() {
     s32 t;
-    switch ((s8) *(u8 *)((s8 *)arg0 + 0x1C)) {
+    switch ((s8) *(u8 *)((s8 *)this + 0x1C)) {
     case 0:
     case 1:
-        if (*(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
-            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
+        if (*(u32 *)((s8 *)this + 0x2C) != 0U) {
+            TWindow__close(*(void **)((s8 *)this + 0x2C));
+            *(u32 *)((s8 *)this + 0x2C) = 0U;
         }
-        ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->clear_flag_and_release();
-        *(u8 *)((s8 *)arg0 + 0x1C) = 2;
+        ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x28)))->clear_flag_and_release();
+        *(u8 *)((s8 *)this + 0x1C) = 2;
     case 2:
-        if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->get_status_flag() != 0) {
-            (*(VO_8027CCCC **)((s8 *)arg0 + 0x24))->m7();
-            *(u8 *)((s8 *)arg0 + 0x1C) = 5;
+        if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x28)))->get_status_flag() != 0) {
+            (*(VO_8027CCCC **)((s8 *)this + 0x24))->m7();
+            *(u8 *)((s8 *)this + 0x1C) = 5;
             break;
         }
-        if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->is_visible() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 3;
+        if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x28)))->is_visible() != 0) {
+            *(u8 *)((s8 *)this + 0x1C) = 3;
         }
         break;
     case 3:
-        t = get_selected_menu_value(*(s32 *)((s8 *)arg0 + 0x28));
-        *(u32 *)((s8 *)arg0 + 0x2C) = TWindowSubStatusDisp__sub_8027C884(arg0, t);
-        *(u8 *)((s8 *)arg0 + 0x1C) = 4;
+        t = get_selected_menu_value(*(s32 *)((s8 *)this + 0x28));
+        *(u32 *)((s8 *)this + 0x2C) = TWindowSubStatusDisp__sub_8027C884(this, t);
+        *(u8 *)((s8 *)this + 0x1C) = 4;
     case 4:
-        ((TWindowSubMagPhoton *)arg0)->update_photon_selection();
-        update_quest_board_card_flags(arg0);
-        if (((TLobby *)(*(u32 *)((s8 *)arg0 + 0x2C)))->get_flag_bit2() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 1;
+        ((TWindowSubMagPhoton *)this)->update_photon_selection();
+        update_quest_board_card_flags(this);
+        if (((TLobby *)(*(u32 *)((s8 *)this + 0x2C)))->get_flag_bit2() != 0) {
+            *(u8 *)((s8 *)this + 0x1C) = 1;
         }
         break;
     }

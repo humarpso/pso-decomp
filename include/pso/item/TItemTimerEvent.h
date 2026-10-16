@@ -6,6 +6,7 @@
 
 struct TItemTimerEvent : public TItemHeapObject {
     virtual ~TItemTimerEvent();
+    virtual void run_task();
     u16 m_1c;
     u8 _pad1E[0x2];
     u32 m_20;

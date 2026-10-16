@@ -5,6 +5,7 @@
 
 struct TWindowKeyBoardSoft
 {
+    void render();
     u8 _pad1C[0x44];
     u16 m_60;
     u16 m_62;

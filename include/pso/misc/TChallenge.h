@@ -6,13 +6,14 @@
 
 struct TChallenge : public TObject {
     virtual ~TChallenge();
+    virtual void render();
     s32 state;
     s32 frame_count;
     u32 m_24;
     u32 m_28;
     u32 m_2c;
 
-    void run_task();
+    virtual void run_task();
     void update_active();
     void wait_for_quest();
     void initialize_windows();

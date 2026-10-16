@@ -7,8 +7,8 @@
 struct TOCakeshopCave01 : public TUnk_804AFBF8 {
     virtual ~TOCakeshopCave01();
     void update_blink_state(void *arg1);
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     void *create();
     static void close_dialog_window();
     static void load_resource_instance();

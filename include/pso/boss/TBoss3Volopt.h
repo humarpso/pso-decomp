@@ -12,9 +12,9 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     static void alloc_idle_event();
     void update_intro_cutscene();
     void start_phase2();
-    static void render();
+    virtual void render();
     void update_camera_seq();
-    void run_task();
+    virtual void run_task();
     static void *create(void *arg0);
     static void free_parts();
     static void load_resources();
@@ -43,7 +43,6 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     void update_fade_out();
     void *init_fade(void *arg1, void *arg2);
     void *init_object(void *);
-    void update_homing_projectile();
     s32 query_field_30(s32 *arg1);
     static void create_breakup_mdl(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
     void play_area_variant_sound();

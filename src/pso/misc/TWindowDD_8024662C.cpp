@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -17,8 +18,8 @@ u8 *construct_base__9TWindowDDFPvPvsPv(u8 *arg0, u8 *arg1, s16 arg2, u8 *arg3);
 
 extern "C" {
 
-void TWindowDD__sub_8024666C(void);
-void TWindowDD__sub_80246670(void);
+void render__13TUnk_804CE018Fv(void);
+void run_task__13TUnk_804CE018Fv(void);
 int TWindowSubComCard__sub_8024634C(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -27,8 +28,8 @@ void TWindowCtrlMain__sub_8026CC28(void *);
 
 int TWindowDD::update_com_card() { return TWindowSubComCard__sub_8024634C(this); }
 int TWindowDD::initialize_subwindow() { return update_open_close__17TWindowSubComCardFv(this); }
-void TWindowDD__sub_8024666C(void) {  }
-void TWindowDD__sub_80246670(void) {  }
+void TUnk_804CE018::render() {  }
+void TUnk_804CE018::run_task() {  }
 
 extern s32 lbl_804CE018[];
 

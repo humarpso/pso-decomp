@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/misc/TNowLoading.h"
 
 struct VBase_18_64db54 { char pad[0x18]; };
@@ -41,14 +42,15 @@ extern const f32 lbl_805DE75C;
 extern const f32 lbl_805DE760;
 extern const f32 lbl_805DE764;
 extern const f32 lbl_805DE768;
-void fn_802D14F4(u8 *arg0);
+void run_task__24TObjEneBm9Mericarol_BombFv(u8 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void fn_802D14F4(u8 *arg0) {
+void TObjEneBm9Mericarol_Bomb::run_task() {
+    u8 *arg0 = (u8 *)this;
     Vec_802D14F4 v;
     Rot_802D14F4 r1;
     Rot_802D14F4 r2;

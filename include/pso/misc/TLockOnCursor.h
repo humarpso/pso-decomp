@@ -6,6 +6,7 @@
 
 struct TLockOnCursor : public TObject {
     virtual ~TLockOnCursor();
+    virtual void render();
     void renderSecondaryCursor(u8* body, s32 type, s32 action);
     u32 m_1c;
     u8 _pad20[0x4];
@@ -25,7 +26,7 @@ struct TLockOnCursor : public TObject {
     u8 _pad514[0xC];
     void* m_520;
     static s32 free_if_owned(s32 arg0, s16 arg1);
-    void run_task();
+    virtual void run_task();
     static void free_cursor_resources();
     void *init(void *arg1, void *arg2);
     int render_part();

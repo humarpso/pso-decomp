@@ -6,6 +6,8 @@
 class TUnk_804D0948 : public TUnk_804D0618 {
 public:
     virtual ~TUnk_804D0948();
+    virtual void render();
+    virtual void run_task();
     u8 unk_88[0x4];
 };
 typedef char TUnk_804D0948_size[sizeof(TUnk_804D0948) == 0x8C ? 1 : -1];

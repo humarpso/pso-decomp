@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804F0EA8.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -56,7 +57,7 @@ int TLobby::get_lobby_type() {  return lobby_main_texture_gvm; }
 
 extern void *lobby_event_theme_controller;
 
-void TLobby::update_event_theme_flags() {
+void TUnk_804F0EA8::run_task() {
     L_80351EAC *arg0 = (L_80351EAC *)this;
     s32 mode = TLobby::get_filtered_event_theme();
     arg0->flags &= ~7;

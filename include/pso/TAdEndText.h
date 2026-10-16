@@ -6,6 +6,8 @@
 class TAdEndText : public TObject {
 public:
     virtual ~TAdEndText();
+    virtual void render();
+    virtual void run_task();
 public:
     static void free_resources();
     static void load_ending_font();

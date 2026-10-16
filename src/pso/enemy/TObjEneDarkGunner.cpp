@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1Canadin_EffLineFade.h"
 #include "pso/enemy/TObjEneDarkGunner.h"
 
 extern "C" {
@@ -7,7 +8,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 
-void TObjEneDarkGunner::decay_timer_and_destroy() {
+void TObjEneMe1Canadin_EffLineFade::run_task() {
     s32 var_r31;
 
     var_r31 = *(u8 *)((s8 *)this + 0x37);

@@ -80,7 +80,6 @@ struct TNpcPlayer : public TObject {
     void bswap_6x3E();
     void init_6x3E_packet();
     void init_equipment();
-    void queue_destruction_if_dead();
     static s32 send_command(s32 arg0, s8 arg1, s32 arg2, s32 arg3, s8 *arg4);
     static u8 *get_lobby_entry_ptr();
     void copy_entry_by_index(s32 arg1);

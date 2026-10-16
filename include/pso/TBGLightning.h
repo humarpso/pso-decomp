@@ -6,6 +6,8 @@
 class TBGLightning : public TObject {
 public:
     virtual ~TBGLightning();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

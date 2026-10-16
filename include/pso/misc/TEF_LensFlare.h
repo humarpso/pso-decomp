@@ -6,7 +6,8 @@
 
 struct TEF_LensFlare : public TUnk_804B9870 {
     virtual ~TEF_LensFlare();
-    void dispatch_vt1();
+    virtual void render();
+    virtual void run_task();
     int is_player_near(f32 farg0);
     u8 unk_90[0x4];
 };

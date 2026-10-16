@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_8048E6DC.h"
+#include "pso/misc/TUnk_8048E6A8.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
@@ -232,7 +234,7 @@ extern const f32 lbl_805D9488;
 extern const f32 lbl_805D94AC;
 extern const f32 lbl_805D94B4;
 extern const f32 lbl_805D94B8;
-void TParticleCtrl__sub_80085CB0(Ctrl_80085CB0 *self);
+void run_task__13TUnk_8048E6DCFv(Ctrl_80085CB0 *self);
 }
 
 extern "C" {
@@ -248,7 +250,7 @@ extern s32 local_client_id;
 extern const f32 lbl_805D947C;
 extern const f32 lbl_805D9480;
 
-void TParticleCtrl::apply_demo_mode_color() {
+void TUnk_8048E6A8::render() {
     Obj_80085798 *self = (Obj_80085798 *)this;
     if (TObjPlayer::check_demo_mode() != 0) {
         Col_80085798 c = demo_mode_particle_color;
@@ -256,7 +258,7 @@ void TParticleCtrl::apply_demo_mode_color() {
     }
 }
 
-void TParticleCtrl::check_player_proximity() {
+void TUnk_8048E6A8::run_task() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r3;
 
@@ -322,7 +324,8 @@ u8 *TParticleCtrl::create_particle_obj_ac(s32 arg0) {
 }
 
 #pragma fp_contract on
-void TParticleCtrl__sub_80085CB0(Ctrl_80085CB0 *self) {
+void TUnk_8048E6DC::run_task() {
+    Ctrl_80085CB0 *self = (Ctrl_80085CB0 *)this;
     Vec_80085CB0 out;
     Vec_80085CB0 d;
     f32 v;

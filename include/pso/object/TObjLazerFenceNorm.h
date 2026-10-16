@@ -10,10 +10,10 @@ struct TObjLazerFenceNorm : public TUnk_804AF8A0 {
     u16 m_b0;
     u8 _padB2[0x2];
     u32 m_b4;
-    void run_task();
+    virtual void run_task();
     static void free_resources();
     void draw_model();
-    void render();
+    virtual void render();
     void reset_by_door();
     u8 unk_B8[0x20];
 };

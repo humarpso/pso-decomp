@@ -6,6 +6,8 @@
 
 struct TBoss3VoloptHiraisin : public TObjEnemyCustom {
     virtual ~TBoss3VoloptHiraisin();
+    virtual void render();
+    virtual void run_task();
     u32 m_38c;
     static void init_models();
     static void *create(void *arg0);

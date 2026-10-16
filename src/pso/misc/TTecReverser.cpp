@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CCC28.h"
 #include "pso/enemy/TObjEneBm5GibonU.h"
 #include "pso/misc/TTecReverser.h"
 #include "pso/misc/TTecAnti.h"
@@ -120,7 +121,7 @@ void *__dt__12TTecReverserFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TTecReverser::update() {
+void TUnk_804CCC28::run_task() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x28) == 0xA) {

@@ -6,6 +6,8 @@
 
 struct TObjEneDelDepthBomb : public TUnk_804806E8 {
     virtual ~TObjEneDelDepthBomb();
+    virtual void render();
+    virtual void run_task();
     void* m_334;
     u8 _pad338[0x10];
     u32 m_348;

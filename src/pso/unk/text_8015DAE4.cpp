@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
@@ -31,7 +32,7 @@ u8 is_current_floor_switch_set(int);
 void update_door_switch_state(u8 *arg0);
 s32 minimap_render_gate(void *, u32, u16, s32, s32);
 extern s32 switch_doors_force_closed;
-void run_switch_door_task(u8 *arg0);
+void run_task__13TUnk_804B0BB8Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -63,7 +64,8 @@ void update_door_switch_state(u8 *arg0) {
         break;
     }
 }
-void run_switch_door_task(u8 *arg0) {
+void TUnk_804B0BB8::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     if (TObjPlayer::check_demo_mode() == 1) {
         ((VObj_18 *)(arg0))->m18();

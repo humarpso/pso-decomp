@@ -6,7 +6,7 @@
 
 struct TOComputerMachine01 : public TUnk_804B27D8 {
     virtual ~TOComputerMachine01();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void reset_state();
     static void load_model_resource();

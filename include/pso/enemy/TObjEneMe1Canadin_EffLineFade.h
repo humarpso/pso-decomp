@@ -6,6 +6,8 @@
 class TObjEneMe1Canadin_EffLineFade : public TObject {
 public:
     virtual ~TObjEneMe1Canadin_EffLineFade();
+    virtual void render();
+    virtual void run_task();
     u8 unk_1C[0x20];
 };
 typedef char TObjEneMe1Canadin_EffLineFade_size[sizeof(TObjEneMe1Canadin_EffLineFade) == 0x3C ? 1 : -1];

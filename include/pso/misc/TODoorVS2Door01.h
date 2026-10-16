@@ -6,7 +6,7 @@
 
 struct TODoorVS2Door01 : public TUnk_804B0BB8 {
     virtual ~TODoorVS2Door01();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void free_resources();
     static void load_resources();

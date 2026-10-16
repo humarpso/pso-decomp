@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F3F4.h"
 #include "pso/TItemLoad.h"
 
 extern "C" {
@@ -11,7 +12,7 @@ extern u32 item_texture_archive_loader;
 extern u32 item_model_chunk_loader;
 extern s32 item_load_model_buffer;
 
-void TItemLoad::update_load() {
+void TUnk_8049F3F4::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r3;

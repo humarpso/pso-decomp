@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CCBC0.h"
 #include "pso/misc/TTecResta.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TTecLuker.h"
@@ -199,7 +200,7 @@ void TTecResta::init_parameters() {
   }
 }
 
-void TTecResta::tick_lifetime() {
+void TUnk_804CCBC0::run_task() {
     s32 temp_r4;
 
     temp_r4 = *(s32 *)((s8 *)this + 0x2C);

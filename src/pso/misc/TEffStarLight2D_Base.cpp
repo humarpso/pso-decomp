@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_8048E640.h"
 
 #include <stddef.h>
 struct Stack_80084C10 {
@@ -65,7 +66,7 @@ extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, int, int, int, void *, f32);
 extern RecoveredGlobal_80084C10_lbl_804393AC star_light_2d_base_color;
 extern const f32 lbl_805D9450;
-void TEffStarLight2D_Base__sub_80084C10(s32 arg0);
+void render__13TUnk_8048E640Fv(s32 arg0);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
 u8 * construct_world_actor_base(void *);
 void * __nw__7TObjectFUl(s32, s32);
@@ -74,7 +75,7 @@ extern void *tl_particle;
 u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2);
 int copy_position__15TEffStarLight2DFPv(void* p);
 void copy_from_subobject__15TEffStarLight2DFPv(void *, void *);
-void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self);
+void run_task__13TUnk_8048E640Fv(Eff_80084C64 *self);
 }
 
 extern "C" {
@@ -98,7 +99,8 @@ void *TEffStarLight2D_Base__create(void *arg0, s32 _w1) {
 extern s32 lbl_8048E640[];
 
 typedef char RecoveredGlobal_80084C10_lbl_804393AC_size[sizeof(RecoveredGlobal_80084C10_lbl_804393AC) == 0x14 ? 1 : -1];
-void TEffStarLight2D_Base__sub_80084C10(s32 arg0) {
+void TUnk_8048E640::render() {
+    s32 arg0 = (s32)this;
     typedef char sp8_offset[(offsetof(Stack_80084C10, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80084C10, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80084C10, sp10) == 0x8) ? 1 : -1];
@@ -111,7 +113,8 @@ void TEffStarLight2D_Base__sub_80084C10(s32 arg0) {
     TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 8)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 4)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0)), (void *) (&star_light_2d_base_color.value), (f32) (lbl_805D9450));
 }
 
-void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self) {
+void TUnk_8048E640::run_task() {
+    Eff_80084C64 *self = (Eff_80084C64 *)this;
     Sprite_80084C64 s;
     if (self->sub == NULL) {
         return;

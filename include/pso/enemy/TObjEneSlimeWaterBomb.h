@@ -6,13 +6,14 @@
 
 struct TObjEneSlimeWaterBomb : public TObjEnemy {
     virtual ~TObjEneSlimeWaterBomb();
+    virtual void run_task();
     void* m_374;
     u8 _pad378[0x10];
     u32 m_388;
     u32 m_38c;
     u8 _pad390[0x4];
     u32 m_394;
-    void render();
+    virtual void render();
     void *create(void *arg1);};
 
 typedef char TObjEneSlimeWaterBomb_size[sizeof(TObjEneSlimeWaterBomb) == 0x398 ? 1 : -1];

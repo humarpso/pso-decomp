@@ -6,6 +6,7 @@
 
 struct TObjBoss5Pillar : public TObject {
     virtual ~TObjBoss5Pillar();
+    virtual void run_task();
     u32 m_1c;
     u8 _pad20[0x8];
     u32 m_28;
@@ -16,8 +17,7 @@ struct TObjBoss5Pillar : public TObject {
     u32 m_40;
     u32 m_44;
     u32 m_48;
-    void render();
-    void update_collapse_state();
+    virtual void render();
     static void *create_smoke(void *arg0, void *arg1);
     static void *create(void *arg0);};
 

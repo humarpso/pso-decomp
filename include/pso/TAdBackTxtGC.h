@@ -6,6 +6,8 @@
 class TAdBackTxtGC : public TObject {
 public:
     virtual ~TAdBackTxtGC();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

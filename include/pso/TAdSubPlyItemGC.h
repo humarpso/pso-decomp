@@ -6,6 +6,8 @@
 class TAdSubPlyItemGC : public TObject {
 public:
     virtual ~TAdSubPlyItemGC();
+    virtual void render();
+    virtual void run_task();
 public:
     int render_status_line(int a1);
 };

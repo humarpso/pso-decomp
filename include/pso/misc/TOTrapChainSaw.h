@@ -6,6 +6,8 @@
 
 struct TOTrapChainSaw : public TUnk_804AFBF8 {
     virtual ~TOTrapChainSaw();
+    virtual void render();
+    virtual void run_task();
     u32 m_c8;
     u32 m_cc;
     u32 m_d0;

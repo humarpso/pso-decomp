@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDellBiter_Eff_Rush.h"
 #include <stddef.h>
 #include "pso/enemy/TObjEneDellBiter.h"
 #include "pso/boss/TBoss2DeRolLe.h"
@@ -1936,8 +1937,8 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 TObjPlayer__sub_8023DEE0(void *, int, int, int);
 s32 push_reflect_matrix__12TObjEneReconFPv(void *);
 s32 restore_render_scissor(int);
-void TObjEneDellBiter__sub_803030D4(void);
-void TObjEneDellBiter__sub_803030D8(u8 *arg0);
+void render__25TObjEneDellBiter_Eff_RushFv(void);
+void run_task__25TObjEneDellBiter_Eff_RushFv(u8 *arg0);
 void * __dt__25TObjEneDellBiter_Eff_RushFv(void *arg0, s16 arg1);
 u8 * TObjEneDellBiter_Eff_Rush__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0);
@@ -2378,9 +2379,10 @@ void *__vt__16TObjEneDellBiter[107] = {
 #define dell_biter_param_table (*(RecoveredGlobal_8031B170_lbl_804E8880 *)dell_biter_param_table)
 #define __vt__16TObjEneDellBiter ((s32 *)__vt__16TObjEneDellBiter)
 
-void TObjEneDellBiter__sub_803030D4(void) {  }
+void TObjEneDellBiter_Eff_Rush::render() {  }
 
-void TObjEneDellBiter__sub_803030D8(u8 *arg0) {
+void TObjEneDellBiter_Eff_Rush::run_task() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     obj_getField1c((void *) (*(u8 **)((s8 *)arg0 + 0x1C)));
     if (is_player_entity_id() != 0) {

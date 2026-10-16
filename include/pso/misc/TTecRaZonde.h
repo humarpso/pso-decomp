@@ -6,10 +6,11 @@
 
 struct TTecRaZonde : public TUnk_804CC148 {
     virtual ~TTecRaZonde();
+    virtual void run_task();
     u32 m_ec;
     void calc_damage();
     void create(void *arg1, void *arg2);
-    static void render();
+    virtual void render();
     u8 unk_F0[0x60];
 };
 

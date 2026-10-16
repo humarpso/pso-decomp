@@ -6,8 +6,9 @@
 class TAdMultiSelGameModeGC : public TObject {
 public:
     virtual ~TAdMultiSelGameModeGC();
+    virtual void run_task();
 public:
-    static void render();
+    virtual void render();
     static s32 is_mode_entry_enabled(void *self, s32 mode, u32 idx);
     s32 build_mode_menu(s32 arg1);
     static void exit_keyboard_mode();

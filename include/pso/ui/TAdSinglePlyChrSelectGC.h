@@ -8,6 +8,7 @@ struct CreationTextureCacheEntry;
 
 struct TAdSinglePlyChrSelectGC : public TObject {
     virtual ~TAdSinglePlyChrSelectGC();
+    virtual void render();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -33,9 +34,8 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     void get_current_date_stamp();
     static void free_singleton_805D65C0();
     static u8 check_slot_flags(s32 arg0, u32 arg1);
-    void draw_date_time();
     void cleanup();
-    void run_task();
+    virtual void run_task();
     void reset();
     static u8 get_chr_select_state();
     static s32 get_global_state();
@@ -137,7 +137,6 @@ struct TAdSinglePlyChrSelectGC : public TObject {
     static int get_selected_count();
     static int get_data();
     s32 start_offline_seq();
-    void dispatch_state();
     void *destroy(s16 arg1);
     s32 has_no_save_files();
     static void *create_check_memory_card(void *arg0, void *arg1, void *arg2);

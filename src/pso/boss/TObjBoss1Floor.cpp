@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1MokoHill_Solo.h"
 #include "pso/object/TObjFish.h"
 
 extern "C" {
@@ -6,7 +7,7 @@ extern "C" {
 void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
 void create_instance__14TObjBoss1FloorFv(void);
-void render_boss_effect_object(u8 *arg0);
+void render__22TObjBoss1MokoHill_SoloFv(u8 *arg0);
 s32 update_dragon_trail_uvs(void *);
 s32 TObjBoss1Floor__ct(void*, s32);
 s32 draw_chunk_object(void *);
@@ -38,7 +39,8 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 
-void render_boss_effect_object(u8 *arg0) {
+void TObjBoss1MokoHill_Solo::render() {
+    u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param((s32)((void *) (dragon_common_texture_list)));
     update_dragon_trail_uvs((void *) (arg0 + 0x28));
     push_matrix();

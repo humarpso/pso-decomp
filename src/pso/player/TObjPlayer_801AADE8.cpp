@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TPhotonFarlla.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -48,7 +49,7 @@ extern void *farlla_photon_blast_model_buffers;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__13TPhotonFarllaFPv(Self_801AAF00 *self);
+void render__13TPhotonFarllaFv(Self_801AAF00 *self);
 }
 
 extern "C" {
@@ -98,7 +99,8 @@ void TObjPlayer::update_all_slots() {
         } while (var_r31 < 0x10);
     }
 }
-void render__13TPhotonFarllaFPv(Self_801AAF00 *self) {
+void TPhotonFarlla::render() {
+    Self_801AAF00 *self = (Self_801AAF00 *)this;
     if (self->started != 0) {
         scroll_strip_uvs(farlla_photon_blast_model_buffers, self->f14C, 0);
         TParticleCtrl::begin_effect_render();

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804F2A10.h"
+#include "pso/player/TUnk_804F29F8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TItemLoad.h"
 
@@ -24,7 +26,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
     extern int player_item_id_list;
-void TObjPlayer::reset_id_array_global() { reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); }
+void TUnk_804F29F8::run_task() { reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); }
 
 extern s32 lbl_804F29F8[];
 
@@ -139,7 +141,7 @@ extern u8 *lbl_805D6FB8;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void TObjPlayer__sub_80363D4C(void);
+void render__13TUnk_804F2A10Fv(void);
 }
 
 extern "C" {
@@ -155,7 +157,7 @@ void TObjPlayer::alloc_and_run_object() {
     }
     player_item_id_list = o;
 }
-void TObjPlayer__sub_80363D4C(void) {
+void TUnk_804F2A10::render() {
     s32 *p;
     s32 n;
     VObj_18_1419ea *obj;
@@ -201,7 +203,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 
-void TObjPlayer::apply_loaded_item() {
+void TUnk_804F2A10::run_task() {
     void *spC;
     s32 sp8;
 

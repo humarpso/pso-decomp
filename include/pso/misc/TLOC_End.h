@@ -6,6 +6,7 @@
 class TLOC_End : public TUnk_804A7260 {
 public:
     virtual ~TLOC_End();
+    virtual void run_task();
     u8 unk_1C[0x8];
 };
 typedef char TLOC_End_size[sizeof(TLOC_End) == 0x24 ? 1 : -1];

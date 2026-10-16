@@ -6,6 +6,8 @@
 
 struct TObjBoss2Tunnel : public TObject {
     virtual ~TObjBoss2Tunnel();
+    virtual void render();
+    virtual void run_task();
     u8 _pad1C[0x4];
     void* m_20;
     u32 m_24;
@@ -44,7 +46,6 @@ struct TObjBoss2Tunnel : public TObject {
     static void set_global_flag_400();
     static void *create();
     static void clear_target_flags();
-    void update_fade_out_and_destroy();
     static s32 run_confirm_message_loop();
     static void poll_pso_screen_load();
     static void show_message_and_wait(s32 arg0);
@@ -73,12 +74,10 @@ struct TObjBoss2Tunnel : public TObject {
     f32 clamp_velocity();
     f32 update_scale();
     void finalize_and_send_60();
-    void advance_wrapped_scroll();
     static void set_flag_0x200();
     static void clear_flags_0x3000();
     static s32 is_phase_active(s32 _w0);
     static s32 check_both(s32 arg0);
-    void draw_segments();
     void init_effect();
     void update_dust_spawn();
     void update_spawn_timer(s32 arg1, s32 arg2, s32 arg3);

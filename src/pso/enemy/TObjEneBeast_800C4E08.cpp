@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80493450.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneBeast.h"
 #include "pso/player/TObjPlayer.h"
@@ -1030,7 +1031,7 @@ s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DA020;
 extern const f32 lbl_805DA024;
-void TObjPlayer__sub_800C4B78(Obj_800C4B78 *o);
+void run_task__26TObjEneRe2Flower_EffCurse3Fv(Obj_800C4B78 *o);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 obj_setFlags30(void *, s32);
@@ -1101,7 +1102,7 @@ extern "C" {
 int beast_retire_corpse(void* p);
 void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0);
+void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -1683,7 +1684,7 @@ typedef struct VObj_18_477421 VObj_18_477421;
 #define PSO_VCALL_VObj_18_477421_m88(_self) (((VObj_18_477421 *)(_self))->m88())
 #define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
 #define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
-void TObjEneBeast::run_task() {
+void TUnk_80493450::run_task() {
     u8 *arg0 = (u8 *)this;
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)

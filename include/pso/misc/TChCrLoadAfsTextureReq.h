@@ -6,6 +6,7 @@
 
 struct TChCrLoadAfsTextureReq : public TObject {
     virtual ~TChCrLoadAfsTextureReq();
+    virtual void run_task();
     u8 _pad1C[0xC];
     u32 m_28;
     u32 m_2c;

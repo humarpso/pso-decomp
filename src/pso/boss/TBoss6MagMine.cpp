@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_804F322C.h"
 
 struct Vec_80368C14 { f32 x, y, z; };
 
@@ -230,7 +231,7 @@ void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1);
 void copy_pos__13TBoss6MagMineFi(s32 arg0);
 s32 create__13TBoss6MagMineFi(s32 arg0);
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
-void init__13TBoss6MagMineFPv(void* p);
+void render__13TUnk_804F322CFv(void* p);
 void update_linked_state__13TBoss6MagMineFPv(void *arg0);
 s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 int post_translate_matrix(void*);
@@ -281,7 +282,7 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     TObjPlayer::clear_global_state();
 }
 
-void init__13TBoss6MagMineFPv(void* p) { push_matrix(p); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(p)); pop_matrix(); }
+void TUnk_804F322C::render() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(this)); pop_matrix(); }
 
 void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_80368AB8, sp8) == 0x0) ? 1 : -1];
@@ -458,7 +459,8 @@ public:
     void vt4();
 };
 
-void TBoss6MagMine__sub_80368FA0(TBoss6MagMine_80368FA0 *self) {
+void TUnk_804F322C::run_task() {
+    TBoss6MagMine_80368FA0 *self = (TBoss6MagMine_80368FA0 *)this;
     s32 color;
     if (check_demo_mode__10TObjPlayerFv(self) != 0) {
         return;

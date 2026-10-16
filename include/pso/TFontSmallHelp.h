@@ -23,7 +23,6 @@ public:
     void set_color(u32 text_color);
     void set_help_text(const char *text_source);
 public:
-    void update_help_text();
 };
 
 #include <stddef.h>

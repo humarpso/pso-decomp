@@ -6,6 +6,7 @@
 
 struct TShopGenerator : public TUnk_804B9870 {
     virtual ~TShopGenerator();
+    virtual void run_task();
     u32 m_90;
     u32 m_94;
     static s32 is_no_service_active(void *self, s32 player);

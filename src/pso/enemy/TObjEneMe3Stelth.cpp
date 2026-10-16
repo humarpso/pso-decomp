@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3Stelth.h"
 
 extern "C" int draw_model__16TObjEneMe3StelthFPv(void* p);
 extern "C" void TObjEneMe3Stelth__sub_800F5874(u8 *arg0, s32 arg1);
@@ -503,7 +504,7 @@ extern const f32 lbl_805D9E88;
 extern const f32 TObjEneMe3Stelth__data_805DA808;
 extern const f32 lbl_805DA83C;
 extern const f32 TObjEneMe3Stelth__data_805DA840;
-void render__16TObjEneMe3StelthFPv(void *arg0_);
+void render__16TObjEneMe3StelthFv(void *arg0_);
 }
 
 extern "C" {
@@ -511,10 +512,10 @@ extern "C" {
 #define F(t, o) (*(t *)((s8 *)(arg0) + (o)))
 #define VO ((VObj_18_18102d *)(arg0))
 #define VS ((VObj_14_aa9368 *)(arg0 + 0x404))
-void render__16TObjEneMe3StelthFPv(void *arg0_) {
+void TObjEneMe3Stelth::render() {
     s32 mode;
     s32 draw;
-    u8 *arg0 = (u8 *)arg0_;
+    u8 *arg0 = (u8 *)this;
     if (check_demo_mode__10TObjPlayerFv() != 0) {
         VO->m113();
         return;
@@ -3698,7 +3699,7 @@ void TObjEneMe3Stelth__sub_800F4F14(void);
 void TObjEneMe3Stelth__vt60(u8 *arg0);
 void TObjEneMe3Stelth__vt61(void* p);
 void TObjEneMe3Stelth__sub_800F4FC8(void);
-void TObjEneMe3Stelth__sub_800F4FCC(u8 *arg0);
+void run_task__16TObjEneMe3StelthFv(u8 *arg0);
 void * __dt__16TObjEneMe3StelthFv(void *arg0, s16 arg1);
 #define TObjEneMe3Stelth__sub_800F5864 ((int (*)(void*, void*))TObjEneMe3Stelth__sub_800F5864)
 #define TObjEneMe3Stelth__sub_800F5874 ((int (*)(void*, void*))TObjEneMe3Stelth__sub_800F5874)
@@ -3911,8 +3912,8 @@ void *TObjEneMe3Stelth__animation_descriptors[52] = {
     (void *)0x30000, (void *)0x8, (void *)0x3f800000, (void *)0x0,
 };
 void *__vt__20TObjEneMe3StelthReal[116] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__20TObjEneMe3StelthRealFv, (void *)&TObjEneMe3Stelth__sub_800F4FCC,
-    (void *)&render__16TObjEneMe3StelthFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)0x0, (void *)0x0, (void *)&__dt__20TObjEneMe3StelthRealFv, (void *)&run_task__16TObjEneMe3StelthFv,
+    (void *)&render__16TObjEneMe3StelthFv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
@@ -4224,7 +4225,8 @@ void TObjEneMe3Stelth__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 15) { 
 
 void TObjEneMe3Stelth__sub_800F4FC8(void) {  }
 
-void TObjEneMe3Stelth__sub_800F4FCC(u8 *arg0) {
+void TObjEneMe3Stelth::run_task() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     if (check_demo_mode__10TObjPlayerFv() != 0) {
         ((VObj_18 *)(arg0))->m112();

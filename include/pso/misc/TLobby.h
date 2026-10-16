@@ -462,9 +462,7 @@ struct TLobby
     static void init_object_flag();
     static void set_flag_1_at_6c84();
     static void clear_flag_at_6c84();
-    void run_locked_update();
     void*init_camera_state(int a1);
-    static void draw_title_screen();
     void *dt(s16 arg1);
     void *ct_with_parent(void *arg1);
     static void*get_record(int a0);
@@ -495,7 +493,6 @@ struct TLobby
     static s32 is_connected();
     static s32 is_lobby_obj_active();
     static int get_lobby_type();
-    void update_event_theme_flags();
     void *destroy_and_clear_instance(s16 arg1);
     void set_timer(f32 v);
     static s32 open_message_scroll_window(s32 arg0, s32 arg1, s32 arg2);
@@ -725,7 +722,6 @@ struct TLobby
     static s32 aram_dma_blocking(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     static s32 aram_read_sync(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     static s32 aram_transfer_sync(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
-    void update_npc_proximity();
     static void send_game_character();
     void open_udp_socket_for_player();
     void send_6x71_to_player();

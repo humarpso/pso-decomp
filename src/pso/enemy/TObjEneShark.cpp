@@ -865,7 +865,7 @@ extern "C" void request_stand_action__12TObjEneBeastFv();
 extern "C" void reset_actor_action_state();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
-extern "C" void run_task__12TObjEneBeastFv();
+extern "C" void run_task__13TUnk_80493450Fv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
 extern "C" void tick_freeze_and_reset_appearance();
 extern "C" void tick_freeze_state__10TObjPlayerFv();
@@ -928,7 +928,7 @@ void *lbl_80491608[33] = {
     (void *)0x0,
 };
 void *lbl_8049168C[103] = {
-    (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_800AC5EC, (void *)&run_task__12TObjEneBeastFv,
+    (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_800AC5EC, (void *)&run_task__13TUnk_80493450Fv,
     (void *)&render__12TObjEneSharkFv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,

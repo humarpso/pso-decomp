@@ -6,6 +6,7 @@
 
 struct TWindowMenu : public TUnk_804CDFE8 {
     virtual ~TWindowMenu();
+    virtual void render();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -30,7 +31,7 @@ struct TWindowMenu : public TUnk_804CDFE8 {
     void confirm_selection();
     void select_next_item();
     void move_cursor_prev();
-    void run_task();
+    virtual void run_task();
     void copy_position(void* q);
     s32 is_locked(s32 arg1);};
 

@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/object/TObjDFDemo1.h"
 
 typedef struct Rec_8004E2C8 {
     s32 a;
@@ -95,7 +96,7 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self);
 
 extern "C" {
 
-void TObjPlayer__sub_8004E3F4(void* p);
+void render__11TObjDFDemo1Fv(void* p);
 void *create__11TObjDFDemo0FPv(void *arg0);
 void *TObjDFDemo0__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -232,7 +233,7 @@ void draw_fading_model__10TObjPlayerFPv(Obj_8004E2C8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8004E3F4(void* p) { draw_fading_model__10TObjPlayerFPv((Obj_8004E2C8 *)(p)); TObjPlayer__sub_8004E068((Self_8004E068 *)(p)); }
+void TObjDFDemo1::render() { draw_fading_model__10TObjPlayerFPv((Obj_8004E2C8 *)(this)); TObjPlayer__sub_8004E068((Self_8004E068 *)(this)); }
 
 }
 

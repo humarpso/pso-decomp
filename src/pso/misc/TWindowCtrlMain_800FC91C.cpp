@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_8049CA54.h"
 #include "pso/TFontSmallHelp.h"
 #include "pso/misc/TFontSmallLobby.h"
 #include "pso/misc/TWindowCtrlMain.h"
@@ -129,7 +130,7 @@ void *TFontSmallLobby::create(void *arg0) {
     return o;
 }
 
-void TFontSmallHelp::update_help_text() {
+void TUnk_8049CA54::run_task() {
     s32 temp_r3_2;
     s32 temp_r4;
     u32 temp_r3_3;

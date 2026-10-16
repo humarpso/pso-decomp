@@ -6,6 +6,7 @@
 
 struct TWindowSnapShot : public TUnk_804CE018 {
     virtual ~TWindowSnapShot();
+    virtual void render();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x4];
@@ -18,7 +19,7 @@ struct TWindowSnapShot : public TUnk_804CE018 {
     s32 get_field_8();
     static int get_height();
     void play_open_sound();
-    void run_task();
+    virtual void run_task();
     void reset();
     u8 *init_and_reset();
     void update_both();

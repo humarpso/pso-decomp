@@ -6,6 +6,8 @@
 class TBoss6Demo11_TYPE1_DEAD : public TObject {
 public:
     virtual ~TBoss6Demo11_TYPE1_DEAD();
+    virtual void render();
+    virtual void run_task();
     u8 unk_1C[0x74];
 };
 typedef char TBoss6Demo11_TYPE1_DEAD_size[sizeof(TBoss6Demo11_TYPE1_DEAD) == 0x90 ? 1 : -1];

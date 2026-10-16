@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F148.h"
+#include "pso/player/TUnk_8049F130.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TNowLoading.h"
@@ -123,7 +125,7 @@ extern const f32 lbl_805DAB58;
 
 struct TItemData8_8010a060 { s8 a; s8 b; u8 c; s8 pad[21]; };
 
-void TObjPlayer::update_dropped_item() {
+void TUnk_8049F130::run_task() {
     struct TItemData8_8010a060 sp8;
     s32 temp_r3;
 
@@ -178,7 +180,7 @@ Obj_8010A1D0 *TObjPlayer__sub_8010A1D0(Obj_8010A1D0 *self, void *parent, s16 a, 
     return self;
 }
 
-void TObjPlayer::update_indicator_particle() {
+void TUnk_8049F148::run_task() {
     s32 sp8[6];
     s32 temp_r3_2;
     u32 temp_r3_3;

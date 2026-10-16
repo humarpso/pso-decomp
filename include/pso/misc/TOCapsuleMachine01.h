@@ -6,8 +6,8 @@
 
 struct TOCapsuleMachine01 : public TUnk_804AFBF8 {
     virtual ~TOCapsuleMachine01();
-    static void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     static void *create(void *arg0);
     static void reset_static_state();
     static void alloc_and_load_resource();};

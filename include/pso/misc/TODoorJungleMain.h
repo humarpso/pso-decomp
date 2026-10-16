@@ -11,8 +11,8 @@ struct TODoorJungleMain : public TUnk_804B0BB8 {
     u32 m_dc;
     static void free_static_resources();
     static void load_resources();
-    void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TODoorJungleMain_size[sizeof(TODoorJungleMain) == 0xE0 ? 1 : -1];
 #endif

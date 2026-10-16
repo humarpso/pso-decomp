@@ -16,8 +16,8 @@ struct TOVS2Wall01 : public TUnk_804806E8 {
     void spawn_debris(s32 arg1);
     void release();
     int interact_player_neg1();
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     void *create();
     static void release_model();
     static void load_resources();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjFish.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -10,12 +11,12 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 fn_8033FE30(void *);
 s32 check_any_player_near(void *);
-void TBoss4Type2__sub_80340180(u8 *arg0);
+void run_task__23TBoss6Demo15_TYPE2_WAITFv(u8 *arg0);
 }
 
 extern "C" {
 
-int TBoss4Type2__sub_80340160(void* p);
+int render__23TBoss6Demo15_TYPE2_WAITFv(void* p);
 void *TObjFish__sub_8034029C(void *, void *);
 int TObjPlayer__sub_8033FDB0(void*);
 void __dl__7TObjectFPv(void *);
@@ -23,11 +24,12 @@ void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void fn_80340040(void *);
 
-int TBoss4Type2__sub_80340160(void* p) { return TObjPlayer__sub_8033FDB0(p); }
+void TBoss6Demo15_TYPE2_WAIT::render() { TObjPlayer__sub_8033FDB0(this); }
 
 extern s32 lbl_804EFB78[];
 
-void TBoss4Type2__sub_80340180(u8 *arg0) {
+void TBoss6Demo15_TYPE2_WAIT::run_task() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     if (((TObjEneDD *)arg0)->query_teammate_state() == 0) {
         ((TBoss4Type2 *)arg0)->advance_offset();

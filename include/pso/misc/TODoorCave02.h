@@ -7,7 +7,7 @@
 struct TODoorCave02 : public TUnk_804B0BB8 {
     virtual ~TODoorCave02();
     s32 draw_parts(void *arg1_);
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void free_globals();
     static void load_resources();

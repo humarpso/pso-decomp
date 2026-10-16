@@ -6,6 +6,7 @@
 class TObjWaitEntryHairMoveSim : public TObject {
 public:
     virtual ~TObjWaitEntryHairMoveSim();
+    virtual void run_task();
 };
 
 #endif

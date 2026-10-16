@@ -16,8 +16,8 @@ struct TPlyPhotonChair : public TUnk_804B9870 {
     u32 m_b8;
     u8 _padBC[0x14];
     void* m_d0;
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static void free_static_model();
     static s32 load_resources();
     void set_field90(s32 v);

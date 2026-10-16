@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TEF_PvrWave.h"
 #include "pso/misc/TEF_LensFlare.h"
 #include "pso/TParticleCtrl.h"
 
@@ -39,8 +40,8 @@ u8 *TEF_LensFlare__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TEF_LensFlare__sub_80081944(void);
-void TEF_LensFlare__sub_80081948(void);
+void run_task__13TEF_LensFlareFv(void);
+void render__11TEF_PvrWaveFv(void);
 void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
@@ -68,10 +69,10 @@ u8 *TEF_LensFlare__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TEF_LensFlare__sub_80081944(void) {  }
-void TEF_LensFlare__sub_80081948(void) {  }
+void TEF_LensFlare::run_task() {  }
+void TEF_PvrWave::render() {  }
 
-void TEF_LensFlare::dispatch_vt1() {
+void TEF_PvrWave::run_task() {
     struct VObj_8008194C_80081278 *o = (struct VObj_8008194C_80081278 *)*(void **)((s8 *)this + 0x1C);
     o->m1();
 }

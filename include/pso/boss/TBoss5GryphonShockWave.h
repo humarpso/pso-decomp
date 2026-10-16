@@ -20,8 +20,8 @@ struct TBoss5GryphonShockWave : public TObject {
     void* m_50;
     u8 _pad54[0xC];
     void* m_60;
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     u8 unk_64[0xC];
 };
 

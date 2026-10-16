@@ -6,6 +6,8 @@
 class TBoss4Zanzo : public TObject {
 public:
     virtual ~TBoss4Zanzo();
+    virtual void render();
+    virtual void run_task();
 };
 
 #endif

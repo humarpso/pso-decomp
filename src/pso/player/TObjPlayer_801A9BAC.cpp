@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804C349C.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -46,7 +47,7 @@ void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void TObjPlayer::update_target() {
+void TUnk_804C349C::run_task() {
     *(s32 *)((s8 *)this + 0x38) = get_player_by_client_id(*(u16 *)((s8 *)this + 0x3C));
     if ((s32) *(s32 *)((s8 *)this + 0x4C) != 0) {
         step_photon_blast_sequence(this);

@@ -6,8 +6,8 @@
 
 struct TObjTank : public TUnk_804AF8A0 {
     virtual ~TObjTank();
-    void render();
-    static void run_task();
+    virtual void render();
+    virtual void run_task();
     static void free_globals();
     static void load_globals();};
 

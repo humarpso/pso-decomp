@@ -6,6 +6,8 @@
 class TWindowEffectLight : public TObject {
 public:
     virtual ~TWindowEffectLight();
+    virtual void render();
+    virtual void run_task();
 public:
     f32 calc_scale();
     u32 calc_alpha();

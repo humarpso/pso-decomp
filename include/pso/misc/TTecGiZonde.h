@@ -16,7 +16,6 @@ struct TTecGiZonde
     void create(void *arg1, void *arg2, void *arg3);
     void run_task();
     static void render();
-    void tick_lifetime();
     void init_parameters();
 };
 

@@ -139,7 +139,7 @@ extern "C" void set_indexed_flags(void*,s32,u32);
 typedef char BridgeSize[sizeof(TObjHashiBase)==0xD4?1:-1];
 typedef char BridgePhase[offsetof(TObjHashiBase,phase)==0xAC?1:-1];
 typedef char BridgeRaisedY[offsetof(TObjHashiBase,raisedHeight)==0xCC?1:-1];
-void TObjHashiBase::update() {
+void TObjHashiBase::run_task() {
     f32 height;
     s32 index;
     switch (phase) {

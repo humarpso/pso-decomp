@@ -10,6 +10,9 @@ struct player_stats;
 
 struct TObjPlayer
 {
+    void render_shadows();
+    void render();
+    void run_task();
     struct ActionPalette {
         s32 bank_index;
         u8 bindings[2][4][4];
@@ -130,7 +133,6 @@ struct TObjPlayer
     void load_entry_params_volopt(s32 i);
     void set_target_id(s32 arg1);
     int construct_target_cursor_records();
-    void draw_direction_line();
     void update_follow_camera_offsets();
     void push_players_out_of_colliders();
     void snapshot_position();
@@ -152,7 +154,6 @@ struct TObjPlayer
     void set_fields_24_34_from_global(void* a1);
     void clear_counter();
     void set_cancel_flag();
-    void update_projectile_lifetime();
     static void reset_effect_count();
     void init_render_flags();
     static void step_cutscene_frame();
@@ -251,7 +252,6 @@ struct TObjPlayer
     void horizontal_distance(u8 *arg1);
     void draw_trail_strip(void *arg1, s32 arg2);
     int render_live_monitor_screen();
-    void draw_hinged_model();
     void update_warp_occupants();
     f32 calc_photon_blast_power(s32 arg1, f32 farg0);
     static s32 is_any_teammate_in_state();
@@ -353,7 +353,6 @@ struct TObjPlayer
     static s32 calc_random_scaled();
     static f32 get_scale_factor();
     static int get_battle_param(int a0);
-    void tick_countdown_destroy();
     u8 check_flag(s32 arg1);
     void *destroy(s16 arg1);
     void release_subobjects();
@@ -372,7 +371,6 @@ struct TObjPlayer
     u8 test_action_mask(s32 arg1);
     static void free_singleton();
     static void init_render_target_singleton();
-    void update_camera_effect();
     static void setup_tev_stage();
     static void draw_if_all_ready();
     static s32 check_all_players_ready();
@@ -425,7 +423,6 @@ struct TObjPlayer
     void call_vt13_with_default();
     void *destroy_enemy_object(s16 arg1);
     static void update_effect_sequence();
-    void flush_dropped_meseta();
     void activate_and_dispatch();
     static void init_effect_9472();
     void *init_and_activate();
@@ -508,8 +505,6 @@ struct TObjPlayer
     static void forward_item_effect_callback(s32 arg0, s32 arg1);
     static void invoke_menu_callback_if_set(u32 arg0);
     s32 get_entity_id();
-    void update_dropped_item();
-    void update_indicator_particle();
     void init_item_data(s32 arg1);
     s32 get_item_flags();
     void bswap_fields_x4();
@@ -550,7 +545,6 @@ struct TObjPlayer
     void *init_vtable();
     void *init_vtable_804A08B8();
     void*init_substate();
-    void draw_effect_model();
     void *init_item_shoot_model();
     static void update_game_effect_mode(s32 arg0);
     void*init_state_34();
@@ -601,7 +595,6 @@ struct TObjPlayer
     void apply_11e618_twice();
     void *init_and_configure();
     void*init_vtable_and_handler();
-    void run_explosion_collider();
     void*construct_explosion_collider();
     void draw_faust_loaded_projectile();
     void *init_state_vt2678();
@@ -636,7 +629,6 @@ struct TObjPlayer
     void*init_shot_state();
     void *init_variant();
     static void notify_hit_target(u32 arg0, u32 arg1, u32 arg2, u32 arg3);
-    void notify_and_detach_target();
     void *init_event_callbacks();
     void handle_tunnel_state_0();
     void *enter_state_2();
@@ -658,7 +650,6 @@ struct TObjPlayer
     void check_shield_combo();
     void approach_shield_effect();
     void approach_shield_value();
-    void notify_and_cleanup_fishing();
     void *init_trade_action();
     s32 get_hp_by_flag();
     void *construct_weapon_variant(s32 arg1, void *arg2);
@@ -677,8 +668,6 @@ struct TObjPlayer
     void apply_frame_camera_shake();
     void update_approach_value();
     void update_shot_effect();
-    void notify_joined_game_entity();
-    void update_or_destroy();
     void apply_scale_effect();
     void*setup_flame_effect();
     void start_weapon_recoil();
@@ -698,7 +687,6 @@ struct TObjPlayer
     void*init_position_state();
     void *initialize_effect_object();
     void*init_fields();
-    void draw_textured_model();
     void *init_shoot_model();
     void handle_container_state_3();
     void set_temp_flag10_and_update();
@@ -742,7 +730,6 @@ struct TObjPlayer
     void reset_motion_fields();
     void reset_fields();
     void reset_state_block();
-    void update_target();
     static void*get_photon_blast_entry(int a0);
     s16 get_hp();
     u16 get_section_id();
@@ -1252,7 +1239,6 @@ struct TObjPlayer
     void set_flag_524288();
     void set_flag_80000();
     static int get_instance();
-    void draw_boss_effect_parts();
     void alloc_breakup_model(s32 arg1);
     void *init_zeroed_object();
     void update_or_dispatch();
@@ -1334,11 +1320,9 @@ struct TObjPlayer
     static void create_cane_if_ready(s32 arg0, void *position);
     void draw_weapon_model_if_not_hidden();
     void *enter_state_804F27E0(s32 _w1, void * _w2);
-    static void reset_id_array_global();
     static void create_cleanup_object(void *arg0);
     static void free_static_buffer();
     static void alloc_and_run_object();
-    static void apply_loaded_item();
     static void push_id_to_list(s32 arg0);
     static void spawn_cleanup_helper(void *arg0);
     static void warn_if_gauge_low();
@@ -1382,7 +1366,6 @@ struct TObjPlayer
     void draw_model_with_arg(void* a1);
     static void draw_player_model_by_client(u16 arg0, s32 arg1, f32 farg0, f32 farg1);
     static void draw_player_model_by_id(s32 arg0, f32 farg0);
-    void draw_part_models();
     void draw_shadowed_node_tree();
     static void rebuild_players_for_stage(s32 arg0);
     s32 update_recoil_offset();
@@ -1390,7 +1373,6 @@ struct TObjPlayer
     void pick_open_direction(f32 *dir, f32 a, f32 b);
     void load_entry_params_nanodrago(s32 i);
     static s32 snap_to_ground(s32 arg0, s32 arg1);
-    void update_projectile();
     static void spawn_appearance_effect(s32 idx);
     static u8 *create_vtable_804A08B8(u8 *arg0);
     static u8 *create_substate(u8 *arg0);
@@ -1449,7 +1431,6 @@ struct TObjPlayer
     static u8 *create_vtable_804A63F0(u8 *arg0);
     static u8 *create_position_state(u8 *arg0);
     f32 call_vt5_and_get_default_scale();
-    void step_laser_fence();
     s32 is_within_range(s32 arg1);
     static void clear_photon_blast_slots();
     void place_on_area_entry();

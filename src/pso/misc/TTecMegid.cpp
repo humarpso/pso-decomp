@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804CCA78.h"
 #include "pso/misc/TTecMegid.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TTecAnti.h"
@@ -292,7 +293,7 @@ extern const f32 lbl_805DC880;
 
 extern "C" {
 
-void fn_802359E4(void *arg0);
+void run_task__13TUnk_804CCA78Fv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -548,10 +549,10 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     return arg0;
 }
 
-void fn_802359E4(void *arg0) {
-    *(s16 *)((s8 *)arg0 + 0x1E) = (s16) (*(s16 *)((s8 *)arg0 + 0x1E) + 1);
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x1E) > (s16) *(s16 *)((s8 *)arg0 + 0x1C)) {
-        queue_destruction__7TObjectFv((void *)((void *)(arg0)));
+void TUnk_804CCA78::run_task() {
+    *(s16 *)((s8 *)this + 0x1E) = (s16) (*(s16 *)((s8 *)this + 0x1E) + 1);
+    if ((s16) *(s16 *)((s8 *)this + 0x1E) > (s16) *(s16 *)((s8 *)this + 0x1C)) {
+        queue_destruction__7TObjectFv((void *)((void *)(this)));
     }
 }
 

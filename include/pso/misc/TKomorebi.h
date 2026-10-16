@@ -6,8 +6,8 @@
 
 struct TKomorebi : public TUnk_804B9870 {
     virtual ~TKomorebi();
-    void render();
-    static void run_task();
+    virtual void render();
+    virtual void run_task();
     static void free_static();
     static void load_resources();};
 

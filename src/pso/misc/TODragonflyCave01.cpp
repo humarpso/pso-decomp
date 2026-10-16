@@ -383,7 +383,7 @@ void TODragonfly::update_idle() {
 }
 #pragma pop
 
-void TODragonfly::draw_model() {
+void TODragonfly::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_80164c34_80164760 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
@@ -396,7 +396,7 @@ void TODragonfly::draw_model() {
     }
 }
 
-void TODragonfly::update() {
+void TODragonfly::run_task() {
     s32 temp_r0;
 
     *(s32 *)((s8 *)this + 0xFC) = (s32) (*(s32 *)((s8 *)this + 0xFC) + *(s32 *)((s8 *)this + 0xF8));

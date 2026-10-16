@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_804F1280.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/object/TObjFish.h"
@@ -203,7 +204,7 @@ void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f3
 extern const f32 TBoss6Rock__data_805DFF48;
 extern const f32 TBoss6Rock__data_805DFF4C;
 
-void TBoss6Rock::render_if_active() {
+void TUnk_804F1280::render() {
     u8 *arg0 = (u8 *)this;
     if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (*(f32 *)((s8 *)arg0 + 0x2C) - TBoss6Rock__data_805DFF48)) != 0)) {
         push_matrix();
@@ -219,7 +220,7 @@ void TBoss6Rock::render_if_active() {
     }
 }
 
-void TBoss6Rock::check_and_destroy() { if (is_active__10TBoss6RockFv(this) == 0) { *(int*)((char*)this + 0x1c) = 0; queue_destruction__7TObjectFv(this); } }
+void TUnk_804F1280::run_task() { if (is_active__10TBoss6RockFv(this) == 0) { *(int*)((char*)this + 0x1c) = 0; queue_destruction__7TObjectFv(this); } }
 
 extern s32 lbl_804F1280[];
 

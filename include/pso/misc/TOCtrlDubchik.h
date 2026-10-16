@@ -6,6 +6,7 @@
 
 struct TOCtrlDubchik : public TObjEnemy {
     virtual ~TOCtrlDubchik();
+    virtual void render();
     u8 unk_374[0xC];
     u32 m_380;
     u8 _pad384[0x8];
@@ -16,7 +17,7 @@ struct TOCtrlDubchik : public TObjEnemy {
     void complete_and_destroy();
     void decay_timer_and_clear_flag();
     void decay_timer_and_finish();
-    void run_task();
+    virtual void run_task();
     static void *create(void *arg0);
     static void destroy_instance();
     static void load_shared_resource();

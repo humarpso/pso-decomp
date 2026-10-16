@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C2298.h"
 #include "pso/ui/TAdDialingGC.h"
 
 extern "C" {
@@ -6,7 +7,7 @@ extern "C" {
 void TAdDialingGC__sub_801A4C90(void);
 s32 TAdDialingGC__sub_801A4C9C(void);
 void TAdDialingGC__sub_801A4CA4(void *arg0);
-void TAdDialingGC__sub_801A4D2C(void);
+void render__13TUnk_804C2298Fv(void);
 
     extern int player_action_provider_selector;
 void TAdDialingGC__sub_801A4C90(void) { player_action_provider_selector = 1; }
@@ -37,6 +38,6 @@ void TAdDialingGC__sub_801A4CA4(void *arg0) {
         return;
     }
 }
-void TAdDialingGC__sub_801A4D2C(void) {  }
+void TUnk_804C2298::render() {  }
 
 }

@@ -78,8 +78,8 @@ struct TWindowSubSymbolChat : public TObject {
     void apply_symbol();
     s32 create_symbol_list_card();
     static s32 create_chat_symbol_window(s32 arg0, s32 arg1);
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     static void set_flag_bit2(s32 *arg0);
     static void clear_flag_bit2(s32 *arg0);
     s16 get_cursor_pos();

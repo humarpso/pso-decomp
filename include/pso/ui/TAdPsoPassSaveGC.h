@@ -6,8 +6,8 @@
 
 struct TAdPsoPassSaveGC : public TAdYesNoBaseGC {
     virtual ~TAdPsoPassSaveGC();
-    void render();
-    void run_task();};
+    virtual void render();
+    virtual void run_task();};
 
 typedef char TAdPsoPassSaveGC_size[sizeof(TAdPsoPassSaveGC) == 0x48 ? 1 : -1];
 #endif

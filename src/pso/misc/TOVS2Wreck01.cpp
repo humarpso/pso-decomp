@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOVS2.h"
 #include "pso/misc/TOVS2Wall01.h"
 #include "pso/object/TObjFish.h"
 
@@ -20,7 +21,7 @@ struct VObj_8017C640 : Base_8017C640 {
 void *TOVS2Wreck01__create(void *arg0);
 void *TOVS2Wreck01__ct(void *arg0, void *arg1);
 void *__dt__12TOVS2Wreck01Fv(void *arg0, s16 arg1);
-void check_collision_effect(u8 *arg0);
+void render__5TOVS2Fv(u8 *arg0);
 s32 post_translate_matrix(void *);
 void init_wreck_object__11TOVS2Wall01FPvii(void *, void *, int);
 s32 draw_ginja_object(s32);
@@ -61,7 +62,8 @@ void *TOVS2Wreck01__ct(void *arg0, void *arg1) {
     return arg0;
 }
 
-void check_collision_effect(u8 *arg0) {
+void TOVS2::render() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0xCC) = ((VObj_8017C640 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4));
     if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) == 1) {
         push_matrix();

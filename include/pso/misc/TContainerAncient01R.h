@@ -6,6 +6,8 @@
 
 struct TContainerAncient01R : public TUnk_804806E8 {
     virtual ~TContainerAncient01R();
+    virtual void render();
+    virtual void run_task();
     static void init_table_entries();
     u8 unk_334[0x40];
 };

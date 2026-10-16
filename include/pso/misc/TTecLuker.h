@@ -6,6 +6,7 @@
 
 struct TTecLuker : public TUnk_804CC148 {
     virtual ~TTecLuker();
+    virtual void run_task();
     u32 m_ec;
     u32 m_f0;
     s16 m_f4;

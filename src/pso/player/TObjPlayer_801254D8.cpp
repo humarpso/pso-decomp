@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A2548.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -9,7 +10,7 @@ s32 queue_destruction__7TObjectFv(void *);
 
 extern f32 lbl_805DAD50;
 
-void TObjPlayer::run_explosion_collider() {
+void TUnk_804A2548::run_task() {
     f32 temp_f1;
     f32 temp_f1_2;
 

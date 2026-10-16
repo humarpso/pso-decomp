@@ -6,6 +6,7 @@
 
 struct TObjBoss2CeilJunk : public TUnk_804B9870 {
     virtual ~TObjBoss2CeilJunk();
+    virtual void run_task();
     void* m_90;
     u8 _pad94[0x8];
     void* m_9c;
@@ -13,7 +14,7 @@ struct TObjBoss2CeilJunk : public TUnk_804B9870 {
     u32 m_a8;
     u32 m_ac;
     u32 m_b0;
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void create_particle();
     u8 unk_B4[0x4];

@@ -15,8 +15,8 @@ struct TObjBoss1Rock : public TObject {
     u32 m_3c;
     u8 _pad40[0x10];
     u32 m_50;
-    void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void *construct(void *arg1, void *arg2, void *arg3, void *arg4);
     void *construct_random(void *arg1, void *arg2, void *arg3);};
 

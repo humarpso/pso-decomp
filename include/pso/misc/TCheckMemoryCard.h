@@ -16,8 +16,8 @@ struct TCheckMemoryCard : public TObject {
     u8 _pad40[0x8];
     u32 m_48;
     u32 m_4c;
-    static void render();
-    void run_task();
+    virtual void render();
+    virtual void run_task();
     void *create(void *arg1, void *arg2);
     u8 unk_50[0x200];
 };

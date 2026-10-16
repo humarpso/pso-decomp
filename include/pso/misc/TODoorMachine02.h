@@ -7,7 +7,7 @@
 struct TODoorMachine02 : public TUnk_804B0BB8 {
     virtual ~TODoorMachine02();
     void* m_d4;
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void free_statics();
     static void load_resources();

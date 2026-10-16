@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_8048E5F4.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -18,8 +19,8 @@ s32 TObjPlayer__sub_800847A8();
 s32 TObjPlayer__sub_800847CC();
 extern u8 camera_capture_overlay_alpha;
 extern f32 lbl_805D93D0;
-void TObjPlayer__sub_80083480(void* p);
-void TObjPlayer__sub_800834B0(void);
+void render_shadows__13TUnk_8048E5F4Fv(void* p);
+void run_task__13TUnk_8048E5F4Fv(void);
 void *TObjPlayer__sub_800834B4(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -45,7 +46,7 @@ void TObjPlayer::init_render_target_singleton() {
         }
     }
 }
-void TObjPlayer::update_camera_effect() {
+void TUnk_8048E5F4::render() {
     if (!(TObjPlayer__sub_800847CC() & 4)) {
         if (*(s32 *)((s8 *)this + 0x1C) & 1) {
             if (TObjPlayer__sub_800847A8() == 1) {
@@ -66,8 +67,8 @@ void TObjPlayer::update_camera_effect() {
         }
     }
 }
-void TObjPlayer__sub_80083480(void* p) { if (TObjPlayer::get_camera_flag() != 0) { TObjPlayer::set_tev_swap_mode((u8)((void*)0)); } }
-void TObjPlayer__sub_800834B0(void) {  }
+void TUnk_8048E5F4::render_shadows() { if (TObjPlayer::get_camera_flag() != 0) { TObjPlayer::set_tev_swap_mode((u8)((void*)0)); } }
+void TUnk_8048E5F4::run_task() {  }
 void *TObjPlayer__sub_800834B4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E5F4;

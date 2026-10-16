@@ -6,6 +6,7 @@
 
 struct TBoss6GravBall : public TUnk_804AF8A0 {
     virtual ~TBoss6GravBall();
+    virtual void run_task();
     u32 m_ac;
     u32 m_b0;
     u32 m_b4;
@@ -19,7 +20,7 @@ struct TBoss6GravBall : public TUnk_804AF8A0 {
     void destroy_part(s32 arg1);
     void create_emitter(s32 arg1);
     void init_parts();
-    static void render();
+    virtual void render();
     s32 get_state();
     u8 unk_CC[0x2C];
 };

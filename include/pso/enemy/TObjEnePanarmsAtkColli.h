@@ -11,7 +11,7 @@ struct TObjEnePanarmsAtkColli : public TObjEnemy {
     u32 m_380;
     u32 m_384;
     u32 m_388;
-    void run_task();
+    virtual void run_task();
     void *create(void *arg1, void *arg2, void *arg3);
     u8 unk_38C[0x4];
 };

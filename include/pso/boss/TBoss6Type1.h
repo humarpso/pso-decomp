@@ -5,6 +5,7 @@
 
 struct Boss6EffectPoint { f32 x, y, z; };
 struct TBoss6Type1 {
+    void run_task();
     void update_effect_points();
     void update_trail_points();
     u8 unknown_00[0x400];

@@ -14,11 +14,11 @@ struct TAdEp3Exist : public TObject {
     u32 m_30;
     u32 m_34;
     void draw_message_window(s32 arg1);
-    static void render();
+    virtual void render();
     int request_game_mode_transition();
     int request_scene_change();
     void close_window();
-    void run_task();
+    virtual void run_task();
     static s32 free_if_valid(s32 arg0, s16 arg1);};
 
 typedef char TAdEp3Exist_size[sizeof(TAdEp3Exist) == 0x38 ? 1 : -1];

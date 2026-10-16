@@ -14,7 +14,7 @@ struct TBoss7Crawfish : public TObjEnemy {
     void spawn_effect(s32 arg1);
     void free_child();
     void spawn_ground_effects();
-    void render();
+    virtual void render();
     void clear_object_state_exchange();
     void check_band_and_destroy();
     static void update(s32 arg0);
@@ -22,7 +22,7 @@ struct TBoss7Crawfish : public TObjEnemy {
     void aim_at_nearest_player();
     void update_attack_state();
     void change_state(s32 state);
-    void run_task();
+    virtual void run_task();
     static void destroy_instance();
     static void load_static_resource();
     f32 get_health();

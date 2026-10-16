@@ -6,6 +6,8 @@
 
 struct TObjCity_Season_EasterEgg : public TUnk_804B5E48 {
     virtual ~TObjCity_Season_EasterEgg();
+    virtual void render();
+    virtual void run_task();
 
     u8 unk_B4[0xC];
 };

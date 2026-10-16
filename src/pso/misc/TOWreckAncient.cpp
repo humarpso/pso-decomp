@@ -69,7 +69,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 
-void TOWreckAncient::draw_model() {
+void TOWreckAncient::render() {
     u8 *arg0 = (u8 *)this;
     VObj1_8017dce0 *self = (VObj1_8017dce0 *)arg0;
     if (self->m8(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {

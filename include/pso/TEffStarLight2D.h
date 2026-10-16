@@ -6,6 +6,8 @@
 class TEffStarLight2D : public TObject {
 public:
     virtual ~TEffStarLight2D();
+    virtual void render();
+    virtual void run_task();
 public:
     void copy_from_subobject(void* a1);
     void copy_from(void* q);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TFogCtrl_EOR.h"
 #include "pso/misc/TFogCtrl.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 
@@ -39,7 +40,7 @@ int update_all__8TFogCtrlFv(void*);
 
 int TQuestVmDownLoadServer::get_serial_access() { return parse_serial_value__22TAdEnterSerialAccessGCFv(this); }
 int TQuestVmDownLoadServer::poll_serial_access() { return parse_serial_value__22TAdEnterSerialAccessGCFv(this); }
-int TQuestVmDownLoadServer::update() { return update_all__8TFogCtrlFv(this); }
+void TFogCtrl_EOR::run_task() { update_all__8TFogCtrlFv(this); }
 
 extern s32 lbl_8049C700[];
 

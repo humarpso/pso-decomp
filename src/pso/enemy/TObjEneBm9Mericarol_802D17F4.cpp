@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm9Mericarol_EffCurse3.h"
 
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
@@ -295,7 +296,7 @@ s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DE778;
 extern const f32 lbl_805DE77C;
-void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o);
+void run_task__29TObjEneBm9Mericarol_EffCurse3Fv(Obj_800C4B78 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 s32 construct_collision_body(void *, void *, void *);
@@ -407,7 +408,8 @@ u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Ve
     return arg0;
 }
 
-void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o) {
+void TObjEneBm9Mericarol_EffCurse3::run_task() {
+    Obj_800C4B78 *o = (Obj_800C4B78 *)this;
     Vec_800C4B78 a;
     Vec_800C4B78 b;
     o->timer++;

@@ -16,7 +16,7 @@ struct TODoorAncient08 : public TUnk_804B0BB8 {
     u32 m_e8;
     void play_open_sound();
     void draw_switch_lights();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void free_objects();
     static void load_resources();};

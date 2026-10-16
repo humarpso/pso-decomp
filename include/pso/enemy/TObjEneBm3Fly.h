@@ -6,6 +6,7 @@
 #include <stddef.h>
 
 struct TObjEneBm3Fly {
+    void render();
     void run_task();
 
     u8 base_state[0x60];

@@ -80,7 +80,7 @@ s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 s32 queue_destruction__7TObjectFv(void *);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
-void TAdMultiPlyChrSelectGC::render(void *self) {
+void TAdMultiPlyChrSelectGC::render() {
     if (TMainTask::get_state_flag() == 1) return;
 }
 

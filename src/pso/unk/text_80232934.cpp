@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804CC870.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
@@ -43,12 +44,13 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DC840;
 extern const f32 lbl_805DC844;
 extern const f32 lbl_805DC848;
-void grants_flash_render(Obj_80232934 *arg0);
+void render__13TUnk_804CC870Fv(Obj_80232934 *arg0);
 }
 
 extern "C" {
 
-void grants_flash_render(Obj_80232934 *arg0) {
+void TUnk_804CC870::render() {
+    Obj_80232934 *arg0 = (Obj_80232934 *)this;
     Ctx_80232934 ctx;
     s32 id;
     if (TOKeyMachine01::get_global_state() == 0 || TOKeyMachine01::get_global_state() == 0x12 ||

@@ -6,7 +6,7 @@
 
 struct TODoorAncient05 : public TUnk_804B0BB8 {
     virtual ~TODoorAncient05();
-    void render();
+    virtual void render();
     static void *create(void *arg0);
     static void reset();
     static void load_resources();};

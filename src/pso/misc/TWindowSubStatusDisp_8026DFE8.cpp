@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D0948.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_8026E110_lbl_804D0948 {
@@ -19,7 +20,7 @@ s32 draw_item_list_capacity(void *, int, int, int);
 s32 draw_selected_list_entry(void *, int);
 s32 draw_window_scrollbar(void *, int, void *);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
-void render_item_list_window(u8 *arg0);
+void render__13TUnk_804D0948Fv(u8 *arg0);
 u8 * fn_80268384(void *, s32, s32, s16, s32);
 s32 TWindowShop__ct(void *, void *);
 extern s32 item_list_window_vtable[];
@@ -34,13 +35,14 @@ u8 *construct_item_list__20TWindowSubStatusDispFPviis(u8 *arg0, s32 arg1, s32 ar
 
 extern "C" {
 
-int item_list_window_update(void* p);
+int run_task__13TUnk_804D0948Fv(void* p);
 int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
 
 #pragma push
 #pragma fp_contract on
-void render_item_list_window(u8 *arg0) {
+void TUnk_804D0948::render() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     s32 n;
     void *p;
@@ -65,7 +67,7 @@ void render_item_list_window(u8 *arg0) {
 }
 #pragma pop
 
-int item_list_window_update(void* p) { return update_item_list_window(p); }
+void TUnk_804D0948::run_task() { update_item_list_window(this); }
 
 extern s32 item_list_window_vtable[];
 

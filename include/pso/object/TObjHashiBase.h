@@ -2,7 +2,7 @@
 #define PSO_OBJECT_TOBJHASHIBASE_H
 #include "types.h"
 struct TObjHashiBase {
-    void update();
+    void run_task();
     u8 _pad00[0x38];
     f32 position[3];
     u8 _pad44[0x60];

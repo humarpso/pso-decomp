@@ -401,7 +401,7 @@ f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1) {
   return TOTrap__data_805DBA3C;
 }
 
-void TOTrap::update_trap_state() {
+void TOTrap::run_task() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 1) {

@@ -14,8 +14,8 @@ struct TOAttackableCol : public TUnk_804806E8 {
     f32 apply_hit(s32 arg1);
     void release();
     void check_door_trigger();
-    void run_task();
-    static void render();
+    virtual void run_task();
+    virtual void render();
     static void *create(void *arg0);
     void bswap_state();
     void broadcast_state();

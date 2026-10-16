@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804B97C0.h"
 #include "pso/item/TObjContainerIdo.h"
 
 struct Base_8017E158_8017E154 { char pad[0x18]; };
@@ -36,12 +37,12 @@ void TObjContainerIdo__vt13(void);
 
 void TObjContainerIdo__vt12(void) {  }
 
-void TObjContainerIdo::run() {
+void TUnk_804B97C0::run_task() {
     struct VObj_8017E158_8017E154 *o = (struct VObj_8017E158_8017E154 *)this;
     o->m12();
 }
 
-void TObjContainerIdo::check_and_trigger() {
+void TUnk_804B97C0::render() {
     struct VObj_8017E184_8017E154 *o = (struct VObj_8017E184_8017E154 *)this;
     if (o->m7(*(f32 *)((s8 *)this + 0xAC), *(f32 *)((s8 *)this + 0xB0)) != 0) {
         o->m12();

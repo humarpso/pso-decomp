@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804C57F0.h"
 #include "pso/misc/TQuadSpriteCol.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -61,13 +62,13 @@ extern const f32 lbl_805DC454;
 extern "C" {
 
 void *TQuadSpriteCol__ct(void *arg0);
-void TQuadSpriteCol__sub_801E4FEC(void);
+void render__13TUnk_804C57F0Fv(void);
 void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_quad_sprite_base(void *, int);
 void quad_sprite_base_ct(void *);
 
-void TQuadSpriteCol__sub_801E4FEC(void) {  }
+void TUnk_804C57F0::render() {  }
 
 extern s32 __vt__14TQuadSpriteCol[];
 

@@ -7,8 +7,8 @@
 struct TOHangerMachine01 : public TUnk_804AFBF8 {
     virtual ~TOHangerMachine01();
     u32 m_c8;
-    void run_task();
-    void render();
+    virtual void run_task();
+    virtual void render();
     static void *create(void *arg0);
     static void free_static_model();
     static void load_shared_resource();
