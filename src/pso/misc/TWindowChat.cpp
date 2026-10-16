@@ -112,13 +112,7 @@ s32 init_parts__10TObjPlayerFPv(s32);
 s32 queue_destruction__7TObjectFv(void *);
 void render_shadows__7TObjectFv(void*);
 void *__dt__11TWindowChatFv(void *, s16);
-s32 __vt__11TWindowChat[6] = {
-    0, 0,
-    (s32)__dt__11TWindowChatFv,
-    (s32)run_task__11TWindowChatFv,
-    (s32)render__11TWindowChatFv,
-    (s32)render_shadows__7TObjectFv,
-};
+extern s32 __vt__11TWindowChat[];
 extern s32 local_client_id;
 void *__dt__11TWindowChatFv(void *arg0, s16 arg1);
 void *TWindowKeyBoardBase__ct(void *);

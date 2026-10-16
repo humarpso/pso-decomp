@@ -5,9 +5,9 @@
 
 class TWindowChat : public TObject {
 public:
+    virtual void render();
     virtual ~TWindowChat();
     virtual void run_task();
-    virtual void render();
 
     s32 submit_keyboard_input();
     void open_input();
