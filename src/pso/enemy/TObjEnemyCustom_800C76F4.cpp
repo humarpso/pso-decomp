@@ -129,7 +129,7 @@ void TObjEnemyCustom::update_knockback_state() {
             apply_actor_gravity(this, 0, lbl_805DA070, k);
         }
         update_collisions__10TObjPlayerFv(this);
-        if ((u32) *(u32 *)&this->unk_B4 != 8U) {
+        if ((u32) *(u32 *)&this->m_b4 != 8U) {
             *(s32 *)&this->state = -1;
         }
         break;

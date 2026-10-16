@@ -4,7 +4,7 @@
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include <stddef.h>
 typedef char GyaranzoPositionOffset[offsetof(TObjEneGyaranzo, position) == 0x38 ? 1 : -1];
-typedef char GyaranzoYawOffset[offsetof(TObjEneGyaranzo, yaw) == 0x60 ? 1 : -1];
+typedef char GyaranzoYawOffset[offsetof(TObjEneGyaranzo, rotation_y) == 0x60 ? 1 : -1];
 
 typedef struct Vec_800D1E4C {
     f32 x, y, z;
@@ -1311,7 +1311,7 @@ void TObjEneGyaranzo::spawn_missile() {
     temp_r31 = (s32) (lbl_805DA268 * temp_f1);
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0xF0))));
     if (temp_r3 != NULL) {
-        TObjGyaranzoMissile__sub_800D4668(temp_r3, this, &launch_position, yaw, temp_r31);
+        TObjGyaranzoMissile__sub_800D4668(temp_r3, this, &launch_position, rotation_y, temp_r31);
     }
     spawn_particle_effect((void *)((s32) &launch_position), (int)(0xF3));
     play_sound_effect((void *)(copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (this)), (s32)((int) (0x4003B20D)))), &position, (int)(0), (int)(0));

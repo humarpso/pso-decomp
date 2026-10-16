@@ -114,7 +114,7 @@ void TObjEnemyCustom::update() {
             }
         }
         update_collisions__10TObjPlayerFv(this);
-        if ((u32) *(u32 *)&this->unk_B4 != 4U) {
+        if ((u32) *(u32 *)&this->m_b4 != 4U) {
             *(s32 *)&this->state = -1;
         }
         return;

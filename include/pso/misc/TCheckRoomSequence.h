@@ -2,16 +2,10 @@
 #define PSO_MISC_TCHECKROOMSEQUENCE_H
 
 #include "types.h"
+#include "pso/misc/TShopSequence.h"
 
-struct TCheckRoomSequence
-{
-    u8 _pad1C[0x4];
-    u32 m_20;
-    u32 m_24;
-    u8 _pad28[0x4];
-    u32 m_2c;
-    u32 m_30;
-    u32 m_34;
+struct TCheckRoomSequence : public TShopSequence {
+    virtual ~TCheckRoomSequence();
     u32 m_38;
     u32 m_3c;
     u32 m_40;
@@ -23,6 +17,8 @@ struct TCheckRoomSequence
     static int get_room_table_entry(int a0);
     static void *create(void *arg0);
     static s32 get_item_def(u32 arg0);
+    u8 unk_30[0x1C];
 };
 
+typedef char TCheckRoomSequence_size[sizeof(TCheckRoomSequence) == 0x4C ? 1 : -1];
 #endif

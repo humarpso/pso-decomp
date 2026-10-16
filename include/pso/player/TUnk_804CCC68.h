@@ -3,6 +3,8 @@
 #include "types.h"
 #include "pso/effect/TEffect.h"
 
+struct TechniqueContactBody;
+
 class TUnk_804CCC68 : public TEffect {
 public:
     virtual ~TUnk_804CCC68();

@@ -2,12 +2,11 @@
 #define PSO_UI_TADCHRSELPLYPLATEGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdChrSelPlyPlateGC
-{
-    u32 m_1c;
-    u32 m_20;
-    u8 _pad24[0x480];
+struct TAdChrSelPlyPlateGC : public TObject {
+    virtual ~TAdChrSelPlyPlateGC();
+    u8 unk_1C[0x46C];
     void* m_4a4;
     u8 _pad4A8[0x40];
     u32 m_4e8;
@@ -18,6 +17,8 @@ struct TAdChrSelPlyPlateGC
     u32 m_4fc;
     u8 _pad500[0x34];
     u32 m_534;
+    u8 unk_51C[0x1C];
 };
 
+typedef char TAdChrSelPlyPlateGC_size[sizeof(TAdChrSelPlyPlateGC) == 0x538 ? 1 : -1];
 #endif

@@ -73,7 +73,7 @@ public:
     void set_field_b8(s16);
     u32 unknownAC;
     u32 animationFlags;
-    u8 unk_B4[0x4];
+    u32 m_b4;
     s16 m_b8;
     u8 unk_BA[0x2];
     u32 m_bc;

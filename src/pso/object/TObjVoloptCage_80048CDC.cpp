@@ -255,7 +255,7 @@ void TObjVoloptCage::update_breakup() {
         if (*(s16 *)&this->timer & 1) {
             idx = (s32)(lbl_805D8860 * (lbl_805D8864 * (lbl_805D8868 * (f32)rand())));
             v.x = lbl_805D886C * cos_table_lookup(idx) + this->m_2fc;
-            v.y = lbl_805D886C * (lbl_805D8868 * (f32)rand()) + *(f32 *)&this->unk_300;
+            v.y = lbl_805D886C * (lbl_805D8868 * (f32)rand()) + *(f32 *)&this->m_300;
             v.z = lbl_805D886C * sin_table_lookup(idx) + this->m_304;
             spawn_particle_effect(&v, 0xFB);
         }

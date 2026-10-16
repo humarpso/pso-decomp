@@ -1881,11 +1881,11 @@ void TBoss6Type1::update_turn_to_center() {
 }
 
 s32 TBoss6Type1::calc_field4b0_delta() {
-    return *(s32 *)((s8 *)this + 0x4B0) - this->m_32c;
+    return *(s32 *)((s8 *)this + 0x4B0) - this->hp;
 }
 
 void TBoss6Type1::latch_phase_counter() {
-    *(s32 *)((s8 *)this + 0x4B0) = (s32) this->m_32c;
+    *(s32 *)((s8 *)this + 0x4B0) = (s32) this->hp;
 }
 
 typedef char RecoveredGlobal_802B7E88_lbl_80470CEC_size[sizeof(RecoveredGlobal_802B7E88_lbl_80470CEC) == 0x30 ? 1 : -1];
@@ -2051,7 +2051,7 @@ void TBoss6Type1::advance_animations() {
     }
 }
 
-void TBoss6Type1::copy_transform(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); this->m_4 = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); this->m_c = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); this->m_14 = *(u32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }
+void TBoss6Type1::copy_transform(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); (*(f32 *)&this->m_flags) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); (*(f32 *)&this->m_next) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); (*(u32 *)&this->m_down) = *(u32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }
 
 Blk_802B8624 *copy_block__11TBoss6Type1FPvPv(Blk_802B8624 *d, Blk_802B8624 *s) {
     *d = *s;
@@ -2093,7 +2093,7 @@ void set_action_state__11TBoss6Type1FPvi(Boss_802B865C *arg0, s32 arg1) {
 
 void TBoss6Type1::render_shadows() {
     u8 *arg0 = (u8 *)this;
-    if (this->m_3c >= lbl_805DE3D0) {
+    if (this->position[1] >= lbl_805DE3D0) {
         render_actor_shadows_default();
     }
 }

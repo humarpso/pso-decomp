@@ -11,7 +11,9 @@ struct TODoorFourLightBase : public TUnk_804B0BB8 {
     virtual void vfunc_6(s16 *, s32);
     virtual void render();
     u32 m_d4;
-    u8 _padD8[0x20];
+    u8 unk_D8[0x4];
+    u32 m_dc;
+    u8 unk_E0[0x18];
     u32 m_f8;
     void clamp_light_index();
     void render_lights();};

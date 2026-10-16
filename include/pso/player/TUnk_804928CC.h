@@ -16,7 +16,7 @@ public:
     virtual void vfunc_20(void *, f32);
     virtual void vfunc_21(void *, f32 *, void *);
     virtual void vfunc_22(void *, f32 *);
-    u8 unk_AC[0x4];
+    u32 m_ac;
 };
 typedef char TUnk_804928CC_size[sizeof(TUnk_804928CC) == 0xB0 ? 1 : -1];
 

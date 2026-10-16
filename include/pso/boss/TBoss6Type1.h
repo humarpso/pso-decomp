@@ -2,29 +2,14 @@
 #define PSO_BOSS_TBOSS6TYPE1_H
 #include "types.h"
 #include <stddef.h>
+#include "pso/enemy/TObjEnemy.h"
 
 struct Boss6EffectPoint { f32 x, y, z; };
-struct TBoss6Type1 {
+struct TBoss6Type1 : public TObjEnemy {
+    virtual ~TBoss6Type1();
     void run_task();
     void update_effect_points();
     void update_trail_points();
-    u8 unk_0[0x4];
-    f32 m_4;
-    u8 unk_8[0x4];
-    f32 m_c;
-    u8 unk_10[0x4];
-    u32 m_14;
-    u8 unk_18[0x4];
-    u16 m_1c;
-    u8 unk_1E[0x1E];
-    f32 m_3c;
-    u8 unk_40[0x64];
-    void * m_a4;
-    u8 unk_A8[0x258];
-    f32 m_300;
-    u8 unk_304[0x28];
-    s16 m_32c;
-    u8 unk_32E[0x46];
     u32 m_374;
     u8 unk_378[0x80];
     s32 m_3f8;
@@ -159,8 +144,7 @@ struct TBoss6Type1 {
     void spawn_map_csn();
     static void *create_zanzo(void *arg0, void *arg1, void *arg2);
     static void *create_grav_ball(void *arg0, void *arg1);
-    void set_effect_points(f32 *a, u32 *b);
-};
+    void set_effect_points(f32 *a, u32 *b);};
 typedef char Boss6EffectPoint_size[(sizeof(Boss6EffectPoint)==0xC)?1:-1];
 typedef char TBoss6Type1_receiver_offset[(offsetof(TBoss6Type1,effect_point_receiver)==0x404)?1:-1];
 typedef char TBoss6Type1_points_offset[(offsetof(TBoss6Type1,effect_points)==0x638)?1:-1];

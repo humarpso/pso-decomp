@@ -2,6 +2,7 @@
 #define PSO_BOSS_TBOSS1DRAGON_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
 struct DragonModelVector { f32 x, y, z; };
 struct DragonModelAngles { s32 x, y, z; };
@@ -22,7 +23,8 @@ struct DragonMotion { u32 unknown00; u32 frameCount; };
 struct DragonMotionEntry { u32 unknown00; DragonMotion* motion; };
 struct DragonAnimationEntry { u32 unknown00; s32 motionIndex; u8 unknown08[8]; };
 
-struct TBoss1Dragon {
+struct TBoss1Dragon : public TObjEneDD_ST {
+    virtual ~TBoss1Dragon();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
@@ -59,37 +61,7 @@ struct TBoss1Dragon {
     static void clearControlOverride();
     static void setControlOverride(s16 controlId);
     static void requestActionRefresh();
-
-    u8 unk_0[0x18];
-
-    s32 * m_18;
-
-    u8 unk_1C[0x8];
-    s32 textureId;
-    u8 unknown028[0x34 - 0x28];
-    void* renderModel;
-    f32 positionX;
-    f32 positionY;
-    f32 positionZ;
-    u8 unknown044[0x60 - 0x044];
-    s32 angleY;
-    u8 unknown064[0xB8 - 0x64];
-    s16 animationAction;
-    u8 unknown0BA[0xC0 - 0xBA];
-    f32 animationFrame;
-    u8 unknown0C4[0xD8 - 0xC4];
-    DragonAnimationEntry* lowDetailAnimations;
-    DragonMotionEntry* motionResources;
-    u8 unknown0E0[0x2B8 - 0xE0];
-    s16 maxHp;
-    u8 unknown2BA[0x326 - 0x2BA];
-    s16 state;
-    u8 unknown328[0x32C - 0x328];
-    s16 hp;
-    u8 unknown32E[0x354 - 0x32E];
-    f32 lowDetailAnimationIndex;
-    f32 lowDetailAnimationFrame;
-    u8 unknown35C[0x394 - 0x35C];
+    u8 unk_374[0x20];
     f32 targetX;
     f32 targetY;
     f32 targetZ;
@@ -170,32 +142,19 @@ struct TBoss1Dragon {
     void *dt(s16 arg1);
     static void select_fireball_particle_table();
     static void init_gravity_globals();
-    int get_position();
-};
+    int get_position();};
 
 #include <stddef.h>
 #define DRAGON_OFFSET(member, offset) \
     typedef char DragonOffset_##member[(offsetof(TBoss1Dragon, member) == offset) ? 1 : -1]
 typedef char DragonModelNodeSize[(sizeof(DragonModelNode) == 0x38) ? 1 : -1];
 typedef char DragonModelNodeChild[(offsetof(DragonModelNode, child) == 0x2C) ? 1 : -1];
-DRAGON_OFFSET(textureId, 0x24);
-DRAGON_OFFSET(angleY, 0x60);
-DRAGON_OFFSET(lowDetailAnimations, 0xD8);
-DRAGON_OFFSET(motionResources, 0xDC);
-DRAGON_OFFSET(lowDetailAnimationIndex, 0x354);
-DRAGON_OFFSET(lowDetailAnimationFrame, 0x358);
-DRAGON_OFFSET(animationAction, 0xB8);
-DRAGON_OFFSET(animationFrame, 0xC0);
-DRAGON_OFFSET(state, 0x326);
 DRAGON_OFFSET(controlTimer, 0x768);
 DRAGON_OFFSET(effectResource, 0x778);
 DRAGON_OFFSET(stateStep, 0x864);
 DRAGON_OFFSET(impactAge, 0x868);
 DRAGON_OFFSET(fallVelocity, 0x87C);
 DRAGON_OFFSET(rootHeight, 0x880);
-DRAGON_OFFSET(positionX, 0x38);
-DRAGON_OFFSET(maxHp, 0x2B8);
-DRAGON_OFFSET(hp, 0x32C);
 DRAGON_OFFSET(targetX, 0x394);
 DRAGON_OFFSET(flags, 0x3C0);
 DRAGON_OFFSET(phase, 0x3E4);

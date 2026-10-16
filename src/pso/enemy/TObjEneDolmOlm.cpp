@@ -1867,7 +1867,7 @@ void check_target_in_range__14TObjEneDolmOlmFPv(u8 *arg0) {
 void TObjEneDolmOlm::advance_position() {
     u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    *(f32 *)&this->unk_300 = (f32) (*(f32 *)&this->unk_300 + TObjEneDolmOlm__data_805DEF6C);
+    *(f32 *)&this->m_300 = (f32) (*(f32 *)&this->m_300 + TObjEneDolmOlm__data_805DEF6C);
 }
 void TObjEneDolmOlm::request_stand_action() { this->m_b8 = 1; }
 #pragma push

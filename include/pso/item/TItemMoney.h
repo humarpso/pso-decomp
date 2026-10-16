@@ -2,11 +2,9 @@
 #define PSO_ITEM_TITEMMONEY_H
 
 #include "types.h"
+#include "pso/item/TItem.h"
 
-struct TItemMoney
-{
-    u8 _pad1C[0xDC];
-    u32 m_f8;
-};
+struct TItemMoney : public TItem {
+    virtual ~TItemMoney();};
 
 #endif

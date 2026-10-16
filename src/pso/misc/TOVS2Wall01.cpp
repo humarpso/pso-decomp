@@ -56,7 +56,7 @@ void TOVS2Wall01::spawn_debris(s32 arg1) {
     temp_r5 = (u8 *)((void *)((u8 *)(&vs2_wall_debris_desc.value) + -4));
     *(ByteBlock_4C *)(copy_storage_8017BC10.bytes) = *(const ByteBlock_4C *)((s32) temp_r5 + 4);
     (*(f32 *)(copy_storage_8017BC10.bytes + 0xC)) = this->m_2fc;
-    (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = *(f32 *)&this->unk_300;
+    (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = *(f32 *)&this->m_300;
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x14)) = this->m_304;
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x38)) = *(f32 *)((s8 *)arg0 + 0x3C);
     (*(s32 *)(copy_storage_8017BC10.bytes + 0x40)) = get_bml_model((int) (TOVS2Wall01__bml_resource), (void *) (arg1));

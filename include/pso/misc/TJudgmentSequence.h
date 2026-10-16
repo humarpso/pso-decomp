@@ -2,20 +2,17 @@
 #define PSO_MISC_TJUDGMENTSEQUENCE_H
 
 #include "types.h"
+#include "pso/misc/TShopSequence.h"
 
-struct TJudgmentSequence
-{
+struct TJudgmentSequence : public TShopSequence {
+    virtual ~TJudgmentSequence();
     void vfunc_11();
-    u8 _pad1C[0x4];
-    u32 m_20;
-    u32 m_24;
-    u8 _pad28[0x4];
-    u32 m_2c;
-    u32 m_30;
     void handle_close_input();
     void handle_confirm();
     void setup_counter_camera();
     static void *create(void *arg0);
+    u8 unk_1C[0x18];
 };
 
+typedef char TJudgmentSequence_size[sizeof(TJudgmentSequence) == 0x34 ? 1 : -1];
 #endif

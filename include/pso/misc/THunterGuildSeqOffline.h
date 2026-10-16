@@ -2,17 +2,11 @@
 #define PSO_MISC_THUNTERGUILDSEQOFFLINE_H
 
 #include "types.h"
+#include "pso/misc/TShopSequence.h"
 
-struct THunterGuildSeqOffline
-{
+struct THunterGuildSeqOffline : public TShopSequence {
+    virtual ~THunterGuildSeqOffline();
     void vfunc_11();
-    u8 _pad1C[0x4];
-    u32 m_20;
-    u32 m_24;
-    u8 _pad28[0x4];
-    u32 m_2c;
-    u32 m_30;
-    u32 m_34;
     u32 m_38;
     void handle_select();
     void open_judgment_window();
@@ -42,6 +36,8 @@ struct THunterGuildSeqOffline
     void open_quest_list();
     void handle_window_input();
     void *init(void *arg1, void *arg2);
+    u8 unk_20[0x1C];
 };
 
+typedef char THunterGuildSeqOffline_size[sizeof(THunterGuildSeqOffline) == 0x3C ? 1 : -1];
 #endif

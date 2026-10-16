@@ -1340,7 +1340,7 @@ void TBoss3VoloptP01::update_state() {
             *(s32 *)&this->state = 1;
         case 1:
             advance_animation_playback(arg0);
-            if ((u32) *(u32 *)&this->unk_B4 != 8U) {
+            if ((u32) *(u32 *)&this->m_b4 != 8U) {
                 temp_r3_2 = *(s32 *)&this->m_388;
                 if (temp_r3_2 & 0x10000) {
                     *(s32 *)&this->m_388 = (s32) (temp_r3_2 & 0xFFFFFFFE);

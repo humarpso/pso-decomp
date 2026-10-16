@@ -2,25 +2,11 @@
 #define PSO_BOSS_TBOSS5GRYPHON_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TBoss5Gryphon
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x74];
-    u32 m_b0;
-    u8 _padB4[0x4];
-    s16 m_b8;
-    u8 _padBA[0x1F6];
-    u32 m_2b0;
-    u8 _pad2B4[0x72];
-    s16 m_326;
-    u8 _pad328[0x28];
-    u32 m_350;
-    u8 _pad354[0x12C];
+struct TBoss5Gryphon : public TObjEneDD_ST {
+    virtual ~TBoss5Gryphon();
+    u8 unk_374[0xF0];
     u32 m_480;
     u8 _pad484[0x10];
     void* m_494;
@@ -58,6 +44,8 @@ struct TBoss5Gryphon
     u8 _pad734[0x40];
     u32 m_774;
     u32 m_778;
+    u8 unk_760[0x1C];
 };
 
+typedef char TBoss5Gryphon_size[sizeof(TBoss5Gryphon) == 0x77C ? 1 : -1];
 #endif

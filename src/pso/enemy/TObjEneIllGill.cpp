@@ -1578,7 +1578,7 @@ void TObjEneIllGill::run_attack_phase() {
         if (horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805E02C8) {
             move_toward_dest_with_detour();
         } else {
-            *(f32 *)&this->unk_300 = (f32) (*(f32 *)&this->unk_300 + TObjEneIllGill__data_805E02DC);
+            *(f32 *)&this->m_300 = (f32) (*(f32 *)&this->m_300 + TObjEneIllGill__data_805E02DC);
             temp_r4 = (unsigned char *) (*(void * *)&this->movementParameters);
             enemy_wander_home((void *) (arg0), (int) (*(s32 *)((s8 *)temp_r4 + 8)), (f32) (lbl_805E02E8 * *(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805E02C4), (f32) (lbl_805E02FC));
         }
