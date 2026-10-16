@@ -86,7 +86,7 @@ void TOHangerMachine01::run_task() {
 void TOHangerMachine01::render() {
     u8 *arg0 = (u8 *)this;
     u8 *p;
-    if (((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
+    if (((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));

@@ -72,7 +72,7 @@ void TObjKabochaLobby::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    if (((s32) *(s32 *)&this->m_c8 != 0) && ((u32) TObjKabochaLobby__lobby_type != 0U) && (((VObj18_8035346c *) arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0)) {
+    if (((s32) *(s32 *)&this->m_c8 != 0) && ((u32) TObjKabochaLobby__lobby_type != 0U) && (((VObj18_8035346c *) arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0)) {
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param((int) (this->texture_id));
         push_matrix();

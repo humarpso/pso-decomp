@@ -32,13 +32,13 @@ extern s32 barrier_energy_model;
 
 void TOBarrierEnergy01::render() {
     u8 *arg0 = (u8 *)this;
-    if (((BarrierObj_80157F30*)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
+    if (((BarrierObj_80157F30*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         TParticleCtrl::begin_effect_render();
-        draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unk_BC, this->m_b0);
+        draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->m_bc, this->m_b0);
         TParticleCtrl::end_effect_render();
         TObjFish::set_global_param(*(s32 *)((s8 *)TOBarrierEnergy01__texture_lists + 8));
         draw_ginja_object(barrier_energy_model);

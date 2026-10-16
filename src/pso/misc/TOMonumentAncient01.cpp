@@ -22,7 +22,7 @@ extern s32 TOMonumentAncient01__resource_bundle;
 
 void TOMonumentAncient01::render() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj1_8017262C*)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) {
+    if (((VObj1_8017262C*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) {
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);

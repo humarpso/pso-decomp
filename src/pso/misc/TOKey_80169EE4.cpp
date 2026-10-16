@@ -63,7 +63,7 @@ extern s32 lbl_804B27D8[];
 
 void *TOKey::destroy_key_object(s16 arg1) {
     if (this != NULL) {
-        *(s32 * *)&this->m_34 = lbl_804B27D8;
+        *(s32 * *)((u8 *)this + 0x18) = lbl_804B27D8;
         destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -76,10 +76,10 @@ extern s32 lbl_804B27D8[];
 
 void *TOKey::init() {
     init_map_object_base(this);
-    *(s32 * *)&this->m_34 = lbl_804B27D8;
+    *(s32 * *)((u8 *)this + 0x18) = lbl_804B27D8;
     *(u32 *)((s8 *)this + 0xD0) = -1;
     this->m_e4 = 0;
-    this->m_c8 = 0;
+    this->m_ac = 0;
     *(u32 *)((s8 *)this + 0xCC) = 0;
     *(u32 *)((s8 *)this + 0xD4) = 0;
     *(u32 *)((s8 *)this + 0xD8) = 0;

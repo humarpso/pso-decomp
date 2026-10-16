@@ -102,7 +102,7 @@ void TOComputerMachine01::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     u8 *temp_r31_4;
-    this->m_e0 = ((VObj_18_26a62c *)(arg0))->m8(this->m_c0, *(f32 *)&this->unk_C4);
+    this->m_e0 = ((VObj_18_26a62c *)(arg0))->m8(this->m_c0, *(f32 *)&this->m_c4);
     if ((s32) this->m_e0 == 1) {
         if ((s32) TOComputerMachine01__last_render_frame_tick != (s32) actor_frame_tick) {
             TOComputerMachine01__last_render_frame_tick = actor_frame_tick;

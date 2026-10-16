@@ -2,27 +2,12 @@
 #define PSO_MISC_TOKEYMACHINE01_H
 
 #include "types.h"
+#include "pso/misc/TOKey.h"
 
-struct TOKeyMachine01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x4];
-    void* m_68;
-    u8 _pad6C[0x1C];
-    u32 m_88;
-    u8 _pad8C[0x44];
-    u32 m_d0;
-    u32 m_d4;
-    u8 _padD8[0x10];
-    void* m_e8;
-    u8 _padEC[0xC];
-    u32 m_f8;
+struct TOKeyMachine01 : public TOKey {
+    virtual ~TOKeyMachine01();
+    u8 unk_D8[0x4];
+    u32 m_dc;
     static s32 get_global_state();
     void run_task();
     void render();
@@ -31,6 +16,8 @@ struct TOKeyMachine01
     static void load_assets();
     static s32 is_state_active();
     void send_switch_changed(s32 flags);
+    u8 unk_E0[0x1C];
 };
 
+typedef char TOKeyMachine01_size[sizeof(TOKeyMachine01) == 0xFC ? 1 : -1];
 #endif

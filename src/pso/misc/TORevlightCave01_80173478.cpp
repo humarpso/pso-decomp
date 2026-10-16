@@ -43,7 +43,7 @@ void TORevlightCave01::run_task() {
 
 void TORevlightCave01::render() {
     u8 *arg0 = (u8 *)this;
-    if (((TORevlightCave01_80173478*)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
+    if (((TORevlightCave01_80173478*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_z(0, this->rotation_z);

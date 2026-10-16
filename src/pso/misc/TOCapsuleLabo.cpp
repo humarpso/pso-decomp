@@ -125,7 +125,7 @@ void TOCapsuleLabo::render() {
     u8 *temp_r31;
     u8 *temp_r31_2;
 
-    this->m_e0 = ((VObj802AF370_802af370_802AF2C8 *) arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4);
+    this->m_e0 = ((VObj802AF370_802af370_802AF2C8 *) arg0)->m8(this->m_c0, *(f32 *)&this->m_c4);
     if ((s32) this->m_e0 == 1) {
         TObjFish::set_global_param((int) (this->texture_id));
         if ((s32) this->m_cc == 1) {

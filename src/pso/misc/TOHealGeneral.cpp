@@ -150,7 +150,7 @@ void TOHealGeneral::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
 
-    if (((VObj_801695a8_80169520 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
+    if (((VObj_801695a8_80169520 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));

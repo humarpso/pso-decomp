@@ -370,13 +370,13 @@ void TODragonfly::update_idle() {
 
 void TODragonfly::render() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj_80164c34_80164760 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
+    if (((VObj_80164c34_80164760 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         translate_matrix(0, lbl_805DB580, *(f32 *)((s8 *)arg0 + 0xF0), lbl_805DB580);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unk_BC, this->m_b0);
+        draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->m_bc, this->m_b0);
         pop_matrix();
     }
 }

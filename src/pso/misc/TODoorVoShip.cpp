@@ -122,12 +122,12 @@ void TODoorVoShip::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     u8 *temp_r31_4;
-    if ((((VObj_801639B4 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) && (*(s32 *)&this->m_cc & 0xE)) {
+    if ((((VObj_801639B4 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (*(s32 *)&this->m_cc & 0xE)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
-        TObjEneSlimeOne__sub_803E4B54((int) (*(s32 *)&this->model), (int) (*(s32 *)&this->unk_BC), (int) (*(s32 *)&this->m_d0), (f32) (this->m_b0));
+        TObjEneSlimeOne__sub_803E4B54((int) (*(s32 *)&this->model), (int) (*(s32 *)&this->m_bc), (int) (*(s32 *)&this->m_d0), (f32) (this->m_b0));
         TObjFish::set_global_param((int) (*(s32 *)&this->m_d8));
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;

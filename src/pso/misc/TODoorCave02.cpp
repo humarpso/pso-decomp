@@ -126,7 +126,7 @@ s32 TODoorCave02::draw_parts(void *arg1_) {
 
 void TODoorCave02::render() {
     u8 *arg0 = (u8 *)this;
-    if ((((VObj_80161D38 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB4C4) != 0)) {
+    if ((((VObj_80161D38 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB4C4) != 0)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
@@ -136,7 +136,7 @@ void TODoorCave02::render() {
             draw_parts((void *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 0x30)));
         } else {
             TObjFish::set_global_param(*(s32 *)((s8 *)cave_door02_resources + 4));
-            draw_ginja_model_with_motion(*(void * *)&this->model, *(s32 *)&this->unk_BC, this->m_b0);
+            draw_ginja_model_with_motion(*(void * *)&this->model, *(s32 *)&this->m_bc, this->m_b0);
         }
         pop_matrix();
     }

@@ -6,15 +6,12 @@
 
 struct TOSensorAncient01 : public TOSensor {
     virtual ~TOSensorAncient01();
-    u32 m_ec;
-    u8 _padF0[0x4];
-    u32 m_f4;
+    u32 m_d8;
     void render();
     static void *create(void *arg0);
     static void destroy();
     static void load_resources();
-    u8 unk_DC[0x1C];
-};
+    u8 unk_DC[0x1C];};
 
 typedef char TOSensorAncient01_size[sizeof(TOSensorAncient01) == 0xF8 ? 1 : -1];
 #endif

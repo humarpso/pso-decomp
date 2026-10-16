@@ -2,18 +2,16 @@
 #define PSO_MISC_TOKEYCOL_H
 
 #include "types.h"
+#include "pso/misc/TOKey.h"
 
-struct TOKeyCol
-{
-    u8 _pad1C[0x6C];
-    u32 m_88;
-    u8 _pad8C[0x44];
-    u32 m_d0;
-    u32 m_d4;
+struct TOKeyCol : public TOKey {
+    virtual ~TOKeyCol();
     void send_switch_changed(s32 flags);
     void run_task();
     void render();
     static void *create(void *arg0);
+    u8 unk_D8[0x10];
 };
 
+typedef char TOKeyCol_size[sizeof(TOKeyCol) == 0xE8 ? 1 : -1];
 #endif

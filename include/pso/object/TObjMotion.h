@@ -30,7 +30,7 @@ public:
     f32 position[3];
     u32 m_44;
     u32 m_48;
-    u8 unk_4C[0x4];
+    void* m_4c;
     void* m_50;
     f32 m_54;
     void* m_58;
@@ -42,7 +42,7 @@ public:
     u32 m_70;
     void* m_74;
     u32 m_78;
-    u8 unk_7C[0x4];
+    void* m_7c;
     void * m_80;
     s32 m_84;
     u8 * m_88;

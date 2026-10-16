@@ -30,7 +30,7 @@ void TOAirconCave01::render() {
 
     temp_r4 = (unsigned char *) (*(void **)((s8 *)TOAirconCave01__model_archive + 0x42C));
     temp_r31 = (unsigned char *) (*(void **)((s8 *)temp_r4 + 8));
-    if (((AirV_80156e8c *)arg0)->m8(temp_r4, this->m_c0, *(f32 *)&this->unk_C4) != 0) {
+    if (((AirV_80156e8c *)arg0)->m8(temp_r4, this->m_c0, *(f32 *)&this->m_c4) != 0) {
         temp_r3 = *(s32 *)&this->m_5c;
         *(s32 *)&this->m_5c = (s32) (temp_r3 + 0x106);
         push_matrix((int) (temp_r3));

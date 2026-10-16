@@ -156,14 +156,14 @@ void TUnk_804B27D8::run_task() {
 #pragma fp_contract on
 void TUnk_804B27D8::render() {
     u8 *arg0 = (u8 *)this;
-    this->m_e0 = ((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4);
+    this->m_e0 = ((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4);
     if ((s32) this->m_e0 == 1) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         if ((s32) this->m_cc == 1) {
-            void *p = *(void * *)&this->unk_BC;
+            void *p = *(void * *)&this->m_bc;
             if (p != NULL) {
                 draw_model_motion(*(void * *)&this->model, p, this->m_b0);
             } else {

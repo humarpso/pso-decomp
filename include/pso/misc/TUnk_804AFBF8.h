@@ -14,9 +14,9 @@ public:
     f32 m_b0;
     u32 m_b4;
     f32 m_b8;
-    u8 unk_BC[0x4];
+    u32 m_bc;
     f32 m_c0;
-    u8 unk_C4[0x4];
+    u32 m_c4;
 };
 
 #endif

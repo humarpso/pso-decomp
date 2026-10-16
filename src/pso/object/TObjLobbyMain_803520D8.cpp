@@ -227,7 +227,7 @@ void TObjLobbyMain::render() {
     u8 *arg0 = (u8 *)this;
     s16 idx;
     s32 r;
-    if (lobby_main_lobby_type != NULL && ((Obj_8035240C *)arg0)->v8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
+    if (lobby_main_lobby_type != NULL && ((Obj_8035240C *)arg0)->v8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);

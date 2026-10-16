@@ -129,7 +129,7 @@ void TOCakeshopCave01::render() {
     u8 *arg0 = (u8 *)this;
     Model_80159F78 *m;
     s32 i;
-    if (((VObj_18_26a62c *)(arg0))->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
