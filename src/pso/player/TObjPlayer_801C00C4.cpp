@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DDD28.h"
 #include "pso/player/TObjPlayer.h"
 
 struct O_801C010C { u8 pad[0x5c]; u8 arr[1]; };
@@ -13,8 +14,8 @@ u8 TObjPlayer__sub_801C0124(O_801C0124 *self, s16 i);
 
 extern "C" {
 
-int TObjPlayer__sub_801C00FC(void);
-int TObjPlayer__sub_801C0104(void);
+int vfunc_7__13TUnk_804DDD28Fv(void);
+int vfunc_76__13TUnk_804DDD28Fv(void);
 int TObjPlayer__sub_801C210C(void*);
 
 int TObjPlayer::forward_801C210C() { return TObjPlayer__sub_801C210C(this); }
@@ -27,8 +28,8 @@ u8 is_action_id_none(s32 arg0) {
 
 int TObjPlayer::get_hold_effect_count() {  return player_action_provider_selector; }
 
-int TObjPlayer__sub_801C00FC(void) { return 0; }
-int TObjPlayer__sub_801C0104(void) { return 0; }
+int TUnk_804DDD28::vfunc_7() { return 0; }
+int TUnk_804DDD28::vfunc_76() { return 0; }
 
 u8 TObjPlayer__sub_801C010C(O_801C010C *self, s16 i) {
     return self->arr[i];

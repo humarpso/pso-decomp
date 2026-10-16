@@ -6,6 +6,7 @@
 class TUnk_804F112C : public TItemObject {
 public:
     virtual ~TUnk_804F112C();
+    virtual void vfunc_44();
 };
 
 #endif

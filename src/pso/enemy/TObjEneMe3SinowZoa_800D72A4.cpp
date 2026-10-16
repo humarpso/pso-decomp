@@ -5,12 +5,12 @@ struct O_800D72A4 { u8 pad[0x18]; f32 f18; };
 
 extern "C" {
 extern const float lbl_805DA348;
-s32 TObjEneMe3SinowZoa__sub_800D72D0(u8 *arg0);
+s32 vfunc_10__13TUnk_80494938Fv(u8 *arg0);
 s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0);
 extern const f32 lbl_805DA34C;
-s32 advance_progress_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0);
+s32 advance_toward_max__13TUnk_80494938Fv(u8 *arg0);
 extern const float lbl_805DA348;
-s32 update_timer_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0);
+s32 decay_value_toward_floor__13TUnk_80494938Fv(u8 *arg0);
 extern const float lbl_805DA348;
 extern const f32 lbl_805DA34C;
 extern const float lbl_805DA350;
@@ -24,8 +24,8 @@ s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self);
 
 extern "C" {
 
-void TObjEneMe3SinowZoa__sub_800D74A4(void* a0);
-void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void);
+void reset_obstruction_fade__13TUnk_80494938Fv(void* a0);
+void set_flags_and_apply_damage_color__13TUnk_80494938Fv(void);
 void copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void* p, void* q);
 int set_chunk_blend(int);
 int set_flags_and_apply_damage_color__10TObjPlayerFv(void);
@@ -34,11 +34,12 @@ s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
     return self->f18 > (*(const f32 *)&lbl_805DA348) && self->f18 < lbl_805DA34C;
 }
 
-s32 TObjEneMe3SinowZoa__sub_800D72D0(u8 *arg0) {
+s32 TUnk_80494938::vfunc_10() {
+    u8 *arg0 = (u8 *)this;
     return *(f32 *)((s8 *)arg0 + 0x18) > (*(const f32 *)&lbl_805DA348);
 }
 
-void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void) { set_flags_and_apply_damage_color__10TObjPlayerFv(); set_chunk_blend(8448); }
+void TUnk_80494938::set_flags_and_apply_damage_color() { set_flags_and_apply_damage_color__10TObjPlayerFv(); set_chunk_blend(8448); }
 
 s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0) {
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (*(f32 *)((s8 *)arg0 + 0x18) + *(f32 *)((s8 *)arg0 + 0x10));
@@ -46,7 +47,8 @@ s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0) {
     return *(f32 *)((s8 *)arg0 + 0x18) >= farg0;
 }
 
-s32 advance_progress_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
+s32 TUnk_80494938::advance_toward_max() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x10));
@@ -54,7 +56,8 @@ s32 advance_progress_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
     return *(f32 *)((s8 *)arg0 + 0x18) >= lbl_805DA34C;
 }
 
-s32 update_timer_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
+s32 TUnk_80494938::decay_value_toward_floor() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 - *(f32 *)((s8 *)arg0 + 0x10));
@@ -84,7 +87,7 @@ void copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void* p, void* q) { *(f32*)
 
     extern const float lbl_805DA348;
     extern const float lbl_805DA350;
-void TObjEneMe3SinowZoa__sub_800D74A4(void* a0) { *(float*)((char*)a0 + 0x18) = lbl_805DA348; *(float*)((char*)a0 + 0x0) = lbl_805DA350; *(float*)((char*)a0 + 0x4) = lbl_805DA348; *(float*)((char*)a0 + 0x8) = lbl_805DA348; *(float*)((char*)a0 + 0xc) = lbl_805DA348; }
+void TUnk_80494938::reset_obstruction_fade() { *(float*)((char*)this + 0x18) = lbl_805DA348; *(float*)((char*)this + 0x0) = lbl_805DA350; *(float*)((char*)this + 0x4) = lbl_805DA348; *(float*)((char*)this + 0x8) = lbl_805DA348; *(float*)((char*)this + 0xc) = lbl_805DA348; }
 
 }
 
@@ -92,12 +95,12 @@ void TObjEneMe3SinowZoa__sub_800D74A4(void* a0) { *(float*)((char*)a0 + 0x18) = 
 
 extern "C" {
 
-void TObjEneMe3SinowZoa__sub_800D74C4(void* a0);
+void vfunc_4__13TUnk_80494938Fv(void* a0);
 void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v);
 
     extern const float lbl_805DA348;
     extern const float lbl_805DA34C;
-void TObjEneMe3SinowZoa__sub_800D74C4(void* a0) { *(float*)((char*)a0 + 0x18) = lbl_805DA34C; *(float*)((char*)a0 + 0x0) = lbl_805DA348; *(float*)((char*)a0 + 0x4) = lbl_805DA348; *(float*)((char*)a0 + 0x8) = lbl_805DA348; *(float*)((char*)a0 + 0xc) = lbl_805DA348; }
+void TUnk_80494938::vfunc_4() { *(float*)((char*)this + 0x18) = lbl_805DA34C; *(float*)((char*)this + 0x0) = lbl_805DA348; *(float*)((char*)this + 0x4) = lbl_805DA348; *(float*)((char*)this + 0x8) = lbl_805DA348; *(float*)((char*)this + 0xc) = lbl_805DA348; }
 
 void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }
 
@@ -135,13 +138,13 @@ void init_death_params__18TObjEneMe3SinowZoaFPv(V_800D7524 *self);
 
 extern "C" {
 
-void set_speed_scale__18TObjEneMe3SinowZoaFPvi(void *arg0, s32 arg1);
+void set_rate_from_divisor__13TUnk_80494938Fl(void *arg0, s32 arg1);
 
 extern const f64 lbl_8043C6F8;
 extern const f32 lbl_805DA34C;
 
-void set_speed_scale__18TObjEneMe3SinowZoaFPvi(void *arg0, s32 arg1) {
-    *(f32 *)((s8 *)arg0 + 0x10) = (f32) (lbl_805DA34C / (f32) arg1);
+void TUnk_80494938::set_rate_from_divisor(s32 arg1) {
+    *(f32 *)((s8 *)this + 0x10) = (f32) (lbl_805DA34C / (f32) arg1);
 }
 
 #pragma push

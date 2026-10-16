@@ -29,14 +29,14 @@ struct VObj_8031DCCC : Base_8031DCCC {
 
 extern "C" {
 
-void TObjEneRecon__vt87(void *arg0);
-s32 TObjEneDD__vt86(void *);
+void vfunc_89__12TObjEneReconFv(void *arg0);
+s32 vfunc_89__9TObjEneDDFv(void *);
 
-void TObjEneRecon__vt87(void *arg0) {
-    struct VObj_8031DCCC *o = (struct VObj_8031DCCC *)arg0;
+void TObjEneRecon::vfunc_89() {
+    struct VObj_8031DCCC *o = (struct VObj_8031DCCC *)this;
     o->m86();
-    TObjEneDD__vt86(arg0);
-    ((TObjEneRecon *)arg0)->clamp_min_height();
+    vfunc_89__9TObjEneDDFv(this);
+    ((TObjEneRecon *)this)->clamp_min_height();
 }
 
 }

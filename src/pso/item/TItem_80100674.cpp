@@ -196,33 +196,33 @@ void replace_item_with_new_code(void *arg0, u32 arg1);
 
 extern "C" {
 
-void TItem__sub_80100674(void);
-void TItem__sub_80100678(void);
+void vfunc_34__5TItemFv(void);
+void vfunc_17__5TItemFv(void);
 void TItem__sub_8010067C(void);
-int TItem__sub_80100680(void);
-void TItem__sub_80100688(void);
-void TItem__sub_8010068C(void);
-void TItem__sub_80100690(void);
-void TItem__sub_80100694(void);
-void TItem__sub_80100698(void);
-void TItem__sub_80100758(void);
-void TItem__sub_8010075C(void);
-void TItem__sub_801007A8(void);
-void TItem__sub_801007AC(void);
-void TItem__sub_801007B0(void);
+int vfunc_32__5TItemFv(void);
+void vfunc_28__5TItemFv(void);
+void vfunc_27__5TItemFv(void);
+void vfunc_26__5TItemFv(void);
+void vfunc_25__5TItemFv(void);
+void vfunc_24__5TItemFv(void);
+void vfunc_23__5TItemFv(void);
+void vfunc_22__5TItemFv(void);
+void vfunc_30__5TItemFv(void);
+void vfunc_21__5TItemFPUclll(void);
+void vfunc_20__5TItemFv(void);
 int TItem__sub_80100B8C(void* p);
 int TItem__sub_80100A40(void*);
 s32 check_flag_400__20TWindowSubStatusDispFv();
 
-void TItem__sub_80100674(void) {  }
-void TItem__sub_80100678(void) {  }
+void TItem::vfunc_34() {  }
+void TItem::vfunc_17() {  }
 void TItem__sub_8010067C(void) {  }
-int TItem__sub_80100680(void) { return 0; }
-void TItem__sub_80100688(void) {  }
-void TItem__sub_8010068C(void) {  }
-void TItem__sub_80100690(void) {  }
-void TItem__sub_80100694(void) {  }
-void TItem__sub_80100698(void) {  }
+int TItem::vfunc_32() { return 0; }
+void TItem::vfunc_28() {  }
+void TItem::vfunc_27() {  }
+void TItem::vfunc_26() {  }
+void TItem::vfunc_25() {  }
+void TItem::vfunc_24() {  }
 
 typedef struct VBase_18_94668e VBase_18_94668e;
 typedef struct VObj_18_94668e VObj_18_94668e;
@@ -250,8 +250,8 @@ void refresh_owner_stats__5TItemFPv(u8 *arg0) {
   }
 }
 
-void TItem__sub_80100758(void) {  }
-void TItem__sub_8010075C(void) {  }
+void TItem::vfunc_23() {  }
+void TItem::vfunc_22() {  }
 void TItem::update_pickup_flag(s32 arg0) {
     if (check_flag_400__20TWindowSubStatusDispFv() != 0) {
         ((TItemObject *)arg0)->set_flag_1024();
@@ -259,9 +259,9 @@ void TItem::update_pickup_flag(s32 arg0) {
     }
     ((TItem *)arg0)->use_combination_recipe();
 }
-void TItem__sub_801007A8(void) {  }
-void TItem__sub_801007AC(void) {  }
-void TItem__sub_801007B0(void) {  }
+void TItem::vfunc_30() {  }
+s32 TItem::vfunc_21(u8 *, s32, s32, s32) {  }
+void TItem::vfunc_20() {  }
 
 void give_item_to_client(s32 arg0, s32 arg1) {
     s32 temp_r3;

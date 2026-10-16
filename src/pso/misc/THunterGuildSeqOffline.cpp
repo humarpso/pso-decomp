@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TWindowMenu.h"
 
 struct Base_A_80212D9C { char pad[0x18]; };
@@ -194,7 +195,7 @@ extern "C" {
 
 void THunterGuildSeqOffline__sub_80213410(void* p);
 s32 THunterGuildSeqOffline__sub_80213458(void);
-void THunterGuildSeqOffline__vt10(void* p);
+void restore_player_state__22THunterGuildSeqOfflineFv(void* p);
 s32 create_yes_no_window(s32, u16, s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -203,7 +204,7 @@ void *create__12TQuestThreadFi(s32);
 int fn_80223480(void*);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u16 obj_getField1c(s32);
-int restore_player_state__13TShopSequenceFPv(void*);
+int restore_player_state__13TShopSequenceFv(void*);
 int set_field_20__12TQuestListVMFl(void*, void*);
 s32 set_position_xy__13TUnk_804CDFE8Fff(s32, f32, f32);
 
@@ -282,7 +283,7 @@ void THunterGuildSeqOffline::open_greeting() {
     set_field_20__12TQuestListVMFl((void*)((void *) (arg0)), (void*)((int) (2)));
 }
 
-void THunterGuildSeqOffline__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); fn_80223480(p); THunterGuildWarning::create_instance((s32)((void*)2)); set_field_20__12TQuestListVMFl((void*)(p), (void*)((void*)1)); }
+void THunterGuildSeqOffline::restore_player_state() { restore_player_state__13TShopSequenceFv(this); fn_80223480(this); THunterGuildWarning::create_instance((s32)((void*)2)); set_field_20__12TQuestListVMFl((void*)(this), (void*)((void*)1)); }
 
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 

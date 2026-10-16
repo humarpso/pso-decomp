@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -18,7 +19,7 @@ struct VObj_80092B10 : VBase_80092B10 {
 
 extern "C" {
 
-void TObjEneRe7Berura__vt103(void* p);
+void vfunc_83__16TObjEneRe7BeruraFv(void* p);
 
 int TObjEneRe7Berura__sub_80095328(void*);
 int get_target_info__9TObjEneDDFPv(void*);
@@ -57,7 +58,8 @@ extern const f32 TObjEneRe7Berura__data_805D9724;
 extern const f32 lbl_805D9728;
 extern const f32 TObjEneRe7Berura__data_805D972C;
 
-void TObjEneRe7Berura__vt104(Ene_80092B10 *self) {
+void TObjEneRe7Berura::vfunc_105() {
+    Ene_80092B10 *self = (Ene_80092B10 *)this;
     s32 idx;
     Motion_80092B10 *mot;
     f32 frame;
@@ -93,6 +95,6 @@ void TObjEneRe7Berura__vt104(Ene_80092B10 *self) {
         TParticleCtrl::end_effect_render();
     }
 }
-void TObjEneRe7Berura__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { TObjEneRe7Berura__sub_80095328(p); } }
+void TObjEneRe7Berura::vfunc_83() { if (get_target_info__9TObjEneDDFPv(this) != 0) { TObjEneRe7Berura__sub_80095328(this); } }
 
 }

@@ -37,7 +37,6 @@ struct TObjNpcBase : public TObjEnemy {
     u32 m_3ac;
     u32 m_3b0;
     u32 m_3b4;
-    void play_voice();
     static void free_static();
     void setup_common();
     void apply_set_params(s32 arg1, s32 arg2);

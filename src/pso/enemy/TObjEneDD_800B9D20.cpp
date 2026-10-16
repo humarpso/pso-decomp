@@ -15,7 +15,7 @@ struct Obj_800B9E84 {
 
 extern "C" {
 s32 minimap_render_dot(void *, int, int, int);
-void TObjEneDD__vt97(u8 *arg0);
+void vfunc_100__9TObjEneDDFv(u8 *arg0);
 s32 draw_blob_shadow(int);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 rotate_matrix_y(int, void *);
@@ -45,7 +45,8 @@ int set_param__12TObjEneLappyFl(void*);
 
     extern int model_render_flags;
 
-void TObjEneDD__vt97(u8 *arg0) {
+void TObjEneDD::vfunc_100() {
+    u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x40800)) {
         minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
     }

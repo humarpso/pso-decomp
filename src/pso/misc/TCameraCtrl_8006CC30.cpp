@@ -407,7 +407,7 @@ s32 get_camera_id__11TCameraCtrlFv();
 void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 void get_camera_offsets__12TBoss8DragonFPvPv(Vec_8006D9F0 *, Vec_8006D9F0 *);
 extern Vec_8006D9F0 follow_camera_offset_default;
-void select_follow_camera_offsets(Cam_8006D9F0 *arg0);
+void vfunc_13__13TUnk_80488E00Fv(Cam_8006D9F0 *arg0);
 FollowVector *get_position_ptr__10TObjPlayerFv(void *);
 FollowVector *get_target_ptr__11TCameraCtrlFv(void *);
 s32 clamp_distance__11TCameraCtrlFiii(int, void *, int);
@@ -847,7 +847,8 @@ void TCameraCtrl::calc_follow_position() {
     self->pos.z = self->tgt->pos.z + v.z;
 }
 
-void select_follow_camera_offsets(Cam_8006D9F0 *arg0) {
+void TUnk_80488E00::vfunc_13() {
+    Cam_8006D9F0 *arg0 = (Cam_8006D9F0 *)this;
     s32 state = TOKeyMachine01::get_global_state();
     if (state == 11) {
         Vec_8006D9F0 b0;
@@ -886,7 +887,7 @@ void select_follow_camera_offsets(Cam_8006D9F0 *arg0) {
     }
 }
 
-void TCameraCtrl::update_follow_flags() {
+void TUnk_80488E00::update_follow_flags() {
     Cam_8006DB68 *arg0 = (Cam_8006DB68 *)this;
     FollowVector *src;
     arg0->state = 5;

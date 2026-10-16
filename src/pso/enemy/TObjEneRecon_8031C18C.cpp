@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 extern "C" {
 
-void TObjEneRecon__vt103(void);
+void vfunc_83__12TObjEneReconFv(void);
 
-void TObjEneRecon__vt103(void) {  }
+s32 TObjEneRecon::vfunc_83() {  }
 
 }

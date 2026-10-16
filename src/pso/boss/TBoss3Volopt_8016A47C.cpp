@@ -34,12 +34,13 @@ s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
 s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
-void TBoss3Volopt__sub_8016A47C(s32 arg0);
+void vfunc_23__5TOKeyFv(s32 arg0);
 }
 
 extern "C" {
 
-void TBoss3Volopt__sub_8016A47C(s32 arg0) {
+void TOKey::vfunc_23() {
+    s32 arg0 = (s32)this;
     u32 temp_r3;
     temp_r3 = TOKeyMachine01::get_global_state();
     switch (temp_r3) {
@@ -101,7 +102,7 @@ void TBoss3Volopt::call_vt21() {
     struct VObj_8016A604 *o = (struct VObj_8016A604 *)this;
     o->m21();
 }
-void TOKey::play_activate_sound() {
+void TOKey::vfunc_22() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;

@@ -6,6 +6,8 @@
 
 struct TObjEneRe2Flower : public TObjEneDD_ST {
     virtual ~TObjEneRe2Flower();
+    virtual void vfunc_88();
+    virtual s32 vfunc_83();
     virtual void vfunc_105();
     virtual void vfunc_106();
     void sub_800C3DC4();
@@ -40,7 +42,6 @@ struct TObjEneRe2Flower : public TObjEneDD_ST {
     s32 check_hit_flag();
     void clear_child_flags();
     void set_child_flags();
-    void update_part_position();
     u8 *find_target_in_range();
     static void destroy_instance();
     static void *create(void *arg0);

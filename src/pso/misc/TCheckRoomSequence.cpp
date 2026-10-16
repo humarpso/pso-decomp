@@ -386,7 +386,7 @@ int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p);
 void copy_bank_from_card_window(s32 slot);
 s32 get_game_play_mode();
 int sub_8022397C__15TShopWindowBaseFv(void*);
-int restore_player_state__13TShopSequenceFPv(void*);
+int restore_player_state__13TShopSequenceFv(void*);
 int set_field_20__12TQuestListVMFl(void*, void*);
 void set_position__18TCheckRoomSequenceFff(void* p, f32 a, f32 b);
 
@@ -890,7 +890,7 @@ void open_bank__18TCheckRoomSequenceFv(u8 *arg0) {
 }
 #pragma pop
 
-void TCheckRoomSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); sub_8022397C__15TShopWindowBaseFv(p); ((int (*)(void))copy_bank_from_card_window)(); set_field_20__12TQuestListVMFl((void*)(p), (void*)((void*)1)); }
+void TCheckRoomSequence__vt10(void* p) { restore_player_state__13TShopSequenceFv(p); sub_8022397C__15TShopWindowBaseFv(p); ((int (*)(void))copy_bank_from_card_window)(); set_field_20__12TQuestListVMFl((void*)(p), (void*)((void*)1)); }
 
 void TCheckRoomSequence__vt9(TCheckRoomSequence *self) {
     static Fn_802102D0 fns[20] = {

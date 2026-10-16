@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSensor.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
 extern "C" {
@@ -64,7 +65,7 @@ void TOSensor__sub_8017546C(u8 *arg0);
 void TOSensor__sub_80175514(u8 *arg0);
 extern s32 local_client_id;
 extern const f32 lbl_805DB980;
-void update_switch_state__8TOSensorFPv(Obj_801755BC *self);
+void vfunc_24__8TOSensorFv(Obj_801755BC *self);
 s32 obj_testFlags30(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 Player_801756C4 *get_player_by_client_id(s32);
@@ -78,9 +79,9 @@ extern "C" {
 void TOSensorAncient01__vt15(void *arg0);
 void TOSensorAncient01__vt23(void);
 void *TOSensor__ct(void *arg0);
-void TOSensor__sub_80175468(void);
+void vfunc_25__8TOSensorFv(void);
 void TOSensor__vt14(void);
-void TOSensor__vt15(void);
+void vfunc_17__8TOSensorFv(void);
 void *__dt__8TOSensorFv(void *arg0, s16 arg1);
 void render__8TOSensorFv(void);
 void TOKey__ct(void *);
@@ -90,7 +91,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 
-void TOSensor__sub_80175468(void) {  }
+void TOSensor::vfunc_25() {  }
 
 extern s32 __vt__8TOSensor[];
 
@@ -162,7 +163,8 @@ void TOSensor__sub_80175514(u8 *arg0) {
     }
 }
 
-void update_switch_state__8TOSensorFPv(Obj_801755BC *self) {
+void TOSensor::vfunc_24() {
+    Obj_801755BC *self = (Obj_801755BC *)this;
     self->m12();
     if (self->state != 1) {
         self->m15();
@@ -234,7 +236,7 @@ void *TOSensor__ct(void *arg0) {
 }
 
 void TOSensor__vt14(void) {  }
-void TOSensor__vt15(void) {  }
+void TOSensor::vfunc_17() {  }
 void render__8TOSensorFv(void) {  }
 
 void TOSensorAncient01__vt23(void) {  }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -203,7 +204,7 @@ void spawn_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0)
 
 extern "C" {
 extern const f32 lbl_805DA3D8;
-s32 TObjPlayer__sub_800D9560(f32 *arg0);
+s32 vfunc_10__13TUnk_80494AE0Fv(f32 *arg0);
 extern s32 player_particle_effect_enabled;
 extern u8 corpse_mark_resource_descriptor[];
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -234,7 +235,8 @@ void load_corpse_mark_resource(void) {
     player_particle_effect_enabled = 1;
 }
 
-s32 TObjPlayer__sub_800D9560(f32 *arg0) {
+s32 TUnk_80494AE0::vfunc_10() {
+    f32 *arg0 = (f32 *)this;
     return *arg0 > lbl_805DA3D8;
 }
 
@@ -326,13 +328,13 @@ V_800D9718 *TObjPlayer__sub_800D9718(V_800D9718 *self);
 
 extern "C" {
 
-void TObjPlayer__sub_800D9680(void* a0);
+void vfunc_4__13TUnk_80494AE0Fv(void* a0);
 void *TObjPlayer__sub_800D96D0(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32, f32);
 
     extern const f32 lbl_805DA3DC;
-void TObjPlayer__sub_800D9680(void* a0) { *(float*)((char*)a0 + 0x0) = lbl_805DA3DC; *(float*)((char*)a0 + 0x4) = lbl_805DA3DC; *(float*)((char*)a0 + 0x8) = lbl_805DA3DC; *(float*)((char*)a0 + 0xc) = lbl_805DA3DC; }
+void TUnk_80494AE0::vfunc_4() { *(float*)((char*)this + 0x0) = lbl_805DA3DC; *(float*)((char*)this + 0x4) = lbl_805DA3DC; *(float*)((char*)this + 0x8) = lbl_805DA3DC; *(float*)((char*)this + 0xc) = lbl_805DA3DC; }
 
 extern const f64 lbl_8043C758;
 extern const f32 lbl_805DA3E0;

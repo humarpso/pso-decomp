@@ -126,10 +126,10 @@ extern u8 npc_default_battle_stats[];
 extern u8 npc_movement_parameters[];
 struct Tbl_8014C780 { u8 anim[0x20]; u8 x20[0x2C]; u8 vt[0x10]; };
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void draw_debug_info__12TObjNpcEnemyFv();
+extern "C" void vfunc_93__11TObjNpcBaseFv();
 extern "C" void vfunc_30__11TObjNpcBaseFv();
-extern "C" void TObjNpcFemaleBase__sub_801480F4();
-extern "C" void TObjNpcFemaleBase__sub_801480F8();
+extern "C" void vfunc_92__11TObjNpcBaseFv();
+extern "C" void vfunc_91__11TObjNpcBaseFv();
 extern "C" void debug_draw_talk__17TObjNpcFemaleBaseFv();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
@@ -149,7 +149,7 @@ extern "C" void update_and_send_enemy_hit_state();
 extern "C" void apply_hit_message_flags__10TObjPlayerFPvPv();
 extern "C" void vfunc_83__11TObjNpcBaseFv();
 extern "C" void vfunc_58__11TObjNpcBaseFv();
-extern "C" void TObjPlayer__sub_8014C5EC();
+extern "C" void vfunc_88__11TObjNpcMojaFv();
 extern "C" void vfunc_59__11TObjNpcBaseFv();
 extern "C" void add_actor_exp();
 extern "C" void apply_action_hold_status();
@@ -186,7 +186,7 @@ extern "C" void vfunc_12__9TObjEnemyFv();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void handle_message_event__17TObjNpcFemaleBaseFUs();
 extern "C" void is_actor_cadence_frame();
-extern "C" void play_voice__11TObjNpcBaseFv();
+extern "C" void vfunc_90__11TObjNpcBaseFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
@@ -243,8 +243,8 @@ void *__vt__11TObjNpcMoja[95] = {
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__11TObjNpcBaseFv,
     (void *)&update_standing__11TObjNpcBaseFv, (void *)&update_wandering__11TObjNpcBaseFv, (void *)&update_conversation__11TObjNpcBaseFv, (void *)&apply_set_params__11TObjNpcBaseFll,
-    (void *)&TObjPlayer__sub_8014C5EC, (void *)&debug_draw_talk__17TObjNpcFemaleBaseFv, (void *)&play_voice__11TObjNpcBaseFv, (void *)&TObjNpcFemaleBase__sub_801480F8,
-    (void *)&TObjNpcFemaleBase__sub_801480F4, (void *)&draw_debug_info__12TObjNpcEnemyFv, (void *)0x0,
+    (void *)&vfunc_88__11TObjNpcMojaFv, (void *)&debug_draw_talk__17TObjNpcFemaleBaseFv, (void *)&vfunc_90__11TObjNpcBaseFv, (void *)&vfunc_91__11TObjNpcBaseFv,
+    (void *)&vfunc_92__11TObjNpcBaseFv, (void *)&vfunc_93__11TObjNpcBaseFv, (void *)0x0,
 };
 extern s32 TObjNpcMoja__name;
 extern u8 *lbl_805D50D8;

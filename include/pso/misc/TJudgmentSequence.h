@@ -6,6 +6,7 @@
 
 struct TJudgmentSequence : public TShopSequence {
     virtual ~TJudgmentSequence();
+    virtual void restore_player_state();
     void vfunc_11();
     void handle_close_input();
     void handle_confirm();

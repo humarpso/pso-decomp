@@ -6,6 +6,7 @@
 class TUnk_804887F8 : public TUnk_80488E00 {
 public:
     virtual ~TUnk_804887F8();
+    virtual void update_follow_flags();
     void*init();
     u8 unk_110[0x20];
 };

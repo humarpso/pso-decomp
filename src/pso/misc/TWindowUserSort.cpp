@@ -50,9 +50,9 @@ u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TWindowMainMenu1P__vt5(u8 *arg0);
-void TWindowMainMenu1P__vt6(void *arg0);
-void TWindowMainMenu1P__vt7(void* p);
+void vfunc_7__17TWindowMainMenu1PFv(u8 *arg0);
+void vfunc_8__17TWindowMainMenu1PFv(void *arg0);
+void vfunc_9__17TWindowMainMenu1PFv(void* p);
 void *__dt__15TWindowUserSortFv(void *arg0, s16 arg1);
 s32 TCameraCtrl__sub_800695A0(void *);
 int update_window_entry_list(void*, void*);
@@ -95,9 +95,10 @@ u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TWindowMainMenu1P__vt7(void* p) { if (close_active_submenu__15TWindowMainMenuFPv(p) != 0) { ((TWindowMainMenu1P *)p)->create_char_select_slot(); } }
+void TWindowMainMenu1P::vfunc_9() { if (close_active_submenu__15TWindowMainMenuFPv(this) != 0) { ((TWindowMainMenu1P *)this)->create_char_select_slot(); } }
 
-void TWindowMainMenu1P__vt5(u8 *arg0) {
+void TWindowMainMenu1P::vfunc_7() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
 
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x4C);
@@ -107,8 +108,8 @@ void TWindowMainMenu1P__vt5(u8 *arg0) {
     }
 }
 
-void TWindowMainMenu1P__vt6(void *arg0) {
-    if (*(s32 *)((s8 *)arg0 + 0x4C) & 1) {
+void TWindowMainMenu1P::vfunc_8() {
+    if (*(s32 *)((s8 *)this + 0x4C) & 1) {
         close_and_clear_flags__15TWindowMainMenuFPv();
     }
 }

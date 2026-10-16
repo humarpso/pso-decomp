@@ -134,12 +134,12 @@ extern s32 __vt__12TObjNpcEnemy[];
 extern s32 TObjNpcEnemy_class_name;
 u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 advance_animation_playback(void *);
-s32 draw_debug_info__12TObjNpcEnemyFv();
+s32 vfunc_93__11TObjNpcBaseFv();
 void debug_printf_at(s32, const char *, ...);
 extern char lbl_80472600[];
 extern char lbl_80472610[];
 extern char lbl_80472620[];
-void TObjNpcEnemy__vt91(u8 *arg0);
+void vfunc_93__12TObjNpcEnemyFv(u8 *arg0);
 void *memmove(void *, const void *, u32);
 extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__entry_table;
 extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__entry_table;
@@ -157,7 +157,7 @@ struct NpcV_802d7748_802D745C : NpcBase_802d7748_802D745C {
 };
 
 void * TObjNpcEnemy__create(void *arg0);
-void TObjNpcEnemy__vt86(void *arg0);
+void vfunc_88__12TObjNpcEnemyFv(void *arg0);
 void *__dt__12TObjNpcEnemyFv(void *arg0, s16 arg1);
 s32 draw_ginja_object(s32);
 void *TObjControl__ct(void *, void *);
@@ -232,15 +232,15 @@ s32 TObjNpcEnemy::sub_802D7444() {
     return (**(s16 **)((s8 *)this + 0x3B8) != 0x3F) ? 1 : 0;
 }
 
-void TObjNpcEnemy__vt86(void *arg0) {
+void TObjNpcEnemy::vfunc_88() {
     void *temp_r4;
 
-    temp_r4 = *(void **)((s8 *)arg0 + 0x3B8);
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 2) {
-        *(s16 *)((s8 *)arg0 + 0xB8) = (s16) *(s16 *)((s8 *)temp_r4 + 0x1C);
+    temp_r4 = *(void **)((s8 *)this + 0x3B8);
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 2) {
+        *(s16 *)((s8 *)this + 0xB8) = (s16) *(s16 *)((s8 *)temp_r4 + 0x1C);
         return;
     }
-    *(s16 *)((s8 *)arg0 + 0xB8) = (s16) *(s16 *)((s8 *)temp_r4 + 0x1E);
+    *(s16 *)((s8 *)this + 0xB8) = (s16) *(s16 *)((s8 *)temp_r4 + 0x1E);
 }
 
 extern const f32 lbl_805DE7D8;
@@ -277,9 +277,10 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
     *(f32 *)((s8 *)(this->m_a4) + 0xC) = (f32) *(f32 *)((s8 *)(*(void * *)&this->m_3b8) + 0x10);
 }
 
-void TObjNpcEnemy__vt91(u8 *arg0) {
+void TObjNpcEnemy::vfunc_93() {
+    u8 *arg0 = (u8 *)this;
     s16 *p;
-    draw_debug_info__12TObjNpcEnemyFv();
+    vfunc_93__11TObjNpcBaseFv();
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130018, lbl_80472600);
     debug_printf_at(0x13001A, lbl_80472610);

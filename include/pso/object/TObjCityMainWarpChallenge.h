@@ -6,6 +6,7 @@
 
 struct TObjCityMainWarpChallenge : public TObjAreaWarp {
     virtual ~TObjCityMainWarpChallenge();
+    virtual void vfunc_20();
     void count_players_in_warp_radius();
     void update_challenge_state();
     void trigger_warp_effect(s32);

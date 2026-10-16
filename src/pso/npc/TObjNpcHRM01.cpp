@@ -115,7 +115,7 @@ extern char TObjNpcHRM01__body_texture_filename[];
 extern "C" {
 
 void * TObjNpcLappy__create(void *arg0);
-void TObjNpcLappy__sub_8014B620(void *arg0);
+void vfunc_88__12TObjNpcLappyFv(void *arg0);
 void *__dt__12TObjNpcHRM01Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
@@ -169,12 +169,12 @@ u8 *TObjNpcHRM01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjNpcLappy__sub_8014B620(void *arg0) {
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 2) {
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+void TObjNpcLappy::vfunc_88() {
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 2) {
+        *(s16 *)((s8 *)this + 0xB8) = 0;
         return;
     }
-    *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+    *(s16 *)((s8 *)this + 0xB8) = 1;
 }
 
 extern void *tl_04;

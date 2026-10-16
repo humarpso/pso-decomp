@@ -6,6 +6,8 @@
 
 struct TObjEneMe3SinowZoaReal : public TObjEneMe3SinowZoa {
     virtual ~TObjEneMe3SinowZoaReal();
+    virtual u8 is_target_in_range();
+    virtual s32 try_run_effect_m7();
     void vfunc_63();
     void vfunc_62();
     static void *create_instance(void *arg0);

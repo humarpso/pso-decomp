@@ -465,7 +465,7 @@ u32 find_entity_by_id(int);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern const f32 TTecRaFoie__data_805DC8CC;
-void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);
+void vfunc_8__10TTecRaFoieFPv(TTecRaFoie_80237FB8 *self);
 struct Profile_80237A94 { void *entries; u32 count; };
 struct Self_80237A94 {
     u8 pad0[0x18];
@@ -491,7 +491,7 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 
 extern "C" {
 
-void TTecRaFoie__vt7(u8 *arg0);
+void vfunc_9__10TTecRaFoieFv(u8 *arg0);
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -611,8 +611,8 @@ void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
 
 void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
 
-void TTecRaFoie__vt7(u8 *arg0);
-void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);
+void vfunc_9__10TTecRaFoieFv(u8 *arg0);
+void vfunc_8__10TTecRaFoieFPv(TTecRaFoie_80237FB8 *self);
 
 }
 #undef VecCopy__FP3VecPC3Vec

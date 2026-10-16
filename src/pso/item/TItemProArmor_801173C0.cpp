@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049FED0.h"
 #include "pso/item/TUnk_8049FE00.h"
 #include "pso/item/TUnk_8049FEB8.h"
 #include "pso/item/TItemProArmor.h"
@@ -190,7 +191,7 @@ void create__13TItemProArmorFiUi(s32 arg0, u32 arg1) {
 }
 
     extern int tl_05;
-void TItemProArmor::create_armor() { create__13TItemProArmorFiUi((s32)((s32)((void*)(tl_05))), (u32)((u32)((void*)(*(int *)&this->m_f0)))); }
+void TUnk_8049FED0::vfunc_44() { create__13TItemProArmorFiUi((s32)((s32)((void*)(tl_05))), (u32)((u32)((void*)(*(int *)&this->m_f0)))); }
 
 extern s32 lbl_8049FED0[];
 

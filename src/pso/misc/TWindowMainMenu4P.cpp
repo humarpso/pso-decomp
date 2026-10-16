@@ -31,8 +31,8 @@ void TWindowMainMenu4P__vt4(u8 *arg0);
 extern "C" {
 
 void *TWindowMainMenu4P__ct(void *arg0);
-void TWindowMainMenu4P__vt6(void *arg0);
-void TWindowMainMenu4P__vt7(void* p);
+void vfunc_8__17TWindowMainMenu4PFv(void *arg0);
+void vfunc_9__17TWindowMainMenu4PFv(void* p);
 void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1);
 void TWindowMainMenu__ct(void *);
 int TWindowMainMenu__sub_80263FE0(void*);
@@ -42,10 +42,10 @@ void __dt__15TWindowMainMenuFv(void *, int);
 int close_active_submenu__15TWindowMainMenuFPv(void*);
 s32 close_and_clear_flags__15TWindowMainMenuFPv();
 
-void TWindowMainMenu4P__vt7(void* p) { if (close_active_submenu__15TWindowMainMenuFPv(p) != 0) { ((TWindowMainMenu *)p)->show_child_window(); } }
+void TWindowMainMenu4P::vfunc_9() { if (close_active_submenu__15TWindowMainMenuFPv(this) != 0) { ((TWindowMainMenu *)this)->show_child_window(); } }
 
-void TWindowMainMenu4P__vt6(void *arg0) {
-    if (*(s32 *)((s8 *)arg0 + 0x4C) & 1) {
+void TWindowMainMenu4P::vfunc_8() {
+    if (*(s32 *)((s8 *)this + 0x4C) & 1) {
         close_and_clear_flags__15TWindowMainMenuFPv();
     }
 }

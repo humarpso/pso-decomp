@@ -222,13 +222,13 @@ extern "C" void vfunc_49__14TItemEquipBaseFv();
 extern "C" void vfunc_48__14TItemEquipBaseFv();
 extern "C" void TItemMag__vt48();
 extern "C" void TItem__sub_80100648();
-extern "C" void TItem__sub_80100674();
-extern "C" void TItem__sub_80100680();
-extern "C" void TItem__sub_80100688();
-extern "C" void TItem__sub_801007A8();
+extern "C" void vfunc_34__5TItemFv();
+extern "C" void vfunc_32__5TItemFv();
+extern "C" void vfunc_28__5TItemFv();
+extern "C" void vfunc_30__5TItemFv();
 extern "C" void TItem__sub_80100B8C();
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TObjPlayer__sub_80102BD8();
+extern "C" void vfunc_43__5TItemFv();
 extern "C" void vfunc_9__13TUnk_804B9870Fv();
 extern "C" void add_equip_stats__14TItemEquipBaseFPvi();
 extern "C" void apply_object_set_data();
@@ -243,7 +243,7 @@ extern "C" void ret_8010064C();
 extern "C" void ret_80100654();
 extern "C" void ret_8010065C();
 extern "C" void ret_80100664();
-extern "C" void ret_8010066C();
+extern "C" void vfunc_35__5TItemFv();
 extern "C" void run_task__5TItemFv();
 extern "C" void set_attach_slot__14TItemEquipBaseFSc();
 extern "C" void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();
@@ -262,10 +262,10 @@ void *__vt__8TItemMag[51] = {
     (void *)&TItemMag__vt14, (void *)&TItemMag__vt15, (void *)&serialize_to_item__8TItemMagFPv, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
     (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&TItemMag__vt24, (void *)&TItemMag__vt25,
-    (void *)&TItem__sub_80100688, (void *)&update_equip__14TItemEquipBaseFv, (void *)&TItem__sub_801007A8, (void *)&update_pickup_flag__5TItemFl,
-    (void *)&TItem__sub_80100680, (void *)&TItemEquipBase__sub_8010A77C, (void *)&TItem__sub_80100674, (void *)&ret_8010066C,
+    (void *)&vfunc_28__5TItemFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&vfunc_30__5TItemFv, (void *)&update_pickup_flag__5TItemFl,
+    (void *)&vfunc_32__5TItemFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&vfunc_34__5TItemFv, (void *)&vfunc_35__5TItemFv,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
-    (void *)&TItem__sub_80100648, (void *)&TItemMag__vt39, (void *)&TItemMag__vt40, (void *)&TObjPlayer__sub_80102BD8,
+    (void *)&TItem__sub_80100648, (void *)&TItemMag__vt39, (void *)&TItemMag__vt40, (void *)&vfunc_43__5TItemFv,
     (void *)&TItemMag__vt42, (void *)&TItemMag__vt43, (void *)&TItemMag__vt44, (void *)&TItemMag__vt45,
     (void *)&vfunc_48__14TItemEquipBaseFv, (void *)&vfunc_49__14TItemEquipBaseFv, (void *)&TItemMag__vt48,
 };

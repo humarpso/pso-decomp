@@ -95,8 +95,8 @@ Win_802649C0 *TWindowMainMenu__ct(Win_802649C0 *arg0, void *arg1, s32 arg2);
 
 extern "C" {
 
-void TWindowMainMenu__sub_80264A64(void);
-void TWindowMainMenu__vt7(void);
+void vfunc_7__15TWindowMainMenuFv(void);
+void vfunc_9__15TWindowMainMenuFv(void);
 int test_keyboard_card_flag4(void* p);
 int park_selection__15TWindowMainMenuFPv(void*);
 int TWindow__close(void*);
@@ -242,8 +242,8 @@ Win_802649C0 *TWindowMainMenu__ct(Win_802649C0 *arg0, void *arg1, s32 arg2) {
     return arg0;
 }
 
-void TWindowMainMenu__sub_80264A64(void) {  }
-void TWindowMainMenu__vt7(void) {  }
+void TWindowMainMenu::vfunc_7() {  }
+void TWindowMainMenu::vfunc_9() {  }
 int test_keyboard_card_flag4(void* p) { return TWindowKeyBoardHard::test_card_flag((s32)p, (s32)4); }
 
 }

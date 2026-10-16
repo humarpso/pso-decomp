@@ -125,7 +125,7 @@ extern s32 lbl_805D6230;
 u8 *TShopEquipmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 TShopEquipmentSequence__sub_8021D65C(void);
-s32 restore_player_state__13TShopSequenceFPv(void *);
+s32 restore_player_state__13TShopSequenceFv(void *);
 void vfunc_11__22TShopEquipmentSequenceFv(u8 *arg0);
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__slot_active_flags;
 void TShopEquipmentSequence__sub_8021DC08(void);
@@ -301,7 +301,7 @@ void TShopEquipmentSequence::vfunc_11() {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
-        restore_player_state__13TShopSequenceFPv((void *) (arg0));
+        restore_player_state__13TShopSequenceFv((void *) (arg0));
         set_field_20__12TQuestListVMFl((void *)((void *) (arg0)), (s32)((int) (1)));
         return;
     case 1:

@@ -40,15 +40,15 @@ struct Obj_800BA084 { u8 pad[0xa4]; Part_800BA084 *parts; s32 count; };
 
 extern "C" {
 void set_collider_contact_low(Part_800BA030 *);
-void TObjEneDD__vt95(Obj_800BA030 *self);
+void vfunc_98__9TObjEneDDFv(Obj_800BA030 *self);
 void set_collider_contact_high(Part_800BA084 *);
-void TObjEneDD__vt94(Obj_800BA084 *self);
+void vfunc_97__9TObjEneDDFv(Obj_800BA084 *self);
 }
 
 extern "C" {
 
-void TObjEneDD__vt93(void *arg0);
-u8 TObjEneDD__vt96(void *arg0);
+void vfunc_96__9TObjEneDDFv(void *arg0);
+u8 vfunc_99__9TObjEneDDFv(void *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern f32 lbl_805D9E98;
@@ -58,28 +58,30 @@ f32 TObjEneDD::calc_elapsed_scaled() {
     return lbl_805D9E98 * (calc_boss4_scale__10TObjPlayerFi() - lbl_805D9E9C);
 }
 
-u8 TObjEneDD__vt96(void *arg0) {
-    return (u8) (((*(s32 *)((s8 *)arg0 + 0x30) & 0x10) - 0x10) == 0);
+u8 TObjEneDD::vfunc_99() {
+    return (u8) (((*(s32 *)((s8 *)this + 0x30) & 0x10) - 0x10) == 0);
 }
 
-void TObjEneDD__vt95(Obj_800BA030 *self) {
+void TObjEneDD::vfunc_98() {
+    Obj_800BA030 *self = (Obj_800BA030 *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
         set_collider_contact_low(&self->parts[i]);
     }
 }
 
-void TObjEneDD__vt94(Obj_800BA084 *self) {
+void TObjEneDD::vfunc_97() {
+    Obj_800BA084 *self = (Obj_800BA084 *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
         set_collider_contact_high(&self->parts[i]);
     }
 }
 
-void TObjEneDD__vt93(void *arg0) {
-    ((VObj_800BA0D8_800B9FE8*)arg0)->m90();
-    ((VObj_800BA0D8_800B9FE8*)arg0)->m91();
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFBFBFFFF);
+void TObjEneDD::vfunc_96() {
+    ((VObj_800BA0D8_800B9FE8*)this)->m90();
+    ((VObj_800BA0D8_800B9FE8*)this)->m91();
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFBFBFFFF);
 }
 
 }

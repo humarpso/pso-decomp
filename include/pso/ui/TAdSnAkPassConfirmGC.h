@@ -6,6 +6,8 @@
 
 struct TAdSnAkPassConfirmGC : public TAdYesNoBaseGC {
     virtual ~TAdSnAkPassConfirmGC();
+    virtual void vfunc_8();
+    virtual void vfunc_9();
     u32 m_48;
     s32 get_confirm_state();
     virtual void render();

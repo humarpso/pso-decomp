@@ -6,6 +6,8 @@
 
 struct TBoss7Joint : public TObjEneDD {
     virtual ~TBoss7Joint();
+    virtual void vfunc_88();
+    virtual void vfunc_93();
     u8 unk_374[0x28];
     u32 m_3b8;
     u8 _pad3BC[0x4];

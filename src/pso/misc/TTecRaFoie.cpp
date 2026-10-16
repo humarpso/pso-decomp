@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TUnk_804CCB28.h"
 #pragma readonly_strings on
 
@@ -86,7 +87,7 @@ s32 is_valid_and_active__10TObjPlayerFUl(int);
 #define is_valid_and_active__10TObjPlayerFUl ((s32 (*)(TObjPlayer_80237FB8 *))is_valid_and_active__10TObjPlayerFUl)
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
-void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);
+void vfunc_8__10TTecRaFoieFPv(TTecRaFoie_80237FB8 *self);
 struct Profile_80237A94 { void *entries; u32 count; };
 struct Self_80237A94 {
     u8 pad0[0x18];
@@ -116,7 +117,7 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 
 extern "C" {
 
-void TTecRaFoie__vt7(u8 *arg0);
+void vfunc_9__10TTecRaFoieFv(u8 *arg0);
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 #define play_sound_effect ((s32 (*)(s32, s32, s32, s32))play_sound_effect)
 void *__nw__7TObjectFUl(int);
@@ -175,7 +176,8 @@ void TUnk_804CCB28::spawn_rafoie_explosion_bursts() {
     }
 }
 
-void TTecRaFoie__vt7(u8 *arg0) {
+void TTecRaFoie::vfunc_9() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     s32 temp_r3;
 
@@ -211,7 +213,8 @@ void TTecRaFoie__vt7(u8 *arg0) {
         break;
     }
 }
-void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self) {
+void TTecRaFoie::vfunc_8(void *) {
+    TTecRaFoie_80237FB8 *self = (TTecRaFoie_80237FB8 *)this;
     void *emitter;
     TObjPlayer_80237FB8 *target;
     if (self->explicit_position == 1) {

@@ -114,7 +114,7 @@ extern char lbl_8043F484[];
 
 extern "C" {
 
-void TObjNpcARM00__vt88(s32 arg0);
+void vfunc_90__12TObjNpcARM00Fv(s32 arg0);
 void * TObjNpcARW00__create(void *arg0);
 void *__dt__12TObjNpcARM00Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -170,7 +170,8 @@ u8 *TObjNpcARM00__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjNpcARM00__vt88(s32 arg0) {
+void TObjNpcARM00::vfunc_90() {
+    s32 arg0 = (s32)this;
     play_sound_effect(0x40003B08, arg0 + 0x38, 0, 0);
 }
 

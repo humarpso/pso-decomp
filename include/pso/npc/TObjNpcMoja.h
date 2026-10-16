@@ -5,7 +5,8 @@
 #include "pso/npc/TObjNpcBase.h"
 
 struct TObjNpcMoja : public TObjNpcBase {
-    virtual ~TObjNpcMoja();};
+    virtual ~TObjNpcMoja();
+    virtual void vfunc_88();};
 
 typedef char TObjNpcMoja_size[sizeof(TObjNpcMoja) == 0x3B8 ? 1 : -1];
 #endif

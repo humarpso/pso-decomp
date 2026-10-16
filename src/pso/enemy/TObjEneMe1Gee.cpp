@@ -84,23 +84,23 @@ extern "C" void vfunc_28__13TObjEneMe1GeeFv();
 extern "C" void vfunc_61__13TObjEneMe1GeeFv();
 
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TObjEneDD__vt100();
-extern "C" void TObjEneDD__vt77();
+extern "C" void vfunc_103__9TObjEneDDFPUc();
+extern "C" void vfunc_79__9TObjEneDDFv();
 extern "C" void TObjEneDD__vt82();
-extern "C" void TObjEneDD__vt83();
-extern "C" void TObjEneDD__vt84();
-extern "C" void TObjEneDD__vt87();
-extern "C" void TObjEneDD__vt88();
-extern "C" void TObjEneDD__vt89();
-extern "C" void TObjEneDD__vt90();
-extern "C" void TObjEneDD__vt91();
-extern "C" void TObjEneDD__vt92();
-extern "C" void TObjEneDD__vt93();
-extern "C" void TObjEneDD__vt94();
-extern "C" void TObjEneDD__vt95();
-extern "C" void TObjEneDD__vt96();
-extern "C" void TObjEneDD__vt97();
-extern "C" void TObjEneDD__vt99();
+extern "C" void vfunc_85__9TObjEneDDFv();
+extern "C" void vfunc_86__9TObjEneDDFv();
+extern "C" void vfunc_90__9TObjEneDDFv();
+extern "C" void vfunc_91__9TObjEneDDFv();
+extern "C" void vfunc_92__9TObjEneDDFv();
+extern "C" void vfunc_93__9TObjEneDDFv();
+extern "C" void vfunc_94__9TObjEneDDFv();
+extern "C" void vfunc_95__9TObjEneDDFv();
+extern "C" void vfunc_96__9TObjEneDDFv();
+extern "C" void vfunc_97__9TObjEneDDFv();
+extern "C" void vfunc_98__9TObjEneDDFv();
+extern "C" void vfunc_99__9TObjEneDDFv();
+extern "C" void vfunc_100__9TObjEneDDFv();
+extern "C" void vfunc_102__9TObjEneDDFv();
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void TObjEneMe1Gee__sub_800C81DC(u8 *, s32);
 extern "C" void TObjEneMe1Gee__sub_800C86DC();
@@ -253,13 +253,13 @@ void *me1_gee_dispatch_table[118] = {
     (void *)reset_pose__10TObjPlayerFPv, (void *)TObjPlayer__sub_80014840, (void *)TObjPlayer__sub_80014838, (void *)TObjPlayer__sub_80014830,
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)update_and_send_enemy_hit_state, (void *)fn_80010EC8,
-    (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)TObjEneDD__vt77,
+    (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)vfunc_79__9TObjEneDDFv,
     (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state__9TObjEnemyFv, (void *)vfunc_83__12TObjEneDD_STFv,
-    (void *)TObjEneDD__vt82, (void *)TObjEneDD__vt83, (void *)TObjEneDD__vt84, (void *)TObjEneMe1Gee__vt85,
-    (void *)TObjEneMe1Gee__vt86, (void *)TObjEneMe1Gee__vt87, (void *)TObjEneDD__vt87, (void *)TObjEneDD__vt88,
-    (void *)TObjEneDD__vt89, (void *)TObjEneDD__vt90, (void *)TObjEneDD__vt91, (void *)TObjEneDD__vt92,
-    (void *)TObjEneDD__vt93, (void *)TObjEneDD__vt94, (void *)TObjEneDD__vt95, (void *)TObjEneDD__vt96,
-    (void *)TObjEneDD__vt97, (void *)TObjEneMe1Gee__vt99, (void *)TObjEneDD__vt99, (void *)TObjEneDD__vt100,
+    (void *)TObjEneDD__vt82, (void *)vfunc_85__9TObjEneDDFv, (void *)vfunc_86__9TObjEneDDFv, (void *)TObjEneMe1Gee__vt85,
+    (void *)TObjEneMe1Gee__vt86, (void *)TObjEneMe1Gee__vt87, (void *)vfunc_90__9TObjEneDDFv, (void *)vfunc_91__9TObjEneDDFv,
+    (void *)vfunc_92__9TObjEneDDFv, (void *)vfunc_93__9TObjEneDDFv, (void *)vfunc_94__9TObjEneDDFv, (void *)vfunc_95__9TObjEneDDFv,
+    (void *)vfunc_96__9TObjEneDDFv, (void *)vfunc_97__9TObjEneDDFv, (void *)vfunc_98__9TObjEneDDFv, (void *)vfunc_99__9TObjEneDDFv,
+    (void *)vfunc_100__9TObjEneDDFv, (void *)TObjEneMe1Gee__vt99, (void *)vfunc_102__9TObjEneDDFv, (void *)vfunc_103__9TObjEneDDFPUc,
     (void *)TObjEneMe1Gee__vt102, (void *)TObjEneMe1Gee__sub_800C8B4C, (void *)TObjEneMe1Gee__sub_800C8BA8, (void *)TObjEneMe1Gee__sub_800C8950,
     (void *)TObjEneMe1Gee__sub_800C88D4, (void *)TObjEneMe1Gee__sub_800C86C4, (void *)TObjEneMe1Gee__sub_800C82A4, (void *)TObjEneMe1Gee__sub_800C81DC,
     (void *)handle_message__13TObjEneMe1GeeFPvi, (void *)TObjEneMe1Gee__sub_800C86DC, (void *)TObjEneMe1Gee__vt112, (void *)TObjEneMe1Gee__vt113,
@@ -3397,9 +3397,9 @@ extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
 s32 get_random_scaled__9TObjEneDDFv();
-int TObjEneDD__vt86(void*);
+int vfunc_89__9TObjEneDDFv(void*);
 s32 move_with_wall_slide_commit__9TObjEneDDFfff(void *, f32, f32, f32);
-u32 TObjEneDD__vt98();
+u32 vfunc_101__9TObjEneDDFPUc();
 s32 collect_enemy_target_candidates(void *, Rec_800CBB34 *);
 void refresh_and_send_entity_flags__12TBoss8DragonFv(void *);
 s32 set_player_state_default__12TBoss8DragonFv(void *);
@@ -5189,7 +5189,7 @@ void TObjEneMe1Gee__sub_800CBC1C(u8 *arg0) {
     *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 0x28);
 }
 
-int TObjEneMe1Gee__vt87(void* p) { return TObjEneDD__vt86(p); }
+int TObjEneMe1Gee__vt87(void* p) { return vfunc_89__9TObjEneDDFv(p); }
 
 void TObjEneMe1Gee__vt103(u8 *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0x3C8) & 0x100) {
@@ -5280,7 +5280,7 @@ void TObjEneMe1Gee::sub_800CBF58(f32 farg0) {
 }
 
 void TObjEneMe1Gee__vt99(void *arg0) {
-    if (TObjEneDD__vt98() == 0U) {
+    if (vfunc_101__9TObjEneDDFPUc() == 0U) {
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) & 0xFEFFFFFF);
         return;
     }

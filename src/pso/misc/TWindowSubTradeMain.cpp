@@ -57,14 +57,14 @@ extern const V3_803323D8 lbl_804775F0;
 extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF870;
 extern const f32 TObjEneMorfos__data_805DF874;
-void TObjEneMorfos__vt104(O_803323D8 *arg0);
+void vfunc_105__13TObjEneMorfosFv(O_803323D8 *arg0);
 }
 
 extern "C" {
 
 void* TObjEneMorfosArm__sub_803326B4(void* p);
 s32 TObjEneMorfosArm__sub_803326BC(void* p);
-void TObjEneMorfos__vt103(void* p);
+void vfunc_83__13TObjEneMorfosFv(void* p);
 void TWindowSubTradeMain__sub_803323A8(void* p);
 void TWindowSubTradeMain__sub_803323B8(void* p);
 void TWindowSubTradeMain__sub_803323C8(void* p);
@@ -74,7 +74,8 @@ void TWindowSubTradeMain__sub_803323A8(void* p) { *(u16*)((char*)p + 0x60) |= 0x
 void TWindowSubTradeMain__sub_803323B8(void* p) { *(u16*)((char*)p + 0x60) &= 0xffffffbf; }
 void TWindowSubTradeMain__sub_803323C8(void* p) { *(u16*)((char*)p + 0x70) &= 0xfffffffb; }
 
-void TObjEneMorfos__vt104(O_803323D8 *arg0) {
+void TObjEneMorfos::vfunc_105() {
+    O_803323D8 *arg0 = (O_803323D8 *)this;
     s32 idx;
     f32 frame;
     Anim_803323D8 *anim;
@@ -110,7 +111,7 @@ void TObjEneMorfos__vt104(O_803323D8 *arg0) {
     }
 }
 
-void TObjEneMorfos__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { ((TObjEneMorfos *)p)->init_target_offsets(); } }
+s32 TObjEneMorfos::vfunc_83() { if (get_target_info__9TObjEneDDFPv(this) != 0) { ((TObjEneMorfos *)this)->init_target_offsets(); } }
 
 void TObjEneMorfos::update_ground_probe() {
     u8 *arg0 = (u8 *)this;

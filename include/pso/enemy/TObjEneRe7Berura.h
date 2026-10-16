@@ -6,6 +6,8 @@
 
 struct TObjEneRe7Berura : public TObjEneDD_ST {
     virtual ~TObjEneRe7Berura();
+    virtual void vfunc_88();
+    virtual void vfunc_83();
     virtual void vfunc_105();
     virtual void vfunc_106();
     void vfunc_63();

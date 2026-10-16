@@ -6,6 +6,7 @@
 
 struct TObjWarpJung : public TObjAreaWarp {
     virtual ~TObjWarpJung();
+    virtual void confirm_area_transfer(s32);
     void render();
     void run_task();
     static f32 get_static_field4_as_float();

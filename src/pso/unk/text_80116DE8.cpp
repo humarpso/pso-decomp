@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_8049FBC0.h"
 
 struct VBase_18_ddf499 { char pad[0x18]; };
 
@@ -90,7 +91,7 @@ s32 add_mst_and_item__10TObjPlayerFiUc(void *, int);
 s32 add_stat_and_item__10TObjPlayerFiUc(void *, int);
 s32 set_speed_scaled_by_camera__10TObjPlayerFiUc(void *, int);
 s32 apply_speed_with_camera_scale__10TObjPlayerFiUc(void *, int);
-void apply_material_item(u8 *arg0);
+void vfunc_44__13TUnk_8049FBC0Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -112,38 +113,39 @@ void try_pick_up_item__5TItemFPvi();
 void TItemObject__vt12();
 void TItem__sub_801005E0();
 void TItem__sub_801005DC();
-void TItem__sub_80100678();
+void vfunc_17__5TItemFv();
 void TItemObject__vt16();
 void TItem__sub_8010067C();
-void TItem__sub_801007B0();
-void TItem__sub_801007AC();
-void TItem__sub_8010075C();
-void TItem__sub_80100758();
-void TItem__sub_80100698();
-void TItem__sub_80100694();
-void TItem__sub_80100690();
-void TItem__sub_8010068C();
-void TItem__sub_80100688();
-void destroy__5TItemFv();
-void TItem__sub_801007A8();
-void TItemObject__vt29();
-void TItem__sub_80100680();
-void TObjPlayer__sub_80102BD0();
-void TItem__sub_80100674();
-void ret_8010066C();
-void load_encoded_value__11TItemObjectFv();
+void vfunc_20__5TItemFv();
+void vfunc_21__5TItemFPUclll();
+void vfunc_22__5TItemFv();
+void vfunc_23__5TItemFv();
+void vfunc_24__5TItemFv();
+void vfunc_25__5TItemFv();
+void vfunc_26__5TItemFv();
+void vfunc_27__5TItemFv();
+void vfunc_28__5TItemFv();
+void vfunc_29__5TItemFv();
+void vfunc_30__5TItemFv();
+void vfunc_31__11TItemObjectFv();
+void vfunc_32__5TItemFv();
+void vfunc_33__5TItemFv();
+void vfunc_34__5TItemFv();
+void vfunc_35__5TItemFv();
+void vfunc_36__11TItemObjectFv();
 void TItemObject__vt35();
 void TItemObject__vt36();
 void ret_8010064C();
 void TItem__sub_80100648();
 void TItem__sub_801005E4();
 void TItem__sub_801005D8();
-void TObjPlayer__sub_80102BD8();
+void vfunc_43__5TItemFv();
 void *lbl_8049FBC0[45] = {
-    0, 0, (void *)item_object_variant_deleting_dtor_80116F10, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv, (void *)render_shadows__5TItemFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__11TItemObjectFv, (void *)TItem__sub_80100B8C, (void *)classify_actor_view_detail, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFPvi, (void *)TItemObject__vt12, (void *)TItem__sub_801005E0, (void *)TItem__sub_801005DC, (void *)TItem__sub_80100678, (void *)TItemObject__vt16, (void *)TItem__sub_8010067C, (void *)TItem__sub_801007B0, (void *)TItem__sub_801007AC, (void *)TItem__sub_8010075C, (void *)TItem__sub_80100758, (void *)TItem__sub_80100698, (void *)TItem__sub_80100694, (void *)TItem__sub_80100690, (void *)TItem__sub_8010068C, (void *)TItem__sub_80100688, (void *)destroy__5TItemFv, (void *)TItem__sub_801007A8, (void *)TItemObject__vt29, (void *)TItem__sub_80100680, (void *)TObjPlayer__sub_80102BD0, (void *)TItem__sub_80100674, (void *)ret_8010066C, (void *)load_encoded_value__11TItemObjectFv, (void *)TItemObject__vt35, (void *)TItemObject__vt36, (void *)ret_8010064C, (void *)TItem__sub_80100648, (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)TObjPlayer__sub_80102BD8, (void *)apply_material_item
+    0, 0, (void *)item_object_variant_deleting_dtor_80116F10, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv, (void *)render_shadows__5TItemFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__11TItemObjectFv, (void *)TItem__sub_80100B8C, (void *)classify_actor_view_detail, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFPvi, (void *)TItemObject__vt12, (void *)TItem__sub_801005E0, (void *)TItem__sub_801005DC, (void *)vfunc_17__5TItemFv, (void *)TItemObject__vt16, (void *)TItem__sub_8010067C, (void *)vfunc_20__5TItemFv, (void *)vfunc_21__5TItemFPUclll, (void *)vfunc_22__5TItemFv, (void *)vfunc_23__5TItemFv, (void *)vfunc_24__5TItemFv, (void *)vfunc_25__5TItemFv, (void *)vfunc_26__5TItemFv, (void *)vfunc_27__5TItemFv, (void *)vfunc_28__5TItemFv, (void *)vfunc_29__5TItemFv, (void *)vfunc_30__5TItemFv, (void *)vfunc_31__11TItemObjectFv, (void *)vfunc_32__5TItemFv, (void *)vfunc_33__5TItemFv, (void *)vfunc_34__5TItemFv, (void *)vfunc_35__5TItemFv, (void *)vfunc_36__11TItemObjectFv, (void *)TItemObject__vt35, (void *)TItemObject__vt36, (void *)ret_8010064C, (void *)TItem__sub_80100648, (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)vfunc_43__5TItemFv, (void *)vfunc_44__13TUnk_8049FBC0Fv
 };
 
-void apply_material_item(u8 *arg0) {
+void TUnk_8049FBC0::vfunc_44() {
+    u8 *arg0 = (u8 *)this;
     u8 temp_r3;
     u8 *temp_r3_2;
     temp_r3 = get_slot_count__14TItemProShieldFv();

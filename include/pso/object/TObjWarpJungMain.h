@@ -6,6 +6,8 @@
 
 struct TObjWarpJungMain : public TObjAreaWarp {
     virtual ~TObjWarpJungMain();
+    virtual void vfunc_20();
+    virtual void confirm_area_transfer(s32);
     void render();
     void run_task();
     u8 unk_AC[0x1C];

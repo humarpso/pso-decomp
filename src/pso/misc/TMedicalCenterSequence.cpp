@@ -1,4 +1,5 @@
 #include "pso/misc/TMedicalCenterMes.h"
+#include "pso/misc/TMedicalCenterSequence.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/player/TObjPlayer.h"
 #include "types.h"
@@ -196,7 +197,7 @@ int set_field_20__12TQuestListVMFl(void*, void*);
 
 extern "C" {
 
-void TMedicalCenterSequence__vt10(void* p);
+void restore_player_state__22TMedicalCenterSequenceFv(void* p);
 void TMedicalCenterSequence__vt11(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 try_spend_actor_meseta(s32, s32);
@@ -211,7 +212,7 @@ s32 close_window__13TShopSequenceFPv(void *);
 s32 is_alive_and_ready__10TObjPlayerFi(s32);
 s32 obj_getPtr2B0_20(s32);
 s32 queue_destruction__7TObjectFv(void *);
-int restore_player_state__13TShopSequenceFPv(void*);
+int restore_player_state__13TShopSequenceFv(void*);
 s32 send_code50_packet__10TObjPlayerFi(s32);
 s32 send_code_49_1__10TObjPlayerFi(s32);
 s32 send_field_state__10TObjPlayerFi(s32);
@@ -313,7 +314,7 @@ void TMedicalCenterSequence::vfunc_11() {
     }
 }
 
-void TMedicalCenterSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFl((void*)(p), (void*)((void*)1)); }
+void TMedicalCenterSequence::restore_player_state() { restore_player_state__13TShopSequenceFv(this); set_field_20__12TQuestListVMFl((void*)(this), (void*)((void*)1)); }
 
 typedef struct Stack_80216830 Stack_80216830;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;

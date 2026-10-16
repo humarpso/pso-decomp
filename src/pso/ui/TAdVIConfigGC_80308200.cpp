@@ -19,8 +19,8 @@ void spawn_nug2000_hit_explosion(s32 arg0, s32 arg1);
 
 extern "C" {
 
-void TAdYesNoBaseGC__vt4(void);
-void TAdYesNoBaseGC__vt5(void);
+void vfunc_8__14TAdYesNoBaseGCFv(void);
+void vfunc_9__14TAdYesNoBaseGCFv(void);
 u32 find_item_by_id(void);
 s32 spawn_fire_explosion_at(u32 a0 = 0, s32 a1 = 0);
 

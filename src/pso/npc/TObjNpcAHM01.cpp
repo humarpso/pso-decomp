@@ -99,7 +99,7 @@ struct RecoveredGlobal_80147C18___vt__12TObjNpcAHM01 {
 
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
-void TObjNpcAHM01__vt88(s32 arg0);
+void vfunc_90__12TObjNpcAHM01Fv(s32 arg0);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__12TObjNpcAHM01[];
 extern s32 TObjNpcAHM01__name;
@@ -171,7 +171,8 @@ u8 *TObjNpcAHM01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjNpcAHM01__vt88(s32 arg0) {
+void TObjNpcAHM01::vfunc_90() {
+    s32 arg0 = (s32)this;
     play_sound_effect((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 

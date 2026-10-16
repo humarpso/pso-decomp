@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DDD28.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/PlayerAttackController.h"
@@ -6989,101 +6990,101 @@ void TObjPlayer::set_action_flag() {
     *(u32 *)((char *)this + 0xB0) |= 0x80;
 }
 
-int ret_801D269C(void) { return -1; }
+int TUnk_804DDD28::vfunc_68() { return -1; }
 
-int ret_801D26A4(void) { return -1; }
+int TUnk_804DDD28::vfunc_67() { return -1; }
 
 int ret_801D26AC(void) { return -1; }
 
-int ret_801D26B4(void) { return -1; }
+int TUnk_804DDD28::vfunc_72() { return -1; }
 
-int ret_801D26BC(void) { return -1; }
+int TUnk_804DDD28::vfunc_71() { return -1; }
 
-int ret_801D26C4(void) { return -1; }
+int TUnk_804DDD28::vfunc_70() { return -1; }
 
-int ret_801D26CC(void) { return -1; }
+int TUnk_804DDD28::vfunc_69() { return -1; }
 
-int ret_801D26D4(void) { return -1; }
+int TUnk_804DDD28::vfunc_66() { return -1; }
 
-int ret_801D26DC(void) { return -1; }
+int TUnk_804DDD28::vfunc_65() { return -1; }
 
-int ret_801D26E4(void) { return -1; }
+int TUnk_804DDD28::vfunc_64() { return -1; }
 
-int ret_801D26EC(void) { return -1; }
+int TUnk_804DDD28::vfunc_63() { return -1; }
 
-int ret_801D26F4(void) { return -1; }
+int TUnk_804DDD28::vfunc_62() { return -1; }
 
-int ret_801D26FC(void) { return -1; }
+int TUnk_804DDD28::vfunc_61() { return -1; }
 
-int ret_801D2704(void) { return -1; }
+int TUnk_804DDD28::vfunc_60() { return -1; }
 
-int ret_801D270C(void) { return -1; }
+int TUnk_804DDD28::vfunc_59() { return -1; }
 
-int ret_801D2714(void) { return -1; }
+int TUnk_804DDD28::vfunc_58() { return -1; }
 
-int ret_801D271C(void) { return -1; }
+int TUnk_804DDD28::vfunc_57() { return -1; }
 
-int ret_801D2724(void) { return -1; }
+int TUnk_804DDD28::vfunc_56() { return -1; }
 
-int ret_801D272C(void) { return -1; }
+int TUnk_804DDD28::vfunc_55() { return -1; }
 
-int ret_801D2734(void) { return -1; }
+int TUnk_804DDD28::vfunc_54() { return -1; }
 
-int ret_801D273C(void) { return -1; }
+int TUnk_804DDD28::vfunc_53() { return -1; }
 
-int ret_801D2744(void) { return -1; }
+int TUnk_804DDD28::vfunc_52() { return -1; }
 
-int ret_801D274C(void) { return -1; }
+int TUnk_804DDD28::vfunc_51() { return -1; }
 
-int ret_801D2754(void) { return -1; }
+int TUnk_804DDD28::vfunc_50() { return -1; }
 
-int ret_801D275C(void) { return -1; }
+int TUnk_804DDD28::vfunc_49() { return -1; }
 
-int ret_801D2764(void) { return -1; }
+int TUnk_804DDD28::vfunc_48() { return -1; }
 
-int ret_801D276C(void) { return -1; }
+int TUnk_804DDD28::vfunc_47() { return -1; }
 
-int ret_801D2774(void) { return -1; }
+int TUnk_804DDD28::vfunc_46() { return -1; }
 
-int ret_801D277C(void) { return -1; }
+int TUnk_804DDD28::vfunc_45() { return -1; }
 
-int ret_801D2784(void) { return -1; }
+int TUnk_804DDD28::vfunc_44() { return -1; }
 
-int ret_801D278C(void) { return -1; }
+int TUnk_804DDD28::vfunc_43() { return -1; }
 
-int ret_801D2794(void) { return -1; }
+int TUnk_804DDD28::vfunc_42() { return -1; }
 
-int ret_801D279C(void) { return -1; }
+int TUnk_804DDD28::vfunc_41() { return -1; }
 
-int ret_801D27A4(void) { return -1; }
+int TUnk_804DDD28::vfunc_40() { return -1; }
 
-int ret_801D27AC(void) { return -1; }
+int TUnk_804DDD28::vfunc_39() { return -1; }
 
-int ret_801D27B4(void) { return -1; }
+int TUnk_804DDD28::vfunc_20() { return -1; }
 
-int ret_801D27BC(void) { return -1; }
+int TUnk_804DDD28::vfunc_38() { return -1; }
 
-int ret_801D27C4(void) { return -1; }
+int TUnk_804DDD28::vfunc_37() { return -1; }
 
-int ret_801D27CC(void) { return -1; }
+int TUnk_804DDD28::vfunc_36() { return -1; }
 
-int ret_801D27D4(void) { return -1; }
+int TUnk_804DDD28::vfunc_35() { return -1; }
 
-int ret_801D27DC(void) { return -1; }
+int TUnk_804DDD28::vfunc_34() { return -1; }
 
-int ret_801D27E4(void) { return -1; }
+int TUnk_804DDD28::vfunc_33() { return -1; }
 
-int ret_801D27EC(void) { return -1; }
+int TUnk_804DDD28::vfunc_32() { return -1; }
 
-int ret_801D27F4(void) { return -1; }
+int TUnk_804DDD28::vfunc_31() { return -1; }
 
-int ret_801D27FC(void) { return -1; }
+int TUnk_804DDD28::vfunc_25() { return -1; }
 
-int ret_801D2804(void) { return -1; }
+int TUnk_804DDD28::vfunc_22() { return -1; }
 
 int ret_801D280C(void) { return -1; }
 
-int ret_801D2814(void) { return -1; }
+int TUnk_804DDD28::vfunc_23() { return -1; }
 
 #pragma push
 #pragma inline_depth(1)

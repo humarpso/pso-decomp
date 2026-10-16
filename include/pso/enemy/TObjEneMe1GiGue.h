@@ -6,6 +6,11 @@
 
 struct TObjEneMe1GiGue : public TObjEnemyCustom {
     virtual ~TObjEneMe1GiGue();
+    virtual void vfunc_62();
+    virtual void vfunc_63();
+    virtual s32 vfunc_36();
+    virtual f32 vfunc_22(void *, f32);
+    virtual f32 vfunc_24(void *, void *);
     virtual void vfunc_61();
     virtual void vfunc_59();
     virtual void vfunc_60();

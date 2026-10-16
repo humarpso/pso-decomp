@@ -68,17 +68,17 @@ extern const f32 lbl_805DF70C;
 
 extern "C" {
 
-void TAdAgreementBaseGC__sub_803297EC(void* p);
+void vfunc_9__18TAdAgreementBaseGCFv(void* p);
 void TAdAgreementBaseGC__vt4(void);
-void TAdAgreementBaseGC__vt5(void);
-void TAdAgreementBaseGC__vt6(void);
+void vfunc_7__18TAdAgreementBaseGCFv(void);
+void vfunc_8__18TAdAgreementBaseGCFv(void);
 void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
 void fn_80329BAC(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-void TAdAgreementBaseGC::check_main_task_state(void *self) {
+void TAdAgreementBaseGC::vfunc_12() {
     if (get_state_flag__9TMainTaskFv() == 1) { return;
     }
 }
@@ -97,18 +97,18 @@ void TAdAgreementBaseGC::draw_agreement_text() {
 }
 #pragma pop
 
-void TAdAgreementBaseGC__sub_803297EC(void* p) { *(s32*)((char*)p + 0x1c) = 4; }
+void TAdAgreementBaseGC::vfunc_9() { *(s32*)((char*)this + 0x1c) = 4; }
 
 extern s32 __vt__18TAdAgreementBaseGC[];
 
 typedef char RecoveredGlobal_80329830_lbl_8050E208_size[sizeof(RecoveredGlobal_80329830_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredGlobal_80329830_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80329830_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 
-void TAdAgreementBaseGC::create_agreement_callback() {
+void TAdAgreementBaseGC::vfunc_10() {
     TAdEnterSerialAccessGC::create_callback(lbl_804770BC, lbl_804770C4, (void *)TAdAgreementBaseGC::draw_agreement_text);
 }
 
-void TAdAgreementBaseGC::update_state() {
+void TAdAgreementBaseGC::vfunc_11() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r3;
@@ -210,8 +210,8 @@ Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1) {
 }
 
 void TAdAgreementBaseGC__vt4(void) {  }
-void TAdAgreementBaseGC__vt5(void) {  }
-void TAdAgreementBaseGC__vt6(void) {  }
+void TAdAgreementBaseGC::vfunc_7() {  }
+void TAdAgreementBaseGC::vfunc_8() {  }
 void fn_80329BAC(void* p) { *(s32*)((char*)p + 0xb8) = 1; }
 
 }

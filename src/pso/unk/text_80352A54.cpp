@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804F0FF0.h"
 #include "pso/item/TItem.h"
 
 #include <stddef.h>
@@ -14,12 +15,13 @@ struct Stack_80352A54 {
 extern "C" {
 u16 TObjPlayer__sub_80100474(void *);
 s32 replace_item_with_new_code(void *, void *);
-void fn_80352A54(s32 arg0);
+void vfunc_44__13TUnk_804F0FF0Fv(s32 arg0);
 }
 
 extern "C" {
 
-void fn_80352A54(s32 arg0) {
+void TUnk_804F0FF0::vfunc_44() {
+    s32 arg0 = (s32)this;
     typedef char sp8_offset[(offsetof(Stack_80352A54, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_80352A54, sp9) == 0x1) ? 1 : -1];
     typedef char spA_offset[(offsetof(Stack_80352A54, spA) == 0x2) ? 1 : -1];

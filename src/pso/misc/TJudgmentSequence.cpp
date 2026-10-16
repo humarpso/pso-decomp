@@ -121,12 +121,12 @@ void vfunc_11__17TJudgmentSequenceFv(void *arg0);
 extern "C" {
 
 void TJudgmentSequence__sub_80215BCC(void *arg0);
-void TJudgmentSequence__vt10(void* p);
+void restore_player_state__17TJudgmentSequenceFv(void* p);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 close_window__13TShopSequenceFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
-int restore_player_state__13TShopSequenceFPv(void*);
+int restore_player_state__13TShopSequenceFv(void*);
 int set_field_20__12TQuestListVMFl(void*, void*);
 
 void TJudgmentSequence__sub_80215BA0(void *arg0) {
@@ -191,7 +191,7 @@ void TJudgmentSequence::setup_counter_camera() {
   *((s32 *) (((s8 *) arg0) + 0x30)) = set_service_counter_camera((void *) arg0, (int) 2);
 }
 
-void TJudgmentSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFl((void*)(p), (void*)((void*)1)); }
+void TJudgmentSequence::restore_player_state() { restore_player_state__13TShopSequenceFv(this); set_field_20__12TQuestListVMFl((void*)(this), (void*)((void*)1)); }
 typedef char RecoveredGlobal_80215EF8___vt__17TJudgmentSequence_size[sizeof(RecoveredGlobal_80215EF8___vt__17TJudgmentSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80_size[sizeof(RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80) == 0x10 ? 1 : -1];
 

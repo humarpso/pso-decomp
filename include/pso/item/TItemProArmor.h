@@ -6,6 +6,8 @@
 
 struct TItemProArmor : public TItemEquipBase {
     virtual ~TItemProArmor();
+    virtual int vfunc_39();
+    virtual void vfunc_40();
     virtual void vfunc_46();
     virtual void vfunc_44();
     u32 m_18c;
@@ -24,7 +26,6 @@ struct TItemProArmor : public TItemEquipBase {
     static s16 calc_armor_value();
     void apply_armor_stat();
     u8 *create();
-    void create_armor();
     u8 unk_197[0x1];
 };
 

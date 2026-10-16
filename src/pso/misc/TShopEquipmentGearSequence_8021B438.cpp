@@ -142,7 +142,7 @@ u8 *TShopEquipmentGearSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 handle_confirm__26TShopEquipmentGearSequenceFPv(void *);
 s32 try_close__26TShopEquipmentGearSequenceFPv(void *);
 s32 open_greeting__26TShopEquipmentGearSequenceFPv(u8 *arg0);
-s32 restore_player_state__13TShopSequenceFPv(void *);
+s32 restore_player_state__13TShopSequenceFv(void *);
 void vfunc_11__26TShopEquipmentGearSequenceFv(u8 *arg0);
 extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
 void clear_window_slot_table__26TShopEquipmentGearSequenceFv(void);
@@ -260,7 +260,7 @@ void TShopEquipmentGearSequence::vfunc_11() {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
-        restore_player_state__13TShopSequenceFPv((void *) (arg0));
+        restore_player_state__13TShopSequenceFv((void *) (arg0));
         ((TQuestListVM *)arg0)->set_field_20((s32)((int) (1)));
         return;
     case 1:

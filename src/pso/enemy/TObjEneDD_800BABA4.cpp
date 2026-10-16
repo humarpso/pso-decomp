@@ -240,9 +240,9 @@ struct Ene_800BB000 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-u8 *TObjEneDD__vt99(u8 *arg0);
+u8 *vfunc_102__9TObjEneDDFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-u8 *TObjEneDD__vt98(u8 *arg0, u8 *arg1);
+u8 *vfunc_101__9TObjEneDDFPUc(u8 *arg0, u8 *arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
@@ -260,7 +260,7 @@ void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dis
 extern "C" {
 
 int init_collision_body_parts(void*);
-void TObjEneDD__vt85(void);
+void vfunc_88__9TObjEneDDFv(void);
 
 int TObjEneDD::has_move_failures(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -314,7 +314,8 @@ void TObjEneDD::move_to_shot_position(f32 farg0, f32 farg1, f32 farg2) {
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));
 }
 
-u8 *TObjEneDD__vt99(u8 *arg0) {
+u8 *TObjEneDD::vfunc_102() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f31;
     u8 *temp_r3;
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x3C);
@@ -328,7 +329,8 @@ u8 *TObjEneDD__vt99(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x384) = 0;
     return temp_r3;
 }
-u8 *TObjEneDD__vt98(u8 *arg0, u8 *arg1) {
+u8 *TObjEneDD::vfunc_101(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f31;
     u8 *temp_r3;
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x3C);

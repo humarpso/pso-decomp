@@ -6,6 +6,7 @@
 
 struct THunterGuildSeqOffline : public TShopSequence {
     virtual ~THunterGuildSeqOffline();
+    virtual void restore_player_state();
     void vfunc_11();
     u32 m_38;
     void handle_select();

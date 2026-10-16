@@ -119,7 +119,7 @@ struct Npc_801480FC {
 
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
-void TObjNpcARW00__vt88(s32 arg0);
+void vfunc_90__12TObjNpcARW00Fv(s32 arg0);
 extern s32 __vt__12TObjNpcARW00[];
 extern s32 TObjNpcARW00__name;
 extern u32 TObjNpcARW00__static_model;
@@ -141,8 +141,8 @@ extern const f32 lbl_805DB1B8;
 
 extern "C" {
 
-void TObjNpcFemaleBase__sub_801480F4(void);
-void TObjNpcFemaleBase__sub_801480F8(void);
+void vfunc_92__11TObjNpcBaseFv(void);
+void vfunc_91__11TObjNpcBaseFv(void);
 void *__dt__12TObjNpcARW00Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void __dl__7TObjectFPv(void *);
@@ -193,13 +193,14 @@ u8 *TObjNpcARW00__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjNpcARW00__vt88(s32 arg0) {
+void TObjNpcARW00::vfunc_90() {
+    s32 arg0 = (s32)this;
     play_sound_effect((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
-void TObjNpcFemaleBase__sub_801480F4(void) {  }
-void TObjNpcFemaleBase__sub_801480F8(void) {  }
-void TObjNpcEnemy::draw_debug_info() {
+void TObjNpcBase::vfunc_92() {  }
+void TObjNpcBase::vfunc_91() {  }
+void TObjNpcBase::vfunc_93() {
     Npc_801480FC *o = (Npc_801480FC *)this;
     o->f384 = o->f60;
     o->f38C = 0;

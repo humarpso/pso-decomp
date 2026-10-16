@@ -110,8 +110,8 @@ struct VObj0_8016ab58_8016A8D0 : Base0_8016ab58_8016A8D0 { virtual void m0(); vi
 
 void *TOKey__ct(void *arg0);
 void TOKey__sub_8016AC88(void);
-void TOKey__sub_8016AC8C(void);
-void TOKey__sub_8016AC90(void);
+void vfunc_17__5TOKeyFv(void);
+void vfunc_25__5TOKeyFv(void);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 int TLobby__send_and_handle_60(void*);
 u8 is_current_floor_switch_set(u16);
@@ -142,7 +142,7 @@ void TOKey::update_lock_state() {
     }
 }
 
-void TOKey::update_armed_switch() {
+void TOKey::vfunc_24() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;
@@ -167,7 +167,7 @@ void TOKey::update_armed_switch() {
     }
 }
 
-void TOKey::debug_draw_key_id() {
+void TOKey::vfunc_26() {
     VObj_8016AA20 *arg0 = (VObj_8016AA20 *)this;
     arg0->f84 = arg0->f84 % 256;
     if (arg0->f84 < 0 || arg0->f84 > 0xFF) {
@@ -244,8 +244,8 @@ void *TOKey__ct(void *arg0) {
 }
 
 void TOKey__sub_8016AC88(void) {  }
-void TOKey__sub_8016AC8C(void) {  }
-void TOKey__sub_8016AC90(void) {  }
+void TOKey::vfunc_17() {  }
+void TOKey::vfunc_25() {  }
 
 void TOKey::bswap_6x05_switch_flag() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x8); }
 

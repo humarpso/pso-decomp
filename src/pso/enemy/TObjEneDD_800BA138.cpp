@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 struct Base_800BA138 { char pad[0x18]; };
 struct VObj_800BA138 : Base_800BA138 {
@@ -83,10 +84,10 @@ void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B67C;
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B674;
 void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
-void TObjEneDD__vt90(O_800BA1C8 *self);
-void TObjEneDD__vt91(O_800BA190 *self);
-void TObjEneDD__vt89(Obj_800BA200 *self);
-void TObjEneDD__vt88(Obj_800BA244 *self);
+void vfunc_93__9TObjEneDDFv(O_800BA1C8 *self);
+void vfunc_94__9TObjEneDDFv(O_800BA190 *self);
+void vfunc_92__9TObjEneDDFv(Obj_800BA200 *self);
+void vfunc_91__9TObjEneDDFv(Obj_800BA244 *self);
 }
 
 extern "C" {
@@ -132,35 +133,38 @@ struct EneDDObj_800BA138 : EneDDBase_800BA138 {
 void TObjEneDD__sub_800BA5A4(void* p, void* a1);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
-void TObjEneDD__vt92(void *arg0);
+void vfunc_95__9TObjEneDDFv(void *arg0);
 int is_target_unobstructed__9TObjEneDDFl(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int add_flags_2e4__10TObjPlayerFUl(void*, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 sub_800BC3E8__13TUnk_804928CCFPUc(void *, s32);
 s32 get_position__12TBoss1DragonFv(void *, s32);
 
-void TObjEneDD__vt92(void *arg0) {
-    struct VObj_800BA138 *o = (struct VObj_800BA138 *)arg0;
+void TObjEneDD::vfunc_95() {
+    struct VObj_800BA138 *o = (struct VObj_800BA138 *)this;
     o->m88();
     o->m91();
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x04040000);
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) | 0x04040000);
 }
 
-void TObjEneDD__vt91(O_800BA190 *self) {
+void TObjEneDD::vfunc_94() {
+    O_800BA190 *self = (O_800BA190 *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
         self->entries[i].flags &= ~1;
     }
 }
 
-void TObjEneDD__vt90(O_800BA1C8 *self) {
+void TObjEneDD::vfunc_93() {
+    O_800BA1C8 *self = (O_800BA1C8 *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
         self->entries[i].flags |= 1;
     }
 }
 
-void TObjEneDD__vt89(Obj_800BA200 *self) {
+void TObjEneDD::vfunc_92() {
+    Obj_800BA200 *self = (Obj_800BA200 *)this;
     s32 i;
     self->flags &= ~0x04000000;
     for (i = 0; i < self->count; i++) {
@@ -168,7 +172,8 @@ void TObjEneDD__vt89(Obj_800BA200 *self) {
     }
 }
 
-void TObjEneDD__vt88(Obj_800BA244 *self) {
+void TObjEneDD::vfunc_91() {
+    Obj_800BA244 *self = (Obj_800BA244 *)this;
     s32 i;
     self->flags |= 0x04000000;
     for (i = 0; i < self->count; i++) {

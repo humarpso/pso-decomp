@@ -35,7 +35,7 @@ struct VObj_8032BF64_8032BE48 : Base_8032BF64_8032BE48 {
 struct Obj_8032C004 { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x48 - 0x1C]; s32 f48; };
 
 extern "C" {
-void TAdYesNoBaseGC__vt7(void *self);
+void vfunc_12__14TAdYesNoBaseGCFv(void *self);
 void *__nw__7TObjectFUl(u32);
 void __ct__10TAdTitleGCFv(void *, void *, int);
 void TAdYesNoBaseGC__ct(void *);
@@ -51,8 +51,8 @@ extern "C" {
 
 int TAdSnAkPassConfirmGC__vt4(void* p);
 int TAdSnAkPassConfirmGC__vt5(void* p);
-void TAdSnAkPassConfirmGC__vt6(void* p);
-void TAdSnAkPassConfirmGC__vt7(void* p);
+void vfunc_8__20TAdSnAkPassConfirmGCFv(void* p);
+void vfunc_9__20TAdSnAkPassConfirmGCFv(void* p);
 void TAdSnAkPassConfirmGC__vt8(void);
 void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1);
 int get_localized_text_entry(void*, void*);
@@ -71,8 +71,8 @@ void TAdSnAkPassConfirmGC::render() {
 }
 
 void TAdSnAkPassConfirmGC__vt8(void) { get_localized_text_entry((void*)39, (void*)0); }
-void TAdSnAkPassConfirmGC__vt7(void* p) { if (*(unsigned int*)((char*)p + 0x48) != 0) { TWindow__close(*(void**)((char*)p + 0x48)); *(int*)((char*)p + 0x48) = 0; } }
-void TAdSnAkPassConfirmGC__vt6(void* p) { if (*(unsigned int*)((char*)p + 0x48) != 0) { TWindow__close(*(void**)((char*)p + 0x48)); *(int*)((char*)p + 0x48) = 0; } }
+void TAdSnAkPassConfirmGC::vfunc_9() { if (*(unsigned int*)((char*)this + 0x48) != 0) { TWindow__close(*(void**)((char*)this + 0x48)); *(int*)((char*)this + 0x48) = 0; } }
+void TAdSnAkPassConfirmGC::vfunc_8() { if (*(unsigned int*)((char*)this + 0x48) != 0) { TWindow__close(*(void**)((char*)this + 0x48)); *(int*)((char*)this + 0x48) = 0; } }
 int TAdSnAkPassConfirmGC__vt5(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
 int TAdSnAkPassConfirmGC__vt4(void* p) { return set_state_0x1a__21TAdMultiChgGameModeGCFv(p); }
 
@@ -109,7 +109,7 @@ Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *arg0) {
     return arg0;
 }
 
-void TAdYesNoBaseGC__vt7(void *self) {
+void TAdYesNoBaseGC::vfunc_12() {
     if (TMainTask::get_state_flag() == 1) { return;
     }
 }

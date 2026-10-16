@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMesBase.h"
 #include "pso/object/TObjMotion.h"
 
 struct TObjBase80194_80194C98 { char pad[0x18]; };
@@ -61,7 +62,7 @@ struct VObj_80194CE8_80194C98 : Base_80194CE8_80194C98 {
 
 s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1);
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
-void TObjMesBase__vt12(void);
+void vfunc_14__11TObjMesBaseFv(void);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 void __dl__7TObjectFPv(void *);
@@ -118,7 +119,7 @@ void TObjMesBase::clear_ref_if_destroyed() {
         this->messagePhase = 0;
     }
 }
-void TObjMesBase__vt12(void) {  }
+void TObjMesBase::vfunc_14() {  }
 
 void TObjMesBase::run_task() {
     s32 temp_r0;

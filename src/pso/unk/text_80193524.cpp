@@ -142,7 +142,7 @@ extern const f32 lbl_805DBE7C;
 extern const f32 lbl_805DBE80;
 extern const f32 TLazerFenceSw__data_805DBE84;
 void TLazerFenceSw__vt15(u8 *arg0);
-void debug_draw_key_id__5TOKeyFv();
+void vfunc_26__5TOKeyFv();
 void debug_printf_at(int, void *, ...);
 extern u16 lbl_80445CB8[];
 extern u8 lbl_80445CD8[];
@@ -360,7 +360,7 @@ void TLazerFenceSw::render() {
 
 __declspec(section ".rodata") u8 lbl_80445CD8[16] = "<- SELECT COLOR";
 void TLazerFenceSw__vt24(Sw_80193978 *arg0) {
-    debug_draw_key_id__5TOKeyFv();
+    vfunc_26__5TOKeyFv();
     if (arg0->f8C < 0) {
         arg0->f8C = 0;
     }

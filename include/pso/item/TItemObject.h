@@ -7,12 +7,13 @@
 
 struct TItemObject : public TItem {
     virtual ~TItemObject();
+    virtual int vfunc_36();
+    virtual void vfunc_31();
     virtual void vfunc_44();
     u8 get_tool_pmt_amount_byte();
     u8 sub_80115D7C();
     void*vfunc_9();
     void store_encoded_value(s32 value);
-    s32 load_encoded_value();
     u32 m_f8;
     s32 encoded_value;
     u8 m_100;

@@ -6,6 +6,7 @@
 
 struct TOKeyJungleMain : public TOKey {
     virtual ~TOKeyJungleMain();
+    virtual void vfunc_22();
     void render();
     static void init_key_slots(void* _w0);
     u8 unk_D8[0x18];

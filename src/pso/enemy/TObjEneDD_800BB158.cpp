@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/enemy/TObjEneDD.h"
 #include "types.h"
 #pragma fp_contract on
 
@@ -18,7 +19,7 @@ s32 csnVector(void *, void *, int);
 extern const f32 lbl_805D9EA4;
 s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *csnVectorUnder(f32 *, void *, s32);
-u8 *TObjEneDD__vt100(u8 *arg0, u8 *arg1);
+u8 *vfunc_103__9TObjEneDDFPUc(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -57,7 +58,8 @@ s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
   stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x40))) + temp_f31;
   return csnVector((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) 0x88E0);
 }
-u8 *TObjEneDD__vt100(u8 *arg0, u8 *arg1) {
+u8 *TObjEneDD::vfunc_103(u8 *arg1) {
+    u8 *arg0 = (u8 *)this;
     Vec position;
     u8 *temp_r3;
     position.x = *(f32 *)((s8 *)arg1 + 0);

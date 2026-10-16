@@ -106,10 +106,10 @@ extern u8 npc_movement_parameters[];
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TNpcPlayer__sub_80149448();
 extern "C" void __dt__14TObjNpcBringerFv();
-extern "C" void draw_debug_info__12TObjNpcEnemyFv();
+extern "C" void vfunc_93__11TObjNpcBaseFv();
 extern "C" void vfunc_30__11TObjNpcBaseFv();
-extern "C" void TObjNpcFemaleBase__sub_801480F4();
-extern "C" void TObjNpcFemaleBase__sub_801480F8();
+extern "C" void vfunc_92__11TObjNpcBaseFv();
+extern "C" void vfunc_91__11TObjNpcBaseFv();
 extern "C" void debug_draw_talk__17TObjNpcFemaleBaseFv();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
@@ -165,7 +165,7 @@ extern "C" void vfunc_12__9TObjEnemyFv();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void handle_message_event__17TObjNpcFemaleBaseFUs();
 extern "C" void is_actor_cadence_frame();
-extern "C" void play_voice__11TObjNpcBaseFv();
+extern "C" void vfunc_90__11TObjNpcBaseFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
@@ -232,8 +232,8 @@ void *__vt__14TObjNpcBringer[94] = {
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__11TObjNpcBaseFv,
     (void *)&update_standing__11TObjNpcBaseFv, (void *)&update_wandering__11TObjNpcBaseFv, (void *)&update_conversation__11TObjNpcBaseFv, (void *)&apply_set_params__11TObjNpcBaseFll,
-    (void *)&TNpcPlayer__sub_80149448, (void *)&debug_draw_talk__17TObjNpcFemaleBaseFv, (void *)&play_voice__11TObjNpcBaseFv, (void *)&TObjNpcFemaleBase__sub_801480F8,
-    (void *)&TObjNpcFemaleBase__sub_801480F4, (void *)&draw_debug_info__12TObjNpcEnemyFv,
+    (void *)&TNpcPlayer__sub_80149448, (void *)&debug_draw_talk__17TObjNpcFemaleBaseFv, (void *)&vfunc_90__11TObjNpcBaseFv, (void *)&vfunc_91__11TObjNpcBaseFv,
+    (void *)&vfunc_92__11TObjNpcBaseFv, (void *)&vfunc_93__11TObjNpcBaseFv,
 };
 u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2) {
     TObjNpcBase__ct(self, parent);

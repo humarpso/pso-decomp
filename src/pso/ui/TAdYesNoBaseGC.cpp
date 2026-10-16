@@ -47,7 +47,7 @@ struct VtObj8032C1C8_8032C188 : VtBase8032C1C8_8032C188 {
 
 void *TAdYesNoBaseGC__ct(void *arg0);
 void *TAdYesNoBaseGC__vt0(void *arg0, s16 arg1);
-void TAdYesNoBaseGC__vt6(void *arg0);
+void vfunc_11__14TAdYesNoBaseGCFv(void *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(void *);
@@ -89,63 +89,63 @@ extern s8 controller_input_state[];
 extern s8 controller_physical_port_bank[];
 extern const f32 lbl_805DF78C;
 
-void TAdYesNoBaseGC__vt6(void *arg0) {
+void TAdYesNoBaseGC::vfunc_11() {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r4;
 
-    *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg0 + 0x1C);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    *(s32 *)((s8 *)this + 0x20) = (s32) *(s32 *)((s8 *)this + 0x1C);
+    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
     switch (temp_r0) {
     case 0:
-        *(u32 *)((s8 *)arg0 + 0x40) = sub_8032C0B4__14TAdYesNoBaseGCFv((u8 *)(arg0));
-        *(u32 *)((s8 *)arg0 + 0x44) = ((TAdYesNoBaseGC *)arg0)->create_menu_window();
-        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
+        *(u32 *)((s8 *)this + 0x40) = sub_8032C0B4__14TAdYesNoBaseGCFv((u8 *)(this));
+        *(u32 *)((s8 *)this + 0x44) = ((TAdYesNoBaseGC *)this)->create_menu_window();
+        *(s32 *)((s8 *)this + 0x1C) = 1;
         break;
     case 1:
-        if (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0x44)))->is_visible() != 0) {
-            temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x44));
+        if (((TWindowMenu *)(*(u32 *)((s8 *)this + 0x44)))->is_visible() != 0) {
+            temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)this + 0x44));
             switch (temp_r3) {
             case 0:
-                ((VtObj8032C1C8_8032C188*)arg0)->m6();
-                *(s32 *)((s8 *)arg0 + 0x1C) = 2;
-                *(s32 *)((s8 *)arg0 + 0x24) = 3;
+                ((VtObj8032C1C8_8032C188*)this)->m6();
+                *(s32 *)((s8 *)this + 0x1C) = 2;
+                *(s32 *)((s8 *)this + 0x24) = 3;
                 break;
             case 1:
-                ((VtObj8032C1C8_8032C188*)arg0)->m7();
-                *(s32 *)((s8 *)arg0 + 0x1C) = 2;
-                *(s32 *)((s8 *)arg0 + 0x24) = 4;
+                ((VtObj8032C1C8_8032C188*)this)->m7();
+                *(s32 *)((s8 *)this + 0x1C) = 2;
+                *(s32 *)((s8 *)this + 0x24) = 4;
                 break;
             }
         } else if ((TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state + 0x160, 2) != 0)) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
-            *(s32 *)((s8 *)arg0 + 0x24) = 4;
+            *(s32 *)((s8 *)this + 0x1C) = 2;
+            *(s32 *)((s8 *)this + 0x24) = 4;
         }
         break;
     case 2:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x40));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+        if ((u32) *(u32 *)((s8 *)this + 0x40) != 0U) {
+            TWindow__close(*(void **)((s8 *)this + 0x40));
+            *(u32 *)((s8 *)this + 0x40) = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x44) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x44));
-            *(u32 *)((s8 *)arg0 + 0x44) = 0U;
+        if ((u32) *(u32 *)((s8 *)this + 0x44) != 0U) {
+            TWindow__close(*(void **)((s8 *)this + 0x44));
+            *(u32 *)((s8 *)this + 0x44) = 0U;
         }
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x28) + 1;
-        *(s32 *)((s8 *)arg0 + 0x28) = temp_r4;
+        temp_r4 = *(s32 *)((s8 *)this + 0x28) + 1;
+        *(s32 *)((s8 *)this + 0x28) = temp_r4;
         if ((f32) temp_r4 > lbl_805DF78C) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg0 + 0x24);
+            *(s32 *)((s8 *)this + 0x1C) = (s32) *(s32 *)((s8 *)this + 0x24);
         }
         break;
     case 3:
-        ((VtObj8032C1C8_8032C188*)arg0)->m4();
+        ((VtObj8032C1C8_8032C188*)this)->m4();
         break;
     case 4:
-        ((VtObj8032C1C8_8032C188*)arg0)->m5();
+        ((VtObj8032C1C8_8032C188*)this)->m5();
         break;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x20) != (s32) *(s32 *)((s8 *)arg0 + 0x1C)) {
-        *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    if ((s32) *(s32 *)((s8 *)this + 0x20) != (s32) *(s32 *)((s8 *)this + 0x1C)) {
+        *(s32 *)((s8 *)this + 0x28) = 0;
     }
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80482EC0.h"
 #include "pso/boss/TUnk_80482D04.h"
 #include "pso/boss/TBoss2Mine.h"
 #include "pso/TParticleCtrl.h"
@@ -138,7 +139,7 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void TBoss2Mine__sub_80037C6C(void *arg0);
+void vfunc_88__13TUnk_80482D04Fv(void *arg0);
 s32 vec3_add_to(void *, void *);
 s32 is_alive__9TObjEneDDFv(s32);
 
@@ -325,8 +326,8 @@ void TBoss2Mine::move_mine() {
     }
 }
 
-void TBoss2Mine__sub_80037C6C(void *arg0) {
-    *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) ((1.0f) + (*(f32 *)((s8 *)arg0 + 0x300) - *(f32 *)((s8 *)arg0 + 0x3C)));
+void TUnk_80482D04::vfunc_88() {
+    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) ((1.0f) + (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C)));
 }
 
 }
@@ -712,7 +713,7 @@ s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void TObjEneDD__sub_800BA5A4(s32, s32);
 extern RecoveredGlobal_800384C8_lbl_80435AB0 boss2_mine_collision_desc;
-void TBoss2Mine__vt105(u8 *arg0, s32 arg1);
+void vfunc_107__10TBoss2MineFl(u8 *arg0, s32 arg1);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void translate_matrix(s32, f32, f32, f32);
@@ -731,17 +732,17 @@ extern s32 model_render_flags;
 
 extern "C" {
 
-void TBoss2Mine__sub_80038140(void *arg0);
+void vfunc_88__13TUnk_80482EC0Fv(void *arg0);
 void *TBoss2Mine__sub_800381B8(void *arg0, s32 arg1, s16 arg2, s16 arg3);
-void TBoss2Mine__vt103(void);
-void TBoss2Mine__vt104(void);
-void TBoss2Mine__vt106(void *arg0, s32 arg1);
-void TBoss2Mine__vt107(void);
-void TBoss2Mine__vt108(void);
+void vfunc_105__10TBoss2MineFv(void);
+void vfunc_106__10TBoss2MineFv(void);
+void vfunc_108__10TBoss2MineFl(void *arg0, s32 arg1);
+void vfunc_109__10TBoss2MineFv(void);
+void vfunc_110__10TBoss2MineFv(void);
 void __dl__7TObjectFPv(void *);
 
-void TBoss2Mine__sub_80038140(void *arg0) {
-    *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) ((5.0f) + (*(f32 *)((s8 *)arg0 + 0x300) - *(f32 *)((s8 *)arg0 + 0x3C)));
+void TUnk_80482EC0::vfunc_88() {
+    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) ((5.0f) + (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C)));
 }
 
 extern s32 lbl_80482EC0[];
@@ -765,8 +766,8 @@ void *TBoss2Mine__sub_800381B8(void *arg0, s32 arg1, s16 arg2, s16 arg3) {
     return arg0;
 }
 
-void TBoss2Mine__vt108(void) {  }
-void TBoss2Mine__vt107(void) {  }
+void TBoss2Mine::vfunc_110() {  }
+void TBoss2Mine::vfunc_109() {  }
 
 void TBoss2Mine::render() {
     Mine_80038200 *self = (Mine_80038200 *)this;
@@ -821,18 +822,18 @@ void TBoss2Mine::render() {
     TParticleCtrl::end_effect_render();
 }
 
-void TBoss2Mine__vt106(void *arg0, s32 arg1) {
+void TBoss2Mine::vfunc_108(s32 arg1) {
     switch (arg1) {
     case 4:
-        ((VObj_8003843C_80038140 *)arg0)->m94();
-        *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) & 0xFFFFFFF8);
+        ((VObj_8003843C_80038140 *)this)->m94();
+        *(s32 *)((s8 *)this + 0x38C) = (s32) (*(s32 *)((s8 *)this + 0x38C) & 0xFFFFFFF8);
         return;
     case 3:
-        transition_enemy_state(arg0, 0);
+        transition_enemy_state(this, 0);
         return;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFF7FF);
-        *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
+        *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFFFF7FF);
+        *(s16 *)((s8 *)this + 0x32C) = (s16) *(s16 *)((s8 *)this + 0x2B8);
     case 0:
         return;
     }
@@ -848,7 +849,8 @@ typedef struct VObj_18_444bc5 VObj_18_444bc5;
 #pragma auto_inline off
 #pragma dont_inline off
 typedef char RecoveredGlobal_800384C8_lbl_80435AB0_size[((sizeof(RecoveredGlobal_800384C8_lbl_80435AB0)) == 0x14) ? (1) : (-1)];
-void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
+void TBoss2Mine::vfunc_107(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
   struct CopyStack_800384C8
   {
     u8 bytes[0x14];
@@ -889,8 +891,8 @@ void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
   }
 }
 
-void TBoss2Mine__vt104(void) {  }
-void TBoss2Mine__vt103(void) {  }
+void TBoss2Mine::vfunc_106() {  }
+void TBoss2Mine::vfunc_105() {  }
 
 }
 

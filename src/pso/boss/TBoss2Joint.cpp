@@ -321,8 +321,8 @@ s32 TBoss2Joint__sub_80036940(void *);
 s32 TObjEneDD__sub_800BBA0C(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D848C;
-s32 TObjEneDD__vt91(void *);
-s32 TObjEneDD__vt90(void *);
+s32 vfunc_94__9TObjEneDDFv(void *);
+s32 vfunc_93__9TObjEneDDFv(void *);
 extern const f32 lbl_805D8258;
 extern const f32 lbl_805D847C;
 extern const f32 lbl_805D8480;
@@ -462,20 +462,20 @@ void TBoss2Joint__vt102(Obj_80036ACC *self) {
 
 void TBoss2Joint__vt91(void *arg0) {
     if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 6) {
-        TObjEneDD__vt90((void *)(arg0));
+        vfunc_93__9TObjEneDDFv((void *)(arg0));
         return;
     }
-    TObjEneDD__vt91((void *)(arg0));
+    vfunc_94__9TObjEneDDFv((void *)(arg0));
 }
 
 void TBoss2Joint__vt86(u8 *arg0) {
     u8 *temp_r3;
     if (*(f32 *)((s8 *)arg0 + 0x3C) < (lbl_805D8258 - lbl_805D847C)) {
-        TObjEneDD__vt91((void *)(arg0));
+        vfunc_94__9TObjEneDDFv((void *)(arg0));
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF9);
     } else {
-        TObjEneDD__vt90((void *)(arg0));
+        vfunc_93__9TObjEneDDFv((void *)(arg0));
         if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805D8480) {
             ((VObj_18_67c185 *)(arg0))->m95();
         } else {

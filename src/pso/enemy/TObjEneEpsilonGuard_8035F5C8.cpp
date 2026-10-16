@@ -2227,10 +2227,10 @@ void TObjEneEpsilonGuard__sub_80361FE8(void);
 void TObjEneEpsilonGuard__sub_80362038(void);
 void TObjEneEpsilonGuard__sub_803620B0(void);
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
-int TObjEneDD__vt86(void*);
+int vfunc_89__9TObjEneDDFv(void*);
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)
 
-void TObjEneEpsilonGuard::update_step() { TObjEneDD__vt86(this); update_position(); }
+void TObjEneEpsilonGuard::update_step() { vfunc_89__9TObjEneDDFv(this); update_position(); }
 void TObjEneEpsilonGuard__sub_80361FE8(void) {  }
 
 extern const f32 lbl_805E0214;

@@ -1,14 +1,15 @@
 #include "types.h"
+#include "pso/misc/TUnk_804ED7D0.h"
 #include "pso/ui/TAdDialingGC.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 is_handle_valid__10TObjPlayerFv();
-s32 TLobby__sub_80328F48(void);
+s32 vfunc_23__13TUnk_804ED7D0Fv(void);
 s32 is_handle_valid__10TObjPlayerFv();
-s32 TLobby__sub_80328EE8(void);
+s32 vfunc_30__13TUnk_804ED7D0Fv(void);
 s32 is_handle_valid__10TObjPlayerFv();
-s32 TLobby__sub_80328F18(void);
+s32 vfunc_22__13TUnk_804ED7D0Fv(void);
 }
 
 extern "C" {
@@ -32,7 +33,7 @@ void TAdDialingGC::open() {
     TLobby__sub_802A5154();
 }
 
-s32 TLobby__sub_80328EE8(void) {
+int TUnk_804ED7D0::vfunc_30() {
     s32 t = is_handle_valid__10TObjPlayerFv();
     s32 r = 2;
     if (t == 2) {
@@ -41,7 +42,7 @@ s32 TLobby__sub_80328EE8(void) {
     return r;
 }
 
-s32 TLobby__sub_80328F18(void) {
+int TUnk_804ED7D0::vfunc_22() {
     s32 t = is_handle_valid__10TObjPlayerFv();
     s32 r = 1;
     if (t == 2) {
@@ -50,7 +51,7 @@ s32 TLobby__sub_80328F18(void) {
     return r;
 }
 
-s32 TLobby__sub_80328F48(void) {
+int TUnk_804ED7D0::vfunc_23() {
     return ((is_handle_valid__10TObjPlayerFv() - 2) == 0) ? 3 : 0;
 }
 

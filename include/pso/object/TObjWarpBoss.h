@@ -6,6 +6,7 @@
 
 struct TObjWarpBoss : public TObjAreaWarp {
     virtual ~TObjWarpBoss();
+    virtual void vfunc_20();
     s32 update_warp_dialogs();
     void update_warp_occupants();
     void update_warp_state();

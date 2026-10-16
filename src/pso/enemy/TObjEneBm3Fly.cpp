@@ -2005,7 +2005,7 @@ extern "C" {
 
 void TObjEneBm3Fly__vt87(void* p);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *arg0);
-int TObjEneDD__vt86(void*);
+int vfunc_89__9TObjEneDDFv(void*);
 
 u16 get_active_id__13TObjEneBm3FlyFPv(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x454) != 0) {
@@ -2092,7 +2092,7 @@ void TObjEneBm3Fly__vt86(u8 *arg0) {
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 4) = temp_f31;
 }
 
-void TObjEneBm3Fly__vt87(void* p) { TObjEneDD__vt86(p); clamp_flight_height__13TObjEneBm3FlyFv(p); }
+void TObjEneBm3Fly__vt87(void* p) { vfunc_89__9TObjEneDDFv(p); clamp_flight_height__13TObjEneBm3FlyFv(p); }
 
 }
 
@@ -3629,25 +3629,25 @@ void debug_printf_at(s32, const char *, ...);
 void draw_model_motion(s32, Ent_800B23A0 *, f32);
 
 void TLobby__sub_801A1FD8();
-void TObjEneDD__vt100();
-void TObjEneDD__vt77();
-void TObjEneDD__vt81();
+void vfunc_103__9TObjEneDDFPUc();
+void vfunc_79__9TObjEneDDFv();
+void vfunc_83__9TObjEneDDFv();
 void TObjEneDD__vt82();
-void TObjEneDD__vt83();
-void TObjEneDD__vt84();
-void TObjEneDD__vt87();
-void TObjEneDD__vt88();
-void TObjEneDD__vt89();
-void TObjEneDD__vt90();
-void TObjEneDD__vt91();
-void TObjEneDD__vt92();
-void TObjEneDD__vt93();
-void TObjEneDD__vt94();
-void TObjEneDD__vt95();
-void TObjEneDD__vt96();
-void TObjEneDD__vt97();
-void TObjEneDD__vt98();
-void TObjEneDD__vt99();
+void vfunc_85__9TObjEneDDFv();
+void vfunc_86__9TObjEneDDFv();
+void vfunc_90__9TObjEneDDFv();
+void vfunc_91__9TObjEneDDFv();
+void vfunc_92__9TObjEneDDFv();
+void vfunc_93__9TObjEneDDFv();
+void vfunc_94__9TObjEneDDFv();
+void vfunc_95__9TObjEneDDFv();
+void vfunc_96__9TObjEneDDFv();
+void vfunc_97__9TObjEneDDFv();
+void vfunc_98__9TObjEneDDFv();
+void vfunc_99__9TObjEneDDFv();
+void vfunc_100__9TObjEneDDFv();
+void vfunc_101__9TObjEneDDFPUc();
+void vfunc_102__9TObjEneDDFv();
 void TObjPlayer__sub_8000FF3C();
 void TObjPlayer__sub_80010A80();
 void consume_timer_field__10TObjPlayerFPvi();
@@ -3849,13 +3849,13 @@ void *__vt__13TObjEneBm3Fly[107] = {
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
+    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
-    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneBm3Fly__vt85,
-    (void *)&TObjEneBm3Fly__vt86, (void *)&TObjEneBm3Fly__vt87, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
-    (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
-    (void *)&TObjEneDD__vt93, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
-    (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
+    (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&TObjEneBm3Fly__vt85,
+    (void *)&TObjEneBm3Fly__vt86, (void *)&TObjEneBm3Fly__vt87, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
+    (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
+    (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
+    (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
     (void *)&TObjEneBm3Fly__vt102, (void *)&TObjEneBm3Fly__vt103, (void *)&TObjEneBm3Fly__vt104,
 };
 #define bm3_fly_collider_params (*(RecoveredGlobal_800B22C8_lbl_80491B4C *)bm3_fly_collider_params)
@@ -3899,7 +3899,7 @@ void TObjEneBm3Fly::clamp_flight_height() {
 #define translate_matrix (*(void (*)(s32, f32, f32, f32))&translate_matrix)
 #define set_global_param__8TObjFishFl (*(void (*)(s32))&set_global_param__8TObjFishFl)
 #define draw_chunk_object (*(void (*)(s32))&draw_chunk_object)
-#define TObjEneDD__vt86 (*(void (*)())&TObjEneDD__vt86)
+#define vfunc_89__9TObjEneDDFv (*(void (*)())&vfunc_89__9TObjEneDDFv)
 #define TObjEneBm3Fly__vt102 (*(void (*)())&TObjEneBm3Fly__vt102)
 #define TObjEneBm3Fly__vt104 (*(void (*)())&TObjEneBm3Fly__vt104)
 #define TObjEneBm3Fly__vt86 (*(void (*)())&TObjEneBm3Fly__vt86)
@@ -4306,7 +4306,7 @@ void TObjEneBm3Fly::load_resources() {
 #undef translate_matrix
 #undef set_global_param__8TObjFishFl
 #undef draw_chunk_object
-#undef TObjEneDD__vt86
+#undef vfunc_89__9TObjEneDDFv
 #undef TObjEneBm3Fly__vt102
 #undef TObjEneBm3Fly__vt104
 #undef TObjEneBm3Fly__vt86

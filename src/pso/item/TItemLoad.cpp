@@ -1,4 +1,5 @@
 #include "pso/TItemLoad.h"
+#include "pso/item/TUnk_8049F42C.h"
 
 #include "types.h"
 
@@ -12,7 +13,7 @@ s32 TItemLoad__sub_80110750(O_80110750 *self, s32 i);
 
 extern "C" {
 
-void TItemLoad__sub_801107B4(void);
+void vfunc_3__13TUnk_8049F42CFv(void);
 s32 TItemLoad__sub_801107DC(void* p);
 s32 TItemLoad__sub_801107E4(void* p);
 void* TItemLoad__sub_801107EC(void* p);
@@ -38,7 +39,7 @@ void TItemLoad::clear_slots() {
     self->f14 = 0;
 }
 
-void TItemLoad__sub_801107B4(void) {  }
+void TUnk_8049F42C::vfunc_3() {  }
 int TItemLoad::get_ring_lobby() { return TLobby__sub_803CC4C0(*(void* *)&this->m_flags); }
 s32 TItemLoad__sub_801107DC(void* p) { return *(s32*)((char*)p + 0xc); }
 s32 TItemLoad__sub_801107E4(void* p) { return *(s32*)((char*)p + 0x1c); }

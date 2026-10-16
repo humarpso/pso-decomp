@@ -235,8 +235,8 @@ s32 player_motion_provider0_get_clip_indices(s32 arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 extern s32 *lbl_804ED728[];
-s32 player_motion_provider0_get_actions(void);
-s32 player_motion_provider0_get_actions(void) {
+s32 vfunc_7__13TUnk_804ED7D0Fv(void);
+int TUnk_804ED7D0::vfunc_7() {
     s32 i = ((s32 (*)(void))is_valid_state__6TLobbyFPvi)();
     if (((s32 (*)(void))TLobby__sub_802A7278)() != 0) {
         return *lbl_804ED728[i];
@@ -378,13 +378,13 @@ extern "C" {
 
 extern "C" {
 
-int TLobby__sub_803293F0(void* p);
-int TLobby__sub_80329470(void);
+int vfunc_10__13TUnk_804ED7D0Fv(void* p);
+int vfunc_4__13TUnk_804ED7D0Fv(void);
 #define IVS ((int (*)(void*))is_valid_state__6TLobbyFPvi)
 #define CVS ((int (*)(void*))check_valid_state__6TLobbyFi)
 
 int TLobby::is_invalid_state() { return (IVS(this)) == 0; }
-int TLobby__sub_803293F0(void* p) { return (CVS((void*)(p))) == 0; }
+int TUnk_804ED7D0::vfunc_10() { return (CVS((void*)(this))) == 0; }
 
 int TLobby::is_state_valid_flag() {
     s32 arg0 = (s32)this;
@@ -395,6 +395,6 @@ int TLobby::is_check_state_valid() {
     return (u8) (((s32)CVS(this)) == 1);
 }
 
-int TLobby__sub_80329470(void) {  return lbl_805D6C80; }
+int TUnk_804ED7D0::vfunc_4() {  return lbl_805D6C80; }
 
 }

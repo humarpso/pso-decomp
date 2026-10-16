@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/ui/TAdYesNoBaseGC.h"
 #include "pso/TLogo.h"
 #include "pso/ui/TAdVIConfigGC.h"
 
 extern "C" {
 
-void TAdYesNoBaseGC__vt4(void);
-void TAdYesNoBaseGC__vt5(void);
+void vfunc_8__14TAdYesNoBaseGCFv(void);
+void vfunc_9__14TAdYesNoBaseGCFv(void);
 u32 OSGetProgressiveMode();
 u32 find_item_by_id(void);
 s32 disable_progressive_mode__13TAdVIConfigGCFPv();
@@ -27,7 +28,7 @@ s32 TLogo::check_progressive_ready() {
     return 1;
 }
 
-void TAdYesNoBaseGC__vt4(void) {  }
-void TAdYesNoBaseGC__vt5(void) {  }
+void TAdYesNoBaseGC::vfunc_8() {  }
+void TAdYesNoBaseGC::vfunc_9() {  }
 
 }

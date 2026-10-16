@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DDD28.h"
 #include "pso/boss/TBoss7Crawfish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
@@ -19,9 +20,9 @@ extern "C" {
 
 void TObjPlayer__sub_801BFED4(void* p);
 s32 TObjPlayer__sub_801BFFA0(void* p);
-int TObjPlayer__sub_801C000C(void);
-int TObjPlayer__sub_801C0014(void);
-int TObjPlayer__sub_801C001C(void);
+int vfunc_77__13TUnk_804DDD28Fv(void);
+int vfunc_10__13TUnk_804DDD28Fv(void);
+int vfunc_5__13TUnk_804DDD28Fv(void);
 int clear_id__10TObjPlayerFv(void*);
 int get_valid_child__6TLobbyFv(void*);
 s32 init_forward__10TObjPlayerFv();
@@ -66,9 +67,9 @@ u8 *copy_hold_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
 }
 
 s16 TBoss7Crawfish::get_floor() { return *(s16*)((char*)this + 0xb8); }
-int TObjPlayer__sub_801C000C(void) { return 0; }
-int TObjPlayer__sub_801C0014(void) { return 0; }
-int TObjPlayer__sub_801C001C(void) { return 0; }
+int TUnk_804DDD28::vfunc_77() { return 0; }
+int TUnk_804DDD28::vfunc_10() { return 0; }
+int TUnk_804DDD28::vfunc_5() { return 0; }
 int TObjPlayer::sub_802a7290_fwd() { return get_valid_child__6TLobbyFv(this); }
 int TObjPlayer::is_handle_valid() { return TLobby::validate_handle((s32 *)this); }
 

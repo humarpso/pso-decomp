@@ -6,6 +6,8 @@
 
 struct TObjEneEpsilonGuard : public TObjEneEpsilon {
     virtual ~TObjEneEpsilonGuard();
+    virtual void vfunc_88();
+    virtual void vfunc_89();
     virtual f32 vfunc_22(void *, f32);
     virtual f32 vfunc_24(void *, void *);
     void vfunc_63();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 struct Base_800BB8E0_800BB804 { char pad[0x18]; };
 struct VObj_800BB8E0_800BB804 : Base_800BB8E0_800BB804 {
@@ -350,8 +351,8 @@ extern "C" {
 void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1);
 void TObjEneDD__sub_800BBA0C(u8 *arg0);
-void TObjEneDD__vt83(void *arg0);
-s32 TObjEneDD__vt81(u8 *arg0);
+void vfunc_85__9TObjEneDDFv(void *arg0);
+s32 vfunc_83__9TObjEneDDFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 load_enemy_bml_resource(u8 *arg0);
@@ -366,8 +367,8 @@ extern "C" {
 s32 pack_debug_text_position(s32 arg0, s32 arg1);
 void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void TObjEneDD__sub_800BBA0C(u8 *arg0);
-void TObjEneDD__vt77(void *arg0);
-u8 TObjEneDD__vt84(void *arg0);
+void vfunc_79__9TObjEneDDFv(void *arg0);
+u8 vfunc_86__9TObjEneDDFv(void *arg0);
 int get_target_info__9TObjEneDDFPv(void* p);
 void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
@@ -416,12 +417,12 @@ void invoke_initialization_hook__9TObjEneDDFPv(void *arg0) {
     o->m79();
 }
 
-void TObjEneDD__vt77(void *arg0) {
+void TObjEneDD::vfunc_79() {
     s16 temp_r31;
 
-    temp_r31 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r31 = *(s16 *)((s8 *)this + 0x326);
     call_vt78__10TObjPlayerFv();
-    *(s16 *)((s8 *)arg0 + 0x326) = temp_r31;
+    *(s16 *)((s8 *)this + 0x326) = temp_r31;
 }
 
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1) {
@@ -462,18 +463,18 @@ void transition_enemy_state(V_800BBA18 *self, s16 state) {
     self->state = state;
 }
 
-u8 TObjEneDD__vt84(void *arg0) {
-    return (u8) (*(s32 *)((s8 *)arg0 + 0x374) != *(s16 *)((s8 *)arg0 + 0x326));
+u8 TObjEneDD::vfunc_86() {
+    return (u8) (*(s32 *)((s8 *)this + 0x374) != *(s16 *)((s8 *)this + 0x326));
 }
 
 extern const f32 TObjEneDD__data_805D9E8C;
 
-void TObjEneDD__vt83(void *arg0) {
-    if (((VObj_18 *)(arg0))->m84() == 0) {
-        ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 3);
+void TObjEneDD::vfunc_85() {
+    if (((VObj_18 *)(this))->m84() == 0) {
+        ((VObj_18 *)(this))->m85(*(s16 *)((s8 *)this + 0x326), 3);
     }
-    ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
-    TObjEneDD__sub_800BBA0C((u8 *)(arg0));
+    ((VObj_18 *)(this))->m85(*(s16 *)((s8 *)this + 0x326), 0);
+    TObjEneDD__sub_800BBA0C((u8 *)(this));
 }
 
 s32 TObjEneDD__vt82(V_800BBB18 *self) {
@@ -483,7 +484,8 @@ s32 TObjEneDD__vt82(V_800BBB18 *self) {
     return r;
 }
 
-s32 TObjEneDD__vt81(u8 *arg0) {
+s32 TObjEneDD::vfunc_83() {
+    u8 *arg0 = (u8 *)this;
     if (((VObj_18_62ee2d *)(arg0))->m31() != 0) {
         ((VObj_18_62ee2d *)(arg0))->m61();
         return 1;

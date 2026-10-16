@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss5Gryphon.h"
 #include "pso/object/TObjFish.h"
 struct Cnt_8005D708 { u32 f0; u32 count; };
 
@@ -50,20 +51,20 @@ extern const f32 lbl_805D8D50;
 extern const f32 lbl_805D8D54;
 extern const f32 lbl_805D8D58;
 extern const f32 lbl_805D8D5C;
-void TBoss8Dragon__sub_8005D708(void *p);
+void vfunc_105__13TBoss5GryphonFv(void *p);
 }
 
 extern "C" {
 
-void TBoss8Dragon__sub_8005D708(void *p) {
-#define o ((Obj_8005D708 *)p)
+int TBoss5Gryphon::vfunc_105() {
+#define o ((Obj_8005D708 *)this)
     Cnt_8005D708 *c;
     f32 f;
     s32 idx;
-    if (((VObj_8005D708 *)p)->m8(lbl_805D8D4C, lbl_805D8D50) != 0) {
+    if (((VObj_8005D708 *)this)->m8(lbl_805D8D4C, lbl_805D8D50) != 0) {
         TObjFish::set_global_param(o->f24);
         push_matrix();
-        post_translate_matrix((u8 *)p + 0x38);
+        post_translate_matrix((u8 *)this + 0x38);
         rotate_matrix_y(0, o->f60);
         push_matrix();
         scale_matrix(0, lbl_805D8D54, lbl_805D8D58, lbl_805D8D54);

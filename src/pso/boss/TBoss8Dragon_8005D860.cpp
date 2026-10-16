@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss5Gryphon.h"
 
 extern "C" {
 
-int TBoss8Dragon__sub_8005D860(void* p);
+int vfunc_83__13TBoss5GryphonFv(void* p);
 int get_target_info__9TObjEneDDFPv(void*);
 
-int TBoss8Dragon__sub_8005D860(void* p) { return get_target_info__9TObjEneDDFPv(p); }
+void TBoss5Gryphon::vfunc_83() { get_target_info__9TObjEneDDFPv(this); }
 
 }

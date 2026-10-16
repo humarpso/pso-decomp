@@ -40,8 +40,6 @@ struct TObjEneMe3SinowZoa : public TObjEneDD_ST {
     void copy_pos_with_height_offset();
     s32 check_floor_contact(void *arg1);
     void check_and_notify();
-    void render_with_stealth_debug();
-    void update_move();
     static void set_entry_value_clamped(s32 arg0, f32 farg0);
     static void free_resources();};
 

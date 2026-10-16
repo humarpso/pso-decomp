@@ -109,7 +109,7 @@ extern s32 lbl_804DDBF0[];
 void* TLobby__sub_802A7780(void* p);
 void* TLobby__sub_802A7788(void* p);
 extern s32 player_action_motion_buffer;
-int TLobby__sub_802A7790(void);
+int vfunc_4__13TUnk_804DDBF0Fv(void);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
 void player_motion_provider1_set_attack_interpolation(u8 *arg0);
@@ -228,6 +228,6 @@ void *TUnk_804DDBF0::ct_variant() {
 }
 void* TLobby__sub_802A7780(void* p) { return (char*)p + 0xc; }
 void* TLobby__sub_802A7788(void* p) { return (char*)p + 0xc; }
-int TLobby__sub_802A7790(void) {  return (*(int *)&player_action_motion_buffer); }
+int TUnk_804DDBF0::vfunc_4() {  return (*(int *)&player_action_motion_buffer); }
 
 }

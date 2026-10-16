@@ -6,6 +6,7 @@
 class TUnk_80482D04 : public TBoss2Mine {
 public:
     virtual ~TUnk_80482D04();
+    virtual void vfunc_88();
     void*create(int, int, int);
     u8 unk_3B4[0x5C];
 };

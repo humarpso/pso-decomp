@@ -113,7 +113,7 @@ void vfunc_14__10TORockCaveFv(void);
 void vfunc_15__10TORockCaveFv(void);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void TOSensor__sub_80175468(void);
+void vfunc_25__8TOSensorFv(void);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void __dl__7TObjectFPv(void *);
 

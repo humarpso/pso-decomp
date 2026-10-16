@@ -33,7 +33,7 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444A44[];
 extern char lbl_80444A58[];
-void TObjCityMainWarpChallenge__vt18(void *arg0);
+void vfunc_20__25TObjCityMainWarpChallengeFv(void *arg0);
 }
 
 extern "C" {
@@ -85,18 +85,18 @@ extern const f32 lbl_805DBCB8;
 extern const f32 lbl_805DBCBC;
 extern const f32 lbl_805DBCC0;
 
-void TObjCityMainWarpChallenge__vt18(void *arg0) {
-    s32 v = *(s32 *)((u8 *)arg0 + 0x88);
+void TObjCityMainWarpChallenge::vfunc_20() {
+    s32 v = *(s32 *)((u8 *)this + 0x88);
     if (v < 0 || v > 0xFF) {
-        *(s32 *)((u8 *)arg0 + 0x16C) = -1;
+        *(s32 *)((u8 *)this + 0x16C) = -1;
     } else {
-        *(s32 *)((u8 *)arg0 + 0x16C) = v;
+        *(s32 *)((u8 *)this + 0x16C) = v;
     }
     TObjNpcEnemy::set_global_count(0xFF00FF);
     if (TOKeyMachine01::get_global_state() == 0) {
-        debug_printf_at(0x130020, lbl_80444A44, *(s32 *)((u8 *)arg0 + 0x84));
+        debug_printf_at(0x130020, lbl_80444A44, *(s32 *)((u8 *)this + 0x84));
     }
-    debug_printf_at(0x130021, lbl_80444A58, *(s32 *)((u8 *)arg0 + 0x16C));
+    debug_printf_at(0x130021, lbl_80444A58, *(s32 *)((u8 *)this + 0x16C));
 }
 
 void TObjCityMainWarpChallenge::render() {

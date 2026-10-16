@@ -1863,10 +1863,10 @@ extern RecoveredGlobal_800646F0_lbl_804FF5B4 boss5_gryphon_behavior_params;
 }
 
 extern "C" {
-void TBoss8Dragon__sub_8005D708();
+void vfunc_105__13TBoss5GryphonFv();
 }
 extern "C" {
-void TBoss8Dragon__sub_8005D860();
+void vfunc_83__13TBoss5GryphonFv();
 }
 extern "C" {
 void TBoss8Dragon__sub_8005DF60();
@@ -1965,61 +1965,61 @@ extern "C" {
 void TLobby__sub_801A1FD8();
 }
 extern "C" {
-void TObjEneDD__vt100();
+void vfunc_103__9TObjEneDDFPUc();
 }
 extern "C" {
-void TObjEneDD__vt77();
+void vfunc_79__9TObjEneDDFv();
 }
 extern "C" {
 void TObjEneDD__vt82();
 }
 extern "C" {
-void TObjEneDD__vt83();
+void vfunc_85__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt84();
+void vfunc_86__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt86();
+void vfunc_89__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt87();
+void vfunc_90__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt88();
+void vfunc_91__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt89();
+void vfunc_92__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt90();
+void vfunc_93__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt91();
+void vfunc_94__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt92();
+void vfunc_95__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt93();
+void vfunc_96__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt94();
+void vfunc_97__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt95();
+void vfunc_98__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt96();
+void vfunc_99__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt97();
+void vfunc_100__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt98();
+void vfunc_101__9TObjEneDDFPUc();
 }
 extern "C" {
-void TObjEneDD__vt99();
+void vfunc_102__9TObjEneDDFv();
 }
 extern "C" {
 void TObjEneEpsilon__vt101();
@@ -2556,14 +2556,14 @@ void *__vt__13TBoss5Gryphon[107] = {
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
+    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
-    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&dispatch_state_event__13TBoss5GryphonFPvii,
-    (void *)&update_colliders__13TBoss5GryphonFPv, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
-    (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
-    (void *)&TObjEneDD__vt93, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
-    (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
-    (void *)&TObjEneEpsilon__vt101, (void *)&TBoss8Dragon__sub_8005D860, (void *)&TBoss8Dragon__sub_8005D708,
+    (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&dispatch_state_event__13TBoss5GryphonFPvii,
+    (void *)&update_colliders__13TBoss5GryphonFPv, (void *)&vfunc_89__9TObjEneDDFv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
+    (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
+    (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
+    (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
+    (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_83__13TBoss5GryphonFv, (void *)&vfunc_105__13TBoss5GryphonFv,
 };
 #define lbl_80487848 (*(RecoveredGlobal_80064CFC_lbl_80487848 *)lbl_80487848)
 #define gryphon_particle_enable_pos ((u8 *)gryphon_particle_enable_pos)

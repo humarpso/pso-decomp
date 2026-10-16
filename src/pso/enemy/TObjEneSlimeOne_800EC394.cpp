@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe4Bit.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneSlimeWaterBomb.h"
 #include "pso/enemy/TObjEneSlimeOne.h"
@@ -86,8 +87,8 @@ extern void *lbl_80496C90[10];
 
 extern "C" {
 
-void TObjEneRe4Bit__vt103(void);
-void TObjEneRe4Bit__vt104(void);
+void vfunc_83__13TObjEneRe4BitFv(void);
+void vfunc_105__13TObjEneRe4BitFv(void);
 void TObjEneSlimeOne__sub_800EC470(void* p);
 s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1);
 void fn_800ECA28(void *arg0, s32 arg1);
@@ -331,7 +332,7 @@ void fn_800ECA28(void *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 4) = -1;
 }
 
-void TObjEneRe4Bit__vt104(void) {  }
-void TObjEneRe4Bit__vt103(void) {  }
+void TObjEneRe4Bit::vfunc_105() {  }
+s32 TObjEneRe4Bit::vfunc_83() {  }
 
 }

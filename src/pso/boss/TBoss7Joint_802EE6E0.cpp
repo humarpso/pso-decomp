@@ -7,7 +7,7 @@ extern "C" {
 extern const f32 lbl_805DE9F0;
 extern const f32 lbl_805DEBA8;
 extern const f32 lbl_805DEBAC;
-void TBoss7Joint__vt86(u8 *arg0);
+void vfunc_88__11TBoss7JointFv(u8 *arg0);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
@@ -29,10 +29,10 @@ void vfunc_49__14TBoss7DeRolLeCFv(void);
 void vfunc_50__14TBoss7DeRolLeCFv(void);
 void TBoss7Joint__sub_802EE7B8(void* p);
 void TBoss7Joint__sub_802EE800(void* p);
-void TBoss7Joint__vt91(void *arg0);
+void vfunc_93__11TBoss7JointFv(void *arg0);
 int TLobby__send_and_handle_60(void*);
-s32 TObjEneDD__vt90(void *);
-s32 TObjEneDD__vt91(void *);
+s32 vfunc_93__9TObjEneDDFv(void *);
+s32 vfunc_94__9TObjEneDDFv(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
@@ -68,14 +68,15 @@ void init_boss_stats__11TBoss7JointFPv(u8 *arg0) {
     play_sound_effect(0x3A312, arg0 + 0x38, 0, 0);
 }
 
-void TBoss7Joint__vt91(void *arg0) {
-    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 6) {
-        TObjEneDD__vt90(arg0);
+void TBoss7Joint::vfunc_93() {
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 6) {
+        vfunc_93__9TObjEneDDFv(this);
         return;
     }
-    TObjEneDD__vt91(arg0);
+    vfunc_94__9TObjEneDDFv(this);
 }
-void TBoss7Joint__vt86(u8 *arg0) {
+void TBoss7Joint::vfunc_88() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     u8 *temp_r4;
     u8 *temp_r4_2;

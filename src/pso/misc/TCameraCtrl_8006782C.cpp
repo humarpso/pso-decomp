@@ -30,7 +30,7 @@ extern const f32 lbl_805D8F50;
 extern const f32 lbl_805D8F54;
 extern const f32 lbl_805D8F58;
 extern const f32 lbl_805D8F5C;
-void TCameraCtrl__sub_80067AB0(u8 *arg0);
+void update_follow_flags__13TUnk_804887F8Fv(u8 *arg0);
 u8 *TCameraCtrl__sub_8003CFF4();
 f32 vector_length(void *);
 void normalize_vector(void *);
@@ -126,7 +126,8 @@ void TCameraCtrl::update_target_follow() {
 #undef arg0
 #pragma pop
 
-void TCameraCtrl__sub_80067AB0(u8 *arg0) {
+void TUnk_804887F8::update_follow_flags() {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_80067AB0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80067AB0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80067AB0, sp10) == 0x8) ? 1 : -1];

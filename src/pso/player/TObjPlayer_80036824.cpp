@@ -117,7 +117,7 @@ void TBoss2Joint__vt85(V_80036850 *self, s32 x, s32 y);
 
 extern "C" {
 
-void TBoss2Joint__vt103(void);
+void vfunc_105__11TBoss2JointFv(void);
 
 f64 acos();
 
@@ -125,7 +125,7 @@ f32 TObjPlayer::get_scale_factor() {
     return (f32) acos();
 }
 void TBoss2Joint::render() {  }
-void TBoss2Joint__vt103(void) {  }
+void TBoss2Joint::vfunc_105() {  }
 void TBoss2Joint__vt85(V_80036850 *self, s32 x, s32 y) {
     switch (x) {
     case 0:

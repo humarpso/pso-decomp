@@ -40,13 +40,13 @@ void set_collider_contact_low(u8 *arg0);
 void set_collider_contact_high(u8 *arg0);
 void update_collider_contact_by_height(u8 *arg0, f32 farg0);
 int TObjEneDD__sub_800BA804(u16 arg0);
-s32 TObjEneDD__vt87(O_800BA8A8 *self);
+s32 vfunc_90__9TObjEneDDFv(O_800BA8A8 *self);
 }
 
 extern "C" {
 
-void TObjEneDD__vt85(void);
-void TObjEneDD__vt86(void *arg0);
+void vfunc_88__9TObjEneDDFv(void);
+void vfunc_89__9TObjEneDDFv(void *arg0);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
 int init_collision_body_parts(void*);
@@ -102,7 +102,8 @@ void set_collider_contact_high(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x18) = (s32) (*(s32 *)((s8 *)arg0 + 0x18) & 0xFFFFFFFD);
 }
 
-s32 TObjEneDD__vt87(O_800BA8A8 *self) {
+s32 TObjEneDD::vfunc_90() {
+    O_800BA8A8 *self = (O_800BA8A8 *)this;
     s32 i;
     for (i = 0; i < self->count; i++) {
         if (self->entries[i].flags & 0x380000) {
@@ -112,13 +113,13 @@ s32 TObjEneDD__vt87(O_800BA8A8 *self) {
     return 0;
 }
 
-void TObjEneDD__vt86(void *arg0) {
-    struct VObj_800BA8E8_800BA754 *o = (struct VObj_800BA8E8_800BA754 *)arg0;
+void TObjEneDD::vfunc_89() {
+    struct VObj_800BA8E8_800BA754 *o = (struct VObj_800BA8E8_800BA754 *)this;
     o->m86();
-    ((TObjPlayer *)arg0)->check_object_collisions();
-    check_enemy_body_collisions(arg0);
+    ((TObjPlayer *)this)->check_object_collisions();
+    check_enemy_body_collisions(this);
 }
 
-void TObjEneDD__vt85(void) {  }
+void TObjEneDD::vfunc_88() {  }
 
 }

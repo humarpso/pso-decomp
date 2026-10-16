@@ -34,14 +34,14 @@ extern "C" {
 void TObjGbAdvance__vt12(void *arg0);
 void *__dt__13TObjGbAdvanceFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 TObjMesBase__vt12();
+s32 vfunc_14__11TObjMesBaseFv();
 s32 unregister_object_by_id(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__11TObjMesBaseFv(void *, s32);
 
 void TObjGbAdvance__vt12(void *arg0) {
-    TObjMesBase__vt12();
+    vfunc_14__11TObjMesBaseFv();
     if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) != 0) {
         submit_cursor_candidate(arg0, -1);
     }

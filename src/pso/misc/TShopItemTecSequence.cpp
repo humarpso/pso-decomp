@@ -131,7 +131,7 @@ u8 *TShopItemTecSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 handle_select__20TShopItemTecSequenceFPv(void *arg0);
 s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0);
 s32 open_greeting__20TShopItemTecSequenceFPv(u8 *arg0);
-s32 restore_player_state__13TShopSequenceFPv(void *);
+s32 restore_player_state__13TShopSequenceFv(void *);
 void vfunc_11__20TShopItemTecSequenceFv(u8 *arg0);
 extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__slot_table;
 void TShopItemTecSequence__sub_80220560(void);
@@ -309,7 +309,7 @@ void TShopItemTecSequence::vfunc_11() {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
-        restore_player_state__13TShopSequenceFPv((void *) (arg0));
+        restore_player_state__13TShopSequenceFv((void *) (arg0));
         ((TQuestListVM *)arg0)->set_field_20((s32)((int) (1)));
         return;
     case 1:

@@ -250,7 +250,7 @@ void classify_actor_view_detail();
 void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFPvi();
 void TItem__sub_801005E0();
-void TItem__sub_80100678();
+void vfunc_17__5TItemFv();
 void set_attach_slot__14TItemEquipBaseFSc();
 void equip__14TItemEquipBaseFv();
 void unequip__14TItemEquipBaseFv();
@@ -258,15 +258,15 @@ void add_equip_stats__14TItemEquipBaseFPvi();
 void remove_equip_stats__14TItemEquipBaseFPvi();
 void subtract_item_stat_bonus__14TItemEquipBaseFllPs();
 void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();
-void TItem__sub_80100690();
-void TItem__sub_8010068C();
-void TItem__sub_80100688();
+void vfunc_26__5TItemFv();
+void vfunc_27__5TItemFv();
+void vfunc_28__5TItemFv();
 void update_equip__14TItemEquipBaseFv();
-void TItem__sub_801007A8();
-void TItem__sub_80100680();
+void vfunc_30__5TItemFv();
+void vfunc_32__5TItemFv();
 void TItemEquipBase__sub_8010A77C();
-void TItem__sub_80100674();
-void ret_8010066C();
+void vfunc_34__5TItemFv();
+void vfunc_35__5TItemFv();
 void ret_80100664();
 void ret_8010065C();
 void ret_80100654();
@@ -274,7 +274,7 @@ void ret_8010064C();
 void TItem__sub_80100648();
 void TItem__sub_801005E4();
 void TItem__sub_801005D8();
-void TObjPlayer__sub_80102BD8();
+void vfunc_43__5TItemFv();
 void vfunc_46__14TItemEquipBaseFv();
 void release__14TItemEquipBaseFv();
 void vfunc_50__14TItemEquipBaseFv();
@@ -298,7 +298,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)TItemProUnit__vt12,
     (void *)TItem__sub_801005E0,
     (void *)vfunc_16__12TItemProUnitFv,
-    (void *)TItem__sub_80100678,
+    (void *)vfunc_17__5TItemFv,
     (void *)TItemProUnit__vt16,
     (void *)set_attach_slot__14TItemEquipBaseFSc,
     (void *)equip__14TItemEquipBaseFv,
@@ -307,16 +307,16 @@ void *__vt__12TItemProUnit[51] = {
     (void *)remove_equip_stats__14TItemEquipBaseFPvi,
     (void *)subtract_item_stat_bonus__14TItemEquipBaseFllPs,
     (void *)subtract_equip_stats__14TItemEquipBaseFlPUcPUc,
-    (void *)TItem__sub_80100690,
-    (void *)TItem__sub_8010068C,
-    (void *)TItem__sub_80100688,
+    (void *)vfunc_26__5TItemFv,
+    (void *)vfunc_27__5TItemFv,
+    (void *)vfunc_28__5TItemFv,
     (void *)update_equip__14TItemEquipBaseFv,
-    (void *)TItem__sub_801007A8,
+    (void *)vfunc_30__5TItemFv,
     (void *)TItem::update_pickup_flag,
-    (void *)TItem__sub_80100680,
+    (void *)vfunc_32__5TItemFv,
     (void *)TItemEquipBase__sub_8010A77C,
-    (void *)TItem__sub_80100674,
-    (void *)ret_8010066C,
+    (void *)vfunc_34__5TItemFv,
+    (void *)vfunc_35__5TItemFv,
     (void *)ret_80100664,
     (void *)ret_8010065C,
     (void *)ret_80100654,
@@ -324,7 +324,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)TItem__sub_80100648,
     (void *)TItem__sub_801005E4,
     (void *)TItem__sub_801005D8,
-    (void *)TObjPlayer__sub_80102BD8,
+    (void *)vfunc_43__5TItemFv,
     (void *)vfunc_44__12TItemProUnitFv,
     (void *)vfunc_45__12TItemProUnitFv,
     (void *)vfunc_46__14TItemEquipBaseFv,

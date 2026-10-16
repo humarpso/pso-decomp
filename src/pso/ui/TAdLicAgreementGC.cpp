@@ -34,9 +34,9 @@ extern "C" {
 
 void *TAdLicAgreementGC__ct(void *arg0);
 void TAdLicAgreementGC__vt4(void* p);
-int TAdLicAgreementGC__vt5(void* p);
-int TAdLicAgreementGC__vt6(void* p);
-int TAdLicAgreementGC__vt7(void* p);
+int vfunc_7__17TAdLicAgreementGCFv(void* p);
+int vfunc_8__17TAdLicAgreementGCFv(void* p);
+int vfunc_9__17TAdLicAgreementGCFv(void* p);
 void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1);
 void TAdAgreementBaseGC__ct(void *);
 void *TAdScrollWinGC__ct(void *, void *, int, int);
@@ -52,9 +52,9 @@ void TAdLicAgreementGC::render() {
     o->m10();
 }
 
-int TAdLicAgreementGC__vt7(void* p) { return set_game_mode__21TAdMultiChgGameModeGCFv(p); }
-int TAdLicAgreementGC__vt6(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
-int TAdLicAgreementGC__vt5(void* p) { return set_mode_1c__21TAdMultiChgGameModeGCFv(p); }
+void TAdLicAgreementGC::vfunc_9() { set_game_mode__21TAdMultiChgGameModeGCFv(this); }
+void TAdLicAgreementGC::vfunc_8() { request_scene_change__21TAdMultiChgGameModeGCFv(this); }
+void TAdLicAgreementGC::vfunc_7() { set_mode_1c__21TAdMultiChgGameModeGCFv(this); }
 void TAdLicAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { ((TAdScrollWinGC *)(*(void**)((char*)p + 0x38)))->close_window(); *(int*)((char*)p + 0x38) = 0; } }
 
 void TAdLicAgreementGC::run_task() {

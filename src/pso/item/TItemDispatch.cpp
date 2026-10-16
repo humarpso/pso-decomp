@@ -402,8 +402,8 @@ extern u32 player_rock_objects_handle;
 
 extern "C" {
 
-int TObjPlayer__sub_80102BD0(void);
-int TObjPlayer__sub_80102BD8(void);
+int vfunc_33__5TItemFv(void);
+int vfunc_43__5TItemFv(void);
 s8 TObjPlayer__sub_80102C30(u8 *arg0);
 void free_obj_heap__10TObjPlayerFPv(void* a0);
 int get_item_system_generation(void);
@@ -479,8 +479,8 @@ void TObjPlayer::init_forward_default() {
     ((TObjPlayer *)(&lbl_805D53EC))->init_forward();
 }
 
-int TObjPlayer__sub_80102BD0(void) { return 0; }
-int TObjPlayer__sub_80102BD8(void) { return 0; }
+int TItem::vfunc_33() { return 0; }
+int TItem::vfunc_43() { return 0; }
 int TObjPlayer::test_item_flags(u32 m) { return *(u32*)((char*)this + 0xdc) & m; }
 void TObjPlayer::clear_item_flags(u32 v) { *(u32*)((char*)this + 0xdc) &= ~v; }
 void TObjPlayer::add_item_flags(u32 v) { *(u32*)((char*)this + 0xdc) |= v; }

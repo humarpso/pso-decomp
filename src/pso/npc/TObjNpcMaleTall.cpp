@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcMoja.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcMaleTall.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -112,7 +113,7 @@ u8 *TObjNpcMaleTall__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TObjPlayer__sub_8014C5EC(void *arg0);
+void vfunc_88__11TObjNpcMojaFv(void *arg0);
 void *__dt__15TObjNpcMaleTallFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -163,12 +164,12 @@ u8 *TObjNpcMaleTall__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjPlayer__sub_8014C5EC(void *arg0) {
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 2) {
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+void TObjNpcMoja::vfunc_88() {
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 2) {
+        *(s16 *)((s8 *)this + 0xB8) = 0;
         return;
     }
-    *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+    *(s16 *)((s8 *)this + 0xB8) = 1;
 }
 
 }

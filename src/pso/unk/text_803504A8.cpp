@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804F0D34.h"
 
 extern "C" {
 
@@ -29,7 +30,7 @@ void create_quest_bgm_object(s32 arg0, u32 arg1) {
     }
 }
 
-void fn_80350504(void) {
+void TUnk_804F0D34::vfunc_44() {
     ((s32 (*)(s32, int))create_quest_bgm_object)((s32)tl_05, (u8)get_slot_count__14TItemProShieldFv());
 }
 

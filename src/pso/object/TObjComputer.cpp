@@ -164,7 +164,7 @@ void *__dt__12TObjComputerFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 s32 free_collision_body_parts(void *);
-s32 TObjMesBase__vt12();
+s32 vfunc_14__11TObjMesBaseFv();
 s32 unregister_object_by_id(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
@@ -224,7 +224,7 @@ void TObjComputer__vt13(void *arg0) {
 extern f32 lbl_805DBCE8;
 
 void TObjComputer__vt12(void *arg0) {
-    TObjMesBase__vt12();
+    vfunc_14__11TObjMesBaseFv();
     if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) != 0) {
         submit_cursor_candidate(arg0, -1);
     }

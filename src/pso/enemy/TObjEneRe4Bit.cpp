@@ -341,29 +341,29 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TObjEneDD__vt100();
-extern "C" void TObjEneDD__vt77();
+extern "C" void vfunc_103__9TObjEneDDFPUc();
+extern "C" void vfunc_79__9TObjEneDDFv();
 extern "C" void TObjEneDD__vt82();
-extern "C" void TObjEneDD__vt83();
-extern "C" void TObjEneDD__vt84();
-extern "C" void TObjEneDD__vt86();
-extern "C" void TObjEneDD__vt87();
-extern "C" void TObjEneDD__vt88();
-extern "C" void TObjEneDD__vt89();
-extern "C" void TObjEneDD__vt90();
-extern "C" void TObjEneDD__vt91();
-extern "C" void TObjEneDD__vt92();
-extern "C" void TObjEneDD__vt93();
-extern "C" void TObjEneDD__vt94();
-extern "C" void TObjEneDD__vt95();
-extern "C" void TObjEneDD__vt96();
-extern "C" void TObjEneDD__vt97();
-extern "C" void TObjEneDD__vt98();
-extern "C" void TObjEneDD__vt99();
+extern "C" void vfunc_85__9TObjEneDDFv();
+extern "C" void vfunc_86__9TObjEneDDFv();
+extern "C" void vfunc_89__9TObjEneDDFv();
+extern "C" void vfunc_90__9TObjEneDDFv();
+extern "C" void vfunc_91__9TObjEneDDFv();
+extern "C" void vfunc_92__9TObjEneDDFv();
+extern "C" void vfunc_93__9TObjEneDDFv();
+extern "C" void vfunc_94__9TObjEneDDFv();
+extern "C" void vfunc_95__9TObjEneDDFv();
+extern "C" void vfunc_96__9TObjEneDDFv();
+extern "C" void vfunc_97__9TObjEneDDFv();
+extern "C" void vfunc_98__9TObjEneDDFv();
+extern "C" void vfunc_99__9TObjEneDDFv();
+extern "C" void vfunc_100__9TObjEneDDFv();
+extern "C" void vfunc_101__9TObjEneDDFPUc();
+extern "C" void vfunc_102__9TObjEneDDFv();
 extern "C" void TObjEneEpsilon__vt101();
 extern "C" void vfunc_83__12TObjEneDD_STFv();
-extern "C" void TObjEneRe4Bit__vt103();
-extern "C" void TObjEneRe4Bit__vt104();
+extern "C" void vfunc_83__13TObjEneRe4BitFv();
+extern "C" void vfunc_105__13TObjEneRe4BitFv();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
 extern "C" void consume_timer_field__10TObjPlayerFPvi();
@@ -446,7 +446,7 @@ void apply_defense_stat_status__13TObjEneRe4BitFPv(void);
 void vfunc_61__13TObjEneRe4BitFv(void);
 void vfunc_62__13TObjEneRe4BitFv(u8 *arg0);
 void vfunc_63__13TObjEneRe4BitFv(u8 *arg0);
-void TObjEneRe4Bit__vt86(void *arg0);
+void vfunc_88__13TObjEneRe4BitFv(void *arg0);
 void * __dt__13TObjEneRe4BitFv(void *arg0, s16 arg1);
 void run_task__13TObjEneRe4BitFv(u8 *arg0);
 }
@@ -480,14 +480,14 @@ void *__vt__13TObjEneRe4Bit[107] = {
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
+    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
-    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneRe4Bit__vt85,
-    (void *)&TObjEneRe4Bit__vt86, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
-    (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
-    (void *)&TObjEneDD__vt93, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
-    (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
-    (void *)&TObjEneEpsilon__vt101, (void *)&TObjEneRe4Bit__vt103, (void *)&TObjEneRe4Bit__vt104,
+    (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&TObjEneRe4Bit__vt85,
+    (void *)&vfunc_88__13TObjEneRe4BitFv, (void *)&vfunc_89__9TObjEneDDFv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
+    (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
+    (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
+    (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
+    (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_83__13TObjEneRe4BitFv, (void *)&vfunc_105__13TObjEneRe4BitFv,
 };
 #define re4_bit_init_params ((u8 *)re4_bit_init_params)
 #define re4_bit_model_node_desc ((u8 *)re4_bit_model_node_desc)
@@ -1469,7 +1469,7 @@ extern "C" {
 u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5, s16 arg6);
 void vfunc_28__13TObjEneRe4BitFv(void);
 void vfunc_61__13TObjEneRe4BitFv(void);
-void TObjEneRe4Bit__vt86(void *arg0);
+void vfunc_88__13TObjEneRe4BitFv(void *arg0);
 void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1);
 void copy_pos__13TObjEneRe4BitFPv(void* p);
 void update_position_flag__13TObjEneRe4BitFPv(u8 *arg0);
@@ -1511,8 +1511,8 @@ void update_position_flag__13TObjEneRe4BitFPv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x800);
 }
 
-void TObjEneRe4Bit__vt86(void *arg0) {
-    *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) - *(f32 *)((s8 *)arg0 + 0x3C));
+void TObjEneRe4Bit::vfunc_88() {
+    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C));
 }
 void copy_pos__13TObjEneRe4BitFPv(void* p) { ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((void*)((char*)p + 0x74), (void*)((char*)p + 0x2fc)); }
 void TObjEneRe4Bit::vfunc_61() {  }

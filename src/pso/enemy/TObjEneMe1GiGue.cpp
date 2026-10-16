@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include <stddef.h>
@@ -35,9 +36,9 @@ void TObjEneMe1GiGue__sub_802CB824(void *obj, s32 arg1);
 }
 
 extern "C" {
-f32 calc_attack_range__15TObjEneMe1GiGueFPv(u8 *arg0);
+f32 vfunc_24__15TObjEneMe1GiGueFPvPv(u8 *arg0);
 f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
-f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0);
+f32 vfunc_22__15TObjEneMe1GiGueFPvf(u8 *arg0);
 void clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFPv(void* p);
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void* p);
 u8 is_active_state__22TObjEneMe1GiGueBarrierFPv(O_802CAC04 *self);
@@ -47,7 +48,7 @@ void* update_and_get_pos__22TObjEneMe1GiGueBarrierFPv(void* p);
 int get_barrier_count__15TObjEneMe1GiGueFv(void);
 s32 check_vector_bit__15TObjEneMe1GiGueFii(s32 arg0, s32 arg1);
 void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0);
-s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0);
+s32 vfunc_36__15TObjEneMe1GiGueFv(s32 arg0);
 void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1);
 void load_params__15TObjEneMe1GiGueFi(s32 arg0);
 void update_direction__15TObjEneMe1GiGueFPv(void *arg0);
@@ -68,8 +69,8 @@ void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CC614(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CC900(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o);
-void enter_state_5_save_prev__15TObjEneMe1GiGueFPv(u8 *arg0);
-void enter_hit_reaction_state__15TObjEneMe1GiGueFPv(u8 *arg0);
+void vfunc_63__15TObjEneMe1GiGueFv(u8 *arg0);
+void vfunc_62__15TObjEneMe1GiGueFv(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CCF2C(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CD054(void);
 void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self);
@@ -77,11 +78,11 @@ void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0);
 }
 
 extern "C" {
-f32 calc_attack_range__15TObjEneMe1GiGueFPv(u8 *arg0);
-f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0);
-s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0);
-void enter_state_5_save_prev__15TObjEneMe1GiGueFPv(u8 *arg0);
-void enter_hit_reaction_state__15TObjEneMe1GiGueFPv(u8 *arg0);
+f32 vfunc_24__15TObjEneMe1GiGueFPvPv(u8 *arg0);
+f32 vfunc_22__15TObjEneMe1GiGueFPvf(u8 *arg0);
+s32 vfunc_36__15TObjEneMe1GiGueFv(s32 arg0);
+void vfunc_63__15TObjEneMe1GiGueFv(u8 *arg0);
+void vfunc_62__15TObjEneMe1GiGueFv(u8 *arg0);
 void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0);
 f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
 void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self);
@@ -420,17 +421,17 @@ void *lbl_804E135C[83] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
-    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&get_target_range__15TObjEneMe1GiGueFPv, (void *)&receive_attack__15TObjEneMe1GiGueFPviii,
-    (void *)&calc_attack_range__15TObjEneMe1GiGueFPv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
+    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&vfunc_22__15TObjEneMe1GiGueFPvf, (void *)&receive_attack__15TObjEneMe1GiGueFPviii,
+    (void *)&vfunc_24__15TObjEneMe1GiGueFPvPv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
     (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&check_and_trigger__15TObjEneMe1GiGueFi, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
+    (void *)&vfunc_36__15TObjEneMe1GiGueFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__15TObjEneMe1GiGueFv, (void *)&vfunc_59__15TObjEneMe1GiGueFv,
-    (void *)&vfunc_60__15TObjEneMe1GiGueFv, (void *)&vfunc_61__15TObjEneMe1GiGueFv, (void *)&enter_hit_reaction_state__15TObjEneMe1GiGueFPv, (void *)&enter_state_5_save_prev__15TObjEneMe1GiGueFPv,
+    (void *)&vfunc_60__15TObjEneMe1GiGueFv, (void *)&vfunc_61__15TObjEneMe1GiGueFv, (void *)&vfunc_62__15TObjEneMe1GiGueFv, (void *)&vfunc_63__15TObjEneMe1GiGueFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
@@ -451,14 +452,15 @@ f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAA
 
 extern "C" {
 
-f32 calc_attack_range__15TObjEneMe1GiGueFPv(u8 *arg0);
-f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0);
+f32 vfunc_24__15TObjEneMe1GiGueFPvPv(u8 *arg0);
+f32 vfunc_22__15TObjEneMe1GiGueFPvf(u8 *arg0);
 f32 receive_weapon_special_attack__10TObjPlayerFv();
 f32 receive_physical_attack__10TObjPlayerFv();
 s32 show_miss_popup(void *, void *);
 s32 set_state__15TObjEneMe1GiGueFl(void *, s32);
 
-f32 calc_attack_range__15TObjEneMe1GiGueFPv(u8 *arg0) {
+f32 TObjEneMe1GiGue::vfunc_24(void *, void *) {
+    u8 *arg0 = (u8 *)this;
     f32 var_f31;
 
     var_f31 = 0.0f;
@@ -482,7 +484,8 @@ f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAA
     return r;
 }
 
-f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0) {
+f32 TObjEneMe1GiGue::vfunc_22(void *, f32) {
+    u8 *arg0 = (u8 *)this;
     f32 var_f31;
 
     var_f31 = 0.0f;
@@ -698,7 +701,7 @@ void add_target_in_cone__15TObjEneMe1GiGueFPvPv(Gi_802CB170 *self, Tgt_802CB170 
 
 extern "C" {
 
-s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0);
+s32 vfunc_36__15TObjEneMe1GiGueFv(s32 arg0);
 s32 check_vector_bit__15TObjEneMe1GiGueFii(s32 arg0, s32 arg1);
 int get_barrier_count__15TObjEneMe1GiGueFv(void);
 void update_direction__15TObjEneMe1GiGueFPv(void *arg0);
@@ -738,7 +741,8 @@ void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0) {
 }
 #pragma pop
 
-s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0) {
+s32 TObjEneMe1GiGue::vfunc_36() {
+    s32 arg0 = (s32)this;
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         TObjEneMe1GiGue__sub_802CACD8((u8 *)(arg0));
         return 1;
@@ -1030,9 +1034,9 @@ struct Obj_802CCBAC {
 };
 
 extern "C" {
-void enter_state_5_save_prev__15TObjEneMe1GiGueFPv(u8 *arg0);
+void vfunc_63__15TObjEneMe1GiGueFv(u8 *arg0);
 s32 set_state__15TObjEneMe1GiGueFl(void *, s32);
-void enter_hit_reaction_state__15TObjEneMe1GiGueFPv(u8 *arg0);
+void vfunc_62__15TObjEneMe1GiGueFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
@@ -1956,13 +1960,15 @@ void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o) {
     }
 }
 
-void enter_state_5_save_prev__15TObjEneMe1GiGueFPv(u8 *arg0) {
+void TObjEneMe1GiGue::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     set_state__15TObjEneMe1GiGueFl(arg0, 5);
     *(s32 *)((s8 *)arg0 + 0x380) = (s32) *(s32 *)((s8 *)arg0 + 0x378);
     *(s32 *)((s8 *)arg0 + 0x378) = 5;
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
-void enter_hit_reaction_state__15TObjEneMe1GiGueFPv(u8 *arg0) {
+void TObjEneMe1GiGue::vfunc_62() {
+    u8 *arg0 = (u8 *)this;
   s16 temp_r0;
   temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
   if (temp_r0 != 0xC)

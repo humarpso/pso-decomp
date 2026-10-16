@@ -270,8 +270,8 @@ void TFontSmallLobby__sub_801C0258(void* p, void* q);
 
 extern "C" {
 
-int TObjPlayer__sub_801C00FC(void);
-int TObjPlayer__sub_801C0104(void);
+int vfunc_7__13TUnk_804DDD28Fv(void);
+int vfunc_76__13TUnk_804DDD28Fv(void);
 
 }
 extern "C" {

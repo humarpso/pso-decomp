@@ -21,8 +21,8 @@ struct VObj_80335648 : Base_80335648 {
 extern "C" {
 
 void TAdTrialAgreementGC__vt4(void* p);
-int TAdTrialAgreementGC__vt5(void* p);
-void TAdTrialAgreementGC__vt6(void);
+int vfunc_7__19TAdTrialAgreementGCFv(void* p);
+void vfunc_8__19TAdTrialAgreementGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 render_tick__Fv();
@@ -33,8 +33,8 @@ void TAdTrialAgreementGC::render() {
     o->m10();
 }
 
-void TAdTrialAgreementGC__vt6(void) { TKeyBoardControl__sub_8000F9CC((void*)0); }
-int TAdTrialAgreementGC__vt5(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
+void TAdTrialAgreementGC::vfunc_8() { TKeyBoardControl__sub_8000F9CC((void*)0); }
+void TAdTrialAgreementGC::vfunc_7() { request_scene_change__21TAdMultiChgGameModeGCFv(this); }
 void TAdTrialAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { ((TAdScrollWinGC *)(*(void**)((char*)p + 0x38)))->close_window(); *(int*)((char*)p + 0x38) = 0; } }
 void TAdTrialAgreementGC::wait_for_load() {
 loop_1:

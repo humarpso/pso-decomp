@@ -6,6 +6,7 @@
 
 struct TObjEneDD : public TObjEnemy {
     virtual ~TObjEneDD();
+    virtual void vfunc_79();
     virtual s32 vfunc_83();
     virtual void vfunc_84();
     virtual void vfunc_85();

@@ -6,6 +6,7 @@
 
 struct TObjNpcARM00 : public TUnk_804A9F50 {
     virtual ~TObjNpcARM00();
+    virtual void vfunc_90();
     static void free_resources();
     static void load_resources();};
 

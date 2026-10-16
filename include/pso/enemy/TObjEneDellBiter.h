@@ -6,6 +6,8 @@
 
 struct TObjEneDellBiter : public TObjEneDD_ST {
     virtual ~TObjEneDellBiter();
+    virtual void vfunc_88();
+    virtual s32 vfunc_83();
     virtual void vfunc_105();
     virtual void vfunc_106();
     void vfunc_63();

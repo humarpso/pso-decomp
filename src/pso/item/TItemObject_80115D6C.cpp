@@ -85,22 +85,22 @@ s32 copy_and_register_item_data__11TItemObjectFv(void *);
 
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 void TItemObject__vt16(u8 *arg0, u8 *arg1);
-void TItemObject__vt29(void *arg0);
+void vfunc_31__11TItemObjectFv(void *arg0);
 s32 TItemObject__vt35(void *arg0, s32 arg1);
 s32 TItemObject__vt36(void *arg0, s32 arg1);
-void TItemObject__vt42(void *arg0);
-s32 load_encoded_value__11TItemObjectFv(void);
+void vfunc_44__11TItemObjectFv(void *arg0);
+s32 vfunc_36__11TItemObjectFv(void);
 void run_task__5TItemFv(); void dispatch_state__5TItemFv(); void render_shadows__5TItemFv();
 void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
 void TItem__sub_80100B8C(); void classify_actor_view_detail(); void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFPvi(); void TItem__sub_801005E0(); void TItem__sub_801005DC();
-void TItem__sub_80100678(); void TItem__sub_8010067C(); void TItem__sub_801007B0();
-void TItem__sub_801007AC(); void TItem__sub_8010075C(); void TItem__sub_80100758();
-void TItem__sub_80100698(); void TItem__sub_80100694(); void TItem__sub_80100690();
-void TItem__sub_8010068C(); void TItem__sub_80100688(); void destroy__5TItemFv();
-void TItem__sub_801007A8(); void TItem__sub_80100680(); void TObjPlayer__sub_80102BD0();
-void TItem__sub_80100674(); void ret_8010066C(); void ret_8010064C(); void TItem__sub_80100648();
-void TItem__sub_801005E4(); void TItem__sub_801005D8(); void TObjPlayer__sub_80102BD8();
+void vfunc_17__5TItemFv(); void TItem__sub_8010067C(); void vfunc_20__5TItemFv();
+void vfunc_21__5TItemFPUclll(); void vfunc_22__5TItemFv(); void vfunc_23__5TItemFv();
+void vfunc_24__5TItemFv(); void vfunc_25__5TItemFv(); void vfunc_26__5TItemFv();
+void vfunc_27__5TItemFv(); void vfunc_28__5TItemFv(); void vfunc_29__5TItemFv();
+void vfunc_30__5TItemFv(); void vfunc_32__5TItemFv(); void vfunc_33__5TItemFv();
+void vfunc_34__5TItemFv(); void vfunc_35__5TItemFv(); void ret_8010064C(); void TItem__sub_80100648();
+void TItem__sub_801005E4(); void TItem__sub_801005D8(); void vfunc_43__5TItemFv();
 void *__vt__11TItemObject[] = {
     0, 0,
     (void *)__dt__11TItemObjectFv, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv,
@@ -108,16 +108,16 @@ void *__vt__11TItemObject[] = {
     (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__11TItemObjectFv, (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFPvi,
     (void *)TItemObject__vt12, (void *)TItem__sub_801005E0, (void *)TItem__sub_801005DC,
-    (void *)TItem__sub_80100678, (void *)TItemObject__vt16, (void *)TItem__sub_8010067C,
-    (void *)TItem__sub_801007B0, (void *)TItem__sub_801007AC, (void *)TItem__sub_8010075C,
-    (void *)TItem__sub_80100758, (void *)TItem__sub_80100698, (void *)TItem__sub_80100694,
-    (void *)TItem__sub_80100690, (void *)TItem__sub_8010068C, (void *)TItem__sub_80100688,
-    (void *)destroy__5TItemFv, (void *)TItem__sub_801007A8, (void *)TItemObject__vt29,
-    (void *)TItem__sub_80100680, (void *)TObjPlayer__sub_80102BD0, (void *)TItem__sub_80100674,
-    (void *)ret_8010066C, (void *)load_encoded_value__11TItemObjectFv, (void *)TItemObject__vt35,
+    (void *)vfunc_17__5TItemFv, (void *)TItemObject__vt16, (void *)TItem__sub_8010067C,
+    (void *)vfunc_20__5TItemFv, (void *)vfunc_21__5TItemFPUclll, (void *)vfunc_22__5TItemFv,
+    (void *)vfunc_23__5TItemFv, (void *)vfunc_24__5TItemFv, (void *)vfunc_25__5TItemFv,
+    (void *)vfunc_26__5TItemFv, (void *)vfunc_27__5TItemFv, (void *)vfunc_28__5TItemFv,
+    (void *)vfunc_29__5TItemFv, (void *)vfunc_30__5TItemFv, (void *)vfunc_31__11TItemObjectFv,
+    (void *)vfunc_32__5TItemFv, (void *)vfunc_33__5TItemFv, (void *)vfunc_34__5TItemFv,
+    (void *)vfunc_35__5TItemFv, (void *)vfunc_36__11TItemObjectFv, (void *)TItemObject__vt35,
     (void *)TItemObject__vt36, (void *)ret_8010064C, (void *)TItem__sub_80100648,
-    (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)TObjPlayer__sub_80102BD8,
-    (void *)TItemObject__vt42,
+    (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)vfunc_43__5TItemFv,
+    (void *)vfunc_44__11TItemObjectFv,
 };
 
 u8 TItemObject::sub_80115D7C() { return *(u8*)((char*)this + 0x100); }
@@ -344,10 +344,10 @@ struct VObj_801161A4_80115D6C : Base_801161A4_80115D6C {
 };
 
 void *TItemObject__ct(void *arg0, void *arg1, void *arg2);
-void TItemObject__vt29(void *arg0);
+void vfunc_31__11TItemObjectFv(void *arg0);
 s32 TItemObject__vt35(void *arg0, s32 arg1);
 s32 TItemObject__vt36(void *arg0, s32 arg1);
-void TItemObject__vt42(void *arg0);
+void vfunc_44__11TItemObjectFv(void *arg0);
 void *lookup_item_pmt_record(void *);
 s32 TItem__ct();
 s32 consume_item_by_id();
@@ -379,29 +379,29 @@ s32 TItemObject__vt35(void *arg0, s32 arg1) {
     return 0;
 }
 
-void TItemObject__vt29(void *arg0) {
-    struct VObj_8011626C_80115D6C *o = (struct VObj_8011626C_80115D6C *)arg0;
+void TItemObject::vfunc_31() {
+    struct VObj_8011626C_80115D6C *o = (struct VObj_8011626C_80115D6C *)this;
     if (check_flag_400__20TWindowSubStatusDispFv() != 0) {
-        ((TItemObject *)arg0)->set_flag_1024();
+        ((TItemObject *)this)->set_flag_1024();
         return;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) {
-        *(u8 *)((s8 *)arg0 + 0x101) = 0U;
+    if ((u32) *(u32 *)((s8 *)this + 0xF0) != 0U) {
+        *(u8 *)((s8 *)this + 0x101) = 0U;
         o->m42();
-        if ((u8) *(u8 *)((s8 *)arg0 + 0x101) == 0) {
-            ((TItem *)arg0)->apply_switch_attack(0x1AF);
-            ((TItem *)arg0)->notify_owner(0x5B211);
+        if ((u8) *(u8 *)((s8 *)this + 0x101) == 0) {
+            ((TItem *)this)->apply_switch_attack(0x1AF);
+            ((TItem *)this)->notify_owner(0x5B211);
         }
-        if (((TItem *)arg0)->get_item_flags() & 0x10) {
-            ((TObjPlayer *)arg0)->get_field_d8();
+        if (((TItem *)this)->get_item_flags() & 0x10) {
+            ((TObjPlayer *)this)->get_field_d8();
             consume_item_by_id();
         }
     }
 }
 
-void TItemObject__vt42(void *arg0) {
+void TItemObject::vfunc_44() {
     update_pickup_flag__5TItemFl();
-    *(s8 *)((s8 *)arg0 + 0x101) = 1;
+    *(s8 *)((s8 *)this + 0x101) = 1;
 }
 
 extern s32 lbl_805D2C28;
@@ -478,6 +478,6 @@ void *__dt__11TItemObjectFv(void *arg0, s16 arg1) {
 }
 }
 
-s32 TItemObject::load_encoded_value() {
+int TItemObject::vfunc_36() {
     return encoded_value ^ (s32)&encoded_value;
 }

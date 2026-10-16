@@ -59,12 +59,12 @@ u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void TOTrap__sub_801792AC(void);
-void TOTrap__sub_801792B0(void);
-void TOTrap__vt82(void);
+void vfunc_86__6TOTrapFv(void);
+void vfunc_88__6TOTrapFv(void);
+void vfunc_84__6TOTrapFv(void);
 
-void TOTrap__sub_801792AC(void) {  }
-void TOTrap__sub_801792B0(void) {  }
+void TOTrap::vfunc_86() {  }
+void TOTrap::vfunc_88() {  }
 
 s32 TOTrap::vfunc_26(s32 arg1, s32) {
     u8 *arg0 = (u8 *)this;

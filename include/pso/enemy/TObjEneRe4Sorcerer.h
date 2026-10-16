@@ -6,6 +6,10 @@
 
 struct TObjEneRe4Sorcerer : public TObjEneDD_ST {
     virtual ~TObjEneRe4Sorcerer();
+    virtual void vfunc_88();
+    virtual u8 *vfunc_101(u8 *);
+    virtual u8 *vfunc_102();
+    virtual s32 vfunc_83();
     virtual void vfunc_105();
     virtual void vfunc_106();
     void vfunc_63();

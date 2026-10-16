@@ -6,6 +6,9 @@
 
 struct TWindowMainMenu1P : public TWindowMainMenu {
     virtual ~TWindowMainMenu1P();
+    virtual void vfunc_8();
+    virtual void vfunc_7();
+    virtual void vfunc_9();
     u8 m_60;
     u8 m_61;
     u8 _pad62[0x2];

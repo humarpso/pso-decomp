@@ -7,8 +7,8 @@
 extern "C" {
 
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
-int TObjPlayer__sub_80102BD0(void);
-int TObjPlayer__sub_80102BD8(void);
+int vfunc_33__5TItemFv(void);
+int vfunc_43__5TItemFv(void);
 void sub_80102C58__5TItemFv(void* p);
 void sub_80102C68__5TItemFv(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*);

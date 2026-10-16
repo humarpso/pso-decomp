@@ -50,7 +50,7 @@ void TObjEneRe2Flower::set_child_flags() {
     *(s32 *)((s8 *)temp_r3_2 + 0x44) = (s32) (*(s32 *)((s8 *)temp_r3_2 + 0x44) | 1);
 }
 
-void TObjEneRe2Flower::update_part_position() {
+void TObjEneRe2Flower::vfunc_88() {
     u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) - *(f32 *)((s8 *)arg0 + 0x3C));
     set_part_local_pos__9TObjEneDDFPvPvi((void *) (arg0), (void *) (arg0 + 0x3DC), (int) (0));

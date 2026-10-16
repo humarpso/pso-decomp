@@ -6,6 +6,8 @@
 
 struct TAdTrialAgreementGC : public TAdAgreementBaseGC {
     virtual ~TAdTrialAgreementGC();
+    virtual void vfunc_7();
+    virtual void vfunc_8();
     u32 m_38;
     virtual void render();
     static void wait_for_load();

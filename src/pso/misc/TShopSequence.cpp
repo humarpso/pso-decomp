@@ -37,7 +37,7 @@ void close_window__13TShopSequenceFPv(void *arg0);
 void vfunc_9__13TShopSequenceFv(void* p);
 void vfunc_7__13TShopSequenceFv(void* p);
 void free_member__13TShopSequenceFPv(void* p);
-void restore_player_state__13TShopSequenceFPv(void *arg0);
+void restore_player_state__13TShopSequenceFv(void *arg0);
 s32 vfunc_10__13TShopSequenceFv(void *arg0);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32);
 s32 activate_body_collision__10TObjPlayerFPv();
@@ -115,11 +115,11 @@ void close_window__13TShopSequenceFPv(void *arg0) {
         clear_lobby_flag__10TObjPlayerFPv(*(u32 *)((s8 *)arg0 + 0x24));
     }
 }
-void restore_player_state__13TShopSequenceFPv(void *arg0) {
+void TShopSequence::restore_player_state() {
     s32 var_r31;
 
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-        init_effect_5f0__10TObjPlayerFPv(*(void **)((s8 *)arg0 + 0x24));
+    if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
+        init_effect_5f0__10TObjPlayerFPv(*(void **)((s8 *)this + 0x24));
         if (TRaderMapCore::is_not_split_screen() != 1) {
             var_r31 = 0;
             do {
@@ -129,7 +129,7 @@ void restore_player_state__13TShopSequenceFPv(void *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        suppress_slot__11TWindowCtrlFv(obj_getField1c(*(u32 *)((s8 *)arg0 + 0x24)));
+        suppress_slot__11TWindowCtrlFv(obj_getField1c(*(u32 *)((s8 *)this + 0x24)));
     }
 }
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1) {

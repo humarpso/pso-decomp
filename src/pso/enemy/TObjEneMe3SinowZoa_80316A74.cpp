@@ -665,7 +665,7 @@ void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1) {
         break;
     }
 }
-void TObjEneMe3SinowZoa::render_with_stealth_debug() {
+void TObjEneMe3SinowZoa::vfunc_114() {
     Obj_803173D0 *arg0 = (Obj_803173D0 *)this;
     s32 save[3];
     s32 flag;

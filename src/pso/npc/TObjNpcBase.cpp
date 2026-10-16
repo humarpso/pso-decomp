@@ -48,7 +48,7 @@ extern "C" {
 void sub_80149358__11TObjNpcBaseFl(void* p, s32 v);
 void sub_80149360__11TObjNpcBaseFl(void* p, s32 v);
 void TObjNpcBase__sub_80149368(void* p);
-void TObjNpcBase__vt86(void);
+void vfunc_88__11TObjNpcBaseFv(void);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
@@ -112,8 +112,8 @@ void *TObjNpcBase__ct(void *arg0, void *arg1, void *arg2) {
 }
 #undef self
 
-void TObjNpcBase__vt86(void) {  }
-void TObjNpcBase::play_voice() {
+void TObjNpcBase::vfunc_88() {  }
+void TObjNpcBase::vfunc_90() {
     s32 arg0 = (s32)this;
     play_sound_effect(0x40003804, arg0 + 0x38, 0, 0);
 }

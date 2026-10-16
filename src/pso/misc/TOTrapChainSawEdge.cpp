@@ -1087,12 +1087,12 @@ void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void TOTrapChainSawEdge__vt15();
 void TOTrapChainSaw__sub_802C9BE4();
-void TOTrapChainSaw__sub_802C9BE8();
-void TOTrapChainSaw__sub_802C9BEC();
-void TOTrapChainSaw__sub_802C9BF0();
-void TOTrapChainSaw__sub_802C9BF4();
+void vfunc_26__14TOTrapChainSawFv();
+void vfunc_27__14TOTrapChainSawFv();
+void vfunc_28__14TOTrapChainSawFv();
+void vfunc_29__14TOTrapChainSawFv();
 void TOTrapChainSaw__vt14();
-void TOTrapChainSaw__vt23();
+void vfunc_25__14TOTrapChainSawFv();
 s32 __vt__18TOTrapChainSawEdge[31] = {
     0,
     0,
@@ -1120,10 +1120,10 @@ s32 __vt__18TOTrapChainSawEdge[31] = {
     (s32)&TOTrapChainSawEdge__vt21,
     (s32)&update_state__14TOTrapChainSawFPv,
     (s32)&TOTrapChainSawEdge__vt23,
-    (s32)&TOTrapChainSaw__sub_802C9BE8,
-    (s32)&TOTrapChainSaw__sub_802C9BEC,
-    (s32)&TOTrapChainSaw__sub_802C9BF0,
-    (s32)&TOTrapChainSaw__sub_802C9BF4,
+    (s32)&vfunc_26__14TOTrapChainSawFv,
+    (s32)&vfunc_27__14TOTrapChainSawFv,
+    (s32)&vfunc_28__14TOTrapChainSawFv,
+    (s32)&vfunc_29__14TOTrapChainSawFv,
     (s32)&TOTrapChainSaw::scale_by_level
 };
 s32 __vt__17TOTrapChainSawKey[31] = {
@@ -1153,10 +1153,10 @@ s32 __vt__17TOTrapChainSawKey[31] = {
     (s32)&update_sweep__14TOTrapChainSawFPv,
     (s32)&TOTrapChainSawKey__vt22,
     (s32)&TOTrapChainSawKey__vt23,
-    (s32)&TOTrapChainSaw__sub_802C9BE8,
+    (s32)&vfunc_26__14TOTrapChainSawFv,
     (s32)&TOTrapChainSawKey__vt25,
-    (s32)&TOTrapChainSaw__sub_802C9BF0,
-    (s32)&TOTrapChainSaw__sub_802C9BF4,
+    (s32)&vfunc_28__14TOTrapChainSawFv,
+    (s32)&vfunc_29__14TOTrapChainSawFv,
     (s32)&TOTrapChainSaw::scale_by_level
 };
 s32 __vt__20TOTrapChainSawDamage[31] = {
@@ -1189,7 +1189,7 @@ s32 __vt__20TOTrapChainSawDamage[31] = {
     (s32)&TOTrapChainSawDamage__vt24,
     (s32)&TOTrapChainSawDamage__vt25,
     (s32)&TOTrapChainSawDamage__vt26,
-    (s32)&TOTrapChainSaw__sub_802C9BF4,
+    (s32)&vfunc_29__14TOTrapChainSawFv,
     (s32)&TOTrapChainSaw::scale_by_level
 };
 s32 __vt__14TOTrapChainSaw[31] = {
@@ -1218,11 +1218,11 @@ s32 __vt__14TOTrapChainSaw[31] = {
     (s32)&update_extension__14TOTrapChainSawFPv,
     (s32)&update_sweep__14TOTrapChainSawFPv,
     (s32)&update_state__14TOTrapChainSawFPv,
-    (s32)&TOTrapChainSaw__vt23,
-    (s32)&TOTrapChainSaw__sub_802C9BE8,
-    (s32)&TOTrapChainSaw__sub_802C9BEC,
-    (s32)&TOTrapChainSaw__sub_802C9BF0,
-    (s32)&TOTrapChainSaw__sub_802C9BF4,
+    (s32)&vfunc_25__14TOTrapChainSawFv,
+    (s32)&vfunc_26__14TOTrapChainSawFv,
+    (s32)&vfunc_27__14TOTrapChainSawFv,
+    (s32)&vfunc_28__14TOTrapChainSawFv,
+    (s32)&vfunc_29__14TOTrapChainSawFv,
     (s32)&TOTrapChainSaw::scale_by_level
 };
 

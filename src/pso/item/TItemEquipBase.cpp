@@ -528,7 +528,7 @@ s32 subtract_s16_stat(void *, void *);
 s32 TObjPlayer__sub_800194E8(void *);
 s8 TObjPlayer__sub_80102C30();
 void __dt__5TItemFv(void *, int);
-s32 destroy__5TItemFv(void *);
+s32 vfunc_29__5TItemFv(void *);
 s32 fn_8010B7D8(void *, void *);
 s32 fn_8010B7E8(void *, void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -785,7 +785,7 @@ void TItemEquipBase::update_equip() {
     if (TObjPlayer__sub_80102C30() == 2) {
         ((VObj_8010B054_8010A710 *)this)->m19();
     }
-    destroy__5TItemFv(this);
+    vfunc_29__5TItemFv(this);
 }
 
 typedef struct RecoveredFields_8010B0A8_arg0 RecoveredFields_8010B0A8_arg0;

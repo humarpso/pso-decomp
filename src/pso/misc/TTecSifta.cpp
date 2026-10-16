@@ -103,7 +103,7 @@ extern "C" {
 
 int TTecSifta__sub_8023AC88(void* p);
 void *__dt__9TTecSiftaFv(void *arg0, s16 arg1);
-void TObjPlayer__sub_8023AC84(void);
+void vfunc_8__13TUnk_804CCC68Fv(void);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);

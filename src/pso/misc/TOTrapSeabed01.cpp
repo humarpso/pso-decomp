@@ -864,8 +864,8 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 extern "C" {
 void TOTrap__sub_80178BC0();
-void TOTrap__sub_801792AC();
-void TOTrap__sub_801792B0();
+void vfunc_86__6TOTrapFv();
+void vfunc_88__6TOTrapFv();
 void vfunc_26__6TOTrapFll();
 void TOTrap__sub_801792CC();
 void TOTrap__sub_801792E4();
@@ -1040,9 +1040,9 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&is_any_player_matching_stat__6TOTrapFv,
     (void *)&TOTrapSeabed01__vt82,
     (void *)&TOTrapSeabed01__vt83,
-    (void *)&TOTrap__sub_801792AC,
+    (void *)&vfunc_86__6TOTrapFv,
     (void *)&TOTrap::scale_by_table_value,
-    (void *)&TOTrap__sub_801792B0,
+    (void *)&vfunc_88__6TOTrapFv,
     (void *)&TOTrap__sub_80178BC0,
     0
 };

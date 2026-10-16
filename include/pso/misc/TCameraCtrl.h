@@ -128,7 +128,6 @@ struct TCameraCtrl : public TObject {
     void rotate_heading_by_stick();
     static void set_active_camera_flag();
     void calc_follow_position();
-    void update_follow_flags();
     void compute_follow_target();
     void update_follow_camera();
     void *deleting_dtor(s16 arg1);

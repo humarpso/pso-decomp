@@ -169,7 +169,7 @@ s32 set_service_counter_camera(void *, s32);
 int TKeyBoardControl__sub_8000F950(void);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
-s32 restore_player_state__13TShopSequenceFPv();
+s32 restore_player_state__13TShopSequenceFv();
 
 void update_shop_close__22THunterGuildSeqOfflineFPv(void *arg0) {
     void *temp_r3;
@@ -259,7 +259,7 @@ void THunterGuildSeqOffline__sub_80213B18(u8 *arg0) {
 }
 
 void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0) {
-    restore_player_state__13TShopSequenceFPv();
+    restore_player_state__13TShopSequenceFv();
     *(s32 *)((s8 *)arg0 + 0x2C) = set_service_counter_camera(arg0, 1);
     ((TQuestListVM *)arg0)->set_field_20((s32)1);
 }
@@ -800,7 +800,7 @@ s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 get_window_layout_position(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u16 obj_getField1c(s32);
-s32 restore_player_state__13TShopSequenceFPv();
+s32 restore_player_state__13TShopSequenceFv();
 s32 set_position_xy__13TUnk_804CDFE8Fff(s32, f32, f32);
 
 void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0) {
@@ -946,7 +946,7 @@ void init_window__22THunterGuildSeqOfflineFPv(u8 *arg0) {
 }
 
 void restore_shop_and_init_quest_state(void *arg0) {
-    restore_player_state__13TShopSequenceFPv();
+    restore_player_state__13TShopSequenceFv();
     *(s32 *)((s8 *)arg0 + 0x2C) = set_service_counter_camera(arg0, 1);
     ((TQuestListVM *)arg0)->set_field_20((s32)((s32)(1)));
 }

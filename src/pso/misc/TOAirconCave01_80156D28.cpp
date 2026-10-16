@@ -24,12 +24,12 @@ extern int lbl_805D5668;
 extern int chunk_polygon_flags_or_mask;
 extern int chunk_polygon_flags_and_mask;
 extern int model_render_flags;
-void TOAirconCave01__sub_80156D70(u8 *arg0);
+void set_flags_and_apply_damage_color__13TUnk_804AF8D8Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void TOAirconCave01__sub_80156D28(void);
+void clear_flag_and_notify__13TUnk_804AF8D8Fv(void);
 s32 TObjPlayer__sub_800D96D0(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
 s32 __dl__FPv(void *);
@@ -44,13 +44,14 @@ void sub_80156CEC__13TUnk_804AF8D8Fv(void *);
     extern int chunk_polygon_flags_or_mask;
     extern int chunk_polygon_flags_and_mask;
     extern int model_render_flags;
-void TOAirconCave01__sub_80156D28(void) { copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color); chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
+void TUnk_804AF8D8::clear_flag_and_notify() { copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color); chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
 
 extern s32 lbl_804AF8D8[];
 
 typedef char RecoveredGlobal_80156D70_lbl_8050BEC0_size[sizeof(RecoveredGlobal_80156D70_lbl_8050BEC0) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80156D70_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80156D70_lbl_8058D4C0) == 0x10 ? 1 : -1];
-void TOAirconCave01__sub_80156D70(u8 *arg0) {
+void TUnk_804AF8D8::set_flags_and_apply_damage_color() {
+    u8 *arg0 = (u8 *)this;
     (*(s32 *)&lbl_805D5660) = (*(s32 *)&model_render_flags);
     (*(s32 *)&lbl_805D5664) = (*(s32 *)&chunk_polygon_flags_and_mask);
     (*(s32 *)&lbl_805D5668) = (*(s32 *)&chunk_polygon_flags_or_mask);

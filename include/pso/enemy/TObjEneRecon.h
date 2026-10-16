@@ -6,6 +6,9 @@
 
 struct TObjEneRecon : public TObjEneDD_ST {
     virtual ~TObjEneRecon();
+    virtual void vfunc_89();
+    virtual void vfunc_88();
+    virtual s32 vfunc_83();
     virtual void vfunc_105();
     virtual void vfunc_106();
     void update_flag_0x444();
@@ -55,7 +58,6 @@ struct TObjEneRecon : public TObjEneDD_ST {
     static void *create(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
     static void load_resources();
     void draw_with_debug_info();
-    void update_if_800BB858();
     void remove_tracked_id(s32 id);
     u16 alloc_child_id();
     u8 is_anim_6();

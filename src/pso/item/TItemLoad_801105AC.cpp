@@ -47,7 +47,7 @@ extern "C" {
 
 s32 TItemLoad__sub_80110740(void* p);
 s32 TItemLoad__sub_80110748(void* p);
-void TItemLoad__sub_801107B4(void);
+void vfunc_3__13TUnk_8049F42CFv(void);
 s32 TItemLoad__sub_801107DC(void* p);
 s32 TItemLoad__sub_801107E4(void* p);
 void* TItemLoad__sub_801107EC(void* p);

@@ -3645,8 +3645,8 @@ void __dt__9TObjEneDDFv(void *, int);
 s32 clamp_frame_index__9TObjEneDDFl(s32);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
-int TObjEneDD__vt93(void*);
-int TObjEneDD__vt92(void*);
+int vfunc_96__9TObjEneDDFv(void*);
+int vfunc_95__9TObjEneDDFv(void*);
 s32 check_state_flag_4__9TObjEneDDFv(void *);
 void TObjEneDD__sub_800BA438(void *, void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
@@ -3753,25 +3753,25 @@ extern const f32 lbl_805DA8A8;
 extern const f32 lbl_805DA8AC;
 
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TObjEneDD__vt100();
-extern "C" void TObjEneDD__vt77();
+extern "C" void vfunc_103__9TObjEneDDFPUc();
+extern "C" void vfunc_79__9TObjEneDDFv();
 extern "C" void TObjEneDD__vt82();
-extern "C" void TObjEneDD__vt83();
-extern "C" void TObjEneDD__vt84();
-extern "C" void TObjEneDD__vt87();
-extern "C" void TObjEneDD__vt88();
-extern "C" void TObjEneDD__vt89();
-extern "C" void TObjEneDD__vt90();
-extern "C" void TObjEneDD__vt91();
-extern "C" void TObjEneDD__vt94();
-extern "C" void TObjEneDD__vt95();
-extern "C" void TObjEneDD__vt96();
-extern "C" void TObjEneDD__vt97();
-extern "C" void TObjEneDD__vt98();
-extern "C" void TObjEneDD__vt99();
+extern "C" void vfunc_85__9TObjEneDDFv();
+extern "C" void vfunc_86__9TObjEneDDFv();
+extern "C" void vfunc_90__9TObjEneDDFv();
+extern "C" void vfunc_91__9TObjEneDDFv();
+extern "C" void vfunc_92__9TObjEneDDFv();
+extern "C" void vfunc_93__9TObjEneDDFv();
+extern "C" void vfunc_94__9TObjEneDDFv();
+extern "C" void vfunc_97__9TObjEneDDFv();
+extern "C" void vfunc_98__9TObjEneDDFv();
+extern "C" void vfunc_99__9TObjEneDDFv();
+extern "C" void vfunc_100__9TObjEneDDFv();
+extern "C" void vfunc_101__9TObjEneDDFPUc();
+extern "C" void vfunc_102__9TObjEneDDFv();
 extern "C" void vfunc_83__12TObjEneDD_STFv();
-extern "C" void TObjEneMe3StelthReal__vt105();
-extern "C" void TObjEneMe3StelthReal__vt109();
+extern "C" void check_target_in_range__20TObjEneMe3StelthRealFv();
+extern "C" void check_flag__20TObjEneMe3StelthRealFv();
 extern "C" void vfunc_62__20TObjEneMe3StelthRealFv();
 extern "C" void vfunc_63__20TObjEneMe3StelthRealFv();
 extern "C" void handle_direct_attack__16TObjEneMe3StelthFPvPviPv();
@@ -3934,15 +3934,15 @@ void *__vt__20TObjEneMe3StelthReal[116] = {
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
+    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
-    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&dispatch_state__16TObjEneMe3StelthFPvii,
-    (void *)&update_shadow_height__16TObjEneMe3StelthFPv, (void *)&update_collision__16TObjEneMe3StelthFPv, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
-    (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&init_anim__16TObjEneMe3StelthFPv,
-    (void *)&TObjEneMe3Stelth__sub_800F4914, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
-    (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
-    (void *)&select_and_apply_target__16TObjEneMe3StelthFPv, (void *)&attack_and_unequip__16TObjEneMe3StelthFPv, (void *)&check_target_in_range__16TObjEneMe3StelthFPv, (void *)&TObjEneMe3StelthReal__vt105,
-    (void *)&TObjEneMe3Stelth__sub_800F4A8C, (void *)&check_active_flag__16TObjEneMe3StelthFPv, (void *)&check_flag__16TObjEneMe3StelthFPv, (void *)&TObjEneMe3StelthReal__vt109,
+    (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&dispatch_state__16TObjEneMe3StelthFPvii,
+    (void *)&update_shadow_height__16TObjEneMe3StelthFPv, (void *)&update_collision__16TObjEneMe3StelthFPv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
+    (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&init_anim__16TObjEneMe3StelthFPv,
+    (void *)&TObjEneMe3Stelth__sub_800F4914, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
+    (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
+    (void *)&select_and_apply_target__16TObjEneMe3StelthFPv, (void *)&attack_and_unequip__16TObjEneMe3StelthFPv, (void *)&check_target_in_range__16TObjEneMe3StelthFPv, (void *)&check_target_in_range__20TObjEneMe3StelthRealFv,
+    (void *)&TObjEneMe3Stelth__sub_800F4A8C, (void *)&check_active_flag__16TObjEneMe3StelthFPv, (void *)&check_flag__16TObjEneMe3StelthFPv, (void *)&check_flag__20TObjEneMe3StelthRealFv,
     (void *)&TObjEneMe3Stelth__sub_800F4910, (void *)&TObjEneMe3Stelth__sub_800F4424, (void *)&setup_move__16TObjEneMe3StelthFPv, (void *)&draw_with_debug_info__16TObjEneMe3StelthFPv,
 };
 #define TObjEneMe3Stelth__collision_body_template ((u8 *)TObjEneMe3Stelth__collision_body_template)
@@ -4067,9 +4067,9 @@ void update_distance_state__16TObjEneMe3StelthFPv(void *arg0) {
 
 void TObjEneMe3Stelth__sub_800F4910(void) {  }
 
-void TObjEneMe3Stelth__sub_800F4914(void* p) { TObjEneDD__vt93(p); sub_800F5864__12TObjEneDD_STFl(p, (void*)38); }
+void TObjEneMe3Stelth__sub_800F4914(void* p) { vfunc_96__9TObjEneDDFv(p); sub_800F5864__12TObjEneDD_STFl(p, (void*)38); }
 
-void init_anim__16TObjEneMe3StelthFPv(void* p) { TObjEneDD__vt92(p); sub_800F5874__12TObjEneDD_STFl(p, (void*)38); }
+void init_anim__16TObjEneMe3StelthFPv(void* p) { vfunc_95__9TObjEneDDFv(p); sub_800F5874__12TObjEneDD_STFl(p, (void*)38); }
 
 void TObjEneMe3Stelth__vt109(void) {  }
 

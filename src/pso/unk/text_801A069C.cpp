@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjWarpJungMain.h"
 #include "pso/npc/TObjNpcEnemy.h"
 
 extern "C" {
@@ -10,9 +11,9 @@ void TObjWarpLobby__vt18(void *arg0);
 
 extern "C" {
 
-void TObjWarpJungMain__vt18(void);
+void vfunc_20__16TObjWarpJungMainFv(void);
 
-void TObjWarpJungMain__vt18(void) {  }
+void TObjWarpJungMain::vfunc_20() {  }
 void TObjWarpLobby__vt18(void *arg0) {
     s32 temp_r0;
     s32 base;

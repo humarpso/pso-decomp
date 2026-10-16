@@ -1,13 +1,14 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 
 extern "C" {
 
 int release__14TItemEquipBaseFv(void*);
 int clear_equip_flags__11TItemWeaponFUl(void*, void*);
 int memset(void*, void*, void*);
-void reset_item_equip(void* p);
+void reserved_45__11TItemWeaponFv(void* p);
 
-void reset_item_equip(void* p) { memset((char*)p + 0x18c, (void*)0, (void*)16); clear_equip_flags__11TItemWeaponFUl(p, (void*)12); release__14TItemEquipBaseFv(p); }
+void TItemWeapon::reserved_45() { memset((char*)this + 0x18c, (void*)0, (void*)16); clear_equip_flags__11TItemWeaponFUl(this, (void*)12); release__14TItemEquipBaseFv(this); }
 
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TBreakUpMdl.h"
@@ -210,12 +211,12 @@ extern Vec_80097100 lbl_8043A0E0;
 extern const f32 lbl_805D97D8;
 extern const f32 lbl_805D97DC;
 extern const f32 TObjEneDf2Bringer__data_805D97E0;
-void TObjEneDf2Bringer__vt104(Bringer_80097100 *self);
+void vfunc_105__17TObjEneDf2BringerFv(Bringer_80097100 *self);
 }
 
 extern "C" {
 
-void TObjEneDf2Bringer__vt103(void* p);
+void vfunc_83__17TObjEneDf2BringerFv(void* p);
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1);
 int TObjEneDf2Bringer__sub_800994F8(void*);
@@ -226,7 +227,8 @@ void mem_free(void *);
 int get_target_info__9TObjEneDDFPv(void*);
 
 extern s32 __vt__11TBreakUpMdl[];
-void TObjEneDf2Bringer__vt104(Bringer_80097100 *self) {
+void TObjEneDf2Bringer::vfunc_105() {
+    Bringer_80097100 *self = (Bringer_80097100 *)this;
     f32 frame;
     s32 i;
     Motion_80097100 *mot;
@@ -260,6 +262,6 @@ void TObjEneDf2Bringer__vt104(Bringer_80097100 *self) {
     }
 }
 
-void TObjEneDf2Bringer__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { TObjEneDf2Bringer__sub_800994F8(p); } }
+void TObjEneDf2Bringer::vfunc_83() { if (get_target_info__9TObjEneDDFPv(this) != 0) { TObjEneDf2Bringer__sub_800994F8(this); } }
 
 }

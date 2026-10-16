@@ -6,6 +6,8 @@
 
 struct TTecRaFoie : public TUnk_804CC148 {
     virtual ~TTecRaFoie();
+    virtual void vfunc_8(void *);
+    virtual void vfunc_9();
     virtual void run_task();
     u32 m_ec;
     u16 m_f0;

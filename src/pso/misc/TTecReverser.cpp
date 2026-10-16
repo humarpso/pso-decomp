@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TUnk_804CCC28.h"
 #include "pso/enemy/TObjEneBm5GibonU.h"
 #include "pso/misc/TTecReverser.h"
@@ -269,7 +270,7 @@ void dispatch_all_technique_contacts(u8 *arg0) {
     }
 }
 
-void TObjEneBm5GibonU::debug_print_tech_params() {
+void TUnk_804CCC68::debug_print_tech_params() {
     Rev_8023A364 *self = (Rev_8023A364 *)this;
     debug_printf_at(0x1E0014, lbl_8044DBB0, self->fcc);
     debug_printf_at(0x1E0015, lbl_8044DBBC, self->fdc);

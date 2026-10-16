@@ -6,6 +6,8 @@
 
 struct TObjEneMe3ShinowaReal : public TObjEneMe3Shinowa {
     virtual ~TObjEneMe3ShinowaReal();
+    virtual u8 can_hit_same_target();
+    virtual void vfunc_110();
     void sub_800E7250();
     void vfunc_63();
     void vfunc_62();

@@ -73,7 +73,6 @@ struct TItem : public TUnk_804AF8A0 {
     void apply_switch_attack(s32 arg1);
     static void update_pickup_flag(s32 arg0);
     void update_item_data();
-    void destroy();
     void copy_item_data_and_process();
     void unregister_from_world();
     void set_mode(s8 arg1);

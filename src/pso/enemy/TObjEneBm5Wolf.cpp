@@ -2746,29 +2746,29 @@ void fn_80010EC8(void);
 void fn_80010EC4(void);
 void fn_80010EC0(void);
 void fn_80010EBC(void);
-void TObjEneDD__vt77(void);
+void vfunc_79__9TObjEneDDFv(void);
 void apply_hit_message_flags__10TObjPlayerFPvPv(void);
 void apply_set_data__9TObjEnemyFPvPv(void);
 void clear_lobby_object_state__9TObjEnemyFv(void);
 void vfunc_83__12TObjEneDD_STFv(void);
 void TObjEneDD__vt82(void);
-void TObjEneDD__vt83(void);
-void TObjEneDD__vt84(void);
-void TObjEneDD__vt86(void);
-void TObjEneDD__vt87(void);
-void TObjEneDD__vt88(void);
-void TObjEneDD__vt89(void);
-void TObjEneDD__vt90(void);
-void TObjEneDD__vt91(void);
-void TObjEneDD__vt92(void);
-void TObjEneDD__vt93(void);
-void TObjEneDD__vt94(void);
-void TObjEneDD__vt95(void);
-void TObjEneDD__vt96(void);
-void TObjEneDD__vt97(void);
-void TObjEneDD__vt98(void);
-void TObjEneDD__vt99(void);
-void TObjEneDD__vt100(void);
+void vfunc_85__9TObjEneDDFv(void);
+void vfunc_86__9TObjEneDDFv(void);
+void vfunc_89__9TObjEneDDFv(void);
+void vfunc_90__9TObjEneDDFv(void);
+void vfunc_91__9TObjEneDDFv(void);
+void vfunc_92__9TObjEneDDFv(void);
+void vfunc_93__9TObjEneDDFv(void);
+void vfunc_94__9TObjEneDDFv(void);
+void vfunc_95__9TObjEneDDFv(void);
+void vfunc_96__9TObjEneDDFv(void);
+void vfunc_97__9TObjEneDDFv(void);
+void vfunc_98__9TObjEneDDFv(void);
+void vfunc_99__9TObjEneDDFv(void);
+void vfunc_100__9TObjEneDDFv(void);
+void vfunc_101__9TObjEneDDFPUc(void);
+void vfunc_102__9TObjEneDDFv(void);
+void vfunc_103__9TObjEneDDFPUc(void);
 void TObjEneEpsilon__vt101(void);
 void *lbl_804922F8[107] = {
     0,
@@ -2850,31 +2850,31 @@ void *lbl_804922F8[107] = {
     (void *)fn_80010EC4,
     (void *)fn_80010EC0,
     (void *)fn_80010EBC,
-    (void *)TObjEneDD__vt77,
+    (void *)vfunc_79__9TObjEneDDFv,
     (void *)apply_hit_message_flags__10TObjPlayerFPvPv,
     (void *)apply_set_data__9TObjEnemyFPvPv,
     (void *)clear_lobby_object_state__9TObjEnemyFv,
     (void *)vfunc_83__12TObjEneDD_STFv,
     (void *)TObjEneDD__vt82,
-    (void *)TObjEneDD__vt83,
-    (void *)TObjEneDD__vt84,
+    (void *)vfunc_85__9TObjEneDDFv,
+    (void *)vfunc_86__9TObjEneDDFv,
     (void *)dispatch_state__14TObjEneBm5WolfFPvUii,
     (void *)update_colliders__14TObjEneBm5WolfFPv,
-    (void *)TObjEneDD__vt86,
-    (void *)TObjEneDD__vt87,
-    (void *)TObjEneDD__vt88,
-    (void *)TObjEneDD__vt89,
-    (void *)TObjEneDD__vt90,
-    (void *)TObjEneDD__vt91,
-    (void *)TObjEneDD__vt92,
-    (void *)TObjEneDD__vt93,
-    (void *)TObjEneDD__vt94,
-    (void *)TObjEneDD__vt95,
-    (void *)TObjEneDD__vt96,
-    (void *)TObjEneDD__vt97,
-    (void *)TObjEneDD__vt98,
-    (void *)TObjEneDD__vt99,
-    (void *)TObjEneDD__vt100,
+    (void *)vfunc_89__9TObjEneDDFv,
+    (void *)vfunc_90__9TObjEneDDFv,
+    (void *)vfunc_91__9TObjEneDDFv,
+    (void *)vfunc_92__9TObjEneDDFv,
+    (void *)vfunc_93__9TObjEneDDFv,
+    (void *)vfunc_94__9TObjEneDDFv,
+    (void *)vfunc_95__9TObjEneDDFv,
+    (void *)vfunc_96__9TObjEneDDFv,
+    (void *)vfunc_97__9TObjEneDDFv,
+    (void *)vfunc_98__9TObjEneDDFv,
+    (void *)vfunc_99__9TObjEneDDFv,
+    (void *)vfunc_100__9TObjEneDDFv,
+    (void *)vfunc_101__9TObjEneDDFPUc,
+    (void *)vfunc_102__9TObjEneDDFv,
+    (void *)vfunc_103__9TObjEneDDFPUc,
     (void *)TObjEneEpsilon__vt101,
     (void *)update_state__14TObjEneBm5WolfFPv,
     (void *)render_debug__14TObjEneBm5WolfFPv,

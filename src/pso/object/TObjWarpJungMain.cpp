@@ -134,11 +134,11 @@ void __dt__12TObjAreaWarpFv(void *, int);
 void TObjAreaWarp__ct(void *);
 int TObjWarpBase__vt12(void*);
 s32 TObjWarpJungMain__vt16(u8 *arg0);
-int TObjWarpJungMain__vt17(void* p);
+int confirm_area_transfer__16TObjWarpJungMainFl(void* p);
 void TObjWarpJungMain__vt12(void* p);
 void * __dt__16TObjWarpJungMainFv(void *arg0, s16 arg1);
 void * TObjWarpJung__create(void *arg0);
-int TObjWarpJung__vt17(void* p);
+int confirm_area_transfer__12TObjWarpJungFl(void* p);
 void * __dt__12TObjWarpJungFv(void *arg0, s16 arg1);
 Obj_801A0224 * TObjWarpJung__ct(Obj_801A0224 *self);
 s32 TObjWarpJung__sub_801A0404(s32);
@@ -219,7 +219,7 @@ s32 TObjWarpJungMain__vt16(u8 *arg0) {
     return 0;
 }
 
-int TObjWarpJungMain__vt17(void* p) { return confirm_area_transfer__12TObjAreaWarpFPvi(p); }
+void TObjWarpJungMain::confirm_area_transfer(s32) { confirm_area_transfer__12TObjAreaWarpFPvi(this); }
 
 void TObjWarpJungMain__vt12(void* p) { TObjWarpBase__vt12(p); TWindowCtrl::clear_flag(); }
 
@@ -320,7 +320,7 @@ void TObjWarpJung::render() {
     }
 }
 
-int TObjWarpJung__vt17(void* p) { return confirm_area_transfer__12TObjAreaWarpFPvi(p); }
+void TObjWarpJung::confirm_area_transfer(s32) { confirm_area_transfer__12TObjAreaWarpFPvi(this); }
 
 void TObjWarpJung::run_task() {
     u8 *arg0 = (u8 *)this;

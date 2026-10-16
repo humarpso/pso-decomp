@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TUnk_80490470.h"
@@ -49,7 +50,7 @@ void spawn_particle_if_in_band__17TObjEneDf2BringerFPv(u8 *arg0);
 void spawn_offset_particle__17TObjEneDf2BringerFPv(u8 *arg0);
 void update_attack_child__17TObjEneDf2BringerFPv(Bringer_800993E8 *obj);
 void TObjEneDf2Bringer__sub_800994F8(void);
-void TObjEneDf2Bringer__vt86(void);
+void vfunc_88__17TObjEneDf2BringerFv(void);
 void set_effect_pos_above_self__17TObjEneDf2BringerFv(u8 *arg0);
 void vfunc_61__17TObjEneDf2BringerFv(void);
 void vfunc_62__17TObjEneDf2BringerFv(u8 *arg0);
@@ -121,27 +122,27 @@ void *lbl_8048FAF8[44] = {
 };
 #define lbl_8048FAF8 (*(RecoveredGlobal_8031B170_lbl_804E8880 *)lbl_8048FAF8)
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TObjEneDD__vt100();
-extern "C" void TObjEneDD__vt77();
+extern "C" void vfunc_103__9TObjEneDDFPUc();
+extern "C" void vfunc_79__9TObjEneDDFv();
 extern "C" void TObjEneDD__vt82();
-extern "C" void TObjEneDD__vt83();
-extern "C" void TObjEneDD__vt84();
-extern "C" void TObjEneDD__vt86();
-extern "C" void TObjEneDD__vt87();
-extern "C" void TObjEneDD__vt88();
-extern "C" void TObjEneDD__vt89();
-extern "C" void TObjEneDD__vt90();
-extern "C" void TObjEneDD__vt91();
-extern "C" void TObjEneDD__vt92();
-extern "C" void TObjEneDD__vt93();
-extern "C" void TObjEneDD__vt94();
-extern "C" void TObjEneDD__vt95();
-extern "C" void TObjEneDD__vt96();
-extern "C" void TObjEneDD__vt97();
-extern "C" void TObjEneDD__vt98();
-extern "C" void TObjEneDD__vt99();
-extern "C" void TObjEneDf2Bringer__vt103();
-extern "C" void TObjEneDf2Bringer__vt104();
+extern "C" void vfunc_85__9TObjEneDDFv();
+extern "C" void vfunc_86__9TObjEneDDFv();
+extern "C" void vfunc_89__9TObjEneDDFv();
+extern "C" void vfunc_90__9TObjEneDDFv();
+extern "C" void vfunc_91__9TObjEneDDFv();
+extern "C" void vfunc_92__9TObjEneDDFv();
+extern "C" void vfunc_93__9TObjEneDDFv();
+extern "C" void vfunc_94__9TObjEneDDFv();
+extern "C" void vfunc_95__9TObjEneDDFv();
+extern "C" void vfunc_96__9TObjEneDDFv();
+extern "C" void vfunc_97__9TObjEneDDFv();
+extern "C" void vfunc_98__9TObjEneDDFv();
+extern "C" void vfunc_99__9TObjEneDDFv();
+extern "C" void vfunc_100__9TObjEneDDFv();
+extern "C" void vfunc_101__9TObjEneDDFPUc();
+extern "C" void vfunc_102__9TObjEneDDFv();
+extern "C" void vfunc_83__17TObjEneDf2BringerFv();
+extern "C" void vfunc_105__17TObjEneDf2BringerFv();
 extern "C" void vfunc_83__12TObjEneDD_STFv();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
@@ -235,14 +236,14 @@ void *__vt__17TObjEneDf2Bringer[107] = {
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
+    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
-    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneDf2Bringer__vt85,
-    (void *)&TObjEneDf2Bringer__vt86, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
-    (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
-    (void *)&TObjEneDD__vt93, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
-    (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
-    (void *)&TObjEneDf2Bringer__vt102, (void *)&TObjEneDf2Bringer__vt103, (void *)&TObjEneDf2Bringer__vt104,
+    (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&TObjEneDf2Bringer__vt85,
+    (void *)&vfunc_88__17TObjEneDf2BringerFv, (void *)&vfunc_89__9TObjEneDDFv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
+    (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
+    (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
+    (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
+    (void *)&TObjEneDf2Bringer__vt102, (void *)&vfunc_83__17TObjEneDf2BringerFv, (void *)&vfunc_105__17TObjEneDf2BringerFv,
 };
 #define __vt__17TObjEneDf2Bringer ((s32 *)__vt__17TObjEneDf2Bringer)
 
@@ -3009,12 +3010,12 @@ extern "C" {
 
 void TObjEneDf2Bringer__sub_800994F8(void);
 void vfunc_61__17TObjEneDf2BringerFv(void);
-void TObjEneDf2Bringer__vt86(void);
+void vfunc_88__17TObjEneDf2BringerFv(void);
 void vfunc_28__17TObjEneDf2BringerFv(void);
 void vfunc_63__17TObjEneDf2BringerFv(void* p);
 
 void TObjEneDf2Bringer__sub_800994F8(void) {  }
-void TObjEneDf2Bringer__vt86(void) {  }
+void TObjEneDf2Bringer::vfunc_88() {  }
 
 void TObjEneDf2Bringer::set_effect_pos_above_self() {
     u8 *arg0 = (u8 *)this;

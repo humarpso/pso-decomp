@@ -6,6 +6,8 @@
 
 struct TWindowMainMenu4P : public TWindowMainMenu {
     virtual ~TWindowMainMenu4P();
+    virtual void vfunc_8();
+    virtual void vfunc_9();
     void render();
     void run_task();
     u8 unk_44[0x1C];

@@ -143,7 +143,6 @@ force_active:
   - TEnemyTaskList_name
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
-  - TItemObject__vt42
   - TItemProArmor__sub_80117730
   - TItemProArmor__vt14
   - TItemTexLoad_class_name
@@ -255,7 +254,6 @@ force_active:
   - TObjEneMe3Stelth__shared_params
   - TObjEneRe2Flower_EffCurse3__vtable
   - TObjEneRe4Bit__vt85
-  - TObjEneRe4Bit__vt86
   - TObjEneRe4Bit_boss_handles
   - TObjEneRecobox__attack_params
   - TObjEneRecobox__resource_bundle
@@ -662,7 +660,6 @@ force_active:
   - apply_fog_entry
   - apply_heal_to_target__13TOHealGeneralFv
   - apply_hit_to_target__14TBoss7CrawfishFPvPv
-  - apply_material_item
   - apply_mourning_jellen__14TObjEneBm5WolfFv
   - apply_mourning_zalure__14TObjEneBm5WolfFv
   - apply_move_friction__12TObjEneLappyFv
@@ -682,7 +679,6 @@ force_active:
   - apply_story_quest_unlock_rules
   - apply_symbol__20TWindowSubSymbolChatFv
   - apply_to_player__12TObjGrassWebFv
-  - apply_to_player__13TItemProArmorFPv
   - apply_unit_effect_flags__12TItemProUnitFv
   - apply_unit_immunity__18TItemLockCountCtrlFi
   - apply_uv_offset__6TSceneFss
@@ -1606,9 +1602,7 @@ force_active:
   - enemy_nearest_visible_player_sq
   - enemy_tick_target_acquisition
   - enlarge_s_rank_j_cutter_blade
-  - enter_hit_reaction_state__15TObjEneMe1GiGueFPv
   - enter_request_state__16TAdWarningBaseGCFv
-  - enter_state_5_save_prev__15TObjEneMe1GiGueFPv
   - enter_state_804F27E0__13TUnk_804F27E0FlPv
   - enter_timed_state__13TUnk_804F0810FlPv
   - episode1_story_quest_flag_pairs
@@ -8271,11 +8265,22 @@ force_active:
   - vfunc_100__14TObjEneDolmOlmFv
   - vfunc_101__12TObjEneSharkFv
   - vfunc_101__14TObjEneDolmOlmFv
+  - vfunc_101__18TObjEneRe4SorcererFPUc
+  - vfunc_102__18TObjEneRe4SorcererFv
+  - vfunc_105__18TObjEneRe4SorcererFv
   - vfunc_11__17TQuestListOfflineFv
   - vfunc_13__13TUnk_804B5C08Fl
   - vfunc_16__12TItemProUnitFv
+  - vfunc_17__13TUnk_804B5BA8Fv
+  - vfunc_17__17TObjCityDoor_WarpFv
+  - vfunc_20__13TUnk_804B5BA8Fv
   - vfunc_20__17TOBarrierEnergy01Fv
+  - vfunc_20__17TObjCityDoor_WarpFv
+  - vfunc_20__17TObjWarpBossMultiFv
+  - vfunc_22__13TUnk_804B5BA8Fv
+  - vfunc_22__15TObjEneMe1GiGueFPvf
   - vfunc_22__16TOTrapAncient02RFPvf
+  - vfunc_24__15TObjEneMe1GiGueFPvPv
   - vfunc_28__13TObjEneBm3FlyFv
   - vfunc_28__13TObjEneRe4BitFv
   - vfunc_28__14TObjEneBm5WolfFv
@@ -8283,8 +8288,18 @@ force_active:
   - vfunc_28__18TObjEneRe4SorcererFv
   - vfunc_28__19TObjEneEpsilonGuardFv
   - vfunc_30__13TUnk_80483A10Fv
+  - vfunc_36__15TObjEneMe1GiGueFv
+  - vfunc_44__11TItemObjectFv
   - vfunc_44__12TItemProUnitFv
   - vfunc_44__13TObjEneRe4BitFv
+  - vfunc_44__13TUnk_8049F770Fv
+  - vfunc_44__13TUnk_8049F828Fv
+  - vfunc_44__13TUnk_8049F8E0Fv
+  - vfunc_44__13TUnk_8049F998Fv
+  - vfunc_44__13TUnk_8049FA50Fv
+  - vfunc_44__13TUnk_8049FB08Fv
+  - vfunc_44__13TUnk_8049FBC0Fv
+  - vfunc_44__13TUnk_8049FF88Fv
   - vfunc_45__12TItemProUnitFv
   - vfunc_45__13TObjEneRe4BitFv
   - vfunc_46__13TObjEneRe4BitFv
@@ -8308,12 +8323,14 @@ force_active:
   - vfunc_62__13TObjEneBm3FlyFv
   - vfunc_62__13TObjEneRe4BitFv
   - vfunc_62__14TObjEneBm5WolfFv
+  - vfunc_62__15TObjEneMe1GiGueFv
   - vfunc_62__17TObjEneBm3FlyNestFv
   - vfunc_62__18TObjEneRe4SorcererFv
   - vfunc_62__19TObjEneEpsilonGuardFv
   - vfunc_63__13TObjEneBm3FlyFv
   - vfunc_63__13TObjEneRe4BitFv
   - vfunc_63__14TObjEneBm5WolfFv
+  - vfunc_63__15TObjEneMe1GiGueFv
   - vfunc_63__17TObjEneBm3FlyNestFv
   - vfunc_63__18TObjEneRe4SorcererFv
   - vfunc_63__19TObjEneEpsilonGuardFv
@@ -8324,7 +8341,12 @@ force_active:
   - vfunc_82__12TOMineIcon04Fv
   - vfunc_83__12TObjEneSharkFv
   - vfunc_83__14TObjEneDolmOlmFv
+  - vfunc_83__18TObjEneRe4SorcererFv
   - vfunc_84__12TOMineIcon04Fv
+  - vfunc_88__13TObjEneRe4BitFv
+  - vfunc_88__18TObjEneRe4SorcererFv
+  - vfunc_88__19TObjEneEpsilonGuardFv
+  - vfunc_89__19TObjEneEpsilonGuardFv
   - vfunc_93__12TObjEneSharkFv
   - vfunc_93__14TObjEneDolmOlmFv
   - vfunc_94__12TObjEneSharkFv

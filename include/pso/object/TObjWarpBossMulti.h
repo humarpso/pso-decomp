@@ -6,6 +6,7 @@
 
 struct TObjWarpBossMulti : public TObjAreaWarp {
     virtual ~TObjWarpBossMulti();
+    virtual void vfunc_20();
     void render();
     void run_task();
     u8 unk_AC[0xC];

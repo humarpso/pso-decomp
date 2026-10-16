@@ -978,7 +978,7 @@ s32 play_sound_effect(s32, void *, s32, s32);
 char *strcpy(char *, const char *);
 s32 is_locally_controlled__10TObjPlayerFPv(u32);
 
-void TObjWarpBossMulti__vt18(Wb_8019DE74 *arg0);
+void vfunc_20__17TObjWarpBossMultiFv(Wb_8019DE74 *arg0);
 void render__17TObjWarpBossMultiFv(u8 *arg0);
 void run_task__17TObjWarpBossMultiFv(Obj_8019DFE8 *self);
 void *__dt__17TObjWarpBossMultiFv(void *arg0, s16 arg1);
@@ -993,7 +993,7 @@ extern s32 boss_warp_confirmation_model;
 extern s32 warp_boss_motion;
 void warp_boss_handle_window__12TObjWarpBossFv(void *arg0);
 void update__12TObjWarpBossFPv(void *arg0);
-void TObjWarpBoss__vt18(Wb_8019F2C0 *arg0);
+void vfunc_20__12TObjWarpBossFv(Wb_8019F2C0 *arg0);
 
 void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
@@ -1067,7 +1067,7 @@ s32 __vt__17TObjWarpBossMulti[21] = {
     (s32)&TObjWarpBase__vt14,
     (s32)&TObjWarpBase__vt15,
     (s32)&confirm_area_transfer__12TObjAreaWarpFPvi,
-    (s32)&TObjWarpBossMulti__vt18
+    (s32)&vfunc_20__17TObjWarpBossMultiFv
 };
 void *TObjWarpBossMulti::create() {
     void *o = __nw__7TObjectFUl(0x100);
@@ -1099,7 +1099,8 @@ void TObjWarpBossMulti::update() {
     *(s32 *)((s8 *)this + 0xF0) = 1;
 }
 
-void TObjWarpBossMulti__vt18(Wb_8019DE74 *arg0) {
+void TObjWarpBossMulti::vfunc_20() {
+    Wb_8019DE74 *arg0 = (Wb_8019DE74 *)this;
     ((TObjWarpBossMulti *)arg0)->update();
     TObjNpcEnemy::set_global_count(0xFF00FF);
     if (TOKeyMachine01::get_global_state() == 0) {
@@ -1759,7 +1760,8 @@ void update__12TObjWarpBossFPv(void *arg0) {
     }
 }
 
-void TObjWarpBoss__vt18(Wb_8019F2C0 *arg0) {
+void TObjWarpBoss::vfunc_20() {
+    Wb_8019F2C0 *arg0 = (Wb_8019F2C0 *)this;
     s32 t = arg0->f88;
     if (t < 0 || t > 0xFF) {
         arg0->f16C = -1;

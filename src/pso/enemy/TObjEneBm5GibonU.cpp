@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm5GibonU.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 
@@ -187,7 +188,7 @@ extern char lbl_8043C0AC[];
 extern char lbl_8043C0B8[];
 extern char lbl_8043C0C8[];
 extern char lbl_8043C0D8[];
-void render_debug__16TObjEneBm5GibonUFPv(u8 *arg0);
+void update_state__16TObjEneBm5GibonUFv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 get_flag_b4__9TObjEneDDFv(void *);
 s32 enemy_validate_retained_target(void *);
@@ -248,7 +249,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2);
 void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir);
 void turn_toward_angle__16TObjEneBm5GibonUFPvi(Ene_800D0FDC *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0);
-void TObjEneBm5GibonU__sub_800D119C(u8 *arg0);
+void vfunc_88__16TObjEneBm5GibonUFv(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D1268(u8 *arg0);
 void forward_hit_to_enemy_list__16TObjEneBm5GibonUFi(s32 arg0);
 void init_child_from_list__16TObjEneBm5GibonUFi(s32 arg0);
@@ -259,7 +260,7 @@ void vfunc_62__16TObjEneBm5GibonUFv(void* p);
 void update_center_position__16TObjEneBm5GibonUFv(u8 *arg0);
 void update_movement_status__10TObjPlayerFv();
 void update_photon_mylla__16TObjEneBm5GibonUFPv(void *arg0);
-void update_state__16TObjEneBm5GibonUFPv(void *arg0);
+void vfunc_83__16TObjEneBm5GibonUFv(void *arg0);
 void update_target__16TObjEneBm5GibonUFPv(void *arg0);
 void* TObjEneBm5GibonU__sub_800D1D78(void* p);
 extern u8 * TObjEneBm5GibonU__model_archive;
@@ -396,12 +397,12 @@ __declspec(section ".sdata2") const f32 TObjEneBm5GibonU__data_805DA158[1] = { 0
 #pragma push
 #define TObjEneBm5GibonU__sub_800CD204 ((void (*)())TObjEneBm5GibonU__sub_800CD204)
 #define TObjEneBm5GibonU__sub_800D0738 ((void (*)())TObjEneBm5GibonU__sub_800D0738)
-#define TObjEneBm5GibonU__sub_800D119C ((void (*)())TObjEneBm5GibonU__sub_800D119C)
+#define vfunc_88__16TObjEneBm5GibonUFv ((void (*)())vfunc_88__16TObjEneBm5GibonUFv)
 #define TObjEneBm5GibonU__sub_800D1268 ((void (*)())TObjEneBm5GibonU__sub_800D1268)
 #define TObjEneBm5GibonU__sub_800D13B8 ((void (*)())TObjEneBm5GibonU__sub_800D13B8)
 #define vfunc_63__16TObjEneBm5GibonUFv ((void (*)())vfunc_63__16TObjEneBm5GibonUFv)
 #define vfunc_62__16TObjEneBm5GibonUFv ((void (*)())vfunc_62__16TObjEneBm5GibonUFv)
-#define update_state__16TObjEneBm5GibonUFPv ((void (*)())update_state__16TObjEneBm5GibonUFPv)
+#define vfunc_83__16TObjEneBm5GibonUFv ((void (*)())vfunc_83__16TObjEneBm5GibonUFv)
 extern "C" {
 extern "C" {
 void TLobby__sub_801A1FD8();
@@ -415,61 +416,61 @@ extern "C" {
 void vfunc_28__16TObjEneBm5GibonUFv();
 }
 extern "C" {
-void TObjEneDD__vt100();
+void vfunc_103__9TObjEneDDFPUc();
 }
 extern "C" {
-void TObjEneDD__vt77();
+void vfunc_79__9TObjEneDDFv();
 }
 extern "C" {
 void TObjEneDD__vt82();
 }
 extern "C" {
-void TObjEneDD__vt83();
+void vfunc_85__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt84();
+void vfunc_86__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt86();
+void vfunc_89__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt87();
+void vfunc_90__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt88();
+void vfunc_91__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt89();
+void vfunc_92__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt90();
+void vfunc_93__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt91();
+void vfunc_94__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt92();
+void vfunc_95__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt93();
+void vfunc_96__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt94();
+void vfunc_97__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt95();
+void vfunc_98__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt96();
+void vfunc_99__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt97();
+void vfunc_100__9TObjEneDDFv();
 }
 extern "C" {
-void TObjEneDD__vt98();
+void vfunc_101__9TObjEneDDFPUc();
 }
 extern "C" {
-void TObjEneDD__vt99();
+void vfunc_102__9TObjEneDDFv();
 }
 extern "C" {
 void TObjEneEpsilon__vt101();
@@ -810,14 +811,14 @@ void *lbl_80493F04[107] = {
     (void *)reset_pose__10TObjPlayerFPv, (void *)TObjPlayer__sub_80014840, (void *)TObjPlayer__sub_80014838, (void *)TObjPlayer__sub_80014830,
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)update_and_send_enemy_hit_state, (void *)fn_80010EC8,
-    (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)TObjEneDD__vt77,
+    (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)vfunc_79__9TObjEneDDFv,
     (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state__9TObjEnemyFv, (void *)vfunc_83__12TObjEneDD_STFv,
-    (void *)TObjEneDD__vt82, (void *)TObjEneDD__vt83, (void *)TObjEneDD__vt84, (void *)TObjEneBm5GibonU__sub_800D0738,
-    (void *)TObjEneBm5GibonU__sub_800D119C, (void *)TObjEneDD__vt86, (void *)TObjEneDD__vt87, (void *)TObjEneDD__vt88,
-    (void *)TObjEneDD__vt89, (void *)TObjEneDD__vt90, (void *)TObjEneDD__vt91, (void *)TObjEneDD__vt92,
-    (void *)TObjEneDD__vt93, (void *)TObjEneDD__vt94, (void *)TObjEneDD__vt95, (void *)TObjEneDD__vt96,
-    (void *)TObjEneDD__vt97, (void *)TObjEneDD__vt98, (void *)TObjEneDD__vt99, (void *)TObjEneDD__vt100,
-    (void *)TObjEneEpsilon__vt101, (void *)update_state__16TObjEneBm5GibonUFPv, (void *)render_debug__16TObjEneBm5GibonUFPv,
+    (void *)TObjEneDD__vt82, (void *)vfunc_85__9TObjEneDDFv, (void *)vfunc_86__9TObjEneDDFv, (void *)TObjEneBm5GibonU__sub_800D0738,
+    (void *)vfunc_88__16TObjEneBm5GibonUFv, (void *)vfunc_89__9TObjEneDDFv, (void *)vfunc_90__9TObjEneDDFv, (void *)vfunc_91__9TObjEneDDFv,
+    (void *)vfunc_92__9TObjEneDDFv, (void *)vfunc_93__9TObjEneDDFv, (void *)vfunc_94__9TObjEneDDFv, (void *)vfunc_95__9TObjEneDDFv,
+    (void *)vfunc_96__9TObjEneDDFv, (void *)vfunc_97__9TObjEneDDFv, (void *)vfunc_98__9TObjEneDDFv, (void *)vfunc_99__9TObjEneDDFv,
+    (void *)vfunc_100__9TObjEneDDFv, (void *)vfunc_101__9TObjEneDDFPUc, (void *)vfunc_102__9TObjEneDDFv, (void *)vfunc_103__9TObjEneDDFPUc,
+    (void *)TObjEneEpsilon__vt101, (void *)vfunc_83__16TObjEneBm5GibonUFv, (void *)update_state__16TObjEneBm5GibonUFv,
 };
 __declspec(section ".data") u32 TObjEneBm5GibonU__data_80500E78[2];
 __declspec(section ".data") u32 lbl_80500E80[2];
@@ -831,12 +832,12 @@ __declspec(section ".data") u32 TObjEneBm5GibonU__enemy_list[3];
 
 #undef TObjEneBm5GibonU__sub_800CD204
 #undef TObjEneBm5GibonU__sub_800D0738
-#undef TObjEneBm5GibonU__sub_800D119C
+#undef vfunc_88__16TObjEneBm5GibonUFv
 #undef TObjEneBm5GibonU__sub_800D1268
 #undef TObjEneBm5GibonU__sub_800D13B8
 #undef vfunc_63__16TObjEneBm5GibonUFv
 #undef vfunc_62__16TObjEneBm5GibonUFv
-#undef update_state__16TObjEneBm5GibonUFPv
+#undef vfunc_83__16TObjEneBm5GibonUFv
 #pragma pop
 #pragma push
 #define find_enemy_by_id__16TObjEneBm5GibonUFi ((s32 (*)(s32))find_enemy_by_id__16TObjEneBm5GibonUFi)
@@ -2453,7 +2454,8 @@ __declspec(section ".sdata2") const f32 TObjEneBm5GibonU__data_805DA18C[1] = { -
 #define TObjEneBm5GibonU__data_805DA184 (TObjEneBm5GibonU__data_805DA184[0])
 #define TObjEneBm5GibonU__data_805DA188 (TObjEneBm5GibonU__data_805DA188[0])
 #define TObjEneBm5GibonU__data_805DA18C (TObjEneBm5GibonU__data_805DA18C[0])
-void render_debug__16TObjEneBm5GibonUFPv(u8 *arg0) {
+void TObjEneBm5GibonU::update_state() {
+    u8 *arg0 = (u8 *)this;
     Gibon_800CCE80 *self = (Gibon_800CCE80 *)arg0;
     Vec_800CCE80 v;
     s32 idx;
@@ -2518,20 +2520,20 @@ void render_debug__16TObjEneBm5GibonUFPv(u8 *arg0) {
     TObjMapWarp__sub_80141CB0(&self->center, &v, 0xFFC0C0C0, 0xFF6060FF);
 }
 
-void update_state__16TObjEneBm5GibonUFPv(void *arg0) {
+s32 TObjEneBm5GibonU::vfunc_83() {
     s32 temp_r31;
 
     if (get_target_info__9TObjEneDDFPv() != 0) {
-        temp_r31 = *(s32 *)((s8 *)arg0 + 0x464);
-        TObjEneBm5GibonU__sub_800D10A0(arg0);
-        if (temp_r31 != (s32) *(s32 *)((s8 *)arg0 + 0x464)) {
+        temp_r31 = *(s32 *)((s8 *)this + 0x464);
+        TObjEneBm5GibonU__sub_800D10A0(this);
+        if (temp_r31 != (s32) *(s32 *)((s8 *)this + 0x464)) {
             if (temp_r31 != 0) {
-                forward_hit_to_enemy_list__16TObjEneBm5GibonUFi(arg0);
+                forward_hit_to_enemy_list__16TObjEneBm5GibonUFi(this);
             } else {
-                init_child_from_list__16TObjEneBm5GibonUFi(arg0);
+                init_child_from_list__16TObjEneBm5GibonUFi(this);
             }
         }
-        update_center_position__16TObjEneBm5GibonUFv(arg0);
+        update_center_position__16TObjEneBm5GibonUFv(this);
     }
 }
 
@@ -5148,7 +5150,8 @@ s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 int __dl__FPv();
 
-void TObjEneBm5GibonU__sub_800D119C(u8 *arg0) {
+void TObjEneBm5GibonU::vfunc_88() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) TObjEneBm5GibonU__data_805DA178;
 }
 

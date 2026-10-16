@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -46,7 +47,7 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
 
 extern "C" {
 
-void TObjPlayer__sub_8023AC84(void);
+void vfunc_8__13TUnk_804CCC68Fv(void);
 void free_collision_body_parts(void *);
 int TTecSifta__sub_8023AC88(void* p);
 void __dl__7TObjectFPv(void *);
@@ -213,6 +214,6 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     return arg0;
 }
 
-void TObjPlayer__sub_8023AC84(void) {  }
+void TUnk_804CCC68::vfunc_8() {  }
 
 }

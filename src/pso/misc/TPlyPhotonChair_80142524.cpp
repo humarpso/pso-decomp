@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804A7488.h"
 #include "pso/misc/TPlyPhotonChair.h"
 
 struct RecoveredGlobal_801426DC_lbl_8050BFF0 {
@@ -46,7 +47,7 @@ s32 activate__15TPlyPhotonChairFv();
 s32 activate__15TPlyPhotonChairFv();
 extern const f32 lbl_805DB16C;
 int draw_chunk_object(void);
-void TLobby__sub_80142920(void * _w0);
+void vfunc_3__13TUnk_804A7488Fv(void * _w0);
 int TLobby__sub_80142944(void* p);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;
@@ -180,7 +181,7 @@ void TPlyPhotonChair::update_bob_motion() {
         return;
     }
 }
-void TLobby__sub_80142920(void * _w0) { ((TPlyPhotonChair *)_w0)->get_id(); draw_chunk_object(); }
+void TUnk_804A7488::vfunc_3() { ((TPlyPhotonChair *)this)->get_id(); draw_chunk_object(); }
 int TLobby__sub_80142944(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }
 
 }

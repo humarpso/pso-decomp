@@ -6,6 +6,8 @@
 
 struct TObjEneBm5GibonU : public TObjEneDD_ST {
     virtual ~TObjEneBm5GibonU();
+    virtual void vfunc_88();
+    virtual s32 vfunc_83();
     virtual void update_state();
     virtual void render_debug();
     void update_center_position();
@@ -63,7 +65,6 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
     void clear_flag_and_update();
     s32 check_and_update();
     s32 try_activate();
-    void debug_print_tech_params();
     u8 unk_54C[0x1C];
 };
 

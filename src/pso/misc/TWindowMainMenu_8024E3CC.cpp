@@ -13,7 +13,7 @@ int TWindowMainMenu__sub_8024E3D4(void* p);
 int TWindowMainMenu__sub_8024E3E0(void* p);
 int TWindowMainMenu__sub_8024E3F4(void* p);
 void TWindowMainMenu__vt4(void);
-void TWindowMainMenu__vt6(void);
+void vfunc_8__15TWindowMainMenuFv(void);
 int update_window_entry_list(void*, void*);
 s32 draw_window_tab(s32, s32, s32, f32);
 
@@ -23,7 +23,7 @@ int TWindowMainMenu__sub_8024E3D4(void* p) { return (*(u32*)((char*)p + 0x4c) >>
 int TWindowMainMenu__sub_8024E3E0(void* p) { return *(u32*)((char*)p + 0x4c) & 0x1; }
 
 void TWindowMainMenu__vt4(void) {  }
-void TWindowMainMenu__vt6(void) {  }
+void TWindowMainMenu::vfunc_8() {  }
 
 int TWindowMainMenu__sub_8024E3F4(void* p) { return (*(u16*)((char*)p + 0x1c) >> 6) & 0x1; }
 void TWindowMainMenu::set_entry_field_20(s32 arg0, s32 arg1) {

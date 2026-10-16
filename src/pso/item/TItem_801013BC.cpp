@@ -53,7 +53,7 @@ void TItem__sub_801013E8(void *arg0) {
     is_rare_item__9TItemDataFPv(&sp8);
 }
 
-void TItem::destroy() { unregister_item(); disallow_rendering__7TObjectFv(this); queue_destruction__7TObjectFv(this); }
+void TItem::vfunc_29() { unregister_item(); disallow_rendering__7TObjectFv(this); queue_destruction__7TObjectFv(this); }
 
 void TItem::copy_item_data_and_process() {
     s32 sp8[4];
