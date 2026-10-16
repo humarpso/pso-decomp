@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804A7260.h"
 #include "pso/misc/TMainCursor.h"
 
 extern "C" {
@@ -15,7 +16,7 @@ u8 *destroy_and_delete__11TMainCursorFPvs(u8 *arg0, s16 arg1) {
         if ((TObjPlayer__sub_801C6DAC((void *) (arg0 + 0x1C)) != 0) && ((u32) *(u32 *)((s8 *)(((TMainCursor *)(arg0 + 0x1C))->get_state()) + 0x424) != 0U)) {
             ((TMainCursor *)(*(s32 *)((s8 *)(((TMainCursor *)(arg0 + 0x1C))->get_state()) + 0x424)))->set_sub_cursor_value((int) (0));
         }
-        ((TMainCursor *)arg0)->destroy_cursor((int) (0));
+        ((TUnk_804A7260 *)arg0)->destroy_cursor((int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }

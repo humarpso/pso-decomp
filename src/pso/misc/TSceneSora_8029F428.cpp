@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DC7C4.h"
 
 #include <stddef.h>
 #include "pso/misc/TScene.h"
@@ -169,7 +170,7 @@ void copy_reflection_vec__10TSceneSoraFPv(u8 *arg0);
 extern "C" {
 
 void *create_instance__10TSceneSoraFPv(void *arg0);
-void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1);
+void *destroy__13TUnk_804DC7C4Fs(void *arg0, s16 arg1);
 s32 __ct__7TObjectFP7TObject();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
@@ -182,25 +183,25 @@ extern s32 lbl_805D65F0;
 extern s16 scene_sora_reflect_active;
 extern s8 scene_sora_recon_active_flag;
 
-void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804DC7C4;
+void *TUnk_804DC7C4::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804DC7C4;
         scene_sora_reflect_active = 0;
         scene_sora_recon_active_flag = 0;
         lbl_805D65F0 = 0;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20));
-            *(u32 *)((s8 *)arg0 + 0x20) = 0U;
+        if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x20));
+            *(u32 *)((s8 *)this + 0x20) = 0U;
         }
         TScene::set_id(0);
         TScene::set_active_scene(0);
         TScene::set_instance(0);
-        __dt__7TObjectFv(arg0, 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern s32 lbl_804DC7C4[];

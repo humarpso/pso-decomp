@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLOC_Start.h"
 #include "pso/misc/PaletteCursorAction.h"
 #include "pso/misc/TMainCursor.h"
 
@@ -22,11 +23,11 @@ extern "C" {
 void TMainCursor__sub_8013B2A4(u16 *arg0);
 void TMainCursor__sub_8013B398(void *arg0, void *arg1);
 s32 get_player_by_client_id(u16);
-int init__13TLockOnCursorFPvPv(void);
+int init__13TUnk_804A7260FPvPv(void);
 
     extern unsigned char lbl_804A7290[];
     extern int lbl_805D2CBC;
-void*TMainCursor::init() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A7290; *(int *)&this->m_name = lbl_805D2CBC; return this; }
+void*TLOC_Start::init() { init__13TUnk_804A7260FPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A7290; *(int *)&this->m_name = lbl_805D2CBC; return this; }
 
 void TMainCursor__sub_8013B2A4(u16 *arg0) {
     get_player_by_client_id(*arg0);

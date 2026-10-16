@@ -6,6 +6,7 @@
 class TUnk_804A3070 : public TItemWeapon {
 public:
     virtual ~TUnk_804A3070();
+    u8 *construct_agito(s32, void *);
 };
 
 #endif

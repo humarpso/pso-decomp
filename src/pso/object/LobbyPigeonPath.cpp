@@ -539,7 +539,7 @@ void load_kamome_resources__10TObjPlayerFv(void);
 s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self);
 s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self);
 void vfunc_14__13TUnk_804E08D4Fv(u8 *arg0);
-void * dt_path_obj__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void * dt_path_obj__13TUnk_804E08D4Fs(void *arg0, s16 arg1);
 void * TObjPlayer__sub_802C19E8(void *arg0);
 void * create__10TObjPlayerFPv(void *arg0);
 void free_statics__10TObjPlayerFv(void);
@@ -547,7 +547,7 @@ void load_jungle_bird_resources__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self);
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
 void vfunc_14__13TUnk_804E0910Fv(u8 *arg0);
-void * deleting_dtor_pathobj__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void * deleting_dtor_pathobj__13TUnk_804E0910Fs(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2);
 void * create_path_obj__10TObjPlayerFPv(void *arg0);
 void free_chr_select__10TObjPlayerFv(void);
@@ -913,15 +913,15 @@ void update_path_motion__10TObjPlayerFPv(u8 *arg0) {
 extern int fold_flush_1;
 #pragma pop
 
-void *dt_path_obj__10TObjPlayerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = jungle_seagull_vtable;
-        ((void (*)(void *, int))__dt__11TObjPathObjFv)(arg0, 0);
+void *TUnk_804E08D4::dt_path_obj(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = jungle_seagull_vtable;
+        ((void (*)(void *, int))__dt__11TObjPathObjFv)(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 #pragma push
@@ -1096,15 +1096,15 @@ void advance_path_step__10TObjPlayerFPv(Pl_802C1FD0 *arg0) {
     }
 }
 
-void *deleting_dtor_pathobj__10TObjPlayerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E0910;
-        ((void (*)(void *, int))__dt__11TObjPathObjFv)(arg0, 0);
+void *TUnk_804E0910::deleting_dtor_pathobj(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804E0910;
+        ((void (*)(void *, int))__dt__11TObjPathObjFv)(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2) {

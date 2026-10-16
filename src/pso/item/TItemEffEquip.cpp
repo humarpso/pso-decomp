@@ -1,4 +1,5 @@
 #include "pso/TItemEffEquip.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_8049F038.h"
 
 extern "C" void request_destroy__11TBoss4Type2FUl(void*);
@@ -32,7 +33,7 @@ void *__dt__13TItemEffEquipFv(Equip_Self *self, s16 arg1) {
 
 extern "C" {
 
-void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1);
+void *destroy__13TUnk_8049F038Fs(void *arg0, s16 arg1);
 void run_task__13TUnk_8049F038Fv(u8 *arg0);
 u8 *vfunc_9__13TUnk_8049F038Fv(u8 *arg0);
 s32 set_item_count__13TUnk_804B9870Fs(void *, s32);
@@ -55,7 +56,7 @@ void disallow_rendering__7TObjectFv(void *);
 void fn_8002B630(void *, void *);
 s32 pop_free_id__6TLobbyFv();
 void initialize_linked_object_reference(void *, void *);
-void construct_collider_proxy__10TObjPlayerFv(void *, void *);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 lbl_8043E1A0[];
 
 #include "types.h"
@@ -270,26 +271,26 @@ void TUnk_8049F038::run_task() {
 
 extern void *lbl_8049F038[];
 
-void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_8049F038;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xA4) != 0U) {
-            unregister_object_by_id(arg0);
-            clear_obj_links(arg0);
-            obj_getField1c(arg0);
+void *TUnk_8049F038::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = (s32 *)lbl_8049F038;
+        if ((u32) *(u32 *)((s8 *)this + 0xA4) != 0U) {
+            unregister_object_by_id(this);
+            clear_obj_links(this);
+            obj_getField1c(this);
             TLobby__sub_80103B04();
-            set_item_count__13TUnk_804B9870Fs(arg0, 0xFFFF);
+            set_item_count__13TUnk_804B9870Fs(this, 0xFFFF);
         }
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)this)->destroy_particle_controller(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b) {
-    construct_collider_proxy__10TObjPlayerFv(self, parent);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(self, parent);
     self->vt = lbl_8049F038;
     self->f_AC = a;
     self->f_B0 = b;
@@ -328,7 +329,7 @@ void *__vt__13TItemEffEquip[6] = {
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
 };
 void *lbl_8049F038[14] = {
-    0, 0, (void *)destroy__13TItemEffFlameFPvs, (void *)run_task__13TUnk_8049F038Fv,
+    0, 0, (void *)destroy__13TUnk_8049F038Fs, (void *)run_task__13TUnk_8049F038Fv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
     (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_8049F038Fv,

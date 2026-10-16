@@ -69,7 +69,7 @@ s32 TBoss3Volopt__sub_8004816C(int);
 f32 TObjPlayer__sub_800499FC(s32 arg0);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 void init_collision_body_parts(void *, void *, int);
-void construct_collider_proxy__10TObjPlayerFv();
+void construct_collider_proxy__13TUnk_804AF8A0Fv();
 void rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
@@ -207,12 +207,12 @@ void TUnk_80484A94::run_task() {
   play_persistent_sound((int) 0x4003C11D, (void *) arg0, (void *) (arg0 + 0x38), (int) 0, (int) 0);
 }
 
-void *TObjPlayer::destroy(s16 arg1) {
+void *TUnk_80484A94::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80484A94;
         free_collision_body_parts(this);
         if (*(void **)((s8 *)this + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD4)); }
-        if (*(void * *)&this->m_d8 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_d8); }
+        if (*(void * *)&(*(s32 *)((u8 *)this + 0xD8)) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(s32 *)((u8 *)this + 0xD8))); }
         if (*(void **)((s8 *)this + 0x10) != NULL) { TObjPlayer__sub_80049A0C((void*)(*(void **)((s8 *)this + 0x10))); }
         destroy_particle_controller(0);
         if (arg1 > 0) {
@@ -223,7 +223,7 @@ void *TObjPlayer::destroy(s16 arg1) {
 }
 
 Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3) {
-    construct_collider_proxy__10TObjPlayerFv();
+    construct_collider_proxy__13TUnk_804AF8A0Fv();
     arg0->vt = lbl_80484A94;
     init_collision_body_parts(arg0, player_collision_body_desc, 1);
     arg0->fdc = obj_getField1c(arg1);

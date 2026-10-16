@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804E71F8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -17,7 +18,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern s32 lbl_804E71F8[];
 
-void *TObjPlayer::construct_nug2000_bazooka(s32 _w1, void * _w2) {
+void *TUnk_804E71F8::construct_nug2000_bazooka(s32 _w1, void *_w2) {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804E71F8;
     set_status_flags__10TObjPlayerFPvUi(this, 2);
@@ -31,7 +32,7 @@ u8 *TObjPlayer::create_nug2000_bazooka() {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TObjPlayer *)temp_r3)->construct_nug2000_bazooka((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804E71F8 *)temp_r3)->construct_nug2000_bazooka((s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }

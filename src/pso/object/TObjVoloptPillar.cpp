@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjVoloptPillar.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -85,7 +86,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
-void construct_collider_proxy__10TObjPlayerFv(void *, s32);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 extern u8 volopt_pillar_collision_body[];
 extern s32 __vt__16TObjVoloptPillar[];
 extern u8 boss3_volopt_spawn_pos[];
@@ -286,7 +287,7 @@ void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjVoloptPillar;
         free_collision_body_parts(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -297,7 +298,7 @@ void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1) {
 #pragma fp_contract on
 S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2) {
     f32 d;
-    construct_collider_proxy__10TObjPlayerFv(o, tl_04);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(o, tl_04);
     o->vt = ((u8 *)&__vt__16TObjVoloptPillar);
     o->f0 = lbl_805D2760;
     init_collision_body_parts(o, volopt_pillar_collision_body, 1);

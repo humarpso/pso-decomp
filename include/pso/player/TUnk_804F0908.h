@@ -6,6 +6,7 @@
 class TUnk_804F0908 : public TItemWeapon {
 public:
     virtual ~TUnk_804F0908();
+    void *construct_rappys_fan(s32, void *);
 };
 
 #endif

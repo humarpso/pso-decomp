@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804F0908.h"
+#include "pso/player/TUnk_804F0810.h"
 
 struct Base_8034EFDC { char pad[0x18]; };
 struct VObj_8034EFDC : Base_8034EFDC {
@@ -130,11 +132,11 @@ int spawn_nug2000_hit_explosion(void);
 u32 find_item_by_id(void);
 int spawn_nug2000_hit_explosion(void);
 void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
-void * enter_timed_state__10TObjPlayerFPv(void *, s32, void *);
+void * enter_timed_state__13TUnk_804F0810FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8034F1AC(u8 *arg0);
-void * construct_rappys_fan__10TObjPlayerFPv(void *, s32, void *);
+void * construct_rappys_fan__13TUnk_804F0908FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_rappys_fan__10TObjPlayerFPv(u8 *arg0);
@@ -169,7 +171,7 @@ void *find_entity_by_id(s32);
 void spawn_particle_at_entity_slot__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
 s32 fill_status_info__10TObjPlayerFPvPv(u32, void *);
-s32 construct_explosion_collider__10TObjPlayerFv(void *, s32, void *);
+s32 construct_explosion_collider__13TUnk_804A2548Fv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 s32 create_fire_explosion_effect(void *, void *, s32, s32, f32);
 s32 TObjPlayer__sub_802E449C(void *);
@@ -242,12 +244,12 @@ void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1) {
 
 extern s32 lbl_804F0810[];
 
-void *enter_timed_state__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
-    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0810;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 1);
-    *(u32 *)((s8 *)arg0 + 0x1F8) = 13653;
-    return arg0;
+void *TUnk_804F0810::enter_timed_state(s32 _w1, void *_w2) {
+    TItemWeapon__ct((void *)(this), (void *)(_w1));
+    *(s32 **)((s8 *)this + 0x18) = lbl_804F0810;
+    set_status_flags__10TObjPlayerFPvUi(this, 1);
+    *(u32 *)((s8 *)this + 0x1F8) = 13653;
+    return this;
 }
 
 extern s32 lbl_804F0908[];
@@ -259,7 +261,7 @@ u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)enter_timed_state__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)enter_timed_state__13TUnk_804F0810FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -318,12 +320,12 @@ void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1) {
 
 extern s32 lbl_804F0908[];
 
-void *construct_rappys_fan__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
-    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0908;
-    *(s32 **)((s8 *)arg0 + 0x1F4) = ((s32 *)spawn_particle_at_entity_slot__10TObjPlayerFiiii);
-    set_status_flags__10TObjPlayerFPvUi(arg0, 2);
-    return arg0;
+void *TUnk_804F0908::construct_rappys_fan(s32 _w1, void *_w2) {
+    TItemWeapon__ct((void *)(this), (void *)(_w1));
+    *(s32 **)((s8 *)this + 0x18) = lbl_804F0908;
+    *(s32 **)((s8 *)this + 0x1F4) = ((s32 *)spawn_particle_at_entity_slot__10TObjPlayerFiiii);
+    set_status_flags__10TObjPlayerFPvUi(this, 2);
+    return this;
 }
 
 u8 *create_rappys_fan__10TObjPlayerFPv(u8 *arg0) {
@@ -333,7 +335,7 @@ u8 *create_rappys_fan__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)construct_rappys_fan__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)construct_rappys_fan__13TUnk_804F0908FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -364,7 +366,7 @@ s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1) {
     info.f10 = 0xA;
     o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
-        construct_explosion_collider__10TObjPlayerFv(o, tl_05, &info);
+        construct_explosion_collider__13TUnk_804A2548Fv(o, tl_05, &info);
     }
     o = __nw__7TObjectFUl(0x64);
     if (o != NULL) {

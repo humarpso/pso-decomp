@@ -6,6 +6,7 @@
 class TUnk_804F2A10 : public TObject {
 public:
     virtual ~TUnk_804F2A10();
+    void*init_vtable_804F2A10();
     virtual void render();
     virtual void run_task();
 };

@@ -105,7 +105,7 @@ s32 spawn_particle_effect(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void destroy_technique_base__9TTecLukerFPvs(void *, int);
+void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_804CCC28[];
@@ -184,7 +184,7 @@ extern s32 __vt__12TTecReverser[];
 void *__dt__12TTecReverserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TTecReverser;
-        destroy_technique_base__9TTecLukerFPvs(arg0, 0);
+        destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

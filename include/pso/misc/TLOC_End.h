@@ -6,6 +6,7 @@
 class TLOC_End : public TUnk_804A7260 {
 public:
     virtual ~TLOC_End();
+    void*init_vtable();
     virtual void run_task();
     u8 unk_1C[0x8];
 };

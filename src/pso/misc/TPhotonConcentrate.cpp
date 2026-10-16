@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 struct Slot_801A8868 { u8 pad[0x18]; };
 struct Counts_801A8868 { s32 v[4]; };
@@ -49,7 +50,7 @@ u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
 void render__18TPhotonConcentrateFv(void);
 s32 create_particle_emitter(void *, s32);
-s32 construct_collider_proxy__10TObjPlayerFv(s32, s32);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(s32, s32);
 s32 find_entity_by_id(s32, f32);
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -213,7 +214,7 @@ void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TPhotonConcentrate;
         if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); *(s32 *)((s8 *)arg0 + 0xF8) = 0; }
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -224,7 +225,7 @@ void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1) {
 u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;
 
-    construct_collider_proxy__10TObjPlayerFv((s32)arg0, arg2);
+    construct_collider_proxy__13TUnk_804AF8A0Fv((s32)arg0, arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TPhotonConcentrate;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D34D0;
     VecCopy__FP3VecPC3Vec(arg0 + 0xAC, VecCopy__FP3VecPC3Vec(arg0 + 0xB8, arg1));

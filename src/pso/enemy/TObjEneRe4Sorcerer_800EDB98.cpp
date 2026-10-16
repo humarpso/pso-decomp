@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 
 extern "C" {
@@ -2988,9 +2990,9 @@ extern int fold_flush_1;
 #pragma pop
 
 void *TObjEneRe4Sorcerer__ct(void *arg0, void *arg1, void *arg2) {
-    ((TObjEneDD *)arg0)->init_object();
+    ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjEneRe4Sorcerer;
-    ((TObjPlayer *)((char *)arg0 + 1020))->init_vtable_and_field18();
+    ((TUnk_80490470 *)((char *)arg0 + 1020))->init_vtable_and_field18();
     ((TObjPlayer *)((char *)arg0 + 1048))->construct_target_cursor_records();
     __construct_array((void *)((char *)arg0 + 1140), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2AF0;

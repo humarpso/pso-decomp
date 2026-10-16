@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804928CC.h"
 #include "pso/boss/TBoss8DragonEffTail.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDellBiter.h"
@@ -192,7 +193,7 @@ void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss8DragonEffTail;
         delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB8), 1);
         *(s32 *)((s8 *)arg0 + 0xB8) = 0;
-        ((TObjPlayer *)arg0)->destroy_enemy_object(0);
+        ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -207,7 +208,7 @@ EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     void *data;
     s32 i;
     void *p;
-    ((TObjEneDellBiter *)arg0)->init_instance((void *)0, (void *)arg1, (void *)boss8_dragon_eff_tail_init_data, (void *)0x11);
+    ((TUnk_804928CC *)arg0)->init_instance((void *)0, (void *)arg1, (void *)boss8_dragon_eff_tail_init_data, (void *)0x11);
     arg0->vtbl = ((s32 *)&__vt__19TBoss8DragonEffTail);
     data = boss8_dragon_eff_tail_init_data;
     arg0->unk0 = TBoss8DragonEffTail__name;

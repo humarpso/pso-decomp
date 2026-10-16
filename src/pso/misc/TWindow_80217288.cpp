@@ -42,7 +42,7 @@ void handle_confirm_dialog(void *arg0);
 void update_list_navigation__17TQuestListOfflineFPv(QuestList_802171BC *);
 void init_quest_list_window__17TQuestListOfflineFv(QuestList_802171BC *);
 void vfunc_11__17TQuestListOfflineFv(QuestList_802171BC *self);
-void * close_shop_subwindows__7TWindowFPvs(void *arg0, s16 arg1);
+void * close_shop_subwindows__17TQuestListOfflineFs(void *arg0, s16 arg1);
 void __dt__15TShopWindowBaseFv(void *, int);
 void __ct__15TShopWindowBaseFv(void *, s32);
 void __dl__7TObjectFPv(void *);
@@ -151,7 +151,7 @@ void *lbl_804C9C10[35] = {
     (void *)0xffffffff, (void *)0xffffffff, (void *)&lbl_805DC690,
 };
 void *lbl_804C9C9C[12] = {
-    (void *)0x0, (void *)0x0, (void *)&close_shop_subwindows__7TWindowFPvs, (void *)&run_task__15TShopWindowBaseFv,
+    (void *)0x0, (void *)0x0, (void *)&close_shop_subwindows__17TQuestListOfflineFs, (void *)&run_task__15TShopWindowBaseFv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv, (void *)&TShopWindowBase__sub_802115F0, (void *)&vfunc_7__15TShopWindowBaseFv,
     (void *)&vfunc_8__15TShopWindowBaseFv, (void *)&vfunc_9__15TShopWindowBaseFv, (void *)&vfunc_10__15TShopWindowBaseFv, (void *)&vfunc_11__17TQuestListOfflineFv,
 };
@@ -192,19 +192,19 @@ void TQuestListOffline::vfunc_11() {
     }
 }
 
-void *close_shop_subwindows__7TWindowFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C9C9C;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x44)); *(s32 *)((s8 *)arg0 + 0x44) = 0; }
-        __dt__15TShopWindowBaseFv(arg0, 0);
+void *TQuestListOffline::close_shop_subwindows(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804C9C9C;
+        if (*(void **)((s8 *)this + 0x3C) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x3C)); *(s32 *)((s8 *)this + 0x3C) = 0; }
+        if (*(void **)((s8 *)this + 0x38) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x38)); *(s32 *)((s8 *)this + 0x3C) = 0; }
+        if (*(void **)((s8 *)this + 0x40) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x40)); *(s32 *)((s8 *)this + 0x40) = 0; }
+        if (*(void **)((s8 *)this + 0x44) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x44)); *(s32 *)((s8 *)this + 0x44) = 0; }
+        __dt__15TShopWindowBaseFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 void *TQuestListOffline__ct(Win_80217344 *self, s32 arg1, s32 arg2, s32 arg3) {

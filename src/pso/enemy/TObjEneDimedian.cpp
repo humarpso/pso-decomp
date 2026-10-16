@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 #include "pso/enemy/TObjEneDimedian.h"
@@ -90,7 +91,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 void sub_800A7B54__15TObjEneDimedianFv(void *);
 void load_dimedian_param_entry__15TObjEneDimedianFl(void *, s32);
-void init_enemy_base__10TObjPlayerFv(void *);
+void init_enemy_base__13TUnk_80493450Fv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_photon_effect(void *);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
@@ -464,9 +465,9 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     f32 f;
     s32 color;
     s32 i;
-    ((void (*)(void *, s32, s32))init_enemy_base__10TObjPlayerFv)(arg0, arg1, arg2);
+    ((void (*)(void *, s32, s32))init_enemy_base__13TUnk_80493450Fv)(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__15TObjEneDimedian;
-    ((TObjPlayer *)(arg0 + 0x3A8))->init_vtable_and_field18();
+    ((TUnk_80490470 *)(arg0 + 0x3A8))->init_vtable_and_field18();
     __construct_array(arg0 + 0x3CC, (void *)&init_and_activate__10TObjPlayerFv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D29F0;
     ((VObj_18_c99286 *)arg0)->m79(arg2);

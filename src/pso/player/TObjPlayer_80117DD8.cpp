@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804A0648.h"
+#include "pso/player/TUnk_804A0628.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemData.h"
 #include "pso/item/TItemProShield.h"
@@ -17,7 +19,7 @@ void TItemTimerEvent__ct(void *);
 
 extern s32 lbl_804A0628[];
 
-void *TObjPlayer::construct_timer_event() {
+void *TUnk_804A0628::construct_timer_event() {
     TItemTimerEvent__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A0628;
     return this;
@@ -25,7 +27,7 @@ void *TObjPlayer::construct_timer_event() {
 
 extern s32 lbl_804A0648[];
 
-void *TObjPlayer::init_item_timer_event() {
+void *TUnk_804A0648::init_item_timer_event() {
     TItemTimerEvent__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A0648;
     return this;

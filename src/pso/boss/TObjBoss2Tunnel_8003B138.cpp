@@ -194,7 +194,7 @@ void init_queue_from_start__15TObjBoss2TunnelFPv(Obj_8003C374 *self);
 struct Obj_8003C2A0;
 void shift_queue_push_next__15TObjBoss2TunnelFPv(Obj_8003C2A0 *self);
 s32 update_first_active_fog__8TFogCtrlFv(void);
-void * init__15TObjBoss2TunnelFPv(void *arg0);
+void * init__13TUnk_804835D8Fv(void *arg0);
 f32 rand_signed_unit(void);
 int rand(void);
 void *__ct__13TObjBoss2DustFv(void *, void *, Vec_8003B6E8 *);
@@ -217,7 +217,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o);
 #define init_queue_from_start__15TObjBoss2TunnelFPv ((void (*)(void *))init_queue_from_start__15TObjBoss2TunnelFPv)
 #define shift_queue_push_next__15TObjBoss2TunnelFPv ((void (*)(void *))shift_queue_push_next__15TObjBoss2TunnelFPv)
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
-#define init__15TObjBoss2TunnelFPv ((void (*)(void *, void *))init__15TObjBoss2TunnelFPv)
+#define init__13TUnk_804835D8Fv ((void (*)(void *, void *))init__13TUnk_804835D8Fv)
 #define enable_fog__15TObjBoss2TunnelFv ((void (*)(void *))enable_fog__15TObjBoss2TunnelFv)
 #define enable_fog__15TObjBoss2TunnelFPv ((void (*)(void *))enable_fog__15TObjBoss2TunnelFPv)
 
@@ -475,7 +475,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
             o->f48 = 0;
             p = __nw__7TObjectFUl(0x24);
             if (p != 0) {
-                init__15TObjBoss2TunnelFPv(p, o);
+                init__13TUnk_804835D8Fv(p, o);
             }
         }
         o->fd8--;
@@ -652,7 +652,7 @@ void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o) {
 #undef init_queue_from_start__15TObjBoss2TunnelFPv
 #undef shift_queue_push_next__15TObjBoss2TunnelFPv
 #undef __nw__7TObjectFUl
-#undef init__15TObjBoss2TunnelFPv
+#undef init__13TUnk_804835D8Fv
 #undef enable_fog__15TObjBoss2TunnelFv
 #undef enable_fog__15TObjBoss2TunnelFPv
 
@@ -993,12 +993,12 @@ void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1) {
 
 extern s32 lbl_804835D8[];
 
-void *init__15TObjBoss2TunnelFPv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804835D8;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x20) = (0.0f);
-    return arg0;
+void *TUnk_804835D8::init() {
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804835D8;
+    *(u32 *)((s8 *)this + 0x1C) = 0;
+    *(f32 *)((s8 *)this + 0x20) = (0.0f);
+    return this;
 }
 
 }

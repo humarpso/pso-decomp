@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/item/TUnk_804A0688.h"
+#include "pso/item/TUnk_804A0668.h"
+#include "pso/item/TUnk_8049FF88.h"
 #include "pso/item/TItemProArmor.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemData.h"
@@ -160,10 +163,10 @@ s32 TItemProArmorParticle__ct(int, int, void *);
 extern s32 tl_05;
 s32 get_id__13TItemProArmorFv(void *);
 void *fn_80107DA4(void *, void *, s32);
-void *init_vtable__13TItemProArmorFPv(void *arg0);
-void *ct__13TItemProArmorFPv(void *arg0);
-void *construct_timer_event__10TObjPlayerFv(void *, void *, s32, s32);
-void *init_item_timer_event__10TObjPlayerFv(void *, void *, s32, s32);
+void *init_vtable__13TUnk_804A0668Fv(void *arg0);
+void *ct__13TUnk_804A0688Fv(void *arg0);
+void *construct_timer_event__13TUnk_804A0628Fv(void *, void *, s32, s32);
+void *init_item_timer_event__13TUnk_804A0648Fv(void *, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
 void *__nw__15TItemHeapObjectFUl(int);
 void vfunc_44__13TItemProArmorFv(Armor_80117954 *self);
@@ -179,8 +182,8 @@ void TItemProArmor__sub_80117D04(void);
 void TItemProArmor__vt14(void *arg0);
 void *__dt__13TItemProArmorFv(void *arg0, s16 arg1);
 void apply_to_player__13TItemProArmorFPv(void *arg0);
-void *ct__13TItemProArmorFPv(void *arg0);
-void *init_vtable__13TItemProArmorFPv(void *arg0);
+void *ct__13TUnk_804A0688Fv(void *arg0);
+void *init_vtable__13TUnk_804A0668Fv(void *arg0);
 void vfunc_46__13TItemProArmorFv(void* p);
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
 void TItemObject__ct(void *);
@@ -242,7 +245,7 @@ void *TItemProArmor__sub_80117730(void *arg0, s16 arg1) {
 
 extern void *lbl_8049FF88[];
 
-void *TItemProArmor::init_item_object(void * _w1, void * _w2) {
+void *TUnk_8049FF88::init_item_object(void *_w1, void *_w2) {
     TItemObject__ct(this);
     *(s32 **)((s8 *)this + 0x18) = (s32 *)lbl_8049FF88;
     return this;
@@ -255,7 +258,7 @@ u8 *create_item_grinder(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TItemProArmor *)temp_r3)->init_item_object((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049FF88 *)temp_r3)->init_item_object((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
@@ -486,43 +489,43 @@ void TItemProArmor::vfunc_44() {
     case 27:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            init_item_timer_event__10TObjPlayerFv(o, self->owner, get_id__13TItemProArmorFv(self), 150);
+            init_item_timer_event__13TUnk_804A0648Fv(o, self->owner, get_id__13TItemProArmorFv(self), 150);
         }
         break;
     case 28:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            construct_timer_event__10TObjPlayerFv(o, self->owner, get_id__13TItemProArmorFv(self), 300);
+            construct_timer_event__13TUnk_804A0628Fv(o, self->owner, get_id__13TItemProArmorFv(self), 300);
         }
         break;
     case 32:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 300);
+            ((Ctor4_80117954)ct__13TUnk_804A0688Fv)(o, self->owner, get_id__13TItemProArmorFv(self), 300);
         }
         break;
     case 33:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 240);
+            ((Ctor4_80117954)ct__13TUnk_804A0688Fv)(o, self->owner, get_id__13TItemProArmorFv(self), 240);
         }
         break;
     case 34:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 210);
+            ((Ctor4_80117954)ct__13TUnk_804A0688Fv)(o, self->owner, get_id__13TItemProArmorFv(self), 210);
         }
         break;
     case 43:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 150);
+            ((Ctor4_80117954)ct__13TUnk_804A0688Fv)(o, self->owner, get_id__13TItemProArmorFv(self), 150);
         }
         break;
     case 49:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
-            ((Ctor4_80117954)init_vtable__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFv(self), 150);
+            ((Ctor4_80117954)init_vtable__13TUnk_804A0668Fv)(o, self->owner, get_id__13TItemProArmorFv(self), 150);
         }
         break;
     case 45:
@@ -629,18 +632,18 @@ void *__dt__13TItemProArmorFv(void *arg0, s16 arg1) {
 
 extern s32 lbl_804A0668[];
 
-void *init_vtable__13TItemProArmorFPv(void *arg0) {
-    TItemTimerEvent__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0668;
-    return arg0;
+void *TUnk_804A0668::init_vtable() {
+    TItemTimerEvent__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804A0668;
+    return this;
 }
 
 extern s32 lbl_804A0688[];
 
-void *ct__13TItemProArmorFPv(void *arg0) {
-    TItemTimerEvent__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0688;
-    return arg0;
+void *TUnk_804A0688::ct() {
+    TItemTimerEvent__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804A0688;
+    return this;
 }
 
 }

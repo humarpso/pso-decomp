@@ -37,7 +37,7 @@ void TObjPlayer__sub_80309E4C(void *, int);
 void TObjPlayer__sub_801BEDC0(void *, int);
 void TObjPlayer__sub_801BFA4C(void *, int);
 void TObjPlayer__sub_801BF9F0(void *, int);
-void destroy_motion_object__10TObjPlayerFPvs(void *, int);
+void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__10TObjPlayer[];
 
@@ -69,7 +69,7 @@ void *__dt__10TObjPlayerFv(void *arg0, s16 arg1) {
         TObjPlayer__sub_801BFA4C((s8 *)arg0 + 0x360, -1);
         TObjPlayer::conditional_delete_ex((s32)((s8 *)arg0 + 0x34C), (s16)(-1));
         TObjPlayer__sub_801BF9F0((s8 *)arg0 + 0x340, -1);
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TUnk_804F3428.h"
 #include "pso/ui/TAdDialingMessageWindow.h"
 #include "pso/TObject.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -79,7 +80,7 @@ void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2) {
     *(void **)((s8 *)arg0 + 0x20) = arg1;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = ((TAdDialingMessageWindow *)o)->init(tl_camera, arg0, arg2);
+        o = ((TUnk_804F3428 *)o)->init(tl_camera, arg0, arg2);
     }
     *(void **)((s8 *)arg0 + 0x24) = o;
     o2 = __nw__7TObjectFUl(0x1C);

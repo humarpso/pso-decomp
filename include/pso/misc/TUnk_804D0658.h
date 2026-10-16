@@ -6,6 +6,7 @@
 class TUnk_804D0658 : public TUnk_804CDFE8 {
 public:
     virtual ~TUnk_804D0658();
+    void *destroy_children(s16);
     int is_selected();
     int is_open();
     u8 unk_1C[0x30];

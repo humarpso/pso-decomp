@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEneRecon.h"
 
@@ -7,16 +8,16 @@ extern "C" {
 u8 *TObjEneRecon__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3, s16 arg4, s32 arg5, s32 arg6);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
-s32 init_object__9TObjEneDDFv();
+s32 init_object__12TObjEneDD_STFv();
 s16 obj_getField1c(void *);
 
 extern s32 __vt__12TObjEneRecon[];
 extern s32 lbl_805D4130;
 
 u8 *TObjEneRecon__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3, s16 arg4, s32 arg5, s32 arg6) {
-    init_object__9TObjEneDDFv();
+    init_object__12TObjEneDD_STFv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEneRecon;
-    ((TObjEneMe3SinowZoa *)(arg0 + 0x480))->init_common();
+    ((TUnk_80494938 *)(arg0 + 0x480))->init_common();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4130;
     *(s16 *)((s8 *)arg0 + 0x434) = obj_getField1c((void *) (arg2));
     init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));

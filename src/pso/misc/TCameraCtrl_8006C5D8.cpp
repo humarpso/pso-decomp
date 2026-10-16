@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488D70.h"
+#include "pso/misc/TUnk_80488B68.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TScene.h"
@@ -32,7 +34,7 @@ extern "C" {
 
 void *TCameraCtrl__vt10(void);
 void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1);
-void* reset__11TCameraCtrlFPv(void* a0);
+void* sub_8006C5D8__13TUnk_80488B68Fv(void* a0);
 void update__11TCameraCtrlFPv(void *arg0);
 void TCameraCtrl__sub_800686BC(void *, int);
 int TCameraCtrl__sub_80068714(void);
@@ -44,7 +46,7 @@ void *__nw__7TObjectFUl(int);
     extern int TCameraCtrl__saved_projection_angle;
     extern int scripted_camera_projection_angle;
     extern const float lbl_805D9028;
-void* reset__11TCameraCtrlFPv(void* a0) { TCameraCtrl__sub_80068714(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488B68; *(int*)((char*)a0 + 0x38) = 0; scripted_camera_projection_angle = 0; TCameraCtrl__saved_projection_angle = 0; *(unsigned char*)((char*)a0 + 0x99) = 0; *(unsigned char*)((char*)a0 + 0x98) = 0; *(short*)((char*)a0 + 0x9a) = 0; *(float*)((char*)a0 + 0x9c) = lbl_805D9028; *(float*)((char*)a0 + 0xa0) = lbl_805D9028; *(float*)((char*)a0 + 0x6c) = lbl_805D9028; *(float*)((char*)a0 + 0x70) = lbl_805D9028; *(float*)((char*)a0 + 0x74) = lbl_805D9028; *(float*)((char*)a0 + 0x78) = lbl_805D9028; *(float*)((char*)a0 + 0x7c) = lbl_805D9028; *(float*)((char*)a0 + 0x80) = lbl_805D9028; *(int*)((char*)a0 + 0x84) = 0; *(int*)((char*)a0 + 0x88) = 0; *(int*)((char*)a0 + 0x8c) = 0; *(int*)((char*)a0 + 0x90) = 0; *(int*)((char*)a0 + 0x94) = 0; return a0; }
+void*TUnk_80488B68::sub_8006C5D8() { TCameraCtrl__sub_80068714(); *(int*)((char*)this + 0x18) = (int)lbl_80488B68; *(int*)((char*)this + 0x38) = 0; scripted_camera_projection_angle = 0; TCameraCtrl__saved_projection_angle = 0; *(unsigned char*)((char*)this + 0x99) = 0; *(unsigned char*)((char*)this + 0x98) = 0; *(short*)((char*)this + 0x9a) = 0; *(float*)((char*)this + 0x9c) = lbl_805D9028; *(float*)((char*)this + 0xa0) = lbl_805D9028; *(float*)((char*)this + 0x6c) = lbl_805D9028; *(float*)((char*)this + 0x70) = lbl_805D9028; *(float*)((char*)this + 0x74) = lbl_805D9028; *(float*)((char*)this + 0x78) = lbl_805D9028; *(float*)((char*)this + 0x7c) = lbl_805D9028; *(float*)((char*)this + 0x80) = lbl_805D9028; *(int*)((char*)this + 0x84) = 0; *(int*)((char*)this + 0x88) = 0; *(int*)((char*)this + 0x8c) = 0; *(int*)((char*)this + 0x90) = 0; *(int*)((char*)this + 0x94) = 0; return this; }
 
 void free_entries__11TCameraCtrlFv(void) {
     s32 i;
@@ -89,7 +91,7 @@ void load_camera_banks__11TCameraCtrlFv(void) {
 void *TCameraCtrl__vt10(void) {
     void *o = __nw__7TObjectFUl(0x6C);
     if (o != NULL) {
-        o = ((TCameraCtrl *)o)->init_subobject();
+        o = ((TUnk_80488D70 *)o)->init_subobject();
     }
     return o;
 }

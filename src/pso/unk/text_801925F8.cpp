@@ -123,7 +123,7 @@ void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 void reset_photon_effect__10TObjPlayerFv(void *);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32);
-void construct_collider_proxy__10TObjPlayerFv(void *, void *);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void init_models__19TObjLazerFenceExtraFv(void *);
 extern Ent_80192874 laser_fence_collision_body_parts[];
 extern s32 __vt__19TObjLazerFenceExtra[];
@@ -141,7 +141,7 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
+s32 destroy_particle_controller__13TUnk_804AF8A0Fs(void *, s32);
 
 void run_task__19TObjLazerFenceExtraFv(void *arg0) {
     s32 temp_r0;
@@ -164,7 +164,7 @@ void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjLazerFenceExtra;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        destroy_particle_controller__13TUnk_804AF8A0Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -177,7 +177,7 @@ extern void *tl_05;
 #define self ((u8 *)arg0)
 void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
-    construct_collider_proxy__10TObjPlayerFv(arg0, arg1);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, arg1);
     *(s32 **)((s8 *)self + 0x18) = __vt__19TObjLazerFenceExtra;
     *(s32 *)((s8 *)self + 0) = lazer_fence_extra_class_name;
     ((VObj_80192874 *)self)->m5(arg2);

@@ -22,7 +22,7 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 mem_free(s32);
 extern s32 lbl_804F3640[];
 extern u32 slot_entity_dispatcher_instance;
-void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1);
+void *destroy_boss4_rock__13TUnk_804F3640Fs(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 extern u32 slot_entity_dispatcher_instance;
 void create_singleton__6TLobbyFPv(void *arg0);
@@ -91,17 +91,17 @@ void TUnk_804F3640::run_task() {
         }
     }
 }
-void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F3640;
-        mem_free(*(s32 *)((s8 *)arg0 + 0x1C));
+void *TUnk_804F3640::destroy_boss4_rock(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804F3640;
+        mem_free(*(s32 *)((s8 *)this + 0x1C));
         (*(s32 *)&slot_entity_dispatcher_instance) = 0;
-        __dt__7TObjectFv(arg0, 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1) {

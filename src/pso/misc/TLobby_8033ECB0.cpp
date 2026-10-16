@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804EFA88.h"
 
 struct RecoveredGlobal_8033ED24_lbl_804EFA88
 {
@@ -20,7 +21,7 @@ u8 *TLobby__sub_8033ED24(u8 *arg0);
 
 extern "C" {
 
-void *destroy_object__6TLobbyFPvs(void *arg0, s16 arg1);
+void *destroy_object__13TUnk_804EFA88Fs(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 mem_free(void *);
@@ -28,19 +29,19 @@ s32 mem_free(void *);
 extern s32 lbl_804EFA88[];
 extern s32 lbl_805D6DA0;
 
-void *destroy_object__6TLobbyFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFA88;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
-            mem_free(*(void **)((s8 *)arg0 + 0x1C));
+void *TUnk_804EFA88::destroy_object(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804EFA88;
+        if ((u32) *(u32 *)((s8 *)this + 0x1C) != 0U) {
+            mem_free(*(void **)((s8 *)this + 0x1C));
         }
         lbl_805D6DA0 = 0;
-        __dt__7TObjectFv(arg0, 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 typedef struct RecoveredGlobal_8033ED24_lbl_804EFA88 RecoveredGlobal_8033ED24_lbl_804EFA88;

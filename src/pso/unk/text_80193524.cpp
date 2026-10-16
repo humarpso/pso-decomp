@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AF8D8.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TLazerFenceSw.h"
 #include "pso/object/TObjLazerFence4.h"
@@ -160,7 +162,7 @@ extern const f32 lbl_805DBE90;
 void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
 void refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-void construct_collider_proxy__10TObjPlayerFv(void *);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(void *);
 extern u16 lbl_80445BE0[];
 extern u8 laser_fence4_collision_body_sets[];
 extern s32 __vt__15TObjLazerFence4[];
@@ -219,7 +221,7 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLazerFence4;
         unregister_object_by_id((void *)((s32 *)arg0));
         free_collision_body_parts((void *)(arg0));
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
         }
@@ -232,7 +234,7 @@ extern const f32 TLazerFenceSw__data_805DBE84;
 #define self ((Fence_801935D8 *)arg0)
 void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
-    ((void (*)(void *, void *, void *))construct_collider_proxy__10TObjPlayerFv)(self, arg1, arg2);
+    ((void (*)(void *, void *, void *))construct_collider_proxy__13TUnk_804AF8A0Fv)(self, arg1, arg2);
     self->vt = (void *)__vt__15TObjLazerFence4;
     self->id = lazer_fence4_class_name;
     ((V_801935D8 *)self)->init(arg2);
@@ -497,7 +499,7 @@ void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TLazerFenceSw;
         unregister_object_by_id((void *)(arg0));
         free_collision_body_parts((void *)(arg0));
-        ((TOAirconCave01 *)((s8 *)arg0 + 0xF0))->destroy(-1);
+        ((TUnk_804AF8D8 *)((s8 *)arg0 + 0xF0))->destroy(-1);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
@@ -510,7 +512,7 @@ void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
 void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
     TOKey__ct(arg0);
     *(u8 **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__13TLazerFenceSw);
-    ((TOAirconCave01 *)((u8 *)arg0 + 0xF0))->init_vtable_804AF8D8();
+    ((TUnk_804AF8D8 *)((u8 *)arg0 + 0xF0))->init_vtable_804AF8D8();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D33B0;
     init_key__5TOKeyFv(arg0, arg2);
     if (*(s32 *)((s8 *)arg0 + 0x8C) < 0) {

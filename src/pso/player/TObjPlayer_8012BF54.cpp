@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A5150.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -33,13 +34,13 @@ extern s32 spawn_shoot_particle_attached__10TItemShootFlllf[];
 extern s32 spawn_target_needle[];
 extern s32 spawn_needle_wall_impact[];
 
-void *TObjPlayer::init_vtable_and_handlers() {
+void *TUnk_804A5150::init_vtable_and_handlers() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = holy_ray_weapon_vtable;
     *(s32 **)((s8 *)this + 0x1F0) = spawn_shoot_particle_attached__10TItemShootFlllf;
-    this->m_1f4 = spawn_target_needle;
-    this->m_1ec = spawn_needle_wall_impact;
-    *(u32 *)&this->m_1fc = 0;
+    (*(s32 * *)((u8 *)this + 0x1F4)) = spawn_target_needle;
+    (*(s32 * *)((u8 *)this + 0x1EC)) = spawn_needle_wall_impact;
+    *(u32 *)&(*(s32 *)((u8 *)this + 0x1FC)) = 0;
     *(u32 *)((s8 *)this + 0x1F8) = 0;
     return this;
 }

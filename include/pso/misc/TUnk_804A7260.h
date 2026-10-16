@@ -6,6 +6,8 @@
 class TUnk_804A7260 : public TObject {
 public:
     virtual ~TUnk_804A7260();
+    void *init(void *, void *);
+    void *destroy_cursor(s16);
 };
 
 #endif

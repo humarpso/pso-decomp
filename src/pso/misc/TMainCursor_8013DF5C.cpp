@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804A7260.h"
 #include "pso/misc/TForceOperate.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TWindowActionPalette.h"
@@ -51,7 +52,7 @@ u16 TMainCursor__sub_8013E03C(void* p) { return *(u16*)((char*)p + 0x0); }
 
 extern s32 lbl_804A7260[];
 
-void *TMainCursor::destroy_cursor(s16 arg1) {
+void *TUnk_804A7260::destroy_cursor(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804A7260;
         TForceOperate::destroy((s32)((s8 *)this + 0x1C), (s16)(-1));

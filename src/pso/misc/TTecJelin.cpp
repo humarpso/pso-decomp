@@ -176,7 +176,7 @@ void *__dt__9TTecJelinFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
-void destroy_technique_base__9TTecLukerFPvs(void *, int);
+void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 
 extern const f64 lbl_8044D658;
 
@@ -239,7 +239,7 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
 void *__dt__9TTecJelinFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecJelin;
-        destroy_technique_base__9TTecLukerFPvs(arg0, 0);
+        destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

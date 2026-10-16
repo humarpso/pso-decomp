@@ -22,8 +22,6 @@ struct TBoss6Rock : public TUnk_804AF8A0 {
     u8 _padD8[0xC];
     u32 m_e4;
     void set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0);
-    void *destroy(s16 arg1);
-    void *init_object(void *);
     static void *create();
     static s32 is_rock_valid(s32 arg0);
     static void reset_rock_state(s32 arg0);

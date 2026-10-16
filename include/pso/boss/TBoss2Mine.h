@@ -25,7 +25,6 @@ struct TBoss2Mine : public TObjEneDD {
     u32 m_3c8;
     u32 m_3cc;
     void move_mine();
-    void*create(int a1, int a2, int a3);
     void set_launch_position_velocity(u8 *arg1, u8 *arg2);
     void *deleting_dtor(s16 arg1);
     void render();

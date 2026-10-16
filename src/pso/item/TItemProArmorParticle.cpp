@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A05C8.h"
 #include "pso/item/TItemProArmorParticle.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -77,7 +78,7 @@ void TItemProArmorParticle::vfunc_44() {
     if (((s32) *(s32 *)&this->m_1a0 == 1) && ((u32) this->m_174 != 0U)) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
-            ((TItemProArmorParticle *)temp_r3)->initialize((void *)(this->m_174), (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)(*(s32 *)&this->m_19c));
+            ((TUnk_804A05C8 *)temp_r3)->initialize((void *)(this->m_174), (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)(*(s32 *)&this->m_19c));
         }
     }
 }
@@ -107,10 +108,10 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-void *TItemProArmorParticle::initialize(void *arg1, void *arg2, void *arg3, void *arg4) {
+void *TUnk_804A05C8::initialize(void *arg1, void *arg2, void *arg3, void *arg4) {
     TItemTimerEvent__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A05C8;
-    this->m_2c = arg4;
+    (*(void * *)((u8 *)this + 0x2C)) = arg4;
     return this;
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/collision/ActorBodyContact.h"
 
 struct Elt_801542CC { char pad[0x18]; s32 f18; char pad2[0x2C - 0x1C]; };
@@ -1256,7 +1257,7 @@ s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 
 void TObjPlayer::release_member_90() { void* m = *(void**)((char*)this + 0x90); if (m) ((TObjPlayer *)m)->clear_ground_candidates(); }
 void TObjPlayer__sub_80156934(void) { TObjPlayer::clear_item_table(); TObjPlayer::init_all_slots(); }
 void TObjPlayer::reset() { (*(int *)&lbl_805D5868) = 0; (*(int *)&lbl_805D586C) = 0; (*(int *)&lbl_805D5870) = 0; (*(int *)&registered_entity_count) = 0; TObjPlayer::clear_item_table(); TObjPlayer::init_all_slots(); }
-void *TObjPlayer::destroy_particle_controller(s16 arg1) {
+void *TUnk_804AF8A0::destroy_particle_controller(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804AF8A0;
         *(s32 *)((s8 *)this + 0xA8) = 0;
@@ -1269,7 +1270,7 @@ void *TObjPlayer::destroy_particle_controller(s16 arg1) {
     return this;
 }
 
-u8 *TObjPlayer::construct_collider_proxy() {
+u8 *TUnk_804AF8A0::construct_collider_proxy() {
     u8 *arg0 = (u8 *)this;
     struct Actor_801569F4 *s = (struct Actor_801569F4 *) arg0;
     construct_world_actor_base();

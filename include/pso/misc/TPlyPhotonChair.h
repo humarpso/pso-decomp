@@ -28,8 +28,6 @@ struct TPlyPhotonChair : public TUnk_804B9870 {
     void sync_field10_from_child();
     void set_field_8(s32 v);
     void set_type(s32 v);
-    void *init();
-    u8 *init_parts();
     static void free_instance();
     static void play_sound_with_arg(void* p, void* a1);
     void play_sound();
@@ -42,7 +40,6 @@ struct TPlyPhotonChair : public TUnk_804B9870 {
     void draw_model();
     void update_scale_state();
     void update_bob_motion();
-    void *destroy(s16 arg1);
     f32 get_float_c();
     s32 get_id();
     void activate();

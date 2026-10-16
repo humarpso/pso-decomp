@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A4A88.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -33,6 +34,6 @@ void TObjPlayer::update_photon_chair_sit() {
     extern unsigned char create_lavis_shot[];
     extern unsigned char lavis_cannon_weapon_vtable[];
     extern const float lbl_805DAE70;
-void*TObjPlayer::init_state_object() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lavis_cannon_weapon_vtable; set_status_flags__10TObjPlayerFPvUi(this, (void*)34); *(int*)((char*)this + 0x1f0) = (int)create_lavis_shot; this->m_1e4 = lbl_805DAE70; *(int*)((char*)this + 0x1f8) = 0; return this; }
+void*TUnk_804A4A88::init_state_object() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lavis_cannon_weapon_vtable; set_status_flags__10TObjPlayerFPvUi(this, (void*)34); *(int*)((char*)this + 0x1f0) = (int)create_lavis_shot; (*(float *)((u8 *)this + 0x1E4)) = lbl_805DAE70; *(int*)((char*)this + 0x1f8) = 0; return this; }
 
 }

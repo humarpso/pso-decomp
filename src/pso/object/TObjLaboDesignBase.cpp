@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -63,7 +64,7 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
 void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1);
 s32 init_collision_body_parts(void *, int, int);
-s32 construct_collider_proxy__10TObjPlayerFv();
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 s32 create__10TObjMapCsnFl(void *, f32, f32);
 void* get_labo_design_entry(int a0);
 int get_labo_design_object(int a0);
@@ -343,7 +344,7 @@ void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xBC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xBC)); *(s32 *)((s8 *)arg0 + 0xBC) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -357,7 +358,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     CopyStack_80365210 copy_storage_80365210;
     s32 temp_r0;
     s32 temp_r4;
-    construct_collider_proxy__10TObjPlayerFv();
+    construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80365210___vt__18TObjLaboDesignBase *)&__vt__18TObjLaboDesignBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjLaboDesignBase_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

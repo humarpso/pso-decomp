@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/player/TUnk_804ED390.h"
+#include "pso/player/TUnk_804ED298.h"
+#include "pso/player/TUnk_804ED0A8.h"
+#include "pso/player/TUnk_804ECEB8.h"
+#include "pso/boss/TUnk_804ECDC0.h"
 #include "pso/player/TUnk_804ED1A0.h"
 #include "pso/player/TUnk_804ECFB0.h"
 
@@ -12,18 +17,18 @@ struct Rec_80326D54 { f32 a; s32 b; s32 c; s32 d; };
 struct Obj_80326D54 { u8 pad[0x1F8]; f32 x1F8; f32 x1FC; };
 
 extern "C" {
-void * set_vtable_mode2_alt__10TObjPlayerFPv(void *, s32, void *);
+void * set_vtable_mode2_alt__13TUnk_804ECDC0FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_803265C0(u8 *arg0);
-void * init_vtable_variant__10TObjPlayerFPv(void *, s32, void *);
+void * init_vtable_variant__13TUnk_804ECEB8FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_vtable_variant__10TObjPlayerFPv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *dark_bridge_create(u8 *arg0);
-void * init_state_1536__10TObjPlayerFPv(void *, s32, void *);
+void * init_state_1536__13TUnk_804ED0A8FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_1536__10TObjPlayerFPv(u8 *arg0);
@@ -84,11 +89,11 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern s32 lbl_804ECDC0[];
 
-void *set_vtable_mode2_alt__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
-    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ECDC0;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 2);
-    return arg0;
+void *TUnk_804ECDC0::set_vtable_mode2_alt(s32 _w1, void *_w2) {
+    TItemWeapon__ct((void *)(this), (void *)(_w1));
+    *(s32 **)((s8 *)this + 0x18) = lbl_804ECDC0;
+    set_status_flags__10TObjPlayerFPvUi(this, 2);
+    return this;
 }
 
 extern s32 lbl_804ECEB8[];
@@ -103,7 +108,7 @@ u8 *TObjPlayer__sub_803265C0(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)set_vtable_mode2_alt__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)set_vtable_mode2_alt__13TUnk_804ECDC0FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -120,11 +125,11 @@ void *item_equip_variant_deleting_dtor_80326618(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *init_vtable_variant__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
-    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ECEB8;
-    *(s32 **)((s8 *)arg0 + 0x1F0) = create__13TItemShootGunFlllf;
-    return arg0;
+void *TUnk_804ECEB8::init_vtable_variant(s32 _w1, void *_w2) {
+    TItemWeapon__ct((void *)(this), (void *)(_w1));
+    *(s32 **)((s8 *)this + 0x18) = lbl_804ECEB8;
+    *(s32 **)((s8 *)this + 0x1F0) = create__13TItemShootGunFlllf;
+    return this;
 }
 
 u8 *create_vtable_variant__10TObjPlayerFPv(u8 *arg0) {
@@ -134,7 +139,7 @@ u8 *create_vtable_variant__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_vtable_variant__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)init_vtable_variant__13TUnk_804ECEB8FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -273,13 +278,13 @@ void *item_equip_variant_deleting_dtor_80326AD0(void *arg0, s16 arg1) {
 
 extern s32 lbl_804ED0A8[];
 
-void *init_state_1536__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
-    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED0A8;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 1536);
-    *(u32 *)((s8 *)arg0 + 0x1F8) = 0;
-    *(u32 *)((s8 *)arg0 + 0x1FC) = 0;
-    return arg0;
+void *TUnk_804ED0A8::init_state_1536(s32 _w1, void *_w2) {
+    TItemWeapon__ct((void *)(this), (void *)(_w1));
+    *(s32 **)((s8 *)this + 0x18) = lbl_804ED0A8;
+    set_status_flags__10TObjPlayerFPvUi(this, 1536);
+    *(u32 *)((s8 *)this + 0x1F8) = 0;
+    *(u32 *)((s8 *)this + 0x1FC) = 0;
+    return this;
 }
 
 u8 *create_state_1536__10TObjPlayerFPv(u8 *arg0) {
@@ -289,7 +294,7 @@ u8 *create_state_1536__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_state_1536__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)init_state_1536__13TUnk_804ED0A8FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -404,7 +409,7 @@ void *item_equip_variant_deleting_dtor_80326EA0(void *arg0, s16 arg1) {
 struct O_80326F9C { u8 pad[0x1F8]; f32 f; };
 
 extern "C" {
-void* set_mode_floats__10TObjPlayerFPv(void *, s32, void *);
+void* set_mode_floats__13TUnk_804ED298FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_mode_floats_state__10TObjPlayerFPv(u8 *arg0);
@@ -428,7 +433,7 @@ void *item_equip_variant_deleting_dtor_8032704C(void *arg0, s16 arg1);
 #define lbl_804ED298 ((unsigned char *)lbl_804ED298)
 #define lbl_805DF660 (*(const float *)&lbl_805DF660)
     extern const float lbl_805DF678;
-void* set_mode_floats__10TObjPlayerFPv(void* a0, s32 _w1, void * _w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED298; *(float*)((char*)a0 + 0x1f8) = lbl_805DF660; *(float*)((char*)a0 + 0x1fc) = lbl_805DF678; return a0; }
+void*TUnk_804ED298::set_mode_floats(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED298; *(float*)((char*)this + 0x1f8) = lbl_805DF660; *(float*)((char*)this + 0x1fc) = lbl_805DF678; return this; }
 
 extern const f32 lbl_805DF684;
 extern const f32 lbl_805DF688;
@@ -440,7 +445,7 @@ u8 *create_mode_floats_state__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)set_mode_floats__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)set_mode_floats__13TUnk_804ED298FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -492,7 +497,7 @@ void *item_equip_variant_deleting_dtor_8032704C(void *arg0, s16 arg1) {
 #include "types.h"
 
 extern "C" {
-void* init_vtable_1f8__10TObjPlayerFPv(void *, s32, void *);
+void* init_vtable_1f8__13TUnk_804ED390FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_vtable_1f8_state__10TObjPlayerFPv(u8 *arg0);
@@ -512,7 +517,7 @@ s32 update_active_game_effect__10TObjPlayerFv(void *);
 
 #define lbl_804ED390 ((unsigned char *)lbl_804ED390)
 #define lbl_805DF680 (*(const float *)&lbl_805DF680)
-void* init_vtable_1f8__10TObjPlayerFPv(void* a0, s32 _w1, void * _w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED390; *(float*)((char*)a0 + 0x1f8) = lbl_805DF680; return a0; }
+void*TUnk_804ED390::init_vtable_1f8(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED390; *(float*)((char*)this + 0x1f8) = lbl_805DF680; return this; }
 
     extern const float lbl_805DF690;
 
@@ -523,7 +528,7 @@ u8 *create_vtable_1f8_state__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_vtable_1f8__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)init_vtable_1f8__13TUnk_804ED390FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }

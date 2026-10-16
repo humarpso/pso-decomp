@@ -6,7 +6,7 @@ void yamigarasu_start_timers(void *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 confusion_curse_timer_ct(s32, u32, s32, s32, f32);
 s32 __nw__15TItemHeapObjectFUl(s32);
-s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
+s32 ct__13TUnk_804A0688Fv(s32, u32, s32, s32);
 
 extern f32 lbl_805DADD8;
 
@@ -21,7 +21,7 @@ void yamigarasu_start_timers(void *arg0) {
         }
         temp_r3_2 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3_2 != 0) {
-            ct__13TItemProArmorFPv(temp_r3_2, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x5A);
+            ct__13TUnk_804A0688Fv(temp_r3_2, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x5A);
         }
     }
 }

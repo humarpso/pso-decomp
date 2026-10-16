@@ -51,6 +51,8 @@ public:
 class TUnk_804AF8A0 : public TUnk_804B9870 {
 public:
     virtual ~TUnk_804AF8A0();
+    u8 *construct_collider_proxy();
+    void *destroy_particle_controller(s16);
     s32 set_flag8();
     u8 sub_8010319C();
     void set_shadow_flag();

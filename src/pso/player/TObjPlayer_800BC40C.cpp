@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -8,7 +9,7 @@ void __dl__7TObjectFPv(void *);
 
 extern s32 collision_body_vtable[];
 
-void *TObjPlayer::destroy_enemy_object(s16 arg1) {
+void *TUnk_804928CC::destroy_enemy_object(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = collision_body_vtable;
         free_collision_body_parts(this);

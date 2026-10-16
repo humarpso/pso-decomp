@@ -27,7 +27,6 @@ struct TObjEneMe3SinowZoa : public TObjEneDD_ST {
     f32 get_node_height();
     void setup_move_bounds();
     void copy_pos_with_height_offset();
-    void*init_common();
     s32 check_floor_contact(void *arg1);
     void check_and_notify();
     void render_with_stealth_debug();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Obj_80323D20 {
@@ -204,7 +205,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss6GravBall;
         init_parts__14TBoss6GravBallFv(arg0);
         clear_player_grav_flags__14TBoss6GravBallFv((void *)(arg0));
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -213,7 +214,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
 }
 Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2) {
     s32 i;
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     ((u8 **)arg0)[0x18 / 4] = ((u8 *)&__vt__14TBoss6GravBall);
     arg0->f0 = TBoss6GravBall__name;
     arg0->fAC = arg1;

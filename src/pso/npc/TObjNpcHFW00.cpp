@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TUnk_804A92A8.h"
 #include "pso/npc/TObjNpcHFW01.h"
 #include "pso/misc/TLobby.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -126,7 +127,7 @@ extern s32 __vt__12TObjNpcHFW00[];
 void *__dt__12TObjNpcHFW00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjNpcHFW00;
-        ((TObjNpcFemaleTall *)arg0)->destroy(0);
+        ((TUnk_804A92A8 *)arg0)->destroy(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

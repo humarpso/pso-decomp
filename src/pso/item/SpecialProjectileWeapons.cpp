@@ -60,13 +60,13 @@ extern s32 tl_05;
 u8 *create_drill_launcher(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__15TItemShootModelFv(void *, int);
-void *dt_item_shoot_model__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void *dt_item_shoot_model__13TUnk_804A2148Fs(void *arg0, s16 arg1);
 void drill_launcher_return_timer(void *arg0);
 void increment_burst_counter(u8 *arg0);
 s32 get_burst_counter(void* p);
 s32 get_id__13TItemProArmorFv(void *);
 s32 __nw__15TItemHeapObjectFUl(s32);
-s32 init_vtable__13TItemProArmorFPv(s32, u32, s32, s32);
+s32 init_vtable__13TUnk_804A0668Fv(s32, u32, s32, s32);
 void init_armor__10TObjPlayerFPv(void *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_weapon_at_joint(void *, s32, void *);
@@ -286,7 +286,7 @@ void init_armor__10TObjPlayerFPv(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x174) != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3 != 0) {
-            init_vtable__13TItemProArmorFPv(temp_r3, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x5A);
+            init_vtable__13TUnk_804A0668Fv(temp_r3, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x5A);
         }
     }
     ((TItemWeapon *)arg0)->roll_technique();
@@ -368,7 +368,7 @@ void *megid_projectile_weapon_vtable[63] = {
     (void *)&TObjPlayer__sub_8012443C, (void *)&deliver_hit__11TItemWeaponFPviPviif, (void *)0x0,
 };
 void *recoil_weapon_shoot_model_vtable[7] = {
-    (void *)0x0, (void *)0x0, (void *)&dt_item_shoot_model__10TObjPlayerFPvs, (void *)&run_task__10TItemShootFv,
+    (void *)0x0, (void *)0x0, (void *)&dt_item_shoot_model__13TUnk_804A2148Fs, (void *)&run_task__10TItemShootFv,
     (void *)&render__13TUnk_804A2148Fv, (void *)&render_shadows__7TObjectFv, (void *)&TObjPlayer__sub_8012480C,
 };
 void *recoiling_projectile_weapon_vtable[63] = {
@@ -579,15 +579,15 @@ u8 *create_drill_launcher(u8 *arg0) {
     }
     return NULL;
 }
-void *dt_item_shoot_model__10TObjPlayerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = recoil_weapon_shoot_model_vtable;
-        __dt__15TItemShootModelFv(arg0, 0);
+void *TUnk_804A2148::dt_item_shoot_model(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = recoil_weapon_shoot_model_vtable;
+        __dt__15TItemShootModelFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 void drill_launcher_return_timer(void *arg0) {
     if (arg0 != NULL) {

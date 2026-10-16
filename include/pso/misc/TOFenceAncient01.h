@@ -6,8 +6,6 @@
 
 struct TOFenceAncient01 : public TUnk_804B1B80 {
     virtual ~TOFenceAncient01();
-    void *destroy(s16 arg1);
-    void *init_fields();
     static void *create(void *arg0);
     static void free_resources();
     static void load_resources();};

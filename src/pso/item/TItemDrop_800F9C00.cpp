@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049C658.h"
 #include "pso/item/TItemDrop.h"
 
 struct Hdr_800F9C00 { u32 dataOff; u32 count; u8 pad8[8]; u32 rootOff; };
@@ -41,13 +42,13 @@ u8 *apply_rel_relocations(Obj_800F9C00 *arg0) {
     return arg0->root;
 }
 
-void *TItemDrop::ct_object() {
+void *TUnk_8049C658::ct_object() {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_8049C658;
     return this;
 }
 
-void *TItemDrop::construct() {
+void *TUnk_8049C658::construct() {
     __ct__7TObjectFP7TObject(this, 0);
     *(s32 **)((s8 *)this + 0x18) = lbl_8049C658;
     return this;

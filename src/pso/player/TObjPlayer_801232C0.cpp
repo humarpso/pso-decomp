@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A1858.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -17,7 +18,7 @@ void TObjPlayer::update_linked_object() {
 
 extern s32 lbl_804A1858[];
 
-void *TObjPlayer::set_state_35() {
+void *TUnk_804A1858::set_state_35() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A1858;
     *(u16 *)((s8 *)this + 0x1F8) = 35;

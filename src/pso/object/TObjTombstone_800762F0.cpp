@@ -36,7 +36,7 @@ struct T_80076390 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 construct_collider_proxy__10TObjPlayerFv();
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern const char* TObjTombstone__class_name;
 extern s32 TObjTombstone__shared_resource_object;
@@ -94,7 +94,7 @@ u8 *TObjTombstone__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     typedef char spA_offset[(offsetof(Stack_8007643C, spA) == 0x2) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_8007643C, sp18) == 0x10) ? 1 : -1];
     Stack_8007643C stack;
-    construct_collider_proxy__10TObjPlayerFv();
+    construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TObjTombstone.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTombstone__class_name;
     if ((u32) (*(u32 *)&TObjTombstone__shared_resource_object) == 0U) {

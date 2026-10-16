@@ -18,8 +18,6 @@ struct TObjContainerIdo : public TUnk_804B97C0 {
     void* m_f0;
     u8 _padF4[0x10];
     u32 m_104;
-    void *dt(s16 arg1);
-    void*init_positions();
     static void free_resources();
     static void load_resources();
     u8 unk_108[0x4];

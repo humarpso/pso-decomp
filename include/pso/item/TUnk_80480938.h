@@ -6,6 +6,7 @@
 class TUnk_80480938 : public TObject {
 public:
     virtual ~TUnk_80480938();
+    void *destroy_base(s16);
     virtual void render();
     virtual void run_task();
 };

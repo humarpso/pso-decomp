@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include <stddef.h>
 #include "types.h"
@@ -2521,7 +2522,7 @@ void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *arg0, s16 arg1) {
 u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     TObjEnemyCustom__ct(arg0, arg1);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804E135C;
-    ((TObjEneMe3SinowZoa *)(arg0 + 0x3FC))->init_common();
+    ((TUnk_80494938 *)(arg0 + 0x3FC))->init_common();
     ((TObjPlayer *)(arg0 + 0x418))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F18;
     ((TObjEneMe1GiGue *)arg0)->vfunc_81(arg2);

@@ -35,7 +35,7 @@ extern "C" {
 int construct_collision_body(void);
 extern s32 lbl_8048FE08[];
     extern s32 bringer_tp_absorb_effect_name;
-void* init__17TObjEneDf2BringerFPviii(void* a0, int a1, int a2, int a3);
+void* init__13TUnk_8048FE08Fiii(void* a0, int a1, int a2, int a3);
 void TObjEneDf2Bringer__sub_8009A2A0(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -65,7 +65,7 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void __dl__7TObjectFPv(void *);
-void destroy_enemy_object__10TObjPlayerFs(void *, int);
+void destroy_enemy_object__13TUnk_804928CCFs(void *, int);
 s32 fill_value_array(int);
 
 #pragma push
@@ -142,14 +142,14 @@ extern s32 lbl_8048FE08[];
 void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048FE08;
-        destroy_enemy_object__10TObjPlayerFs(arg0, 0);
+        destroy_enemy_object__13TUnk_804928CCFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
     }
     return arg0;
 }
-void* init__17TObjEneDf2BringerFPviii(void* a0, int a1, int a2, int a3) { construct_collision_body(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_8048FE08); *(int*)((char*)a0 + 0x0) = bringer_tp_absorb_effect_name; *(int*)((char*)a0 + 0xb0) = 0; *(float*)((char*)a0 + 0xd0) = 0.0f; *(float*)((char*)a0 + 0xc8) = 0.0f; *(float*)((char*)a0 + 0xcc) = 0.0f; *(int*)((char*)a0 + 0xb4) = 0; *(float*)((char*)a0 + 0x38) = 0.0f; *(float*)((char*)a0 + 0x3c) = 0.0f; *(float*)((char*)a0 + 0x40) = 0.0f; *(float*)((char*)a0 + 0xb8) = 0.0f; *(float*)((char*)a0 + 0xbc) = 0.0f; *(float*)((char*)a0 + 0xc0) = 0.0f; *(int*)((char*)a0 + 0xc4) = a3; *(int*)((char*)*(int*)((char*)a0 + 0xa4) + 0x14) = 1; return a0; }
+void*TUnk_8048FE08::init(int a1, int a2, int a3) { construct_collision_body(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_8048FE08); *(int*)((char*)this + 0x0) = bringer_tp_absorb_effect_name; *(int*)((char*)this + 0xb0) = 0; *(float*)((char*)this + 0xd0) = 0.0f; *(float*)((char*)this + 0xc8) = 0.0f; *(float*)((char*)this + 0xcc) = 0.0f; *(int*)((char*)this + 0xb4) = 0; *(float*)((char*)this + 0x38) = 0.0f; *(float*)((char*)this + 0x3c) = 0.0f; *(float*)((char*)this + 0x40) = 0.0f; *(float*)((char*)this + 0xb8) = 0.0f; *(float*)((char*)this + 0xbc) = 0.0f; *(float*)((char*)this + 0xc0) = 0.0f; *(int*)((char*)this + 0xc4) = a3; *(int*)((char*)*(int*)((char*)this + 0xa4) + 0x14) = 1; return this; }
 void TObjEneDf2Bringer__sub_8009A2A0(void) {  }
 
 #pragma push

@@ -60,7 +60,7 @@ u32 __nw__7TObjectFUl(s32);
 s32 create__13TRaderMapCoreFv();
 s32 create__6TSceneFv();
 s32 create_instance__10TSceneSoraFv();
-s32 init_subobject__6TLobbyFPvPv(u32, s32, s32);
+s32 init_subobject__13TUnk_8048E5F4FPvPv(u32, s32, s32);
 s32 set_fade_params__6TLobbyFl(s32);
 s32 ct_register__6TLobbyFv(u32, s32);
 s32 TWindowTimer__sub_80198D98();
@@ -85,11 +85,11 @@ void create_tasks__6TLobbyFv(void) {
     if (is_split_screen() == 0) {
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            init_subobject__6TLobbyFPvPv(tmp, tl_particlemodel, 1);
+            init_subobject__13TUnk_8048E5F4FPvPv(tmp, tl_particlemodel, 1);
         }
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            init_subobject__6TLobbyFPvPv(tmp, tl_particlemodel, 0);
+            init_subobject__13TUnk_8048E5F4FPvPv(tmp, tl_particlemodel, 0);
         }
         tmp = __nw__7TObjectFUl(0x84);
         if (tmp != 0U) {

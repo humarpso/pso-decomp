@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOHealGeneral.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
@@ -248,7 +249,7 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
         }
         unregister_object_by_id(self);
         free_collision_body_parts(self);
-        ((TOKey *)self)->destroy_key_base(0);
+        ((TUnk_804AFBF8 *)self)->destroy_key_base(0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);
         }

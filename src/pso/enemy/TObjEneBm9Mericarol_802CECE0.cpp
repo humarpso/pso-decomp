@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm9Mericarol_EffCurse3.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -1196,7 +1197,7 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
         temp_r3_2 = __nw__7TObjectFUl((int) 0x28);
         if (temp_r3_2 != 0U)
         {
-          ((TObjEneBm9Mericarol *)temp_r3_2)->construct((s32)((void *) arg0), (s32)((int) temp_r3));
+          ((TObjEneBm9Mericarol_EffCurse3 *)temp_r3_2)->construct((s32)((void *) arg0), (s32)((int) temp_r3));
         }
         *((s32 *) (((s8 *) arg0) + 0x390)) = temp_r3;
         *((s32 *) (((s8 *) arg0) + 0x494)) = 1;

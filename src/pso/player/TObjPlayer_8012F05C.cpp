@@ -6,7 +6,7 @@ void madam_parasol_scale_canopy(void* p);
 void madam_parasol_start_regen(void *arg0);
 int scale_current_matrix(void*);
 s32 get_id__13TItemProArmorFv(void *);
-s32 init_item_timer_event__10TObjPlayerFv(s32, u32, s32, s32);
+s32 init_item_timer_event__13TUnk_804A0648Fv(s32, u32, s32, s32);
 int get_player_list__10TObjPlayerFv(void*);
 s32 __nw__15TItemHeapObjectFUl(s32);
 
@@ -18,7 +18,7 @@ void madam_parasol_start_regen(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x174) != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3 != 0) {
-            init_item_timer_event__10TObjPlayerFv(temp_r3, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x5A);
+            init_item_timer_event__13TUnk_804A0648Fv(temp_r3, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x5A);
         }
     }
 }

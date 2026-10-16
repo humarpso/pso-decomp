@@ -6,6 +6,7 @@
 class TObjEneBm9Mericarol_Bomb : public TUnk_804928CC {
 public:
     virtual ~TObjEneBm9Mericarol_Bomb();
+    void *dt(s16);
     virtual void render();
     virtual void run_task();
     u8 unk_B0[0x4];

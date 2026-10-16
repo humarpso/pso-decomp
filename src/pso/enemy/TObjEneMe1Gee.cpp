@@ -19,8 +19,8 @@ int TObjEneMe1Gee__vt102(void* p);
 int TObjEneMe1Gee__vt87(void* p);
 s32 TObjEneMe1Gee__sub_800C86E0(Obj_800C86E0 *arg0);
 s32 TObjEneMe1Gee__sub_800C88D4(Obj_800C88D4 *self);
-s32 init_common__18TObjEneMe3SinowZoaFv(void *);
-s32 init_object__9TObjEneDDFv(void *);
+s32 init_common__13TUnk_80494938Fv(void *);
+s32 init_object__12TObjEneDD_STFv(void *);
 u8 * TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
 u8 TObjEneMe1Gee__sub_800C86C4(u8 *arg0);
 u8 TObjEneMe1Gee__sub_800CB5A0(u8 *arg0, s32 arg1);
@@ -5480,9 +5480,9 @@ void init_state__13TObjEneMe1GeeFPv(u8 *arg0) {
 #pragma pop
 
 u8 *TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5) {
-    init_object__9TObjEneDDFv((void *) (arg0));
+    init_object__12TObjEneDD_STFv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800CC6D8___vt__13TObjEneMe1Gee *)&__vt__13TObjEneMe1Gee).value;
-    init_common__18TObjEneMe3SinowZoaFv((void *) (arg0 + 0x3CC));
+    init_common__13TUnk_80494938Fv((void *) (arg0 + 0x3CC));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A68;
     *(u8 **)((s8 *)arg0 + 0x3C0) = arg2;
     init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (*(u8 **)((s8 *)arg0 + 0x3C0)));
@@ -5514,8 +5514,8 @@ u8 *TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5
 #pragma push
 #define sub_800CC0C4__13TObjEneMe1GeeFv ((void (*)(void *))sub_800CC0C4__13TObjEneMe1GeeFv)
 #define init_state__13TObjEneMe1GeeFPv ((void (*)(void *))init_state__13TObjEneMe1GeeFPv)
-#define init_object__9TObjEneDDFv ((void (*)(void *))init_object__9TObjEneDDFv)
-#define init_common__18TObjEneMe3SinowZoaFv ((void (*)(void *))init_common__18TObjEneMe3SinowZoaFv)
+#define init_object__12TObjEneDD_STFv ((void (*)(void *))init_object__12TObjEneDD_STFv)
+#define init_common__13TUnk_80494938Fv ((void (*)(void *))init_common__13TUnk_80494938Fv)
 #define lbl_805D2A68 (*(void * *)&lbl_805D2A68)
 #include "types.h"
 
@@ -5526,9 +5526,9 @@ void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 extern s32 __vt__13TObjEneMe1Gee[];
 
 void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    init_object__9TObjEneDDFv(arg0);
+    init_object__12TObjEneDD_STFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneMe1Gee;
-    init_common__18TObjEneMe3SinowZoaFv((void *)((char *)arg0 + 972));
+    init_common__13TUnk_80494938Fv((void *)((char *)arg0 + 972));
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2A68;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     *(u32 *)((s8 *)arg0 + 0x3C8) = 0;
@@ -5543,8 +5543,8 @@ void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *a
 
 #undef sub_800CC0C4__13TObjEneMe1GeeFv
 #undef init_state__13TObjEneMe1GeeFPv
-#undef init_object__9TObjEneDDFv
-#undef init_common__18TObjEneMe3SinowZoaFv
+#undef init_object__12TObjEneDD_STFv
+#undef init_common__13TUnk_80494938Fv
 #undef lbl_805D2A68
 #pragma pop
 #pragma push

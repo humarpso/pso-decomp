@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOJungleDesign.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -79,7 +80,7 @@ void *__dt__14TOJungleDesignFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOJungleDesign;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -89,7 +90,7 @@ void *__dt__14TOJungleDesignFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802FEF98_lbl_804E6580_size[sizeof(RecoveredGlobal_802FEF98_lbl_804E6580) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_802FEF98___vt__14TOJungleDesign_size[sizeof(RecoveredGlobal_802FEF98___vt__14TOJungleDesign) == 0x3C ? 1 : -1];
 u8 *TOJungleDesign__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802FEF98___vt__14TOJungleDesign *)&__vt__14TOJungleDesign).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOJungleDesign__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

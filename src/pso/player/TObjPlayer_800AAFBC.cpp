@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80491478.h"
 #include "pso/player/TUnk_80491460.h"
 #include "pso/unk/TObjEneDubchik.h"
 #include "pso/enemy/TObjEneShark.h"
@@ -281,7 +282,7 @@ s16 obj_getField1c(void *);
 u8 *csnLookAt(void *, Vec_800AB7A0 *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -550,10 +551,10 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
 }
 #pragma pop
 
-void *TObjPlayer::destroy_with_particle_cleanup(s16 arg1) {
+void *TUnk_80491478::destroy_with_particle_cleanup(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80491478;
-        if (*(void * *)&this->m_d0 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_d0); this->m_d0 = 0; }
+        if (*(void * *)&(*(s32 *)((u8 *)this + 0xD0)) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(s32 *)((u8 *)this + 0xD0))); (*(s32 *)((u8 *)this + 0xD0)) = 0; }
         destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -568,7 +569,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     void *obj;
     u8 *temp_r3;
     s32 t;
-    construct_collider_proxy__10TObjPlayerFv(arg0, tl_06);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_80491478;
     *(s16 *)((s8 *)arg0 + 0xAC) = arg1;
     *(s16 *)((s8 *)arg0 + 0xD4) = obj_getField1c((void *) (arg2));

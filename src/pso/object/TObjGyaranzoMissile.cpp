@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_8049442C.h"
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -94,7 +95,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, int);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 s32 rotate_vector_by_matrix(int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -112,7 +113,7 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, int);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 s32 rand();
 s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_y(int, int);
@@ -177,17 +178,17 @@ s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
+void destroy_particle_controller__13TUnk_804AF8A0Fs(void *, int);
 s32 set_global_param__8TObjFishFl();
 
 extern s32 lbl_8049442C[];
 
-void *TObjGyaranzoMissile::destroy(s16 arg1) {
+void *TUnk_8049442C::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049442C;
         unregister_object_by_id(this);
         free_collision_body_parts(this);
-        destroy_particle_controller__10TObjPlayerFs(this, 0);
+        destroy_particle_controller__13TUnk_804AF8A0Fs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -204,7 +205,7 @@ typedef char RecoveredGlobal_800D4668_lbl_8049442C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_800D4668_lbl_8058D490_size[sizeof(RecoveredGlobal_800D4668_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
     u8 *temp_r4;
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0), (int) (tl_04));
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (int) (tl_04));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D4668_lbl_8049442C *)&lbl_8049442C).value;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xE0), (void *) (arg0 + 0x38));
@@ -331,7 +332,7 @@ void *__dt__19TObjGyaranzoMissileFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjGyaranzoMissile;
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        destroy_particle_controller__13TUnk_804AF8A0Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -345,7 +346,7 @@ typedef char RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile_size[sizeof(Re
 typedef char RecoveredGlobal_800D4BD0_lbl_8058D490_size[sizeof(RecoveredGlobal_800D4BD0_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     u8 *temp_r4;
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0), (int) (tl_04));
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (int) (tl_04));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile *)&__vt__19TObjGyaranzoMissile).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A80;
     init_collision_body_parts((void *) (arg0), (void *) (&gyaranzo_missile_collision_body_b.value), (int) (1));

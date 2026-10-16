@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjWarpBase.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -24,7 +25,7 @@ int check_flag_100__10TObjPlayerFPv(void *);
 f32 xz_distance_squared(void *, void *);
 u32 get_player_by_client_id(u16);
 u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0);
-void construct_collider_proxy__10TObjPlayerFv(Warp_8019DAC0 *, void *, void *);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(Warp_8019DAC0 *, void *, void *);
 void *construct_field_collider__9TTecLukerFPviii(void *, void *, Warp_8019DAC0 *, s32);
 void *__nw__7TObjectFUl(u32);
 extern s32 __vt__12TObjWarpBase[];
@@ -88,7 +89,7 @@ void *TObjWarpBase__vt0(void *arg0, s16 arg1) {
         struct VObj_8019DA54_8019D964 *o = (struct VObj_8019DA54_8019D964 *)arg0;
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBase;
         o->m12();
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -101,7 +102,7 @@ extern u32 forest_warp_texture_list;
 
 Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
     void *o;
-    construct_collider_proxy__10TObjPlayerFv(self, parent, set);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(self, parent, set);
     *(void **)((u8 *)self + 0x18) = ((u8 *)&__vt__12TObjWarpBase);
     self->f0 = TObjWarpBase__name;
     self->m5(set);

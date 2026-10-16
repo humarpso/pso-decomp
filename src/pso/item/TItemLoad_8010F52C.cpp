@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F41C.h"
+#include "pso/item/TUnk_8049F40C.h"
 #include "pso/TItemLoad.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -21,7 +23,7 @@ extern void *item_texture_archive_loader;
 extern void *item_model_chunk_loader;
 extern s32 item_load_model_buffer;
 void TItemLoad__sub_8010F5A0(void);
-void init__9TItemLoadFv(void *, void *, int, int);
+void init__13TUnk_8049F42CFv(void *, void *, int, int);
 extern s32 lbl_8049F40C[];
 s32 decompress_buffer__9TItemLoadFUl();
 s32 TLobby__sub_8001EEF4();
@@ -45,7 +47,7 @@ s32 TLobby__sub_8001EEF4();
 s32 load_gvm_texture_archive(s32, s32);
 s32 __dl__FPv(void *);
 s32 mem_free(s32);
-void init__9TItemLoadFv(void *, void *, int, int);
+void init__13TUnk_8049F42CFv(void *, void *, int, int);
 
 extern void *item_texture_archive_loader;
 extern void *item_model_chunk_loader;
@@ -74,13 +76,13 @@ void TItemLoad__sub_8010F5A0(void) {
     temp_r3 = ((TAdSinglePlyChrSelectGC *)0x28)->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)((TItemLoad *)temp_r3)->construct((void *)((void *) (lbl_805D2BE8)), (int)((int) (0xB5)), (int)((int) (0x144))));
+        var_r0 = ((s32)((TUnk_8049F41C *)temp_r3)->construct((void *)((void *) (lbl_805D2BE8)), (int)((int) (0xB5)), (int)((int) (0x144))));
     }
     (*(s32 *)&item_texture_archive_loader) = var_r0;
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)0x40)->alloc();
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = ((TItemLoad *)temp_r3_2)->construct_with_vtable((void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
+        var_r0_2 = ((TUnk_8049F40C *)temp_r3_2)->construct_with_vtable((void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
     }
     (*(s32 *)&item_model_chunk_loader) = var_r0_2;
     item_load_model_buffer = mem_alloc((int) (0x21000));
@@ -144,9 +146,9 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
     }
 }
 
-void *TItemLoad::dt(s16 arg1) {
+void *TUnk_8049F40C::dt(s16 arg1) {
     if (this != NULL) {
-        *(s32 * *)&this->m_down = lbl_8049F40C;
+        *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_8049F40C;
         TItemLoad__sub_8010FCB4(this, 0);
         if (arg1 > 0) {
             __dl__FPv(this);
@@ -155,11 +157,11 @@ void *TItemLoad::dt(s16 arg1) {
     return this;
 }
 
-s32 TItemLoad::construct_with_vtable(void *a1, int a2, int a3) {
+s32 TUnk_8049F40C::construct_with_vtable(void *a1, int a2, int a3) {
     int arg0 = (int)this;
     Load_8010F838 *self = (Load_8010F838 *)arg0;
     s32 i;
-    init__9TItemLoadFv(self, a1, a2, a3);
+    init__13TUnk_8049F42CFv(self, a1, a2, a3);
     self->vtbl = ((s32 *)&lbl_8049F40C);
     self->id = 0;
     for (i = 0; i < 4; i++) {
@@ -206,9 +208,9 @@ void *TItemLoad__sub_8010F950(void *arg0, s16 arg1) {
 
 extern s32 lbl_8049F41C[];
 
-void *TItemLoad::construct(void * _w1, int _w2, int _w3) {
-    init__9TItemLoadFv(this, _w1, _w2, _w3);
-    *(s32 * *)&this->m_down = lbl_8049F41C;
+void *TUnk_8049F41C::construct(void *_w1, int _w2, int _w3) {
+    init__13TUnk_8049F42CFv(this, _w1, _w2, _w3);
+    *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_8049F41C;
     *(u32 *)((s8 *)this + 0x24) = 0;
     return this;
 }

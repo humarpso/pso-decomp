@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -221,7 +222,7 @@ struct Self_8031FE98 { u8 pad[0x3FC]; s32 f3fc[4]; u8 pad40c[0x418 - 0x40C]; u16
 
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dt__9TObjEneDDFv(void *, int);
-void init_object__9TObjEneDDFv(void *, s32, void *);
+void init_object__12TObjEneDD_STFv(void *, s32, void *);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, int);
 void init_model__9TObjEneDDFv(void *, void *, int);
@@ -510,9 +511,9 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     Self_8031FE98 *S = (Self_8031FE98 *)arg0;
     s32 i;
     s32 n;
-    init_object__9TObjEneDDFv(arg0, arg1, arg2);
+    init_object__12TObjEneDD_STFv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = TObjEneRecobox__vtable;
-    ((TObjEneMe3SinowZoa *)(arg0 + 0x3C0))->init_common();
+    ((TUnk_80494938 *)(arg0 + 0x3C0))->init_common();
     __construct_array(arg0 + 0x460, (void *)&init_and_activate__10TObjPlayerFv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D4138;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);

@@ -6,6 +6,7 @@
 class TObjEneDD_ST : public TObjEneDD {
 public:
     virtual ~TObjEneDD_ST();
+    void *init_object();
     void sub_800F5874(s32);
     void sub_800F5864(s32);
     s32 enemy_check_target_valid();

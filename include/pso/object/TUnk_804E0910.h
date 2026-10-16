@@ -6,6 +6,7 @@
 class TUnk_804E0910 : public TObjPathObj {
 public:
     virtual ~TUnk_804E0910();
+    void *deleting_dtor_pathobj(s16);
     virtual void vfunc_14();
     u8 unk_98[0x4];
     s32 m_9c;

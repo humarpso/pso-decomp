@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/TUnk_804B8E18.h"
+#include "pso/unk/TUnk_804B8E00.h"
 
 struct Obj_8019978C;
 struct Pair_80198F14;
@@ -419,7 +421,7 @@ void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *
 
 extern "C" {
 
-void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1);
+void *dt__13TUnk_804B8E00Fs(void *arg0, s16 arg1);
 void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_804B8E00[];
@@ -605,16 +607,16 @@ void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1) {
     *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)arg1 + 0x50);
 }
 
-void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B8E00;
+void *TUnk_804B8E00::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804B8E00;
         TWindowTimer__sub_8019A770();
-        __dt__7TObjectFv(arg0, 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1) {
     __ct__7TObjectFP7TObject(arg0, arg1);
@@ -1126,14 +1128,14 @@ void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id);
 
 extern "C" {
 
-void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1);
+void *destroy_player_obj__13TUnk_804B8E18Fs(void *arg0, s16 arg1);
 void send_gogo_ball__12TWindowTimerFi(s32 arg0);
 void update_best_time__12TWindowTimerFPv(void *arg0);
 s32 TLobby__send_and_handle_60(void *);
 s32 unregister_object_by_id(s32 *);
 s32 bswap_32__FPUl(s32);
 s32 clear_obj_links(void *);
-s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
+s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 s32 read_be16_field2__10TObjPlayerFv();
 
 void update_best_time__12TWindowTimerFPv(void *arg0) {
@@ -1289,17 +1291,17 @@ void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1) {
     arg0->f50[1] = (0.0f);
 }
 
-void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B8E18;
-        unregister_object_by_id((s32 *)arg0);
-        clear_obj_links(arg0);
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+void *TUnk_804B8E18::destroy_player_obj(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804B8E18;
+        unregister_object_by_id((s32 *)this);
+        clear_obj_links(this);
+        destroy_motion_object__13TUnk_804806E8Fs(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 #include "types.h"

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
 struct VBase800AFB60_800AFB28 { char pad[0x18]; };
 struct VObj800AFB60_800AFB28 : VBase800AFB60_800AFB28 {
@@ -4209,7 +4210,7 @@ s32 TObjEneBm3Fly::init_child_params() {
 #pragma pop
 
 u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6) {
-    ((TObjEneDD *)arg0)->init_object();
+    ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800B2168___vt__13TObjEneBm3Fly *)__vt__13TObjEneBm3Fly).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneBm3Fly__name;
     *(u16 *)((s8 *)arg0 + 0x418) = obj_getField1c(arg2);

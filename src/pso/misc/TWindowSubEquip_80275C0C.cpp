@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D1160.h"
 #include "pso/misc/TWindowSubEquip.h"
 
 struct Equip_80275CB0 {
@@ -37,12 +38,12 @@ void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_804D1160[];
 
-void *TWindowSubEquip::destroy(s16 arg1) {
+void *TUnk_804D1160::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804D1160;
-        if (*(void * *)&this->m_2c != NULL) { TWindow__close(*(void * *)&this->m_2c); *(s32 *)&this->m_2c = 0; }
-        if (*(void * *)&this->m_30 != NULL) { TWindow__close(*(void * *)&this->m_30); *(s32 *)&this->m_30 = 0; }
-        if (*(void * *)&this->m_28 != NULL) { TWindow__close(*(void * *)&this->m_28); *(s32 *)&this->m_28 = 0; }
+        if (*(void * *)&(*(u32 *)((u8 *)this + 0x2C)) != NULL) { TWindow__close(*(void * *)&(*(u32 *)((u8 *)this + 0x2C))); *(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) = 0; }
+        if (*(void * *)&(*(u32 *)((u8 *)this + 0x30)) != NULL) { TWindow__close(*(void * *)&(*(u32 *)((u8 *)this + 0x30))); *(s32 *)&(*(u32 *)((u8 *)this + 0x30)) = 0; }
+        if (*(void * *)&(*(u32 *)((u8 *)this + 0x28)) != NULL) { TWindow__close(*(void * *)&(*(u32 *)((u8 *)this + 0x28))); *(s32 *)&(*(u32 *)((u8 *)this + 0x28)) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

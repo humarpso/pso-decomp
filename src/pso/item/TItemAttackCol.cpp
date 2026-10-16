@@ -326,7 +326,7 @@ void *__dt__14TItemAttackColFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0x130) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x130)); *(s32 *)((s8 *)arg0 + 0x130) = 0; }
         if (*(void **)((s8 *)arg0 + 0x134) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x134)); *(s32 *)((s8 *)arg0 + 0x134) = 0; }
         if (*(void **)((s8 *)arg0 + 0x140) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x140)); *(s32 *)((s8 *)arg0 + 0x140) = 0; }
-        ((TItemAttackCol *)arg0)->destroy_attack_collision(0);
+        ((TUnk_804E355C *)arg0)->destroy_attack_collision(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

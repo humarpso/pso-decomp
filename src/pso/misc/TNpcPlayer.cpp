@@ -481,7 +481,7 @@ Actor_8014F424 * find_entity_by_id(s32);
 Contact_8014F140 * find_actor_body_contact(void *, void *, f32);
 s32 free_collision_body_parts(u32);
 void init_collision_body_parts(void *, void *, s32);
-void * construct_collider_proxy__10TObjPlayerFv(void *, void *);
+void * construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
 void send_item_pickup_request__10TObjPlayerFi(s32);
 s32 find_inventory_item_id__10TObjPlayerFPvcc(s32, s32, s32);
@@ -2409,7 +2409,7 @@ Npc_8014F844 *init_ai_state__10TNpcPlayerFPvi(Npc_8014F844 *self, s32 id) {
     self->fC4 = 0x1103;
     p = __nw__7TObjectFUl(0xAC);
     if (p != 0) {
-        p = construct_collider_proxy__10TObjPlayerFv(p, tl_05);
+        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, tl_05);
     }
     self->fA8 = p;
     if (self->fA8 != 0) {

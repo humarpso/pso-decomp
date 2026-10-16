@@ -6,6 +6,7 @@
 class TUnk_804A1F20 : public TItemWeapon {
 public:
     virtual ~TUnk_804A1F20();
+    void *init_vtable_804A1F20();
 };
 
 #endif

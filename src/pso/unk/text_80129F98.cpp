@@ -2,7 +2,7 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-u8 * enter_state_2__10TObjPlayerFv(void *, s32, void *);
+u8 * enter_state_2__13TUnk_804A4648Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 }
@@ -16,7 +16,7 @@ u8 *TObjPlayer::create_state_2(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(enter_state_2__10TObjPlayerFv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(enter_state_2__13TUnk_804A4648Fv(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }

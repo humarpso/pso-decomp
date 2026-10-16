@@ -907,7 +907,7 @@ u8 * TObjPlayer__sub_80018E6C(u8 *arg0, u8 *arg1);
 u8 * update_actor_ground_y(u8 *arg0);
 void* vfunc_9__13TUnk_804806E8Fv(void* p);
 void reset_motion_fields__13TUnk_804806E8Fv(Obj_80018F64 *self);
-void * destroy_motion_object__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void * destroy_motion_object__13TUnk_804806E8Fs(void *arg0, s16 arg1);
 void get_pos__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 u8 is_locally_controlled__10TObjPlayerFPv(u8 *arg0);
@@ -1975,7 +1975,7 @@ void clear_all_status_effects(u8 *arg0);
 void *lbl_804806E8[] = {
     0,
     0,
-    (void *)destroy_motion_object__10TObjPlayerFPvs,
+    (void *)destroy_motion_object__13TUnk_804806E8Fs,
     (void *)run_task__7TObjectFv,
     (void *)render__7TObjectFv,
     (void *)render_shadows__7TObjectFv,
@@ -4582,15 +4582,15 @@ void TUnk_804806E8::reset_motion_fields() {
     self->v2fc.x = self->v2fc.y = self->v2fc.z = self->v308.x = self->v308.y = self->v308.z = (0.0f);
 }
 
-void *destroy_motion_object__10TObjPlayerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804806E8;
-        __dt__10TObjMotionFv(arg0, 0);
+void *TUnk_804806E8::destroy_motion_object(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = (s32 *)lbl_804806E8;
+        __dt__10TObjMotionFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 #pragma push

@@ -6,6 +6,7 @@
 class TUnk_804B8E18 : public TUnk_804806E8 {
 public:
     virtual ~TUnk_804B8E18();
+    void *destroy_player_obj(s16);
     u8 unk_334[0x70];
 };
 typedef char TUnk_804B8E18_size[sizeof(TUnk_804B8E18) == 0x3A4 ? 1 : -1];

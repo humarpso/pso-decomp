@@ -1,6 +1,7 @@
 #pragma defer_codegen on
 
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 
@@ -676,7 +677,7 @@ s32 set_indexed_flags(void *, s32, s32);
 
 f32 calc_boss4_scale__10TObjPlayerFi();
 s32 sub_8002AE64__9TObjEnemyFv(void *);
-s32 init_enemy_base__10TObjPlayerFv(void *, s32);
+s32 init_enemy_base__13TUnk_80493450Fv(void *, s32);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
 s32 initialize_enemy_photon_effect(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
@@ -1154,9 +1155,9 @@ void TObjEneDolmOlm::load_params_from_table(s32 i) {
 u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u32 col;
 
-    init_enemy_base__10TObjPlayerFv(arg0, arg1);
+    init_enemy_base__13TUnk_80493450Fv(arg0, arg1);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804E6928;
-    ((TObjEneMe3SinowZoa *)(arg0 + 0x3A8))->init_common();
+    ((TUnk_80494938 *)(arg0 + 0x3A8))->init_common();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D4068;
     ((VObj_18_c99286 *) arg0)->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();

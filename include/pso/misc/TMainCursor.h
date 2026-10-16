@@ -23,9 +23,6 @@ struct TMainCursor : public TObject {
     void* m_60;
     void update_position();
     int check_type_and_enabled(void* _w1, void* _w2);
-    void*init_lockon();
-    void*init_vtable();
-    void*init();
     s32 sort_actions_by_priority();
     void reset_state();
     void update_photon_chair();
@@ -47,7 +44,6 @@ struct TMainCursor : public TObject {
     u8 get_enabled();
     u8 get_type();
     s32 get_state();
-    void *destroy_cursor(s16 arg1);
     void destroy_lock_on(s32 a1);
     void set_target(s32 a1);
     void set_target_index(s16 v);

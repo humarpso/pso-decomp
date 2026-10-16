@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A2B98.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -22,7 +23,7 @@ void TObjPlayer::update_shield_ready(s32 arg0) {
 
 extern s32 lbl_804A2B98[];
 
-void *TObjPlayer::init_vtable_and_flags() {
+void *TUnk_804A2B98::init_vtable_and_flags() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A2B98;
     set_status_flags__10TObjPlayerFPvUi(this, 577);

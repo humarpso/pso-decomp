@@ -18,7 +18,7 @@ void TObjPlayer::release_container_if_positive() { if (get_player_list__10TObjPl
 
 extern s32 lbl_804A5740[];
 
-void *TObjPlayer::init_state_1f8() {
+void *TUnk_804A5740::init_state_1f8() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A5740;
     *(u32 *)((s8 *)this + 0x1F8) = 10922;

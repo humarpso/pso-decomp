@@ -366,7 +366,7 @@ void TUnk_804E4B3C::update_phase_motion() {
         break;
     }
 }
-void *TObjBoss2Tunnel::destroy(s16 arg1) {
+void *TUnk_804E4B3C::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804E4B3C;
         if (*(void **)((s8 *)this + 0x88) != NULL) { queue_destruction__7TObjectFv((int)(*(void **)((s8 *)this + 0x88))); }

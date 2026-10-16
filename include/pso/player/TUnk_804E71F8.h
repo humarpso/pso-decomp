@@ -6,6 +6,7 @@
 class TUnk_804E71F8 : public TItemWeapon {
 public:
     virtual ~TUnk_804E71F8();
+    void *construct_nug2000_bazooka(s32, void *);
 };
 
 #endif

@@ -43,7 +43,7 @@ extern "C" {
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
 void init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__10TObjPlayerFv(void *, void *);
+void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(Vec_802A47C8 *);
@@ -127,7 +127,7 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
     self->f54 = 0x40007;
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__10TObjPlayerFv(p, self);
+        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, self);
     }
     self->f68 = p;
     if (self->f68 != NULL) {

@@ -198,6 +198,6 @@ extern "C" {
 int TObjPlayer__sub_800D9718(void);
 
     extern const float lbl_805DA348;
-void*TObjEneMe3SinowZoa::init_common() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80494938; *(float*)((char*)this + 0x18) = lbl_805DA348; return this; }
+void*TUnk_80494938::init_common() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80494938; *(float*)((char*)this + 0x18) = lbl_805DA348; return this; }
 
 }

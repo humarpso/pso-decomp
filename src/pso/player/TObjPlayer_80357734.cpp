@@ -410,7 +410,7 @@ void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1) {
 extern s32 item_equip_variant_vtable[];
 extern s32 spawn_shoot_particle__10TItemShootFv[];
 
-void *TObjPlayer::init_state_34_alt(s32 _w1, void * _w2) {
+void *TUnk_804F14A8::init_state_34_alt(s32 _w1, void *_w2) {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = item_equip_variant_vtable;
     set_status_flags__10TObjPlayerFPvUi(this, 34);
@@ -427,7 +427,7 @@ u8 *TObjPlayer::create_state_34_alt() {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TObjPlayer *)temp_r3)->init_state_34_alt((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804F14A8 *)temp_r3)->init_state_34_alt((s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -555,7 +555,7 @@ void TUnk_804F166C::run_task() {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void *TObjPlayer::dt_with_child_queue(s16 arg1) {
+void *TUnk_804F166C::dt_with_child_queue(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = inward_orbit_effect_vtable;
         if (*(void **)((s8 *)this + 0x4C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x4C)); }

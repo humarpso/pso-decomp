@@ -164,12 +164,12 @@ void TBoss6Demo11_TYPE1_DEAD::run_task() {
     }
 }
 
-void *TObjFish::destroy(s16 arg1) {
+void *TBoss6Demo11_TYPE1_DEAD::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EF9EC;
         restore_player_cameras();
-        if (*(void * *)&this->m_88 != NULL) { TObjFish::init_state_1(*(void * *)&this->m_88); *(s32 *)&this->m_88 = 0; }
-        if (*(void * *)&this->m_8c != NULL) { TBoss4Type2::request_destroy((u32)(*(void * *)&this->m_8c)); *(s32 *)&this->m_8c = 0; }
+        if (*(void * *)&(*(u8 * *)((u8 *)this + 0x88)) != NULL) { TObjFish::init_state_1(*(void * *)&(*(u8 * *)((u8 *)this + 0x88))); *(s32 *)&(*(u8 * *)((u8 *)this + 0x88)) = 0; }
+        if (*(void * *)&(*(u32 *)((u8 *)this + 0x8C)) != NULL) { TBoss4Type2::request_destroy((u32)(*(void * *)&(*(u32 *)((u8 *)this + 0x8C)))); *(s32 *)&(*(u32 *)((u8 *)this + 0x8C)) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

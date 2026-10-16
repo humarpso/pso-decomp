@@ -6,6 +6,7 @@
 class TWindowDD_WS_Word : public TUnk_804CE018 {
 public:
     virtual ~TWindowDD_WS_Word();
+    void *destroy(s16);
     u8 sub_80342268();
     u8 sub_80342254();
     u8 unk_1C[0x74];

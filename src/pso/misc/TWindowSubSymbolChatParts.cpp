@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TUnk_804CE018.h"
 
 #include <stddef.h>
@@ -122,7 +123,7 @@ s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 get_draw_context__11TWindowBaseFPv();
-void construct_with_parent__15TWindowAdditionFPv(void *, void *, s32, void *);
+void construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s32, void *);
 s32 draw_window_frame(void *, s32);
 void clamp_list_scroll_offset(s32, Vec2_80284D68 *, Vec2_80284D68 *);
 s32 draw_window_scrollbar(s32, s32, void *);
@@ -407,7 +408,7 @@ void *__dt__25TWindowSubSymbolChatPartsFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TWindowSubSymbolChatParts;
         TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)arg0 + 0x8C)), (s16)1);
         destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)arg0 + 0x88), 1);
-        ((TWindowAddition *)arg0)->destroy_window(0);
+        ((TUnk_804CDFE8 *)arg0)->destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -419,7 +420,7 @@ Parts_80285D38 *TWindowSubSymbolChatParts__ct(Parts_80285D38 *arg0, void *arg1, 
     Vec2_80285D38 v;
     void *p;
     void *q;
-    construct_with_parent__15TWindowAdditionFPv(arg0, lbl_804D2DD8, 4, arg1);
+    construct_with_parent__13TUnk_804CDFE8FPv(arg0, lbl_804D2DD8, 4, arg1);
     arg0->vt = __vt__25TWindowSubSymbolChatParts;
     arg0->f0 = TWindowSubSymbolChatParts__name;
     arg0->f70 = 0;

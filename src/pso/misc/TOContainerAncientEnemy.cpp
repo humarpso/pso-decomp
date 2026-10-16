@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/misc/TOContainerAncientEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -232,7 +233,7 @@ void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TOContainerAncientEnemy;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        ((TObjPlayer *)arg0)->destroy_container_object(0);
+        ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

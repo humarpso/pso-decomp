@@ -57,9 +57,9 @@ struct PU_801189AC { u8 pad[0x192]; s16 arr[0x13]; };
 extern "C" {
 void TItemProUnit__vt12(u8 *arg0);
 s32 get_id__13TItemProArmorFv(void *);
-s32 construct_timer_event__10TObjPlayerFv(int, int, void *, int);
-s32 init_item_timer_event__10TObjPlayerFv(int, int, void *, int);
-s32 init_timer_event__12TItemProUnitFv(int, int, void *, int);
+s32 construct_timer_event__13TUnk_804A0628Fv(int, int, void *, int);
+s32 init_item_timer_event__13TUnk_804A0648Fv(int, int, void *, int);
+s32 init_timer_event__13TUnk_804A0608Fv(int, int, void *, int);
 s32 __nw__15TItemHeapObjectFUl(int);
 extern const f32 lbl_805DABFC;
 void vfunc_44__12TItemProUnitFv(u8 *arg0);
@@ -206,7 +206,7 @@ void TItemProUnit::vfunc_44() {
       temp_r3 = __nw__15TItemHeapObjectFUl((int) 0x2C);
       if (temp_r3 != 0)
       {
-        init_item_timer_event__10TObjPlayerFv((int) temp_r3, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
+        init_item_timer_event__13TUnk_804A0648Fv((int) temp_r3, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
       }
     }
       return;
@@ -217,7 +217,7 @@ void TItemProUnit::vfunc_44() {
       temp_r3_2 = __nw__15TItemHeapObjectFUl((int) 0x2C);
       if (temp_r3_2 != 0)
       {
-        construct_timer_event__10TObjPlayerFv((int) temp_r3_2, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
+        construct_timer_event__13TUnk_804A0628Fv((int) temp_r3_2, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
         return;
       }
     }
@@ -228,7 +228,7 @@ void TItemProUnit::vfunc_44() {
       temp_r3_3 = __nw__15TItemHeapObjectFUl((int) 0x2C);
       if (temp_r3_3 != 0)
       {
-        init_timer_event__12TItemProUnitFv((int) temp_r3_3, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
+        init_timer_event__13TUnk_804A0608Fv((int) temp_r3_3, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
       }
     }
       break;

@@ -6,6 +6,7 @@
 class TUnk_804A3D20 : public TUnk_804A4948 {
 public:
     virtual ~TUnk_804A3D20();
+    void *setup_shoot_model_callback();
     u8 unk_1C[0x1D4];
 };
 

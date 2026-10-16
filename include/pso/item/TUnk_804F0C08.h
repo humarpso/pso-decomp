@@ -6,6 +6,8 @@
 class TUnk_804F0C08 : public TItemEffPG {
 public:
     virtual ~TUnk_804F0C08();
+    void *initialize(void *, void *, void *);
+    void *destroy(s16);
     virtual s32 vfunc_7();
     u8 unk_D4[0x4];
 };

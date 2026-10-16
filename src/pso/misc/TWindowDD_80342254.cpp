@@ -33,7 +33,7 @@ s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2);
 
 extern "C" {
 
-void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1);
+void *destroy__17TWindowDD_WS_WordFs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void mem_free(void *);
 
@@ -60,7 +60,7 @@ void *lbl_804EFC7C[5] = {
     (void *)0x3,
 };
 void *lbl_804EFC90[6] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__9TWindowDDFPvs, (void *)&handle_scroll_input__9TWindowDDFv,
+    (void *)0x0, (void *)0x0, (void *)&destroy__17TWindowDD_WS_WordFs, (void *)&handle_scroll_input__9TWindowDDFv,
     (void *)&TWindowDD__sub_80341500, (void *)&render_shadows__7TObjectFv,
 };
 #define TWindowDD__data_804EFC50 (*(RecoveredGlobal_80342384_TWindowDD__data_804EFC50 *)TWindowDD__data_804EFC50)
@@ -76,16 +76,16 @@ u8 TWindowDD_WS_Word::sub_80342268() {
     return !(self->f & 1);
 }
 
-void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFC90;
-        if (*(void **)((s8 *)arg0 + 0x80) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0x80)); *(s32 *)((s8 *)arg0 + 0x80) = 0; }
-        ((TWindowDD *)arg0)->destroy_window_base(0);
+void *TWindowDD_WS_Word::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804EFC90;
+        if (*(void **)((s8 *)this + 0x80) != NULL) { mem_free(*(void **)((s8 *)this + 0x80)); *(s32 *)((s8 *)this + 0x80) = 0; }
+        ((TWindowDD *)this)->destroy_window_base(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2) {

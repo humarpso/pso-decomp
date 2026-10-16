@@ -6,6 +6,7 @@
 class TUnk_804B0BB8 : public TUnk_804AFBF8 {
 public:
     virtual ~TUnk_804B0BB8();
+    void *destroy_ancient_door_base(s16);
     void play_door_sound();
     virtual void update_door_switch_state();
     virtual void play_proximity_sound();

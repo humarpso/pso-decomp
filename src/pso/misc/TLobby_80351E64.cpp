@@ -81,7 +81,7 @@ void TLobby__sub_80351F3C(void) {
     }
     lobby_event_theme_controller = o;
 }
-void *TLobby::destroy_and_clear_instance(s16 arg1) {
+void *TUnk_804F0EA8::destroy_and_clear_instance(s16 arg1) {
     if (this != NULL) {
         *(const s32 **)((s8 *)this + 0x18) = lbl_804F0EA8;
         queue_destruction__7TObjectFv(this);

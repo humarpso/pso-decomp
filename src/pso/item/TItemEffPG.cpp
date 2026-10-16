@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804F0AF8.h"
 #include "pso/item/TUnk_804F0C08.h"
 #include "pso/item/TUnk_804F0BF0.h"
 #include "pso/item/TItemEffPG.h"
@@ -60,7 +61,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern s32 lbl_804F0AF8[];
 
-void *TItemEffPG::init_fields(s32 _w1, void * _w2) {
+void *TUnk_804F0AF8::init_fields(s32 _w1, void *_w2) {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F0AF8;
     set_status_flags__10TObjPlayerFPvUi(this, 1);
@@ -77,7 +78,7 @@ u8 *TItemEffPG::create() {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TItemEffPG *)temp_r3)->init_fields((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804F0AF8 *)temp_r3)->init_fields((s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -209,7 +210,7 @@ s32 TUnk_804F0C08::vfunc_7() {
 
 extern s32 lbl_804F0C08[];
 
-void *TItemEffPG::destroy(s16 arg1) {
+void *TUnk_804F0C08::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804F0C08;
         __dt__10TItemEffPGFv(this, 0);

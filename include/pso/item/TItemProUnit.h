@@ -15,7 +15,6 @@ struct TItemProUnit : public TItemEquipBase {
     s16 m_1be;
     static u8 *create(u8 *arg0);
     void set_evp(f32 v);
-    void *init_timer_event();
     void apply_unit_effect_flags();};
 
 #endif

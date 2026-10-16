@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F8E0.h"
+#include "pso/item/TUnk_8049F828.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/player/TObjPlayer.h"
@@ -238,7 +240,7 @@ void free_obj_heap__10TObjPlayerFPv(void *);
 
 extern void *item_mag_transform_vtable[];
 
-void *TItemProShield::init(void * _w1, void * _w2) {
+void *TUnk_8049F828::init(void *_w1, void *_w2) {
     TItemObject__ct(this);
     *(s32 **)((s8 *)this + 0x18) = (s32 *)item_mag_transform_vtable;
     return this;
@@ -254,7 +256,7 @@ u8 *TItemProShield::create() {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TItemProShield *)temp_r3)->init((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049F828 *)temp_r3)->init((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
@@ -297,7 +299,7 @@ void *TItemProShield__sub_80116970(void *arg0, s16 arg1) {
 
 extern void *item_moon_atomizer_vtable[];
 
-void *TItemProShield::init_item_object(void * _w1, void * _w2) {
+void *TUnk_8049F8E0::init_item_object(void *_w1, void *_w2) {
     TItemObject__ct(this);
     *(s32 **)((s8 *)this + 0x18) = (s32 *)item_moon_atomizer_vtable;
     return this;
@@ -310,7 +312,7 @@ u8 *create_moon_atomizer_item(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TItemProShield *)temp_r3)->init_item_object((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049F8E0 *)temp_r3)->init_item_object((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }

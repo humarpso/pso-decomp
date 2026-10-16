@@ -91,7 +91,6 @@ struct TBoss4Type2
     void copy_vec3(void* q);
     void set_flags(u32 v);
     void advance_offset();
-    void *destroy(s16 arg1);
     static void *create_zanzo(void *arg0, void *arg1);
     void spawn_bishi_around_players();
     void apply_resta_heal();

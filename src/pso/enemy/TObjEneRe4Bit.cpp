@@ -1478,8 +1478,8 @@ void TObjPlayer__sub_800A05B8(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEneDDFv(void *, int);
 s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
-s32 init_object__9TObjEneDDFv();
-s32 init_vtable_and_field18__10TObjPlayerFv(void *);
+s32 init_object__12TObjEneDD_STFv();
+s32 init_vtable_and_field18__13TUnk_80490470Fv(void *);
 s16 obj_getField1c(void *);
 
 #pragma push
@@ -1622,9 +1622,9 @@ void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
 extern s32 lbl_805D2AE8;
 
 u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5, s16 arg6) {
-    init_object__9TObjEneDDFv();
+    init_object__12TObjEneDD_STFv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneRe4Bit;
-    init_vtable_and_field18__10TObjPlayerFv((void *) (arg0 + 0x3DC));
+    init_vtable_and_field18__13TUnk_80490470Fv((void *) (arg0 + 0x3DC));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AE8;
     init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));
     *(s16 *)((s8 *)arg0 + 0x3C4) = obj_getField1c((void *) (arg2));

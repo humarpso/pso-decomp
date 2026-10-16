@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include <stddef.h>
 #include "pso/enemy/TObjEneMe1Canadin.h"
@@ -2686,7 +2687,7 @@ int select_and_apply_target__14TObjEneEpsilonFf(void*);
 void enemy_init_acquire_period(void *, s32);
 s32 set_target_player__13TBoss2DeRolLeFPv(void *);
 void __dt__9TObjEneDDFv(void *, int);
-void init_object__9TObjEneDDFv(void *);
+void init_object__12TObjEneDD_STFv(void *);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 get_camera_ctrl__9TObjEneDDFv(void *, int);
 s32 update_camera_sequence__9TObjEneDDFv();
@@ -5187,9 +5188,9 @@ extern int fold_flush_2;
 #pragma pop
 
 u8 *TObjEneMe1Canadin__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5) {
-    init_object__9TObjEneDDFv((void *) (arg0));
+    init_object__12TObjEneDD_STFv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8009F2E0___vt__17TObjEneMe1Canadin *)&__vt__17TObjEneMe1Canadin).value;
-    ((TObjEneMe3SinowZoa *)(arg0 + 0x3CC))->init_common();
+    ((TUnk_80494938 *)(arg0 + 0x3CC))->init_common();
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&TObjEneMe1Canadin__class_name);
     *(u8 **)((s8 *)arg0 + 0x3C0) = arg2;
     init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (*(u8 **)((s8 *)arg0 + 0x3C0)));
@@ -5205,9 +5206,9 @@ u8 *TObjEneMe1Canadin__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 
 }
 
 void *TObjEneMe1Canadin::init(void *arg1, void *arg2, void *arg3) {
-    init_object__9TObjEneDDFv(this);
+    init_object__12TObjEneDD_STFv(this);
     *(s32 **)((s8 *)this + 0x18) = __vt__17TObjEneMe1Canadin;
-    ((TObjEneMe3SinowZoa *)((char *)this + 972))->init_common();
+    ((TUnk_80494938 *)((char *)this + 972))->init_common();
     *(void **)((s8 *)this + 0x0) = TObjEneMe1Canadin__class_name;
     invoke_initialization_hook__9TObjEneDDFPv(this, arg2);
     *(u32 *)((s8 *)this + 0x3C8) = 0;

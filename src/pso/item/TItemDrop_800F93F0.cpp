@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049C658.h"
 #include "pso/item/TItemDrop.h"
 #include "pso/misc/TLobby.h"
 
@@ -21,7 +22,7 @@ int safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 extern "C" {
 
 s32 apply_rel_relocations(void *);
-void *construct__9TItemDropFv(void *);
+void *construct__13TUnk_8049C658Fv(void *);
 s32 read_disc_file(void *, void *);
 int fn_800F953C(void* p);
 int fn_800F955C(void* p);
@@ -32,7 +33,7 @@ int set_stream_and_load_file__6TLobbyFi(void*);
 
 extern s32 lbl_8049C658[];
 
-void *TItemDrop::destroy(s16 arg1) {
+void *TUnk_8049C658::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049C658;
         __dt__7TObjectFv(this, 0);
@@ -54,11 +55,11 @@ struct Drop_800F9448 {
     s32 a;
     s32 b;
     u8 pad_24[0x14];
-    Drop_800F9448() { construct__9TItemDropFv(this); }
+    Drop_800F9448() { construct__13TUnk_8049C658Fv(this); }
 };
 
 static inline s32 finish_800F9448(Drop_800F9448 *d, s32 r) {
-    ((TItemDrop *)d)->destroy(-1);
+    ((TUnk_8049C658 *)d)->destroy(-1);
     return r;
 }
 

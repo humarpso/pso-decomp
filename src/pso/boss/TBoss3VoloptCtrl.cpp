@@ -1,4 +1,5 @@
 #include "pso/TBoss3VoloptCtrl.h"
+#include "pso/boss/TUnk_80483B88.h"
 
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -62,7 +63,7 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
 }
 
 extern "C" {
-void *TBoss3VoloptCtrl::deleting_destructor(s16 arg1) {
+void *TUnk_80483B88::deleting_destructor(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80483B88;
         __dt__7TObjectFv(this, 0);
@@ -75,7 +76,7 @@ void *TBoss3VoloptCtrl::deleting_destructor(s16 arg1) {
 }
 
 extern "C" {
-void *TBoss3VoloptCtrl::init_object() {
+void *TUnk_80483B88::init_object() {
     __ct__7TObjectFP7TObject(this, tl_02);
     *(s32 **)((s8 *)this + 0x18) = lbl_80483B88;
     disallow_rendering__7TObjectFv(this);
@@ -139,7 +140,7 @@ void TBoss3VoloptCtrl::run_task() {
                 unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(3));
                 temp_r3 = (u8 *)(__nw__7TObjectFUl(0x1C));
                 if (temp_r3 != NULL) {
-                    ((TBoss3VoloptCtrl *)temp_r3)->init_object();
+                    ((TUnk_80483B88 *)temp_r3)->init_object();
                 }
                 phase = 2;
                 break;

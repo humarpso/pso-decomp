@@ -5762,13 +5762,13 @@ s32 init_resources__13TBoss2DeRolLeFi(s32 arg0);
 void *__ct__9TBoss2FinFv(void *, void *, void *, void *);
 void *TBoss2Joint__ct(void *, void *, u16, int, void *, s32, s32);
 void *TBoss2LaserLight__ct(void *, void *, void *);
-void *create__10TBoss2MineFiii(void *, void *, u16, int);
+void *create__13TUnk_80482D04Fiii(void *, void *, u16, int);
 void *TBoss2Mine__sub_800381B8(void *, void *, u16, int);
 void *__ct__14TBoss2TentacleFP7TObjectii(void *, void *, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 enemy_init_validate_period(void *, int);
 s32 enemy_init_acquire_period(void *, int);
-s32 init_object__9TObjEneDDFv(void *, void *);
+s32 init_object__12TObjEneDD_STFv(void *, void *);
 s32 update_lobby_state__9TObjEneDDFv(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
@@ -6012,7 +6012,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     s32 m;
     struct { W3_8003563C v; u32 flags; } locals;
 
-    init_object__9TObjEneDDFv(arg0, arg1);
+    init_object__12TObjEneDD_STFv(arg0, arg1);
     *(u8 **)((s8 *)self + 0x18) = (u8 *)__vt__13TBoss2DeRolLe;
     __ct__7TObjectFP7TObject(self->obj3D8, 0);
     init_resources__13TBoss2DeRolLeFi((s32)self->r664);
@@ -6097,7 +6097,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     for (i = 0; i < 3; i++) {
         p = __nw__7TObjectFUl(0x410);
         if (p != NULL) {
-            p = create__10TBoss2MineFiii(p, self->obj3D8, a++, b++);
+            p = create__13TUnk_80482D04Fiii(p, self->obj3D8, a++, b++);
         }
         self->f644[i] = p;
     }

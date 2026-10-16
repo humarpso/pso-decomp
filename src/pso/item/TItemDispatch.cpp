@@ -288,7 +288,7 @@ extern "C" {
 void *__dt__5TItemFv(void *arg0, s16 arg1);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 clear_obj_links(void *);
-s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
+s32 destroy_particle_controller__13TUnk_804AF8A0Fs(void *, s32);
 
 extern void *__vt__5TItem[];
 
@@ -298,7 +298,7 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
         ((TItem *)arg0)->set_mode(3);
         clear_obj_links(arg0);
         ((TItem *)arg0)->unregister_item();
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        destroy_particle_controller__13TUnk_804AF8A0Fs(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
         }
@@ -334,7 +334,7 @@ s8 get_type_nibble__9TItemDataFPv(void *);
 s32 is_rare_item__9TItemDataFPv(void *);
 s32 clamp_s32__10TObjPlayerFlll(s32, s32, s32);
 void initialize_linked_object_reference(void *, void *);
-void construct_collider_proxy__10TObjPlayerFv(void *, void *);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 item_collider_body[];
 extern u8 lbl_8043DF94[];
 extern void *__vt__5TItem[];
@@ -346,7 +346,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item);
 extern "C" {
 
 u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
-    construct_collider_proxy__10TObjPlayerFv(self, parent);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(self, parent);
     *(void **)((s8 *)self + 0x18) = __vt__5TItem;
     *(s32 *)((s8 *)self + 0) = TItem__name;
     obj_setFlags30(self, 0x80000000);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjCityDoor_Shop.h"
 #include "pso/object/TObjCityDoor_Guild.h"
 #include "pso/object/TObjCityDoor_Warp.h"
@@ -1166,7 +1167,7 @@ s32 TLobby__sub_80182E60(void);
     extern const float lbl_805DBC00;
 void vfunc_13__13TUnk_804B5C08Fl(void* a0);
 s32 init_collision_body_parts(void *, void *, int, int);
-s32 construct_collider_proxy__10TObjPlayerFv();
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 extern RecoveredGlobal_80182D8C_lbl_80443F20 city_door_init_params;
 extern s32 city_door_base_vtable[];
 u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3);
@@ -1320,7 +1321,7 @@ void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = city_door_base_vtable;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1335,7 +1336,7 @@ u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     CopyStack_80182D8C copy_storage_80182D8C;
     u8 *temp_r4;
     u8 *temp_r6;
-    construct_collider_proxy__10TObjPlayerFv();
+    construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80182D8C_lbl_804B5BA8 *)&city_door_base_vtable).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0xAC) = 0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneGibbles.h"
 #include <stddef.h>
@@ -275,7 +276,7 @@ void initialize_enemy_photon_effect(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__10TObjPlayerFv(void *, int);
+void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 void * __nw__7TObjectFUl(int);
 void __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
@@ -2712,7 +2713,7 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2) {
     void *p;
     ((TObjEnemy *)arg0)->initialize(arg1);
     *(void **)((s8 *)arg0 + 0x18) = (void *)lbl_804E29F0;
-    ((TObjEneMe3SinowZoa *)(arg0 + 0x3C0))->init_common();
+    ((TUnk_80494938 *)(arg0 + 0x3C0))->init_common();
     __construct_array(arg0 + 0x3DC, (void *)init_and_activate__10TObjPlayerFv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F60;
     ((VObj_18_802DBA18 *)arg0)->m79(arg2);
@@ -2750,13 +2751,13 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x384) = 0x101;
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__10TObjPlayerFv(p, 0);
+        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, 0);
     }
     *(void **)((s8 *)arg0 + 0x3B4) = p;
     init_collision_body_parts(*(void **)((s8 *)arg0 + 0x3B4), (u8 *)lbl_804E296C + 0x2C, 1);
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__10TObjPlayerFv(p, 0);
+        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, 0);
     }
     *(void **)((s8 *)arg0 + 0x3B8) = p;
     init_collision_body_parts(*(void **)((s8 *)arg0 + 0x3B8), (u8 *)lbl_804E296C + 0x58, 1);

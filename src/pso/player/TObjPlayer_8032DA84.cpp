@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804EDC28.h"
 #include "pso/player/TUnk_804EDD20.h"
 #include "pso/item/TUnk_804EDD44.h"
 #include "pso/player/TObjPlayer.h"
@@ -82,7 +83,7 @@ void TObjPlayer::launch_guardianna_colliders() {
 
 extern s32 lbl_804EDC28[];
 
-void *TObjPlayer::construct_guardianna(s32 _w1, void * _w2) {
+void *TUnk_804EDC28::construct_guardianna(s32 _w1, void *_w2) {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EDC28;
     set_status_flags__10TObjPlayerFPvUi(this, 2);
@@ -100,7 +101,7 @@ u8 *create_guardianna(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TObjPlayer *)temp_r3)->construct_guardianna((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804EDC28 *)temp_r3)->construct_guardianna((s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -120,7 +121,7 @@ void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1) {
 void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDD20;
-        ((TItemWpnCardEffect *)arg0)->destroy(0);
+        ((TUnk_804EDD44 *)arg0)->destroy(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -226,27 +227,27 @@ void TObjPlayer::init_offset_vectors() { this->m_70 = 0; *(float*)((char*)this +
 
 extern "C" {
 
-void *init_offsets_object__10TObjPlayerFPv(void *arg0);
-void *init_effect_object__10TObjPlayerFPv(void *arg0);
+void *init_offsets_object__13TUnk_804EDD20Fv(void *arg0);
+void *init_effect_object__13TUnk_804EDD20Fv(void *arg0);
 void construct_card_effect_at_point(void *);
 void construct_card_effect_on_target(void *);
 
 extern s32 lbl_804EDD20[];
 
-void *init_offsets_object__10TObjPlayerFPv(void *arg0) {
-    construct_card_effect_at_point(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDD20;
-    ((TObjPlayer *)arg0)->init_offset_vectors();
-    return arg0;
+void *TUnk_804EDD20::init_offsets_object() {
+    construct_card_effect_at_point(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804EDD20;
+    ((TObjPlayer *)this)->init_offset_vectors();
+    return this;
 }
 
 extern s32 lbl_804EDD20[];
 
-void *init_effect_object__10TObjPlayerFPv(void *arg0) {
-    construct_card_effect_on_target(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDD20;
-    ((TObjPlayer *)arg0)->init_offset_vectors();
-    return arg0;
+void *TUnk_804EDD20::init_effect_object() {
+    construct_card_effect_on_target(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804EDD20;
+    ((TObjPlayer *)this)->init_offset_vectors();
+    return this;
 }
 
 }
@@ -260,7 +261,7 @@ extern s32 tl_05;
 void TObjPlayer::alloc_and_init(s32 arg0, s32 arg1, s32 arg2) {
     void* obj = __nw__7TObjectFUl((s32)(0x90));
     if (obj != 0) {
-        ((s32 (*)(void *, s32, s32, s32, s32, s32))init_offsets_object__10TObjPlayerFPv)(obj, tl_05, arg1, arg2, 0, arg0);
+        ((s32 (*)(void *, s32, s32, s32, s32, s32))init_offsets_object__13TUnk_804EDD20Fv)(obj, tl_05, arg1, arg2, 0, arg0);
     }
 }
 
@@ -272,7 +273,7 @@ void TObjPlayer::create_and_init_effect(s32 arg0, u32 *arg1, s32 arg2) {
     if ((arg1 != NULL) && ((u32) *arg1 != 0U)) {
         obj = __nw__7TObjectFUl((s32)(0x90));
         if (obj != NULL) {
-            ((s32 (*)(void *, s32, u32 *, s32, s32, s32))init_effect_object__10TObjPlayerFPv)(obj, tl_05, arg1, arg2, 0, arg0);
+            ((s32 (*)(void *, s32, u32 *, s32, s32, s32))init_effect_object__13TUnk_804EDD20Fv)(obj, tl_05, arg1, arg2, 0, arg0);
         }
     }
 }

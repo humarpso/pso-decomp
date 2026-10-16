@@ -1,4 +1,5 @@
 #include "pso/TBoss5GryphonDemo.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss5GryphonColli_C.h"
 
 #include "types.h"
@@ -79,7 +80,7 @@ int rotate_matrix_y(void*, s32);
 int push_matrix(void*);
 int pop_matrix(void);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
+s32 destroy_particle_controller__13TUnk_804AF8A0Fs(void *, s32);
 
 void TBoss5GryphonColli_C::render() {  }
 void TBoss5GryphonDemo__sub_8006626C(void* p) { ((TBoss5GryphonColli_C *)p)->clear_entry_flags(); }
@@ -103,12 +104,12 @@ void TBoss5GryphonDemo::set_all_entry_flags() {
     }
 }
 
-void *TBoss5GryphonDemo::destroy(s16 arg1) {
+void *TBoss5GryphonColli_C::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804886AC;
         unregister_object_by_id(this);
         free_collision_body_parts(this);
-        destroy_particle_controller__10TObjPlayerFs(this, 0);
+        destroy_particle_controller__13TUnk_804AF8A0Fs(this, 0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -122,7 +123,7 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 
     f32 z;
     Seg_800663DC *s;
     s32 i;
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     arg0->vt = lbl_804886AC;
     arg0->f0 = lbl_805D2808;
     arg0->f1c = TLobby::alloc_actor_ids(0);

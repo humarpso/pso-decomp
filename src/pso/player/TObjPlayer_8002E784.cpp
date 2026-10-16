@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804820C0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -250,7 +251,7 @@ Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002E
     Part_8002EA64 *p;
     Vec_8002EA64 *v;
     s32 i;
-    ((TObjPlayer *)arg0)->init_base();
+    ((TUnk_804820C0 *)arg0)->init_base();
     scale = lbl_805D8240;
     zero = lbl_805D8228;
     arg0->vtbl = lbl_804820A8;
@@ -305,7 +306,7 @@ void *TObjPlayer::deleting_dtor(s16 arg1) {
 
 extern s32 lbl_804820C0[];
 
-void *TObjPlayer::init_base() {
+void *TUnk_804820C0::init_base() {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804820C0;
     *(u32 *)((s8 *)this + 0x1C) = 0;

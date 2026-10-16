@@ -571,7 +571,7 @@ void run_task__13TUnk_80483A10Fv(u8 *arg0);
 void TBoss3VoloptCore__sub_80040788(void);
 void cache_volopt_resource_ptrs(void);
 void * TBoss3VoloptCore__sub_800407E0(void *arg0);
-void * destroy__16TBoss3VoloptCoreFPvs(void *arg0, s16 arg1);
+void * destroy__13TUnk_80483A10Fs(void *arg0, s16 arg1);
 void TBoss3VoloptCore__ct(VObj_80040894 *arg0);
 void * create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
 void * TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2);
@@ -871,7 +871,7 @@ void *lbl_804839E4[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *TBoss3VoloptCore__vtable[83] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__16TBoss3VoloptCoreFPvs, (void *)&run_task__13TUnk_80483A10Fv,
+    (void *)0x0, (void *)0x0, (void *)&destroy__13TUnk_80483A10Fs, (void *)&run_task__13TUnk_80483A10Fv,
     (void *)&render__13TUnk_80483A10Fv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -1506,17 +1506,17 @@ void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
     return o;
 }
 
-void *destroy__16TBoss3VoloptCoreFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = TBoss3VoloptCore__vtable;
-        free_collision_body_parts(arg0);
+void *TUnk_80483A10::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = TBoss3VoloptCore__vtable;
+        free_collision_body_parts(this);
         ((s32 (*)(s32))fn_8003CFEC)(0);
-        __dt__15TObjEnemyCustomFv(arg0, 0);
+        __dt__15TObjEnemyCustomFv(this, 0);
         if ((s16) arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {

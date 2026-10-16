@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TUnk_804A9F50.h"
 
 struct RecoveredGlobal_802A3C30_lbl_804DCE48 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802A3C30_lbl_804DCE48_size[sizeof(RecoveredGlobal_802A3C30_lbl_804DCE48) == 0x10 ? 1 : -1];
@@ -237,7 +238,7 @@ void TObjNpcKenkyuW::load_resource_instance() {
 void *__dt__14TObjNpcKenkyuWFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjNpcKenkyuW;
-        ((TObjNpcLappy *)arg0)->destroy_npc_lappy_base(0);
+        ((TUnk_804A9F50 *)arg0)->destroy_npc_lappy_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

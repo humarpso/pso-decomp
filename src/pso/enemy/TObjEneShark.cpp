@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TUnk_80493450.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
@@ -1188,7 +1189,7 @@ extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 
-void init_enemy_base__10TObjPlayerFv(void *);
+void init_enemy_base__13TUnk_80493450Fv(void *);
 void *create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_photon_effect(void *);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
@@ -1206,9 +1207,9 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     s32 color;
     s32 i;
 
-    ((void (*)(void *, void *))init_enemy_base__10TObjPlayerFv)(self, arg1);
+    ((void (*)(void *, void *))init_enemy_base__13TUnk_80493450Fv)(self, arg1);
     *(void **)((u8 *)self + 0x18) = lbl_8049168C;
-    ((TObjEneMe3SinowZoa *)((u8 *)arg0 + 0x3A8))->init_common();
+    ((TUnk_80494938 *)((u8 *)arg0 + 0x3A8))->init_common();
     __construct_array(self->f3CC, (void *)init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 0x1C, 4);
     *(s32 *)self = lbl_805D2A00;
     self->m79(arg2);

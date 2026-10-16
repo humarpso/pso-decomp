@@ -6,6 +6,8 @@
 class TUnk_80481B34 : public TUnk_804928CC {
 public:
     virtual ~TUnk_80481B34();
+    void *init_base();
+    void *dt(s16);
 };
 typedef char TUnk_80481B34_size[sizeof(TUnk_80481B34) == 0xB0 ? 1 : -1];
 

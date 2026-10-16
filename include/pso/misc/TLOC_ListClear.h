@@ -6,6 +6,7 @@
 class TLOC_ListClear : public TUnk_804A7260 {
 public:
     virtual ~TLOC_ListClear();
+    void*init_lockon();
     virtual void run_task();
     u8 unk_1C[0x8];
 };

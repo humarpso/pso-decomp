@@ -78,7 +78,7 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int bswap_16__FPUs(void*);
 int bswap_header__6TLobbyFv(void*);
-void destroy_key_base__5TOKeyFs(void *, int);
+void destroy_key_base__13TUnk_804AFBF8Fs(void *, int);
 int init__17TOBarrierEnergy01Fv(void*);
 void queue_destruction__7TObjectFv(void *);
 
@@ -115,7 +115,7 @@ void *TOVS2Wall01::destroy(s16 arg1) {
         if (*(void * *)&this->m_c8 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_c8); *(s32 *)&this->m_c8 = 0; }
         unregister_object_by_id(this);
         free_collision_body_parts(this);
-        destroy_key_base__5TOKeyFs(this, 0);
+        destroy_key_base__13TUnk_804AFBF8Fs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

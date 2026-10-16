@@ -39,7 +39,6 @@ struct TObjEneDellBiter : public TObjEneDD_ST {
     static void set_min_clamped_entry_value(s32 arg0, f32 farg0);
     static void destroy_static_instance();
     static void load_resources();
-    void *init_instance(void *arg1, void *arg2, void *arg3, void *arg4);
     u8 unk_4A4[0x40];
 };
 

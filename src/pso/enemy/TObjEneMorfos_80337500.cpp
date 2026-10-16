@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMorfos.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
@@ -50,7 +51,7 @@ void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *a
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s16 obj_getField1c(void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
-void construct_collider_proxy__10TObjPlayerFv(void *, s32);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 lbl_804EF130[];
@@ -147,7 +148,7 @@ void *__dt__13TObjEneMorfosFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EF130;
         if (*(void **)((s8 *)arg0 + 0xE0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0)); }
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -156,7 +157,7 @@ void *__dt__13TObjEneMorfosFPvs(void *arg0, s16 arg1) {
 }
 O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s32 arg2, void *arg3) {
     Ang_80337824 a;
-    construct_collider_proxy__10TObjPlayerFv(arg0, tl_06);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
     arg0->vt = ((u8 *)&lbl_804EF130);
     VecCopy__FP3VecPC3Vec((void *)(&arg0->pos), (int)(arg1));
     arg0->fDC = lbl_805DF994;

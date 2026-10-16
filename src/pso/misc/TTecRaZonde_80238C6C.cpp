@@ -404,7 +404,7 @@ extern "C" {
 void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_technique_base__9TTecLukerFPvs(void *, int);
+void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 
 u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
 
@@ -529,7 +529,7 @@ Self_80238EC8 *__dt__11TTecRaZondeFv(Self_80238EC8 *self, s16 arg1) {
             }
         }
         mem_free(self->objs);
-        destroy_technique_base__9TTecLukerFPvs(self, 0);
+        destroy_technique_base__13TUnk_804CC148Fs(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
         }

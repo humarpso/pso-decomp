@@ -1100,8 +1100,8 @@ extern const f32 lbl_805DA034;
 extern "C" {
 
 int beast_retire_corpse(void* p);
-void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
+void *dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
@@ -1744,6 +1744,6 @@ void *TObjPlayer__sub_800C68FC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void*TObjPlayer::init_enemy_base() { initialize__9TObjEnemyFPv(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_80493450); *(short *)&this->m_326 = 0; *(short *)&this->m_328 = 0; *(short *)&this->m_374 = 0; *(short*)((char*)this + 0x376) = 0; *(int*)((char*)this + 0x378) = 0; *(int *)&this->m_37c = 0; *(float *)&this->unk_380 = (*(const float *)&lbl_805DA034); *(float *)&this->m_384 = lbl_805DA058; *(float*)((char*)this + 0x388) = lbl_805DA05C; this->m_38c = 0; *(int*)((char*)this + 0x390) = 0; *(float*)((char*)this + 0x398) = lbl_805DA060; *(float *)&this->m_39c = lbl_805DA064; *(float *)&this->m_394 = lbl_805DA060; this->m_3a0 = lbl_805DA060; *(float*)((char*)this + 0x3a4) = lbl_805DA064; return this; }
+void*TUnk_80493450::init_enemy_base() { initialize__9TObjEnemyFPv(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_80493450); *(short *)&(*(s16 *)((u8 *)this + 0x326)) = 0; *(short *)&(*(s16 *)((u8 *)this + 0x328)) = 0; *(short *)&this->m_374 = 0; *(short*)((char*)this + 0x376) = 0; *(int*)((char*)this + 0x378) = 0; *(int *)&this->m_37c = 0; *(float *)&this->unk_380 = (*(const float *)&lbl_805DA034); *(float *)&(*(void * *)((u8 *)this + 0x384)) = lbl_805DA058; *(float*)((char*)this + 0x388) = lbl_805DA05C; (*(int *)((u8 *)this + 0x38C)) = 0; *(int*)((char*)this + 0x390) = 0; *(float*)((char*)this + 0x398) = lbl_805DA060; *(float *)&(*(s16 *)((u8 *)this + 0x39C)) = lbl_805DA064; *(float *)&(*(s32 *)((u8 *)this + 0x394)) = lbl_805DA060; (*(float *)((u8 *)this + 0x3A0)) = lbl_805DA060; *(float*)((char*)this + 0x3a4) = lbl_805DA064; return this; }
 
 }

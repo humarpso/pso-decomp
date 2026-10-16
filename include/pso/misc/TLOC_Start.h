@@ -6,6 +6,7 @@
 class TLOC_Start : public TUnk_804A7260 {
 public:
     virtual ~TLOC_Start();
+    void*init();
     virtual void run_task();
     u8 unk_1C[0x8];
 };

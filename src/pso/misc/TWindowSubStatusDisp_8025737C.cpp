@@ -187,7 +187,7 @@ s32 play_sound_effect(u32, s32, s32, s32);
 #define calc_bar_width__20TWindowSubStatusDispFPv ((s32 (*)())calc_bar_width__20TWindowSubStatusDispFPv)
 #define step_gauge_bar_width ((void (*)(void *))step_gauge_bar_width)
 #define TWindowSubStatusDisp__sub_80257298 ((s32 (*)(void *, s16))TWindowSubStatusDisp__sub_80257298)
-void* init_from__20TWindowSubStatusDispFPvi(void* a0, void* a1, int a2);
+void* init_from__13TUnk_804CF930FPvi(void* a0, void* a1, int a2);
 u32 update_text_color_transition(void);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
 void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
@@ -347,7 +347,7 @@ void *TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1) {
 }
 
 u8 *init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1) {
-    ((s32 (*)(void))init_from__20TWindowSubStatusDispFPvi)();
+    ((s32 (*)(void))init_from__13TUnk_804CF930FPvi)();
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_80257B4C_lbl_804CF948 *)&lbl_804CF948).value;
     *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(f32 *)((s8 *)arg0 + 0x24);
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)arg1 + 0x24);

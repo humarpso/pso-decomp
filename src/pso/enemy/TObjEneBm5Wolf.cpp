@@ -3741,7 +3741,7 @@ s32 set_field_dc__10TObjPlayerFl(void *, int);
 s32 set_field_d8__10TObjPlayerFl(void *, void *);
 s32 enemy_init_validate_period(void *, int);
 s32 enemy_init_acquire_period(void *, int);
-s32 init_object__9TObjEneDDFv(void *, void *);
+s32 init_object__12TObjEneDD_STFv(void *, void *);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 check_state_flag_1__9TObjEneDDFv(void *);
@@ -3751,7 +3751,7 @@ s32 invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 s32 init_position_vectors__9TObjEneDDFPv(void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__10TObjPlayerFv(void *, int);
+void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D2A20;
 }
@@ -3852,7 +3852,7 @@ typedef char RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C_size[sizeof(
 u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
     s32 n;
     void *o;
-    init_object__9TObjEneDDFv(arg0, arg1);
+    init_object__12TObjEneDD_STFv(arg0, arg1);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804922F8;
     TObjEneBm5Wolf__sub_800B8A24(arg0 + 0x3C0);
     TObjEneBm5Wolf__sub_800B8A24(arg0 + 0x3CC);
@@ -3894,7 +3894,7 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
     *(f32 *)((s8 *)arg0 + 0x40C) = TObjEneBm5Wolf__data_805D9D78;
     o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = construct_collider_proxy__10TObjPlayerFv(o, 0);
+        o = construct_collider_proxy__13TUnk_804AF8A0Fv(o, 0);
     }
     *(void **)((s8 *)arg0 + 0x410) = o;
     init_collision_body_parts(*(void **)((s8 *)arg0 + 0x410), (void *)((u8 *)TObjEneBm5Wolf__collider_params + 0x2C), 1);

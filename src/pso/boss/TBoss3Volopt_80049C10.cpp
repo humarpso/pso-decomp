@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TUnk_80484AFC.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -53,7 +54,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss3Volopt__sub_8004812C(int);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
@@ -149,7 +150,7 @@ void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0xE0) != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0));
         }
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -161,7 +162,7 @@ typedef char RecoveredGlobal_80049E9C_lbl_80484AFC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80049E9C_lbl_8058D490_size[sizeof(RecoveredGlobal_80049E9C_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r4;
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0), (void *) (arg1));
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80049E9C_lbl_80484AFC *)&lbl_80484AFC).value;
     init_collision_body_parts((void *) (arg0), (void *) (&volopt_collision_body_desc.value), (int) (1));
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) lbl_805D88AC;

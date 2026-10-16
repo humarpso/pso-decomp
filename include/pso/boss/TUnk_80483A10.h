@@ -6,6 +6,7 @@
 class TUnk_80483A10 : public TObjEnemyCustom {
 public:
     virtual ~TUnk_80483A10();
+    void *destroy(s16);
     virtual s32 vfunc_30();
     virtual void render();
     virtual void run_task();

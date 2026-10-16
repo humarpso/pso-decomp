@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorFourLightBase.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TODoorAncient01.h"
@@ -330,7 +331,7 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TODoorFourLightBase;
-        ((TODoorAncient01 *)arg0)->destroy_ancient_door_base(0);
+        ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

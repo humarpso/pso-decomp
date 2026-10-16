@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 struct TObjBase80194_80194C98 { char pad[0x18]; };
 struct TObjMesBase80194_80194C98 : TObjBase80194_80194C98 {
@@ -62,7 +63,7 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1);
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
 void TObjMesBase__vt12(void);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
-s32 construct_collider_proxy__10TObjPlayerFv();
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 void __dl__7TObjectFPv(void *);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
@@ -138,7 +139,7 @@ extern s32 __vt__11TObjMesBase[];
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -150,7 +151,7 @@ extern s32 __vt__11TObjMesBase[];
 extern s32 TObjMesBase__class_name;
 
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
-    construct_collider_proxy__10TObjPlayerFv();
+    construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMesBase__class_name;
     ((TObjMesBase80194_80194C98 *)arg0)->ct(arg2);

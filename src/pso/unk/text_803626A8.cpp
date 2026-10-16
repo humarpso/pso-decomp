@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/unk/TUnk_804F26E0.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
@@ -332,7 +333,7 @@ u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1) {
 }
 
 void *TObjEneEpsilon__ct(void *arg0) {
-    ((TObjEneDD *)arg0)->init_object();
+    ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEneEpsilon;
     __construct_array((void *)((char *)arg0 + 960), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = TObjEneEpsilon__class_name;

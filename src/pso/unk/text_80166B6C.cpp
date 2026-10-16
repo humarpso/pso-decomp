@@ -48,7 +48,7 @@ extern u8 *TOFenceAncient01__model_resource;
 extern u32 TOFenceAncient01__resource_pointer_array;
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
-s32 init_fields__16TOFenceAncient01Fv();
+s32 init_fields__13TUnk_804B1B80Fv();
 s32 sub_80166E64__13TUnk_804B1B80Fv(u8 *arg0);
 s32 sub_80166EA8__13TUnk_804B1B80Fi(u8 *arg0, int);
 extern RecoveredGlobal_80166D5C_lbl_804B1BE8 fence_ancient01_collision_parts;
@@ -143,7 +143,7 @@ void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOFenceAncient01;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        ((TOFenceAncient01 *)arg0)->destroy(0);
+        ((TUnk_804B1B80 *)arg0)->destroy(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -157,7 +157,7 @@ u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f1;
     u8 *temp_r4;
     u8 *temp_r6;
-    init_fields__16TOFenceAncient01Fv();
+    init_fields__13TUnk_804B1B80Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80166D5C___vt__16TOFenceAncient01 *)&__vt__16TOFenceAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOFenceAncient01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

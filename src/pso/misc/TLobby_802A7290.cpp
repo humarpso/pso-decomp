@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DDBF0.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -220,7 +221,7 @@ void *__dt__6TLobbyFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TLobby::ct_variant() {
+void *TUnk_804DDBF0::ct_variant() {
     TLobby__sub_802A7B50(this);
     *(s32 **)((s8 *)this + 0x8) = lbl_804DDBF0;
     return this;

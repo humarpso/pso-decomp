@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TUnk_804999E8.h"
+#include "pso/boss/TUnk_804848B8.h"
+#include "pso/boss/TUnk_804848A0.h"
+#include "pso/boss/TUnk_80484870.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -48,7 +52,7 @@ void TBoss3Volopt__sub_800485C8(void) {  }
 
 extern s32 lbl_80484870[];
 
-void *TBoss3Volopt::dt(s16 arg1) {
+void *TUnk_80484870::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80484870;
         __dt__7TObjectFv(this, 0);
@@ -62,11 +66,11 @@ void *TBoss3Volopt::dt(s16 arg1) {
 extern void *tl_05;
 extern s32 lbl_80484870[];
 
-void *TBoss3Volopt::ct(void *arg1, void *arg2) {
+void *TUnk_80484870::ct(void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(this, tl_05);
     *(s32 **)((s8 *)this + 0x18) = lbl_80484870;
-    *(void * *)&this->m_1c = arg1;
-    *(void * *)&this->m_20 = arg2;
+    *(void * *)&(*(u16 *)((u8 *)this + 0x1C)) = arg1;
+    *(void * *)&(*(u8 *)((u8 *)this + 0x20)) = arg2;
     return this;
 }
 
@@ -171,7 +175,7 @@ extern s32 lbl_804848A0[];
 void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848A0;
-        ((TBoss3Volopt *)arg0)->destroy_task_object((s16)(0));
+        ((TUnk_804999E8 *)arg0)->destroy_task_object((s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -181,7 +185,7 @@ void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1) {
 
 extern s32 lbl_804999E8[];
 
-void *TBoss3Volopt::destroy_task_object(s16 arg1) {
+void *TUnk_804999E8::destroy_task_object(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804999E8;
         __dt__7TObjectFv(this, 0);
@@ -196,14 +200,14 @@ extern void *tl_fade;
 extern const f32 lbl_805D8858;
 extern s32 lbl_804848A0[];
 
-void *TBoss3Volopt::init_fade_color(void *arg1, void *arg2) {
+void *TUnk_804848A0::init_fade_color(void *arg1, void *arg2) {
     init_object((void *)(tl_fade));
     *(s32 **)((s8 *)this + 0x18) = lbl_804848A0;
-    *(void * *)&this->texture_id = arg2;
-    *(f32 *)&this->m_1c = lbl_805D8858;
-    this->m_20 = 255;
+    *(void * *)&(*(s32 *)((u8 *)this + 0x24)) = arg2;
+    *(f32 *)&(*(u16 *)((u8 *)this + 0x1C)) = lbl_805D8858;
+    (*(u8 *)((u8 *)this + 0x20)) = 255;
     *(u8 *)((s8 *)this + 0x21) = 255;
-    this->m_22 = 255;
+    (*(u8 *)((u8 *)this + 0x22)) = 255;
     lbl_805D4D14 = 0;
     return this;
 }
@@ -232,7 +236,7 @@ void TBoss3Volopt::update_fade_out() {
 void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848B8;
-        ((TBoss3Volopt *)arg0)->destroy_task_object((s16)(0));
+        ((TUnk_804999E8 *)arg0)->destroy_task_object((s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -245,21 +249,21 @@ extern const f32 lbl_805D8854;
 extern s32 lbl_804848B8[];
 extern u32 TBoss3Volopt__fade_active_flag;
 
-void *TBoss3Volopt::init_fade(void *arg1, void *arg2) {
+void *TUnk_804848B8::init_fade(void *arg1, void *arg2) {
     init_object((void *)((void *)(tl_fade)));
     *(s32 **)((s8 *)this + 0x18) = lbl_804848B8;
-    *(void * *)&this->texture_id = arg2;
-    *(f32 *)&this->m_1c = lbl_805D8854;
-    this->m_20 = 255;
+    *(void * *)&(*(s32 *)((u8 *)this + 0x24)) = arg2;
+    *(f32 *)&(*(u16 *)((u8 *)this + 0x1C)) = lbl_805D8854;
+    (*(u8 *)((u8 *)this + 0x20)) = 255;
     *(u8 *)((s8 *)this + 0x21) = 255;
-    this->m_22 = 255;
+    (*(u8 *)((u8 *)this + 0x22)) = 255;
     TBoss3Volopt__fade_active_flag = 0;
     return this;
 }
 
 extern s32 lbl_804999E8[];
 
-void *TBoss3Volopt::init_object(void *) {
+void *TUnk_804999E8::init_object(void *) {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804999E8;
     return this;

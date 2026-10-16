@@ -4359,16 +4359,16 @@ extern int fold_flush_1;
 extern "C" {
 
 void *TObjEneMe3Stelth__ct(void *arg0);
-void init_object__9TObjEneDDFv(void *);
-void init_common__18TObjEneMe3SinowZoaFv(void *);
+void init_object__12TObjEneDD_STFv(void *);
+void init_common__13TUnk_80494938Fv(void *);
 
 extern s32 __vt__16TObjEneMe3Stelth[];
 extern void *lbl_805D2AF8;
 
 void *TObjEneMe3Stelth__ct(void *arg0) {
-    init_object__9TObjEneDDFv(arg0);
+    init_object__12TObjEneDD_STFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneMe3Stelth;
-    init_common__18TObjEneMe3SinowZoaFv((void *)((char *)arg0 + 1028));
+    init_common__13TUnk_80494938Fv((void *)((char *)arg0 + 1028));
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2AF8;
     return arg0;
 }

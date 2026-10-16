@@ -72,7 +72,7 @@ void unregister_object_by_id(void *);
 int submit_cursor_candidate(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_motion_object__10TObjPlayerFPvs(void *, int);
+void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 int queue_destruction__7TObjectFv(void*);
 int set_flag8__13TUnk_804AF8A0Fv(void*);
 
@@ -147,7 +147,7 @@ void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1) {
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x340, -1);
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

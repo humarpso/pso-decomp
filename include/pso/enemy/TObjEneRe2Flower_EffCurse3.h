@@ -6,6 +6,8 @@
 class TObjEneRe2Flower_EffCurse3 : public TObject {
 public:
     virtual ~TObjEneRe2Flower_EffCurse3();
+    void *init_target_ref(s32, s32);
+    void *dt_with_child_destroy(s16);
     virtual void run_task();
     u8 unk_1C[0xC];
 };

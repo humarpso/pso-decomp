@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOWreckAncient.h"
 #include "pso/object/TObjFish.h"
@@ -44,7 +45,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8017DDA8_lbl_804B53D0 bm_o_wreck_ancient_resource_descriptor;
 extern u32 wreck_ancient_bml_resource;
 extern u32 wreck_ancient_brakable_bml_resource;
-s32 construct_collider_proxy__10TObjPlayerFv(void *, int);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, void *);
 s32 get_bml_model(void *, void *);
 extern s32 __vt__14TOWreckAncient[];
@@ -122,7 +123,7 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOWreckAncient;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -131,7 +132,7 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8017DE94___vt__14TOWreckAncient_size[sizeof(RecoveredGlobal_8017DE94___vt__14TOWreckAncient) == 0x3C ? 1 : -1];
 u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1) {
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0), (int) (tl_05));
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (int) (tl_05));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8017DE94___vt__14TOWreckAncient *)&__vt__14TOWreckAncient).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOWreckAncient__name;
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));

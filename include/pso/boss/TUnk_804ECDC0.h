@@ -6,6 +6,7 @@
 class TUnk_804ECDC0 : public TItemWeapon {
 public:
     virtual ~TUnk_804ECDC0();
+    void *set_vtable_mode2_alt(s32, void *);
 };
 
 #endif

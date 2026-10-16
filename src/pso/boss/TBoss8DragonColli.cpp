@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss8DragonColli_C.h"
 class TBoss8DragonColli : public TObject {
 public:
@@ -38,7 +39,7 @@ void fn_8002B630(u8 *arg0, u8 *arg1);
 E_802F31E4 *mem_alloc(s32);
 s32 register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 boss8_collision_segment_desc[];
 extern s32 lbl_804E4BB4[];
 extern s32 lbl_805D4000;
@@ -171,7 +172,7 @@ void *destroy__17TBoss8DragonColliFPvs(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E4BB4;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -185,7 +186,7 @@ s32 init_collision_segments__17TBoss8DragonColliFiPviPvf(int arg0, void *arg1, i
     f32 zero;
     f32 step;
     f32 z;
-    construct_collider_proxy__10TObjPlayerFv(self, arg1);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(self, arg1);
     self->vt = ((u8 *)&lbl_804E4BB4);
     self->f0 = lbl_805D4000;
     VecCopy__FP3VecPC3Vec(self->pos, arg3);

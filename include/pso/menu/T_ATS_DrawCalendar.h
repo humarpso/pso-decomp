@@ -6,6 +6,7 @@
 class T_ATS_DrawCalendar : public TObject {
 public:
     virtual ~T_ATS_DrawCalendar();
+    void *init_object(void *);
     virtual void render();
     u8 unk_1C[0xC];
 };

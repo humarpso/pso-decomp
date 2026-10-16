@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjMapCsn.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -178,7 +179,7 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
         if (((u32)TObjMapCsn::get_map_count()) != 0U) {
             fn_80140DFC((int) (((u32)TObjMapCsn::get_map_count())), (void *) (arg0));
         }
-        ((TObjPlayer *)arg0)->destroy_particle_controller((int) (0));
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller((int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -188,7 +189,7 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
 u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapCsn__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

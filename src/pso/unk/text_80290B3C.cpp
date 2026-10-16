@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049C658.h"
 #include "pso/item/TItemDrop.h"
 struct Hdr_80290B3C {
     u32 off;
@@ -30,7 +31,7 @@ u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     u32 i;
     u32 n;
     u32 r;
-    ((TItemDrop *)(&c))->construct();
+    ((TUnk_8049C658 *)(&c))->construct();
     c.base = arg0;
     c.size = arg1;
     h = (Hdr_80290B3C *)(c.base + c.size) - 1;
@@ -43,7 +44,7 @@ u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     }
     r = h->end + c.base;
     c.result = r;
-    ((TItemDrop *)(&c))->destroy(-1);
+    ((TUnk_8049C658 *)(&c))->destroy(-1);
     return r;
 }
 

@@ -6,6 +6,7 @@
 class TUnk_804A403C : public TUnk_804A4948 {
 public:
     virtual ~TUnk_804A403C();
+    void *init_event_callbacks();
     u8 unk_1C[0x1DC];
 };
 

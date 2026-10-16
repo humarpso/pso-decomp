@@ -224,7 +224,7 @@ void TUnk_804F1280::run_task() { if (is_active__10TBoss6RockFv(this) == 0) { *(i
 
 extern s32 lbl_804F1280[];
 
-void *TBoss6Rock::destroy(s16 arg1) {
+void *TUnk_804F1280::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804F1280;
         __dt__7TObjectFv(this, 0);
@@ -237,10 +237,10 @@ void *TBoss6Rock::destroy(s16 arg1) {
 
 extern s32 lbl_804F1280[];
 
-void *TBoss6Rock::init_object(void *) {
+void *TUnk_804F1280::init_object(void *) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F1280;
-    *(u32 *)&this->m_1c = 0;
+    *(u32 *)&(*(u16 *)((u8 *)this + 0x1C)) = 0;
     return this;
 }
 
@@ -249,7 +249,7 @@ extern void *tl_06;
 void *TBoss6Rock::create() {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
-        o = ((TBoss6Rock *)o)->init_object((void *)((void *)(tl_06)));
+        o = ((TUnk_804F1280 *)o)->init_object((void *)((void *)(tl_06)));
     }
     return o;
 }

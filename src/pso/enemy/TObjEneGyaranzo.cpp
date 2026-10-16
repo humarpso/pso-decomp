@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
@@ -1881,7 +1882,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
 
     ((void (*)(void *, s32, void *)) TObjEnemyCustom__ct)(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *) ((void * *)gyaranzo_actor_vtable_ops);
-    ((TObjEneMe3SinowZoa *)((u8 *)(arg0) + 0x3D0))->init_common();
+    ((TUnk_80494938 *)((u8 *)(arg0) + 0x3D0))->init_common();
     __construct_array((void *) ((u8 *)(arg0) + 0x3EC), (void *) (&init_and_activate__10TObjPlayerFv), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A78;
     ((VObj_18_fe72f9 *)(arg0))->m79(arg2);

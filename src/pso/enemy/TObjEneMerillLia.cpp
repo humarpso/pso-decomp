@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 
@@ -1749,7 +1750,7 @@ struct Obj_800D5150;
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_setFlags30(void *, s32);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
-s32 init_enemy_base__10TObjPlayerFv(void *, s32);
+s32 init_enemy_base__13TUnk_80493450Fv(void *, s32);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
@@ -1769,9 +1770,9 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
     s32 hp;
     s16 t;
 
-    init_enemy_base__10TObjPlayerFv(arg0, (s32)arg1);
+    init_enemy_base__13TUnk_80493450Fv(arg0, (s32)arg1);
     *(void **)((s8 *)arg0 + 0x18) = lbl_80494728;
-    ((TObjEneMe3SinowZoa *)(arg0 + 0x3A8))->init_common();
+    ((TUnk_80494938 *)(arg0 + 0x3A8))->init_common();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A88;
     ((VObj_18_4c2345 *) arg0)->m79((s32)arg2);
     ((TObjEneMerillLia *)arg0)->init_params_from_position();

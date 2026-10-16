@@ -6,6 +6,7 @@
 class TUnk_804A0668 : public TItemTimerEvent {
 public:
     virtual ~TUnk_804A0668();
+    void *init_vtable();
     virtual void vfunc_7();
     virtual void vfunc_6();
 };

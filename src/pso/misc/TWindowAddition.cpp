@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowAddition.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -22,7 +23,7 @@ void destroy_window_base__9TWindowDDFs(void *, int);
 
 extern s32 lbl_804CDFE8[];
 
-void *TWindowAddition::destroy_window(s16 arg1) {
+void *TUnk_804CDFE8::destroy_window(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804CDFE8;
         destroy_window_base__9TWindowDDFs(this, 0);
@@ -35,7 +36,7 @@ void *TWindowAddition::destroy_window(s16 arg1) {
 
 extern s32 lbl_804CDFE8[];
 
-void *TWindowAddition::construct_with_parent(void *arg1) {
+void *TUnk_804CDFE8::construct_with_parent(void *arg1) {
     construct_base__9TWindowDDFPvPvsPv(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804CDFE8;
     sub_802443B4__13TUnk_804CDFE8Fv(this, arg1);

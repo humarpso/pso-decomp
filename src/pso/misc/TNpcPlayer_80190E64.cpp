@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804B7C1C.h"
 #include "pso/misc/TUnk_804B7C04.h"
 #include "pso/misc/TLobby.h"
@@ -177,7 +178,7 @@ Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
                 c->v0(1);
             }
         }
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -186,7 +187,7 @@ Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
 }
 
 u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B7C1C.value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s16 *)((s8 *)arg0 + 0xAC) = 3;

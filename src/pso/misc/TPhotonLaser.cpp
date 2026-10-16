@@ -81,7 +81,7 @@ void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
+s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
 void TPhotonLaser::render() { TParticleCtrl::begin_effect_render(); TParticleCtrl::end_effect_render(); }
@@ -136,7 +136,7 @@ void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x364));
             *(u32 *)((s8 *)arg0 + 0x364) = 0U;
         }
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -14,7 +14,7 @@ void TUnk_804A1C38::reserved_53() { draw_weapon_at_joint(this, (void*)49); updat
 
 extern s32 lbl_804A1C38[];
 
-void *TObjPlayer::set_vtable_mode1() {
+void *TUnk_804A1C38::set_vtable_mode1() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A1C38;
     set_status_flags__10TObjPlayerFPvUi(this, 1);

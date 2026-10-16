@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneNanoDrago.h"
 #include "pso/unk/TUnk_80494E10.h"
 #include "pso/player/TObjPlayer.h"
@@ -110,7 +111,7 @@ f32 atan2_float(f32, f32);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, void *);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, int);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 extern s32 lbl_80494E10[];
@@ -258,7 +259,7 @@ void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E10;
         if (*(void **)((s8 *)arg0 + 0xE0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0)); *(s32 *)((s8 *)arg0 + 0xE0) = 0; }
         if (*(void **)((s8 *)arg0 + 0xE4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE4)); *(s32 *)((s8 *)arg0 + 0xE4) = 0; }
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -268,7 +269,7 @@ void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1) {
 u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4) {
     Ang_800DC83C ang;
     f32 s;
-    construct_collider_proxy__10TObjPlayerFv(arg0, tl_06);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E10;
     *(s32 *)((s8 *)arg0 + 0xF4) = arg3;
     VecCopy__FP3VecPC3Vec(arg0 + 0xAC, (int)arg1);

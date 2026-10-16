@@ -45,7 +45,6 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     void dispatch_page_init();
     void set_count_ratio_text(s32 arg1, s32 arg2);
     void handle_choice_input();
-    void *destroy_children(s16 arg1);
     void clear_visible_flag();
     void draw_text_glyphs(void *arg1, void *arg2);
     void draw_wrapped_text(void *arg1, void *arg2);
@@ -87,7 +86,6 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     s16 get_field_2F8();
     s16 get_stat();
     s16 get_value();
-    void*init_from(void* a1, int a2);
     void update_disp_value();
     void *dispose(s16 arg1);
     void destroy_all_items();

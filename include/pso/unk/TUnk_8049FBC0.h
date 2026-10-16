@@ -6,6 +6,7 @@
 class TUnk_8049FBC0 : public TItemObject {
 public:
     virtual ~TUnk_8049FBC0();
+    void *construct_material(void *, void *);
 };
 
 #endif

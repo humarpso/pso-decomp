@@ -6,6 +6,7 @@
 class TUnk_804A69DC : public TItemWeapon {
 public:
     virtual ~TUnk_804A69DC();
+    void *init_state_35();
     virtual void update_weapon();
     virtual void emit_marker_effects();
     virtual void set_technique_roll(s32);

@@ -57,7 +57,7 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 TObjPlayer__sub_80128A70();
-u8 * init_shot_state__10TObjPlayerFv(void *, s32, void *);
+u8 * init_shot_state__13TUnk_804A3E20Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 }
@@ -71,7 +71,7 @@ u8 *TObjPlayer::create_shot_state(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x208));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_shot_state__10TObjPlayerFv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(init_shot_state__13TUnk_804A3E20Fv(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }

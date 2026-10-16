@@ -8,7 +8,7 @@ f64 atan2_float(f32, f32);
 void *__ct__7TEffectFv(void *);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 init_collision_body_parts(u32, void *, int);
-u32 construct_collider_proxy__10TObjPlayerFv(u32, void *);
+u32 construct_collider_proxy__13TUnk_804AF8A0Fv(u32, void *);
 u32 __nw__7TObjectFUl(int);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
@@ -27,7 +27,7 @@ s32 get_type__10TObjPlayerFPv(s32);
 void *__ct__7TEffectFv(void *);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 init_collision_body_parts(u32, void *, int);
-u32 construct_collider_proxy__10TObjPlayerFv(u32, void *);
+u32 construct_collider_proxy__13TUnk_804AF8A0Fv(u32, void *);
 u32 __nw__7TObjectFUl(int);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
@@ -136,7 +136,7 @@ u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3,
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = construct_collider_proxy__10TObjPlayerFv(var_r0, arg0);
+        var_r0 = construct_collider_proxy__13TUnk_804AF8A0Fv(var_r0, arg0);
     }
     *(u32 *)((s8 *)arg0 + 0x128) = var_r0;
     if (*(u32 *)((s8 *)arg0 + 0x128) != 0U) {
@@ -204,7 +204,7 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = construct_collider_proxy__10TObjPlayerFv(var_r0, arg0);
+        var_r0 = construct_collider_proxy__13TUnk_804AF8A0Fv(var_r0, arg0);
     }
     *(u32 *)((s8 *)arg0 + 0x128) = var_r0;
     if (*(u32 *)((s8 *)arg0 + 0x128) != 0U) {

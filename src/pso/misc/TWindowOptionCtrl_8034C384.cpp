@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804F01A8.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -281,10 +282,10 @@ void TWindowOptionCtrl::handle_save_result() {
     }
 }
 
-void *TWindowOptionCtrl::destroy(s16 arg1) {
+void *TUnk_804F01A8::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804F01A8;
-        if (*(void * *)&this->m_2c != NULL) { ((TWindowSubComCard *)(*(void * *)&this->m_2c))->close(); *(s32 *)&this->m_2c = 0; }
+        if (*(void * *)&(*(u32 *)((u8 *)this + 0x2C)) != NULL) { ((TWindowSubComCard *)(*(void * *)&(*(u32 *)((u8 *)this + 0x2C))))->close(); *(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -295,14 +296,14 @@ void *TWindowOptionCtrl::destroy(s16 arg1) {
 
 extern s32 lbl_804F01A8[];
 
-void *TWindowOptionCtrl::ct() {
+void *TUnk_804F01A8::ct() {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F01A8;
     *(u32 *)((s8 *)this + 0x1C) = 0;
     *(u32 *)((s8 *)this + 0x20) = 0;
-    this->m_24 = 0;
-    this->m_28 = 14;
-    this->m_2c = 0;
+    (*(u32 *)((u8 *)this + 0x24)) = 0;
+    (*(u32 *)((u8 *)this + 0x28)) = 14;
+    (*(u32 *)((u8 *)this + 0x2C)) = 0;
     return this;
 }
 

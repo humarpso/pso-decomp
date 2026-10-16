@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjTuitate.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -71,7 +72,7 @@ extern const f32 lbl_805DBFAC;
 extern const f32 lbl_805DBFC0;
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv();
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 extern s32 TObjTuitate__collision_parts[];
 extern s32 __vt__11TObjTuitate[];
 extern s32 TObjTuitate__class_name;
@@ -143,7 +144,7 @@ void *__dt__11TObjTuitateFv(void *arg0, s16 arg1) {
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xAC, -1);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -159,7 +160,7 @@ void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2) {
     struct CopyStack_8019AF6C { u8 bytes[0x3C]; };
     CopyStack_8019AF6C copy_storage_8019AF6C;
     s32 temp_r4;
-    construct_collider_proxy__10TObjPlayerFv();
+    construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjTuitate;
     ((TObjPlayer *)((u8 *)arg0 + 0xAC))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTuitate__class_name;

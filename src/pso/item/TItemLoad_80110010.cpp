@@ -30,7 +30,7 @@ s32 TItemLoad__sub_801107E4(void *p);
 void *TItemLoad__sub_801107EC(void *p);
 extern u32 TItemLoad__completed_model_load_task_root;
 Parm_8011029C *lookup_item_pmt_record(void *);
-void init__9TItemLoadFPvPvPvPv(void *, void *, s32, s32, s32);
+void init__13TUnk_8049F3F4FPvPvPvPv(void *, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
 extern s16 lbl_8043E4C0[];
 extern s16 lbl_8043E4C8[];
@@ -153,7 +153,7 @@ s32 request_item_model_load(u8 *item) {
                             TItemLoad__model_slot_in_use[i] = 1;
                             obj = __nw__7TObjectFUl(0x44);
                             if (obj != NULL) {
-                                init__9TItemLoadFPvPvPvPv(obj, TItemLoad__model_load_task_root, i, a, b);
+                                init__13TUnk_8049F3F4FPvPvPvPv(obj, TItemLoad__model_load_task_root, i, a, b);
                             }
                             return i;
                         }

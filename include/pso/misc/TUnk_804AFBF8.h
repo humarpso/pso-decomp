@@ -6,6 +6,7 @@
 class TUnk_804AFBF8 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_804AFBF8();
+    void *destroy_key_base(s16);
     s32 is_in_view_depth(f32);
     void update_anim_phase();
     virtual void render();

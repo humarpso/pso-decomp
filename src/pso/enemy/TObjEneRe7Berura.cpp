@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -1244,10 +1246,10 @@ void TObjEneRe7Berura::init_enemy() {
 }
 
 void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
-    ((TObjEneDD *)arg0)->init_object();
+    ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneRe7Berura;
-    ((TObjPlayer *)((char *)arg0 + 984))->init_vtable_and_field18();
-    ((TObjPlayer *)((char *)arg0 + 1020))->init_vtable_and_field18();
+    ((TUnk_80490470 *)((char *)arg0 + 984))->init_vtable_and_field18();
+    ((TUnk_80490470 *)((char *)arg0 + 1020))->init_vtable_and_field18();
     __construct_array((void *)((char *)arg0 + 1096), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2988;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjQuestColBase.h"
 #include "pso/TObject.h"
 #include "pso/misc/TLobby.h"
@@ -145,7 +146,7 @@ u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TObjQuestColBase.value;
         TObjQuestColBase__instance_count -= 1;
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -160,7 +161,7 @@ typedef char RecoveredGlobal_80196DB4___vt__16TObjQuestColBase_size[((sizeof(Rec
 #define PSO_VCALL_VObj_18_1a504b_m5(_self, _arg0) (((VObj_18_1a504b *)(_self))->m5((_arg0)))
 u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
   u16 temp_r6;
-  ((TObjPlayer *)arg0)->construct_collider_proxy();
+  ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_0 = quest_col_base_class_name;
   PSO_VCALL_VObj_18_1a504b_m5(arg0, arg2);

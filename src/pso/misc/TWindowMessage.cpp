@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowAddition.h"
 #include "pso/misc/TWindowDD.h"
@@ -9,7 +10,7 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 u8 *mem_alloc(s32);
-void *construct_with_parent__15TWindowAdditionFPv(void *, void *, s16, s32);
+void *construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 extern u8 message_window_settings[];
 extern s32 __vt__14TWindowMessage[];
 extern s32 lbl_805D3980;
@@ -55,7 +56,7 @@ void *__dt__14TWindowMessageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowMessage;
         if (*(void **)((s8 *)arg0 + 0x7C) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0x7C)); }
-        ((TWindowAddition *)arg0)->destroy_window(0);
+        ((TUnk_804CDFE8 *)arg0)->destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -65,7 +66,7 @@ void *__dt__14TWindowMessageFv(void *arg0, s16 arg1) {
 u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3) {
     u32 i;
     u8 *p;
-    construct_with_parent__15TWindowAdditionFPv(arg0, message_window_settings, arg3, arg1);
+    construct_with_parent__13TUnk_804CDFE8FPv(arg0, message_window_settings, arg3, arg1);
     *(void **)(arg0 + 0x18) = ((u8 *)&__vt__14TWindowMessage);
     *(s32 *)arg0 = lbl_805D3980;
     *(s32 *)(arg0 + 0x70) = 0;

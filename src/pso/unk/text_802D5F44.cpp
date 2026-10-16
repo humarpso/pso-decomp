@@ -7,10 +7,10 @@ extern "C" {
 void *alloc_from_obj_heap__10TObjPlayerFPv(u32);
 void *setup_state__10TObjPlayerFPv(void *, s32, void *);
 void *init_needle_effect__10TObjPlayerFPv(void *, s32, void *);
-void *enter_state_341__10TObjPlayerFPv(void *, s32, void *);
+void *enter_state_341__13TUnk_804E2000Fv(void *, s32, void *);
 void *init_mag_effect_state__10TObjPlayerFPv(void *, s32, void *);
-void *init_type_447__10TObjPlayerFPv(void *, s32, void *);
-void *init_vtable_and_handlers_341__10TObjPlayerFPv(void *, s32, void *);
+void *init_type_447__13TUnk_804E22F4Fv(void *, s32, void *);
+void *init_vtable_and_handlers_341__13TUnk_804E1F04Fv(void *, s32, void *);
 void *init_vtable_and_field200__10TObjPlayerFPv(void *, s32, void *);
 extern s32 tl_05;
 }
@@ -143,13 +143,13 @@ void *TObjPlayer::create_object_by_type() {
         case 1:
             p = alloc_from_obj_heap__10TObjPlayerFPv(0x20C);
             if (p != NULL) {
-                p = init_vtable_and_handlers_341__10TObjPlayerFPv(p, tl_05, arg0);
+                p = init_vtable_and_handlers_341__13TUnk_804E1F04Fv(p, tl_05, arg0);
             }
             return p;
         case 2:
             p = alloc_from_obj_heap__10TObjPlayerFPv(0x20C);
             if (p != NULL) {
-                p = init_type_447__10TObjPlayerFPv(p, tl_05, arg0);
+                p = init_type_447__13TUnk_804E22F4Fv(p, tl_05, arg0);
             }
             return p;
         case 3:
@@ -163,7 +163,7 @@ void *TObjPlayer::create_object_by_type() {
     case 0x93:
         p = alloc_from_obj_heap__10TObjPlayerFPv(0x20C);
         if (p != NULL) {
-            p = enter_state_341__10TObjPlayerFPv(p, tl_05, arg0);
+            p = enter_state_341__13TUnk_804E2000Fv(p, tl_05, arg0);
         }
         return p;
     case 0xA4:

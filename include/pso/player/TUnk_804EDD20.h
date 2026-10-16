@@ -6,6 +6,8 @@
 class TUnk_804EDD20 : public TUnk_804EDD44 {
 public:
     virtual ~TUnk_804EDD20();
+    void *init_effect_object();
+    void *init_offsets_object();
     virtual void vfunc_8();
     virtual void start_card_effect_trail();
     virtual void start_card_effect_flash();

@@ -186,7 +186,7 @@ void TUnk_80480938::run_task() { TObjPlayer__sub_8001A77C((void *)(this)); TObjP
 
 extern s32 lbl_80480938[];
 
-void *TObjPlayer::destroy_base(s16 arg1) {
+void *TUnk_80480938::destroy_base(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80480938;
         __dt__7TObjectFv(this, 0);

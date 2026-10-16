@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A0608.h"
 #include "pso/item/TItemProUnit.h"
 
 extern "C" {
@@ -52,7 +53,7 @@ f32 TItemProUnit__sub_8011901C(void* p) { return *(f32*)((char*)p + 0x8); }
 
 extern s32 lbl_804A0608[];
 
-void *TItemProUnit::init_timer_event() {
+void *TUnk_804A0608::init_timer_event() {
     TItemTimerEvent__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A0608;
     return this;

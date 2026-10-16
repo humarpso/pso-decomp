@@ -8,7 +8,7 @@ u8 get_slot_count__14TItemProShieldFv();
 s32 create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, s32, s32);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 create_ex__9TTecMegidFllll(void *, s32 *, s32, s32);
-s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
+s32 ct__13TUnk_804A0688Fv(s32, u32, s32, s32);
 
 void TObjPlayer::create_shield() {
     s32 temp_r3;
@@ -18,12 +18,12 @@ void TObjPlayer::create_shield() {
         if (get_slot_count__14TItemProShieldFv() == 0) {
             temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
             if (temp_r3 != 0) {
-                ct__13TItemProArmorFPv(temp_r3, *(u32 *)((s8 *)this + 0x174), get_id__13TItemProArmorFv(this), 0x96);
+                ct__13TUnk_804A0688Fv(temp_r3, *(u32 *)((s8 *)this + 0x174), get_id__13TItemProArmorFv(this), 0x96);
             }
         } else {
             temp_r3_2 = __nw__15TItemHeapObjectFUl(0x2C);
             if (temp_r3_2 != 0) {
-                ct__13TItemProArmorFPv(temp_r3_2, *(u32 *)((s8 *)this + 0x174), get_id__13TItemProArmorFv(this), 0x5A);
+                ct__13TUnk_804A0688Fv(temp_r3_2, *(u32 *)((s8 *)this + 0x174), get_id__13TItemProArmorFv(this), 0x5A);
             }
         }
     }

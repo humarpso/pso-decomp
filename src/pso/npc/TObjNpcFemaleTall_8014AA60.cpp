@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TUnk_804A92A8.h"
 #include "pso/npc/TObjNpcFemaleTall.h"
 
 extern "C" {
@@ -13,7 +14,7 @@ void TObjNpcFemaleTall__sub_8014AA60(void) { lbl_805D5798 = lbl_805D5D78; }
 
 extern s32 npc_female_tall_dispatch_table[];
 
-void *TObjNpcFemaleTall::destroy(s16 arg1) {
+void *TUnk_804A92A8::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = npc_female_tall_dispatch_table;
         __dt__11TObjNpcBaseFv(this, 0);

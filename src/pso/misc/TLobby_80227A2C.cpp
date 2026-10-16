@@ -891,7 +891,7 @@ void clear_work_buffer(u8 *arg0) {
 
 extern s32 lbl_804CC048[];
 
-void *TLobby::construct(void *arg1, void *arg2, void *arg3) {
+void *TUnk_804CC048::construct(void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804CC048;
     *(void **)((s8 *)this + 0x10A0) = arg2;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049C658.h"
 #include "pso/TItemLoad.h"
 #include "pso/item/TItemDrop.h"
 
@@ -60,11 +61,11 @@ void *TItemLoad::load_buffer(u32 arg1, s32 arg2) {
         temp_r3 = create_item_buff(arg2);
         if ((temp_r3 != 0) && ((u32) *(u32 *)&this->m_name != 0U) && (read_disc_file(arg1, temp_r3) > 0)) {
             temp_r31 = prs_decompress_alloc(temp_r3, *(u32 *)&this->m_name, arg2);
-            ((TItemDrop *)((s32 *)&sp8))->construct();
+            ((TUnk_8049C658 *)((s32 *)&sp8))->construct();
             sp8.field1c = *(u32 *)&this->m_name;
             sp8.field20 = temp_r31;
             *(s32 *)&this->m_flags = apply_rel_relocations((s32 *)&sp8);
-            ((TItemDrop *)((s32 *)&sp8))->destroy(-1);
+            ((TUnk_8049C658 *)((s32 *)&sp8))->destroy(-1);
         }
         TItemBuff__ct();
     }

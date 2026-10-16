@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804E355C.h"
 #include "pso/item/TItemAttackCol.h"
 #include "pso/object/TObjOnlineEnding.h"
 #include "pso/player/TObjPlayer.h"
@@ -105,7 +106,7 @@ void check_hits__14TItemAttackColFPv(u8 *arg0) {
     reset_global_table();
 }
 
-void *TItemAttackCol::destroy_attack_collision(s16 arg1) {
+void *TUnk_804E355C::destroy_attack_collision(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804E355C;
         __dt__7TObjectFv(this, 0);

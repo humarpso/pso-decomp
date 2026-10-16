@@ -29,7 +29,6 @@ struct TLockOnCursor : public TObject {
     static s32 free_if_owned(s32 arg0, s16 arg1);
     virtual void run_task();
     static void free_cursor_resources();
-    void *init(void *arg1, void *arg2);
     int render_part();
     void update_cursor_pos();
     int set_flag_8_bit0();

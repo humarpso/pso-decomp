@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/player/TUnk_804928CC.h"
+#include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 
 struct Bringer_80097714;
@@ -3308,7 +3311,7 @@ struct Tbl_80099800 { u8 pad0[0x1C]; u8 model[0x2C]; u8 sub[0xBC - 0x2C]; u8 pad
 
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void *init__17TObjEneDf2BringerFPviii(void *a0, int a1, int a2, int a3);
+void *init__13TUnk_8048FE08Fiii(void *a0, int a1, int a2, int a3);
 void enemy_init_validate_period(void *, s32);
 void enemy_init_acquire_period(void *, s32);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
@@ -3397,7 +3400,7 @@ void TObjEneDf2Bringer::init_enemy() {
     *(s32 *)((s8 *)arg0 + 0x490) = 0;
     p = __nw__7TObjectFUl(0xB0);
     if (p != NULL) {
-        p = ((TObjEneDellBiter *)p)->init_instance(arg0, arg0, (u8 *)lbl_8048FA2C + 0x2C, (void *)2);
+        p = ((TUnk_804928CC *)p)->init_instance(arg0, arg0, (u8 *)lbl_8048FA2C + 0x2C, (void *)2);
     }
     *(void **)((s8 *)arg0 + 0x498) = p;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
@@ -3407,7 +3410,7 @@ void TObjEneDf2Bringer::init_enemy() {
     *(void **)((s8 *)arg0 + 0x49C) = p;
     p = __nw__7TObjectFUl(0xD4);
     if (p != NULL) {
-        p = init__17TObjEneDf2BringerFPviii(p, (int)arg0, (int)arg0, *(s32 *)((s8 *)arg0 + 0x49C));
+        p = init__13TUnk_8048FE08Fiii(p, (int)arg0, (int)arg0, *(s32 *)((s8 *)arg0 + 0x49C));
     }
     *(void **)((s8 *)arg0 + 0x4A0) = p;
     *(s32 *)((s8 *)arg0 + 0x4A4) = create__12TObjEneSaverFPvPv(0xFF5050FF, 0x80000080);
@@ -3424,9 +3427,9 @@ void TObjEneDf2Bringer::init_enemy() {
 }
 
 void *TObjEneDf2Bringer__ct(void *arg0, void *arg1, void *arg2) {
-    ((TObjEneDD *)arg0)->init_object();
+    ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjEneDf2Bringer;
-    ((TObjPlayer *)((char *)arg0 + 964))->init_vtable_and_field18();
+    ((TUnk_80490470 *)((char *)arg0 + 964))->init_vtable_and_field18();
     __construct_array((void *)((char *)arg0 + 992), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D29A0;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);

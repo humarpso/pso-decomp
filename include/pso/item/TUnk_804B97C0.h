@@ -6,6 +6,8 @@
 class TUnk_804B97C0 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_804B97C0();
+    void*init_positions();
+    void *dt(s16);
     virtual void vfunc_14();
     virtual void vfunc_15();
     virtual void render();

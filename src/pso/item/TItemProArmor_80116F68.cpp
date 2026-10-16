@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TUnk_8049FD48.h"
+#include "pso/unk/TUnk_8049FBC0.h"
 #include "pso/item/TItemProArmor.h"
 
 struct Base_8011620C_80115D6C { char pad[0x18]; };
@@ -118,7 +120,7 @@ int obj_getS16_2BA(void*);
 
 extern s32 lbl_8049FBC0[];
 
-void *TItemProArmor::construct_material(void * _w1, void * _w2) {
+void *TUnk_8049FBC0::construct_material(void *_w1, void *_w2) {
     TItemObject__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_8049FBC0;
     return this;
@@ -135,7 +137,7 @@ u8 *create_material_item(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TItemProArmor *)temp_r3)->construct_material((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049FBC0 *)temp_r3)->construct_material((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
@@ -197,7 +199,7 @@ void *TItemProArmor__sub_80117160(void *arg0, s16 arg1) {
 
 extern s32 lbl_8049FD48[];
 
-void *TItemProArmor::init(void * _w1, void * _w2) {
+void *TUnk_8049FD48::init(void *_w1, void *_w2) {
     TItemObject__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_8049FD48;
     return this;
@@ -210,7 +212,7 @@ u8 *create_telepipe_item(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TItemProArmor *)temp_r3)->init((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049FD48 *)temp_r3)->init((void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }

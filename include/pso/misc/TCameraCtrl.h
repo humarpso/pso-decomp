@@ -78,7 +78,6 @@ struct TCameraCtrl : public TObject {
     void set_target(u32 arg1);
     void update_target_follow();
     void init_state();
-    void*init();
     void reset_behind_player();
     void reset_state();
     void set_target_pos(void* q);
@@ -122,7 +121,6 @@ struct TCameraCtrl : public TObject {
     void copy_camera_params();
     void apply_look_at_from_target();
     void cache_target_and_forward(s32 arg1);
-    void *init_subobject();
     static void reset_to_local_player();
     static void set_override_position_and_angle(u8 *arg0, s16 arg1);
     static void set_fixed_position_and_target(u8 *arg0, u8 *arg1);
@@ -141,7 +139,6 @@ struct TCameraCtrl : public TObject {
     static s32 should_update();
     void copy_position_vectors(void *arg1, void *arg2);
     static void update_single_screen();
-    void *dt(s16 arg1);
     static int get_mode();
     static s32 get_camera_no();
     static void set_mode(int a0);

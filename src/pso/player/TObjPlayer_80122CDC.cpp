@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A1478.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 
@@ -18,7 +19,7 @@ void TObjPlayer::spawn_cane(s32 arg0) {
 
 extern s32 lbl_804A1478[];
 
-void *TObjPlayer::set_vtable_804A1478() {
+void *TUnk_804A1478::set_vtable_804A1478() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A1478;
     return this;

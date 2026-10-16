@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubCustomSelect.h"
 #include "pso/misc/TWindowAddition.h"
 #include "pso/misc/TWindowDD.h"
@@ -60,7 +61,7 @@ extern RecoveredGlobal_80277928_lbl_8050E208 controller_input_state;
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 Big_80277AEC *get_player_by_client_id(int);
-s32 construct_with_parent__15TWindowAdditionFPv(void *, void *, s16, s32);
+s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 s32 get_window_layout_position(int);
 void *reset_selection__20TWindowSubStatusDispFv(void *, Pos_80277AEC *);
 void *construct_type1_heading__20TWindowSubStatusDispFPvii(void *, s32, s32);
@@ -287,7 +288,7 @@ void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowSubCustomSelect;
         TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)arg0 + 0x80)), (s16)1);
         destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)arg0 + 0x7C), 1);
-        ((TWindowAddition *)arg0)->destroy_window(0);
+        ((TUnk_804CDFE8 *)arg0)->destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -303,7 +304,7 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
     Sub_80277AEC *q;
     Ent_80277AEC *e;
     void *o;
-    construct_with_parent__15TWindowAdditionFPv(arg0, TWindowSubCustomSelect__window_settings, arg1, get_window_layout_position(0x10));
+    construct_with_parent__13TUnk_804CDFE8FPv(arg0, TWindowSubCustomSelect__window_settings, arg1, get_window_layout_position(0x10));
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowSubCustomSelect;
     *(s32 *)((s8 *)arg0 + 0) = TWindowSubCustomSelect__class_name;
     *(s16 *)((s8 *)arg0 + 0x20) = arg1;

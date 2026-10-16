@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804EEF80.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
@@ -16,7 +17,7 @@ void __ct__7TObjectFP7TObject(void *);
 
 extern s32 lbl_804EEF80[];
 
-void *TLobby::construct(void *arg1) {
+void *TUnk_804EEF80::construct(void *arg1) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EEF80;
     *(void **)((s8 *)this + 0x1C) = arg1;

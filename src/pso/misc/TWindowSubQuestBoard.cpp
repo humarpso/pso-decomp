@@ -103,11 +103,11 @@ void TUnk_804D1818::run_task() {
     }
 }
 
-void *TWindowSubQuestBoard::dt(s16 arg1) {
+void *TUnk_804D1818::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__19TWindowSubQuestBoard;
         if (*(void * *)&this->m_2c != NULL) { TWindow__close(*(void * *)&this->m_2c); *(s32 *)&this->m_2c = 0; }
-        if (*(void * *)&this->m_28 != NULL) { TWindow__close(*(void * *)&this->m_28); *(s32 *)&this->m_28 = 0; }
+        if (*(void * *)&(*(u32 *)((u8 *)this + 0x28)) != NULL) { TWindow__close(*(void * *)&(*(u32 *)((u8 *)this + 0x28))); *(s32 *)&(*(u32 *)((u8 *)this + 0x28)) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

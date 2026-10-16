@@ -12,7 +12,6 @@ public:
     void set_tint_color(s32 arg1);
     void clear_active_flag();
     static void *create_random_spread(void *arg0, void *arg1, void *arg2);
-    void *init_particle_random_spread(void *a1, void *a2, void *a3);
     static u8 *create_particle_obj_90(s32 arg0);
     static u8 *create_particle_obj_ac(s32 arg0);
     void mark_active();

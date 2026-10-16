@@ -12,7 +12,6 @@ struct TWindowSubQuestBoard : public TObject {
     u32 m_24;
     u32 m_28;
     u32 m_2c;
-    void *dt(s16 arg1);
     void set_board_flags(s32 arg1);
     void set_card_window_flags(s32 arg1);
     void clear_card_window_flags(s32 arg1);

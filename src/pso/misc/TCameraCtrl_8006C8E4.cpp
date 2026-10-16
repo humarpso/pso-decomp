@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488D70.h"
 #include "pso/misc/TCameraCtrl.h"
 
 #pragma inline_depth(1)
@@ -48,7 +49,7 @@ void __dl__7TObjectFPv(void *);
 
 extern s32 lbl_80488D70[];
 
-void *TCameraCtrl::init_subobject() {
+void *TUnk_80488D70::init_subobject() {
     ((void (*)(void *))TCameraCtrl__sub_80068714)(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_80488D70;
     *(u32 *)((s8 *)this + 0x38) = 4;

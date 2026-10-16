@@ -49,9 +49,6 @@ struct TObjEneBm9Mericarol : public TObjEneDD_ST {
     void state_burrow(s32 arg1);
     void handle_event(s32 arg1);
     void handle_action(s32 arg1);
-    void *dt(s16 arg1);
-    void *destroy(s16 arg1);
-    void *construct(s32 arg1, s32 arg2);
     u8 unk_494[0x1C];
 };
 

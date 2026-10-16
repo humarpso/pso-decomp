@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494E48.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjGyaranzoMissile.h"
@@ -156,7 +157,7 @@ s32 spawn_particle_effect_with_rotation(Vec_800DCD04 *, s32 *, s32, s32);
 f32 horizontal_distance__10TObjPlayerFPUc(Vec_800DCD04 *, Vec_800DCD04 *);
 f32 xz_distance_squared(Vec_800DCD04 *, Vec_800DCD04 *);
 u8 *find_entity_by_id(s16);
-void construct_collider_proxy__10TObjPlayerFv(void *, void *);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void matrix_mult_vec(s32, Vec_800DCD04 *, Vec_800DCD04 *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
@@ -180,7 +181,7 @@ void queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_80494E48[];
 
-void *TObjPlayer::destroy_particle_obj(s16 arg1) {
+void *TUnk_80494E48::destroy_particle_obj(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80494E48;
         if (*(void **)((s8 *)this + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xF8)); *(s32 *)((s8 *)this + 0xF8) = 0; }
@@ -193,7 +194,7 @@ void *TObjPlayer::destroy_particle_obj(s16 arg1) {
 }
 Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s16 id, s32 *rot, s32 arg4, s16 arg5) {
     Vec_800DCD04 *pp;
-    construct_collider_proxy__10TObjPlayerFv(self, tl_04);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(self, tl_04);
     self->vt = lbl_80494E48;
     self->id = id;
     self->f102 = arg5;

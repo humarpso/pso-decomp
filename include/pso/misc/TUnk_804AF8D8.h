@@ -6,6 +6,8 @@
 class TUnk_804AF8D8 : public TUnk_80494AE0 {
 public:
     virtual ~TUnk_804AF8D8();
+    void *init_vtable_804AF8D8();
+    void *destroy(s16);
     void sub_80156CEC();
 };
 

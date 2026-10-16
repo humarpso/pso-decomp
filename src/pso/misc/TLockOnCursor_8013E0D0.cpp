@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804A7260.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TMainCursor.h"
 
@@ -16,7 +17,7 @@ void TLockOnCursor__sub_8013E0D0(void* p, s32 v) { *(s32*)((char*)p + 0x8) = v; 
 
 extern s32 lbl_804A7260[];
 
-void *TLockOnCursor::init(void *arg1, void *arg2) {
+void *TUnk_804A7260::init(void *arg1, void *arg2) {
     struct VOff_8013E0D8_arg0_8013e0d8_8013E0D0 *self = (struct VOff_8013E0D8_arg0_8013e0d8_8013E0D0 *)this;
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A7260;

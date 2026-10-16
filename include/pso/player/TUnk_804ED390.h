@@ -6,6 +6,7 @@
 class TUnk_804ED390 : public TItemWeapon {
 public:
     virtual ~TUnk_804ED390();
+    void*init_vtable_1f8(s32, void *);
     u8 unk_1F8[0x4];
 };
 

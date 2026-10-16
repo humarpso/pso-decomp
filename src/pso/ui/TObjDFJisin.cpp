@@ -166,7 +166,7 @@ struct Ball_8005123C {
 
 struct Obj_80050AF8 { u8 pad[0x358]; u32 objs[2]; };
 
-void destroy_motion_object__10TObjPlayerFPvs(void *, s32);
+void destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, s32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 Player_80050D74 * get_player_data__10TObjPlayerFi(s32);
@@ -327,7 +327,7 @@ S_80050A68 *__dt__13TObjDFHormingFv(S_80050A68 *o, s16 flag) {
                 o->ptr[i] = 0;
             }
         }
-        destroy_motion_object__10TObjPlayerFPvs(o, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }

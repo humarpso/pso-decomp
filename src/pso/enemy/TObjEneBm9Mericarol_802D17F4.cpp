@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/enemy/TObjEneBm9Mericarol_EffCurse3.h"
 
 #include "pso/enemy/TObjEnemy.h"
@@ -317,18 +318,18 @@ s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void destroy_enemy_object__10TObjPlayerFs(void *, int);
+void destroy_enemy_object__13TUnk_804928CCFs(void *, int);
 s32 is_alive__9TObjEneDDFv(s32);
 void queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_804E18A8[];
 
-void *TObjEneBm9Mericarol::dt(s16 arg1) {
+void *TObjEneBm9Mericarol_Bomb::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804E18A8;
         if (*(void **)((s8 *)this + 0x110) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x110)); *(s32 *)((s8 *)this + 0x110) = 0; }
         if (*(void **)((s8 *)this + 0x114) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x114)); *(s32 *)((s8 *)this + 0x114) = 0; }
-        destroy_enemy_object__10TObjPlayerFs(this, 0);
+        destroy_enemy_object__13TUnk_804928CCFs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -455,7 +456,7 @@ typedef struct VObj_18_477421 VObj_18_477421;
 #define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
 #pragma pop
 
-void *TObjEneBm9Mericarol::destroy(s16 arg1) {
+void *TObjEneBm9Mericarol_EffCurse3::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804E1908;
         if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24)); *(s32 *)((s8 *)this + 0x24) = 0; }
@@ -470,7 +471,7 @@ void *TObjEneBm9Mericarol::destroy(s16 arg1) {
 extern s32 lbl_804E1908[];
 extern s32 lbl_805D3F38;
 
-void *TObjEneBm9Mericarol::construct(s32 arg1, s32 arg2) {
+void *TObjEneBm9Mericarol_EffCurse3::construct(s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)this + 0x18) = lbl_804E1908;
     *(s32 *)((s8 *)this + 0) = (s32) lbl_805D3F38;

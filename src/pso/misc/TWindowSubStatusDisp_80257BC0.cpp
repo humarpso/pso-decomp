@@ -187,7 +187,7 @@ s32 play_sound_effect(u32, s32, s32, s32);
 #define calc_bar_width__20TWindowSubStatusDispFPv ((s32 (*)())calc_bar_width__20TWindowSubStatusDispFPv)
 #define step_gauge_bar_width ((void (*)(void *))step_gauge_bar_width)
 #define TWindowSubStatusDisp__sub_80257298 ((s32 (*)(void *, s16))TWindowSubStatusDisp__sub_80257298)
-void* init_from__20TWindowSubStatusDispFPvi(void* a0, void* a1, int a2);
+void* init_from__13TUnk_804CF930FPvi(void* a0, void* a1, int a2);
 u32 update_text_color_transition(void);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
 void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
@@ -291,7 +291,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
             case 1:
                 o = alloc__23TAdSinglePlyChrSelectGCFv(0x28);
                 if (o != NULL) {
-                    o = ((Ctor_80257D44)init_from__20TWindowSubStatusDispFPvi)(o, rec, arg2);
+                    o = ((Ctor_80257D44)init_from__13TUnk_804CF930FPvi)(o, rec, arg2);
                 }
                 *out = o;
                 rec += 0x24 / 4;

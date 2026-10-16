@@ -6,6 +6,7 @@
 class TUnk_804ECEB8 : public TItemWeapon {
 public:
     virtual ~TUnk_804ECEB8();
+    void *init_vtable_variant(s32, void *);
 };
 
 #endif

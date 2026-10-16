@@ -104,8 +104,8 @@ void mem_free(void *);
 s32 stop_sound_request(void *);
 void __dl__7TObjectFPv(void *);
 #define __dl__7TObjectFPv ((s32 (*)(void *))__dl__7TObjectFPv)
-void destroy_technique_base__9TTecLukerFPvs(void *, int);
-#define destroy_technique_base__9TTecLukerFPvs ((s32 (*)(void *, int))destroy_technique_base__9TTecLukerFPvs)
+void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
+#define destroy_technique_base__13TUnk_804CC148Fs ((s32 (*)(void *, int))destroy_technique_base__13TUnk_804CC148Fs)
 extern struct Profile_80237A94 rabarta_band_emitter_table[];
 u16 obj_getField1c(void *);
 void calc_parameters__11TTecRaBartaFv(void *);
@@ -251,7 +251,7 @@ void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self) {
 #undef is_valid_and_active__10TObjPlayerFUl
 #undef apply_technique_to_area_targets
 
-#undef destroy_technique_base__9TTecLukerFPvs
+#undef destroy_technique_base__13TUnk_804CC148Fs
 #undef spawn_particle_effect
 #undef mem_free
 #define spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv ((s32 (*)(void *))spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv)
@@ -688,7 +688,7 @@ extern "C" {
 void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_technique_base__9TTecLukerFPvs(void *, int);
+void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 
 u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_802384E0, sp8) == 0x0) ? 1 : -1];
@@ -865,7 +865,7 @@ extern s32 __vt__10TTecRaFoie[];
 void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTecRaFoie;
-        destroy_technique_base__9TTecLukerFPvs(arg0, 0);
+        destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

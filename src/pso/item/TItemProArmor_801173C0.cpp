@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049FE00.h"
 #include "pso/item/TUnk_8049FEB8.h"
 #include "pso/item/TItemProArmor.h"
 #include "pso/item/TItemTimerEvent.h"
@@ -118,7 +119,7 @@ s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_8049FE00[];
 
-void *TItemProArmor::construct(void * _w1, void * _w2) {
+void *TUnk_8049FE00::construct(void *_w1, void *_w2) {
     TItemObject__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_8049FE00;
     return this;
@@ -132,7 +133,7 @@ u8 *TItemProArmor::create() {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TItemProArmor *)temp_r3)->construct((void *)((void *)((*(s32 *)&tl_05))), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_8049FE00 *)temp_r3)->construct((void *)((void *)((*(s32 *)&tl_05))), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
@@ -156,10 +157,10 @@ void TUnk_8049FEB8::run_task() {
 
 extern s32 lbl_8049FEB8[];
 
-void *TItemProArmor::dt(s16 arg1) {
+void *TUnk_8049FEB8::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049FEB8;
-        TItemTimerEvent::clear_timer_slot(*(u16 *)&this->m_1c);
+        TItemTimerEvent::clear_timer_slot(*(u16 *)&(*(u16 *)((u8 *)this + 0x1C)));
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

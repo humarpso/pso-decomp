@@ -2,7 +2,7 @@
 struct Obj_80269004 { u8 p0[0x18]; void *f18; };
 
 extern "C" {
-void construct_with_parent__15TWindowAdditionFPv(void *, void *, s32, void *);
+void construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s32, void *);
 void TWindowMenuInfomation__ct(void *, void *);
 extern u8 choice_setting_popup_window_descriptor[];
 extern u8 choice_setting_popup_vtable[];
@@ -12,7 +12,7 @@ Obj_80269004 *fn_80269004(Obj_80269004 *self, void *parent, void *arg2);
 extern "C" {
 
 Obj_80269004 *fn_80269004(Obj_80269004 *self, void *parent, void *arg2) {
-    construct_with_parent__15TWindowAdditionFPv(self, choice_setting_popup_window_descriptor, 4, parent);
+    construct_with_parent__13TUnk_804CDFE8FPv(self, choice_setting_popup_window_descriptor, 4, parent);
     self->f18 = choice_setting_popup_vtable;
     TWindowMenuInfomation__ct(self, arg2);
     return self;

@@ -24,7 +24,7 @@ s32 get_current_floor();
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 create_tec_zonde__10TObjPlayerFPvPvPvPv(int, void *, void *, int);
 void set_technique_roll__13TUnk_804A4F60Fl(u8 *arg0, s32 arg1);
-u8 * init_vtable_and_clear_field1f8__10TObjPlayerFv(void *, s32, void *);
+u8 * init_vtable_and_clear_field1f8__13TUnk_804A4E68Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -49,7 +49,7 @@ u8 *TObjPlayer::create_vtable_clear_field1f8(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_vtable_and_clear_field1f8__10TObjPlayerFv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(init_vtable_and_clear_field1f8__13TUnk_804A4E68Fv(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }

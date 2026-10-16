@@ -6,6 +6,7 @@
 class TUnk_804848B8 : public TUnk_804999E8 {
 public:
     virtual ~TUnk_804848B8();
+    void *init_fade(void *, void *);
     u8 unk_24[0x4];
 };
 typedef char TUnk_804848B8_size[sizeof(TUnk_804848B8) == 0x28 ? 1 : -1];

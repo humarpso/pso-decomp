@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B1B80.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOFenceAncient03.h"
 #include "pso/misc/TOFenceAncient01.h"
@@ -47,7 +48,7 @@ extern u8 *TOFenceAncient03__shared_resource_object;
 extern u32 TOFenceAncient03__texture_lists;
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
-s32 init_fields__16TOFenceAncient01Fv();
+s32 init_fields__13TUnk_804B1B80Fv();
 s32 sub_80166E64__13TUnk_804B1B80Fv(void *);
 s32 sub_80166EA8__13TUnk_804B1B80Fi(void *, int);
 extern RecoveredGlobal_801674E0_lbl_804B1DB8 TOFenceAncient03_collision_body_parts;
@@ -146,7 +147,7 @@ void *__dt__16TOFenceAncient03Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOFenceAncient03;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        ((TOFenceAncient01 *)arg0)->destroy(0);
+        ((TUnk_804B1B80 *)arg0)->destroy(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -159,7 +160,7 @@ u8 *TOFenceAncient03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f1;
     u8 *temp_r4;
     u8 *temp_r6;
-    init_fields__16TOFenceAncient01Fv();
+    init_fields__13TUnk_804B1B80Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801674E0___vt__16TOFenceAncient03 *)&__vt__16TOFenceAncient03).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOFenceAncient03__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

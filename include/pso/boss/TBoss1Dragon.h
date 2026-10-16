@@ -139,7 +139,6 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     static u8 *create(s32 arg0);
     static s32 get_instance();
     void set_child_motion(u8 *arg1);
-    void *dt(s16 arg1);
     static void select_fireball_particle_table();
     static void init_gravity_globals();
     int get_position();};

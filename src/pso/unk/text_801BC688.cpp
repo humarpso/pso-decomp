@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DDBF0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 
@@ -7,7 +8,7 @@ struct Base_801BC688 { char pad[8]; };
 struct VObj_801BC688 : Base_801BC688 { virtual void m0(); virtual void m1(int); };
 
 extern "C" {
-u8 * init_vtable8__6TLobbyFPv(void *);
+u8 * init_vtable8__13TUnk_804ED7D0Fv(void *);
 s32 set_move_mode__10TObjPlayerFPvi(void *, int);
 s32 set_input_mode__10TObjPlayerFPvi(void *, int);
 s32 set_flag_400000__10TObjPlayerFi(void *);
@@ -43,14 +44,14 @@ void TObjPlayer::init_action_provider() {
         temp_r3 = (u8 *)(heap_alloc__10TObjPlayerFPv(0x8C));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((TLobby *)temp_r3)->ct_variant());
+            var_r0 = (u8 *)(((TUnk_804DDBF0 *)temp_r3)->ct_variant());
         }
         *(u8 * *)&this->unk_380 = var_r0;
     } else if (TObjPlayer::get_hold_effect_count() == 0) {
         temp_r3_2 = (u8 *)(heap_alloc__10TObjPlayerFPv(0xC));
         var_r0_2 = (u8 *)(temp_r3_2);
         if (var_r0_2 != NULL) {
-            var_r0_2 = (u8 *)(init_vtable8__6TLobbyFPv(temp_r3_2));
+            var_r0_2 = (u8 *)(init_vtable8__13TUnk_804ED7D0Fv(temp_r3_2));
         }
         *(u8 * *)&this->unk_380 = var_r0_2;
     }

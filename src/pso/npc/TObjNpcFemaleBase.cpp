@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TUnk_804A8640.h"
 #include "pso/npc/TObjNpcFemaleBase.h"
 #include "pso/npc/TObjNpcFemaleChild.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -166,7 +167,7 @@ void TObjNpcFemaleBase::load_shared_resource() {
 void *__dt__17TObjNpcFemaleBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjNpcFemaleBase;
-        ((TObjNpcFemaleBase *)arg0)->destroy_npc_female_base(0);
+        ((TUnk_804A8640 *)arg0)->destroy_npc_female_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -178,7 +179,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_80149E88___vt__17TObjNpcFemaleBase_size[sizeof(RecoveredGlobal_80149E88___vt__17TObjNpcFemaleBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcFemaleBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TObjNpcFemaleBase *)arg0)->construct_female_base();
+    ((TUnk_804A8640 *)arg0)->construct_female_base();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80149E88___vt__17TObjNpcFemaleBase *)&__vt__17TObjNpcFemaleBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcFemaleBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

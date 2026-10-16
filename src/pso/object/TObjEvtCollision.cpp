@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjEvtCollision.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -103,7 +104,7 @@ void TObjEvtCollision::run_task() {
 void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEvtCollision;
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -112,7 +113,7 @@ void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80190DE4___vt__16TObjEvtCollision_size[sizeof(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision) == 0x38 ? 1 : -1];
 u8 *TObjEvtCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision *)&__vt__16TObjEvtCollision).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEvtCollision__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

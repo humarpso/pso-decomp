@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include <stddef.h>
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowOptionCtrl.h"
@@ -110,7 +111,7 @@ void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(int);
 s32 step_window_tween__13TUnk_804CDFE8Fv(void *);
 s32 get_draw_context__11TWindowBaseFPv();
-s32 construct_with_parent__15TWindowAdditionFPv(void *, void *, s16, s32);
+s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 void * get_field_20__17TWindowSubComCardFv(void *e);
 s32 save_position__17TWindowSubComCardFPv(void *);
 s32 fn_80244994(void *);
@@ -850,7 +851,7 @@ void *__dt__11TWindowMenuFv(void *arg0, s16 arg1) {
         TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)arg0 + 0x84)), (s16)1);
         destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)arg0 + 0x88), 1);
         mem_free(*(void **)((s8 *)arg0 + 0x80));
-        ((TWindowAddition *)arg0)->destroy_window(0);
+        ((TUnk_804CDFE8 *)arg0)->destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -861,7 +862,7 @@ void *__dt__11TWindowMenuFv(void *arg0, s16 arg1) {
 u8 *TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     u32 i;
     u8 *p;
-    construct_with_parent__15TWindowAdditionFPv(arg0, lbl_804D05CC, arg2, arg3);
+    construct_with_parent__13TUnk_804CDFE8FPv(arg0, lbl_804D05CC, arg2, arg3);
     *(void **)(arg0 + 0x18) = ((s32 *)&__vt__11TWindowMenu);
     *(s32 *)arg0 = lbl_805D3960;
     *(s16 *)(arg0 + 0x72) = 0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLOC_End.h"
 #include "pso/misc/TLOC_Start.h"
 #include "pso/misc/TMainCursor.h"
 
@@ -29,11 +30,11 @@ void run_task__10TLOC_StartFv(s32 arg0);
 
 extern "C" {
 
-int init__13TLockOnCursorFPvPv(void);
+int init__13TUnk_804A7260FPvPv(void);
 
     extern unsigned char lbl_804A7278[];
     extern int lbl_805D2CC0;
-void*TMainCursor::init_vtable() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A7278; *(int *)&this->m_name = lbl_805D2CC0; return this; }
+void*TLOC_End::init_vtable() { init__13TUnk_804A7260FPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A7278; *(int *)&this->m_name = lbl_805D2CC0; return this; }
 void TLOC_Start::run_task() {
     s32 arg0 = (s32)this;
     Pl_8013B0F0 *pl;

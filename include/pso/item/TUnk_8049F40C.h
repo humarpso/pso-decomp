@@ -6,6 +6,8 @@
 class TUnk_8049F40C : public TUnk_8049F42C {
 public:
     virtual ~TUnk_8049F40C();
+    s32 construct_with_vtable(void *, int, int);
+    void *dt(s16);
     u8 unk_1C[0xC];
 };
 

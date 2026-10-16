@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804928CC.h"
+#include "pso/player/TUnk_80490470.h"
 #include "pso/enemy/TObjEneRe7BeruraPunch.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/enemy/TObjEneDellBiter.h"
@@ -192,7 +194,7 @@ void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
         if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xD8), 1); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
         TObjPlayer__sub_800A05B8((s8 *)arg0 + 0xF8, -1);
-        ((TObjPlayer *)arg0)->destroy_enemy_object(0);
+        ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -228,9 +230,9 @@ void TObjEneRe7BeruraPunch::init() {
 typedef char RecoveredGlobal_80096750_lbl_8048F930_size[sizeof(RecoveredGlobal_80096750_lbl_8048F930) == 0x58 ? 1 : -1];
 typedef char RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch_size[sizeof(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch) == 0x60 ? 1 : -1];
 u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TObjEneDellBiter *)arg0)->init_instance((void *)arg1, (void *)arg2, (void *)(&TObjEneRe7BeruraPunch__collision_body_templates.value), (void *)2);
+    ((TUnk_804928CC *)arg0)->init_instance((void *)arg1, (void *)arg2, (void *)(&TObjEneRe7BeruraPunch__collision_body_templates.value), (void *)2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch *)&__vt__21TObjEneRe7BeruraPunch).value;
-    ((TObjPlayer *)(arg0 + 0xF8))->init_vtable_and_field18();
+    ((TUnk_80490470 *)(arg0 + 0xF8))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2990;
     *(u16 *)((s8 *)arg0 + 0xB0) = obj_getField1c((void *) (arg2));
     ((TObjEneRe7BeruraPunch *)arg0)->init();

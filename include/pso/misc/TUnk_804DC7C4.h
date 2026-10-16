@@ -6,6 +6,7 @@
 class TUnk_804DC7C4 : public TObject {
 public:
     virtual ~TUnk_804DC7C4();
+    void *destroy(s16);
     virtual void render_shadows();
     virtual void render();
     u8 unk_1C[0x20];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -2327,7 +2328,7 @@ u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
     void *p;
     initialize__9TObjEnemyFPv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)TObjEneSaver__vtable;
-    ((TObjPlayer *)(arg0 + 0x3A4))->init_vtable_and_field18();
+    ((TUnk_80490470 *)(arg0 + 0x3A4))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = TObjEneSaver__class_name;
     ((VObj_800A749C *)arg0)->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();

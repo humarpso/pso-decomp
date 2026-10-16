@@ -9,9 +9,6 @@ struct TItemDrop : public TObject {
     u32 m_1c;
     u32 m_20;
     static s32 run_step(s32 arg0);
-    void *destroy(s16 arg1);
-    void *ct_object();
-    void *construct();
     static void clear_item_if_player_picked_up(void* p, void* a1);
     static s32 calc_drop_offset(s32 arg0);
     static void set_drop_index(void *arg0, void *arg1);

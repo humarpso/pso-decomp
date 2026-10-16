@@ -31,7 +31,7 @@ void TUnk_804A6108::update_weapon() { advance_angle_wrap((char*)this + 0x1f8, 32
 
 extern s32 lbl_804A6108[];
 
-void *TObjPlayer::init_effect_state() {
+void *TUnk_804A6108::init_effect_state() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A6108;
     *(u32 *)((s8 *)this + 0x1F8) = 0;

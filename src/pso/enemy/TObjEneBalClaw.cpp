@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80490470.h"
 #include "pso/enemy/TObjEneBalClaw.h"
 #include "pso/enemy/TObjEneBalClawClaw.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
@@ -152,7 +153,7 @@ void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1) {
 u8 *TObjEneBalClaw__ct(u8 *arg0) {
     TObjEnemyCustom__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw *)&__vt__14TObjEneBalClaw).value;
-    ((TObjPlayer *)(arg0 + 0x390))->init_vtable_and_field18();
+    ((TUnk_80490470 *)(arg0 + 0x390))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2968;
     ((TObjPlayer *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000);

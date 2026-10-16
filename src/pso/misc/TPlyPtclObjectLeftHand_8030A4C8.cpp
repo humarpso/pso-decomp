@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TPlyFollowParticleCtrl.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/player/TObjPlayer.h"
@@ -18,7 +19,7 @@ struct Ctrl_8030A5B8 {
 extern "C" {
 s16 obj_getField1c(void *);
 void initialize_linked_object_reference(void *, void *);
-void construct_collider_proxy__10TObjPlayerFv(void *, int);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 extern u8 lbl_804E7578[];
 extern s32 __vt__22TPlyFollowParticleCtrl[];
 extern s32 TPlyFollowParticleCtrl__class_name;
@@ -60,7 +61,7 @@ void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TPlyFollowParticleCtrl;
         unregister_object_by_id(arg0);
         clear_obj_links(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -68,7 +69,7 @@ void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1) {
     return arg0;
 }
 Ctrl_8030A5B8 *TPlyFollowParticleCtrl__ct(Ctrl_8030A5B8 *self, u8 *arg1) {
-    construct_collider_proxy__10TObjPlayerFv(self, tl_06);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(self, tl_06);
     self->vt = ((u8 *)&__vt__22TPlyFollowParticleCtrl);
     *(s32 *)self = TPlyFollowParticleCtrl__class_name;
     initialize_linked_object_reference(self, lbl_804E7578);

@@ -41,8 +41,7 @@ struct TItemAttackCol : public TUnk_804E355C {
     virtual void render();
     virtual void run_task();
     static void create(void *arg0, void *arg1);
-    void copy_pos(void* q);
-    void *destroy_attack_collision(s16 arg1);};
+    void copy_pos(void* q);};
 
 typedef char TItemAttackCol_size[sizeof(TItemAttackCol) == 0x144 ? 1 : -1];
 #endif

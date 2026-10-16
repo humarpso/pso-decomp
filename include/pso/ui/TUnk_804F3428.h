@@ -6,6 +6,7 @@
 class TUnk_804F3428 : public TObject {
 public:
     virtual ~TUnk_804F3428();
+    void *init(void *, void *, void *);
     virtual void run_task();
     u8 unk_1C[0x4];
     u32 m_20;

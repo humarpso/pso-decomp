@@ -11,7 +11,6 @@ public:
 public:
     void draw_model(void* a1, s32 a2);
     void set_all_entry_flags();
-    void *destroy(s16 arg1);
     static void render();
 };
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_804999E8.h"
 #include "pso/TObject.h"
 #include "pso/unk/TUnk_80499988.h"
 #include "pso/unk/TUnk_80499970.h"
@@ -60,7 +61,7 @@ struct Fade_800F88D8 {
 };
 
 void queue_destruction__7TObjectFv(void *);
-void init_object__12TBoss3VoloptFPv(void *, void *);
+void init_object__13TUnk_804999E8FPv(void *, void *);
 void TCameraCtrl__sub_80068EF0(void);
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 void step_fade_opacity_increase(u8 *arg0);
@@ -370,7 +371,7 @@ void *TLobby__sub_800F85C0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999A0;
         TWindowCtrlMain::set_value((s32)(*(void **)((s8 *)arg0 + 0x24)), (s32)0);
-        ((TBoss3Volopt *)arg0)->destroy_task_object(0);
+        ((TUnk_804999E8 *)arg0)->destroy_task_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -378,7 +379,7 @@ void *TLobby__sub_800F85C0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void*TLobby::init_entry_fields(int a1, int a2, int a3) { ((int (*)(void))init_object__12TBoss3VoloptFPv)(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_804999A0); *(int*)((char*)this + 0x28) = a2; *(float*)((char*)this + 0x1c) = (0.0f); *(unsigned char*)((char*)this + 0x21) = 0; *(unsigned char*)((char*)this + 0x22) = 0; *(unsigned char*)((char*)this + 0x20) = 255; *(int*)((char*)this + 0x24) = a3; return this; }
+void*TLobby::init_entry_fields(int a1, int a2, int a3) { ((int (*)(void))init_object__13TUnk_804999E8FPv)(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_804999A0); *(int*)((char*)this + 0x28) = a2; *(float*)((char*)this + 0x1c) = (0.0f); *(unsigned char*)((char*)this + 0x21) = 0; *(unsigned char*)((char*)this + 0x22) = 0; *(unsigned char*)((char*)this + 0x20) = 255; *(int*)((char*)this + 0x24) = a3; return this; }
 
 #pragma push
 #pragma opt_common_subs off
@@ -400,7 +401,7 @@ extern int fold_flush_5;
 void *TLobby__sub_800F86FC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999B8;
-        ((TBoss3Volopt *)arg0)->destroy_task_object(0);
+        ((TUnk_804999E8 *)arg0)->destroy_task_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -409,7 +410,7 @@ void *TLobby__sub_800F86FC(void *arg0, s16 arg1) {
 }
 
 void *TLobby::init_fade(void *arg1, void *arg2) {
-    init_object__12TBoss3VoloptFPv(this, tl_fade);
+    init_object__13TUnk_804999E8FPv(this, tl_fade);
     *(s32 **)((s8 *)this + 0x18) = lbl_804999B8;
     *(void **)((s8 *)this + 0x24) = arg2;
     *(f32 *)((s8 *)this + 0x1C) = (255.0f);
@@ -439,7 +440,7 @@ extern int fold_flush_6;
 void *THunterGuildSeqOffline__sub_800F8820(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999D0;
-        ((TBoss3Volopt *)arg0)->destroy_task_object(0);
+        ((TUnk_804999E8 *)arg0)->destroy_task_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -448,7 +449,7 @@ void *THunterGuildSeqOffline__sub_800F8820(void *arg0, s16 arg1) {
 }
 
 void *THunterGuildSeqOffline::init(void *arg1, void *arg2) {
-    init_object__12TBoss3VoloptFPv(this, tl_fade);
+    init_object__13TUnk_804999E8FPv(this, tl_fade);
     *(s32 * *)((u8 *)this + 0x18) = lbl_804999D0;
     *(void **)((s8 *)this + 0x24) = arg2;
     *(f32 *)&this->m_38 = (0.0f);

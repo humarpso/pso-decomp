@@ -6,6 +6,7 @@
 class TObjEneRe2Flower_Bomb : public TUnk_804928CC {
 public:
     virtual ~TObjEneRe2Flower_Bomb();
+    void *destroy_and_free(s16);
     virtual void render();
     virtual void run_task();
     u8 unk_B0[0x50];

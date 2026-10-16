@@ -6,6 +6,7 @@
 class TUnk_80494938 : public TUnk_80494AE0 {
 public:
     virtual ~TUnk_80494938();
+    void*init_common();
     void sub_800D741C();
     u8 unk_18[0x4];
 };

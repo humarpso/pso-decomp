@@ -215,7 +215,7 @@ s32 TOContainerAncientItemCommon::create() {
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TOContainerAncientItemCommon;
-        ((TObjPlayer *)arg0)->destroy_ancient_container(0);
+        ((TUnk_804B08BC *)arg0)->destroy_ancient_container(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

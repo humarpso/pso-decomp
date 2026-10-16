@@ -6,6 +6,8 @@
 class TUnk_804F1280 : public TObject {
 public:
     virtual ~TUnk_804F1280();
+    void *init_object(void *);
+    void *destroy(s16);
     virtual void render();
     virtual void run_task();
     u8 unk_1C[0x10];

@@ -6,6 +6,7 @@
 class TUnk_80488D70 : public TUnk_80488A28 {
 public:
     virtual ~TUnk_80488D70();
+    void *init_subobject();
 };
 typedef char TUnk_80488D70_size[sizeof(TUnk_80488D70) == 0x6C ? 1 : -1];
 

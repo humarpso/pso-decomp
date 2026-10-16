@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TUnk_804909C4.h"
 #include "pso/enemy/TObjEneDarkGunner.h"
@@ -405,7 +406,7 @@ s32 check_enemy_body_collisions(void *);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 project_actor_to_ground(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 s32 submit_cursor_candidate(void *, s32);
 void free_if_valid__10TObjPlayerFl(void*);
 s32 minimap_render_dot(void *, s32, s32, s32);
@@ -1510,7 +1511,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
 
     TObjEnemyCustom__ct(self, arg1, arg2);
     F(void *, 0x18) = __vt__17TObjEneDarkGunner;
-    ((TObjPlayer *)(self + 0x408))->init_vtable_and_field18();
+    ((TUnk_80490470 *)(self + 0x408))->init_vtable_and_field18();
     F(s32, 0) = dark_gunner_class_name_ptr;
     ((VObj_18_800A2F94 *)self)->m79(arg2);
     initialize_enemy_photon_effect(self);
@@ -1648,7 +1649,7 @@ void *TObjPlayer__sub_800A3478(void *arg0, s16 arg1) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0xD0) != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD0));
         }
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1659,7 +1660,7 @@ void *TObjPlayer__sub_800A3478(void *arg0, s16 arg1) {
 u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     s32 var_r0;
     u8 *temp_r3;
-    construct_collider_proxy__10TObjPlayerFv(arg0, tl_04);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804909C4;
     init_collision_body_parts((void *) (arg0), (void *) (lbl_80490998), (int) (1));
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = lbl_805D99D4 * player_scale_factor;

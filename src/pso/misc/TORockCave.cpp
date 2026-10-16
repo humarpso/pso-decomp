@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TORockCave.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -113,7 +114,7 @@ void vfunc_15__10TORockCaveFv(void);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void TOSensor__sub_80175468(void);
-void construct_collider_proxy__10TObjPlayerFv(void *, void *);
+void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void __dl__7TObjectFPv(void *);
 
 extern u32 cave_rock_resource_bundle;
@@ -180,7 +181,7 @@ void TORockCave::load_resources() {
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -195,7 +196,7 @@ extern const f32 lbl_805DB978;
 extern void *TORockCave__class_name;
 
 void *TORockCave__ct(void *arg0) {
-    construct_collider_proxy__10TObjPlayerFv(arg0, tl_05);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
     *(void **)((s8 *)arg0 + 0x0) = TORockCave__class_name;
     *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DB974;

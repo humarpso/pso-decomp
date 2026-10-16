@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_WS_ScrollBar.h"
 #include "pso/misc/TWindowDD.h"
 
 extern "C" {
 
 void *TWindowDD__sub_80340F70(void);
 void draw_and_scroll_entry__9TWindowDDFi(s32 arg0);
-void *dt__9TWindowDDFPvs(void *arg0, s16 arg1);
+void *dt__22TWindowDD_WS_ScrollBarFs(void *arg0, s16 arg1);
 s32 draw_visible_window_entries(s32, s32, void *, f32);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
@@ -32,22 +33,22 @@ void *lbl_804EFBD0[5] = {
     (void *)0x3,
 };
 void *lbl_804EFBE4[7] = {
-    (void *)0x0, (void *)0x0, (void *)&dt__9TWindowDDFPvs, (void *)&init__9TWindowDDFv,
+    (void *)0x0, (void *)0x0, (void *)&dt__22TWindowDD_WS_ScrollBarFs, (void *)&init__9TWindowDDFv,
     (void *)&TWindowDD__sub_80340A78, (void *)&render_shadows__7TObjectFv, (void *)0x0,
 };
 
 #define lbl_804EFBE4 ((s32 *)lbl_804EFBE4)
 W_80340F00 *construct_variant_b__9TWindowDDFPv(W_80340F00 *arg0);
 
-void *dt__9TWindowDDFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFBE4;
-        ((TWindowDD *)arg0)->destroy_window_base(0);
+void *TWindowDD_WS_ScrollBar::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = lbl_804EFBE4;
+        ((TWindowDD *)this)->destroy_window_base(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 W_80340F00 *construct_variant_b__9TWindowDDFPv(W_80340F00 *arg0) {

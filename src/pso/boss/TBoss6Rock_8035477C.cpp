@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -58,7 +59,7 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
         }
         ((TBoss6Rock *)arg0)->release_object();
         *(s32 *)((s8 *)(&TBoss6Rock__instance_table.value) + (*(s32 *)((s8 *)arg0 + 0xAC) * 4)) = 0;
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }
@@ -67,7 +68,7 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
 }
 
 u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TBoss6Rock.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D438C;
     *(s32 *)((s8 *)arg0 + 0xAC) = arg2;

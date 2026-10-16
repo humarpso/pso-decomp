@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A3B20.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -20,7 +21,7 @@ void TObjPlayer::spawn_cane_effects_if_ready(s32 arg0) {
 
 extern s32 lbl_804A3B20[];
 
-void *TObjPlayer::init_state_vtable() {
+void *TUnk_804A3B20::init_state_vtable() {
     construct_srank_weapon(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A3B20;
     return this;

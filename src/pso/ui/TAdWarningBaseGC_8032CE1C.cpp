@@ -47,7 +47,7 @@ void enter_request_state__16TAdWarningBaseGCFv(void* p);
 int TAdWarningBaseGC__sub_8032D020(void);
 void *TAdWarningBaseGC__sub_8032D0B8(void *arg0, s16 arg1);
 int get_alloc_size__16TAdWarningBaseGCFv(void);
-void *init_vtable__16TAdWarningBaseGCFPv(void *arg0);
+void *init_vtable__13TUnk_804EDBD0Fv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -146,11 +146,11 @@ void *TAdWarningBaseGC__sub_8032D0B8(void *arg0, s16 arg1) {
 
 extern s32 lbl_804EDBD0[];
 
-void *init_vtable__16TAdWarningBaseGCFPv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDBD0;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
+void *TUnk_804EDBD0::init_vtable() {
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804EDBD0;
+    *(u32 *)((s8 *)this + 0x1C) = 0;
+    return this;
 }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjInfoCol.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -31,7 +32,7 @@ s32 check_flag_100__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
 extern RecoveredGlobal_80191E28_lbl_8050E208 controller_input_state;
 extern s32 local_client_id;
-s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern s32 __vt__11TObjInfoCol[];
 extern s32 TObjInfoCol__class_name;
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -86,7 +87,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_80191EC0___vt__11TObjInfoCol_size[sizeof(RecoveredGlobal_80191EC0___vt__11TObjInfoCol) == 0x38 ? 1 : -1];
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0), (void *) (arg1));
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80191EC0___vt__11TObjInfoCol *)&__vt__11TObjInfoCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjInfoCol__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -97,7 +98,7 @@ u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjInfoCol;
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

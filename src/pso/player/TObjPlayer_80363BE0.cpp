@@ -7,7 +7,7 @@
 extern "C" {
 void* TObjPlayer__sub_80363C5C(void*);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-void* init_vtable_804F2A10__10TObjPlayerFPv(void*);
+void* init_vtable_804F2A10__13TUnk_804F2A10Fv(void*);
 extern s32 lbl_804F29F8[];
 extern s32 lbl_804F2A10[];
 extern u8 model_material_color[];
@@ -234,10 +234,10 @@ void *TObjPlayer__sub_80363EC4(void *arg0, s16 arg1) {
 
 extern "C" {
 
-void* init_vtable_804F2A10__10TObjPlayerFPv(void* a0);
+void* init_vtable_804F2A10__13TUnk_804F2A10Fv(void* a0);
 int __ct__7TObjectFP7TObject(void);
 
-void* init_vtable_804F2A10__10TObjPlayerFPv(void* a0) { __ct__7TObjectFP7TObject(); *(int*)((char*)a0 + 0x18) = (int)lbl_804F2A10; reset_id_array__10TObjPlayerFPv((void*)(lbl_805D6FB8)); return a0; }
+void*TUnk_804F2A10::init_vtable_804F2A10() { __ct__7TObjectFP7TObject(); *(int*)((char*)this + 0x18) = (int)lbl_804F2A10; reset_id_array__10TObjPlayerFPv((void*)(lbl_805D6FB8)); return this; }
 
 }
 #undef lbl_804F2A10
@@ -263,7 +263,7 @@ void TObjPlayer::push_id_to_list(s32 arg0) {
 #undef reset_id_array__10TObjPlayerFPv
 
 #define copy_vec4__13TRaderMapCoreFPvPv ((s32 (*)(void *, void *))copy_vec4__13TRaderMapCoreFPvPv)
-#define init_vtable_804F2A10__10TObjPlayerFPv ((void * (*)(void *, void *))init_vtable_804F2A10__10TObjPlayerFPv)
+#define init_vtable_804F2A10__13TUnk_804F2A10Fv ((void * (*)(void *, void *))init_vtable_804F2A10__13TUnk_804F2A10Fv)
 #define model_material_color (*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)
 #define lbl_805D6FB8 (*(void * *)&lbl_805D6FB8)
 
@@ -316,7 +316,7 @@ void TObjPlayer::spawn_cleanup_helper(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
-        init_vtable_804F2A10__10TObjPlayerFPv(o, arg0);
+        init_vtable_804F2A10__13TUnk_804F2A10Fv(o, arg0);
     }
 }
 
@@ -371,7 +371,7 @@ void TObjPlayer__sub_80364198(void) {
 
 }
 #undef copy_vec4__13TRaderMapCoreFPvPv
-#undef init_vtable_804F2A10__10TObjPlayerFPv
+#undef init_vtable_804F2A10__13TUnk_804F2A10Fv
 #undef model_material_color
 #undef lbl_805D6FB8
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804ED7D0.h"
 
 struct Base_80328F7C { char pad[0x8]; };
 struct VObj_80328F7C : Base_80328F7C {
@@ -345,17 +346,17 @@ void *TLobby__sub_80329310(void *arg0, s16 arg1) {
 
 extern "C" {
 
-void *init_vtable8__6TLobbyFPv(void *arg0);
+void *init_vtable8__13TUnk_804ED7D0Fv(void *arg0);
 void init_player_forward__6TLobbyFv(void);
 void TLobby__sub_802A7B50(void *);
 s32 init_forward__10TObjPlayerFv(s32 *);
 
 extern s32 lbl_804ED7D0[];
 
-void *init_vtable8__6TLobbyFPv(void *arg0) {
-    TLobby__sub_802A7B50(arg0);
-    *(s32 **)((s8 *)arg0 + 0x8) = lbl_804ED7D0;
-    return arg0;
+void *TUnk_804ED7D0::init_vtable8() {
+    TLobby__sub_802A7B50(this);
+    *(s32 **)((s8 *)this + 0x8) = lbl_804ED7D0;
+    return this;
 }
 
 extern s32 lbl_805D6C84;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 
 struct VBase_18_fe09eb { char pad[0x18]; };
@@ -2061,7 +2062,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 i;
     TObjEnemyCustom__ct(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80494C90;
-    ((TObjEneMe3SinowZoa *)(arg0 + 0x3E8))->init_common();
+    ((TUnk_80494938 *)(arg0 + 0x3E8))->init_common();
     __construct_array(arg0 + 0x40C, (void *)&init_and_activate__10TObjPlayerFv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2AA8;
     ((VObj_18_fe72f9 *)arg0)->m79(arg2);

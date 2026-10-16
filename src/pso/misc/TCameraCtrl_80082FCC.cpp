@@ -161,7 +161,7 @@ void TUnk_8048E5DC::render_shadows() {
 }
 #pragma pop
 
-void *TCameraCtrl::dt(s16 arg1) {
+void *TUnk_8048E5DC::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8048E5DC;
         __dt__7TObjectFv(this, 0);

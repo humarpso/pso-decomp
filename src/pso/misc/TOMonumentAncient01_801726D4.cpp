@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804B27D8.h"
 #include "pso/misc/TOMonumentAncient01.h"
 #include "pso/misc/TOHealGeneral.h"
 #include "pso/misc/TOKey.h"
@@ -101,7 +102,7 @@ void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOMonumentAncient01;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        ((TOKey *)arg0)->destroy_key_object(0);
+        ((TUnk_804B27D8 *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -112,7 +113,7 @@ void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80172810_lbl_804B38F0_size[sizeof(RecoveredGlobal_80172810_lbl_804B38F0) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80172810___vt__19TOMonumentAncient01_size[sizeof(RecoveredGlobal_80172810___vt__19TOMonumentAncient01) == 0x44 ? 1 : -1];
 u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TOKey *)arg0)->init();
+    ((TUnk_804B27D8 *)arg0)->init();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80172810___vt__19TOMonumentAncient01 *)&__vt__19TOMonumentAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

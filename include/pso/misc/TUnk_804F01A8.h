@@ -6,6 +6,8 @@
 class TUnk_804F01A8 : public TObject {
 public:
     virtual ~TUnk_804F01A8();
+    void *ct();
+    void *destroy(s16);
     u8 unk_1C[0x14];
 };
 typedef char TUnk_804F01A8_size[sizeof(TUnk_804F01A8) == 0x30 ? 1 : -1];

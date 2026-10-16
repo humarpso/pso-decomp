@@ -33,7 +33,7 @@ void TUnk_804A69C0::hook() {
 
 extern s32 lbl_804A69C0[];
 
-void *TObjPlayer::init_shoot_model() {
+void *TUnk_804A69C0::init_shoot_model() {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A69C0;
     this->m_28 = 0;

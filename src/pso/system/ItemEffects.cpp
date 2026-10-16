@@ -25,7 +25,7 @@ void TObjPlayer__sub_80125C70(void* p);
 s32 get_id__13TItemProArmorFv(void *);
 s32 roll_technique__11TItemWeaponFv(void *);
 s32 __nw__15TItemHeapObjectFUl(s32);
-s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
+s32 ct__13TUnk_804A0688Fv(s32, u32, s32, s32);
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 item_model_is_shown(void *);
 s32 is_item_area_enabled(s32);
@@ -128,7 +128,7 @@ void TObjPlayer::create_pro_armor() {
     if ((u32) *(u32 *)((s8 *)this + 0x174) != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3 != 0) {
-            ct__13TItemProArmorFPv(temp_r3, *(u32 *)((s8 *)this + 0x174), get_id__13TItemProArmorFv(this), 0x5A);
+            ct__13TUnk_804A0688Fv(temp_r3, *(u32 *)((s8 *)this + 0x174), get_id__13TItemProArmorFv(this), 0x5A);
         }
     }
     roll_technique__11TItemWeaponFv(this);

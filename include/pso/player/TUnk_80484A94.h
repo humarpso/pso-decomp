@@ -6,6 +6,7 @@
 class TUnk_80484A94 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_80484A94();
+    void *destroy(s16);
     virtual void render();
     virtual void run_task();
     u8 unk_AC[0x34];

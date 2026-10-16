@@ -18,9 +18,6 @@ struct TOKey : public TUnk_804AFBF8 {
     void init_switch_id();
     void init_key();
     void bswap_6x05_switch_flag();
-    void *destroy_key_base(s16 arg1);
-    void *destroy_key_object(s16 arg1);
-    void *init();
     void handle_switch_trigger(void *arg1);
     void send_switch_on();
     s32 is_any_player_in_range();

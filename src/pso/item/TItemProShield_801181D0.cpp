@@ -61,10 +61,10 @@ s32 ct_init__14TItemEffShieldFPvPvs(int, int, void *);
 s32 TObjPlayer__sub_8010A1D0(int, int, void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 __nw__15TItemHeapObjectFUl(int);
-s32 construct_timer_event__10TObjPlayerFv(int, int, void *, int);
+s32 construct_timer_event__13TUnk_804A0628Fv(int, int, void *, int);
 s32 get_flag_40__8TItemMagFv(void *);
 s32 get_id__13TItemProArmorFv(void *);
-s32 init_item_timer_event__10TObjPlayerFv(int, int, void *, int);
+s32 init_item_timer_event__13TUnk_804A0648Fv(int, int, void *, int);
 void TItemProShield__vt42(u8 *arg0);
 int fn_800F953C(void*);
     extern int TItemProShield__shield_table;
@@ -188,11 +188,11 @@ void TItemProShield__vt42(u8 *arg0) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x174) != 0U) {
                 temp_r3_2 = __nw__15TItemHeapObjectFUl((int) (0x2C));
                 if (temp_r3_2 != 0) {
-                    init_item_timer_event__10TObjPlayerFv((int) (temp_r3_2), (int) (*(u32 *)((s8 *)arg0 + 0x174)), (void *) (get_id__13TItemProArmorFv((void *) (arg0))), (int) (0x1C2));
+                    init_item_timer_event__13TUnk_804A0648Fv((int) (temp_r3_2), (int) (*(u32 *)((s8 *)arg0 + 0x174)), (void *) (get_id__13TItemProArmorFv((void *) (arg0))), (int) (0x1C2));
                 }
                 temp_r3_3 = __nw__15TItemHeapObjectFUl((int) (0x2C));
                 if (temp_r3_3 != 0) {
-                    construct_timer_event__10TObjPlayerFv((int) (temp_r3_3), (int) (*(u32 *)((s8 *)arg0 + 0x174)), (void *) (get_id__13TItemProArmorFv((void *) (arg0))), (int) (0x1C2));
+                    construct_timer_event__13TUnk_804A0628Fv((int) (temp_r3_3), (int) (*(u32 *)((s8 *)arg0 + 0x174)), (void *) (get_id__13TItemProArmorFv((void *) (arg0))), (int) (0x1C2));
                 }
             }
             break;

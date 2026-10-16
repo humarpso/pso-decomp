@@ -30,14 +30,14 @@ extern "C" {
 
 void *__dt__9TTecKafunFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_technique_base__9TTecLukerFPvs(void *, int);
+void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 
 extern s32 __vt__9TTecKafun[];
 
 void *__dt__9TTecKafunFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecKafun;
-        destroy_technique_base__9TTecLukerFPvs(arg0, 0);
+        destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

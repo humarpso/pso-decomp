@@ -6,6 +6,7 @@
 class TUnk_804DDBF0 : public TUnk_804DDD28 {
 public:
     virtual ~TUnk_804DDBF0();
+    void *ct_variant();
 };
 
 #endif

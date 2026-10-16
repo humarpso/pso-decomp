@@ -17,14 +17,14 @@ void *__dt__6TOTrapFv(void *arg0, s16 arg1);
 void TOTrap__sub_801792AC(void);
 void TOTrap__sub_801792B0(void);
 void __dl__7TObjectFPv(void *);
-void destroy_motion_object__10TObjPlayerFPvs(void *, int);
+void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 
 extern s32 __vt__6TOTrap[];
 
 void *__dt__6TOTrapFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__6TOTrap;
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

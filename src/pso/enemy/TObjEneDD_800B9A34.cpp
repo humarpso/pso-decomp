@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneDD.h"
 
 extern "C" {
@@ -27,7 +28,7 @@ void *__dt__9TObjEneDDFv(void *arg0, s16 arg1) {
 extern s32 lbl_80492558[];
 extern void *lbl_805D2A34;
 
-void *TObjEneDD::init_object() {
+void *TObjEneDD_ST::init_object() {
     TObjEneDD__ct(this);
     *(s32 * *)((u8 *)this + 0x18) = lbl_80492558;
     *(void **)((s8 *)this + 0x0) = lbl_805D2A34;

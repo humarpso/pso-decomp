@@ -6,6 +6,8 @@
 class TUnk_804CDFE8 : public TUnk_804CE018 {
 public:
     virtual ~TUnk_804CDFE8();
+    void *construct_with_parent(void *);
+    void *destroy_window(s16);
     void sub_802443B4();
     void step_window_tween();
     void set_position_xy(f32, f32);

@@ -10,7 +10,6 @@ struct TObjEneDD : public TObjEnemy {
     static f32 calc_elapsed_scaled();
     void init_float_params();
     void update_velocity();
-    void *init_object();
     static void init_lights();
     static s32 clamp_frame_index(s32 arg0);
     static s32 check_v2_mode();

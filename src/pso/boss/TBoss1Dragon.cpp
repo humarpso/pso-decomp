@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss1Dragon.h"
+#include "pso/boss/TUnk_80481B34.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void vfunc_45__12TBoss1DragonFv();
@@ -2271,7 +2272,7 @@ void __ct__14SubtractiveRngFv(void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void enemy_init_validate_period(void *, s32);
 void enemy_init_acquire_period(void *, s32);
-void init_object__9TObjEneDDFv(void *, void *);
+void init_object__12TObjEneDD_STFv(void *, void *);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
@@ -2708,7 +2709,7 @@ void vfunc_61__12TBoss1DragonFv(void);
 void vfunc_62__12TBoss1DragonFv(void);
 void vfunc_63__12TBoss1DragonFv(void);
 void vfunc_28__12TBoss1DragonFv(void);
-void *init_base__12TBoss1DragonFPv(void *arg0);
+void *init_base__13TUnk_80481B34Fv(void *arg0);
 void vfunc_44__12TBoss1DragonFv(void);
 void vfunc_46__12TBoss1DragonFv(void);
 void vfunc_50__12TBoss1DragonFv(void);
@@ -2716,7 +2717,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFv(void *, f32, f32);
-void destroy_enemy_object__10TObjPlayerFs(void *, int);
+void destroy_enemy_object__13TUnk_804928CCFs(void *, int);
 void construct_collision_body(void *);
 s32 update_linked_position__14TObjEneEpsilonFf(f32);
 int check_v2_mode__9TObjEneDDFv();
@@ -7703,7 +7704,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     s32 j;
     void *p;
 
-    init_object__9TObjEneDDFv(arg0, arg1);
+    init_object__12TObjEneDD_STFv(arg0, arg1);
     F_29DE4(arg0, s32, 0x18) = (s32)lbl_80481280;
     __ct__7TObjectFP7TObject(arg0 + 0x3C4, 0);
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x5F4));
@@ -7826,7 +7827,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     }
     p = __nw__7TObjectFUl(0xB0);
     if (p != 0) {
-        p = ((void *(*)(void *, s32, void *))init_base__12TBoss1DragonFPv)(p, 0, arg0);
+        p = ((void *(*)(void *, s32, void *))init_base__13TUnk_80481B34Fv)(p, 0, arg0);
     }
     F_29DE4(arg0, void *, 0x774) = p;
     F_29DE4(arg0, s32, 0x864) = 0;
@@ -7944,10 +7945,10 @@ void TBoss1Dragon__sub_8002AB6C(u8 *arg0) {
     }
 }
 
-void *TBoss1Dragon::dt(s16 arg1) {
+void *TUnk_80481B34::dt(s16 arg1) {
     if (this != NULL) {
         (*(s32 * *)((u8 *)this + 0x18)) = lbl_80481B34;
-        destroy_enemy_object__10TObjPlayerFs(this, 0);
+        destroy_enemy_object__13TUnk_804928CCFs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -7955,10 +7956,10 @@ void *TBoss1Dragon::dt(s16 arg1) {
     return this;
 }
 
-void *init_base__12TBoss1DragonFPv(void *arg0) {
-    construct_collision_body(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_80481B34;
-    return arg0;
+void *TUnk_80481B34::init_base() {
+    construct_collision_body(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_80481B34;
+    return this;
 }
 
 }

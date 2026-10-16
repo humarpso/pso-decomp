@@ -7257,7 +7257,7 @@ void __ct__14SubtractiveRngFv(void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void enemy_init_validate_period(void *, int);
 void enemy_init_acquire_period(void *, int);
-void init_object__9TObjEneDDFv(void *, void *, void *);
+void init_object__12TObjEneDD_STFv(void *, void *, void *);
 void initialize_enemy_state__9TObjEneDDFv(void *, int);
 void init_model__9TObjEneDDFv(void *, void *, int);
 void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
@@ -7285,7 +7285,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     u8 *cfg;
     D_802FD47C *d = (D_802FD47C *) arg0;
 
-    init_object__9TObjEneDDFv(arg0, arg1, arg2);
+    init_object__12TObjEneDD_STFv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)__vt__12TBoss8Dragon;
     __ct__7TObjectFP7TObject(arg0 + 0x3C4, 0);
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x5EC));

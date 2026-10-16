@@ -6,6 +6,7 @@
 class TUnk_804A92A8 : public TObjNpcBase {
 public:
     virtual ~TUnk_804A92A8();
+    void *destroy(s16);
 };
 
 #endif

@@ -90,7 +90,7 @@ f32 vfunc_23__13TUnk_8048E1A4FPvPvPvll(void);
 f32 vfunc_24__13TUnk_8048E1A4FPvPv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void destroy_motion_object__10TObjPlayerFPvs(void *, int);
+void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 
 extern u32 freeze_shell_bml_resource;
 
@@ -118,7 +118,7 @@ void *destroy_freeze_shell(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E1A4;
         if (*(void **)((s8 *)arg0 + 0x350) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x350))); }
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

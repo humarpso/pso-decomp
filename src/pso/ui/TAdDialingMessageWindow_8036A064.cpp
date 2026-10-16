@@ -43,11 +43,11 @@ void *TAdDialingMessageWindow__sub_8036A0D0(void *arg0, s16 arg1) {
 
 extern s32 lbl_804F3428[];
 
-void *TAdDialingMessageWindow::init(void *arg1, void *arg2, void *arg3) {
+void *TUnk_804F3428::init(void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F3428;
     *(void * *)&this->m_20 = arg2;
-    *(void * *)&this->m_1c = arg3;
+    *(void * *)&(*(u32 *)((u8 *)this + 0x1C)) = arg3;
     return this;
 }
 

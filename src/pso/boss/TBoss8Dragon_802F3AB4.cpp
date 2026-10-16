@@ -59,9 +59,9 @@ void TUnk_804E4BF0::render() {  }
 
 void TUnk_804E4BF0::run_task() {  }
 
-void *TBoss8Dragon::dt(s16 arg1) {
+void *TUnk_804E4BF0::dt(s16 arg1) {
     if (this != NULL) {
-        this->m_18 = lbl_804E4BF0;
+        (*(s32 * *)((u8 *)this + 0x18)) = lbl_804E4BF0;
         if (boss8_dragon_leader_part == this) {
             boss8_dragon_leader_part = NULL;
         }
@@ -73,9 +73,9 @@ void *TBoss8Dragon::dt(s16 arg1) {
     return this;
 }
 
-void *TBoss8Dragon::ct(void *arg1, void *arg2) {
+void *TUnk_804E4BF0::ct(void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(this);
-    this->m_18 = lbl_804E4BF0;
+    (*(s32 * *)((u8 *)this + 0x18)) = lbl_804E4BF0;
     if (boss8_dragon_leader_part == NULL) {
         boss8_dragon_leader_part = this;
     }
@@ -87,7 +87,7 @@ void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x5C);
     if (o != NULL) {
-        o = ((TBoss8Dragon *)o)->ct((void *)(arg0), (void *)(arg1));
+        o = ((TUnk_804E4BF0 *)o)->ct((void *)(arg0), (void *)(arg1));
     }
     return o;
 }

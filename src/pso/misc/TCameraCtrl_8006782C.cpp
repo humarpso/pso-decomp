@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804887F8.h"
 #include "pso/misc/TUnk_80488E00.h"
 
 #include <stddef.h>
@@ -150,7 +151,7 @@ void TCameraCtrl__sub_80067AB0(u8 *arg0) {
 void *TCameraCtrl__vt12(void) {
     void *o = __nw__7TObjectFUl(0x130);
     if (o != NULL) {
-        o = ((TCameraCtrl *)o)->init();
+        o = ((TUnk_804887F8 *)o)->init();
     }
     return o;
 }

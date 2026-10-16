@@ -34,10 +34,10 @@ void TUnk_804A0AA8::hook() {
 
 extern s32 lbl_804A0AA8[];
 
-void *TObjPlayer::init_item_shoot_model() {
+void *TUnk_804A0AA8::init_item_shoot_model() {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A0AA8;
-    this->actor_flags = 0;
+    (*(u32 *)((u8 *)this + 0x30)) = 0;
     return this;
 }
 

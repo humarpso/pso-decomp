@@ -480,7 +480,7 @@ struct Self_80237A94 {
 
 s32 mem_free(void *);
 s32 stop_sound_request(void *);
-s32 destroy_technique_base__9TTecLukerFPvs(void *, int);
+s32 destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
@@ -526,7 +526,7 @@ struct Self_80237A94 *__dt__11TTecRaBartaFv(struct Self_80237A94 *self, s16 arg1
         }
         stop_sound_request(self->emitters);
         mem_free(self->objs);
-        destroy_technique_base__9TTecLukerFPvs((void *) (self), (int) (0));
+        destroy_technique_base__13TUnk_804CC148Fs((void *) (self), (int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (self));
         }

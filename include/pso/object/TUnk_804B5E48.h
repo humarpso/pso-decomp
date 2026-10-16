@@ -6,6 +6,7 @@
 class TUnk_804B5E48 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_804B5E48();
+    void *destroy_seasonal_object(s16);
     int get_anim_frame();
     s32 advance_anim_time(s32, f32);
     u8 unk_AC[0x4];

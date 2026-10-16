@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_800BC4C8_lbl_804928A0 {
@@ -24,7 +25,7 @@ extern "C" {
 typedef char RecoveredGlobal_800BC4C8_lbl_804928A0_size[sizeof(RecoveredGlobal_800BC4C8_lbl_804928A0) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_800BC4C8_lbl_804928CC_size[sizeof(RecoveredGlobal_800BC4C8_lbl_804928CC) == 0x5C ? 1 : -1];
 u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2) {
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &collision_body_vtable.value;
     init_collision_body_parts((void *) (arg0), (void *) (&construct_collision_body_parts.value), (int) (1));
     if (arg2 != 0U) {

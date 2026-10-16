@@ -6,6 +6,7 @@
 class TUnk_804F0D1C : public TObject {
 public:
     virtual ~TUnk_804F0D1C();
+    void *delete_instance(s16);
     virtual void run_task();
 };
 typedef char TUnk_804F0D1C_size[sizeof(TUnk_804F0D1C) == 0x1C ? 1 : -1];

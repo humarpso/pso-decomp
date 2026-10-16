@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A1668.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -18,7 +19,7 @@ void TObjPlayer::update_from_owner() {
 extern s32 lbl_804A1668[];
 extern s32 create__15TItemEffBringerFUlllf[];
 
-void *TObjPlayer::init_bringer_effect() {
+void *TUnk_804A1668::init_bringer_effect() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A1668;
     *(u16 *)((s8 *)this + 0x1F8) = 2;

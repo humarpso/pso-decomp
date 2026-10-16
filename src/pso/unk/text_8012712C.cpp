@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A3070.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
 
@@ -17,7 +18,7 @@ extern const f32 lbl_805DADB8;
 
 extern "C" {
 
-u8 *TObjPlayer::construct_agito(s32 a, void *b) {
+u8 *TUnk_804A3070::construct_agito(s32 a, void *b) {
     Self_8012712C *self = (Self_8012712C *)this;
     TItemWeapon__ct(self, a, b);
     self->vt = lbl_804A3070;
@@ -37,7 +38,7 @@ u8 *create_agito_weapon(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((TObjPlayer *)temp_r3)->construct_agito((s32)(tl_05), (void *)(arg0)));
+            var_r0 = (u8 *)(((TUnk_804A3070 *)temp_r3)->construct_agito((s32)(tl_05), (void *)(arg0)));
         }
         return var_r0;
     }

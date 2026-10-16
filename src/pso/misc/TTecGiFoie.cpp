@@ -170,7 +170,7 @@ void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 void apply_technique_to_area_targets(void *);
-u8 * destroy_technique_base__9TTecLukerFPvs(void *, s16);
+u8 * destroy_technique_base__13TUnk_804CC148Fs(void *, s16);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 s32 calc_technique_parameters(int, int, int);
 u8 * gifoie_orbit_dtor(Task_80231224 *task, s16 flag);
@@ -340,7 +340,7 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
       var_r31 += 4;
     }
     while (var_r29 < 3);
-    destroy_technique_base__9TTecLukerFPvs(arg0, 0);
+    destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
     if (arg1 > 0)
     {
       ((s32 (*)(void *))__dl__7TObjectFPv)((void *) arg0);

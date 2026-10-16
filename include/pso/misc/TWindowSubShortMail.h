@@ -35,7 +35,6 @@ struct TWindowSubShortMail : public TObject {
     s32 refresh_mail_list(void *arg1);
     virtual void render();
     virtual void run_task();
-    void *destroy(s16 arg1);
     void notify_warp_flag70();
     void advance_line(s32 arg1);};
 

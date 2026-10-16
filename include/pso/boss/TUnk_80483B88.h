@@ -6,6 +6,8 @@
 class TUnk_80483B88 : public TObject {
 public:
     virtual ~TUnk_80483B88();
+    void *init_object();
+    void *deleting_destructor(s16);
 };
 typedef char TUnk_80483B88_size[sizeof(TUnk_80483B88) == 0x1C ? 1 : -1];
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804EDD44.h"
 #include "pso/item/TItemWpnCardEffect.h"
 
 extern "C" {
@@ -9,7 +10,7 @@ void destroy_effect_objects__10TObjPlayerFv(void *);
 
 extern s32 lbl_804EDD44[];
 
-void *TItemWpnCardEffect::destroy(s16 arg1) {
+void *TUnk_804EDD44::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EDD44;
         destroy_effect_objects__10TObjPlayerFv(this);

@@ -16,8 +16,7 @@ struct TOBoss4Rock : public TOBoss4 {
     u32 m_b4;
     virtual void run_task();
     virtual void render();
-    static void *create(void *arg0);
-    void *destroy(s16 arg1);};
+    static void *create(void *arg0);};
 
 typedef char TOBoss4Rock_size[sizeof(TOBoss4Rock) == 0xB8 ? 1 : -1];
 #endif

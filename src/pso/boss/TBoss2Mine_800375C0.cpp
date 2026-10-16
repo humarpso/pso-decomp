@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80482D04.h"
 #include "pso/boss/TBoss2Mine.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -390,7 +391,7 @@ void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void*TBoss2Mine::create(int a1, int a2, int a3) { TBoss2Mine__ct(this, a1, a2, a3, 1); *(int*)((char*)this + 0x18) = (int)lbl_80482D04; *(int*)((char*)this + 0x3f0) = 0; *(int*)((char*)this + 0x3f4) = 0; *(float*)((char*)this + 0x3f8) = (0.0f); *(float*)((char*)this + 0x3fc) = (0.0f); *(float*)((char*)this + 0x400) = (0.0f); *(float*)((char*)this + 0x404) = (0.0f); *(float*)((char*)this + 0x408) = (0.0f); *(float*)((char*)this + 0x40c) = (0.0f); return this; }
+void*TUnk_80482D04::create(int a1, int a2, int a3) { TBoss2Mine__ct(this, a1, a2, a3, 1); *(int*)((char*)this + 0x18) = (int)lbl_80482D04; *(int*)((char*)this + 0x3f0) = 0; *(int*)((char*)this + 0x3f4) = 0; *(float*)((char*)this + 0x3f8) = (0.0f); *(float*)((char*)this + 0x3fc) = (0.0f); *(float*)((char*)this + 0x400) = (0.0f); *(float*)((char*)this + 0x404) = (0.0f); *(float*)((char*)this + 0x408) = (0.0f); *(float*)((char*)this + 0x40c) = (0.0f); return this; }
 #pragma push
 #pragma fp_contract on
 void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1) {

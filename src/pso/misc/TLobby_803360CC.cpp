@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TUnk_804EE470.h"
+#include "pso/unk/TUnk_804EEF80.h"
+#include "pso/ui/TUnk_804EE458.h"
 #include "pso/TObject.h"
 #include "pso/misc/TUnk_804EEF64.h"
 #include "pso/misc/TLobby.h"
@@ -212,7 +215,7 @@ void update_title_idle_transition(Obj_80336340 *arg0) {
 }
 
 void TUnk_804EEF64::sub_8033645C() { if (*(unsigned int*)((char*)this + 0x2c) != 0) { queue_destruction__7TObjectFv((void*)((void*)(*(void**)((char*)this + 0x2c)))); *(int*)((char*)this + 0x2c) = 0; } }
-void *TLobby::destroy(s16 arg1) {
+void *TUnk_804EEF64::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EEF64;
         (*(s32 *)&title_scene_instance) = 0;
@@ -229,7 +232,7 @@ void *TLobby::destroy(s16 arg1) {
     }
     return this;
 }
-u8 *TLobby::construct_title_scene() {
+u8 *TUnk_804EEF64::construct_title_scene() {
     u8 *arg0 = (u8 *)this;
     void *p;
 
@@ -252,17 +255,17 @@ u8 *TLobby::construct_title_scene() {
     }
     p = __nw__7TObjectFUl(0x24);
     if (p != 0) {
-        p = ((TLobby *)p)->construct(arg0);
+        p = ((TUnk_804EEF80 *)p)->construct(arg0);
     }
     *(void **)((s8 *)arg0 + 0x1C) = p;
     p = __nw__7TObjectFUl(0x3C);
     if (p != 0) {
-        p = ((TLobby *)p)->init_camera_state((int)arg0);
+        p = ((TUnk_804EE458 *)p)->init_camera_state((int)arg0);
     }
     *(void **)((s8 *)arg0 + 0x24) = p;
     p = __nw__7TObjectFUl(0x20);
     if (p != 0) {
-        p = ((TLobby *)p)->ct_with_parent((void *)tl_clipout);
+        p = ((TUnk_804EE470 *)p)->ct_with_parent((void *)tl_clipout);
     }
     *(void **)((s8 *)arg0 + 0x20) = p;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;

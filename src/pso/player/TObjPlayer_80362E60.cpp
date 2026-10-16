@@ -176,11 +176,11 @@ void TObjPlayer::draw_weapon_model_if_not_hidden() {
     }
 }
 
-void *TObjPlayer::enter_state_804F27E0(s32 _w1, void * _w2) {
+void *TUnk_804F27E0::enter_state_804F27E0(s32 _w1, void *_w2) {
     construct_srank_weapon(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F27E0;
     set_status_flags__10TObjPlayerFPvUi(this, 3);
-    *(u32 *)&this->m_1fc = 0;
+    *(u32 *)&(*(s32 *)((u8 *)this + 0x1FC)) = 0;
     return this;
 }
 u8 *TObjPlayer__sub_803630F0(u8 *arg0) {
@@ -190,7 +190,7 @@ u8 *TObjPlayer__sub_803630F0(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TObjPlayer *)temp_r3)->enter_state_804F27E0((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804F27E0 *)temp_r3)->enter_state_804F27E0((s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }

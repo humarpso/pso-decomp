@@ -6,6 +6,7 @@
 class TUnk_8048E5F4 : public TObject {
 public:
     virtual ~TUnk_8048E5F4();
+    void *init_subobject(void *, void *);
     virtual void render_shadows();
     virtual void render();
     virtual void run_task();

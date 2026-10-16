@@ -68,7 +68,7 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFl(int, int, int);
 s32 play_sound_effect(int, int, int, int);
 void set_technique_roll__13TUnk_804A69DCFl(u8 *arg0);
-s32 init_shoot_model__10TObjPlayerFv(int, void *, void *, void *, f32);
+s32 init_shoot_model__13TUnk_804A69C0Fv(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
 s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 send_6x61_activate_mag_effect(void *, int);
@@ -94,7 +94,7 @@ s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg
         temp_r3 = __nw__7TObjectFUl((int) (0x6C));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init_shoot_model__10TObjPlayerFv((int) (temp_r3), (void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
+            var_r0 = init_shoot_model__13TUnk_804A69C0Fv((int) (temp_r3), (void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
         }
         var_r3 = var_r0;
     }

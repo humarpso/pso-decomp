@@ -120,7 +120,6 @@ struct TLobby : public TObject {
     static void send_status_packet();
     static void destroy_global_singleton();
     static void load_freeze_ice_resource();
-    void *init_subobject(void *arg1, void *arg2);
     int bswap_packet_header();
     void *alloc_tables(s32 arg1, s32 arg2);
     static void clear_flag_on_phase_e();
@@ -370,7 +369,6 @@ struct TLobby : public TObject {
     static s32 init_range_zero_global();
     s32 init_range_zero();
     void add_token(const char *src);
-    void *construct(void *arg1, void *arg2, void *arg3);
     void trim_whitespace();
     static void refresh_player_status();
     s32 get_id();
@@ -428,7 +426,6 @@ struct TLobby : public TObject {
     s32 handle_message(s32 arg1, s32 arg2, s32 arg3);
     static void alloc_boss4rock_buffer();
     static void enable_and_refresh();
-    void *ct_variant();
     static void set_photon_chair_flag(int a0);
     void set_field_4(s32 v);
     static s32 get_hold_effect_size_by_type();
@@ -460,9 +457,6 @@ struct TLobby : public TObject {
     static void init_object_flag();
     static void set_flag_1_at_6c84();
     static void clear_flag_at_6c84();
-    void*init_camera_state(int a1);
-    void *dt(s16 arg1);
-    void *ct_with_parent(void *arg1);
     static void*get_record(int a0);
     void queue_destruction_and_cleanup();
     void set_flag_and_clear_download();
@@ -470,10 +464,7 @@ struct TLobby : public TObject {
     static void request_change_game_mode();
     static void enter_game_mode_change();
     static void enter_chg_game_mode();
-    void *destroy(s16 arg1);
-    u8 *construct_title_scene();
     static void destroy_global_object();
-    void *construct(void *arg1);
     static void set_global_flags(s32 arg0);
     static void handle_flag2_request();
     static void load_now_loading_texture();
@@ -491,7 +482,6 @@ struct TLobby : public TObject {
     static s32 is_connected();
     static s32 is_lobby_obj_active();
     static int get_lobby_type();
-    void *destroy_and_clear_instance(s16 arg1);
     void set_timer(f32 v);
     static s32 open_message_scroll_window(s32 arg0, s32 arg1, s32 arg2);
     static void *create_dialing_message_window(void *arg0, void *arg1);

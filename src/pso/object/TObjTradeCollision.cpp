@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjTradeCollision.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -55,7 +56,7 @@ void run_task__18TObjTradeCollisionFv(s32 arg0) {
 void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjTradeCollision;
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -67,7 +68,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_802C8034___vt__18TObjTradeCollision_size[sizeof(RecoveredGlobal_802C8034___vt__18TObjTradeCollision) == 0x38 ? 1 : -1];
 u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802C8034___vt__18TObjTradeCollision *)&__vt__18TObjTradeCollision).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTradeCollision__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

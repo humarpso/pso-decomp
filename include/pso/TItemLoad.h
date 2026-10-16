@@ -11,15 +11,11 @@ public:
     int update_item();
     void clear_slots();
     int get_ring_lobby();
-    void *init(void *arg1, void *arg2, void *arg3, void *arg4);
     static void update_all();
     static void free_all_models();
     void start_load_with_id(s32 id, s32 arg2);
-    void *dt(s16 arg1);
-    s32 construct_with_vtable(void *a1, int a2, int a3);
     void begin_load_if_pending(s32 arg1, s32 arg2);
     void reload_item();
-    void *construct(void * _w1, int _w2, int _w3);
     void reset_ring_state();
     void update_state();
     s32 begin_load(s32 arg1);
@@ -27,7 +23,6 @@ public:
     void update_ring();
     void update_load_state();
     void advance_load_state();
-    void *init();
     static s32 decompress_buffer(u32 arg0);
     static void free_boss4_rock();
     static void alloc_work_buffer();

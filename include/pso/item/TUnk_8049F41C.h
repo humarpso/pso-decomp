@@ -6,6 +6,7 @@
 class TUnk_8049F41C : public TUnk_8049F42C {
 public:
     virtual ~TUnk_8049F41C();
+    void *construct(void *, int, int);
     u8 unk_1C[0xC];
 };
 

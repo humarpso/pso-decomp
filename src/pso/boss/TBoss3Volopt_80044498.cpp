@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80484870.h"
 #include "pso/boss/TUnk_80484610.h"
 
 struct VBase_18_b5cc36 { char pad[0x18]; };
@@ -596,7 +597,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 extern s32 volopt_boss_dispatch_table[];
-void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
+void *destroy__13TUnk_80484610Fs(void *arg0, s16 arg1);
 s32 spawn_particle_effect(s32, s32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 rand(void);
@@ -884,7 +885,7 @@ void spawn_sub_objects__12TBoss3VoloptFPv(void *arg0) {
         if (self->objs[i] == 0) {
             void *o = __nw__7TObjectFUl((s32)(0x28));
             if (o != 0) {
-                o = ((TBoss3Volopt *)o)->ct(self->target, &self->pos[i]);
+                o = ((TUnk_80484870 *)o)->ct(self->target, &self->pos[i]);
             }
             self->objs[i] = o;
         }
@@ -1006,7 +1007,7 @@ void rebuild_parts__12TBoss3VoloptFPv(S_80045010 *o) {
         }
         p = __nw__7TObjectFUl((s32)(0x28));
         if (p != 0) {
-            p = ((TBoss3Volopt *)p)->ct(o->pad3d8, &o->recs[i]);
+            p = ((TUnk_80484870 *)p)->ct(o->pad3d8, &o->recs[i]);
         }
         o->ptr[i] = p;
     }
@@ -1937,21 +1938,21 @@ void *TBoss3Volopt__sub_80047DD4(void *arg0) {
     }
     return o;
 }
-void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = volopt_boss_dispatch_table;
-        free_collision_body_parts(arg0);
-        if (*(void **)((s8 *)arg0 + 0x474) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x474)); }
-        if (*(void **)((s8 *)arg0 + 0x478) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x478)); }
-        destroy_children__12TBoss3VoloptFPv((void *)(arg0));
-        destroy_sub_objects__12TBoss3VoloptFPv((void *)(arg0));
-        TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x490, -1);
-        __dt__15TObjEnemyCustomFv(arg0, 0);
+void *TUnk_80484610::destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = volopt_boss_dispatch_table;
+        free_collision_body_parts(this);
+        if (*(void **)((s8 *)this + 0x474) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x474)); }
+        if (*(void **)((s8 *)this + 0x478) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x478)); }
+        destroy_children__12TBoss3VoloptFPv((void *)(this));
+        destroy_sub_objects__12TBoss3VoloptFPv((void *)(this));
+        TObjPlayer__sub_800D7C58((s8 *)this + 0x490, -1);
+        __dt__15TObjEnemyCustomFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }

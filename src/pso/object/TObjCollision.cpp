@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjCollision.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -44,7 +45,7 @@ void *__dt__13TObjCollisionFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjCollision;
         free_collision_body_parts(arg0);
         unregister_object_by_id(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -53,7 +54,7 @@ void *__dt__13TObjCollisionFv(void *arg0, s16 arg1) {
 }
 u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r0;
-    ((TObjPlayer *)arg0)->construct_collider_proxy();
+    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8006754C___vt__13TObjCollision *)&__vt__13TObjCollision).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2830;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));

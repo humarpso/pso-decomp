@@ -71,7 +71,7 @@ s32 submit_cursor_candidate(void *, int);
 int submit_target_to_player_cursor(void*);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_motion_object__10TObjPlayerFPvs(void *, int);
+void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 
 int TOMine::get_player_state() { return submit_target_to_player_cursor(this); }
 
@@ -185,7 +185,7 @@ void TOMine::load_static_resource() {
 void *__dt__6TOMineFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__6TOMine;
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

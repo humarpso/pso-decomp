@@ -6,6 +6,7 @@
 class TUnk_804A3A20 : public TUnk_804A4948 {
 public:
     virtual ~TUnk_804A3A20();
+    void *init_mode();
 };
 
 #endif

@@ -45,7 +45,7 @@ void save_screen_snapshot(void);
 void *create_snap_shot_window__17TWindowOptionCtrlFv(void *);
 s32 TWindowOptionCtrl__sub_8026C630(void *);
 void *__nw__7TObjectFUl(u32);
-void *ct__17TWindowOptionCtrlFv(void *arg0);
+void *ct__13TUnk_804F01A8Fv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 TKeyBoardControl__sub_8000F9CC(int);
 void *create_sub_menu_window__17TWindowOptionCtrlFv(void *);
@@ -196,7 +196,7 @@ void TWindowOptionCtrl::run_task() {
         if (self->f48 == NULL) {
             void *p = __nw__7TObjectFUl(0x30);
             if (p != NULL) {
-                p = ((void *(*)(void *, void *)) ct__17TWindowOptionCtrlFv)(p, self);
+                p = ((void *(*)(void *, void *)) ct__13TUnk_804F01A8Fv)(p, self);
             }
             self->f48 = p;
         }

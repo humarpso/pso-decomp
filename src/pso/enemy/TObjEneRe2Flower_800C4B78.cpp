@@ -1090,8 +1090,8 @@ extern const f32 lbl_805DA034;
 extern "C" {
 
 int beast_retire_corpse(void* p);
-void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
+void *dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
@@ -1116,14 +1116,14 @@ void hit_area_targets__10TObjPlayerFPvPviUif();
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
-void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
+void *dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 void run_task__26TObjEneRe2Flower_EffCurse3Fv(struct Obj_800C4B78 *o);
 extern const char lbl_8043BC48[0x1C] = "TObjEneRe2Flower_EffCurse3";
 s32 lbl_805D2A58 = (s32)lbl_8043BC48;
 void *TObjEneRe2Flower_EffCurse3__vtable[6] = {
-    (void *)0x0, (void *)0x0, (void *)&dt_with_child_destroy__10TObjPlayerFPvs, (void *)&run_task__26TObjEneRe2Flower_EffCurse3Fv,
+    (void *)0x0, (void *)0x0, (void *)&dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs, (void *)&run_task__26TObjEneRe2Flower_EffCurse3Fv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
 }
@@ -1155,26 +1155,26 @@ void TObjEneRe2Flower_EffCurse3::run_task() {
 }
 #pragma pop
 
-void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)arg0 + 0x24))); *(s32 *)((s8 *)arg0 + 0x24) = 0; }
-        __dt__7TObjectFv(arg0, 0);
+void *TObjEneRe2Flower_EffCurse3::dt_with_child_destroy(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
+        if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)this + 0x24))); *(s32 *)((s8 *)this + 0x24) = 0; }
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
-void *TObjPlayer::init_target_ref(s32 arg1, s32 arg2) {
+void *TObjEneRe2Flower_EffCurse3::init_target_ref(s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)this + 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
     *(s32 *)((s8 *)this + 0) = (s32) lbl_805D2A58;
     *(s32 *)((s8 *)this + 0x1C) = 0;
-    this->m_20 = arg2;
-    if (is_alive__9TObjEneDDFv(this->m_20) != 0) {
-        *(s32 *)((s8 *)this + 0x24) = spawn_continuous_particle_effect_with_flags(this->m_20 + 0x38, 0xDE, 0x40);
+    (*(s32 *)((u8 *)this + 0x20)) = arg2;
+    if (is_alive__9TObjEneDDFv((*(s32 *)((u8 *)this + 0x20))) != 0) {
+        *(s32 *)((s8 *)this + 0x24) = spawn_continuous_particle_effect_with_flags((*(s32 *)((u8 *)this + 0x20)) + 0x38, 0xDE, 0x40);
     }
     return this;
 }

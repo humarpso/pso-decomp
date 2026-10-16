@@ -279,8 +279,8 @@ void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TPlyPhotonChair;
         ((TMainCursor *)((s8 *)arg0 + 0xD0))->destroy(-1);
-        ((TPlyPhotonChair *)((s8 *)arg0 + 0xB4))->destroy(-1);
-        ((TPlyPhotonChair *)((s8 *)arg0 + 0x98))->destroy(-1);
+        ((TUnk_804A7478 *)((s8 *)arg0 + 0xB4))->destroy(-1);
+        ((TUnk_804A7478 *)((s8 *)arg0 + 0x98))->destroy(-1);
         TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -293,8 +293,8 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
     construct_world_actor_base((void *) (arg0), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair *)&__vt__15TPlyPhotonChair).value;
-    ((TPlyPhotonChair *)(arg0 + 0x98))->init();
-    ((TPlyPhotonChair *)(arg0 + 0xB4))->init();
+    ((TUnk_804A7478 *)(arg0 + 0x98))->init();
+    ((TUnk_804A7478 *)(arg0 + 0xB4))->init();
     TMainCursor__sub_8013F1F0((void *) (arg0 + 0xD0));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4418;
     ((TPlyPhotonChair *)arg0)->set_field90((s32)((void *) (arg1)));
@@ -343,9 +343,9 @@ void TPlyPhotonChair::set_type(s32 v) { *(s32 *)&this->m_name = v; }
 
 extern s32 lbl_804A7478[];
 
-void *TPlyPhotonChair::init() {
+void *TUnk_804A7478::init() {
     init_parts();
-    *(s32 * *)&this->m_flags = lbl_804A7478;
+    *(s32 * *)&(*(u16 *)((u8 *)this + 0x4)) = lbl_804A7478;
     sub_8035B610__13TUnk_804A7478Fv((void*)(this));
     return this;
 }
@@ -354,9 +354,9 @@ void *TPlyPhotonChair::init() {
 void TUnk_804A7478::sub_8035B610() { *(int*)((char*)this + 0x8) = 0; *(float*)((char*)this + 0xc) = lbl_805E012C; *(float*)((char*)this + 0x10) = lbl_805E012C; *(float*)((char*)this + 0x14) = lbl_805E012C; *(int*)((char*)this + 0x18) = 0; }
 
 typedef char RecoveredGlobal_8035B630_lbl_804A7488_size[sizeof(RecoveredGlobal_8035B630_lbl_804A7488) == 0x10 ? 1 : -1];
-u8 *TPlyPhotonChair::init_parts() {
+u8 *TUnk_804A7488::init_parts() {
     u8 *arg0 = (u8 *)this;
-    *(s32 * *)&this->m_flags = &lbl_804A7488.value;
+    *(s32 * *)&(*(u16 *)((u8 *)this + 0x4)) = &lbl_804A7488.value;
     sub_8035B66C__13TUnk_804A7488Fv((void*)((void *) (arg0)));
     return arg0;
 }

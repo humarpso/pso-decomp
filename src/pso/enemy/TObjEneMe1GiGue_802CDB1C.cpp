@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -63,7 +64,7 @@ s32 spawn_particle_effect_with_rotation(Vec_802CDEB4 *, Ang_802CDEB4 *, int, int
 f32 horizontal_distance__10TObjPlayerFPUc(Vec_802CDEB4 *, Vec_802CDEB4 *);
 f32 xz_distance_squared(Vec_802CDEB4 *, Vec_802CDEB4 *);
 u8 *find_entity_by_id(s16);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, s32);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 s32 matrix_mult_vec(void *, Vec_802CDEB4 *, void *);
 s32 rotate_matrix_y(void *, s32);
 s32 rotate_matrix_x(void *, s32);
@@ -206,7 +207,7 @@ void *TObjPlayer__sub_802CDE28(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E14E8;
         if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); *(s32 *)((s8 *)arg0 + 0xF8) = 0; }
         if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xFC)); *(s32 *)((s8 *)arg0 + 0xFC) = 0; }
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -215,7 +216,7 @@ void *TObjPlayer__sub_802CDE28(void *arg0, s16 arg1) {
 }
 u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB4 *arg3, s32 arg4, s32 arg5, s16 arg6) {
     Vec_802CDEB4 *pos;
-    construct_collider_proxy__10TObjPlayerFv(arg0, tl_04);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E14E8;
     *(s16 *)((s8 *)arg0 + 0x108) = arg2;
     *(s16 *)((s8 *)arg0 + 0x10A) = arg6;

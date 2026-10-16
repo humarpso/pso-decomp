@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneIllGill.h"
 #include "pso/TObject.h"
@@ -1923,7 +1924,7 @@ void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
 u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     initialize__9TObjEnemyFPv(self, arg1, arg2);
     FIG_8036858C(void *, 0x18) = __vt__14TObjEneIllGill;
-    ((TObjEneMe3SinowZoa *)(self + 0x374))->init_common();
+    ((TUnk_80494938 *)(self + 0x374))->init_common();
     FIG_8036858C(s32, 0) = TObjEneIllGill_class_name;
     ((TObjEneLappy *)self)->set_param(0x52);
     ((VObj_18_8036858C *)self)->m79(arg2);

@@ -107,7 +107,7 @@ s32 __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 int bswap_header__6TLobbyFv(void*);
 int clear_player_status_flag__10TObjPlayerFlUl(void*, int, int);
-s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
+s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 int queue_destruction__7TObjectFv(void*);
 int set_flag8__13TUnk_804AF8A0Fv(void*);
 s32 set_indexed_flags(void *, s32, s32);
@@ -328,7 +328,7 @@ void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TOAttackableCol;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

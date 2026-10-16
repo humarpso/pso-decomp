@@ -59,7 +59,7 @@ extern u32 fog_ctrl_instance;
 
 typedef char RecoveredGlobal_800FA95C_lbl_8049C700_size[sizeof(RecoveredGlobal_800FA95C_lbl_8049C700) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_800FA95C_lbl_80515F48_size[sizeof(RecoveredGlobal_800FA95C_lbl_80515F48) == 0x28 ? 1 : -1];
-u8 *TQuestVmDownLoadServer::init_object() {
+u8 *TFogCtrl_EOR::init_object() {
     u8 *arg0 = (u8 *)this;
     __ct__7TObjectFP7TObject(arg0, &lbl_80515F48.value);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800FA95C_lbl_8049C700 *)&lbl_8049C700).value;
@@ -77,7 +77,7 @@ void TFogCtrl::create_instance() {
     void *o;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
-        o = ((TQuestVmDownLoadServer *)o)->init_object();
+        o = ((TFogCtrl_EOR *)o)->init_object();
     }
     (*(void * *)&fog_ctrl_instance) = o;
 }

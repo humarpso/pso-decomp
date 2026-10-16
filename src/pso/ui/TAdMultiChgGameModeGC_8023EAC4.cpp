@@ -20,7 +20,7 @@ void *TAdTimeSetGC__ct(void *, s32);
 void *TAdTrialAgreementGC__ct(void *, s32);
 void *TAdTrialModemChkGC__ct(void *, s32);
 void *TAdVIConfigGC__ct(void *, s32);
-void *construct_title_scene__6TLobbyFv(void *, s32);
+void *construct_title_scene__13TUnk_804EEF64Fv(void *, s32);
 void *__ct__12TLevelSelectFv(void *);
 void *__ct__16TAdStorySelectGCFv(void *, s32);
 void *__ct__19TAdSelectGameModeGCFv(void *, s32);
@@ -174,7 +174,7 @@ void TAdMultiChgGameModeGC::create_mode_scene() {
     case 0:
         p = __nw__7TObjectFUl(0x4C);
         if (p != NULL) {
-            p = construct_title_scene__6TLobbyFv(p, tl_01);
+            p = construct_title_scene__13TUnk_804EEF64Fv(p, tl_01);
         }
         game_mode_scene_instance = (s32)p;
         break;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B1B80.h"
 #include "pso/misc/TOFenceAncient01.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjFish.h"
@@ -28,7 +29,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFs(void *, int);
+void destroy_key_base__13TUnk_804AFBF8Fs(void *, int);
 void init_map_object_base(void *);
 
 void TObjPlayer::on_zone_exit() {
@@ -59,10 +60,10 @@ void TObjPlayer::on_zone_exit() {
 
 extern s32 lbl_804B1B80[];
 
-void *TOFenceAncient01::destroy(s16 arg1) {
+void *TUnk_804B1B80::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804B1B80;
-        destroy_key_base__5TOKeyFs(this, 0);
+        destroy_key_base__13TUnk_804AFBF8Fs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -72,7 +73,7 @@ void *TOFenceAncient01::destroy(s16 arg1) {
 
 extern s32 lbl_804B1B80[];
 
-void *TOFenceAncient01::init_fields() {
+void *TUnk_804B1B80::init_fields() {
     init_map_object_base(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804B1B80;
     *(u32 *)&this->m_ac = 0;

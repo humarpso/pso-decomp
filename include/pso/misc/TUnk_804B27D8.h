@@ -6,6 +6,8 @@
 class TUnk_804B27D8 : public TUnk_804AFBF8 {
 public:
     virtual ~TUnk_804B27D8();
+    void *init();
+    void *destroy_key_object(s16);
     virtual void render();
     virtual void run_task();
     u8 unk_C8[0x4];

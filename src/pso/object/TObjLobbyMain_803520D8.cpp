@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjLobbyMain.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -429,7 +430,7 @@ void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)((s8 *)arg0 + 0xDC) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        ((TOKey *)arg0)->destroy_key_base(0);
+        ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

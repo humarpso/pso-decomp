@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/player/TUnk_804928CC.h"
+#include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDellBiter_Eff_Rush.h"
 #include <stddef.h>
@@ -2157,7 +2160,7 @@ void *TBoss8Dragon__sub_800BC5EC(s32, s32);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 s32 set_animation__10TObjPlayerFPvs(void *, s16);
 s32 init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__10TObjPlayerFv(void *, s32);
+void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void *__nw__7TObjectFUl(int);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -3851,17 +3854,17 @@ void TObjEneDellBiter::init_params() {
     self->f490 = 0;
     n = __nw__7TObjectFUl(0xB0);
     if (n != NULL) {
-        n = ((TObjEneDellBiter *)n)->init_instance((void *)self, (void *)self, (void *)(&((Part_80306468 *)lbl_804E6B8C)[1]), (void *)1);
+        n = ((TUnk_804928CC *)n)->init_instance((void *)self, (void *)self, (void *)(&((Part_80306468 *)lbl_804E6B8C)[1]), (void *)1);
     }
     self->f494 = n;
     n = __nw__7TObjectFUl(0xB0);
     if (n != NULL) {
-        n = ((TObjEneDellBiter *)n)->init_instance((void *)self, (void *)self, (void *)(&((Part_80306468 *)lbl_804E6B8C)[2]), (void *)1);
+        n = ((TUnk_804928CC *)n)->init_instance((void *)self, (void *)self, (void *)(&((Part_80306468 *)lbl_804E6B8C)[2]), (void *)1);
     }
     self->f498 = n;
     n = __nw__7TObjectFUl(0xAC);
     if (n != NULL) {
-        n = construct_collider_proxy__10TObjPlayerFv(n, 0);
+        n = construct_collider_proxy__13TUnk_804AF8A0Fv(n, 0);
     }
     self->f49C = n;
     init_collision_body_parts(self->f49C, &((Part_80306468 *)lbl_804E6B8C)[3], 1);
@@ -3884,9 +3887,9 @@ void TObjEneDellBiter::init_params() {
     self->f4C8 = 0;
 }
 void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2) {
-    ((TObjEneDD *)arg0)->init_object();
+    ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneDellBiter;
-    ((TObjPlayer *)((char *)arg0 + 980))->init_vtable_and_field18();
+    ((TUnk_80490470 *)((char *)arg0 + 980))->init_vtable_and_field18();
     __construct_array((void *)((char *)arg0 + 1008), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = TObjEneDellBiter__class_name;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
@@ -480,7 +481,7 @@ struct Obj_802D0D3C {
 typedef void (*VFn0_802D0D3C)(void *);
 typedef void (*VFn2_802D0D3C)(void *, s32, s32);
 
-void init_object__9TObjEneDDFv(void *, void *);
+void init_object__12TObjEneDD_STFv(void *, void *);
 void __construct_array(void *, void *, void *, u32, u32);
 void invoke_initialization_hook__9TObjEneDDFPv(void *, s32);
 void init_position_vectors__9TObjEneDDFPv(void *);
@@ -491,7 +492,7 @@ s32 create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void enemy_init_acquire_period(void *, s32);
 void enemy_init_validate_period(void *, s32);
-void *construct_collider_proxy__10TObjPlayerFv(void *, s32);
+void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);
@@ -762,10 +763,10 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     s32 i;
     void *p;
 
-    init_object__9TObjEneDDFv(self, parent);
+    init_object__12TObjEneDD_STFv(self, parent);
     self->vt18 = TObjEneBm9Mericarol__vtable;
     __construct_array(self->a3C8, (void *)init_and_activate__10TObjPlayerFv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
-    ((TObjEneMe3SinowZoa *)(self->o46C))->init_common();
+    ((TUnk_80494938 *)(self->o46C))->init_common();
     self->f0 = lbl_805D3F28;
     invoke_initialization_hook__9TObjEneDDFPv(self, arg2);
     ((TObjEneBm9Mericarol *)self)->init_size_tier_and_offsets();
@@ -810,7 +811,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     ((VObj14_802D0D3C *)self->o46C)->m3();
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__10TObjPlayerFv(p, 0);
+        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, 0);
     }
     self->f48C = p;
     init_collision_body_parts(self->f48C, (u8 *)lbl_804E1564 + 0x2C, 1);

@@ -160,7 +160,7 @@ int TObjPlayer__sub_800D9718(void);
 
     extern s32 lbl_80490470[];
     extern const float lbl_805D9958;
-void*TObjPlayer::init_vtable_and_field18() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float*)((char*)this + 0x18) = lbl_805D9958; return this; }
+void*TUnk_80490470::init_vtable_and_field18() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float*)((char*)this + 0x18) = lbl_805D9958; return this; }
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {

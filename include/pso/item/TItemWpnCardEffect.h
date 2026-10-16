@@ -18,7 +18,6 @@ struct TItemWpnCardEffect
     u32 m_54;
     u8 _pad58[0x4];
     u32 m_5c;
-    void *destroy(s16 arg1);
 };
 
 #endif

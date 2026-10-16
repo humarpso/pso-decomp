@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F3F4.h"
 #include "pso/TItemLoad.h"
 
 extern "C" {
@@ -7,7 +8,7 @@ void __ct__7TObjectFP7TObject(void *);
 
 extern s32 lbl_8049F3F4[];
 
-void *TItemLoad::init(void *arg1, void *arg2, void *arg3, void *arg4) {
+void *TUnk_8049F3F4::init(void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_8049F3F4;
     *(void **)((s8 *)this + 0x1C) = arg2;

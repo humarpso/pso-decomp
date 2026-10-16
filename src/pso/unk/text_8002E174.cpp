@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804820C0.h"
 #include "pso/unk/TUnk_80482090.h"
 
 extern "C" {
@@ -282,7 +283,7 @@ Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, 
     Part_8002E62C *p;
     s32 i;
     Vec_8002E62C *v;
-    ((TObjPlayer *)self)->init_base();
+    ((TUnk_804820C0 *)self)->init_base();
     p = self->parts;
     self->vt = lbl_80482090;
     self->f4F0 = arg2;

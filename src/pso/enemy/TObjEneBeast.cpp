@@ -420,7 +420,7 @@ struct VObj_800927DC : VBase_800927DC {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void obj_setFlags30(void *, u32);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
-void init_enemy_base__10TObjPlayerFv(void *, void *);
+void init_enemy_base__13TUnk_80493450Fv(void *, void *);
 void *create__12TObjEneSaverFPvPv(void *, void *);
 void bind_enemy_combat_stats(void *, u32, u32, u32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
@@ -448,7 +448,7 @@ extern const f32 lbl_805D9710;
 void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     s32 i;
 
-    init_enemy_base__10TObjPlayerFv(arg0, arg1);
+    init_enemy_base__13TUnk_80493450Fv(arg0, arg1);
     F(arg0, u8 *, 0x18) = (u8 *)__vt__12TObjEneBeast;
     __construct_array(arg0 + 0x3B0, init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 0x1C, 4);
     F(arg0, s32, 0) = lbl_805D2980;

@@ -6,6 +6,7 @@
 class TUnk_804A535C : public TItemWeapon {
 public:
     virtual ~TUnk_804A535C();
+    void *init_trade_action();
 };
 
 #endif

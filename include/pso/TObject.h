@@ -156,8 +156,6 @@ public:
     int  all_parents_unqueued_for_destruction();
     bool toggle_flag_9_if_flag_10_is_clear();
 public:
-    void *destroy_and_delete(s16 arg1);
-    void *delete_instance(s16 arg1);
 };
 
 #endif

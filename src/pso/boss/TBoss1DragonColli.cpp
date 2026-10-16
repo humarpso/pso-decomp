@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss1DragonColli_C.h"
 class TBoss1DragonColli : public TObject {
 public:
@@ -62,7 +63,7 @@ void fn_8002B630(u8 *arg0, u8 *arg1);
 E_8002B4CC *mem_alloc(s32);
 s32 register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 TBoss1DragonColli_sphere_chain_desc[];
 extern s32 __vt__19TBoss1DragonColli_C[];
 extern s32 TBoss1DragonColli_C__name;
@@ -190,7 +191,7 @@ void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss1DragonColli_C;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -205,7 +206,7 @@ s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scal
     f32 zero;
     f32 step;
     f32 z;
-    construct_collider_proxy__10TObjPlayerFv(self, arg1);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(self, arg1);
     self->vt = ((u8 *)&__vt__19TBoss1DragonColli_C);
     self->f0 = TBoss1DragonColli_C__name;
     VecCopy__FP3VecPC3Vec(self->pos, arg3);

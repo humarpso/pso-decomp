@@ -781,11 +781,11 @@ void TUnk_804D1AD0::run_task() {
 
 extern s32 status_category_window_vtable[];
 
-void *TWindowSubShortMail::destroy(s16 arg1) {
+void *TUnk_804D1AD0::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = status_category_window_vtable;
         if (*(void * *)&this->m_28 != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void * *)&this->m_28)); *(s32 *)&this->m_28 = 0; }
-        if (*(void * *)&this->m_24 != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void * *)&this->m_24)); *(s32 *)&this->m_24 = 0; }
+        if (*(void * *)&(*(u32 *)((u8 *)this + 0x24)) != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void * *)&(*(u32 *)((u8 *)this + 0x24)))); *(s32 *)&(*(u32 *)((u8 *)this + 0x24)) = 0; }
         __dt__7TObjectFv((void *)(this), (int)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(this));

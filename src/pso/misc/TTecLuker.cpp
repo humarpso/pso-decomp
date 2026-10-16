@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804CC9D4.h"
 
 struct BaseM_80234C90_80233B38 { char pad[0x24]; };
@@ -190,7 +191,7 @@ u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_setFlags30(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void TTecLuker__sub_80234F68(void* p);
 extern RecoveredGlobal_80233D18_lbl_804CC9A8 telepipe_field_collision_body_template;
 extern s32 telepipe_field_collider_vtable[];
@@ -335,7 +336,7 @@ void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-s32 destroy_technique_base__9TTecLukerFPvs(void *, s32);
+s32 destroy_technique_base__13TUnk_804CC148Fs(void *, s32);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -399,7 +400,7 @@ void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         *(s32 *)((s8 *)arg0 + 0xB0) = 0;
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
         }
@@ -410,7 +411,7 @@ void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
 u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0), (void *) (arg2));
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg1));
     init_collision_body_parts((void *) (arg0), (void *) (&telepipe_field_collision_body_template.value), (int) (1));
@@ -985,7 +986,7 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0xF0) = 0U;
         }
         *(u32 *)((s8 *)arg0 + 0xF0) = 0U;
-        destroy_technique_base__9TTecLukerFPvs(arg0, 0);
+        destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
         }

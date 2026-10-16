@@ -51,9 +51,9 @@ void __destroy_arr(void *, void *, int, int);
 extern s32 __dt_deleting__13TLockOnCursorFis[];
 extern s32 __vt__13TLockOnCursor[];
 u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1);
-s32 init_lockon__11TMainCursorFv(s32, s32, s32);
-s32 init_vtable__11TMainCursorFv(s32, s32, s32);
-s32 init__11TMainCursorFv(s32, s32, s32);
+s32 init_lockon__14TLOC_ListClearFv(s32, s32, s32);
+s32 init_vtable__8TLOC_EndFv(s32, s32, s32);
+s32 init__10TLOC_StartFv(s32, s32, s32);
 s32 reset_nearest_target_record(s32);
 s32 get_target_id__11TMainCursorFv(s32);
 Obj_8013DCCC *release_target__13TLockOnCursorFv(void *);
@@ -157,21 +157,21 @@ void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0) {
     if (cleanup_field_3c__13TLockOnCursorFv((void *)arg0) == NULL) {
         var_r31_2 = __nw__7TObjectFUl(0x24);
         if (var_r31_2 != 0) {
-            var_r31_2 = init__11TMainCursorFv(var_r31_2, tl_loc_start, get_target_id__11TMainCursorFv(arg0));
+            var_r31_2 = init__10TLOC_StartFv(var_r31_2, tl_loc_start, get_target_id__11TMainCursorFv(arg0));
         }
         ((TMainCursor *)arg0)->set_sub_cursor_value(var_r31_2);
     }
     if (cleanup_field__13TLockOnCursorFv((void *)arg0) == NULL) {
         var_r31_3 = __nw__7TObjectFUl(0x24);
         if (var_r31_3 != 0) {
-            var_r31_3 = init_vtable__11TMainCursorFv(var_r31_3, tl_loc_end, get_target_id__11TMainCursorFv(arg0));
+            var_r31_3 = init_vtable__8TLOC_EndFv(var_r31_3, tl_loc_end, get_target_id__11TMainCursorFv(arg0));
         }
         ((TMainCursor *)arg0)->set_target(var_r31_3);
     }
     if (release_target__13TLockOnCursorFv((void *)arg0) == NULL) {
         var_r31_4 = __nw__7TObjectFUl(0x24);
         if (var_r31_4 != 0) {
-            var_r31_4 = init_lockon__11TMainCursorFv(var_r31_4, tl_window, get_target_id__11TMainCursorFv(arg0));
+            var_r31_4 = init_lockon__14TLOC_ListClearFv(var_r31_4, tl_window, get_target_id__11TMainCursorFv(arg0));
         }
         ((TMainCursor *)arg0)->destroy_lock_on(var_r31_4);
     }

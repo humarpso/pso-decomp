@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TUnk_804848A0.h"
+#include "pso/boss/TUnk_804848B8.h"
 #include <stddef.h>
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -325,7 +327,7 @@ s32 is_photon_blast_active__11TCameraCtrlFPv();
 s32 fn_8003F3F8();
 s32 TBoss3VoloptCore__sub_80040788();
 void cache_volopt_resource_ptrs(void);
-s32 init_object__16TBoss3VoloptCtrlFv();
+s32 init_object__13TUnk_80483B88Fv();
 s32 set_player_flag_08000000__12TBoss3VoloptFv();
 s32 set_flag_08000000__12TBoss3VoloptFv();
 void start_attack__20TBoss3VoloptHiraisinFPv(void *);
@@ -770,7 +772,7 @@ void TCameraCtrl::update_volopt_seq() {
             ((V_A_8003d558_8003CFEC *)this)->m72(0);
             *(s32 *)((s8 *)this + 0x374) = 5;
             if (__nw__7TObjectFUl(0x1C) != 0U) {
-                init_object__16TBoss3VoloptCtrlFv();
+                init_object__13TUnk_80483B88Fv();
             }
         }
         play_persistent_sound(0x4003C601, this, 0, 0, 0);
@@ -905,7 +907,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
     case 4:
         o = __nw__7TObjectFUl(0x28);
         if (o != 0U) {
-            ((TBoss3Volopt *)o)->init_fade(arg0, 0);
+            ((TUnk_804848B8 *)o)->init_fade(arg0, 0);
         }
         TBoss3Volopt__sub_8003CB48();
         *(s32 *)((s8 *)arg0 + 0x37C) = 5;
@@ -918,7 +920,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
     case -1:
         o = __nw__7TObjectFUl(0x28);
         if (o != 0U) {
-            ((TBoss3Volopt *)o)->init_fade_color(arg0, 0);
+            ((TUnk_804848A0 *)o)->init_fade_color(arg0, 0);
         }
         break;
     }

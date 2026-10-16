@@ -6,6 +6,7 @@
 class TQuestListOffline : public TShopWindowBase {
 public:
     virtual ~TQuestListOffline();
+    void *close_shop_subwindows(s16);
     void init_quest_list_window();
     virtual void vfunc_11();
     u8 unk_1C[0x3C];

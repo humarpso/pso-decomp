@@ -1,10 +1,14 @@
 #include "types.h"
+#include "pso/player/TUnk_804E22F4.h"
+#include "pso/player/TUnk_804E2000.h"
+#include "pso/player/TUnk_804E1F04.h"
+#include "pso/unk/TUnk_804E1BB0.h"
 #include "pso/player/TUnk_804E21F8.h"
 
 struct Vec_802D52E8 { f32 x, y, z; };
 
 extern "C" {
-void * init_state_513__10TObjPlayerFPv(void *, s32, void *);
+void * init_state_513__13TUnk_804E1BB0FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_513__10TObjPlayerFPv(u8 *arg0);
@@ -29,11 +33,11 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern s32 lbl_804E1BB0[];
 
-void *init_state_513__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
-    TItemWeapon__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1BB0;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 513);
-    return arg0;
+void *TUnk_804E1BB0::init_state_513(s32 _w1, void *_w2) {
+    TItemWeapon__ct(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804E1BB0;
+    set_status_flags__10TObjPlayerFPvUi(this, 513);
+    return this;
 }
 
 extern s32 lbl_804E1BB0[];
@@ -45,7 +49,7 @@ u8 *create_state_513__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_state_513__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)init_state_513__13TUnk_804E1BB0FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -306,7 +310,7 @@ void sub_802D577C__13TUnk_804E21F8Fv(void *arg0_);
 
 extern "C" {
 
-void *enter_state_341__10TObjPlayerFPv(void *arg0);
+void *enter_state_341__13TUnk_804E2000Fv(void *arg0);
 void set_radar_marker_pos__10TObjPlayerFiPv(int a0, void* a1);
 int set_radar_marker_params__10TObjPlayerFPvPv(void);
 void init_state_445__10TObjPlayerFPv(void *);
@@ -315,13 +319,13 @@ extern s32 lbl_804E2000[];
 extern s32 spawn_hit_particles_at__10TObjPlayerFiii[];
 extern s32 spawn_hit_particles_at_vec__10TObjPlayerFiii[];
 
-void *enter_state_341__10TObjPlayerFPv(void *arg0) {
-    init_state_445__10TObjPlayerFPv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E2000;
-    *(u32 *)((s8 *)arg0 + 0x1FC) = 341;
-    *(s32 **)((s8 *)arg0 + 0x208) = spawn_hit_particles_at__10TObjPlayerFiii;
-    *(s32 **)((s8 *)arg0 + 0x204) = spawn_hit_particles_at_vec__10TObjPlayerFiii;
-    return arg0;
+void *TUnk_804E2000::enter_state_341() {
+    init_state_445__10TObjPlayerFPv(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804E2000;
+    *(u32 *)((s8 *)this + 0x1FC) = 341;
+    *(s32 **)((s8 *)this + 0x208) = spawn_hit_particles_at__10TObjPlayerFiii;
+    *(s32 **)((s8 *)this + 0x204) = spawn_hit_particles_at_vec__10TObjPlayerFiii;
+    return this;
 }
 
     extern const float lbl_805DE790;
@@ -509,34 +513,34 @@ void spawn_item_thunk__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 extern "C" {
 
-void *init_type_447__10TObjPlayerFPv(void *arg0);
-void *init_vtable_and_handlers_341__10TObjPlayerFPv(void *arg0);
+void *init_type_447__13TUnk_804E22F4Fv(void *arg0);
+void *init_vtable_and_handlers_341__13TUnk_804E1F04Fv(void *arg0);
 void init_state_445__10TObjPlayerFPv(void *);
 
 extern s32 lbl_804E22F4[];
 extern s32 alloc_and_init__10TObjPlayerFlll[];
 extern s32 create_and_init_effect__10TObjPlayerFlPUll[];
 
-void *init_type_447__10TObjPlayerFPv(void *arg0) {
-    init_state_445__10TObjPlayerFPv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E22F4;
-    *(u32 *)((s8 *)arg0 + 0x1FC) = 447;
-    *(s32 **)((s8 *)arg0 + 0x204) = alloc_and_init__10TObjPlayerFlll;
-    *(s32 **)((s8 *)arg0 + 0x208) = create_and_init_effect__10TObjPlayerFlPUll;
-    return arg0;
+void *TUnk_804E22F4::init_type_447() {
+    init_state_445__10TObjPlayerFPv(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804E22F4;
+    *(u32 *)((s8 *)this + 0x1FC) = 447;
+    *(s32 **)((s8 *)this + 0x204) = alloc_and_init__10TObjPlayerFlll;
+    *(s32 **)((s8 *)this + 0x208) = create_and_init_effect__10TObjPlayerFlPUll;
+    return this;
 }
 
 extern s32 lbl_804E1F04[];
 extern s32 TItemWpnCardEffect__sub_8032E588[];
 extern s32 create_aux_object__10TObjPlayerFlPUll[];
 
-void *init_vtable_and_handlers_341__10TObjPlayerFPv(void *arg0) {
-    init_state_445__10TObjPlayerFPv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1F04;
-    *(u32 *)((s8 *)arg0 + 0x1FC) = 341;
-    *(s32 **)((s8 *)arg0 + 0x204) = TItemWpnCardEffect__sub_8032E588;
-    *(s32 **)((s8 *)arg0 + 0x208) = create_aux_object__10TObjPlayerFlPUll;
-    return arg0;
+void *TUnk_804E1F04::init_vtable_and_handlers_341() {
+    init_state_445__10TObjPlayerFPv(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804E1F04;
+    *(u32 *)((s8 *)this + 0x1FC) = 341;
+    *(s32 **)((s8 *)this + 0x204) = TItemWpnCardEffect__sub_8032E588;
+    *(s32 **)((s8 *)this + 0x208) = create_aux_object__10TObjPlayerFlPUll;
+    return this;
 }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 
 struct Ene_800CCC6C;
@@ -5122,7 +5123,7 @@ extern const f32 lbl_805DA25C;
 void update_walk_to_target__10TObjPlayerFPv(Ene_800D1E4C *arg0);
 void enemy_init_validate_period(void *, s32);
 void enemy_init_acquire_period(void *, s32);
-void init_object__9TObjEneDDFv(void *, s32, s32);
+void init_object__12TObjEneDD_STFv(void *, s32, s32);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
@@ -5131,7 +5132,7 @@ void init_position_vectors__9TObjEneDDFPv(void *);
 void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
-void *construct_collider_proxy__10TObjPlayerFv(void *, s32);
+void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
 void init_and_activate__10TObjPlayerFv();
@@ -5250,11 +5251,11 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
     void *p;
     s32 i;
     s32 b;
-    init_object__9TObjEneDDFv(arg0, arg1, arg2);
+    init_object__12TObjEneDD_STFv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80493F04;
     TObjEneBm5GibonU__sub_800D1CF8((O_800D1CF8 *)(arg0 + 0x3C0));
     TObjEneBm5GibonU__sub_800D1CF8((O_800D1CF8 *)(arg0 + 0x3CC));
-    ((TObjEneMe3SinowZoa *)(arg0 + 0x3D8))->init_common();
+    ((TUnk_80494938 *)(arg0 + 0x3D8))->init_common();
     __construct_array(arg0 + 0x3F4, (void *)&init_and_activate__10TObjPlayerFv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
     ((TObjPlayer *)(arg0 + 0x4B0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A70;
@@ -5300,7 +5301,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x4AC) = 0;
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = construct_collider_proxy__10TObjPlayerFv(p, 0);
+        p = construct_collider_proxy__13TUnk_804AF8A0Fv(p, 0);
     }
     *(void **)((s8 *)arg0 + 0x50C) = p;
     init_collision_body_parts(*(void **)((s8 *)arg0 + 0x50C), &gibon_collision_body_templates[2], 1);

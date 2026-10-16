@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorFourLightRuins.h"
 #include "pso/misc/TODoorFourLightSpace.h"
 #include "pso/TParticleCtrl.h"
@@ -324,7 +325,7 @@ void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TODoorFourLightSpace;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        ((TODoorAncient01 *)arg0)->destroy_ancient_door_base(0);
+        ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -585,7 +586,7 @@ void *__dt__20TODoorFourLightRuinsFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TODoorFourLightRuins;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        ((TODoorAncient01 *)arg0)->destroy_ancient_door_base(0);
+        ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -25,7 +25,6 @@ public:
     void play_load_sound();
     static void send_player_load(s32 arg0);
     void approach_value();
-    void*init_object(s32 _w1, void * _w2);
     u8 *create_instance();
     static s32 get_or_set_channel_flag(s32 arg0, s32 arg1);
     static s32 get_load_state();

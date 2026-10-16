@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804928CC.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -206,7 +207,7 @@ void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss1Crater;
         if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB4), 1); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
         if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB0)); *(s32 *)((s8 *)arg0 + 0xB0) = 0; }
-        ((TObjPlayer *)arg0)->destroy_enemy_object(0);
+        ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

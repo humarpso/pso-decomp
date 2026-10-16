@@ -126,7 +126,7 @@ f32 TObjEneRecon__sub_8031C2D4(int);
 s32 construct_actor_base__10TObjPlayerFPvPv();
 s32 VecCopy__FP3VecPC3Vec(void *, void *, int);
 void __dl__7TObjectFPv(void *);
-void destroy_motion_object__10TObjPlayerFPvs(void *, int);
+void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 s16 obj_getField1c(int);
 
 extern s32 __vt__16TObjEneReconBomb[];
@@ -261,7 +261,7 @@ void TObjEneReconBomb::run_task() {
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneReconBomb;
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

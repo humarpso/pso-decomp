@@ -6,6 +6,7 @@
 class TUnk_804A3E20 : public TUnk_804A4948 {
 public:
     virtual ~TUnk_804A3E20();
+    void*init_shot_state();
     virtual void update_weapon();
     u8 unk_1C[0x1EC];
 };

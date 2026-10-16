@@ -6,6 +6,7 @@
 class TUnk_804EF8C0 : public TObject {
 public:
     virtual ~TUnk_804EF8C0();
+    void *construct();
     void alloc_download_buffer();
     void clear_buffer();
     void free_buffer();

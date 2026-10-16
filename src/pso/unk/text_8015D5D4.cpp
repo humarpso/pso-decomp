@@ -18,7 +18,7 @@ extern "C" void vfunc_12__13TUnk_804B9870Fv();
 extern "C" void vfunc_9__13TUnk_804B9870Fv();
 extern "C" void apply_object_set_data();
 extern "C" void classify_actor_view_detail();
-extern "C" void destroy_ancient_door_base__15TODoorAncient01Fs();
+extern "C" void destroy_ancient_door_base__13TUnk_804B0BB8Fs();
 extern "C" void fn_8015D714();
 extern "C" void init_door_switch_binding__13TUnk_804B0BB8Fv();
 extern "C" void play_proximity_sound__13TUnk_804B0BB8Fv();
@@ -29,7 +29,7 @@ extern "C" void run_task__13TUnk_804B0BB8Fv();
 extern "C" void update_door_switch_state__13TUnk_804B0BB8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 void *lbl_804B0BB8[21] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy_ancient_door_base__15TODoorAncient01Fs, (void *)&run_task__13TUnk_804B0BB8Fv,
+    (void *)0x0, (void *)0x0, (void *)&destroy_ancient_door_base__13TUnk_804B0BB8Fs, (void *)&run_task__13TUnk_804B0BB8Fv,
     (void *)&render__13TUnk_804AFBF8Fv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&update_door_switch_state__13TUnk_804B0BB8Fv, (void *)&play_proximity_sound__13TUnk_804B0BB8Fv,

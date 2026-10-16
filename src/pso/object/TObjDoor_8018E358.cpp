@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjDoor.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -160,7 +161,7 @@ void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
 u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
 s32 init_collision_body_parts(void *, void *, s32);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
+s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern s32 __vt__8TObjDoor[];
 extern s32 TObjDoor__name;
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2);
@@ -602,7 +603,7 @@ void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TObjDoor;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -612,7 +613,7 @@ void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
 
 #define d ((Door_8018F15C *)arg0)
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
-    construct_collider_proxy__10TObjPlayerFv(arg0, arg1);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, arg1);
     d->vt = __vt__8TObjDoor;
     d->f0 = TObjDoor__name;
     ((DoorVt_8018F15C *)d)->m5(arg2);

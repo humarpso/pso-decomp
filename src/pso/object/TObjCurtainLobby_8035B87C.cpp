@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjCurtainLobby.h"
 #include "pso/TParticleCtrl.h"
@@ -158,7 +159,7 @@ void TObjCurtainLobby::load_resources() {
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCurtainLobby;
-        ((TOKey *)arg0)->destroy_key_base(0);
+        ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

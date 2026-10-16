@@ -48,7 +48,7 @@ void set_scale__13TUnk_804B2578Ff(void* p, f32 v);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
+s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 
 extern s32 lbl_804B2578[];
 
@@ -57,7 +57,7 @@ void *destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *arg0, s16 
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B2578;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

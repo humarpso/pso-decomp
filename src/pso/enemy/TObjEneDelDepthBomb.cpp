@@ -438,7 +438,7 @@ typedef char RecoveredGlobal_80315A40___vt__15TObjEneDelDepth_size[sizeof(Recove
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 u16 find_nearest_visible_player(void *, int, f32);
-void destroy_motion_object__10TObjPlayerFPvs(void *, int);
+void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
@@ -682,7 +682,7 @@ void * create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2
 void *__dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjEneDelDepthBomb;
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

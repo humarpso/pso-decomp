@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/TObject.h"
 
@@ -1407,7 +1408,7 @@ s32 sub_800F5874__12TObjEneDD_STFl(void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 set_indexed_flags(void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
-void *construct_collider_proxy__10TObjPlayerFv(void *, int);
+void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 extern s32 epsilon_guard_boss_stat_handle;
 extern s32 epsilon_guard_shared_handler_b;
 extern s32 epsilon_guard_registered_object_handle;
@@ -1708,7 +1709,7 @@ void TObjEneEpsilonGuard::init_model_and_state() {
     ((VObj_18_b345b0 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
     o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = construct_collider_proxy__10TObjPlayerFv(o, 0);
+        o = construct_collider_proxy__13TUnk_804AF8A0Fv(o, 0);
     }
     *(void **)((s8 *)arg0 + 0x45C) = o;
     init_collision_body_parts(*(void **)((s8 *)arg0 + 0x45C), (u8 *) TObjEneEpsilonGuard__model_desc + 0x2C, 1);
@@ -1721,7 +1722,7 @@ void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, vo
     s32 var_r30;
     TObjEneEpsilon__ct();
     *(void ***)((s8 *)arg0 + 0x18) = __vt__19TObjEneEpsilonGuard;
-    ((TObjEneMe3SinowZoa *)((u8 *)(arg0) + 0x4BC))->init_common();
+    ((TUnk_80494938 *)((u8 *)(arg0) + 0x4BC))->init_common();
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneEpsilonGuard__class_name;
     *(s16 *)((s8 *)arg0 + 0x470) = ((s16 (*)(void *))obj_getField1c)((void *) (arg2));
     init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));

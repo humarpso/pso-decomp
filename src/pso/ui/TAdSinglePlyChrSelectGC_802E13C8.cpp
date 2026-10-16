@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/menu/T_ATS_DrawCalendar.h"
 #include "pso/TAdTimeSetGC.h"
 
 extern "C" {
@@ -100,7 +101,7 @@ extern "C" {
 
 void *TAdSinglePlyChrSelectGC__sub_802E13C8(void *arg0, s16 arg1);
 void * create__23TAdSinglePlyChrSelectGCFv(void);
-void *init_object__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *);
+void *init_object__18T_ATS_DrawCalendarFPv(void *arg0, void *);
 s32 poll_load_status__12TAdTimeSetGCFv(void *arg0);
 s32 probe_and_check_card__15TAdPlayerLoadGCFv(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -147,13 +148,13 @@ extern s32 lbl_804E34FC[];
 extern s32 lbl_804E3050[];
 extern void *lbl_805D3F84;
 
-void *init_object__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E34FC;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3F84;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *)((char *)arg0 + 32), lbl_804E3050);
-    return arg0;
+void *T_ATS_DrawCalendar::init_object(void *) {
+    __ct__7TObjectFP7TObject(this);
+    *(s32 **)((s8 *)this + 0x18) = lbl_804E34FC;
+    *(void **)((s8 *)this + 0x0) = lbl_805D3F84;
+    *(u32 *)((s8 *)this + 0x1C) = 0;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *)((char *)this + 32), lbl_804E3050);
+    return this;
 }
 
 extern void *tl_clipout;
@@ -161,7 +162,7 @@ extern void *tl_clipout;
 void *create__23TAdSinglePlyChrSelectGCFv(void) {
     void *o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        o = init_object__23TAdSinglePlyChrSelectGCFPvPv((void *)((void *)(o)), (void *)((void *)(tl_clipout)));
+        o = init_object__18T_ATS_DrawCalendarFPv((void *)((void *)(o)), (void *)((void *)(tl_clipout)));
     }
     return o;
 }
