@@ -381,7 +381,7 @@ void vfunc_84__15TOTrapAncient01Fv(void);
 void vfunc_86__15TOTrapAncient01Fv(void);
 void vfunc_88__15TOTrapAncient01Fv(void);
 void vfunc_86__16TOTrapAncient02RFv(void *arg0);
-void vfunc_25__6TOTrapFPUc(void);
+void apply_knockback_from_attacker__6TOTrapFPUc(void);
 void TLobby__sub_8001FE7C(void*, int);
 void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
 void TOTrapAncient02R__sub_80154D78(void *);
@@ -390,7 +390,7 @@ s32 is_current_room(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
-void TOTrap::vfunc_25(u8 *) {  }
+void TOTrap::apply_knockback_from_attacker(u8 *) {  }
 void TOTrapAncient01::vfunc_86() {  }
 void TOTrapAncient01::vfunc_88() {  }
 

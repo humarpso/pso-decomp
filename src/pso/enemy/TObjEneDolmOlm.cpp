@@ -1357,7 +1357,7 @@ void run_task__14TObjEneDolmOlmFPv(u8 *arg0) {
         ((TObjEneDolmOlm *)arg0)->init_body_sub();
         break;
       case 5:
-        (((TObjEneDolmOlm *)(arg0))->vfunc_88());
+        (((TObjEneDolmOlm *)(arg0))->beast_update_attack());
         break;
       case 6:
         (((TObjEneDolmOlm *)(arg0))->vfunc_89());

@@ -107,7 +107,7 @@ void set_indexed_flags(void *, s32, s32);
 void vfunc_86__10TOMineTrapFv(u8 *arg0);
 int roll_physical_accuracy__6TOMineFPvlf(void);
 int try_start_action__6TOMineFll(void);
-void vfunc_25__6TOMineFPUc(void);
+void apply_knockback_from_attacker__6TOMineFPUc(void);
 void vfunc_79__6TOMineFv(void);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
@@ -327,7 +327,7 @@ s32 TOMineTrap::is_target_in_list(void *obj) {
 
 s32 TOMine::roll_physical_accuracy(void *, s32, f32) { return 1; }
 s32 TOMine::try_start_action(s32, s32) { return 1; }
-void TOMine::vfunc_25(u8 *) {  }
+void TOMine::apply_knockback_from_attacker(u8 *) {  }
 void TOMine::vfunc_79() {  }
 s32 TOMineTrap::check_trigger(u32 arg1) {
     if (is_target_in_list((void *)(arg1)) == 1) {

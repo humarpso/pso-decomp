@@ -8,7 +8,7 @@ public:
     virtual ~TUnk_804B5BA8();
     virtual s32 check_player_in_range(s32, f32);
     virtual void begin_state_1();
-    virtual void vfunc_16();
+    virtual void city_door_tick_closing();
     virtual void city_door_tick_opening();
     virtual void check_ground_or_fall();
     virtual void vfunc_19();

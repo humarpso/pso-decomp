@@ -42,7 +42,7 @@ extern "C" {
 
 int select_melee_contact_body__13TUnk_804B2578FPvf(void);
 f32 receive_physical_attack__13TUnk_804B2578FPvf(void);
-void vfunc_25__13TUnk_804B2578FPUc(void);
+void apply_knockback_from_attacker__13TUnk_804B2578FPUc(void);
 void *destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *arg0, s16 arg1);
 void set_scale__13TUnk_804B2578Ff(void* p, f32 v);
 s32 free_collision_body_parts(void *);
@@ -91,7 +91,7 @@ f32 TUnk_804B2578::receive_physical_attack(void *, f32) {
     return lbl_805DB650;
 }
 
-void TUnk_804B2578::vfunc_25(u8 *) {  }
+void TUnk_804B2578::apply_knockback_from_attacker(u8 *) {  }
 
 void TUnk_804B2578::set_scale(f32 v) { *(f32*)((char*)this + 0x338) = v; }
 

@@ -319,7 +319,7 @@ u8 *TObjEneDD::vfunc_102() {
     f32 temp_f31;
     u8 *temp_r3;
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x3C);
-    temp_r3 = (unsigned char *) (((TObjEneDD *)(arg0))->vfunc_17());
+    temp_r3 = (unsigned char *) (((TObjEneDD *)(arg0))->update_actor_ground_y());
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
     }

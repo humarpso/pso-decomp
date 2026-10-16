@@ -273,7 +273,7 @@ f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *
 extern "C" {
 
 s32 select_melee_contact_body__13TOCtrlDubchikFPvf(void *arg0);
-void vfunc_25__13TOCtrlDubchikFPUc(void);
+void apply_knockback_from_attacker__13TOCtrlDubchikFPUc(void);
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
@@ -564,6 +564,6 @@ s32 TOCtrlDubchik::roll_physical_accuracy(void *arg1, s32 arg2, f32 farg0) {
     return 0;
 }
 
-void TOCtrlDubchik::vfunc_25(u8 *) {  }
+void TOCtrlDubchik::apply_knockback_from_attacker(u8 *) {  }
 
 }

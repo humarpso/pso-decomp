@@ -308,7 +308,7 @@ s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
     extern const float TContainerAncient01__data_805DBD1C;
 
 extern "C" void receive_weapon_special_attack__20TContainerAncient01RFPvPv();
-extern "C" void vfunc_25__20TContainerAncient01RFPUc();
+extern "C" void apply_knockback_from_attacker__20TContainerAncient01RFPUc();
 extern "C" void try_start_action__20TContainerAncient01RFll();
 extern "C" void roll_physical_accuracy__20TContainerAncient01RFPvlf();
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
@@ -420,7 +420,7 @@ void *__vt__20TContainerAncient01R[79] = {
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&is_within_range__19TContainerAncient01Fii, (void *)&calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf, (void *)&receive_physical_attack__20TContainerAncient01RFPvf, (void *)&receive_direct_attack__20TContainerAncient01RFPvPvPvll,
-    (void *)&receive_weapon_special_attack__20TContainerAncient01RFPvPv, (void *)&vfunc_25__20TContainerAncient01RFPUc, (void *)&try_start_action__20TContainerAncient01RFll, (void *)&roll_physical_accuracy__20TContainerAncient01RFPvlf,
+    (void *)&receive_weapon_special_attack__20TContainerAncient01RFPvPv, (void *)&apply_knockback_from_attacker__20TContainerAncient01RFPUc, (void *)&try_start_action__20TContainerAncient01RFll, (void *)&roll_physical_accuracy__20TContainerAncient01RFPvlf,
     (void *)&vfunc_28__13TUnk_804806E8Fv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,

@@ -19,7 +19,7 @@ struct TOMine : public TUnk_804806E8 {
     virtual f32 receive_physical_attack(void *, f32);
     virtual int vfunc_12();
     virtual void vfunc_7(void *);
-    virtual void vfunc_25(u8 *);
+    virtual void apply_knockback_from_attacker(u8 *);
     virtual s32 try_start_action(s32, s32);
     virtual s32 roll_physical_accuracy(void *, s32, f32);
     void* m_334;

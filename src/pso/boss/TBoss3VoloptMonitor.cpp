@@ -494,7 +494,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     } else {
         ((TObjEnemyCustom *)arg0)->set_flags_30();
     }
-    ((TBoss3VoloptMonitor *)(arg0))->vfunc_55();
+    ((TBoss3VoloptMonitor *)(arg0))->clear_all_status_effects();
 }
 
 void TBoss3VoloptMonitor::release() {

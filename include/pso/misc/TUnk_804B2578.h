@@ -10,7 +10,7 @@ public:
     virtual void vfunc_80();
     virtual f32 vfunc_81();
     void set_scale(f32);
-    virtual void vfunc_25(u8 *);
+    virtual void apply_knockback_from_attacker(u8 *);
     virtual f32 receive_weapon_special_attack(void *, void *);
     virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
     virtual f32 receive_physical_attack(void *, f32);

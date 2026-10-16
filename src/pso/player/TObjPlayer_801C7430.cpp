@@ -2669,7 +2669,7 @@ void update_warp_relocation__10TObjPlayerFv(u8 *arg0) {
             ((TBoss4DarkFalz *)arg0)->set_position_from(arg0 + 0x660);
             refresh_equipment_slot__10TObjPlayerFv(arg0);
             ((TObjPlayer *)arg0)->clear_flag_4000();
-            ((TUnk_804806E8 *)(arg0))->vfunc_17();
+            ((TUnk_804806E8 *)(arg0))->update_actor_ground_y();
             if (((s32 (*)(void *))is_on_current_floor__10TObjPlayerFi)(arg0) != 0) {
                 ((s32 (*)(void *, int))send_field_state_if_active__10TObjPlayerFii)(arg0, 0x40003206);
             }

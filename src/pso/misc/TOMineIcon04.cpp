@@ -82,7 +82,7 @@ extern void *tl_05;
 
 void roll_physical_accuracy__6TOMineFPvlf();
 void try_start_action__6TOMineFll();
-void vfunc_25__6TOMineFPUc();
+void apply_knockback_from_attacker__6TOMineFPUc();
 void vfunc_79__6TOMineFv();
 void spawn_disp_objects__10TOMineTrapFPv();
 void vfunc_7__6TOMineFPv();
@@ -182,7 +182,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)receive_physical_attack__6TOMineFPvf,
     (void *)receive_direct_attack__6TOMineFPvPvPvll,
     (void *)calc_trigger_range__10TOMineTrapFl,
-    (void *)vfunc_25__6TOMineFPUc,
+    (void *)apply_knockback_from_attacker__6TOMineFPUc,
     (void *)try_start_action__6TOMineFll,
     (void *)roll_physical_accuracy__6TOMineFPvlf,
     (void *)vfunc_28__13TUnk_804806E8Fv,

@@ -69,7 +69,7 @@ extern u32 *ancient_container_fragment_texture_lists;
 
 extern "C" {
 
-void vfunc_25__13TUnk_804B6C24FPUc(void);
+void apply_knockback_from_attacker__13TUnk_804B6C24FPUc(void);
 int try_start_action__13TUnk_804B6C24Fll(void);
 int calc_distance_accuracy_penalty__13TUnk_804B6C24FPvPvPvf(void);
 
@@ -120,7 +120,7 @@ f32 TUnk_804B6C24::receive_weapon_special_attack(void *, void *) {
     return lbl_805DB39C;
 }
 
-void TUnk_804B6C24::vfunc_25(u8 *) {  }
+void TUnk_804B6C24::apply_knockback_from_attacker(u8 *) {  }
 s32 TUnk_804B6C24::try_start_action(s32, s32) { return 1; }
 s32 TUnk_804B6C24::roll_physical_accuracy(void *, s32, f32) { return 1; }
 

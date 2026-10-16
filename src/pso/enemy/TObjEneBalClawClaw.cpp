@@ -397,7 +397,7 @@ void enter_hit_state__18TObjEneBalClawClawFPvs(u8 *arg0, s16 arg1) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
     *(f32 *)((s8 *)arg0 + 0x3C0) = (f32) (1e+05f);
     update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), (int) (0xA));
-    ((TObjEnemyCustom *)(arg0))->vfunc_55();
+    ((TObjEnemyCustom *)(arg0))->clear_all_status_effects();
 }
 
 s32 check_active__18TObjEneBalClawClawFPv(void *arg0) {

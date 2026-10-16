@@ -28,10 +28,10 @@ struct TObjEneLappy : LappyObjectHeader
     virtual void vfunc_11();
     virtual void vfunc_12();
     virtual void vfunc_13();
-    virtual void vfunc_14();
+    virtual void add_actor_exp();
     virtual void consume_timer_field();
-    virtual void vfunc_16();
-    virtual void vfunc_17();
+    virtual void get_actor_level_index();
+    virtual void update_actor_ground_y();
     virtual void vfunc_18();
     virtual s32 vfunc_19(s32 period);
     s32 advance_flee_step();

@@ -3766,7 +3766,7 @@ s32 update_defense_stat_status(u8 *arg0) {
                     }
                     break;
                 case 12:
-                    ((TUnk_804806E8 *)arg0)->vfunc_72();
+                    ((TUnk_804806E8 *)arg0)->enemy_spawn_zalure_effect();
                     if ((((s32 (*)(void *, s32))obj_testFlags30)(arg0, 0x10000000) == 0) || (((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) {
                         ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x4002362D, arg0 + 0x38, 0, 0);
                     }
@@ -3806,7 +3806,7 @@ s32 update_attack_stat_status(u8 *arg0) {
                     }
                     break;
                 case 11:
-                    ((TUnk_804806E8 *)arg0)->vfunc_70();
+                    ((TUnk_804806E8 *)arg0)->enemy_spawn_jellen_effect();
                     if ((((s32 (*)(void *, s32))obj_testFlags30)(arg0, 0x10000000) == 0) || (((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) {
                         ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x4002442B, arg0 + 0x38, 0, 0);
                     }

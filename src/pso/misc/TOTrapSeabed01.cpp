@@ -873,7 +873,7 @@ void try_start_action__6TOTrapFll();
 void TOTrap__sub_801792CC();
 void TOTrap__sub_801792E4();
 void TOTrap__sub_801792FC();
-void vfunc_25__6TOTrapFPUc();
+void apply_knockback_from_attacker__6TOTrapFPUc();
 void vfunc_29__13TUnk_804806E8Fv();
 void vfunc_74__13TUnk_804806E8Fl();
 void vfunc_73__13TUnk_804806E8Fv();
@@ -982,7 +982,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&TOTrapSeabed01__vt20,
     (void *)&check_trigger_range__6TOTrapFUl,
     (void *)&get_scale__6TOTrapFUl,
-    (void *)&vfunc_25__6TOTrapFPUc,
+    (void *)&apply_knockback_from_attacker__6TOTrapFPUc,
     (void *)&try_start_action__6TOTrapFll,
     (void *)&TOTrap__sub_801792CC,
     (void *)&vfunc_28__13TUnk_804806E8Fv,

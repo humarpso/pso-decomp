@@ -1925,7 +1925,7 @@ void TUnk_80484610::run_task() {
             submit_cursor_candidate((void *) (arg0), (int) (-1));
             minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
             update_obstruction_fade((void *) (arg0 + 0x490));
-            this->vfunc_55();
+            this->clear_all_status_effects();
         }
     }
 }

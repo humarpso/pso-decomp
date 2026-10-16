@@ -1655,7 +1655,7 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
         (((TObjEneMerillLia *)(arg0))->beast_update_group_chase());
         break;
       case 5:
-        (((TObjEneMerillLia *)(arg0))->vfunc_88());
+        (((TObjEneMerillLia *)(arg0))->beast_update_attack());
         break;
       case 6:
         (((TObjEneMerillLia *)(arg0))->vfunc_89());

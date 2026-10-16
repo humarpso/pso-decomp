@@ -1490,7 +1490,7 @@ void TUnk_80483A10::run_task() {
     *((f32 *) (((s8 *) arg0) + 0x3C)) = var_f1;
     ((TObjPlayer *)arg0)->update_prev_position();
     fn_8003CFEC((void *) (arg0 + 0x2FC));
-    (this->vfunc_55());
+    (this->clear_all_status_effects());
   }
 }
 

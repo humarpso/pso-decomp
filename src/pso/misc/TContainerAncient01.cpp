@@ -99,11 +99,11 @@ s32 update_object_view_visibility__16TObjContainerIdoFff(u8 *arg0, f32 farg0, f3
 
 extern "C" {
 
-void vfunc_25__20TContainerAncient01RFPUc(void);
+void apply_knockback_from_attacker__20TContainerAncient01RFPUc(void);
 int try_start_action__20TContainerAncient01RFll(void);
 int roll_physical_accuracy__20TContainerAncient01RFPvlf(void);
 s32 TContainerAncient01__sub_8018BE90(void);
-void vfunc_25__19TContainerAncient01FPUc(void);
+void apply_knockback_from_attacker__19TContainerAncient01FPUc(void);
 int try_start_action__19TContainerAncient01Fll(void);
 int roll_physical_accuracy__19TContainerAncient01FPvlf(void);
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
@@ -164,7 +164,7 @@ f32 TContainerAncient01R::receive_weapon_special_attack(void *, void *) {
     return TContainerAncient01__data_805DBD14;
 }
 
-void TContainerAncient01R::vfunc_25(u8 *) {  }
+void TContainerAncient01R::apply_knockback_from_attacker(u8 *) {  }
 s32 TContainerAncient01R::try_start_action(s32, s32) { return 1; }
 s32 TContainerAncient01R::roll_physical_accuracy(void *, s32, f32) { return 1; }
 
@@ -183,7 +183,7 @@ f32 TContainerAncient01::receive_weapon_special_attack(void *, void *) {
     return TContainerAncient01__data_805DBD14;
 }
 
-void TContainerAncient01::vfunc_25(u8 *) {  }
+void TContainerAncient01::apply_knockback_from_attacker(u8 *) {  }
 s32 TContainerAncient01::try_start_action(s32, s32) { return 1; }
 s32 TContainerAncient01::roll_physical_accuracy(void *, s32, f32) { return 1; }
 #pragma push

@@ -95,7 +95,7 @@ extern "C" {
 
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
-void vfunc_25__15TOAttackableColFPUc(void);
+void apply_knockback_from_attacker__15TOAttackableColFPUc(void);
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
 int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
@@ -369,7 +369,7 @@ f32 TOAttackableCol::receive_direct_attack(void *_w1, void *, void *, s32, s32) 
 
 f32 TOAttackableCol::receive_weapon_special_attack(void *_w1, void *) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
 
-void TOAttackableCol::vfunc_25(u8 *) {  }
+void TOAttackableCol::apply_knockback_from_attacker(u8 *) {  }
 
 void TOAttackableCol__sub_80157C20(void* p, s32 v) { *(s32*)((char*)p + 0x33c) = v; }
 s32 TOAttackableCol__sub_80157C28(void* p) { return *(s32*)((char*)p + 0x33c); }

@@ -93,7 +93,7 @@ struct V3_8002C288 { f32 x, y, z; };
 
 extern "C" {
 s32 TBoss1Dragon__sub_8002AB6C(void *);
-void vfunc_21__15TObjBoss1CraterFPvPfPv(Src_8002C3FC *arg0, VObj_18_5c1903 *self, s32 arg2, s32 *arg3);
+void area_attack_receive_direct__15TObjBoss1CraterFPvPfPv(Src_8002C3FC *arg0, VObj_18_5c1903 *self, s32 arg2, s32 *arg3);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 isV2Mode__12TBoss1DragonFv();
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
@@ -186,7 +186,7 @@ void TObjBoss1Crater::run_task() {
     }
 }
 
-void TObjBoss1Crater::vfunc_21(void *self_arg, f32 *arg2, void *arg3_arg) {
+void TObjBoss1Crater::area_attack_receive_direct(void *self_arg, f32 *arg2, void *arg3_arg) {
     Src_8002C3FC *arg0 = (Src_8002C3FC *)this;
     VObj_18_5c1903 *self = (VObj_18_5c1903 *)self_arg;
     s32 *arg3 = (s32 *)arg3_arg;

@@ -410,7 +410,7 @@ void receive_weapon_special_attack__16TOTrapAncient02RFPvPv();
 void vfunc_86__16TOTrapAncient02RFv();
 void vfunc_88__16TOTrapAncient02RFv();
 void vfunc_89__6TOTrapFv();
-void vfunc_25__6TOTrapFPUc();
+void apply_knockback_from_attacker__6TOTrapFPUc();
 void vfunc_29__13TUnk_804806E8Fv();
 void vfunc_74__13TUnk_804806E8Fl();
 void vfunc_73__13TUnk_804806E8Fv();
@@ -552,7 +552,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&receive_physical_attack__16TOTrapAncient02RFPvf,
     (s32)&receive_direct_attack__16TOTrapAncient02RFPvPvPvll,
     (s32)&receive_weapon_special_attack__16TOTrapAncient02RFPvPv,
-    (s32)&vfunc_25__6TOTrapFPUc,
+    (s32)&apply_knockback_from_attacker__6TOTrapFPUc,
     (s32)&try_start_action__16TOTrapAncient02RFll,
     (s32)&roll_physical_accuracy__16TOTrapAncient02RFPvlf,
     (s32)&vfunc_28__13TUnk_804806E8Fv,

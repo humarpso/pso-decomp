@@ -6,10 +6,10 @@
 class TUnk_804806E8 : public TObjMotion {
 public:
     virtual ~TUnk_804806E8();
-    virtual s32 vfunc_14(s32);
+    virtual s32 add_actor_exp(s32);
     virtual s32 consume_timer_field(s32);
-    virtual s32 vfunc_16();
-    virtual u8 *vfunc_17();
+    virtual s32 get_actor_level_index();
+    virtual u8 *update_actor_ground_y();
     virtual u8 *vfunc_18(u8 *);
     virtual s32 vfunc_19(s32);
     virtual s32 select_melee_contact_body(void *, f32);
@@ -17,7 +17,7 @@ public:
     virtual f32 receive_physical_attack(void *, f32);
     virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
     virtual f32 receive_weapon_special_attack(void *, void *);
-    virtual void vfunc_25(u8 *);
+    virtual void apply_knockback_from_attacker(u8 *);
     virtual s32 try_start_action(s32, s32);
     virtual s32 roll_physical_accuracy(void *, s32, f32);
     virtual void vfunc_28();
@@ -45,10 +45,10 @@ public:
     virtual void clear_harmful_statuses();
     virtual void apply_attack_stat_status(void *);
     virtual void apply_defense_stat_status(void *);
-    virtual void vfunc_53();
+    virtual void cure_poison_ailment();
     virtual void cure_paralysis();
-    virtual void vfunc_55();
-    virtual void vfunc_56(f32);
+    virtual void clear_all_status_effects();
+    virtual void apply_action_hold_status(f32);
     virtual void apply_anti_technique(s32);
     virtual void vfunc_58();
     virtual void vfunc_59();
@@ -62,9 +62,9 @@ public:
     virtual int vfunc_67();
     virtual void get_pos(s32);
     virtual void apply_switch_attack();
-    virtual void vfunc_70();
+    virtual void enemy_spawn_jellen_effect();
     virtual void trigger_switch_attack();
-    virtual void vfunc_72();
+    virtual void enemy_spawn_zalure_effect();
     virtual void vfunc_73();
     virtual s32 vfunc_74(s32);
     virtual void vfunc_75(f32);

@@ -70,7 +70,7 @@ extern "C" {
 void TOHangerMachine01__sub_80169168(void);
 void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void vfunc_25__13TUnk_804B2578FPUc(void);
+void apply_knockback_from_attacker__13TUnk_804B2578FPUc(void);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);

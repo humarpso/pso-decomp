@@ -11,7 +11,7 @@ public:
     virtual void update_turn_toward_target();
     virtual void beast_update_approach();
     virtual void beast_update_group_chase();
-    virtual void vfunc_88();
+    virtual void beast_update_attack();
     virtual void vfunc_89();
     virtual void beast_update_hurt();
     virtual void beast_update_dead();
