@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
@@ -134,19 +135,13 @@ void run_task__16TKeyBoardControlFv(u8 *arg0) {
     }
 }
 
-void *__dt__16TKeyBoardControlFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TKeyBoardControl;
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x28)); }
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x24)); }
-        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x20)); }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TKeyBoardControl::~TKeyBoardControl() {
+    if (*(void **)((s8 *)this + 0x28) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x28)); }
+    if (*(void **)((s8 *)this + 0x24) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x24)); }
+    if (*(void **)((s8 *)this + 0x20) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x20)); }
+}
+extern "C" {
 
 void TKeyBoardControl__sub_80131F5C(void) {  }
 void TKeyBoardControl__sub_80131F60(void) {  }

@@ -6,6 +6,7 @@
 
 class TChCrLoadReq : public TObject {
 public:
+    TChCrLoadReq(TObject *arg1, void *arg2);
     virtual ~TChCrLoadReq();
     void sub_8028CEEC(s32 *);
 public:

@@ -43,7 +43,7 @@ void TObjEneDf2Bringer__sub_8009A2A0(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 bringer_projectile_actor_ops_table[];
-void *TObjEneDf2Bringer__sub_8009A340(void *arg0, s16 arg1);
+void *__dt__13TUnk_8048FE64Fv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -57,7 +57,7 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self);
 
 extern "C" {
 
-void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1);
+void *__dt__13TUnk_8048FE08Fv(void *arg0, s16 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -135,7 +135,7 @@ void TObjEneDf2Bringer::setup_dir_shot(const void *arg1, s32 arg2, f32 farg0) {
 
 extern s32 lbl_8048FE08[];
 
-void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8048FE08Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048FE08;
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
@@ -165,7 +165,7 @@ void TObjEneDf2Bringer::update_projectile_motion() {
 }
 #pragma pop
 
-void *TObjEneDf2Bringer__sub_8009A340(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8048FE64Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = bringer_projectile_actor_ops_table;
         __dt__7TObjectFv(arg0, 0);
@@ -341,7 +341,7 @@ extern "C" {
 
 extern s32 bringer_tp_absorb_ring_vtable[];
 
-void *destroy_object_804FE7C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8048FE7CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = bringer_tp_absorb_ring_vtable;
         __dt__7TObjectFv(arg0, 0);
@@ -482,7 +482,7 @@ void update_bringer_rush_effect(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x2C) *= 0.8f;
 }
 
-void *destroy_bringer_rush_effect(void *arg0, s16 arg1) {
+void *__dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = bringer_rush_effect_vtable;
         __dt__7TObjectFv(arg0, 0);

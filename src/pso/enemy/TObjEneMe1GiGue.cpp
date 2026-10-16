@@ -2437,10 +2437,10 @@ struct G_802CDAC4 { u8 pad[0x18]; s32 v[1]; };
 
 extern "C" {
 void free_collision_body_parts(void *);
-void TObjPlayer__sub_800D7C58(void *, int);
+void __dt__13TUnk_804949A8Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 s32 obj_setFlags30(void *, int);
 s32 TObjEnemyCustom__ct(void *, s32);
 s32 initialize_enemy_photon_effect(void *);
@@ -2459,8 +2459,8 @@ void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = lbl_804E135C;
         free_collision_body_parts(arg0);
-        TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x418, -1);
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3FC, -1);
+        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0x418, -1);
+        __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x3FC, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

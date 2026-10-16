@@ -2441,7 +2441,7 @@ u8 * TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg
 int TObjEneBm3FlyNest__sub_800B4158(void);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination__12TObjEneDD_STFv();
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 u32 move_with_wall_slide_commit__9TObjEneDDFfff();
 s32 was_hit_by_ranged__13TObjEneBm3FlyFv();
 void free_collision_body_parts(void *);
@@ -2847,7 +2847,7 @@ void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneBm3Fly;
         if (*(void **)((s8 *)arg0 + 0x458) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x458)); *(s32 *)((s8 *)arg0 + 0x458) = 0; }
         free_collision_body_parts(arg0);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -77,7 +77,7 @@ struct V_A_80364364 : Base_A_80364364 {
 
 extern "C" {
 
-void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
+void *__ct__21TItemEffArmorParticleFP7TObjectlll(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
 u32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 void *get_player_by_client_id(u16);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -87,28 +87,26 @@ s32 get_item_system_generation();
 extern void* __vt__21TItemEffArmorParticle[];
 extern s32 TItemEffArmorParticle__class_name;
 
-void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
+}
+TItemEffArmorParticle::TItemEffArmorParticle(TObject *arg1, s32 arg2, s32 arg3, s32 arg4) : TObject(arg1) {
     void *player;
     u32 p;
-
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__21TItemEffArmorParticle;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffArmorParticle__class_name;
-    disallow_rendering__7TObjectFv(arg0);
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
-    *(s16 *)((s8 *)arg0 + 0x24) = (s16) arg3;
-    *(s32 *)((s8 *)arg0 + 0x28) = get_item_system_generation();
+    *(s32 *)((s8 *)this + 0) = (s32) TItemEffArmorParticle__class_name;
+    disallow_rendering__7TObjectFv(this);
+    *(s32 *)((s8 *)this + 0x1C) = arg2;
+    *(s16 *)((s8 *)this + 0x24) = (s16) arg3;
+    *(s32 *)((s8 *)this + 0x28) = get_item_system_generation();
     player = get_player_by_client_id((u16) arg3);
     if (player != NULL) {
-        *(u32 *)((s8 *)arg0 + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) player)->m7(), arg4, 0x10);
-        p = *(u32 *)((s8 *)arg0 + 0x20);
+        *(u32 *)((s8 *)this + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) player)->m7(), arg4, 0x10);
+        p = *(u32 *)((s8 *)this + 0x20);
         if (p != 0U) {
-            ((TParticleCtrl *)p)->set_owner_id(*(u16 *)((s8 *)arg0 + 0x24));
+            ((TParticleCtrl *)p)->set_owner_id(*(u16 *)((s8 *)this + 0x24));
         }
     } else {
-        *(u32 *)((s8 *)arg0 + 0x20) = 0U;
+        *(u32 *)((s8 *)this + 0x20) = 0U;
     }
-    return arg0;
 }
+extern "C" {
 
 }

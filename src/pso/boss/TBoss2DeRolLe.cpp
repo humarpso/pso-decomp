@@ -36,7 +36,7 @@ extern "C" void vfunc_61__13TBoss2DeRolLeFv();
 extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv();
 extern "C" void vfunc_63__13TBoss2DeRolLeFv();
 extern "C" void vfunc_28__13TBoss2DeRolLeFv();
-extern "C" void __dt__13TBoss2DeRolLeFPvs();
+extern "C" void __dt__13TBoss2DeRolLeFv();
 extern "C" void apply_poison_status__13TBoss2DeRolLeFv();
 extern "C" void apply_paralysis__13TBoss2DeRolLeFv();
 extern "C" void apply_slow_status__13TBoss2DeRolLeFv();
@@ -246,7 +246,7 @@ void *boss2_derolle_particle_limits[3] = {
     (void *)0x42000000, (void *)0x41f00000, (void *)0x41f00000,
 };
 void *__vt__13TBoss2DeRolLe[107] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__13TBoss2DeRolLeFPvs, (void *)&run_task__13TBoss2DeRolLeFPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TBoss2DeRolLeFv, (void *)&run_task__13TBoss2DeRolLeFPv,
     (void *)&render__13TBoss2DeRolLeFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -428,7 +428,7 @@ struct VObj8002EB88_8002eb88_8002E784 {
 };
 
 int TObjLight__sub_8002F238(void* p);
-void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804820A8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_8002EB88(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -5278,14 +5278,14 @@ extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 s32 __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1);
-s32 __dt__9TObjEneDDFv(void *, int);
+s32 __dt__12TObjEneDD_STFv(void *, int);
 s32 delete_buffer__12TBoss8DragonFis(void *, int);
 s32 mem_free(int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 extern u8 __vt__13TBoss2DeRolLe[];
 extern s32 TBoss2DeRolLe__instance;
-u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1);
+u8 *__dt__13TBoss2DeRolLeFv(u8 *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
@@ -5517,7 +5517,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
 }
 
 #define self ((Self_80035420 *)arg0)
-u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1) {
+u8 *__dt__13TBoss2DeRolLeFv(u8 *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
         self->vtable = __vt__13TBoss2DeRolLe;
@@ -5577,7 +5577,7 @@ u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1) {
         free_if_positive__13TBoss2DeRolLeFis((s32)(arg0 + 0x684), -1);
         free_if_positive__13TBoss2DeRolLeFis((s32)(arg0 + 0x664), -1);
         __dt__7TObjectFv(arg0 + 0x3D8, -1);
-        __dt__9TObjEneDDFv(self, 0);
+        __dt__12TObjEneDD_STFv(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
         }
@@ -5736,7 +5736,7 @@ extern "C" void vfunc_61__13TBoss2DeRolLeFv();
 extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv();
 extern "C" void vfunc_63__13TBoss2DeRolLeFv();
 extern "C" void vfunc_28__13TBoss2DeRolLeFv();
-extern "C" void __dt__13TBoss2DeRolLeFPvs();
+extern "C" void __dt__13TBoss2DeRolLeFv();
 extern "C" void apply_poison_status__13TBoss2DeRolLeFv();
 extern "C" void apply_paralysis__13TBoss2DeRolLeFv();
 extern "C" void apply_slow_status__13TBoss2DeRolLeFv();

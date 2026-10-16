@@ -1487,7 +1487,7 @@ s32 copy_position__14TObjEneEpsilonFPv(void *, void *);
 s32 update_linked_position__12TObjEneDD_STFf(f32);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
 void enemy_set_target_id(void *, u16);
-void __dt__9TObjEneDDFv(void *, s32);
+void __dt__12TObjEneDD_STFv(void *, s32);
 s32 is_main_phase_15__9TObjEneDDFv(void *);
 s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
@@ -1504,7 +1504,7 @@ s32 set_collider_contact_high(void *);
 s32 update_local_colliders_from_world(void *, void *);
 s32 transition_enemy_state(void *, s32);
 void delete_buffer__12TBoss8DragonFis(void *, s32);
-void TObjPlayer__sub_800D7C58(void *, s32);
+void __dt__13TUnk_804949A8Fv(void *, s32);
 void * get_enemy_entity(int);
 s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(int, int, int);
@@ -2099,7 +2099,7 @@ extern void *lbl_804E4D8C[4];
 extern void *lbl_804E4D9C[27];
 void TBoss8Dragon__sub_802F4B90(u8 *arg0, u32 arg1);
 void update_colliders__12TBoss8DragonFPv(u8 *arg0);
-u8 *__dt__12TBoss8DragonFPvs(u8 *arg0, s16 arg1);
+u8 *__dt__12TBoss8DragonFv(u8 *arg0, s16 arg1);
 void *TBoss8Dragon__camera_offset_index_table[5] = {
     (void *)0x12, (void *)0x14, (void *)0x15, (void *)0x16,
     (void *)0x17,
@@ -2284,7 +2284,7 @@ void *TBoss8Dragon__dive_height_curve[12] = {
     (void *)0x0, (void *)0xc3c80000, (void *)0x0, (void *)0x0,
 };
 void *__vt__12TBoss8Dragon[107] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__12TBoss8DragonFPvs, (void *)&run_task__12TBoss8DragonFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__12TBoss8DragonFv, (void *)&run_task__12TBoss8DragonFv,
     (void *)&TBoss8Dragon__sub_802F4380, (void *)&render_shadows__12TBoss8DragonFv, (void *)&TLobby__sub_801A1FD8, (void *)&fn_801A1F48,
     (void *)&TObjPlayer__sub_80018F64, (void *)&TObjPlayer__sub_80018F5C, (void *)&fn_801A2340, (void *)&fn_801A212C,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&TObjPlayer__sub_80011210, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -6854,7 +6854,7 @@ void TBoss8Dragon::run_task() {
     }
 }
 
-u8 *__dt__12TBoss8DragonFPvs(u8 *arg0, s16 arg1) {
+u8 *__dt__12TBoss8DragonFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TBoss8Dragon;
         if (*(Del_802FD354 **)((s8 *)arg0 + 0x684) != NULL) {
@@ -6873,11 +6873,11 @@ u8 *__dt__12TBoss8DragonFPvs(u8 *arg0, s16 arg1) {
         if (TBoss8Dragon__data_805D69AC == arg0) {
             TBoss8Dragon__data_805D69AC = NULL;
         }
-        __destroy_arr(arg0 + 0x6DC, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
+        __destroy_arr(arg0 + 0x6DC, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
         TObjBoss2Tunnel::maybe_delete((s32)(arg0 + 0x610), (s16)(-1));
         TObjBoss2Tunnel::maybe_delete((s32)(arg0 + 0x5EC), (s16)(-1));
         __dt__7TObjectFv(arg0 + 0x3C4, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -7027,7 +7027,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0 + 0x3C4, 0);
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x5EC));
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x610));
-    __construct_array(arg0 + 0x6DC, (void *) init_and_activate__10TObjPlayerFv, (void *) TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(arg0 + 0x6DC, (void *) init_and_activate__10TObjPlayerFv, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
     __ct__14SubtractiveRngFv(arg0 + 0x764);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D4008;
     if (TBoss8Dragon__data_805D69AC == NULL) {

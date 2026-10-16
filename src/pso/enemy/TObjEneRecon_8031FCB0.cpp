@@ -221,7 +221,7 @@ struct Sub_8031FE98 { u8 b[0x1C]; };
 struct Self_8031FE98 { u8 pad[0x3FC]; s32 f3fc[4]; u8 pad40c[0x418 - 0x40C]; u16 f418[6]; u16 f424[30]; Sub_8031FE98 subs[4]; };
 
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 void init_object__12TObjEneDD_STFv(void *, s32, void *);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, int);
@@ -229,8 +229,8 @@ void init_model__9TObjEneDDFv(void *, void *, int);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 s32 transition_enemy_state(void *, int);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-void TObjPlayer__sub_800D7C58();
+void __dt__13TUnk_80494938Fv(void *, int);
+void __dt__13TUnk_804949A8Fv();
 void init_and_activate__10TObjPlayerFv();
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void free_collision_body_parts(void *);
@@ -494,9 +494,9 @@ Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {
     if (arg0 != 0) {
         arg0->vt = TObjEneRecobox__vtable;
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x460, ((u8 *)TObjPlayer__sub_800D7C58), 0x1C, 4);
-        __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3C0, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __destroy_arr((u8 *)arg0 + 0x460, ((u8 *)__dt__13TUnk_804949A8Fv), 0x1C, 4);
+        __dt__13TUnk_80494938Fv((u8 *)arg0 + 0x3C0, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -511,7 +511,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     init_object__12TObjEneDD_STFv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = TObjEneRecobox__vtable;
     ((TUnk_80494938 *)(arg0 + 0x3C0))->init_common();
-    __construct_array(arg0 + 0x460, (void *)&init_and_activate__10TObjPlayerFv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(arg0 + 0x460, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D4138;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     ((TObjEneDD *)arg0)->init_position_vectors();

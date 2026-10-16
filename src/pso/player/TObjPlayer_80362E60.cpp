@@ -102,11 +102,11 @@ void TObjPlayer__sub_80362FB4(u8 *arg0);
 
 extern "C" {
 
-void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F27E0Fv(void *arg0, s16 arg1);
 s32 get_attack_stage__11TItemWeaponFv();
 void construct_srank_weapon(void *);
-void item_equip_variant_deleting_dtor_8012A82C(void *, int);
-void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
+void __dt__13TUnk_804A4948Fv(void *, int);
+void *__dt__13TUnk_804F27E0Fv(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TObjPlayer::set_pause_flag_from_state() {
@@ -198,10 +198,10 @@ u8 *TObjPlayer__sub_803630F0(u8 *arg0) {
 
 extern s32 lbl_804F27E0[];
 
-void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F27E0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F27E0;
-        item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
+        __dt__13TUnk_804A4948Fv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

@@ -5,6 +5,7 @@
 
 class TAdFadeGC : public TObject {
 public:
+    TAdFadeGC(TObject *arg1, void *arg2);
     virtual ~TAdFadeGC();
     virtual void run_task();
     virtual void render();

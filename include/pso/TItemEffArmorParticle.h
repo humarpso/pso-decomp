@@ -12,6 +12,7 @@ public:
  u8 _pad26[2];
  u32 m_item_ctrl;
 
+    TItemEffArmorParticle(TObject *arg1, s32 arg2, s32 arg3, s32 arg4);
     virtual ~TItemEffArmorParticle();
     virtual void run_task();
 };

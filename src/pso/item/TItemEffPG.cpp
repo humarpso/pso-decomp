@@ -50,7 +50,7 @@ extern s32 model_render_flags;
 extern "C" {
 
 void TItemEffPG__begin_visual_fade(void* p);
-void *__dt__10TItemEffPGFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__10TItemEffPGFv(void *, int);
@@ -158,7 +158,7 @@ void TUnk_804F0BF0::run_task() {
     play_persistent_sound((int) (0x4001A343), (void *) (arg0), (void *) (arg0 + 0x5C), (int) (0), (int) (0));
 }
 
-void *__dt__10TItemEffPGFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0BF0;
         if (*(void **)((s8 *)arg0 + 0x38) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)((s8 *)arg0 + 0x38) = 0; }

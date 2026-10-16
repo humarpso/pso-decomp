@@ -76,7 +76,7 @@ struct RecoveredGlobal_80291D4C_lbl_80540958 {
 };
 
 extern "C" {
-int TCameraCtrl__sub_80068714(void);
+int __ct__13TUnk_80488A28Fv(void);
 extern CreationCameraVTable lbl_804DAB08;
     extern int creation_camera_mode;
     extern const float lbl_805DD974;
@@ -99,7 +99,7 @@ int creation_camera_mode;
 extern "C" {
 
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1);
-void TCameraCtrl__sub_800686BC(void *, int);
+void __dt__13TUnk_80488A28Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 
 extern CreationCameraVTable lbl_804DAB08;
@@ -130,14 +130,14 @@ u32 get_character_creation_selected_entry_id(void) {  return TObjCMMainMenu__sel
 }
 
 extern "C" {
-void* construct_creation_camera(void* a0) { TCameraCtrl__sub_80068714(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804DAB08); *(int*)((char*)a0 + 0x38) = 0; *(float*)((char*)a0 + 0x48) = lbl_805DD974; *(float*)((char*)a0 + 0x4c) = lbl_805DD9C4; *(float*)((char*)a0 + 0x50) = lbl_805DD974; *(float*)((char*)a0 + 0x6c) = lbl_805DD9C8; *(int*)((char*)a0 + 0x74) = 0; *(int*)((char*)a0 + 0x70) = 0; *(int*)((char*)a0 + 0x78) = 2; *(int*)((char*)a0 + 0x7c) = 0; *(float*)((char*)a0 + 0x88) = lbl_805DD974; *(float*)((char*)a0 + 0x8c) = lbl_805DD974; creation_camera_mode = 0; *(int*)((char*)a0 + 0x54) = 17294; return a0; }
+void* construct_creation_camera(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804DAB08); *(int*)((char*)a0 + 0x38) = 0; *(float*)((char*)a0 + 0x48) = lbl_805DD974; *(float*)((char*)a0 + 0x4c) = lbl_805DD9C4; *(float*)((char*)a0 + 0x50) = lbl_805DD974; *(float*)((char*)a0 + 0x6c) = lbl_805DD9C8; *(int*)((char*)a0 + 0x74) = 0; *(int*)((char*)a0 + 0x70) = 0; *(int*)((char*)a0 + 0x78) = 2; *(int*)((char*)a0 + 0x7c) = 0; *(float*)((char*)a0 + 0x88) = lbl_805DD974; *(float*)((char*)a0 + 0x8c) = lbl_805DD974; creation_camera_mode = 0; *(int*)((char*)a0 + 0x54) = 17294; return a0; }
 }
 
 extern "C" {
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)&lbl_804DAB08;
-        TCameraCtrl__sub_800686BC(arg0, 0);
+        __dt__13TUnk_80488A28Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1577,7 +1577,7 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o);
 
 extern "C" {
 
-void *destroy__12TObjEneLappyFPvs(void *arg0, s16 arg1);
+void *__dt__12TObjEneLappyFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
@@ -1819,7 +1819,7 @@ void *lbl_80492EFC[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *lbl_80492F28[84] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__12TObjEneLappyFPvs, (void *)&run_task__12TObjEneLappyFPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__12TObjEneLappyFv, (void *)&run_task__12TObjEneLappyFPv,
     (void *)&render__12TObjEneLappyFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -2019,7 +2019,7 @@ void TObjEneLappy::load_resources() {
 #undef rappy_bml_resource
 #undef rappy_alternate_texture_list
 
-void *destroy__12TObjEneLappyFPvs(void *arg0, s16 arg1) {
+void *__dt__12TObjEneLappyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80492F28;
         free_collision_body_parts(arg0);

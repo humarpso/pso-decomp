@@ -78,7 +78,7 @@ u32 check_flag__23TAdSinglePlyChrSelectGCFl(s32);
 s32 play_sound_effect(int, int, int, int);
 u32 __nw__7TObjectFUl(s32);
 void TWindow__close(void *);
-u32 __ct__9TAdFadeGCFv(u32, s32, s32);
+u32 __ct__9TAdFadeGCFP7TObjectPv(u32, s32, s32);
 s32 TAdChrSelASlotGC__sub_8030C3C0(s32, s32);
 u32 TAdChrSelASlotGC__sub_8030CA84(s32, s32 *);
 extern s32 lbl_80472540[];
@@ -419,7 +419,7 @@ void TAdSinglePlyChrSelectGC::handle_slot_selection() {
             if (TAdChrSelASlotGC__sub_8030C3C0(*(s32 *)&this->m_28, TAdSinglePlyChrSelectGC__sub_801334DC(*(s32 *)&this->m_2c)) != 0) {
                 var_r0 = __nw__7TObjectFUl(0x38);
                 if (var_r0 != 0U) {
-                    var_r0 = __ct__9TAdFadeGCFv(var_r0, tl_fade, 0);
+                    var_r0 = __ct__9TAdFadeGCFP7TObjectPv(var_r0, tl_fade, 0);
                 }
                 this->m_54 = var_r0;
                 *(u32 *)&this->unk_48 = TAdChrSelASlotGC::open_yes_no_window((s32)(*(s32 *)&this->m_28), (s32)lbl_80472540, (s32)0);

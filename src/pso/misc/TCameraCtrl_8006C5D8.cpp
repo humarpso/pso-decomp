@@ -31,9 +31,9 @@ extern G_8006C668 TCameraCtrl__camera_banks;
 extern "C" {
 
 void *TCameraCtrl__vt10(void);
-void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1);
-void TCameraCtrl__sub_800686BC(void *, int);
-int TCameraCtrl__sub_80068714(void);
+void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1);
+void __dt__13TUnk_80488A28Fv(void *, int);
+int __ct__13TUnk_80488A28Fv(void);
 void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -42,7 +42,7 @@ void *__nw__7TObjectFUl(int);
     extern int TCameraCtrl__saved_projection_angle;
     extern int scripted_camera_projection_angle;
     extern const float lbl_805D9028;
-void*TUnk_80488B68::sub_8006C5D8() { TCameraCtrl__sub_80068714(); *(int*)((char*)this + 0x18) = (int)lbl_80488B68; *(int *)&this->m_38 = 0; scripted_camera_projection_angle = 0; TCameraCtrl__saved_projection_angle = 0; *(unsigned char*)((char*)this + 0x99) = 0; this->m_98 = 0; this->m_9a = 0; *(float*)((char*)this + 0x9c) = lbl_805D9028; this->m_a0 = lbl_805D9028; *(float*)((char*)this + 0x6c) = lbl_805D9028; this->m_70 = lbl_805D9028; *(float*)((char*)this + 0x74) = lbl_805D9028; this->m_78 = lbl_805D9028; *(float*)((char*)this + 0x7c) = lbl_805D9028; this->m_80 = lbl_805D9028; *(int*)((char*)this + 0x84) = 0; this->m_88 = 0; *(int*)((char*)this + 0x8c) = 0; this->m_90 = 0; *(int*)((char*)this + 0x94) = 0; return this; }
+void*TUnk_80488B68::sub_8006C5D8() { __ct__13TUnk_80488A28Fv(); *(int*)((char*)this + 0x18) = (int)lbl_80488B68; *(int *)&this->m_38 = 0; scripted_camera_projection_angle = 0; TCameraCtrl__saved_projection_angle = 0; *(unsigned char*)((char*)this + 0x99) = 0; this->m_98 = 0; this->m_9a = 0; *(float*)((char*)this + 0x9c) = lbl_805D9028; this->m_a0 = lbl_805D9028; *(float*)((char*)this + 0x6c) = lbl_805D9028; this->m_70 = lbl_805D9028; *(float*)((char*)this + 0x74) = lbl_805D9028; this->m_78 = lbl_805D9028; *(float*)((char*)this + 0x7c) = lbl_805D9028; this->m_80 = lbl_805D9028; *(int*)((char*)this + 0x84) = 0; this->m_88 = 0; *(int*)((char*)this + 0x8c) = 0; this->m_90 = 0; *(int*)((char*)this + 0x94) = 0; return this; }
 
 void TCameraCtrl::free_entries() {
     s32 i;
@@ -116,10 +116,10 @@ void TUnk_80488D70::vfunc_6() {
 
 extern s32 lbl_80488D70[];
 
-void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488D70;
-        TCameraCtrl__sub_800686BC(arg0, 0);
+        __dt__13TUnk_80488A28Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

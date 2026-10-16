@@ -1458,7 +1458,7 @@ s32 enemy_copy_target_destination__12TObjEneDD_STFv(void *);
 s32 update_linked_position__12TObjEneDD_STFf(f32);
 s32 enemy_set_target_id(void *, u16);
 s32 update_velocity__9TObjEneDDFv();
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
@@ -1466,7 +1466,7 @@ s32 emit_enemy_effect__9TObjEneDDFllPUcl(void *, int, void *, int);
 s32 transition_enemy_state(void *, s16);
 void delete_buffer__12TBoss8DragonFis(u32, int);
 s32 isFading__15RenderFadeStateCFv(int);
-void TObjPlayer__sub_800D7C58(void);
+void __dt__13TUnk_804949A8Fv(void);
 void * get_enemy_entity(int);
 s32 TObjLight__sub_801337F8(void *);
 s32 angle_diff_s16(s32, s32);
@@ -5466,9 +5466,9 @@ Obj_80065658 *__dt__13TBoss5GryphonFv(Obj_80065658 *o, s16 flag) {
         if (boss5_gryphon_instance == o) {
             boss5_gryphon_instance = 0;
         }
-        __destroy_arr(o->f580, (void *)TObjPlayer__sub_800D7C58, 0x1c, 4);
+        __destroy_arr(o->f580, (void *)__dt__13TUnk_804949A8Fv, 0x1c, 4);
         __dt__7TObjectFv(o->f4c4, -1);
-        __dt__9TObjEneDDFv(o, 0);
+        __dt__12TObjEneDD_STFv(o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }

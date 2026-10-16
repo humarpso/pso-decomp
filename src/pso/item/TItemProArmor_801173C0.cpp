@@ -22,7 +22,7 @@ u8 *TItemProArmor__sub_8011751C(u8 *arg0, u8 *arg1, u8 *arg2);
 
 extern "C" {
 
-void *TItemProArmor__sub_801175F8(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049FED0Fv(void *arg0, s16 arg1);
 void create__13TItemProArmorFiUi(s32 arg0, u32 arg1);
 void TItemObject__ct(void *);
 u32 get_player_by_client_id(u16);
@@ -109,7 +109,7 @@ void TUnk_8049FED0::vfunc_44() { create__13TItemProArmorFiUi((s32)((s32)((void*)
 
 extern s32 lbl_8049FED0[];
 
-void *TItemProArmor__sub_801175F8(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049FED0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FED0;
         __dt__11TItemObjectFv(arg0, 0);

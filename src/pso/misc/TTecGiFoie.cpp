@@ -172,7 +172,7 @@ void __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 s32 calc_technique_parameters(int, int, int);
-u8 * gifoie_orbit_dtor(Task_80231224 *task, s16 flag);
+u8 * __dt__13TUnk_804CC800Fv(Task_80231224 *task, s16 flag);
 Task_802312E4 * construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, Vec_802312E4 *pos, s32 arg2, u8 band, s32 arg4, void *parent, u8 single);
 void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target);
 u8 * __dt__10TTecGiFoieFv(u8 *arg0, s16 arg1);
@@ -210,7 +210,7 @@ void TTecGiFoie::calc_params() {
   }
 }
 
-u8 *gifoie_orbit_dtor(Task_80231224 *task, s16 flag) {
+u8 *__dt__13TUnk_804CC800Fv(Task_80231224 *task, s16 flag) {
     u32 i;
     if (task != NULL) {
         task->vt = lbl_804CC800;

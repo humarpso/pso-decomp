@@ -235,7 +235,7 @@ extern s32 TObjLight__active_light_count;
 
 extern "C" {
 
-void *TLobby__sub_801349C8(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A7008Fv(void *arg0, s16 arg1);
 int TLobby__sub_80134A20(void* p);
 void TObjLight__sub_801335EC(void);
 void TObjLight__sub_801336DC(void);
@@ -243,8 +243,8 @@ void TObjLight__sub_80133714(void);
 void TObjLight__sub_8013379C(void);
 void TObjLight__sub_801337F8(void);
 void TObjLight__sub_801337FC(void);
-void *TObjLight__sub_8013486C(void *arg0, s16 arg1);
-void *TObjLight__sub_801348C4(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A6F78Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A6F90Fv(void *arg0, s16 arg1);
 int TAdSinglePlyChrSelectGC__sub_801334E4(void*);
 int TAdSinglePlyChrSelectGC__sub_80133544(void*);
 int TAdSinglePlyChrSelectGC__sub_80133548(void);
@@ -818,7 +818,7 @@ void TObjLight::init_light_tables() {
     TObjLight__light_count = 0;
 }
 
-void *TObjLight__sub_8013486C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A6F78Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A6F78;
         ((TObjLight *)arg0)->dt2((s16)(0));
@@ -831,7 +831,7 @@ void *TObjLight__sub_8013486C(void *arg0, s16 arg1) {
 
 extern s32 lbl_804A6F90[];
 
-void *TObjLight__sub_801348C4(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A6F90Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A6F90;
         ((TObjLight *)arg0)->dt2((s16)(0));
@@ -846,7 +846,7 @@ void TObjLight::bswap_data() { bswap_32__FPUl(this); bswap_32__FPUl((char*)this 
 
 extern s32 lbl_804A7008[];
 
-void *TLobby__sub_801349C8(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A7008Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A7008;
         __dt__7TObjectFv(arg0, 0);

@@ -50,8 +50,8 @@ s32 rotate_matrix_z(s32, s32);
 s32 draw_ginja_object(void *);
 void drill_launcher_node_callback(void *arg0);
 void update_weapon__13TUnk_804A2164Fv(void *arg0);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
-void *item_equip_variant_deleting_dtor_80124AEC(void *arg0, s16 arg1);
+void __dt__11TItemWeaponFv(void *, int);
+void *__dt__13TUnk_804A2164Fv(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
 s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 
@@ -106,7 +106,7 @@ void run_task__13TUnk_804A2018Fv(void *arg0);
 
 extern "C" {
 
-void *item_equip_variant_deleting_dtor_8012463C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A204CFv(void *arg0, s16 arg1);
 void *TObjPlayer__sub_80124694(void *arg0);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80124708(u8 *arg0);
@@ -350,7 +350,7 @@ extern "C" void update_equip__14TItemEquipBaseFv();
 extern "C" void vfunc_34__11TItemWeaponFv();
 extern "C" void vfunc_28__11TItemWeaponFv();
 void *megid_projectile_weapon_vtable[63] = {
-    (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_8012463C, (void *)&run_task__5TItemFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804A204CFv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
@@ -372,7 +372,7 @@ void *recoil_weapon_shoot_model_vtable[7] = {
     (void *)&render__13TUnk_804A2148Fv, (void *)&render_shadows__7TObjectFv, (void *)&hook__13TUnk_804A2148Fv,
 };
 void *recoiling_projectile_weapon_vtable[63] = {
-    (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_80124AEC, (void *)&run_task__5TItemFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804A2164Fv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
@@ -393,10 +393,10 @@ void *recoiling_projectile_weapon_vtable[63] = {
 #define recoil_weapon_shoot_model_vtable ((s32 *)recoil_weapon_shoot_model_vtable)
 #define recoiling_projectile_weapon_vtable ((s32 *)recoiling_projectile_weapon_vtable)
 
-void *item_equip_variant_deleting_dtor_8012463C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A204CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = megid_projectile_weapon_vtable;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -555,10 +555,10 @@ void TUnk_804A2164::update_weapon() {
         return;
     }
 }
-void *item_equip_variant_deleting_dtor_80124AEC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A2164Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = recoiling_projectile_weapon_vtable;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

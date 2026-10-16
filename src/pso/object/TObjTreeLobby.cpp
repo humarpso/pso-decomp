@@ -86,7 +86,7 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
 Ctrl_80364B6C *get_player_by_client_id(u16);
-void *TObjTreeLobby__sub_80364BE8(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F2B60Fv(void *arg0, s16 arg1);
 void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -215,7 +215,7 @@ void TUnk_804F2B60::run_task() {
     }
 }
 
-void *TObjTreeLobby__sub_80364BE8(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F2B60Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F2B60;
         __dt__7TObjectFv(arg0, 0);

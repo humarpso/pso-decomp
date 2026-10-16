@@ -1,4 +1,5 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/TObjChallenge4PRetry.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -496,7 +497,7 @@ extern "C" {
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__20TObjChallenge4PRetry[];
 extern s32 TObjChallenge4PRetry__class_name;
-void *TObjChallenge4PRetry__ct(void *, void *);
+void *__ct__20TObjChallenge4PRetryFP7TObject(void *, void *);
 
 void TObjChallenge4PRetry::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -534,22 +535,21 @@ TObjChallenge4PRetry::~TObjChallenge4PRetry() {
     }
 }
 
-void *TObjChallenge4PRetry__ct(void *arg0, void *parent) {
-    __ct__7TObjectFP7TObject(arg0, parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TObjChallenge4PRetry;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjChallenge4PRetry__class_name;
-    *(s32 *)((s8 *)arg0 + 0x20) = ((s32 (*)(void *))TLobby__sub_8029A16C)(arg0);
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
 }
+TObjChallenge4PRetry::TObjChallenge4PRetry(TObject *parent) : TObject(parent) {
+    *(s32 *)((s8 *)this + 0) = (s32) TObjChallenge4PRetry__class_name;
+    *(s32 *)((s8 *)this + 0x20) = ((s32 (*)(void *))TLobby__sub_8029A16C)(this);
+    *(s32 *)((s8 *)this + 0x24) = 0;
+    *(s32 *)((s8 *)this + 0x2C) = 0;
+    *(s32 *)((s8 *)this + 0x30) = 0;
+    *(s32 *)((s8 *)this + 0x1C) = 0;
+}
+extern "C" {
 
 void *TObjChallenge4PRetry::create(void *arg0) {
     void *o = ((void *(*)(int))__nw__7TObjectFUl)(0x34);
     if (o != NULL) {
-        o = TObjChallenge4PRetry__ct(o, arg0);
+        o = __ct__20TObjChallenge4PRetryFP7TObject(o, arg0);
     }
     return o;
 }

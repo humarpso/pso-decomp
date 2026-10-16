@@ -520,7 +520,7 @@ s32 TBoss4Uro__sub_8005D698(void *arg0);
 s32 TBoss4Zako__sub_8005D6B0(void *self);
 void TBoss4Uro__sub_8005D6D4(void *arg0);
 void fn_8005D6E4(void *arg0);
-void *__dt__10TBoss4ZakoFPvs(void *, s16);
+void *__dt__10TBoss4ZakoFv(void *, s16);
 void subtract_vector(void *, void *);
 u16 find_nearest_visible_player(void *, s32, f32);
 void __dl__7TObjectFPv(void *);
@@ -639,7 +639,7 @@ s32 TBoss4Zako__ct(s32 arg0, s32 parent, s32 arg2) {
 
 extern "C" {
 #pragma push
-void *__dt__10TBoss4ZakoFPvs(void *arg0, s16 arg1) {
+void *__dt__10TBoss4ZakoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TBoss4Zako;
         free_collision_body_parts(arg0);
@@ -963,7 +963,7 @@ extern "C" {
 void *__dt__9TBoss4UroFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TBoss4Uro;
-        __dt__10TBoss4ZakoFPvs(arg0, 0);
+        __dt__10TBoss4ZakoFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1241,7 +1241,7 @@ extern "C" {
 void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBoss4Bishi;
-        __dt__10TBoss4ZakoFPvs(arg0, 0);
+        __dt__10TBoss4ZakoFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1652,7 +1652,7 @@ s32 __vt__9TBoss4Uro[83] = {
 s32 __vt__10TBoss4Zako[83] = {
     0,
     0,
-    (s32)__dt__10TBoss4ZakoFPvs,
+    (s32)__dt__10TBoss4ZakoFv,
     (s32)run_task__10TBoss4ZakoFv,
     (s32)render__9TBoss4UroFv,
     (s32)render_actor_shadows_default,

@@ -972,7 +972,7 @@ extern "C" {
 
 void TLobby__sub_801C36E4(void *arg0, void *arg1);
 s32 assign_player_id__6TLobbyFv(void);
-void *deleting_dtor__6TLobbyFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804C3E88Fv(void *arg0, s16 arg1);
 void handle_6x7F_battle_scores(s32 arg0);
 void *init_with_name__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void release_ref__6TLobbyFPv(u8 *arg0);
@@ -1003,7 +1003,7 @@ void release_ref__6TLobbyFPv(u8 *arg0) {
 
 extern s32 lbl_804C3E88[];
 
-void *deleting_dtor__6TLobbyFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804C3E88Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3E88;
         __dt__7TObjectFv(arg0, 0);

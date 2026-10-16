@@ -11,6 +11,7 @@ public:
  s32 m_24;
 
 public:
+    TObjChallenge4PRetry(TObject *parent);
     virtual ~TObjChallenge4PRetry();
     virtual void run_task();
 public:

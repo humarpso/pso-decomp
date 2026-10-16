@@ -217,8 +217,8 @@ void free_collision_body_parts(void *);
 void *TObjEneRe2Flower__ct(void *, void *, void *);
 s32 TObjPlayer__sub_800C4D44();
 void __dl__7TObjectFPv(void *);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 begin_state_242__16TObjEneRe2FlowerFv(void);
 void queue_destruction__7TObjectFv(void *);
@@ -489,8 +489,8 @@ void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__16TObjEneRe2Flower;
         if (*(void **)((s8 *)arg0 + 0x428) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x428)); *(s32 *)((s8 *)arg0 + 0x428) = 0; }
         free_collision_body_parts(arg0);
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3F4, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x3F4, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

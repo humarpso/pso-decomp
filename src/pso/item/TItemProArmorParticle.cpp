@@ -26,7 +26,7 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1);
 extern "C" {
 
 void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1);
-s32 TItemEffArmorParticle__ct(u32, s32, s32, s32, s32);
+s32 __ct__21TItemEffArmorParticleFP7TObjectlll(u32, s32, s32, s32, s32);
 s32 vfunc_45__14TItemEquipBaseFv();
 s32 vfunc_44__13TItemProArmorFv();
 void TItemTimerEvent__ct(void *);
@@ -39,7 +39,7 @@ s32 get_id__13TItemProArmorFv(void *);
 void TItemProArmorParticle::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     if ((arg0 != 0) && ((obj = __nw__7TObjectFUl(0x2C)) != 0U)) {
-        TItemEffArmorParticle__ct(obj, arg0, arg1, arg2, arg3);
+        __ct__21TItemEffArmorParticleFP7TObjectlll(obj, arg0, arg1, arg2, arg3);
     }
 }
 

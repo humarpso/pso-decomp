@@ -19,14 +19,14 @@ void do_action_447_from_packet__10TObjPlayerFPvPv(void *self, void *arg);
 
 extern "C" {
 
-void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E1BB0Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E1CA8Fv(void *arg0, s16 arg1);
 int spawn_particle_effect(void*, int);
 void TItemWeapon__ct(void *);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
-void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1);
-void item_equip_variant_deleting_dtor_802D62F0(void *, int);
+void __dt__11TItemWeaponFv(void *, int);
+void *__dt__13TUnk_804E1BB0Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E1CA8Fv(void *arg0, s16 arg1);
+void __dt__13TUnk_804E23F0Fv(void *, int);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
 extern s32 lbl_804E1BB0[];
@@ -53,10 +53,10 @@ u8 *TObjPlayer::create_state_513() {
     }
     return NULL;
 }
-void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E1BB0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1BB0;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -66,10 +66,10 @@ void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1) {
 
 extern s32 lbl_804E1CA8[];
 
-void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E1CA8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1CA8;
-        item_equip_variant_deleting_dtor_802D62F0(arg0, 0);
+        __dt__13TUnk_804E23F0Fv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

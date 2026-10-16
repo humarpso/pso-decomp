@@ -94,7 +94,7 @@ s32 queue_destruction__7TObjectFv(void *);
 
 extern "C" {
 
-void *__dt__12TTecReverserFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CCC28Fv(void *arg0, s16 arg1);
 void *__dt__12TTecReverserFv(void *arg0, s16 arg1);
 s32 spawn_particle_effect(void *, s32);
 void __dl__7TObjectFPv(void *);
@@ -104,7 +104,7 @@ s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_804CCC28[];
 
-void *__dt__12TTecReverserFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804CCC28Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCC28;
         __dt__7TObjectFv(arg0, 0);

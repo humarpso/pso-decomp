@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubInformationBoard.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubInformationBoard.h"
 #include "pso/misc/TLobby.h"
@@ -37,7 +38,7 @@ extern s32 controller_input_state[];
 
 extern "C" {
 
-void *TWindowSubInformationBoard__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__26TWindowSubInformationBoardFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -173,20 +174,19 @@ void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1) {
 extern s32 __vt__26TWindowSubInformationBoard[];
 extern void *lbl_805D4348;
 
-void *TWindowSubInformationBoard__ct(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TWindowSubInformationBoard;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D4348;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x24) = -1;
-    *(void **)((s8 *)arg0 + 0x28) = arg1;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x30) = 0;
-    *(u32 *)((s8 *)arg0 + 0x34) = 0;
-    *(u32 *)((s8 *)arg0 + 0x38) = 0;
-    *(u32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
 }
+TWindowSubInformationBoard::TWindowSubInformationBoard(TObject *arg1, void *arg2) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = lbl_805D4348;
+    *(void **)((s8 *)this + 0x20) = arg2;
+    *(u32 *)((s8 *)this + 0x24) = -1;
+    *(void **)((s8 *)this + 0x28) = arg1;
+    *(u32 *)((s8 *)this + 0x2C) = 0;
+    *(u32 *)((s8 *)this + 0x30) = 0;
+    *(u32 *)((s8 *)this + 0x34) = 0;
+    *(u32 *)((s8 *)this + 0x38) = 0;
+    *(u32 *)((s8 *)this + 0x3C) = 0;
+    *(u8 *)((s8 *)this + 0x1C) = 0;
+}
+extern "C" {
 
 }

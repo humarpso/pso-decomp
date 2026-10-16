@@ -14,13 +14,13 @@ extern const f32 lbl_805D8220;
 
 extern "C" {
 
-void *TObjBoss1Rock__sub_8002E174(void *arg0, s16 arg1);
+void *__dt__13TObjBoss1RockFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern s32 __vt__13TObjBoss1Rock[];
 
-void *TObjBoss1Rock__sub_8002E174(void *arg0, s16 arg1) {
+void *__dt__13TObjBoss1RockFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjBoss1Rock;
         __dt__7TObjectFv(arg0, 0);
@@ -159,7 +159,7 @@ extern "C" {
 
 void TObjBoss1Rock__sub_8002E3CC(void);
 void TObjBoss1Rock__sub_8002E3D0(void);
-void *TObjPlayer__sub_8002E5D4(void *arg0, s16 arg1);
+void *__dt__13TUnk_80482090Fv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 
@@ -268,7 +268,7 @@ void TUnk_80482090::run_task() {
     } while (var_r29 < 0x1C);
 }
 
-void *TObjPlayer__sub_8002E5D4(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80482090Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80482090;
         ((TObjPlayer *)arg0)->deleting_dtor(0);

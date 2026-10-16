@@ -1456,7 +1456,7 @@ void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0);
 Obj_800B3E40 * TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag);
 void * TObjEneBm3FlyNest__ct(void *, void *, void *);
 int TObjEneBm3FlyNest__sub_800B4158(void);
-void * destroy_monest_carrier(void *arg0, s16 arg1);
+void * __dt__26TObjEneBm3FlyNest_CarryFlyFv(void *arg0, s16 arg1);
 u8 * TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 s32 is_main_phase_15__9TObjEneDDFv();
 void update_player_state__9TObjEneDDFv(void *, Vec_800B23A0 *, s32);
@@ -1471,9 +1471,9 @@ s32 pack_debug_text_position(s32, s32);
 u32 load_enemy_bml_resource_named(void *, void *);
 u32 load_enemy_bml_resource(void *);
 s32 transition_enemy_state(void *, s32);
-void TObjEneDD__vt0(void *, int);
+void __dt__9TObjEneDDFv(void *, int);
 s32 update_obstruction_fade(void *);
-void TObjPlayer__sub_800D7C58(void *);
+void __dt__13TUnk_804949A8Fv(void *);
 s32 set_field_e4__10TObjPlayerFll(void *, int, f32);
 s32 spawn_dead_spot_scale15(void *, int);
 int copy_target_state__14TObjEnePanarmsFPv(void*);
@@ -2522,8 +2522,8 @@ Obj_800B3E40 *TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag) {
     if (self != 0) {
         self->vtbl = lbl_80491EE4;
         free_collision_body_parts(self);
-        __destroy_arr(self->arr, (void *)TObjPlayer__sub_800D7C58, 0x1c, 4);
-        TObjEneDD__vt0(self, 0);
+        __destroy_arr(self->arr, (void *)__dt__13TUnk_804949A8Fv, 0x1c, 4);
+        __dt__9TObjEneDDFv(self, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);
         }
@@ -2591,7 +2591,7 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
 
     TObjEneDD__ct(self, arg1, arg2);
     self->vt = lbl_80491EE4;
-    __construct_array(self->f440, init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(self->f440, init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
     self->id = lbl_805D2A18;
     invoke_initialization_hook__9TObjEneDDFv(self, arg2);
     ((TObjEneDD *)self)->init_position_vectors();
@@ -2783,7 +2783,7 @@ void update_monest_carrier(u8 *self) {
 }
 #pragma pop
 
-void *destroy_monest_carrier(void *arg0, s16 arg1) {
+void *__dt__26TObjEneBm3FlyNest_CarryFlyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TObjEneBm3FlyNest_CarryFly;
         __dt__7TObjectFv(arg0, 0);

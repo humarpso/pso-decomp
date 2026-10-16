@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TBoss7Tentacle.h"
 #include "pso/boss/TBoss7PhotonBullet.h"
 #include "pso/TBoss7Tentacle.h"
 #include "pso/boss/TBoss7TentacleNeedle.h"
@@ -655,37 +656,36 @@ void TBoss7Tentacle__sub_802F0B70(void* p) { *(u32*)((char*)p + 0x3c) |= 0x2; }
 
 void TBoss7Tentacle__sub_802F0B80(void* p) { *(u32*)((char*)p + 0x3c) &= 0xfffffffd; }
 
-u8 *__ct__14TBoss7TentacleFv(u8 *arg0, void *arg1, s32 arg2, s32 arg3) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    (*(s32 * *)((s8 *)(arg0) + (0x18))) = __vt__14TBoss7Tentacle;
-    (*(s32 *)((s8 *)(arg0) + (0))) = lbl_805D3FD8;
-    (*(s32 *)((s8 *)(arg0) + (0x1C))) = ((s32 (*)(s32))queue_boss_effect__10TObjPlayerFPv)(1);
-    (*(Anim_802F0BE8 * *)((s8 *)(arg0) + (0x20))) = ((Anim_802F0BE8 * (*)(s32))notify_fish_obj__10TObjPlayerFPv)(0x11);
-    (*(s32 *)((s8 *)(arg0) + (0x130))) = arg2;
-    (*(s32 *)((s8 *)(arg0) + (0x4C))) = arg3;
-    (*(s32 *)((s8 *)(arg0) + (0x30))) = 0;
-    (*(s32 *)((s8 *)(arg0) + (0x34))) = 0;
-    (*(s32 *)((s8 *)(arg0) + (0x38))) = 0;
-    ((TBoss7Tentacle *)arg0)->init_segments();
-    (*(f32 *)((s8 *)(arg0) + (0x134))) = (f32)((*(Anim_802F0BE8 * *)((s8 *)(arg0) + (0x20)))->n - 1) * (lbl_805DEC28 * (f32)rand());
-    (*(f32 *)((s8 *)(arg0) + (0x138))) = lbl_805DEC60;
-    (*(s32 *)((s8 *)(arg0) + (0x13C))) = 0;
-    (*(s32 *)((s8 *)(arg0) + (0x140))) = 0;
-    (*(s32 *)((s8 *)(arg0) + (0x144))) = 0x5EF;
-    (*(s32 *)((s8 *)(arg0) + (0x148))) = TObjPlayer::calc_random_scaled();
-    (*(f32 *)((s8 *)(arg0) + (0x158))) = TBoss7Tentacle__data_805DEC04;
-    (*(f32 *)((s8 *)(arg0) + (0x15C))) = TBoss7Tentacle__data_805DEC04;
-    (*(s32 *)((s8 *)(arg0) + (0x164))) = 0;
-    (*(s32 *)((s8 *)(arg0) + (0x168))) = 0x78;
-    (*(f32 *)((s8 *)(arg0) + (0x14C))) = TBoss7Tentacle__data_805DEC04;
-    (*(f32 *)((s8 *)(arg0) + (0x150))) = TBoss7Tentacle__data_805DEC04;
-    (*(f32 *)((s8 *)(arg0) + (0x154))) = TBoss7Tentacle__data_805DEC04;
-    (*(s32 *)((s8 *)(arg0) + (0x3C))) = 0;
-    (*(f32 *)((s8 *)(arg0) + (0x24))) = TBoss7Tentacle__data_805DEC00;
-    (*(f32 *)((s8 *)(arg0) + (0x28))) = TBoss7Tentacle__data_805DEC00;
-    (*(f32 *)((s8 *)(arg0) + (0x2C))) = TBoss7Tentacle__data_805DEC00;
-    return arg0;
 }
+TBoss7Tentacle::TBoss7Tentacle(TObject *arg1, s32 arg2, s32 arg3) : TObject(arg1) {
+    (*(s32 *)((s8 *)(this) + (0))) = lbl_805D3FD8;
+    (*(s32 *)((s8 *)(this) + (0x1C))) = ((s32 (*)(s32))queue_boss_effect__10TObjPlayerFPv)(1);
+    (*(Anim_802F0BE8 * *)((s8 *)(this) + (0x20))) = ((Anim_802F0BE8 * (*)(s32))notify_fish_obj__10TObjPlayerFPv)(0x11);
+    (*(s32 *)((s8 *)(this) + (0x130))) = arg2;
+    (*(s32 *)((s8 *)(this) + (0x4C))) = arg3;
+    (*(s32 *)((s8 *)(this) + (0x30))) = 0;
+    (*(s32 *)((s8 *)(this) + (0x34))) = 0;
+    (*(s32 *)((s8 *)(this) + (0x38))) = 0;
+    this->init_segments();
+    (*(f32 *)((s8 *)(this) + (0x134))) = (f32)((*(Anim_802F0BE8 * *)((s8 *)(this) + (0x20)))->n - 1) * (lbl_805DEC28 * (f32)rand());
+    (*(f32 *)((s8 *)(this) + (0x138))) = lbl_805DEC60;
+    (*(s32 *)((s8 *)(this) + (0x13C))) = 0;
+    (*(s32 *)((s8 *)(this) + (0x140))) = 0;
+    (*(s32 *)((s8 *)(this) + (0x144))) = 0x5EF;
+    (*(s32 *)((s8 *)(this) + (0x148))) = TObjPlayer::calc_random_scaled();
+    (*(f32 *)((s8 *)(this) + (0x158))) = TBoss7Tentacle__data_805DEC04;
+    (*(f32 *)((s8 *)(this) + (0x15C))) = TBoss7Tentacle__data_805DEC04;
+    (*(s32 *)((s8 *)(this) + (0x164))) = 0;
+    (*(s32 *)((s8 *)(this) + (0x168))) = 0x78;
+    (*(f32 *)((s8 *)(this) + (0x14C))) = TBoss7Tentacle__data_805DEC04;
+    (*(f32 *)((s8 *)(this) + (0x150))) = TBoss7Tentacle__data_805DEC04;
+    (*(f32 *)((s8 *)(this) + (0x154))) = TBoss7Tentacle__data_805DEC04;
+    (*(s32 *)((s8 *)(this) + (0x3C))) = 0;
+    (*(f32 *)((s8 *)(this) + (0x24))) = TBoss7Tentacle__data_805DEC00;
+    (*(f32 *)((s8 *)(this) + (0x28))) = TBoss7Tentacle__data_805DEC00;
+    (*(f32 *)((s8 *)(this) + (0x2C))) = TBoss7Tentacle__data_805DEC00;
+}
+extern "C" {
 
 void TObjPlayer__sub_802F0D2C(void) {  }
 

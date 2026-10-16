@@ -112,12 +112,12 @@ extern const f32 lbl_805D9A6C;
 extern const f32 lbl_805D9A94;
 void initialize_saver_resources(void);
 s32 queue_destruction__7TObjectFv(void *);
-void *TObjPlayer__sub_800A05B8(void *, s16);
+void *__dt__13TUnk_80490470Fv(void *, s16);
 void __dt__9TObjEnemyFv(void *, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 extern void *TObjEneSaver__vtable[83];
-Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1);
+Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1);
 void* vfunc_9__12TObjEneSaverFv(void* p);
 extern u32 saver_bml_resource;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -339,7 +339,7 @@ void *saver_collision_body_part_table[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *TObjEneSaver__vtable[83] = {
-    (void *)0x0, (void *)0x0, (void *)&fn_800A73F8, (void *)&TObjPlayer__sub_800A6EC0,
+    (void *)0x0, (void *)0x0, (void *)&__dt__12TObjEneSaverFv, (void *)&TObjPlayer__sub_800A6EC0,
     (void *)&TObjPlayer__sub_800A6C54, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__12TObjEneSaverFv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -2303,7 +2303,7 @@ void initialize_saver_resources(void) {
     init.w[0] = (s32)RES->ents;
     TLobby::spawn_npc_enemy((s16)0x1A, (s32)(RES->sub->f8), (s32)(RES->sub->fC), (s32)(&init), (f32)(saver_collision_body_part_table[3]), (f32)lbl_805D9A14);
 }
-Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1) {
+Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
         i = 0;
@@ -2316,7 +2316,7 @@ Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1) {
             i++;
         } while (i < 3);
         free_collision_body_parts(arg0);
-        TObjPlayer__sub_800A05B8((u8 *)arg0 + 0x3A4, -1);
+        __dt__13TUnk_80490470Fv((u8 *)arg0 + 0x3A4, -1);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

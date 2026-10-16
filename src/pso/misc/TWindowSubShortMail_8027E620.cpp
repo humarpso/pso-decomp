@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubShortMail.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -389,7 +390,7 @@ struct VObj_8027FBF0_8027E620 : VObj_8027FBF0_Base_8027fbf0_8027E620 {
     virtual void m9();
 };
 
-void *TWindowSubShortMail__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__19TWindowSubShortMailFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1);
 s32 TLobby__sub_802258C8();
 s32 get_selected_menu_value(s32);
@@ -707,29 +708,28 @@ void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1) {
 extern s32 __vt__19TWindowSubShortMail[];
 extern void *TWindowSubShortMail__class_name;
 
-void *TWindowSubShortMail__ct(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubShortMail;
-    *(void **)((s8 *)arg0 + 0x0) = TWindowSubShortMail__class_name;
-    *(void **)((s8 *)arg0 + 0x34) = arg1;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x40) = 0;
-    *(u32 *)((s8 *)arg0 + 0x54) = 0;
-    *(u32 *)((s8 *)arg0 + 0x58) = 0;
-    *(u32 *)((s8 *)arg0 + 0x38) = 0;
-    *(u32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x44) = 0;
-    *(u32 *)((s8 *)arg0 + 0x48) = 0;
-    *(u32 *)((s8 *)arg0 + 0x4C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x5C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x50) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = -1;
-    *(u32 *)((s8 *)arg0 + 0x28) = -1;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x30) = 0;
-    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
 }
+TWindowSubShortMail::TWindowSubShortMail(TObject *arg1, void *arg2) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = TWindowSubShortMail__class_name;
+    *(void **)((s8 *)this + 0x34) = arg1;
+    *(void **)((s8 *)this + 0x20) = arg2;
+    *(u32 *)((s8 *)this + 0x40) = 0;
+    *(u32 *)((s8 *)this + 0x54) = 0;
+    *(u32 *)((s8 *)this + 0x58) = 0;
+    *(u32 *)((s8 *)this + 0x38) = 0;
+    *(u32 *)((s8 *)this + 0x3C) = 0;
+    *(u32 *)((s8 *)this + 0x44) = 0;
+    *(u32 *)((s8 *)this + 0x48) = 0;
+    *(u32 *)((s8 *)this + 0x4C) = 0;
+    *(u32 *)((s8 *)this + 0x5C) = 0;
+    *(u32 *)((s8 *)this + 0x50) = 0;
+    *(u32 *)((s8 *)this + 0x24) = -1;
+    *(u32 *)((s8 *)this + 0x28) = -1;
+    *(u32 *)((s8 *)this + 0x2C) = 0;
+    *(u32 *)((s8 *)this + 0x30) = 0;
+    *(u8 *)((s8 *)this + 0x1C) = 0;
+}
+extern "C" {
 
 void TWindowSubShortMail__sub_8027FAD0(u8 *arg0) {
     *(u8 *)((s8 *)arg0 + 0xCC) = (u8) (*(u8 *)((s8 *)arg0 + 0xCC) & ~0xA);

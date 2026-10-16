@@ -48,7 +48,7 @@ void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);
 void *__ct__10TAdTitleGCFv(void *, void *, int);
-void *__ct__14TAdSelectTxtGCFv(void *, void *, void *, int);
+void *__ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, int);
 void __ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
@@ -143,10 +143,10 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
     {
         S24_802C4944 txt = select_game_mode_text_layout;
         if ((p = __nw__7TObjectFUl(0xE0)) != 0) {
-            __ct__14TAdSelectTxtGCFv(p, arg0, &txt.t[0], 6);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, arg0, &txt.t[0], 6);
         }
         if ((p = __nw__7TObjectFUl(0xE0)) != 0) {
-            __ct__14TAdSelectTxtGCFv(p, arg0, &txt.t[1], 7);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, arg0, &txt.t[1], 7);
         }
     }
     {

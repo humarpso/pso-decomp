@@ -998,7 +998,7 @@ s32 TWindow__close(int);
 extern RecoveredGlobal_80214A84_lbl_804C97F0 lbl_804C97F0;
 extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
 extern s32 offline_quest_list_vm;
-u8 *THunterGuildSeqOffline__sub_80214A84(u8 *arg0, s16 arg1);
+u8 *__dt__28THunterGuildSeqOnline_ServerFv(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
 void zero_four_slots__22THunterGuildSeqOfflineFv(void);
 extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
@@ -1055,7 +1055,7 @@ void zero_four_slots__22THunterGuildSeqOfflineFv(void) {
     }
 }
 
-u8 *THunterGuildSeqOffline__sub_80214A84(u8 *arg0, s16 arg1) {
+u8 *__dt__28THunterGuildSeqOnline_ServerFv(u8 *arg0, s16 arg1) {
     u32 temp_r3;
     u32 temp_r3_2;
     if (arg0 != NULL) {

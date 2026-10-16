@@ -12,18 +12,18 @@ struct Eps_803622B0 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, s16);
+void __dt__13TUnk_80494938Fv(void *, s16);
 u32 find_entity_by_id(s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void TObjEneEpsilon__vt0(void *, s16);
+void __dt__14TObjEneEpsilonFv(void *, s16);
 extern void *lbl_804F22DC[];
-Eps_803622B0 *fn_803622B0(Eps_803622B0 *o, s16 arg1);
+Eps_803622B0 *__dt__18TObjEneEpsilonBodyFv(Eps_803622B0 *o, s16 arg1);
 }
 
 extern "C" {
 
-Eps_803622B0 *fn_803622B0(Eps_803622B0 *o, s16 arg1) {
+Eps_803622B0 *__dt__18TObjEneEpsilonBodyFv(Eps_803622B0 *o, s16 arg1) {
     s32 i;
     if (o != NULL) {
         o->vt = lbl_804F22DC;
@@ -44,8 +44,8 @@ Eps_803622B0 *fn_803622B0(Eps_803622B0 *o, s16 arg1) {
                 }
             }
         }
-        __dt__18TObjEneMe3SinowZoaFPvs(o->x4c0, -1);
-        TObjEneEpsilon__vt0(o, 0);
+        __dt__13TUnk_80494938Fv(o->x4c0, -1);
+        __dt__14TObjEneEpsilonFv(o, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(o);
         }

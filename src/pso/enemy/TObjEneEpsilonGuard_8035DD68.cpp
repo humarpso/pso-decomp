@@ -1374,10 +1374,10 @@ s32 TObjEneEpsilon__ct();
 extern s32 TObjEneEpsilonGuard__class_name;
 void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5, void *arg6);
 s32 queue_destruction__7TObjectFv(void *);
-s32 __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+s32 __dt__13TUnk_80494938Fv(void *, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 TObjEneEpsilon__vt0(void *, int);
+s32 __dt__14TObjEneEpsilonFv(void *, int);
 u8 *__dt__19TObjEneEpsilonGuardFv(u8 *arg0, s16 arg1);
 }
 
@@ -1621,8 +1621,8 @@ u8 *__dt__19TObjEneEpsilonGuardFv(u8 *arg0, s16 arg1) {
             *(void **)((s8 *)arg0 + 0x45C) = NULL;
         }
         free_collision_body_parts(arg0);
-        __dt__18TObjEneMe3SinowZoaFPvs(arg0 + 0x4BC, -1);
-        TObjEneEpsilon__vt0(arg0, 0);
+        __dt__13TUnk_80494938Fv(arg0 + 0x4BC, -1);
+        __dt__14TObjEneEpsilonFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

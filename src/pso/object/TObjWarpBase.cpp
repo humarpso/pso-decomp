@@ -44,7 +44,7 @@ struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
     virtual void m12(); virtual void m13();
 };
 
-void *TObjWarpBase__vt0(void *arg0, s16 arg1);
+void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
 u32 get_player_by_client_id(u16);
@@ -83,7 +83,7 @@ u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0) {
   return 0;
 }
 
-void *TObjWarpBase__vt0(void *arg0, s16 arg1) {
+void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         struct VObj_8019DA54_8019D964 *o = (struct VObj_8019DA54_8019D964 *)arg0;
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBase;

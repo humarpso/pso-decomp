@@ -22,11 +22,11 @@ struct O_80092724 { u8 pad0[0x18]; void *vptr; u8 pad1c[0x38c]; void *objs[2]; }
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void TObjPlayer__sub_800C68FC(void *, int);
+void __dt__13TUnk_80493450Fv(void *, int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
-extern u8 TObjPlayer__sub_800D7C58[];
+extern u8 __dt__13TUnk_804949A8Fv[];
 O_80092724 *TObjPlayer__sub_80092724(O_80092724 *arg0, s16 arg1);
 s32 dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
@@ -379,8 +379,8 @@ O_80092724 *TObjPlayer__sub_80092724(O_80092724 *arg0, s16 arg1) {
         }
         ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x3B0, TObjPlayer__sub_800D7C58, 0x1C, 4);
-        TObjPlayer__sub_800C68FC(arg0, 0);
+        __destroy_arr((u8 *)arg0 + 0x3B0, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__13TUnk_80493450Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -439,7 +439,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
 
     init_enemy_base__13TUnk_80493450Fv(arg0, arg1);
     F(arg0, u8 *, 0x18) = (u8 *)__vt__12TObjEneBeast;
-    __construct_array(arg0 + 0x3B0, init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(arg0 + 0x3B0, init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
     F(arg0, s32, 0) = lbl_805D2980;
     ((VObj_800927DC *)arg0)->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();

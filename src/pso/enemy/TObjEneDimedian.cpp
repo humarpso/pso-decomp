@@ -106,12 +106,12 @@ extern const f32 lbl_805D9AD0;
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void TObjPlayer__sub_800C68FC(void *, int);
+void __dt__13TUnk_80493450Fv(void *, int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
-void TObjPlayer__sub_800A05B8(void *, int);
-extern u8 TObjPlayer__sub_800D7C58[];
+void __dt__13TUnk_80490470Fv(void *, int);
+extern u8 __dt__13TUnk_804949A8Fv[];
 O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1);
 }
 
@@ -443,9 +443,9 @@ O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1) {
         }
         ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x3CC, TObjPlayer__sub_800D7C58, 0x1C, 4);
-        TObjPlayer__sub_800A05B8((u8 *)arg0 + 0x3A8, -1);
-        TObjPlayer__sub_800C68FC(arg0, 0);
+        __destroy_arr((u8 *)arg0 + 0x3CC, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__13TUnk_80490470Fv((u8 *)arg0 + 0x3A8, -1);
+        __dt__13TUnk_80493450Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -466,7 +466,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     ((void (*)(void *, s32, s32))init_enemy_base__13TUnk_80493450Fv)(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__15TObjEneDimedian;
     ((TUnk_80490470 *)(arg0 + 0x3A8))->init_vtable_and_field18();
-    __construct_array(arg0 + 0x3CC, (void *)&init_and_activate__10TObjPlayerFv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(arg0 + 0x3CC, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D29F0;
     ((VObj_18_c99286 *)arg0)->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();

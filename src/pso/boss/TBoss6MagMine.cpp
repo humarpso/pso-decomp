@@ -227,7 +227,7 @@ extern "C" {
 void vt3__13TBoss6MagMineFv(s32 arg0);
 void vt4__13TBoss6MagMineFv(void* p);
 int TBoss6PlotFalz__sub_8036964C(void);
-void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F322CFv(void *arg0, s16 arg1);
 void copy_pos__13TBoss6MagMineFi(s32 arg0);
 s32 create__13TBoss6MagMineFi(s32 arg0);
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
@@ -512,7 +512,7 @@ void TUnk_804F322C::run_task() {
     }
 }
 
-void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F322CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F322C;
         if (*(void **)((s8 *)arg0 + 0x3B0) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3B0))); *(s32 *)((s8 *)arg0 + 0x3B0) = 0; }

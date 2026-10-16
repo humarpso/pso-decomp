@@ -18,7 +18,7 @@ u8 *TObjBoss2Tunnel__sub_802F1AE0(u8 *arg0, u8 *arg1, s32 arg2);
 
 extern "C" {
 
-void *TObjBoss2Tunnel__sub_802F1A88(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E4AD4Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -36,7 +36,7 @@ void TUnk_804E4AD4::run_task() {
     }
 }
 
-void *TObjBoss2Tunnel__sub_802F1A88(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E4AD4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E4AD4;
         __dt__7TObjectFv(arg0, 0);

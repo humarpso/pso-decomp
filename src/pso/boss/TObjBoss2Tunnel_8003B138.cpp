@@ -822,7 +822,7 @@ extern "C" {
 
 void TObjBoss2Tunnel__sub_8003C648(void);
 void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1);
-void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804835D8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -972,7 +972,7 @@ void TUnk_804835D8::run_task() {
 }
 #pragma pop
 
-void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804835D8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804835D8;
         __dt__7TObjectFv(arg0, 0);

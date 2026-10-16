@@ -28,7 +28,7 @@ extern int model_render_flags;
 
 extern "C" {
 
-s32 TObjPlayer__sub_800D96D0(s32, s32 *);
+s32 __dt__13TUnk_80494AE0Fv(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
 s32 __dl__FPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*, void*);
@@ -61,7 +61,7 @@ void TUnk_804AF8D8::set_flags_and_apply_damage_color() {
 void *TUnk_804AF8D8::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_804AF8D8;
-        TObjPlayer__sub_800D96D0((s32)this, 0);
+        __dt__13TUnk_80494AE0Fv((s32)this, 0);
         if (arg1 > 0) {
             __dl__FPv(this);
         }

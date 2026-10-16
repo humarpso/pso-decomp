@@ -230,7 +230,7 @@ struct VOff_802EE9A4_arg0_802EE9A4 { char pad_0[0x2FC]; char f_2FC[1]; };
 
 void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
-void TObjEneDD__vt0(void *, int);
+void __dt__9TObjEneDDFv(void *, int);
 s32 TObjFish__sub_802EC468(void *, f32, f32);
 s32 apply_damage_and_set_effect__8TObjFishFl(int, int, int);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -287,7 +287,7 @@ void *__dt__11TBoss7JointFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBoss7Joint;
         ((TUnk_804AF8A0 *)arg0)->clear_obj_links();
-        TObjEneDD__vt0(arg0, 0);
+        __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

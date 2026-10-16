@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488A28.h"
 #include "pso/misc/TUnk_80488DA0.h"
 #include "pso/misc/TUnk_80488E00.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -114,28 +115,28 @@ extern const f32 lbl_805D8F88;
 extern const f32 lbl_805D8F8C;
 extern const f32 lbl_805D8F90;
 s32 __ct__7TObjectFP7TObject(void *, void *);
-extern s32 lbl_80488A28[];
+extern s32 __vt__13TUnk_80488A28[];
 extern const f32 TCameraCtrl__data_805D8F80;
 extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8FA0;
-void *TCameraCtrl__sub_80068714(void *arg0);
+void *__ct__13TUnk_80488A28Fv(void *arg0);
 }
 
 extern "C" {
 
-void *TCameraCtrl__sub_80067FC0(void *arg0, s16 arg1);
+void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1);
 void TCameraCtrl__sub_80068354(void);
 void TCameraCtrl__sub_80068358(void);
-void *TCameraCtrl__sub_800686BC(void *arg0, s16 arg1);
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_80488838[];
 
-void *TCameraCtrl__sub_80067FC0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488838;
-        TCameraCtrl__sub_800686BC((void *)(arg0), (s16)(0));
+        __dt__13TUnk_80488A28Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -144,7 +145,7 @@ void *TCameraCtrl__sub_80067FC0(void *arg0, s16 arg1) {
 }
 
 O_80068018 *construct_derived__11TCameraCtrlFPv(O_80068018 *self) {
-    TCameraCtrl__sub_80068714((void *)(self));
+    __ct__13TUnk_80488A28Fv((void *)(self));
     *(void **)((u8 *)self + 0x18) = ((char *)&lbl_80488838);
     self->x38 = 0;
     self->x6c = controller_input_state.sub;
@@ -235,7 +236,7 @@ s32 TUnk_80488E00::predict_obstruction() {
 void TCameraCtrl__sub_80068354(void) {  }
 void TCameraCtrl__sub_80068358(void) {  }
 
-extern s32 lbl_80488A28[];
+extern s32 __vt__13TUnk_80488A28[];
 
 void TCameraCtrl::post_update_view() {
     Vec_8006835C e;
@@ -305,9 +306,9 @@ void apply_camera_controller_pose(Cam_80068530 *arg0) {
     }
 }
 
-void *TCameraCtrl__sub_800686BC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488A28;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_80488A28;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -315,29 +316,28 @@ void *TCameraCtrl__sub_800686BC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TCameraCtrl__sub_80068714(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0, 0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488A28;
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) TCameraCtrl__data_805D8F84;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(f32 *)((s8 *)arg0 + 0x48) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) TCameraCtrl__data_805D8F80;
-    *(f32 *)((s8 *)arg0 + 0x60) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)arg0 + 0x64) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) TCameraCtrl__data_805D8F84;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(f32 *)((s8 *)arg0 + 0x58) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805D8FA0;
-    *(s32 *)((s8 *)arg0 + 0x54) = 0x36C1;
-    *(u16 *)((s8 *)arg0 + 0x20) = 0xFFFF;
-    return arg0;
 }
+TUnk_80488A28::TUnk_80488A28() : TObject(0) {
+    *(f32 *)((s8 *)this + 0x3C) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)this + 0x40) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)this + 0x44) = (f32) TCameraCtrl__data_805D8F84;
+    *(s32 *)((s8 *)this + 0x2C) = 0;
+    *(s32 *)((s8 *)this + 0x30) = 0;
+    *(s32 *)((s8 *)this + 0x34) = 0;
+    *(f32 *)((s8 *)this + 0x48) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)this + 0x4C) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)this + 0x50) = (f32) TCameraCtrl__data_805D8F80;
+    *(f32 *)((s8 *)this + 0x60) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)this + 0x64) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)this + 0x68) = (f32) TCameraCtrl__data_805D8F84;
+    *(s32 *)((s8 *)this + 0x28) = 0;
+    *(s32 *)((s8 *)this + 0x24) = 0;
+    *(s32 *)((s8 *)this + 0x38) = 0;
+    *(f32 *)((s8 *)this + 0x58) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)this + 0x5C) = (f32) lbl_805D8FA0;
+    *(s32 *)((s8 *)this + 0x54) = 0x36C1;
+    *(u16 *)((s8 *)this + 0x20) = 0xFFFF;
+}
+extern "C" {
 
 }

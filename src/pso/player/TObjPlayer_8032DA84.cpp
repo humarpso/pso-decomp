@@ -47,15 +47,15 @@ void TObjPlayer__sub_8032DC94(u8 *arg0);
 
 extern "C" {
 
-void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1);
-void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804EDD20Fv(void *arg0, s16 arg1);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32 *, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv(void *);
 void TItemWeapon__ct(void *);
 s16 get_validated_attack_stage(s32);
 void __dl__7TObjectFPv(void *);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
-void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1);
+void __dt__11TItemWeaponFv(void *, int);
+void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
 extern s32 tl_05;
@@ -103,17 +103,17 @@ u8 *create_guardianna(u8 *arg0) {
     return NULL;
 }
 
-void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDC28;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
 }
-void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804EDD20Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDD20;
         ((TUnk_804EDD44 *)arg0)->destroy(0);

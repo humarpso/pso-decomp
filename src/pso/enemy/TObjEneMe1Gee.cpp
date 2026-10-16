@@ -39,7 +39,7 @@ s32 init_object__12TObjEneDD_STFv(void *);
 u8 * TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
 u8 vfunc_109__13TUnk_8049387CFv(u8 *arg0);
 u8 TObjEneMe1Gee__sub_800CB5A0(u8 *arg0, s32 arg1);
-void * __dt_deleting__13TObjEneMe1GeeFPvs(void *arg0, s16 arg1);
+void * __dt__13TUnk_8049387CFv(void *arg0, s16 arg1);
 void * __nw__7TObjectFUl(u32);
 void * init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void vfunc_110__13TUnk_8049387CFl(u8 *arg0, s32 arg1);
@@ -88,7 +88,7 @@ extern s32 gee_resource_bundle_ptr;
 #define vfunc_88__13TObjEneMe1GeeFv ((void (*)())vfunc_88__13TObjEneMe1GeeFv)
 #define vfunc_89__13TObjEneMe1GeeFv ((void (*)())vfunc_89__13TObjEneMe1GeeFv)
 #define vfunc_101__13TObjEneMe1GeeFPUc ((void (*)())vfunc_101__13TObjEneMe1GeeFPUc)
-#define __dt_deleting__13TObjEneMe1GeeFPvs ((void (*)())__dt_deleting__13TObjEneMe1GeeFPvs)
+#define __dt__13TUnk_8049387CFv ((void (*)())__dt__13TUnk_8049387CFv)
 #define render__13TObjEneMe1GeeFv ((void (*)())render__13TObjEneMe1GeeFv)
 #define vfunc_110__13TUnk_8049387CFl ((void (*)())vfunc_110__13TUnk_8049387CFl)
 #define vfunc_109__13TUnk_8049387CFv ((void (*)())vfunc_109__13TUnk_8049387CFv)
@@ -244,7 +244,7 @@ void *TObjEneMe1Gee__fade_command_streams[5] = {
     (void *)lbl_8043BE38,
 };
 void *me1_gee_dispatch_table[118] = {
-    (void *)0x0, (void *)0x0, (void *)__dt_deleting__13TObjEneMe1GeeFPvs, (void *)TObjEneMe1Gee__sub_800C8BCC,
+    (void *)0x0, (void *)0x0, (void *)__dt__13TUnk_8049387CFv, (void *)TObjEneMe1Gee__sub_800C8BCC,
     (void *)render__13TObjEneMe1GeeFv, (void *)render_actor_shadows_default, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
     (void *)reset_motion_fields__13TUnk_804806E8Fv, (void *)vfunc_9__13TUnk_804806E8Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail,
     (void *)vfunc_12__9TObjEnemyFv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)add_actor_exp, (void *)consume_timer_field__10TObjPlayerFPvi,
@@ -297,7 +297,7 @@ f32 gee_camera_ctrl_vec[4];
 #undef vfunc_88__13TObjEneMe1GeeFv
 #undef vfunc_89__13TObjEneMe1GeeFv
 #undef vfunc_101__13TObjEneMe1GeeFPUc
-#undef __dt_deleting__13TObjEneMe1GeeFPvs
+#undef __dt__13TUnk_8049387CFv
 #undef render__13TObjEneMe1GeeFv
 #undef vfunc_110__13TUnk_8049387CFl
 #undef vfunc_109__13TUnk_8049387CFv
@@ -3340,7 +3340,7 @@ f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 s32 copy_position__14TObjEneEpsilonFPv(void *, void *);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
 s32 set_target_player__12TObjEneDD_STFPv();
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 s32 update_player_state__9TObjEneDDFv(void *, int, int);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
@@ -3379,7 +3379,7 @@ int TObjEneMe1Gee__sub_800CC2BC(void);
 void run_task__13TObjEneMe1GeeFv(u8 *arg0);
 void * __dt__13TObjEneMe1GeeFv(void *arg0, s16 arg1);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 void TBoss3Volopt__sub_800D8D88(s32);
 s32 copy_target_state__14TObjEnePanarmsFPv();
 s32 approach_angle_limited(s32, s32, s32);
@@ -3545,7 +3545,7 @@ void TObjEneMe1Gee__sub_800C8BCC(u8 *arg0) {
     ((VObj_18 *)(arg0))->m98();
 }
 
-void *__dt_deleting__13TObjEneMe1GeeFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049387CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = me1_gee_dispatch_table;
         ((void (*)(void *, int))__dt__13TObjEneMe1GeeFv)(arg0, 0);
@@ -5307,8 +5307,8 @@ void *__dt__13TObjEneMe1GeeFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneMe1Gee;
         if (*(void **)((s8 *)arg0 + 0x464) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x464)); *(s32 *)((s8 *)arg0 + 0x464) = 0; }
         free_collision_body_parts(arg0);
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3CC, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x3CC, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

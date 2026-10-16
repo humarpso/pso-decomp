@@ -21,13 +21,13 @@ struct VObj_800996EC : VBase_800996EC {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_800A05B8(void *, int);
-s32 __dt__9TObjEneDDFv(void *, int);
+s32 __dt__13TUnk_80490470Fv(void *, int);
+s32 __dt__12TObjEneDD_STFv(void *, int);
 s32 delete_buffer__12TBoss8DragonFis(int, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, int, int);
-extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 __dt__13TUnk_804949A8Fv[];
 u8 *__dt__17TObjEneDf2BringerFv(u8 *arg0, s16 arg1);
 }
 
@@ -3271,7 +3271,7 @@ void TObjEneDf2Bringer::vfunc_63() { if (*(short*)((char*)this + 0x326) != 10) {
 void TObjEneDf2Bringer::vfunc_28() {  }
 
 extern s32 init_and_activate__10TObjPlayerFv[];
-extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 __dt__13TUnk_804949A8Fv[];
 extern void *lbl_805D29A0;
 
 void run_task__17TObjEneDf2BringerFv(u8 *arg0) {
@@ -3340,9 +3340,9 @@ u8 *__dt__17TObjEneDf2BringerFv(u8 *arg0, s16 arg1) {
         }
         *(void **)((s8 *)arg0 + 0x498) = NULL;
         free_collision_body_parts(arg0);
-        __destroy_arr(arg0 + 0x3E0, TObjPlayer__sub_800D7C58, 0x1C, 4);
-        TObjPlayer__sub_800A05B8(arg0 + 0x3C4, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __destroy_arr(arg0 + 0x3E0, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__13TUnk_80490470Fv(arg0 + 0x3C4, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -3418,7 +3418,7 @@ void *TObjEneDf2Bringer__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjEneDf2Bringer;
     ((TUnk_80490470 *)((char *)arg0 + 964))->init_vtable_and_field18();
-    __construct_array((void *)((char *)arg0 + 992), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
+    __construct_array((void *)((char *)arg0 + 992), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D29A0;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     TObjEneDf2Bringer__sub_800994F8(arg0);

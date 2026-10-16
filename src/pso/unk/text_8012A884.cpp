@@ -53,7 +53,7 @@ extern "C" void vfunc_26__11TItemWeaponFv();
 extern "C" void equip__14TItemEquipBaseFv();
 extern "C" void get_attack_flags__11TItemWeaponFv();
 extern "C" void get_motion_ptr__11TItemWeaponFv();
-extern "C" void item_equip_variant_deleting_dtor_8012A82C();
+extern "C" void __dt__13TUnk_804A4948Fv();
 extern "C" void launch_shot__11TItemWeaponFPUclll();
 extern "C" void vfunc_46__11TItemWeaponFv();
 extern "C" void register_attack__5TItemFv();
@@ -77,7 +77,7 @@ extern "C" void update_equip__14TItemEquipBaseFv();
 extern "C" void vfunc_34__11TItemWeaponFv();
 extern "C" void vfunc_28__11TItemWeaponFv();
 void *s_rank_weapon_vtable[63] = {
-    (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_8012A82C, (void *)&run_task__5TItemFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804A4948Fv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,

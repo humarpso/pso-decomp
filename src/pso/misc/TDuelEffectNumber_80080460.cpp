@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/TDuelEffectString.h"
 #include "pso/TDuelEffectNumber.h"
 #pragma fp_contract on
 
@@ -55,7 +56,7 @@ void TDuelEffectNumber::calc_digit_transform(s32 arg0, f32 *arg1, f32 *arg2, s32
 extern "C" {
 
 f32 TBoss8Dragon__sub_8008072C(void);
-void *__ct__17TDuelEffectStringFv(void *arg0, void *arg1, void *arg2, void *arg3);
+void *__ct__17TDuelEffectStringFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__7TObjectFP7TObject(void *);
 f64 pow();
 
@@ -99,16 +100,15 @@ void TDuelEffectString::run_task() {
 }
 
 TDuelEffectString::~TDuelEffectString() {}
-void *__ct__17TDuelEffectStringFv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TDuelEffectString;
-    *(void **)((s8 *)arg0 + 0x0) = TDuelEffectString__class_name;
-    *(f32 *)((s8 *)arg0 + 0x1C) = *(f32 *)((s8 *)arg2 + 0x0);
-    *(f32 *)((s8 *)arg0 + 0x20) = *(f32 *)((s8 *)arg2 + 0x4);
-    *(void **)((s8 *)arg0 + 0x24) = arg3;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
-    return arg0;
 }
+TDuelEffectString::TDuelEffectString(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = TDuelEffectString__class_name;
+    *(f32 *)((s8 *)this + 0x1C) = *(f32 *)((s8 *)arg2 + 0x0);
+    *(f32 *)((s8 *)this + 0x20) = *(f32 *)((s8 *)arg2 + 0x4);
+    *(void **)((s8 *)this + 0x24) = arg3;
+    *(u32 *)((s8 *)this + 0x28) = 0;
+}
+extern "C" {
 
 f32 TBoss8Dragon__sub_8008072C(void) {
     return (f32) pow();

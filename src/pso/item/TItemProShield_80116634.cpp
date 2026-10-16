@@ -29,8 +29,8 @@ void vfunc_44__13TUnk_8049F770Fv(Obj_80116634 *arg0);
 
 extern "C" {
 
-void *TItemProShield__sub_801166B0(void *arg0, s16 arg1);
-void *TItemProShield__sub_801167E8(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049F770Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049F828Fv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049F828Fv(void *arg0);
 s32 apply_transform_action__8TItemMagFUc(s32, s32);
 void TItemObject__ct(void *);
@@ -59,7 +59,7 @@ void TUnk_8049F770::vfunc_44() {
   }
 }
 
-void *TItemProShield__sub_801166B0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049F770Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_hp_recovery_vtable;
         __dt__11TItemObjectFv(arg0, 0);
@@ -103,7 +103,7 @@ void TUnk_8049F828::vfunc_44() {
 
 extern void *item_mag_transform_vtable[];
 
-void *TItemProShield__sub_801167E8(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049F828Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_mag_transform_vtable;
         __dt__11TItemObjectFv(arg0, 0);
@@ -150,7 +150,7 @@ struct VObj_80116A5C_80116634 : Base_80116A5C_80116634 {
     virtual void m49(); virtual void m50(); virtual void m51(); virtual void m52();
 };
 
-void *TItemProShield__sub_80116970(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049F8E0Fv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049F998Fv(void *arg0);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
@@ -203,7 +203,7 @@ void TUnk_8049F8E0::vfunc_44() {
 }
 #pragma pop
 
-void *TItemProShield__sub_80116970(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049F8E0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_moon_atomizer_vtable;
         __dt__11TItemObjectFv(arg0, 0);
@@ -321,9 +321,9 @@ u8 *create_sol_atomizer_item(u8 *arg0);
 
 extern "C" {
 
-void *item_object_variant_deleting_dtor_80116BEC(void *arg0, s16 arg1);
-void *item_object_variant_deleting_dtor_80116CFC(void *arg0, s16 arg1);
-void *TItemProShield__sub_80116AD0(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049FA50Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049FB08Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049F998Fv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049FA50Fv(void *arg0);
 int vfunc_44__13TUnk_8049FB08Fv(void* p);
 void *TItemProShield__sub_80116D54(void *arg0);
@@ -333,7 +333,7 @@ void __dt__11TItemObjectFv(void *, int);
 
 extern void *item_status_cure_vtable[];
 
-void *TItemProShield__sub_80116AD0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049F998Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_status_cure_vtable;
         __dt__11TItemObjectFv(arg0, 0);
@@ -373,7 +373,7 @@ void TUnk_8049FA50::vfunc_44() {
 
 extern void *item_sol_atomizer_vtable[];
 
-void *item_object_variant_deleting_dtor_80116BEC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049FA50Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_sol_atomizer_vtable;
         __dt__11TItemObjectFv(arg0, 0);
@@ -410,7 +410,7 @@ void TUnk_8049FB08::vfunc_44() { send_star_atomizer_targets(*(void* *)&this->m_f
 
 extern void *item_star_atomizer_vtable[];
 
-void *item_object_variant_deleting_dtor_80116CFC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049FB08Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_star_atomizer_vtable;
         __dt__11TItemObjectFv(arg0, 0);
@@ -476,7 +476,7 @@ void try_pick_up_item__5TItemFl();
 void *item_hp_recovery_vtable[46] = {
     0,
     0,
-    (void *)&TItemProShield__sub_801166B0,
+    (void *)&__dt__13TUnk_8049F770Fv,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
@@ -524,7 +524,7 @@ void *item_hp_recovery_vtable[46] = {
 void *item_mag_transform_vtable[46] = {
     0,
     0,
-    (void *)&TItemProShield__sub_801167E8,
+    (void *)&__dt__13TUnk_8049F828Fv,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
@@ -572,7 +572,7 @@ void *item_mag_transform_vtable[46] = {
 void *item_moon_atomizer_vtable[46] = {
     0,
     0,
-    (void *)&TItemProShield__sub_80116970,
+    (void *)&__dt__13TUnk_8049F8E0Fv,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
@@ -620,7 +620,7 @@ void *item_moon_atomizer_vtable[46] = {
 void *item_status_cure_vtable[46] = {
     0,
     0,
-    (void *)&TItemProShield__sub_80116AD0,
+    (void *)&__dt__13TUnk_8049F998Fv,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
@@ -668,7 +668,7 @@ void *item_status_cure_vtable[46] = {
 void *item_sol_atomizer_vtable[46] = {
     0,
     0,
-    (void *)&item_object_variant_deleting_dtor_80116BEC,
+    (void *)&__dt__13TUnk_8049FA50Fv,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
@@ -716,7 +716,7 @@ void *item_sol_atomizer_vtable[46] = {
 void *item_star_atomizer_vtable[46] = {
     0,
     0,
-    (void *)&item_object_variant_deleting_dtor_80116CFC,
+    (void *)&__dt__13TUnk_8049FB08Fv,
     (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,

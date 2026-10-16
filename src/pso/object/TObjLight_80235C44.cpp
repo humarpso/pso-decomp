@@ -67,7 +67,7 @@ extern const f32 lbl_805DC894;
 
 extern "C" {
 
-void *TObjLight__sub_80235E44(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CCAA8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -116,7 +116,7 @@ void TUnk_804CCAA8::run_task() {
 }
 #pragma pop
 
-void *TObjLight__sub_80235E44(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804CCAA8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCAA8;
         __dt__7TObjectFv(arg0, 0);

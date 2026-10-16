@@ -14,7 +14,7 @@ u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8032BD64_lbl_804EDAC0 lbl_804EDAC0;
 extern int lbl_805D6CB8;
-u8 *TLobby__sub_8032BD64(u8 *arg0, s16 arg1);
+u8 *__dt__13TUnk_804EDAC0Fv(u8 *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
 extern RecoveredGlobal_8032BD64_lbl_804EDAC0 lbl_804EDAC0;
 extern int lbl_805D6CB8;
@@ -33,7 +33,7 @@ void TUnk_804EDAC0::render() { *(int*)((char*)this + 0x1c) = 1; update_children_
     extern int lbl_805D6CB8;
 
 typedef char RecoveredGlobal_8032BD64_lbl_804EDAC0_size[sizeof(RecoveredGlobal_8032BD64_lbl_804EDAC0) == 0x18 ? 1 : -1];
-u8 *TLobby__sub_8032BD64(u8 *arg0, s16 arg1) {
+u8 *__dt__13TUnk_804EDAC0Fv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804EDAC0.value;
         (*(s32 *)&lbl_805D6CB8) = 0;

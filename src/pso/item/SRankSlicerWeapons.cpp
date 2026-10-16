@@ -75,13 +75,13 @@ void TUnk_804A4238::emit_marker_effects() {
 
 extern "C" {
 
-void *destroy_s_rank_j_cutter_weapon(void *arg0, s16 arg1);
-void item_equip_variant_deleting_dtor_8012A82C(void *, int);
+void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1);
+void __dt__13TUnk_804A4948Fv(void *, int);
 
-void *destroy_s_rank_j_cutter_weapon(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void ***)((s8 *)arg0 + 0x18) = s_rank_j_cutter_weapon_vtable;
-        item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
+        __dt__13TUnk_804A4948Fv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -302,13 +302,13 @@ u8 *create_s_rank_slicer_weapon(u8 *owner) {
 
 extern "C" {
 
-void *destroy_s_rank_slicer_weapon(void *arg0, s16 arg1);
-void item_equip_variant_deleting_dtor_8012A82C(void *, int);
+void *__dt__13TUnk_804A4338Fv(void *arg0, s16 arg1);
+void __dt__13TUnk_804A4948Fv(void *, int);
 
-void *destroy_s_rank_slicer_weapon(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A4338Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void ***)((s8 *)arg0 + 0x18) = s_rank_slicer_weapon_vtable;
-        item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
+        __dt__13TUnk_804A4948Fv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -377,7 +377,7 @@ extern "C" void vfunc_34__11TItemWeaponFv();
 extern "C" void vfunc_28__11TItemWeaponFv();
 extern "C" {
 void *s_rank_j_cutter_weapon_vtable[64] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy_s_rank_j_cutter_weapon, (void *)&run_task__5TItemFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804A4238Fv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
@@ -395,7 +395,7 @@ void *s_rank_j_cutter_weapon_vtable[64] = {
     (void *)&TItemWeapon__sub_8011E5C0, (void *)&receive_srank_hit, (void *)&srank_marker_noop, (void *)0x0,
 };
 void *s_rank_slicer_weapon_vtable[64] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy_s_rank_slicer_weapon, (void *)&run_task__5TItemFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804A4338Fv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,

@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TAdFloorLoadCamGC : public TObject {
+    TAdFloorLoadCamGC(TObject *arg1, void *arg2);
     virtual ~TAdFloorLoadCamGC();
     u32 m_1c;
     u32 m_20;

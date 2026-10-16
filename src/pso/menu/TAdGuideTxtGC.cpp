@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdGuideTxtGC.h"
 
 struct Base_802b1a70_802B1990 { char pad[0x18]; };
 struct VObj_802b1a70_802B1990 : Base_802b1a70_802B1990 {
@@ -74,16 +75,11 @@ void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o) {
 }
 #pragma pop
 
-void *__dt__13TAdGuideTxtGCFv(void *self, s16 arg1) {
-    if (self != NULL) {
-        *(void ***)((u8 *)self + 0x18) = __vt__13TAdGuideTxtGC;
-        __dt__7TObjectFv(self, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(self);
-        }
-    }
-    return self;
 }
+TAdGuideTxtGC::~TAdGuideTxtGC() {
+
+}
+extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
@@ -110,9 +106,6 @@ void reset__15TLobby_802D2F7CFPv(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 0x1C) = 7;
 }
 
-void *__vt__13TAdGuideTxtGC[6] = {
-    0, 0, (void *)__dt__13TAdGuideTxtGCFv, (void *)run_task__13TAdGuideTxtGCFv,
-    (void *)render__13TAdGuideTxtGCFv, (void *)render_shadows__7TObjectFv,
-};
+extern void *__vt__13TAdGuideTxtGC[];
 
 }

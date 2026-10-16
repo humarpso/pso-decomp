@@ -628,9 +628,9 @@ void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void free_collision_body_parts(void *);
 void *TObjEneMerillLia__ct(void *, void *, void *);
-void TObjPlayer__sub_800C68FC(void *, int);
+void __dt__13TUnk_80493450Fv(void *, int);
 void __dl__7TObjectFPv(void *);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 void mem_free(void*);
@@ -1738,8 +1738,8 @@ void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494728;
         ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3A8, -1);
-        TObjPlayer__sub_800C68FC(arg0, 0);
+        __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x3A8, -1);
+        __dt__13TUnk_80493450Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TCheckMemoryCard : public TObject {
+    TCheckMemoryCard(TObject *arg1, void *arg2, void *arg3, void *arg4);
     virtual ~TCheckMemoryCard();
     s32 sub_8033BB14();
     u32 m_1c;

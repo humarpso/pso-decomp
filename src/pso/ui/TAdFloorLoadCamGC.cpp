@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdFloorLoadCamGC.h"
+#include "pso/ui/TAdFloorLoadCamGC.h"
 #include "pso/misc/TCameraCtrl.h"
 
 struct Vec_8034BE5C { f32 x, y, z; };
@@ -21,7 +22,7 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__17TAdFloorLoadCamGC[];
 extern void *lbl_805D4340;
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
-void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__17TAdFloorLoadCamGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void set_active_camera_pose(void *, void *);
 void activate_camera_mode(int);
@@ -131,20 +132,19 @@ void *__dt__17TAdFloorLoadCamGCFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2) {
-  void *new_var;
-  __ct__7TObjectFP7TObject(arg0);
-  *((s32 **) (((s8 *) arg0) + 0x18)) = __vt__17TAdFloorLoadCamGC;
-  new_var = lbl_805D4340;
-  *((void **) (((s8 *) arg0) + 0x0)) = new_var;
-  *((u32 *) (((s8 *) arg0) + 0x20)) = 0;
-  *((u32 *) (((s8 *) arg0) + 0x24)) = 0;
-  *((f32 *) (((s8 *) arg0) + 0x40)) = lbl_805DFDB8;
-  *((f32 *) (((s8 *) arg0) + 0x44)) = lbl_805DFDB8;
-  *((f32 *) (((s8 *) arg0) + 0x48)) = lbl_805DFDB8;
-  *((void **) (((s8 *) arg0) + 0x1C)) = arg2;
-  set_default_camera__21TAdMultiChgGameModeGCFv(new_var);
-  return arg0;
 }
+TAdFloorLoadCamGC::TAdFloorLoadCamGC(TObject *arg1, void *arg2) : TObject(arg1) {
+    void *new_var;
+    new_var = lbl_805D4340;
+    *((void **) (((s8 *) this) + 0x0)) = new_var;
+    *((u32 *) (((s8 *) this) + 0x20)) = 0;
+    *((u32 *) (((s8 *) this) + 0x24)) = 0;
+    *((f32 *) (((s8 *) this) + 0x40)) = lbl_805DFDB8;
+    *((f32 *) (((s8 *) this) + 0x44)) = lbl_805DFDB8;
+    *((f32 *) (((s8 *) this) + 0x48)) = lbl_805DFDB8;
+    *((void **) (((s8 *) this) + 0x1C)) = arg2;
+    set_default_camera__21TAdMultiChgGameModeGCFv(new_var);
+}
+extern "C" {
 
 }

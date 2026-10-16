@@ -4,7 +4,7 @@
 
 extern "C" {
 
-void *TObjPlayer__sub_8012C950(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A5340Fv(void *arg0, s16 arg1);
 void rocket_punch_return_timer(u32 arg0);
 s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
@@ -12,7 +12,7 @@ void __dt__15TItemShootModelFv(void *, int);
 
 extern s32 lbl_804A5340[];
 
-void *TObjPlayer__sub_8012C950(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A5340Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A5340;
         __dt__15TItemShootModelFv(arg0, 0);

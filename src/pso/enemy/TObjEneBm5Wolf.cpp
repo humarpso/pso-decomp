@@ -100,7 +100,7 @@ void apply_global_to_position__14TObjEneBm5WolfFi(s32 arg0);
 u8 * fn_800B8B00(u32);
 s16 obj_getField1c();
 void update_collision_center__14TObjEneBm5WolfFv(u8 *arg0);
-u8 * TObjEneBm5Wolf__sub_800B8174(u8 *arg0, s16 arg1);
+u8 * __dt__14TObjEneBm5WolfFv(u8 *arg0, s16 arg1);
 void run_task__14TObjEneBm5WolfFPv(u8 *arg0);
 void vfunc_62__14TObjEneBm5WolfFv(void* p);
 void vfunc_63__14TObjEneBm5WolfFv(void *arg0);
@@ -209,7 +209,7 @@ __declspec(section ".data") s32 lbl_80500B58[2];
 #define update_default__14TObjEneBm5WolfFi ((s32 (*)(void *))update_default__14TObjEneBm5WolfFi)
 #define apply_global_to_position__14TObjEneBm5WolfFi ((s32 (*)(void *))apply_global_to_position__14TObjEneBm5WolfFi)
 #define update_collision_center__14TObjEneBm5WolfFv ((s32 (*)(void *))update_collision_center__14TObjEneBm5WolfFv)
-#define TObjEneBm5Wolf__sub_800B8174 ((void (*)(void))TObjEneBm5Wolf__sub_800B8174)
+#define __dt__14TObjEneBm5WolfFv ((void (*)(void))__dt__14TObjEneBm5WolfFv)
 #define run_task__14TObjEneBm5WolfFPv ((void (*)(void))run_task__14TObjEneBm5WolfFPv)
 #define vfunc_62__14TObjEneBm5WolfFv ((void (*)(void))vfunc_62__14TObjEneBm5WolfFv)
 #define vfunc_63__14TObjEneBm5WolfFv ((void (*)(void))vfunc_63__14TObjEneBm5WolfFv)
@@ -2737,7 +2737,7 @@ void TObjEneEpsilon__vt101(void);
 void *lbl_804922F8[107] = {
     0,
     0,
-    (void *)TObjEneBm5Wolf__sub_800B8174,
+    (void *)__dt__14TObjEneBm5WolfFv,
     (void *)run_task__14TObjEneBm5WolfFPv,
     (void *)render__14TObjEneBm5WolfFPv,
     (void *)render_actor_shadows_default,
@@ -3239,7 +3239,7 @@ __declspec(section ".sdata2") extern const f32 lbl_805D9E58 = 25.0f;
 #undef update_default__14TObjEneBm5WolfFi
 #undef apply_global_to_position__14TObjEneBm5WolfFi
 #undef update_collision_center__14TObjEneBm5WolfFv
-#undef TObjEneBm5Wolf__sub_800B8174
+#undef __dt__14TObjEneBm5WolfFv
 #undef run_task__14TObjEneBm5WolfFPv
 #undef vfunc_62__14TObjEneBm5WolfFv
 #undef vfunc_63__14TObjEneBm5WolfFv
@@ -3695,7 +3695,7 @@ struct WolfRes_800B8244 { u8 f0[0x1C]; };
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 __dt__9TObjEneDDFv(void *, int);
+s32 __dt__12TObjEneDD_STFv(void *, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -3777,7 +3777,7 @@ void run_task__14TObjEneBm5WolfFPv(u8 *arg0) {
     ((VObj_18 *)(arg0))->m98();
 }
 
-u8 *TObjEneBm5Wolf__sub_800B8174(u8 *arg0, s16 arg1) {
+u8 *__dt__14TObjEneBm5WolfFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(u8 **)((s8 *)arg0 + 0x18) = lbl_804922F8;
         if (*(D_800B8174 **)((s8 *)arg0 + 0x410) != NULL) {
@@ -3792,7 +3792,7 @@ u8 *TObjEneBm5Wolf__sub_800B8174(u8 *arg0, s16 arg1) {
         free_collision_body_parts(arg0);
         destroy__14TObjEneBm5WolfFis(arg0 + 0x3CC, -1);
         destroy__14TObjEneBm5WolfFis(arg0 + 0x3C0, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

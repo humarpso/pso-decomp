@@ -30,7 +30,7 @@ void set_movie_finished_flag(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 lbl_804DCB64[];
-void *TKeyBoardControl__sub_802A12CC(void *arg0, s16 arg1);
+void *__dt__13TUnk_804DCB64Fv(void *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -106,7 +106,7 @@ void TKeyBoardControl::update_menu_scene() {
 void TUnk_804DCB64::render() {  }
 void TUnk_804DCB64::run_task() {  }
 void set_movie_finished_flag(void) { (*(unsigned char *)&movie_finished_flag) = 1; }
-void *TKeyBoardControl__sub_802A12CC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804DCB64Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804DCB64;
         __dt__7TObjectFv(arg0, 0);

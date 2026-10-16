@@ -19,7 +19,7 @@ s32 TObjPlayer__sub_800847A8();
 s32 TObjPlayer__sub_800847CC();
 extern u8 camera_capture_overlay_alpha;
 extern f32 lbl_805D93D0;
-void *TObjPlayer__sub_800834B4(void *arg0, s16 arg1);
+void *__dt__13TUnk_8048E5F4Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 lbl_8048E5F4[];
@@ -67,7 +67,7 @@ void TUnk_8048E5F4::render() {
 }
 void TUnk_8048E5F4::render_shadows() { if (TObjPlayer::get_camera_flag() != 0) { TObjPlayer::set_tev_swap_mode((u8)((void*)0)); } }
 void TUnk_8048E5F4::run_task() {  }
-void *TObjPlayer__sub_800834B4(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8048E5F4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E5F4;
         __dt__7TObjectFv(arg0, 0);

@@ -128,7 +128,7 @@ s32 mem_free(int);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802E0B60_lbl_804E2F68 multi_chr_select_player_slot_table;
 extern RecoveredGlobal_802E0B60_lbl_804E3008 multi_chr_select_player_actor_ops;
-u8 *fn_802E0B60(u8 *arg0, s16 arg1);
+u8 *__dt__13TUnk_804E3008Fv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -277,7 +277,7 @@ void TAdMultiPlyChrSelectGC::set_status_value(s32 arg1) {
     }
 }
 
-u8 *fn_802E0B60(u8 *arg0, s16 arg1) {
+u8 *__dt__13TUnk_804E3008Fv(u8 *arg0, s16 arg1) {
     s32 temp_r4;
     u32 temp_r3;
     u32 temp_r3_2;

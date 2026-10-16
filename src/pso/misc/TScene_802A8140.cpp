@@ -4,7 +4,7 @@
 
 extern "C" {
 
-void *TScene__sub_802A81B8(void *arg0, s16 arg1);
+void *__dt__13TUnk_804DDF04Fv(void *arg0, s16 arg1);
 s32 GXSetNumIndStages(s32);
 s32 GXSetTevDirect(s32);
 s32 set_ginja_post_texgen_count(s32);
@@ -27,7 +27,7 @@ void TScene::draw_field_1c(s32 arg1, s32 arg2, s32 arg3) {
 
 extern s32 lbl_804DDF04[];
 
-void *TScene__sub_802A81B8(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804DDF04Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804DDF04;
         __dt__7TObjectFv(arg0, 0);

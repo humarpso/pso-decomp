@@ -28,7 +28,7 @@ extern const f32 lbl_805DCBA8;
 
 extern "C" {
 
-void *TWindowSubStatusDisp__sub_80248FAC(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CE7E8Fv(void *arg0, s16 arg1);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
@@ -123,7 +123,7 @@ void TWindowSubStatusDisp::handle_input() {
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
 }
 
-void *TWindowSubStatusDisp__sub_80248FAC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804CE7E8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = status_disp_window_dispatch_table;
         ((TWindowSubStatusDisp *)arg0)->destroy_item_list_resources(0);

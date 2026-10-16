@@ -88,7 +88,7 @@ void vfunc_44__13TItemProArmorFv(Armor_80117954 *self);
 
 extern "C" {
 
-void *TItemProArmor__sub_80117730(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049FF88Fv(void *arg0, s16 arg1);
 void TItemProArmor__sub_801178A8(void* p, void* q);
 u8 vfunc_39__13TItemProArmorFv(void* p);
 void TItemProArmor__sub_80117D00(void);
@@ -145,7 +145,7 @@ void TUnk_8049FF88::vfunc_44() {
 
 extern void *lbl_8049FF88[];
 
-void *TItemProArmor__sub_80117730(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049FF88Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_8049FF88;
         __dt__11TItemObjectFv(arg0, 0);
@@ -294,7 +294,7 @@ void vfunc_50__14TItemEquipBaseFv();
 void *lbl_8049FF88[46] = {
     0,
     0,
-    (void *)TItemProArmor__sub_80117730,
+    (void *)__dt__13TUnk_8049FF88Fv,
     (void *)run_task__5TItemFv,
     (void *)dispatch_state__5TItemFv,
     (void *)render_shadows__5TItemFv,

@@ -30,7 +30,7 @@ extern s32 TFogCtrl__fog_instance_table[];
 
 extern "C" {
 
-void *TQuestVmDownLoadServer__sub_800FA904(void *arg0, s16 arg1);
+void *__dt__12TFogCtrl_EORFv(void *arg0, s16 arg1);
 int parse_serial_value__22TAdEnterSerialAccessGCFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -43,7 +43,7 @@ void TFogCtrl_EOR::run_task() { update_all__8TFogCtrlFv(this); }
 
 extern s32 lbl_8049C700[];
 
-void *TQuestVmDownLoadServer__sub_800FA904(void *arg0, s16 arg1) {
+void *__dt__12TFogCtrl_EORFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049C700;
         __dt__7TObjectFv(arg0, 0);

@@ -660,13 +660,13 @@ extern "C" {
 extern u32 shark_bml_resource;
 extern s32 game_difficulty_selection;
 void queue_destruction__7TObjectFv(void *);
-void TObjPlayer__sub_800C68FC(void *, int);
+void __dt__13TUnk_80493450Fv(void *, int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-extern u8 TObjPlayer__sub_800D7C58[];
-O_800AC5EC *TObjPlayer__sub_800AC5EC(O_800AC5EC *arg0, s16 arg1);
+void __dt__13TUnk_80494938Fv(void *, int);
+extern u8 __dt__13TUnk_804949A8Fv[];
+O_800AC5EC *__dt__12TObjEneSharkFv(O_800AC5EC *arg0, s16 arg1);
 s32 dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
@@ -857,7 +857,7 @@ void *lbl_80491608[33] = {
     (void *)0x0,
 };
 void *lbl_8049168C[103] = {
-    (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_800AC5EC, (void *)&run_task__13TUnk_80493450Fv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__12TObjEneSharkFv, (void *)&run_task__13TUnk_80493450Fv,
     (void *)&render__12TObjEneSharkFv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -1002,7 +1002,7 @@ void TLobby::load_shark_resources() {
 
 extern "C" __declspec(section ".rodata") u8 lbl_8043AEDC[] = "bm_ene_bm1_shark_a.bml";
 
-O_800AC5EC *TObjPlayer__sub_800AC5EC(O_800AC5EC *arg0, s16 arg1) {
+O_800AC5EC *__dt__12TObjEneSharkFv(O_800AC5EC *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
         arg0->vptr = lbl_8049168C;
@@ -1014,9 +1014,9 @@ O_800AC5EC *TObjPlayer__sub_800AC5EC(O_800AC5EC *arg0, s16 arg1) {
         }
         ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *)arg0 + 0x3CC, TObjPlayer__sub_800D7C58, 0x1C, 4);
-        __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3A8, -1);
-        TObjPlayer__sub_800C68FC(arg0, 0);
+        __destroy_arr((u8 *)arg0 + 0x3CC, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__13TUnk_80494938Fv((u8 *)arg0 + 0x3A8, -1);
+        __dt__13TUnk_80493450Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1126,7 +1126,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     ((void (*)(void *, void *))init_enemy_base__13TUnk_80493450Fv)(self, arg1);
     *(void **)((u8 *)self + 0x18) = lbl_8049168C;
     ((TUnk_80494938 *)((u8 *)arg0 + 0x3A8))->init_common();
-    __construct_array(self->f3CC, (void *)init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(self->f3CC, (void *)init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
     *(s32 *)self = lbl_805D2A00;
     self->m79(arg2);
     ((TObjPlayer *)self)->init_position_vectors();

@@ -112,14 +112,14 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self);
 
 extern "C" {
 
-void *__dt__14TItemEffShieldFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049F148Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_8049F148[];
 
-void *__dt__14TItemEffShieldFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049F148Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049F148;
         if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x1C)); *(s32 *)((s8 *)arg0 + 0x1C) = 0; }

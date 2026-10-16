@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void *TObjLight__sub_8023347C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CC948Fv(void *arg0, s16 arg1);
 u8 *init__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
 void stop_sound_request(void *);
@@ -13,7 +13,7 @@ void __dt__7TObjectFv(void *, int);
 
 extern s32 ice_technique_charge_vtable[];
 
-void *TObjLight__sub_8023347C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804CC948Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = ice_technique_charge_vtable;
         stop_sound_request(*(void **)((s8 *)arg0 + 0x30));

@@ -7,7 +7,7 @@
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
+void *__ct__15TAdDrawLineCtrlFP7TObjectPvf(void *arg0, void *arg1, void *arg2, f32 farg0);
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D49D8;
 u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0);
@@ -15,7 +15,7 @@ u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0);
 
 extern "C" {
 
-void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
+void *__ct__15TAdDrawLineCtrlFP7TObjectPvf(void *arg0, void *arg1, void *arg2, f32 farg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void fn_80019B08(void *, int);
@@ -63,22 +63,21 @@ TAdDrawLineCtrl::~TAdDrawLineCtrl() {
 }
 
 extern "C" {
-void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0) {
+}
+TAdDrawLineCtrl::TAdDrawLineCtrl(TObject *arg1, void *arg2, f32 farg0) : TObject(arg1) {
     void *o;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TAdDrawLineCtrl;
-    *(void **)((s8 *)arg0 + 0x0) = TAdDrawLineCtrl__class_name;
-    *(void **)((s8 *)arg0 + 0x1C) = arg2;
+    *(void **)((s8 *)this + 0x0) = TAdDrawLineCtrl__class_name;
+    *(void **)((s8 *)this + 0x1C) = arg2;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
         o = ((void * (*)(void *, int))__ct__7TObjectFP7TObject)(o, 0);
     }
-    *(void **)((s8 *)arg0 + 0x20) = o;
-    *(u32 *)((s8 *)arg0 + 0x28) = 1;
-    ((TAdDrawLineCtrl *)arg0)->set_draw_line_param_all_nodes(farg0);
-    fn_80019B08(arg0, -1);
-    return arg0;
+    *(void **)((s8 *)this + 0x20) = o;
+    *(u32 *)((s8 *)this + 0x28) = 1;
+    this->set_draw_line_param_all_nodes(farg0);
+    fn_80019B08(this, -1);
 }
+extern "C" {
 u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -86,7 +85,7 @@ u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x2C))));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)TAdDrawLineCtrl__ct((void *)(temp_r3), (void *)(arg0), (void *)(lbl_805D49D8 + (arg1 * 0xC)), farg0)));
+            var_r0 = (u8 *)(((u8 *)__ct__15TAdDrawLineCtrlFP7TObjectPvf((void *)(temp_r3), (void *)(arg0), (void *)(lbl_805D49D8 + (arg1 * 0xC)), farg0)));
         }
         return var_r0;
     }

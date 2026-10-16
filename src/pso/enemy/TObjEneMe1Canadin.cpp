@@ -2598,7 +2598,7 @@ s32 create_timed_particle_emitter(void *, int, int, int);
 void bringer_effect_cleanup_noop(void);
 void render_bringer_rush_effect_noop(void);
 void update_bringer_rush_effect(u8 *arg0);
-void * destroy_bringer_rush_effect(void *arg0, s16 arg1);
+void * __dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1);
 u8 * construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);
 u8 TObjEneMe1CanadinLeader__vt107(void *arg0);
@@ -2665,7 +2665,7 @@ void TObjEneEpsilon__sub_800B92AC(void *, s32, f32);
 s32 copy_position__14TObjEneEpsilonFPv(void *, void *);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
 s32 set_target_player__12TObjEneDD_STFPv(void *);
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 get_camera_ctrl__9TObjEneDDFv(void *, int);
 s32 update_camera_sequence__9TObjEneDDFv();
@@ -2681,7 +2681,7 @@ void clear_attack_receipts__9TObjEneDDFv();
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 s32 transition_enemy_state(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 s32 TBoss3Volopt__sub_800D8D88(void *);
 s32 trigger_dell_biter_events__10TObjPlayerFv(void *, f32);
 s32 approach_angle_limited(s32, s32, s32);
@@ -3160,7 +3160,7 @@ void render_bringer_rush_effect_noop(void);
 
 void update_bringer_rush_effect(u8 *arg0);
 
-void *destroy_bringer_rush_effect(void *arg0, s16 arg1);
+void *__dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1);
 
 u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 
@@ -5077,8 +5077,8 @@ void *__dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(*(void **)((s8 *)arg0 + 0x408));
         *(s32 *)((s8 *)arg0 + 0x408) = 0;
         free_collision_body_parts(arg0);
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3CC, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x3CC, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

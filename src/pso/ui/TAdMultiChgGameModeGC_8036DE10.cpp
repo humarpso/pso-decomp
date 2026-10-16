@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TUnk_804F3A20.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
@@ -87,8 +88,8 @@ void TAdMultiChgGameModeGC__sub_8036E9EC(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
-extern s32 lbl_804F3A20[];
-void *__dt__21TAdMultiChgGameModeGCFPvs(void *arg0, s16 arg1);
+extern s32 __vt__13TUnk_804F3A20[];
+void *__dt__13TUnk_804F3A20Fv(void *arg0, s16 arg1);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 extern RecoveredGlobal_8036E8DC_lbl_804C88C0 lbl_804C88C0;
@@ -122,9 +123,9 @@ s32 TAdPlayerLoadGC__sub_801FD770();
 void *__ct__7TObjectFP7TObject(void *, void *);
 s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
-extern s32 lbl_804F3A20[];
+extern s32 __vt__13TUnk_804F3A20[];
 extern s32 current_language;
-void *TAdMultiChgGameModeGC__sub_8036EB44(void *arg0, void *arg1);
+void *__ct__13TUnk_804F3A20FP7TObject(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -507,9 +508,9 @@ void TUnk_804F3A20::run_task() {
     }
 }
 
-void *__dt__21TAdMultiChgGameModeGCFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F3A20Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F3A20;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_804F3A20;
         if (*(void **)((s8 *)arg0 + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)((s8 *)arg0 + 0x30) = 0; }
         if (*(void **)((s8 *)arg0 + 0x34) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x34)); *(s32 *)((s8 *)arg0 + 0x34) = 0; }
         __dt__7TObjectFv(arg0, 0);
@@ -519,25 +520,24 @@ void *__dt__21TAdMultiChgGameModeGCFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TAdMultiChgGameModeGC__sub_8036EB44(void *arg0, void *arg1) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F3A20;
-    *(s32 *)((s8 *)arg0 + 0x1C) = -1;
-    *(s32 *)((s8 *)arg0 + 0x20) = 1;
-    *(s32 *)((s8 *)arg0 + 0x24) = current_language;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = ((s32 (*)(void *))check_system_file_status__23TAdSinglePlyChrSelectGCFv)(arg0);
-    if (*(s32 *)((s8 *)arg0 + 0x20) & 1) {
-        ((TAdMultiChgGameModeGC *)arg0)->set_state(0);
+}
+TUnk_804F3A20::TUnk_804F3A20(TObject *arg1) : TObject(arg1) {
+    *(s32 *)((s8 *)this + 0x1C) = -1;
+    *(s32 *)((s8 *)this + 0x20) = 1;
+    *(s32 *)((s8 *)this + 0x24) = current_language;
+    *(s32 *)((s8 *)this + 0x30) = 0;
+    *(s32 *)((s8 *)this + 0x34) = 0;
+    *(s32 *)((s8 *)this + 0x28) = 0;
+    *(s32 *)((s8 *)this + 0x2C) = 0;
+    *(s32 *)((s8 *)this + 0x20) = ((s32 (*)(void *))check_system_file_status__23TAdSinglePlyChrSelectGCFv)(this);
+    if (*(s32 *)((s8 *)this + 0x20) & 1) {
+        ((TAdMultiChgGameModeGC *)this)->set_state(0);
     } else {
-        ((TAdMultiChgGameModeGC *)arg0)->set_state(1);
+        ((TAdMultiChgGameModeGC *)this)->set_state(1);
     }
     TLobby::stop_audio_streams();
     TKeyBoardControl__sub_8000F90C(9);
-    return arg0;
 }
+extern "C" {
 
 }

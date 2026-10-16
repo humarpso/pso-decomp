@@ -511,7 +511,7 @@ void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 s32 scale_matrix(s32, f32, f32, f32);
-void TObjPlayer__sub_800D7C58(void *, int);
+void __dt__13TUnk_804949A8Fv(void *, int);
 
 extern u32 TObjContainerIdo__model_resource;
 extern u32 container_ido_texture_gvm_handle;
@@ -551,7 +551,7 @@ void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjContainerIdo;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xF0, -1);
+        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xF0, -1);
         ((TUnk_804B97C0 *)arg0)->dt(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

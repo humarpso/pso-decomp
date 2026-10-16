@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TAdBackTxtGC.h"
+#include "pso/TAdBackTxtGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TMainTask.h"
 
@@ -52,16 +53,11 @@ extern void *__vt__12TAdBackTxtGC[];
 extern const f32 lbl_805DDD08;
 extern void *TAdBackTxtGC__name;
 
-void *__dt__12TAdBackTxtGCFv(void *self, s16 arg1) {
-    if (self != NULL) {
-        *(void ***)((s8 *)self + 0x18) = __vt__12TAdBackTxtGC;
-        __dt__7TObjectFv(self, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(self);
-        }
-    }
-    return self;
 }
+TAdBackTxtGC::~TAdBackTxtGC() {
+
+}
+extern "C" {
 
 void *__ct__12TAdBackTxtGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
@@ -107,8 +103,5 @@ void register_texture_f256_backtext(void) { (*(int *)&TAdBackTxtGC__backtext_tex
 }
 
 extern "C" {
-void *__vt__12TAdBackTxtGC[6] = {
-    0, 0, (void *)__dt__12TAdBackTxtGCFv, (void *)run_task__12TAdBackTxtGCFv,
-    (void *)render__12TAdBackTxtGCFv, (void *)render_shadows__7TObjectFv,
-};
+extern void *__vt__12TAdBackTxtGC[];
 }

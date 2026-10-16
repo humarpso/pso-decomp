@@ -2265,7 +2265,7 @@ s32 enemy_turn_and_move_on_ground(void *, int, f32);
 s32 enemy_validate_retained_target(void *, int);
 s32 update_linked_position__12TObjEneDD_STFf(f32);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
@@ -2275,7 +2275,7 @@ s32 TObjEneDD__sub_800BA438(void *, void *);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 s32 TBoss3Volopt__sub_800D8D88(void *, f32);
 void update_mirage__17TObjEneMe3ShinowaFv(void* p);
 void vfunc_116__17TObjEneMe3ShinowaFv(void);
@@ -4149,8 +4149,8 @@ void *__dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0x424) != NULL) { ((void (*)(void *))queue_destruction__7TObjectFv)(*(void **)((s8 *)arg0 + 0x424)); *(s32 *)((s8 *)arg0 + 0x424) = 0; }
         if (*(void **)((s8 *)arg0 + 0x428) != NULL) { ((void (*)(void *))queue_destruction__7TObjectFv)(*(void **)((s8 *)arg0 + 0x428)); *(s32 *)((s8 *)arg0 + 0x428) = 0; }
         free_collision_body_parts(arg0);
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3E8, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x3E8, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

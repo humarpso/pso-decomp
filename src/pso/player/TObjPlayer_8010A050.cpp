@@ -97,7 +97,7 @@ Obj_8010A1D0 *TObjPlayer__sub_8010A1D0(Obj_8010A1D0 *self, void *parent, s16 a, 
 extern "C" {
 
 s32 TObjPlayer__sub_8010A058(void* p);
-void *TObjPlayer__sub_8010A178(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1);
 s32 get_field_3e0__12TBoss3VoloptFv();
 s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 spawn_particle_effect(s32, s32);
@@ -156,7 +156,7 @@ void TUnk_8049F130::run_task() {
 
 extern s32 lbl_8049F130[];
 
-void *TObjPlayer__sub_8010A178(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049F130;
         __dt__7TObjectFv(arg0, 0);

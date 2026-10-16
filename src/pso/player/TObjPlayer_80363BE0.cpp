@@ -21,7 +21,7 @@ s32 run_and_return_arg__10TObjPlayerFi(s32);
 
 extern "C" {
 
-void *TObjPlayer__sub_80363C04(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F29F8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -30,7 +30,7 @@ void TUnk_804F29F8::run_task() { reset_id_array__10TObjPlayerFPv((void*)(player_
 
 extern s32 lbl_804F29F8[];
 
-void *TObjPlayer__sub_80363C04(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F29F8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F29F8;
         __dt__7TObjectFv(arg0, 0);
@@ -197,7 +197,7 @@ void TUnk_804F2A10::render() {
 
 extern "C" {
 
-void *TObjPlayer__sub_80363EC4(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F2A10Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
@@ -214,7 +214,7 @@ void TUnk_804F2A10::run_task() {
 
 extern s32 lbl_804F2A10[];
 
-void *TObjPlayer__sub_80363EC4(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F2A10Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F2A10;
         __dt__7TObjectFv(arg0, 0);

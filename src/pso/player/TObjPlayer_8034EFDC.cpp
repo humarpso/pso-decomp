@@ -147,10 +147,10 @@ extern const f32 lbl_805DFE00;
 
 extern "C" {
 
-void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_8034F948(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F0810Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F0908Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F0AF8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_8034F8B8(void* p);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
@@ -158,10 +158,10 @@ s32 spawn_particle_effect(void *, s32);
 int add_angle_clamped__10TObjPlayerFPlll(void*, void*, void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
-void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1);
+void __dt__11TItemWeaponFv(void *, int);
+void *__dt__13TUnk_804F0810Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F0908Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TUnk_804F0810::emit_marker_effects() {
@@ -185,10 +185,10 @@ void TUnk_804F0810::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void
 
 extern s32 lbl_804F0810[];
 
-void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F0810Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0810;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -261,10 +261,10 @@ void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon) {
     }
 }
 
-void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F0908Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0908;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -360,10 +360,10 @@ void TUnk_804F0A00::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void
 
 extern s32 lbl_804F0A00[];
 
-void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0A00;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -422,10 +422,10 @@ void TUnk_804F0AF8::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void
 
 extern s32 lbl_804F0AF8[];
 
-void *item_equip_variant_deleting_dtor_8034F948(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F0AF8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0AF8;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

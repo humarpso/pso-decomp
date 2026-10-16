@@ -1437,9 +1437,9 @@ void vfunc_61__13TObjEneRe4BitFv(void);
 void vfunc_88__13TObjEneRe4BitFv(void *arg0);
 void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-void TObjPlayer__sub_800A05B8(void *, int);
+void __dt__13TUnk_80490470Fv(void *, int);
 void __dl__7TObjectFPv(void *);
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 s32 init_object__12TObjEneDD_STFv();
 s16 obj_getField1c(void *);
 
@@ -1527,8 +1527,8 @@ void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneRe4Bit;
         free_collision_body_parts(arg0);
-        TObjPlayer__sub_800A05B8((s8 *)arg0 + 0x3DC, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__13TUnk_80490470Fv((s8 *)arg0 + 0x3DC, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

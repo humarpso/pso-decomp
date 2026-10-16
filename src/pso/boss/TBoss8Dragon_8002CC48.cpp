@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1MokoHill_Solo.h"
+#include "pso/boss/TObjBoss1MokoHill_SoloM.h"
 #include "pso/boss/TObjBoss1MokoHill_SoloM.h"
 #include "pso/boss/TObjBoss1MokoHill_Solo.h"
 #include <stddef.h>
@@ -248,16 +250,11 @@ s32 get_state__12TBoss8DragonFv(void) {
     return dragon_trail_position_source;
 }
 
-void *__dt__22TObjBoss1MokoHill_SoloFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjBoss1MokoHill_Solo;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjBoss1MokoHill_Solo::~TObjBoss1MokoHill_Solo() {
+
+}
+extern "C" {
 
 #pragma fp_contract on
 #define arg0 ((Obj_8002CD8C *)arg0_)
@@ -432,16 +429,11 @@ void TBoss8Dragon::spawn_child_object() {
     *(u32 *)&this->unk_3C = 0;
 }
 
-void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TObjBoss1MokoHill_SoloM;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjBoss1MokoHill_SoloM::~TObjBoss1MokoHill_SoloM() {
+
+}
+extern "C" {
 
 u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);

@@ -167,7 +167,7 @@ extern s32 tl_particle;
 extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 u8 * __dt__7TObjectFv(void *, s16);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
-u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1);
+u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1);
 s32 construct_world_actor_base(void *, void *);
 extern s32 lbl_8048E6A8[];
 s32 construct_world_actor_base(void *, void *);
@@ -548,7 +548,7 @@ void TUnk_8048E728::apply_particle_model_fade_color(s32 mode) {
     set_chunk_material_color(&f);
 }
 
-u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1) {
+u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &lbl_8048E728.value;
         *(s32 *)((s8 *)arg0 + 0x20) = 0;

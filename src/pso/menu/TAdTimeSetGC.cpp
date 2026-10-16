@@ -77,7 +77,7 @@ void TAdTimeSetGC__sub_802E34A8(void) {  }
 }
 
 extern "C" void render__18T_ATS_DrawCalendarFv();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E13C8();
+extern "C" void __dt__18T_ATS_DrawCalendarFv();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E1F8C();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E1FAC();
 extern "C" void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv();
@@ -210,6 +210,6 @@ void *lbl_804E32A4[150] = {
     (void *)0x0, (void *)0x0,
 };
 void *lbl_804E34FC[6] = {
-    (void *)0x0, (void *)0x0, (void *)&TAdSinglePlyChrSelectGC__sub_802E13C8, (void *)&run_task__7TObjectFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__18T_ATS_DrawCalendarFv, (void *)&run_task__7TObjectFv,
     (void *)&render__18T_ATS_DrawCalendarFv, (void *)&render_shadows__7TObjectFv,
 };

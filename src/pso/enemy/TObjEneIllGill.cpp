@@ -514,7 +514,7 @@ s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_wander_home(void *, int, f32, f32, f32);
 f32 horizontal_distance_squared(void *, void *);
 void __dl__7TObjectFPv(void *);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 void __dt__9TObjEnemyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 minimap_render_dot(void *, int, int, int);
@@ -1905,7 +1905,7 @@ void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEneIllGill;
         ((TObjEneIllGill *)arg0)->free_resources();
         free_collision_body_parts(arg0);
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x374, -1);
+        __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x374, -1);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

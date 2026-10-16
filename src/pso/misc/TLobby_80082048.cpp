@@ -84,7 +84,7 @@ extern const f32 lbl_805D93A0;
 
 extern "C" {
 
-void *destroy_freeze_shell(void *arg0, s16 arg1);
+void *__dt__13TUnk_8048E1A4Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 
@@ -110,7 +110,7 @@ void TLobby::load_freeze_ice_resource() {
     (*(s32 *)&freeze_shell_bml_resource) = var_r0;
 }
 
-void *destroy_freeze_shell(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8048E1A4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E1A4;
         if (*(void **)((s8 *)arg0 + 0x350) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x350))); }

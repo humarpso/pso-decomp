@@ -3,7 +3,7 @@
 
 extern "C" {
 
-void *destroy_quad_sprite_base(void *arg0, s16 arg1);
+void *__dt__13TUnk_804C57F0Fv(void *arg0, s16 arg1);
 void *quad_sprite_base_ct(void *arg0, void *arg_r4, void *arg2);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -13,7 +13,7 @@ void mem_free(void *);
 
 extern s32 lbl_804C57F0[];
 
-void *destroy_quad_sprite_base(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804C57F0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C57F0;
         mem_free(*(void **)((s8 *)arg0 + 0x20));

@@ -510,9 +510,9 @@ void fn_80095DD0(u8 *arg0);
 void fn_80095DF4(u8 *arg0);
 s32 spawn_punch__16TObjEneRe7BeruraFPv(void *);
 s32 TObjPlayer__sub_800A0554(void *);
-void TObjPlayer__sub_800A05B8(void *, int);
+void __dt__13TUnk_80490470Fv(void *, int);
 s32 enemy_set_target_id(void *, u16);
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 int reload_stats_keep_hp_tp__9TObjEneDDFv(void *self, void *a, void *b, void *c);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, int);
@@ -572,7 +572,7 @@ extern const f32 TObjEneRe7Berura__data_805D9730;
 extern const f32 TObjEneRe7Berura__data_805D9738;
 extern const f32 TObjEneRe7Berura__data_805D9740;
 extern const f32 TObjEneRe7Berura__data_805D9764;
-extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 init_and_activate__10TObjPlayerFv[];
 extern s32 lbl_80439DA0[];
 extern Atk_800959F8 ene_re7_berura_attack_def;
@@ -1165,10 +1165,10 @@ Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag) {
             self->effect = 0;
         }
         free_collision_body_parts(self);
-        __destroy_arr(self->arr, (void *)((s32 *)&TObjPlayer__sub_800D7C58), 0x1C, 4);
-        TObjPlayer__sub_800A05B8(self->motionB, -1);
-        TObjPlayer__sub_800A05B8(self->motionA, -1);
-        __dt__9TObjEneDDFv(self, 0);
+        __destroy_arr(self->arr, (void *)((s32 *)&__dt__13TUnk_804949A8Fv), 0x1C, 4);
+        __dt__13TUnk_80490470Fv(self->motionB, -1);
+        __dt__13TUnk_80490470Fv(self->motionA, -1);
+        __dt__12TObjEneDD_STFv(self, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);
         }
@@ -1243,7 +1243,7 @@ void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneRe7Berura;
     ((TUnk_80490470 *)((char *)arg0 + 984))->init_vtable_and_field18();
     ((TUnk_80490470 *)((char *)arg0 + 1020))->init_vtable_and_field18();
-    __construct_array((void *)((char *)arg0 + 1096), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
+    __construct_array((void *)((char *)arg0 + 1096), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2988;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     ((void (*)(void *))TObjEneRe7Berura__sub_80095328)(arg0);

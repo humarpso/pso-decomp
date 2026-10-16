@@ -171,7 +171,7 @@ extern void *tl_07;
 extern "C" {
 
 int TTecAnti__sub_8022AD74(void* p);
-void *__dt__8TTecAntiFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CC0E8Fv(void *arg0, s16 arg1);
 void *__dt__8TTecAntiFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
@@ -186,7 +186,7 @@ void TUnk_804CC0E8::run_task() { queue_destruction__7TObjectFv(this); }
 
 extern s32 lbl_804CC0E8[];
 
-void *__dt__8TTecAntiFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804CC0E8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CC0E8;
         __dt__7TObjectFv(arg0, 0);

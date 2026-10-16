@@ -67,7 +67,7 @@ void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1);
 int OSSetProgressiveMode(void*);
 int get_localized_text_entry(void*, void*);
 void TAdYesNoBaseGC__ct(void *);
-void TAdYesNoBaseGC__vt0(void *, int);
+void __dt__14TAdYesNoBaseGCFv(void *, int);
 s32 TWindow__close(u32);
 s32 VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
@@ -201,7 +201,7 @@ extern s32 __vt__13TAdVIConfigGC[];
 void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdVIConfigGC;
-        TAdYesNoBaseGC__vt0(arg0, 0);
+        __dt__14TAdYesNoBaseGCFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

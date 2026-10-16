@@ -503,8 +503,8 @@ void advance_animation_playback(void);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void vfunc_83__14TObjEneDolmOlmFv(Ene_80302004 *self);
 void queue_destruction__7TObjectFv(void *);
-void TObjPlayer__sub_800C68FC(void *, int);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80493450Fv(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag);
@@ -1196,8 +1196,8 @@ Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag) {
         }
         ((TUnk_80493450 *)self)->unlink_enemy_group_relations();
         free_collision_body_parts(self);
-        __dt__18TObjEneMe3SinowZoaFPvs(self->sub, -1);
-        TObjPlayer__sub_800C68FC(self, 0);
+        __dt__13TUnk_80494938Fv(self->sub, -1);
+        __dt__13TUnk_80493450Fv(self, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);
         }

@@ -97,7 +97,7 @@ extern const f32 lbl_805D68E0;
 
 extern "C" {
 
-void *TAdSinglePlyChrSelectGC__sub_802E13C8(void *arg0, s16 arg1);
+void *__dt__18T_ATS_DrawCalendarFv(void *arg0, s16 arg1);
 void * create__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
@@ -123,7 +123,7 @@ s32 set_language__19TWindowKeyBoardSoftFSc(u8 a0 = 0);
 
 extern s32 lbl_804E34FC[];
 
-void *TAdSinglePlyChrSelectGC__sub_802E13C8(void *arg0, s16 arg1) {
+void *__dt__18T_ATS_DrawCalendarFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E34FC;
         __dt__7TObjectFv(arg0, 0);

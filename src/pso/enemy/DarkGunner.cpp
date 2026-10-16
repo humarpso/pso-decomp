@@ -368,7 +368,7 @@ s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 u8 * csnVector(void *, Vec_800A34E8 *, s32);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_particle_effect(void *, int);
-void * TObjPlayer__sub_800A05B8(void *, s16);
+void * __dt__13TUnk_80490470Fv(void *, s16);
 s32 trigger_targets_action__10TObjPlayerFv();
 u8 * TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2);
 void clear_lappy_flag_set_param(u8 *arg0);
@@ -393,7 +393,7 @@ void vfunc_59__17TObjEneDarkGunnerFv(void);
 f32 TObjPlayer__sub_800A3200(s32 arg0);
 s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
 s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id);
-void * TObjPlayer__sub_800A3478(void *arg0, s16 arg1);
+void * __dt__13TUnk_804909C4Fv(void *arg0, s16 arg1);
 u8 * TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 s32 TEneEffHamon__sub_800A380C();
 u8 * __ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
@@ -1498,7 +1498,7 @@ Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1) {
         if (arg0->p404 != NULL) {
             queue_destruction__7TObjectFv(arg0->p404);
         }
-        TObjPlayer__sub_800A05B8((u8 *)arg0 + 0x408, -1);
+        __dt__13TUnk_80490470Fv((u8 *)arg0 + 0x408, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1645,7 +1645,7 @@ void TUnk_804909C4::run_task() {
     }
 }
 
-void *TObjPlayer__sub_800A3478(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804909C4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804909C4;
         free_collision_body_parts(arg0);

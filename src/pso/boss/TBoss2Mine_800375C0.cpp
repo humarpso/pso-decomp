@@ -338,10 +338,10 @@ void TUnk_80482D04::vfunc_88() {
 
 extern "C" {
 
-void *TBoss2Mine__sub_80037C8C(void *arg0, s16 arg1);
+void *__dt__13TUnk_80482D04Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
-void *TBoss2Mine__sub_80037C8C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80482D04Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80482D04;
         __dt__10TBoss2MineFv(arg0, 0);
@@ -1476,7 +1476,7 @@ void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void TObjEneDD__vt0(void *, int);
+void __dt__9TObjEneDDFv(void *, int);
 void __dl__7TObjectFPv(void *);
 void free_collision_body_parts(void *);
 
@@ -1486,7 +1486,7 @@ void *__dt__10TBoss2MineFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TBoss2Mine;
         free_collision_body_parts(arg0);
-        TObjEneDD__vt0(arg0, 0);
+        __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

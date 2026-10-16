@@ -85,7 +85,7 @@ void *__dt__14TObjBigTuitateFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
 int update_obstruction_fade(void*);
-void TObjPlayer__sub_800D7C58(void *, int);
+void __dt__13TUnk_804949A8Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
@@ -137,7 +137,7 @@ void *__dt__14TObjBigTuitateFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xC8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xC8)); *(s32 *)((s8 *)arg0 + 0xC8) = 0; }
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xAC, -1);
+        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xAC, -1);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

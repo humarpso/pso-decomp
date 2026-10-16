@@ -68,7 +68,7 @@ extern const f32 lbl_805DF8BC;
 
 extern "C" {
 
-void *destroy_object_804EE458(void *arg0, s16 arg1);
+void *__dt__13TUnk_804EE458Fv(void *arg0, s16 arg1);
 s32 TAdTrialAgreementGC__sub_8033596C(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -185,7 +185,7 @@ void TAdTrialAgreementGC::run_state() {
 
 extern s32 lbl_804EE458[];
 
-void *destroy_object_804EE458(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804EE458Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EE458;
         __dt__7TObjectFv(arg0, 0);

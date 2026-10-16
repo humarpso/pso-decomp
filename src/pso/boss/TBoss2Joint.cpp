@@ -357,7 +357,7 @@ extern "C" {
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
 s32 spawn_offset_particle__13TBoss2DeRolLeFiff(void *, f32, f32);
 s32 apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(s32, s32, u16);
-void TObjEneDD__vt0(void *, int);
+void __dt__9TObjEneDDFv(void *, int);
 void free_collision_body_parts(void *);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -526,7 +526,7 @@ void *__dt__11TBoss2JointFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBoss2Joint;
         free_collision_body_parts(arg0);
-        TObjEneDD__vt0(arg0, 0);
+        __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

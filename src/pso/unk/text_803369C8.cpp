@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/unk/TUnk_804EEF80.h"
+#include "pso/unk/TUnk_804EEF80.h"
 #include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -25,7 +26,7 @@ extern const f32 lbl_805DF974;
 
 extern "C" {
 
-void *TLobby__sub_80336DA8(void *arg0, s16 arg1);
+void *__dt__13TUnk_804EEF80Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -63,17 +64,12 @@ void TUnk_804EEF80::run_task() {
     this->m_20 = (s32) (this->m_20 + 1);
 }
 
-extern s32 lbl_804EEF80[];
+extern s32 __vt__13TUnk_804EEF80[];
 
-void *TLobby__sub_80336DA8(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EEF80;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804EEF80::~TUnk_804EEF80() {
+
+}
+extern "C" {
 
 }

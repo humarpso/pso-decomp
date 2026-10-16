@@ -71,7 +71,7 @@ extern s32 model_render_flags;
 extern "C" {
 
 void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void *__ct__12TEffCliticalFv(void *arg0, void *arg1);
+void *__ct__12TEffCliticalFPv(void *arg0, void *arg1);
 void __ct__7TEffectFv(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -175,28 +175,27 @@ void TEffClitical::run_task() {
 #pragma pop
 
 TEffClitical::~TEffClitical() {}
-void *__ct__12TEffCliticalFv(void *arg0, void *arg1) {
-    __ct__7TEffectFv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TEffClitical;
-    *(void **)((s8 *)arg0 + 0x0) = TEffClitical__class_name;
-    VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 32), arg1);
-    *(u32 *)((s8 *)arg0 + 0x70) = 0;
-    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805D93B0;
-    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805D93B0;
-    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805D93B0;
-    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805D93B0;
-    *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805D93B0;
-    *(f32 *)((s8 *)arg0 + 0x40) = lbl_805D93B0;
-    *(f32 *)((s8 *)arg0 + 0x44) = lbl_805D93B0;
-    *(u32 *)((s8 *)arg0 + 0x74) = 0;
-    return arg0;
 }
+TEffClitical::TEffClitical(void *arg1) : TEffect() {
+    *(void **)((s8 *)this + 0x0) = TEffClitical__class_name;
+    VecCopy__FP3VecPC3Vec((void *)((char *)this + 32), arg1);
+    *(u32 *)((s8 *)this + 0x70) = 0;
+    *(f32 *)((s8 *)this + 0x2C) = lbl_805D93B0;
+    *(f32 *)((s8 *)this + 0x30) = lbl_805D93B0;
+    *(f32 *)((s8 *)this + 0x34) = lbl_805D93B0;
+    *(f32 *)((s8 *)this + 0x38) = lbl_805D93B0;
+    *(f32 *)((s8 *)this + 0x3C) = lbl_805D93B0;
+    *(f32 *)((s8 *)this + 0x40) = lbl_805D93B0;
+    *(f32 *)((s8 *)this + 0x44) = lbl_805D93B0;
+    *(u32 *)((s8 *)this + 0x74) = 0;
+}
+extern "C" {
 
 void TEffClitical::create() {
     void *o;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {
-        __ct__12TEffCliticalFv((void *)(o), (void *)(this));
+        __ct__12TEffCliticalFPv((void *)(o), (void *)(this));
     }
 }
 

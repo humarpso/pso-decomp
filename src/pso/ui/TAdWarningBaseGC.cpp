@@ -31,7 +31,7 @@ extern "C" {
 
 void *TAdWarningBaseGC__ct(void *arg0);
 void clear_aram_request_busy(void);
-void *TAdWarningBaseGC__vt0(void *arg0, s16 arg1);
+void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -98,7 +98,7 @@ void TAdWarningBaseGC::vfunc_8() {
     }
 }
 
-void *TAdWarningBaseGC__vt0(void *arg0, s16 arg1) {
+void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TAdWarningBaseGC;
         if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)((s8 *)arg0 + 0x2C) = 0; }

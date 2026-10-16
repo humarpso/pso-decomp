@@ -143,7 +143,6 @@ force_active:
   - TEnemyTaskList_name
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
-  - TItemProArmor__sub_80117730
   - TItemTexLoad_class_name
   - TItemTexLoad_name
   - TItemWeaponMechgun__ct
@@ -248,7 +247,6 @@ force_active:
   - TObjEneMe3Stelth__material_color_pointers
   - TObjEneMe3Stelth__resistance_params_by_variant
   - TObjEneMe3Stelth__shared_params
-  - TObjEneRe2Flower_EffCurse3__vtable
   - TObjEneRe4Bit__vt85
   - TObjEneRe4Bit_boss_handles
   - TObjEneRecobox__attack_params
@@ -378,23 +376,34 @@ force_active:
   - __as__14QuestListEntryFRC14QuestListEntry
   - __ct__11TMessageBoxFRC11TMessageBox
   - __ct__11TPlayerSoulFP7TObjectUs
+  - __ct__12TChCrEffWallFP7TObject
+  - __ct__12TChCrLoadAfsFP7TObjectPvPv
+  - __ct__12TChCrLoadReqFP7TObjectPv
   - __ct__12TChatMessageFRC12TChatMessage
+  - __ct__12TEffCliticalFPv
   - __ct__12TItemTexLoadFP7TObject
   - __ct__13TItemEffLavisFPvPC3VecPC3Vecf
   - __ct__13TObjResultWinFP7TObjectPC21ChallengeResultRecord
   - __ct__13TObjWarnChimeFP7TObject
+  - __ct__13TUnk_8048DF58Fv
   - __ct__14LobbyListEntryFv
   - __ct__14QuestListEntryFRC14QuestListEntry
   - __ct__14QuestListEntryFv
+  - __ct__15TAdDrawLineCtrlFP7TObjectPvf
   - __ct__15TBoss6CrushRockFv
   - __ct__15TObjDeadListWinFP7TObject
+  - __ct__15TObjNewFloorWinFP7TObjectPv
   - __ct__15TObjSoloPlayWinFP7TObject
   - __ct__15TRecvGenerateIDFRC15TRecvGenerateID
   - __ct__16TAdGuideButtonGCFP7TObject
   - __ct__16TGenGuildCardTagFRC16TGenGuildCardTag
+  - __ct__18TAdLoadQuestCellGCFP7TObjectPv
+  - __ct__18TAdLoadQuestLineGCFP7TObjectPv
   - __ct__18TChallenge4PResultFP7TObjectUsl
   - __ct__18TPlayerLobbyMarkerFP7TObjectsSc
   - __ct__19TOChatSensorCaptureFP7TObject
+  - __ct__19TWindowMessageYesNoFP7TObjectPvPvPv
+  - __ct__20TObjChallenge4PRetryFP7TObject
   - __ct__20TPlayerLevelFeedbackFP7TObjectUs
   - __ct__24TObjCity_Season_FireWorkFP7TObjectPvf
   - __ct__9TEffGuardFPC3Vec
@@ -402,6 +411,7 @@ force_active:
   - __destroy_global_chain_reference
   - __dt__10TAdTitleGCFv
   - __dt__10TBoss4FadeFv
+  - __dt__10TBoss4ZakoFv
   - __dt__10TDPBShowerFv
   - __dt__10TEndingPicFv
   - __dt__10TItemTimerFv
@@ -427,7 +437,9 @@ force_active:
   - __dt__12TLevelSelectFv
   - __dt__12TMemberCheckFv
   - __dt__12TOMineIcon04Fv
+  - __dt__12TObjEneLappyFv
   - __dt__12TObjEneReconFv
+  - __dt__12TObjEneSharkFv
   - __dt__12TObjRainCtrlFv
   - __dt__13TAdGuideTxtGCFv
   - __dt__13TAdTitleTexGCFv
@@ -443,6 +455,18 @@ force_active:
   - __dt__13TObjSuisoChipFv
   - __dt__13TParticleCtrlFv
   - __dt__13TPlyOnCreatedFv
+  - __dt__13TUnk_8049F770Fv
+  - __dt__13TUnk_8049F828Fv
+  - __dt__13TUnk_8049F8E0Fv
+  - __dt__13TUnk_8049F998Fv
+  - __dt__13TUnk_8049FA50Fv
+  - __dt__13TUnk_8049FB08Fv
+  - __dt__13TUnk_8049FBC0Fv
+  - __dt__13TUnk_8049FF88Fv
+  - __dt__13TUnk_804A204CFv
+  - __dt__13TUnk_804A2164Fv
+  - __dt__13TUnk_804A4238Fv
+  - __dt__13TUnk_804A4338Fv
   - __dt__14TAdFloorLoadGCFv
   - __dt__14TAdLoadQuestGCFv
   - __dt__14TAdSelectCurGCFv
@@ -456,6 +480,7 @@ force_active:
   - __dt__14TItemEffHeavenFv
   - __dt__14TItemEffNeedleFv
   - __dt__14TItemEffShieldFv
+  - __dt__14TObjEneBm5WolfFv
   - __dt__14TSetEvtDestroyFv
   - __dt__14TSlicerHistoryFv
   - __dt__14TWindowCtrlSubFv
@@ -487,6 +512,7 @@ force_active:
   - __dt__16TItemReverseTechFv
   - __dt__16TOTrapAncient02RFv
   - __dt__16TObjBagWarnWin4PFv
+  - __dt__16TObjEneNanoDragoFv
   - __dt__16TObjItemOKWindowFv
   - __dt__17TAdGameStartSubGCFv
   - __dt__17TAdSelectTxtSubGCFv
@@ -546,6 +572,7 @@ force_active:
   - __dt__26TBoss5GryphonLightningHornFv
   - __dt__26TBoss5GryphonLightningWingFv
   - __dt__26TObjEneMe1Canadin_EffLightFv
+  - __dt__26TObjEneRe2Flower_EffCurse3Fv
   - __dt__26__partial_array_destructorFv
   - __dt__30TObjEneMe1Canadin_EffDischargeFv
   - __dt__7TEffHitFv
@@ -599,6 +626,7 @@ force_active:
   - __vt__24TMessageWindowController
   - __vt__25TObjEneMe1Canadin_EffLine
   - __vt__26TObjEneMe1Canadin_EffLight
+  - __vt__26TObjEneRe2Flower_EffCurse3
   - __vt__30TObjEneMe1Canadin_EffDischarge
   - abeno_fs_obj001_fosuno_model_names
   - abeno_fs_obj001_fosuno_motion_names
@@ -1438,8 +1466,6 @@ force_active:
   - destroy_matching_children__19TPlayerBattleCtrl4PFPvPv
   - destroy_matching_children__6TLobbyFPv
   - destroy_on_phase_change__6TLobbyFv
-  - destroy_s_rank_j_cutter_weapon
-  - destroy_s_rank_slicer_weapon
   - destroy_static_array__10TObjPlayerFv
   - destroy_subobjects_recursive__10TObjPlayerFv
   - detect_device_type__16TKeyBoardControlFl
@@ -1591,7 +1617,6 @@ force_active:
   - dt__13TLockOnCursorFls
   - dt_follow_particle_ctrl__10TObjPlayerFls
   - dt_item_shoot_model__13TUnk_804A2148Fs
-  - dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs
   - duel_number_uv_table
   - duel_result_window_layout_table
   - duel_start_countdown_effect_pos
@@ -2182,7 +2207,6 @@ force_active:
   - item_model_names
   - item_moon_atomizer_vtable
   - item_motion_names
-  - item_object_variant_deleting_dtor_80116F10
   - item_rarity_star_uv_table
   - item_sol_atomizer_vtable
   - item_star_atomizer_vtable

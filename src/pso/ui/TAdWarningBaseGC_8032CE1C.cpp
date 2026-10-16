@@ -41,7 +41,7 @@ extern "C" {
 void wait_aram_request__16TAdWarningBaseGCFv(void *arg0);
 void enter_request_state__16TAdWarningBaseGCFv(void* p);
 int TAdWarningBaseGC__sub_8032D020(void);
-void *TAdWarningBaseGC__sub_8032D0B8(void *arg0, s16 arg1);
+void *__dt__13TUnk_804EDBD0Fv(void *arg0, s16 arg1);
 int get_alloc_size__16TAdWarningBaseGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -128,7 +128,7 @@ s32 post_aram_request__16TAdWarningBaseGCFii(s32 buf, s32 arg1) {
     return 1;
 }
 
-void *TAdWarningBaseGC__sub_8032D0B8(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804EDBD0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDBD0;
         __dt__7TObjectFv(arg0, 0);

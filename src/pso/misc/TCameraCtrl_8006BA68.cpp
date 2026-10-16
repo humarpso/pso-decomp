@@ -45,15 +45,15 @@ extern "C" {
 void* TCameraCtrl__sub_8006BA68(void* a0);
 unsigned char TCameraCtrl__sub_8006BADC(void);
 void *TCameraCtrl__vt4(void);
-void *__dt_deleting_3__11TCameraCtrlFPvs(void *arg0, s16 arg1);
-void TCameraCtrl__sub_800686BC(void *, int);
-int TCameraCtrl__sub_80068714(void);
+void *__dt__13TUnk_80488B38Fv(void *arg0, s16 arg1);
+void __dt__13TUnk_80488A28Fv(void *, int);
+int __ct__13TUnk_80488A28Fv(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
     extern unsigned char lbl_80488B08[];
     extern int TCameraCtrl__fixed_npc_camera_active;
-void* TCameraCtrl__sub_8006BA68(void* a0) { TCameraCtrl__sub_80068714(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488B08; *(int*)((char*)a0 + 0x38) = 4; TCameraCtrl__fixed_npc_camera_active = 0; return a0; }
+void* TCameraCtrl__sub_8006BA68(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488B08; *(int*)((char*)a0 + 0x38) = 4; TCameraCtrl__fixed_npc_camera_active = 0; return a0; }
 
     extern unsigned char TCameraCtrl__override_flags;
 
@@ -106,10 +106,10 @@ void TUnk_80488B38::run_task() {
 }
 #pragma pop
 
-void *__dt_deleting_3__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80488B38Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488B38;
-        TCameraCtrl__sub_800686BC(arg0, 0);
+        __dt__13TUnk_80488A28Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -239,12 +239,12 @@ void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 extern "C" {
 
 void *TCameraCtrl__vt5(void);
-int TCameraCtrl__sub_80068714(void);
+int __ct__13TUnk_80488A28Fv(void);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 
-void*TUnk_80488B38::init_defaults() { TCameraCtrl__sub_80068714(); *(int*)((char*)this + 0x18) = (int)lbl_80488B38; *(float *)&this->unk_6C = 10.0f; *(int *)&this->m_38 = 0; return this; }
+void*TUnk_80488B38::init_defaults() { __ct__13TUnk_80488A28Fv(); *(int*)((char*)this + 0x18) = (int)lbl_80488B38; *(float *)&this->unk_6C = 10.0f; *(int *)&this->m_38 = 0; return this; }
 
 s32 approach_camera_scalar(f32 *arg0, f32 *target, f32 farg0) {
   f32 step;

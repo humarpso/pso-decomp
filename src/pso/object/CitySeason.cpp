@@ -862,7 +862,7 @@ void TObjCity_Season_21_21::run_task() {
 extern "C" {
 
 void *TObjCity_Season_21_21__create(void *arg0);
-void *destroy__21TObjCity_Season_21_21FPvs(void *arg0, s16 arg1);
+void *__dt__21TObjCity_Season_21_21Fv(void *arg0, s16 arg1);
 u8 *TObjCity_Season_21_21__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 
@@ -880,7 +880,7 @@ void *TObjCity_Season_21_21__create(void *arg0) {
 
 extern s32 __vt__21TObjCity_Season_21_21[];
 
-void *destroy__21TObjCity_Season_21_21FPvs(void *arg0, s16 arg1) {
+void *__dt__21TObjCity_Season_21_21Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjCity_Season_21_21;
         if (*(void **)((s8 *)arg0 + 0xB8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB8)); *(s32 *)((s8 *)arg0 + 0xB8) = 0; }
@@ -1411,7 +1411,7 @@ struct VObj_8018455c_80184620 : VBase_8018455c_80184620 {
 };
 
 void *TObjCity_Season_ValentineHeart__create(void *arg0);
-void *destroy__30TObjCity_Season_ValentineHeartFPvs(void *arg0, s16 arg1);
+void *__dt__30TObjCity_Season_ValentineHeartFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
 s32 rotate_matrix_y(s32, s32);
@@ -1433,7 +1433,7 @@ void *TObjCity_Season_ValentineHeart__create(void *arg0) {
 
 extern s32 __vt__30TObjCity_Season_ValentineHeart[];
 
-void *destroy__30TObjCity_Season_ValentineHeartFPvs(void *arg0, s16 arg1) {
+void *__dt__30TObjCity_Season_ValentineHeartFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__30TObjCity_Season_ValentineHeart;
         if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB4)); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
@@ -1523,7 +1523,7 @@ u8 *TObjCity_Season_EasterEgg__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern "C" {
 
 void *TObjCity_Season_EasterEgg__create(void *arg0);
-void *destroy__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 arg1);
+void *__dt__25TObjCity_Season_EasterEggFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void queue_destruction__7TObjectFv(void *);
@@ -1552,7 +1552,7 @@ void *TObjCity_Season_EasterEgg__create(void *arg0) {
 
 extern s32 __vt__25TObjCity_Season_EasterEgg[];
 
-void *destroy__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 arg1) {
+void *__dt__25TObjCity_Season_EasterEggFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TObjCity_Season_EasterEgg;
         if (*(void **)((s8 *)arg0 + 0xB8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB8)); *(s32 *)((s8 *)arg0 + 0xB8) = 0; }

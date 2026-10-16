@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TAdMcCheckGC : public TObject {
+    TAdMcCheckGC(TObject *arg1, void *arg2);
     virtual ~TAdMcCheckGC();
     u32 m_1c;
     u32 m_20;

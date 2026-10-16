@@ -233,7 +233,7 @@ void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_804CCA0C[];
-Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1);
+Obj_8023448C *__dt__13TUnk_804CCA0CFv(Obj_8023448C *arg0, s16 arg1);
 u32 get_player_by_client_id(s32);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 s32 telepipe_record_differs(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
@@ -316,7 +316,7 @@ extern const f32 lbl_805DC858;
 extern "C" {
 
 void TTecLuker__sub_80234F68(void* p);
-void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1);
 void *__dt__9TTecLukerFv(void *arg0, s16 arg1);
 s16 get_field_2__9TTecLukerFPv(void* p);
 s32 TLobby__send_and_handle_60(s32);
@@ -387,7 +387,7 @@ void TTecLuker::update_player_target() {
 
 extern s32 telepipe_field_collider_vtable[];
 
-void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = telepipe_field_collider_vtable;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
@@ -671,7 +671,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
   }
 }
 
-Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1) {
+Obj_8023448C *__dt__13TUnk_804CCA0CFv(Obj_8023448C *arg0, s16 arg1) {
     s32 i;
     u32 z;
     if (arg0 != NULL) {

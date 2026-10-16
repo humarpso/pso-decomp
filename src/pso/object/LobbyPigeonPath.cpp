@@ -530,7 +530,7 @@ s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 
-void *destroy_lobby_pigeon(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E0898Fv(void *arg0, s16 arg1);
 s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self);
 void * TObjPlayer__sub_802C19E8(void *arg0);
 void * create__10TObjPlayerFPv(void *arg0);
@@ -538,13 +538,13 @@ s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self);
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
 u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2);
 s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self);
-void * TObjPlayer__sub_802C27A4(void *arg0, s16 arg1);
+void * __dt__13TUnk_804E094CFv(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2);
 void * TObjPlayer__sub_802C28B4(void *arg0);
 void TObjPlayer__sub_802C2900(void);
 s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self);
 s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self);
-void * TObjPlayer__sub_802C2EAC(void *arg0, s16 arg1);
+void * __dt__13TUnk_804E0988Fv(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2);
 void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
@@ -687,7 +687,7 @@ void TUnk_804E0898::update_lobby_pigeon_visibility() {
   }
 }
 
-void *destroy_lobby_pigeon(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E0898Fv(void *arg0, s16 arg1) {
   if (arg0 != NULL) {
     *(s32 **)((s8 *)arg0 + 0x18) = lobby_pigeon_vtable;
     ((void (*)(void *, int))__dt__11TObjPathObjFv)(arg0, 0);
@@ -1284,7 +1284,7 @@ void TUnk_804E094C::vfunc_13(s32) {
     }
 }
 
-void *TObjPlayer__sub_802C27A4(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E094CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E094C;
         ((void (*)(void *, int))__dt__11TObjPathObjFv)(arg0, 0);
@@ -1474,7 +1474,7 @@ void TUnk_804E0988::vfunc_13(s32) {
     }
 }
 
-void *TObjPlayer__sub_802C2EAC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E0988Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = seabed_dolphin_vtable;
         ((void (*)(void *, int))__dt__11TObjPathObjFv)(arg0, 0);

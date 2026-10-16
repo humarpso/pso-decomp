@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TUnk_804E3BD8.h"
+#include "pso/player/TUnk_804E3BD8.h"
 #include "pso/player/TUnk_804E3BC0.h"
 #include "pso/player/TUnk_804E3BA8.h"
 #include "pso/object/TObjFish.h"
@@ -94,8 +95,8 @@ s32 TObjPlayer__sub_802E76C8(u8 *arg0);
 s32 __dt__7TObjectFv(void *, int);
 s32 mem_free(int);
 void __dl__7TObjectFPv(void *);
-extern s32 lbl_804E3BD8[];
-u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1);
+extern s32 __vt__13TUnk_804E3BD8[];
+u8 *__dt__13TUnk_804E3BD8Fv(u8 *arg0, s16 arg1);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 f32 subtract_vector(Vec_802E7888 *, Vec_802E7888 *);
@@ -168,10 +169,10 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
 extern "C" {
 
 void TObjFish__sub_802E787C(void);
-void *TObjPlayer__sub_802E6EB8(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E3BA8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_802E7084(void);
 void TObjPlayer__sub_802E7088(void);
-void *TObjPlayer__sub_802E7284(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E3BC0Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_802E746C(void);
 void TObjPlayer__sub_802E7470(void);
 s32 *init_from_model__11TBreakUpMdlFl(s32 *, s32);
@@ -230,10 +231,10 @@ void TUnk_804E3BA8::render() {
     TObjLight__sub_801337F8(current_scene_light);
 }
 
-void *TObjPlayer__sub_802E6EB8(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E3BA8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E3BA8;
-        TObjPlayer__sub_802E74E4((u8 *)(arg0), (s16)(0));
+        __dt__13TUnk_804E3BD8Fv((u8 *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -314,10 +315,10 @@ void TUnk_804E3BC0::render() {
     TObjLight__sub_801337F8(current_scene_light);
 }
 
-void *TObjPlayer__sub_802E7284(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E3BC0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E3BC0;
-        TObjPlayer__sub_802E74E4((u8 *)(arg0), (s16)(0));
+        __dt__13TUnk_804E3BD8Fv((u8 *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -377,28 +378,22 @@ void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
     *(s32 *)&(*(u32 *)&this->unk_28) = mem_alloc(this->m_24 * 0x2C);
 }
 
-extern s32 lbl_804E3BD8[];
+extern s32 __vt__13TUnk_804E3BD8[];
 
-u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1) {
-    VObj_802E74E4 *temp_r3;
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E3BD8;
-        mem_free(*(s32 *)((s8 *)arg0 + 0x28));
-        temp_r3 = *(VObj_802E74E4 **)((s8 *)arg0 + 0x1C);
-        if (temp_r3 != NULL) {
-            temp_r3->m0(1);
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TUnk_804E3BD8::~TUnk_804E3BD8() {
+    VObj_802E74E4 *temp_r3;
+    mem_free(*(s32 *)((s8 *)this + 0x28));
+    temp_r3 = *(VObj_802E74E4 **)((s8 *)this + 0x1C);
+    if (temp_r3 != NULL) {
+        temp_r3->m0(1);
+    }
+}
+extern "C" {
 
 void *TObjPlayer::init_zeroed_object() {
     __ct__7TObjectFP7TObject(this);
-    *(s32 **)((s8 *)this + 0x18) = lbl_804E3BD8;
+    *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804E3BD8;
     *(u32 *)&this->m_20 = 0;
     *(u32 *)((s8 *)this + 0x1C) = 0;
     *(u32 *)&this->unk_24 = 0;

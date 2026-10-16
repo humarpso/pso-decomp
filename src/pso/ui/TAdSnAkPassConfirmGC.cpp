@@ -53,7 +53,7 @@ int TAdSnAkPassConfirmGC__vt5(void* p);
 void TAdSnAkPassConfirmGC__vt8(void);
 void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1);
 int get_localized_text_entry(void*, void*);
-void TAdYesNoBaseGC__vt0(void *, int);
+void __dt__14TAdYesNoBaseGCFv(void *, int);
 int TWindow__close(void*);
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
@@ -84,7 +84,7 @@ void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TAdSnAkPassConfirmGC;
         if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); *(s32 *)((s8 *)arg0 + 0x48) = 0; }
-        TAdYesNoBaseGC__vt0(arg0, 0);
+        __dt__14TAdYesNoBaseGCFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

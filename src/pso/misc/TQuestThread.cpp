@@ -206,7 +206,7 @@ void handle_6x77_sync_quest_register(u8 *arg0);
 char * get_quest_name__12TQuestThreadFv(void);
 void clear_thread_state__12TQuestThreadFv(void);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
-void * destroy__12TQuestThreadFPvs(void *arg0, s16 arg1);
+void * __dt__13TUnk_804C8678Fv(void *arg0, s16 arg1);
 void destroy_quest_obj__12TQuestThreadFv(void);
 s32 create_by_mode__12TQuestThreadFv(void);
 u8 * init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -850,7 +850,7 @@ s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1) {
 
 void TUnk_804C8678::run_task() {  }
 
-void *destroy__12TQuestThreadFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804C8678Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = TQuestThread__data_804C8678;
         if ((s32) *(s32 *)((s8 *)arg0 + 0x1A0) == 0) {

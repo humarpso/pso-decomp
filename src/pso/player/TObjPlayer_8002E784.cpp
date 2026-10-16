@@ -114,7 +114,7 @@ struct VObj8002EB88_8002eb88_8002E784 {
     virtual void m0(int);
 };
 
-void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804820A8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_8002EB88(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -165,7 +165,7 @@ void TObjPlayer__sub_8002E974(u8 *arg0) {
     } while (var_r29 < 0x13);
 }
 
-void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804820A8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804820A8;
         ((TObjPlayer *)arg0)->deleting_dtor((s16)(0));

@@ -4976,12 +4976,12 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv();
 void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self);
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 void __register_global_object(void *obj, void *dtor, void *chain);
-void __dt__9TObjEneDDFv(void *, s32);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, s16);
+void __dt__12TObjEneDD_STFv(void *, s32);
+void __dt__13TUnk_80494938Fv(void *, s16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, u32, u32);
-void TObjPlayer__sub_800D7C58(void);
+void __dt__13TUnk_804949A8Fv(void);
 void move_with_wall_slide(void *);
 s32 advance_animation_playback(void *);
 void init_object__12TObjEneDD_STFv(void *, s32, s32);
@@ -4994,7 +4994,7 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void __construct_array(void *, void *, void *, int, int);
-void TObjPlayer__sub_800D7C58(void);
+void __dt__13TUnk_804949A8Fv(void);
 void init_and_activate__10TObjPlayerFv();
 extern s32 lbl_805D2A70;
 u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -5088,11 +5088,11 @@ Gibon_800D13B8 *TObjEneBm5GibonU__sub_800D13B8(Gibon_800D13B8 *arg0, s16 arg1) {
             forward_hit_to_enemy_list__16TObjEneBm5GibonUFi((s32)arg0);
         }
         free_collision_body_parts(arg0);
-        __destroy_arr(arg0->f3F4, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
-        __dt__18TObjEneMe3SinowZoaFPvs(arg0->f3D8, -1);
+        __destroy_arr(arg0->f3F4, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__13TUnk_80494938Fv(arg0->f3D8, -1);
         TObjEneBm5GibonU::destroy((s32)arg0->f3CC, -1);
         TObjEneBm5GibonU::destroy((s32)arg0->f3C0, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -5117,7 +5117,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TObjEneBm5GibonU__sub_800D1CF8((O_800D1CF8 *)(arg0 + 0x3C0));
     TObjEneBm5GibonU__sub_800D1CF8((O_800D1CF8 *)(arg0 + 0x3CC));
     ((TUnk_80494938 *)(arg0 + 0x3D8))->init_common();
-    __construct_array(arg0 + 0x3F4, (void *)&init_and_activate__10TObjPlayerFv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(arg0 + 0x3F4, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
     ((TObjPlayer *)(arg0 + 0x4B0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A70;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);

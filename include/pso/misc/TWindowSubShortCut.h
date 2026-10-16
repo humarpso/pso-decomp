@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TWindowSubShortCut : public TObject {
+    TWindowSubShortCut(TObject *arg1, void *arg2);
     virtual ~TWindowSubShortCut();
     void open_com_card_list();
     u8 m_1c;

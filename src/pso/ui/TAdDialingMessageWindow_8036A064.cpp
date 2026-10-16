@@ -4,7 +4,7 @@
 
 extern "C" {
 
-void *TAdDialingMessageWindow__sub_8036A0D0(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F3428Fv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -30,7 +30,7 @@ void TUnk_804F3428::run_task() {
 
 extern s32 lbl_804F3428[];
 
-void *TAdDialingMessageWindow__sub_8036A0D0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F3428Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F3428;
         __dt__7TObjectFv(arg0, 0);

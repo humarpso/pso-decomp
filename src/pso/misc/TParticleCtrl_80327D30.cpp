@@ -18,7 +18,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 extern s32 lbl_804ED598[];
-void *__dt__13TParticleCtrlFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804ED598Fv(void *arg0, s16 arg1);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
 int set_ginja_post_texgen_count(int);
@@ -34,7 +34,7 @@ extern s32 lbl_804ED5B0[];
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 lbl_804ED5B0[];
-void *TParticleCtrl__sub_80328160(void *arg0, s16 arg1);
+void *__dt__13TUnk_804ED5B0Fv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -135,7 +135,7 @@ void TUnk_804ED598::run_task() {
         }
     }
 }
-void *__dt__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804ED598Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED598;
         if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)arg0 + 0x40))); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
@@ -193,7 +193,7 @@ void TParticleCtrl::play_particle(s32 arg1, s16 arg2) {
     }
     TObjPlayer::play_particle_at_active_slot((u8)((u8) arg2), (u8)(*(u8 *)((s8 *)this + 0x1D)), (s32)(0), (s32)(0), (s32)(0), (s32)(1));
 }
-void *TParticleCtrl__sub_80328160(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804ED5B0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED5B0;
         __dt__7TObjectFv(arg0, 0);

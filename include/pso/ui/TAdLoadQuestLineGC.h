@@ -6,6 +6,7 @@
 
 class TAdLoadQuestLineGC : public TObject {
 public:
+    TAdLoadQuestLineGC(TObject *arg1, void *arg2);
     virtual ~TAdLoadQuestLineGC();
     virtual void run_task();
     virtual void render();

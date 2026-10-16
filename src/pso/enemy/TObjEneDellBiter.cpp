@@ -1664,7 +1664,7 @@ void vfunc_28__16TObjEneDellBiterFv(void);
 void run_task__16TObjEneDellBiterFv(u8 *arg0);
 void * TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2);
 void * TObjEneDellBiter__create(void *arg0);
-void * item_object_variant_deleting_dtor_803069D0(void *arg0, s16 arg1);
+void * __dt__13TUnk_804E6FA8Fv(void *arg0, s16 arg1);
 void * TItemObject__sub_80306A28(void *arg0);
 void __construct_array(void *, void *, void *, int, int);
 f32 sin_table_lookup(int);
@@ -1695,13 +1695,13 @@ extern const f32 TObjEneDellBiter__data_805DEFE4;
 extern const f32 TObjEneDellBiter__data_805DEFE8;
 extern const f32 TObjEneDellBiter__data_805DEFF4;
 extern const f32 TObjEneDellBiter__data_805DF00C;
-void TObjPlayer__sub_800A05B8(void *, s32);
-void __dt__9TObjEneDDFv(void *, s32);
+void __dt__13TUnk_80490470Fv(void *, s32);
+void __dt__12TObjEneDD_STFv(void *, s32);
 void delete_buffer__12TBoss8DragonFis(void *, s32);
 void free_collision_body_parts(void *);
 void __destroy_arr(void *, void *, s32, s32);
 u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1);
-extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 init_and_activate__10TObjPlayerFv[];
 extern S_80305E1C lbl_8047528C[];
 extern s32 lbl_804752A0[];
@@ -3478,9 +3478,9 @@ u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1) {
             *(VD_803062D4 **)((s8 *)arg0 + 0x49C) = NULL;
         }
         free_collision_body_parts(arg0);
-        __destroy_arr(arg0 + 0x3F0, TObjPlayer__sub_800D7C58, 0x1C, 4);
-        TObjPlayer__sub_800A05B8(arg0 + 0x3D4, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __destroy_arr(arg0 + 0x3F0, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__13TUnk_80490470Fv(arg0 + 0x3D4, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -3566,7 +3566,7 @@ void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneDellBiter;
     ((TUnk_80490470 *)((char *)arg0 + 980))->init_vtable_and_field18();
-    __construct_array((void *)((char *)arg0 + 1008), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
+    __construct_array((void *)((char *)arg0 + 1008), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = TObjEneDellBiter__class_name;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     ((TObjEneDellBiter *)arg0)->init_target_offsets();
@@ -3640,7 +3640,7 @@ void TUnk_804E6FA8::vfunc_44() {
     }
 }
 
-void *item_object_variant_deleting_dtor_803069D0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E6FA8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E6FA8;
         __dt__11TItemObjectFv(arg0, 0);

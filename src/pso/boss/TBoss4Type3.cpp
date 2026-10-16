@@ -525,7 +525,7 @@ void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
 void TBoss4Type3__sub_8005A86C(void* p);
 void reset_action_to_3__11TBoss4Type3FPv(Obj_8005ACBC *self);
 void init_effect__11TBoss4Type3FPv(u8 *arg0);
-S_8005AD50 * destroy__11TBoss4Type3FPvs(S_8005AD50 *o, s16 flag);
+S_8005AD50 * __dt__11TBoss4Type3Fv(S_8005AD50 *o, s16 flag);
 void * __ct__13TObjBs4CutAtkFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void * create__13TObjBs4CutAtkFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 request_follow_camera_offsets(void *, void *, int);
@@ -924,7 +924,7 @@ void *boss4_type3_radar_marker_colors[4] = {
     (void *)0xffff0000, (void *)0xff00ff00, (void *)0xffffff00, (void *)0xff0000ff,
 };
 void *__vt__11TBoss4Type3[83] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__11TBoss4Type3FPvs, (void *)&run_task__11TBoss4Type3Fv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__11TBoss4Type3Fv, (void *)&run_task__11TBoss4Type3Fv,
     (void *)&TBoss4Type3__sub_8005A86C, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -2246,7 +2246,7 @@ void init_effect__11TBoss4Type3FPv(u8 *arg0) {
     ((s32 (*)(int, void *, int, int, void *))play_sound_effect)(0x4003B734, arg0 + 0x38, 0, 1, arg0);
 }
 
-S_8005AD50 *destroy__11TBoss4Type3FPvs(S_8005AD50 *o, s16 flag) {
+S_8005AD50 *__dt__11TBoss4Type3Fv(S_8005AD50 *o, s16 flag) {
     s32 i;
     if (o != 0) {
         o->vt = __vt__11TBoss4Type3;

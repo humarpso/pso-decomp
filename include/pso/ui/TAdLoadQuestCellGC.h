@@ -6,6 +6,7 @@
 
 class TAdLoadQuestCellGC : public TObject {
 public:
+    TAdLoadQuestCellGC(TObject *arg1, void *arg2);
     virtual ~TAdLoadQuestCellGC();
     virtual void run_task();
     virtual void render();

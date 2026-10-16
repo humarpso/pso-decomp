@@ -5,14 +5,14 @@
 
 extern "C" {
 s32 __nw__7TObjectFUl(int);
-void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__18TAdLoadQuestCellGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 __declspec(section ".data") TAdLoadQuestCellGC *ad_load_quest_cell_table[3] = { 0, 0, 0 };
 s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__18TAdLoadQuestCellGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 
 void __ct__7TObjectFP7TObject(void *);
 s32 draw_quest_load_panel_overlays();
@@ -60,14 +60,13 @@ extern "C" {
 extern s32 __vt__18TAdLoadQuestCellGC[];
 extern void *lbl_805D42F8;
 
-void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdLoadQuestCellGC;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D42F8;
-    *(void **)((s8 *)arg0 + 0x1C) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x20) = -1;
-    return arg0;
 }
+TAdLoadQuestCellGC::TAdLoadQuestCellGC(TObject *arg1, void *arg2) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = lbl_805D42F8;
+    *(void **)((s8 *)this + 0x1C) = arg2;
+    *(u32 *)((s8 *)this + 0x20) = -1;
+}
+extern "C" {
 s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
     s32 temp_r3;
@@ -77,7 +76,7 @@ s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
         temp_r3 = __nw__7TObjectFUl((int) (0x24));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = ((s32)TAdLoadQuestCellGC__ct((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1))));
+            var_r0 = ((s32)__ct__18TAdLoadQuestCellGCFP7TObjectPv((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1))));
         }
         *(s32 *)((s8 *)((s32 *)ad_load_quest_cell_table) + temp_r30) = var_r0;
     }

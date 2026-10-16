@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrLoadAfs.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/TChCrLoadAfs.h"
@@ -136,7 +137,7 @@ s32 load_texture_list(void *);
 
 extern "C" {
 
-void *TChCrLoadAfs__ct(void *arg0, void *arg1, void *arg2, void *arg3);
+void *__ct__12TChCrLoadAfsFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -222,25 +223,24 @@ extern "C" {
 extern s32 __vt__12TChCrLoadAfs[];
 extern void *lbl_805D3B48;
 
-void *TChCrLoadAfs__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TChCrLoadAfs;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3B48;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
-    *(void **)((s8 *)arg0 + 0x24) = arg3;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x30) = 0;
-    *(u32 *)((s8 *)arg0 + 0x34) = 900;
-    return arg0;
 }
+TChCrLoadAfs::TChCrLoadAfs(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = lbl_805D3B48;
+    *(u32 *)((s8 *)this + 0x1C) = 0;
+    *(void **)((s8 *)this + 0x20) = arg2;
+    *(void **)((s8 *)this + 0x24) = arg3;
+    *(u32 *)((s8 *)this + 0x28) = 0;
+    *(u32 *)((s8 *)this + 0x2C) = 0;
+    *(u32 *)((s8 *)this + 0x30) = 0;
+    *(u32 *)((s8 *)this + 0x34) = 900;
+}
+extern "C" {
 
 void *TChCrLoadAfs::create(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = TChCrLoadAfs__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2));
+        o = __ct__12TChCrLoadAfsFP7TObjectPvPv((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2));
     }
     return o;
 }

@@ -294,7 +294,7 @@ struct VObj_80358984_80357734 : Base_80358984_80357734 {
     virtual void m63(s32, void *);
 };
 
-void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_8035776C(void *arg0, void *arg1);
 void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -315,8 +315,8 @@ s32 TObjPlayer__sub_802E451C();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 __nw__7TObjectFUl(s32);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
-void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1);
+void __dt__11TItemWeaponFv(void *, int);
+void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
 void set_status_flags__10TObjPlayerFUl(void *, int);
@@ -390,10 +390,10 @@ void TUnk_804F14A8::update_attack() { add_angle_clamped__10TObjPlayerFPlll((char
 
 extern s32 item_equip_variant_vtable[];
 
-void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = item_equip_variant_vtable;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

@@ -49,7 +49,7 @@ extern "C" {
 s32 fn_800FCCC8(s32, s32);
 s32 get_card_status_bits__20TWindowShortListCtrlFv();
 
-void *TFontSmallHelp__sub_800FCC20(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049CA54Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__14TFontSmallHelpFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -160,7 +160,7 @@ void TUnk_8049CA54::run_task() {
 
 extern s32 lbl_8049CA54[];
 
-void *TFontSmallHelp__sub_800FCC20(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049CA54Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049CA54;
         __dt__14TFontSmallHelpFv(arg0, 0);

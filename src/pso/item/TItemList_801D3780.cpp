@@ -140,8 +140,8 @@ extern const f32 lbl_805DC3CC;
 extern "C" {
 
 void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3);
-void *destroy_placement_search_task(void *arg0, s16 arg1);
-void *TItemList__sub_801D3FC4(void *arg0, s16 arg1);
+void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804C4498Fv(void *arg0, s16 arg1);
 s32 decrement_placement_search_pending(void *, s32);
 s32 clear_placement_search_slot(void *, s32);
 void __dl__7TObjectFPv(void *);
@@ -201,7 +201,7 @@ void *TItemList::destroy(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = item_drop_search_task_vtable;
         clear_placement_search_slot(this, *(s32 *)((s8 *)this + 0x54));
         decrement_placement_search_pending(this, *(s32 *)((s8 *)this + 0x54));
-        TItemList__sub_801D3FC4((void *)(this), (s16)(0));
+        __dt__13TUnk_804C4498Fv((void *)(this), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(this));
         }
@@ -261,12 +261,12 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {
 
 extern s32 placement_search_task_vtable[];
 
-void *destroy_placement_search_task(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = placement_search_task_vtable;
         clear_placement_search_slot(arg0, *(s32 *)((s8 *)arg0 + 0x54));
         decrement_placement_search_pending(arg0, *(s32 *)((s8 *)arg0 + 0x54));
-        TItemList__sub_801D3FC4((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804C4498Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
         }
@@ -369,7 +369,7 @@ s32 TUnk_804C4498::reset_placement_search_ring() {
     s->radius = lbl_805DC3C8 * s->ring;
 }
 
-void *TItemList__sub_801D3FC4(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804C4498Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = placement_search_base_vtable;
         __dt__7TObjectFv(arg0, 0);

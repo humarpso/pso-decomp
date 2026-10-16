@@ -96,7 +96,7 @@ struct VObj_8019D6F8_8019D4E4 : Base_8019D6F8_8019D4E4 {
 
 u8 TObjWarpBase__vt13(void *arg0);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
-s32 TObjWarpBase__vt0(void *, s32);
+s32 __dt__12TObjWarpBaseFv(void *, s32);
 void *get_player_by_client_id(u32);
 s32 __dl__7TObjectFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -178,7 +178,7 @@ void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1) {
         struct VObj_8019D6F8_8019D4E4 *o = (struct VObj_8019D6F8_8019D4E4 *)arg0;
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMapWarp;
         o->m12();
-        TObjWarpBase__vt0(arg0, 0);
+        __dt__12TObjWarpBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

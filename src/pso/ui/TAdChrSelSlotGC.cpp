@@ -134,7 +134,7 @@ extern "C" {
 
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
 void TLobby__sub_802C78EC(void);
-void *destroy_character_select_transition(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E0B28Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -182,7 +182,7 @@ void TUnk_804E0B28::run_task() {
 }
 #pragma pop
 
-void *destroy_character_select_transition(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E0B28Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E0B28;
         if ((u32) *(u32 *)((s8 *)arg0 + 0x4C) != 0U) {

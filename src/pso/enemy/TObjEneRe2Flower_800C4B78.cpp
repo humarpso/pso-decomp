@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjEneRe2Flower_Bomb.h"
@@ -153,7 +154,7 @@ extern const f32 lbl_805DA034;
 
 extern "C" {
 
-void *dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs(void *arg0, s16 arg1);
+void *__dt__26TObjEneRe2Flower_EffCurse3Fv(void *arg0, s16 arg1);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -165,16 +166,13 @@ int queue_destruction__7TObjectFv(void*);
 extern "C" {
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
-void *dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs(void *arg0, s16 arg1);
+void *__dt__26TObjEneRe2Flower_EffCurse3Fv(void *arg0, s16 arg1);
 void run_task__26TObjEneRe2Flower_EffCurse3Fv(struct Obj_800C4B78 *o);
 extern const char lbl_8043BC48[0x1C] = "TObjEneRe2Flower_EffCurse3";
 s32 lbl_805D2A58 = (s32)lbl_8043BC48;
-void *TObjEneRe2Flower_EffCurse3__vtable[6] = {
-    (void *)0x0, (void *)0x0, (void *)&dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs, (void *)&run_task__26TObjEneRe2Flower_EffCurse3Fv,
-    (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
-};
+extern void *__vt__26TObjEneRe2Flower_EffCurse3[];
 }
-#define TObjEneRe2Flower_EffCurse3__vtable ((s32 *)TObjEneRe2Flower_EffCurse3__vtable)
+#define __vt__26TObjEneRe2Flower_EffCurse3 ((s32 *)__vt__26TObjEneRe2Flower_EffCurse3)
 extern "C" {
 
 #pragma push
@@ -202,21 +200,15 @@ void TObjEneRe2Flower_EffCurse3::run_task() {
 }
 #pragma pop
 
-void *TObjEneRe2Flower_EffCurse3::dt_with_child_destroy(s16 arg1) {
-    if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
-        if (*(void * *)&this->unk_24 != NULL) { queue_destruction__7TObjectFv((void*)(*(void * *)&this->unk_24)); *(s32 *)&this->unk_24 = 0; }
-        __dt__7TObjectFv(this, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(this);
-        }
-    }
-    return this;
 }
+TObjEneRe2Flower_EffCurse3::~TObjEneRe2Flower_EffCurse3() {
+    if (*(void * *)&this->unk_24 != NULL) { queue_destruction__7TObjectFv((void*)(*(void * *)&this->unk_24)); *(s32 *)&this->unk_24 = 0; }
+}
+extern "C" {
 
 void *TObjEneRe2Flower_EffCurse3::init_target_ref(s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)this + 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
+    *(s32 **)((s8 *)this + 0x18) = __vt__26TObjEneRe2Flower_EffCurse3;
     *(s32 *)&this->m_name = (s32) lbl_805D2A58;
     *(s32 *)((s8 *)this + 0x1C) = 0;
     (this->m_20) = arg2;

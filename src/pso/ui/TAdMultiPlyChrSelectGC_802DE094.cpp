@@ -28,7 +28,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 TAdMultiPlyChrSelectGC__sub_802C65C0(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6920();
-u32 __ct__9TAdFadeGCFv(u32, s32, s32);
+u32 __ct__9TAdFadeGCFP7TObjectPv(u32, s32, s32);
 u32 create_choice_menu__22TAdMultiPlyChrSelectGCFv(void *);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
@@ -396,7 +396,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
                 if (TAdChrSelASlotGC__sub_8030C3C0(*(u32 *)((s8 *)arg0 + 0x68), TAdMultiPlyChrSelectGC__sub_802DFFE8(*(s32 *)((s8 *)arg0 + 0x5C))) != 0) {
                     var_r0 = __nw__7TObjectFUl(0x38);
                     if (var_r0 != 0U) {
-                        var_r0 = __ct__9TAdFadeGCFv(var_r0, tl_fade, 0);
+                        var_r0 = __ct__9TAdFadeGCFP7TObjectPv(var_r0, tl_fade, 0);
                     }
                     *(u32 *)((s8 *)arg0 + 0x74) = var_r0;
                     *(u32 *)((s8 *)arg0 + 0x8C) = TAdChrSelASlotGC::open_yes_no_window((s32)(*(u32 *)((s8 *)arg0 + 0x68)), (s32)((s32 *)&lbl_80472850), (s32)(((s32)TAdMultiPlyChrSelectGC::get_clamped_cursor())));

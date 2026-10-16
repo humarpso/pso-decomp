@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowComCard.h"
 #include "pso/TProtocol.h"
 #include "pso/misc/TLobby.h"
@@ -1808,35 +1809,34 @@ void *__dt__17TWindowSubComCardFv(void *arg0, s16 arg1) {
 
 extern "C" {
 
-void *TWindowSubComCard__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__17TWindowSubComCardFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
 void TWindowSubComCard__sub_80077980(void *);
 
 extern void *TWindowSubComCard__class_name;
 
-void *TWindowSubComCard__ct(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__17TWindowSubComCard;
-    *(void **)((s8 *)arg0 + 0x0) = TWindowSubComCard__class_name;
-    *(void **)((s8 *)arg0 + 0x5C) = arg1;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x60) = 0;
-    *(u32 *)((s8 *)arg0 + 0x64) = 0;
-    *(u32 *)((s8 *)arg0 + 0x74) = 0;
-    *(u32 *)((s8 *)arg0 + 0x78) = 0;
-    *(u32 *)((s8 *)arg0 + 0x68) = 0;
-    *(u32 *)((s8 *)arg0 + 0x6C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x70) = 0;
-    *(u32 *)((s8 *)arg0 + 0x80) = 0;
-    *(u32 *)((s8 *)arg0 + 0x84) = 0;
-    *(u32 *)((s8 *)arg0 + 0x7C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x58) = 0;
-    *(u8 *)((s8 *)arg0 + 0x1D) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = -1;
-    TWindowSubComCard__sub_80077980((void *)((char *)arg0 + 48));
-    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
 }
+TWindowSubComCard::TWindowSubComCard(TObject *arg1, void *arg2) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = TWindowSubComCard__class_name;
+    *(void **)((s8 *)this + 0x5C) = arg1;
+    *(void **)((s8 *)this + 0x20) = arg2;
+    *(u32 *)((s8 *)this + 0x60) = 0;
+    *(u32 *)((s8 *)this + 0x64) = 0;
+    *(u32 *)((s8 *)this + 0x74) = 0;
+    *(u32 *)((s8 *)this + 0x78) = 0;
+    *(u32 *)((s8 *)this + 0x68) = 0;
+    *(u32 *)((s8 *)this + 0x6C) = 0;
+    *(u32 *)((s8 *)this + 0x70) = 0;
+    *(u32 *)((s8 *)this + 0x80) = 0;
+    *(u32 *)((s8 *)this + 0x84) = 0;
+    *(u32 *)((s8 *)this + 0x7C) = 0;
+    *(u32 *)((s8 *)this + 0x58) = 0;
+    *(u8 *)((s8 *)this + 0x1D) = 0;
+    *(u32 *)((s8 *)this + 0x24) = -1;
+    TWindowSubComCard__sub_80077980((void *)((char *)this + 48));
+    *(u8 *)((s8 *)this + 0x1C) = 0;
+}
+extern "C" {
 
 }
 

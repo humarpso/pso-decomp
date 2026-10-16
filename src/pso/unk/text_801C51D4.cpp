@@ -24,7 +24,7 @@ u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_801C5380_lbl_804C3F48 lbl_804C3F48;
 extern s32 ad_single_ply_chr_select_instance;
-u8 *fn_801C5320(u8 *arg0, s16 arg1);
+u8 *__dt__13TUnk_804C3F48Fv(u8 *arg0, s16 arg1);
 f32 newton_sqrtf(f32);
 void queue_destruction__7TObjectFv(void *);
 f32 xz_distance_squared(void *, void *);
@@ -78,7 +78,7 @@ void TUnk_804C3F48::run_task() {
 }
 #pragma pop
 
-u8 *fn_801C5320(u8 *arg0, s16 arg1) {
+u8 *__dt__13TUnk_804C3F48Fv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801C5320_lbl_804C3F48 *)&lbl_804C3F48).value;
         ad_single_ply_chr_select_instance = 0;

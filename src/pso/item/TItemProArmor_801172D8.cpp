@@ -4,7 +4,7 @@
 
 extern "C" {
 
-void *TItemProArmor__sub_80117368(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049FE00Fv(void *arg0, s16 arg1);
 s32 add_actor_tp(s32, s32);
 void __dt__11TItemObjectFv(void *, int);
 s32 calc_armor_value__13TItemProArmorFv(void *);
@@ -33,7 +33,7 @@ void TItemProArmor::apply_armor_stat() {
 
 extern s32 lbl_8049FE00[];
 
-void *TItemProArmor__sub_80117368(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049FE00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FE00;
         __dt__11TItemObjectFv(arg0, 0);

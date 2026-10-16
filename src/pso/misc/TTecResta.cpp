@@ -160,7 +160,7 @@ extern s32 tl_07;
 
 extern "C" {
 
-void *__dt__9TTecRestaFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CCBC0Fv(void *arg0, s16 arg1);
 void *__dt__9TTecRestaFv(void *arg0, s16 arg1);
 void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __dl__7TObjectFPv(void *);
@@ -211,7 +211,7 @@ void TUnk_804CCBC0::run_task() {
 
 extern s32 lbl_804CCBC0[];
 
-void *__dt__9TTecRestaFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804CCBC0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCBC0;
         __dt__7TObjectFv(arg0, 0);

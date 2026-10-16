@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdRicoRingCtrl.h"
 
 #include <stddef.h>
 #include "pso/ui/TAdRicoRingCtrl.h"
@@ -105,22 +106,16 @@ void TAdRicoRingCtrl::run_task() {
 }
 #pragma pop
 
-u8 *__dt__15TAdRicoRingCtrlFv(u8 *self, s16 flag) {
+}
+TAdRicoRingCtrl::~TAdRicoRingCtrl() {
     s32 i;
-    if (self != NULL) {
-        *(void **)(self + 0x18) = &__vt__15TAdRicoRingCtrl;
-        for (i = 0; i < 2; i++) {
-            if (((Obj_8001B824 *)self)->slot[i] != 0) {
-                queue_destruction__7TObjectFv((void *)((Obj_8001B824 *)self)->slot[i]);
-            }
-        }
-        __dt__7TObjectFv(self, 0);
-        if (flag > 0) {
-            __dl__7TObjectFPv(self);
+    for (i = 0; i < 2; i++) {
+        if (((Obj_8001B824 *)this)->slot[i] != 0) {
+            queue_destruction__7TObjectFv((void *)((Obj_8001B824 *)this)->slot[i]);
         }
     }
-    return self;
 }
+extern "C" {
 
 u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8001B8AC, sp8) == 0x0) ? 1 : -1];

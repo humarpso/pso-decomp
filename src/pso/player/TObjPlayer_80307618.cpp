@@ -25,8 +25,8 @@ char *get_shared_capture_texture_list(void);
 
 extern "C" {
 
-void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1);
-void *TObjPlayer__sub_8030790C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E70A8Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E71A0Fv(void *arg0, s16 arg1);
 f32 sin_table_lookup(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
@@ -34,8 +34,8 @@ s32 draw_weapon_model();
 s32 draw_weapon_at_joint(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
-void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1);
+void __dt__11TItemWeaponFv(void *, int);
+void *__dt__13TUnk_804E70A8Fv(void *arg0, s16 arg1);
 s32 queue_destruction__7TObjectFv();
 s32 set_status_flags__10TObjPlayerFUl(void *, s32);
 
@@ -108,10 +108,10 @@ u8 *TObjPlayer__sub_80307800(s32 arg0) {
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
 
-void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E70A8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E70A8;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -140,7 +140,7 @@ void TUnk_804E71A0::run_task() {  }
 
 extern s32 lbl_804E71A0[];
 
-void *TObjPlayer__sub_8030790C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E71A0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E71A0;
         __dt__7TObjectFv(arg0, 0);

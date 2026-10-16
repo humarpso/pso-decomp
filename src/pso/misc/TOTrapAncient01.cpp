@@ -314,7 +314,7 @@ extern const f32 lbl_805DBA5C;
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i);
 s32 free_collision_body_parts(void *);
 s32 __destroy_arr(void *, void *, int, int);
-void TObjPlayer__sub_800D7C58(void);
+void __dt__13TUnk_804949A8Fv(void);
 void *__dt__6TOTrapFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__15TOTrapAncient01[];
@@ -325,7 +325,7 @@ s32 get_bml_model(void *, s32);
 s32 init_collision_body_parts(void *, void *, int);
 void TOTrap__ct(void *, void *, void *);
 void __construct_array(void *, void *, void *, int, int);
-void TObjPlayer__sub_800D7C58(void);
+void __dt__13TUnk_804949A8Fv(void);
 void init_and_activate__10TObjPlayerFv(void *);
 extern s32 lbl_804B4844[];
 extern s32 __vt__15TOTrapAncient01[];
@@ -609,7 +609,7 @@ Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
         self->vt = __vt__15TOTrapAncient01;
         ((TUnk_804AF8A0 *)self)->unregister_object_by_id();
         free_collision_body_parts(self);
-        __destroy_arr(self->arr, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
+        __destroy_arr(self->arr, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
         __dt__6TOTrapFv(self, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);
@@ -625,7 +625,7 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
     TOTrap__ct(arg0, arg1, arg2);
     *(s32 **)((s8 *)self + 0x18) = __vt__15TOTrapAncient01;
-    __construct_array(self + 0x358, (void *)init_and_activate__10TObjPlayerFv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(self + 0x358, (void *)init_and_activate__10TObjPlayerFv, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
     *(s32 *)((s8 *)self + 0) = TOTrapAncient01__class_name;
     ((VObj_18_a8c792 *)arg0)->m5((s32)arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();

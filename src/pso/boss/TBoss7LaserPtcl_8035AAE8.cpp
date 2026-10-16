@@ -69,7 +69,7 @@ extern const f32 lbl_805E0114;
 
 extern "C" {
 
-void *TBoss7LaserPtcl__sub_8035ADFC(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F1C88Fv(void *arg0, s16 arg1);
 void TBoss7LaserPtcl__sub_8035AF0C(void);
 void TBoss7LaserPtcl__sub_8035AF10(void);
 void TBoss7LaserPtcl__sub_8035AF14(void);
@@ -175,7 +175,7 @@ void TUnk_804F1C88::run_task() {
     }
 }
 
-void *TBoss7LaserPtcl__sub_8035ADFC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F1C88Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F1C88;
         __dt__7TObjectFv(arg0, 0);

@@ -993,7 +993,7 @@ s32 set_indexed_flags(void *, s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 extern s32 lbl_80493450[];
-void *TObjPlayer__sub_800C68FC(void *arg0, s16 arg1);
+void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1);
 int initialize__9TObjEnemyFPv(void);
 extern s32 lbl_80493450[];
 extern const f32 lbl_805DA034;
@@ -1712,7 +1712,7 @@ void TUnk_80493450::run_task() {
   *((f32 *) (((s8 *) arg0) + 0x2B4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2B4))) + lbl_805DA048);
 }
 
-void *TObjPlayer__sub_800C68FC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80493450;
         __dt__9TObjEnemyFv(arg0, 0);

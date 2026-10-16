@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TWindowSubComCard : public TObject {
+    TWindowSubComCard(TObject *arg1, void *arg2);
     virtual ~TWindowSubComCard();
     void sub_802721D8();
     u8 *find_entry_rest(void *, s32);

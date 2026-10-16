@@ -4,12 +4,12 @@
 
 extern "C" {
 
-void *TObjPlayer__sub_80125550(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A2548Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 extern s32 lbl_804A2548[];
 
-void *TObjPlayer__sub_80125550(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A2548Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A2548;
         ((TUnk_804E355C *)arg0)->destroy_attack_collision(0);

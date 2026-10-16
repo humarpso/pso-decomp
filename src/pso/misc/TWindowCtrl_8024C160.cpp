@@ -56,7 +56,7 @@ void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
 void *TWindowBreakIn__ct(void *);
-void *TWindowChat__ct(void *, s32, void *);
+void *__ct__11TWindowChatFP7TObjectPv(void *, s32, void *);
 void *TWindowCtrlPlayer__ct(void *, void *, s32);
 void *create_party_status_window(s32);
 extern u8 __vt__11TWindowCtrl[];
@@ -169,7 +169,7 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
     if (is_split_screen() == 0) {
         p = __nw__7TObjectFUl(0x3C);
         if (p != NULL) {
-            p = TWindowChat__ct(p, tl_00, self->f94);
+            p = __ct__11TWindowChatFP7TObjectPv(p, tl_00, self->f94);
         }
         self->f38 = p;
         ((TWindowCtrl *)(self->f38))->set_flag1e_bit40();

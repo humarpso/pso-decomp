@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCheckMemoryCard.h"
 
 struct Base_8033C4E0_8033C420 { char pad[0x18]; };
 struct VObj_8033C4E0_8033C420 : Base_8033C4E0_8033C420 { virtual void m0(int); };
@@ -27,7 +28,7 @@ extern RecoveredGlobal_8033C424_lbl_804EF940 lbl_804EF940;
 
 extern "C" {
 
-void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+void *__ct__16TCheckMemoryCardFP7TObjectPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1);
 s32 TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -94,22 +95,21 @@ void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
 extern s32 __vt__16TCheckMemoryCard[];
 extern void *TCheckMemoryCard__name;
 
-void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TCheckMemoryCard;
-    *(void **)((s8 *)arg0 + 0x0) = TCheckMemoryCard__name;
-    *(void **)((s8 *)arg0 + 0x48) = arg2;
-    *(void **)((s8 *)arg0 + 0x1C) = arg4;
-    *(void **)((s8 *)arg0 + 0x4C) = arg3;
-    ((TWindowSubComCard *)arg0)->reset();
-    return arg0;
 }
+TCheckMemoryCard::TCheckMemoryCard(TObject *arg1, void *arg2, void *arg3, void *arg4) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = TCheckMemoryCard__name;
+    *(void **)((s8 *)this + 0x48) = arg2;
+    *(void **)((s8 *)this + 0x1C) = arg4;
+    *(void **)((s8 *)this + 0x4C) = arg3;
+    ((TWindowSubComCard *)this)->reset();
+}
+extern "C" {
 
 void *TCheckMemoryCard::create(void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x250);
     if (o != NULL) {
-        o = TCheckMemoryCard__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(1));
+        o = __ct__16TCheckMemoryCardFP7TObjectPvPvPv((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(1));
     }
     return o;
 }

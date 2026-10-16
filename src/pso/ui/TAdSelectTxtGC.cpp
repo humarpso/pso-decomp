@@ -56,7 +56,7 @@ extern "C" {
 void TAdSelectTxtGC__sub_802A16A8(void* p);
 s32 TAdSelectTxtGC__sub_802A16C0(void* p);
 void TLobby__sub_802A1918(void);
-void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg2, void *arg3);
+void *__ct__14TAdSelectTxtGCFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void TLobby__sub_803DA16C(void*);
 void __ct__7TObjectFP7TObject(void *);
 
@@ -112,13 +112,12 @@ void TAdSelectTxtGC::init_slot_entries(void *arg1_arg, void *arg2) {
     }
 }
 
-void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg1_arg, void *arg3) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdSelectTxtGC;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3D88;
-    ((TAdSelectTxtGC *)arg0)->init_slot_entries((Src_802A1838 *)(arg1_arg), (void *)(arg3));
-    return arg0;
 }
+TAdSelectTxtGC::TAdSelectTxtGC(TObject *arg1, void *arg1_arg, void *arg3) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = lbl_805D3D88;
+    this->init_slot_entries((Src_802A1838 *)(arg1_arg), (void *)(arg3));
+}
+extern "C" {
 
 extern u32 ad_select_text_texture_handle;
 

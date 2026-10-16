@@ -55,7 +55,7 @@ s32 is_script_controlled__10TObjPlayerFv();
 u8 *get_player_by_client_id(s32);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
-u8 *destroy_quest_party_area(u8 *arg0, s16 arg1);
+u8 *__dt__13TUnk_804F07C8Fv(u8 *arg0, s16 arg1);
 s32 obj_isState3_324(int);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s32, void *);
 u8 *get_player_by_client_id(s32);
@@ -78,7 +78,7 @@ typedef struct VObj_18_dac7f3 VObj_18_dac7f3;
 #pragma opt_pointer_analysis on
 typedef char RecoveredGlobal_8034DC24_lbl_804F07C8_size[((sizeof(RecoveredGlobal_8034DC24_lbl_804F07C8)) == 0x18) ? (1) : (-1)];
 #define PSO_VCALL_VObj_18_dac7f3_m0(_self, _arg0) (((VObj_18_dac7f3 *)(_self))->m0((_arg0)))
-u8 *destroy_quest_party_area(u8 *arg0, s16 arg1) {
+u8 *__dt__13TUnk_804F07C8Fv(u8 *arg0, s16 arg1) {
   s32 var_r31;
   u8 *temp_r3;
   if (arg0 != 0)

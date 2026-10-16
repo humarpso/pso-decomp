@@ -394,7 +394,7 @@ void __dt__11TObjMapWarpFv(void *, int);
 s32 TObjMapWarp__ct();
 s32 TObjWarpBase__vt13(s32);
 void * find_warp_player_in_range(void *, u16, f32);
-u8 * TObjWarpBase__vt0(void *, s16);
+u8 * __dt__12TObjWarpBaseFv(void *, s16);
 s32 TObjWarpBase__ct();
 s32 TAdStorySelectGC__sub_8019DC14();
 s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
@@ -1303,7 +1303,7 @@ u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1) {
             *(u8 **)((s8 *)arg0 + 0xC0) = NULL;
         }
         ((VObj_18_26c409 *)(arg0))->m12();
-        TObjWarpBase__vt0(arg0, 0);
+        __dt__12TObjWarpBaseFv(arg0, 0);
         if (arg1 > 0) {
             ((s32 (*)(void *))__dl__7TObjectFPv)((void *) (arg0));
         }

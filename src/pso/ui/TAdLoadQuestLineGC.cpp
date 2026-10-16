@@ -5,14 +5,14 @@
 
 extern "C" {
 s32 __nw__7TObjectFUl(int);
-void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__18TAdLoadQuestLineGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 extern TAdLoadQuestLineGC *ad_load_quest_line_instances[3];
 s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__18TAdLoadQuestLineGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 
 void __ct__7TObjectFP7TObject(void *);
 s32 init_quest_line_draw_colors();
@@ -56,14 +56,13 @@ extern "C" {
 extern s32 __vt__18TAdLoadQuestLineGC[];
 extern void *lbl_805D4300;
 
-void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdLoadQuestLineGC;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D4300;
-    *(void **)((s8 *)arg0 + 0x1C) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x20) = -1;
-    return arg0;
 }
+TAdLoadQuestLineGC::TAdLoadQuestLineGC(TObject *arg1, void *arg2) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = lbl_805D4300;
+    *(void **)((s8 *)this + 0x1C) = arg2;
+    *(u32 *)((s8 *)this + 0x20) = -1;
+}
+extern "C" {
 s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
     s32 temp_r3;
@@ -73,7 +72,7 @@ s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
         temp_r3 = __nw__7TObjectFUl((int) (0x24));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = ((s32)TAdLoadQuestLineGC__ct((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1))));
+            var_r0 = ((s32)__ct__18TAdLoadQuestLineGCFP7TObjectPv((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1))));
         }
         *(s32 *)((s8 *)((s32 *)ad_load_quest_line_instances) + temp_r30) = var_r0;
     }

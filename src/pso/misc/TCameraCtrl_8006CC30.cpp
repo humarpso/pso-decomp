@@ -343,7 +343,7 @@ s32 get_player_by_client_id(u32);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3);
-int TCameraCtrl__sub_80068714(void);
+int __ct__13TUnk_80488A28Fv(void);
 void TCameraCtrl__sub_8006E804(void* a0);
 s32 get_player_by_client_id(u32);
 extern s32 follow_camera_vtable[];
@@ -421,8 +421,8 @@ s32 TCameraCtrl__sub_8006E7FC(void* p);
 void TCameraCtrl__sub_8006E804(void* a0);
 void *TCameraCtrl__vt0(void);
 s32 is_flag_set__11TCameraCtrlFv(void);
-void TCameraCtrl__sub_800686BC(void *, int);
-int TCameraCtrl__sub_80068714(void);
+void __dt__13TUnk_80488A28Fv(void *, int);
+int __ct__13TUnk_80488A28Fv(void);
 void *TKeyBoardControl__sub_803DEB74(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -1159,7 +1159,7 @@ void *TCameraCtrl::deleting_dtor(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = follow_camera_vtable;
         *(s32 *)((s8 *)this + 0x1C) = 0;
         *(s32 *)&this->unk_100 = 0;
-        TCameraCtrl__sub_800686BC(this, 0);
+        __dt__13TUnk_80488A28Fv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -1170,7 +1170,7 @@ void *TCameraCtrl::deleting_dtor(s16 arg1) {
 #define O_8006E714 ((Obj_8006E714 *)arg0)
 void *TCameraCtrl::construct_view_controller(void *arg0) {
     s32 i;
-    TCameraCtrl__sub_80068714();
+    __ct__13TUnk_80488A28Fv();
     O_8006E714->vt = ((u8 *)&follow_camera_vtable);
     TCameraCtrl__override_flags = 0;
     TCameraCtrl__camera_override_client_id = 0xFFFF;

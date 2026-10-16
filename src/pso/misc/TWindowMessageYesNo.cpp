@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowMessageYesNo.h"
+#include "pso/misc/TWindowMessageYesNo.h"
+#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubShortMail.h"
@@ -9,12 +11,12 @@
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void *TWindowMessageYesNo__ct(void *, void *, void *, void *, void *);
+void *__ct__19TWindowMessageYesNoFP7TObjectPvPvPv(void *, void *, void *, void *, void *);
 }
 
 extern "C" {
 
-void *TWindowMessageYesNo__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+void *__ct__19TWindowMessageYesNoFP7TObjectPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -29,10 +31,7 @@ extern s32 __vt__19TWindowMessageYesNo[];
 
 void *TWindowMessageYesNo::create(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
-    o = __nw__7TObjectFUl(0x30);
-    if (o != NULL) {
-        o = TWindowMessageYesNo__ct(o, arg0, arg1, arg2, arg3);
-    }
+    o = new TWindowMessageYesNo((TObject *)arg0, (void *)arg1, (void *)arg2, (void *)arg3);
     return o;
 }
 
@@ -52,16 +51,15 @@ void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1) {
 extern s32 __vt__19TWindowMessageYesNo[];
 extern void *TWindowMessageYesNo__name;
 
-void *TWindowMessageYesNo__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowMessageYesNo;
-    *(void **)((s8 *)arg0 + 0x0) = TWindowMessageYesNo__name;
-    *(void **)((s8 *)arg0 + 0x24) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(void **)((s8 *)arg0 + 0x20) = arg3;
-    *(void **)((s8 *)arg0 + 0x1C) = arg4;
-    return arg0;
 }
+TWindowMessageYesNo::TWindowMessageYesNo(TObject *arg1, void *arg2, void *arg3, void *arg4) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = TWindowMessageYesNo__name;
+    *(void **)((s8 *)this + 0x24) = arg2;
+    *(u32 *)((s8 *)this + 0x28) = 0;
+    *(u32 *)((s8 *)this + 0x2C) = 0;
+    *(void **)((s8 *)this + 0x20) = arg3;
+    *(void **)((s8 *)this + 0x1C) = arg4;
+}
+extern "C" {
 
 }

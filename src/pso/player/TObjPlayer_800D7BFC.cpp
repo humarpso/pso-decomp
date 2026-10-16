@@ -10,8 +10,8 @@ struct VObj_800D7BFC : Base_800D7BFC {
 
 extern "C" {
 
-void *TObjPlayer__sub_800D7C58(void *arg0, s16 arg1);
-s32 TObjPlayer__sub_800D96D0(s32, s32 *);
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
+s32 __dt__13TUnk_80494AE0Fv(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
 int set_chunk_blend(int);
 s32 __dl__FPv(void *);
@@ -26,10 +26,10 @@ void TObjPlayer::init_effect_9472() { TObjPlayer::set_flags_and_apply_damage_col
 
 extern s32 lbl_804949A8[];
 
-void *TObjPlayer__sub_800D7C58(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_804949A8;
-        TObjPlayer__sub_800D96D0((s32)arg0, 0);
+        __dt__13TUnk_80494AE0Fv((s32)arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

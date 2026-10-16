@@ -46,7 +46,7 @@ struct VtObj8032C1C8_8032C188 : VtBase8032C1C8_8032C188 {
 };
 
 void *TAdYesNoBaseGC__ct(void *arg0);
-void *TAdYesNoBaseGC__vt0(void *arg0, s16 arg1);
+void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(void *);
@@ -149,7 +149,7 @@ void TAdYesNoBaseGC::vfunc_11() {
 
 extern s32 __vt__14TAdYesNoBaseGC[];
 
-void *TAdYesNoBaseGC__vt0(void *arg0, s16 arg1) {
+void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdYesNoBaseGC;
         if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)((s8 *)arg0 + 0x40) = 0; }

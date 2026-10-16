@@ -37,7 +37,7 @@ extern "C" {
 
 s32 TWindowDD__sub_80340820(void* p);
 void TWindowDD__sub_80340910(void* p);
-void *TWindowDD__sub_8034094C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804EFBACFv(void *arg0, s16 arg1);
 void update_draw__9TWindowDDFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -177,7 +177,7 @@ void *TWindowDD__layout_constants[5] = {
     (void *)0x3,
 };
 void *lbl_804EFBAC[7] = {
-    (void *)0x0, (void *)0x0, (void *)&TWindowDD__sub_8034094C, (void *)&update_draw__9TWindowDDFPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804EFBACFv, (void *)&update_draw__9TWindowDDFPv,
     (void *)&TWindowDD__sub_8034055C, (void *)&render_shadows__7TObjectFv, (void *)0x0,
 };
 #define TWindowDD__layout_constant_pair ((f32 *)TWindowDD__layout_constant_pair)
@@ -199,7 +199,7 @@ void TWindowDD::set_clamped_selection(s32 arg1) {
     *(s32 *)&this->m_7c = 0;
 }
 
-void *TWindowDD__sub_8034094C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804EFBACFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFBAC;
         ((TWindowDD *)arg0)->destroy_window_base(0);

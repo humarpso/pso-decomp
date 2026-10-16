@@ -41,7 +41,7 @@ extern "C" {
 void TObjEneBalClawClaw__sub_8008DC14(void);
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void TObjPlayer__sub_800A05B8(void *, int);
+void __dt__13TUnk_80490470Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 
@@ -139,7 +139,7 @@ extern s32 __vt__14TObjEneBalClaw[];
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEneBalClaw;
-        TObjPlayer__sub_800A05B8((s8 *)arg0 + 0x390, -1);
+        __dt__13TUnk_80490470Fv((s8 *)arg0 + 0x390, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

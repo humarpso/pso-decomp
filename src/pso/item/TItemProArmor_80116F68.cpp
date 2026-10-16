@@ -23,8 +23,8 @@ void technique_disk_apply_use(s32 arg0);
 
 extern "C" {
 
-void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1);
-void *TItemProArmor__sub_80117160(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049FC90Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049FD48Fv(void *arg0, s16 arg1);
 void TItemObject__ct(void *);
 u8 get_tool_pmt_amount_byte__11TItemObjectFv();
 s32 launch_technique__10TObjPlayerFv(s32, s32, s32);
@@ -63,7 +63,7 @@ void technique_disk_apply_use(s32 arg0) {
   set_item_owner_technique_level((void *) arg0, (void *) ((s16) (((TItemObject *)arg0)->sub_80115D7C() & 0xFF)), (int) ((s16) (temp_r31 & 0xFFFFFFFFu)));
 }
 
-void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049FC90Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FC90;
         __dt__11TItemObjectFv(arg0, 0);
@@ -99,7 +99,7 @@ void TUnk_8049FD48::vfunc_44() {
 
 extern s32 lbl_8049FD48[];
 
-void *TItemProArmor__sub_80117160(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049FD48Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FD48;
         __dt__11TItemObjectFv(arg0, 0);

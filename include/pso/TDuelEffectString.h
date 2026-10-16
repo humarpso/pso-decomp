@@ -5,6 +5,7 @@
 
 class TDuelEffectString : public TObject {
 public:
+    TDuelEffectString(TObject *arg1, void *arg2, void *arg3);
     virtual ~TDuelEffectString();
     virtual void run_task();
     virtual void render();

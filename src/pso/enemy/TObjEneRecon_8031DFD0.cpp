@@ -223,12 +223,12 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void obj_setFlags30(void *, u32);
 void queue_destruction__7TObjectFv(void *);
 u8 * create_particle_emitter(void *, s32);
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, void *, int, void *);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 find_entity_by_id(int);
 void free_collision_body_parts(void *);
@@ -515,8 +515,8 @@ void *__dt__12TObjEneReconFv(void *arg0, s16 arg1) {
         ((TObjEnemy *)arg0)->send_entity_set_flags();
         free_collision_body_parts(arg0);
         if (*(void **)((s8 *)arg0 + 0x478) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x478)); *(s32 *)((s8 *)arg0 + 0x478) = 0; }
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x480, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x480, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

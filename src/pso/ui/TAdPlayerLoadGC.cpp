@@ -49,21 +49,21 @@ Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self);
 
 extern "C" {
 
-void *TAdPlayerLoadGC__sub_802D655C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E24F0Fv(void *arg0, s16 arg1);
 void *__ct__15TAdPlayerLoadGCFv(void *arg0, void *arg1, void *arg2);
 int get_player_load_state(void);
 void set_character_select_b_slot_state(int a0);
 void render__15TAdPlayerLoadGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
+void __dt__11TItemWeaponFv(void *, int);
 void set_state__15TAdPlayerLoadGCFi(int);
 
 extern s32 lbl_804E24F0[];
 
-void *TAdPlayerLoadGC__sub_802D655C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E24F0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E24F0;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

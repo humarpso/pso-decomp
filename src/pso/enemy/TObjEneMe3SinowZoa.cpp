@@ -1001,7 +1001,7 @@ void spawn_particle_effect(void *, int);
 s32 get_field_d8__10TObjPlayerFv();
 s32 enemy_turn_and_move_on_ground(void *, int, f32);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
-void __dt__9TObjEneDDFv(void *, int);
+void __dt__12TObjEneDD_STFv(void *, int);
 s32 check_v2_mode__9TObjEneDDFv(s32, s32);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
@@ -1012,7 +1012,7 @@ s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 s32 transition_enemy_state(void *, int);
 s32 TObjEneMe3SinowZoa__sub_800D72A4(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 s32 TBoss3Volopt__sub_800D8D88(void *, f32);
 f32 * TBoss3Volopt__sub_800F059C(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -4251,8 +4251,8 @@ void *__dt__18TObjEneMe3SinowZoaFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0x454) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x454)); *(s32 *)((s8 *)arg0 + 0x454) = 0; }
         if (*(void **)((s8 *)arg0 + 0x458) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x458)); *(s32 *)((s8 *)arg0 + 0x458) = 0; }
         free_collision_body_parts(arg0);
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x414, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x414, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -11,7 +11,7 @@ void TObjLight__updateSupportTechniqueCharge(TechniqueChargeEmitter* state);
 
 extern "C" {
 
-void *destroy_support_technique_charge_effect(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CCAC8Fv(void *arg0, s16 arg1);
 u8 *init_6e6c__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
 void stop_sound_request(void *);
@@ -31,7 +31,7 @@ void TObjLight__updateSupportTechniqueCharge(TechniqueChargeEmitter* state) {
     else if(state->age>=180)queue_destruction__7TObjectFv(state);
 }
 
-void *destroy_support_technique_charge_effect(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804CCAC8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCAC8;
         stop_sound_request(*(void **)((s8 *)arg0 + 0x30));

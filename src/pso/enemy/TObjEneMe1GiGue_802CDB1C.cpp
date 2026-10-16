@@ -91,7 +91,7 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0);
 
 extern "C" {
 
-void *TObjPlayer__sub_802CDE28(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E14E8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 
@@ -180,7 +180,7 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
 #undef self
 #pragma pop
 
-void *TObjPlayer__sub_802CDE28(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E14E8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E14E8;
         if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); *(s32 *)((s8 *)arg0 + 0xF8) = 0; }

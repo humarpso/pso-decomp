@@ -132,9 +132,9 @@ Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D831
 
 extern "C" {
 
-void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1);
-void *TDeadSpot__sub_800D7F08(void *arg0, s16 arg1);
-void *TDeadSpot__sub_800D808C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804949D8Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804949F4Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_80494A10Fv(void *arg0, s16 arg1);
 void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4);
 void render__9TDeadSpotFv(u8 *arg0);
 void update_lifetime__9TDeadSpotFPv(void *arg0);
@@ -171,10 +171,10 @@ void TUnk_804949D8::vfunc_6() {
 }
 #pragma pop
 
-void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804949D8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804949D8;
-        TDeadSpot__sub_800D7F08((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804949F4Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -221,7 +221,7 @@ void TUnk_804949F4::vfunc_6() {
   ((TNowLoading *)(*((s32 *) (((s8 *) arg0) + 0x34))))->copy_pos((void *) (&stack.sp8));
 }
 
-void *TDeadSpot__sub_800D7F08(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804949F4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804949F4;
         __dt__7TObjectFv(arg0, 0);
@@ -273,7 +273,7 @@ void update_fade_in_alpha__9TDeadSpotFPv(Obj_800D7FD4 *arg0) {
     }
 }
 
-void *TDeadSpot__sub_800D808C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80494A10Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494A10;
         __dt__9TDeadSpotFv(arg0, 0);

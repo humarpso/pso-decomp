@@ -588,7 +588,7 @@ void *fn_800480B0(void *, void *, void *);
 extern void *tl_04;
 void *TBoss3Volopt__sub_80047DD4(void *arg0);
 void free_collision_body_parts(void *);
-void TObjPlayer__sub_800D7C58(void *, int);
+void __dt__13TUnk_804949A8Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -1902,7 +1902,7 @@ void *TUnk_80484610::destroy(s16 arg1) {
         if (this->m_478 != NULL) { queue_destruction__7TObjectFv(this->m_478); }
         destroy_children__12TBoss3VoloptFPv((void *)(this));
         destroy_sub_objects__12TBoss3VoloptFPv((void *)(this));
-        TObjPlayer__sub_800D7C58((s8 *)this + 0x490, -1);
+        __dt__13TUnk_804949A8Fv((s8 *)this + 0x490, -1);
         __dt__15TObjEnemyCustomFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

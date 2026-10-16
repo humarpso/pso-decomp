@@ -136,8 +136,8 @@ extern s32 boss8_dragon_attack_object_vtable[];
 
 extern "C" {
 
-void *TBoss8Dragon__sub_80359D6C(void *arg0, s16 arg1);
-void __dt__12TBoss8DragonFPvs(void *, int);
+void *__dt__13TUnk_804F1A78Fv(void *arg0, s16 arg1);
+void __dt__12TBoss8DragonFv(void *, int);
 void __dl__7TObjectFPv(void *);
 
 extern s32 boss8_dragon_attack_object_vtable[];
@@ -221,10 +221,10 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
     project_sound_origin_from_camera((void *) (arg0 + 0x38), (void *) (arg0 + 0x634), (f32) (lbl_805E00B4));
 }
 
-void *TBoss8Dragon__sub_80359D6C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F1A78Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = boss8_dragon_attack_object_vtable;
-        __dt__12TBoss8DragonFPvs(arg0, 0);
+        __dt__12TBoss8DragonFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

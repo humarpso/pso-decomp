@@ -86,7 +86,7 @@ extern const f32 lbl_805D88A8;
 
 extern "C" {
 
-void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1);
+void *__dt__13TUnk_80484AFCFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
@@ -143,7 +143,7 @@ void TUnk_80484AFC::run_task() {
     play_persistent_sound(0x4003C114, self, &self->pos, 0, 0);
 }
 
-void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80484AFCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484AFC;
         free_collision_body_parts(arg0);

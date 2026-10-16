@@ -52,7 +52,7 @@ void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);
 void __ct__10TAdTitleGCFv(void *, void *, s32);
-void __ct__14TAdSelectTxtGCFv(void *, void *, void *, s32);
+void __ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
@@ -162,13 +162,13 @@ Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
     {
         Txt_802FFE58 txt = multi_chg_game_mode_text_layout;
         if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-            __ct__14TAdSelectTxtGCFv(p, self, &txt.v[0], 0xC);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &txt.v[0], 0xC);
         }
         if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-            __ct__14TAdSelectTxtGCFv(p, self, &txt.v[3], 0xD);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &txt.v[3], 0xD);
         }
         if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-            __ct__14TAdSelectTxtGCFv(p, self, &txt.v[6], 0xE);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &txt.v[6], 0xE);
         }
         if ((p = __nw__7TObjectFUl(0x9C)) != NULL) {
             __ct__13TAdTitleTexGCFv(p, self);

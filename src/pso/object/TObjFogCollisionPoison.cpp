@@ -48,7 +48,7 @@ void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
-u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1);
+u8 *__dt__24TObjFogCollision_ManagerFv(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 void vfunc_14__22TObjFogCollisionSwitchFv(void *self);
 void debug_printf_at(s32 id, const char *fmt, ...);
@@ -66,7 +66,7 @@ void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
 
 extern "C" {
 
-void *TObjFogCollisionPoison__sub_8015302C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804AF7B0Fv(void *arg0, s16 arg1);
 void TObjFogCollisionPoison__sub_801533BC(void);
 u8 is_current_floor_switch_set(u16);
 s32 sub_80153A0C__22TObjFogCollisionSwitchFv();
@@ -77,7 +77,7 @@ s32 is_split_screen();
 
 extern s32 lbl_804AF7B0[];
 
-void *TObjFogCollisionPoison__sub_8015302C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804AF7B0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804AF7B0;
         __dt__7TObjectFv(arg0, 0);
@@ -170,7 +170,7 @@ typedef char RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430_size
 
 typedef char RecoveredGlobal_80153258_lbl_804AF7C8_size[sizeof(RecoveredGlobal_80153258_lbl_804AF7C8) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430_size[sizeof(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430) == 0x30 ? 1 : -1];
-u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1) {
+u8 *__dt__24TObjFogCollision_ManagerFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80153258_lbl_804AF7C8 *)&lbl_804AF7C8).value;
         *(s32 *)((s8 *)(&(*(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__instances).value) + (*(s32 *)((s8 *)arg0 + 0x28) * 4)) = 0;

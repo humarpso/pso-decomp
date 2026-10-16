@@ -4,18 +4,18 @@
 
 extern "C" {
 
-void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 void TObjEneDD__ct(void *);
-void TObjEneDD__vt0(void *, int);
+void __dt__9TObjEneDDFv(void *, int);
 void __dl__7TObjectFPv(void *);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
 
 extern s32 lbl_80492558[];
 
-void *__dt__9TObjEneDDFv(void *arg0, s16 arg1) {
+void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80492558;
-        TObjEneDD__vt0(arg0, 0);
+        __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

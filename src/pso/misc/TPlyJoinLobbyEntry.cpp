@@ -502,14 +502,14 @@ typedef struct Server_801399B8 {
 extern u8 lbl_8043EDA0[];
 extern u8 lbl_8043EDC0[];
 extern u8 lbl_8043EDD4[];
-void TLobby__sub_801349C8();
+void __dt__13TUnk_804A7008Fv();
 void update_idle_timeout__6TLobbyFPv();
 void TLobby__sub_8013A2DC();
 void render_shadows__7TObjectFv();
 Server_801399B8 join_lobby_server_table[2] = { { lbl_8043EDA0, 0x238F }, { lbl_8043EDA0, 0x238F } };
 Server_801399B8 lbl_804A6FE8[2] = { { lbl_8043EDC0, 0x238C }, { lbl_8043EDC0, 0x238C } };
 Server_801399B8 lbl_804A6FF8[2] = { { lbl_8043EDD4, 0x2329 }, { lbl_8043EDD4, 0x2329 } };
-void *lbl_804A7008[6] = { 0, 0, (void *)TLobby__sub_801349C8, (void *)update_idle_timeout__6TLobbyFPv, (void *)TLobby__sub_8013A2DC, (void *)render_shadows__7TObjectFv };
+void *lbl_804A7008[6] = { 0, 0, (void *)__dt__13TUnk_804A7008Fv, (void *)update_idle_timeout__6TLobbyFPv, (void *)TLobby__sub_8013A2DC, (void *)render_shadows__7TObjectFv };
 }
 }
 u32 TLobby__join_entries_dtor_registration[3];

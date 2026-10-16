@@ -50,10 +50,10 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon);
 
 extern "C" {
 
-void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1);
+void *__dt__13TUnk_804ECDC0Fv(void *arg0, s16 arg1);
 int fn_80325F7C(void*);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
-void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1);
+void __dt__11TItemWeaponFv(void *, int);
+void *__dt__13TUnk_804ECDC0Fv(void *arg0, s16 arg1);
 
 void TBoss5GryphonLightningHorn::render() {  }
 void TBoss5GryphonLightningHorn::run_task() { rebuild_lightning_segments(); fn_80325F7C(this); spawn_gryphon_lightning(); }
@@ -121,10 +121,10 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon) {
 }
 typedef char RecoveredGlobal_8012DBF4_lbl_804A5B20_size[sizeof(RecoveredGlobal_8012DBF4_lbl_804A5B20) == 0xF8 ? 1 : -1];
 
-void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804ECDC0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ECDC0;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

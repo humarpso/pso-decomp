@@ -3,7 +3,7 @@
 
 extern "C" {
 
-void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1);
+void *__dt__13TUnk_8049F3F4Fv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 free_texture_if_valid(void *, void *);
@@ -12,7 +12,7 @@ extern s32 lbl_8049F3F4[];
 extern s32 item_texture_archive_loader;
 extern s32 item_model_chunk_loader;
 
-void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049F3F4Fv(void *arg0, s16 arg1) {
     s32 temp_r0;
     void **temp_r3;
 

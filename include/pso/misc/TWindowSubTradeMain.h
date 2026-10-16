@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TWindowSubTradeMain : public TObject {
+    TWindowSubTradeMain(TObject *arg1, void *arg2);
     virtual ~TWindowSubTradeMain();
     u8 *open_confirm_prompt();
     s32 create_trade_window();

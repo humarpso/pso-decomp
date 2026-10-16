@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowSubLog.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/ui/TAdScrollWinGC.h"
@@ -42,7 +43,7 @@ extern const f32 lbl_805DD640;
 extern const f32 lbl_805DD644;
 void *__nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *, void *);
-void *TWindowChat__ct(void *, void *, void *);
+void *__ct__11TWindowChatFP7TObjectPv(void *, void *, void *);
 void TWindowCtrl__sub_8024ADAC(void *);
 s32 create_message_log_window(void *, void *, void *);
 int fn_8027B288(void* p);
@@ -130,10 +131,7 @@ Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2) {
     fn_8027B288((void*)(arg0->f20));
     ((TWindowSubLog *)(arg0->f20))->set_flag4c_bit8();
     arg0->f24 = create_message_log_window(lbl_8044F9C8, lbl_8044F9D0, arg0->f1c);
-    w = __nw__7TObjectFUl(0x3C);
-    if (w != NULL) {
-        w = TWindowChat__ct(w, arg0, arg0->f2c);
-    }
+    w = new TWindowChat((TObject *)arg0, (void *)arg0->f2c);
     arg0->f28 = w;
     fn_8027B2A8((void*)(arg0->f28));
     return arg0;

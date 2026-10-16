@@ -10,7 +10,7 @@ struct Args_8029ACF8 { void *a; void *b; s32 c; s32 d; };
 
 extern "C" {
 void *fn_8029AE88(void *arg0);
-void * __ct__12TChCrEffWallFv(void *, void * = 0);
+void * __ct__12TChCrEffWallFP7TObject(void *, void * = 0);
 void *__nw__7TObjectFUl(int);
 void * fn_8029AE88(void *arg0);
 void TCameraCtrl__sub_80068EF0(void);
@@ -68,16 +68,15 @@ void TChCrEffWall::render() {
 }
 
 TChCrEffWall::~TChCrEffWall() {}
-void *__ct__12TChCrEffWallFv(void *arg0, void * _w1) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TChCrEffWall;
-    *(void **)((s8 *)arg0 + 0x0) = TChCrEffWall__name;
-    return arg0;
 }
+TChCrEffWall::TChCrEffWall(TObject *_w1) : TObject(_w1) {
+    *(void **)((s8 *)this + 0x0) = TChCrEffWall__name;
+}
+extern "C" {
 void *fn_8029AE88(void *arg0) {
     void *o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
-        o = __ct__12TChCrEffWallFv((void *)(o), (void *)(arg0));
+        o = __ct__12TChCrEffWallFP7TObject((void *)(o), (void *)(arg0));
     }
     return o;
 }

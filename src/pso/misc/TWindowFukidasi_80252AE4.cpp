@@ -7,13 +7,13 @@
 
 extern "C" {
 
-u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1);
+u8 *__dt__13TUnk_804CF0B8Fv(u8 *arg0, s16 arg1);
 s32 mem_free(void *);
 s32 __dl__7TObjectFPv(void *);
 
 extern s32 lbl_804CF0B8[];
 
-u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1) {
+u8 *__dt__13TUnk_804CF0B8Fv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CF0B8;
         if (((TUnk_804CF0B8 *)arg0)->is_flag_set() != 0) {

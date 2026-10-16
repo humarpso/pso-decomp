@@ -63,7 +63,7 @@ s32 is_slot_state_one__16TAdChrSelBSlotGCFlUl(s32, s32);
 s32 create_confirm_window__22TAdMultiPlyChrSelectGCFv(void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
-u32 __ct__9TAdFadeGCFv(u32, s32, s32);
+u32 __ct__9TAdFadeGCFP7TObjectPv(u32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
 u32 TAdSinglePlyChrSelectGC__sub_801FE3E4(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
@@ -148,7 +148,7 @@ void TAdMultiPlyChrSelectGC::update_select() {
             }
             var_r0 = __nw__7TObjectFUl(0x38);
             if (var_r0 != 0U) {
-                var_r0 = __ct__9TAdFadeGCFv(var_r0, tl_fade, 0);
+                var_r0 = __ct__9TAdFadeGCFP7TObjectPv(var_r0, tl_fade, 0);
             }
             this->m_74 = var_r0;
             *(u32 *)&this->m_8c = TAdChrSelASlotGC::open_yes_no_window((s32)(*(u32 *)&this->unk_68), (s32)lbl_80472860, (s32)(get_instance__22TAdMultiPlyChrSelectGCFv(this->m_5c)));

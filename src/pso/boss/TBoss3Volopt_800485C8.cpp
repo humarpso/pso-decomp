@@ -43,7 +43,7 @@ void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0);
 extern "C" {
 
 void TBoss3Volopt__sub_800485C8(void);
-void *TBoss3Volopt__sub_80048804(void *arg0, s16 arg1);
+void *__dt__13TUnk_80484888Fv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -98,7 +98,7 @@ void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0) {
 }
 #pragma pop
 
-void *TBoss3Volopt__sub_80048804(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80484888Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484888;
         __dt__7TObjectFv(arg0, 0);
@@ -165,14 +165,14 @@ extern const f32 lbl_805D8858;
 
 extern "C" {
 
-void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1);
-void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1);
+void *__dt__13TUnk_804848A0Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804848B8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_804848A0[];
 
-void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804848A0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848A0;
         ((TUnk_804999E8 *)arg0)->destroy_task_object((s16)(0));
@@ -233,7 +233,7 @@ void TBoss3Volopt::update_fade_out() {
 }
 #pragma pop
 
-void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804848B8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848B8;
         ((TUnk_804999E8 *)arg0)->destroy_task_object((s16)(0));

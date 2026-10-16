@@ -272,7 +272,7 @@ void init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 void * __nw__7TObjectFUl(int);
 void __construct_array(void *, void *, void *, int, int);
-void TObjPlayer__sub_800D7C58(void);
+void __dt__13TUnk_804949A8Fv(void);
 void init_and_activate__10TObjPlayerFv(void);
 extern s32 lbl_805D3F60;
 extern s32 gibbles_boss_stat_handle;
@@ -2624,7 +2624,7 @@ void TObjEneGibbles::load_resources() {
     TLobby::spawn_npc_enemy((s16)0x44, (s32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneGibbles__resource_bundle + 0x42C)) + 8)), (s32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneGibbles__resource_bundle + 0x42C)) + 0xC)), (s32)(&s), (f32)(((f32 *)lbl_804E296C)[3]), (f32)TObjEneGibbles__data_805DE7E4);
 }
 
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__13TUnk_80494938Fv(void *, int);
 void __dt__9TObjEnemyFv(void *, int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -2660,8 +2660,8 @@ Gib_802DB920 *TObjEneGibbles__sub_802DB920(Gib_802DB920 *self, s16 arg1) {
             self->p3b8 = NULL;
         }
         free_collision_body_parts(self);
-        __destroy_arr((u8 *)self + 0x3DC, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
-        __dt__18TObjEneMe3SinowZoaFPvs((u8 *)self + 0x3C0, -1);
+        __destroy_arr((u8 *)self + 0x3DC, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__13TUnk_80494938Fv((u8 *)self + 0x3C0, -1);
         __dt__9TObjEnemyFv(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
@@ -2676,7 +2676,7 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *parent, s32 arg2) {
     ((TObjEnemy *)arg0)->initialize(parent);
     *(void **)((s8 *)arg0 + 0x18) = (void *)lbl_804E29F0;
     ((TUnk_80494938 *)(arg0 + 0x3C0))->init_common();
-    __construct_array(arg0 + 0x3DC, (void *)init_and_activate__10TObjPlayerFv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(arg0 + 0x3DC, (void *)init_and_activate__10TObjPlayerFv, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F60;
     ((VObj_18_802DBA18 *)arg0)->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();

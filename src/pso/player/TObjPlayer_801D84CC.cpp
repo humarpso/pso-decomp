@@ -378,7 +378,7 @@ extern RecoveredGlobal_801D8FB4_lbl_804C495C photon_blast_motion_timing_tables;
 extern "C" {
 
 s32 TBoss4DarkFalz__sub_801D94C0(void* p);
-void *TObjPlayer__sub_801D89E0(void *arg0, s16 arg1);
+void *__dt__13TUnk_804C4540Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_801D8A38(void* a0);
 void TObjPlayer__sub_801D92A4(void);
 void create_player_ending_motion(void);
@@ -419,7 +419,7 @@ Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *pare
     return self;
 }
 
-void *TObjPlayer__sub_801D89E0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804C4540Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = ending_sequence_player_vtable;
         __dt__10TObjPlayerFv(arg0, 0);

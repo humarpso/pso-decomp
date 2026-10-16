@@ -56,7 +56,7 @@ void free_collision_body_parts(void *);
 Ctrl_801910F4 *get_player_by_client_id(u32);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
-Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1);
+Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1);
 int queue_destruction__7TObjectFv(void*);
 f32 horizontal_distance_squared(void *, void *);
 void set_indexed_flags(void *, s32, s32);
@@ -162,7 +162,7 @@ void TUnk_804B7C1C::run_task() {
     }
 }
 
-Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
+Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         arg0->f18 = ((u8 *)&lbl_804B7C1C);
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();

@@ -45,7 +45,7 @@ s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
 s32 obj_testFlags30(s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
-extern "C" void __dt__11TMainCursorFPvs();
+extern "C" void __dt__14TLOC_ListClearFv();
 extern "C" u8 lbl_8043F090[];
 extern "C" u8 lbl_8043F0A4[];
 extern "C" u8 lbl_8043F0B8[];
@@ -74,7 +74,7 @@ void *target_cursor_color_table[24] = {
     (void *)0x3f800000, (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *lbl_804A71C4[6] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__11TMainCursorFPvs, (void *)&run_task__14TLOC_ListClearFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__14TLOC_ListClearFv, (void *)&run_task__14TLOC_ListClearFv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
 

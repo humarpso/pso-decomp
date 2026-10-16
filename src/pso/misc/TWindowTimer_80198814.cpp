@@ -23,13 +23,13 @@ u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4)
 
 extern "C" {
 
-void *TWindowTimer__sub_80198814(void *arg0, s16 arg1);
+void *__dt__13TUnk_804B8DD0Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_804B8DD0[];
 
-void *TWindowTimer__sub_80198814(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804B8DD0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B8DD0;
         __dt__7TObjectFv(arg0, 0);

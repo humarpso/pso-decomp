@@ -25,7 +25,7 @@ extern const f32 lbl_805DDCCC;
 extern "C" {
 
 void TChCrEffTagStr__sub_8029AED0(void* p);
-void *__ct__14TChCrEffTagStrFv(void *arg0, void *arg1, void *arg2, void *arg3);
+void *__ct__14TChCrEffTagStrFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__7TObjectFP7TObject(void *);
 
 void TChCrEffTagStr__sub_8029AED0(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
@@ -85,15 +85,14 @@ void TChCrEffTagStr::run_task() {
 #pragma pop
 
 TChCrEffTagStr::~TChCrEffTagStr() {}
-void *__ct__14TChCrEffTagStrFv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TChCrEffTagStr;
-    *(void **)((s8 *)arg0 + 0x0) = TChCrEffTagStr__name;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
-    ((TWindowSubSymbolChatPartsSet *)((char *)arg0 + 40))->copy_vec2(arg3);
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x24) = lbl_805DDCCC;
-    return arg0;
 }
+TChCrEffTagStr::TChCrEffTagStr(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = TChCrEffTagStr__name;
+    *(void **)((s8 *)this + 0x20) = arg2;
+    ((TWindowSubSymbolChatPartsSet *)((char *)this + 40))->copy_vec2(arg3);
+    *(u32 *)((s8 *)this + 0x1C) = 0;
+    *(f32 *)((s8 *)this + 0x24) = lbl_805DDCCC;
+}
+extern "C" {
 
 }

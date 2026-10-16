@@ -70,7 +70,7 @@ void TObjEneRe7BeruraPunch__sub_800962F4(void* p);
 void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 TBoss8Dragon__sub_800BC5EC(s32, s32);
-void TObjPlayer__sub_800A05B8(void *, int);
+void __dt__13TUnk_80490470Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 s32 fill_value_array(s32);
 void queue_destruction__7TObjectFv(void *);
@@ -192,7 +192,7 @@ void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xD0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD0)); *(s32 *)((s8 *)arg0 + 0xD0) = 0; }
         if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
         if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xD8), 1); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
-        TObjPlayer__sub_800A05B8((s8 *)arg0 + 0xF8, -1);
+        __dt__13TUnk_80490470Fv((s8 *)arg0 + 0xF8, -1);
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

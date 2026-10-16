@@ -5,6 +5,7 @@
 
 class TChCrEffWall : public TObject {
 public:
+    TChCrEffWall(TObject *_w1);
     virtual ~TChCrEffWall();
     virtual void render();
 public:

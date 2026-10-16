@@ -13,7 +13,7 @@ s32 test_flags_any(void *, int);
 s32 __dl__FPv(void *);
 extern RecoveredGlobal_8010FCB4_lbl_8049F42C lbl_8049F42C;
 extern s32 item_load_work_buffer_busy;
-u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1);
+u8 *__dt__13TUnk_8049F42CFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -42,7 +42,7 @@ block_3:
     }
 }
 typedef char RecoveredGlobal_8010FCB4_lbl_8049F42C_size[sizeof(RecoveredGlobal_8010FCB4_lbl_8049F42C) == 0x10 ? 1 : -1];
-u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1) {
+u8 *__dt__13TUnk_8049F42CFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x14) = &lbl_8049F42C.value;
         if (test_flags_any((void *) (arg0 + 0x1C), (int) (4)) != 0) {

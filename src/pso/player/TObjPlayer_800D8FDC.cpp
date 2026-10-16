@@ -327,7 +327,7 @@ V_800D9718 *TObjPlayer__sub_800D9718(V_800D9718 *self);
 
 extern "C" {
 
-void *TObjPlayer__sub_800D96D0(void *arg0, s16 arg1);
+void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32, f32);
 
@@ -342,7 +342,7 @@ void TUnk_80494AE0::set_rate_from_divisor(s32 arg1) {
 
 extern s32 lbl_80494AE0[];
 
-void *TObjPlayer__sub_800D96D0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_80494AE0;
         if (arg1 > 0) {

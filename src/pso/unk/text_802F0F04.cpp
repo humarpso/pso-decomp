@@ -4,7 +4,7 @@
 extern "C" {
 
 void TObjAreaWarpForest__sub_802F0F30(void *arg0);
-void *TObjAreaWarpForest__sub_802F0F74(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E48D8Fv(void *arg0, s16 arg1);
 void TObjAreaWarpForest__ct(void *);
 s32 TObjBoss2Tunnel__sub_802F2070();
 void __dl__7TObjectFPv(void *);
@@ -22,7 +22,7 @@ void TObjAreaWarpForest__sub_802F0F30(void *arg0) {
 
 extern s32 lbl_804E48D8[];
 
-void *TObjAreaWarpForest__sub_802F0F74(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E48D8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E48D8;
         __dt__18TObjAreaWarpForestFv(arg0, 0);

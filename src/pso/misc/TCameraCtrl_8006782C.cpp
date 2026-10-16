@@ -44,7 +44,7 @@ extern const f32 lbl_805D8F4C;
 extern "C" {
 
 void *TCameraCtrl__vt12(void);
-void *__dt_deleting_2__11TCameraCtrlFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804887F8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
@@ -170,7 +170,7 @@ void TCameraCtrl::init_state() {
 
 extern s32 lbl_804887F8[];
 
-void *__dt_deleting_2__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804887F8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804887F8;
         ((TCameraCtrl *)arg0)->deleting_dtor(0);

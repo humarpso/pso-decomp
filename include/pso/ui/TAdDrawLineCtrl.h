@@ -5,6 +5,7 @@
 
 class TAdDrawLineCtrl : public TObject {
 public:
+    TAdDrawLineCtrl(TObject *arg1, void *arg2, f32 farg0);
     virtual ~TAdDrawLineCtrl();
     void set_draw_line_param_all_nodes(f32);
     void sub_80019B78(s32);

@@ -177,12 +177,12 @@ f32 post_translate_matrix(void *);
 extern RecoveredGlobal_803626A8_lbl_80479FBC lbl_80479FBC;
 extern RecoveredGlobal_803626A8_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
-u8 * __dt__9TObjEneDDFv(void *, s16);
+u8 * __dt__12TObjEneDD_STFv(void *, s16);
 s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, int, int);
-extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 __vt__14TObjEneEpsilon[];
-u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1);
+u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
 void TObjPlayer__sub_8032E648();
@@ -225,15 +225,15 @@ extern u8 *lbl_805D6FA8;
 
 extern "C" {
 
-void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F26E0Fv(void *arg0, s16 arg1);
 void *TObjEneEpsilon__ct(void *arg0);
 void construct_srank_weapon(void *);
 void __construct_array(void *, void *, void *, int, int);
-void item_equip_variant_deleting_dtor_8012A82C(void *, int);
-void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
+void __dt__13TUnk_804A4948Fv(void *, int);
+void *__dt__13TUnk_804F26E0Fv(void *arg0, s16 arg1);
 
 extern s32 __vt__14TObjEneEpsilon[];
-extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 init_and_activate__10TObjPlayerFv[];
 extern void *TObjEneEpsilon__class_name;
 
@@ -319,11 +319,11 @@ void TObjEneEpsilonGuard::load_assets() {
     }
 }
 
-u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1) {
+u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon *)&__vt__14TObjEneEpsilon).value;
-        __destroy_arr((void *) (arg0 + 0x3C0), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
-        __dt__9TObjEneDDFv(arg0, 0);
+        __destroy_arr((void *) (arg0 + 0x3C0), (void *) (&__dt__13TUnk_804949A8Fv), (int) (0x1C), (int) (4));
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -334,7 +334,7 @@ u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1) {
 void *TObjEneEpsilon__ct(void *arg0) {
     ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEneEpsilon;
-    __construct_array((void *)((char *)arg0 + 960), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
+    __construct_array((void *)((char *)arg0 + 960), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = TObjEneEpsilon__class_name;
     ((TObjEneDD *)arg0)->check_state_flag_4();
     return arg0;
@@ -383,10 +383,10 @@ u8 *create_s_rank_knuckle(u8 *arg0) {
 
 extern s32 lbl_804F26E0[];
 
-void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F26E0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F26E0;
-        item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
+        __dt__13TUnk_804A4948Fv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

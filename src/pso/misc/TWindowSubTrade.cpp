@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTrade.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowMessageYesNo.h"
@@ -41,7 +42,7 @@ extern s32 controller_input_state[];
 
 extern "C" {
 
-void *TWindowSubTrade__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__15TWindowSubTradeFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void TLobby__sub_802D2A50(void *);
 void __ct__7TObjectFP7TObject(void *);
 
@@ -152,19 +153,18 @@ u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TWindowSubTrade__ct(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TWindowSubTrade;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3EA8;
-    *(void **)((s8 *)arg0 + 0x28) = arg1;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x24) = 4;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x30) = 0;
-    *(u32 *)((s8 *)arg0 + 0x34) = 0;
-    TLobby__sub_802D2A50(arg0);
-    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
 }
+TWindowSubTrade::TWindowSubTrade(TObject *arg1, void *arg2) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = lbl_805D3EA8;
+    *(void **)((s8 *)this + 0x28) = arg1;
+    *(void **)((s8 *)this + 0x20) = arg2;
+    *(u32 *)((s8 *)this + 0x24) = 4;
+    *(u32 *)((s8 *)this + 0x2C) = 0;
+    *(u32 *)((s8 *)this + 0x30) = 0;
+    *(u32 *)((s8 *)this + 0x34) = 0;
+    TLobby__sub_802D2A50(this);
+    *(u8 *)((s8 *)this + 0x1C) = 0;
+}
+extern "C" {
 
 }

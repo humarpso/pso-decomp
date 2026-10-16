@@ -40,7 +40,7 @@ void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);
 void __ct__10TAdTitleGCFv(void *, void *, s32);
-void __ct__14TAdSelectTxtGCFv(void *, void *, void *, s32);
+void __ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
@@ -138,11 +138,11 @@ Self_802C3400 *__ct__16TAdStorySelectGCFv(Self_802C3400 *self, void *parent) {
         C_802C3400 c = story_select_colors_and_positions;
         p = __nw__7TObjectFUl(0xE0);
         if (p != NULL) {
-            __ct__14TAdSelectTxtGCFv(p, self, &c.e[0], 4);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &c.e[0], 4);
         }
         p = __nw__7TObjectFUl(0xE0);
         if (p != NULL) {
-            __ct__14TAdSelectTxtGCFv(p, self, &c.e[1], 5);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &c.e[1], 5);
         }
         {
         A_802C3400 a = lbl_804719FC[0];

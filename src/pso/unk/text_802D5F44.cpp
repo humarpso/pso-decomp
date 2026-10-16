@@ -17,14 +17,14 @@ extern s32 tl_05;
 
 extern "C" {
 
-void *item_equip_variant_deleting_dtor_802D60E0(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_802D6138(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_802D6190(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_802D61E8(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_802D6240(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_802D6298(void *arg0, s16 arg1);
-void *item_equip_variant_deleting_dtor_802D62F0(void *arg0, s16 arg1);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
+void *__dt__13TUnk_804E1E08Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E1F04Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E2000Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E20FCFv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E21F8Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E22F4Fv(void *arg0, s16 arg1);
+void *__dt__13TUnk_804E23F0Fv(void *arg0, s16 arg1);
+void __dt__11TItemWeaponFv(void *, int);
 
 extern s32 lbl_804E1E08[];
 
@@ -66,8 +66,8 @@ extern "C" void equip__14TItemEquipBaseFv();
 extern "C" void fire_spread_shot__10TObjPlayerFPv();
 extern "C" void get_attack_flags__11TItemWeaponFv();
 extern "C" void get_motion_ptr__11TItemWeaponFv();
-extern "C" void item_equip_variant_deleting_dtor_802D5214();
-extern "C" void item_equip_variant_deleting_dtor_802D526C();
+extern "C" void __dt__13TUnk_804E1BB0Fv();
+extern "C" void __dt__13TUnk_804E1CA8Fv();
 extern "C" void launch_shot__11TItemWeaponFPUclll();
 extern "C" void vfunc_46__11TItemWeaponFv();
 extern "C" void register_attack__5TItemFv();
@@ -94,7 +94,7 @@ extern "C" void update_swim_flag__10TObjPlayerFPv();
 extern "C" void vfunc_28__11TItemWeaponFv();
 extern "C" void emit_marker_effects__11TItemWeaponFv();
 void *lbl_804E1BB0[62] = {
-    (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_802D5214, (void *)&run_task__5TItemFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804E1BB0Fv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
@@ -112,7 +112,7 @@ void *lbl_804E1BB0[62] = {
     (void *)&TItemWeapon__sub_8011E5C0, (void *)&deliver_hit__11TItemWeaponFlPUcllf,
 };
 void *lbl_804E1CA8[63] = {
-    (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_802D526C, (void *)&run_task__5TItemFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804E1CA8Fv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
@@ -187,10 +187,10 @@ void *TObjPlayer::create_object_by_type() {
     return NULL;
 }
 
-void *item_equip_variant_deleting_dtor_802D60E0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E1E08Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1E08;
-        item_equip_variant_deleting_dtor_802D62F0((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -200,10 +200,10 @@ void *item_equip_variant_deleting_dtor_802D60E0(void *arg0, s16 arg1) {
 
 extern s32 lbl_804E1F04[];
 
-void *item_equip_variant_deleting_dtor_802D6138(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E1F04Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1F04;
-        item_equip_variant_deleting_dtor_802D62F0((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -213,10 +213,10 @@ void *item_equip_variant_deleting_dtor_802D6138(void *arg0, s16 arg1) {
 
 extern s32 lbl_804E2000[];
 
-void *item_equip_variant_deleting_dtor_802D6190(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E2000Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E2000;
-        item_equip_variant_deleting_dtor_802D62F0((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -226,10 +226,10 @@ void *item_equip_variant_deleting_dtor_802D6190(void *arg0, s16 arg1) {
 
 extern s32 lbl_804E20FC[];
 
-void *item_equip_variant_deleting_dtor_802D61E8(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E20FCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E20FC;
-        item_equip_variant_deleting_dtor_802D62F0((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -239,10 +239,10 @@ void *item_equip_variant_deleting_dtor_802D61E8(void *arg0, s16 arg1) {
 
 extern s32 lbl_804E21F8[];
 
-void *item_equip_variant_deleting_dtor_802D6240(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E21F8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E21F8;
-        item_equip_variant_deleting_dtor_802D62F0((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -252,10 +252,10 @@ void *item_equip_variant_deleting_dtor_802D6240(void *arg0, s16 arg1) {
 
 extern s32 lbl_804E22F4[];
 
-void *item_equip_variant_deleting_dtor_802D6298(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E22F4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E22F4;
-        item_equip_variant_deleting_dtor_802D62F0((void *)(arg0), (s16)(0));
+        __dt__13TUnk_804E23F0Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }
@@ -265,10 +265,10 @@ void *item_equip_variant_deleting_dtor_802D6298(void *arg0, s16 arg1) {
 
 extern s32 lbl_804E23F0[];
 
-void *item_equip_variant_deleting_dtor_802D62F0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804E23F0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E23F0;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss7LaserLight.h"
+#include "pso/boss/TBoss7LaserLight.h"
 #include "pso/object/TObjLight.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -113,16 +114,10 @@ void TBoss7LaserLight__sub_802EF12C(void* p) { *(s32*)((char*)p + 0x24) = 1; }
 
 extern s32 __vt__16TBoss7LaserLight[];
 
-void *__dt__16TBoss7LaserLightFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TBoss7LaserLight;
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)arg0 + 0x40)))->unregister_and_free(); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss7LaserLight::~TBoss7LaserLight() {
+    if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); *(s32 *)((s8 *)this + 0x40) = 0; }
+}
+extern "C" {
 
 }

@@ -5,7 +5,7 @@
 
 extern "C" {
 
-void *TObjPlayer__sub_80129048(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A4020Fv(void *arg0, s16 arg1);
 s32 TObjPlayer__sub_801290D0(u8 *arg0);
 void TObjPlayer__sub_80129124(void* p);
 int rotate_matrix_z(void*, void*);
@@ -16,7 +16,7 @@ int get_player_list__10TObjPlayerFv(void*);
 
 extern s32 lbl_804A4020[];
 
-void *TObjPlayer__sub_80129048(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A4020Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A4020;
         __dt__15TItemShootModelFv(arg0, 0);

@@ -39,8 +39,8 @@ struct VObj_8010F52C : Base_8010F52C {
     virtual void m0(int);
 };
 
-void *TItemLoad__sub_8010F950(void *arg0, s16 arg1);
-s32 TItemLoad__sub_8010FCB4(void *, s32);
+void *__dt__13TUnk_8049F41CFv(void *arg0, s16 arg1);
+s32 __dt__13TUnk_8049F42CFv(void *, s32);
 s32 decompress_buffer__9TItemLoadFUl();
 s32 TLobby__sub_8001EEF4();
 s32 load_gvm_texture_archive(s32, s32);
@@ -148,7 +148,7 @@ void TUnk_8049F40C::vfunc_3() {
 void *TUnk_8049F40C::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_8049F40C;
-        TItemLoad__sub_8010FCB4(this, 0);
+        __dt__13TUnk_8049F42CFv(this, 0);
         if (arg1 > 0) {
             __dl__FPv(this);
         }
@@ -194,10 +194,10 @@ void TItemLoad::reload_item() {
 
 extern s32 lbl_8049F41C[];
 
-void *TItemLoad__sub_8010F950(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8049F41CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_8049F41C;
-        TItemLoad__sub_8010FCB4(arg0, 0);
+        __dt__13TUnk_8049F42CFv(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

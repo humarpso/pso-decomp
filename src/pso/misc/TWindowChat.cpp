@@ -109,7 +109,7 @@ void __ct__7TObjectFP7TObject(void *);
 s32 __nw__7TObjectFUl(int);
 extern s32 __vt__11TWindowChat[];
 extern void *window_chat_type_name_pointer;
-void *TWindowChat__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__11TWindowChatFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void TWindowChat__sub_80247D2C(void* p);
 s32 TWindowChat__sub_80247D50(u8 *arg0);
 int get_selected_menu_value(void*);
@@ -491,81 +491,74 @@ void TWindowChat::run_task() {
 }
 
 extern "C" {
-void *__dt__11TWindowChatFv(void *arg0, s16 arg1) {
+}
+TWindowChat::~TWindowChat() {
     s32 player;
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TWindowChat;
-        player = get_player_by_client_id(local_client_id);
-        if (player != 0) {
-            if (!(*(u16 *)((s8 *)arg0 + 0x1E) & 2)) {
-                if (((TWindowChat *)arg0)->is_mode_bit6() != 0) {
-                    ((TObjPlayer *)player)->init_parts();
-                    end_player_keyboard_hold(local_client_id);
-                }
+    player = get_player_by_client_id(local_client_id);
+    if (player != 0) {
+        if (!(*(u16 *)((s8 *)this + 0x1E) & 2)) {
+            if (this->is_mode_bit6() != 0) {
+                ((TObjPlayer *)player)->init_parts();
+                end_player_keyboard_hold(local_client_id);
             }
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
-        }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x34));
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
-        }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
-            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
-        }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x24));
-            *(u32 *)((s8 *)arg0 + 0x24) = 0U;
-        }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x28));
-            *(u32 *)((s8 *)arg0 + 0x28) = 0U;
-        }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x20));
-            *(u32 *)((s8 *)arg0 + 0x20) = 0U;
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
     }
-    return arg0;
+    if ((u32) *(u32 *)((s8 *)this + 0x30) != 0U) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x30));
+        *(u32 *)((s8 *)this + 0x30) = 0U;
+    }
+    if ((u32) *(u32 *)((s8 *)this + 0x34) != 0U) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x34));
+        *(u32 *)((s8 *)this + 0x34) = 0U;
+    }
+    if ((u32) *(u32 *)((s8 *)this + 0x2C) != 0U) {
+        TWindow__close(*(void **)((s8 *)this + 0x2C));
+        *(u32 *)((s8 *)this + 0x2C) = 0U;
+    }
+    if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
+        TWindow__close(*(void **)((s8 *)this + 0x24));
+        *(u32 *)((s8 *)this + 0x24) = 0U;
+    }
+    if ((u32) *(u32 *)((s8 *)this + 0x28) != 0U) {
+        TWindow__close(*(void **)((s8 *)this + 0x28));
+        *(u32 *)((s8 *)this + 0x28) = 0U;
+    }
+    if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
+        TWindow__close(*(void **)((s8 *)this + 0x20));
+        *(u32 *)((s8 *)this + 0x20) = 0U;
+    }
 }
+extern "C" {
 }
 
 extern "C" {
 
-void *TWindowChat__ct(void *arg0, void *arg1, void *arg2) {
+}
+TWindowChat::TWindowChat(TObject *arg1, void *arg2) : TObject(arg1) {
     void *o;
     void *o2;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TWindowChat;
-    *(void **)((s8 *)arg0 + 0x0) = window_chat_type_name_pointer;
-    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u16 *)((s8 *)arg0 + 0x1E) = 2;
+    *(void **)((s8 *)this + 0x0) = window_chat_type_name_pointer;
+    *(u8 *)((s8 *)this + 0x1C) = 0;
+    *(u16 *)((s8 *)this + 0x1E) = 2;
     o = ((void *)__nw__7TObjectFUl(0xB8));
     if (o != NULL) {
         o = TWindowKeyBoardBase__ct(o);
     }
-    *(void **)((s8 *)arg0 + 0x20) = o;
-    init_keyboard_text_field(*(void **)((s8 *)arg0 + 0x20), 200, 2);
+    *(void **)((s8 *)this + 0x20) = o;
+    init_keyboard_text_field(*(void **)((s8 *)this + 0x20), 200, 2);
     o2 = ((void *)__nw__7TObjectFUl(0x74));
     if (o2 != NULL) {
-        o2 = TWindowKeyBoardHard__ct(o2, *(void **)((s8 *)arg0 + 0x20));
+        o2 = TWindowKeyBoardHard__ct(o2, *(void **)((s8 *)this + 0x20));
     }
-    *(void **)((s8 *)arg0 + 0x28) = o2;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x34) = 0;
-    *(u32 *)((s8 *)arg0 + 0x30) = 0;
-    *(void **)((s8 *)arg0 + 0x38) = arg2;
-    ((TWindowChat*)((u8 *)(arg0)))->open_next_input_window();
-    return arg0;
+    *(void **)((s8 *)this + 0x28) = o2;
+    *(u32 *)((s8 *)this + 0x24) = 0;
+    *(u32 *)((s8 *)this + 0x2C) = 0;
+    *(u32 *)((s8 *)this + 0x34) = 0;
+    *(u32 *)((s8 *)this + 0x30) = 0;
+    *(void **)((s8 *)this + 0x38) = arg2;
+    this->open_next_input_window();
 }
+extern "C" {
 
 void TWindowChat__sub_80247D2C(void* p) { *(u16*)((char*)p + 0x62) |= 0x4; }
 

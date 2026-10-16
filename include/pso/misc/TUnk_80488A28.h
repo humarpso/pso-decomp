@@ -5,6 +5,7 @@
 
 class TUnk_80488A28 : public TObject {
 public:
+    TUnk_80488A28();
     virtual ~TUnk_80488A28();
     virtual void vfunc_6();
     virtual void vfunc_7();

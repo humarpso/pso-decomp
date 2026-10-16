@@ -527,7 +527,7 @@ s32 TBoss4Type2__sub_80057048(void *, int);
 s32 TBoss4Type2__sub_80057128(void *);
 s32 TBoss4Type2__sub_80057224(Obj_80057224 *self);
 void TBoss4Type2__sub_80057578(void* p);
-S_800578E8 * TBoss4Type2__sub_800578E8(S_800578E8 *o, s16 flag);
+S_800578E8 * __dt__13TUnk_80486924Fv(S_800578E8 *o, s16 flag);
 u8 *TBoss4Type2__ct(u8 *, s32, s32 *);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
@@ -543,7 +543,7 @@ void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
 void TBoss4Type3__sub_8005A86C(void* p);
 void reset_action_to_3__11TBoss4Type3FPv(Obj_8005ACBC *self);
 void init_effect__11TBoss4Type3FPv(u8 *arg0);
-S_8005AD50 * destroy__11TBoss4Type3FPvs(S_8005AD50 *o, s16 flag);
+S_8005AD50 * __dt__11TBoss4Type3Fv(S_8005AD50 *o, s16 flag);
 s32 TBoss4Type3__ct(s32, s32, s32);
 void * __ct__13TObjBs4CutAtkFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void * create__13TObjBs4CutAtkFPvPvPv(void *arg0, void *arg1, void *arg2);
@@ -1795,7 +1795,7 @@ void TUnk_80486924::vfunc_62() {
     ((s32 (*)(int, void *, int, int, void *))play_sound_effect)(0x4003B723, ((u8 *)this) + 0x38, 0, 1, ((u8 *)this));
 }
 
-S_800578E8 *TBoss4Type2__sub_800578E8(S_800578E8 *o, s16 flag) {
+S_800578E8 *__dt__13TUnk_80486924Fv(S_800578E8 *o, s16 flag) {
     s32 i;
     if (o != 0) {
         o->vt = lbl_80486924;

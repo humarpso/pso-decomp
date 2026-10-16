@@ -1192,9 +1192,9 @@ void TLobby__sub_8001FE7C(void*, int);
 void fn_80044330(void *);
 u32 csnVectorUnder(void *, void *, s32);
 s32 TObjPlayer__sub_800A04F0(void *);
-s32 TObjPlayer__sub_800A05B8(void *, int);
+s32 __dt__13TUnk_80490470Fv(void *, int);
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
-s32 __dt__9TObjEneDDFv(void *, int);
+s32 __dt__12TObjEneDD_STFv(void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, void *, void *, void *);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 is_alive__9TObjEneDDFv(s32);
@@ -1266,7 +1266,7 @@ extern s32 TObjEneRe4Sorcerer__render_node_index;
 extern s32 TObjEneRe4Sorcerer__saved_render_flags;
 extern f32 TObjEneRe4Sorcerer__effect_render_scale;
 extern u32 TObjEneRe4Sorcerer__uv_scroll_buffer;
-extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 init_and_activate__10TObjPlayerFv[];
 extern Params_800F0464 re4_sorcerer_spawn_descriptor;
 extern u8 lbl_8043D418[];
@@ -2785,9 +2785,9 @@ Obj_800F0054 *__dt__18TObjEneRe4SorcererFv(Obj_800F0054 *arg0, s16 arg1) {
             arg0->handles[i] = 0xFFFF;
         }
         free_collision_body_parts(arg0);
-        __destroy_arr((u8 *) arg0 + 0x474, TObjPlayer__sub_800D7C58, 0x1C, 4);
-        TObjPlayer__sub_800A05B8((u8 *) arg0 + 0x3FC, -1);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __destroy_arr((u8 *) arg0 + 0x474, __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__13TUnk_80490470Fv((u8 *) arg0 + 0x3FC, -1);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -2858,7 +2858,7 @@ void *TObjEneRe4Sorcerer__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjEneRe4Sorcerer;
     ((TUnk_80490470 *)((char *)arg0 + 1020))->init_vtable_and_field18();
     ((TObjPlayer *)((char *)arg0 + 1048))->construct_target_cursor_records();
-    __construct_array((void *)((char *)arg0 + 1140), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
+    __construct_array((void *)((char *)arg0 + 1140), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2AF0;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     ((void (*)(void *))TObjEneRe4Sorcerer__sub_800EFE30)(arg0);

@@ -49,7 +49,7 @@ void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);
 void __ct__10TAdTitleGCFv(void *, void *, int);
 void __ct__13TAdTitleTexGCFv(void *, void *);
-void __ct__14TAdSelectTxtGCFv(void *, void *, void *, int);
+void __ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, int);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 s32 get_localized_text_entry(s32, s32);
@@ -145,16 +145,16 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
             ents.e[i].id = -1;
         }
         if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-            __ct__14TAdSelectTxtGCFv(p, self, &ents.e[0], 0);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &ents.e[0], 0);
         }
         if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-            __ct__14TAdSelectTxtGCFv(p, self, &ents.e[1], 1);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &ents.e[1], 1);
         }
         if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-            __ct__14TAdSelectTxtGCFv(p, self, &ents.e[2], 2);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &ents.e[2], 2);
         }
         if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-            __ct__14TAdSelectTxtGCFv(p, self, &ents.e[3], 3);
+            __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &ents.e[3], 3);
         }
         {
             Pos_8013319C pos = lbl_8043ED58[0];

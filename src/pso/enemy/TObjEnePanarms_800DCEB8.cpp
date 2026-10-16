@@ -278,7 +278,7 @@ u8 * __dt__9TObjEnemyFv(void *, s16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(s32);
 s32 __destroy_arr(void *, void *, int, int);
-extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 __vt__14TObjEnePanarms[];
 u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1);
 }
@@ -1158,7 +1158,7 @@ u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1) {
         free_collision_body_parts(arg0);
         *(s32 *)((s8 *)arg0 + 0x390) = 0;
         ((TObjEnePanarms *)arg0)->destroy_handles();
-        __destroy_arr((void *) ((u8 *)(arg0) + 0x400), (void *) (TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
+        __destroy_arr((void *) ((u8 *)(arg0) + 0x400), (void *) (__dt__13TUnk_804949A8Fv), (int) (0x1C), (int) (4));
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

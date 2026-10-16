@@ -94,7 +94,7 @@ extern const f32 lbl_805D9A00;
 
 extern "C" {
 
-void *TObjPlayer__sub_800A41AC(void *arg0, s16 arg1);
+void *__dt__21TeneFakeTecThunderEffFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -390,7 +390,7 @@ void TeneFakeTecThunderEff::run_task() {
 }
 #pragma pop
 
-void *TObjPlayer__sub_800A41AC(void *arg0, s16 arg1) {
+void *__dt__21TeneFakeTecThunderEffFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80490A18;
         __dt__7TObjectFv(arg0, 0);

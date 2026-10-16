@@ -187,7 +187,7 @@ u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4,
 
 extern "C" {
 
-void *TWindowTimer__sub_80198C84(void *arg0, s16 arg1);
+void *__dt__13TUnk_804B8DE8Fv(void *arg0, s16 arg1);
 void TWindowTimer__sub_80198D98(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -195,7 +195,7 @@ void * __nw__7TObjectFUl(s32);
 
 extern s32 lbl_804B8DE8[];
 
-void *TWindowTimer__sub_80198C84(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804B8DE8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B8DE8;
         if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }

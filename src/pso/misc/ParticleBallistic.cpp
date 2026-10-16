@@ -147,21 +147,21 @@ int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
 extern const f32 TParticleCtrl__data_805D94F8;
 extern const f32 TParticleCtrl__data_805D94FC;
-void TParticleCtrl__sub_8008655C(void *, int);
+void __dt__13TUnk_8048E728Fv(void *, int);
 extern s32 TParticleCtrl__data_8048E778[];
-void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
+void *__dt__13TUnk_8048E778Fv(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
 void *alloc_particle_memory(int);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
-void TParticleCtrl__sub_8008655C(void *, int);
+void __dt__13TUnk_8048E728Fv(void *, int);
 void *alloc_particle_memory(int);
 void *alloc_particle_memory(int);
 int queue_destruction__7TObjectFv(void *);
 extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 f32 vec_squared_length(void *);
-void TParticleCtrl__sub_8008655C(void *, int);
+void __dt__13TUnk_8048E728Fv(void *, int);
 extern s32 TParticleCtrl__data_8048E7A8[];
 int queue_destruction__7TObjectFv(void *);
 u8 * init_particle_base(void *, void *, s32);
@@ -552,10 +552,10 @@ void TUnk_8048E778::render() {
     }
 }
 
-void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_8048E778Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = TParticleCtrl__data_8048E778;
-        TParticleCtrl__sub_8008655C(arg0, 0);
+        __dt__13TUnk_8048E728Fv(arg0, 0);
         if (arg1 > 0) {
             ((TUnk_8048E728 *)arg0)->free_from_heap();
         }

@@ -358,7 +358,7 @@ extern const f32 TObjEnePanarms__data_805DA530;
 extern const f32 TObjEnePanarms__data_805DA544;
 extern const f32 TObjEnePanarms__data_805DA550;
 extern const f32 TObjEnePanarms__data_805DA560;
-extern u8 TObjPlayer__sub_800D7C58[];
+extern u8 __dt__13TUnk_804949A8Fv[];
 extern Vec_800E1A44 panarms_part_offset_table[];
 extern s32 lbl_8043CD58[];
 extern Vec_800E1A44 panarms_parent_offset_table[];
@@ -1557,7 +1557,7 @@ Obj_800E24A4 *fn_800E24A4(Obj_800E24A4 *arg0, s16 arg1) {
         free_collision_body_parts(arg0);
         arg0->f37C = 0;
         TObjFish::init_state_1((void *)(arg0->f3DC));
-        __destroy_arr(arg0->f3EC, TObjPlayer__sub_800D7C58, 0x1C, 4);
+        __destroy_arr(arg0->f3EC, __dt__13TUnk_804949A8Fv, 0x1C, 4);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

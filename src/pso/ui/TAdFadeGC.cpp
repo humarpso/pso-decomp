@@ -22,7 +22,7 @@ s8 lbl_805D6804;
 
 extern "C" {
 
-void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2);
+void *__ct__9TAdFadeGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
 
 extern const char lbl_80471D70[] = "TAdFadeGC";
@@ -156,16 +156,15 @@ void TAdFadeGC::start_fade(void *arg1) {
 }
 
 TAdFadeGC::~TAdFadeGC() {}
-void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TAdFadeGC;
-    *(void **)((s8 *)arg0 + 0x0) = TAdFadeGC__name;
-    *(u32 *)((s8 *)arg0 + 0x1C) = -1;
-    *(f32 *)((s8 *)arg0 + 0x20) = (0.0f);
-    *(void **)((s8 *)arg0 + 0x28) = arg2;
-    ((TAdFadeGC *)arg0)->start_fade((void *)(*(void **)((s8 *)arg0 + 0x28)));
-    return arg0;
 }
+TAdFadeGC::TAdFadeGC(TObject *arg1, void *arg2) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = TAdFadeGC__name;
+    *(u32 *)((s8 *)this + 0x1C) = -1;
+    *(f32 *)((s8 *)this + 0x20) = (0.0f);
+    *(void **)((s8 *)this + 0x28) = arg2;
+    this->start_fade((void *)(*(void **)((s8 *)this + 0x28)));
+}
+extern "C" {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off

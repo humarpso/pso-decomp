@@ -6,6 +6,7 @@
 class TWindowChat : public TObject {
 public:
     virtual void render();
+    TWindowChat(TObject *arg1, void *arg2);
     virtual ~TWindowChat();
     s32 sub_80247EC0();
     s32 sub_80247128();

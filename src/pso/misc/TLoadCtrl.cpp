@@ -24,7 +24,7 @@ struct Obj_8001C620 { u8 pad[0x1C]; s32 f1c; s32 f20; };
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 __ct__9TAdFadeGCFv(int, int, int);
+s32 __ct__9TAdFadeGCFP7TObjectPv(int, int, int);
 extern RecoveredGlobal_8001C828___vt__9TLoadCtrl __vt__9TLoadCtrl;
 extern s32 TLoadCtrl__class_name;
 extern s32 TLoadCtrl__loading_mode;
@@ -60,7 +60,7 @@ s32 controller_stuff__Fv();
 s32 update_sound_request_slots();
 s32 __nw__7TObjectFUl(int);
 s32 TAdLoadQuestGC__ct(s32, void *);
-s32 __ct__14TAdFloorLoadGCFv(s32, void *, int);
+s32 __ct__14TAdFloorLoadGCFP7TObjectPv(s32, void *, int);
 extern u8 lbl_804349CC[];
 extern Vec_8001C620 lbl_804349D8;
 extern Vec_8001C620 lbl_804349E4;
@@ -115,13 +115,13 @@ void TLoadCtrl::run_task() {
             case 3:
                 o = __nw__7TObjectFUl(0x1C);
                 if ((u32)o != 0) {
-                    __ct__14TAdFloorLoadGCFv(o, self, 0);
+                    __ct__14TAdFloorLoadGCFP7TObjectPv(o, self, 0);
                 }
                 break;
             case 4:
                 o = __nw__7TObjectFUl(0x1C);
                 if ((u32)o != 0) {
-                    __ct__14TAdFloorLoadGCFv(o, self, 1);
+                    __ct__14TAdFloorLoadGCFP7TObjectPv(o, self, 1);
                 }
                 break;
             }
@@ -169,7 +169,7 @@ u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
         temp_r3 = __nw__7TObjectFUl((int) (0x38));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = __ct__9TAdFadeGCFv((int) (temp_r3), (int) (tl_fade), (int) (2));
+            var_r0 = __ct__9TAdFadeGCFP7TObjectPv((int) (temp_r3), (int) (tl_fade), (int) (2));
         }
         TLoadCtrl__fade_task = var_r0;
     }

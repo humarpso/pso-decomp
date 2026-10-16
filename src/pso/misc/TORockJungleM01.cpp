@@ -134,7 +134,7 @@ void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 int update_obstruction_fade(void*);
-void TObjPlayer__sub_800D7C58(void *, int);
+void __dt__13TUnk_804949A8Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -191,7 +191,7 @@ void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)((s8 *)arg0 + 0xDC) = 0; }
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xBC, -1);
+        __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xBC, -1);
         __dt__18TORockCaveBrakableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

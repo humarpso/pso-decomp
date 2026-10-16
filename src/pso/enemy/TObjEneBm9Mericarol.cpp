@@ -288,13 +288,13 @@ s32 is_valid_target__9TObjEneDDFv(s32);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DE74C;
 s32 queue_destruction__7TObjectFv(void *);
-s32 __dt__9TObjEneDDFv(void *, int);
+s32 __dt__12TObjEneDD_STFv(void *, int);
 s32 delete_buffer__12TBoss8DragonFis(void *, int);
-s32 __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+s32 __dt__13TUnk_80494938Fv(void *, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, u32, u32);
-void TObjPlayer__sub_800D7C58(void);
+void __dt__13TUnk_804949A8Fv(void);
 u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1);
 s32 obj_is_hit_receivable(u32);
 f32 fabs_float(f32);
@@ -761,7 +761,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
 
     init_object__12TObjEneDD_STFv(self, parent);
     self->vt18 = TObjEneBm9Mericarol__vtable;
-    __construct_array(self->a3C8, (void *)init_and_activate__10TObjPlayerFv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(self->a3C8, (void *)init_and_activate__10TObjPlayerFv, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
     ((TUnk_80494938 *)(self->o46C))->init_common();
     self->f0 = lbl_805D3F28;
     invoke_initialization_hook__9TObjEneDDFv(self, arg2);
@@ -861,9 +861,9 @@ u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1) {
             *(void **)((s8 *)arg0 + 0x4AC) = NULL;
         }
         free_collision_body_parts(arg0);
-        __dt__18TObjEneMe3SinowZoaFPvs(arg0 + 0x46C, -1);
-        __destroy_arr(arg0 + 0x3C8, (void *) TObjPlayer__sub_800D7C58, 0x1C, 4);
-        __dt__9TObjEneDDFv(arg0, 0);
+        __dt__13TUnk_80494938Fv(arg0 + 0x46C, -1);
+        __destroy_arr(arg0 + 0x3C8, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
+        __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

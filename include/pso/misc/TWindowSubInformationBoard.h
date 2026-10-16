@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TWindowSubInformationBoard : public TObject {
+    TWindowSubInformationBoard(TObject *arg1, void *arg2);
     virtual ~TWindowSubInformationBoard();
     void open_card_info_window();
     u8 m_1c;

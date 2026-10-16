@@ -33,7 +33,7 @@ void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1);
 int get_localized_text_entry(void*, void*);
 s32 TAdTrialModemChkGC__sub_8007FA24(s32);
 void TAdWarningBaseGC__ct(void *);
-void TAdWarningBaseGC__vt0(void *, int);
+void __dt__16TAdWarningBaseGCFv(void *, int);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 TLobby__sub_80145A94();
 int stop_audio_streams__6TLobbyFv(void*);
@@ -68,7 +68,7 @@ extern s32 __vt__18TAdTrialModemChkGC[];
 void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdTrialModemChkGC;
-        TAdWarningBaseGC__vt0(arg0, 0);
+        __dt__16TAdWarningBaseGCFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -3,14 +3,14 @@
 
 extern "C" {
 
-void *item_object_variant_deleting_dtor_80352AC0(void *arg0, s16 arg1);
+void *__dt__13TUnk_804F0FF0Fv(void *arg0, s16 arg1);
 void *TItemObject__sub_80352B18(void *arg0);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
 
 extern s32 lbl_804F0FF0[];
 
-void *item_object_variant_deleting_dtor_80352AC0(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804F0FF0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0FF0;
         __dt__11TItemObjectFv(arg0, 0);

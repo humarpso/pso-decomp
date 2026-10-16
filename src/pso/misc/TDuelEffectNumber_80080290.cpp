@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TDuelEffectNumber.h"
+#include "pso/TDuelEffectNumber.h"
 
 struct RecoveredGlobal_80080438_lbl_80438DD4 {
     s32 value;
@@ -17,22 +18,21 @@ void TDuelEffectNumber__sub_800802F8(void *, void *, f32);
 
 extern "C" {
 
-void *__ct__17TDuelEffectNumberFv(void *arg0, void *arg1, void *arg2, void *arg3);
+void *__ct__17TDuelEffectNumberFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__17TDuelEffectNumber[];
 extern void *TDuelEffectNumber__class_name;
 
-void *__ct__17TDuelEffectNumberFv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TDuelEffectNumber;
-    *(void **)((s8 *)arg0 + 0x0) = TDuelEffectNumber__class_name;
-    *(f32 *)((s8 *)arg0 + 0x1C) = *(f32 *)((s8 *)arg2 + 0x0);
-    *(f32 *)((s8 *)arg0 + 0x20) = *(f32 *)((s8 *)arg2 + 0x4);
-    *(void **)((s8 *)arg0 + 0x24) = arg3;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
-    return arg0;
 }
+TDuelEffectNumber::TDuelEffectNumber(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = TDuelEffectNumber__class_name;
+    *(f32 *)((s8 *)this + 0x1C) = *(f32 *)((s8 *)arg2 + 0x0);
+    *(f32 *)((s8 *)this + 0x20) = *(f32 *)((s8 *)arg2 + 0x4);
+    *(void **)((s8 *)this + 0x24) = arg3;
+    *(u32 *)((s8 *)this + 0x28) = 0;
+}
+extern "C" {
 typedef char RecoveredGlobal_80080438_lbl_80438DD4_size[sizeof(RecoveredGlobal_80080438_lbl_80438DD4) == 0x18 ? 1 : -1];
 
 void TDuelEffectNumber::render_pair(f32 f) {

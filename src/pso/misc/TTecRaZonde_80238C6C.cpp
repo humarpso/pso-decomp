@@ -121,7 +121,7 @@ typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 
 extern "C" {
 
-void *__dt__10TTecRaFoieFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CCB28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 }
@@ -129,7 +129,7 @@ struct RecoveredGlobal_802384E0_lbl_804CCB28;
 extern "C" {
 extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 
-void *__dt__10TTecRaFoieFPvs(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CCB28Fv(void *arg0, s16 arg1);
 
 }
 

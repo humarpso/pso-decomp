@@ -4,7 +4,7 @@
 
 extern "C" {
 
-void *TWindowSubStatusDisp__sub_80338EE4(void *arg0, s16 arg1);
+void *__dt__13TUnk_804EF4E0Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void *fn_80338F3C(void *, void *);
@@ -19,7 +19,7 @@ void *TLobby::create_object(void *arg0) {
 
 extern s32 lbl_804EF4E0[];
 
-void *TWindowSubStatusDisp__sub_80338EE4(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804EF4E0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EF4E0;
         ((TWindowSubStatusDisp *)arg0)->deleting_dtor(0);

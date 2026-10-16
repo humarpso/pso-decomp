@@ -2081,12 +2081,12 @@ extern const f32 TBoss1Dragon__data_805D7F28;
 s32 select_forward_target__12TBoss1DragonFPv(u8 *self);
 s32 __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
-s32 __dt__9TObjEneDDFv(void *, int);
+s32 __dt__12TObjEneDD_STFv(void *, int);
 s32 delete_buffer__12TBoss8DragonFis(void *, int);
 s32 free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, int, int);
-void TObjPlayer__sub_800D7C58(void);
+void __dt__13TUnk_804949A8Fv(void);
 extern s32 TBoss1Dragon__data_805D4B2C;
 Obj_80029C78 *destroy__12TBoss1DragonFPvs(Obj_80029C78 *o, s16 flag);
 void render_shadows__12TBoss1DragonFPv(u8 *arg0);
@@ -7367,11 +7367,11 @@ Obj_80029C78 *destroy__12TBoss1DragonFPvs(Obj_80029C78 *o, s16 flag) {
         if ((Obj_80029C78 *)TBoss1Dragon__data_805D4B2C == o) {
             TBoss1Dragon__data_805D4B2C = 0;
         }
-        __destroy_arr(o->f6E8, (void *)TObjPlayer__sub_800D7C58, 0x1c, 4);
+        __destroy_arr(o->f6E8, (void *)__dt__13TUnk_804949A8Fv, 0x1c, 4);
         TObjBoss2Tunnel::maybe_delete((s32)(o->f618), (s16)(-1));
         TObjBoss2Tunnel::maybe_delete((s32)(o->f5F4), (s16)(-1));
         __dt__7TObjectFv(o->f3C4, -1);
-        __dt__9TObjEneDDFv(o, 0);
+        __dt__12TObjEneDD_STFv(o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }
@@ -7395,7 +7395,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0 + 0x3C4, 0);
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x5F4));
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x618));
-    __construct_array(arg0 + 0x6E8, init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 0x1C, 4);
+    __construct_array(arg0 + 0x6E8, init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
     __ct__14SubtractiveRngFv(arg0 + 0x77C);
     F_29DE4(arg0, s32, 0) = lbl_805D2650;
     if ((u32)TBoss1Dragon__data_805D4B2C == 0U) {

@@ -4,7 +4,7 @@
 
 extern "C" {
 
-void *TObjPlayer__sub_80130778(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A69C0Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_801307D0(void *arg0);
 int draw_weapon_model(void*);
 int draw_weapon_at_joint(void*, void*);
@@ -13,7 +13,7 @@ void __dt__15TItemShootModelFv(void *, int);
 
 extern s32 lbl_804A69C0[];
 
-void *TObjPlayer__sub_80130778(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A69C0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A69C0;
         __dt__15TItemShootModelFv(arg0, 0);

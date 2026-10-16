@@ -58,7 +58,7 @@ void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);
 void __ct__10TAdTitleGCFv(void *, void *, s32);
-void *__ct__14TAdSelectTxtGCFv(void *, void *, void *, s32);
+void *__ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
@@ -238,16 +238,16 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
         __ct__13TAdTitleTexGCFv(p, self);
     }
     if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-        __ct__14TAdSelectTxtGCFv(p, self, &lbl_80474E40[0], 0x10);
+        __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &lbl_80474E40[0], 0x10);
     }
     if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-        __ct__14TAdSelectTxtGCFv(p, self, &lbl_80474E40[3], 0x11);
+        __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &lbl_80474E40[3], 0x11);
     }
     if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-        __ct__14TAdSelectTxtGCFv(p, self, &lbl_80474E40[6], 0x8);
+        __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &lbl_80474E40[6], 0x8);
     }
     if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
-        __ct__14TAdSelectTxtGCFv(p, self, &lbl_80474E40[9], 0xF);
+        __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &lbl_80474E40[9], 0xF);
     }
     {
         s32 max = ((s32 (*)(void *))get_max_difficulty_for_party_level)(self);
@@ -258,17 +258,17 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
     }
     p = __nw__7TObjectFUl(0xE0);
     if (p != NULL) {
-        p = __ct__14TAdSelectTxtGCFv(p, self, &lbl_80474E40[12], game_difficulty_selection);
+        p = __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &lbl_80474E40[12], game_difficulty_selection);
     }
     self->f30 = p;
     p = __nw__7TObjectFUl(0xE0);
     if (p != NULL) {
-        p = __ct__14TAdSelectTxtGCFv(p, self, &lbl_80474E40[15], TAdMultiSelGameModeGC__data_805D69F0 + 9);
+        p = __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &lbl_80474E40[15], TAdMultiSelGameModeGC__data_805D69F0 + 9);
     }
     self->f34 = p;
     p = __nw__7TObjectFUl(0xE0);
     if (p != NULL) {
-        p = __ct__14TAdSelectTxtGCFv(p, self, &lbl_80474E40[18], lbl_805D69F4 + 4);
+        p = __ct__14TAdSelectTxtGCFP7TObjectPvPv(p, self, &lbl_80474E40[18], lbl_805D69F4 + 4);
     }
     self->f38 = p;
     {

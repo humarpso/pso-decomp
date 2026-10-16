@@ -6,6 +6,7 @@
 
 class TChCrLoadAfs : public TObject {
 public:
+    TChCrLoadAfs(TObject *arg1, void *arg2, void *arg3);
     virtual ~TChCrLoadAfs();
     void release_load_slot();
     virtual void run_task();

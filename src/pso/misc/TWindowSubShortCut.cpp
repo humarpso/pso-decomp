@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowChat.h"
+#include "pso/misc/TWindowSubShortCut.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMessageYesNo.h"
@@ -40,7 +42,7 @@ s32 clear_chat_shortcut();
 s32 store_chat_shortcut(int, void *);
 void *__nw__7TObjectFUl(u32);
 void TWindow__close(void *);
-void *TWindowChat__ct(void *, void *, void *);
+void *__ct__11TWindowChatFP7TObjectPv(void *, void *, void *);
 u8 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 s32 get_window_layout_position(s32 a0);
@@ -50,7 +52,7 @@ void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
 
 extern "C" {
 
-void *TWindowSubShortCut__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__18TWindowSubShortCutFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1);
 void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
 u32 *get_chat_shortcut();
@@ -195,10 +197,7 @@ void TWindowSubShortCut::run_task() {
             this->m_2c = 0U;
         }
         if ((u32) this->m_38 == 0U) {
-            void *chat = __nw__7TObjectFUl(0x3C);
-            if (chat != 0) {
-                chat = TWindowChat__ct(chat, (void *) (arg0), (void *) ((u8 *)(arg0) + 0x40));
-            }
+            void *chat = new TWindowChat((TObject *)(void *) (arg0), (void *)(void *) ((u8 *)(arg0) + 0x40));
             *(void * *)&this->m_38 = chat;
             ((TWindowSubShortCut *)(this->m_38))->free_icon();
             ((TWindowSubShortCut *)(this->m_38))->close_and_clear_flag();
@@ -291,21 +290,20 @@ void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1) {
 extern s32 __vt__18TWindowSubShortCut[];
 extern void *TWindowSubShortCut__class_name;
 
-void *TWindowSubShortCut__ct(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowSubShortCut;
-    *(void **)((s8 *)arg0 + 0x0) = TWindowSubShortCut__class_name;
-    *(void **)((s8 *)arg0 + 0x28) = arg1;
-    *(void **)((s8 *)arg0 + 0x20) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x30) = 0;
-    *(u32 *)((s8 *)arg0 + 0x34) = 0;
-    *(u32 *)((s8 *)arg0 + 0x38) = 0;
-    *(u32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
 }
+TWindowSubShortCut::TWindowSubShortCut(TObject *arg1, void *arg2) : TObject(arg1) {
+    *(void **)((s8 *)this + 0x0) = TWindowSubShortCut__class_name;
+    *(void **)((s8 *)this + 0x28) = arg1;
+    *(void **)((s8 *)this + 0x20) = arg2;
+    *(u32 *)((s8 *)this + 0x2C) = 0;
+    *(u32 *)((s8 *)this + 0x30) = 0;
+    *(u32 *)((s8 *)this + 0x34) = 0;
+    *(u32 *)((s8 *)this + 0x38) = 0;
+    *(u32 *)((s8 *)this + 0x3C) = 0;
+    *(u32 *)((s8 *)this + 0x24) = 0;
+    *(u8 *)((s8 *)this + 0x1C) = 0;
+}
+extern "C" {
 
 void TWindowSubShortCut::set_flag1e_bit80() { this->m_1e |= 0x80; }
 

@@ -5,7 +5,7 @@
 
 extern "C" {
 
-void *TObjPlayer__sub_8012192C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A0AA8Fv(void *arg0, s16 arg1);
 s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
@@ -16,7 +16,7 @@ void __dt__15TItemShootModelFv(void *, int);
 
 extern s32 lbl_804A0AA8[];
 
-void *TObjPlayer__sub_8012192C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A0AA8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0AA8;
         __dt__15TItemShootModelFv(arg0, 0);

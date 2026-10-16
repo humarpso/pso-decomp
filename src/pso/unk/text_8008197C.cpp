@@ -13,12 +13,12 @@ void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
 R_8008197C *TScene__sub_80081B24(void);
 extern u8 lbl_8048E168[];
-O_8008197C *texture_wave_destroy(O_8008197C *arg0, s16 arg1);
+O_8008197C *__dt__11TEF_PvrWaveFv(O_8008197C *arg0, s16 arg1);
 }
 
 extern "C" {
 
-O_8008197C *texture_wave_destroy(O_8008197C *arg0, s16 arg1) {
+O_8008197C *__dt__11TEF_PvrWaveFv(O_8008197C *arg0, s16 arg1) {
     Q_8008197C *q;
     if (arg0 != NULL) {
         arg0->f18 = lbl_8048E168;

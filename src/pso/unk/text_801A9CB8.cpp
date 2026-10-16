@@ -33,12 +33,12 @@ void TLobby__sub_8024AC20(s32);
 extern u8 lbl_804C349C[];
 extern struct Rec_801AA17C photon_blast_sequence_table[];
 extern s32 local_client_id;
-Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag);
+Obj_801A9CB8 *__dt__13TUnk_804C349CFv(Obj_801A9CB8 *self, s16 flag);
 }
 
 extern "C" {
 
-Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag) {
+Obj_801A9CB8 *__dt__13TUnk_804C349CFv(Obj_801A9CB8 *self, s16 flag) {
     s32 i;
     s32 j;
     if (self != NULL) {

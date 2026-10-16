@@ -15,11 +15,11 @@ extern "C" {
 void TLobby__sub_80336E44(void);
 void __ct__7TObjectFP7TObject(void *);
 
-extern s32 lbl_804EEF80[];
+extern s32 __vt__13TUnk_804EEF80[];
 
 void *TUnk_804EEF80::construct(void *arg1) {
     __ct__7TObjectFP7TObject(this);
-    *(s32 **)((s8 *)this + 0x18) = lbl_804EEF80;
+    *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804EEF80;
     *(void * *)&this->unk_1C = arg1;
     return this;
 }

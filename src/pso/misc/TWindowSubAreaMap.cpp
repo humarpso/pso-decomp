@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubAreaMap.h"
+#include "pso/misc/TWindowSubAreaMap.h"
 #include "pso/misc/TWindowSubAreaMapDisp.h"
 #include "pso/misc/TRaderMapCore.h"
 
@@ -40,7 +41,7 @@ extern const f32 lbl_805DD47C;
 
 extern "C" {
 
-void *TWindowSubAreaMap__ct(void *arg0, void *arg1, void *arg2);
+void *__ct__17TWindowSubAreaMapFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1);
 void *TWindowSubAreaMapDisp__ct(void *);
 void TWindow__close(void *);
@@ -79,20 +80,19 @@ void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1) {
 extern s32 __vt__17TWindowSubAreaMap[];
 extern void *TWindowSubAreaMap__name;
 
-void *TWindowSubAreaMap__ct(void *arg0, void *arg1, void *arg2) {
+}
+TWindowSubAreaMap::TWindowSubAreaMap(TObject *arg1, void *arg2) : TObject(arg1) {
     void *o;
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubAreaMap;
-    *(void **)((s8 *)arg0 + 0x0) = TWindowSubAreaMap__name;
-    *(void **)((s8 *)arg0 + 0x20) = arg1;
-    *(void **)((s8 *)arg0 + 0x1C) = arg2;
+    *(void **)((s8 *)this + 0x0) = TWindowSubAreaMap__name;
+    *(void **)((s8 *)this + 0x20) = arg1;
+    *(void **)((s8 *)this + 0x1C) = arg2;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {
         o = TWindowSubAreaMapDisp__ct(o);
     }
-    *(void **)((s8 *)arg0 + 0x24) = o;
-    return arg0;
+    *(void **)((s8 *)this + 0x24) = o;
 }
+extern "C" {
 typedef char RecoveredGlobal_802715F0_lbl_8050E208_size[sizeof(RecoveredGlobal_802715F0_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubAreaMapDisp::update_manual_scroll() {
     u8 *arg0 = (u8 *)this;

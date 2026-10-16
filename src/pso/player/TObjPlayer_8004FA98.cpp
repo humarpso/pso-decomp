@@ -103,7 +103,7 @@ s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
 void restore_player_cameras();
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_804857F4[];
-Obj_8004FD50 *fn_8004FD50(Obj_8004FD50 *arg0, s16 arg1);
+Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -132,7 +132,7 @@ void darkfalz_death_update(u8 *arg0) {
 }
 #pragma pop
 
-Obj_8004FD50 *fn_8004FD50(Obj_8004FD50 *arg0, s16 arg1) {
+Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
         arg0->vt = lbl_804857F4;

@@ -13,9 +13,9 @@ void* yasminkov_2000h_ct(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_yasminkov_2000h(s32 arg0);
-void item_equip_variant_deleting_dtor_80120CF8(void *, int);
+void __dt__11TItemWeaponFv(void *, int);
 extern s32 lbl_804A6DC0[];
-void *TObjGyaranzoMissile__sub_8013136C(void *arg0, s16 arg1);
+void *__dt__13TUnk_804A6DC0Fv(void *arg0, s16 arg1);
 int TItemWeapon__ct(void);
 extern unsigned char spawn_weapon_impact_effect[];
 extern s32 lbl_804A6DC0[];
@@ -125,10 +125,10 @@ void TUnk_804A6DC0::emit_marker_effects() {
     spawn_particle_effect(buf, 9);
 }
 
-void *TObjGyaranzoMissile__sub_8013136C(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804A6DC0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A6DC0;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        __dt__11TItemWeaponFv(arg0, 0);
         if (arg1 > 0) {
             TObjPlayer::free_obj_heap(arg0);
         }

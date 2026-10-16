@@ -17,7 +17,7 @@ u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg
 
 extern "C" {
 
-void *TTecGiZonde__sub_8023CDFC(void *arg0, s16 arg1);
+void *__dt__13TUnk_804CCD78Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv();
@@ -31,7 +31,7 @@ void TUnk_804CCD78::run_task() {
 
 extern s32 lbl_804CCD78[];
 
-void *TTecGiZonde__sub_8023CDFC(void *arg0, s16 arg1) {
+void *__dt__13TUnk_804CCD78Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCD78;
         __dt__7TObjectFv(arg0, 0);
