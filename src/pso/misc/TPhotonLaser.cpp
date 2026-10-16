@@ -79,7 +79,7 @@ void TObjPlayer__sub_801AC440(void);
 void sub_801AC444__13TPhotonLeillaFv(void* a0);
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
@@ -130,7 +130,7 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TPhotonLaser;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         if ((u32) *(u32 *)((s8 *)arg0 + 0x364) != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x364));

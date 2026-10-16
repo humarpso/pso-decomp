@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TODoorLabo.h"
+#include "pso/misc/TODoorLaboNormal.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
 extern "C" {
@@ -59,9 +61,9 @@ struct Door_8029FAE4 {
 extern "C" {
 Res_8029F7E0 *get_bml_motion(s32, s32);
 void reset_photon_effect__10TObjPlayerFv(void *);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void init_collision_body_parts(void *, void *, s32);
-void init_field_d4__16TODoorLaboNormalFPv(void* a0);
+void init_field_d4__16TODoorLaboNormalFv(void* a0);
 void TODoorFourLightBase__ct(void *);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFl(u32, s32);
 extern Tbl_8029F7E0 lbl_80466014;
@@ -88,7 +90,7 @@ void load_resources__10TODoorLaboFv(void);
 s32 get_bml_model(s32, s32);
 extern s32 lbl_80465FF8[];
 extern s32 TODoorLabo__bml_resource;
-void init_model_by_type__10TODoorLaboFPv(void *arg0);
+void init_model_by_type__10TODoorLaboFv(void *arg0);
 Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0);
 }
 
@@ -104,12 +106,12 @@ void free_resources__10TODoorLaboFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TODoorFourLightBaseFv(void *, int);
 s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
-void init_field_d4__16TODoorLaboNormalFPv(void* a0) { *(int*)((char*)a0 + 0xd4) = get_bml_model((s32)(TODoorLabo__model_archive), 0); }
+void TODoorLaboNormal::init_field_d4() { *(int*)((char*)this + 0xd4) = get_bml_model((s32)(TODoorLabo__model_archive), 0); }
 
 s32 TODoorLaboNormal__vt20(void) {
     return TODoorLaboNormal__green_texture_list;
@@ -122,7 +124,7 @@ s32 TODoorLaboNormal__vt19(void) {
 void *__dt__16TODoorLaboNormalFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TODoorLaboNormal;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -137,9 +139,9 @@ Self_8029F7E0 *TODoorLaboNormal__ct(Self_8029F7E0 *self) {
     self->vt = ((s32 *)&__vt__16TODoorLaboNormal);
     self->f0 = door_labo_normal_class_name;
     init_collision_body_parts(self, labo_door_collision_body_parts, 1);
-    refresh_collision_body_centers(self);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
     reset_photon_effect__10TObjPlayerFv(self);
-    init_field_d4__16TODoorLaboNormalFPv((void*)(self));
+    init_field_d4__16TODoorLaboNormalFv((void*)(self));
     self->fBC = get_bml_motion((s32)TODoorLabo__model_archive, 0);
     self->fB4 = (f32)self->fBC->f4 - lbl_805DDDB8;
     self->fB8 = lbl_805DDDBC;
@@ -185,17 +187,17 @@ void load_resources__10TODoorLaboFv(void) {
     (*(s32 *)&TODoorLaboNormal__red_texture_list) = load_gvm_texture_file(lbl_8046605C);
 }
 
-void init_model_by_type__10TODoorLaboFPv(void *arg0) {
+void TODoorLabo::init_model_by_type() {
     s32 tbl[2];
     tbl[0] = lbl_80465FF8[0];
     tbl[1] = lbl_80465FF8[1];
-    if (*(s32 *)((s8 *)arg0 + 0x88) < 0) {
-        *(s32 *)((s8 *)arg0 + 0x88) = 0;
+    if (*(s32 *)((s8 *)this + 0x88) < 0) {
+        *(s32 *)((s8 *)this + 0x88) = 0;
     }
-    if (*(s32 *)((s8 *)arg0 + 0x88) > 1) {
-        *(s32 *)((s8 *)arg0 + 0x88) = 1;
+    if (*(s32 *)((s8 *)this + 0x88) > 1) {
+        *(s32 *)((s8 *)this + 0x88) = 1;
     }
-    *(s32 *)((s8 *)arg0 + 0xD4) = get_bml_model(TODoorLabo__bml_resource, tbl[*(s32 *)((s8 *)arg0 + 0x88)]);
+    *(s32 *)((s8 *)this + 0xD4) = get_bml_model(TODoorLabo__bml_resource, tbl[*(s32 *)((s8 *)this + 0x88)]);
 }
 
 s32 TODoorLabo__vt20(void) {
@@ -211,7 +213,7 @@ s32 TODoorLabo__vt19(void) {
 void *__dt__10TODoorLaboFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TODoorLabo;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -229,9 +231,9 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
     arg0->vt = __vt__10TODoorLabo;
     arg0->f0 = odoor_labo_class_name;
     init_collision_body_parts(arg0, labo_door_collision_body_parts, 1);
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
     reset_photon_effect__10TObjPlayerFv(arg0);
-    init_model_by_type__10TODoorLaboFPv(arg0);
+    init_model_by_type__10TODoorLaboFv(arg0);
     arg0->fBC = (u8 *)get_bml_motion(TODoorLabo__bml_resource, 0);
     arg0->fB4 = (f32)*(u32 *)((s8 *)arg0->fBC + 4) - lbl_805DDDB8;
     arg0->fB8 = lbl_805DDDBC;
@@ -312,7 +314,7 @@ s32 TODoorFourLightSeabedU__vt19(void);
 s32 TODoorFourLightSeabedU__vt20(void);
 void *__dt__22TODoorFourLightSeabedUFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TODoorFourLightBaseFv(void *, int);
 
@@ -333,7 +335,7 @@ extern s32 __vt__22TODoorFourLightSeabedU[];
 void *__dt__22TODoorFourLightSeabedUFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TODoorFourLightSeabedU;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -381,7 +383,7 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
     self->vt18 = __vt__22TODoorFourLightSeabedU;
     self->f0 = odoor_four_light_seabed_u_class_name;
     init_collision_body_parts(arg0, labo_door_collision_body_parts, 1);
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
     reset_photon_effect__10TObjPlayerFv(arg0);
     self->fD4 = get_bml_model((s32)seabed_four_light_door_bml_resource, 0);
     self->infoBC = (Info_8029FD70 *)get_bml_motion((s32)seabed_four_light_door_bml_resource, 0);
@@ -479,7 +481,7 @@ s32 TODoorFourLightSeabed__vt19(void);
 s32 TODoorFourLightSeabed__vt20(void);
 void *__dt__21TODoorFourLightSeabedFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TODoorFourLightBaseFv(void *, int);
 
@@ -500,7 +502,7 @@ extern s32 __vt__21TODoorFourLightSeabed[];
 void *__dt__21TODoorFourLightSeabedFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TODoorFourLightSeabed;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -548,7 +550,7 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     self->vt18 = __vt__21TODoorFourLightSeabed;
     self->f0 = TODoorFourLightSeabed__class_name;
     init_collision_body_parts(arg0, labo_door_collision_body_parts, 1);
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
     reset_photon_effect__10TObjPlayerFv(arg0);
     self->fD4 = get_bml_model(door_labo_bml_resource, 0);
     self->infoBC = (Info_802A0068 *)get_bml_motion(door_labo_bml_resource, 0);

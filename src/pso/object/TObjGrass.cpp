@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjGrass.h"
 #include "pso/enemy/TUnk_80494938.h"
 extern "C" void render__12TObjGrassWebFv();
@@ -349,7 +352,7 @@ struct E2C_800BF924 { u8 pad[0x2C]; };
 
 extern "C" {
 s32 spawn_particle_effect(s32, s32);
-s32 send_entity_set_flags__6TLobbyFPv(void *);
+s32 send_entity_set_flags__9TObjEnemyFv(void *);
 void vfunc_63__9TObjGrassFv(u8 *arg0);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -514,7 +517,7 @@ void TObjEneMe3SinowZoa__sub_800D758C(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 advance_animation_playback(void *);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 project_actor_to_ground(void *, void *, s32);
 s32 minimap_render_dot(void *, s32, s32, s32);
 f32 vec3_add_to(void *, void *);
@@ -553,7 +556,7 @@ void enemy_set_heading_velocity(void *, s32, f32);
 void enemy_turn_toward_dest(void *, s32);
 s32 move_with_wall_slide(void *);
 f32 horizontal_distance_squared(void *, void *);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
 void TObjGrass__sub_800BFB68(O_800BFB68 *self);
 s32 set_indexed_flags(void *, int, int);
@@ -872,7 +875,7 @@ void TObjGrass::vfunc_63() {
         *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) & 0xFFFF7FFE);
         spawn_particle_effect((s32) (arg0 + 0x2FC), 0xF2);
         ((TObjPlayer *)arg0)->refresh_lobby_state();
-        send_entity_set_flags__6TLobbyFPv(arg0);
+        send_entity_set_flags__9TObjEnemyFv(arg0);
     }
 }
 
@@ -1216,7 +1219,7 @@ void TObjGrass::sub_800BD4D8() {
         }
         break;
     }
-    refresh_collision_body_centers(o);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(o);
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
 }
 #pragma pop
@@ -1621,7 +1624,7 @@ void TObjGrass::update_ai(void *arg0) {
             } else {
                 ((void (*)(void *, f32, f32, f32, s32))enemy_wander_home)(o, (0.25f) * o->param->speed, (1e+02f), (5e+01f), o->param->turn);
             }
-            refresh_collision_body_centers(o);
+            refresh_collision_body_centers__13TUnk_804AF8A0Fv(o);
             break;
         default:
             o->fB8 = 0;
@@ -1787,7 +1790,7 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
     virtual s32 m9(f32, f32, f32);
 };
 
-s32 render_with_position_override__10TObjPlayerFPUcl(void *, void *, int, f32);
+s32 render_with_position_override__9TObjEnemyFPUcl(void *, void *, int, f32);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
@@ -1870,7 +1873,7 @@ void TObjGrass::render() {
         v.x = (1.0f);
         v.y = (1.0f);
         v.z = (4.0f);
-        render_with_position_override__10TObjPlayerFPUcl(self, &v, 0, (1.0f));
+        render_with_position_override__9TObjEnemyFPUcl(self, &v, 0, (1.0f));
         break;
     }
     }
@@ -1944,7 +1947,7 @@ void TObjGrass::run_task() {
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
         this->target = NULL;
     }
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
     submit_cursor_candidate((void *) (arg0), (int) (-1));
     this->m_2b4 += (1.0f);
@@ -2082,7 +2085,7 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     bind_enemy_combat_stats(arg0, lbl_805D5140, ((u32 *)TObjGrass__bml_resource)[*(s16 *)((s8 *)arg0 + 0x39E)], grass_combat_stats_handle);
     *(u8 **)((s8 *)arg0 + 0x350) = (u8 *)&((E1C_800BF924 *)lbl_804929E4)[*(s32 *)((s8 *)arg0 + 0x368)];
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0x398) = (0.0f);
@@ -2090,7 +2093,7 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s16 *)((s8 *)arg0 + 0x328) = 0;
     *(s32 *)((s8 *)arg0 + 0x3A0) = 0;
     TObjGrass__sub_800BFB68((O_800BFB68 *)(arg0));
-    ((TObjPlayer *)arg0)->add_flags_2e4(2);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(2);
     obj_setFlags30(arg0, 0x04040000);
     ((VObj_14_fa0828 *)(arg0 + 0x3B0))->m3();
     *(s32 *)((s8 *)arg0 + 0x3AC) = 1;

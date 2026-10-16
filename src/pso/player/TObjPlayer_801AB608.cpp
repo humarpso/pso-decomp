@@ -165,7 +165,7 @@ extern const f32 lbl_805DC198;
 s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0);
 s32 find_entity_by_id(int);
 s32 rotate_matrix_y(int, int);
-void mark_enemy_body_contacts(void *);
+void mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
 void subtract_vector(void *, void *);
 f32 vec_squared_length(void *);
@@ -275,7 +275,7 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
     s32 i;
     Target_801AB868 *candidate;
     TObjPlayer::init_all_slots();
-    mark_enemy_body_contacts(self);
+    mark_enemy_body_contacts__13TUnk_804AF8A0Fv(self);
     if (self->fa4->flags & 0x100000) {
         for (i = 0; i < 16; i++) {
             candidate = get_battle_param__10TObjPlayerFi(i);

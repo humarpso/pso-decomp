@@ -8,7 +8,7 @@ extern "C" {
 s32 get_camera_id__11TCameraCtrlFv(void);
 
 void get_array_entry__13TUnk_804CE018Fi(void *, int);
-s32 save_position__17TWindowSubComCardFPv(void *);
+s32 save_position__13TUnk_804CE018Fv(void *);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, s32 *, s16, void *);
 extern s32 lbl_804D0058[];
 extern s32 __vt__22TWindowLoadItemTexture[];
@@ -26,10 +26,10 @@ void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1);
 void fn_80262C2C(void* p);
 void render__22TWindowLoadItemTextureFv(u8 *arg0);
 
-s32 setup_window_draw_context(void *, void *);
+s32 setup_window_draw_context__13TUnk_804CE018Fl(void *, void *);
 s32 draw_window_frame(void *, s32);
 s32 draw_visible_window_entries(void *, void *, s32);
-int update_window_entry_list(void*, void*);
+int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void set_sprite_uv_bounds(f32, f32, f32, f32);
@@ -37,7 +37,7 @@ s32 fn_8026287C(void *);
 void get_array_entry__13TUnk_804CE018Fi(void *, int);
 int initialize_subwindow__9TWindowDDFv(void*);
 void queue_destruction__7TObjectFv(void *);
-int update_fade__17TWindowSubComCardFv(void*);
+int update_fade__13TUnk_804CE018Fv(void*);
 
 extern s32 lbl_8044F280[];
 extern const f32 lbl_805DD0EC;
@@ -65,14 +65,14 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
             *(u8 *)((s8 *)arg0 + 0x60) = 1U;
         }
     }
-    temp_r31 = setup_window_draw_context(arg0, arg0 + 0x64);
+    temp_r31 = setup_window_draw_context__13TUnk_804CE018Fl(arg0, arg0 + 0x64);
     if (*(u8 *)((s8 *)arg0 + 0x61) & 1) {
         draw_window_frame(arg0, temp_r31);
     }
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r31);
 }
 
-void TWindowLoadItemTexture::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); update_window_entry_list(this, (char*)this + 0x24); }
+void TWindowLoadItemTexture::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade__13TUnk_804CE018Fv(this); update_window_entry_list__13TUnk_804CE018FPv(this, (char*)this + 0x24); }
 
 extern s32 __vt__22TWindowLoadItemTexture[];
 
@@ -107,7 +107,7 @@ void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3)
     }
     *(f32 *)((s8 *)arg0 + 0x38) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)arg2 + 4);
-    save_position__17TWindowSubComCardFPv(arg0);
+    save_position__13TUnk_804CE018Fv(arg0);
     e = ((void *(*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
     *(f32 *)((s8 *)e + 0x10) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)e + 0x14) = *(f32 *)((s8 *)arg2 + 4);

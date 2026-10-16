@@ -270,7 +270,7 @@ extern void *TRaderMapCore__instance;
 void allow_rendering__7TObjectFv(void *);
 extern void *TRaderMapCore__instance;
 extern s32 TRaderMapCore__view_mode;
-s32 setup_default_view__11TCameraCtrlFPvPv(void *, int);
+s32 setup_default_view__11TCameraCtrlFPv(void *, int);
 s32 TCameraCtrl__sub_801E32D8(f32, f32);
 s32 GXSetScissorBoxOffset(int, int);
 extern RecoveredGlobal_801FA964_lbl_804C8784 radar_map_view_scissor_table;
@@ -1003,7 +1003,7 @@ void TRaderMapCore::setup_view(s32 arg1) {
     s32 arg0 = (s32)this;
     GXSetScissorBoxOffset((int) (0), (int) (0));
     TCameraCtrl__sub_801E32D8((f32) (radar_screen_center_x_f32), (f32) (radar_screen_center_y_f32));
-    setup_default_view__11TCameraCtrlFPvPv((void *) (camera_ctrl_instance), (int) (0));
+    setup_default_view__11TCameraCtrlFPv((void *) (camera_ctrl_instance), (int) (0));
     TRaderMapCore::set_view_scissor((void *)((void *) (arg0)), (int)((int) (0)), (void *)((void *) ((u8 *)&radar_map_view_scissor_table.value + (arg1 * 0x10))));
     TObjLight::apply_distant_light();
     TParticleCtrl::end_effect_render();

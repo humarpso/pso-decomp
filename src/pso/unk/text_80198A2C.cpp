@@ -1092,7 +1092,7 @@ int set_timer_value__12TWindowTimerFii(int a0, int a1);
 int close_timer_window__11TWindowCtrlFv(void*);
 int TWindowTimer__sub_8019A770(void* p);
 u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
-s32 initialize_linked_object_reference(void *, s32);
+s32 initialize_linked_object_reference__13TUnk_804AF8A0FPv(void *, s32);
 extern s32 lbl_804B8E18[];
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
 s16 get_timer_value__12TWindowTimerFi(s32 i);
@@ -1105,10 +1105,10 @@ void sync_from_lobby__10TNpcPlayerFv(void *p);
 extern s32 local_client_id;
 void TWindowTimer__sub_8019A098(void);
 void rotate_vec_xz(void *, void *, s32);
-void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1);
+void sub_8019A44C__13TUnk_804B8E18Fl(Win_8019A44C *arg0, s32 arg1);
 s32 obj_getField1c(void *);
 s32 get_clock_frames__6TLobbyFv();
-void update_best_time__12TWindowTimerFPv(void *arg0);
+void update_best_time__13TUnk_804B8E18Fv(void *arg0);
 void open__11TWindowCtrlFlll(s32, void *, int);
 void vec3_add_to(void *, void *);
 extern u8 lbl_8044613C[];
@@ -1123,28 +1123,28 @@ void open__11TWindowCtrlFlll(s32, void *, int);
 f32 atan2_float(f32, f32);
 extern u8 lbl_80446148[];
 extern const f64 lbl_80446150[];
-void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id);
+void update_goal_checks__13TUnk_804B8E18FUs(void *arg0, u16 id);
 }
 
 extern "C" {
 
 void *destroy_player_obj__13TUnk_804B8E18Fs(void *arg0, s16 arg1);
 void send_gogo_ball__12TWindowTimerFi(s32 arg0);
-void update_best_time__12TWindowTimerFPv(void *arg0);
+void update_best_time__13TUnk_804B8E18Fv(void *arg0);
 s32 TLobby__send_and_handle_60(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 bswap_32__FPUl(s32);
-s32 clear_obj_links(void *);
+s32 clear_obj_links__13TUnk_804AF8A0Fv(void *);
 s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 s32 read_be16_field2__10TObjPlayerFv();
 
-void update_best_time__12TWindowTimerFPv(void *arg0) {
-    if ((*(s16 *)((s8 *)gogo_ball_sync_state + 0x12) == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x354) <= (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14))) {
-        *(s32 *)((s8 *)arg0 + 0x354) = (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14);
-        *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 0);
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 4);
-        *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 8);
-        TWindowTimer__sub_8019A44C((Win_8019A44C *)(arg0), (s32)(*(s32 *)((s8 *)gogo_ball_sync_state + 0xC)));
+void TUnk_804B8E18::update_best_time() {
+    if ((*(s16 *)((s8 *)gogo_ball_sync_state + 0x12) == 0) && ((s32) *(s32 *)((s8 *)this + 0x354) <= (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14))) {
+        *(s32 *)((s8 *)this + 0x354) = (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14);
+        *(f32 *)((s8 *)this + 0x38) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 0);
+        *(f32 *)((s8 *)this + 0x3C) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 4);
+        *(f32 *)((s8 *)this + 0x40) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 8);
+        sub_8019A44C__13TUnk_804B8E18Fl((Win_8019A44C *)(this), (s32)(*(s32 *)((s8 *)gogo_ball_sync_state + 0xC)));
     }
     *(s16 *)((s8 *)gogo_ball_sync_state + 0x12) = 1;
 }
@@ -1166,8 +1166,8 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    update_goal_checks__12TWindowTimerFPvUs((void *)(self), (u16)(local_client_id));
-    update_best_time__12TWindowTimerFPv(self);
+    update_goal_checks__13TUnk_804B8E18FUs((void *)(self), (u16)(local_client_id));
+    update_best_time__13TUnk_804B8E18Fv(self);
     if (self->pos.y <= (-5e+02f)) {
         queue_destruction__7TObjectFv(self);
     }
@@ -1205,13 +1205,13 @@ void TWindowTimer__sub_8019A098(void) {
 #define CFG (*(Cfg_8019A104 *)&gogo_ball_configuration)
 #define ST (*(State_8019A104 *)gogo_ball_sync_state)
 extern const char lbl_805DBF94[] = "Go!";
-void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
+void TUnk_804B8E18::update_goal_checks(u16 id) {
     Timer_8019A104 *self;
     Player_8019A104 *p;
     f32 len;
     s32 ang;
     p = (Player_8019A104 *)get_player_by_client_id(id);
-    self = (Timer_8019A104 *)arg0;
+    self = (Timer_8019A104 *)this;
     if (p == NULL) {
         return;
     }
@@ -1272,7 +1272,8 @@ void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
     }
 }
 
-void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1) {
+void TUnk_804B8E18::sub_8019A44C(s32 arg1) {
+    Win_8019A44C *arg0 = (Win_8019A44C *)this;
     arg0->f390 = ((f32 *)&gogo_ball_configuration)[3];
     arg0->f394 = ((f32 *)&gogo_ball_configuration)[4];
     if ((s32)((u8 *)&gogo_ball_sync_state)[0x18] == 1) {
@@ -1294,8 +1295,8 @@ void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1) {
 void *TUnk_804B8E18::destroy_player_obj(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804B8E18;
-        unregister_object_by_id((s32 *)this);
-        clear_obj_links(this);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)this);
+        clear_obj_links__13TUnk_804AF8A0Fv(this);
         destroy_motion_object__13TUnk_804806E8Fs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -1339,7 +1340,7 @@ u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x374) = (f32) (1.0f);
     *(s32 *)((s8 *)arg0 + 0x378) = 1;
     *(s32 *)((s8 *)arg0 + 0x37C) = 0x40107;
-    initialize_linked_object_reference(arg0, (s32) (arg0 + 0x364));
+    initialize_linked_object_reference__13TUnk_804AF8A0FPv(arg0, (s32) (arg0 + 0x364));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x35C) = 0;
     *(s16 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x10) = 0;

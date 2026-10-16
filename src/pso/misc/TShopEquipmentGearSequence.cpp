@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListVM.h"
 
 struct Base_8021B2E8 { char pad[0x18]; };
@@ -41,7 +42,7 @@ void handle_confirm__26TShopEquipmentGearSequenceFPv(void *arg0);
 void open_gear_shop__26TShopEquipmentGearSequenceFPv(struct VObj_8021B288 *arg0);
 void try_close__26TShopEquipmentGearSequenceFPv(void *arg0);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
-s32 TShopWindowBase__sub_802239EC(void *);
+s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 close_window__13TShopSequenceFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
@@ -61,7 +62,7 @@ struct VObj_8021B288 : Base_8021B288 {
 void open_gear_shop__26TShopEquipmentGearSequenceFPv(struct VObj_8021B288 *arg0) {
     if (arg0 != NULL) {
         arg0->m4(0x1B, 1);
-        ((TQuestListVM *)arg0)->set_field_20((s32)(7));
+        ((TShopWindowBase *)arg0)->set_field_20((s32)(7));
         lbl_805D6218 = 0x1A;
         lbl_805D621C = 2;
     }
@@ -71,7 +72,7 @@ void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *arg0) {
     struct VObj_8021B2E8 *o = (struct VObj_8021B2E8 *)arg0;
     if (o != NULL) {
         o->m4(0x1A, 1);
-        ((TQuestListVM *)arg0)->set_field_20((s32)(2));
+        ((TShopWindowBase *)arg0)->set_field_20((s32)(2));
     }
 }
 
@@ -79,14 +80,14 @@ extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;
 
 void handle_confirm__26TShopEquipmentGearSequenceFPv(void *arg0) {
-    if ((((VObj_8021B338*)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
+    if ((((VObj_8021B338*)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
         ((VObj_8021B338*)arg0)->m4(lbl_805D6218, 1);
-        ((TQuestListVM *)arg0)->set_field_20((s32)(lbl_805D621C));
+        ((TShopWindowBase *)arg0)->set_field_20((s32)(lbl_805D621C));
     }
 }
 
 void try_close__26TShopEquipmentGearSequenceFPv(void *arg0) {
-    if ((((VObj_8021B3C0 *)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
+    if ((((VObj_8021B3C0 *)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
         close_if_single_screen__13TShopSequenceFv(arg0);
         close_window__13TShopSequenceFv(arg0);
         queue_destruction__7TObjectFv(arg0);

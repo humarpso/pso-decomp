@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/object/TObjMotion.h"
 
 extern "C" {
@@ -92,7 +94,7 @@ struct VObj_18_345191 : VBase_18_345191 {
 
 extern "C" {
 s32 advance_animation_playback(int);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 play_sound_effect(int, void *, int, int, int);
 void fn_80040FDC(u8 *arg0);
 }
@@ -126,7 +128,7 @@ void fn_80040FDC(u8 *arg0) {
         }
         break;
     }
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
 }
 
 }
@@ -216,10 +218,10 @@ s32 draw_chunk_object(int);
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0);
-s32 refresh_collision_body_centers(void *);
-void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
+void sub_8004118C__20TBoss3VoloptHiraisinFv(Obj_8004118C *self);
 #define advance_animation_playback ((void (*)(void *))advance_animation_playback)
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void TBoss3VoloptHiraisin__sub_80041314(void *arg0);
 void update_collisions__10TObjPlayerFv(void *);
 void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self);
@@ -260,19 +262,19 @@ typedef char RecoveredFields_800413C8_arg0_60_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_800413C8_arg0_B4_offset[offsetof(RecoveredFields_800413C8_arg0, field_B4) == 0xB4 ? 1 : -1];
 typedef char RecoveredFields_800413C8_arg0_38C_offset[offsetof(RecoveredFields_800413C8_arg0, field_38C) == 0x38C ? 1 : -1];
 
-void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self) {
-    switch (self->state) {
+void TBoss3VoloptHiraisin::sub_8004118C() {
+    switch (((Obj_8004118C *)this)->state) {
     case 0:
-        self->anim = 0;
-        self->state = 1;
+        ((Obj_8004118C *)this)->anim = 0;
+        ((Obj_8004118C *)this)->state = 1;
         break;
     case 1:
         break;
     case -1:
         break;
     }
-    refresh_collision_body_centers(self);
-    self->angle += 0x800;
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(((Obj_8004118C *)this));
+    ((Obj_8004118C *)this)->angle += 0x800;
 }
 
 void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self) {
@@ -328,7 +330,7 @@ void TBoss3VoloptHiraisin__sub_80041314(void *arg0) {
         }
         break;
     }
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
 }
 
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
@@ -374,7 +376,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
 #undef TBoss3VoloptHiraisin__init_param_table
 #undef advance_animation_playback
 #define copy_position__20TBoss3VoloptHiraisinFi ((s32 (*)(void *))copy_position__20TBoss3VoloptHiraisinFi)
-#define TBoss3VoloptHiraisin__sub_8004118C ((s32 (*)())TBoss3VoloptHiraisin__sub_8004118C)
+#define sub_8004118C__20TBoss3VoloptHiraisinFv ((s32 (*)())sub_8004118C__20TBoss3VoloptHiraisinFv)
 #define update_drop__20TBoss3VoloptHiraisinFPv ((s32 (*)())update_drop__20TBoss3VoloptHiraisinFPv)
 #define TBoss3VoloptHiraisin__sub_80041314 ((s32 (*)())TBoss3VoloptHiraisin__sub_80041314)
 #define fn_80040FDC ((s32 (*)())fn_80040FDC)
@@ -457,7 +459,7 @@ struct VObj_18_6fcf4f : VBase_18_6fcf4f {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0);
+void dispatch_state__20TBoss3VoloptHiraisinFv(void *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
@@ -468,16 +470,16 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0);
 extern "C" {
 
 void destroy__20TBoss3VoloptHiraisinFv(void);
-void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0);
+void dispatch_state__20TBoss3VoloptHiraisinFv(void *arg0);
 
-void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0) {
+void TBoss3VoloptHiraisin::dispatch_state() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 0:
     case 1:
-        TBoss3VoloptHiraisin__sub_8004118C();
+        sub_8004118C__20TBoss3VoloptHiraisinFv();
         break;
     case 4:
         TBoss3VoloptHiraisin__sub_80041314();
@@ -515,12 +517,12 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x37C)))) != (-1))
       {
         *((s32 *) (((s8 *) arg0) + 0x37C)) = -1;
-        dispatch_state__20TBoss3VoloptHiraisinFPv((void *) arg0);
+        dispatch_state__20TBoss3VoloptHiraisinFv((void *) arg0);
       }
       *((s16 *) (((s8 *) arg0) + 0x326)) = (s16) (*((s32 *) (((s8 *) arg0) + 0x374)));
       *((s32 *) (((s8 *) arg0) + 0x37C)) = 0;
     }
-    dispatch_state__20TBoss3VoloptHiraisinFPv((void *) arg0);
+    dispatch_state__20TBoss3VoloptHiraisinFv((void *) arg0);
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     if (((s16) (*((s16 *) (((s8 *) arg0) + (0x326 & 0xFFFFFFFFu))))) != 5)
     {
@@ -546,7 +548,7 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 
 }
 #undef copy_position__20TBoss3VoloptHiraisinFi
-#undef TBoss3VoloptHiraisin__sub_8004118C
+#undef sub_8004118C__20TBoss3VoloptHiraisinFv
 #undef update_drop__20TBoss3VoloptHiraisinFPv
 #undef TBoss3VoloptHiraisin__sub_80041314
 #undef fn_80040FDC
@@ -749,12 +751,12 @@ s32 TObjEnemyCustom__ct(void *);
 extern s32 lbl_805D2738;
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2);
 void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
-void recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
+void recalc_combat_stats__13TUnk_804806E8FPvPvPvff(void *, s32, s32, s32, f32, f32);
 void obj_setFlags30(void *, u32);
 void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
-void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self);
+void init_params__20TBoss3VoloptHiraisinFv(Hira_800418C8 *self);
 u8 *find_entity_by_id(u16);
 extern s8 volopt_target_slot_used[];
 extern u16 boss3_volopt_monitor_base_actor_id;
@@ -823,32 +825,32 @@ void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1) {
 
 struct O_80041B34;
 #pragma opt_propagation off
-void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self) {
+void TBoss3VoloptHiraisin::init_params() {
     Param_800418C8 *prm;
     prm = &TBoss3VoloptHiraisin__init_param_table;
-    VecCopy__FP3VecPC3Vec((s32)self->home, (s32)self->pos);
-    self->home[1] -= (3e+01f);
-    copy_position__20TBoss3VoloptHiraisinFi((s32)self);
-    self->unkDC = *(s32 *)(TBoss3VoloptHiraisin__resource_bundle + 0x430);
-    self->unkD8 = prm->unk1C;
-    ((TObjPlayer *)self)->set_field_d8((s32)(self->unkD8));
-    init_collision_body_parts(self, prm->unk88, 1);
-    self->unk368 = 0;
-    self->unk350 = prm->unk6C;
-    recalc_combat_stats__10TObjPlayerFv(self, lbl_805D4C70, volopt_hiraisin_shared_handler_b, volopt_hiraisin_object_handle, (1.0f), (1.0f));
-    self->unkB8 = 0;
-    set_animation__10TObjPlayerFPvs(self, self->unkB8);
-    ((TObjMotion *)self)->set_field_b8(self->unkB8);
-    self->hp32C = self->hp2B8;
-    self->hp32E = self->hp2BA;
-    self->unk33E = self->hp32C;
-    ((TObjEneLappy *)self)->set_param(0x2E);
-    ((TBoss3Volopt *)self)->reset_photon_effect();
-    ((TBoss3VoloptHiraisin *)self)->load_params_from_table((s32)(0x10));
-    sub_800C7860__15TObjEnemyCustomFv(self);
-    ((TObjPlayer *)self)->add_flags_2e4(4);
-    obj_setFlags30(self, 0x8000);
-    self->m80();
+    VecCopy__FP3VecPC3Vec((s32)((Hira_800418C8 *)this)->home, (s32)((Hira_800418C8 *)this)->pos);
+    ((Hira_800418C8 *)this)->home[1] -= (3e+01f);
+    copy_position__20TBoss3VoloptHiraisinFi((s32)((Hira_800418C8 *)this));
+    ((Hira_800418C8 *)this)->unkDC = *(s32 *)(TBoss3VoloptHiraisin__resource_bundle + 0x430);
+    ((Hira_800418C8 *)this)->unkD8 = prm->unk1C;
+    ((TObjPlayer *)((Hira_800418C8 *)this))->set_field_d8((s32)(((Hira_800418C8 *)this)->unkD8));
+    init_collision_body_parts(((Hira_800418C8 *)this), prm->unk88, 1);
+    ((Hira_800418C8 *)this)->unk368 = 0;
+    ((Hira_800418C8 *)this)->unk350 = prm->unk6C;
+    recalc_combat_stats__13TUnk_804806E8FPvPvPvff(((Hira_800418C8 *)this), lbl_805D4C70, volopt_hiraisin_shared_handler_b, volopt_hiraisin_object_handle, (1.0f), (1.0f));
+    ((Hira_800418C8 *)this)->unkB8 = 0;
+    set_animation__10TObjPlayerFPvs(((Hira_800418C8 *)this), ((Hira_800418C8 *)this)->unkB8);
+    ((TObjMotion *)((Hira_800418C8 *)this))->set_field_b8(((Hira_800418C8 *)this)->unkB8);
+    ((Hira_800418C8 *)this)->hp32C = ((Hira_800418C8 *)this)->hp2B8;
+    ((Hira_800418C8 *)this)->hp32E = ((Hira_800418C8 *)this)->hp2BA;
+    ((Hira_800418C8 *)this)->unk33E = ((Hira_800418C8 *)this)->hp32C;
+    ((TObjEneLappy *)((Hira_800418C8 *)this))->set_param(0x2E);
+    ((TBoss3Volopt *)((Hira_800418C8 *)this))->reset_photon_effect();
+    ((TBoss3VoloptHiraisin *)((Hira_800418C8 *)this))->load_params_from_table((s32)(0x10));
+    sub_800C7860__15TObjEnemyCustomFv(((Hira_800418C8 *)this));
+    ((TUnk_804806E8 *)((Hira_800418C8 *)this))->add_flags_2e4(4);
+    obj_setFlags30(((Hira_800418C8 *)this), 0x8000);
+    ((Hira_800418C8 *)this)->m80();
 }
 
 S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 b) {
@@ -865,7 +867,7 @@ S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 
     o->f3c = (8e+01f);
     o->f38 = boss3_volopt_spawn_pos[0];
     o->f40 = boss3_volopt_spawn_pos[2];
-    ((s32 (*)(void *, void *, s32))init_params__20TBoss3VoloptHiraisinFPv)(o, boss3_volopt_spawn_pos, g);
+    ((s32 (*)(void *, void *, s32))init_params__20TBoss3VoloptHiraisinFv)(o, boss3_volopt_spawn_pos, g);
     return o;
 }
 
@@ -875,7 +877,7 @@ u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TBoss3VoloptHiraisin;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2738;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_params__20TBoss3VoloptHiraisinFPv((Hira_800418C8 *)((void *) (arg0)));
+    init_params__20TBoss3VoloptHiraisinFv((Hira_800418C8 *)((void *) (arg0)));
     return arg0;
 }
 

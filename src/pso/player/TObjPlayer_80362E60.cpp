@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/player/TUnk_804F27E0.h"
 
 struct VBase_18_f1aa6a { char pad[0x18]; };
@@ -159,11 +160,11 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
         if (*(s32 *)((s8 *)arg0 + 0x1FC) & 1) {
             push_matrix();
             rotate_matrix_x((int) (0), (int) (0x2AAA));
-            ((TObjPlayer *)arg0)->check_boss2tunnel_field_f4();
+            ((TItemWeapon *)arg0)->check_boss2tunnel_field_f4();
             pop_matrix();
             push_matrix();
             rotate_matrix_x((int) (0), (int) (-0x2AAA));
-            ((TObjPlayer *)arg0)->check_boss2tunnel_field_f4();
+            ((TItemWeapon *)arg0)->check_boss2tunnel_field_f4();
             pop_matrix();
         }
     }
@@ -171,7 +172,7 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
 
 void TUnk_804F27E0::reserved_53() {
     u8 *arg0 = (u8 *)this;
-    if (((TObjPlayer *)arg0)->test_flags_1b8(0x01000000U) == 0U) {
+    if (((TItemWeapon *)arg0)->test_flags_1b8(0x01000000U) == 0U) {
         draw_weapon_model((void *) (arg0));
     }
 }

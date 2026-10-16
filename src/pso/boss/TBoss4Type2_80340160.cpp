@@ -32,7 +32,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     if (((TObjEneDD *)arg0)->query_teammate_state() == 0) {
-        ((TBoss4Type2 *)arg0)->advance_offset();
+        ((TBoss6Demo15_TYPE2_WAIT *)arg0)->advance_offset();
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x4C), (void *) (arg0 + 0x40));
         sub_8033FE30__23TBoss6Demo15_TYPE2_WAITFv((void *) (arg0));
         temp_r3 = (u8 *)(this->m_20);

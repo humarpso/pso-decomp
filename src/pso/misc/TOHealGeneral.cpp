@@ -82,7 +82,7 @@ u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80169710_lbl_804B2748 bm_fe_obj_kaifuku_moto_resource_descriptor;
 extern RecoveredGlobal_80169710_lbl_804B2760 fe_obj_kaifuku_moto_2_resource_descriptor;
 extern u32 TOHealGeneral__model_archive;
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__13TOHealGeneral[];
@@ -90,7 +90,7 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 u32 create_particle_emitter(void *, s32);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void init_collision_body_parts(void *, void *, s32, void *);
 void init_map_object_base(void *, s32);
 extern u8 lbl_804B2770[];
@@ -248,7 +248,7 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
                 TBoss4Type2::request_destroy(self->handles[i]);
             }
         }
-        unregister_object_by_id(self);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(self);
         free_collision_body_parts(self);
         ((TUnk_804AFBF8 *)self)->destroy_key_base(0);
         if (flag > 0) {
@@ -271,7 +271,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     self->f24 = *(s32 *)((s8 *)model + 0xC);
     self->fC4 = lbl_805DB6CC;
     init_collision_body_parts(self, lbl_804B2770, 1, model);
-    refresh_collision_body_centers(self);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
     ((TObjPlayer *)self)->reset_photon_effect();
     ((TObjPlayer *)self)->clear_player_status_flag(0, 1);
     self->fCC = 0;

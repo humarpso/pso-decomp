@@ -1163,7 +1163,7 @@ struct CityDoorFields {
 extern "C" {
 s32 check_player_in_range__13TUnk_804B5BA8Flf(void *arg0, s32 _w1, f32 _w2);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 void __dl__7TObjectFPv(void *);
 extern s32 city_door_base_vtable[];
 void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1);
@@ -1326,7 +1326,7 @@ s32 TUnk_804B5BA8::check_player_in_range(s32 _w1, f32 _w2) { return TObjPlayer::
 void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = city_door_base_vtable;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {

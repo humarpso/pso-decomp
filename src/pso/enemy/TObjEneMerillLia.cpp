@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/enemy/TUnk_80493450.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
@@ -548,7 +551,7 @@ s32 TObjPlayer__sub_800C4E08(void *);
 s32 update_target_near_flag(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 advance_animation_playback(void *);
-s32 test_elt_flag__10TObjPlayerFPvii(void *, int, int);
+s32 test_elt_flag__13TUnk_80493450Fll(void *, int, int);
 s32 minimap_render_dot(void *, int, int, int);
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA31C;
@@ -598,7 +601,7 @@ f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 advance_animation_playback(void *);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 project_actor_to_ground(void *, void *, s32);
 s32 minimap_render_dot(void *, int, int, int);
 f32 vec3_add_to(void *, void *);
@@ -627,7 +630,7 @@ void *TObjControl__ct(void *, void *);
 void free_collision_body_parts(void *);
 void *TObjEneMerillLia__ct(void *, void *, void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void unlink_enemy_group_relations(void *);
+void unlink_enemy_group_relations__13TUnk_80493450Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -1184,7 +1187,7 @@ s32 TObjEneMerillLia::update_kafun_attack(void *p) {
             push_matrix_from((void *) (&identity_matrix));
             post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
             rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-            ((TObjPlayer *)arg0)->render_anim_model(lbl_805DA30C);
+            ((TObjEnemy *)arg0)->render_anim_model(lbl_805DA30C);
             pop_matrix();
             push_matrix_from((void *) (anim_model_matrix_array + 0x450));
             {
@@ -1232,10 +1235,10 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
     advance_animation_playback(o);
     if (o->state != 1) {
         o->state = 1;
-        ((TObjPlayer *)o)->link_into_group_chain();
+        ((TUnk_80493450 *)o)->link_into_group_chain();
         o->f378 = ((TObjPlayer *)o)->is_action_available();
     }
-    o->count = ((TObjEnemy *)o)->countChildren();
+    o->count = ((TUnk_80493450 *)o)->countChildren();
     {
         Lia_800D5BCC *p = o->partner;
         if (p != NULL) {
@@ -1333,7 +1336,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
     if (obj_testFlags30(o, 0x800000) == 0) {
         apply_actor_gravity(o, 0, TObjEneMerillLia__data_805DA300);
     }
-    refresh_collision_body_centers(o);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(o);
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
     obj_clearFlags30(o, 0x04240000);
     clear_player_status_flag__10TObjPlayerFlUl(o, 0, 0x0A000000);
@@ -1490,7 +1493,7 @@ void TObjEneMerillLia::beast_update_approach() {
     default:
         spawn_ground_effect__16TObjEneMerillLiaFPv((u8 *)(arg0));
         if (*(u32 *)((s8 *)arg0 + 0x2A8) != 0U) {
-            if (test_elt_flag__10TObjPlayerFPvii(arg0, 0, 0x300000) != 0) {
+            if (test_elt_flag__13TUnk_80493450Fll(arg0, 0, 0x300000) != 0) {
                 if ((f32) (*(u32 *)((s8 *)arg0 + 0x38C))++ < lbl_805DA31C) {
                     VecCopy__FP3VecPC3Vec(&sp14, arg0 + 0x50);
                 } else {
@@ -1590,7 +1593,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
       stack.sp8 = lbl_805DA32C;
       stack.spC = TObjEneMerillLia__data_805DA2F4;
       stack.sp10 = lbl_805DA330;
-      ((TObjPlayer *)arg0)->render_with_position_override((u8 *)(&stack.sp8), (s32)((int) 0));
+      ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&stack.sp8), (s32)((int) 0));
     }
   }
 }
@@ -1683,7 +1686,7 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
         break;
     }
   }
-  ((TObjPlayer *)arg0)->update_prev_position();
+  ((TObjEnemy *)arg0)->update_prev_position();
   copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
   submit_cursor_candidate((void *) arg0, (int) (-1));
   *((f32 *) (((s8 *) arg0) + 0x2B4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2B4))) + TObjEneMerillLia__data_805DA2F4);
@@ -1735,7 +1738,7 @@ void TObjEneMerillLia::destroy_rocks() {
 void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494728;
-        unlink_enemy_group_relations(arg0);
+        unlink_enemy_group_relations__13TUnk_80493450Fv(arg0);
         free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3A8, -1);
         TObjPlayer__sub_800C68FC(arg0, 0);
@@ -1791,7 +1794,7 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
         ((s32 *) merill_lia_rock_buffer)[*(s32 *)((s8 *)arg0 + 0x334)], ((s32 *) merill_lia_rock_aux_buffer)[*(s32 *)((s8 *)arg0 + 0x334)]);
     *(u8 **)((s8 *)arg0 + 0x350) = (u8 *) lbl_80494650 + *(s32 *)((s8 *)arg0 + 0x334) * 0x1C;
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x2AC) = lbl_805DA340 * (lbl_805DA344 * calc_boss4_scale__10TObjPlayerFi(arg0));
@@ -1802,7 +1805,7 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
     *(s16 *)((s8 *)arg0 + 0x376) = 0;
     *(s32 *)((s8 *)arg0 + 0x378) = 0;
     *(s32 *)((s8 *)arg0 + 0x37C) = 0;
-    ((TObjPlayer *)arg0)->add_flags_2e4(2);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(2);
     obj_setFlags30(arg0, 0x40000);
     *(f32 *)((s8 *)arg0 + 0x380) = TObjEneMerillLia__data_805DA300;
     *(f32 *)((s8 *)arg0 + 0x398) = ((f32 **) TObjEneMerillLia__rock_param_table)[*(s32 *)((s8 *)arg0 + 0x334)][0];

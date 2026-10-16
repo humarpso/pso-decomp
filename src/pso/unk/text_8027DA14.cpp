@@ -23,7 +23,7 @@ s32 get_message_10__20TWindowSubStatusDispFl(int);
 u32 calc_text_width();
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 s32 set_text_entry_string(int, int, int);
-s32 update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *, f32, f32);
+s32 update_slot_display_flags__26TWindowSubQuestBoardSelectFv(void *, f32, f32);
 extern RecoveredGlobal_8027DA14_lbl_804D19A8 TWindowSubQuestBoardSelect__window_parameters;
 extern RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect __vt__26TWindowSubQuestBoardSelect;
 extern s32 TWindowSubQuestBoardSelect__class_name;
@@ -57,7 +57,7 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     temp_f2 = (f32) calc_text_width();
     *(f32 *)((s8 *)temp_r30 + 8) = (f32) -((lbl_805DD6BC * temp_f2) - lbl_805DD6B8);
     *(s8 *)((s8 *)arg0 + 0x61) = -1;
-    update_slot_display_flags__26TWindowSubQuestBoardSelectFPv((void *) (arg0), (f32) (lbl_805DD6BC), (f32) (temp_f2));
+    update_slot_display_flags__26TWindowSubQuestBoardSelectFv((void *) (arg0), (f32) (lbl_805DD6BC), (f32) (temp_f2));
     ((TWindowSubQuestBoardSelect *)arg0)->select_next();
     return arg0;
 }

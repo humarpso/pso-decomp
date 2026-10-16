@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/TObject.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss1Dragon.h"
@@ -3164,7 +3165,7 @@ void TLobby__sub_801E7AC8(void) {
     u8 i = *(s32 *)&(*(struct Glob_80512220 *)&TLobby__quest_argument_stack).pad[0];
     if (player != NULL) {
         ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = ((TObjPlayer *)player)->get_field_3e4();
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i] = ((TObjPlayer *)player)->get_stat_by_key_state();
+        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i] = ((TUnk_804B9870 *)player)->get_stat_by_key_state();
     } else {
         ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = -1;
         ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i] = -1;

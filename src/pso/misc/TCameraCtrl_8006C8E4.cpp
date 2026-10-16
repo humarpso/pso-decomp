@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488DA0.h"
 #include "pso/misc/TUnk_80488D70.h"
 #include "pso/misc/TCameraCtrl.h"
 
@@ -93,7 +94,7 @@ void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self) {
     }
     ((void (*)(void *))get_target_position__11TCameraCtrlFv)(&v);
     VecCopy__FP3VecPC3Vec(&target, &v);
-    ((TCameraCtrl *)self)->set_target_pos(&target);
+    ((TUnk_80488DA0 *)self)->set_target_pos(&target);
     if (is_on_current_screen__11TCameraCtrlFv(pad, 0x200) != 0) {
         if (is_on_current_screen__11TCameraCtrlFv(pad, 0x10) != 0) {
             self->dist -= (2.0f);

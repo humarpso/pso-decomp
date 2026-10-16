@@ -7,6 +7,7 @@
 class TChCrLoadAfs : public TObject {
 public:
     virtual ~TChCrLoadAfs();
+    void release_load_slot();
     virtual void run_task();
     void start_download();
     void poll_load();

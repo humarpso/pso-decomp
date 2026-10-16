@@ -6,6 +6,7 @@
 class TUnk_804CDFE8 : public TUnk_804CE018 {
 public:
     virtual ~TUnk_804CDFE8();
+    s32 sub_80266B18(s32);
     void *construct_with_parent(void *);
     void *destroy_window(s16);
     void sub_802443B4();

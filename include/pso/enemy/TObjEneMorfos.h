@@ -6,6 +6,7 @@
 
 struct TObjEneMorfos : public TObjEneDD_ST {
     virtual ~TObjEneMorfos();
+    s32 render_model_if_visible();
     virtual void vfunc_28();
     virtual void vfunc_63();
     virtual void vfunc_62();

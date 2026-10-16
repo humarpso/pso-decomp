@@ -62,7 +62,7 @@ void clear_segment_flags__19TBoss1DragonColli_CFv(O_8002B3F4 *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 E_8002B4CC *mem_alloc(s32);
 s32 register_entity_by_id(void *);
-int refresh_collision_body_centers(void*);
+int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 TBoss1DragonColli_sphere_chain_desc[];
 extern s32 __vt__19TBoss1DragonColli_C[];
@@ -111,8 +111,8 @@ void TBoss1DragonDemo__sub_8002B690(void);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
-int refresh_collision_body_centers(void*);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
+int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
 int set_matrix_identity(void*);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
@@ -167,7 +167,7 @@ void TBoss1DragonColli_C::render() {  }
 
 void TBoss1DragonColli__sub_8002B35C(void* p) { clear_segment_flags__19TBoss1DragonColli_CFv((O_8002B3F4 *)((void*)(p))); }
 
-void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); set_elem_flags__17TBoss1DragonColliFPv((O_8002B42C *)((void*)(p))); }
+void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers__13TUnk_804AF8A0Fv(p); set_elem_flags__17TBoss1DragonColliFPv((O_8002B42C *)((void*)(p))); }
 
 void TBoss1DragonColli_C::clear_segment_flags() {
     O_8002B3F4 *self = (O_8002B3F4 *)this;
@@ -189,7 +189,7 @@ void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self) {
 void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss1DragonColli_C;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if ((s16) arg1 > 0) {
@@ -227,7 +227,7 @@ s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scal
         e->flags = 0x10003;
         e++;
     }
-    refresh_collision_body_centers(self);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
     register_entity_by_id(self);
     clear_segment_flags__19TBoss1DragonColli_CFv((O_8002B3F4 *)self);
     return arg0;

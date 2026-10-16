@@ -9,13 +9,7 @@ struct TWindowChoiceSetting : public TUnk_804D0658 {
     s16 get_field_74();
     virtual void render();
     u16 m_80;
-    void request_close();
     void draw();
-    void move_next_choice();
-    void move_cursor_prev();
-    void update_scroll_offset();
-    void clamp_scroll();
-    void draw_setting(s32 arg1);
     virtual void run_task();
     u8 unk_82[0x2];
 };

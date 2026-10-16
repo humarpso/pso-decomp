@@ -6,6 +6,16 @@
 
 struct TObjEneSaver : public TObjEnemy {
     virtual ~TObjEneSaver();
+    void sub_800A7734(s32);
+    void init_render_flags();
+    void sub_800A62D4();
+    void advance_motion_state();
+    void update_move_toward_target();
+    void update_knockback_state();
+    void update_entry_motion();
+    void calc_move_state();
+    void sub_800A435C();
+    void apply_lookup_entry_effect();
     virtual s32 update_action_hold_status();
     virtual s32 update_movement_status();
     virtual s32 is_target_in_attack_range();

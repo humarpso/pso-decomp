@@ -24,7 +24,7 @@ s32 free_if_positive__13TBoss2DeRolLeFis(void *, int);
 s32 __dt__9TObjEneDDFv(void *, int);
 s32 delete_buffer__12TBoss8DragonFis(void *, int);
 s32 mem_free(s32);
-s32 clear_obj_links(void *);
+s32 clear_obj_links__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 extern s32 TBoss7DeRolLeC__vtable[];
 extern u32 boss7_joint_state;
@@ -71,7 +71,7 @@ u8 *fn_802EDCF0(u8 *arg0, s16 arg1) {
             o->f6DC[i] = 0;
         }
         mem_free(o->f6D8);
-        clear_obj_links(arg0);
+        clear_obj_links__13TUnk_804AF8A0Fv(arg0);
         if (boss7_joint_state == (u32) arg0) {
             boss7_joint_state = 0;
         }

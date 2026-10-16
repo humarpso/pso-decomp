@@ -63,7 +63,7 @@ f32 receive_weapon_special_attack__15TOAttackableColFPvPv(void* p, s32 _w1);
 void *fn_80157CA8(void *arg0);
 void TOAttackableCol__sub_80157310(void * = 0);
 extern s32 __vt__11TOVS2Wall01[];
-s32 access_object_saved_state(void *, void *, int);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 void vfunc_6__15TOAttackableColFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
 void *__nw__7TObjectFUl(int);
@@ -87,7 +87,7 @@ extern const f32 lbl_805DB2CC;
 extern const f32 lbl_805DB2D0;
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1);
 s8 get_current_floor();
-s32 access_object_saved_state(void *, void *, int);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 void *fn_80157CA8(void *arg0);
 }
 
@@ -101,7 +101,7 @@ int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
 void vfunc_20__17TOBarrierEnergy01Fv(void);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
@@ -163,7 +163,7 @@ int TOAttackableCol::send_state_change(u16 state) {
     s16 id;
     u8 *parent;
     id = self->id;
-    access_object_saved_state(self, &id, 0);
+    access_object_saved_state__13TUnk_804AF8A0FPvs(self, &id, 0);
     parent = self->parent;
     if (parent != NULL) {
         fn_80157CA8(&msg);
@@ -203,7 +203,7 @@ void TOAttackableCol::vfunc_6(s16 *arg1, s32 arg2) {
         }
     }
     sp8 = this->mode;
-    access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
+    access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
 }
 
 int TOAttackableCol::handle_6x91_update_state() { return clear_player_status_flag__10TObjPlayerFlUl((void*)(this), (int)(0), (int)(1)); }
@@ -326,7 +326,7 @@ void *TOAttackableCol::create(void *arg0) {
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TOAttackableCol;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if ((s16) arg1 > 0) {

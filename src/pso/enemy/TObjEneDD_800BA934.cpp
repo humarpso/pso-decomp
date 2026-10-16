@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -103,6 +104,6 @@ void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s
 
 void TObjEneDD::init_model() { init_collision_body_parts(this); transform_part_positions(); }
 void TObjEneDD::clear_field_388() { *(s32*)((char*)this + 0x388) = 0; }
-void TObjEneDD::set_active() { *(s32*)((char*)this + 0x388) = 1; }
+void TObjEneDD_ST::set_active() { *(s32*)((char*)this + 0x388) = 1; }
 
 }

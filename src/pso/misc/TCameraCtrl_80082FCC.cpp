@@ -32,8 +32,8 @@ extern "C" {
 s32 is_split_screen();
 s32 TCameraCtrl__sub_80068EF0();
 s32 calc_axes_from_angles__11TCameraCtrlFiii(void *, int, int);
-s32 calc_rotated_axes__11TCameraCtrlFPv(void *);
-s32 setup_default_view__11TCameraCtrlFPvPv(void *, int);
+s32 calc_rotated_axes__11TCameraCtrlFv(void *);
+s32 setup_default_view__11TCameraCtrlFPv(void *, int);
 s32 direction_to_pitch_yaw(void *, void *, void *);
 s32 TObjPlayer__sub_80084744();
 s32 TObjPlayer__sub_80084754();
@@ -155,8 +155,8 @@ void TUnk_8048E5DC::render_shadows() {
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
         TCameraCtrl__sub_80068EF0();
-        calc_rotated_axes__11TCameraCtrlFPv((void *) (camera_ctrl_instance));
-        setup_default_view__11TCameraCtrlFPvPv((void *) (camera_ctrl_instance), (int) (0));
+        calc_rotated_axes__11TCameraCtrlFv((void *) (camera_ctrl_instance));
+        setup_default_view__11TCameraCtrlFPv((void *) (camera_ctrl_instance), (int) (0));
     }
 }
 #pragma pop

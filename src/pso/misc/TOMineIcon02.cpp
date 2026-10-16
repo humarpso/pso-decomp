@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOMine.h"
 #include "pso/misc/TOMineIcon03.h"
 #include "pso/misc/TOMineIcon02.h"
 #include "pso/misc/TOMineTrap.h"
@@ -45,7 +46,7 @@ extern "C" {
 s32 spawn_particle_effect(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void init_collision_body_parts(void *, void *, s32);
 void TOMine__ct(void *, void *, void *);
 extern u8 mine_collision_body_parts[];
@@ -66,7 +67,7 @@ extern "C" {
 void vfunc_84__12TOMineIcon03Fv(void);
 void *__dt__12TOMineIcon02Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__6TOMineFv(void *, s32);
 void *__nw__7TObjectFUl(int);
@@ -86,7 +87,7 @@ extern s32 __vt__12TOMineIcon02[];
 void *__dt__12TOMineIcon02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOMineIcon02;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         __dt__6TOMineFv(arg0, 0);
         if (arg1 > 0) {
@@ -129,11 +130,11 @@ void *TOMineIcon02__ct(void *arg0, void *arg1, void *arg2) {
     self->f354 = self->f88;
     self->f34C = lbl_805DB8B4 * self->f68 + lbl_805DB8B0;
     self->f350 = lbl_805DB8B4 * self->f6C + lbl_805DB8B8;
-    ((TOMineTrap *)self)->update_state();
+    ((TOMine *)self)->update_state();
     self->f35C = 0xFFFF;
     self->f30 |= 0x60000000;
     init_collision_body_parts(self, mine_collision_body_parts, 1);
-    refresh_collision_body_centers(self);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
     ((TObjPlayer *)self)->reset_photon_effect();
     return self;
 #undef self

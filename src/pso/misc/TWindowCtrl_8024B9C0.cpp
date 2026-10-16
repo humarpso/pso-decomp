@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -21,7 +22,7 @@ extern s32 local_client_id;
 void TWindowCtrl__sub_8024B9C0(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
         if (is_slot_visible__11TWindowCtrlFv(local_client_id) != 0) {
-            ((TWindowSubTradeMain *)(*(u32 *)((s8 *)arg0 + 0x30)))->request_close();
+            ((TWindowLockOn *)(*(u32 *)((s8 *)arg0 + 0x30)))->request_close();
             return;
         }
         window_request_show(*(u32 *)((s8 *)arg0 + 0x30));
@@ -33,7 +34,7 @@ extern s32 local_client_id;
 void TWindowCtrl::update_trade_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x34) != 0U) {
         if ((is_slot_visible__11TWindowCtrlFv(local_client_id) != 0) || (TWindowCtrl__sub_8024B000((void *)(this), (s32)(local_client_id)) != 0) || ((is_split_screen() != 0) && (TRaderMapCore::is_active() == 0))) {
-            ((TWindowSubTradeMain *)(*(u32 *)((s8 *)this + 0x34)))->request_close();
+            ((TWindowLockOn *)(*(u32 *)((s8 *)this + 0x34)))->request_close();
             return;
         }
         window_request_show(*(u32 *)((s8 *)this + 0x34));

@@ -7,7 +7,7 @@ extern "C" {
 s32 set_field_b8__10TObjMotionFs(void *, int);
 s32 advance_animation_playback(void *);
 s32 TBoss7DeRolLeC__try_spawn_pattern_crawfish(void *, s32, s32);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 void TBoss7DeRolLeC__handle_crawfish_spawn_state(u8 *arg0, u32 arg1, s32 arg2);
 }
 
@@ -273,9 +273,9 @@ void fn_802E79B0(Obj_802E79B0 *arg0) {
 extern "C" {
 
 s32 render_actor_shadows_default(void *);
-void set_flag_800__11TBoss7JointFPv(void* p);
+void set_flag_800__14TBoss7DeRolLeCFv(void* p);
 
-void set_flag_800__11TBoss7JointFPv(void* p) { *(u32*)((char*)p + 0x628) |= 0x800; }
+void TBoss7DeRolLeC::set_flag_800() { *(u32*)((char*)this + 0x628) |= 0x800; }
 
 }
 
@@ -331,7 +331,7 @@ void TObjFish__sub_802E7B94(Fish_802E7B94* o);
 extern "C" {
 
 s32 render_actor_shadows_default(void *);
-void set_flag_800__11TBoss7JointFPv(void* p);
+void set_flag_800__14TBoss7DeRolLeCFv(void* p);
 
 void TBoss7DeRolLeC::render_shadows() {
     if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 1) {
@@ -493,7 +493,7 @@ void TObjPlayer__sub_802E80F4(u8 *arg0);
 extern "C" {
 
 void TObjPlayer__sub_802E80A0(void);
-void TObjPlayer__sub_802E8234(u8 *arg0);
+void sub_802E8234__14TBoss7DeRolLeCFv(u8 *arg0);
 void draw_effect__10TObjPlayerFv(void);
 void notify_fish_obj__10TObjPlayerFPv(void* a0);
 void queue_boss_effect__10TObjPlayerFPv(void* a0);
@@ -567,15 +567,15 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_802E8234(u8 *arg0) {
+void TBoss7DeRolLeC::sub_802E8234() {
     boss7_derolle_c_motion_id = 0;
-    lbl_805D6924 = *(s32 *)((s8 *)arg0 + 0x628);
+    lbl_805D6924 = *(s32 *)((s8 *)((u8 *)this) + 0x628);
     lbl_805D6920 = 0;
-    lbl_805D6928 = (long) (arg0 + 0x3EC);
-    lbl_805D6930 = *(s32 *)((s8 *)arg0 + 0x6D8);
-    lbl_805D6934 = *(s32 *)((s8 *)arg0 + 0x6D4);
-    lbl_805D692C = (long) (arg0 + 0x4DC);
-    lbl_805D6944 = (long) (arg0 + 0x7B4);
+    lbl_805D6928 = (long) (((u8 *)this) + 0x3EC);
+    lbl_805D6930 = *(s32 *)((s8 *)((u8 *)this) + 0x6D8);
+    lbl_805D6934 = *(s32 *)((s8 *)((u8 *)this) + 0x6D4);
+    lbl_805D692C = (long) (((u8 *)this) + 0x4DC);
+    lbl_805D6944 = (long) (((u8 *)this) + 0x7B4);
 }
 void TObjPlayer__sub_802E8274(void) {
     typedef char sp8_offset[(offsetof(Stack_802E8274, sp8) == 0x0) ? 1 : -1];
@@ -898,10 +898,10 @@ s32 setup_instance__9TObjEneDDFllPUcl(void *, int, void *, int);
 s32 advance_animation_playback(void *);
 u32 __nw__7TObjectFUl(int);
 void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 void pick_random_target__8TObjFishFPv(u8 *self);
-void set_state_and_send__8TObjFishFPvi(u8 *arg0, s32 arg1);
-#define set_state_and_send__8TObjFishFPvi ((s32 (*)(void *, int))set_state_and_send__8TObjFishFPvi)
+void set_state_and_send__14TBoss7DeRolLeCFl(u8 *arg0, s32 arg1);
+#define set_state_and_send__14TBoss7DeRolLeCFl ((s32 (*)(void *, int))set_state_and_send__14TBoss7DeRolLeCFl)
 s32 push_ring_point__15TBoss7LaserPtclFPvPv(void *, void *);
 u32 construct_with_params__16TBoss7LaserLightFPviii(void *, void *, int, int);
 s32 calc_laser_ray_hit_point(int, void *);
@@ -916,7 +916,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1);
 s32 get_flag_b4__9TObjEneDDFv(void *);
 s32 set_field_b8__10TObjMotionFs(void *, int);
 s32 advance_animation_playback(void *);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 s32 TObjFish__sub_802ECE90(void *, int, int);
 
 void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2);
@@ -937,7 +937,7 @@ s32 init_all_slots__11TWindowCtrlFv();
 s32 init_all_slots2__11TWindowCtrlFv();
 s32 update_attached_orientation__8TObjFishFv(void *);
 s32 destroy_child__8TObjFishFv(void *);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 
 extern Vec_802EBBC8 lbl_80473F78;
 extern Vec_802EBBC8 lbl_80473F84;
@@ -949,7 +949,7 @@ s32 adjust_to_ground__15TObjBoss2TunnelFlPv(void *, void *);
 s32 enemy_has_live_target__12TObjEneDD_STFv(void *);
 s32 get_random_scaled__9TObjEneDDFv(void *);
 s32 advance_animation_playback(void *);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 void pick_random_target__8TObjFishFPv(u8 *self);
 
 s32 TBoss7Tentacle__sub_802F0904(s32);
@@ -988,7 +988,7 @@ s32 update_attached_orientation__8TObjFishFv(void *);
 s32 destroy_child__8TObjFishFv(void *);
 void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 void update_wobble_angle__8TObjFishFPv(void *);
 
 void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
@@ -1012,7 +1012,7 @@ u8 *get_scripted_camera_playback();
 s32 create_timed_particle_emitter_with_flags(void *, int, int, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 refresh_and_send_entity_flags__12TBoss8DragonFv(void *);
-s32 update_prev_position__10TObjPlayerFv(void *);
+s32 update_prev_position__9TObjEnemyFv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(int);
@@ -1034,7 +1034,7 @@ s32 adjust_to_ground__15TObjBoss2TunnelFlPv(void *, void *);
 s32 enemy_has_live_target__12TObjEneDD_STFv(void *);
 s32 get_random_scaled__9TObjEneDDFv(void *);
 s32 advance_animation_playback(void *);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 void pick_random_target__8TObjFishFPv(u8 *self);
 
 s32 TBoss7Tentacle__sub_802F0904(s32);
@@ -1046,7 +1046,7 @@ void handle_tentacle_attack_state__8TObjFishFPvUii(Fish_802E9ADC *o, u32 arg1, s
 s32 set_field_b8__10TObjMotionFs(void *, int);
 s32 advance_animation_playback(void *);
 void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 
 void TBoss7Tentacle__sub_802F0AF0(s32);
 s32 clear_flags_0x3000__15TObjBoss2TunnelFv();
@@ -1064,7 +1064,7 @@ s32 advance_animation_playback(void *);
 u32 __nw__7TObjectFUl(int);
 void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 
 void TBoss7Tentacle__sub_802F0B58(s32);
 void TObjBoss2Tunnel__sub_802F22C4(void);
@@ -1081,7 +1081,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 void update_wobble_angle__8TObjFishFPv(void *);
 
 void TObjFish__sub_802EA4D8(u8 *arg0, u32 arg1);
@@ -1336,8 +1336,8 @@ s32 get_game_mode__6TLobbyFv();
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 set_field_b8__10TObjMotionFs(void *, int);
 s32 spawn_particle_effect_with_flags(void *, int, int);
-s32 enemy_clear_target(void *);
-s32 set_target_player__13TBoss2DeRolLeFPv(void *, void *);
+s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
+s32 set_target_player__12TObjEneDD_STFPv(void *, void *);
 s32 enemy_set_target_id(void * a0 = 0, u16 a1 = 0);
 s32 project_sound_origin_from_camera(void *, void *, f32);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
@@ -1365,14 +1365,14 @@ void update_projectile_spawns__8TObjFishFPv(u8 *arg0);
 void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1);
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
 void fn_802EC52C(s32 arg0, s32 arg1);
-void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void advance_action_sequence__14TBoss7DeRolLeCFv(u8 *arg0);
 void TBoss7DeRolLeC__sub_802EC994(void* p);
 void fn_802EC9A4(void *arg0, void *arg1);
 void fn_802EC9F0(void *arg0, void *arg1);
 void handle_6xAA_barba_ray_boss_actions(void *arg0);
 void handle_6xA9_barba_ray_boss_actions(void *arg0);
-void TObjPlayer__sub_802ECAA4(Ply_802ECAA4 *o);
-u8 TObjPlayer__sub_802ECB10(void *arg0);
+void sub_802ECAA4__14TBoss7DeRolLeCFv(Ply_802ECAA4 *o);
+u8 sub_802ECB10__14TBoss7DeRolLeCFv(void *arg0);
 void set_hooked_effect_target__8TObjFishFPv(u8 *arg0);
 void apply_damage_and_set_effect__8TObjFishFPvi(u8 *arg0, s32 arg1);
 void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
@@ -1445,7 +1445,7 @@ void TObjFish__sub_802E8528(void* o, u32 k) {
     case 0:
         advance_animation_playback(o);
         TObjFish__sub_802E7B40(o);
-        ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)(o);
+        ((s32 (*)(void *))advance_action_sequence__14TBoss7DeRolLeCFv)(o);
         return;
     case 1: return;
     case 2: return;
@@ -1464,7 +1464,7 @@ void TObjFish__sub_802E8584(void* o, u32 k) {
     case 0:
         advance_animation_playback(o);
         TObjFish__sub_802E7B94(o);
-        ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)(o);
+        ((s32 (*)(void *))advance_action_sequence__14TBoss7DeRolLeCFv)(o);
         return;
     case 1: return;
     case 2: return;
@@ -1508,15 +1508,15 @@ void TObjFish__sub_802E85E0(u8 *arg0, u32 arg1, s32 arg2) {
     case 2:
         if (self->state == 3) {
             if (self->dir == 0) {
-                set_state_and_send__8TObjFishFPvi(self, 0x15);
+                set_state_and_send__14TBoss7DeRolLeCFl(self, 0x15);
             } else {
-                set_state_and_send__8TObjFishFPvi(self, 0x16);
+                set_state_and_send__14TBoss7DeRolLeCFl(self, 0x16);
             }
         }
         return;
     case 9:
         if (self->state == 3) {
-            advance_action_sequence__8TObjFishFPv(arg0);
+            advance_action_sequence__14TBoss7DeRolLeCFv(arg0);
         }
         return;
     case 0:
@@ -1598,7 +1598,7 @@ void TObjFish__sub_802E88F8(u8 *arg0, u32 arg1) {
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x728);
         *(s32 *)((s8 *)arg0 + 0x728) = temp_r3 - 1;
         if (temp_r3 == 0) {
-            ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)(arg0);
+            ((s32 (*)(void *))advance_action_sequence__14TBoss7DeRolLeCFv)(arg0);
         }
         return;
     case 1: return;
@@ -1621,7 +1621,7 @@ void TObjFish__sub_802E8990(u8 *arg0, u32 arg1) {
     case 0:
         advance_animation_playback(arg0);
         if (get_node_count__7TObjectFv(*(s32 *)((s8 *)arg0 + 0x7A4)) == 0) {
-            ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)(arg0);
+            ((s32 (*)(void *))advance_action_sequence__14TBoss7DeRolLeCFv)(arg0);
         }
         return;
     case 5:
@@ -1659,7 +1659,7 @@ void TBoss7DeRolLeC__handle_crawfish_spawn_state(u8 *self, u32 event, s32 varian
             }
             return;
         }
-        advance_action_sequence__8TObjFishFPv((u8 *)(self));
+        advance_action_sequence__14TBoss7DeRolLeCFv((u8 *)(self));
         return;
     case 1: return;
     case 2: return;
@@ -1758,12 +1758,12 @@ void handle_death_state__8TObjFishFPvUi(Fish_802E8B50 *o, u32 arg1) {
         if (o->body->flags & 0x400) {
             o->f30 &= ~0x800;
             TObjFish__sub_802ECBDC((Fish_802ECBDC *)o);
-            set_state_and_send__8TObjFishFPvi(o, 2);
+            set_state_and_send__14TBoss7DeRolLeCFl(o, 2);
         }
         break;
     case 9:
         if (o->phase == 1) {
-            set_state_and_send__8TObjFishFPvi(o, 0x1D);
+            set_state_and_send__14TBoss7DeRolLeCFl(o, 0x1D);
         }
         break;
     case 0:
@@ -1793,14 +1793,14 @@ void handle_death_state__8TObjFishFPvUi(Fish_802E8B50 *o, u32 arg1) {
         o->pos.x = lbl_805DEA10;
         o->pos.y = lbl_805DEA38;
         o->pos.z = lbl_805DEA3C;
-        update_prev_position__10TObjPlayerFv(o);
+        update_prev_position__9TObjEnemyFv(o);
         for (i = 0; i != 10; i++) {
             assign_slots_from_list(o, o->kids[i]);
         }
         refresh_and_send_entity_flags__12TBoss8DragonFv(o);
         dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x4C);
         VecCopy__FP3VecPC3Vec((int)&o->pos, &saved);
-        update_prev_position__10TObjPlayerFv(o);
+        update_prev_position__9TObjEnemyFv(o);
         o->f30 = 0x12008;
         ((TBoss7DeRolLeC *)o)->vfunc_74(0);
         init_all_slots2__11TWindowCtrlFv();
@@ -1821,12 +1821,12 @@ void TObjFish__sub_802E8E34(u8 *arg0, u32 arg1) {
         return;
     case 9:
         if (*(s16 *)((s8 *)arg0 + 0xB8) == 1) {
-            ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)(arg0);
+            ((s32 (*)(void *))advance_action_sequence__14TBoss7DeRolLeCFv)(arg0);
         }
         return;
     case 8:
         if (*(f32 *)((s8 *)arg0 + 0x6F0) < lbl_805DEA40) {
-            set_state_and_send__8TObjFishFPvi(arg0, 0x1C);
+            set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x1C);
         }
         return;
     case 0:
@@ -1853,14 +1853,14 @@ void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1, s32 _w2) {
         break;
     case 2:
         if ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1) {
-            set_state_and_send__8TObjFishFPvi((void *) (arg0), (int) (2));
+            set_state_and_send__14TBoss7DeRolLeCFl((void *) (arg0), (int) (2));
             break;
         }
     default:
         break;
     case 9:
         if ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1) {
-            ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)((void *) (arg0));
+            ((s32 (*)(void *))advance_action_sequence__14TBoss7DeRolLeCFv)((void *) (arg0));
             break;
         }
         break;
@@ -1910,15 +1910,15 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
     case 2:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x728) == 4) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x724) >= 4) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0x19);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x19);
             } else {
-                set_state_and_send__8TObjFishFPvi(arg0, 0x18);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x18);
             }
         }
         break;
     case 9:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x728) == 4) {
-            advance_action_sequence__8TObjFishFPv(arg0);
+            advance_action_sequence__14TBoss7DeRolLeCFv(arg0);
             return;
         }
         break;
@@ -2071,13 +2071,13 @@ void TObjFish__sub_802E9458(u8 *arg0, u32 arg1) {
         return;
     case 2:
         if ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 0xF) {
-            set_state_and_send__8TObjFishFPvi((void *) (arg0), (int) (0x18));
+            set_state_and_send__14TBoss7DeRolLeCFl((void *) (arg0), (int) (0x18));
         }
     default:
         return;
     case 9:
         if ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 0xF) {
-            ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)((void *) (arg0));
+            ((s32 (*)(void *))advance_action_sequence__14TBoss7DeRolLeCFv)((void *) (arg0));
             return;
         }
         break;
@@ -2124,13 +2124,13 @@ void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2) {
         return;
     case 2:
         if (get_flag_b4__9TObjEneDDFv((void *) (arg0)) != 0) {
-            set_state_and_send__8TObjFishFPvi((void *) (arg0), (int) (2));
+            set_state_and_send__14TBoss7DeRolLeCFl((void *) (arg0), (int) (2));
             return;
         }
         break;
     case 9:
         if (get_flag_b4__9TObjEneDDFv((void *) (arg0)) != 0) {
-            advance_action_sequence__8TObjFishFPv(arg0);
+            advance_action_sequence__14TBoss7DeRolLeCFv(arg0);
             return;
         }
         break;
@@ -2198,12 +2198,12 @@ void TObjFish__sub_802E979C(Fish_802E979C *o, u32 k, s32 dir) {
         break;
     case 2:
         if (o->state == 2) {
-            set_state_and_send__8TObjFishFPvi(o, 2);
+            set_state_and_send__14TBoss7DeRolLeCFl(o, 2);
         }
         break;
     case 9:
         if (o->state == 2) {
-            advance_action_sequence__8TObjFishFPv((u8 *)o);
+            advance_action_sequence__14TBoss7DeRolLeCFv((u8 *)o);
         }
         break;
     case 0:
@@ -2281,15 +2281,15 @@ void handle_tentacle_attack_state__8TObjFishFPvUii(Fish_802E9ADC *o, u32 arg1, s
     case 2:
         if (o->phase == 3) {
             if (o->dir == 0) {
-                set_state_and_send__8TObjFishFPvi(o, 0x15);
+                set_state_and_send__14TBoss7DeRolLeCFl(o, 0x15);
             } else {
-                set_state_and_send__8TObjFishFPvi(o, 0x16);
+                set_state_and_send__14TBoss7DeRolLeCFl(o, 0x16);
             }
         }
         break;
     case 9:
         if (o->phase == 3) {
-            advance_action_sequence__8TObjFishFPv((u8 *)o);
+            advance_action_sequence__14TBoss7DeRolLeCFv((u8 *)o);
         }
         break;
     case 0:
@@ -2384,22 +2384,22 @@ void TObjFish__sub_802E9DBC(u8 *arg0, u32 arg1, s32 arg2) {
         u32 f = *(u32 *) (self->f624 + 8);
         if (f & 0x400) {
             if (self->mode == 0) {
-                set_state_and_send__8TObjFishFPvi(self, 0x13);
+                set_state_and_send__14TBoss7DeRolLeCFl(self, 0x13);
             } else {
-                set_state_and_send__8TObjFishFPvi(self, 0x14);
+                set_state_and_send__14TBoss7DeRolLeCFl(self, 0x14);
             }
         } else if (f & 4) {
             if (self->mode == 0) {
-                set_state_and_send__8TObjFishFPvi(self, 0x15);
+                set_state_and_send__14TBoss7DeRolLeCFl(self, 0x15);
             } else {
-                set_state_and_send__8TObjFishFPvi(self, 0x16);
+                set_state_and_send__14TBoss7DeRolLeCFl(self, 0x16);
             }
         }
         break;
     }
     case 9:
         if (self->fB8 == 10 || self->fB8 == 9) {
-            advance_action_sequence__8TObjFishFPv((u8 *) self);
+            advance_action_sequence__14TBoss7DeRolLeCFv((u8 *) self);
         }
         break;
     case 0:
@@ -2599,12 +2599,12 @@ void TObjFish__sub_802EA4D8(u8 *arg0, u32 arg1) {
         break;
     case 2:
         if (*(s32 *)((s8 *)arg0 + 0x728) == 3) {
-            set_state_and_send__8TObjFishFPvi(arg0, 2);
+            set_state_and_send__14TBoss7DeRolLeCFl(arg0, 2);
         }
         break;
     case 9:
         if (*(s32 *)((s8 *)arg0 + 0x728) == 3) {
-            advance_action_sequence__8TObjFishFPv(arg0);
+            advance_action_sequence__14TBoss7DeRolLeCFv(arg0);
         }
         break;
     case 0:
@@ -2773,7 +2773,7 @@ void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         break;
     case 2:
         if (self->phase == 2) {
-            set_state_and_send__8TObjFishFPvi(self, 2);
+            set_state_and_send__14TBoss7DeRolLeCFl(self, 2);
         }
         break;
     case 9:
@@ -2782,18 +2782,18 @@ void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
                 self->flags &= ~0x800;
                 switch (self->next_mode) {
                 case 0:
-                    set_state_and_send__8TObjFishFPvi(self, 0xF);
+                    set_state_and_send__14TBoss7DeRolLeCFl(self, 0xF);
                     break;
                 case 2:
-                    set_state_and_send__8TObjFishFPvi(self, 0x10);
+                    set_state_and_send__14TBoss7DeRolLeCFl(self, 0x10);
                     break;
                 case 1:
                 default:
-                    advance_action_sequence__8TObjFishFPv((u8 *) self);
+                    advance_action_sequence__14TBoss7DeRolLeCFv((u8 *) self);
                     break;
                 }
             } else {
-                advance_action_sequence__8TObjFishFPv((u8 *) self);
+                advance_action_sequence__14TBoss7DeRolLeCFv((u8 *) self);
             }
         }
         break;
@@ -2969,60 +2969,60 @@ void TObjFish__sub_802EB90C(Fish_802EB90C *arg0, u32 arg1) {
         case 0:
             b = arg0->ctl->buttons;
             if (b & 0x10) {
-                set_state_and_send__8TObjFishFPvi(arg0, 3);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 3);
             } else if (b & 0x40) {
-                set_state_and_send__8TObjFishFPvi(arg0, 4);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 4);
             } else if (b & 0x20) {
-                set_state_and_send__8TObjFishFPvi(arg0, 5);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 5);
             } else if (b & 0x400) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0x11);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x11);
             } else if (b & 4) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0xF);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0xF);
             } else if (b & 2) {
                 arg0->f40 = lbl_805DEB6C;
-                set_state_and_send__8TObjFishFPvi(arg0, 1);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 1);
             }
             break;
         case 1:
             b = arg0->ctl->buttons;
             if (b & 0x40) {
-                set_state_and_send__8TObjFishFPvi(arg0, 6);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 6);
             } else if (!(b & 0x20)) {
                 if (b & 0x80) {
-                    set_state_and_send__8TObjFishFPvi(arg0, 8);
+                    set_state_and_send__14TBoss7DeRolLeCFl(arg0, 8);
                 } else if (b & 2) {
-                    set_state_and_send__8TObjFishFPvi(arg0, 0x1B);
+                    set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x1B);
                 }
             }
             break;
         case 2:
             b = arg0->ctl->buttons;
             if (b & 0x20) {
-                set_state_and_send__8TObjFishFPvi(arg0, 9);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 9);
             } else if (b & 0x80) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0xA);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0xA);
             } else if (b & 0x10) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0xB);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0xB);
             } else if (b & 0x400) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0x12);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x12);
             } else if (b & 4) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0x10);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x10);
             } else if (b & 2) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0x1B);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x1B);
             }
             break;
         case 3:
             b = arg0->ctl->buttons;
             if (b & 0x80) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0xC);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0xC);
             } else if (b & 0x10) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0xD);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0xD);
             } else if (b & 0x40) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0xE);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0xE);
             } else if (b & 4) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0x17);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x17);
             } else if (!(b & 0x200) && (b & 2)) {
-                set_state_and_send__8TObjFishFPvi(arg0, 0x1C);
+                set_state_and_send__14TBoss7DeRolLeCFl(arg0, 0x1C);
             }
             break;
         }
@@ -3070,13 +3070,13 @@ void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1) {
     case 2:
         if (*(s32 *)((s8 *)arg0 + 0x728) == 1) {
             *(s32 *)((s8 *)arg0 + 0x6C0) = 0;
-            set_state_and_send__8TObjFishFPvi(arg0, 2);
+            set_state_and_send__14TBoss7DeRolLeCFl(arg0, 2);
         }
         break;
     case 9:
         if (*(s32 *)((s8 *)arg0 + 0x728) == 1) {
             *(s32 *)((s8 *)arg0 + 0x6C0) = 0;
-            advance_action_sequence__8TObjFishFPv(arg0);
+            advance_action_sequence__14TBoss7DeRolLeCFv(arg0);
         }
         break;
     case 0:
@@ -3116,7 +3116,7 @@ void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1) {
             update_attached_orientation__8TObjFishFv(arg0);
             if (*(u16 *) (get_scripted_camera_playback() + 2) & 1) {
                 restore_player_cameras();
-                advance_action_sequence__8TObjFishFPv(arg0);
+                advance_action_sequence__14TBoss7DeRolLeCFv(arg0);
                 *(s32 *)((s8 *)arg0 + 0x728) = 1;
             }
         }
@@ -3135,7 +3135,7 @@ void TObjFish__sub_802EBE50(void* o, u32 k) {
         set_field_b8__10TObjMotionFs(o, 1);
         return;
     case 2:
-        set_state_and_send__8TObjFishFPvi(o, 1);
+        set_state_and_send__14TBoss7DeRolLeCFl(o, 1);
         return;
     case 0:
         advance_animation_playback(o);
@@ -3467,72 +3467,72 @@ void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o) {
 }
 #pragma pop
 
-void advance_action_sequence__8TObjFishFPv(u8 *arg0) {
+void TBoss7DeRolLeC::advance_action_sequence() {
     s32 var_r30;
     s32 var_r4;
     do {
         var_r30 = 0;
-        *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) (*(s32 *)((s8 *)arg0 + 0x6B4) + 1);
-        var_r4 = *(s32 *)((s8 *)(*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_802EC7F0_lbl_804E3C2C *)&lbl_804E3C2C).value) + (game_difficulty_selection * 4)) + 0) + (*(s32 *)((s8 *)arg0 + 0x6B4) * 8)) + 0);
+        *(s32 *)((s8 *)((u8 *)this) + 0x6B4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x6B4) + 1);
+        var_r4 = *(s32 *)((s8 *)(*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_802EC7F0_lbl_804E3C2C *)&lbl_804E3C2C).value) + (game_difficulty_selection * 4)) + 0) + (*(s32 *)((s8 *)((u8 *)this) + 0x6B4) * 8)) + 0);
         switch (var_r4) {
         case 0x1E:
-            if (calc_elapsed_scaled__9TObjEneDDFv((void *) (arg0)) > lbl_805DEA10) {
+            if (calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this))) > lbl_805DEA10) {
                 var_r4 = 8;
             } else {
                 var_r4 = 6;
             }
             break;
         case 0x1F:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x6C4) == 0) {
                 var_r4 = 5;
             } else {
                 var_r4 = 9;
             }
             break;
         case 0x20:
-            if (calc_elapsed_scaled__9TObjEneDDFv((void *) (arg0)) > lbl_805DEA10) {
+            if (calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this))) > lbl_805DEA10) {
                 var_r4 = 0xC;
             } else {
                 var_r4 = 0xE;
             }
             break;
         case 0x21:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x6C4) == 0) {
                 var_r4 = 3;
             } else {
                 var_r4 = 0xB;
             }
             break;
         case 0x23:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x6C4) == 0) {
                 var_r4 = 4;
             } else {
                 var_r4 = 0xA;
             }
             break;
         case 0x24:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x6C4) == 0) {
                 var_r4 = 0xF;
             } else {
                 var_r4 = 0x10;
             }
             break;
         case 0x25:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x6C4) == 0) {
                 var_r4 = 0x11;
             } else {
                 var_r4 = 0x12;
             }
             break;
         case 0x26:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x6C4) == 0) {
                 var_r4 = 0x13;
             } else {
                 var_r4 = 0x14;
             }
             break;
         case 0x27:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x6C4) == 0) {
                 var_r4 = 0x15;
             } else {
                 var_r4 = 0x16;
@@ -3540,11 +3540,11 @@ void advance_action_sequence__8TObjFishFPv(u8 *arg0) {
             break;
         case 0x45:
             var_r30 = 1;
-            *(s32 *)((s8 *)arg0 + 0x6B4) = 1;
+            *(s32 *)((s8 *)((u8 *)this) + 0x6B4) = 1;
             break;
         }
     } while (var_r30 != 0);
-    set_state_and_send__8TObjFishFPvi((void *) (arg0), (int) (var_r4));
+    set_state_and_send__14TBoss7DeRolLeCFl((void *) (((u8 *)this)), (int) (var_r4));
 }
 
 void TBoss7DeRolLeC__sub_802EC994(void* p) { *(s32*)((char*)p + 0x6b0) = 0; *(s32*)((char*)p + 0x6b4) = 0; }
@@ -3578,22 +3578,22 @@ void handle_6xA9_barba_ray_boss_actions(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_802ECAA4(Ply_802ECAA4 *o) {
-    if (o->state == 0x1C || o->state == 0x1D) {
-    } else if (o->state == 0x13 || o->state == 0x14) {
-        advance_action_sequence__8TObjFishFPv((u8 *)o);
-    } else if (o->state == 0x15 || o->state == 0x16) {
-        set_state_and_send__8TObjFishFPvi(o, 0x1C);
+void TBoss7DeRolLeC::sub_802ECAA4() {
+    if (((Ply_802ECAA4 *)this)->state == 0x1C || ((Ply_802ECAA4 *)this)->state == 0x1D) {
+    } else if (((Ply_802ECAA4 *)this)->state == 0x13 || ((Ply_802ECAA4 *)this)->state == 0x14) {
+        advance_action_sequence__14TBoss7DeRolLeCFv((u8 *)((Ply_802ECAA4 *)this));
+    } else if (((Ply_802ECAA4 *)this)->state == 0x15 || ((Ply_802ECAA4 *)this)->state == 0x16) {
+        set_state_and_send__14TBoss7DeRolLeCFl(((Ply_802ECAA4 *)this), 0x1C);
     } else {
-        set_state_and_send__8TObjFishFPvi(o, 0x1B);
+        set_state_and_send__14TBoss7DeRolLeCFl(((Ply_802ECAA4 *)this), 0x1B);
     }
 }
 
-u8 TObjPlayer__sub_802ECB10(void *arg0) {
+u8 TBoss7DeRolLeC::sub_802ECB10() {
     s32 var_r4;
 
     var_r4 = 0;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x6FC) <= 0) && !(*(s32 *)((s8 *)arg0 + 0x628) & 4)) {
+    if (((s32) *(s32 *)((s8 *)this + 0x6FC) <= 0) && !(*(s32 *)((s8 *)this + 0x628) & 4)) {
         var_r4 = 1;
     }
     return (u8)var_r4;
@@ -3632,20 +3632,20 @@ void pick_random_target__8TObjFishFPv(u8 *self) {
     s32 i;
     n = get_game_mode__6TLobbyFv();
     if (n == 0) {
-        enemy_clear_target(self);
+        enemy_clear_target__12TObjEneDD_STFUs(self);
         return;
     }
     if (n == 1) {
         p = get_player_data__10TObjPlayerFi(0);
-        set_target_player__13TBoss2DeRolLeFPv(self, p);
+        set_target_player__12TObjEneDD_STFPv(self, p);
         return;
     }
     idx = (s32)get_random_float__21TObjEneMe3ShinowaRealFv((f32)n * calc_boss4_scale__10TObjPlayerFi(self));
-    enemy_clear_target(self);
+    enemy_clear_target__12TObjEneDD_STFUs(self);
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(idx);
         if (is_alive__9TObjEneDDFv() != 0) {
-            set_target_player__13TBoss2DeRolLeFPv(self, p);
+            set_target_player__12TObjEneDD_STFPv(self, p);
             return;
         }
         idx++;
@@ -3961,7 +3961,7 @@ s32 TBoss7Joint_get_shell_max_hp(void) {
 
 #undef TObjFish__sub_802E7B40
 #undef TObjFish__sub_802E7B94
-#undef set_state_and_send__8TObjFishFPvi
+#undef set_state_and_send__14TBoss7DeRolLeCFl
 
 #include "types.h"
 
@@ -4067,7 +4067,7 @@ void update_and_send_60__11TBoss7JointFv(void *);
 void TBoss7Joint__sub_802EE7B8(void *);
 void broadcast_state__11TBoss7JointFv(void *);
 void TBoss7Joint__sub_802EE800(void *);
-void set_state_and_send__8TObjFishFPvi(u8 *arg0, s32 arg1);
+void set_state_and_send__14TBoss7DeRolLeCFl(u8 *arg0, s32 arg1);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
@@ -4081,7 +4081,7 @@ void vfunc_88__14TBoss7DeRolLeCFv(u8 *arg0);
 extern "C" {
 
 void emit_hit_effect__18TBoss7PhotonBulletFPvPv(void *arg0, void *arg1);
-void flee_if_disturbed__8TObjFishFPv(u8 *arg0);
+void flee_if_disturbed__14TBoss7DeRolLeCFv(u8 *arg0);
 f32 get_target_pos_y__18TBoss7PhotonBulletFv(void);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 void *dispatch_shared_handler_a__6TLobbyFl(s32);
@@ -4117,30 +4117,30 @@ void TBoss7PhotonBullet__sub_802ED5A0(void *arg0, int arg1) {
     reload_stats_keep_hp_tp__9TObjEneDDFv(arg0, register_boss__6TLobbyFl(0xF), dispatch_shared_handler_b__6TLobbyFl(v), register_object__6TLobbyFl(0xF));
 }
 
-void set_state_and_send__8TObjFishFPvi(u8 *arg0, s32 arg1) {
+void TBoss7DeRolLeC::set_state_and_send(s32 arg1) {
     PktA_802ED62C pa;
     PktB_802ED62C pb;
-    ((V_802ED62C *)arg0)->m85(arg1, 6);
+    ((V_802ED62C *)((u8 *)this))->m85(arg1, 6);
     if (((u32)(arg1 - 0x13) <= 1U) || ((u32)(arg1 - 0x40) <= 1U) || (arg1 == 0x44) || (arg1 == 0x18)) {
         TBoss7Joint__sub_802EE800(&pa);
-        pa.a = *(u16 *)((s8 *)arg0 + 0x1C);
+        pa.a = *(u16 *)((s8 *)((u8 *)this) + 0x1C);
         pa.b = arg1;
-        pa.c = (s16)*(s32 *)((s8 *)arg0 + 0x6B4);
-        pa.d = *(u16 *)((s8 *)arg0 + 0x38C);
+        pa.c = (s16)*(s32 *)((s8 *)((u8 *)this) + 0x6B4);
+        pa.d = *(u16 *)((s8 *)((u8 *)this) + 0x38C);
         broadcast_state__11TBoss7JointFv(&pa);
         return;
     }
     TBoss7Joint__sub_802EE7B8(&pb);
-    pb.a = *(u16 *)((s8 *)arg0 + 0x1C);
+    pb.a = *(u16 *)((s8 *)((u8 *)this) + 0x1C);
     pb.b = arg1;
-    pb.c = (s16)*(s32 *)((s8 *)arg0 + 0x6B4);
+    pb.c = (s16)*(s32 *)((s8 *)((u8 *)this) + 0x6B4);
     update_and_send_60__11TBoss7JointFv(&pb);
 }
 
-void flee_if_disturbed__8TObjFishFPv(u8 *arg0) {
-    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {
-        set_player_state_default__12TBoss8DragonFv((void *) (arg0));
-        add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEA44));
+void TBoss7DeRolLeC::flee_if_disturbed() {
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)((u8 *)this) + 0xA4)) + 0x18) & 1) {
+        set_player_state_default__12TBoss8DragonFv((void *) (((u8 *)this)));
+        add_radar_scaled_marker((void *) (((u8 *)this) + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEA44));
     }
 }
 void TBoss7DeRolLeC::vfunc_88() {
@@ -4181,9 +4181,9 @@ void TBoss7DeRolLeC::vfunc_88() {
 #include "pso/object/TObjFish.h"
 
 extern "C" {
-void set_flag_800__11TBoss7JointFPv(void *);
+void set_flag_800__14TBoss7DeRolLeCFv(void *);
 void set_effect_target_position__8TObjFishFPvPvPv(void *, void *, void *);
-s32 clear_attack_receipts(void *);
+s32 clear_attack_receipts__9TObjEneDDFv(void *);
 void vfunc_62__14TBoss7DeRolLeCFv(u8 *arg0);
 }
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)
@@ -4217,8 +4217,8 @@ void TBoss7DeRolLeC::vfunc_62() {
         }
     }
     *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
-    set_flag_800__11TBoss7JointFPv(arg0);
-    clear_attack_receipts((void *) (arg0));
+    set_flag_800__14TBoss7DeRolLeCFv(arg0);
+    clear_attack_receipts__9TObjEneDDFv((void *) (arg0));
 }
 
 void TBoss7DeRolLeC::vfunc_63() {  }

@@ -61,8 +61,8 @@ struct Self_80237BD8 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
-void apply_technique_to_area_targets(void *);
-#define apply_technique_to_area_targets ((s32 (*)(void *, int))apply_technique_to_area_targets)
+void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
+#define apply_technique_to_area_targets__13TUnk_804CC148Fv ((s32 (*)(void *, int))apply_technique_to_area_targets__13TUnk_804CC148Fv)
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 #define VecCopy__FP3VecPC3Vec ((void (*)(Vec_80237DAC *, const Vec_80237DAC *))VecCopy__FP3VecPC3Vec)
 void set_position_xy__10TObjPlayerFff(void *, f32, f32);
@@ -252,7 +252,7 @@ void TTecRaFoie::vfunc_8(void *) {
 #undef construct_area_technique_base
 #undef __dl__7TObjectFPv
 #undef is_valid_and_active__10TObjPlayerFUl
-#undef apply_technique_to_area_targets
+#undef apply_technique_to_area_targets__13TUnk_804CC148Fv
 
 #undef destroy_technique_base__13TUnk_804CC148Fs
 #undef spawn_particle_effect
@@ -651,7 +651,7 @@ s32 is_valid_and_active__10TObjPlayerFUl(int);
 void run_task__10TTecRaFoieFv(u8 *arg0);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-void apply_technique_to_area_targets(void *);
+void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 extern s32 tl_particle;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -845,7 +845,7 @@ void TTecRaFoie::update_detonation(void *arg1) {
         }
         break;
     }
-    apply_technique_to_area_targets(self);
+    apply_technique_to_area_targets__13TUnk_804CC148Fv(self);
     queue_destruction__7TObjectFv(self);
 }
 
@@ -956,7 +956,7 @@ s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
 void create_timed_particle_emitter(void *, s32, s32, s32, void *);
 void spawn_particle_effect(void *, s32, void *);
-void apply_technique_to_area_targets(void *);
+void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
 }
 

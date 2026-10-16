@@ -6,6 +6,7 @@
 
 struct TWindowSubQuestBoardSelect : public TUnk_804CE018 {
     virtual ~TWindowSubQuestBoardSelect();
+    void update_slot_display_flags();
     int is_shortcut_active();
     void sub_8027D230();
     int is_open();

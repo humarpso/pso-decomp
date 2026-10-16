@@ -52,7 +52,7 @@ extern u32 TOCapsuleAncient01__static_model_resource;
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_indexed_flags(void *, int, int);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 get_game_play_mode();
 extern RecoveredGlobal_8015A4D0_lbl_804AFE88 lbl_804AFE88;
@@ -73,7 +73,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
@@ -144,7 +144,7 @@ void TOCapsuleAncient01::load_resource_instance() {
 void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOCapsuleAncient01;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B27D8 *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
@@ -165,7 +165,7 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCapsuleAncient01__static_model_resource) + 0x42C)) + 0xC);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFE88.value), (int) (1));
     set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB378;

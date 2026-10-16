@@ -4,7 +4,7 @@
 
 extern "C" {
 
-s32 setup_window_draw_context(s32, s32);
+s32 setup_window_draw_context__13TUnk_804CE018Fl(s32, s32);
 s32 draw_visible_window_entries(s32, s32, s32);
 void *get_quest_id__12TQuestListVMFv();
 u32 get_player_by_client_id(s32);
@@ -29,7 +29,7 @@ void TWindowMeseta::draw_value(s32 arg1) {
 void update_display__13TWindowMesetaFi(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = setup_window_draw_context(arg0, arg0 + 0x6C);
+    temp_r3 = setup_window_draw_context__13TUnk_804CE018Fl(arg0, arg0 + 0x6C);
     ((TWindowMeseta *)arg0)->draw_value(temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
 }

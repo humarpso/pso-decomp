@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageLog.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -17,8 +18,8 @@ extern "C" {
 s32 clamp_list_scroll_offset(int, void *, void *, f32);
 extern const f32 lbl_805DD240;
 extern const f32 lbl_805DD244;
-void clamp_scroll_offset__17TWindowMessageLogFPv(u8 *arg0);
-void clamp_scroll_offset__17TWindowMessageLogFPv(u8 *arg0);
+void clamp_scroll_offset__17TWindowMessageLogFv(u8 *arg0);
+void clamp_scroll_offset__17TWindowMessageLogFv(u8 *arg0);
 extern const f32 lbl_805DD248;
 extern const f32 lbl_805DD24C;
 void update_scroll_position__17TWindowMessageLogFPv(u8 *arg0);
@@ -48,14 +49,14 @@ s32 get_active_photon_object__17TWindowMessageLogFv(void) {
     }
     return var_r3;
 }
-void clamp_scroll_offset__17TWindowMessageLogFPv(u8 *arg0) {
+void TWindowMessageLog::clamp_scroll_offset() {
     Stack_8026A434 stack;
     f32 temp_f1;
     stack.sp8 = lbl_805DD240;
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x4C);
+    temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x4C);
     stack.spC = temp_f1 - lbl_805DD244;
-    if (clamp_list_scroll_offset((int) (*(s32 *)((s8 *)arg0 + 0x90)), (void *) (arg0 + 0x68), (void *) (&stack.sp8), (f32) (temp_f1)) != 0) {
-        *(f32 *)((s8 *)arg0 + 0x84) = (f32) *(f32 *)((s8 *)arg0 + 0x6C);
+    if (clamp_list_scroll_offset((int) (*(s32 *)((s8 *)((u8 *)this) + 0x90)), (void *) (((u8 *)this) + 0x68), (void *) (&stack.sp8), (f32) (temp_f1)) != 0) {
+        *(f32 *)((s8 *)((u8 *)this) + 0x84) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x6C);
     }
 }
 void update_scroll_position__17TWindowMessageLogFPv(u8 *arg0) {
@@ -74,7 +75,7 @@ void update_scroll_position__17TWindowMessageLogFPv(u8 *arg0) {
     stack.sp8 = (*(f32 *)((s8 *)arg0 + 0x48) - lbl_805DD248) - lbl_805DD24C;
     stack.spC = (*(f32 *)((s8 *)temp_r3 + 0xC) + *(f32 *)((s8 *)temp_r3 + 0x14)) - *(f32 *)((s8 *)temp_r31 + 0xC);
     ((TWindowMenu *)(*(u8 **)((s8 *)arg0 + 0x90)))->copy_position(&stack.sp8);
-    clamp_scroll_offset__17TWindowMessageLogFPv((u8 *)((void *) (arg0)));
+    clamp_scroll_offset__17TWindowMessageLogFv((u8 *)((void *) (arg0)));
 }
 
 }

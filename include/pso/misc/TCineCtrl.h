@@ -6,6 +6,7 @@
 
 struct TCineCtrl : public TObject {
     virtual ~TCineCtrl();
+    void update_letterbox_show();
     void render();
     static void reset_state(s32 arg0);
     static void reset(s32 arg0);

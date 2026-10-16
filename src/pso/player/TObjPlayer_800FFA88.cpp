@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Self_800FFB38 {
@@ -20,8 +21,8 @@ void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self);
 
 extern "C" {
 
-s32 TObjPlayer::get_item_ptr(s32 arg1) {
-    return this->m_e0 + (arg1 * 0x30);
+s32 TObjMotion::get_item_ptr(s32 arg1) {
+    return (*(s32 *)((u8 *)this + 0xE0)) + (arg1 * 0x30);
 }
 #pragma push
 #pragma fp_contract on

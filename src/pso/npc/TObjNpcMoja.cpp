@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcNFM00.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -116,7 +117,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__11TObjNpcBaseFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
-void set_motion_params__10TObjPlayerFPvPv(void *, void *);
+void set_motion_params__13TUnk_804806E8FPv(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
@@ -289,10 +290,10 @@ void *TObjNpcMoja__ct(void *selfv, void *parent, void *arg2v) {
     *(s32 *)(self + 0x24) = TObjFish__sub_8001EDB0(lbl_805D50D8, 0);
     ((TObjPlayer *)self)->init_npc_animation((void*)lbl_804AABB8, (void*)(*(s32 *)(lbl_805D50D8 + 0x430)), (void*)(*(s16 *)(self + 0xB8)));
     *(u8 **)(self + 0x350) = npc_movement_parameters;
-    set_motion_params__10TObjPlayerFPvPv(self, npc_default_battle_stats);
+    set_motion_params__13TUnk_804806E8FPv(self, npc_default_battle_stats);
     init_collision_body_parts(self, lbl_804AABD8, 1);
     ((TObjPlayer *)self)->reset_photon_effect();
-    ((TObjPlayer *)self)->update_prev_position();
+    ((TObjEnemy *)self)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(self);
     return self;
 }

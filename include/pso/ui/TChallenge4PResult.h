@@ -11,6 +11,10 @@ class TChallenge4PResult : public TObject {
 public:
     TChallenge4PResult(TObject *parent, u16 slot, s32 resultCode);
     virtual ~TChallenge4PResult();
+    void sub_8034BA2C();
+    void sub_8034B918();
+    void sub_8034B8BC();
+    void sub_8034B8B0();
     virtual void run_task();
     void show_message(s32 text_handle);
     void handle_third_reward();

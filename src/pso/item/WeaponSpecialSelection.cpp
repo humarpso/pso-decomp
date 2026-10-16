@@ -5,7 +5,7 @@
 extern "C" {
 
 s32 weapon_has_extra_attack(TItemWeapon* weapon) {
-    if ((((TObjPlayer *)weapon)->test_flags_1b8(0x400020U) != 0U) ||
+    if ((((TItemWeapon *)weapon)->test_flags_1b8(0x400020U) != 0U) ||
         (weapon->special_selector != 0)) {
         return 1;
     }

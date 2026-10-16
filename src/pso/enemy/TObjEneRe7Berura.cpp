@@ -511,8 +511,8 @@ void fn_80095DF4(u8 *arg0);
 s32 spawn_punch__16TObjEneRe7BeruraFPv(void *);
 s32 TObjPlayer__sub_800A0554(void *);
 void TObjPlayer__sub_800A05B8(void *, int);
-void enemy_init_validate_period(void *, int);
-void enemy_init_acquire_period(void *, int);
+void enemy_init_validate_period__12TObjEneDD_STFl(void *, int);
+void enemy_init_acquire_period__12TObjEneDD_STFl(void *, int);
 s32 enemy_set_target_id(void *, u16);
 void __dt__9TObjEneDDFv(void *, int);
 int reload_stats_keep_hp_tp__9TObjEneDDFv(void *self, void *a, void *b, void *c);
@@ -520,8 +520,8 @@ void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 is_alive__9TObjEneDDFv(void *);
 void init_model__9TObjEneDDFv(void *, void *, int);
-s32 clear_attack_receipts();
-void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
+s32 clear_attack_receipts__9TObjEneDDFv();
+void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 Res_800959F8 * load_enemy_bml_resource_named(void *, void *);
 Res_800959F8 * load_enemy_bml_resource(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32, s32);
@@ -1129,7 +1129,7 @@ void TObjEneRe7Berura::vfunc_61() {  }
 void TObjEneRe7Berura::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     if ((*(s32 *)((s8 *)arg0 + 0x3C0) & 4) || ((s32) (*(s16 *)((s8 *)arg0 + 0x33E) - *(s16 *)((s8 *)arg0 + 0x32C)) < (s32) ((s16) *(s16 *)((s8 *)arg0 + 0x2B8) / 5))) {
-        clear_attack_receipts();
+        clear_attack_receipts__9TObjEneDDFv();
         return;
     }
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 0xA) {
@@ -1204,8 +1204,8 @@ void TObjEneRe7Berura::init_enemy() {
     *(u8 **)((s8 *)arg0 + 0x350) = berura_init_params;
     initialize_enemy_state__9TObjEneDDFv(arg0, 0x25);
     *(f32 *)((s8 *)arg0 + 0x37C) = TObjEneRe7Berura__data_805D9730;
-    enemy_init_acquire_period(arg0, 0x3C);
-    enemy_init_validate_period(arg0, 0x3C);
+    enemy_init_acquire_period__12TObjEneDD_STFl(arg0, 0x3C);
+    enemy_init_validate_period__12TObjEneDD_STFl(arg0, 0x3C);
     *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C4) = -1;
     *(s32 *)((s8 *)arg0 + 0x3C8) = 0xFF000000;
@@ -1252,7 +1252,7 @@ void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
     ((TUnk_80490470 *)((char *)arg0 + 1020))->init_vtable_and_field18();
     __construct_array((void *)((char *)arg0 + 1096), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2988;
-    invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
+    invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     ((void (*)(void *))TObjEneRe7Berura__sub_80095328)(arg0);
     ((TObjEneRe7Berura *)arg0)->init_enemy();
     return arg0;

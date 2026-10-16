@@ -41,7 +41,7 @@ u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
 void *create_particle_emitter(void *, int);
 void enable__13TParticleCtrlFPv(void *);
-void update_flight__21TObjEneRe7BeruraPunchFPv(void *);
+void update_flight__21TObjEneRe7BeruraPunchFv(void *);
 u32 find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 sin_table_lookup(s32);
@@ -137,7 +137,7 @@ void TObjEneRe7BeruraPunch::run_task() {
     case 0:
         break;
     case 1:
-        update_flight__21TObjEneRe7BeruraPunchFPv(arg0);
+        update_flight__21TObjEneRe7BeruraPunchFv(arg0);
         break;
     case 2:
         ((TObjEneRe7BeruraPunch *)arg0)->update_velocity_and_snap();

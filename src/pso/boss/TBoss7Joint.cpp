@@ -207,7 +207,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805DEBB8;
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
-void init_common_from__9TObjEneDDFPvPv(void *, void *);
+void init_common_from__9TObjEneDDFPUc(void *, void *);
 u8 * TObjEneDD__ct(void *);
 extern s32 __vt__11TBoss7Joint[];
 extern s32 lbl_805D3FC0;
@@ -220,7 +220,7 @@ s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 check_state_flag_2__9TObjEneDDFv(void *);
 s32 transform_part_positions__9TObjEneDDFv(void *);
 s32 init_position_vectors__9TObjEneDDFPv();
-s32 initialize_linked_object_reference(void *, void *);
+s32 initialize_linked_object_reference__13TUnk_804AF8A0FPv(void *, void *);
 s32 TBoss7Joint_get_shell_max_hp();
 extern s32 lbl_80473FB8[];
 extern s32 lbl_804E45C8[];
@@ -243,16 +243,16 @@ void vfunc_61__11TBoss7JointFv(void);
 void vfunc_62__11TBoss7JointFv(u8 *arg0);
 void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
-s32 init_boss_stats__11TBoss7JointFPv(void *);
-s32 clear_attack_receipts(void *);
+s32 init_boss_stats__11TBoss7JointFv(void *);
+s32 clear_attack_receipts__9TObjEneDDFv(void *);
 void TObjEneDD__vt0(void *, int);
 s32 TObjFish__sub_802EC468(void *, f32, f32);
 s32 apply_damage_and_set_effect__8TObjFishFPvi(int, int, int);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
-void clear_obj_links(void *);
+void clear_obj_links__13TUnk_804AF8A0Fv(void *);
 u32 is_part_active__11TBoss7JointFv(void *, int);
-s32 set_flag_800__11TBoss7JointFPv(int);
+s32 set_flag_800__14TBoss7DeRolLeCFv(int);
 
 void TBoss7Joint::store_position() {
     struct VOff_802EE9A4_arg0_802EE9A4 *self = (struct VOff_802EE9A4_arg0_802EE9A4 *)this;
@@ -276,12 +276,12 @@ void TBoss7Joint::vfunc_62() {
         *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C4) - temp_r31);
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C4) <= 0) {
             *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = 0;
-            init_boss_stats__11TBoss7JointFPv((void *) (((u8 *)this)));
+            init_boss_stats__11TBoss7JointFv((void *) (((u8 *)this)));
         }
     }
     *(s16 *)((s8 *)((u8 *)this) + 0x32C) = (s16) *(s16 *)((s8 *)((u8 *)this) + 0x2B8);
-    set_flag_800__11TBoss7JointFPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)));
-    clear_attack_receipts((void *) (((u8 *)this)));
+    set_flag_800__14TBoss7DeRolLeCFv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)));
+    clear_attack_receipts__9TObjEneDDFv((void *) (((u8 *)this)));
 }
 
 extern s32 __vt__11TBoss7Joint[];
@@ -303,7 +303,7 @@ void TBoss7Joint::run_task() {
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBoss7Joint;
-        clear_obj_links(arg0);
+        clear_obj_links__13TUnk_804AF8A0Fv(arg0);
         TObjEneDD__vt0(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -318,7 +318,7 @@ typedef char RecoveredGlobal_802EEC60___vt__11TBoss7Joint_size[sizeof(RecoveredG
 s32 TBoss7Joint::init_params() {
     ((s32 (*)(void *))init_position_vectors__9TObjEneDDFPv)(this);
     fn_8002B630(&((J_802EEB88 *)this)->sub, lbl_80473FB8);
-    initialize_linked_object_reference(this, &((J_802EEB88 *)this)->sub);
+    initialize_linked_object_reference__13TUnk_804AF8A0FPv(this, &((J_802EEB88 *)this)->sub);
     transform_part_positions__9TObjEneDDFv(this);
     reset_hp__9TObjEneDDFv(this, register_boss__6TLobbyFl(0x10), dispatch_shared_handler_b__6TLobbyFl(0xF), register_object__6TLobbyFl(0x10));
     *(s16 *)((s8 *)this + 0x32C) = 0x4E20;
@@ -336,7 +336,7 @@ u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5) 
     TObjEneDD__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802EEC60___vt__11TBoss7Joint *)&__vt__11TBoss7Joint).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3FC0;
-    init_common_from__9TObjEneDDFPvPv(arg0, arg1);
+    init_common_from__9TObjEneDDFPUc(arg0, arg1);
     *(s16 *)((s8 *)arg0 + 0x1C) = arg2;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
     *(s32 *)((s8 *)arg0 + 0x3C0) = arg4;

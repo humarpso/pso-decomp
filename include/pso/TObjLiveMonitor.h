@@ -6,6 +6,7 @@
 class TObjLiveMonitor : public TObject {
 public:
     virtual ~TObjLiveMonitor();
+    int render_live_monitor_screen();
     virtual void run_task();
     virtual void render();
 public:

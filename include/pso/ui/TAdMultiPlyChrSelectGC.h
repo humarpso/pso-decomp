@@ -6,6 +6,8 @@
 
 struct TAdMultiPlyChrSelectGC : public TObject {
     virtual ~TAdMultiPlyChrSelectGC();
+    void create_widgets();
+    void sub_802DC118(s32);
     virtual void render();
     u32 m_1c;
     u32 m_20;

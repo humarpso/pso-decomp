@@ -46,8 +46,6 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     void set_count_ratio_text(s32 arg1, s32 arg2);
     void handle_choice_input();
     void clear_visible_flag();
-    void draw_text_glyphs(void *arg1, void *arg2);
-    void draw_wrapped_text(void *arg1, void *arg2);
     void increment_counter();
     static s32 destroy_allocation(s32 arg0, s16 arg1);
     void *reset_selection();
@@ -105,13 +103,7 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     void add_inventory_item(s32 arg1, s32 arg2, s32 arg3);
     void add_item_info_entry(s32 arg1, s32 arg2, s32 arg3);
     void add_ground_item(s32 arg1, s32 arg2);
-    void set_flag4();
-    void handle_open();
-    void move_cursor_next();
-    void move_cursor();
-    void ensure_status_display(s32 arg1);
     void init_scroll_pos();
-    void update_scroll_offset();
     void *destroy_item_list_resources(s16 arg1);
     int is_flag80_set();
     void add_text_entry(s32 arg1, s32 arg2);
@@ -131,7 +123,6 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     int forward_render();
     int update_subwindow();
     void fill_card_text_entries(s32 arg1);
-    void render_status();
     void render_status_pair(s32 arg1);
     static s32 query_status_field(void *arg0, s8 arg1);
     static s32 get_flag_or_zero(void *arg0, s8 arg1);

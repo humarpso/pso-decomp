@@ -6,6 +6,7 @@
 
 struct TObjEneMe3SinowZoaReal : public TObjEneMe3SinowZoa {
     virtual ~TObjEneMe3SinowZoaReal();
+    void init_enemy();
     virtual void vfunc_107();
     virtual void vfunc_111();
     void vfunc_63();

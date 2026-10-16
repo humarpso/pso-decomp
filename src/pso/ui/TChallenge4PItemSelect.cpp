@@ -1,4 +1,5 @@
 #include "pso/ui/TChallenge4PItemSelect.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
 
 #include "types.h"
@@ -108,7 +109,7 @@ void TChallenge4PItemSelect::open_menu() {
                 forward_trade_action_default__16TObjCityMainWarpFPviii((u32 &)menu_window, get_text_collection(challenge4p_item_select_text_ids[var_r29]), 6, var_r29);
                 var_r29 += 1;
             } while (var_r29 < 8);
-            ((TWindowSubComCard *)((u32 &)menu_window))->set_scroll_target(lbl_805DFD98, lbl_805DFD9C);
+            ((TWindowSubComCardList *)((u32 &)menu_window))->set_scroll_target(lbl_805DFD98, lbl_805DFD9C);
             TWindowSubComCard__sub_80265500((u32 &)menu_window);
             ((TLobby *)((u32 &)menu_window))->set_field_1c(lbl_805DFDA0);
             if (get_instance__11TCameraCtrlFv() > 2) {

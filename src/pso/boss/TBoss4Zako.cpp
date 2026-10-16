@@ -1,4 +1,6 @@
 #include "pso/boss/TBoss4Zako.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #pragma defer_codegen on
 #pragma push
 #pragma dont_inline off
@@ -198,7 +200,7 @@ void try_enter_state_3__11TBoss4BishiFPv(void* p);
 
 void vec3_add_to(void *, void *);
 s32 TObjControl__ct(s32, s32);
-int distribute_experience(void*);
+int distribute_experience__9TObjEnemyFv(void*);
 
 s32 __nw__7TObjectFUl(s32);
 
@@ -270,7 +272,7 @@ void *__dt__9TBoss4UroFv(void *arg0, s16 arg1);
 s32 create__9TBoss4UroFi(s32 arg0);
 
 s32 TObjControl__ct(s32, s32);
-int distribute_experience(void*);
+int distribute_experience__9TObjEnemyFv(void*);
 
 s32 __nw__7TObjectFUl(s32);
 
@@ -622,7 +624,7 @@ s32 TBoss4Zako__ct(s32 arg0, s32 arg1, s32 arg2) {
     ((TObjEnemy *)arg0)->initialize((void*)arg1);
     *(s32 **)((s8 *)THIS + 0x18) = __vt__10TBoss4Zako;
     *(s32 *)((s8 *)THIS + 0) = lbl_805D27E8;
-    ((TObjPlayer *)THIS)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)THIS)->add_flags_2e4(8);
     *(s32 *)((s8 *)THIS + 0x378) = ((s32 *)arg2)[0];
     fn_8005D6E4((u8 *)*(s32 *)((s8 *)THIS + 0x378));
     ((VObj_18_fe72f9 *)THIS)->m79((s32 *)arg2 + 1);
@@ -752,7 +754,7 @@ void TBoss4Zako::run_task() {
             self->m_60 = lbl_805D8D2C * self->m_3b0 + self->m_60;
         }
         ((TBoss4Zako *)self)->apply_contact_damage();
-        ((TObjPlayer *)self)->update_prev_position();
+        ((TObjEnemy *)self)->update_prev_position();
         TBoss4Zako::queue_entry(&self->m_38, self->m_5c, self->m_60);
         if (TBoss4Uro__sub_8005D698(self) != 0) {
             if (self->m_3a8 != 0) {
@@ -1010,7 +1012,7 @@ void *__dt__9TBoss4UroFv(void *arg0, s16 arg1) {
 
 extern "C" {
 #pragma push
-void TBoss4Uro__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 3) { distribute_experience(p); TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
+void TBoss4Uro__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 3) { distribute_experience__9TObjEnemyFv(p); TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
 #pragma pop
 }
 
@@ -1078,7 +1080,7 @@ void run_task__9TBoss4UroFv(TBoss4Uro *self) {
         }
         TBoss4Zako::queue_entry(&self->pos, self->f5C, self->f60);
         ((TBoss4Zako *)self)->apply_contact_damage();
-        ((TObjPlayer *)self)->update_prev_position();
+        ((TObjEnemy *)self)->update_prev_position();
         if (TBoss4Uro__sub_8005D698(self) != 0) {
             ((TObjPlayer *)self)->update_collisions();
             submit_cursor_candidate(self, -1);
@@ -1288,7 +1290,7 @@ void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1) {
 
 extern "C" {
 #pragma push
-void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { distribute_experience(p); enter_state_3__11TBoss4BishiFPv((void*)(p)); } }
+void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { distribute_experience__9TObjEnemyFv(p); enter_state_3__11TBoss4BishiFPv((void*)(p)); } }
 #pragma pop
 }
 
@@ -1328,7 +1330,7 @@ void TBoss4Zako__sub_8005BC4C(TBoss4Bishi *self) {
         }
         TBoss4Zako::queue_entry(&self->pos, self->f5C, self->f60);
         ((TBoss4Zako *)self)->apply_contact_damage();
-        ((TObjPlayer *)self)->update_prev_position();
+        ((TObjEnemy *)self)->update_prev_position();
         if (TBoss4Uro__sub_8005D698(self) != 0) {
             ((TObjPlayer *)self)->update_collisions();
             submit_cursor_candidate(self, -1);

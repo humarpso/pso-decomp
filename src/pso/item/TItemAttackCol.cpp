@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/item/TUnk_804E355C.h"
 
 #include <stddef.h>
@@ -399,7 +400,7 @@ s32 TUnk_804E355C::resolve_attack_col_hit(u8 *arg1) {
         ((VObj_18_f2ea1e *)(temp_r29))->m73();
         apply_camera_shake__10TObjPlayerFiii((int) (temp_r29), (int) (temp_r30), (int) (temp_r31_2));
         ((TObjPlayer *)(&stack.sp8))->reset_status_block();
-        stack.sp8 = ((TObjPlayer *)temp_r28)->get_field_ed();
+        stack.sp8 = ((TItem *)temp_r28)->get_field_ed();
         stack.sp9 = ((TItemProShield *)temp_r28)->get_slot_count();
         stack.spC = (u8 *)(temp_r29);
         stack.sp14 = (u8 *)(temp_r30);

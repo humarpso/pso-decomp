@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TUnk_804C8678.h"
@@ -240,7 +241,7 @@ s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(u32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, s32, s32);
 void * check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
-s32 select_cursor_entry__6TLobbyFv(void *);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 void send_and_handle__6TLobbyFii(void *, void *, s32);
 void * update_window_mode_from_progress__6TLobbyFPv(void *, Pos_801F4DFC *);
 s32 fn_8026CB5C();
@@ -307,7 +308,7 @@ Self_801F4DFC *TObjItemNameSelect__ct(Self_801F4DFC *self, void *parent) {
     for (i = 0; item_name_selection_table[i].id != -1; i++) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->m_1c, get_text_collection(item_name_selection_table[i].id), 6, i);
     }
-    ((TWindowSubComCard *)(self->m_1c))->set_scroll_target(lbl_805DC500, lbl_805DC504);
+    ((TWindowSubComCardList *)(self->m_1c))->set_scroll_target(lbl_805DC500, lbl_805DC504);
     TWindowSubComCard__sub_80265500(self->m_1c);
     ((TLobby *)(self->m_1c))->set_field_1c(lbl_805DC508);
     pos.x = lbl_805DC4F4;
@@ -382,7 +383,7 @@ void *TObjItemNameEntry__ct(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
         ((s32 (*)(u32, s32, s32, s32))forward_trade_action_default__16TObjCityMainWarpFPviii)(*(u32 *)((s8 *)arg0 + 0x20), ((s32 (*)(s32))TQuestVmDownLoadServer__sub_8006EF6C)(0x47), 0x81, 0);
     }
-    ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x20)))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
+    ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0x20)))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
     align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0x20));
     ((s32 (*)(u32))set_status_flag_80__12TQuestThreadFPv)(*(u32 *)((s8 *)arg0 + 0x20));
     return arg0;
@@ -503,7 +504,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
         }
         break;
     case 12: {
-        s32 v = select_cursor_entry__6TLobbyFv(o->win184);
+        s32 v = select_cursor_entry__22TWindowSubShortCutListFv(o->win184);
         if (v != o->ids[o->idx]) {
             o->ids[o->idx] = v;
             TWindowHelpItem__set_displayed_item_by_id(o->win188, v);
@@ -706,7 +707,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
         }
         break;
     case 12: {
-        s32 sel = select_cursor_entry__6TLobbyFv(t->list);
+        s32 sel = select_cursor_entry__22TWindowSubShortCutListFv(t->list);
         if (sel != t->slots[t->slot]) {
             t->slots[t->slot] = sel;
             TWindowHelpItem__set_displayed_item_by_id(t->help, sel);

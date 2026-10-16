@@ -1677,7 +1677,7 @@ extern "C" {
 void *destroy_seasonal_object__13TUnk_804B5E48Fs(void *arg0, s16 arg1);
 int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 
 s32 destroy_particle_controller__13TUnk_804AF8A0Fs(void *, s32);
 
@@ -1692,7 +1692,7 @@ void *TUnk_804B5E48::destroy_seasonal_object(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804B5E48;
         var_r0 = (u32) *(u32 *)((s8 *)this + 0xA4);
         if (var_r0 != 0U) {
-            unregister_object_by_id(this);
+            unregister_object_by_id__13TUnk_804AF8A0Fv(this);
             free_collision_body_parts(this);
         }
         destroy_particle_controller__13TUnk_804AF8A0Fs(this, 0);

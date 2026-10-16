@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TQuestListVM.h"
 
@@ -21,7 +22,7 @@ void THunterGuildSeqOffline::set_state_3() {
     if (THunterGuildSeqOffline__active_instance != NULL) {
         THunterGuildSeqOffline__active_instance->m7(6, 1);
         *(s32 *)((s8 *)THunterGuildSeqOffline__active_instance + 0x38) = 3;
-        ((TQuestListVM *)THunterGuildSeqOffline__active_instance)->set_field_20(5);
+        ((TShopWindowBase *)THunterGuildSeqOffline__active_instance)->set_field_20(5);
     }
 }
 

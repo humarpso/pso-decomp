@@ -6,6 +6,9 @@
 
 struct TObjEneDolmOlm : public TUnk_80493450 {
     virtual ~TObjEneDolmOlm();
+    s32 render_model_if_visible();
+    void check_path_ahead(s32, f32);
+    void sub_80301148();
     virtual void vfunc_60();
     virtual void vfunc_58();
     virtual void vfunc_59();

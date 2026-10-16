@@ -287,14 +287,14 @@ extern const f32 lbl_805D9F48;
 void set_boss4_state__12TObjEneLappyFv(void *arg0);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 move_with_wall_slide(void *);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void sub_800C20B0__12TObjEneLappyFv(void *arg0);
 #define sub_800C20B0__12TObjEneLappyFv (*(s32 (*)())&sub_800C20B0__12TObjEneLappyFv)
 extern const f32 lbl_805D9F24;
 extern const f32 lbl_805D9F2C;
 extern const f32 lbl_805D9F4C;
 s32 play_sound_effect(s32, u32, s32, s32);
-s32 distribute_experience(void *);
+s32 distribute_experience__9TObjEnemyFv(void *);
 s32 query_lobby_state__10TObjPlayerFv(void *);
 void set_flag_and_notify__10TObjPlayerFPv(void *arg0);
 void handle_death__10TObjPlayerFPv(u8 *arg0);
@@ -308,7 +308,7 @@ extern const f32 lbl_805D9F4C;
 void set_action_state_3__10TObjPlayerFPv(void *arg0);
 s32 obj_testFlags30(void *, s32);
 void enter_down_state__10TObjPlayerFPv(void *arg0);
-s32 render_with_position_override__10TObjPlayerFPUcl(void *, int, int);
+s32 render_with_position_override__9TObjEnemyFPUcl(void *, int, int);
 s32 init_lights__9TObjEneDDFv();
 s32 TObjEneDD__sub_800B9B24(f32);
 void set_speed_params__12TObjEneLappyFl(void *arg0, s32 arg1);
@@ -347,7 +347,7 @@ s32 apply_move_friction__12TObjEneLappyFv(void *arg0);
 void sub_800C20C0__12TObjEneLappyFv(void *arg0);
 #define sub_800C20C0__12TObjEneLappyFv (*(s32 (*)())&sub_800C20C0__12TObjEneLappyFv)
 u8 *find_active_entity_by_id(u16);
-s32 update_prev_position__10TObjPlayerFv(void *);
+s32 update_prev_position__9TObjEnemyFv(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
 extern const f32 lbl_805D9F8C;
@@ -421,7 +421,7 @@ s32 try_clear_flags_60__10TObjPlayerFi(s32 arg0);
 s32 update_movement_status__10TObjPlayerFv();
 s32 update_action_hold_status__10TObjPlayerFv();
 s32 obj_setFlags30(void *, s32);
-s32 send_entity_set_flags__6TLobbyFPv();
+s32 send_entity_set_flags__9TObjEnemyFv();
 
 void TObjEneLappy::clear_flags_60() {
     u8 *arg0 = (u8 *)this;
@@ -457,7 +457,7 @@ void set_flag_and_notify__10TObjPlayerFPv(void *arg0) {
     temp_r4 = *(s16 *)((s8 *)arg0 + 0x374);
     if (!(temp_r4 & 0x80)) {
         *(s16 *)((s8 *)arg0 + 0x374) = (s16) (temp_r4 | 0x80);
-        send_entity_set_flags__6TLobbyFPv();
+        send_entity_set_flags__9TObjEnemyFv();
     }
 }
 
@@ -578,7 +578,7 @@ void render__12TObjEneLappyFPv(u8 *arg0) {
             restore_scene_lighting();
             end_effect_render__13TParticleCtrlFv();
             if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x800) && (obj_testFlags30((void *)((void *) (arg0)), (s32)((int) (0x800000))) != 0)) {
-                render_with_position_override__10TObjPlayerFPUcl((void *) (arg0), (int) (0), (int) (0));
+                render_with_position_override__9TObjEnemyFPUcl((void *) (arg0), (int) (0), (int) (0));
             }
         }
     }
@@ -606,7 +606,7 @@ s32 TObjEneLappy::apply_move_friction() {
     if (!(*(s32 *)((s8 *)this + 0x30) & 0x800000)) {
         apply_actor_gravity(this, 0, lbl_805D9F4C);
     }
-    refresh_collision_body_centers(this);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(this);
     if (*(f32 *)((s8 *)this + 0xC0) < (lbl_805D9F24 * (lbl_805D9F2C * *(f32 *)((s8 *)this + 0xC8)))) {
         move_with_wall_slide(this);
         *(f32 *)((s8 *)this + 0x308) = (f32) (*(f32 *)((s8 *)this + 0x308) * lbl_805D9F24);
@@ -629,7 +629,7 @@ void handle_death__10TObjPlayerFPv(u8 *arg0) {
         *(s16 *)((s8 *)arg0 + 0xB8) = 7;
         if (!(*(s16 *)((s8 *)arg0 + 0x374) & 0x10)) {
             play_sound_effect((s32)(((s32)remap_area_sound_id((s32)(0x3AE10), (s32)(5)))), (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
-            distribute_experience(arg0);
+            distribute_experience__9TObjEnemyFv(arg0);
             set_flag_and_notify__10TObjPlayerFPv(arg0);
         }
         *(s16 *)((s8 *)arg0 + 0x380) = 0;
@@ -913,7 +913,7 @@ void TObjEneLappy::update_moving() {
             }
 block_47:
             apply_actor_gravity((void *)((void *) (arg0)), (s32)((int) (0)), (f32) (lbl_805D9F4C));
-            refresh_collision_body_centers((void *) (arg0));
+            refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
             return;
         }
     }
@@ -1018,7 +1018,7 @@ void TObjEneLappy::update_idle_state(void *ov) {
         break;
     }
     }
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
     if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x800000)) {
         apply_actor_gravity(arg0, 0, lbl_805D9F4C);
     }
@@ -1158,7 +1158,7 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
         apply_move_friction__12TObjEneLappyFv((void *) (arg0));
         break;
     }
-    update_prev_position__10TObjPlayerFv((void *) (arg0));
+    update_prev_position__9TObjEnemyFv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC));
     if ((obj_testFlags30((void *)((void *) (arg0)), (s32)((int) (0x06000000))) == 0) && !(((RecoveredFields_800C1478_arg0 *)arg0)->field_374 & 4)) {
         submit_cursor_candidate((void *) (arg0), (int) (-1));
@@ -1594,7 +1594,7 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 
-s32 add_flags_2e4__10TObjPlayerFUl(void *, int, f32, f32);
+s32 add_flags_2e4__13TUnk_804806E8FUl(void *, int, f32, f32);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv(void *, s32, void *);
@@ -2113,12 +2113,12 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     *(s16 *)(self + 0x32C) = *(s16 *)(self + 0x2B8);
     *(s16 *)(self + 0x32E) = *(s16 *)(self + 0x2BA);
     *(s16 *)(self + 0x33E) = *(s16 *)(self + 0x32C);
-    update_prev_position__10TObjPlayerFv(self);
+    update_prev_position__9TObjEnemyFv(self);
     copy_position__20TBoss3VoloptHiraisinFi(self);
     ((TObjPlayer *)self)->reset_photon_effect();
     scale = lbl_805D9F84 * (lbl_805D9F60 + calc_boss4_scale__10TObjPlayerFi(self));
     *(s16 *)(self + 0x37E) = lbl_805D9F2C * scale;
-    add_flags_2e4__10TObjPlayerFUl(self, 1, scale, lbl_805D9F84);
+    add_flags_2e4__13TUnk_804806E8FUl(self, 1, scale, lbl_805D9F84);
     *(u32 *)(self + 0x30) |= 0x40000;
     *(void **)(self + 0xD8) = (u8 *)rappy_variant_speed_table;
     ((TObjPlayer *)self)->set_field_d8((s32)(*(void **)(self + 0xD8)));

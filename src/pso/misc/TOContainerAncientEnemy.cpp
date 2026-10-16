@@ -78,8 +78,8 @@ extern char lbl_80440830[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DB3A0;
 s32 get_current_floor();
-void send_object_state_update(void *, void *);
-s32 access_object_saved_state(void *, void *, int);
+void send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 void byteswap_and_send__6TLobbyFv(void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DB39C;
@@ -98,7 +98,7 @@ extern "C" {
 
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__13TUnk_804AF8A0Fv(void *);
@@ -158,10 +158,10 @@ f32 TOContainerAncientEnemy::receive_physical_attack(void *, f32) {
     s16 sp8;
     s32 r4;
     Pk_8015BAE0 pk;
-    if (arg0->id >= 0x1000U && arg0->f80 != 0U && access_object_saved_state(arg0, &sp8, 1) != 0) {
+    if (arg0->id >= 0x1000U && arg0->f80 != 0U && access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 1) != 0) {
         sp8 = 1;
-        access_object_saved_state(arg0, &sp8, 0);
-        send_object_state_update(arg0, &sp8);
+        access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 0);
+        send_object_state_update__13TUnk_804AF8A0FPv(arg0, &sp8);
         ((TLobby *)(&pk))->init_packet_67_04();
         pk.id = arg0->id;
         pk.a = get_current_floor();
@@ -231,7 +231,7 @@ void TOContainerAncientEnemy::vfunc_80() {
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TOContainerAncientEnemy;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {

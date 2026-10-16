@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrTagOccupation.h"
 #include "pso/TChCrTagOccHeader.h"
 
 extern "C" {
@@ -175,7 +176,7 @@ extern const f32 lbl_805DDEF0;
 extern const f32 lbl_805DDEF4;
 extern const f32 lbl_805DDEF8;
 extern const f32 lbl_805DDEFC;
-void fn_802A2DF4(Tag_802A2DF4 *self);
+void sub_802A2DF4__18TChCrTagOccupationFv(Tag_802A2DF4 *self);
 extern void *__vt__18TChCrTagOccupation[];
 void *__dt__8TChCrTagFv(void *, s16);
 void __dl__7TObjectFPv(void *);
@@ -195,38 +196,38 @@ extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void fn_802A2DF4(Tag_802A2DF4 *self) {
+void TChCrTagOccupation::sub_802A2DF4() {
     f32 t;
     f32 s;
     f32 depth;
-    s32 id = self->f20 + 0x39;
+    s32 id = ((Tag_802A2DF4 *)this)->f20 + 0x39;
     vec2f pos = lbl_80466474[0];
     vec2f scale = lbl_8046647C[0];
-    if (self->f24 > self->f3c) {
-        t = (self->f24 - self->f3c) / (self->f40 - self->f3c);
+    if (((Tag_802A2DF4 *)this)->f24 > ((Tag_802A2DF4 *)this)->f3c) {
+        t = (((Tag_802A2DF4 *)this)->f24 - ((Tag_802A2DF4 *)this)->f3c) / (((Tag_802A2DF4 *)this)->f40 - ((Tag_802A2DF4 *)this)->f3c);
     } else {
         return;
     }
     switch (get_selected_index__15TChCrCharSelectFv()) {
     case 0:
-        s = lbl_805DDEDC * self->f30 + lbl_805DDED8;
+        s = lbl_805DDEDC * ((Tag_802A2DF4 *)this)->f30 + lbl_805DDED8;
         break;
     default:
-        s = self->f30;
+        s = ((Tag_802A2DF4 *)this)->f30;
         break;
     }
-    if (self->m4() != 0) {
+    if (((Tag_802A2DF4 *)this)->m4() != 0) {
         depth = lbl_805DDEE0;
     } else {
         depth = lbl_805DDEE8 * s + lbl_805DDEE4;
     }
     pos.x = lbl_805DDEEC * (lbl_805DDEF0 - t) + pos.x;
-    pos.y = lbl_805DDEF4 * (f32)self->f20 + pos.y;
+    pos.y = lbl_805DDEF4 * (f32)((Tag_802A2DF4 *)this)->f20 + pos.y;
     draw_ui_sprite_shaded(id, &pos, &scale, depth, lbl_805DDEF0, lbl_805DDEFC * (s * s) + lbl_805DDEF8);
 }
 #pragma pop
 
-int TChCrTagOccupation::render(void* p) { return ((int (*)(void *))fn_802A2DF4)(p); }
+int TChCrTagOccupation::render(void* p) { return ((int (*)(void *))sub_802A2DF4__18TChCrTagOccupationFv)(p); }
 
 int TChCrTagOccupation__vt4(Obj_802A2F78 *self) {
     if (get_selected_char__15TChCrCharSelectFv(self) == self->f20) return 1;

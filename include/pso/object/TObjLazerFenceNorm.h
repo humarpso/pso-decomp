@@ -6,6 +6,8 @@
 
 struct TObjLazerFenceNorm : public TUnk_804AF8A0 {
     virtual ~TObjLazerFenceNorm();
+    void update_closed();
+    void draw_animated_beam();
     u32 m_ac;
     u16 m_b0;
     u8 _padB2[0x2];

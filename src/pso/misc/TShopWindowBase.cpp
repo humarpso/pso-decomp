@@ -1,4 +1,5 @@
 #include "pso/TShopWindowBase.h"
+#include "pso/misc/TShopSequence.h"
 
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -20,7 +21,7 @@ u16 sub_8022397C__15TShopWindowBaseFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
-bool TShopWindowBase__sub_802239EC(u8 *arg0);
+bool sub_802239EC__13TShopSequenceFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
@@ -58,7 +59,7 @@ u16 TShopWindowBase::sub_8022397C() {
     return 0U;
 }
 
-s32 TShopWindowBase::get_child_field1c() {
+s32 TShopSequence::get_child_field1c() {
     void *temp_r3 = *(void **)((s8 *)this + 0x24);
     if (temp_r3 != NULL) {
         return obj_getField1c(temp_r3);
@@ -69,8 +70,8 @@ s32 TShopWindowBase::get_child_field1c() {
 extern s32 lbl_805D55C0;
 
 typedef char RecoveredGlobal_802239EC_lbl_8050E208_size[sizeof(RecoveredGlobal_802239EC_lbl_8050E208) == 0x1B0 ? 1 : -1];
-bool TShopWindowBase__sub_802239EC(u8 *arg0) {
-    if (*(s32 *)((s8 *)((u8 *)&controller_input_state.value + (get_map_id__13TRaderMapCoreFPv((int) (*(s32 *)((s8 *)arg0 + 0x24))) * 0x50)) + 0x28) & 2) {
+bool TShopSequence::sub_802239EC() {
+    if (*(s32 *)((s8 *)((u8 *)&controller_input_state.value + (get_map_id__13TRaderMapCoreFPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24))) * 0x50)) + 0x28) & 2) {
         return 1;
     }
     return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0;

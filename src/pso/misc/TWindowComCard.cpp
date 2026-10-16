@@ -44,13 +44,13 @@ void* get_kbd_ptr__14TWindowComCardFPv(void* p);
 void run_task__14TWindowComCardFv(void* p);
 void set_display_value__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 void *get_card_entry__17TWindowSubComCardFi(void *);
-int update_window_entry_list(void*, void*);
+int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFs(void *, int);
 s32 update_com_card_display(s32, s32);
 int initialize_subwindow__9TWindowDDFv(void*);
-int update_fade__17TWindowSubComCardFv(void*);
+int update_fade__13TUnk_804CE018Fv(void*);
 
 extern "C" u8 lbl_8044EB28[];
 extern "C" u8 lbl_8044EB30[];
@@ -192,7 +192,7 @@ void render__14TWindowComCardFv(s32 arg0) {
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void run_task__14TWindowComCardFv(void* p) { initialize_subwindow__9TWindowDDFv(p); update_fade__17TWindowSubComCardFv(p); update_window_entry_list(p, (char*)p + 0x24); }
+void run_task__14TWindowComCardFv(void* p) { initialize_subwindow__9TWindowDDFv(p); update_fade__13TUnk_804CE018Fv(p); update_window_entry_list__13TUnk_804CE018FPv(p, (char*)p + 0x24); }
 
 void *__dt__14TWindowComCardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -352,7 +352,7 @@ typedef struct Win_80249ED8 {
     s32 mode;
 } Win_80249ED8;
 
-void save_position__17TWindowSubComCardFPv(void *p);
+void save_position__13TUnk_804CE018Fv(void *p);
 s32 get_zero_vec2();
 extern const f32 lbl_805DCBD0;
 void run_task__13TUnk_804CE964Fv(u8 *arg0);
@@ -388,8 +388,8 @@ void TUnk_804CE964::run_task() {
     this->m_34 = (f32) (temp_f1 + this->m_68);
     this->m_44 = (f32) this->m_34;
     ((s32 (*)(void *, int, f32))initialize_subwindow__9TWindowDDFv)((void *)(arg0), (int) (temp_r4), (f32) (temp_f1));
-    ((s32 (*)(void *))update_fade__17TWindowSubComCardFv)((void *) (arg0));
-    ((s32 (*)(void *, void *))update_window_entry_list)((void *) (arg0), (void *) (arg0 + 0x24));
+    ((s32 (*)(void *))update_fade__13TUnk_804CE018Fv)((void *) (arg0));
+    ((s32 (*)(void *, void *))update_window_entry_list__13TUnk_804CE018FPv)((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {
@@ -415,7 +415,7 @@ Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *par
     o->mode = mode;
     o->x = lbl_805DCBD0 * (f32)o->col + (o->parent->x + o->ofs.x);
     o->y = o->parent->y + o->ofs.y;
-    save_position__17TWindowSubComCardFPv(o);
+    save_position__13TUnk_804CE018Fv(o);
     ((s32 (*)(s32, s32))set_help_mode__14TWindowComCardFPvi)((s32)((void * (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(o, 0), mode);
     return o;
 }

@@ -5,6 +5,13 @@
 
 struct TBoss4Type1
 {
+    void snapshot_position();
+    void render_effects();
+    void update_boss4_phase_timer();
+    void draw_parts();
+    void push_players_out_of_colliders();
+    void sub_80053D4C();
+    void update_follow_camera_offsets();
     u8 _pad1C[0x8];
     u32 m_24;
     u8 _pad28[0xC];

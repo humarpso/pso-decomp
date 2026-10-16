@@ -9,7 +9,7 @@ s32 TObjEneBalClawClaw__sub_8008DC90(void *);
 s32 TObjEneBalClaw__sub_8008D68C();
 s32 TObjEneMe1GiGue__sub_8008FC0C(void *);
 s32 TObjEneMe1GiGue__sub_8008FC10(void *);
-s32 TObjPlayer__sub_8008FF50(void *);
+s32 sub_8008FF50__18TObjEneBalClawBodyFv(void *);
 s32 submit_cursor_candidate(void *, int, int, f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 minimap_render_dot(void *, int, int, int);
@@ -34,12 +34,12 @@ void TObjPlayer::update_control_state() {
     if ((s16) this->m_326 != (s32) *(s32 *)&this->m_374) {
         if ((s32) this->m_37c != -1) {
             this->m_37c = -1;
-            TObjPlayer__sub_8008FF50((void *) (arg0));
+            sub_8008FF50__18TObjEneBalClawBodyFv((void *) (arg0));
         }
         this->m_326 = (s16) *(s32 *)&this->m_374;
         this->m_37c = 0;
     }
-    TObjPlayer__sub_8008FF50((void *) (arg0));
+    sub_8008FF50__18TObjEneBalClawBodyFv((void *) (arg0));
     ((TObjEneBalClaw *)arg0)->update_wobble();
     ((TObjEneBalClaw *)arg0)->update_claw_angle();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));

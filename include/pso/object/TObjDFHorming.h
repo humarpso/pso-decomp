@@ -6,6 +6,8 @@
 
 struct TObjDFHorming : public TUnk_804806E8 {
     virtual ~TObjDFHorming();
+    void sub_8005076C();
+    void check_attack_trigger();
     virtual void run_task();
     u16 m_334;
     u8 _pad336[0x2];

@@ -6,6 +6,22 @@
 
 struct TBoss6Mag : public TObjEnemy {
     virtual ~TBoss6Mag();
+    void spawn_trap_by_stat();
+    void sub_8033040C();
+    void set_action(s32);
+    void update_motion_playback();
+    void change_motion(s32);
+    void draw_model_motion_blend();
+    void sync_hp();
+    void sync_hp_apply_damage();
+    void decay_glow_and_calc_hp_ratio();
+    void spawn_falling_rocks();
+    void update_rotation_ramp();
+    s32 is_action_ready();
+    s32 is_target_in_front_range();
+    void sub_8032E8DC();
+    void update_effect_positions();
+    s32 is_phase_active();
     virtual f32 receive_physical_attack(void *, f32);
     virtual void vfunc_63();
     void render();

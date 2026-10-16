@@ -38,7 +38,7 @@ void fn_8030B370(O_8030B370 *o) {
 extern "C" {
 s32 is_split_screen();
 s32 TObjPlayer__sub_80084500();
-s32 render_live_monitor_screen__10TObjPlayerFv(void *);
+s32 render_live_monitor_screen__15TObjLiveMonitorFv(void *);
 void update_camera__15TObjLiveMonitorFPv(void* p);
 s32 get_table_entry__18TObjLiveCameraCtrlFl(int);
 s32 TObjLiveMonitor__sub_8030C050();
@@ -60,7 +60,7 @@ void render__15TObjLiveMonitorFv(u8 *arg0) {
     } else if (is_split_screen() == 0) {
         TObjPlayer__sub_80084500();
     } else {
-        render_live_monitor_screen__10TObjPlayerFv((void *) (arg0));
+        render_live_monitor_screen__15TObjLiveMonitorFv((void *) (arg0));
     }
     push_matrix();
     draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x1C)));

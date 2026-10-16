@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjVoloptCage.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneLappy.h"
@@ -48,7 +49,7 @@ s32 get_player_by_client_id(int);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
-void recalc_combat_stats__10TObjPlayerFv(void *, s32, int, int, f32, f32);
+void recalc_combat_stats__13TUnk_804806E8FPvPvPvff(void *, s32, int, int, f32, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void TObjEnemyCustom__ct();
@@ -121,7 +122,7 @@ void TObjVoloptCage::run_task() {
         *(s32 *)&this->state = 0;
     }
     update_state();
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
     submit_cursor_candidate((void *) (arg0), (int) (-1));
 }
@@ -169,7 +170,7 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     ((TObjEneLappy *)arg0)->set_param(0x2E);
     arg0->f3c = lbl_805D8884;
-    recalc_combat_stats__10TObjPlayerFv(arg0, lbl_805D4D18, 0, 0, lbl_805D8888, lbl_805D8888);
+    recalc_combat_stats__13TUnk_804806E8FPvPvPvff(arg0, lbl_805D4D18, 0, 0, lbl_805D8888, lbl_805D8888);
     arg0->flags |= 0x40000 | 0x8000;
     arg0->flags &= ~0xA00;
     arg0->f374 = 7;

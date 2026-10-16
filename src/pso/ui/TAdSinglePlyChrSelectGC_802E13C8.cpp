@@ -81,9 +81,9 @@ s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 extern RecoveredGlobal_802E14B8_lbl_804C89BC pso_system_card_filename;
 s32 TAdSinglePlyChrSelectGC__sub_802E15C8(void);
 void *get_message_10__20TWindowSubStatusDispFl(int);
-int set_selected_index__17TWindowSubComCardFs(void *, s16);
+int set_selected_index__21TWindowSubComCardListFs(void *, s16);
 int align_menu_entry_positions(void *);
-int update_layout_height__17TWindowSubComCardFPvf(void *, f32);
+int update_layout_height__21TWindowSubComCardListFf(void *, f32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, void *a1, int a2, int a3);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 int complete_reveal__14TWindowMessageFPv(void *);
@@ -371,12 +371,12 @@ void open_message_choice__23TAdSinglePlyChrSelectGCFPvPviPvPv(Self_802E1A8C *sel
     } else {
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->x54, m, 5, 1);
     }
-    update_layout_height__17TWindowSubComCardFPvf(self->x54, lbl_805D68E0);
+    update_layout_height__21TWindowSubComCardListFf(self->x54, lbl_805D68E0);
     align_menu_entry_positions(self->x54);
     if (arg2 == -2) {
-        set_selected_index__17TWindowSubComCardFs(self->x54, 0);
+        set_selected_index__21TWindowSubComCardListFs(self->x54, 0);
     } else {
-        set_selected_index__17TWindowSubComCardFs(self->x54, arg2);
+        set_selected_index__21TWindowSubComCardListFs(self->x54, arg2);
     }
     clear_flag70_bit4__17TWindowOptionCtrlFv(self->x54);
 }

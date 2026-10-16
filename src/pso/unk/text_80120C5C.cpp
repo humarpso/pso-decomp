@@ -66,9 +66,9 @@ struct B12_80120C5C { s32 a; s32 b; s32 c; };
 struct T_80120C5C { s32 a; s32 b; s32 c; u16 d; u8 e; };
 
 extern "C" {
-u8 get_field_ed__10TObjPlayerFv();
-void request_model_load__14TItemEquipBaseFPvi(void *, u8);
-void create_weapon_trail_effects(void *);
+u8 get_field_ed__5TItemFv();
+void request_model_load__14TItemEquipBaseFl(void *, u8);
+void create_weapon_trail_effects__11TItemWeaponFv(void *);
 extern T_80120C5C lbl_8043E828[];
 }
 
@@ -76,7 +76,7 @@ extern "C" {
 
 void TItemWeapon::vfunc_46() {
     Pl_80120C5C *arg0 = (Pl_80120C5C *)this;
-    u8 v = get_field_ed__10TObjPlayerFv();
+    u8 v = get_field_ed__5TItemFv();
     if (v >= 0xAA) {
         T_80120C5C t;
         t.a = lbl_8043E828[0].a;
@@ -86,8 +86,8 @@ void TItemWeapon::vfunc_46() {
         t.e = lbl_8043E828[0].e;
         v = ((u8 *)&t)[arg0->m41()];
     }
-    request_model_load__14TItemEquipBaseFPvi(arg0, v);
-    create_weapon_trail_effects(arg0);
+    request_model_load__14TItemEquipBaseFl(arg0, v);
+    create_weapon_trail_effects__11TItemWeaponFv(arg0);
 }
 
 }

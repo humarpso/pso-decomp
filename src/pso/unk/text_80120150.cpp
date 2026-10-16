@@ -106,8 +106,8 @@ void apply_weapon_node_material() {
     const s32 node = TObjPlayer::get_player_list();
     TObjPlayer__sub_80101088();
     TObjPlayer::end_particle_effect();
-    ((TObjPlayer *)weapon_render_callback_object)->draw_shield_particle();
-    ((TObjPlayer *)weapon_render_callback_object)->update_screen_particle_effect();
+    ((TItemWeapon *)weapon_render_callback_object)->draw_shield_particle();
+    ((TItemWeapon *)weapon_render_callback_object)->update_screen_particle_effect();
     ((WeaponCallbackObject*)weapon_render_callback_object)->materialCallback();
     if(node == weapon_node_material_index) {
         WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(weapon_render_callback_object));
@@ -127,7 +127,7 @@ void apply_weapon_node_material() {
 #pragma opt_common_subs off
 void TItemWeapon::advance_weapon_photon_phase() {
     u8 *arg0 = (u8 *)this;
-    if (((TObjPlayer *)arg0)->test_flags_1b8(0x02000000U) == 0U) {
+    if (((TItemWeapon *)arg0)->test_flags_1b8(0x02000000U) == 0U) {
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C8) + lbl_805DACA0);
     } else {
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C8) - lbl_805DACA0);

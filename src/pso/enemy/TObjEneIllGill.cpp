@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/enemy/TObjEneIllGill.h"
 extern "C" void render__15TObjIllGillKageFv();
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
@@ -181,7 +185,7 @@ void enemy_set_heading_velocity(void *, s32, f32);
 void enemy_turn_toward_dest(void *, s32);
 s32 move_with_wall_slide(void *);
 f32 horizontal_distance_squared(void *, void *);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 minimap_render_dot(void *, int, int, int);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 u32 create_particle_emitter(void *, int);
@@ -363,7 +367,7 @@ struct Obj_80367B00 {
 extern "C" {
 int obj_clearFlags30(void*, int);
 void vfunc_59__14TObjEneIllGillFv(u8 *arg0);
-s32 send_entity_set_flags__6TLobbyFPv(void *);
+s32 send_entity_set_flags__9TObjEnemyFv(void *);
 s32 spawn_particle_effect(void *, int);
 void vfunc_63__14TObjEneIllGillFv(u8 *arg0);
 int obj_clearFlags30(void*, int);
@@ -395,7 +399,7 @@ s32 pop_matrices(int);
 extern RecoveredGlobal_80367DC8_lbl_8050BF00 lbl_8050BF00;
 extern RecoveredGlobal_80367DC8_lbl_8058D490 identity_matrix;
 extern const f32 TObjEneIllGill__data_805E02BC;
-void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1);
+void sub_80367DC8__14TObjEneIllGillFl(u8 *arg0, s32 arg1);
 s32 update_movement_status__10TObjPlayerFv(void *);
 int obj_clearFlags30(void*, int);
 s32 update_movement_status__14TObjEneIllGillFv(u8 *arg0);
@@ -499,7 +503,7 @@ void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 fabs_float(f32);
 f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
-void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1);
+void sub_80367DC8__14TObjEneIllGillFl(u8 *arg0, s32 arg1);
 void subtract_vector(void *, void *);
 extern const f64 TObjEneIllGill__data_8047A348;
 extern Vec_80367B00 lbl_8050BEE0;
@@ -520,7 +524,7 @@ s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_wander_home(void *, int, f32, f32, f32);
 f32 horizontal_distance_squared(void *, void *);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void __dt__9TObjEnemyFv(void *, int);
@@ -859,7 +863,7 @@ void TObjEneIllGill::update_ai() {
         }
         break;
     }
-    refresh_collision_body_centers(o);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(o);
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
 }
 #pragma pop
@@ -1065,7 +1069,7 @@ void TObjEneIllGill::vfunc_63() {
         ((TObjEneIllGill *)arg0)->free_resources();
         spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0xF2));
         ((TObjPlayer *)arg0)->refresh_lobby_state();
-        send_entity_set_flags__6TLobbyFPv(arg0);
+        send_entity_set_flags__9TObjEnemyFv(arg0);
     }
 }
 
@@ -1587,7 +1591,7 @@ void TObjEneIllGill::run_attack_phase() {
             temp_r4 = (unsigned char *) (*(void * *)&this->movementParameters);
             enemy_wander_home((void *) (arg0), (int) (*(s32 *)((s8 *)temp_r4 + 8)), (f32) (lbl_805E02E8 * *(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805E02C4), (f32) (lbl_805E02FC));
         }
-        refresh_collision_body_centers((void *) (arg0));
+        refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
         break;
     default:
         this->m_b8 = 0;
@@ -1605,7 +1609,7 @@ extern void *tl_04;
 typedef char RecoveredGlobal_80367DC8_lbl_8050BF00_size[sizeof(RecoveredGlobal_80367DC8_lbl_8050BF00) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80367DC8_lbl_8058D490_size[sizeof(RecoveredGlobal_80367DC8_lbl_8058D490) == 0x30 ? 1 : -1];
 
-#define TRY_80367B00(o, a) ((s32 (*)(u8 *, s32))TObjEneIllGill__sub_80367DC8)(o, a)
+#define TRY_80367B00(o, a) ((s32 (*)(u8 *, s32))sub_80367DC8__14TObjEneIllGillFl)(o, a)
 void TObjEneIllGill::move_toward_dest_with_detour() {
     Obj_80367B00 *o = (Obj_80367B00 *)this;
     s32 ang;
@@ -1658,16 +1662,16 @@ void TObjEneIllGill__sub_80367DA4(s32 arg0) {
     }
 }
 
-void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1) {
+void TObjEneIllGill::sub_80367DC8(s32 arg1) {
     *(f32 *)((s8 *)(&lbl_8050BF00.value) + 4) = (f32) TObjEneIllGill__data_805E02BC;
     *(f32 *)((s8 *)(&lbl_8050BF00.value) + 0) = (f32) TObjEneIllGill__data_805E02BC;
-    *(f32 *)((s8 *)(&lbl_8050BF00.value) + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 4);
+    *(f32 *)((s8 *)(&lbl_8050BF00.value) + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x350)) + 4);
     push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((int) (0), (void *) (arg1));
     rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BF00.value), (void *) (&lbl_8050BF00.value));
     pop_matrices((int) (1));
-    vec3_add_to((void *) (&lbl_8050BF00.value), (void *) (arg0 + 0x38));
-    project_actor_to_ground((void *) (arg0), (void *) (&lbl_8050BF00.value), (int) (0));
+    vec3_add_to((void *) (&lbl_8050BF00.value), (void *) (((u8 *)this) + 0x38));
+    project_actor_to_ground((void *) (((u8 *)this)), (void *) (&lbl_8050BF00.value), (int) (0));
 }
 
 typedef struct RecoveredFields_80367EFC_arg0 RecoveredFields_80367EFC_arg0;
@@ -1888,7 +1892,7 @@ void TObjEneIllGill::run_task() {
         o->flags &= ~0x200000;
         o->x2a8 = NULL;
     }
-    ((TObjPlayer *)o)->update_prev_position();
+    ((TObjEnemy *)o)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(o);
     submit_cursor_candidate(o, -1);
     o->x2b4 += TObjEneIllGill__data_805E02CC;
@@ -1949,9 +1953,9 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     FIG_8036858C(f32, 0x68) = lbl_805E0308;
     FIG_8036858C(f32, 0x6C) = lbl_805E0308;
     FIG_8036858C(f32, 0x70) = lbl_805E0308;
-    ((TObjPlayer *)self)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)self)->add_flags_2e4(8);
     init_collision_body_parts(self, lbl_804F2F40, 1);
-    ((TObjPlayer *)self)->update_prev_position();
+    ((TObjEnemy *)self)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(self);
     ((TObjPlayer *)self)->reset_photon_effect();
     FIG_8036858C(void *, 0x350) = lbl_804F2F24;

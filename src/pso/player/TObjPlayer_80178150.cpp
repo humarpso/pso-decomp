@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSwitchTimer.h"
 
 #include <stddef.h>
 #include "pso/misc/TOChatSensor.h"
@@ -49,7 +50,7 @@ void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TOChatSensor::send_switch_states() {
+void TOSwitchTimer::send_switch_states() {
     u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_801781D8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801781D8, spC) == 0x4) ? 1 : -1];
@@ -65,11 +66,11 @@ void TOChatSensor::send_switch_states() {
     if ((u32) this->m_98 == 0U) {
         if ((u16) this->m_a8 < 0x100U) {
             ((TOChatSensor *)(&stack.sp14))->init_packet_type();
-            stack.sp18 = (s16) this->m_b4;
+            stack.sp18 = (s16) (*(s32 *)((u8 *)this + 0xB4));
             stack.sp1A = this->m_a8;
             stack.sp1C = 0;
             ((TOChatSensor *)(&stack.sp14))->send_state();
-            clear_floor_switch_flag((int) (this->m_a8), (int) ((s16) this->m_b4));
+            clear_floor_switch_flag((int) (this->m_a8), (int) ((s16) (*(s32 *)((u8 *)this + 0xB4))));
         }
     } else {
         var_r30 = (u16 *)((u8 *)(arg0 + 0xAA));
@@ -77,7 +78,7 @@ void TOChatSensor::send_switch_states() {
         do {
             if ((u16) *var_r30 < 0x100U) {
                 ((TOChatSensor *)(&stack.sp8))->init_packet_type();
-                stack.spC = (s16) this->m_b4;
+                stack.spC = (s16) (*(s32 *)((u8 *)this + 0xB4));
                 stack.spE = *var_r30;
                 stack.sp10 = 1;
                 ((TOChatSensor *)(&stack.sp8))->send_state();

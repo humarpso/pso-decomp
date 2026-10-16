@@ -6,6 +6,9 @@
 
 struct TWindowShortListCtrl : public TObject {
     virtual ~TWindowShortListCtrl();
+    void refresh_technique_rows(s32, void *);
+    void cycle_list_page();
+    void sub_8026EA48();
     virtual void run_task();
     u8 m_1c;
     u8 m_1d;
@@ -32,7 +35,6 @@ struct TWindowShortListCtrl : public TObject {
     static void set_card_window_flags(s32 arg0, s32 arg1);
     s16 get_cursor_pos();
     void update_cursor_pos();
-    s16 get_selected_index();
     static void assign_shortcut(s32 arg0, s32 arg1, s32 arg2);};
 
 typedef char TWindowShortListCtrl_size[sizeof(TWindowShortListCtrl) == 0x3C ? 1 : -1];

@@ -11,7 +11,7 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
 u32 find_entity_by_id(int);
-s32 apply_technique_to_area_targets(void *);
+s32 apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 u8 * construct_area_technique_base(void *, s32, s32, s32, s16);
@@ -61,7 +61,7 @@ void TTecKafun::run_task() {
     if ((s32) *(s32 *)&this->m_fc == 1) {
         spawn_particle_effect((void *) (arg0 + 0x20), (int) (*(s32 *)&this->m_f4));
     }
-    apply_technique_to_area_targets((void *) (arg0));
+    apply_technique_to_area_targets__13TUnk_804CC148Fv((void *) (arg0));
     queue_destruction__7TObjectFv((void *) (arg0));
 }
 

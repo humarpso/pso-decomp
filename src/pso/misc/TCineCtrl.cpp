@@ -27,12 +27,12 @@ extern const f32 lbl_805D91E0;
 extern const f32 lbl_805D91E4;
 extern const f32 lbl_805D91E8;
 extern const f32 lbl_805D91EC;
-void update_letterbox_show__9TCineCtrlFPv(u8 *arg0);
+void update_letterbox_show__9TCineCtrlFv(u8 *arg0);
 extern const f32 TCineCtrl__data_805D91D0;
 extern const f32 lbl_805D91E0;
 extern const f32 lbl_805D91E4;
 void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
-void update_letterbox_show__9TCineCtrlFPv(u8 *arg0);
+void update_letterbox_show__9TCineCtrlFv(u8 *arg0);
 void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
 void TCameraCtrl__sub_80068EF0(void);
 void set_cached_blend_factor(s32, s32);
@@ -132,20 +132,20 @@ extern const f32 TCineCtrl__data_805D91D0;
 
 #pragma push
 #pragma opt_common_subs off
-void update_letterbox_show__9TCineCtrlFPv(u8 *arg0) {
+void TCineCtrl::update_letterbox_show() {
     s32 (*temp_r12)(void *);
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) + lbl_805D91E0);
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805D91E4);
-    if (*(f32 *)((s8 *)arg0 + 0x1C) >= lbl_805D91E8) {
-        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) lbl_805D91E8;
+    *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x1C) + lbl_805D91E0);
+    *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x20) + lbl_805D91E4);
+    if (*(f32 *)((s8 *)((u8 *)this) + 0x1C) >= lbl_805D91E8) {
+        *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) lbl_805D91E8;
     }
-    if (*(f32 *)((s8 *)arg0 + 0x20) >= lbl_805D91EC) {
-        *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805D91EC;
-        temp_r12 = *(s32 (**)(void *))((s8 *)arg0 + 0x2C);
+    if (*(f32 *)((s8 *)((u8 *)this) + 0x20) >= lbl_805D91EC) {
+        *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) lbl_805D91EC;
+        temp_r12 = *(s32 (**)(void *))((s8 *)((u8 *)this) + 0x2C);
         if (temp_r12 != NULL) {
-            temp_r12(arg0);
+            temp_r12(((u8 *)this));
         }
-        *(s32 *)((s8 *)arg0 + 0x28) = 0;
+        *(s32 *)((s8 *)((u8 *)this) + 0x28) = 0;
     }
 }
 #pragma pop
@@ -176,7 +176,7 @@ void TCineCtrl::run_task() {
     case 0:
         break;
     case 1:
-        update_letterbox_show__9TCineCtrlFPv((u8 *)self);
+        update_letterbox_show__9TCineCtrlFv((u8 *)self);
         break;
     case 2:
         update_letterbox_hide__9TCineCtrlFPv((u8 *)self);

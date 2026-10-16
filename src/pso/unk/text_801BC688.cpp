@@ -9,10 +9,10 @@ struct VObj_801BC688 : Base_801BC688 { virtual void m0(); virtual void m1(int); 
 
 extern "C" {
 u8 * init_vtable8__13TUnk_804ED7D0Fv(void *);
-s32 set_move_mode__10TObjPlayerFPvi(void *, int);
-s32 set_input_mode__10TObjPlayerFPvi(void *, int);
+s32 set_move_mode__10TObjPlayerFl(void *, int);
+s32 set_input_mode__10TObjPlayerFl(void *, int);
 s32 set_flag_400000__10TObjPlayerFi(void *);
-s32 set_floor__10TObjPlayerFPvi(void *, int);
+s32 set_floor__10TObjPlayerFl(void *, int);
 s32 set_floor_index__10TObjPlayerFPvi(void *, int);
 s32 fn_801C19F4(void *);
 u8 *heap_alloc__10TObjPlayerFPv(s32);
@@ -66,8 +66,8 @@ void TObjPlayer::init_action_provider() {
     ((TObjPlayer *)(arg0 + 0x66C))->set_vec3_const();
     *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) TObjPlayer__data_805DC278;
     *(s32 *)&this->m_334 = 0;
-    set_input_mode__10TObjPlayerFPvi((void *) (arg0), (int) (0));
-    set_move_mode__10TObjPlayerFPvi((void *) (arg0), (int) (0));
+    set_input_mode__10TObjPlayerFl((void *) (arg0), (int) (0));
+    set_move_mode__10TObjPlayerFl((void *) (arg0), (int) (0));
     *(s16 *)((s8 *)arg0 + 0x3C0) = -1;
     *(f32 *)&this->m_3c4 = (f32) TObjPlayer__data_805DC278;
     ((TObjPlayer *)arg0)->set_battle_flag((int) (0));
@@ -77,7 +77,7 @@ void TObjPlayer::init_action_provider() {
     this->m_e0 = 0;
     *(s32 *)((s8 *)arg0 + 0xDB4) = 0;
     set_floor_index__10TObjPlayerFPvi((void *) (arg0), (int) (0xF));
-    set_floor__10TObjPlayerFPvi((void *) (arg0), (int) (0xF));
+    set_floor__10TObjPlayerFl((void *) (arg0), (int) (0xF));
     this->m_54c = 0;
     *(s32 *)((s8 *)arg0 + 0x3B8) = 0;
     *(s32 *)((s8 *)arg0 + 0x420) = 0;

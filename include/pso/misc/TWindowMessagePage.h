@@ -6,6 +6,7 @@
 
 struct TWindowMessagePage : public TWindowMessage {
     virtual ~TWindowMessagePage();
+    s32 is_message_window_ready();
     s32 is_ready();
     void update_message();
     void set_message(void *msg, s32 flags);

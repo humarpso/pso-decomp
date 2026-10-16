@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TWindowMakeTeam.h"
@@ -158,7 +159,7 @@ void run_task__16TKeyBoardControlFv(u8 *arg0) {
     } else if (((s32)is_key_held__16TKeyBoardControlFPv((void*)((int) (*(s32 *)((s8 *)arg0 + 0x24))))) == 0) {
         *(u16 *)((s8 *)arg0 + 0x1C) = (u16) (*(u16 *)((s8 *)arg0 + 0x1C) | 1);
         if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != 0U) {
-            ((TWindowSubTradeMain *)(*(void **)((s8 *)arg0 + 0x28)))->request_close();
+            ((TWindowLockOn *)(*(void **)((s8 *)arg0 + 0x28)))->request_close();
         }
     }
 }

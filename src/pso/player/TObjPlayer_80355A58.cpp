@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/player/TUnk_804F1320.h"
 #include "pso/item/TItemMag.h"
 #include "pso/player/TObjPlayer.h"
@@ -9,7 +10,7 @@ struct RecoveredGlobal_80355BA0_lbl_804F1320 {
 };
 
 extern "C" {
-void send_6x61_activate_mag_effect(void *, s32);
+void send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
 void emit_marker_effects__13TUnk_804F1320Fv(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
@@ -50,7 +51,7 @@ void TUnk_804F1320::emit_marker_effects() {
     if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
         temp_r3 = ((TItemMag *)(*(s32 *)((s8 *)arg0 + 0xF0)))->get_sub_value();
         if (temp_r3 >= 0x14) {
-            send_6x61_activate_mag_effect(arg0, temp_r3);
+            send_6x61_activate_mag_effect__14TItemEquipBaseFl(arg0, temp_r3);
             return;
         }
         ((TObjPlayer *)arg0)->update_active_game_effect();
@@ -76,7 +77,7 @@ u8 *photon_field_weapon_ct(u8 *arg0, u8 *arg1) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80355BA0_lbl_804F1320 *)&lbl_804F1320).value;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x22);
-    if (((TObjPlayer *)arg0)->get_field_ed() == 0x3D) {
+    if (((TItem *)arg0)->get_field_ed() == 0x3D) {
         *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DFFC0;
         set_status_flags__10TObjPlayerFPvUi(arg0, 0x100000);
     } else {

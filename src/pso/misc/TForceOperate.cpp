@@ -269,7 +269,7 @@ int clear_flags__11TAdRicoRingFUl(void*, void*);
 s32 clear_target_lock_flag__10TObjPlayerFPv(s32);
 s32 fn_801C6F2C(void *);
 s32 is_room_free_of_active_enemies(s32, s32);
-s32 get_stat_by_key_state__10TObjPlayerFv(s32);
+s32 get_stat_by_key_state__13TUnk_804B9870Fv(s32);
 int set_chunk_material_override_pair(void*, void*);
 s32 set_lock_flag__10TObjPlayerFPv(s32);
 int set_lock_timer__10TObjPlayerFPvi(void*, void*);
@@ -315,7 +315,7 @@ void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 temp_r31;
 
     if (TObjPlayer__sub_801C6F90() == 0) {
-        temp_r31 = get_stat_by_key_state__10TObjPlayerFv(arg1);
+        temp_r31 = get_stat_by_key_state__13TUnk_804B9870Fv(arg1);
         if (is_room_free_of_active_enemies(get_current_floor(), temp_r31) != 0) {
             if (set_lock_flag__10TObjPlayerFPv(arg0) != 0) {
                 clear_target_lock_flag__10TObjPlayerFPv(arg0);

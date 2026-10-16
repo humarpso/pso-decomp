@@ -6,6 +6,12 @@
 
 struct TObjEneGibbles : public TObjEnemy {
     virtual ~TObjEneGibbles();
+    void sub_802DBC94(s32);
+    void update_wander();
+    void sub_802DA7A4();
+    void sub_802DA0BC();
+    void sub_802D8984();
+    void sub_802D8140();
     virtual s32 update_action_hold_status();
     virtual s32 update_movement_status();
     virtual void vfunc_58();

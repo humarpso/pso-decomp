@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TUnk_80486924.h"
 #include "pso/boss/TBoss4Type3.h"
 
@@ -2592,7 +2594,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
     ((TObjEnemy *)self)->initialize((void*)arg1);
     self->vt = __vt__11TBoss4Type3;
     self->f0 = (s32)TBoss4Type3_name;
-    ((TObjPlayer *)self)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)self)->add_flags_2e4(8);
     self->f38C = arg2[0];
     ((VObj_8005AE60 *)self)->m79(arg2 + 1);
     self->f390 = TBoss4Uro::get_instance_count();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDFHorming.h"
 #include "pso/boss/TBoss4Type3.h"
 
 extern "C" {
@@ -18,8 +19,8 @@ void *TBoss4Type3::create_yutai(void *arg0, void *arg1, void *arg2) {
 extern s32 game_difficulty_selection;
 extern f32 lbl_805D8A44;
 
-void TBoss4Type3::check_attack_trigger() {
-    if (((s32) game_difficulty_selection == 3) && ((s32) this->m_338 >= 0x78) && (*(f32 *)((s8 *)this + 0x37C) > (lbl_805D8A44 * *(f32 *)&this->m_378))) {
+void TObjDFHorming::check_attack_trigger() {
+    if (((s32) game_difficulty_selection == 3) && ((s32) this->m_338 >= 0x78) && (*(f32 *)((s8 *)this + 0x37C) > (lbl_805D8A44 * *(f32 *)&(*(void * *)((u8 *)this + 0x378))))) {
         this->m_368 = 1;
     }
 }

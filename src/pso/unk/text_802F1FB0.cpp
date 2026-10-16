@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804E4B24.h"
 #include "pso/boss/TObjBoss7TunnelCol.h"
 
 struct RecoveredGlobal_802F1FB0_lbl_804E4978 {
@@ -47,7 +48,7 @@ u8 *fn_802F1FB0(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
         copy_position__16TBoss8DragonDemoFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) (arg0 + 0x1C));
         TObjBoss2Tunnel__sub_802F2278();
     }
-    ((TObjBoss7TunnelCol *)arg0)->update_collision();
+    ((TUnk_804E4B24 *)arg0)->update_collision();
     return arg0;
 }
 

@@ -6,6 +6,7 @@
 
 struct TObjEnemyCustom : public TObjEnemy {
     virtual ~TObjEnemyCustom();
+    u8 find_target_in_range(f32);
     void sub_800C7860();
     void release_destroyed_target();
     void sub_8004292C();

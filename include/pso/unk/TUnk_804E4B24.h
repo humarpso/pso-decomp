@@ -6,6 +6,7 @@
 class TUnk_804E4B24 : public TObject {
 public:
     virtual ~TUnk_804E4B24();
+    void update_collision();
     virtual void run_task();
     u8 unk_1C[0x8];
     f32 m_24;

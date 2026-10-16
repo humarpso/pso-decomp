@@ -6,6 +6,14 @@
 
 struct TBoss7DeRolLeC : public TObjEneDD_ST {
     virtual ~TBoss7DeRolLeC();
+    void update_or_dispatch();
+    void flee_if_disturbed();
+    void set_state_and_send(s32);
+    u8 sub_802ECB10();
+    void sub_802ECAA4();
+    void advance_action_sequence();
+    void sub_802E8234();
+    void set_flag_800();
     virtual void vfunc_88();
     virtual void render_shadows();
     void vfunc_63();

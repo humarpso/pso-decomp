@@ -21,11 +21,11 @@ void update_palette_item_count_label(u8 *, u8 *, s32, s32, s32);
 void draw_action_palette_icon(u8 *, s32, s32);
 extern u8 lbl_8044F738[];
 extern u8 lbl_8044F740[];
-void update_palette_slot__21TWindowSubCustomEquipFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void update_palette_slot__21TWindowSubCustomEquipFlll(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 extern u8 lbl_8044F738[];
-void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
-void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
+void sub_80275F08__21TWindowSubCustomEquipFPv(u8 *arg0, void *arg1);
+void sub_80275F08__21TWindowSubCustomEquipFPv(u8 *arg0, void *arg1);
 extern const f32 lbl_805DD564;
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void begin_screen_draw(int);
@@ -83,39 +83,39 @@ void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 
 }
 #pragma pop
 
-void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1) {
+void TWindowSubCustomEquip::sub_80275F08(void *arg1) {
     s8 idx;
-    if ((s8)arg0[0x64] == 0) {
-        idx = arg0[0x61] + arg0[0x62] * 3;
+    if ((s8)((u8 *)this)[0x64] == 0) {
+        idx = ((u8 *)this)[0x61] + ((u8 *)this)[0x62] * 3;
     } else {
-        idx = arg0[0x61] + (1 - arg0[0x62]) * 3;
+        idx = ((u8 *)this)[0x61] + (1 - ((u8 *)this)[0x62]) * 3;
     }
-    u8 *e = get_array_entry__13TUnk_804CE018Fi(arg0, lbl_8044F738[idx]);
+    u8 *e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F738[idx]);
     ((TWindowSubCustomEquip *)arg1)->set_relative_pos(e);
 }
 
 void TWindowSubCustomEquip::draw_cursor(u8 *arg1) {
     Win_80275F90 *arg0 = (Win_80275F90 *)this;
     Vec2_80275DE8 pos;
-    TWindowSubCustomEquip__sub_80275F08((u8 *)arg0, &pos);
+    sub_80275F08__21TWindowSubCustomEquipFPv((u8 *)arg0, &pos);
     ((void (*)(f32, u8 *, Vec2_80275DE8 *, s32))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD564, arg1, &pos, arg0->f66);
 }
 
-void update_palette_slot__21TWindowSubCustomEquipFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TWindowSubCustomEquip::update_palette_slot(s32 arg1, s32 arg2, s32 arg3) {
     void *pl;
     u8 *a;
     u8 *b;
-    pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
+    pl = get_player_by_client_id(*(s16 *)(((u8 *)this) + 0x20));
     if (pl != NULL) {
-        a = get_array_entry__13TUnk_804CE018Fi(arg0, lbl_8044F738[arg1]);
-        b = get_array_entry__13TUnk_804CE018Fi(arg0, lbl_8044F740[arg1]);
+        a = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F738[arg1]);
+        b = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F740[arg1]);
         if (can_use_palette_action__10TObjPlayerFPvUcUc(pl, arg2, arg3) != 0) {
             *(s32 *)(a + 0x2C) = -1;
         } else {
             *(s32 *)(a + 0x2C) = 0xFF404040;
         }
         draw_action_palette_icon(a, arg2, arg3);
-        update_palette_item_count_label(b, a, arg2, arg3, *(s16 *)(arg0 + 0x20));
+        update_palette_item_count_label(b, a, arg2, arg3, *(s16 *)(((u8 *)this) + 0x20));
     }
 }
 

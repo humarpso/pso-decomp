@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -58,7 +59,7 @@ struct Self_800FEEA4 {
 };
 
 extern "C" {
-void fn_800FF788(void *, void *);
+void sub_800FF788__14TObjEZRopeBaseFPv(void *, void *);
 void matrix_mult_vec(s32, void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -85,7 +86,7 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
         while (rs->bone >= 0) {
             rd->angle = rs->angle;
             push_matrix();
-            TObjPlayer::concat_matrix(0, ((TObjPlayer *)(self->model))->get_item_ptr(rs->bone));
+            TObjPlayer::concat_matrix(0, ((TObjMotion *)(self->model))->get_item_ptr(rs->bone));
             matrix_mult_vec(0, rs->data, rd->data);
             pop_matrix();
             rs++;
@@ -100,14 +101,14 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
     while (ps->bone >= 0) {
         pd->val = self->model->base + ps->ofs;
         push_matrix();
-        TObjPlayer::concat_matrix(0, ((TObjPlayer *)(self->model))->get_item_ptr(ps->bone));
+        TObjPlayer::concat_matrix(0, ((TObjMotion *)(self->model))->get_item_ptr(ps->bone));
         matrix_mult_vec(0, ps->data, pd->data);
         pop_matrix();
         ps++;
         pd++;
     }
     pop_matrix();
-    fn_800FF788(self, TObjEZBoneRotPlayer__chain_gravity);
+    sub_800FF788__14TObjEZRopeBaseFPv(self, TObjEZBoneRotPlayer__chain_gravity);
 }
 
 }

@@ -5,7 +5,8 @@
 #include "pso/misc/TODoorFourLightBase.h"
 
 struct TODoorLabo : public TODoorFourLightBase {
-    virtual ~TODoorLabo();};
+    virtual ~TODoorLabo();
+    void init_model_by_type();};
 
 typedef char TODoorLabo_size[sizeof(TODoorLabo) == 0xFC ? 1 : -1];
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -384,7 +385,7 @@ void notify_partner_room_cleared(s32 arg0) {
     i = 0;
     do {
         p = get_player_by_client_id(i);
-        if (p != 0 && obj_isState3_324() != 0 && arg0 == ((TObjPlayer *)p)->get_stat_by_key_state() && !(lbl_805D6EA0 & 2) && *win != 0) {
+        if (p != 0 && obj_isState3_324() != 0 && arg0 == ((TUnk_804B9870 *)p)->get_stat_by_key_state() && !(lbl_805D6EA0 & 2) && *win != 0) {
             TWindowCtrl::open((s32)((s32)(obj_getField1c(p))), (s32)((void *)((s32)win)), (s32)((s32)(0x1B)));
         }
         i += 1;
@@ -396,7 +397,7 @@ void show_partner_chatter_for_key(s16 key) {
     s32 player;
     for (i = 0; i < 4; i++) {
         player = get_player_by_client_id(i);
-        if (player && obj_isState3_324() && key == ((TObjPlayer *)player)->get_stat_by_key_state()
+        if (player && obj_isState3_324() && key == ((TUnk_804B9870 *)player)->get_stat_by_key_state()
             && !(lbl_805D6EA0 & 2) && (*(Global_8034E5A8 *)&npc_partner_dialogue_state).f46e) {
             TWindowCtrl::open((s32)(obj_getField1c(player)), (s32)(&(*(Global_8034E5A8 *)&npc_partner_dialogue_state).f46e), (s32)0x1B);
         }

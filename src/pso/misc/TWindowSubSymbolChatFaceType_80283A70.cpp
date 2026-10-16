@@ -41,7 +41,7 @@ void handle_input__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 initialize_subwindow__9TWindowDDFv(void *);
-s32 update_window_entry_list(void *, void *);
+s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 is_open__28TWindowSubSymbolChatFaceTypeFv(void *);
 s32 close_when_chat_closed__28TWindowSubSymbolChatFaceTypeFv(void *);
 s32 confirm_selection__28TWindowSubSymbolChatFaceTypeFv(void *);
@@ -141,7 +141,7 @@ void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
         update_subwindow__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x68)));
     }
     initialize_subwindow__9TWindowDDFv((void *) (arg0));
-    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 }

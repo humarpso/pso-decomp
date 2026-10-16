@@ -17,7 +17,7 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_item_list_capacity(void *, int, int, int);
-s32 draw_selected_list_entry(void *, int);
+s32 draw_selected_list_entry__13TUnk_804D0618Fl(void *, int);
 s32 draw_window_scrollbar(void *, int, void *);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 void render__13TUnk_804D0948Fv(u8 *arg0);
@@ -50,7 +50,7 @@ void TUnk_804D0948::render() {
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     if (!(this->m_70 & 0x80)) {
-        draw_selected_list_entry((void *) (arg0), (int) (temp_r3));
+        draw_selected_list_entry__13TUnk_804D0618Fl((void *) (arg0), (int) (temp_r3));
     }
     n = *(s32 *)&this->unk_88;
     if (n > 0) {

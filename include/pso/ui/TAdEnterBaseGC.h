@@ -6,9 +6,10 @@
 
 struct TAdEnterBaseGC : public TObject {
     virtual ~TAdEnterBaseGC();
+    void sub_8032B460(int);
+    void create_parts();
     virtual void render();
     virtual void run_task();
-    void reset(int a1);
     u8 unk_1C[0x4];
     int m_20;
     u32 m_24;

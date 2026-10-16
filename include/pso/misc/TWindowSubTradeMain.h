@@ -6,6 +6,15 @@
 
 struct TWindowSubTradeMain : public TObject {
     virtual ~TWindowSubTradeMain();
+    u8 *open_confirm_prompt();
+    s32 create_trade_window();
+    s32 open_trade_equip_window();
+    s32 create_list();
+    s32 create_input_number(s32);
+    s32 create_help_item();
+    void set_displayed_item(s32);
+    void set_labels(s32);
+    void set_child_windows_enabled(s32);
     u8 m_1c;
     u8 m_1d;
     u8 _pad1E[0x2];
@@ -23,7 +32,6 @@ struct TWindowSubTradeMain : public TObject {
     u32 m_4c;
     u32 m_50;
     void* m_54;
-    void request_close();
     s32 add_text_entry(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
     void clear_trade_flag();
     void send_60_update();

@@ -95,7 +95,7 @@ struct Self_80221F08 {
 
 extern "C" {
 u32 obj_getField1c(s32);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
+s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 set_position_xy__13TUnk_804CDFE8Fff(u32, f32, f32);
 void TWindow__close(void *);
@@ -106,7 +106,7 @@ void vfunc_11__19TShopKeepItemWindowFv(u8 *arg0);
 void memset(void *, int, int);
 int sprintf(char *, const char *, ...);
 extern char message_number_format[4];
-s32 set_field_20__12TQuestListVMFl(void *, s32);
+s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 get_item_record__23TShopJudgmentItemWindowFPv(s32, s32, s32);
 s32 store_item_in_bank(void *, s32, s32);
 s32 copy_bank_to_card_window(s32);
@@ -114,9 +114,9 @@ s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
-s32 select_cursor_entry__6TLobbyFv(s32);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 u32 obj_getField1c(s32);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
+s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 count_matching_items__10TObjPlayerFPvi(s32, u32 *);
 s32 get_shop_text(s32);
 void TWindowHelpItem__set_displayed_item_by_id(u32, s32);
@@ -141,7 +141,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
 void memset(void *, int, int);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
+s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 
 void TShopKeepItemWindow::vfunc_7() {
     struct VObj_80221844 *temp_r3;
@@ -185,7 +185,7 @@ s32 TShopKeepItemWindow::close() {
     if ((u32) this->m_384 != 0U) {
         ((TWindowSubItem *)(*(void * *)&this->m_384))->clear_selected_and_update_entry();
     }
-    set_field_20__12TQuestListVMFl(this, 1);
+    set_field_20__15TShopWindowBaseFl(this, 1);
 }
 
 extern s32 __vt__19TShopKeepItemWindow[];
@@ -201,27 +201,27 @@ void TShopKeepItemWindow::handle_deposit_confirm() {
         base = sub_8022397C__15TShopWindowBaseFv(this);
         r = get_selected_menu_value(self->f388);
         if (r == 0) {
-            i = select_cursor_entry__6TLobbyFv(self->f384);
+            i = select_cursor_entry__22TWindowSubShortCutListFv(self->f384);
             if (store_item_in_bank(&self->ents[i].f4, self->f378, base) != 0) {
                 get_item_record__23TShopJudgmentItemWindowFPv(self->f24, ((TObjPlayer *)(self->ents[i].f0))->get_field_d8(), self->f378);
                 copy_bank_to_card_window(base);
                 play_sound_effect(0x52D01, 0, 0, 0);
                 TWindow__close(self->f388);
                 self->f388 = NULL;
-                set_field_20__12TQuestListVMFl(this, 0);
+                set_field_20__15TShopWindowBaseFl(this, 0);
                 return;
             }
             ((V_802219A0 *) this)->m4(0x3C, 1);
             play_sound_effect(0x53F06, 0, 0, 0);
             TWindow__close(self->f388);
             self->f388 = NULL;
-            set_field_20__12TQuestListVMFl(this, 7);
+            set_field_20__15TShopWindowBaseFl(this, 7);
             return;
         }
         if (r == 1) {
             TWindow__close(self->f388);
             self->f388 = NULL;
-            set_field_20__12TQuestListVMFl(this, 3);
+            set_field_20__15TShopWindowBaseFl(this, 3);
             return;
         }
     }
@@ -229,7 +229,7 @@ void TShopKeepItemWindow::handle_deposit_confirm() {
     if (win != NULL && ((TWindowSubComCard *)win)->get_status_flag() != 0) {
         TWindow__close(self->f388);
         self->f388 = NULL;
-        set_field_20__12TQuestListVMFl(this, 3);
+        set_field_20__15TShopWindowBaseFl(this, 3);
     }
 }
 
@@ -249,14 +249,14 @@ void TShopKeepItemWindow::update_number_input() {
         *(s32 *)&this->m_378 = ((TShopEquipmentSellWindow *)(this->m_38c))->get_result();
         TWindow__close((void *)(this->m_38c));
         this->m_38c = 0U;
-        set_field_20__12TQuestListVMFl(this, 2);
+        set_field_20__15TShopWindowBaseFl(this, 2);
         return;
     }
     w = this->m_38c;
     if ((w != 0U) && (((TShopEquipmentSellWindow *)w)->is_confirmed() != 0)) {
         TWindow__close((void *)(this->m_38c));
         this->m_38c = 0U;
-        set_field_20__12TQuestListVMFl(this, 3);
+        set_field_20__15TShopWindowBaseFl(this, 3);
     }
 }
 
@@ -277,10 +277,10 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
         }
     }
     if (self->f374 != 0) {
-        set_field_20__12TQuestListVMFl(this, 1);
+        set_field_20__15TShopWindowBaseFl(this, 1);
     } else {
         ((VObj_80221F08 *)this)->m4(0x49, 1);
-        set_field_20__12TQuestListVMFl(this, 7);
+        set_field_20__15TShopWindowBaseFl(this, 7);
         return;
     }
     if (self->f384 == 0U) {

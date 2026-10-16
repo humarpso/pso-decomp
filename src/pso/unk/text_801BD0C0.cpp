@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 struct B_801BD240 { u8 pad[8]; };
 
@@ -139,7 +140,7 @@ s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s32 get_idle_animation__10TObjPlayerFPv();
 void set_motion_interpolation_flag__10TObjMotionFv(void *);
-Anim_801BD0C0 *get_anim_entry__10TObjPlayerFi(void *, s32);
+Anim_801BD0C0 *get_anim_entry__10TObjMotionFi(void *, s32);
 s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 extern const f32 TObjPlayer__data_805DC278;
@@ -151,8 +152,8 @@ void TObjPlayer::apply_motion_entry() {
     Player_801BD0C0 *self = (Player_801BD0C0 *)this;
     Anim_801BD0C0 *a;
     ((TObjPlayer *)self)->set_field_d8(self->ctrl->m5(has_valid_handle__10TObjPlayerFPv(self), get_handle_value__10TObjPlayerFPv(self)));
-    ((TObjPlayer *)self)->update_animation_frame(self->anim);
-    a = get_anim_entry__10TObjPlayerFi(self, self->anim);
+    ((TObjMotion *)self)->update_animation_frame(self->anim);
+    a = get_anim_entry__10TObjMotionFi(self, self->anim);
     self->speed = a->speed;
     self->fid = a->id;
     self->end = self->motion->frames;

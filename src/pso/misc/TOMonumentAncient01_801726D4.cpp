@@ -32,8 +32,8 @@ struct RecoveredGlobal_80172810___vt__19TOMonumentAncient01 {
 };
 
 extern "C" {
-s32 send_object_state_update(void *, void *);
-s32 access_object_saved_state(void *, void *, int);
+s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 s32 start_camera_pan__10TObjPlayerFPvs(int, int, void *);
 s32 get_player_by_client_id(void *);
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
@@ -42,7 +42,7 @@ extern RecoveredGlobal_80172758_lbl_804B38E0 bm_fs_obj_o_sekihi01_resource_descr
 extern u32 TOMonumentAncient01__resource_bundle;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80172810_lbl_804B38F0 lbl_804B38F0;
 extern s32 __vt__19TOMonumentAncient01[];
@@ -51,7 +51,7 @@ extern u32 TOMonumentAncient01__resource_bundle;
 extern const f32 lbl_805DB918;
 extern const f32 lbl_805DB91C;
 u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 access_object_saved_state(void *, void *, int);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 s32 get_story_flag(s32);
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 void vfunc_6__19TOMonumentAncient02FPsl(void *arg0, s16 *arg1);
@@ -62,7 +62,7 @@ extern "C" {
 void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -101,7 +101,7 @@ void TOMonumentAncient01::load_resource_instance() {
 void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOMonumentAncient01;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B27D8 *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
@@ -121,7 +121,7 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B38F0.value), (int) (1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB918;
@@ -146,7 +146,7 @@ void TOMonumentAncient02::vfunc_6(s16 *arg1, s32) {
     if ((get_story_flag(0x2C) != 0) && (get_story_flag(0x2D) != 0) && (get_story_flag(0x2E) != 0)) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x2F);
     }
-    access_object_saved_state(this, arg1, 0);
+    access_object_saved_state__13TUnk_804AF8A0FPvs(this, arg1, 0);
 }
 
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
@@ -158,10 +158,10 @@ void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
         if (temp_r3 != 0) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 2;
             start_camera_pan__10TObjPlayerFPvs((int) (temp_r3), (int) (0xC), (void *) (((TObjPlayer *)(temp_r3 + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));
-            if (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
+            if (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
                 sp8 = (s16) *(s32 *)((s8 *)arg0 + 0xAC);
-                access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
-                send_object_state_update((void *) (arg0), (void *) (&sp8));
+                access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
+                send_object_state_update__13TUnk_804AF8A0FPv((void *) (arg0), (void *) (&sp8));
             }
         }
         break;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneRecobox.h"
@@ -41,7 +42,7 @@ s32 spawn_part__14TObjEneEpsilonFi(void *, f32);
 
 void TObjEneRecon__vt102(void *arg0, f32 farg0) {
     if (((VObj_8031D780 *)arg0)->m97() != 0) {
-        ((TObjEneEpsilon *)arg0)->select_and_apply_target(farg0);
+        ((TObjEneDD_ST *)arg0)->select_and_apply_target(farg0);
         return;
     }
     spawn_part__14TObjEneEpsilonFi(arg0, farg0);

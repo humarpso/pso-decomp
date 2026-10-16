@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubQuestBoardSelect.h"
 
 extern "C" {
 
@@ -23,7 +24,7 @@ extern "C" {
 
 u16 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 
-void update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *arg0) {
+void TWindowSubQuestBoardSelect::update_slot_display_flags() {
     s32 var_r30;
     s32 var_r29;
     u16 *temp_r31;
@@ -32,8 +33,8 @@ void update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *arg0) {
     var_r29 = 1;
     var_r30 = 0;
     do {
-        temp_r31 = get_array_entry__13TUnk_804CE018Fi(arg0, var_r30 + 2);
-        if (((s32 (*)(void *, s8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(arg0, (s8) var_r30) == 0) {
+        temp_r31 = get_array_entry__13TUnk_804CE018Fi(this, var_r30 + 2);
+        if (((s32 (*)(void *, s8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(this, (s8) var_r30) == 0) {
             *temp_r31 |= 2;
         } else {
             var_r29 = 0;
@@ -41,15 +42,15 @@ void update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *arg0) {
         }
         var_r30 += 1;
     } while (var_r30 < 6);
-    temp_r3 = get_array_entry__13TUnk_804CE018Fi(arg0, 1);
+    temp_r3 = get_array_entry__13TUnk_804CE018Fi(this, 1);
     if (var_r29 != 0) {
-        *(s8 *)((s8 *)arg0 + 0x61) = -1;
+        *(s8 *)((s8 *)this + 0x61) = -1;
         *temp_r3 |= 2;
-        *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) | 4);
+        *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 4);
         return;
     }
     *temp_r3 &= 0xFFFFFFFD;
-    *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) & 0xFFFFFFFB);
+    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) & 0xFFFFFFFB);
 }
 
 }

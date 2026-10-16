@@ -113,7 +113,7 @@ void vfunc_25__14TOKeyGenericSwFv(void);
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1);
 void *TOKeyGenericSw__ct(void *, void *, void *);
 void free_collision_body_parts(void *);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -239,7 +239,7 @@ void TOKeyGenericSw::load_resources() {
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {

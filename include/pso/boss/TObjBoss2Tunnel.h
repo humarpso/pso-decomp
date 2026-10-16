@@ -6,6 +6,10 @@
 
 struct TObjBoss2Tunnel : public TObject {
     virtual ~TObjBoss2Tunnel();
+    void init_queue_from_start();
+    void copy_ring_buffer_window();
+    u8 *sub_8003C21C();
+    void update_particles();
     virtual void render();
     virtual void run_task();
     u8 _pad1C[0x4];

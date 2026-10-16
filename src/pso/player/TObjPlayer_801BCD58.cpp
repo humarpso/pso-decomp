@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void init_control_mode__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
+void init_control_mode__10TObjPlayerFl(u8 *arg0, s32 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
 void TObjPlayer__sub_801BCD50(void);
 void TObjPlayer__sub_801BCD54(void);
@@ -15,13 +16,13 @@ s32 obj_getField1c(void *);
 
 extern "C" {
 
-void init_control_mode__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
+void TObjPlayer::init_control_mode(s32 arg1) {
     if (is_locally_controlled__10TObjPlayerFPv() != 0) {
-        *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) (arg1 & 3);
-        init_pad_binding((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) *(s32 *)((s8 *)arg0 + 0x3D0)));
+        *(s32 *)((s8 *)((u8 *)this) + 0x3D0) = (s32) (arg1 & 3);
+        init_pad_binding((void *) (((u8 *)this) + 0x550), (void *) (obj_getField1c((void *) (((u8 *)this)))), (int) ((s16) *(s32 *)((s8 *)((u8 *)this) + 0x3D0)));
         return;
     }
-    TObjPlayer__sub_801BEF60((void *) (arg0 + 0x550), (int) (0));
+    TObjPlayer__sub_801BEF60((void *) (((u8 *)this) + 0x550), (int) (0));
 }
 
 }

@@ -139,8 +139,8 @@ extern s16 computer_uv_scroll_phase;
 extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCE4;
 s32 get_current_floor();
-void send_object_state_update(void *, void *);
-s32 access_object_saved_state(void *, void *, int);
+void send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
 f32 receive_physical_attack__21TObjContainerAbeEnemyFPvf(Obj_80188768 *arg0);
@@ -165,7 +165,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 s32 free_collision_body_parts(void *);
 s32 vfunc_14__11TObjMesBaseFv();
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__11TObjMesBaseFv(void *, s32);
@@ -286,7 +286,7 @@ void load_computer_resources(void) {
 void *__dt__12TObjComputerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjComputer;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         __dt__11TObjMesBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -387,10 +387,10 @@ f32 TObjContainerAbeEnemy::receive_physical_attack(void *, f32) {
     Obj_80188768 *arg0 = (Obj_80188768 *)this;
     s16 sp8;
     Pkt_80188768 pkt;
-    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
+    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 1) != 0)) {
         sp8 = 1;
-        access_object_saved_state(arg0, &sp8, 0);
-        send_object_state_update(arg0, &sp8);
+        access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 0);
+        send_object_state_update__13TUnk_804AF8A0FPv(arg0, &sp8);
         ((TLobby *)(&pkt))->init_packet_67_04();
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();

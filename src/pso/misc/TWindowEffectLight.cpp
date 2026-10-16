@@ -50,26 +50,26 @@ extern const f32 lbl_805DE118;
 extern const f32 lbl_805DE11C;
 extern const f32 lbl_805DE120;
 extern const f32 lbl_805DE124;
-void draw_outline_quad__18TWindowEffectLightFv(Light_802AD1CC *self, s32 color);
+void draw_outline_quad__18TWindowEffectLightFl(Light_802AD1CC *self, s32 color);
 }
 
 extern "C" {
 
-void draw_outline_quad__18TWindowEffectLightFv(Light_802AD1CC *self, s32 color) {
+void TWindowEffectLight::draw_outline_quad(s32 color) {
     Quad_802AD1CC q;
     f32 s;
     f32 w;
     f32 h;
-    color |= ((TWindowEffectLight *)self)->calc_alpha();
-    s = ((TWindowEffectLight *)self)->calc_scale();
+    color |= ((TWindowEffectLight *)((Light_802AD1CC *)this))->calc_alpha();
+    s = ((TWindowEffectLight *)((Light_802AD1CC *)this))->calc_scale();
     if (get_camera_id__11TCameraCtrlFv() <= 2 && get_camera_id__11TCameraCtrlFv() == 2) {
         s *= lbl_805DE10C;
     }
     set_draw_texture_and_color(2, color);
-    q.x0 = self->x - lbl_805DE110 * s;
-    q.y0 = self->y - lbl_805DE114 * s;
-    q.x1 = self->x + lbl_805DE110 * s;
-    q.y1 = self->y + lbl_805DE114 * s;
+    q.x0 = ((Light_802AD1CC *)this)->x - lbl_805DE110 * s;
+    q.y0 = ((Light_802AD1CC *)this)->y - lbl_805DE114 * s;
+    q.x1 = ((Light_802AD1CC *)this)->x + lbl_805DE110 * s;
+    q.y1 = ((Light_802AD1CC *)this)->y + lbl_805DE114 * s;
     q.u0 = lbl_805DE118;
     q.v0 = lbl_805DE11C;
     q.u1 = lbl_805DE120;
@@ -127,13 +127,13 @@ void render__18TWindowEffectLightFv(u8 *arg0) {
       switch (temp_r0)
       {
         case 0:
-          draw_outline_quad__18TWindowEffectLightFv((Light_802AD1CC *)(arg0), (s32)(0xAA0E));
+          draw_outline_quad__18TWindowEffectLightFl((Light_802AD1CC *)(arg0), (s32)(0xAA0E));
           break;
         case 1:
-          draw_outline_quad__18TWindowEffectLightFv((Light_802AD1CC *)(arg0), (s32)(0xFF2417));
+          draw_outline_quad__18TWindowEffectLightFl((Light_802AD1CC *)(arg0), (s32)(0xFF2417));
           break;
         case 2:
-          draw_outline_quad__18TWindowEffectLightFv((Light_802AD1CC *)(arg0), (s32)(0xFFFFFF));
+          draw_outline_quad__18TWindowEffectLightFl((Light_802AD1CC *)(arg0), (s32)(0xFFFFFF));
           break;
         case 3:
           TWindowEffectLight__sub_802AD040(arg0, lbl_805DE0F4);

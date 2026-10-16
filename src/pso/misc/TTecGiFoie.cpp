@@ -169,7 +169,7 @@ void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
-void apply_technique_to_area_targets(void *);
+void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 u8 * destroy_technique_base__13TUnk_804CC148Fs(void *, s16);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 s32 calc_technique_parameters(int, int, int);
@@ -370,7 +370,7 @@ void run_task__10TTecGiFoieFv(u8 *self) {
         if (*(u8 **)((s8 *)self + 0xE8) != NULL) {
             *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)self + 0xE8)) + 0xA4)) + 0xC) = TTecGiFoie__data_805DC81C + distance;
         }
-        apply_technique_to_area_targets(self);
+        apply_technique_to_area_targets__13TUnk_804CC148Fv(self);
         if (distance >= *(f32 *)((s8 *)self + 0x90)) {
             queue_destruction__7TObjectFv((int) self);
         }

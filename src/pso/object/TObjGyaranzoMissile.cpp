@@ -172,7 +172,7 @@ void free_collision_body_parts(void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 draw_chunk_object();
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
@@ -186,7 +186,7 @@ extern s32 lbl_8049442C[];
 void *TUnk_8049442C::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049442C;
-        unregister_object_by_id(this);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(this);
         free_collision_body_parts(this);
         destroy_particle_controller__13TUnk_804AF8A0Fs(this, 0);
         if (arg1 > 0) {

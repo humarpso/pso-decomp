@@ -154,12 +154,12 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
                 }
                 break;
             case 2:
-                if ((((TItem *)temp_r27)->get_field_ec() == 1) && (((TObjPlayer *)temp_r27)->get_field_ed() == 1)) {
+                if ((((TItem *)temp_r27)->get_field_ec() == 1) && (((TItem *)temp_r27)->get_field_ed() == 1)) {
                     var_r30 += 1;
                 }
                 break;
             case 3:
-                if ((((TItem *)temp_r27)->get_field_ec() == 1) && (((TObjPlayer *)temp_r27)->get_field_ed() == 2)) {
+                if ((((TItem *)temp_r27)->get_field_ec() == 1) && (((TItem *)temp_r27)->get_field_ed() == 2)) {
                     var_r30 += 1;
                 }
                 break;

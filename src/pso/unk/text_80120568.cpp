@@ -200,7 +200,7 @@ void TItemWeapon::vfunc_45() {
 void TItemWeapon::vfunc_48() {
     Self_801205F4 *self = (Self_801205F4 *)this;
     s32 i;
-    ((TObjPlayer *)self)->apply_model_params();
+    ((TItemWeapon *)self)->apply_model_params();
     if (!(self->data->flags & 8)) {
         for (i = 0; i != 3; i++) {
             ((TObjPlayer *)(self->f0))->set_attribute_entry(i, &self->pairs[i]);
@@ -219,7 +219,7 @@ void TItemWeapon::vfunc_44() {
         } else {
             TItemAttacker::spawn_item_timer((s32)arg0, (s32)((void *)&set_flag_8_if_check_passes__10TObjPlayerFPv), (s32)0x14);
             TItemEffEquip::create((void *)tl_05, (void *)(obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x30, (void *)0x9D, (void *)0x9E);
-            if (((TObjPlayer *)arg0)->test_flags_1b8(0x200) != 0U) {
+            if (((TItemWeapon *)arg0)->test_flags_1b8(0x200) != 0U) {
                 TItemEffEquip::create((void *)tl_05, (void *)(obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x23, (void *)0x9D, (void *)0x9E);
             }
             update_technique_slot__10TTecRaFoieFl(play_sound_effect(0x4000B20A, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0), 0x300, 0);

@@ -33,7 +33,7 @@ V2_8026CBB8 *get_window_layout_position(s32 idx);
 s32 TWindowCtrlMain__sub_8024CE58(void);
 extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DD2C8;
-void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w);
+void sub_8026CC28__13TUnk_804CE018Fv(Win_8026CC28 *w);
 }
 
 extern "C" {
@@ -46,15 +46,15 @@ V2_8026CBB8 *get_window_layout_position(s32 idx) {
     }
     return (V2_8026CBB8 *)((char *)window_layout_rect_table + idx * 8);
 }
-void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w) {
+void TUnk_804CE018::sub_8026CC28() {
     Node_8026CC28 *n;
     f32 lim;
     f32 t;
     if (TWindowCtrlMain__sub_8024CE58() != 0) {
-        ((TUnk_804CE018 *)w)->get_scale();
+        ((TUnk_804CE018 *)((Win_8026CC28 *)this))->get_scale();
         window_depth_order_cursor -= lbl_805DD2C8;
-        lim = w->f54;
-        for (n = w->f10->f14; n != NULL; n = n->fC) {
+        lim = ((Win_8026CC28 *)this)->f54;
+        for (n = ((Win_8026CC28 *)this)->f10->f14; n != NULL; n = n->fC) {
             t = n->f54;
             if (lim > t) {
                 n->f54 = t - lbl_805DD2C8;

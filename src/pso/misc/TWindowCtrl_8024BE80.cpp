@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 typedef struct Win_8024BE80 {
@@ -47,7 +48,7 @@ void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024BE80 *self) {
                 is_script_controlled__10TObjPlayerFv(pl) != 0 ||
                 (obj_isState3_324(pl) != 0 &&
                  (get_field_828__10TObjPlayerFPv(pl) != 0 || ((TNpcPlayer *)pl)->get_action_flags() == 0xFFFF))) {
-                ((TWindowSubTradeMain *)w)->request_close();
+                ((TWindowLockOn *)w)->request_close();
             } else {
                 window_request_show(w);
                 if (w->y != y) {

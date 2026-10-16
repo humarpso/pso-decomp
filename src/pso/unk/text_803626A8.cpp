@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/enemy/TObjEneEpsilonGuard.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/unk/TUnk_804F26E0.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -174,7 +176,7 @@ f32 post_translate_matrix(void *);
 extern RecoveredGlobal_803626A8_lbl_80479FBC lbl_80479FBC;
 extern RecoveredGlobal_803626A8_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
-void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2);
+void sub_803626A8__19TObjEneEpsilonGuardFll(u8 *arg0, s32 arg1, s32 arg2);
 u8 * __dt__9TObjEneDDFv(void *, s16);
 s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, int, int);
@@ -240,7 +242,7 @@ extern void *TObjEneEpsilon__class_name;
 
 typedef char RecoveredGlobal_803626A8_lbl_80479FBC_size[sizeof(RecoveredGlobal_803626A8_lbl_80479FBC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803626A8_lbl_8058D490_size[sizeof(RecoveredGlobal_803626A8_lbl_8058D490) == 0x30 ? 1 : -1];
-void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2) {
+void TObjEneEpsilonGuard::sub_803626A8(s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_803626A8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803626A8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803626A8, sp10) == 0x8) ? 1 : -1];
@@ -249,9 +251,9 @@ void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2) {
     stack.spC = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
-    post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    ((TObjPlayer *)arg0)->render_anim_model((f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    post_translate_matrix((void *) (((u8 *)this) + 0x38));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+    ((TObjEnemy *)((u8 *)this))->render_anim_model((f32) (*(f32 *)((s8 *)((u8 *)this) + 0xC0)));
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg1));

@@ -9,7 +9,6 @@ struct TObjBoss7TunnelCol : public TUnk_804AF8A0 {
     void* m_ac;
     virtual void render();
     virtual void run_task();
-    void update_collision();
     s32 is_in_camera_range();
     u8 unk_B0[0x28];
 };

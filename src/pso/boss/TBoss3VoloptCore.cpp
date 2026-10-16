@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TUnk_80483A10.h"
 #include "pso/player/TObjPlayer.h"
@@ -550,7 +552,7 @@ struct VObj_80040894 : VBase_80040894 {
     virtual void m80();
 };
 
-s32 recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
+s32 recalc_combat_stats__13TUnk_804806E8FPvPvPvff(void *, s32, s32, s32, f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_status_effect_row(void *);
 s32 obj_testFlags30(void *, s32);
@@ -1488,7 +1490,7 @@ void TUnk_80483A10::run_task() {
       var_f1 = lbl_805D86F4;
     }
     *((f32 *) (((s8 *) arg0) + 0x3C)) = var_f1;
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     fn_8003CFEC((void *) (arg0 + 0x2FC));
     (this->clear_all_status_effects());
   }
@@ -1529,7 +1531,7 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
     init_collision_body_parts(arg0, lbl_804839E4, 1);
     *(s32 *)((s8 *)arg0 + 0x368) = 0;
     *(void **)((s8 *)arg0 + 0x350) = lbl_804839C8;
-    recalc_combat_stats__10TObjPlayerFv(arg0, (*(s32 *)&lbl_805D4C50), (*(s32 *)&lbl_805D4C54), (*(s32 *)&lbl_805D4C58), lbl_805D86B0, lbl_805D86B0);
+    recalc_combat_stats__13TUnk_804806E8FPvPvPvff(arg0, (*(s32 *)&lbl_805D4C50), (*(s32 *)&lbl_805D4C54), (*(s32 *)&lbl_805D4C58), lbl_805D86B0, lbl_805D86B0);
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
@@ -1537,7 +1539,7 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
     *(s16 *)((s8 *)arg0 + 0x32E) = *(s16 *)((s8 *)arg0 + 0x2BA);
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TObjEneLappy *)arg0)->set_param(0x2E);
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     ((TObjPlayer *)arg0)->load_entry_params_volopt(0x18);
     *(s32 *)((s8 *)arg0 + 0x388) |= 0x10000;
@@ -1545,7 +1547,7 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
     temp_r4 = *(void **)((s8 *)arg0 + 0xA4);
     *(s32 *)((s8 *)temp_r4 + 0x18) |= 0xC00;
     arg0->m56();
-    ((TObjPlayer *)arg0)->add_flags_2e4(4);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(4);
     *(s32 *)((s8 *)arg0 + 0x3C8) = 0;
     obj_setFlags30(arg0, 0x8000);
     if (TBoss3Volopt__sub_8003F398() != 0) {

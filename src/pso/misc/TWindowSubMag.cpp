@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubShortCutList.h"
@@ -72,7 +73,7 @@ struct TWindowSubMag_8027B62C {
 };
 u8 *find_item_by_id(s32);
 s32 align_menu_entry_positions(void *);
-s32 update_layout_height__17TWindowSubComCardFPvf(void *, f32);
+s32 update_layout_height__21TWindowSubComCardListFf(void *, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 void *create_titled_window_menu(s32, s32, s32, s32);
 s32 get_shared_text_buffer();
@@ -103,7 +104,7 @@ s32 sub_80255E24__15TWindowHelpItemFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 window_request_show(void *);
 s32 call_if_split_screen(void *, s32);
-s32 select_cursor_entry__6TLobbyFv(s32);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 s32 get_selected_menu_value(void *);
 s32 update_help_item__13TWindowSubMagFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -142,7 +143,7 @@ s32 call_if_split_screen(void *, s32);
 s32 toggle_help_window_on_button(s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 select_cursor_entry__6TLobbyFv(s32);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 s32 send_and_handle__6TLobbyFii(s32, s32 *, s32);
 s32 set_field_1c__6TLobbyFf(void *);
 
@@ -169,7 +170,7 @@ void TWindowSubMag::update_mag_help() {
 void TWindowSubMag::update_displayed_item() {
     s32 temp_r3;
 
-    temp_r3 = select_cursor_entry__6TLobbyFv(*(s32 *)&this->m_34);
+    temp_r3 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)&this->m_34);
     if (temp_r3 != (s32) *(s32 *)&this->m_24) {
         *(s32 *)&this->m_24 = temp_r3;
         TWindowHelpItem__set_displayed_item_by_id(*(s32 *)&this->m_40, temp_r3);
@@ -288,7 +289,7 @@ void *TWindowSubMag::create_action_menu(s32 id) {
         TWindowSubComCard::draw_text_gray((s32)window, (s32)(get_message_10__20TWindowSubStatusDispFl(0x64)), (s32)6, (s32)0);
     }
     ((TWindowSubComCardList *)window)->set_flag70_bit10();
-    update_layout_height__17TWindowSubComCardFPvf(window, (172.0f));
+    update_layout_height__21TWindowSubComCardListFf(window, (172.0f));
     align_menu_entry_positions(window);
     return window;
 }
@@ -298,7 +299,7 @@ s32 TWindowSubMag::create_list() {
 
     s32 temp_r3 = get_window_layout_position((s32)((s32)(0xD)));
     temp_r31 = create_equip_kind_window((s32)(temp_r3), (s32 *)(lbl_8044F9F8), (s32)(*(s32 *)&this->m_28));
-    ((TWindowSubStatusDisp *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x24));
+    ((TUnk_804D0618 *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x24));
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 2);
     set_field_1c__6TLobbyFf((void *)(temp_r31));
     ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
@@ -314,7 +315,7 @@ s32 TWindowSubMag::setup_list() {
 
     temp_r3 = get_window_layout_position((s32)((s32)(7)));
     temp_r31 = create_equip_kind_window((s32)(temp_r3), (s32 *)(lbl_8044F9F0), (s32)(*(s32 *)&this->m_28));
-    ((TWindowSubStatusDisp *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x29));
+    ((TUnk_804D0618 *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x29));
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 0);
     set_field_1c__6TLobbyFf((void *)(temp_r31));
     ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
@@ -394,7 +395,7 @@ void TWindowSubMag::run_task(void *arg0) {
         }
         ((TWindowSubMag *)(self->list))->start_scroll((188.0f));
         if (self->card == NULL) {
-            self->card = ((TWindowSubMag *)self)->create_action_menu(select_cursor_entry__6TLobbyFv((s32)self->list));
+            self->card = ((TWindowSubMag *)self)->create_action_menu(select_cursor_entry__22TWindowSubShortCutListFv((s32)self->list));
         }
         ((TWindowSubComCard *)(self->card))->clear_flag_and_release();
         self->state = 4;
@@ -432,8 +433,8 @@ void TWindowSubMag::run_task(void *arg0) {
             self->state = 5;
         } else if (is_usable__14TWindowSubItemFi(player) != 0) {
             self->slots = ((TWindowSubMag *)self)->count_slots();
-            feed_mag__13TWindowSubMagFPvPvPv(player, select_cursor_entry__6TLobbyFv((s32)self->list),
-                                             select_cursor_entry__6TLobbyFv((s32)self->list2));
+            feed_mag__13TWindowSubMagFPvPvPv(player, select_cursor_entry__22TWindowSubShortCutListFv((s32)self->list),
+                                             select_cursor_entry__22TWindowSubShortCutListFv((s32)self->list2));
             self->state = 8;
         }
         break;
@@ -492,7 +493,7 @@ void TWindowSubMag::run_task(void *arg0) {
             self->card = NULL;
         }
         if (self->help != NULL) {
-            ((TWindowSubTradeMain *)(self->help))->request_close();
+            ((TWindowLockOn *)(self->help))->request_close();
             ((TWindowSubMag *)(self->help))->set_flag60_bit8();
             ((TWindowHelpItem *)(self->help))->set_flag60_bit4();
         }

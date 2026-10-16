@@ -33,7 +33,7 @@ struct RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient {
 };
 
 extern "C" {
-void handle_area_selection__12TObjAreaWarpFPv(void *);
+void handle_area_selection__12TObjAreaWarpFv(void *);
 extern const f32 lbl_805DBAC0;
 extern const f32 lbl_805DBAC4;
 extern const f32 lbl_805DBAC8;
@@ -133,7 +133,7 @@ void run_task__19TObjGoalWarpAncientFv(u8 *arg0) {
     if ((f32) (*(u32 *)((s8 *)(((RecoveredFields_8017CCA4_arg0 *)arg0)->field_E8) + 4) - 1) < ((RecoveredFields_8017CCA4_arg0 *)arg0)->field_C8) {
         ((RecoveredFields_8017CCA4_arg0 *)arg0)->field_C8 = (f32) lbl_805DBAC4;
     }
-    handle_area_selection__12TObjAreaWarpFPv(arg0);
+    handle_area_selection__12TObjAreaWarpFv(arg0);
 }
 
 void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1) {

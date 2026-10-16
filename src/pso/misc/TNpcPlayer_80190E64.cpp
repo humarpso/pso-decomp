@@ -53,7 +53,7 @@ extern u8 lbl_80445910[];
 extern s32 lbl_804B7C04[];
 extern s32 lbl_805D5860;
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void free_collision_body_parts(void *);
 Ctrl_801910F4 *get_player_by_client_id(u32);
 s32 __dl__7TObjectFPv(void *);
@@ -169,7 +169,7 @@ void TUnk_804B7C1C::run_task() {
 Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         arg0->f18 = ((u8 *)&lbl_804B7C1C);
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         u32 id = arg0->fAC;
         if (id != 0xFFFF) {

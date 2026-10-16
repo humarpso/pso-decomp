@@ -145,7 +145,7 @@ void spawn_particle_effect(void *, s32);
 void snap_to_ground__5TItemFv(void *, f32);
 s32 is_active_battle_player__10TObjPlayerFv(void);
 void TLobby__sub_8011AED8(s16, s16, void *, f32, f32);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void set_parent__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern void *tl_05;
@@ -182,7 +182,7 @@ void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, 
     r = lbl_805DAAA0 * (f32)rand();
     self->f60 = (s32)(lbl_805DAA9C * r);
     snap_to_ground__5TItemFv(self, r);
-    refresh_collision_body_centers(self);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
     if (item_ground_placement_enabled != 0) {
         spawn_particle_effect(&self->x, 0x9B);
     }
@@ -287,7 +287,7 @@ extern "C" {
 
 void *__dt__5TItemFv(void *arg0, s16 arg1);
 void free_obj_heap__10TObjPlayerFPv(void *);
-s32 clear_obj_links(void *);
+s32 clear_obj_links__13TUnk_804AF8A0Fv(void *);
 s32 destroy_particle_controller__13TUnk_804AF8A0Fs(void *, s32);
 
 extern void *__vt__5TItem[];
@@ -296,7 +296,7 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__5TItem;
         ((TItem *)arg0)->set_mode(3);
-        clear_obj_links(arg0);
+        clear_obj_links__13TUnk_804AF8A0Fv(arg0);
         ((TItem *)arg0)->unregister_item();
         destroy_particle_controller__13TUnk_804AF8A0Fs(arg0, 0);
         if (arg1 > 0) {
@@ -333,7 +333,7 @@ void TItem__sub_801031C0(void *);
 s8 get_type_nibble__9TItemDataFPv(void *);
 s32 is_rare_item__9TItemDataFPv(void *);
 s32 clamp_s32__10TObjPlayerFlll(s32, s32, s32);
-void initialize_linked_object_reference(void *, void *);
+void initialize_linked_object_reference__13TUnk_804AF8A0FPv(void *, void *);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 item_collider_body[];
 extern u8 lbl_8043DF94[];
@@ -352,7 +352,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     obj_setFlags30(self, 0x80000000);
     fn_8002B630(self + 0xAC, item_collider_body);
     TItem__sub_801031C0(self + 0x98);
-    initialize_linked_object_reference(self, self + 0xAC);
+    initialize_linked_object_reference__13TUnk_804AF8A0FPv(self, self + 0xAC);
     *(u16 *)((s8 *)self + 0xE4) = 0xFFFF;
     *(s32 *)((s8 *)self + 0xD8) = *(s32 *)((s8 *)item + 0xC);
     *(s32 *)((s8 *)self + 0xDC) = 0;

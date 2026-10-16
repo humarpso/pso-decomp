@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
 
@@ -38,7 +39,7 @@ s32 TWindowOptionCtrl::create_list_window() {
         var_r31 += 1;
     } while (var_r31 < 0x31);
     ((TWindowOptionCtrl *)temp_r30)->set_flag70_bit400();
-    ((TWindowSubComCard *)temp_r30)->set_scroll_target(lbl_805DD268, lbl_805DD26C);
+    ((TWindowSubComCardList *)temp_r30)->set_scroll_target(lbl_805DD268, lbl_805DD26C);
     align_menu_entry_positions(temp_r30);
     return temp_r30;
 }

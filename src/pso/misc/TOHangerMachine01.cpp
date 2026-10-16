@@ -52,7 +52,7 @@ extern const f32 lbl_805DB6A8;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80168F94_lbl_804B26C8 bm_fs_obj_hanger_moto_resource_descriptor;
 extern u32 TOHangerMachine01__bml_resource;
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, int);
 extern RecoveredGlobal_8016904C_lbl_804B26D8 hanger_machine01_collision_body_parts;
@@ -72,7 +72,7 @@ void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void apply_knockback_from_attacker__13TUnk_804B2578FPUc(void);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void set_scale__13TUnk_804B2578Ff(void* p, f32 v);
@@ -172,7 +172,7 @@ void TOHangerMachine01::load_shared_resource() {
 void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOHangerMachine01;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
@@ -197,7 +197,7 @@ u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB6B0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     init_collision_body_parts((void *) (arg0), (void *) (&hanger_machine01_collision_body_parts.value), (int) (1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0xC8) = 0;
     return arg0;

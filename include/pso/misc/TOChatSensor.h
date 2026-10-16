@@ -31,7 +31,7 @@ struct TOChatSensor : public TUnk_804B9870 {
     void send_state();
     void swap_state_endian();
     void init_packet_type();
-    void send_switch_states();};
+};
 
 typedef char TOChatSensor_size[sizeof(TOChatSensor) == 0xD0 ? 1 : -1];
 #endif

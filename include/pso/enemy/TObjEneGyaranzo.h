@@ -7,6 +7,10 @@
 
 struct TObjEneGyaranzo : public TObjEnemyCustom {
     virtual ~TObjEneGyaranzo();
+    void sub_800D37F4();
+    void sub_800D2900();
+    void init_params_from_table();
+    void render_anim_model_at_pos();
     virtual void vfunc_62();
     virtual void vfunc_63();
     virtual void vfunc_58();

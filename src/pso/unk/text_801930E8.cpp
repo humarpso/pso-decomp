@@ -32,7 +32,7 @@ extern void *lazer_fence_norm_texture_list;
 u8 is_current_floor_switch_set(int);
 extern const f32 lbl_805DBE68;
 extern const f32 lbl_805DBE6C;
-void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0);
+void sub_801933C8__15TObjLazerFence4Fv(Obj_801933C8 *arg0);
 s32 get_bml_motion(s32, s32);
 Node_80193188 *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
@@ -140,14 +140,14 @@ void TObjLazerFence4::reset_if_door_closed() {
 extern const f32 lbl_805DBE70;
 extern const f32 lbl_805DBE74;
 
-void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0) {
-    arg0->fB0 = arg0->fB0 + lbl_805DBE68;
-    if (arg0->fB0 > (f32)(u32)(arg0->fC4->f4 - 1)) {
-        arg0->fB0 = lbl_805DBE6C;
+void TObjLazerFence4::sub_801933C8() {
+    ((Obj_801933C8 *)this)->fB0 = ((Obj_801933C8 *)this)->fB0 + lbl_805DBE68;
+    if (((Obj_801933C8 *)this)->fB0 > (f32)(u32)(((Obj_801933C8 *)this)->fC4->f4 - 1)) {
+        ((Obj_801933C8 *)this)->fB0 = lbl_805DBE6C;
     }
-    if (is_current_floor_switch_set(arg0->fBA) == 1) {
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
-        arg0->fAC = 1;
+    if (is_current_floor_switch_set(((Obj_801933C8 *)this)->fBA) == 1) {
+        ((TObjPlayer *)((Obj_801933C8 *)this))->clear_player_status_flag(0, 1);
+        ((Obj_801933C8 *)this)->fAC = 1;
     }
 }
 

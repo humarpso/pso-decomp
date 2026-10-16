@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TDuelEffectCtrl.h"
 struct Obj_8007FA94 { u8 pad[0x20]; s32 state; s32 value; };
 
 struct Obj_8007FB14 { u8 pad[0x20]; s32 state; s32 value; };
@@ -21,7 +22,7 @@ s32 play_cue_stream_file(void *);
 extern u8 lbl_80438D40[];
 extern u8 lbl_80438D58[];
 f32 duel_start_countdown_effect_pos[3] = { 320.0f, 221.0f, 0.5f };
-void update_duel_start_countdown(Obj_8007FB14 *self);
+void update_duel_start_countdown__15TDuelEffectCtrlFv(Obj_8007FB14 *self);
 }
 
 extern "C" {
@@ -41,48 +42,48 @@ void update_duel_end_effect(Obj_8007FA94 *self) {
         break;
     }
 }
-void update_duel_start_countdown(Obj_8007FB14 *self) {
+void TDuelEffectCtrl::update_duel_start_countdown() {
     void *p;
-    switch (self->state) {
+    switch (((Obj_8007FB14 *)this)->state) {
     case 0x0:
         p = __nw__7TObjectFUl(0x2C);
         if (p != NULL) {
-            __ct__17TDuelEffectNumberFv(p, self->value, lbl_80438D40, 5);
+            __ct__17TDuelEffectNumberFv(p, ((Obj_8007FB14 *)this)->value, lbl_80438D40, 5);
         }
         play_sound_effect(0x4B210, 0, 0, 0);
         break;
     case 0x1E:
         p = __nw__7TObjectFUl(0x2C);
         if (p != NULL) {
-            __ct__17TDuelEffectNumberFv(p, self->value, lbl_80438D40, 4);
+            __ct__17TDuelEffectNumberFv(p, ((Obj_8007FB14 *)this)->value, lbl_80438D40, 4);
         }
         play_sound_effect(0x4B210, 0, 0, 0);
         break;
     case 0x3C:
         p = __nw__7TObjectFUl(0x2C);
         if (p != NULL) {
-            __ct__17TDuelEffectNumberFv(p, self->value, lbl_80438D40, 3);
+            __ct__17TDuelEffectNumberFv(p, ((Obj_8007FB14 *)this)->value, lbl_80438D40, 3);
         }
         play_sound_effect(0x4B210, 0, 0, 0);
         break;
     case 0x5A:
         p = __nw__7TObjectFUl(0x2C);
         if (p != NULL) {
-            __ct__17TDuelEffectNumberFv(p, self->value, lbl_80438D40, 2);
+            __ct__17TDuelEffectNumberFv(p, ((Obj_8007FB14 *)this)->value, lbl_80438D40, 2);
         }
         play_sound_effect(0x4B210, 0, 0, 0);
         break;
     case 0x78:
         p = __nw__7TObjectFUl(0x2C);
         if (p != NULL) {
-            __ct__17TDuelEffectNumberFv(p, self->value, lbl_80438D40, 1);
+            __ct__17TDuelEffectNumberFv(p, ((Obj_8007FB14 *)this)->value, lbl_80438D40, 1);
         }
         play_sound_effect(0x4B210, 0, 0, 0);
         break;
     case 0x96:
         p = __nw__7TObjectFUl(0x2C);
         if (p != NULL) {
-            __ct__17TDuelEffectStringFv(p, self->value, lbl_80438D40, 0);
+            __ct__17TDuelEffectStringFv(p, ((Obj_8007FB14 *)this)->value, lbl_80438D40, 0);
         }
         break;
     case 0xA0:
@@ -90,7 +91,7 @@ void update_duel_start_countdown(Obj_8007FB14 *self) {
         play_cue_stream_file(lbl_80438D58);
         break;
     case 0xB4:
-        queue_destruction__7TObjectFv(self);
+        queue_destruction__7TObjectFv(((Obj_8007FB14 *)this));
         break;
     }
 }
@@ -109,7 +110,7 @@ void TDuelEffectCtrl::render() {}
 void TDuelEffectCtrl::run_task() {
     switch (m_state) {
     case 0:
-        update_duel_start_countdown((Obj_8007FB14 *)this);
+        update_duel_start_countdown__15TDuelEffectCtrlFv((Obj_8007FB14 *)this);
         break;
     case 1:
         update_duel_end_effect((Obj_8007FA94 *)this);

@@ -5,10 +5,10 @@ struct O_80337054 { u8 pad[0x3CC]; s32 f3cc; u8 pad2[0x410 - 0x3D0]; s32 f410; }
 
 extern "C" {
 void TBoss6Type2__sub_8032F5C4(void *);
-s32 set_action__11TBoss6Type2FPvi(void * a0, s32 a1);
+s32 set_action__9TBoss6MagFl(void * a0, s32 a1);
 extern const f32 lbl_805DF978;
 extern const f32 lbl_805DF97C;
-s32 set_action__11TBoss6Type2FPvi(void * a0, s32 a1);
+s32 set_action__9TBoss6MagFl(void * a0, s32 a1);
 extern const f32 lbl_805DF980;
 extern const f32 lbl_805DF984;
 void spawn_mag_mines__11TBoss6Type2Fv();
@@ -25,7 +25,7 @@ int play_sound_effect(void*, void*, void*, void*);
 s32 turn_toward_target__11TBoss6Type2FPv();
 s32 fly_toward_target__11TBoss6Type2Fv();
 s32 TBoss6Type2__sub_8032FB84();
-s32 set_action__11TBoss6Type2FPvi(void * a0 = 0, s32 a1 = 0);
+s32 set_action__9TBoss6MagFl(void * a0 = 0, s32 a1 = 0);
 
 #pragma push
 #pragma opt_common_subs off
@@ -39,10 +39,10 @@ void TBoss6Type2::update_recover_timer() {
     if ((s32) this->m_3cc >= 0x5A) {
         TBoss6Type2__sub_8032F5C4(arg0);
         if ((s32) this->m_40c != 0) {
-            set_action__11TBoss6Type2FPvi((void *)((void *) (arg0)), (s32)((int) (1)));
+            set_action__9TBoss6MagFl((void *)((void *) (arg0)), (s32)((int) (1)));
             return;
         }
-        set_action__11TBoss6Type2FPvi((void *)((void *) (arg0)), (s32)((int) (2)));
+        set_action__9TBoss6MagFl((void *)((void *) (arg0)), (s32)((int) (2)));
     }
 }
 #pragma pop
@@ -60,7 +60,7 @@ void TBoss6Type2::update_ramp_timer() {
     }
     this->m_3cc = (s32) (this->m_3cc + 1);
     if ((s32) this->m_3cc >= (s32) this->m_3c0) {
-        set_action__11TBoss6Type2FPvi(arg0, 5);
+        set_action__9TBoss6MagFl(arg0, 5);
     }
 }
 #pragma pop
@@ -71,10 +71,10 @@ void TBoss6Type2::tick_attack_timer() {
     if ((s32) this->m_3cc < 0) {
         destroy_part_object((s32)((void*)(3)));
         if ((s32) this->m_40c != 0) {
-            set_action__11TBoss6Type2FPvi(this, 1);
+            set_action__9TBoss6MagFl(this, 1);
             return;
         }
-        set_action__11TBoss6Type2FPvi(this, 2);
+        set_action__9TBoss6MagFl(this, 2);
     }
 }
 
@@ -98,7 +98,7 @@ void TBoss6Type2::update_effect_subsystems() {
     push_out_from_points();
     enforce_min_distance();
     if ((s32) this->m_40c != 0) {
-        set_action__11TBoss6Type2FPvi(this, 1);
+        set_action__9TBoss6MagFl(this, 1);
     }
 }
 void TBoss6Type2__sub_80337108(void) {  }
@@ -107,7 +107,7 @@ void TBoss6Type2::update_attack_state() {
     push_out_from_target();
     enforce_min_distance();
     if ((s32) this->m_40c == 0) {
-        set_action__11TBoss6Type2FPvi(this, 2);
+        set_action__9TBoss6MagFl(this, 2);
     }
 }
 void TBoss6Type2__sub_80337160(void) {  }
@@ -115,7 +115,7 @@ void TBoss6Type2::advance_phase_counter() {
     TBoss6Type2__sub_8032FB84();
     this->m_3cc = (s32) (this->m_3cc + 1);
     if ((s32) this->m_3cc >= 4) {
-        set_action__11TBoss6Type2FPvi(this, 1);
+        set_action__9TBoss6MagFl(this, 1);
     }
 }
 void TBoss6Type2__sub_803371B4(void* p) { *(s32*)((char*)p + 0x3cc) = 0; }

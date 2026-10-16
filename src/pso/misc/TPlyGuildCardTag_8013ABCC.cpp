@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/TPlyGuildCardTag.h"
 #include "pso/misc/TQuestListVM.h"
 
@@ -36,7 +37,7 @@ void fn_8013ACE4(int a0) { item_drop_server_seed = a0; }
 void set_area_random_seed(int a0) { area_random_seed = a0; }
 void TQuestListOnline__sub_8013ACF4(s32 arg0) {
     if ((void *) TQuestListOnline__instance != NULL) {
-        ((TQuestListVM *)TQuestListOnline__instance)->set_field_20(arg0);
+        ((TShopWindowBase *)TQuestListOnline__instance)->set_field_20(arg0);
     }
 }
 

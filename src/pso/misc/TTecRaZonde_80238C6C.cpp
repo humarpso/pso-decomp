@@ -355,7 +355,7 @@ u32 find_entity_by_id(int);
 void run_task__10TTecRaFoieFv(u8 *arg0);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-void apply_technique_to_area_targets(void *);
+void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 extern s32 tl_particle;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -488,7 +488,7 @@ s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
 void create_timed_particle_emitter(void *, s32, s32, s32, void *);
 void spawn_particle_effect(void *, s32, void *);
-void apply_technique_to_area_targets(void *);
+void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
 }
 
@@ -559,7 +559,7 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
             }
         }
     }
-    apply_technique_to_area_targets(self);
+    apply_technique_to_area_targets__13TUnk_804CC148Fv(self);
     ((void (*)(void *))queue_destruction__7TObjectFv)(self);
 }
 

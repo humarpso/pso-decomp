@@ -42,7 +42,7 @@ void *__nw__7TObjectFUl(int);
 extern s32 tl_00;
 u8 *TObjQuestColALock2__vt14(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjQuestColBase__ct(void *, s32);
 extern RecoveredGlobal_80195BEC_lbl_80445E84 TObjQuestColALock__collision_desc;
@@ -67,7 +67,7 @@ void *TObjQuestColALock2__create(void *arg0);
 s32 vfunc_15__18TObjQuestColALock2Fv(void *arg0);
 void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 enable_action_input__10TObjPlayerFPv(s32);
 s32 disable_primary_action_input__10TObjPlayerFPv(s32);
 s32 submit_cursor_candidate(void *, s32);
@@ -163,7 +163,7 @@ extern s32 __vt__18TObjQuestColALock2[];
 void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjQuestColALock2;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         __dt__16TObjQuestColBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -182,7 +182,7 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     set_indexed_flags(arg0, 0, 0xF0);
     temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
     *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + *(f32 *)((s8 *)arg0 + 0x6C));
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0xC0) = (s32) *(s32 *)((s8 *)arg0 + 0x88);

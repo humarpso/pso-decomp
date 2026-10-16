@@ -6,6 +6,8 @@
 
 struct TObjLazerFenceExtra : public TUnk_804AF8A0 {
     virtual ~TObjLazerFenceExtra();
+    void update_wait_switch();
+    void render_lazer_fence_model();
     void draw_lazer_fence_extra_model();
     void init_models();
     void render();

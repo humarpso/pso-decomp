@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/enemy/TObjEneBalClaw.h"
 #include "pso/enemy/TObjEneBalClawClaw.h"
@@ -71,7 +73,7 @@ void TObjEneBalClaw::render_scaled(s32 arg1) {
         v.x = t;
         v.y = t;
         v.z = t;
-        ((TObjPlayer *)arg0)->render_with_position_override((u8 *)(&v), (s32)0);
+        ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&v), (s32)0);
     }
 }
 
@@ -155,7 +157,7 @@ u8 *TObjEneBalClaw__ct(u8 *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw *)&__vt__14TObjEneBalClaw).value;
     ((TUnk_80490470 *)(arg0 + 0x390))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2968;
-    ((TObjPlayer *)arg0)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000);
     *(s32 *)((s8 *)arg0 + 0x3B8) = 0;
     *(f32 *)((s8 *)arg0 + 0x3BC) = (f32) lbl_805D960C;

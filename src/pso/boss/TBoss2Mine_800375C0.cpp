@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TUnk_80482EC0.h"
 #include "pso/boss/TUnk_80482D04.h"
 #include "pso/boss/TBoss2Mine.h"
@@ -15,16 +16,16 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 transition_enemy_state(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
-void init_params__10TBoss2MineFPvif(u8 *arg0, s32 arg1, f32 farg0);
-void update_pulse_state__10TBoss2MineFPv(Mine_80038760 *self);
-void set_node_offsets__10TBoss2MineFPv(O_80038908 *self);
+void init_params__10TBoss2MineFlf(u8 *arg0, s32 arg1, f32 farg0);
+void update_pulse_state__10TBoss2MineFv(Mine_80038760 *self);
+void set_node_offsets__10TBoss2MineFv(O_80038908 *self);
 void *__dt__10TBoss2MineFv(void *arg0, s16 arg1);
 void* TBoss2Mine__ct(void* a0, int a1, int a2, int a3, int a4);
 extern s32 lbl_80482D04[];
 }
 
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(void *, s32))VecCopy__FP3VecPC3Vec)
-#define update_pulse_state__10TBoss2MineFPv ((s32 (*)(void *))update_pulse_state__10TBoss2MineFPv)
+#define update_pulse_state__10TBoss2MineFv ((s32 (*)(void *))update_pulse_state__10TBoss2MineFv)
 
 struct VBase_18_4225ac { char pad[0x18]; };
 
@@ -157,7 +158,7 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3B0) = 0;
         *(s32 *)((s8 *)arg0 + 0x3C8) = 0;
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32)((6e+01f) * calc_elapsed_scaled__9TObjEneDDFv(arg0)) + 0xF0;
-        init_params__10TBoss2MineFPvif(arg0, 0x1E, (0.25f));
+        init_params__10TBoss2MineFlf(arg0, 0x1E, (0.25f));
         break;
     case 3:
         if (*(s32 *)((s8 *)arg0 + 0x38C) & 0x100) {
@@ -174,7 +175,7 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
             *(s32 *)((s8 *)arg0 + 0x3C8) = 1;
         }
         *(s32 *)((s8 *)arg0 + 0x64) += 2.56e+03f;
-        ((TBoss2Mine *)arg0)->move_mine();
+        ((TUnk_80482D04 *)arg0)->move_mine();
         VecCopy__FP3VecPC3Vec(&v, (s32)(arg0 + 0x390));
         subtract_vector(&v, arg0 + 0x2FC);
         s = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
@@ -190,7 +191,7 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
             *(f32 *)((s8 *)arg0 + 0x304) = v.z * s + *(f32 *)((s8 *)arg0 + 0x304);
         }
         ((TBoss2Mine *)arg0)->set_state_by_distance(*(s32 *)((s8 *)arg0 + 0x3CC));
-        update_pulse_state__10TBoss2MineFPv(arg0);
+        update_pulse_state__10TBoss2MineFv(arg0);
         *(f32 *)((s8 *)arg0 + 0x38) = *(f32 *)((s8 *)arg0 + 0x2FC);
         *(f32 *)((s8 *)arg0 + 0x40) = *(f32 *)((s8 *)arg0 + 0x304);
         ((VObj_18_4225ac *)(arg0))->m87();
@@ -256,7 +257,7 @@ void TBoss2Mine__sub_800377E8(u8 *arg0, s32 arg1) {
             if (*(f32 *)((s8 *)arg0 + 0x3DC) <= (3.0f)) {
                 *(f32 *)((s8 *)arg0 + 0x3DC) = (3.0f);
             }
-            ((TBoss2Mine *)arg0)->move_mine();
+            ((TUnk_80482D04 *)arg0)->move_mine();
             VecCopy__FP3VecPC3Vec(&v, (s32)(arg0 + 0x390));
             subtract_vector(&v, arg0 + 0x2FC);
             if (((TObjBoss2Tunnel *)(&v))->update_scale() <= (4.5f)) {
@@ -309,7 +310,7 @@ void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     *(f32 *)((s8 *)arg0 + 0x390) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x394) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x398) = (f32) (0.0f);
-    ((TBoss2Mine *)arg0)->move_mine();
+    ((TUnk_80482D04 *)arg0)->move_mine();
     *(s32 *)((s8 *)arg0 + 0x5C) = 0x4000;
     VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x38), (s32)(arg0 + 0x2FC));
     *(s32 *)((s8 *)arg0 + 0x3A8) = 0;
@@ -317,7 +318,7 @@ void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & ~0xA00);
 }
 
-void TBoss2Mine::move_mine() {
+void TUnk_80482D04::move_mine() {
     u8 *arg0 = (u8 *)this;
     if (is_alive__9TObjEneDDFv(*(s32 *)((s8 *)arg0 + 0x3F0)) != 0) {
         VecCopy__FP3VecPC3Vec(arg0 + 0x390, *(s32 *)((s8 *)arg0 + 0x3F0) + 0x38);
@@ -333,7 +334,7 @@ void TUnk_80482D04::vfunc_88() {
 }
 
 #undef VecCopy__FP3VecPC3Vec
-#undef update_pulse_state__10TBoss2MineFPv
+#undef update_pulse_state__10TBoss2MineFv
 
 extern "C" {
 
@@ -353,10 +354,10 @@ void *TBoss2Mine__sub_80037C8C(void *arg0, s16 arg1) {
 
 }
 
-#define init_params__10TBoss2MineFPvif ((s32 (*)(void *, int, f32))init_params__10TBoss2MineFPvif)
+#define init_params__10TBoss2MineFlf ((s32 (*)(void *, int, f32))init_params__10TBoss2MineFlf)
 #define calc_elapsed_scaled__9TObjEneDDFv ((f32 (*)(void *, int, int))calc_elapsed_scaled__9TObjEneDDFv)
 #define play_sound_effect ((s32 (*)(int, void *, int, int, int))play_sound_effect)
-#define update_pulse_state__10TBoss2MineFPv ((s32 (*)(void *))update_pulse_state__10TBoss2MineFPv)
+#define update_pulse_state__10TBoss2MineFv ((s32 (*)(void *))update_pulse_state__10TBoss2MineFv)
 
 struct VBase { char pad[0x18]; };
 
@@ -412,7 +413,7 @@ void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1) {
         temp_r7 = (s32) ((3e+01f) * calc_elapsed_scaled__9TObjEneDDFv((void *) (arg0), (int) (0x8000), (int) (temp_r5)));
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (temp_r7 + 0xB4);
         play_sound_effect((int) (0x4003A804), (void *) (arg0 + 0x2FC), (int) (0), (int) (0), (int) (temp_r7));
-        init_params__10TBoss2MineFPvif((void *) (arg0), (int) (0x1E), (f32) ((0.25f)));
+        init_params__10TBoss2MineFlf((void *) (arg0), (int) (0x1E), (f32) ((0.25f)));
         return;
     case 3:
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x38C);
@@ -443,7 +444,7 @@ void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1) {
                 *(s32 *)((s8 *)arg0 + 0x3C8) = 2;
             }
             ((TBoss2Mine *)arg0)->set_state_by_distance((int) (*(s32 *)((s8 *)arg0 + 0x3CC)));
-            update_pulse_state__10TBoss2MineFPv((void *) (arg0));
+            update_pulse_state__10TBoss2MineFv((void *) (arg0));
             break;
         }
         break;
@@ -519,13 +520,13 @@ void TBoss2Mine::set_launch_position_velocity(u8 *arg1, u8 *arg2) {
 
 }
 
-#undef init_params__10TBoss2MineFPvif
+#undef init_params__10TBoss2MineFlf
 #undef calc_elapsed_scaled__9TObjEneDDFv
 #undef play_sound_effect
-#undef update_pulse_state__10TBoss2MineFPv
+#undef update_pulse_state__10TBoss2MineFv
 #define play_sound_effect ((s32 (*)(s32, u32, s16, s32))play_sound_effect)
 #define TBoss2Mine__ct ((void *(*)(void *, s32, s16, s16, s32))TBoss2Mine__ct)
-#define set_node_offsets__10TBoss2MineFPv ((void (*)(void *))set_node_offsets__10TBoss2MineFPv)
+#define set_node_offsets__10TBoss2MineFv ((void (*)(void *))set_node_offsets__10TBoss2MineFv)
 
 struct Base_8003843C_80038140 { char pad[0x18]; };
 struct VObj_8003843C_80038140 : Base_8003843C_80038140 {
@@ -783,13 +784,13 @@ void TBoss2Mine::render() {
     }
     if (self->flags & 2) {
         Vec_80038200 v = lbl_80435AD0;
-        ((TObjPlayer *)self)->render_with_position_override((u8 *)(&v), (s32)0);
+        ((TObjEnemy *)self)->render_with_position_override((u8 *)(&v), (s32)0);
     }
     TObjFish::set_global_param((s32)(self->f24));
     lbl_805D5660 = model_render_flags;
     TObjEneDD::clear_global_flag_400();
     TObjPlayer::toggle_particle_effect();
-    set_node_offsets__10TBoss2MineFPv(self);
+    set_node_offsets__10TBoss2MineFv(self);
     push_matrix();
     post_translate_matrix(&self->pos);
     translate_matrix(0, (0.0f), self->f300 - self->pos.y, (0.0f));
@@ -898,7 +899,7 @@ void TBoss2Mine::vfunc_105() {  }
 
 #undef play_sound_effect
 #undef TBoss2Mine__ct
-#undef set_node_offsets__10TBoss2MineFPv
+#undef set_node_offsets__10TBoss2MineFv
 #define transition_enemy_state ((int (*)(void *, void *))transition_enemy_state)
 
 struct Base_80038610 { char pad[0x18]; };
@@ -1127,37 +1128,37 @@ void TBoss2Mine__vt85(void *arg0, s32 arg1, s32 arg2) {
     }
 }
 
-void update_pulse_state__10TBoss2MineFPv(Mine_80038760 *self) {
-    self->timer++;
-    switch (self->state) {
+void TBoss2Mine::update_pulse_state() {
+    ((Mine_80038760 *)this)->timer++;
+    switch (((Mine_80038760 *)this)->state) {
     case 2:
-        if (self->timer >= self->wait) {
-            self->timer = 0;
-            self->scale = (0.0f);
-            self->state = 0;
+        if (((Mine_80038760 *)this)->timer >= ((Mine_80038760 *)this)->wait) {
+            ((Mine_80038760 *)this)->timer = 0;
+            ((Mine_80038760 *)this)->scale = (0.0f);
+            ((Mine_80038760 *)this)->state = 0;
         } else {
-            self->flags &= ~4;
+            ((Mine_80038760 *)this)->flags &= ~4;
             break;
         }
     case 0: {
-        self->scale += self->speed;
-        if (self->scale >= 1.0f) {
-            self->scale = 1.0f;
-            self->state = 1;
+        ((Mine_80038760 *)this)->scale += ((Mine_80038760 *)this)->speed;
+        if (((Mine_80038760 *)this)->scale >= 1.0f) {
+            ((Mine_80038760 *)this)->scale = 1.0f;
+            ((Mine_80038760 *)this)->state = 1;
         }
-        self->angle = (s32)((255.0f) * self->scale) << 16;
-        self->flags |= 4;
+        ((Mine_80038760 *)this)->angle = (s32)((255.0f) * ((Mine_80038760 *)this)->scale) << 16;
+        ((Mine_80038760 *)this)->flags |= 4;
         break;
     }
     case 1: {
-        self->scale -= self->speed;
-        if (self->scale <= 0.0f) {
-            self->scale = 0.0f;
-            self->timer = 0;
-            self->state = 2;
+        ((Mine_80038760 *)this)->scale -= ((Mine_80038760 *)this)->speed;
+        if (((Mine_80038760 *)this)->scale <= 0.0f) {
+            ((Mine_80038760 *)this)->scale = 0.0f;
+            ((Mine_80038760 *)this)->timer = 0;
+            ((Mine_80038760 *)this)->state = 2;
         }
-        self->angle = (s32)((255.0f) * self->scale) << 16;
-        self->flags |= 4;
+        ((Mine_80038760 *)this)->angle = (s32)((255.0f) * ((Mine_80038760 *)this)->scale) << 16;
+        ((Mine_80038760 *)this)->flags |= 4;
         break;
     }
     case 3:
@@ -1183,23 +1184,23 @@ void TBoss2Mine::set_state_by_distance(s32 arg1) {
     *(s32 *)((s8 *)this + 0x3C0) = 0x1E;
 }
 
-void init_params__10TBoss2MineFPvif(u8 *arg0, s32 arg1, f32 farg0) {
-    *(f32 *)((s8 *)arg0 + 0x3B8) = farg0;
-    *(s32 *)((s8 *)arg0 + 0x3C0) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x3C4) = 0;
-    *(f32 *)((s8 *)arg0 + 0x3B4) = (f32) (0.0f);
-    *(s32 *)((s8 *)arg0 + 0x3BC) = 0;
+void TBoss2Mine::init_params(s32 arg1, f32 farg0) {
+    *(f32 *)((s8 *)((u8 *)this) + 0x3B8) = farg0;
+    *(s32 *)((s8 *)((u8 *)this) + 0x3C0) = arg1;
+    *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = 0;
+    *(f32 *)((s8 *)((u8 *)this) + 0x3B4) = (f32) (0.0f);
+    *(s32 *)((s8 *)((u8 *)this) + 0x3BC) = 0;
 }
 
-void set_node_offsets__10TBoss2MineFPv(O_80038908 *self) {
-    N_80038908 *n = self->m->first;
+void TBoss2Mine::set_node_offsets() {
+    N_80038908 *n = ((O_80038908 *)this)->m->first;
     s32 i;
-    s32 v = -self->f3a8;
+    s32 v = -((O_80038908 *)this)->f3a8;
     for (i = 0; i < 4; i++) {
         n->f14 = v;
         n = n->next;
     }
-    v = self->f3a8;
+    v = ((O_80038908 *)this)->f3a8;
     for (i = 0; i < 4; i++) {
         n->f14 = v;
         n = n->next;
@@ -1338,9 +1339,9 @@ struct VObj_18 : VBase_18 {
 };
 extern "C" {
 int vfunc_62__10TBoss2MineFv(void* p);
-int clear_attack_receipts(void*);
-s32 TObjEneDD__sub_800BBA0C(void *);
-s32 refresh_collision_body_centers(void *);
+int clear_attack_receipts__9TObjEneDDFv(void*);
+s32 sub_800BBA0C__9TObjEneDDFv(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 }
 
 extern "C" {
@@ -1349,7 +1350,7 @@ void vfunc_28__10TBoss2MineFv(void);
 void vfunc_63__10TBoss2MineFv(void* p);
 void vfunc_61__10TBoss2MineFv(void);
 
-void TBoss2Mine::vfunc_62() { clear_attack_receipts(this); }
+void TBoss2Mine::vfunc_62() { clear_attack_receipts__9TObjEneDDFv(this); }
 
 void TBoss2Mine::vfunc_63() { if (*(short*)((char*)this + 0x326) != 4) { transition_enemy_state(this, (void*)4); } }
 void TBoss2Mine::vfunc_28() {  }
@@ -1364,14 +1365,14 @@ void TBoss2Mine::run_task() {
         ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 3);
     }
     ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
-    TObjEneDD__sub_800BBA0C((void *) (arg0));
+    sub_800BBA0C__9TObjEneDDFv((void *) (arg0));
     if (!(*(s32 *)((s8 *)arg0 + 0x38C) & 1)) {
         save_position();
         ((VObj_18 *)(arg0))->m86();
         ((TBoss8Dragon *)arg0)->set_player_state_default();
         ((VObj_18 *)(arg0))->m98();
     }
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
 }
 
 }

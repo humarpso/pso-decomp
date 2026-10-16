@@ -6,6 +6,7 @@
 class TUnk_804A6AD8 : public TItemWeapon {
 public:
     virtual ~TUnk_804A6AD8();
+    void yasminkov_9000m_eject_casing(s32, s32);
     virtual void emit_marker_effects();
     virtual void update_weapon();
     virtual void reserved_53();

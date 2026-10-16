@@ -1519,7 +1519,7 @@ int TObjEneBm3FlyNest__sub_800B4158(void);
 void * destroy_monest_carrier(void *arg0, s16 arg1);
 u8 * TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
-s32 enemy_copy_target_destination();
+s32 enemy_copy_target_destination__12TObjEneDD_STFv();
 void __dt__9TObjEneDDFv(void *, int);
 s32 is_main_phase_15__9TObjEneDDFv();
 void update_player_state__9TObjEneDDFv(void *, Vec_800B23A0 *, s32);
@@ -1527,10 +1527,10 @@ void get_camera_ctrl__9TObjEneDDFv(s32, s32);
 s32 get_random_scaled__9TObjEneDDFv(void *);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
 int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
-s32 clear_attack_receipts();
+s32 clear_attack_receipts__9TObjEneDDFv();
 s32 noop__12TBoss8DragonFv(void *);
 s32 TBoss8Dragon__sub_800BB7D4(void *, s32);
-s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
+s32 init_common_from__9TObjEneDDFPUc(void *, void *);
 s32 get_target_info__9TObjEneDDFPv(void *);
 s32 pack_debug_text_position(s32, s32);
 u32 load_enemy_bml_resource_named(void *, void *);
@@ -1547,7 +1547,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 u8 * find_entity_by_id(u16);
 void free_collision_body_parts(void *);
-s32 send_entity_set_flags__6TLobbyFPv();
+s32 send_entity_set_flags__9TObjEnemyFv();
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
 s32 play_sound_effect(void *, void *, int, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
@@ -2012,7 +2012,7 @@ void handle_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3B0) == 0) {
-            send_entity_set_flags__6TLobbyFPv();
+            send_entity_set_flags__9TObjEnemyFv();
             ((s32 (*)(void *))queue_destruction__7TObjectFv)(arg0);
         }
     case 5:
@@ -2125,7 +2125,7 @@ void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
         ((VObj_800b2e8c*)arg0)->m198();
         return;
     case 5:
-        clear_attack_receipts();
+        clear_attack_receipts__9TObjEneDDFv();
         break;
     }
 }
@@ -2519,12 +2519,12 @@ void TObjEneBm3FlyNest::vfunc_62() {
     s16 temp_r0;
 
     if (((s16) *(s16 *)((s8 *)this + 0x326) == 3) && (TObjEneDD::check_v2_mode() != 0)) {
-        ((s32 (*)(void *))clear_attack_receipts)(this);
+        ((s32 (*)(void *))clear_attack_receipts__9TObjEneDDFv)(this);
         return;
     }
     temp_r0 = *(s16 *)((s8 *)this + 0x326);
     if (temp_r0 == 4) {
-        ((s32 (*)(void *))clear_attack_receipts)(this);
+        ((s32 (*)(void *))clear_attack_receipts__9TObjEneDDFv)(this);
         return;
     }
     if (temp_r0 != 7) {
@@ -2662,7 +2662,7 @@ struct Nest_800B3EB8 {
 void *TObjEneDD__ct(void *, void *, void *);
 void __construct_array(void *, void *, void *, int, int);
 void init_and_activate__10TObjPlayerFv(void *);
-void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
+void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void init_position_vectors__9TObjEneDDFPv(void *);
 void init_model__9TObjEneDDFv(void *, void *, int);
 void set_animation__10TObjPlayerFPvs(void *, s16);
@@ -2679,7 +2679,7 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
     self->vt = lbl_80491EE4;
     __construct_array(self->f440, init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 0x1C, 4);
     self->id = lbl_805D2A18;
-    invoke_initialization_hook__9TObjEneDDFPv(self, arg2);
+    invoke_initialization_hook__9TObjEneDDFv(self, arg2);
     init_position_vectors__9TObjEneDDFPv(self);
     self->f34 = *(s32 *)(*(u8 **)((int)lbl_805D5108 + 0x42C) + 0x18);
     self->f24 = *(s32 *)(*(u8 **)((int)lbl_805D5108 + 0x42C) + 0xC);

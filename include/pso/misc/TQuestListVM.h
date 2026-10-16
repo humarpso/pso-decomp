@@ -6,6 +6,10 @@
 
 struct TQuestListVM : public TShopWindowBase {
     virtual ~TQuestListVM();
+    s32 quest_vm_load();
+    void sub_80219064();
+    void open_confirm_window();
+    void load_selected_slot();
     virtual void vfunc_11();
     virtual int vfunc_10();
     virtual void vfunc_9();
@@ -59,7 +63,6 @@ struct TQuestListVM : public TShopWindowBase {
     static void scan_memcard_quest_files(void *arg0);
     s32 load_quest_vm();
     s32 init();
-    void set_field_20(s32 v);
     s32 get_quest_id();
     static int get_instance();
     static void reset();

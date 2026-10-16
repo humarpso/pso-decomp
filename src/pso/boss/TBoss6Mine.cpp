@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -516,7 +518,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2) {
     VecCopyP(THIS + 0x3BC, (u8 *)arg2 + 0x50);
     *(s32 *)((s8 *)THIS + 0x37C) = *(s32 *)((s8 *)arg2 + 0x5C);
     *(s32 *)((s8 *)THIS + 0x388) = *(s32 *)((s8 *)arg2 + 0x60);
-    ((TObjPlayer *)THIS)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)THIS)->add_flags_2e4(8);
     ((VObj_18_f05d67 *)THIS)->m79((void *)arg2);
     if (exchange_object_state__9TObjEnemyFls(THIS, &tmp, 1) != 0) {
         tmp.a = 0;

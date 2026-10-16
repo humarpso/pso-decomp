@@ -8,6 +8,7 @@ class TMemberCheck : public TObject {
 public:
     TMemberCheck(TObject* parent);
     virtual ~TMemberCheck();
+    void update_member_proximity();
     void open_member_name_window();
     virtual void run_task();
 

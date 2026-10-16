@@ -213,8 +213,8 @@ extern "C" {
 s32 is_wrapped__9TItemDataFPv(void *);
 s32 get_localized_text_entry(int, int);
 s8 get_type__20TWindowSubStatusDispFv(s32);
-void init_text__15TWindowHelpItemFPvPv(void *, s32);
-void update_tech_disk_details__15TWindowHelpItemFPv(void *);
+void init_text__15TWindowHelpItemFPv(void *, s32);
+void update_tech_disk_details__15TWindowHelpItemFv(void *);
 void sub_80255E24__15TWindowHelpItemFv(void *);
 extern s8 lbl_805D6448;
 extern s8 lbl_805D6449;
@@ -270,9 +270,9 @@ void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self);
 s32 get_player_by_client_id(s16);
 u32 get_quest_id__12TQuestListVMFv();
 s32 get_array_entry__13TUnk_804CE018Fi(void *, s32);
-s16 get_actor_attack_params_atp_min(s32);
+s16 get_actor_attack_params_atp_min__13TUnk_804806E8Fv(s32);
 s16 TObjPlayer__sub_800A776C(s32);
-s16 get_ata__10TObjPlayerFPv(s32);
+s16 get_ata__10TObjPlayerFv(s32);
 void set_flag4_and_field1c__15TWindowHelpItemFl(s32, s32);
 void preview_unequip_stats__10TObjPlayerFv(s32, Stats_802541E0 *, s32);
 void preview_equip_stats__10TObjPlayerFv(s32, Stats_802541E0 *, u32);
@@ -299,7 +299,7 @@ extern "C" u8 lbl_8044EDF0[];
 extern "C" u8 lbl_805DCDFC[4];
 extern "C" void TWindowHelpItem__vt10();
 extern "C" void TWindowHelpItem__vt11();
-extern "C" void TWindowHelpItem__vt2(void *);
+extern "C" void sub_802534B0__15TWindowHelpItemFv(void *);
 extern "C" u8 lbl_8044EDB8[];
 extern "C" u8 lbl_8044EDC0[];
 extern "C" u8 localized_alphabet_list[];
@@ -430,7 +430,7 @@ void *lbl_804CF700[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt1,
 };
 void *lbl_804CF70C[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt2,
+    (void *)0x0, (void *)0xffffffff, (void *)&sub_802534B0__15TWindowHelpItemFv,
 };
 void *lbl_804CF718[9] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -444,7 +444,7 @@ void *lbl_804CF748[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt4,
 };
 void *lbl_804CF754[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt2,
+    (void *)0x0, (void *)0xffffffff, (void *)&sub_802534B0__15TWindowHelpItemFv,
 };
 void *lbl_804CF760[9] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -458,7 +458,7 @@ void *lbl_804CF790[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt7,
 };
 void *lbl_804CF79C[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt2,
+    (void *)0x0, (void *)0xffffffff, (void *)&sub_802534B0__15TWindowHelpItemFv,
 };
 void *lbl_804CF7A8[9] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -756,8 +756,8 @@ void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
     e4 = get_array_entry__13TUnk_804CE018Fi((void *)(self), (s32)(4));
     e2 = get_array_entry__13TUnk_804CE018Fi((void *)(self), (s32)(2));
     e5 = get_array_entry__13TUnk_804CE018Fi((void *)(self), (s32)(5));
-    set_flag4_and_field1c__15TWindowHelpItemFl(e0, ((TObjPlayer *)pl)->get_field_2c8() + get_actor_attack_params_atp_min(pl) + TObjPlayer__sub_800A776C(pl));
-    set_flag4_and_field1c__15TWindowHelpItemFl(e3, get_ata__10TObjPlayerFPv(pl));
+    set_flag4_and_field1c__15TWindowHelpItemFl(e0, ((TObjPlayer *)pl)->get_field_2c8() + get_actor_attack_params_atp_min__13TUnk_804806E8Fv(pl) + TObjPlayer__sub_800A776C(pl));
+    set_flag4_and_field1c__15TWindowHelpItemFl(e3, get_ata__10TObjPlayerFv(pl));
     set_flag4_and_field1c__15TWindowHelpItemFl(e1, ((TWindowSubStatusDisp *)pl)->get_value());
     set_flag4_and_field1c__15TWindowHelpItemFl(e4, ((TObjPlayer *)pl)->get_hp());
     set_flag4_and_field1c__15TWindowHelpItemFl(e2, q->f2);
@@ -1075,11 +1075,11 @@ void TWindowHelpItem::dispatch_item_help() {
         if (self->techId == -0xFF) {
             self->flags &= ~2;
             ((TWindowHelpItem *)self)->set_flag60_bit4();
-            init_text__15TWindowHelpItemFPvPv(self, get_message_10__20TWindowSubStatusDispFl(0x10D));
+            init_text__15TWindowHelpItemFPv(self, get_message_10__20TWindowSubStatusDispFl(0x10D));
         } else {
             self->flags &= ~2;
             ((TWindowHelpItem *)self)->set_flag60_bit4();
-            init_text__15TWindowHelpItemFPvPv(self, get_localized_text_entry(0x10, (self->techId & 0xF) + 0x18));
+            init_text__15TWindowHelpItemFPv(self, get_localized_text_entry(0x10, (self->techId & 0xF) + 0x18));
         }
     } else if (is_wrapped__9TItemDataFPv(self->item) != 0) {
         self->flags &= ~2;
@@ -1095,7 +1095,7 @@ void TWindowHelpItem::dispatch_item_help() {
             if (sub == 3) {
                 self->flags &= ~2;
                 ((TWindowHelpItem *)self)->set_flag60_bit4();
-                TWindowHelpItem__vt2(self);
+                sub_802534B0__15TWindowHelpItemFv(self);
             } else if (sub == 2) {
                 (self->*lbl_804CF7A8.e[type])();
             } else {
@@ -1109,7 +1109,7 @@ void TWindowHelpItem::dispatch_item_help() {
             self->flags &= ~2;
             ((TWindowHelpItem *)self)->set_flag60_bit4();
             if (sub == 2) {
-                update_tech_disk_details__15TWindowHelpItemFPv(self);
+                update_tech_disk_details__15TWindowHelpItemFv(self);
             } else {
                 ((TWindowHelpItem *)self)->update_displayed_item();
             }

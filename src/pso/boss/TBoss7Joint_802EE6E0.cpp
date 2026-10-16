@@ -15,7 +15,7 @@ s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 s32 play_sound_effect(int, void *, int, int);
 u32 __nw__7TObjectFUl(int);
 s32 TObjPlayer__sub_802E72DC(void *, void *, void *, int);
-void init_boss_stats__11TBoss7JointFPv(u8 *arg0);
+void init_boss_stats__11TBoss7JointFv(u8 *arg0);
 }
 
 extern "C" {
@@ -56,16 +56,16 @@ void TBoss7Joint__sub_802EE800(void* p) { *(u8*)((char*)p + 0x0) = 170; *(u8*)((
 
 int TBoss7Joint::is_part_active() { return *(u32*)((char*)this + 0x3bc) & 0x1; }
 
-void init_boss_stats__11TBoss7JointFPv(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x3BC) = *(s32 *)((s8 *)arg0 + 0x3BC) | 1;
-    reload_stats_keep_hp_tp__9TObjEneDDFv(arg0, register_boss__6TLobbyFl(0x10), dispatch_shared_handler_b__6TLobbyFl(0xF), register_object__6TLobbyFl(0x10));
-    *(s16 *)((s8 *)arg0 + 0x32C) = 0x4E20;
-    *(s16 *)((s8 *)arg0 + 0x2B8) = 0x4E20;
+void TBoss7Joint::init_boss_stats() {
+    *(s32 *)((s8 *)((u8 *)this) + 0x3BC) = *(s32 *)((s8 *)((u8 *)this) + 0x3BC) | 1;
+    reload_stats_keep_hp_tp__9TObjEneDDFv(((u8 *)this), register_boss__6TLobbyFl(0x10), dispatch_shared_handler_b__6TLobbyFl(0xF), register_object__6TLobbyFl(0x10));
+    *(s16 *)((s8 *)((u8 *)this) + 0x32C) = 0x4E20;
+    *(s16 *)((s8 *)((u8 *)this) + 0x2B8) = 0x4E20;
     u32 p = __nw__7TObjectFUl(0x2C);
     if (p != 0U) {
-        TObjPlayer__sub_802E72DC((void *)p, arg0, arg0 + 0x38, *(s32 *)((s8 *)arg0 + 0x3B8));
+        TObjPlayer__sub_802E72DC((void *)p, ((u8 *)this), ((u8 *)this) + 0x38, *(s32 *)((s8 *)((u8 *)this) + 0x3B8));
     }
-    play_sound_effect(0x3A312, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x3A312, ((u8 *)this) + 0x38, 0, 0);
 }
 
 void TBoss7Joint::vfunc_93() {

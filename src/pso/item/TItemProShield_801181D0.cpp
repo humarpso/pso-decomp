@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/item/TItem.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/item/TItemEquipBase.h"
@@ -122,7 +124,7 @@ extern s32 model_render_flags;
 
 void TItemProShield::deactivate_shield_effect(s32 arg1) {
     if (((u32) this->m_f4 != 0U) && ((u32) this->m_f0 != 0U) && (obj_testFlags30(this, 0x08000000) == 0) && (get_flag_40__8TItemMagFv((void *)(this)) == 0)) {
-        ((TObjPlayer *)(this->m_f0))->get_item_ptr(arg1);
+        ((TObjMotion *)(this->m_f0))->get_item_ptr(arg1);
         push_matrix_from();
         TObjPlayer__sub_80364198();
         model_render_flags &= 0xFFFFFFEF;
@@ -220,7 +222,7 @@ void TItemProShield::vfunc_30() {
         if (get_flag_40__8TItemMagFv(this) == 0) {
             create_shield_effect__14TItemProShieldFlUsUl(tl_05, get_id__13TItemProArmorFv(this), *(s32 *)((s8 *)this + 0x190));
             ((TObjPlayer *)(&st))->reset_status_block();
-            st.a = ((TObjPlayer *)this)->get_field_ed();
+            st.a = ((TItem *)this)->get_field_ed();
             st.b = ((TItemProShield *)this)->get_slot_count();
             st.c = *(u32 *)((s8 *)this + 0xF0);
             play_shield_sound_cue(&st);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSlimeTailAttack.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneSlimeOne.h"
 
@@ -51,12 +52,12 @@ void TObjPlayer::push_material_color_override(f32 farg0, f32 farg1, f32 farg2, f
     stack.sp14 = farg3;
     set_chunk_material_color((void *) (&stack.sp8));
 }
-int TObjPlayer::find_nearest_enemy_with_flag(f32 farg0) {
+int TObjEneSlimeTailAttack::find_nearest_enemy_with_flag(f32 farg0) {
     u8 *arg0 = (u8 *)this;
     u16 temp_r3;
-    *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags | 0x02000000);
+    *(s32 *)&(*(u32 *)((u8 *)this + 0x30)) = (s32) (*(s32 *)&(*(u32 *)((u8 *)this + 0x30)) | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (int) (0), (f32) (farg0));
-    *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags & 0xFDFFFFFF);
+    *(s32 *)&(*(u32 *)((u8 *)this + 0x30)) = (s32) (*(s32 *)&(*(u32 *)((u8 *)this + 0x30)) & 0xFDFFFFFF);
     return temp_r3;
 }
 

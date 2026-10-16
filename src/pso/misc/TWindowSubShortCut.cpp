@@ -42,7 +42,7 @@ void *__nw__7TObjectFUl(u32);
 void TWindow__close(void *);
 void *TWindowChat__ct(void *, void *, void *);
 u8 get_selected_menu_value(int);
-s32 select_cursor_entry__6TLobbyFv(s32);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 s32 get_window_layout_position(s32 a0);
 u32 TWindowShortCut__ct(int, int, int, void *);
 void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
@@ -56,7 +56,7 @@ void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
 u32 *get_chat_shortcut();
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 s32 align_menu_entry_positions(s32);
-s32 update_layout_height__17TWindowSubComCardFPvf(s32, f32);
+s32 update_layout_height__21TWindowSubComCardListFf(s32, f32);
 s32 get_window_layout_position(s32 a0 = 0);
 s32 open_yes_no_prompt(s32, s32, s32, s32, f32);
 void TWindow__close(void *);
@@ -68,7 +68,7 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 void queue_destruction__7TObjectFv(void *);
-s32 select_cursor_entry__6TLobbyFv(s32);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 
 int TWindowSubQuestBoardSelect::is_shortcut_active() { return this->m_60 & 0x4; }
 
@@ -98,7 +98,7 @@ s32 TWindowSubShortCut::open_menu() {
     s32 temp_r31;
     u32 *temp_r30;
 
-    select_cursor_entry__6TLobbyFv(*(s32 *)&this->m_2c);
+    select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)&this->m_2c);
     temp_r30 = get_chat_shortcut();
     temp_r31 = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position((s32)(0x74)), 2, get_message_10__20TWindowSubStatusDispFl(0x2C));
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x7E), 6, 5);
@@ -108,7 +108,7 @@ s32 TWindowSubShortCut::open_menu() {
         TWindowSubComCard::draw_text_gray(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x5A), 6, 9);
     }
     ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
-    update_layout_height__17TWindowSubComCardFPvf(temp_r31, lbl_805DD6C0);
+    update_layout_height__21TWindowSubComCardListFf(temp_r31, lbl_805DD6C0);
     align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
@@ -191,7 +191,7 @@ void TWindowSubShortCut::run_task() {
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c != 0U) {
-            *(s32 *)&this->m_24 = select_cursor_entry__6TLobbyFv(*(s32 *)&this->m_2c);
+            *(s32 *)&this->m_24 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)&this->m_2c);
             TWindow__close(*(void * *)&this->m_2c);
             this->m_2c = 0U;
         }
@@ -260,7 +260,7 @@ void TWindowSubShortCut::run_task() {
         }
         if (((TWindowMessageYesNo *)(this->m_34))->is_child_visible() != 0) {
             if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
-                select_cursor_entry__6TLobbyFv((int) (this->m_2c));
+                select_cursor_entry__22TWindowSubShortCutListFv((int) (this->m_2c));
                 clear_chat_shortcut();
                 this->m_1c = 1U;
                 return;

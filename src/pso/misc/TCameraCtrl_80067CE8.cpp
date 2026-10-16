@@ -42,7 +42,7 @@ struct Obj_80067D20 {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void *construct_derived__11TCameraCtrlFPv(void *);
-s32 set_target_pos__11TCameraCtrlFPv(void *, void *, f32);
+s32 set_target_pos__13TUnk_80488DA0FPv(void *, void *, f32);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8F78;
 void target_player0__11TCameraCtrlFi(s32 arg0);
@@ -135,7 +135,7 @@ void target_player0__11TCameraCtrlFi(s32 arg0) {
         stack.sp8 = *(f32 *)((s8 *)temp_r3 + 0x38);
         stack.spC = lbl_805D8F78 + *(f32 *)((s8 *)temp_r3 + 0x3C);
         stack.sp10 = *(f32 *)((s8 *)temp_r3 + 0x40);
-        set_target_pos__11TCameraCtrlFPv((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805D8F78));
+        set_target_pos__13TUnk_80488DA0FPv((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805D8F78));
     }
 }
 

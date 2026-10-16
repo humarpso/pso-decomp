@@ -6,6 +6,12 @@
 class TUnk_804D0658 : public TUnk_804CDFE8 {
 public:
     virtual ~TUnk_804D0658();
+    void draw_setting(s32);
+    void clamp_scroll();
+    void update_scroll_offset();
+    void move_cursor_prev();
+    void move_next_choice();
+    void request_close();
     void *destroy_children(s16);
     int is_selected();
     int is_open();

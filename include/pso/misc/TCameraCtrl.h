@@ -6,6 +6,11 @@
 
 struct TCameraCtrl : public TObject {
     virtual ~TCameraCtrl();
+    void setup_default_view(void *);
+    void calc_rotated_axes();
+    void update_target_from_state();
+    void update_active_controller();
+    void update_shake();
     virtual void render();
     virtual void run_task();
     u8 m_1c;
@@ -80,7 +85,6 @@ struct TCameraCtrl : public TObject {
     void init_state();
     void reset_behind_player();
     void reset_state();
-    void set_target_pos(void* q);
     static void post_update_view();
     void*get_target_ptr();
     static void copy_vec_to_default(u8 *arg0);

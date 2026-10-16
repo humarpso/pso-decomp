@@ -6,6 +6,17 @@
 class TObjEneDD_ST : public TObjEneDD {
 public:
     virtual ~TObjEneDD_ST();
+    f32 get_speed_or_default();
+    void set_active();
+    void init_float_params();
+    void set_target_player(void *);
+    void enemy_clear_target(u16);
+    void enemy_init_acquire_period(s32);
+    void select_and_apply_target(f32);
+    s32 enemy_tick_target_acquisition(s32 *, s32, f32);
+    s32 update_linked_position(f32);
+    void enemy_copy_target_destination();
+    void enemy_init_validate_period(s32);
     virtual s32 vfunc_83();
     void *init_object();
     void sub_800F5874(s32);

@@ -23,10 +23,10 @@ s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_window_scrollbar(int, int, void *);
 void render__17TWindowMessageLogFv(u8 *arg0);
-void update_window_entry_list(void *, void *);
-void update_scroll__14TWindowMessageFPv(void *);
-void update_fade_offset__17TWindowMessageLogFPv(void *);
-void update_scroll_animation__17TWindowMessageLogFPv(void *);
+void update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
+void update_scroll__14TWindowMessageFv(void *);
+void update_fade_offset__17TWindowMessageLogFv(void *);
+void update_scroll_animation__17TWindowMessageLogFv(void *);
 extern const f32 lbl_805DD254;
 void run_task__17TWindowMessageLogFv(u8 *arg0);
 u8 * __dt__14TWindowMessageFv(void *, s16);
@@ -62,11 +62,11 @@ void TWindowMessageLog::run_task() {
     if ((f32) *(s32 *)((s8 *)((u8 *)this) + 0x5C) >= lbl_805DD254) {
         ((TWindowSubStatusDisp *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)))->increment_counter();
     }
-    update_scroll_animation__17TWindowMessageLogFPv(((u8 *)this));
-    update_scroll__14TWindowMessageFPv(((u8 *)this));
+    update_scroll_animation__17TWindowMessageLogFv(((u8 *)this));
+    update_scroll__14TWindowMessageFv(((u8 *)this));
     ((TWindowDD *)((u8 *)this))->initialize_subwindow();
-    update_fade_offset__17TWindowMessageLogFPv(((u8 *)this));
-    update_window_entry_list(((u8 *)this), ((u8 *)this) + 0x24);
+    update_fade_offset__17TWindowMessageLogFv(((u8 *)this));
+    update_window_entry_list__13TUnk_804CE018FPv(((u8 *)this), ((u8 *)this) + 0x24);
 }
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

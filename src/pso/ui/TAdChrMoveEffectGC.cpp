@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/ui/TAdChrMoveEffectGC.h"
 
 struct S_803491F8 { u32 w[8]; };
 
@@ -28,7 +29,7 @@ void draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, int, int, f32);
 void copy4__18TAdChrMoveEffectGCFPv(void *, void *);
 extern const f32 lbl_805DFCE8;
 extern const f32 lbl_805DFCEC;
-void fn_80348E34(u8 *arg0);
+void sub_80348E34__18TAdChrMoveEffectGCFv(u8 *arg0);
 void copy_effect_data__18TAdChrMoveEffectGCFPvPv(S_803491F8 *arg0, S_803491F8 *arg1);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void copy4__18TAdChrMoveEffectGCFPv(void *, void *);
@@ -44,16 +45,16 @@ typedef struct {
     s32 a;
     s32 n;
 } Desc_80348E34;
-void fn_80348E34(u8 *arg0) {
+void TAdChrMoveEffectGC::sub_80348E34() {
     f32 pos[8];
     Desc_80348E34 desc;
     u8 col[16];
     u8 *e;
     s32 i;
     u8 *src;
-    if (*(s32 *)((s8 *)arg0 + 0x20) != 0) {
+    if (*(s32 *)((s8 *)((u8 *)this) + 0x20) != 0) {
         for (i = 0; i < 16; i++) {
-            e = arg0 + i * 0x38;
+            e = ((u8 *)this) + i * 0x38;
             if (*(u32 *)((s8 *)e + 0x54) & 1) {
                 desc.pos = pos;
                 desc.col = col;
@@ -130,7 +131,7 @@ int set_cached_blend_factor(void*, void*);
 
 int get_state_flag__9TMainTaskFv(void*);
 
-void TAdChrMoveEffectGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); ((int (*)(void*))fn_80348E34)(this); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+void TAdChrMoveEffectGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); ((int (*)(void*))sub_80348E34__18TAdChrMoveEffectGCFv)(this); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 
 extern s32 __vt__18TAdChrMoveEffectGC[];
 extern u32 lbl_805D6E78;

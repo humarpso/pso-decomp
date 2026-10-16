@@ -6,6 +6,9 @@
 
 struct TObjEneBalClawClaw : public TObjEneBalClaw {
     virtual ~TObjEneBalClawClaw();
+    void update_attack_distance_state();
+    void sub_80090D3C();
+    void sub_80090798();
     virtual void vfunc_58();
     void sub_80090418(s32);
     void update_state();

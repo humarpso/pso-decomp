@@ -68,7 +68,7 @@ extern const f32 lbl_805DB498;
 extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A0;
 void play_proximity_sound__12TODoorCave01Fv(u8 *arg0);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_801611CC_lbl_804B1248 TODoorAncient09__collision_body_template;
@@ -79,7 +79,7 @@ extern s32 *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB480;
 extern const f32 lbl_805DB484;
 u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(u8 *arg0, s32 arg1, s16 arg2);
 void update_and_send_60__6TLobbyFPv(void *);
 void send_state__12TODoorCave01FPv(Self_80161320 *self, State_80161320 *src);
 void play_door_sound__13TUnk_804B0BB8Fv(u8 *arg0);
@@ -109,7 +109,7 @@ u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB484);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB480);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient09__collision_body_template.value), (int) (1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r0 < 0) {
@@ -136,7 +136,7 @@ void TODoorCave01::send_state(void *src_arg) {
     if (src != 0) {
         ((TLobby *)(&st))->copy_short_fields(src);
     } else {
-        access_object_saved_state((u8 *)self, (s32)&st, 1);
+        access_object_saved_state__13TUnk_804AF8A0FPvs((u8 *)self, (s32)&st, 1);
     }
     obj = self->obj;
     if (obj != 0) {
@@ -255,10 +255,10 @@ void TODoorCave01::update_door_switch_state() {
         if (d->count == 4) {
             play_door_sound__13TUnk_804B0BB8Fv(arg0);
             d->flags |= 1;
-            if (d->obj != NULL && ((s32 (*)(u8 *, void *, s16))access_object_saved_state)(arg0, &st, 1) != 0) {
+            if (d->obj != NULL && ((s32 (*)(u8 *, void *, s16))access_object_saved_state__13TUnk_804AF8A0FPvs)(arg0, &st, 1) != 0) {
                 st.a = 1;
                 send_state__12TODoorCave01FPv((Self_80161320 *)arg0, &st);
-                ((s32 (*)(u8 *, void *, s16))access_object_saved_state)(arg0, &st, 0);
+                ((s32 (*)(u8 *, void *, s16))access_object_saved_state__13TUnk_804AF8A0FPvs)(arg0, &st, 0);
             }
         }
         break;

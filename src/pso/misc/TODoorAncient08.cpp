@@ -84,7 +84,7 @@ struct Door_80160000 {
 };
 
 extern "C" {
-s32 access_object_saved_state(void *, void *, int);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 s32 door_ancient08_sync_state__15TODoorAncient08FPv(void *, void *);
 u8 is_current_floor_switch_set(int);
 void update_door_switch_state__15TODoorAncient08Fv(u8 *arg0);
@@ -95,7 +95,7 @@ extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440C74;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 TODoorAncient08__resource_descriptor;
 extern u32 door_ancient08_bml_resource;
 extern void *TODoorAncient08__switch_texture_lists;
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_8016069C_lbl_804B10E8 TODoorAncient08__collision_body;
@@ -144,7 +144,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -238,10 +238,10 @@ void TODoorAncient08::update_door_switch_state() {
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1) && (is_current_floor_switch_set((int) (this->m_d6)) == 1) && (is_current_floor_switch_set((int) (this->m_d8)) == 1)) {
             ((TODoorAncient08 *)arg0)->play_open_sound();
             this->m_d0 = (s32) (this->m_d0 | 1);
-            if (((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+            if (((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;
                 door_ancient08_sync_state__15TODoorAncient08FPv((void *) (arg0), (void *) (&sp8));
-                access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
+                access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
             }
         }
         return;
@@ -468,7 +468,7 @@ typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8
 void *__dt__15TODoorAncient08Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorAncient08;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -491,7 +491,7 @@ u8 *TODoorAncient08__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB474);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB470);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient08__collision_body.value), (int) (1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r0 < 0) {

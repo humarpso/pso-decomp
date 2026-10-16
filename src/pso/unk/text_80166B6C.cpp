@@ -47,7 +47,7 @@ u8 *TLobby__sub_8001FE7C(void *, s16);
 void mem_free(u32);
 extern u8 *TOFenceAncient01__model_resource;
 extern u32 TOFenceAncient01__resource_pointer_array;
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 init_fields__13TUnk_804B1B80Fv();
 s32 sub_80166E64__13TUnk_804B1B80Fv(u8 *arg0);
@@ -79,7 +79,7 @@ void vfunc_15__16TOFenceAncient02Fv(void* p);
 void vfunc_16__16TOFenceAncient02Fv(void);
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int set_indexed_flags(void*, void*, void*);
@@ -142,7 +142,7 @@ void TOFenceAncient01::load_resources() {
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOFenceAncient01;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B1B80 *)arg0)->destroy(0);
         if (arg1 > 0) {
@@ -170,7 +170,7 @@ u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_f1 = (f32) *(u32 *)((s8 *)temp_r6 + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) (temp_f1 - lbl_805DB610);
     init_collision_body_parts((void *) (arg0), (void *) (&fence_ancient01_collision_parts.value), (int) (3), (int) (temp_r6), (f32) (temp_f1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     sub_80166E64__13TUnk_804B1B80Fv((u8 *)((void *) (arg0)));
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB614;

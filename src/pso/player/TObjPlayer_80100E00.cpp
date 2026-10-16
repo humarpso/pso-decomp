@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TAdRicoRing.h"
@@ -79,7 +81,7 @@ u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_stat__10TObjPlayerFv(s32);
 s32 obj_isState2_324(int);
 s32 TObjPlayer__sub_80102D84(void *);
-void send_6x61_activate_mag_effect(u8 *arg0, s32 arg1);
+void send_6x61_activate_mag_effect__14TItemEquipBaseFl(u8 *arg0, s32 arg1);
 struct VObj_80101350_80100E00 *find_item_by_id(s32);
 void handle_6x61_activate_mag_effect(void *arg0);
 }
@@ -123,7 +125,7 @@ void TObjPlayer::load_projection_tex(s32 arg0, s32 arg1) {
     ((TOTrapAncient02 *)arg1)->load_projection_tex_matrix();
 }
 
-void TObjPlayer::update_screen_particle_effect() {
+void TItemWeapon::update_screen_particle_effect() {
     if (test_flags_any(&lbl_805D53EC, 0x10) != 0) {
         TParticleCtrl::disable_if_single_screen();
         TParticleCtrl::set_tev_direct(1);
@@ -136,7 +138,7 @@ int TObjPlayer__sub_80100F34(void) { return ((TParticleCtrl *)31)->get_object();
 
 extern s32 lbl_805D53EC;
 
-void TObjPlayer::draw_shield_particle() {
+void TItemWeapon::draw_shield_particle() {
     if (test_flags_any(&lbl_805D53EC, 8) != 0) {
         TParticleCtrl::disable_if_single_screen();
         TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x24));
@@ -236,11 +238,11 @@ s16 TObjPlayer::calc_equip_bonus(u16 arg0) {
     }
     return 0;
 }
-void send_6x61_activate_mag_effect(u8 *arg0, s32 arg1) {
+void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
     Stack_801012DC stack;
-    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324((int) (*(u32 *)((s8 *)arg0 + 0xF0))) == 0)) {
+    if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0xF0) != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324((int) (*(u32 *)((s8 *)((u8 *)this) + 0xF0))) == 0)) {
         TObjPlayer__sub_80102D84((void *) (&stack.sp8));
-        stack.spC = ((TObjPlayer *)arg0)->get_field_d8();
+        stack.spC = ((TObjPlayer *)((u8 *)this))->get_field_d8();
         stack.sp10 = arg1;
         ((TObjPlayer *)(&stack.sp8))->bswap_and_send_6x61();
     }

@@ -113,7 +113,7 @@ void TUnk_804E4B24::run_task() {
     if (this->m_24 <= -*(f32 *)((s8 *)arg0 + 0x44)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
-    ((TObjBoss7TunnelCol *)arg0)->update_collision();
+    ((TUnk_804E4B24 *)arg0)->update_collision();
 }
 
 }

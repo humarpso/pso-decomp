@@ -68,7 +68,7 @@ extern "C" {
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void TObjPlayer__sub_800D7C58(void *, int);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 int submit_cursor_candidate(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -144,7 +144,7 @@ extern s32 __vt__11TOVS2Wall01[];
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOVS2Wall01;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x340, -1);
         destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);

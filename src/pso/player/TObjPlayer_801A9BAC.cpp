@@ -13,15 +13,15 @@ typedef struct SA9_801a9bac {
     s32 arr60[4];
 } SA9_801a9bac;
 
-void update_and_destroy__10TObjPlayerFPv(u8 *arg0);
+void update_and_destroy__13TUnk_804C349CFv(u8 *arg0);
 s32 deliver_photon_blast_results_delayed(void *);
 s32 step_photon_blast_sequence(void *);
 s32 get_player_by_client_id(u16);
 s32 queue_deferred_photon_blast_support(s32, s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
-void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
-    SA9_801a9bac *self = (SA9_801a9bac *)arg0;
+void TUnk_804C349C::update_and_destroy() {
+    SA9_801a9bac *self = (SA9_801a9bac *)((u8 *)this);
     s32 temp_r0;
     s32 var_r31;
     s32 var_r30;
@@ -42,8 +42,8 @@ void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
                 }
             }
         }
-        deliver_photon_blast_results_delayed(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        deliver_photon_blast_results_delayed(((u8 *)this));
+        queue_destruction__7TObjectFv(((u8 *)this));
     }
 }
 
@@ -53,7 +53,7 @@ void TUnk_804C349C::run_task() {
         step_photon_blast_sequence(this);
         return;
     }
-    update_and_destroy__10TObjPlayerFPv((u8 *)(this));
+    update_and_destroy__13TUnk_804C349CFv((u8 *)(this));
 }
 
 }

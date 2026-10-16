@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjEZRopeBase.h"
 struct Vec_800FF8CC {
     f32 x, y, z;
 };
@@ -43,7 +44,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800FF8CC *, const Vec_800FF8CC *);
 Vec_800FF8CC *alloc__22TQuestVmDownLoadServerFv(s32);
 void vec3_add_to(Vec_800FF8CC *, Vec_800FF8CC *);
-void fn_800FF8CC(Self_800FF8CC *self, Src_800FF8CC *src, Pos_800FF8CC *pos, s32 arg);
+void sub_800FF8CC__14TObjEZRopeBaseFPvPvl(Self_800FF8CC *self, Src_800FF8CC *src, Pos_800FF8CC *pos, s32 arg);
 void VecCopy__FP3VecPC3Vec(Vec_800FF8CC *, const Vec_800FF8CC *);
 void fn_800FF580(void *, void *, f32);
 void vec3_add_to(Vec_800FF8CC *, Vec_800FF8CC *);
@@ -52,12 +53,12 @@ void subtract_vector(void *, void *);
 void normalize_vector(void *);
 extern const f32 lbl_805DAA58;
 extern const f32 lbl_805DAA5C;
-void fn_800FF788(Obj_800FF788 *self, void *mtx);
+void sub_800FF788__14TObjEZRopeBaseFPv(Obj_800FF788 *self, void *mtx);
 }
 
 extern "C" {
 
-void fn_800FF788(Obj_800FF788 *self, void *mtx) {
+void TObjEZRopeBase::sub_800FF788(void *mtx) {
     Seg_800FF788 *seg;
     Src_800FF788 *src;
     Vec_800FF788 *p;
@@ -65,9 +66,9 @@ void fn_800FF788(Obj_800FF788 *self, void *mtx) {
     f32 zero;
     f32 len;
     zero = lbl_805DAA58;
-    seg = self->segs;
-    src = self->srcs;
-    p = self->out;
+    seg = ((Obj_800FF788 *)this)->segs;
+    src = ((Obj_800FF788 *)this)->srcs;
+    p = ((Obj_800FF788 *)this)->out;
     while (seg->n >= 2) {
         len = vector_length(&seg->dir);
         VecCopy__FP3VecPC3Vec((Vec_800FF8CC *)p, (Vec_800FF8CC *)&src->v);
@@ -87,8 +88,8 @@ void fn_800FF788(Obj_800FF788 *self, void *mtx) {
             p->y *= len;
             p->z *= len;
             vec3_add_to((Vec_800FF8CC *)p, (Vec_800FF8CC *)(p - 1));
-            if (self->flag != 0) {
-                fn_800FF580(self, p, len);
+            if (((Obj_800FF788 *)this)->flag != 0) {
+                fn_800FF580(((Obj_800FF788 *)this), p, len);
             }
             n--;
             p++;
@@ -98,25 +99,27 @@ void fn_800FF788(Obj_800FF788 *self, void *mtx) {
     }
 }
 
-void fn_800FF8CC(Self_800FF8CC *self, Src_800FF8CC *src, Pos_800FF8CC *pos, s32 arg) {
+void TObjEZRopeBase::sub_800FF8CC(void *src_arg, void *pos_arg, s32 arg) {
+    Src_800FF8CC *src = (Src_800FF8CC *)src_arg;
+    Pos_800FF8CC *pos = (Pos_800FF8CC *)pos_arg;
     s32 total;
     Src_800FF8CC *s;
     Pos_800FF8CC *p;
     Vec_800FF8CC *out;
     s32 n;
     total = 0;
-    self->src = src;
-    self->pos = pos;
-    self->arg = arg;
-    self->num = 0;
+    ((Self_800FF8CC *)this)->src = src;
+    ((Self_800FF8CC *)this)->pos = pos;
+    ((Self_800FF8CC *)this)->arg = arg;
+    ((Self_800FF8CC *)this)->num = 0;
     for (s = src; s->count >= 2; s++) {
         total += s->count;
-        self->num++;
+        ((Self_800FF8CC *)this)->num++;
     }
-    self->out = alloc__22TQuestVmDownLoadServerFv(total * 0xC);
-    s = self->src;
-    p = self->pos;
-    out = self->out;
+    ((Self_800FF8CC *)this)->out = alloc__22TQuestVmDownLoadServerFv(total * 0xC);
+    s = ((Self_800FF8CC *)this)->src;
+    p = ((Self_800FF8CC *)this)->pos;
+    out = ((Self_800FF8CC *)this)->out;
     for (; s->count >= 2; s++, p++) {
         Vec_800FF8CC v = p->v;
         for (n = s->count; n > 0; n--, out++) {

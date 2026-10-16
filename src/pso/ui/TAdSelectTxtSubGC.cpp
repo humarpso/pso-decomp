@@ -53,9 +53,9 @@ void *TObjNpcHosa__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 int set_cached_blend_factor(void*, void*);
 int get_state_flag__9TMainTaskFv(void*);
-int render_status__20TWindowSubStatusDispFv(void*);
+int render_status__17TAdSelectTxtSubGCFv(void*);
 
-void TAdSelectTxtSubGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status__20TWindowSubStatusDispFv(this); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+void TAdSelectTxtSubGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status__17TAdSelectTxtSubGCFv(this); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 
     extern int ad_select_text_texture_handle;
 

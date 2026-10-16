@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
 #define CAT2(a,b) a##b
@@ -89,7 +90,7 @@ s32 TObjPlayer::update_inventory_item(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s3
     if (is_item_equipped(temp_r3_2) != 0) {
         unequip_item__10TObjPlayerFiPv(arg1, temp_r3_2);
     }
-    *(s16 *)((s8 *)temp_r3_2 + 0x28) = ((TObjPlayer *)arg1)->get_stat_by_key_state();
+    *(s16 *)((s8 *)temp_r3_2 + 0x28) = ((TUnk_804B9870 *)arg1)->get_stat_by_key_state();
     place_on_ground__5TItemFPvsPvi(temp_r3_2, arg5, arg3, 0);
     temp_r4 = *(s16 *)((s8 *)this + 0x1C);
     *(s16 *)((s8 *)this + 0x1C) = (s16) (temp_r4 - 1);

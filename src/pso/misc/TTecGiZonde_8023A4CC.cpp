@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 
 #include <stddef.h>
 #include <stddef.h>
@@ -75,18 +76,18 @@ extern "C" {
 
 void TObjPlayer__sub_8023A70C(void* p);
 void move_ground_technique_projectile(void* p);
-void advance_lifetime_or_destroy(void *arg0);
+void advance_lifetime_or_destroy__13TUnk_804CCC68Fv(void *arg0);
 
 void TTecGiZonde::render() {  }
-void advance_lifetime_or_destroy(void *arg0) {
+void TUnk_804CCC68::advance_lifetime_or_destroy() {
     f32 temp_f1;
 
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x74);
-    if (temp_f1 > *(f32 *)((s8 *)arg0 + 0x70)) {
-        queue_destruction__7TObjectFv((void *)(arg0));
+    temp_f1 = *(f32 *)((s8 *)this + 0x74);
+    if (temp_f1 > *(f32 *)((s8 *)this + 0x70)) {
+        queue_destruction__7TObjectFv((void *)(this));
         return;
     }
-    *(f32 *)((s8 *)arg0 + 0x74) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x64));
+    *(f32 *)((s8 *)this + 0x74) = (f32) (temp_f1 + *(f32 *)((s8 *)this + 0x64));
 }
 
 #pragma push
@@ -177,6 +178,6 @@ void move_technique_projectile(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)((void*)(p))); advance_lifetime_or_destroy((void *)(p)); }
+void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)((void*)(p))); advance_lifetime_or_destroy__13TUnk_804CCC68Fv((void *)(p)); }
 
 }

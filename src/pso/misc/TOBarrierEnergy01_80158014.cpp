@@ -58,7 +58,7 @@ extern s32 *TOBarrierEnergy01__texture_lists;
 extern s32 barrier_energy_model;
 u8 *get_bml_motion(s32, s32);
 s32 get_bml_model(void *, s32);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80158188_lbl_804AFB34 lbl_804AFB34;
@@ -78,7 +78,7 @@ extern "C" {
 void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 mem_free(void*);
 
@@ -120,7 +120,7 @@ void TOBarrierEnergy01::load_resources() {
 void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOBarrierEnergy01;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -143,7 +143,7 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB2D8);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB2DC;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFB34.value), (int) (1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOBarrierEnergy01 *)(arg0))->init_door_switch_binding();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB2E0;

@@ -8,13 +8,13 @@ extern "C" {
 s32 is_key_active__16TKeyBoardControlFPv(u32);
 s32 TWindowKeyBoardSoft__sub_80260904(void *, s32);
 s32 TWindowKeyBoardSoft__sub_80260E30(void *, s32);
-s32 fn_80244994();
-s32 update_fade__17TWindowSubComCardFv(void *);
+s32 sub_80244994__13TUnk_804CE018Fv();
+s32 update_fade__13TUnk_804CE018Fv(void *);
 s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 is_player_input_active(s16);
-s32 TWindowKeyBoardSoft__sub_80260808(void *, s32);
-s32 update_keyboard_child_input_from_controller(void *, s32);
-s32 handle_page_cycle_input__19TWindowKeyBoardSoftFPvi(void *, s32);
+s32 sub_80260808__19TWindowKeyBoardSoftFl(void *, s32);
+s32 update_keyboard_child_input_from_controller__19TWindowKeyBoardSoftFl(void *, s32);
+s32 handle_page_cycle_input__19TWindowKeyBoardSoftFl(void *, s32);
 
 extern const f32 lbl_805DD0D4;
 
@@ -23,16 +23,16 @@ void TWindowKeyBoardSoft::run_task() {
     s32 temp_r3;
 
     if ((u32) *(u32 *)((s8 *)this + 0x6C) != 0U) {
-        if ((fn_80244994() != 0) && (is_key_active__16TKeyBoardControlFPv(*(u32 *)((s8 *)this + 0x6C)) == 0)) {
+        if ((sub_80244994__13TUnk_804CE018Fv() != 0) && (is_key_active__16TKeyBoardControlFPv(*(u32 *)((s8 *)this + 0x6C)) == 0)) {
             temp_r3 = is_player_input_active(*(s16 *)((s8 *)this + 0x20));
-            handle_page_cycle_input__19TWindowKeyBoardSoftFPvi(this, temp_r3);
+            handle_page_cycle_input__19TWindowKeyBoardSoftFl(this, temp_r3);
             TWindowKeyBoardSoft__sub_80260E30(this, temp_r3);
             TWindowKeyBoardSoft__sub_80260904(this, temp_r3);
-            update_keyboard_child_input_from_controller(this, temp_r3);
-            TWindowKeyBoardSoft__sub_80260808(this, temp_r3);
+            update_keyboard_child_input_from_controller__19TWindowKeyBoardSoftFl(this, temp_r3);
+            sub_80260808__19TWindowKeyBoardSoftFl(this, temp_r3);
         }
         initialize_subwindow__9TWindowDDFv(this);
-        update_fade__17TWindowSubComCardFv(this);
+        update_fade__13TUnk_804CE018Fv(this);
         *(f32 *)((s8 *)this + 0x68) -= lbl_805DD0D4 * *(f32 *)((s8 *)this + 0x68);
     }
 }

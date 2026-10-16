@@ -6,6 +6,9 @@
 
 struct TBoss4DarkFalz : public TObjEnemy {
     virtual ~TBoss4DarkFalz();
+    void sub_8004B0F8();
+    void sub_8004B084();
+    void sub_8004AFB8();
     virtual void vfunc_63();
     u32 m_374;
     u32 m_378;

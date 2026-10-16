@@ -61,7 +61,7 @@ void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_800FF220(s32 *arg0, s32 *arg1);
 void TObjPlayer__sub_800FF1FC(f32 *arg0, f32 *arg1);
 void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1);
-void fn_800FF8CC(void *, void *, void *, void *);
+void sub_800FF8CC__14TObjEZRopeBaseFPvPvl(void *, void *, void *, void *);
 void *TObjEZRopeBase__ct(void *);
 extern u8 ezrope_chunk_material_color_table[];
 extern s32 TObjHMS_EZRope_Player__name;
@@ -171,7 +171,7 @@ void *TObjHMS_EZRope_Player__ct(void *arg0, void *arg1, void *arg2, void *arg3) 
         }
         TObjPlayer__sub_800FF1FC((f32 *)e4, (f32 *)(base + 0x20));
     }
-    fn_800FF8CC(arg0, SELF->a, SELF->b, SELF->c);
+    sub_800FF8CC__14TObjEZRopeBaseFPvPvl(arg0, SELF->a, SELF->b, SELF->c);
     return arg0;
 }
 

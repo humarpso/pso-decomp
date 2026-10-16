@@ -109,7 +109,7 @@ int roll_physical_accuracy__19TContainerAncient01FPvlf(void);
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
 int get_table_entry__19TContainerAncient01Fi(int a0);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 
@@ -118,7 +118,7 @@ extern s32 __vt__19TContainerAncient01[];
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TContainerAncient01;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {
@@ -522,8 +522,8 @@ extern char lbl_80445430[];
 extern char lbl_8044543C[];
 void debug_print_item_box_info__22TObjContainerJungEnemyFv(Obj_8018CBF0 *self);
 s32 get_current_floor();
-void send_object_state_update(void *, void *);
-s32 access_object_saved_state(void *, void *, int);
+void send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DBD98;
 f32 receive_physical_attack__22TObjContainerJungEnemyFPvf(Obj_8018CB44 *arg0);
@@ -580,7 +580,7 @@ void TObjContainerIdo::load_resources() {
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjContainerIdo;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xF0, -1);
         ((TUnk_804B97C0 *)arg0)->dt(0);
@@ -727,10 +727,10 @@ f32 TObjContainerJungEnemy::receive_physical_attack(void *, f32) {
     Obj_8018CB44 *arg0 = (Obj_8018CB44 *)this;
     s16 sp8;
     Pkt_8018CB44 pkt;
-    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
+    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 1) != 0)) {
         sp8 = 1;
-        access_object_saved_state(arg0, &sp8, 0);
-        send_object_state_update(arg0, &sp8);
+        access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 0);
+        send_object_state_update__13TUnk_804AF8A0FPv(arg0, &sp8);
         ((TLobby *)(&pkt))->init_packet_67_04();
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();

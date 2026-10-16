@@ -51,7 +51,7 @@ struct Player_801756C4 { u8 pad[0x38]; f32 pos[3]; };
 
 extern "C" {
 void vfunc_16__17TOSensorAncient01Fv(u8 *arg0);
-void update_pulse_value__17TOSensorAncient01FPv(u8 *arg0);
+void update_pulse_value__17TOSensorAncient01Fv(u8 *arg0);
 u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
 void TOSensor__sub_8017546C(u8 *arg0);
@@ -245,18 +245,18 @@ void TOSensorAncient01::vfunc_25() {  }
 
 #pragma push
 #pragma opt_common_subs off
-void update_pulse_value__17TOSensorAncient01FPv(u8 *arg0) {
-    if (*(s32 *)((s8 *)arg0 + 0xF4) & 1) {
-        *(f32 *)((s8 *)arg0 + 0xF0) += (0.26666668f);
-        if ((4.0f) < *(f32 *)((s8 *)arg0 + 0xF0)) {
-            *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (4.0f);
-            *(s32 *)((s8 *)arg0 + 0xF4) = (s32) (*(s32 *)((s8 *)arg0 + 0xF4) & 0xFFFFFFFE);
+void TOSensorAncient01::update_pulse_value() {
+    if (*(s32 *)((s8 *)((u8 *)this) + 0xF4) & 1) {
+        *(f32 *)((s8 *)((u8 *)this) + 0xF0) += (0.26666668f);
+        if ((4.0f) < *(f32 *)((s8 *)((u8 *)this) + 0xF0)) {
+            *(f32 *)((s8 *)((u8 *)this) + 0xF0) = (f32) (4.0f);
+            *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0xF4) & 0xFFFFFFFE);
         }
     } else {
-        *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (*(f32 *)((s8 *)arg0 + 0xF0) - (0.26666668f));
-        if (*(f32 *)((s8 *)arg0 + 0xF0) < (0.0f)) {
-            *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (0.0f);
-            *(s32 *)((s8 *)arg0 + 0xF4) = (s32) (*(s32 *)((s8 *)arg0 + 0xF4) | 1);
+        *(f32 *)((s8 *)((u8 *)this) + 0xF0) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xF0) - (0.26666668f));
+        if (*(f32 *)((s8 *)((u8 *)this) + 0xF0) < (0.0f)) {
+            *(f32 *)((s8 *)((u8 *)this) + 0xF0) = (f32) (0.0f);
+            *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0xF4) | 1);
         }
     }
 }
@@ -267,13 +267,13 @@ void TOSensorAncient01::vfunc_17() {
 
     temp_r4 = *(s32 *)((s8 *)this + 0xEC);
     *(s32 *)((s8 *)this + 0xEC) = (s32) (temp_r4 + 0x28F);
-    update_pulse_value__17TOSensorAncient01FPv((u8 *)((s32) this));
+    update_pulse_value__17TOSensorAncient01Fv((u8 *)((s32) this));
 }
 void TOSensorAncient01::vfunc_16() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     *(s32 *)((s8 *)arg0 + 0xEC) += (1.31e+03f);
-    update_pulse_value__17TOSensorAncient01FPv((u8 *)((s32)(arg0)));
+    update_pulse_value__17TOSensorAncient01Fv((u8 *)((s32)(arg0)));
     temp_r3 = *(s32 *)((s8 *)arg0 + 0xE8);
     if (temp_r3 > 0) {
         *(s32 *)((s8 *)arg0 + 0xE8) = (s32) (temp_r3 - 1);

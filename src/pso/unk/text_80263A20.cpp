@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 
 struct RecoveredGlobal_80263A20_lbl_8050E208 {
@@ -25,7 +26,7 @@ void toggle_help_window_on_button(u32 arg0, s32 arg1) {
             window_request_show((void *) (arg0));
             return;
         }
-        ((TWindowSubTradeMain *)arg0)->request_close();
+        ((TWindowLockOn *)arg0)->request_close();
     }
 }
 

@@ -55,7 +55,7 @@ void render__13TPhotonFarllaFv(Self_801AAF00 *self);
 extern "C" {
 
 void sub_801AAE6C__13TPhotonFarllaFv(void* a0);
-s32 mark_enemy_body_contacts(void *);
+s32 mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
 s32 destroy_buffer_pair(void*, s32);
 u32 obj_getField1c();
@@ -88,7 +88,7 @@ void TPhotonFarlla::update_all_slots() {
     s32 var_r31;
 
     TObjPlayer::init_all_slots();
-    mark_enemy_body_contacts(this);
+    mark_enemy_body_contacts__13TUnk_804AF8A0Fv(this);
     if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x100000) {
         var_r31 = 0;
         do {

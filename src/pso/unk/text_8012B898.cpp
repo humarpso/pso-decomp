@@ -28,7 +28,7 @@ u8 * init_vtable_and_clear_field1f8__13TUnk_804A4E68Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void send_6x61_activate_mag_effect(void *, s32);
+void send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
 s32 get_extended_state__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(s32);
 s16 get_uid__10TObjPlayerFPv(s32);
@@ -37,7 +37,7 @@ s32 get_captured_target_count(s32);
 s32 rand(void);
 extern const f32 lbl_805DAEC0;
 extern const f32 lbl_805DAEC4;
-void psycho_wand_roll_extra(Self_8012B9B4 *self);
+void psycho_wand_roll_extra__13TUnk_804A4F60Fv(Self_8012B9B4 *self);
 }
 
 extern "C" {
@@ -84,22 +84,22 @@ void TUnk_804A4F60::set_technique_roll(s32 arg1) {
     }
   }
 }
-void psycho_wand_roll_extra(Self_8012B9B4 *self) {
+void TUnk_804A4F60::psycho_wand_roll_extra() {
     s32 ext;
     s32 item;
-    ((TObjPlayer *)self)->draw_icon((s32)4, (s32)(self->icon));
-    ext = get_extended_state__10TObjPlayerFv(self->owner);
+    ((TObjPlayer *)((Self_8012B9B4 *)this))->draw_icon((s32)4, (s32)(((Self_8012B9B4 *)this)->icon));
+    ext = get_extended_state__10TObjPlayerFv(((Self_8012B9B4 *)this)->owner);
     item = get_captured_target_entry(ext, 0);
     if (get_captured_target_count(ext) != 0) {
-        self->f208 = 1;
-        self->f20C = get_uid__10TObjPlayerFPv(item);
-        self->f20E = get_captured_target_collider_index(item);
+        ((Self_8012B9B4 *)this)->f208 = 1;
+        ((Self_8012B9B4 *)this)->f20C = get_uid__10TObjPlayerFPv(item);
+        ((Self_8012B9B4 *)this)->f20E = get_captured_target_collider_index(item);
     } else {
-        self->f208 = 0;
+        ((Self_8012B9B4 *)this)->f208 = 0;
     }
-    self->f264 = self->owner->f60;
-    VecCopy__FP3VecPC3Vec(self->f268, self->owner->pos);
-    send_6x61_activate_mag_effect(self, lbl_805DAEC0 * (lbl_805DAEC4 * (f32)rand()));
+    ((Self_8012B9B4 *)this)->f264 = ((Self_8012B9B4 *)this)->owner->f60;
+    VecCopy__FP3VecPC3Vec(((Self_8012B9B4 *)this)->f268, ((Self_8012B9B4 *)this)->owner->pos);
+    send_6x61_activate_mag_effect__14TItemEquipBaseFl(((Self_8012B9B4 *)this), lbl_805DAEC0 * (lbl_805DAEC4 * (f32)rand()));
 }
 
 }

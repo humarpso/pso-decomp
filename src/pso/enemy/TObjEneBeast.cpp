@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void vfunc_101__12TObjEneBeastFv();
 extern "C" void test_flag_256__13TUnk_80493450Fv();
@@ -25,7 +27,7 @@ struct O_80092724 { u8 pad0[0x18]; void *vptr; u8 pad1c[0x38c]; void *objs[2]; }
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void unlink_enemy_group_relations(void *);
+void unlink_enemy_group_relations__13TUnk_80493450Fv(void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -380,7 +382,7 @@ O_80092724 *TObjPlayer__sub_80092724(O_80092724 *arg0, s16 arg1) {
                 arg0->objs[i] = NULL;
             }
         }
-        unlink_enemy_group_relations(arg0);
+        unlink_enemy_group_relations__13TUnk_80493450Fv(arg0);
         free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x3B0, TObjPlayer__sub_800D7C58, 0x1C, 4);
         TObjPlayer__sub_800C68FC(arg0, 0);
@@ -469,7 +471,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
                             ((u32 *)boss4_rock_pool)[F(arg0, s32, 0x334)]);
     F(arg0, void *, 0x350) = &((Rec1C_800927DC *)beast_movement_params)[F(arg0, s32, 0x334)];
     F(arg0, s16, 0x33E) = F(arg0, s16, 0x32C);
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     F(arg0, s32, 0x2AC) = (s32)(lbl_805D970C * (lbl_805D9710 * calc_boss4_scale__10TObjPlayerFi(arg0)));
@@ -480,7 +482,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     F(arg0, s16, 0x376) = 0;
     F(arg0, s32, 0x378) = 0;
     F(arg0, s32, 0x37C) = 0;
-    ((TObjPlayer *)arg0)->add_flags_2e4(1);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(1);
     obj_setFlags30(arg0, 0x40000);
     F(arg0, f32, 0x380) = lbl_805D96D8;
     F(arg0, void *, 0x3A8) = create__12TObjEneSaverFPvPv((void *)0xA0303030, (void *)0xFF303030);

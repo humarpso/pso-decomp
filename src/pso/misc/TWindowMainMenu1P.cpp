@@ -30,8 +30,8 @@ extern "C" {
 
 void *TWindowMainMenu1P__ct(void *arg0);
 void TWindowMainMenu__ct(void *);
-int TWindowMainMenu__sub_80263FE0(void*);
-int handle_menu_selection__15TWindowMainMenuFPv(void*);
+int sub_80263FE0__15TWindowMainMenuFv(void*);
+int handle_menu_selection__15TWindowMainMenuFv(void*);
 
 #pragma fp_contract on
 void TWindowMainMenu1P::update_backdrop_transition() {
@@ -108,7 +108,7 @@ void TWindowMainMenu1P::update_backdrop_transition() {
 }
 
 void TWindowMainMenu1P::render() {  }
-void TWindowMainMenu1P::run_task() { handle_menu_selection__15TWindowMainMenuFPv(this); TWindowMainMenu__sub_80263FE0(this); update_backdrop_transition(); }
+void TWindowMainMenu1P::run_task() { handle_menu_selection__15TWindowMainMenuFv(this); sub_80263FE0__15TWindowMainMenuFv(this); update_backdrop_transition(); }
 
 extern s32 __vt__17TWindowMainMenu1P[];
 extern const f32 lbl_805DD8A8;

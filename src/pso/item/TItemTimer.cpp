@@ -154,7 +154,7 @@ void vfunc_6__13TUnk_804A05E8Fv(void *arg0);
 s32 add_actor_hp(s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 add_actor_tp(s32, s32);
-s32 subtract_actor_tp(s32, s32);
+s32 subtract_actor_tp__13TUnk_804806E8Fl(s32, s32);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 s32 is_item_area_enabled();
 s32 __ct__7TObjectFP7TObject();
@@ -297,7 +297,7 @@ void TUnk_804A0648::vfunc_6() {
 void TUnk_804A0668::vfunc_6() {
     ((TBoss3Volopt *)(*(s32 *)&this->m_28))->get_field_3e0();
     if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)&this->m_28) == 0) && (obj_testFlags30((void *)(*(s32 *)&this->m_28), (s32)(0x800)) == 0)) {
-        subtract_actor_tp(*(s32 *)&this->m_28, 1);
+        subtract_actor_tp__13TUnk_804806E8Fl(*(s32 *)&this->m_28, 1);
     }
 }
 

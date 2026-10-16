@@ -6,6 +6,7 @@
 
 struct TAdChrMoveEffectGC : public TObject {
     virtual ~TAdChrMoveEffectGC();
+    void sub_80348E34();
     u32 m_1c;
     u32 m_20;
     void copy4(void* q);

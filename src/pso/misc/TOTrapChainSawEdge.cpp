@@ -300,10 +300,10 @@ s32 obj_setFlags30(void *, int);
 s8 get_current_floor(int);
 f32 fabs_float(f32);
 s32 set_indexed_flags(void *, s32, s32);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 TOTrapAncient02R__sub_80154D78(void *);
-s32 refresh_collision_body_centers(void *);
-u32 check_actor_body_contact(void *, s32, f32);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
+u32 check_actor_body_contact__13TUnk_804AF8A0FPvf(void *, s32, f32);
 void free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, int, int);
 s32 init_map_object_base(void *, void *);
@@ -620,7 +620,7 @@ void *TOTrapChainSawKey::create() {
 void *__dt__17TOTrapChainSawKeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOTrapChainSawKey;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         ((void (*)(void *, int))__dt__14TOTrapChainSawFv)(arg0, 0);
         if (arg1 > 0) {
@@ -637,7 +637,7 @@ u8 *TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2) {
     ((VObj_18_373ea7 *)(arg0))->m13();
     ((VObj_18_373ea7 *)(arg0))->m14();
     init_collision_body_parts((void *) (arg0), (int) ((u8 *)(&((RecoveredGlobal_802C8910_lbl_804E0CC0 *)chain_saw_collision_body_part_table)->value) + (*(s32 *)((s8 *)arg0 + 0xF8) * 0x58)), (int) (2));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }
@@ -789,7 +789,7 @@ extern int fold_flush_5;
 void *__dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TOTrapChainSawDamage;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         ((void (*)(void *, int))__dt__14TOTrapChainSawFv)(arg0, 0);
         if (arg1 > 0) {
@@ -816,7 +816,7 @@ void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
     ((VObj_802C8E24 *)arg0)->m13();
     ((VObj_802C8E24 *)arg0)->m14();
     ((s32 (*)(void *, void *, int))init_collision_body_parts)(arg0, &((Ent_802C8E24 *)lbl_804E0C10)[*(s32 *)(((u8 *)arg0) + 0xF8)], 2);
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)(((u8 *)arg0) + 0x3C) += (5.0f);
     {
@@ -919,7 +919,7 @@ int TOTrapChainSaw::check_player_contact() {
                 if (((TObjPlayer *)p)->get_field_3e4() == ((s32 (*)(void))get_current_floor)()) {
                     t = *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60);
                     *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t + *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0xD4);
-                    if (check_actor_body_contact(((VObj_802C91DC *)this), p, (1e+02f)) != 0) {
+                    if (check_actor_body_contact__13TUnk_804AF8A0FPvf(((VObj_802C91DC *)this), p, (1e+02f)) != 0) {
                         ((VObj_802C91DC *)this)->m16(p);
                         ((VObj_802C91DC *)this)->m18(p);
                     }
@@ -935,7 +935,7 @@ int TOTrapChainSaw::check_player_contact() {
             if (((TObjPlayer *)q)->get_field_3e4() == ((s32 (*)(void))get_current_floor)()) {
                 t2 = *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60);
                 *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t2 + *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0xD4);
-                if (check_actor_body_contact(((VObj_802C91DC *)this), q, (1e+02f)) != 0) {
+                if (check_actor_body_contact__13TUnk_804AF8A0FPvf(((VObj_802C91DC *)this), q, (1e+02f)) != 0) {
                     ((VObj_802C91DC *)this)->m16(q);
                     ((VObj_802C91DC *)this)->m18(q);
                 }

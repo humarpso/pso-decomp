@@ -6,6 +6,14 @@
 
 struct TOMine : public TUnk_804806E8 {
     virtual ~TOMine();
+    void detonate();
+    void update_float_height();
+    void sub_80170BEC();
+    void follow_target();
+    void update_trigger();
+    void sub_8017070C();
+    void update_state();
+    s32 is_target_in_list(void *);
     virtual void vfunc_79();
     virtual void vfunc_80();
     virtual void vfunc_81();

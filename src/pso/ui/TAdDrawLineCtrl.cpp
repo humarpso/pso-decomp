@@ -18,7 +18,7 @@ extern "C" {
 void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void set_draw_line_param_all_nodes(void *, f32);
+void set_draw_line_param_all_nodes__15TAdDrawLineCtrlFf(void *, f32);
 void fn_80019B08(void *, int);
 s32 restore_saved_depth_alpha_state();
 s32 get_main_phase();
@@ -76,7 +76,7 @@ void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0) {
     }
     *(void **)((s8 *)arg0 + 0x20) = o;
     *(u32 *)((s8 *)arg0 + 0x28) = 1;
-    set_draw_line_param_all_nodes(arg0, farg0);
+    set_draw_line_param_all_nodes__15TAdDrawLineCtrlFf(arg0, farg0);
     fn_80019B08(arg0, -1);
     return arg0;
 }

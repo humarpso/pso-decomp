@@ -281,7 +281,7 @@ extern const f32 TObjEneRe4Bit__data_805DA770;
 void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
-s32 clear_attack_receipts(void *);
+s32 clear_attack_receipts__9TObjEneDDFv(void *);
 s32 transition_enemy_state(void *, s32);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
 void clear_state_flags_when_done__13TObjEneRe4BitFv(u8 *arg0);
@@ -304,7 +304,7 @@ extern const f32 lbl_805DA778;
 void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1);
 s32 transition_enemy_state(void *, s32);
 void handle_state_message__13TObjEneRe4BitFPvi(void *self, s32 msg);
-int render_with_position_override__10TObjPlayerFPUcl(void *, void *, int);
+int render_with_position_override__9TObjEnemyFPUcl(void *, void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 int clear_global_flag_400__9TObjEneDDFv();
@@ -515,7 +515,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
     }
     if (self->flags & 0x800) {
         Vec_800ECA40 v = re4_bit_render_vec;
-        render_with_position_override__10TObjPlayerFPUcl(self, &v, 0);
+        render_with_position_override__9TObjEnemyFPUcl(self, &v, 0);
     }
     update_secondary_light__9TObjEneDDFv(self);
     m = *self->x24;
@@ -610,7 +610,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
       PSO_VCALL_VObj_18_f9c8ca_m100(arg0);
       return;
     case 5:
-      clear_attack_receipts((void *) arg0);
+      clear_attack_receipts__9TObjEneDDFv((void *) arg0);
       return;
       break;
   }
@@ -1477,7 +1477,7 @@ void free_collision_body_parts(void *);
 void TObjPlayer__sub_800A05B8(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEneDDFv(void *, int);
-s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
+s32 init_common_from__9TObjEneDDFPUc(void *, void *);
 s32 init_object__12TObjEneDD_STFv();
 s32 init_vtable_and_field18__13TUnk_80490470Fv(void *);
 s16 obj_getField1c(void *);
@@ -1521,7 +1521,7 @@ void TObjEneRe4Bit::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 5) {
         if (*(s32 *)((s8 *)arg0 + 0x3CC) & 0x1000) {
-            ((s32 (*)())clear_attack_receipts)();
+            ((s32 (*)())clear_attack_receipts__9TObjEneDDFv)();
             return;
         }
         ((s32 (*)(void *, int))transition_enemy_state)((void *)(arg0), (int) (5));
@@ -1626,7 +1626,7 @@ u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneRe4Bit;
     init_vtable_and_field18__13TUnk_80490470Fv((void *) (arg0 + 0x3DC));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AE8;
-    init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));
+    init_common_from__9TObjEneDDFPUc((void *) (arg0), (void *) (arg2));
     *(s16 *)((s8 *)arg0 + 0x3C4) = obj_getField1c((void *) (arg2));
     *(s16 *)((s8 *)arg0 + 0x1C) = arg5;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg6;

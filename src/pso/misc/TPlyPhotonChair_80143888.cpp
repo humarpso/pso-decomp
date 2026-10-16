@@ -4,7 +4,7 @@
 #include "pso/misc/TPlyPhotonChair.h"
 
 extern "C" {
-u8 TBoss1Dragon__sub_80143960(u8 *arg0, s32 arg1);
+u8 sub_80143960__10TObjMotionFl(u8 *arg0, s32 arg1);
 void set_motion_interpolation_flag__10TObjMotionFv(u8 *arg0);
 }
 
@@ -52,8 +52,8 @@ void TObjMotion::set_motion_interpolation_flag() {
     *(u16 *)((s8 *)temp_r3 + 0xA) = (u16) (*(u16 *)((s8 *)temp_r3 + 0xA) | 0x80);
 }
 
-u8 TBoss1Dragon__sub_80143960(u8 *arg0, s32 arg1) {
-    return (u8) ((*(s32 *)((s8 *)arg0 + 0xB0) & arg1) != 0);
+u8 TObjMotion::sub_80143960(s32 arg1) {
+    return (u8) ((*(s32 *)((s8 *)((u8 *)this) + 0xB0) & arg1) != 0);
 }
 
 }

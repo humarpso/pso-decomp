@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDFHorming.h"
 
 typedef struct Vec_8005063C {
     f32 x, y, z;
@@ -22,7 +23,7 @@ f32 fabs_float(f32);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A58;
 extern const f32 lbl_805D8A5C;
-void fn_8005076C(u8 *arg0);
+void sub_8005076C__13TObjDFHormingFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 f32 vector_length(Vec_8005063C *);
@@ -64,16 +65,16 @@ void steer_homing_direction(Obj_8005063C *arg0) {
     }
 }
 
-void fn_8005076C(u8 *arg0) {
+void TObjDFHorming::sub_8005076C() {
     f32 temp_f1;
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x370) - *(f32 *)((s8 *)arg0 + 0x300);
+    temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x370) - *(f32 *)((s8 *)((u8 *)this) + 0x300);
     if (temp_f1 > lbl_805D8A30) {
-        *(f32 *)((s8 *)arg0 + 0x34C) = (f32) (*(f32 *)((s8 *)arg0 + 0x34C) + lbl_805D8A58);
+        *(f32 *)((s8 *)((u8 *)this) + 0x34C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x34C) + lbl_805D8A58);
     } else {
-        *(f32 *)((s8 *)arg0 + 0x34C) = (f32) (*(f32 *)((s8 *)arg0 + 0x34C) - lbl_805D8A58);
+        *(f32 *)((s8 *)((u8 *)this) + 0x34C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x34C) - lbl_805D8A58);
     }
     if (fabs_float(temp_f1) < lbl_805D8A5C) {
-        *(s32 *)((s8 *)arg0 + 0x368) = 1;
+        *(s32 *)((s8 *)((u8 *)this) + 0x368) = 1;
     }
 }
 

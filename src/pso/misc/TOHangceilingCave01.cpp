@@ -181,12 +181,12 @@ void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 mem_free(void*);
 Buf_8016775C * mem_alloc(s32);
 int set_indexed_flags(void*, void*, void*);
-s32 unregister_object_by_id(s32 *);
-s32 refresh_collision_body_centers(void *);
-u32 check_actor_body_contact(void *, void *, f32);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
+u32 check_actor_body_contact__13TUnk_804AF8A0FPvf(void *, void *, f32);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
-s32 access_object_saved_state(void *, int);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, int);
 s32 sub_80166E64__13TUnk_804B1B80Fv(void *);
 s32 sub_80166EA8__13TUnk_804B1B80Fi(void *, int);
 void vfunc_16__16TOFenceAncient04Fv(void);
@@ -205,13 +205,13 @@ void vfunc_80__25TOHangceilingCave01NormalFv(Obj_80168010 *arg0);
 void * __dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1);
 void * TOHangceilingCave01Normal__ct(void *arg0);
 f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0);
-void advance_wrap_offset__25TOHangceilingCave01NormalFPv(void *arg0);
-s32 fn_80168244(Obj_80168244 *self, u32 v);
+void advance_wrap_offset__13TUnk_804B2578Fv(void *arg0);
+s32 sub_80168244__13TUnk_804B2578FUl(Obj_80168244 *self, u32 v);
 void fn_80168280(Obj_80168280 *self, u32 v);
 void reset_state(u8 *arg0);
-void fn_801682E4(Obj_801682E4 *o, s32 arg1);
-void fn_80168398(u8 *arg0);
-void fn_80168488(VO_80168488 *arg0);
+void sub_801682E4__13TUnk_804B2578Fl(Obj_801682E4 *o, s32 arg1);
+void sub_80168398__13TUnk_804B2578Fv(u8 *arg0);
+void sub_80168488__13TUnk_804B2578Fv(VO_80168488 *arg0);
 void destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *, int);
 void init_base__27TOHangceilingCave01KeyQuickFPvii(void *);
 void set_scale__13TUnk_804B2578Ff(void *, f32);
@@ -283,7 +283,7 @@ void TOHangceilingCave01KeyQuick::vfunc_79() {
     *(s32 *)((s8 *)this + 0x24) = turiten_singo_texture_lists[1];
     *(void **)((s8 *)this + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, 1);
     *(f32 *)((s8 *)this + 0x354) = lbl_805DB650;
-    ((s32 (*)(void *, int))fn_801682E4)(this, 3);
+    ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(this, 3);
     p = *(u8 **)((s8 *)this + 0xA4);
     *(s32 *)((s8 *)p + 0x18) &= ~8;
     *(f32 *)((s8 *)this + 0xC0) = lbl_805DB650;
@@ -302,13 +302,13 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
     switch (temp_r0) {
     case 3:
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0x35C))) == 1) && (*(f32 *)((s8 *)arg0 + 0xC0) <= *(f32 *)((s8 *)arg0 + 0xC4))) {
-            ((s32 (*)(void *, int))fn_801682E4)((void *) (arg0), (int) (2));
+            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), (int) (2));
         }
-        ((s32 (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)((void *) (arg0));
+        ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
         return;
     case 1:
-        ((s32 (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)((void *) (arg0));
-        ((s32 (*)(void *))fn_80168488)((void *) (arg0));
+        ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
+        ((s32 (*)(void *))sub_80168488__13TUnk_804B2578Fv)((void *) (arg0));
         if (lbl_805DB65C < *(f32 *)((s8 *)arg0 + 0xC0)) {
             temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF7);
@@ -320,7 +320,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
     case 2:
         if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0x35C))) == 1) {
             if (lbl_805DB650 != *(f32 *)((s8 *)arg0 + 0xC0)) {
-                ((s32 (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)((void *) (arg0));
+                ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
             }
             if (lbl_805DB664 == *(f32 *)((s8 *)arg0 + 0xC0)) {
                 temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
@@ -341,7 +341,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
             } else {
                 *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB684;
             }
-            ((s32 (*)(void *, int))fn_801682E4)((void *) (arg0), (int) (1));
+            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), (int) (1));
         }
         break;
     }
@@ -362,7 +362,7 @@ u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
     ((u8 * (*)(void *, s32))init_base__27TOHangceilingCave01KeyQuickFPvii)(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80167C78___vt__27TOHangceilingCave01KeyQuick *)&__vt__27TOHangceilingCave01KeyQuick).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOHangceilingCave01KeyQuick__class_name;
-    ((TOHangceilingCave01 *)arg0)->init_geometry();
+    ((TUnk_804B2578 *)arg0)->init_geometry();
     set_scale__13TUnk_804B2578Ff(arg0, lbl_805DB688 + *(f32 *)((s8 *)arg0 + 0x70));
     return arg0;
 }
@@ -373,7 +373,7 @@ void TOHangceilingCave01Key::vfunc_79() {
     *(s32 *)((s8 *)this + 0x24) = turiten_singo_texture_lists[1];
     *(void **)((s8 *)this + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, 1);
     *(f32 *)((s8 *)this + 0x354) = lbl_805DB650;
-    ((s32 (*)(void *, int))fn_801682E4)(this, 3);
+    ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(this, 3);
     p = *(u8 **)((s8 *)this + 0xA4);
     *(s32 *)((s8 *)p + 0x18) &= ~8;
     *(f32 *)((s8 *)this + 0xC0) = lbl_805DB650;
@@ -387,13 +387,13 @@ void TOHangceilingCave01Key::vfunc_80() {
     switch (*(s16 *)(arg0 + 0x326)) {
     case 3:
         if (is_current_floor_switch_set((u16)*(s32 *)(arg0 + 0x35C)) == 1 && *(f32 *)(arg0 + 0xC0) <= *(f32 *)(arg0 + 0xC4)) {
-            ((s32 (*)(void *, int))fn_801682E4)(arg0, 2);
+            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(arg0, 2);
         }
-        ((s32 (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)(arg0);
+        ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)(arg0);
         break;
     case 1:
-        ((s32 (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)(arg0);
-        ((s32 (*)(void *))fn_80168488)(arg0);
+        ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)(arg0);
+        ((s32 (*)(void *))sub_80168488__13TUnk_804B2578Fv)(arg0);
         if (lbl_805DB65C == *(f32 *)(arg0 + 0xC0)) {
             *(s32 *)(*(u8 **)(arg0 + 0xA4) + 0x18) &= ~8;
         } else if (lbl_805DB660 == *(f32 *)(arg0 + 0xC0)) {
@@ -402,11 +402,11 @@ void TOHangceilingCave01Key::vfunc_80() {
         }
         break;
     case 2:
-        ((s32 (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)(arg0);
+        ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)(arg0);
         if (lbl_805DB664 == *(f32 *)(arg0 + 0xC0)) {
             *(s32 *)(*(u8 **)(arg0 + 0xA4) + 0x18) |= lbl_805DB658;
         } else if (*(f32 *)(arg0 + 0xC0) == *(f32 *)(arg0 + 0xC4)) {
-            ((s32 (*)(void *, int))fn_801682E4)(arg0, 1);
+            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(arg0, 1);
         }
         break;
     }
@@ -427,7 +427,7 @@ void *TOHangceilingCave01Key__ct(void *arg0) {
     init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TOHangceilingCave01Key;
     *(void **)((s8 *)arg0 + 0x0) = TOHangceilingCave01Key__class_name;
-    ((TOHangceilingCave01 *)arg0)->init_geometry();
+    ((TUnk_804B2578 *)arg0)->init_geometry();
     return arg0;
 }
 
@@ -440,7 +440,7 @@ void TOHangceilingCave01Normal::vfunc_79() {
     p = turiten_singo_texture_lists;
     *(s32 *)((s8 *)this + 0x24) = (s32) *p;
     *(f32 *)((s8 *)this + 0x354) = (f32) (lbl_805DB65C * *(f32 *)((s8 *)this + 0x350));
-    ((s32 (*)(void *, s32, s32 *, f32))fn_801682E4)(this, 0, p, lbl_805DB65C);
+    ((s32 (*)(void *, s32, s32 *, f32))sub_801682E4__13TUnk_804B2578Fl)(this, 0, p, lbl_805DB65C);
     temp_r6 = *(void **)((s8 *)this + 0xA4);
     *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) | lbl_805DB658);
     *(f32 *)((s8 *)this + 0xC0) = (f32) lbl_805DB650;
@@ -456,22 +456,22 @@ void TOHangceilingCave01Normal::vfunc_80() {
             arg0->f354 = arg0->f354 - lbl_805DB654;
             return;
         }
-        ((s32 (*)(void *, int)) fn_801682E4)(arg0, 1);
+        ((s32 (*)(void *, int)) sub_801682E4__13TUnk_804B2578Fl)(arg0, 1);
         ((s32 (*)(void *))reset_state)(arg0);
         return;
     case 1:
-        ((s32 (*)(void))advance_wrap_offset__25TOHangceilingCave01NormalFPv)();
-        ((s32 (*)(void *))fn_80168488)(arg0);
+        ((s32 (*)(void))advance_wrap_offset__13TUnk_804B2578Fv)();
+        ((s32 (*)(void *))sub_80168488__13TUnk_804B2578Fv)(arg0);
         if (lbl_805DB65C == arg0->fC0) {
             *(s32 *)((s8 *)arg0->fA4 + 0x18) &= ~8;
             return;
         }
         if (lbl_805DB660 == arg0->fC0) {
-            ((s32 (*)(void *, int)) fn_801682E4)(arg0, 2);
+            ((s32 (*)(void *, int)) sub_801682E4__13TUnk_804B2578Fl)(arg0, 2);
         }
         return;
     case 2:
-        ((s32 (*)(void))advance_wrap_offset__25TOHangceilingCave01NormalFPv)();
+        ((s32 (*)(void))advance_wrap_offset__13TUnk_804B2578Fv)();
         if (lbl_805DB664 == arg0->fC0) {
             *(s32 *)((s8 *)arg0->fA4 + 0x18) |= lbl_805DB658;
             return;
@@ -498,7 +498,7 @@ void *TOHangceilingCave01Normal__ct(void *arg0) {
     init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TOHangceilingCave01Normal;
     *(void **)((s8 *)arg0 + 0x0) = TOHangceilingCave01Normal__class_name;
-    ((TOHangceilingCave01 *)arg0)->init_geometry();
+    ((TUnk_804B2578 *)arg0)->init_geometry();
     return arg0;
 }
 
@@ -507,17 +507,17 @@ f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0) {
     return farg0 * q.w[game_difficulty_selection];
 }
 
-void advance_wrap_offset__25TOHangceilingCave01NormalFPv(void *arg0) {
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8));
-    if (*(f32 *)((s8 *)arg0 + 0xC4) < *(f32 *)((s8 *)arg0 + 0xC0)) {
-        *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (*(f32 *)&lbl_805DB650);
+void TUnk_804B2578::advance_wrap_offset() {
+    *(f32 *)((s8 *)this + 0xC0) = (f32) (*(f32 *)((s8 *)this + 0xC0) + *(f32 *)((s8 *)this + 0xC8));
+    if (*(f32 *)((s8 *)this + 0xC4) < *(f32 *)((s8 *)this + 0xC0)) {
+        *(f32 *)((s8 *)this + 0xC0) = (f32) (*(f32 *)&lbl_805DB650);
     }
 }
 
-s32 fn_80168244(Obj_80168244 *self, u32 v) {
+s32 TUnk_804B2578::sub_80168244(u32 v) {
     s32 i;
-    for (i = 0; i != self->count; i++) {
-        if (self->arr[i] == v) {
+    for (i = 0; i != ((Obj_80168244 *)this)->count; i++) {
+        if (((Obj_80168244 *)this)->arr[i] == v) {
             return 1;
         }
     }
@@ -535,31 +535,31 @@ void reset_state(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x34C) = 0;
 }
 
-void fn_801682E4(Obj_801682E4 *o, s32 arg1) {
+void TUnk_804B2578::sub_801682E4(s32 arg1) {
     s16 sp8;
-    if (arg1 != o->mode) {
-        o->mode = arg1;
-        if (((s32 (*)(void *, void *, int))access_object_saved_state)(o, &sp8, 1) != 0) {
-            sp8 = o->mode;
+    if (arg1 != ((Obj_801682E4 *)this)->mode) {
+        ((Obj_801682E4 *)this)->mode = arg1;
+        if (((s32 (*)(void *, void *, int))access_object_saved_state__13TUnk_804AF8A0FPvs)(((Obj_801682E4 *)this), &sp8, 1) != 0) {
+            sp8 = ((Obj_801682E4 *)this)->mode;
         }
-        switch (o->mode) {
+        switch (((Obj_801682E4 *)this)->mode) {
         case 0:
         case 1:
             break;
         case 2:
-            o->fish = ((Fish_801682E4 * (*)(s32, s32))get_bml_motion)(TOHangceilingCave01__model_archive, hanging_ceiling_motion_index);
-            o->f0C0 = lbl_805DB68C;
-            o->f0C8 = lbl_805DB654;
-            o->f0C4 = (f32)o->fish->f4 - lbl_805DB654;
+            ((Obj_801682E4 *)this)->fish = ((Fish_801682E4 * (*)(s32, s32))get_bml_motion)(TOHangceilingCave01__model_archive, hanging_ceiling_motion_index);
+            ((Obj_801682E4 *)this)->f0C0 = lbl_805DB68C;
+            ((Obj_801682E4 *)this)->f0C8 = lbl_805DB654;
+            ((Obj_801682E4 *)this)->f0C4 = (f32)((Obj_801682E4 *)this)->fish->f4 - lbl_805DB654;
             break;
         }
     }
 }
 
-void fn_80168398(u8 *arg0) {
+void TUnk_804B2578::sub_80168398() {
     s32 state = TOKeyMachine01::get_global_state();
     s32 id = 0;
-    switch (*(s16 *)(arg0 + 0x326)) {
+    switch (*(s16 *)(((u8 *)this) + 0x326)) {
     case 2:
         switch (state) {
         case 0x13:
@@ -592,7 +592,7 @@ void fn_80168398(u8 *arg0) {
         break;
     }
     if (id != 0) {
-        play_persistent_sound(id, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(id, ((u8 *)this), ((u8 *)this) + 0x38, 0, 0);
     }
 }
 
@@ -605,20 +605,20 @@ static inline void hit_80168488(VO_80168488 *o, VO_80168488 *a, Pair_80168488 p)
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(1)
-void fn_80168488(VO_80168488 *arg0) {
+void TUnk_804B2578::sub_80168488() {
     s32 var_r30;
     VO_80168488 *temp_r3;
     var_r30 = 0;
     do {
         temp_r3 = (VO_80168488 *)get_player_by_client_id(var_r30);
-        if ((temp_r3 != NULL) && (((s32 (*)(void *, void *))fn_80168244)(arg0, temp_r3) == 0)) {
-            if ((((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor()) && (check_actor_body_contact(arg0, temp_r3, lbl_805DB688) != 0U)) {
+        if ((temp_r3 != NULL) && (((s32 (*)(void *, void *))sub_80168244__13TUnk_804B2578FUl)(((VO_80168488 *)this), temp_r3) == 0)) {
+            if ((((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor()) && (check_actor_body_contact__13TUnk_804AF8A0FPvf(((VO_80168488 *)this), temp_r3, lbl_805DB688) != 0U)) {
                 Pair_80168488 t;
                 t.a = 0;
-                t.b = arg0->m79(*(f32 *)((s8 *)arg0 + 0x338));
-                hit_80168488(temp_r3, arg0, t);
+                t.b = ((VO_80168488 *)this)->m79(*(f32 *)((s8 *)((VO_80168488 *)this) + 0x338));
+                hit_80168488(temp_r3, ((VO_80168488 *)this), t);
                 obj_setFlags30(temp_r3, 0x400);
-                ((s32 (*)(void *, void *))fn_80168280)(arg0, temp_r3);
+                ((s32 (*)(void *, void *))fn_80168280)(((VO_80168488 *)this), temp_r3);
             }
         }
         var_r30 += 1;
@@ -699,7 +699,7 @@ extern const f32 lbl_805DB654;
 extern const f32 lbl_805DB688;
 extern const f32 lbl_805DB690;
 
-void TOHangceilingCave01::init_geometry() {
+void TUnk_804B2578::init_geometry() {
     f32 temp_f2;
     VObj_80168588 *self = (VObj_80168588 *)this;
 
@@ -791,7 +791,7 @@ void TUnk_804B2578::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
         this->vfunc_80();
-        fn_80168398(arg0);
+        sub_80168398__13TUnk_804B2578Fv(arg0);
         if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) this->mode != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
             spawn_particle_effect(arg0 + 0x38, 0x64);
         }

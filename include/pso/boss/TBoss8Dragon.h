@@ -6,6 +6,7 @@
 
 struct TBoss8Dragon
 {
+    void sub_802F4098(u8 *);
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

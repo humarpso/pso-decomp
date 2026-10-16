@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessagePage.h"
 #include "pso/misc/TWindowHelpItem.h"
 struct Line_80269454 { u32 flags; u32 f4; };
 
@@ -14,23 +15,23 @@ void *get_field_20__17TWindowSubComCardFv(void *);
 void complete_reveal__14TWindowMessageFPv(Win_80269454 *self);
 Entry_80269454 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void *get_field_20__17TWindowSubComCardFv(void *);
-s32 is_window_reveal_complete();
-s32 is_message_window_ready(struct Win_802693B4 *arg0);
+s32 is_window_reveal_complete__13TUnk_804CE018Fv();
+s32 is_message_window_ready__18TWindowMessagePageFv(struct Win_802693B4 *arg0);
 }
 
 extern "C" {
 
-s32 is_message_window_ready(struct Win_802693B4 *arg0) {
+s32 TWindowMessagePage::is_message_window_ready() {
     Entry_80269454 *e;
     u32 i;
-    if (is_window_reveal_complete() == 0) {
+    if (is_window_reveal_complete__13TUnk_804CE018Fv() == 0) {
         return 0;
     }
-    if (arg0->f6c != arg0->f84) {
+    if (((struct Win_802693B4 *)this)->f6c != ((struct Win_802693B4 *)this)->f84) {
         return 0;
     }
-    for (i = 0; i < arg0->count; i++) {
-        e = get_array_entry__13TUnk_804CE018Fi(arg0, i);
+    for (i = 0; i < ((struct Win_802693B4 *)this)->count; i++) {
+        e = get_array_entry__13TUnk_804CE018Fi(((struct Win_802693B4 *)this), i);
         if (get_field_20__17TWindowSubComCardFv(e) != 0 && !(e->flags & 0x10)) {
             return 0;
         }

@@ -18,7 +18,7 @@ u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 void enemy_find_nearest_player_in_range(f32 farg0);
-void clear_attack_receipts(Obj_800BB780 *self);
+void clear_attack_receipts__9TObjEneDDFv(Obj_800BB780 *self);
 }
 
 extern "C" {
@@ -29,7 +29,7 @@ void TBoss8Dragon__sub_800BB7D8(void);
 void TBoss8Dragon__sub_800BB7DC(void);
 int submit_cursor_candidate(void*, int);
 int refresh_lobby_state__10TObjPlayerFv(void*);
-int send_entity_set_flags__6TLobbyFPv(void*);
+int send_entity_set_flags__9TObjEnemyFv(void*);
 
 void TBoss8Dragon__sub_800BB650(void* p, void* q) { *(u16*)((char*)p + 0x0) = *(u16*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
 
@@ -60,17 +60,17 @@ s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0) {
     return result;
 }
 
-void TBoss8Dragon::refresh_and_send_entity_flags() { refresh_lobby_state__10TObjPlayerFv(this); send_entity_set_flags__6TLobbyFPv(this); }
+void TBoss8Dragon::refresh_and_send_entity_flags() { refresh_lobby_state__10TObjPlayerFv(this); send_entity_set_flags__9TObjEnemyFv(this); }
 
 int TObjEneBm3Fly::was_hit_by_ranged() { return (*(u32*)((char*)this + 0x2dc) >> 1) & 0x1; }
 
-void clear_attack_receipts(Obj_800BB780 *self) {
+void TObjEneDD::clear_attack_receipts() {
     s32 i;
-    self->f33e = self->f32c;
-    self->flags &= ~0x200;
-    self->f2dc = 0;
-    for (i = 0; i < self->count; i++) {
-        self->parts[i].flags &= ~0x04000000;
+    ((Obj_800BB780 *)this)->f33e = ((Obj_800BB780 *)this)->f32c;
+    ((Obj_800BB780 *)this)->flags &= ~0x200;
+    ((Obj_800BB780 *)this)->f2dc = 0;
+    for (i = 0; i < ((Obj_800BB780 *)this)->count; i++) {
+        ((Obj_800BB780 *)this)->parts[i].flags &= ~0x04000000;
     }
 }
 

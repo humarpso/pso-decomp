@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/object/TObjFish.h"
@@ -36,7 +37,7 @@ void TObjPlayer::draw_if_visible() {
         ((TObjEneRe7Berura *)arg0)->draw();
         pop_matrix();
         model_render_flags &= 0xFFFFFFFE;
-        ((TObjPlayer *)arg0)->render_with_position_override(0, 0);
+        ((TObjEnemy *)arg0)->render_with_position_override(0, 0);
     }
 }
 

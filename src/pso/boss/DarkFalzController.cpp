@@ -107,8 +107,8 @@ struct VObj_18_c10bfc : VBase_18_c10bfc {
 struct Desc_8004BD58 { s16 f0; s16 f2; u8 pad4[0x3C]; };
 
 extern "C" {
-s32 TBoss4DarkFalz__sub_8004B084(void *);
-s32 TBoss4DarkFalz__sub_8004B0F8(void *);
+s32 sub_8004B084__14TBoss4DarkFalzFv(void *);
+s32 sub_8004B0F8__14TBoss4DarkFalzFv(void *);
 s32 query_teammate_state__9TObjEneDDFv();
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 fn_802E52AC();
@@ -124,7 +124,7 @@ void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv(void);
 u8 * __dt__9TObjEnemyFv(void *, s16);
-s32 send_entity_set_flags__6TLobbyFPv(void *);
+s32 send_entity_set_flags__9TObjEnemyFv(void *);
 void __dl__7TObjectFPv(s32);
 s32 restore_player_cameras();
 extern s32 __vt__14TBoss4DarkFalz[];
@@ -137,7 +137,7 @@ u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 TBoss4DarkFalz__sub_8004AFB8(void *);
+s32 sub_8004AFB8__14TBoss4DarkFalzFv(void *);
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv();
@@ -178,9 +178,9 @@ void TBoss4DarkFalz::run_task() {
     if (query_teammate_state__9TObjEneDDFv() == 0) {
         ((TBoss4DarkFalz *)arg0)->update_visible_flag();
         if ((s32) *(s32 *)&this->m_378 == 0) {
-            TBoss4DarkFalz__sub_8004B0F8((void *) (arg0));
+            sub_8004B0F8__14TBoss4DarkFalzFv((void *) (arg0));
         }
-        TBoss4DarkFalz__sub_8004B084((void *) (arg0));
+        sub_8004B084__14TBoss4DarkFalzFv((void *) (arg0));
         ((TBoss4DarkFalz *)arg0)->update_roar_sound_timer();
     }
 }
@@ -198,7 +198,7 @@ u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
         case 10:
         case 14:
         case 15:
-            send_entity_set_flags__6TLobbyFPv(arg0);
+            send_entity_set_flags__9TObjEnemyFv(arg0);
             break;
         }
         TBoss4DarkFalz::end_player_camera_pans((void *) (arg0));
@@ -244,7 +244,7 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     initialize__9TObjEnemyFPv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss4DarkFalz;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss4DarkFalz__name;
-    TBoss4DarkFalz__sub_8004AFB8((void *) (arg0));
+    sub_8004AFB8__14TBoss4DarkFalzFv((void *) (arg0));
     if ((s16) *(s16 *)((s8 *)arg2 + 2) != 0x200) {
         return (s32)arg0;
     }

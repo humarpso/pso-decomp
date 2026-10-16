@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -55,7 +56,7 @@ void TAdPlayerLoadGC::send_player_load(s32 arg0) {
 
     ((TObjPlayer *)arg0)->draw_status_icon((s32)(&sp8));
     spawn_particle_effect(&sp8, 9);
-    ((TObjPlayer *)arg0)->spawn_light_task();
+    ((TItemWeapon *)arg0)->spawn_light_task();
     fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, 0, 0);
 }
 

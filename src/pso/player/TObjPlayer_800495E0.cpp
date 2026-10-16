@@ -97,7 +97,7 @@ s16 obj_getField1c(void *);
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
 void create_cage__12TBoss3VoloptFPvUs(void *, u16);
 extern Dmg_80049A1C lbl_80436704[];
-s32 TObjPlayer__sub_800495F8(void *arg0);
+s32 sub_800495F8__13TUnk_80484A94Fv(void *arg0);
 }
 
 extern "C" {
@@ -119,13 +119,13 @@ u8 TObjPlayer::check_flag(s32 arg1) {
     return (u8) ((*(s32 *)&this->m_334 & arg1) != 0);
 }
 
-s32 TObjPlayer__sub_800495F8(void *arg0) {
+s32 TUnk_80484A94::sub_800495F8() {
     s32 i;
     VObj_80049A1C *p;
     void *cage;
     TObjPlayer::init_all_slots();
-    ((TObjPlayer *)arg0)->check_object_collisions();
-    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x80000) {
+    ((TObjPlayer *)this)->check_object_collisions();
+    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)this + 0xA4)) + 0x18) & 0x80000) {
         for (i = 0; i < 0x10; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
             if (p == NULL) {
@@ -133,8 +133,8 @@ s32 TObjPlayer__sub_800495F8(void *arg0) {
             }
             if (obj_is_hit_receivable(p) != 0) {
                 Dmg_80049A1C t = lbl_80436704[0];
-                p->m21(*(s32 *)((s8 *)arg0 + 0x10), &t, 0, -1, -1);
-                cage = *(void **)((s8 *)arg0 + 0x10);
+                p->m21(*(s32 *)((s8 *)this + 0x10), &t, 0, -1, -1);
+                cage = *(void **)((s8 *)this + 0x10);
                 if (cage != NULL) {
                     create_cage__12TBoss3VoloptFPvUs(cage, ((u16 (*)(void *))obj_getField1c)(p));
                 }
@@ -193,7 +193,7 @@ void TUnk_80484A94::run_task() {
     queue_destruction__7TObjectFv(arg0);
     return;
   }
-  if (((*((f32 *) (((s8 *) arg0) + 0x3C))) < lbl_805D8890) && (TObjPlayer__sub_800495F8((void *)((void *) arg0)) != 0))
+  if (((*((f32 *) (((s8 *) arg0) + 0x3C))) < lbl_805D8890) && (sub_800495F8__13TUnk_80484A94Fv((void *)((void *) arg0)) != 0))
   {
     queue_destruction__7TObjectFv(arg0);
   }

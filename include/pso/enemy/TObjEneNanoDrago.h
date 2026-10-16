@@ -7,6 +7,10 @@ struct NanoDragoVector { f32 x, y, z; };
 struct NanoDragoMovementParams { f32 f0; f32 base_speed; s32 turn; };
 
 struct TObjEneNanoDrago {
+    void dispatch_action_state();
+    void sub_800DB970();
+    void sub_800DA2A0();
+    void sub_800DA1F4();
     void load_entry_params_nanodrago(s32);
     void sub_800D9BBC();
     u8 unknown00[0x30];

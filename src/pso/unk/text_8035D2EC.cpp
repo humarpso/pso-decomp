@@ -35,7 +35,7 @@ s32 any_player_has_listed_equipment(void) {
                 for (k = 0; k < 13; k++) {
                     void *it = get_equip_field_d04__10TObjPlayerFv(pl, k);
                     if (it != NULL && e[0] == ((TItem *)it)->get_field_ec() &&
-                        e[1] == ((TObjPlayer *)it)->get_field_ed() &&
+                        e[1] == ((TItem *)it)->get_field_ed() &&
                         e[2] == ((TItemProShield *)it)->get_slot_count()) {
                         return 1;
                     }

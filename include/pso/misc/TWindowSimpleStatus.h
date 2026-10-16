@@ -6,6 +6,9 @@
 
 struct TWindowSimpleStatus : public TUnk_804CE018 {
     virtual ~TWindowSimpleStatus();
+    void draw_background(u8 *);
+    void apply_random_shake();
+    void update_status_icons(void *);
     s16 get_width();
     virtual void render();
     u8 _pad1C[0x4];

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss6Type1.h"
 
 struct RecoveredGlobal_802B5938_lbl_80470FFC {
@@ -436,7 +438,7 @@ void TBoss6Type1__sub_802B59A8(void);
 void TBoss6Type1__sub_802B59CC(void *);
 void TBoss6Type1__sub_802B5AB0(void);
 extern const f32 lbl_805DE348;
-void TBoss6Type1__sub_802B5CB4(u8 *arg0);
+void sub_802B5CB4__11TBoss6Type1Fv(u8 *arg0);
 extern const s32 lbl_805DE2D4;
 void TBoss6Type1__sub_802B4D38(Obj_802B4D38 *self);
 extern const f32 lbl_805DE2F0;
@@ -490,7 +492,7 @@ s32 push_matrix();
 s32 pop_matrix();
 extern Tbl_802B79DC TBoss6Type1__part_position_sources[];
 extern Entry_802B865C lbl_804DED14[];
-void set_action_state__11TBoss6Type1FPvi(Boss_802B865C *arg0, s32 arg1);
+void set_action_state__11TBoss6Type1Fl(Boss_802B865C *arg0, s32 arg1);
 Player_802B6B34 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 s32 is_active__14TBoss6PlotFalzFv();
@@ -635,7 +637,8 @@ void TBoss6Type1::spawn_effect_slot(s32 arg1) {
 #pragma push
 #pragma opt_common_subs on
 #pragma opt_propagation on
-void TBoss6Type1__sub_802B4C28(Obj_802B4C28 *o) {
+void TBoss6Type1::sub_802B4C28() {
+    Obj_802B4C28 *o = (Obj_802B4C28 *)this;
     s32 i;
     Tbl_802B4BA8 *t = TBoss6Type1__effect_slot_table;
     for (i = 0; i < 4; i++) {
@@ -1030,9 +1033,9 @@ void fire_at_all_players__11TBoss6Type1FPvf(Boss_802B5AD4 *self, f32 dy) {
 }
 #pragma pop
 
-void TBoss6Type1__sub_802B5CB4(u8 *arg0) {
+void TBoss6Type1::sub_802B5CB4() {
     u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x374);
+    temp_r0 = *(u32 *)((s8 *)((u8 *)this) + 0x374);
     switch (temp_r0) {
     case 1:
     case 2:
@@ -1046,10 +1049,10 @@ void TBoss6Type1__sub_802B5CB4(u8 *arg0) {
     case 13:
     case 14:
     case 15:
-        TBoss6Type1__sub_802B5970((s32) arg0);
+        TBoss6Type1__sub_802B5970((s32) ((u8 *)this));
         break;
     case 22:
-        TBoss6Type1__sub_802B59CC(arg0);
+        TBoss6Type1__sub_802B59CC(((u8 *)this));
         break;
     case 21:
         TBoss6Type1__sub_802B59A8();
@@ -1059,13 +1062,13 @@ void TBoss6Type1__sub_802B5CB4(u8 *arg0) {
         break;
     case 30:
     case 31:
-        TBoss6Type1__sub_802B5970((s32) arg0);
+        TBoss6Type1__sub_802B5970((s32) ((u8 *)this));
         break;
     case 27:
-        TBoss6Type1__sub_802B5970((s32) arg0);
+        TBoss6Type1__sub_802B5970((s32) ((u8 *)this));
         break;
     case 32:
-        TBoss6Type1__sub_802B5970((s32) arg0);
+        TBoss6Type1__sub_802B5970((s32) ((u8 *)this));
         break;
     case 16:
     case 17:
@@ -1075,16 +1078,16 @@ void TBoss6Type1__sub_802B5CB4(u8 *arg0) {
     case 34:
     case 35:
     case 36:
-        ((TBoss6Type1 *)arg0)->request_default_jittered_camera();
+        ((TBoss6Type1 *)((u8 *)this))->request_default_jittered_camera();
         break;
     case 37:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x410) > (s32) ((f32) *(s32 *)((s8 *)arg0 + 0x40C) - lbl_805DE348)) {
-            ((TBoss6Type1 *)arg0)->request_default_jittered_camera();
+        if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x410) > (s32) ((f32) *(s32 *)((s8 *)((u8 *)this) + 0x40C) - lbl_805DE348)) {
+            ((TBoss6Type1 *)((u8 *)this))->request_default_jittered_camera();
             break;
         }
         break;
     default:
-        TBoss6Type1::request_jittered_camera((void *)((void *)((s32) arg0)), (void *)((void *)(NULL)), (void *)((void *)(NULL)), (int)((int)(0xFFFF)));
+        TBoss6Type1::request_jittered_camera((void *)((void *)((s32) ((u8 *)this))), (void *)((void *)(NULL)), (void *)((void *)(NULL)), (int)((int)(0xFFFF)));
         break;
     }
 }
@@ -2058,36 +2061,36 @@ Blk_802B8624 *copy_block__11TBoss6Type1FPvPv(Blk_802B8624 *d, Blk_802B8624 *s) {
     return d;
 }
 
-void set_action_state__11TBoss6Type1FPvi(Boss_802B865C *arg0, s32 arg1) {
+void TBoss6Type1::set_action_state(s32 arg1) {
     Action_802B865C a;
     Entry_802B865C *e;
     s32 i;
-    arg0->state = arg1;
+    ((Boss_802B865C *)this)->state = arg1;
     for (i = 31; i > 0; i--) {
-        arg0->hist[i] = arg0->hist[i - 1];
+        ((Boss_802B865C *)this)->hist[i] = ((Boss_802B865C *)this)->hist[i - 1];
     }
-    arg0->hist[0] = arg0->state;
-    switch (arg0->state) {
+    ((Boss_802B865C *)this)->hist[0] = ((Boss_802B865C *)this)->state;
+    switch (((Boss_802B865C *)this)->state) {
     case 24:
-        arg0->f4B8++;
+        ((Boss_802B865C *)this)->f4B8++;
         break;
     case 26:
-        arg0->f4BC++;
-        arg0->f4C0++;
+        ((Boss_802B865C *)this)->f4BC++;
+        ((Boss_802B865C *)this)->f4C0++;
         break;
     case 34:
-        arg0->f4BC++;
-        arg0->f4C4++;
+        ((Boss_802B865C *)this)->f4BC++;
+        ((Boss_802B865C *)this)->f4C4++;
         break;
     }
-    e = &lbl_804DED14[arg0->state];
-    ((TBoss6Type1 *)arg0)->set_motion_set(e->anim);
-    arg0->f418 = e->f8;
+    e = &lbl_804DED14[((Boss_802B865C *)this)->state];
+    ((TBoss6Type1 *)((Boss_802B865C *)this))->set_motion_set(e->anim);
+    ((Boss_802B865C *)this)->f418 = e->f8;
     a.words[0] = e->act[0];
     a.words[1] = e->act[1];
     a.words[2] = e->act[2];
     if (a.action != 0) {
-        (arg0->*a.action)();
+        (((Boss_802B865C *)this)->*a.action)();
     }
 }
 
@@ -2098,7 +2101,7 @@ void TBoss6Type1::render_shadows() {
     }
 }
 
-void TBoss6Type1::vfunc_63() { if (*(int*)((char*)this + 0x374) != 40) { set_action_state__11TBoss6Type1FPvi((Boss_802B865C *)(this), (s32)((void*)40)); } }
+void TBoss6Type1::vfunc_63() { if (*(int*)((char*)this + 0x374) != 40) { set_action_state__11TBoss6Type1Fl((Boss_802B865C *)(this), (s32)((void*)40)); } }
 
 extern const f32 TBoss6Type1__data_805DE2E4;
 
@@ -2404,7 +2407,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 arg1, s32 arg2_) {
     ((TObjEnemy *)arg0)->initialize((void*)arg1);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__11TBoss6Type1;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3EB0;
-    ((TObjPlayer *)arg0)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x3F8) = arg2[0];
     ((VObj_18_f05d67 *)(arg0))->m79(arg2 + 1);
     if (((TObjEnemy *)arg0)->exchange_object_state((s32)(&tmp), (s16)1) != 0) {
@@ -2463,7 +2466,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 arg1, s32 arg2_) {
     ((TBoss6Type1 *)arg0)->clear_slot_array();
     TBoss6Type1__sub_802B4A90(arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x56C, arg0 + 0x38);
-    set_action_state__11TBoss6Type1FPvi((Boss_802B865C *)arg0, 0);
+    set_action_state__11TBoss6Type1Fl((Boss_802B865C *)arg0, 0);
     return arg0_;
 }
 #pragma pop

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClawBody.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 
 typedef struct Plr_800C6E34 {
@@ -300,20 +301,20 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805DA080;
-void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0);
+void sub_800C73F4__18TObjEneBalClawBodyFv(u8 *arg0);
 }
 
 extern "C" {
 
 s32 get_player_by_client_id(u16);
 
-u8 TObjPlayer::find_target_in_range(f32 farg0) {
+u8 TObjEnemyCustom::find_target_in_range(f32 farg0) {
     if (obj_testFlags30(this, 0x10) != 0) {
         return ((u8 (*)(void *, f32))select_nearest_target__10TObjPlayerFPvf)(this, farg0);
     }
     *(u16 *)((s8 *)this + 0x338) = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(this, 0, farg0);
-    this->m_2a8 = get_player_by_client_id(*(u16 *)((s8 *)this + 0x338));
-    return (u8) (this->m_2a8 != 0);
+    (*(s32 *)((u8 *)this + 0x2A8)) = get_player_by_client_id(*(u16 *)((s8 *)this + 0x338));
+    return (u8) ((*(s32 *)((u8 *)this + 0x2A8)) != 0);
 }
 
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1) {
@@ -371,12 +372,12 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
     }
 }
 
-void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0) {
-    if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805DA080) {
-        ((TObjEneMe1GiGue *)arg0)->update_if_active((int) (8));
+void TObjEneBalClawBody::sub_800C73F4() {
+    if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (((u8 *)this) + 0x50)) > lbl_805DA080) {
+        ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active((int) (8));
         return;
     }
-    ((VObj_18 *)(arg0))->m56();
+    ((VObj_18 *)(((u8 *)this)))->m56();
 }
 
 }

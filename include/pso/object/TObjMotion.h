@@ -5,6 +5,7 @@
 class TUnk_804B9870 : public TObject {
 public:
     virtual ~TUnk_804B9870();
+    s16 get_stat_by_key_state();
     virtual void vfunc_6(s16 *, s32);
     virtual void vfunc_7(void *);
     virtual void reset_motion_fields();
@@ -50,6 +51,15 @@ public:
 class TUnk_804AF8A0 : public TUnk_804B9870 {
 public:
     virtual ~TUnk_804AF8A0();
+    s32 access_object_saved_state(void *, s16);
+    void sub_80156A68();
+    void*initialize_linked_object_reference(void*);
+    void clear_obj_links();
+    u32 check_actor_body_contact(void *, f32);
+    void mark_enemy_body_contacts();
+    void refresh_collision_body_centers();
+    u16 unregister_object_by_id();
+    void send_object_state_update(void *);
     virtual void vfunc_13(s32);
     u8 *construct_collider_proxy();
     void *destroy_particle_controller(s16);
@@ -70,6 +80,12 @@ public:
 class TObjMotion : public TUnk_804AF8A0 {
 public:
     virtual ~TObjMotion();
+    void*get_anim_entry(int);
+    u8 sub_80143960(s32);
+    s32 get_anim_entry_value(s16);
+    void update_animation_frame(s32);
+    s32 get_item_ptr(s32);
+    void sub_800E2DE4(s32);
     void set_motion_interpolation_flag();
     void set_field_b8(s16);
     u32 unknownAC;

@@ -5,6 +5,7 @@
 #include "pso/enemy/TObjEnemy.h"
 
 struct TObjEneSlimeTailAttack : public TObjEnemy {
-    virtual ~TObjEneSlimeTailAttack();};
+    virtual ~TObjEneSlimeTailAttack();
+    int find_nearest_enemy_with_flag(f32);};
 
 #endif

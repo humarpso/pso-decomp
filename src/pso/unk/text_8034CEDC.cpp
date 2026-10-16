@@ -6,7 +6,7 @@ extern "C" {
 s32 get_main_phase();
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 s32 align_menu_entry_positions(int);
-s32 update_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 update_layout_height__21TWindowSubComCardListFf(int, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 draw_card_icon__17TWindowSubComCardFll(int, int, int);
 s32 get_window_layout_position(int);
@@ -31,7 +31,7 @@ s32 create_info_board_menu(void) {
   }
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFl((int) 0x118), (int) 6, (int) 9);
   ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
-  update_layout_height__17TWindowSubComCardFPvf((int) temp_r31, (f32) lbl_805DFDE0);
+  update_layout_height__21TWindowSubComCardListFf((int) temp_r31, (f32) lbl_805DFDE0);
   align_menu_entry_positions((int) temp_r31);
   return temp_r31;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/TObjNewFloorWin.h"
 #include "pso/misc/TQuestListVM.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -25,7 +26,7 @@ s32 TWindowCtrlMain__sub_8024CE58();
 
 extern "C" {
 
-void TQuestListVM::set_field_20(s32 v) { *(s32 *)&this->m_20 = v; }
+void TShopWindowBase::set_field_20(s32 v) { *(s32 *)&(*(u32 *)((u8 *)this + 0x20)) = v; }
 
 void TObjNewFloorWin::run_task() {
     TObjNewFloorWin_80073DCC *self = (TObjNewFloorWin_80073DCC *)this;

@@ -6,6 +6,9 @@
 
 struct TWindowKeyBoardBase : public TUnk_804CE018 {
     virtual ~TWindowKeyBoardBase();
+    void sub_8025E6DC(u8 *);
+    void draw_wrapped_text(void *, void *);
+    void draw_text_glyphs(void *, void *);
     int sub_8025EB68();
     bool sub_8025CB10();
     u8 _pad1C[0x46];

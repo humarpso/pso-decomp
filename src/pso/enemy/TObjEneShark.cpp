@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TUnk_80493450.h"
@@ -308,7 +310,7 @@ extern const f32 lbl_805D9B8C;
 extern const f32 lbl_805D9B90;
 extern const f32 lbl_805D9B94;
 u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
-s32 render_with_position_override__10TObjPlayerFPUcl(void *, void *, int);
+s32 render_with_position_override__9TObjEnemyFPUcl(void *, void *, int);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 check_demo_mode__10TObjPlayerFv();
@@ -689,7 +691,7 @@ void TObjEneShark::render() {
       v.x = lbl_805D9BBC;
       v.y = lbl_805D9BC0;
       v.z = lbl_805D9BC4;
-      render_with_position_override__10TObjPlayerFPUcl(arg0, &v, 0);
+      render_with_position_override__9TObjEnemyFPUcl(arg0, &v, 0);
     }
   }
 }
@@ -742,7 +744,7 @@ void sub_800AC9DC__12TObjEneSharkFl(O_800AC9DC *self, s32 i);
 extern s32 game_difficulty_selection;
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void unlink_enemy_group_relations(void *);
+void unlink_enemy_group_relations__13TUnk_80493450Fv(void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -1095,7 +1097,7 @@ O_800AC5EC *TObjPlayer__sub_800AC5EC(O_800AC5EC *arg0, s16 arg1) {
                 arg0->objs[i] = NULL;
             }
         }
-        unlink_enemy_group_relations(arg0);
+        unlink_enemy_group_relations__13TUnk_80493450Fv(arg0);
         free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x3CC, TObjPlayer__sub_800D7C58, 0x1C, 4);
         __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3A8, -1);
@@ -1228,7 +1230,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
                             ((s32 *)shark_resource_data)[self->f334]);
     self->f350 = lbl_804915B4 + self->f334 * 0x1C;
     self->f33E = self->f32C;
-    ((TObjPlayer *)self)->update_prev_position();
+    ((TObjEnemy *)self)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(self);
     initialize_enemy_photon_effect(self);
     self->f2AC = (s32)(lbl_805D9BD0 * (lbl_805D9BD4 * calc_boss4_scale__10TObjPlayerFi(self)));
@@ -1239,7 +1241,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->f376 = 0;
     self->f378 = 0;
     self->f37C = 0;
-    ((TObjPlayer *)self)->add_flags_2e4(2);
+    ((TUnk_804806E8 *)self)->add_flags_2e4(2);
     self->f30 |= 0x40000;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
         switch (self->f334) {

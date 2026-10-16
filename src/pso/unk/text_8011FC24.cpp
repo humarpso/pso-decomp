@@ -18,16 +18,16 @@ void TItemEffectWeapon__sub_8036340C(void*);
 void TItemEffectWeapon__sub_80363410(void*);
 extern const f32 lbl_805DAC9C;
 
-u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
-u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
+u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
+u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, int);
 s32 draw_weapon_model(void *);
 s32 draw_weapon_at_joint(void *, int);
-u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
+u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
 s32 draw_weapon_model(void *);
 s32 draw_weapon_at_joint(void *, int);
 s32 get_field_d8__10TObjPlayerFv(void *);
-u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
+u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
 void render_trail__17TItemEffectWeaponFv(void *);
 void push_id_to_list__10TObjPlayerFl(s32);
 void vfunc_26__11TItemWeaponFv(u8 *arg0);
@@ -37,14 +37,14 @@ extern "C" {
 
 void TItemWeapon::update_trails() {
     u8 *arg0 = (u8 *)this;
-    if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x400U) != 0U) {
+    if (test_flags_1b8__11TItemWeaponFUl(arg0, 0x400U) != 0U) {
         draw_weapon_at_joint((void *) (arg0), (int) (0x30));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
         draw_weapon_at_joint((void *) (arg0), (int) (0x23));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
         return;
     }
-    if (test_flags_1b8__10TObjPlayerFUl(arg0, 1U) == 0U) {
+    if (test_flags_1b8__11TItemWeaponFUl(arg0, 1U) == 0U) {
         draw_weapon_model((void *) (arg0));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
@@ -53,29 +53,29 @@ void TItemWeapon::update_trails() {
 
 void TItemWeapon::vfunc_28() {
     u8 *arg0 = (u8 *)this;
-    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U)) {
+    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x80U) == 0U)) {
         this->reserved_53();
         update_trails();
     }
 }
 void TItemWeapon::vfunc_27() {
     u8 *arg0 = (u8 *)this;
-    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x1000U) == 0U)) {
+    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x1000U) == 0U)) {
         this->reserved_53();
-        if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x400U) != 0U) {
+        if (test_flags_1b8__11TItemWeaponFUl(arg0, 0x400U) != 0U) {
             draw_weapon_at_joint((void *) (arg0), (int) (0x30));
             draw_weapon_at_joint((void *) (arg0), (int) (0x23));
             return;
         }
-        if (test_flags_1b8__10TObjPlayerFUl(arg0, 1U) == 0U) {
+        if (test_flags_1b8__11TItemWeaponFUl(arg0, 1U) == 0U) {
             draw_weapon_model((void *) (arg0));
         }
     }
 }
 void TItemWeapon::vfunc_26() {
     s32 count;
-    if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(((u8 *)this), 0x80U) == 0U)) {
-        if (test_flags_1b8__10TObjPlayerFUl(((u8 *)this), 0x800U) != 0U) {
+    if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0xF0) != 0U) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x80U) == 0U)) {
+        if (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x800U) != 0U) {
             push_id_to_list__10TObjPlayerFl(get_field_d8__10TObjPlayerFv(((u8 *)this)));
             return;
         }
@@ -99,8 +99,8 @@ void TItemWeapon::vfunc_16() {
     u32 frames;
     s32 count;
     s32 idle_count;
-    if(test_flags_1b8__10TObjPlayerFUl(self,0x100)==0) {
-        if(test_flags_1b8__10TObjPlayerFUl(self,0x4000)!=0) TObjPlayer__sub_80100F34(self);
+    if(test_flags_1b8__11TItemWeaponFUl(self,0x100)==0) {
+        if(test_flags_1b8__11TItemWeaponFUl(self,0x4000)!=0) TObjPlayer__sub_80100F34(self);
         bind_loaded_resources__14TItemEquipBaseFv(self);
         stage=((TItemWeapon *)self)->get_attack_stage();
         if(stage!=self->stage) {

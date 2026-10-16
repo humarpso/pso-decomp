@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowSubShortMail.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowMakeTeam.h"
@@ -21,7 +22,7 @@ void TWindowSubShortMail__sub_80131998(void *arg0) {
             set_flag60_bit200__16TKeyBoardControlFPv(*(void **)((s8 *)arg0 + 0x24));
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != 0U) {
-            ((TWindowSubTradeMain *)(*(void **)((s8 *)arg0 + 0x28)))->request_close();
+            ((TWindowLockOn *)(*(void **)((s8 *)arg0 + 0x28)))->request_close();
         }
     }
 }

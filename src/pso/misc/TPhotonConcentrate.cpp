@@ -34,8 +34,8 @@ struct VObj_18_b27ba1 : VBase_18_b27ba1 {
 
 extern "C" {
 
-s16 get_actor_attack_params_atp_min(void *);
-s16 get_ata__10TObjPlayerFPv(void *);
+s16 get_actor_attack_params_atp_min__13TUnk_804806E8Fv(void *);
+s16 get_ata__10TObjPlayerFv(void *);
 s16 TObjPlayer__sub_80113D90(void *);
 extern const f32 lbl_805DC110;
 extern const f32 lbl_805DC114;

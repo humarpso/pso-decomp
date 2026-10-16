@@ -1,13 +1,14 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 
 extern "C" {
 
 s32 send_6x76_set_entity_set_flags(void *, s32);
 
-s32 send_entity_set_flags__6TLobbyFPv(void *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
-        send_6x76_set_entity_set_flags(arg0, 8);
+s32 TObjEnemy::send_entity_set_flags() {
+    if ((u32) *(u32 *)((s8 *)this + 0x80) != 0U) {
+        send_6x76_set_entity_set_flags(this, 8);
         return 1;
     }
     return 0;

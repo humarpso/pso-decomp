@@ -201,6 +201,7 @@ private:
 public:
     TProtocol(TObject *parent, u16 sub_version, int language, char *serial_number, char *access_key, char *password);
     virtual ~TProtocol();
+    const u8 next();
 
     virtual void run_task();
     virtual short send(u8 *data, size_t size);

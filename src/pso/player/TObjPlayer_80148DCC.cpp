@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcBase.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -170,7 +171,7 @@ void TObjPlayer::draw_model() {
         pop_matrix();
         model_render_flags &= 0xFFFFFFFE;
         restore_scene_lighting();
-        ((TObjPlayer *)arg0)->render_with_position_override(0, 0);
+        ((TObjEnemy *)arg0)->render_with_position_override(0, 0);
     }
 }
 typedef struct VBase_18_3eea3b VBase_18_3eea3b;
@@ -234,7 +235,7 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
       break;
   }
   advance_animation_playback((void *) arg0);
-  ((TObjPlayer *)arg0)->update_prev_position();
+  ((TObjEnemy *)arg0)->update_prev_position();
   new_var = arg0;
   copy_position__20TBoss3VoloptHiraisinFi((s32) new_var);
   if ((((s32) (*((s32 *) (((s8 *) arg0) + 0x3A8)))) > 0) && (TRaderMapCore::is_not_split_screen() == 0))

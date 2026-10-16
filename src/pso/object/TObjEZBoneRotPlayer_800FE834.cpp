@@ -12,7 +12,7 @@ extern RecoveredGlobal_800FE930___vt__19TObjEZBoneRotPlayer __vt__19TObjEZBoneRo
 extern s32 TObjEZBoneRotPlayer__name;
 u8 * __ct__19TObjEZBoneRotPlayerFv(u8 *arg0, s32 arg1, u8 *arg2, void *);
 void *__nw__7TObjectFUl(int);
-s32 start_bone_rotation_sequence(void*, s32);
+s32 start_bone_rotation_sequence__19TObjEZBoneRotPlayerFl(void*, s32);
 extern const f32 lbl_805DAA4C;
 }
 
@@ -67,7 +67,7 @@ void *TObjEZBoneRotPlayer::create(void *arg0, void *arg1, void *arg2) {
     return o;
 }
 void TObjEZBoneRotPlayer::advance_bone_rotation() {
-    start_bone_rotation_sequence(this, *(s32 *)((s8 *)this + 0x84));
+    start_bone_rotation_sequence__19TObjEZBoneRotPlayerFl(this, *(s32 *)((s8 *)this + 0x84));
     if (*(f32 *)((s8 *)this + 0x94) > (*(f32 *)&lbl_805DAA4C)) {
         *(s32 *)((s8 *)this + 0x84) = (s32) (*(s32 *)((s8 *)this + 0x84) + *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x20)) + 4));
     }

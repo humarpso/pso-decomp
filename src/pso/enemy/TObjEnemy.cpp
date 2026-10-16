@@ -13,7 +13,7 @@ extern const f32 lbl_805DA8E0;
 extern "C" {
 
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
-int unregister_object_by_id(void*);
+int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 s32 __dl__7TObjectFPv(void *);
 s32 copy_header__6TLobbyFPv(s32);
 s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
@@ -78,7 +78,7 @@ s32 TObjEnemy::apply_by_index(s16 arg0) {
     return 1;
 }
 
-int TObjEnemy::apply_player_54a00() { return unregister_object_by_id(this); }
+int TObjEnemy::apply_player_54a00() { return unregister_object_by_id__13TUnk_804AF8A0Fv(this); }
 void TUnk_804AF8A0::clear_shadow_flag() { *(u16*)((char*)this + 0x4) &= 0xfffffbff; }
 void TUnk_804AF8A0::set_shadow_flag() { *(u16*)((char*)this + 0x4) |= 0x400; }
 

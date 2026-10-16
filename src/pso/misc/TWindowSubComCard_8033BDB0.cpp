@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
 
 struct VBase { char pad[0x18]; };
@@ -32,7 +33,7 @@ void TWindow__close(void *);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
 u32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 align_menu_entry_positions(u32);
-s32 update_layout_height__17TWindowSubComCardFPvf(u32, f32);
+s32 update_layout_height__21TWindowSubComCardListFf(u32, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, s32, s32);
 u32 create_window_menu(s32 *, s32, s32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32 *, s32);
@@ -101,12 +102,12 @@ void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 arg2, u32 arg3, u3
         }
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x34), msg, 5, 1);
     }
-    update_layout_height__17TWindowSubComCardFPvf(*(u32 *)((s8 *)this + 0x34), lbl_805D6D98);
+    update_layout_height__21TWindowSubComCardListFf(*(u32 *)((s8 *)this + 0x34), lbl_805D6D98);
     align_menu_entry_positions(*(u32 *)((s8 *)this + 0x34));
     if (arg2 != -2) {
-        ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x34)))->set_selected_index(arg2);
+        ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0x34)))->set_selected_index(arg2);
     } else {
-        ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x34)))->set_selected_index(0);
+        ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0x34)))->set_selected_index(0);
     }
     ((TWindowOptionCtrl *)(*(u32 *)((s8 *)this + 0x34)))->clear_flag70_bit4();
 }

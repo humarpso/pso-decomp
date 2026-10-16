@@ -40,7 +40,7 @@ int restore_scene_lighting(void*);
 int select_actor_lighting(void*);
 int bind_enemy_combat_stats(void*);
 s32 get_main_phase();
-int render_with_position_override__10TObjPlayerFPUcl(void*);
+int render_with_position_override__9TObjEnemyFPUcl(void*);
 int set_param__12TObjEneLappyFl(void*);
 
     extern int model_render_flags;
@@ -54,7 +54,7 @@ void TObjEneDD::vfunc_100() {
 
 void TObjEneDD::clear_global_flag_400() { model_render_flags = (model_render_flags & 0xfffffbff); }
 
-int TObjEneDD::update_player_state() { return render_with_position_override__10TObjPlayerFPUcl(this); }
+int TObjEneDD::update_player_state() { return render_with_position_override__9TObjEnemyFPUcl(this); }
 
 void TObjEneDD::draw_oriented_shadow(s32 arg1, s32 arg2, u32 arg3) {
     s32 arg0 = (s32)this;

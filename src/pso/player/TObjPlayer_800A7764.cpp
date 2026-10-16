@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDimedian.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -94,7 +95,7 @@ struct Player_800A7CA4 : VBase18_800A7CA4 {
 };
 
 extern "C" {
-void TObjPlayer__sub_800A7798(u8 *arg0, f32 farg0);
+void sub_800A7798__9TObjEnemyFf(u8 *arg0, f32 farg0);
 void sub_800A7B54__15TObjEneDimedianFv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
@@ -178,12 +179,12 @@ s16 TObjPlayer::get_field_2c8() { return *(s16 *)&this->m_2c8; }
 s16 TObjPlayer__sub_800A776C(void* p) { return *(s16*)((char*)p + 0x2ca); }
 int TObjPlayer__sub_800A7774(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x38); }
 
-void TObjPlayer__sub_800A7798(u8 *arg0, f32 farg0) {
-    *(f32 *)((s8 *)arg0 + 0xD0) = farg0;
-    ((TObjPlayer *)arg0)->set_flags_B0((u32)(0x100U));
+void TObjEnemy::sub_800A7798(f32 farg0) {
+    *(f32 *)((s8 *)((u8 *)this) + 0xD0) = farg0;
+    ((TObjEnemy *)((u8 *)this))->set_flags_B0((u32)(0x100U));
 }
 
-void TObjPlayer::set_flags_B0(u32 v) { *(u32*)((char*)this + 0xb0) |= v; }
+void TObjEnemy::set_flags_B0(u32 v) { *(u32*)((char*)this + 0xb0) |= v; }
 void TObjEneDimedian::vfunc_101() {  }
 
 void TObjEneDimedian::vfunc_99() {
@@ -436,7 +437,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
         pos[0] = lbl_805D9AB4;
         pos[1] = lbl_805D9AB8;
         pos[2] = lbl_805D9ABC;
-        ((TObjPlayer *)self)->render_with_position_override((u8 *)pos, (s32)0);
+        ((TObjEnemy *)self)->render_with_position_override((u8 *)pos, (s32)0);
         break;
     }
 }

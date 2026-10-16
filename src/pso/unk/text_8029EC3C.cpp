@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
 struct Vec_8029EC3C { f32 x; f32 y; f32 z; };
@@ -46,7 +47,7 @@ s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {
     if (p == 0) return 0;
     scale = lbl_805DDD98;
     if (TOKeyMachine01::get_global_state() == 0x1C) {
-        if ((s16)((TObjPlayer *)p)->get_stat_by_key_state() == 0x5A) {
+        if ((s16)((TUnk_804B9870 *)p)->get_stat_by_key_state() == 0x5A) {
             scale = lbl_805DDD9C;
         } else {
             scale = lbl_805DDD98;

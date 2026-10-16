@@ -16,14 +16,14 @@ struct Quantity_8026D000 {
 };
 
 extern "C" {
-s32 setup_window_draw_context(void *, void *);
+s32 setup_window_draw_context__13TUnk_804CE018Fl(void *, void *);
 s32 draw_visible_window_entries(void *, void *, int);
 void render__15TWindowQuantityFv(s32 arg0);
 s32 get_camera_id__11TCameraCtrlFv(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 calc_text_width(void);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void save_position__17TWindowSubComCardFPv(void *);
+void save_position__13TUnk_804CE018Fv(void *);
 void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_window_layout_position(s32);
@@ -43,7 +43,7 @@ extern "C" {
 
 void *create_window_quantity(void *arg0);
 void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1);
-int update_window_entry_list(void*, void*);
+int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -55,12 +55,12 @@ void TWindowQuantity::set_position(s32 arg1) {
 
 void render__15TWindowQuantityFv(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = setup_window_draw_context((void *)(arg0), (void *) (arg0 + 0x64));
+    temp_r3 = setup_window_draw_context__13TUnk_804CE018Fl((void *)(arg0), (void *) (arg0 + 0x64));
     ((TWindowQuantity *)arg0)->set_position((s32)((int) (temp_r3)));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void TWindowQuantity::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list(this, (char*)this + 0x24); }
+void TWindowQuantity::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list__13TUnk_804CE018FPv(this, (char*)this + 0x24); }
 
 extern s32 __vt__15TWindowQuantity[];
 
@@ -92,7 +92,7 @@ void *TWindowQuantity__ct(void *arg0, void *arg1) {
     set_text_entry_string(e0, id, 0);
     *(f32 *)(e1 + 8) = lbl_805DD2D0 + (lbl_805DD2D4 + (lbl_805DD2D8 + n));
     self->f38 = TWindowSubStatusDisp::get_base_y(self->f60);
-    save_position__17TWindowSubComCardFPv(arg0);
+    save_position__13TUnk_804CE018Fv(arg0);
     if (get_camera_id__11TCameraCtrlFv() > 2) {
         self->f64 = lbl_805DD2DC;
         self->f68 = lbl_805DD2DC;

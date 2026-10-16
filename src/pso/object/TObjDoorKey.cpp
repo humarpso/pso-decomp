@@ -138,7 +138,7 @@ void TLobby__sub_8001FE7C(void*, int);
 int update_armed_switch__5TOKeyFv(void*);
 s32 free_collision_body_parts(void *);
 void *TObjEnvSoundGlobal__ct(void *, void *, void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 int submit_cursor_candidate(void*, int);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__5TOKeyFv(void *, s32);
@@ -289,7 +289,7 @@ extern s32 __vt__11TObjDoorKey[];
 void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjDoorKey;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8));

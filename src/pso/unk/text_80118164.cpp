@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/item/TItemProShield.h"
 
@@ -18,7 +19,7 @@ void TItemProShield::vfunc_26() {
         *(s32 *)((s8 *)((u8 *)this) + 0xF4) = temp_r31;
         return;
     }
-    ((TItemProShield *)((u8 *)this))->deactivate_shield_effect((s32) ((TItemEquipBase *)((u8 *)this))->get_attach_joint());
+    ((TItemProShield *)((u8 *)this))->deactivate_shield_effect((s32) ((TItemWeapon *)((u8 *)this))->get_attach_joint());
 }
 
 }

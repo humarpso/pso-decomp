@@ -6,6 +6,9 @@
 
 struct TBoss7Crawfish : public TObjEnemy {
     virtual ~TBoss7Crawfish();
+    s32 sub_80308AA8();
+    s32 is_visible();
+    s32 sub_80308688();
     s16 get_floor();
     virtual void clear_harmful_statuses();
     virtual void apply_shock_status();

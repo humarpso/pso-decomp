@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListVM.h"
 
 extern "C" {
@@ -31,7 +32,7 @@ void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     *(u32 *)((s8 *)arg0 + 0x68) = 0;
     *(void **)((s8 *)arg0 + 0x24) = arg3;
     memset(self->f_4C, 0, 28);
-    ((TQuestListVM *)arg0)->set_field_20(0);
+    ((TShopWindowBase *)arg0)->set_field_20(0);
     TQuestListOnline__instance = arg0;
     return arg0;
 }

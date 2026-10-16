@@ -6,6 +6,7 @@
 
 struct TTecZonde : public TUnk_804CCC68 {
     virtual ~TTecZonde();
+    void init_parameters();
     void render();
     void run_task();
     u8 unk_130[0x5C];

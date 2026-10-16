@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -347,7 +348,7 @@ struct Berura_80092CCC {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-void clear_attack_receipts(void *);
+void clear_attack_receipts__9TObjEneDDFv(void *);
 s32 transition_enemy_state(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -650,7 +651,7 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         self->field3C0 &= ~7;
         advance_animation_playback(self);
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(self, 0x4003A826), &self->pos, 0, 0);
-        ((TObjEneDD *)self)->set_active();
+        ((TObjEneDD_ST *)self)->set_active();
         break;
     case 3:
         if (((TObjEneDD *)self)->get_flag_b4() != 0) {
@@ -666,7 +667,7 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         self->vel.z *= TObjEneRe7Berura__data_805D9738;
         break;
     case 5:
-        clear_attack_receipts(self);
+        clear_attack_receipts__9TObjEneDDFv(self);
         ((TObjEneDD *)self)->clear_field_388();
         break;
     }

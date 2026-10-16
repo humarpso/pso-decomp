@@ -6,6 +6,7 @@
 class TObjWarpString : public TObject {
 public:
     virtual ~TObjWarpString();
+    void sub_8019B77C();
     virtual void run_task();
     virtual void render();
 public:

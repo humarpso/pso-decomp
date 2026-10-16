@@ -10,8 +10,8 @@ extern "C" {
 
 void TWindowSubEquip__sub_80263AF4(void);
 void call_if_split_screen(u32 arg0);
-s32 create_submenu__15TWindowMainMenuFPvUi(s32, s16);
-s32 destroy_submenu__15TWindowMainMenuFPv();
+s32 create_submenu__15TWindowMainMenuFUl(s32, s16);
+s32 destroy_submenu__15TWindowMainMenuFv();
 s32 fn_802449E0(u32);
 s32 is_split_screen();
 
@@ -31,8 +31,8 @@ f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1) {
 void TWindowMainMenu::set_scale_f() { *(float*)((char*)this + 0x58) = lbl_805DD138; }
 
 void TWindowSubEquip::open_submenu(s32 arg0, s32 arg1) {
-    destroy_submenu__15TWindowMainMenuFPv();
-    create_submenu__15TWindowMainMenuFPvUi(arg0, (s16) arg1);
+    destroy_submenu__15TWindowMainMenuFv();
+    create_submenu__15TWindowMainMenuFUl(arg0, (s16) arg1);
 }
 
 }

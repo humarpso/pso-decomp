@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowShortListCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -6,22 +7,22 @@ extern "C" {
 void draw_selection_bar(void *, void *, s32);
 volatile char get_type__20TWindowSubStatusDispFv(void *);
 extern s32 actor_frame_tick;
-void draw_card_list_selection(u8 *arg0, u8 *arg1);
+void draw_card_list_selection__21TWindowSubComCardListFPUc(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
 
-void draw_card_list_selection(u8 *arg0, u8 *arg1) {
+void TWindowSubComCardList::draw_card_list_selection(u8 *arg1) {
   s16 temp_r0;
   s16 temp_r31;
   u16 *temp_r3;
   if (!(actor_frame_tick & 0x10))
   {
-    temp_r31 = ((TWindowShortListCtrl *)arg0)->get_selected_index();
-    temp_r0 = temp_r31 - (get_type__20TWindowSubStatusDispFv(*((u8 **) (((s8 *) arg0) + 0x8C))) * 7);
+    temp_r31 = ((TWindowSubComCardList *)((u8 *)this))->get_selected_index();
+    temp_r0 = temp_r31 - (get_type__20TWindowSubStatusDispFv(*((u8 **) (((s8 *) ((u8 *)this)) + 0x8C))) * 7);
     if ((temp_r0 >= 0) && (temp_r0 < 7))
     {
-      temp_r3 = (u16 *) ((TUnk_804CE018 *)arg0)->get_array_entry((s32) temp_r0);
+      temp_r3 = (u16 *) ((TUnk_804CE018 *)((u8 *)this))->get_array_entry((s32) temp_r0);
       if ((*temp_r3) & 1)
       {
         draw_selection_bar(arg1, temp_r3, 1);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListOffline.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestListVM.h"
@@ -227,7 +228,7 @@ void *TQuestListOffline__ct(Win_80217344 *self, s32 arg1, s32 arg2, s32 arg3) {
     } else {
         self->f54 = (void *)lbl_804C9C10;
     }
-    ((TQuestListVM *)self)->set_field_20(0);
+    ((TShopWindowBase *)self)->set_field_20(0);
     return self;
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D1160.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubCustomEquip.h"
@@ -61,7 +62,7 @@ void update_customize_help_text__13TUnk_804D1160FPv(Win_802758C8 *self, Ev_80275
 s32 get_card_entry__17TWindowSubComCardFi(s32);
 s32 count_active_cards__17TWindowSubComCardFv(void);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-s32 set_selected_index__17TWindowSubComCardFs(void *, s32);
+s32 set_selected_index__21TWindowSubComCardListFs(void *, s32);
 void TWindowMenu__ct(void *, s32, s32, void *);
 void *init__21TWindowSubComCardListFiii(void *, s32, s8, s32);
 s32 TWindowSubComCardList__sub_80275360(void *);
@@ -74,7 +75,7 @@ extern const f32 lbl_805DD548;
 u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1);
 s32 count_leading_active__17TWindowSubComCardFPvi(s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-s32 set_selected_index__17TWindowSubComCardFs(void *, s32);
+s32 set_selected_index__21TWindowSubComCardListFs(void *, s32);
 void TWindowMenu__ct(void *, s32, s32, void *);
 void *init__21TWindowSubComCardListFiii(void *, s32, s8, s32);
 s32 TWindowSubComCardList__sub_80275360(void *);
@@ -110,11 +111,11 @@ s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TWindowMenuFv(void *, int);
 void delete_if_allocated(void *, int);
-s32 draw_card_list_selection(void *, s32);
+s32 draw_card_list_selection__21TWindowSubComCardListFPUc(void *, s32);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 s32 is_visible__11TWindowMenuFv(void *);
 s32 run_task__11TWindowMenuFv();
-s32 set_selected_index__17TWindowSubComCardFs(void *, s32);
+s32 set_selected_index__21TWindowSubComCardListFs(void *, s32);
 
 void render__21TWindowSubComCardListFv(u8 *arg0) {
     s32 temp_r3;
@@ -122,8 +123,8 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    ((TWindowSubComCard *)arg0)->render_selected_entry(temp_r3);
-    draw_card_list_selection(arg0, temp_r3);
+    ((TWindowMenu *)arg0)->render_selected_entry(temp_r3);
+    draw_card_list_selection__21TWindowSubComCardListFPUc(arg0, temp_r3);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x88) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(s32 *)((s8 *)arg0 + 0x88), temp_r3);
     }
@@ -135,7 +136,7 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
 void TWindowSubComCardList::run_task() {
     run_task__11TWindowMenuFv();
     if ((is_visible__11TWindowMenuFv(this) == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_8c) != 0)) {
-        set_selected_index__17TWindowSubComCardFs(this, 0);
+        set_selected_index__21TWindowSubComCardListFs(this, 0);
         TWindowSubComCardList__sub_80275360(this);
     }
 }
@@ -174,10 +175,10 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     *(s32 *)(arg0 + 0x98) = 0xD2;
     *(s8 *)(arg0 + 0x9C) = 0;
     ((TWindowSubComCardList *)arg0)->set_flag70_bit100();
-    set_selected_index__17TWindowSubComCardFs(arg0, 0);
+    set_selected_index__21TWindowSubComCardListFs(arg0, 0);
     TWindowSubComCardList__sub_80275360(arg0);
     ((TWindowSubComCardList *)arg0)->set_flag70_bit10();
-    ((TWindowSubComCard *)arg0)->set_scroll_target(lbl_805DD544, lbl_805DD548);
+    ((TWindowSubComCardList *)arg0)->set_scroll_target(lbl_805DD544, lbl_805DD548);
     return arg0;
 }
 
@@ -201,10 +202,10 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     *(s32 *)(arg0 + 0x98) = arg3;
     *(s8 *)(arg0 + 0x9C) = arg4;
     ((TWindowSubComCardList *)arg0)->set_flag70_bit100();
-    set_selected_index__17TWindowSubComCardFs(arg0, 0);
+    set_selected_index__21TWindowSubComCardListFs(arg0, 0);
     TWindowSubComCardList__sub_80275360(arg0);
     ((TWindowSubComCardList *)arg0)->set_flag70_bit10();
-    ((TWindowSubComCard *)arg0)->set_scroll_target(lbl_805DD544, lbl_805DD548);
+    ((TWindowSubComCardList *)arg0)->set_scroll_target(lbl_805DD544, lbl_805DD548);
     return arg0;
 }
 

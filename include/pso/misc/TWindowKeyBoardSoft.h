@@ -5,6 +5,11 @@
 
 struct TWindowKeyBoardSoft
 {
+    void spawn_key_effect(s32, s32);
+    void handle_page_cycle_input(s32);
+    void update_keyboard_child_input_from_controller(s32);
+    void sub_80260808(s32);
+    s32 sub_802605DC();
     int get_flag_bit5();
     int get_flag_bit6();
     int is_cursor_locked();

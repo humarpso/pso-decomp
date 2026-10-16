@@ -12,6 +12,8 @@ public:
  void* m_2c;
 public:
     virtual ~TObjEZRopeBase();
+    void sub_800FF8CC(void *, void *, s32);
+    void sub_800FF788(void *);
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/ui/TAdYesNoBaseGC.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -25,7 +26,7 @@ s32 send_and_handle__6TLobbyFii(int, void *, int);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 s32 sub_8032C0B4__14TAdYesNoBaseGCFv(u8 *arg0);
 void align_menu_entry_positions(s32);
-void update_layout_height__17TWindowSubComCardFPvf(f32);
+void update_layout_height__21TWindowSubComCardListFf(f32);
 s32 init_shop_judgment_window(void *);
 extern T_8032C118 lbl_804772E8[];
 extern const f32 lbl_805DF788;
@@ -73,9 +74,9 @@ s32 TAdYesNoBaseGC::create_menu_window() {
     O_8032C118 *arg0 = (O_8032C118 *)this;
     T_8032C118 t = lbl_804772E8[0];
     s32 r = init_shop_judgment_window(&t);
-    update_layout_height__17TWindowSubComCardFPvf(lbl_805DF788);
+    update_layout_height__21TWindowSubComCardListFf(lbl_805DF788);
     align_menu_entry_positions(r);
-    ((TWindowSubComCard *)r)->set_selected_index((s16)arg0->sel);
+    ((TWindowSubComCardList *)r)->set_selected_index((s16)arg0->sel);
     return r;
 }
 

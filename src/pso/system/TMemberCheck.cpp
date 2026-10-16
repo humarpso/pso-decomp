@@ -3,7 +3,7 @@
 extern "C" {
 s32 count_members__6TLobbyFv(void);
 void open_member_name_window__12TMemberCheckFv(void*);
-void update_member_proximity__22THunterGuildSeqOfflineFv(void*);
+void update_member_proximity__12TMemberCheckFv(void*);
 void TWindow__close(s32);
 void* memset(void*, int, unsigned long);
 extern const char* member_check_name_ptr;
@@ -16,7 +16,7 @@ void TMemberCheck::run_task() {
         TMemberCheck__previous_member_count = n;
         open_member_name_window__12TMemberCheckFv(this);
     }
-    update_member_proximity__22THunterGuildSeqOfflineFv(this);
+    update_member_proximity__12TMemberCheckFv(this);
 }
 
 TMemberCheck::~TMemberCheck() {

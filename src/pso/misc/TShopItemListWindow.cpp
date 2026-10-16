@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopSequence.h"
 #include "pso/misc/TShopItemListWindow.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TLobby.h"
@@ -115,20 +116,20 @@ extern s32 __vt__19TShopItemListWindow[];
 extern s32 TShopItemListWindow__class_name;
 u8 *TShopItemListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
+s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 handle_amount_confirm__19TShopItemListWindowFv(void *);
 s32 prepare_tool_purchase__19TShopItemListWindowFv(void *);
 void vfunc_11__19TShopItemListWindowFv(u8 *arg0);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
+s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 count_items_by_id__10TObjPlayerFPvi(s32, void *);
-s32 TShopWindowBase__sub_802239EC(void *);
+s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(int, int, int, int);
-s32 select_cursor_entry__6TLobbyFv(void *);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
 s32 obj_getPtr2B0_20(s32);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(s32, void *);
-s32 select_cursor_entry__6TLobbyFv(void *);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 s32 obj_getField1c(void *);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 count_items_by_id__10TObjPlayerFPvi(s32, void *);
@@ -152,12 +153,12 @@ extern "C" {
 void vfunc_6__19TShopItemListWindowFv(void *arg0);
 void vfunc_7__19TShopItemListWindowFv(void *arg0);
 void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1);
-s32 TShopWindowBase__sub_802239EC(void *);
+s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
+s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 
 void TShopItemListWindow::vfunc_7() {
     struct VObj_8021F134 *temp_r3;
@@ -179,19 +180,19 @@ void TShopItemListWindow::vfunc_6() {
 
 s32 TShopItemListWindow::handle_confirm() {
     VObj_8021F678_8021F134 *o = (VObj_8021F678_8021F134 *)this;
-    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
+    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || sub_802239EC__13TShopSequenceFv(this) != 0)) {
         o->m4(0xB, 1);
         ((TWindowSubItem *)(*(s32 *)((s8 *)this + 0x28)))->clear_selected_and_update_entry();
-        set_field_20__12TQuestListVMFl(this, 1);
+        set_field_20__15TShopWindowBaseFl(this, 1);
     }
 }
 
 s32 TShopItemListWindow::update() {
     VObj_8021F708_8021F134 *o = (VObj_8021F708_8021F134 *)this;
-    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || TShopWindowBase__sub_802239EC(this) != 0)) {
+    if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || sub_802239EC__13TShopSequenceFv(this) != 0)) {
         o->m4(0xB, 1);
         ((TWindowSubItem *)(*(s32 *)((s8 *)this + 0x28)))->clear_selected_and_update_entry();
-        set_field_20__12TQuestListVMFl(this, 1);
+        set_field_20__15TShopWindowBaseFl(this, 1);
     }
 }
 
@@ -203,7 +204,7 @@ s32 TShopItemListWindow::handle_tool_list_select(void *p) {
     s32 n;
     u8 *e;
     if (W->list != NULL) {
-        i = select_cursor_entry__6TLobbyFv(W->list);
+        i = select_cursor_entry__22TWindowSubShortCutListFv(W->list);
         if (W->help != NULL && i != W->cur) {
             ((TWindowHelpItem *)(W->help))->set_displayed_item_colored((u32)(&W->recs[i]));
         }
@@ -216,7 +217,7 @@ s32 TShopItemListWindow::handle_tool_list_select(void *p) {
         }
         W->cur = i;
     }
-    if (TShopWindowBase__sub_802239EC(W) != 0) {
+    if (sub_802239EC__13TShopSequenceFv(W) != 0) {
         *(s32 *)((u8 *)W + 0x20) = 3;
         play_sound_effect(0x52D01, 0, 0, 0);
         return;
@@ -226,16 +227,16 @@ s32 TShopItemListWindow::handle_tool_list_select(void *p) {
         switch (((TShopItemListWindow *)W)->check_purchase_eligibility()) {
         case 0:
             W->base.m4(0xF, 1);
-            set_field_20__12TQuestListVMFl(W, 5);
+            set_field_20__15TShopWindowBaseFl(W, 5);
             break;
         case 1:
             W->base.m4(0x19, 1);
-            set_field_20__12TQuestListVMFl(W, 6);
+            set_field_20__15TShopWindowBaseFl(W, 6);
             break;
         case 2:
             break;
         case 3:
-            set_field_20__12TQuestListVMFl(W, 7);
+            set_field_20__15TShopWindowBaseFl(W, 7);
             break;
         }
     }
@@ -249,7 +250,7 @@ s32 TShopItemListWindow::check_purchase_eligibility() {
     if (self->list == NULL) {
         return 0;
     }
-    sel = select_cursor_entry__6TLobbyFv(self->list);
+    sel = select_cursor_entry__22TWindowSubShortCutListFv(self->list);
     meseta = obj_getPtr2B0_20(self->player);
     if (self->recs[sel].qty > meseta) {
         return 0;
@@ -312,7 +313,7 @@ void TShopItemListWindow::build_item_list(void *p) {
         ((TWindowHelpItem *)(W->help))->set_displayed_item_colored((u32)(W->recs));
     }
     if (W->status == NULL) {
-        W->status = create_window_quantity(((TShopWindowBase *)W)->get_child_field1c());
+        W->status = create_window_quantity(((TShopSequence *)W)->get_child_field1c());
         n = count_items_by_id__10TObjPlayerFPvi(*(s32 *)(W->player + 0xD00), W->recs);
         ((TWindowSubStatusDisp *)(W->status))->set_entry1_field20(n);
     }
@@ -334,7 +335,7 @@ void TShopItemListWindow::vfunc_11() {
     switch (temp_r0) {
     case 0:
         TShopItemListWindow::build_item_list((void *)((void *) (arg0)));
-        set_field_20__12TQuestListVMFl((void *)((void *) (arg0)), (s32)((int) (1)));
+        set_field_20__15TShopWindowBaseFl((void *)((void *) (arg0)), (s32)((int) (1)));
         return;
     case 1:
         TShopItemListWindow::handle_tool_list_select((void *)((void *) (arg0)));

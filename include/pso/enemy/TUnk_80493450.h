@@ -6,6 +6,10 @@
 class TUnk_80493450 : public TObjEnemy {
 public:
     virtual ~TUnk_80493450();
+    u8 test_elt_flag(s32, s32);
+    s32 countChildren();
+    void link_into_group_chain();
+    void unlink_enemy_group_relations();
     virtual void vfunc_83();
     virtual void beast_idle_update();
     virtual void update_turn_toward_target();

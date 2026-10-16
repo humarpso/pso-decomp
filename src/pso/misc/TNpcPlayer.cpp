@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 extern "C" void render__10TNpcPlayerFv();
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/object/TObjFogCollisionPoison.h"
@@ -2307,7 +2308,7 @@ s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 
     s32 j;
     f32 d;
     found = 0;
-    ((TObjPlayer *)(view->f94))->get_stat_by_key_state();
+    ((TUnk_804B9870 *)(view->f94))->get_stat_by_key_state();
     VecCopy__FP3VecPC3Vec(origin, (int)pos);
     view->count = 0;
     for (j = 0; j < 10; j++) {

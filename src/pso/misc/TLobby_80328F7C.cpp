@@ -254,7 +254,7 @@ extern "C" {
 int vfunc_6__13TUnk_804ED7D0Fv(void);
 void free_singleton_805D6C80__6TLobbyFv(void);
 s32 vfunc_5__13TUnk_804ED7D0Fv(s32 arg0);
-s32 load_action_motion_pairs(s32, s32, s32, s32);
+s32 load_action_motion_pairs__13TUnk_804DDD28Flll(s32, s32, s32, s32);
 s32 apply_player_flag_2__6TLobbyFv();
 s32 apply_state_6c84__6TLobbyFv();
 void mem_free(void*);
@@ -266,11 +266,11 @@ int TUnk_804ED7D0::vfunc_5() {
     s32 arg0 = (s32)this;
     if (set_flag_1_at_6c84__6TLobbyFv() == 0) {
         init_object_flag__6TLobbyFv();
-        load_action_motion_pairs(arg0, 0, 0, 0);
+        load_action_motion_pairs__13TUnk_804DDD28Flll(arg0, 0, 0, 0);
     }
     if (apply_player_flag_2__6TLobbyFv() == 0) {
         apply_state_6c84__6TLobbyFv();
-        load_action_motion_pairs(arg0, 1, 1, 0);
+        load_action_motion_pairs__13TUnk_804DDD28Flll(arg0, 1, 1, 0);
     }
     return 1;
 }

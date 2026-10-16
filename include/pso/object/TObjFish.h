@@ -6,6 +6,8 @@
 
 struct TObjFish : public TUnk_804B9870 {
     virtual ~TObjFish();
+    s32 init_fish_school(void *, s32, s32);
+    u8 update_state();
     virtual void render();
     virtual void run_task();
     u8 unk_90[0x4];
@@ -14,12 +16,10 @@ struct TObjFish : public TUnk_804B9870 {
     u8 _pad9C[0x4];
     u32 m_a0;
     void sync_position_vectors();
-    void draw_parts();
     static void *alloc(void *arg0);
     static void reset_fish_globals();
     s32 get_phase();
     static int get_fish_count();
-    void draw_model_motion_blend();
     static void spawn_default_particle();
     static void create_splash_particle(s32 arg0, s32 arg1, s32 arg2);
     static void spawn_particle(s32 arg0, s32 arg1, f32 farg0);
@@ -29,7 +29,6 @@ struct TObjFish : public TUnk_804B9870 {
     void set_draw_callback_list();
     s32 is_entry_table_valid();
     static void init_state_1(void *arg0);
-    void render_fade_model();
     static void load_models();
     void update_attached_orientation();
     void destroy_child();

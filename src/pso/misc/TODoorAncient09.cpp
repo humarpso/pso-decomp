@@ -72,7 +72,7 @@ struct Door_80160BA8 {
 };
 
 extern "C" {
-s32 access_object_saved_state(void *, void *, int);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 s32 door_ancient09_sync_state__15TODoorAncient09FPv(void *, void *);
 u8 is_current_floor_switch_set(int);
 void update_door_switch_state__15TODoorAncient09Fv(u8 *arg0);
@@ -122,7 +122,7 @@ void *TODoorAncient09__ct(void *, void *, void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -218,10 +218,10 @@ void TODoorAncient09::update_door_switch_state() {
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1)) {
             ((TODoorAncient09 *)arg0)->sub_80160968();
             this->m_d0 = (s32) (this->m_d0 | 1);
-            if (((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+            if (((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;
                 door_ancient09_sync_state__15TODoorAncient09FPv((void *) (arg0), (void *) (&sp8));
-                access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
+                access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
             }
         }
         return;
@@ -435,7 +435,7 @@ typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8
 void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorAncient09;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {

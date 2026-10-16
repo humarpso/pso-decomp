@@ -6,6 +6,7 @@
 
 struct TObjEneSlimeOne : public TObjEnemy {
     virtual ~TObjEneSlimeOne();
+    void sub_800E9090();
     virtual void vfunc_63();
     virtual void vfunc_62();
     virtual void vfunc_61();

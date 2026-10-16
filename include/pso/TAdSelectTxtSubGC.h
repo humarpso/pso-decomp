@@ -6,6 +6,7 @@
 class TAdSelectTxtSubGC : public TObject {
 public:
     virtual ~TAdSelectTxtSubGC();
+    void render_status();
     virtual void run_task();
     virtual void render();
 };

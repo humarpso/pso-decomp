@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -45,7 +46,7 @@ extern const f32 lbl_805DE88C;
 s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0);
 s32 get_localized_text_entry(int, int);
 s32 align_menu_entry_positions(int);
-s32 update_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 update_layout_height__21TWindowSubComCardListFf(int, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_window_menu(void *, int, int);
 extern s32 lbl_80472890[];
@@ -69,7 +70,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C658C(u32);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(int, int, void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
-void TAdMultiPlyChrSelectGC__sub_802DC118(u8 *arg0, s32 arg1);
+void sub_802DC118__22TAdMultiPlyChrSelectGCFl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -136,8 +137,8 @@ s32 TAdMultiPlyChrSelectGC::create_choice_menu() {
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (3))), (int) (6), (int) (1));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (4))), (int) (6), (int) (2));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (5))), (int) (6), (int) (3));
-    update_layout_height__17TWindowSubComCardFPvf((int) (temp_r31), (f32) (lbl_805DE894));
-    ((TWindowSubComCard *)temp_r31)->set_selected_index((int) (0));
+    update_layout_height__21TWindowSubComCardListFf((int) (temp_r31), (f32) (lbl_805DE894));
+    ((TWindowSubComCardList *)temp_r31)->set_selected_index((int) (0));
     align_menu_entry_positions((int) (temp_r31));
     return temp_r31;
 }
@@ -178,8 +179,8 @@ s32 TAdMultiPlyChrSelectGC::get_state_result() {
     return var_r4;
 }
 
-void TAdMultiPlyChrSelectGC__sub_802DC118(u8 *arg0, s32 arg1) {
-    Sel_802DC118 *s = (Sel_802DC118 *)arg0;
+void TAdMultiPlyChrSelectGC::sub_802DC118(s32 arg1) {
+    Sel_802DC118 *s = (Sel_802DC118 *)((u8 *)this);
     if (s->win != 0) {
         switch (arg1) {
         case -1:
@@ -188,7 +189,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC118(u8 *arg0, s32 arg1) {
                 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
                 return;
             }
-            set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 0, TAdMultiPlyChrSelectGC::format_player_number_text((s32)arg0, TAdMultiPlyChrSelectGC::get_clamped_cursor()));
+            set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 0, TAdMultiPlyChrSelectGC::format_player_number_text((s32)((u8 *)this), TAdMultiPlyChrSelectGC::get_clamped_cursor()));
             set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
             break;
         default:
@@ -197,7 +198,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC118(u8 *arg0, s32 arg1) {
                 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
                 return;
             }
-            set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 0, TAdMultiPlyChrSelectGC::format_player_number_text((s32)arg0, arg1));
+            set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 0, TAdMultiPlyChrSelectGC::format_player_number_text((s32)((u8 *)this), arg1));
             set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
             break;
         }

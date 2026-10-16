@@ -107,7 +107,7 @@ extern "C" {
 s32 TObjEneRecobox__sub_8031F1A8(void *);
 s32 refresh_lobby_state__10TObjPlayerFv();
 s32 queue_destruction__7TObjectFv(void *);
-s32 send_entity_set_flags__6TLobbyFPv();
+s32 send_entity_set_flags__9TObjEnemyFv();
 
 void TObjEneRecon::handle_death_state(s32 arg1) {
     switch (arg1) {
@@ -119,7 +119,7 @@ void TObjEneRecon::handle_death_state(s32 arg1) {
         return;
     case 3:
         if ((s32) *(s32 *)((s8 *)this + 0x410) == 0) {
-            send_entity_set_flags__6TLobbyFPv();
+            send_entity_set_flags__9TObjEnemyFv();
             queue_destruction__7TObjectFv(this);
         }
     case 5:

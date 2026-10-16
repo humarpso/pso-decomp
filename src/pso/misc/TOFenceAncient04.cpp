@@ -280,12 +280,12 @@ Big_8016775C * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32)
 s32 mem_free(void*);
 Buf_8016775C * mem_alloc(s32);
 int set_indexed_flags(void*, void*, void*);
-s32 unregister_object_by_id(s32 *);
-s32 refresh_collision_body_centers(void *);
-u32 check_actor_body_contact(void *, void *, f32);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
+u32 check_actor_body_contact__13TUnk_804AF8A0FPvf(void *, void *, f32);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
-s32 access_object_saved_state(void *, int);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, int);
 s32 init_fields__13TUnk_804B1B80Fv();
 s32 sub_80166E64__13TUnk_804B1B80Fv(void *);
 s32 sub_80166EA8__13TUnk_804B1B80Fi(void *, int);
@@ -305,13 +305,13 @@ void vfunc_80__25TOHangceilingCave01NormalFv(Obj_80168010 *arg0);
 void * __dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1);
 void * TOHangceilingCave01Normal__ct(void *arg0);
 f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0);
-void advance_wrap_offset__25TOHangceilingCave01NormalFPv(void *arg0);
-s32 fn_80168244(Obj_80168244 *self, u32 v);
+void advance_wrap_offset__13TUnk_804B2578Fv(void *arg0);
+s32 sub_80168244__13TUnk_804B2578FUl(Obj_80168244 *self, u32 v);
 void fn_80168280(Obj_80168280 *self, u32 v);
 void reset_state(u8 *arg0);
-void fn_801682E4(Obj_801682E4 *o, s32 arg1);
-void fn_80168398(u8 *arg0);
-void fn_80168488(VO_80168488 *arg0);
+void sub_801682E4__13TUnk_804B2578Fl(Obj_801682E4 *o, s32 arg1);
+void sub_80168398__13TUnk_804B2578Fv(u8 *arg0);
+void sub_80168488__13TUnk_804B2578Fv(VO_80168488 *arg0);
 void destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *, int);
 void init_base__27TOHangceilingCave01KeyQuickFPvii(void *);
 void set_scale__13TUnk_804B2578Ff(void *, f32);
@@ -418,7 +418,7 @@ __declspec(section ".rodata") extern const char lbl_804416D8[] = "o_fence_ancien
 void *__dt__16TOFenceAncient04Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOFenceAncient04;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B1B80 *)arg0)->destroy(0);
         if (arg1 > 0) {
@@ -444,7 +444,7 @@ u8 *TOFenceAncient04__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_f1 = (f32) *(u32 *)((s8 *)temp_r6 + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) (temp_f1 - lbl_805DB640);
     init_collision_body_parts((void *) (arg0), (void *) (&ofence_ancient04_collision_parts.value), (int) (8), (int) (temp_r6), (f32) (temp_f1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     sub_80166E64__13TUnk_804B1B80Fv((void *) (arg0));
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB644;

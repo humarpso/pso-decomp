@@ -113,7 +113,7 @@ s32 queue_destruction__7TObjectFv(void *);
 u32 create_particle_emitter(s32 *, s32);
 s32 get_current_floor();
 u32 get_item_field_6__10TObjPlayerFPv(void *);
-u8 get_field_ed__10TObjPlayerFv();
+u8 get_field_ed__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 enable__13TParticleCtrlFPv(u32);
 
@@ -205,7 +205,7 @@ void TUnk_8049F148::run_task() {
         temp_r3_3 = get_item_field_6__10TObjPlayerFPv(temp_r3);
         if ((u32) *(u32 *)((s8 *)this + 0x1C) != 0U) {
             s32 var_r30 = 0;
-            if ((temp_r3_3 != 0U) && (get_field_ed__10TObjPlayerFv() == 0x1A)) {
+            if ((temp_r3_3 != 0U) && (get_field_ed__5TItemFv() == 0x1A)) {
                 var_r30 = 1;
             }
             if (var_r30 != 0) {

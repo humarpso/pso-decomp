@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
@@ -1274,8 +1276,8 @@ s32 reset_cameras_to_actor(void *, int);
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 TObjPlayer__sub_80082300(void *);
 s32 is_inactive__10TObjPlayerFv();
-s32 TObjPlayer__sub_800A7798(void *, f32);
-int TObjEnePanarms__sub_800E2DE4(void*, void*);
+s32 sub_800A7798__9TObjEnemyFf(void *, f32);
+int sub_800E2DE4__10TObjMotionFl(void*, void*);
 s32 init_entry_fields__6TLobbyFiii(int, int, void *, void *);
 u32 activate_d04_slot__10TObjPlayerFv(s32);
 s32 spawn_appearance_effect__10TObjPlayerFl();
@@ -1307,7 +1309,7 @@ f32 sample_attack_root_motion(void *, void *, void *);
 s32 is_anim_finished__10TObjPlayerFv(void *);
 s32 objInBand__FP7GameObjf(void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
-s32 TBoss1Dragon__sub_80143960(void *, s32);
+s32 sub_80143960__10TObjMotionFl(void *, s32);
 void bswap_6x45_packet(Pkt_801CDAD8 *);
 void init_6x45_attack_packet(Pkt_801CDAD8 *);
 void bswap_6x44_packet(Pkt_801CDED4 *);
@@ -1402,7 +1404,7 @@ s32 set_flag_400000__10TObjPlayerFi(void *);
 s32 check_flag_48__10TObjPlayerFPv(void *);
 s32 is_status_locked__10TObjPlayerFPv();
 s32 is_status_flag_200__10TObjPlayerFPv(void);
-void set_floor__10TObjPlayerFPvi(void *, s32);
+void set_floor__10TObjPlayerFl(void *, s32);
 void set_floor_index__10TObjPlayerFPvi(void *, s32);
 s32 TObjPlayer__sub_801BEEE0(void *, void *);
 s32 __ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(s32, s32, s32, void (*)(int));
@@ -3415,7 +3417,7 @@ void TObjPlayer::exit_death_state() {
 
 void TObjPlayer::update_death_pose() {
     u8 *arg0 = (u8 *)this;
-    if ((TBoss1Dragon__sub_80143960(arg0, 0x20) != 0) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == (s16) *(s16 *)((s8 *)arg0 + 0xBA))) {
+    if ((sub_80143960__10TObjMotionFl(arg0, 0x20) != 0) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == (s16) *(s16 *)((s8 *)arg0 + 0xBA))) {
         ((s32 (*)(void *))restart_death_pose__10TObjPlayerFPv)(arg0);
     }
     ((s32 (*)(void *, f32))add_death_sink_progress)(arg0 + 0x5FC, lbl_805DC37C);
@@ -4283,7 +4285,7 @@ void freeze_players_for_photon_blast(s16 arg0, u16 *arg1) {
         obj = *tbl;
         if (obj != NULL && ((s32 (*)(void *))is_on_current_floor__10TObjPlayerFi)(obj) != 0 && test_action_mask__10TObjPlayerFl(obj, 0x8000) == 0 &&
             (is_single_screen__10TObjPlayerFv() != 0 ||
-             (is_single_screen__10TObjPlayerFv() == 0 && arg0 == ((TObjPlayer *)obj)->get_stat_by_key_state()))) {
+             (is_single_screen__10TObjPlayerFv() == 0 && arg0 == ((TUnk_804B9870 *)obj)->get_stat_by_key_state()))) {
             TObjPlayer__sub_801D0F70(obj);
             if (arg1 != NULL) {
                 *arg1 = ((u16 (*)(void *))obj_getField1c)(obj);
@@ -5622,7 +5624,7 @@ s32 update_aim_target__10TObjPlayerFPv(void *arg0) {
     return 0;
 }
 
-void TObjPlayer::apply_damage_and_reset() { TObjEnePanarms__sub_800E2DE4(this, (void*)256); ((int (*)(void*))TObjPlayer__sub_8001053C)((void*)(this)); }
+void TObjPlayer::apply_damage_and_reset() { sub_800E2DE4__10TObjMotionFl(this, (void*)256); ((int (*)(void*))TObjPlayer__sub_8001053C)((void*)(this)); }
 
 void update_run_movement__10TObjPlayerFPv(Plr_801CF56C *self) {
     s32 ang;
@@ -5662,7 +5664,7 @@ void start_action__10TObjPlayerFPv(u8 *arg0) {
     ((s32 (*)(void *, s32, s16))set_action_state__10TObjPlayerFPvss)(arg0, 4, temp_r3);
     temp_f31 = TObjPlayer__sub_801D2858(arg0 + 0x5E0);
     temp_f1 = ((f32 (*)(void *))get_action_rate_entry)(arg0);
-    TObjPlayer__sub_800A7798(arg0, temp_f1 * temp_f31);
+    sub_800A7798__9TObjEnemyFf(arg0, temp_f1 * temp_f31);
 }
 
 void handle_6x42_move_to_position(void *pkt) {
@@ -5899,7 +5901,7 @@ void TObjPlayer::calc_movement_target(s32 arg1, f32 *arg2, f32 *arg3) {
 extern int fold_flush_7;
 #pragma pop
 
-void TObjPlayer::reset_and_flag() { ((int (*)(void*))TObjPlayer__sub_8001053C)(this); TObjEnePanarms__sub_800E2DE4(this, (void*)256); }
+void TObjPlayer::reset_and_flag() { ((int (*)(void*))TObjPlayer__sub_8001053C)(this); sub_800E2DE4__10TObjMotionFl(this, (void*)256); }
 
 void update_walk_movement__10TObjPlayerFPv(Plr_801CFDF8 *self) {
     s32 ang;
@@ -5938,7 +5940,7 @@ void set_attack_state__10TObjPlayerFPv(u8 *arg0) {
     ((s32 (*)(void *, s32, s16))set_action_state__10TObjPlayerFPvss)(arg0, 2, temp_r3);
     temp_f31 = TObjPlayer__sub_801D2858(arg0 + 0x5E0);
     temp_f1 = ((f32 (*)(void *))get_action_rate_entry)(arg0);
-    TObjPlayer__sub_800A7798(arg0, temp_f1 * temp_f31);
+    sub_800A7798__9TObjEnemyFf(arg0, temp_f1 * temp_f31);
 }
 
 void handle_6x40_walk_to_position(void *pkt) {
@@ -6120,7 +6122,7 @@ void handle_6x3F_set_position(void *arg0) {
             ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
             ((void (*)(void *))set_flag_400000__10TObjPlayerFi)(p);
             if (m.floor >= 0) {
-                set_floor__10TObjPlayerFPvi(p, m.floor);
+                set_floor__10TObjPlayerFl(p, m.floor);
                 set_floor_index__10TObjPlayerFPvi(p, TLobby::get_player_floor(m.floor));
             }
             if (m.room >= 0) {
@@ -6152,7 +6154,7 @@ void handle_6x3E_stop_at_position(void *arg0) {
     }
     ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
     if (m.floor >= 0) {
-        set_floor__10TObjPlayerFPvi(p, m.floor);
+        set_floor__10TObjPlayerFl(p, m.floor);
         set_floor_index__10TObjPlayerFPvi(p, TLobby::get_player_floor(m.floor));
     }
     p->ang = m.ang;
@@ -6187,7 +6189,7 @@ void send_idle_return_event__10TObjPlayerFPvPvs(void *arg0, void *arg1, s16 arg2
         m.f4 = t;
         m.f6 = arg2;
         m.f8 = ((TObjPlayer *)arg0)->get_field_3e4();
-        m.fa = ((TObjPlayer *)arg0)->get_stat_by_key_state();
+        m.fa = ((TUnk_804B9870 *)arg0)->get_stat_by_key_state();
         VecCopy__FP3VecPC3Vec(m.vec, arg1);
         TObjPlayer__sub_801C18E0(&m);
     }
@@ -6206,7 +6208,7 @@ void TObjPlayer::send_6x3E_stop_at_position() {
         sync_current_floor__10TObjPlayerFPv(arg0);
         sync_current_area__10TObjPlayerFPv(arg0);
         m.f8 = ((TObjPlayer *)arg0)->get_field_3e4();
-        m.fa = ((TObjPlayer *)arg0)->get_stat_by_key_state();
+        m.fa = ((TUnk_804B9870 *)arg0)->get_stat_by_key_state();
         VecCopy__FP3VecPC3Vec(m.vec, arg0->vec);
         ((TNpcPlayer *)(&m))->send_6x3E();
     }
@@ -6979,7 +6981,7 @@ f32 get_action_rate_entry(Obj_801D2640 *p) {
 void TObjPlayer::set_field_d4_and_flag_200(f32 value) {
     u8 *p = (u8 *)this;
     *(f32 *)(p + 0xD4) = value;
-    ((TObjPlayer *)p)->set_flags_B0(0x200U);
+    ((TObjEnemy *)p)->set_flags_B0(0x200U);
 }
 
 int TObjPlayer__sub_801D2680(void *p) {

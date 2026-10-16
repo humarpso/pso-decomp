@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcMaleBase.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -98,7 +99,7 @@ void *dt__12TObjNpcLappyFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__11TObjNpcBaseFv(void *, int);
 
-void set_motion_params__10TObjPlayerFPvPv(void *, void *);
+void set_motion_params__13TUnk_804806E8FPv(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
@@ -260,10 +261,10 @@ u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2) {
     *(s32 *)(self + 0x24) = *(s32 *)(*(u8 **)(rappy_bml_resource + 0x42C) + 0xC);
     ((TObjPlayer *)self)->init_npc_animation((void*)npc_lappy_animation_table, (void*)(*(s32 *)(rappy_bml_resource + 0x430)), (void*)(*(s16 *)(self + 0xB8)));
     *(u8 **)(self + 0x350) = npc_movement_parameters;
-    set_motion_params__10TObjPlayerFPvPv(self, npc_default_battle_stats);
+    set_motion_params__13TUnk_804806E8FPv(self, npc_default_battle_stats);
     init_collision_body_parts(self, lbl_804A9DA8, 1);
     ((TObjPlayer *)self)->reset_photon_effect();
-    ((TObjPlayer *)self)->update_prev_position();
+    ((TObjEnemy *)self)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(self);
     return self;
 }

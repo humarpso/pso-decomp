@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemMag.h"
 #include "pso/item/TItemObject.h"
@@ -245,7 +246,7 @@ void refresh_owner_stats__5TItemFPv(u8 *arg0) {
     PSO_VCALL_VObj_18_94668e_m71(temp_r3_2);
     ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->set_hp_clamped(temp_r31);
     ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->set_facing(temp_r30);
-    ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->clamp_value();
+    ((TUnk_804806E8 *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->clamp_value();
     ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->clamp_field_32E();
   }
 }
@@ -333,7 +334,7 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
         ((TObjPlayer *)(&sp8))->copy_field6_from((void*)arg1);
         break;
       case 1:
-        temp_r3_2 = ((TObjPlayer *)arg1)->get_field_ed();
+        temp_r3_2 = ((TItem *)arg1)->get_field_ed();
         switch ((s32) temp_r3_2)
       {
         case 1:

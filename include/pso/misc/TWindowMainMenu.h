@@ -6,6 +6,18 @@
 
 struct TWindowMainMenu : public TObject {
     virtual ~TWindowMainMenu();
+    void handle_menu_selection();
+    void create_submenu(u32);
+    void destroy_submenu();
+    void close_child_window();
+    void sub_80263FE0();
+    void update_keyboard_card_state();
+    void update_selection_value();
+    void add_menu_entry(s16);
+    void sub_80263D7C();
+    void open(s32);
+    void close_and_clear_flags();
+    s32 close_active_submenu();
     virtual void vfunc_6();
     virtual void vfunc_7();
     virtual void vfunc_8();
@@ -19,7 +31,6 @@ struct TWindowMainMenu : public TObject {
     u32 m_54;
     u8 _pad58[0x4];
     u32 m_5c;
-    void show_child_window();
     void update_trade_submenu();
     void update_submenu();
     void close_submenu(void* a1);
@@ -35,16 +46,12 @@ struct TWindowMainMenu : public TObject {
     void pop_level();
     int get_selected_item_type();
     void clear_menu_flags();
-    int is_flag_set();
-    int get_menu_flag();
     s32 find_free_slot();
     s32 update_if_active(s32 _w1);
     void set_target_y(f32 farg0);
     void update_scaled_position();
     void draw_entries_reversed(u8 *arg1);
     void update_slide_position();
-    void handle_cancel();
-    void handle_confirm();
     static void *create_menu(void *arg0, void *arg1);};
 
 #endif

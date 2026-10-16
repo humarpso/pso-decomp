@@ -33,7 +33,7 @@ void TWindow__close(void *);
 s32 is_player_input_active(s32);
 s32 fn_80255A38(s32);
 s32 TWindowSubEquip__sub_80263AF4(void *, s32);
-s32 select_cursor_entry__6TLobbyFv(u32);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
 extern u8 controller_input_state[];
 extern const f32 lbl_805DD5F0;
 s32 set_field_1c__6TLobbyFf(int);
@@ -62,7 +62,7 @@ s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
     temp_r31 = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (*(s32 *)&this->m_28));
     TWindowSubEquip__sub_80263AF8((int) (*(s32 *)&this->m_2c), (int) (1));
     set_field_1c__6TLobbyFf((int) (temp_r31));
-    ((TWindowSubStatusDisp *)temp_r31)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
+    ((TUnk_804D0618 *)temp_r31)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
     ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
     switch (arg1) {
     case 6:
@@ -129,7 +129,7 @@ void TWindowSubEquip::run_task() {
     case 3:
         ((TWindowSubStatusDisp *)(this->m_34))->init_scroll_pos();
         if ((u32) this->m_38 == 0U) {
-            this->m_38 = open_equip_kind_list(select_cursor_entry__6TLobbyFv(this->m_34));
+            this->m_38 = open_equip_kind_list(select_cursor_entry__22TWindowSubShortCutListFv(this->m_34));
         }
         ((TWindowSubItem *)(this->m_38))->clear_selected_and_update_entry();
         this->m_1c = 4U;

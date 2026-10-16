@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowStatus.h"
 #include "pso/item/TItemMag.h"
 #include "pso/item/TItemProShield.h"
@@ -45,10 +46,10 @@ extern const f32 lbl_805DD474;
 
 void *TWindowStatus__ct(void *arg0);
 void *__dt__13TWindowStatusFv(void *arg0, s16 arg1);
-s32 update_status_icons__14TWindowComCardFPvPv(s32, s32);
+s32 update_status_icons__19TWindowSimpleStatusFPv(s32, s32);
 void TWindowSimpleStatus__ct(void *);
 s32 get_window_layout_position(s32);
-s32 update_window_entry_list(s32, s32);
+s32 update_window_entry_list__13TUnk_804CE018FPv(s32, s32);
 
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
@@ -167,10 +168,10 @@ void TWindowStatus::run_task() {
     ((s32 (*)(void))update_hp_tp_values__20TWindowSubStatusDispFPv)();
     update_lockon_window(arg0);
     update_status_help_item(arg0);
-    update_status_icons__14TWindowComCardFPvPv(arg0, get_window_layout_position(0x1D));
+    update_status_icons__19TWindowSimpleStatusFPv(arg0, get_window_layout_position(0x1D));
     ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TWindowSubComCard *)arg0)->update_fade();
-    update_window_entry_list(arg0, arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_fade();
+    update_window_entry_list__13TUnk_804CE018FPv(arg0, arg0 + 0x24);
 }
 
 extern s32 __vt__13TWindowStatus[];

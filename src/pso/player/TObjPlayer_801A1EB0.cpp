@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TContainerAncient01.h"
@@ -20,12 +22,12 @@ extern u16 lbl_805D5CD6;
 extern "C" {
 
 void TLobby__sub_801A1FD8(void);
-u16 get_or_assign_actor_id(void *arg0, s32 arg1);
+u16 get_or_assign_actor_id__13TUnk_804806E8Fl(void *arg0, s32 arg1);
 u16 TLobby__sub_801A20C8(s32);
 int vfunc_12__13TUnk_804B9870Fv(void);
 u16 fn_801A210C(s32);
 
-s16 TObjPlayer::get_stat_by_key_state() {
+s16 TUnk_804B9870::get_stat_by_key_state() {
     s32 temp_r3;
 
     if ((TOKeyMachine01::get_global_state() == 0) || (TOKeyMachine01::get_global_state() == 0x12)) {
@@ -34,7 +36,7 @@ s16 TObjPlayer::get_stat_by_key_state() {
     if ((u16) *(u16 *)((s8 *)this + 0x1C) < 0x1000U) {
         temp_r3 = TOKeyMachine01::get_global_state();
         if (((u32) (temp_r3 - 1) <= 1U) || (TContainerAncient01::is_global_state_in_table() != 0) || (temp_r3 == 0xC) || (temp_r3 == 0x20)) {
-            return *(s16 *)&this->m_2e;
+            return *(s16 *)&(*(short *)((u8 *)this + 0x2E));
         }
         return *(s16 *)&this->m_28;
     }
@@ -54,25 +56,25 @@ void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src) {
 }
 
 void TLobby__sub_801A1FD8(void) {  }
-u16 get_or_assign_actor_id(void *arg0, s32 arg1) {
+u16 TUnk_804806E8::get_or_assign_actor_id(s32 arg1) {
     s32 temp_r3;
 
-    if (*(u16 *)((s8 *)arg0 + 0x1C) == 0xFFFF) {
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0x30) & 0x70000000;
+    if (*(u16 *)((s8 *)this + 0x1C) == 0xFFFF) {
+        temp_r3 = *(s32 *)((s8 *)this + 0x30) & 0x70000000;
         switch (temp_r3) {
         case 0x10000000:
-            *(u16 *)((s8 *)arg0 + 0x1C) = fn_801A210C(arg1);
+            *(u16 *)((s8 *)this + 0x1C) = fn_801A210C(arg1);
             break;
         case 0x20000000:
-            *(u16 *)((s8 *)arg0 + 0x1C) = TLobby__sub_801A20C8(arg1);
+            *(u16 *)((s8 *)this + 0x1C) = TLobby__sub_801A20C8(arg1);
             break;
         default:
         case 0x40000000:
-            *(u16 *)((s8 *)arg0 + 0x1C) = TLobby::alloc_actor_ids((s32)(arg1));
+            *(u16 *)((s8 *)this + 0x1C) = TLobby::alloc_actor_ids((s32)(arg1));
             break;
         }
     }
-    return *(u16 *)((s8 *)arg0 + 0x1C);
+    return *(u16 *)((s8 *)this + 0x1C);
 }
 u16 TLobby::alloc_actor_ids(s32 arg) {
     u16 n = arg;

@@ -15,7 +15,7 @@ extern "C" {
 
 int TFontSmallLobby__sub_801C0228(void*);
 int TObjPlayer__sub_8011E204(void*, int);
-int unregister_object_by_id(void*);
+int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 void TObjPlayer__sub_801BE784(void* p, u8 v);
 void TObjPlayer__sub_801BE794(void* p, u8 v);
 void TObjPlayer__sub_801BE7A4(void* p, u8 v);
@@ -62,10 +62,10 @@ int is_status_locked__10TObjPlayerFPv(void* p);
 void set_action_flag_2__10TObjPlayerFPv(void* p);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
-void set_floor__10TObjPlayerFPvi(void* p, s32 v);
+void set_floor__10TObjPlayerFl(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
-void set_input_mode__10TObjPlayerFPvi(void* p, s32 v);
-void set_move_mode__10TObjPlayerFPvi(void* p, s32 v);
+void set_input_mode__10TObjPlayerFl(void* p, s32 v);
+void set_move_mode__10TObjPlayerFl(void* p, s32 v);
 int start_freeze__10TObjPlayerFPv(void*);
 int start_freeze_self__10TObjPlayerFPv(void* p);
 

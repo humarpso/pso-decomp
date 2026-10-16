@@ -210,8 +210,8 @@ void advance_animation_playback(void *);
 unsigned int __cvt_fp2unsigned(f32);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 TContainerAncient01__data_805DBD34;
-s32 send_object_state_update(void *, void *);
-s32 access_object_saved_state(void *, void *, int);
+s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 extern f32 TContainerAncient01__data_805DBD14;
 f32 receive_physical_attack__20TContainerAncient01RFPvf(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -300,7 +300,7 @@ void TContainerAncient01R__sub_8018AF74(void);
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1);
 void *TContainerAncient01R__ct(Obj_8018B030 *, void *, void *);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
@@ -610,10 +610,10 @@ f32 TContainerAncient01R::receive_physical_attack(void *, f32) {
     s16 sp8;
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) {
         *(s16 *)((s8 *)arg0 + 0x338) = (s16) (*(s16 *)((s8 *)arg0 + 0x338) + 1);
-        if (((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+        if (((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
             sp8 = *(s16 *)((s8 *)arg0 + 0x338);
-            access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
-            send_object_state_update((void *) (arg0), (void *) (&sp8));
+            access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
+            send_object_state_update__13TUnk_804AF8A0FPv((void *) (arg0), (void *) (&sp8));
         }
     }
     return (*(const f32 *)&TContainerAncient01__data_805DBD14);
@@ -728,7 +728,7 @@ void TContainerAncient01R::init_table_entries() {
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TContainerAncient01R;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {

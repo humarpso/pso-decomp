@@ -5,7 +5,6 @@
 
 struct TOHangceilingCave01
 {
-    void init_geometry();
     static void destroy_instance();
 };
 

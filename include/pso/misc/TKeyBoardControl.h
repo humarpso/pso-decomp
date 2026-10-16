@@ -32,14 +32,8 @@ struct TKeyBoardControl : public TObject {
     static void alloc_buffer();
     static s32 is_printable_key(void *arg0, u8 arg1);
     static s32 has_non_modifier_key();
-    u16 lookup_key_char(u8 arg1);
     static s32 translate_key_char(void *arg0_, u8 arg1, u16 *arg2);
     s32 get_input_mode();
-    s32 poll_input();
-    s32 lookup_key_repeat_state(u8 arg1, u8 arg2);
-    void process_key_input(u8 arg1);
-    void process_all_key_states();
-    void update_modifier_flags();
     void enable_keyboard_led();
     void enable_kana_led();
     void enable_caps_led();

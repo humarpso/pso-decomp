@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubEquipList.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -9,7 +10,7 @@ extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
-s32 draw_selected_list_entry(void *, int);
+s32 draw_selected_list_entry__13TUnk_804D0618Fl(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 void render__19TWindowSubEquipListFv(u8 *arg0);
 u8 *__nw__7TObjectFUl(s32);
@@ -46,7 +47,7 @@ void TWindowSubEquipList::render() {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (((u8 *)this)), (int) (temp_r3));
     draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), (int) (temp_r3));
-    draw_selected_list_entry((void *) (((u8 *)this)), (int) (temp_r3));
+    draw_selected_list_entry__13TUnk_804D0618Fl((void *) (((u8 *)this)), (int) (temp_r3));
     if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(void **)((s8 *)((u8 *)this) + 0x80), (int) (temp_r3));
     }
@@ -71,7 +72,7 @@ u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4((void *) (arg0), (void *) (arg1), (int) (8), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802793E4___vt__19TWindowSubEquipList *)&__vt__19TWindowSubEquipList).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubEquipList__class_name;
-    ((TWindowSubStatusDisp *)arg0)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x25))));
+    ((TUnk_804D0618 *)arg0)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x25))));
     return arg0;
 }
 

@@ -9,9 +9,9 @@ extern "C" {
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 s32 align_digits__18TWindowInputNumberFv(void *);
-s32 refresh_digit_entries__18TWindowInputNumberFPv(void *);
+s32 refresh_digit_entries__18TWindowInputNumberFv(void *);
 s32 is_confirmed__18TWindowInputNumberFv();
-s32 save_position__17TWindowSubComCardFPv();
+s32 save_position__13TUnk_804CE018Fv();
 
 void TWindowInputNumber::mark_confirmed() {
     if (!(this->inputFlags & 8) && (is_confirmed__18TWindowInputNumberFv() == 0)) {
@@ -43,7 +43,7 @@ void TWindowInputNumber::update() {
     if ((s32) this->value < (s32) this->minimum) {
         this->value = (s32) this->maximum;
     }
-    refresh_digit_entries__18TWindowInputNumberFPv(this);
+    refresh_digit_entries__18TWindowInputNumberFv(this);
     align_digits__18TWindowInputNumberFv(this);
 }
 
@@ -55,7 +55,7 @@ void TWindowInputNumber::update_value() {
     if ((s32) this->value > (s32) this->maximum) {
         this->value = (s32) this->minimum;
     }
-    refresh_digit_entries__18TWindowInputNumberFPv(this);
+    refresh_digit_entries__18TWindowInputNumberFv(this);
     align_digits__18TWindowInputNumberFv(this);
 }
 
@@ -87,7 +87,7 @@ void TWindowInputNumber::move_cursor_next() {
 
 void TWindowInputNumber::set_value(f32 farg0) {
     this->m_38 = farg0;
-    save_position__17TWindowSubComCardFPv();
+    save_position__13TUnk_804CE018Fv();
     align_digits__18TWindowInputNumberFv(this);
 }
 

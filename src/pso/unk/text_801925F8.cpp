@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjLazerFenceNorm.h"
+#include "pso/object/TObjLazerFenceExtra.h"
 
 struct LazerFenceExtraBase_801925F8 { char pad[0x18]; };
 struct LazerFenceExtraVObj_801925F8 : LazerFenceExtraBase_801925F8 {
@@ -21,9 +23,9 @@ struct TObjLazerFenceExtra_801926D0 {
 extern "C" {
 
 void render__19TObjLazerFenceExtraFv(void *arg0);
-void render_lazer_fence_model(void *arg0);
+void render_lazer_fence_model__19TObjLazerFenceExtraFv(void *arg0);
 void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0);
-void update_wait_switch__19TObjLazerFenceExtraFPv(TObjLazerFenceExtra_801926D0 *self);
+void update_wait_switch__19TObjLazerFenceExtraFv(TObjLazerFenceExtra_801926D0 *self);
 u8 is_current_floor_switch_set(u16);
 void post_translate_matrix(void *);
 void draw_ginja_object(void *);
@@ -36,12 +38,12 @@ s32 set_indexed_flags(void *, s32, s32);
 
 extern void *lazer_fence_norm_texture_list;
 
-void render_lazer_fence_model(void *arg0) {
+void TObjLazerFenceExtra::render_lazer_fence_model() {
     set_global_param__8TObjFishFl(lazer_fence_norm_texture_list);
     push_matrix();
-    post_translate_matrix((void *)((char *)arg0 + 56));
-    rotate_matrix_y(0, *(void **)((s8 *)arg0 + 0x60));
-    draw_ginja_object(*(void **)((s8 *)arg0 + 0xBC));
+    post_translate_matrix((void *)((char *)this + 56));
+    rotate_matrix_y(0, *(void **)((s8 *)this + 0x60));
+    draw_ginja_object(*(void **)((s8 *)this + 0xBC));
     pop_matrix();
 }
 
@@ -58,7 +60,7 @@ void render__19TObjLazerFenceExtraFv(void *arg0) {
             draw_lazer_fence_extra_model__19TObjLazerFenceExtraFv(arg0);
             return;
         case 1:
-            render_lazer_fence_model((void *)(arg0));
+            render_lazer_fence_model__19TObjLazerFenceExtraFv((void *)(arg0));
             break;
         }
     }
@@ -68,14 +70,14 @@ extern "C" void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 extern const f32 lbl_805DBE58;
 extern const f32 lbl_805DBE64;
 
-void update_wait_switch__19TObjLazerFenceExtraFPv(TObjLazerFenceExtra_801926D0 *self) {
-    self->frame += lbl_805DBE64;
-    if ((f32)(self->motion->frames - 1) < self->frame) {
-        self->frame = lbl_805DBE58;
+void TObjLazerFenceExtra::update_wait_switch() {
+    ((TObjLazerFenceExtra_801926D0 *)this)->frame += lbl_805DBE64;
+    if ((f32)(((TObjLazerFenceExtra_801926D0 *)this)->motion->frames - 1) < ((TObjLazerFenceExtra_801926D0 *)this)->frame) {
+        ((TObjLazerFenceExtra_801926D0 *)this)->frame = lbl_805DBE58;
     }
-    if (is_current_floor_switch_set((u16)self->switchId) == 1) {
-        clear_player_status_flag__10TObjPlayerFlUl(self, 0, 1);
-        self->state = 1;
+    if (is_current_floor_switch_set((u16)((TObjLazerFenceExtra_801926D0 *)this)->switchId) == 1) {
+        clear_player_status_flag__10TObjPlayerFlUl(((TObjLazerFenceExtra_801926D0 *)this), 0, 1);
+        ((TObjLazerFenceExtra_801926D0 *)this)->state = 1;
     }
 }
 
@@ -121,7 +123,7 @@ extern s32 lazer_fence_norm_bml_resource;
 void select_models__18TObjLazerFenceNormFPv(Fish_80192A3C *arg0);
 void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 void reset_photon_effect__10TObjPlayerFv(void *);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void init_models__19TObjLazerFenceExtraFv(void *);
@@ -138,7 +140,7 @@ void *TObjLazerFenceExtra__create(void *arg0);
 void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1);
 void run_task__19TObjLazerFenceExtraFv(void *arg0);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 destroy_particle_controller__13TUnk_804AF8A0Fs(void *, s32);
@@ -149,7 +151,7 @@ void run_task__19TObjLazerFenceExtraFv(void *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
     switch (temp_r0) {
     case 0:
-        ((s32 (*)())update_wait_switch__19TObjLazerFenceExtraFPv)();
+        ((s32 (*)())update_wait_switch__19TObjLazerFenceExtraFv)();
         return;
     case 1:
         ((s32 (*)())reset_by_door__19TObjLazerFenceExtraFPv)();
@@ -162,7 +164,7 @@ extern s32 __vt__19TObjLazerFenceExtra[];
 void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjLazerFenceExtra;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         destroy_particle_controller__13TUnk_804AF8A0Fs(arg0, 0);
         if (arg1 > 0) {
@@ -203,7 +205,7 @@ void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     *(f32 *)((s8 *)(*(u8 **)((s8 *)self + 0xA4)) + 0x10) = *(f32 *)((s8 *)self + 0x6C);
     *(f32 *)((s8 *)(*(u8 **)((s8 *)self + 0xA4)) + 0xC) = *(f32 *)((s8 *)self + 0x70);
     reset_photon_effect__10TObjPlayerFv(self);
-    refresh_collision_body_centers(self);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
     if (*(s32 *)((s8 *)self + 0xD8) == 0) {
         for (i = 1; i < *(s32 *)((s8 *)self + 0xA8); i++) {
             clear_player_status_flag__10TObjPlayerFlUl(self, i, 1);
@@ -260,23 +262,23 @@ void free_children__12TObjDoorJungFPvPv(s32, int);
 void post_translate_matrix(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
-void draw_animated_beam__18TObjLazerFenceNormFPv(Obj_80192B5C *arg0);
+void draw_animated_beam__18TObjLazerFenceNormFv(Obj_80192B5C *arg0);
 }
 
 extern "C" {
 
-void draw_animated_beam__18TObjLazerFenceNormFPv(Obj_80192B5C *arg0) {
+void TObjLazerFenceNorm::draw_animated_beam() {
     s32 i;
     for (i = 0; i < 4; i++) {
-        free_children__12TObjDoorJungFPvPv(arg0->fC8[i], lbl_80445B7C[arg0->fAC]);
+        free_children__12TObjDoorJungFPvPv(((Obj_80192B5C *)this)->fC8[i], lbl_80445B7C[((Obj_80192B5C *)this)->fAC]);
     }
     set_global_param__8TObjFishFl(lazer_fence_norm_texture_list);
     push_matrix();
-    post_translate_matrix(arg0->f38);
-    rotate_matrix_y(0, (void *)arg0->f60);
-    draw_ginja_object((void *)arg0->fBC);
+    post_translate_matrix(((Obj_80192B5C *)this)->f38);
+    rotate_matrix_y(0, (void *)((Obj_80192B5C *)this)->f60);
+    draw_ginja_object((void *)((Obj_80192B5C *)this)->fBC);
     begin_effect_render__13TParticleCtrlFv();
-    draw_ginja_model_with_motion(arg0->fC0, arg0->fC4, arg0->fB8);
+    draw_ginja_model_with_motion(((Obj_80192B5C *)this)->fC0, ((Obj_80192B5C *)this)->fC4, ((Obj_80192B5C *)this)->fB8);
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
 }
@@ -310,7 +312,7 @@ void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DBE58;
 extern const f32 lbl_805DBE64;
-void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self);
+void update_closed__18TObjLazerFenceNormFv(TObjLazerFenceNorm_80192CCC *self);
 }
 
 extern "C" {
@@ -345,7 +347,7 @@ void TObjLazerFenceNorm::render() {
         temp_r0 = *(s32 *)&this->m_b4;
         switch (temp_r0) {
         case 0:
-            draw_animated_beam__18TObjLazerFenceNormFPv((Obj_80192B5C *)this);
+            draw_animated_beam__18TObjLazerFenceNormFv((Obj_80192B5C *)this);
             return;
         case 1:
             draw_model();
@@ -354,14 +356,14 @@ void TObjLazerFenceNorm::render() {
     }
 }
 
-void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self) {
-    self->frame += lbl_805DBE64;
-    if ((f32)(self->motion->frames - 1) < self->frame) {
-        self->frame = lbl_805DBE58;
+void TObjLazerFenceNorm::update_closed() {
+    ((TObjLazerFenceNorm_80192CCC *)this)->frame += lbl_805DBE64;
+    if ((f32)(((TObjLazerFenceNorm_80192CCC *)this)->motion->frames - 1) < ((TObjLazerFenceNorm_80192CCC *)this)->frame) {
+        ((TObjLazerFenceNorm_80192CCC *)this)->frame = lbl_805DBE58;
     }
-    if (is_current_floor_switch_set((u16)self->switchId) == 1) {
-        clear_player_status_flag__10TObjPlayerFlUl(self, 0, 1);
-        self->state = 1;
+    if (is_current_floor_switch_set((u16)((TObjLazerFenceNorm_80192CCC *)this)->switchId) == 1) {
+        clear_player_status_flag__10TObjPlayerFlUl(((TObjLazerFenceNorm_80192CCC *)this), 0, 1);
+        ((TObjLazerFenceNorm_80192CCC *)this)->state = 1;
     }
 }
 

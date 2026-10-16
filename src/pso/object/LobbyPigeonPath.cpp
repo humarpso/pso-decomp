@@ -148,34 +148,34 @@ s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self) {
 
 extern "C" {
 
-void select_lobby_pigeon_model(void *arg0);
+void select_lobby_pigeon_model__13TUnk_804E0898Fv(void *arg0);
 s32 filter_lobby_pigeon_theme(void *);
 
-void select_lobby_pigeon_model(void *arg0) {
+void TUnk_804E0898::select_lobby_pigeon_model() {
     s32 temp_r3;
 
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 1) {
-        *(s32 *)((s8 *)arg0 + 0xA0) = 0;
+    if ((s32) *(s32 *)((s8 *)this + 0x8C) < 1) {
+        *(s32 *)((s8 *)this + 0xA0) = 0;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xA0) = 1;
+        *(s32 *)((s8 *)this + 0xA0) = 1;
     }
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x88);
+    temp_r3 = *(s32 *)((s8 *)this + 0x88);
     if (temp_r3 < 1) {
-        *(s32 *)((s8 *)arg0 + 0xA4) = 0;
-    } else if ((s32) *(s32 *)((s8 *)arg0 + 0xA0) == 0) {
+        *(s32 *)((s8 *)this + 0xA4) = 0;
+    } else if ((s32) *(s32 *)((s8 *)this + 0xA0) == 0) {
         if (temp_r3 > 1) {
-            *(s32 *)((s8 *)arg0 + 0xA4) = 3;
+            *(s32 *)((s8 *)this + 0xA4) = 3;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xA4) = 0xA;
+            *(s32 *)((s8 *)this + 0xA4) = 0xA;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0xA4) = 5;
+        *(s32 *)((s8 *)this + 0xA4) = 5;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xA4) == filter_lobby_pigeon_theme(arg0)) {
-        *(s32 *)((s8 *)arg0 + 0x98) = 3;
+    if ((s32) *(s32 *)((s8 *)this + 0xA4) == filter_lobby_pigeon_theme(this)) {
+        *(s32 *)((s8 *)this + 0x98) = 3;
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x98) = 0;
+    *(s32 *)((s8 *)this + 0x98) = 0;
 }
 
 }
@@ -218,7 +218,7 @@ extern s32 lobby_pigeon_vtable[];
 extern void* lobby_pigeon_bml_archive;
 LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void* source);
 
-void update_lobby_pigeon_visibility(LobbyPigeon *self);
+void update_lobby_pigeon_visibility__13TUnk_804E0898Fv(LobbyPigeon *self);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 get_state_flag__9TMainTaskFv();
 void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -623,7 +623,7 @@ extern void *tl_05;
 extern "C" {
 
 extern Entry_802C2548 jungle_ebi_path_profiles[];
-s32 update_path_follow_rotation__10TObjPlayerFPvPvf(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32);
+s32 update_path_follow_rotation__13TUnk_804E094CFPvf(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32);
 }
 
 extern "C" {
@@ -654,7 +654,7 @@ void TUnk_804E0898::vfunc_14() {
 
 void TUnk_804E0898::vfunc_13(s32) {
     Obj_802C0F3C *self = (Obj_802C0F3C *)this;
-  update_lobby_pigeon_visibility((LobbyPigeon *)(self));
+  update_lobby_pigeon_visibility__13TUnk_804E0898Fv((LobbyPigeon *)(self));
   self->b4 += lobby_pigeon_path_profiles[self->d8].pa;
   if (((s32 (*)(void *))advance_lobby_pigeon_path)(self) == 0) {
     self->b4 = (0.0f);
@@ -679,33 +679,33 @@ void TUnk_804E0898::vfunc_13(s32) {
 extern int fold_flush_0;
 #pragma pop
 
-void update_lobby_pigeon_visibility(LobbyPigeon *self) {
-  switch (self->phase) {
+void TUnk_804E0898::update_lobby_pigeon_visibility() {
+  switch (((LobbyPigeon *)this)->phase) {
   case 0:
-    if (self->theme == ((s32 (*)(LobbyPigeon *))filter_lobby_pigeon_theme)(self)) {
-      self->phase = 2;
+    if (((LobbyPigeon *)this)->theme == ((s32 (*)(LobbyPigeon *))filter_lobby_pigeon_theme)(((LobbyPigeon *)this))) {
+      ((LobbyPigeon *)this)->phase = 2;
     }
     break;
   case 2: {
     f32 lim = 1.0f;
-    self->scale += 0.1f;
-    if (self->scale >= lim) {
-      self->scale = lim;
-      self->phase = 3;
+    ((LobbyPigeon *)this)->scale += 0.1f;
+    if (((LobbyPigeon *)this)->scale >= lim) {
+      ((LobbyPigeon *)this)->scale = lim;
+      ((LobbyPigeon *)this)->phase = 3;
     }
   } break;
   case 1: {
     f32 lim = 0.0f;
-    self->scale -= 0.1f;
-    if (self->scale <= lim) {
-      self->scale = lim;
-      self->phase = 0;
+    ((LobbyPigeon *)this)->scale -= 0.1f;
+    if (((LobbyPigeon *)this)->scale <= lim) {
+      ((LobbyPigeon *)this)->scale = lim;
+      ((LobbyPigeon *)this)->phase = 0;
     }
   } break;
   case 3:
   default:
-    if (self->theme != ((s32 (*)(LobbyPigeon *))filter_lobby_pigeon_theme)(self)) {
-      self->phase = 1;
+    if (((LobbyPigeon *)this)->theme != ((s32 (*)(LobbyPigeon *))filter_lobby_pigeon_theme)(((LobbyPigeon *)this))) {
+      ((LobbyPigeon *)this)->phase = 1;
     }
     break;
   }
@@ -728,7 +728,7 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
     s32 selector;
     ((u8 * (*)(LobbyPigeon*, void*, const void*))TObjPathObj__ct)((LobbyPigeon*)(self), (void*)(parent), (const void*)(source));
     self->vtable = ((void* *)&lobby_pigeon_vtable);
-    ((void (*)(LobbyPigeon *))select_lobby_pigeon_model)(self);
+    ((void (*)(LobbyPigeon *))select_lobby_pigeon_model__13TUnk_804E0898Fv)(self);
     self->scale = (1.0f);
     self->model = ((void*)get_bml_model((void *)(lobby_pigeon_bml_archive), (s32)(self->modelIndex)));
     self->animation = ((void*)get_bml_motion((void *)(lobby_pigeon_bml_archive), (s32)(0)));
@@ -1172,9 +1172,9 @@ void load_jungle_ebi_resources__10TObjPlayerFv(void) {
 struct Pl_802C26E4;
 struct Ent_802C26E4;
 struct Vec_802C1660;
-s32 update_path_follow_rotation__10TObjPlayerFPvPvf(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32) {
+s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
     s32 r;
-    Obj_802C22A4 *self = (Obj_802C22A4 *)arg0_;
+    Obj_802C22A4 *self = (Obj_802C22A4 *)((Pl_802C26E4 *)this);
     Entry_802C2548 *e;
     s32 old;
     s32 diff;
@@ -1301,7 +1301,7 @@ void TUnk_804E094C::vfunc_13(s32) {
     e += arg0->idx;
     f32 ox = arg0->x;
     arg0->x = ox + e->b;
-    if (update_path_follow_rotation__10TObjPlayerFPvPvf((Pl_802C26E4 *)(arg0), (Ent_802C26E4 *)(e), ox) == 0) {
+    if (update_path_follow_rotation__13TUnk_804E094CFPvf((Pl_802C26E4 *)(arg0), (Ent_802C26E4 *)(e), ox) == 0) {
         arg0->x = (0.0f);
     }
     arg0->y = arg0->y + jungle_ebi_path_profiles[arg0->idx].c;

@@ -131,7 +131,7 @@ s32 exchange_object_state__9TObjEnemyFls(void *, s32 *, s32);
 s32 send_6x0A_enemy_state(void *, s32 *);
 s32 has_no_active_slot(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 send_entity_set_flags__6TLobbyFPv(void *);
+s32 send_entity_set_flags__9TObjEnemyFv(void *);
 
 void TObjEneSlime::release_split_slimes() {
     Obj_800EB910 *self = (Obj_800EB910 *)this;
@@ -204,7 +204,7 @@ void TObjEneSlime::run_task() {
         send_6x0A_enemy_state(this, &sp8);
         exchange_object_state__9TObjEnemyFls(this, &sp8, 0);
         ((VObj_800EBB18_800EB9F0 *)this)->m77(&sp8);
-        send_entity_set_flags__6TLobbyFPv(this);
+        send_entity_set_flags__9TObjEnemyFv(this);
         queue_destruction__7TObjectFv(this);
     }
 }

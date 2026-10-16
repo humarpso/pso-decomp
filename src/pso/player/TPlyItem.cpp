@@ -160,7 +160,7 @@ void TLobby::reduce_owner_matched_items() {
         if (is_item_valid__9TItemListFl(it) != 0) {
             owner = (VObj_801D5004 *)get_owner_if_alive__10TObjPlayerFv(it);
             if (owner != NULL && item_reduce_owner_match_field_ec == ((TItem *)owner)->get_field_ec() &&
-                reduce_owner_match_id == ((TObjPlayer *)owner)->get_field_ed()) {
+                reduce_owner_match_id == ((TItem *)owner)->get_field_ed()) {
                 if (item_reduce_owner_match_field_ec == 3) {
                     lobby = item_reduce_target_player;
                     ((TLobby *)(*(s32 *)(lobby + 0xD00)))->reduce_item_amount((s32)lobby, (s32)it, (s32)(owner->v34()));

@@ -34,7 +34,7 @@ struct Rain_801977D4 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void vec3_add_to(void *, void *);
-void update_drops__8TObjRainFPv(struct Rain_80197904 *self);
+void update_drops__8TObjRainFv(struct Rain_80197904 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 void draw_line_list(void *, int, int);
@@ -77,11 +77,11 @@ void TObjRain::draw_streaks() {
     TObjPlayer::reset_transform_state();
 }
 
-void update_drops__8TObjRainFPv(struct Rain_80197904 *self) {
+void TObjRain::update_drops() {
     s32 active = 0;
-    struct Drop_80197904 *drop = self->drops;
+    struct Drop_80197904 *drop = ((struct Rain_80197904 *)this)->drops;
     u32 i;
-    for (i = 0; i < self->count; drop++, i++) {
+    for (i = 0; i < ((struct Rain_80197904 *)this)->count; drop++, i++) {
         if (drop->active != 0) {
             vec3_add_to(&drop->position, &drop->velocity);
             if (drop->position.y < drop->floor_y) {
@@ -92,7 +92,7 @@ void update_drops__8TObjRainFPv(struct Rain_80197904 *self) {
         }
     }
     if (active == 0) {
-        queue_destruction__7TObjectFv(self);
+        queue_destruction__7TObjectFv(((struct Rain_80197904 *)this));
     }
 }
 

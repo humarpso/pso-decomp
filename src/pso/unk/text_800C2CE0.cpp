@@ -227,7 +227,7 @@ extern Pair_800C2E64 lbl_8043BA60[];
 void TObjEneRe2Flower__sub_800C2E64(Obj_800C2E64 *self, s32 state);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 get_flag_b4__9TObjEneDDFv();
-void clear_attack_receipts(void *);
+void clear_attack_receipts__9TObjEneDDFv(void *);
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 s32 transition_enemy_state(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
@@ -274,7 +274,7 @@ void TObjEneDD::state_damaged(s32 arg1) {
     case 5:
         F(s32, 0x30) &= ~0x200;
         F(s32, 0x3C4) &= ~2;
-        clear_attack_receipts(arg0);
+        clear_attack_receipts__9TObjEneDDFv(arg0);
         break;
     }
 }

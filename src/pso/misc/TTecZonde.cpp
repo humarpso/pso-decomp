@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecZonde.h"
 
 struct RecoveredGlobal_8023C558_lbl_804CC510
 {
@@ -28,7 +29,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 copy_params__8TTecAntiFPUc(void *, int);
 extern RecoveredGlobal_8023C558_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8023C558_lbl_804CC55C lbl_804CC55C;
-void init_parameters__9TTecZondeFPv(u8 *arg0);
+void init_parameters__9TTecZondeFv(u8 *arg0);
 }
 
 extern "C" {
@@ -38,19 +39,19 @@ typedef struct RecoveredGlobal_8023C558_lbl_804CC510 RecoveredGlobal_8023C558_lb
 typedef struct RecoveredGlobal_8023C558_lbl_804CC55C RecoveredGlobal_8023C558_lbl_804CC55C;
 typedef char RecoveredGlobal_8023C558_lbl_804CC510_size[((sizeof(RecoveredGlobal_8023C558_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_8023C558_lbl_804CC55C_size[((sizeof(RecoveredGlobal_8023C558_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
-void init_parameters__9TTecZondeFPv(u8 *arg0) {
+void TTecZonde::init_parameters() {
   s32 new_var;
-  new_var = calc_technique_parameters((int) 6, (int) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4, (int) 0xFFFF);
-  copy_params__8TTecAntiFPUc((void *) (arg0 + 0xCC), (int) new_var);
-  if ((((s16) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
+  new_var = calc_technique_parameters((int) 6, (int) ((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_C4, (int) 0xFFFF);
+  copy_params__8TTecAntiFPUc((void *) (((u8 *)this) + 0xCC), (int) new_var);
+  if ((((s16) ((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    ((RecoveredFields_8023C558_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x18))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x1A))) * ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4));
+    ((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x18))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x1A))) * ((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_C4));
     return;
   }
-  ((RecoveredFields_8023C558_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_8023C558_arg0 *) arg0)->field_CC + ((f32) (((RecoveredFields_8023C558_arg0 *) arg0)->field_F0 * ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4)));
+  ((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_CC = (f32) (((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_CC + ((f32) (((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_F0 * ((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_C4)));
   if (is_technique_ready__8TTecCtrlFv())
   {
-    ((RecoveredFields_8023C558_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_8023C558_arg0 *) arg0)->field_CC * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x30))));
+    ((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_CC = (f32) (((RecoveredFields_8023C558_arg0 *) ((u8 *)this))->field_CC * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x30))));
   }
 }
 
@@ -90,7 +91,7 @@ struct VObj_18_0c879f : VBase_18_0c879f {
 struct Obj_8023C6B4 { u8 pad[0x1C]; void *source; u8 pad20[0xCC - 0x20]; f32 power; };
 
 extern "C" {
-s32 test_elt_flag__10TObjPlayerFPvii(void *, s32, s32);
+s32 test_elt_flag__13TUnk_80493450Fll(void *, s32, s32);
 void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1);
 }
 
@@ -111,7 +112,7 @@ void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1) {
     HitInfo_8023C6B4 h;
     h.type = 3;
     h.power = arg0->power;
-    if (test_elt_flag__10TObjPlayerFPvii(arg1, 0, 0x80) == 0) {
+    if (test_elt_flag__13TUnk_80493450Fll(arg1, 0, 0x80) == 0) {
         HitInfo_8023C6B4 c = h;
         arg1->m21(arg0->source, &c, 0, 6, -1);
     }
@@ -349,7 +350,7 @@ u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023CD48___vt__9TTecZonde *)&__vt__9TTecZonde).value;
     ((TObjPlayer *)(arg0 + 0x130))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3838;
-    init_parameters__9TTecZondeFPv(arg0);
+    init_parameters__9TTecZondeFv(arg0);
     copy_technique_target_list(arg0 + 0x130, arg3);
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {

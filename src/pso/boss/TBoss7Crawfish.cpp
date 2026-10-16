@@ -80,7 +80,7 @@ struct Stack_8030895C {
 
 extern "C" {
 s32 obj_isState2_324(int);
-s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
+s32 sub_80308AA8__14TBoss7CrawfishFv(u8 *arg0);
 int rand(void);
 extern s32 lbl_804755A8;
 extern s32 game_difficulty_selection;
@@ -93,7 +93,7 @@ extern const f32 lbl_805DF0E8;
 
 extern "C" {
 extern const f32 TBoss7Crawfish__data_805DF0D8;
-s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
+s32 sub_80308AA8__14TBoss7CrawfishFv(u8 *arg0);
 s32 spawn_particle_effect(void *, int);
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
@@ -103,7 +103,7 @@ extern RecoveredGlobal_80308840_lbl_8047559C lbl_8047559C;
 extern const f32 lbl_805DF0CC;
 extern const f32 lbl_805DF0D0;
 extern const f32 lbl_805DF0D4;
-s32 is_visible__14TBoss7CrawfishFPv(u8 *arg0);
+s32 is_visible__14TBoss7CrawfishFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_is_hit_receivable(u32);
 s32 reset_global_table();
@@ -114,7 +114,7 @@ void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o);
 
 extern "C" {
 
-s32 TBoss7Crawfish__sub_80308688(void *arg0);
+s32 sub_80308688__14TBoss7CrawfishFv(void *arg0);
 void TBoss7Crawfish__sub_803087D4(s32 arg0, s32 arg1);
 int TBoss7Crawfish__sub_80308BEC(void* p);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -131,8 +131,8 @@ int queue_destruction__7TObjectFv(void*);
 
 extern f32 lbl_805DF0C8;
 
-s32 TBoss7Crawfish__sub_80308688(void *arg0) {
-    return (u32) __cntlzw((u32) (lbl_805DF0C8 < *(f32 *)((s8 *)arg0 + 0x38))) >> 5;
+s32 TBoss7Crawfish::sub_80308688() {
+    return (u32) __cntlzw((u32) (lbl_805DF0C8 < *(f32 *)((s8 *)this + 0x38))) >> 5;
 }
 
 void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o) {
@@ -176,14 +176,14 @@ void TBoss7Crawfish::spawn_effect(s32 arg1) {
 
 typedef char RecoveredGlobal_80308840_lbl_8047559C_size[sizeof(RecoveredGlobal_80308840_lbl_8047559C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80308840_main_task_size[sizeof(RecoveredGlobal_80308840_main_task) == 0x34 ? 1 : -1];
-s32 is_visible__14TBoss7CrawfishFPv(u8 *arg0) {
+s32 TBoss7Crawfish::is_visible() {
     if (get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_80308840_main_task *)&main_task).value) & 0x20) {
-        if (lbl_805DF0CC < horizontal_distance_squared(&lbl_8047559C.value, arg0 + 0x38)) {
+        if (lbl_805DF0CC < horizontal_distance_squared(&lbl_8047559C.value, ((u8 *)this) + 0x38)) {
             return 0;
         }
         goto block_5;
     }
-    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DF0D0, lbl_805DF0D4) == 0) {
+    if (((VObj_18_26a62c *)(((u8 *)this)))->m8(lbl_805DF0D0, lbl_805DF0D4) == 0) {
         return 0;
     }
 block_5:
@@ -211,7 +211,7 @@ s32 apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
 
     if (arg1 != NULL) {
         temp_r31 = (u8 *)(*(u8 **)((s8 *)arg1 + 0));
-        if (TBoss7Crawfish__sub_80308AA8((u8 *)arg0_) != 0) {
+        if (sub_80308AA8__14TBoss7CrawfishFv((u8 *)arg0_) != 0) {
             if (((VObj_18_405891 *)(temp_r31))->m18(arg0, TBoss7Crawfish__data_805DF0DC) != 0) {
                 ((VObj_18_405891 *)(temp_r31))->m20(arg0, TBoss7Crawfish__data_805DF0DC);
             }
@@ -236,11 +236,11 @@ s32 apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
 #undef arg0
 #undef arg1
 
-s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0) {
-    return TBoss7Crawfish__data_805DF0D8 == *(f32 *)((s8 *)arg0 + 0x354);
+s32 TBoss7Crawfish::sub_80308AA8() {
+    return TBoss7Crawfish__data_805DF0D8 == *(f32 *)((s8 *)((u8 *)this) + 0x354);
 }
 
-void TBoss7Crawfish::render() { if (is_visible__14TBoss7CrawfishFPv((u8 *)(this)) != 0) { TObjPlayer::notify_fish_if_valid((u32)(*(void* *)&this->texture_id)); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((void*)0, this->m_5c, *(void* *)&this->rotation_y, *(void* *)&this->rotation_z); scale_current_matrix((char*)this + 0x68); draw__16TObjEneRe7BeruraFv(this); pop_matrix(); TObjPlayer::clear_global_state(); } }
+void TBoss7Crawfish::render() { if (is_visible__14TBoss7CrawfishFv((u8 *)(this)) != 0) { TObjPlayer::notify_fish_if_valid((u32)(*(void* *)&this->texture_id)); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((void*)0, this->m_5c, *(void* *)&this->rotation_y, *(void* *)&this->rotation_z); scale_current_matrix((char*)this + 0x68); draw__16TObjEneRe7BeruraFv(this); pop_matrix(); TObjPlayer::clear_global_state(); } }
 
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 lbl_805DF0EC;

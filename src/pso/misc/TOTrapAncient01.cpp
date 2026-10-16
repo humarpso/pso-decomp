@@ -312,7 +312,7 @@ extern u32 TOTrapAncient01__bml_resource;
 extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA5C;
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 free_collision_body_parts(void *);
 s32 __destroy_arr(void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
@@ -323,10 +323,10 @@ Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag);
 s32 get_main_phase();
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void TOTrap__ct(void *, void *, void *);
-s32 get_or_assign_actor_id(void *, int);
+s32 get_or_assign_actor_id__13TUnk_804806E8Fl(void *, int);
 void __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
 void init_and_activate__10TObjPlayerFv(void *);
@@ -618,7 +618,7 @@ void TOTrapAncient01::load_resources() {
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
     if (self != 0) {
         self->vt = __vt__15TOTrapAncient01;
-        unregister_object_by_id(self);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(self);
         free_collision_body_parts(self);
         __destroy_arr(self->arr, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
         __dt__6TOTrapFv(self, 0);
@@ -673,9 +673,9 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     *(f32 *)((s8 *)self + 0x338) = lbl_805DBA54;
     *(u16 *)((s8 *)self + 0x33C) = 0xFFFF;
     init_collision_body_parts(arg0, lbl_804B4844, 1);
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
     *(u32 *)((s8 *)self + 0x30) |= 0x60040000;
-    get_or_assign_actor_id(arg0, 0);
+    get_or_assign_actor_id__13TUnk_804806E8Fl(arg0, 0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(((Self_80179F40 *)arg0)->arr[i]))->activate_and_dispatch();

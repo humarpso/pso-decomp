@@ -88,14 +88,12 @@ struct TWindowCtrl : public TObject {
     static void close();
     void set_flag1e_bit40();
     u16 get_flags();
-    int get_flag_bit1();
     static s32 get_window(s32 arg0);
     static s32 get_flag_bit4();
     static s32 get_flag_bit5();
     static s32 get_display_flag();
     int is_enabled();
     int is_visible();
-    s16 get_field_20();
     s32 get_active_menu();
     void update_short_list_request();
     void show_active_window();

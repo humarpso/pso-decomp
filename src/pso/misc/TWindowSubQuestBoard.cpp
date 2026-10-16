@@ -94,7 +94,7 @@ void TUnk_804D1818::run_task() {
         this->m_2c = sub_8027C884__13TUnk_804D1818Fl(this, t);
         *(u8 *)((s8 *)this + 0x1C) = 4;
     case 4:
-        ((TWindowSubMagPhoton *)this)->update_photon_selection();
+        ((TUnk_804D1818 *)this)->update_photon_selection();
         update_quest_board_card_flags__13TUnk_804D1818Fv(this);
         if (((TLobby *)(this->m_2c))->get_flag_bit2() != 0) {
             *(u8 *)((s8 *)this + 0x1C) = 1;

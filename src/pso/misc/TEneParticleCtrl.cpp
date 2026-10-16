@@ -37,7 +37,7 @@ extern "C" {
 
 void *__dt__16TEneParticleCtrlFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 int TWindowSubStatusDisp__sub_80338B88(void* p);
 void __dl__7TObjectFPv(void *);
 int enable__13TParticleCtrlFPv(void*);
@@ -52,7 +52,7 @@ void *__dt__16TEneParticleCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TEneParticleCtrl;
         if (*(void **)((s8 *)arg0 + 0xC0) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0xC0))); }
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {

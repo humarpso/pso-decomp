@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessage.h"
 
 struct RecoveredFields_802698C4_arg0 {
     u8 unknown_0[0x6C];
@@ -51,19 +52,19 @@ struct Q_80269664 {
 struct Ent_80269664 { u8 pad0[0xC]; f32 y; u8 pad10[4]; f32 h; };
 
 extern "C" {
-void update_scroll__14TWindowMessageFPv(struct RecoveredFields_802698C4_arg0 *arg0);
+void update_scroll__14TWindowMessageFv(struct RecoveredFields_802698C4_arg0 *arg0);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void set_default_status__17TWindowDuelResultFPvi(void *, s32);
 extern const f32 lbl_805DD218;
 extern const f32 lbl_805DD21C;
-void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1);
+void scroll_up_line__14TWindowMessageFPUc(u8 *arg0, u8 *arg1);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFv(void *);
-void advance_reveal_cursor__14TWindowMessageFPv(Msg_802695A8 *arg0);
+void advance_reveal_cursor__14TWindowMessageFv(Msg_802695A8 *arg0);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFv(void *);
-void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1);
-void retire_scrolled_lines__14TWindowMessageFPv(Q_802697B4 *w);
+void scroll_up_line__14TWindowMessageFPUc(u8 *arg0, u8 *arg1);
+void retire_scrolled_lines__14TWindowMessageFv(Q_802697B4 *w);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFv(void *);
 void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0);
@@ -71,17 +72,17 @@ void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0);
 
 extern "C" {
 
-void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1) {
+void TWindowMessage::scroll_up_line(u8 *arg1) {
     f32 d;
     s32 i;
     u8 *e;
     i = 0;
     d = lbl_805DD218 + *(f32 *)(arg1 + 0x14);
-    *(f32 *)(arg0 + 0x84) -= d;
-    *(f32 *)(arg0 + 0x6C) -= d;
-    *(f32 *)(arg0 + 0x80) -= d;
-    for (; i < *(s32 *)(arg0 + 0x8C); i++) {
-        e = get_array_entry__13TUnk_804CE018Fi(arg0, i);
+    *(f32 *)(((u8 *)this) + 0x84) -= d;
+    *(f32 *)(((u8 *)this) + 0x6C) -= d;
+    *(f32 *)(((u8 *)this) + 0x80) -= d;
+    for (; i < *(s32 *)(((u8 *)this) + 0x8C); i++) {
+        e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), i);
         *(f32 *)(e + 0xC) -= d;
     }
     *(f32 *)(arg1 + 0xC) = lbl_805DD21C;
@@ -89,22 +90,22 @@ void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1) {
     set_default_status__17TWindowDuelResultFPvi(arg1, 0);
 }
 
-void advance_reveal_cursor__14TWindowMessageFPv(Msg_802695A8 *arg0) {
+void TWindowMessage::advance_reveal_cursor() {
     u16 *e;
     s32 t;
-    e = ((u16 *)get_array_entry__13TUnk_804CE018Fi(arg0, arg0->cur));
+    e = ((u16 *)get_array_entry__13TUnk_804CE018Fi(((Msg_802695A8 *)this), ((Msg_802695A8 *)this)->cur));
     while (get_field_20__17TWindowSubComCardFv(e) != 0 && (*e & 0x10)) {
-        t = arg0->cur + 1;
-        arg0->cur = t;
-        if (t >= arg0->cnt) {
-            arg0->cur = 0;
+        t = ((Msg_802695A8 *)this)->cur + 1;
+        ((Msg_802695A8 *)this)->cur = t;
+        if (t >= ((Msg_802695A8 *)this)->cnt) {
+            ((Msg_802695A8 *)this)->cur = 0;
         }
-        if (arg0->cur == arg0->sel) {
+        if (((Msg_802695A8 *)this)->cur == ((Msg_802695A8 *)this)->sel) {
             break;
         }
-        e = ((u16 *)get_array_entry__13TUnk_804CE018Fi(arg0, arg0->cur));
-        if (arg0->ents[arg0->cur].flags & 8) {
-            arg0->ents[arg0->cur].flags &= ~8;
+        e = ((u16 *)get_array_entry__13TUnk_804CE018Fi(((Msg_802695A8 *)this), ((Msg_802695A8 *)this)->cur));
+        if (((Msg_802695A8 *)this)->ents[((Msg_802695A8 *)this)->cur].flags & 8) {
+            ((Msg_802695A8 *)this)->ents[((Msg_802695A8 *)this)->cur].flags &= ~8;
             *e &= ~8;
         }
     }
@@ -144,13 +145,14 @@ void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0) {
     }
 }
 
-void retire_scrolled_lines__14TWindowMessageFPv(Q_802697B4 *w) {
+void TWindowMessage::retire_scrolled_lines() {
+    Q_802697B4 *w = (Q_802697B4 *)this;
     u8 *e;
     Meta_802697B4 *m;
     e = get_array_entry__13TUnk_804CE018Fi(w, w->oldest);
     m = &w->meta[w->oldest];
     while (get_field_20__17TWindowSubComCardFv(e) != 0 && *(f32 *)(e + 0xC) + *(f32 *)(e + 0x14) < w->scroll) {
-        scroll_up_line__14TWindowMessageFPvPv((u8 *)w, e);
+        scroll_up_line__14TWindowMessageFPUc((u8 *)w, e);
         m->flags = 0;
         m->timer = 0;
         if (w->reveal == w->oldest) {
@@ -172,21 +174,21 @@ void retire_scrolled_lines__14TWindowMessageFPv(Q_802697B4 *w) {
 
 #pragma push
 #pragma opt_common_subs off
-void update_scroll__14TWindowMessageFPv(struct RecoveredFields_802698C4_arg0 *arg0) {
+void TWindowMessage::update_scroll() {
     f32 temp_f2;
     f32 temp_f3;
     f32 var_f1;
-    temp_f3 = arg0->field_84;
-    temp_f2 = temp_f3 - arg0->field_6C;
+    temp_f3 = ((struct RecoveredFields_802698C4_arg0 *)this)->field_84;
+    temp_f2 = temp_f3 - ((struct RecoveredFields_802698C4_arg0 *)this)->field_6C;
     var_f1 = (0.15f) * temp_f2;
     if (var_f1 < (15.0f)) {
         var_f1 = (15.0f);
     }
     if (temp_f2 < var_f1) {
-        arg0->field_6C = temp_f3;
+        ((struct RecoveredFields_802698C4_arg0 *)this)->field_6C = temp_f3;
         return;
     }
-    arg0->field_6C += var_f1;
+    ((struct RecoveredFields_802698C4_arg0 *)this)->field_6C += var_f1;
 }
 #pragma pop
 

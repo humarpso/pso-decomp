@@ -6,6 +6,7 @@
 class TUnk_8049442C : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_8049442C();
+    void update_ground_fall(s32 *, f32);
     void *destroy(s16);
     virtual void render();
     virtual void run_task();

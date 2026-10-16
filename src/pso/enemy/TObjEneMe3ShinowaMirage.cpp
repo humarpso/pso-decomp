@@ -468,7 +468,7 @@ struct Vec_800E420C { f32 x, y, z; };
 
 extern "C" {
 int transition_enemy_state(void*, int);
-void clear_attack_receipts(void *);
+void clear_attack_receipts__9TObjEneDDFv(void *);
 void vfunc_62__23TObjEneMe3ShinowaMirageFv(void *arg0);
 s32 draw_model__23TObjEneMe3ShinowaMirageFPv();
 s32 queue_destruction__7TObjectFv(void *);
@@ -495,8 +495,8 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 create_particle_emitter(s32, s32);
 void enable__13TParticleCtrlFPv(void *);
-s32 enemy_copy_target_destination(void *);
-s32 enemy_clear_target(void *);
+s32 enemy_copy_target_destination__12TObjEneDD_STFv(void *);
+s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 s32 transform_relative_position__9TObjEneDDFPv(void *, void *);
 s32 is_player_entity_id(u16);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
@@ -527,7 +527,7 @@ s32 enemy_set_target_id(void *, int);
 int transition_enemy_state(void*, int);
 u8 *TObjEneMe3ShinowaMirage__ct(u8 *, void *, u8 *, void *, void *);
 s16 obj_getField1c(void *);
-s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
+s32 init_common_from__9TObjEneDDFPUc(void *, void *);
 s32 fn_800E762C(void *);
 s32 TObjEneMe3Shinowa__ct(void *, void *);
 extern s32 lbl_805D2AD0;
@@ -622,7 +622,7 @@ void TObjEneMe3ShinowaMirage::vfunc_62() {
     if (*(s16 *)((s8 *)this + 0x326) != 15) {
         transition_enemy_state((void*)(this), (int)(15));
     }
-    clear_attack_receipts(this);
+    clear_attack_receipts__9TObjEneDDFv(this);
 }
 
 extern s32 __vt__23TObjEneMe3ShinowaMirage[];
@@ -665,7 +665,7 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *arg0, void *arg1, u8 *arg2, void *a3, void *
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TObjEneMe3ShinowaMirage;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AD0;
     *(s16 *)((s8 *)arg0 + 0x42C) = obj_getField1c((void *) (arg2));
-    init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));
+    init_common_from__9TObjEneDDFPUc((void *) (arg0), (void *) (arg2));
     *(f32 *)((s8 *)arg0 + 0x358) = (f32) *(f32 *)((s8 *)arg2 + 0x358);
     fn_800E762C((void *) (arg0));
     *(s16 *)((s8 *)arg0 + 0x1C) = arg3;
@@ -815,10 +815,10 @@ void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1) {
                     ok = 1;
                 }
             } else {
-                enemy_clear_target(arg0);
+                enemy_clear_target__12TObjEneDD_STFUs(arg0);
             }
             if (ok == 1) {
-                enemy_copy_target_destination(arg0);
+                enemy_copy_target_destination__12TObjEneDD_STFv(arg0);
                 I(0x3D4) = (s32)(lbl_805DA5D4 * calc_boss4_scale__10TObjPlayerFi(arg0));
                 ok = 0;
                 n = 0;

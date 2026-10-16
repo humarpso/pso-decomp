@@ -22,7 +22,7 @@ extern "C" {
 void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 fn_80244994();
+s32 sub_80244994__13TUnk_804CE018Fv();
 s32 queue_destruction__7TObjectFv(void *);
 
 void TWindowEffectParty::render() {  }
@@ -35,7 +35,7 @@ void TWindowEffectParty::run_task() {
     u8 temp_r3;
 
     temp_r3 = this->m_1e;
-    if (((s8) temp_r3 > 0) && ((((u32)TWindowCtrl__sub_8024FB80((s8)((s8) (temp_r3 - 1)))) == 0U) || (fn_80244994() == 0))) {
+    if (((s8) temp_r3 > 0) && ((((u32)TWindowCtrl__sub_8024FB80((s8)((s8) (temp_r3 - 1)))) == 0U) || (sub_80244994__13TUnk_804CE018Fv() == 0))) {
         queue_destruction__7TObjectFv(this);
         return;
     }

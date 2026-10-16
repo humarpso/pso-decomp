@@ -1,4 +1,5 @@
 #include "pso/protocol/protocol_types.h"
+#include "pso/object/TObjMotion.h"
 #include "types.h"
 
 #include <stddef.h>
@@ -69,7 +70,7 @@ void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos) {
     }
     m.id = id;
     m.a = get_current_floor();
-    m.b = ((TObjPlayer *)h)->get_stat_by_key_state();
+    m.b = ((TUnk_804B9870 *)h)->get_stat_by_key_state();
     m.x = pos->x;
     m.z = pos->z;
     copy_item_data__6TLobbyFPvPv(m.item, item);

@@ -1,4 +1,6 @@
 #include "pso/items/TItemWeapon.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/item/TUnk_804A69DC.h"
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
@@ -366,14 +368,14 @@ u8 * csnVector(void *, void *, s32);
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 fn_80100CC8(Pl_8011E87C *);
 s32 item_model_is_shown(void *);
-void send_6x61_activate_mag_effect(void *, s32);
+void send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
 s8 TObjPlayer__sub_80102C30(void *);
 s32 spawn_item_attacker(int, void *, int, void *);
 s32 spawn_land_hit_effect(int, void *, void *, void *, int);
 s32 init__9TItemDataFv(s32 *);
 s32 get_weapon_special_type_amount(s32, s16 *, s16 *);
 f32 * get_weapon_range_record(void *, s16);
-void set_weapon_category_flags(u8 *arg0);
+void set_weapon_category_flags__11TItemWeaponFv(u8 *arg0);
 void remap_extra_attack_type(u8 *arg0);
 void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
 void TItemWeapon__sub_8011E5C0(void);
@@ -387,11 +389,11 @@ void update_attack__11TItemWeaponFv(void);
 void emit_marker_effects__11TItemWeaponFv(void);
 void set_flag_8_if_check_passes__10TObjPlayerFPv(u8 *arg0);
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
-void create_weapon_trail_effects(Pl_8011E950 *arg0);
+void create_weapon_trail_effects__11TItemWeaponFv(Pl_8011E950 *arg0);
 u32 pack_weapon_trail_color(void *arg0);
 void fill_status_info__10TObjPlayerFPvPv(void *arg0, void *arg1);
 s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-void for_each_target_in_range__10TObjPlayerFPvf(PlSelf_8011F474 *self, f32 range);
+void for_each_target_in_range__13TUnk_804A69DCFf(PlSelf_8011F474 *self, f32 range);
 s32 is_active_in_game__11TItemWeaponFv(void *);
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
@@ -430,13 +432,13 @@ extern const f32 lbl_805DAC90;
 extern const f32 lbl_805DAC98;
 extern s32 tl_05;
 
-void set_weapon_category_flags(u8 *arg0) {
-    s32 r = ((VObj_8011E2AC *)arg0)->m30();
+void TItemWeapon::set_weapon_category_flags() {
+    s32 r = ((VObj_8011E2AC *)((u8 *)this))->m30();
     u32 flags = 0x10000;
     if (r & 1) {
         flags = 0x20000;
     }
-    set_status_flags__10TObjPlayerFPvUi(arg0, flags);
+    set_status_flags__10TObjPlayerFPvUi(((u8 *)this), flags);
 }
 
 void TObjPlayer::drain_owner_hp_fraction(f32 farg0) {
@@ -453,7 +455,7 @@ s32 TObjPlayer::is_mode_two_and_ready() {
     return 0;
 }
 
-void TObjPlayer::spawn_light_task() {
+void TItemWeapon::spawn_light_task() {
     Obj_8011E3E8 *arg0 = (Obj_8011E3E8 *)this;
     A12_8011E3E8 a = lbl_8043E838[0];
     A16_8011E3E8 b = lbl_8043E844[0];
@@ -465,15 +467,15 @@ void TObjPlayer::spawn_light_task() {
 
 void TItemWeapon::restore_action_type() {
     u8 *arg0 = (u8 *)this;
-    if (((TObjPlayer *)arg0)->test_flags_1b8(0x04000000) != 0U) {
+    if (((TItemWeapon *)arg0)->test_flags_1b8(0x04000000) != 0U) {
         set_action_type__10TObjPlayerFs((int) (*(s32 *)&this->player + 0x7CC), (int) (2));
         clear_equip_flags__11TItemWeaponFUl((void *) (arg0), (int) (0x04000000));
     }
 }
 
 void remap_extra_attack_type(u8 *arg0) {
-    if ((((TObjPlayer *)arg0)->test_flags_1b8(0x20) != 0U) && (TObjPlayer__sub_801D2F4C((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC)) == 2)) {
-        if (((TObjPlayer *)arg0)->test_flags_1b8(0x100000) != 0U) {
+    if ((((TItemWeapon *)arg0)->test_flags_1b8(0x20) != 0U) && (TObjPlayer__sub_801D2F4C((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC)) == 2)) {
+        if (((TItemWeapon *)arg0)->test_flags_1b8(0x100000) != 0U) {
             set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (int) (0));
         } else {
             set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (int) (1));
@@ -517,7 +519,7 @@ void TItemWeapon::vfunc_17(s32 value) {
 
 void TItemWeapon::roll_technique() {
     previous_technique_roll = technique_roll;
-    send_6x61_activate_mag_effect(this, (s32) ((f32) technique_roll_range * (lbl_805DAC8C * (f32) rand())));
+    send_6x61_activate_mag_effect__14TItemEquipBaseFl(this, (s32) ((f32) technique_roll_range * (lbl_805DAC8C * (f32) rand())));
 }
 
 extern "C" {
@@ -554,12 +556,12 @@ void TObjPlayer::call_callback_1ec(s32 arg1, s32 arg2) {
     }
 }
 
-void TObjPlayer::apply_model_params() {
+void TItemWeapon::apply_model_params() {
     s16 spA;
     s16 sp8;
     void *temp_r3;
 
-    get_weapon_special_type_amount(this->m_1d2 & 0x3F, &spA, &sp8);
+    get_weapon_special_type_amount((*(u8 *)((u8 *)this + 0x1D2)) & 0x3F, &spA, &sp8);
     ((TObjPlayer *)(*(void **)((s8 *)this + 0xF0)))->set_model_id(spA);
     ((TObjPlayer *)(*(void **)((s8 *)this + 0xF0)))->set_model_param(sp8);
     temp_r3 = *(void **)((s8 *)this + 0xF0);
@@ -579,7 +581,7 @@ void TItemWeapon::vfunc_34() {
     if (o->m33() == 0) {
         *(u8 *)((s8 *)o + 0x1D2) = *(u8 *)((s8 *)o + 0x1D2) & 0x7F;
     }
-    ((TObjPlayer *)o)->apply_model_params();
+    ((TItemWeapon *)o)->apply_model_params();
 }
 
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
@@ -597,21 +599,21 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
     }
 }
 
-void create_weapon_trail_effects(Pl_8011E950 *arg0) {
+void TItemWeapon::create_weapon_trail_effects() {
     u32 flags;
     s32 i;
-    flags = pack_weapon_trail_color((void *)(arg0)) & 0x8FFFFFFF;
-    if (arg0->x174 != 0U) {
+    flags = pack_weapon_trail_color((void *)(((Pl_8011E950 *)this))) & 0x8FFFFFFF;
+    if (((Pl_8011E950 *)this)->x174 != 0U) {
         for (i = 0; i != 4; i++) {
-            if (arg0->kind[i] != -1) {
+            if (((Pl_8011E950 *)this)->kind[i] != -1) {
                 void *p = __nw__15TItemHeapObjectFUl(0x2C);
                 if (p != NULL) {
-                    p = __ct__17TItemEffectWeaponFv(p, arg0->x174, flags);
+                    p = __ct__17TItemEffectWeaponFv(p, ((Pl_8011E950 *)this)->x174, flags);
                 }
-                arg0->eff[i] = p;
+                ((Pl_8011E950 *)this)->eff[i] = p;
             }
-            if (arg0->eff[i] != NULL && obj_testFlags30(arg0, 0x2000) != 0) {
-                TObjPlayer__sub_80121228(arg0->eff[i], 1);
+            if (((Pl_8011E950 *)this)->eff[i] != NULL && obj_testFlags30(((Pl_8011E950 *)this), 0x2000) != 0) {
+                TObjPlayer__sub_80121228(((Pl_8011E950 *)this)->eff[i], 1);
             }
         }
     }
@@ -694,7 +696,7 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
 void fill_status_info__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     ((s32 (*)(void))remap_extra_attack_type)();
     *(s16 *)((s8 *)arg1 + 0x14) = ((s16 (*)(s32))obj_getField1c)(*(s32 *)((s8 *)arg0 + 0xF0));
-    *(s16 *)((s8 *)arg1 + 0x16) = ((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0xF0)))->get_stat_by_key_state();
+    *(s16 *)((s8 *)arg1 + 0x16) = ((TUnk_804B9870 *)(*(s32 *)((s8 *)arg0 + 0xF0)))->get_stat_by_key_state();
     *(s32 *)((s8 *)arg1 + 0x18) = ((TObjPlayer *)arg0)->get_field_d8();
     *(f32 *)((s8 *)arg1 + 0x1C) = get_attack_accuracy_scale(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC);
     *(s32 *)((s8 *)arg1 + 0x24) = (s32) is_status_subsystem_ready__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0xF0));
@@ -862,7 +864,7 @@ s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s
                     spawn_land_hit_effect((int) (tl_05), (void *) (arg0), (void *) (arg1), (void *) (&endpoint.x), (int) ((s32) var_f31));
                 }
             }
-            ((TObjPlayer *)arg0)->spawn_light_task();
+            ((TItemWeapon *)arg0)->spawn_light_task();
             if ((((s32 (*)(void *, void *, f32 *, f32)) *(s32 (**)(void *, void *, f32 *, f32))((s8 *)arg0 + 0x1F0)) != NULL) && (item_model_is_shown((void *) (arg0)) == 1)) {
                 (*(s32 (**)(void *, void *, f32 *, f32))((s8 *)arg0 + 0x1F0))(arg0, arg1, &endpoint.x, var_f31);
             }
@@ -871,7 +873,7 @@ s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s
     return var_r31;
 }
 
-void for_each_target_in_range__10TObjPlayerFPvf(PlSelf_8011F474 *self, f32 range) {
+void TUnk_804A69DC::for_each_target_in_range(f32 range) {
     Obj_8011F474 *obj;
     u16 uid;
     void *state;
@@ -879,23 +881,23 @@ void for_each_target_in_range__10TObjPlayerFPvf(PlSelf_8011F474 *self, f32 range
     void *ent;
     s32 id;
     s32 ready;
-    if (is_active_in_game__11TItemWeaponFv(self) != 0) {
-        ((void (*)(void *))remap_extra_attack_type)(self);
-        state = ((TObjPlayer *)(self->owner))->get_extended_state();
+    if (is_active_in_game__11TItemWeaponFv(((PlSelf_8011F474 *)this)) != 0) {
+        ((void (*)(void *))remap_extra_attack_type)(((PlSelf_8011F474 *)this));
+        state = ((TObjPlayer *)(((PlSelf_8011F474 *)this)->owner))->get_extended_state();
         if (state != NULL) {
             for (i = 0; i != get_captured_target_count(state); i++) {
                 ent = get_captured_target_entry(state, i);
                 uid = get_uid__10TObjPlayerFPv(ent);
                 id = get_captured_target_collider_index(ent);
                 obj = resolve_hittable_target(uid, id);
-                if (obj != NULL && horizontal_distance_squared(self->owner->pos, obj->pos) < range) {
-                    ready = ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(self->owner);
-                    query_extended_state__10TObjPlayerFv(self->owner);
-                    self->on_near(self->owner, obj, ready, id);
+                if (obj != NULL && horizontal_distance_squared(((PlSelf_8011F474 *)this)->owner->pos, obj->pos) < range) {
+                    ready = ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(((PlSelf_8011F474 *)this)->owner);
+                    query_extended_state__10TObjPlayerFv(((PlSelf_8011F474 *)this)->owner);
+                    ((PlSelf_8011F474 *)this)->on_near(((PlSelf_8011F474 *)this)->owner, obj, ready, id);
                 }
             }
         }
-        ((TItemWeapon *)self)->restore_action_type();
+        ((TItemWeapon *)((PlSelf_8011F474 *)this))->restore_action_type();
     }
 }
 

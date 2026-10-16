@@ -163,7 +163,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 render_trap_model_if_visible__12TObjEneReconFPv(void *);
+s32 render_trap_model_if_visible__14TObjEneRecoboxFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
@@ -259,7 +259,7 @@ void render__12TObjEneReconFPv(u8 *arg0) {
         }
         if (var_r28 != 0) {
             var_r27 = 0;
-            if (render_trap_model_if_visible__12TObjEneReconFPv((void *) (arg0)) == 0) {
+            if (render_trap_model_if_visible__14TObjEneRecoboxFv((void *) (arg0)) == 0) {
                 lbl_805D5660 = model_render_flags;
                 lbl_805D5664 = chunk_polygon_flags_and_mask;
                 lbl_805D5668 = chunk_polygon_flags_or_mask;

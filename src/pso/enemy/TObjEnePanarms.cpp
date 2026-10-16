@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanBARA.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "dolphin/mtx.h"
@@ -307,7 +309,7 @@ void vfunc_63__14TObjEnePanBARAFv(u8 *arg0);
 void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0);
 Obj_800E24A4 * fn_800E24A4(Obj_800E24A4 *arg0, s16 arg1);
 s32 TObjEnePanBARA__ct(s32, s32, s32, s32);
-void TObjEnePanarms__sub_800E2DE4(void *arg0, s32 arg1);
+void sub_800E2DE4__10TObjMotionFl(void *arg0, s32 arg1);
 u8 is_phase_12__14TObjEnePanarmsFPv(void *arg0);
 u8 check_can_attack__14TObjEnePanarmsFPv(void *arg0);
 u8 TObjEnePanarms__sub_800E2E54(void *arg0);
@@ -1131,7 +1133,7 @@ void TObjEnePanarms::init_split() {
     this->hp = (s16) ((s32) (temp_r5 + 1) / 2);
     this->m_3bc = (s32) this->hp;
     *(s32 *)((s8 *)this + 0x3C0) = 0;
-    ((s32 (*)(void *, s32))TObjEnePanarms__sub_800E2DE4)(this, 0x10);
+    ((s32 (*)(void *, s32))sub_800E2DE4__10TObjMotionFl)(this, 0x10);
     *(s32 *)&this->animationFlags = (s32) (*(s32 *)&this->animationFlags | 1);
     set_field_b8__10TObjMotionFs((void*)(this), (int)(9));
 }
@@ -1527,7 +1529,7 @@ void run_state_machine__14TObjEnePanarmsFPv(Panarms_800E2200 *self) {
     } else {
         self->flags |= 0x02000000;
     }
-    ((TObjPlayer *)self)->update_prev_position();
+    ((TObjEnemy *)self)->update_prev_position();
     if (self->state == 0) {
         return;
     }
@@ -1599,12 +1601,12 @@ s32 TObjEnePanarms::create_bara(s32 arg0, s32 arg1) {
     return var_r31;
 }
 
-void TObjEnePanarms__sub_800E2DE4(void *arg0, s32 arg1) {
+void TObjMotion::sub_800E2DE4(s32 arg1) {
   s32 *new_var;
   int new_var2;
   new_var2 = ~arg1;
-  new_var = (s32 *) (((s8 *) arg0) + 0xB0);
-  *new_var = (s32) ((*((s32 *) (((s8 *) arg0) + 0xB0))) & new_var2);
+  new_var = (s32 *) (((s8 *) this) + 0xB0);
+  *new_var = (s32) ((*((s32 *) (((s8 *) this) + 0xB0))) & new_var2);
 }
 
 u8 is_phase_12__14TObjEnePanarmsFPv(void *arg0) {

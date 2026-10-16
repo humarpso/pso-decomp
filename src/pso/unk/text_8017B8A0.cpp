@@ -47,18 +47,18 @@ struct VObj_8017B9B0 : VBase_8017B9B0 {
 };
 
 extern "C" {
-void init_trap_param_clamped(u8 *arg0);
-void clamp_trap_level_param(u8 *arg0);
-void init_trap_object_id(u8 *arg0);
+void init_trap_param_clamped__16TOTrapAncient02RFv(u8 *arg0);
+void clamp_trap_level_param__16TOTrapAncient02RFv(u8 *arg0);
+void init_trap_object_id__16TOTrapAncient02RFv(u8 *arg0);
 extern const f32 lbl_805DBA78;
 void receive_direct_attack__16TOTrapAncient02RFPvPvPvll(Obj_8017B8A0 *self);
 extern const f32 lbl_805DBA78;
 void receive_weapon_special_attack__16TOTrapAncient02RFPvPv(V_8017B8D4 *self);
-s32 access_object_saved_state(void *, void *, int);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 void save_and_send_state__11TOVS2Wall01FPvUs(Obj_8017BAFC *arg0, u16 arg1);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
 VObj_8017B9B0 *find_entity_by_id();
-s32 access_object_saved_state(void *, void *, int);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 void init__11TOVS2Wall01Fi(void *);
 void TOVS2Wall01__sub_8017CA48(void *, s32);
 s32 TOVS2Wall01__sub_8017CA50(void *);
@@ -81,38 +81,38 @@ f32 TOTrapAncient02R::receive_weapon_special_attack(void *, void *) {
     self->m20(0, lbl_805DBA78);
 }
 
-void init_trap_param_clamped(u8 *arg0) {
+void TOTrapAncient02R::init_trap_param_clamped() {
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x368) = (s32) *(f32 *)((s8 *)arg0 + 0x6C);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x368);
+    *(s32 *)((s8 *)((u8 *)this) + 0x368) = (s32) *(f32 *)((s8 *)((u8 *)this) + 0x6C);
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x368);
     if (temp_r0 < 1) {
-        *(s32 *)((s8 *)arg0 + 0x368) = 1;
+        *(s32 *)((s8 *)((u8 *)this) + 0x368) = 1;
         return;
     }
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)arg0 + 0x368) = 0x100;
+        *(s32 *)((s8 *)((u8 *)this) + 0x368) = 0x100;
     }
 }
 
-void clamp_trap_level_param(u8 *arg0) {
+void TOTrapAncient02R::clamp_trap_level_param() {
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x35C) = (s32) *(s32 *)((s8 *)arg0 + 0x8C);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x35C);
+    *(s32 *)((s8 *)((u8 *)this) + 0x35C) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x8C);
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x35C);
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0x35C) = 0;
+        *(s32 *)((s8 *)((u8 *)this) + 0x35C) = 0;
         return;
     }
     if (temp_r0 >= 5) {
-        *(s32 *)((s8 *)arg0 + 0x35C) = 4;
+        *(s32 *)((s8 *)((u8 *)this) + 0x35C) = 4;
     }
 }
 
-void init_trap_object_id(u8 *arg0) {
+void TOTrapAncient02R::init_trap_object_id() {
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x364) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x364);
+    *(s32 *)((s8 *)((u8 *)this) + 0x364) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x88);
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x364);
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        *(s32 *)((s8 *)arg0 + 0x364) = -1;
+        *(s32 *)((s8 *)((u8 *)this) + 0x364) = -1;
     }
 }
 
@@ -158,9 +158,9 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
             init__11TOVS2Wall01Fi(o);
             break;
         }
-        access_object_saved_state(o, &spC, 1);
+        access_object_saved_state__13TUnk_804AF8A0FPvs(o, &spC, 1);
         spC.a = o->state;
-        access_object_saved_state(o, &spC, 0);
+        access_object_saved_state__13TUnk_804AF8A0FPvs(o, &spC, 0);
         o->m4(&spC, 0);
     } else {
         *(s32 *)&sp8 = *(s32 *)&TLobby__data_805D6140[arg0->d];
@@ -179,9 +179,9 @@ void save_and_send_state__11TOVS2Wall01FPvUs(Obj_8017BAFC *arg0, u16 arg1) {
     if (arg1 == 1) {
         v = 1;
     }
-    if ((arg0->sub != NULL) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
+    if ((arg0->sub != NULL) && (access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 1) != 0)) {
         sp8 = v;
-        access_object_saved_state(arg0, &sp8, 0);
+        access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 0);
         sub = arg0->sub;
         ((TOVS2Wall01 *)(&pkt))->init();
         pkt.b = arg0->f1C;

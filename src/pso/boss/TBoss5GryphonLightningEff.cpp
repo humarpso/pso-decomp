@@ -59,7 +59,7 @@ extern "C" {
 
 void TBoss5GryphonLightningEff__sub_80325064(void* p);
 s32 set_chunk_material_color(void *);
-s32 build_lightning_strip(void *, void *, void *, void *, void *);
+s32 build_lightning_strip__12TTecZondeEffFPvPvPfPf(void *, void *, void *, void *, void *);
 s32 project_lightning_points(void *, void *, void *, void *);
 s32 restore_saved_depth_alpha_state();
 s32 set_depth_buffer_settings_1__Fv();
@@ -114,10 +114,10 @@ void TBoss5GryphonLightningEff::render() {
     set_depth_buffer_settings_1__Fv();
     TObjPlayer::init_xyz_limits();
     project_lightning_points(this, sp70, sp3C, sp8);
-    build_lightning_strip(this, sp10C, sp70, sp3C, sp8);
+    build_lightning_strip__12TTecZondeEffFPvPvPfPf(this, sp10C, sp70, sp3C, sp8);
     ((TWindowDD *)sp10C)->draw_transformed_primitive((void*)(*(s32 *)((s8 *)this + 0x38) * 2), (void*)(calc_segment_uvs((void *)(sp10C))), (void*)1);
     if ((u8) *(u8 *)((s8 *)this + 0x260) == 1) {
-        build_lightning_strip(this, sp10C, sp70, sp8, sp3C);
+        build_lightning_strip__12TTecZondeEffFPvPvPfPf(this, sp10C, sp70, sp8, sp3C);
         ((TWindowDD *)sp10C)->draw_transformed_primitive((void*)(*(s32 *)((s8 *)this + 0x38) * 2), (void*)(calc_segment_uvs((void *)(sp10C))), (void*)1);
     }
     TObjPlayer::reset_transform_state();

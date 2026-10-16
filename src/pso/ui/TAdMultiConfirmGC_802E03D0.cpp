@@ -1,5 +1,6 @@
 #pragma defer_codegen on
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdMultiConfirmGC.h"
@@ -463,7 +464,7 @@ void TObjPlayer::update_chara_making() {
     ((TAdPlyStatusGC *)(this->m_170))->get_status_sub();
     set_global_param__8TObjFishFl();
     draw_model_with_arg((void*)((int) (((TAdPlyStatusGC *)(this->m_170))->get_field_4a4())));
-    ((TObjPlayer *)arg0)->get_item_ptr((int) (0x3A));
+    ((TObjMotion *)arg0)->get_item_ptr((int) (0x3A));
     push_matrix_from();
     ((TAdPlyStatusGC *)(this->m_170))->get_status_data();
     set_global_param__8TObjFishFl();
@@ -471,7 +472,7 @@ void TObjPlayer::update_chara_making() {
     ((s32 (*)())play_phase_transition_sound__10TObjPlayerFi)();
     pop_matrix();
     if (((TAdPlyStatusGC *)(this->m_170))->get_field_49c() != 0U) {
-        ((TObjPlayer *)arg0)->get_item_ptr((int) (0x3B));
+        ((TObjMotion *)arg0)->get_item_ptr((int) (0x3B));
         push_matrix_from();
         ((TAdPlyStatusGC *)(this->m_170))->get_chara_making_data();
         set_global_param__8TObjFishFl();
@@ -482,7 +483,7 @@ void TObjPlayer::update_chara_making() {
         pop_matrix();
     }
     if (((TAdPlyStatusGC *)(this->m_170))->get_field_498() != 0U) {
-        ((TObjPlayer *)arg0)->get_item_ptr((int) (0x3B));
+        ((TObjMotion *)arg0)->get_item_ptr((int) (0x3B));
         push_matrix_from();
         ((TAdPlyStatusGC *)(this->m_170))->get_chara_making_data();
         set_global_param__8TObjFishFl();

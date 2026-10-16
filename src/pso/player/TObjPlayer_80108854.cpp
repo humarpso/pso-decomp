@@ -1,8 +1,9 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-int TObjPlayer::test_flags_1b8(u32 m) { return this->m_1b8 & m; }
+int TItemWeapon::test_flags_1b8(u32 m) { return (*(u32 *)((u8 *)this + 0x1B8)) & m; }
 
 }

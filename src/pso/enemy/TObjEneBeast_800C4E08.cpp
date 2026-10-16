@@ -956,7 +956,7 @@ f64 atan2_float(f32, f32);
 s32 link_chain_nodes__10TObjPlayerFPvPvPv(void *, void *, void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(int, int, int);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 project_actor_to_ground(void *, void *, int);
 s32 minimap_render_dot(void *, int, int, int);
 s32 vec3_add_to(void *, void *);
@@ -983,8 +983,8 @@ extern const f32 lbl_805DA040;
 void beast_update_dead__13TUnk_80493450Fv(u8 *arg0);
 s32 obj_testFlags30(void *, int);
 void TObjPlayer__sub_800C4E08(u8 *arg0);
-int unlink_enemy_group_relations(void*);
-int send_entity_set_flags__6TLobbyFPv(void*);
+int unlink_enemy_group_relations__13TUnk_80493450Fv(void*);
+int send_entity_set_flags__9TObjEnemyFv(void*);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
 void vfunc_89__13TUnk_80493450Fv(void);
 s32 obj_clearFlags30(void * a0, s32 a1);
@@ -1045,7 +1045,7 @@ void TObjPlayer__sub_800C4E08(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback();
-s32 test_elt_flag__10TObjPlayerFPvii(void *, int, int);
+s32 test_elt_flag__13TUnk_80493450Fll(void *, int, int);
 s32 minimap_render_dot(void *, int, int, int);
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA044;
@@ -1179,7 +1179,7 @@ void TUnk_80493450::beast_update_dead() {
         ((VObj_18_90ef41 *)(arg0))->m90();
     }
 }
-void TObjPlayer::enter_state_8() { if (*(short *)&this->m_326 != 8) { *(short *)&this->m_326 = 8; *(short*)((char*)this + 0xb8) = 8; unlink_enemy_group_relations(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__6TLobbyFPv(this); } }
+void TObjPlayer::enter_state_8() { if (*(short *)&this->m_326 != 8) { *(short *)&this->m_326 = 8; *(short*)((char*)this + 0xb8) = 8; unlink_enemy_group_relations__13TUnk_80493450Fv(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__9TObjEnemyFv(this); } }
 void TUnk_80493450::beast_update_hurt() {
     u8 *arg0 = (u8 *)this;
     Obj_800C5164 *o = (Obj_800C5164 *)arg0;
@@ -1417,7 +1417,7 @@ void TUnk_80493450::beast_update_approach() {
         break;
     default:
         if (*(u32 *)((s8 *)arg0 + 0x2A8) != 0U) {
-            if (test_elt_flag__10TObjPlayerFPvii(arg0, 0, 0x300000) != 0) {
+            if (test_elt_flag__13TUnk_80493450Fll(arg0, 0, 0x300000) != 0) {
                 if ((f32) (*(u32 *)((s8 *)arg0 + 0x38C))++ < lbl_805DA054) {
                     VecCopy__FP3VecPC3Vec(&sp14, arg0 + 0x50);
                 } else {
@@ -1552,10 +1552,10 @@ void TUnk_80493450::beast_idle_update() {
     ((void (*)(void *))advance_animation_playback)(arg0);
     if (*(s16 *)((s8 *)arg0 + 0x328) != 1) {
         *(s16 *)((s8 *)arg0 + 0x328) = 1;
-        ((TObjPlayer *)arg0)->link_into_group_chain();
+        ((TUnk_80493450 *)arg0)->link_into_group_chain();
         *(s32 *)((s8 *)arg0 + 0x378) = ((TObjPlayer *)arg0)->is_action_available();
     }
-    *(s32 *)((s8 *)arg0 + 0x37C) = ((TObjEnemy *)arg0)->countChildren();
+    *(s32 *)((s8 *)arg0 + 0x37C) = ((TUnk_80493450 *)arg0)->countChildren();
     other = *(u8 **)((s8 *)arg0 + 0x348);
     if (other != NULL) {
         diff = *(s32 *)((s8 *)other + 0x37C) - *(s32 *)((s8 *)arg0 + 0x37C);
@@ -1640,7 +1640,7 @@ end:
     if (obj_testFlags30(arg0, 0x800000) == 0) {
         apply_actor_gravity(arg0, 0, lbl_805DA034);
     }
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     obj_clearFlags30(arg0, 0x04240000);
     ((TObjPlayer *)arg0)->clear_player_status_flag((s32)((void *)0), (u32)((void *)0x0A000000));
@@ -1736,7 +1736,7 @@ void TUnk_80493450::run_task() {
         break;
     }
   }
-  ((TObjPlayer *)arg0)->update_prev_position();
+  ((TObjEnemy *)arg0)->update_prev_position();
   copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
   submit_cursor_candidate((void *) arg0, (int) (-1));
   *((f32 *) (((s8 *) arg0) + 0x2B4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2B4))) + lbl_805DA048);

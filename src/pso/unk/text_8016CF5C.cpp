@@ -52,7 +52,7 @@ extern const f32 lbl_805DB78C;
 void vfunc_16__14TOKeyMachine01Fv(Obj_8016D428 *self);
 s32 get_current_floor();
 extern s32 local_client_id;
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, s32);
 void *TOKey__ct(void *, void *);
 extern void *__vt__14TOKeyGenericSw[];
@@ -84,7 +84,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DB76C;
     *(u32 *)((s8 *)arg0 + 0x24) = TOKeyGenericSw__texture_lists[1];
     init_collision_body_parts(arg0, lbl_804B2D30, 1);
-    refresh_collision_body_centers(arg0);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB770;
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB774;

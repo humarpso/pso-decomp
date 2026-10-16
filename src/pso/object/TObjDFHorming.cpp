@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/enemy/TObjEnemy.h"
 
 extern "C" {
@@ -203,9 +204,9 @@ extern "C" {
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 send_6x0A_enemy_state(void *, void *);
-s32 distribute_experience(void *);
+s32 distribute_experience__9TObjEnemyFv(void *);
 s32 get_player_by_client_id(void *);
-s32 send_entity_set_flags__6TLobbyFPv(void *);
+s32 send_entity_set_flags__9TObjEnemyFv(void *);
 extern s32 local_client_id;
 s32 rand();
 extern const f64 lbl_804371D8;
@@ -220,9 +221,9 @@ extern const f32 lbl_805D8908;
 extern const f32 lbl_805D8910;
 void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
-void TBoss4DarkFalz__sub_8004B084(u8 *arg0);
+void sub_8004B084__14TBoss4DarkFalzFv(u8 *arg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
-void TBoss4DarkFalz__sub_8004B0F8(u8 *arg0);
+void sub_8004B0F8__14TBoss4DarkFalzFv(u8 *arg0);
 extern s32 lbl_805D586C;
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 extern s32 lbl_805D586C;
@@ -275,7 +276,7 @@ void TBoss4DarkFalz__sub_8004B8F8(void *arg0);
 
 extern "C" {
 
-void TBoss4DarkFalz__sub_8004AFB8(void* p);
+void sub_8004AFB8__14TBoss4DarkFalzFv(void* p);
 int TBoss4DarkFalz__sub_8004B07C(void);
 s32 is_local_client_floor_leader();
 s32 get_main_phase();
@@ -296,7 +297,7 @@ s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2) {
     return 1;
 }
 
-void TBoss4DarkFalz__sub_8004AFB8(void* p) { *(s32*)((char*)p + 0x384) = 1; }
+void TBoss4DarkFalz::sub_8004AFB8() { *(s32*)((char*)this + 0x384) = 1; }
 
 s32 TBoss4DarkFalz::count_active_players() {
     s32 count = 0;
@@ -325,35 +326,35 @@ int TBoss4DarkFalz__sub_8004B07C(void) { return 0; }
 
 typedef char MemberActionStorage_8004B084_size[sizeof(MemberActionStorage_8004B084) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108_size[sizeof(RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108) == 0x340 ? 1 : -1];
-void TBoss4DarkFalz__sub_8004B084(u8 *arg0) {
+void TBoss4DarkFalz::sub_8004B084() {
   MemberActionStorage_8004B084 member_action;
   Stack_8004B084 stack;
   u8 *temp_r6;
   temp_r6 = (u8 *) (&TBoss4DarkFalz__data_80485108.value);
-  temp_r6 = temp_r6 + ((*((s32 *) (((s8 *) arg0) + 0x37C))) * 0x34);
+  temp_r6 = temp_r6 + ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x37C))) * 0x34);
   member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x28));
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x2C));
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x30));
   if (member_action.action != 0)
   {
-    (((TBoss4DarkFalz *)((void *) arg0))->*( member_action.action))();
+    (((TBoss4DarkFalz *)((void *) ((u8 *)this)))->*( member_action.action))();
   }
 }
 
 typedef char MemberActionStorage_8004B0F8_size[sizeof(MemberActionStorage_8004B0F8) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108_size[sizeof(RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108) == 0x340 ? 1 : -1];
-void TBoss4DarkFalz__sub_8004B0F8(u8 *arg0) {
+void TBoss4DarkFalz::sub_8004B0F8() {
   MemberActionStorage_8004B0F8 member_action;
   Stack_8004B0F8 stack;
   u8 *temp_r6;
   temp_r6 = (u8 *) (&(*(RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108 *)&TBoss4DarkFalz__data_80485108).value);
-  temp_r6 = temp_r6 + ((*((s32 *) (((s8 *) arg0) + 0x37C))) * 0x34);
+  temp_r6 = temp_r6 + ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x37C))) * 0x34);
   member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x1C));
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x20));
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x24));
   if (member_action.action != 0)
   {
-    (((TBoss4DarkFalz *)((void *) arg0))->*( member_action.action))();
+    (((TBoss4DarkFalz *)((void *) ((u8 *)this)))->*( member_action.action))();
   }
 }
 
@@ -547,13 +548,13 @@ void TBoss4DarkFalz::handle_defeat() {
 
     TBoss4DarkFalz__sub_8004B5A0();
     if (is_split_screen() != 0) {
-        distribute_experience((void *) (arg0));
+        distribute_experience__9TObjEnemyFv((void *) (arg0));
     } else {
         p = get_player_by_client_id((void *) ((u16) local_client_id));
         if (p != 0) {
             save = *(struct V3_8004B654 *)(arg0 + 0x2FC);
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, (void *)(p + 0x2FC));
-            distribute_experience((void *) (arg0));
+            distribute_experience__9TObjEnemyFv((void *) (arg0));
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, &save);
         }
     }
@@ -561,7 +562,7 @@ void TBoss4DarkFalz::handle_defeat() {
     send_6x0A_enemy_state((void *) (arg0), (void *) (flags));
     ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (flags)), (s16)0);
     ((VObj_18_8004B654 *)(arg0))->m77(flags);
-    send_entity_set_flags__6TLobbyFPv((void *) (arg0));
+    send_entity_set_flags__9TObjEnemyFv((void *) (arg0));
     queue_destruction__7TObjectFv((void *) (arg0));
 }
 

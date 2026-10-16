@@ -129,7 +129,7 @@ void queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(s32, s32);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 int confirm_area_transfer__12TObjAreaWarpFPvi(void*);
-void handle_area_selection__12TObjAreaWarpFPv(void *);
+void handle_area_selection__12TObjAreaWarpFv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 void TObjAreaWarp__ct(void *);
 int vfunc_14__12TObjWarpBaseFv(void*);
@@ -246,7 +246,7 @@ void TObjWarpJungMain::run_task() {
   {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
   }
-  handle_area_selection__12TObjAreaWarpFPv(arg0);
+  handle_area_selection__12TObjAreaWarpFv(arg0);
 }
 
 void *__dt__16TObjWarpJungMainFv(void *arg0, s16 arg1) {
@@ -329,7 +329,7 @@ void TObjWarpJung::run_task() {
   {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
   }
-  handle_area_selection__12TObjAreaWarpFPv(arg0);
+  handle_area_selection__12TObjAreaWarpFv(arg0);
 }
 
 void *__dt__12TObjWarpJungFv(void *arg0, s16 arg1) {

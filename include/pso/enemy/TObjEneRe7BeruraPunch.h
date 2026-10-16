@@ -6,6 +6,8 @@
 
 struct TObjEneRe7BeruraPunch : public TUnk_804928CC {
     virtual ~TObjEneRe7BeruraPunch();
+    s32 sub_80096150();
+    void update_flight();
     u16 m_b0;
     u8 _padB2[0x2];
     u32 m_b4;

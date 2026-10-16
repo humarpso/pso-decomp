@@ -18,7 +18,7 @@ struct Ang_800363B4 { s32 yaw; u8 pad4[0xC]; };
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D8458;
-s32 fn_800FF788(void *, void *);
+s32 sub_800FF788__14TObjEZRopeBaseFPv(void *, void *);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
@@ -103,7 +103,7 @@ void TBoss2Fin::run_task() {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_80435A44.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 8);
-    fn_800FF788((void *) (arg0), (void *) (&stack.sp8));
+    sub_800FF788__14TObjEZRopeBaseFPv((void *) (arg0), (void *) (&stack.sp8));
 }
 
 extern "C" {
@@ -150,7 +150,7 @@ extern E_800367C4 lbl_804FE590[];
 extern G_800367C4 *lbl_805D4BA4;
 extern const f32 TBoss2Fin__data_805D8450;
 extern const f32 lbl_805D8460;
-void fn_800FF8CC(void *, void *, void *, void *);
+void sub_800FF8CC__14TObjEZRopeBaseFPvPvl(void *, void *, void *, void *);
 void *TObjEZRopeBase__ct(void *);
 extern u8 __vt__9TBoss2Fin[];
 extern E_800367C4 lbl_804FE590[];
@@ -182,7 +182,7 @@ Obj_80036718 *__ct__9TBoss2FinFv(Obj_80036718 *self, s32 arg1, s32 arg2, s32 arg
     }
     p->a = lbl_805D8454;
     ((TBoss2Fin *)self)->init_link_points();
-    fn_800FF8CC(self, ((u8 *)&lbl_804FE590), self->f30, self->recs);
+    sub_800FF8CC__14TObjEZRopeBaseFPvPvl(self, ((u8 *)&lbl_804FE590), self->f30, self->recs);
     return self;
 }
 

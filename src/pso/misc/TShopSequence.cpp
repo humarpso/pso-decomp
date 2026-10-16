@@ -18,7 +18,7 @@ extern "C" {
 s32 obj_getField1c(u32);
 u32 create_message_window__24TMessageWindowControllerFlll(void *, s32, s32, s32);
 u32 create_window__24TMessageWindowControllerFll(void *, s32, s32);
-u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2);
+u32 create_message_window__13TShopSequenceFll(u8 *arg0, s32 arg1, s32 arg2);
 u8 * __ct__24TMessageWindowControllerFv(void *);
 u8 * __ct__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_802238D8___vt__13TShopSequence __vt__13TShopSequence;
@@ -32,7 +32,7 @@ extern "C" {
 
 void vfunc_8__13TShopSequenceFv(void* p);
 void close_if_single_screen__13TShopSequenceFv(void);
-void close_message_window__13TShopSequenceFPv(void *arg0);
+void close_message_window__13TShopSequenceFv(void *arg0);
 void close_window__13TShopSequenceFv(void *arg0);
 void vfunc_9__13TShopSequenceFv(void* p);
 void vfunc_7__13TShopSequenceFv(void* p);
@@ -62,27 +62,27 @@ int TShopSequence::vfunc_10() {
     return 1;
 }
 
-void close_message_window__13TShopSequenceFPv(void *arg0) {
+void TShopSequence::close_message_window() {
     VObj_802235A0_8022356C *temp_r3;
 
-    if (*(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28) != NULL) {
-        ((TMessageWindowController *)(*(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28)))->close();
-        temp_r3 = *(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28);
+    if (*(VObj_802235A0_8022356C **)((s8 *)this + 0x28) != NULL) {
+        ((TMessageWindowController *)(*(VObj_802235A0_8022356C **)((s8 *)this + 0x28)))->close();
+        temp_r3 = *(VObj_802235A0_8022356C **)((s8 *)this + 0x28);
         if (temp_r3 != NULL) {
             temp_r3->m0(1);
         }
-        *(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28) = NULL;
+        *(VObj_802235A0_8022356C **)((s8 *)this + 0x28) = NULL;
     }
 }
 
-u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+u32 TShopSequence::create_message_window(s32 arg1, s32 arg2) {
     u8 *temp_r0;
     u8 *temp_r3;
-    temp_r0 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x28));
+    temp_r0 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x28));
     if (temp_r0 != NULL) {
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x24));
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x24));
         if (temp_r3 != NULL) {
-            return create_message_window__24TMessageWindowControllerFlll(*(u8 **)((s8 *)arg0 + 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)(temp_r3))));
+            return create_message_window__24TMessageWindowControllerFlll(*(u8 **)((s8 *)((u8 *)this) + 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)(temp_r3))));
         }
         return create_window__24TMessageWindowControllerFll(temp_r0, arg1, arg2);
     }

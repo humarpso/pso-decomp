@@ -6,6 +6,9 @@
 
 struct TItemEquipBase : public TItem {
     virtual ~TItemEquipBase();
+    void request_model_load(s32);
+    void sub_8010A948();
+    void send_6x61_activate_mag_effect(s32);
     virtual void vfunc_44();
     virtual void vfunc_45();
     virtual void vfunc_46();
@@ -41,7 +44,6 @@ struct TItemEquipBase : public TItem {
     u32 m_184;
     u32 m_188;
     void*get_stat_bonus_ptr();
-    s8 get_attach_joint();
     void bind_loaded_resources();
     void remove_equip_effects();
     s32 apply_ad_rico_ring(s32 arg1);

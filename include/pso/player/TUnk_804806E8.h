@@ -6,6 +6,33 @@
 class TUnk_804806E8 : public TObjMotion {
 public:
     virtual ~TUnk_804806E8();
+    u16 get_or_assign_actor_id(s32);
+    void add_flags_2e4(u32);
+    s16 get_stats_atp_max();
+    s16 sub_800194C4();
+    f32 get_target_value();
+    s32 update_field_318();
+    s16 test_immunity_flags(s32);
+    s16 get_actor_attack_params_atp_min();
+    u8 obj_testFlag_2E4(u32);
+    int obj_getPtr2B0_1C();
+    s16 get_s16_2c4();
+    void sub_800192B4(int);
+    s16 get_field_2c0();
+    void add_to_field_2c8(int);
+    s16 get_field_2c2();
+    void add_to_field_2ca(int);
+    s16 get_atp();
+    void add_to_field_2ce(int);
+    s32 recalc_combat_stats(void *, void *, void *, f32, f32);
+    s32 set_motion_params(void *);
+    void show_miss_popup(const float *);
+    void try_apply_damage(u32, s32);
+    s32 subtract_actor_tp(s32);
+    void sub_80010DE8(u16, u8, u8);
+    s16 clamp_value();
+    void spawn_freeze_shell_effect(u32, s32);
+    s32 check_heavy_damage_flag(f32);
     virtual s32 add_actor_exp(s32);
     virtual s32 consume_timer_field(s32);
     virtual s32 get_actor_level_index();

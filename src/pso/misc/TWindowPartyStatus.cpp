@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
 #include <stddef.h>
 #include "pso/misc/TWindowPartyStatus.h"
@@ -54,13 +55,13 @@ u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2);
 extern "C" {
 
 void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1);
-s32 update_status_icons__14TWindowComCardFPvPv(void *, int);
+s32 update_status_icons__19TWindowSimpleStatusFPv(void *, int);
 s32 get_window_layout_position(int);
-s32 update_window_entry_list(void *, void *);
+s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
 int update_hp_entry__20TWindowSubStatusDispFPv(void*);
-s32 apply_random_shake(void *);
+s32 apply_random_shake__19TWindowSimpleStatusFv(void *);
 s32 update_lockon_window();
 int update_status_entry__20TWindowSubStatusDispFv(void*);
 s32 update_status_help_item(void *);
@@ -120,11 +121,11 @@ void TWindowPartyStatus::run_task() {
     update_lockon_window();
     draw();
     update_status_help_item((void *) (arg0));
-    update_status_icons__14TWindowComCardFPvPv((void *) (arg0), (int) (get_window_layout_position((int) (0xAC))));
+    update_status_icons__19TWindowSimpleStatusFPv((void *) (arg0), (int) (get_window_layout_position((int) (0xAC))));
     ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TWindowSubComCard *)arg0)->update_fade();
-    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
-    apply_random_shake((void *) (arg0));
+    ((TUnk_804CE018 *)arg0)->update_fade();
+    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
+    apply_random_shake__19TWindowSimpleStatusFv((void *) (arg0));
 }
 
 extern s32 __vt__18TWindowPartyStatus[];

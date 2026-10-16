@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TQuestListOffline.h"
@@ -111,7 +112,7 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 s32 set_position_xy__13TUnk_804CDFE8Fff(void *, f32, f32);
 s32 TWindow__close(void *);
 void *create_yes_no_window(void *, s32, s32, s32);
-s32 select_cursor_entry__6TLobbyFv(s32);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 void *create_message_window__6TLobbyFllUls(void *, void *, s32, s32);
 void *get_window_layout_position(s32);
 extern Pos_80216CF8 lbl_8044BEA4[];
@@ -139,7 +140,7 @@ void handle_confirm_dialog(void *arg0);
 s32 prepare_offline_quest_filenames(s32);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(void *);
-s32 select_cursor_entry__6TLobbyFv(s32);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 
 void TWindow::close_sub_windows() {
     if ((u32) *(u32 *)((s8 *)this + 0x38) != 0U) {
@@ -172,9 +173,9 @@ void handle_confirm_dialog(void *arg0) {
         if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x38)))->is_visible() != 0)) {
             temp_r3_2 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x38));
             if (temp_r3_2 == 0) {
-                temp_r0 = select_cursor_entry__6TLobbyFv(*(s32 *)((s8 *)arg0 + 0x3C));
+                temp_r0 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)((s8 *)arg0 + 0x3C));
                 prepare_offline_quest_filenames((*(Entry_80216BCC_80216B44 **)((s8 *)arg0 + 0x54))[temp_r0].field18);
-                ((TQuestListVM *)arg0)->set_field_20(3);
+                ((TShopWindowBase *)arg0)->set_field_20(3);
                 return;
             }
             if (temp_r3_2 == 1) {
@@ -183,7 +184,7 @@ void handle_confirm_dialog(void *arg0) {
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 1);
                 }
-                ((TQuestListVM *)arg0)->set_field_20(0);
+                ((TShopWindowBase *)arg0)->set_field_20(0);
                 return;
             }
             goto block_9;
@@ -195,7 +196,7 @@ block_9:
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 1);
             }
-            ((TQuestListVM *)arg0)->set_field_20(0);
+            ((TShopWindowBase *)arg0)->set_field_20(0);
         }
     }
 }
@@ -208,7 +209,7 @@ void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self) {
         return;
     }
     if (self->f3C != NULL && self->f40 != NULL) {
-        sel = select_cursor_entry__6TLobbyFv((s32)self->f3C);
+        sel = select_cursor_entry__22TWindowSubShortCutListFv((s32)self->f3C);
         if (sel != self->f50) {
             msg = get_quest_list_text(0xE, self->f54[sel].f8);
             ((TLobby *)(self->f40))->send_and_handle(msg, 0x80);
@@ -220,13 +221,13 @@ void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self) {
         }
     }
     if (self->f3C != NULL && ((TLobby *)(self->f3C))->get_flag_bit2() != 0) {
-        ((TQuestListVM *)self)->set_field_20(5);
+        ((TShopWindowBase *)self)->set_field_20(5);
         return;
     }
     if (self->f3C != NULL && ((TUnk_804D0618 *)(self->f3C))->get_status_flag() != 0) {
-        sel = select_cursor_entry__6TLobbyFv((s32)self->f3C);
+        sel = select_cursor_entry__22TWindowSubShortCutListFv((s32)self->f3C);
         if (self->f54[sel].f14 & 1) {
-            ((TQuestListVM *)self)->set_field_20(4);
+            ((TShopWindowBase *)self)->set_field_20(4);
             return;
         }
         if (self->f44 == NULL) {
@@ -246,7 +247,7 @@ void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self) {
             if (self->f34 != NULL) {
                 self->f34->m7(5, 1);
             }
-            ((TQuestListVM *)self)->set_field_20(2);
+            ((TShopWindowBase *)self)->set_field_20(2);
         }
     }
 }
@@ -306,7 +307,7 @@ void TQuestListOffline::init_quest_list_window() {
             self->f50 = 0;
         }
     }
-    ((TQuestListVM *)self)->set_field_20(1);
+    ((TShopWindowBase *)self)->set_field_20(1);
 }
 
 }

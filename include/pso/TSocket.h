@@ -47,7 +47,6 @@ public:
     int resolve_domain(char *domain);
     void set_ip_address(u32 addr);
     void set_port(u32 port);
-    const u8 next();
     int is_empty();
 };
 

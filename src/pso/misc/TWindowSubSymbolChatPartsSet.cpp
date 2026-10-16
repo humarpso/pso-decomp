@@ -76,7 +76,7 @@ struct Ps_80286120 { u8 pad[0x69]; s8 f69; u8 pad6a[0xA]; s32 f74; };
 extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 update_window_entry_list(void *, void *);
+s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 is_active__28TWindowSubSymbolChatPartsSetFv(void *);
 extern RecoveredGlobal_80286824_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD820;
@@ -121,7 +121,7 @@ struct Vec2_80286708_802861AC { f32 x; f32 y; };
 void *__dt__28TWindowSubSymbolChatPartsSetFv(void *arg0, s16 arg1);
 void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 draw_quest_message_frame(void *, int);
+s32 draw_quest_message_frame__13TUnk_804CE018FPv(void *, int);
 s32 draw_visible_window_entries(void *, void *, int, f32);
 void __dl__7TObjectFPv(void *);
 void __dt__17TWindowChatSymbolFv(void *, int);
@@ -292,7 +292,7 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
         *(f32 *)((s8 *)temp_r3 + 0x28) = (f32) ((f32) *(s32 *)((s8 *)arg0 + 0x5C) / lbl_805DD820);
         *(f32 *)((s8 *)temp_r3 + 0x2C) = (f32) *(f32 *)((s8 *)temp_r3 + 0x28);
     }
-    draw_quest_message_frame((void *) (arg0), (int) (temp_r3));
+    draw_quest_message_frame__13TUnk_804CE018FPv((void *) (arg0), (int) (temp_r3));
     *(f32 *)((s8 *)temp_r3 + 0x10) = (f32) (*(f32 *)((s8 *)temp_r3 + 0x10) + *(f32 *)((s8 *)arg0 + 0x8C));
     *(f32 *)((s8 *)temp_r3 + 0x14) = (f32) (*(f32 *)((s8 *)temp_r3 + 0x14) + *(f32 *)((s8 *)arg0 + 0x90));
     *(f32 *)((s8 *)temp_r3 + 0x28) = (f32) (*(f32 *)((s8 *)temp_r3 + 0x28) * *(f32 *)((s8 *)arg0 + 0x94));
@@ -330,7 +330,7 @@ void TWindowSubSymbolChatPartsSet::run_task() {
         ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->update_subwindow();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *__dt__28TWindowSubSymbolChatPartsSetFv(void *arg0, s16 arg1) {

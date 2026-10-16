@@ -6,6 +6,8 @@
 
 struct TObjEneBm5Wolf
 {
+    void update_collision_center();
+    void select_subtype();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

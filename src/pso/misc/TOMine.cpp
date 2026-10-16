@@ -63,9 +63,9 @@ extern "C" {
 
 void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TOMineTrap__sub_80170BEC(void *);
+s32 sub_80170BEC__6TOMineFv(void *);
 s32 TOMineTrap__sub_80170CD4(void *);
-s32 detonate__10TOMineTrapFPv(void *);
+s32 detonate__6TOMineFv(void *);
 int draw_ginja_object(void*);
 s32 submit_cursor_candidate(void *, int);
 int submit_target_to_player_cursor(void*);
@@ -86,7 +86,7 @@ int TOMine::find_target_player() {
   if (temp_r3 != new_var)
   {
     ((RecoveredFields_80170F0C_arg0 *) arg0)->field_2A8 = get_player_by_client_id((int) temp_r3);
-    ((TOMineTrap *)arg0)->update_trigger();
+    ((TOMine *)arg0)->update_trigger();
   }
   return ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C;
 }
@@ -99,7 +99,7 @@ void TOMine::run_task() {
 
     if (TObjPlayer::check_demo_mode() != 1) {
         this->vfunc_79();
-        ((TOMineTrap *)arg0)->update_float_height();
+        ((TOMine *)arg0)->update_float_height();
         temp_r0 = this->mode;
         switch (temp_r0) {
         case 2:
@@ -120,16 +120,16 @@ void TOMine::run_task() {
                 TOMineTrap__sub_80170CD4((void *) (arg0));
                 break;
             case 1:
-                TOMineTrap__sub_80170BEC((void *) (arg0));
+                sub_80170BEC__6TOMineFv((void *) (arg0));
                 break;
             case 2:
-                ((TOMineTrap *)arg0)->follow_target();
+                ((TOMine *)arg0)->follow_target();
                 break;
             }
             submit_cursor_candidate((void *) (arg0), (int) (-1));
             return;
         case 4:
-            detonate__10TOMineTrapFPv((void *) (arg0));
+            detonate__6TOMineFv((void *) (arg0));
             break;
         }
     }

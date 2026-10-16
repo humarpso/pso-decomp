@@ -63,7 +63,7 @@ s32 TLobby__sub_8014618C(void);
 s8 *TLobby__sub_80146D14(void);
 s8 *TLobby__sub_80146D44(void);
 int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
-void create_parts__14TAdEnterBaseGCFPv(void *);
+void create_parts__14TAdEnterBaseGCFv(void *);
 void TAdEnterBaseGC__ct(void *);
 extern s32 __vt__17TAdEnterPPPPassGC[];
 extern s32 TAdEnterPPPPassGC__name;
@@ -254,7 +254,7 @@ T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0) {
     TAdEnterBaseGC__ct(arg0);
     arg0->vt = __vt__17TAdEnterPPPPassGC;
     arg0->f0 = TAdEnterPPPPassGC__name;
-    ((TAdEnterBaseGC *)arg0)->reset(3);
+    ((TAdEnterBaseGC *)arg0)->sub_8032B460(3);
     password_entry_dispatch_state = 0;
     arg0->f40 = 0;
     if (TLobby__sub_80145A94() != 0) {
@@ -281,7 +281,7 @@ T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return arg0;
     }
-    create_parts__14TAdEnterBaseGCFPv(arg0);
+    create_parts__14TAdEnterBaseGCFv(arg0);
     return arg0;
 }
 

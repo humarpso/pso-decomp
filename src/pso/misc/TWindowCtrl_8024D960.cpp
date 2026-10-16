@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/TObject.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -34,7 +35,7 @@ s32 window_request_show(u32);
 s32 is_flag_2_set__11TWindowCtrlFPv(void *);
 s32 TWindowCtrl__sub_8024C7F8(void *);
 s32 get_battle_ctrl_id__10TObjPlayerFUs(int);
-s32 fn_80244994(int);
+s32 sub_80244994__13TUnk_804CE018Fv(int);
 s32 TWindow__close(void *);
 s32 TWindowCtrl__sub_8024A314();
 s32 TWindowCtrl__sub_8024C7C4(void *);
@@ -174,7 +175,7 @@ void TWindowCtrl::update_short_list_request() {
 void TWindowCtrl::show_active_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x2C) != 0U) {
         if (is_visible() != 0) {
-            ((TWindowSubTradeMain *)(*(u32 *)((s8 *)this + 0x2C)))->request_close();
+            ((TWindowLockOn *)(*(u32 *)((s8 *)this + 0x2C)))->request_close();
             return;
         }
         window_request_show(*(u32 *)((s8 *)this + 0x2C));
@@ -239,7 +240,7 @@ void TWindowCtrl::update_main_menu_request() {
 #pragma fp_contract on
 void TWindowCtrl::update_target_info_window() {
     u8 *arg0 = (u8 *)this;
-    if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && ((((TObject *)(*(void **)((s8 *)arg0 + 0x38)))->all_parents_unqueued_for_destruction() == 0) || (fn_80244994((int) (*(u32 *)((s8 *)arg0 + 0x38))) == 0))) {
+    if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && ((((TObject *)(*(void **)((s8 *)arg0 + 0x38)))->all_parents_unqueued_for_destruction() == 0) || (sub_80244994__13TUnk_804CE018Fv((int) (*(u32 *)((s8 *)arg0 + 0x38))) == 0))) {
         *(u32 *)((s8 *)arg0 + 0x38) = 0U;
     }
     if ((TWindowCtrl__sub_8024C7E0((void *) (arg0)) != 0) || (get_active_menu() != 0) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7C4((void *) (arg0)) != 0) || (TWindowCtrl__sub_8024A314() != 0)) {
@@ -267,7 +268,7 @@ void TWindowCtrl::update_child_window_visibility() {
     if (((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) *(u32 *)((s8 *)arg0 + 0x34)) == 0)) {
         temp_r31 = get_player_by_client_id((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         if ((get_active_menu() != 0) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (((TWindowCtrl *)arg0)->is_enabled() != 0) || (temp_r31 == 0U)) {
-            ((TWindowSubTradeMain *)(*(u32 *)((s8 *)arg0 + 0x34)))->request_close();
+            ((TWindowLockOn *)(*(u32 *)((s8 *)arg0 + 0x34)))->request_close();
             return;
         }
         window_request_show((u32)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
@@ -278,7 +279,7 @@ void TWindowCtrl::update_trade_window_visibility() {
     u8 *arg0 = (u8 *)this;
     if (((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) *(u32 *)((s8 *)arg0 + 0x30)) == 0)) {
         if ((get_player_by_client_id((int) (*(s32 *)((s8 *)arg0 + 0x24))) == 0U) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7F8((void *) (arg0)) != 0) || ((is_split_screen() != 0) && (get_active_menu() != 0))) {
-            ((TWindowSubTradeMain *)(*(u32 *)((s8 *)arg0 + 0x30)))->request_close();
+            ((TWindowLockOn *)(*(u32 *)((s8 *)arg0 + 0x30)))->request_close();
             return;
         }
         window_request_show((u32)((int) (*(u32 *)((s8 *)arg0 + 0x30))));

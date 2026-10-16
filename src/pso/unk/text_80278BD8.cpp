@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
@@ -37,7 +38,7 @@ void add_armor_equip_candidates(u8 *arg0, u16 kind, u16 sub) {
         n = ((TObjPlayer *)(*(s32 *)(pl + 0xD00)))->run_and_get_result((int)ids);
         for (i = 0; i < n; i++) {
             item = find_item_by_id(ids[i]);
-            if (item != NULL && kind == ((u8 (*)(void *))get_field_ec__5TItemFv)(item) && sub == ((TObjPlayer *)item)->get_field_ed() &&
+            if (item != NULL && kind == ((u8 (*)(void *))get_field_ec__5TItemFv)(item) && sub == ((TItem *)item)->get_field_ed() &&
                 get_usable_action_flags__5TItemFPvUiUi(item, 8, 0) != 0) {
                 ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)item, (s32)(ids[i]));
             }

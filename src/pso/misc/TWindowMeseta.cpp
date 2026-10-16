@@ -24,7 +24,7 @@ struct Meseta_80269244 {
 
 extern "C" {
 s32 get_camera_id__11TCameraCtrlFv();
-void save_position__17TWindowSubComCardFPv(void *);
+void save_position__13TUnk_804CE018Fv(void *);
 void construct_base__9TWindowDDFPvPvsPv(void *, s32 *, s16, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_meseta_value__13TWindowMesetaFv();
@@ -42,7 +42,7 @@ void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern "C" {
 
 void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1);
-s32 update_window_entry_list(void *, void *);
+s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 void __dl__7TObjectFPv(void *);
 s32 get_meseta_value__13TWindowMesetaFv();
 
@@ -58,7 +58,7 @@ void TWindowMeseta::run_task() {
         ((TWindowSubStatusDisp *)(((TUnk_804CE018 *)arg0)->get_array_entry(1)))->set_animated_target(*(s32 *)&this->m_68, lbl_805DD200);
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    update_window_entry_list(arg0, arg0 + 0x24);
+    update_window_entry_list__13TUnk_804CE018FPv(arg0, arg0 + 0x24);
 }
 
 extern s32 __vt__13TWindowMeseta[];
@@ -87,7 +87,7 @@ void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     set_text_entry_string(a, arg3, 0);
     ((TWindowSubStatusDisp *)b)->set_all_values(self->meseta);
     self->x38 = lbl_805DD204 + b->x8;
-    save_position__17TWindowSubComCardFPv(arg0);
+    save_position__13TUnk_804CE018Fv(arg0);
     self->x60 = TWindowSubStatusDisp__sub_802877A4(self->x48 - lbl_805DD208);
     if (get_camera_id__11TCameraCtrlFv() > 2) {
         self->x6c = lbl_805DD20C;

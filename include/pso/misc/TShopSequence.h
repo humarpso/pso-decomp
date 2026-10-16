@@ -6,6 +6,10 @@
 
 struct TShopSequence : public TShopWindowBase {
     virtual ~TShopSequence();
+    bool sub_802239EC();
+    s32 get_child_field1c();
+    u32 create_message_window(s32, s32);
+    void close_message_window();
     virtual void restore_player_state();
     virtual void close_window();
     virtual void vfunc_6();

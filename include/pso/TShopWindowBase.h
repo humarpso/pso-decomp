@@ -6,6 +6,7 @@
 class TShopWindowBase : public TObject {
 public:
     virtual ~TShopWindowBase();
+    void set_field_20(s32);
     virtual void vfunc_6();
     virtual void vfunc_7();
     virtual void vfunc_8();
@@ -17,7 +18,6 @@ public:
     virtual void run_task();
 public:
     static f32 get_scale();
-    s32 get_child_field1c();
 };
 
 #endif

@@ -38,10 +38,10 @@ void run_task__13TUnk_8049F038Fv(u8 *arg0);
 u8 *vfunc_9__13TUnk_8049F038Fv(u8 *arg0);
 s32 set_item_count__13TUnk_804B9870Fs(void *, s32);
 s32 TLobby__sub_80103B04();
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 u8 *get_player_by_client_id(u16);
 s32 __dl__7TObjectFPv(void *);
-s32 clear_obj_links(void *);
+s32 clear_obj_links__13TUnk_804AF8A0Fv(void *);
 s32 obj_getField1c(void *);
 struct Obj_80108C90 {
     u8 pad0[0x18];
@@ -55,7 +55,7 @@ struct Obj_80108C90 {
 void disallow_rendering__7TObjectFv(void *);
 void fn_8002B630(void *, void *);
 s32 pop_free_id__6TLobbyFv();
-void initialize_linked_object_reference(void *, void *);
+void initialize_linked_object_reference__13TUnk_804AF8A0FPv(void *, void *);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 lbl_8043E1A0[];
 
@@ -275,8 +275,8 @@ void *TUnk_8049F038::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = (s32 *)lbl_8049F038;
         if ((u32) *(u32 *)((s8 *)this + 0xA4) != 0U) {
-            unregister_object_by_id(this);
-            clear_obj_links(this);
+            unregister_object_by_id__13TUnk_804AF8A0Fv(this);
+            clear_obj_links__13TUnk_804AF8A0Fv(this);
             obj_getField1c(this);
             TLobby__sub_80103B04();
             set_item_count__13TUnk_804B9870Fs(this, 0xFFFF);
@@ -298,7 +298,7 @@ Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 
     if ((u16)obj_getField1c(self) == 0xFFFF) {
         set_item_count__13TUnk_804B9870Fs(self, pop_free_id__6TLobbyFv());
     }
-    initialize_linked_object_reference(self, self->sub);
+    initialize_linked_object_reference__13TUnk_804AF8A0FPv(self, self->sub);
     ((TObjPlayer *)self)->reset_photon_effect();
     disallow_rendering__7TObjectFv(self);
     return self;

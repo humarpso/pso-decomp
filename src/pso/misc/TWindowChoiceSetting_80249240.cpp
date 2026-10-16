@@ -25,7 +25,7 @@ s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 s32 step_window_tween__13TUnk_804CDFE8Fv(void *);
 s32 fn_80249078(void *);
-s32 update_window_entry_list(void *, void *);
+s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 extern RecoveredGlobal_802492C8_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DCBC0;
 }
@@ -46,7 +46,7 @@ void render__20TWindowChoiceSettingFv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    ((TWindowChoiceSetting *)arg0)->draw_setting(temp_r3);
+    ((TUnk_804D0658 *)arg0)->draw_setting(temp_r3);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x78) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(u32 *)((s8 *)arg0 + 0x78), temp_r3);
     }
@@ -67,18 +67,18 @@ void TWindowChoiceSetting::run_task() {
         if (this->m_70 & 0x10) {
             temp_r30 = (u8 *)&controller_input_state.value + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
-                ((TWindowChoiceSetting *)arg0)->move_cursor_prev();
+                ((TUnk_804D0658 *)arg0)->move_cursor_prev();
             }
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
-                ((TWindowChoiceSetting *)arg0)->move_next_choice();
+                ((TUnk_804D0658 *)arg0)->move_next_choice();
             }
         } else {
             temp_r30_2 = (u8 *)&controller_input_state.value + 0x20;
             if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
-                ((TWindowChoiceSetting *)arg0)->move_cursor_prev();
+                ((TUnk_804D0658 *)arg0)->move_cursor_prev();
             }
             if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
-                ((TWindowChoiceSetting *)arg0)->move_next_choice();
+                ((TUnk_804D0658 *)arg0)->move_next_choice();
             }
         }
         temp_r30_3 = (u8 *)&controller_input_state.value + 0x20;
@@ -86,7 +86,7 @@ void TWindowChoiceSetting::run_task() {
             ((TWindowChoiceSetting *)arg0)->draw();
         }
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_3), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
-            ((TWindowChoiceSetting *)arg0)->request_close();
+            ((TUnk_804D0658 *)arg0)->request_close();
         }
     }
     if ((f32) this->m_5c >= lbl_805DCBC0) {
@@ -102,9 +102,9 @@ void TWindowChoiceSetting::run_task() {
     ((TWindowDD *)arg0)->initialize_subwindow();
     fn_80249078((void *) (arg0));
     step_window_tween__13TUnk_804CDFE8Fv((void *) (arg0));
-    ((TWindowChoiceSetting *)arg0)->update_scroll_offset();
-    ((TWindowChoiceSetting *)arg0)->clamp_scroll();
-    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804D0658 *)arg0)->update_scroll_offset();
+    ((TUnk_804D0658 *)arg0)->clamp_scroll();
+    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1) {

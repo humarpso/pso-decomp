@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -123,7 +124,7 @@ struct Ent_802D732C { s16 id; u8 rest[0x22]; };
 
 extern "C" {
 extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__entry_table;
-s32 set_motion_params__10TObjPlayerFPvPv(void *, void *);
+s32 set_motion_params__13TUnk_804806E8FPv(void *, void *);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 TObjNpcBase__ct(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -369,7 +370,7 @@ void TObjNpcEnemy::render() {
             model_render_flags &= 0xFFFFFFFE;
         }
         restore_scene_lighting();
-        ((TObjPlayer *)arg0)->render_with_position_override((int) (0), (int) (0));
+        ((TObjEnemy *)arg0)->render_with_position_override((int) (0), (int) (0));
     }
 }
 
@@ -400,10 +401,10 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)arg0)->init_position_vectors();
     ((VObj_18_cff70e *)(arg0))->m85(0, 1);
     *(s32 **)((s8 *)arg0 + 0x350) = &npc_movement_parameters.value;
-    set_motion_params__10TObjPlayerFPvPv((void *) (arg0), (void *) (&npc_default_battle_stats.value));
+    set_motion_params__13TUnk_804806E8FPv((void *) (arg0), (void *) (&npc_default_battle_stats.value));
     init_collision_body_parts((void *) (arg0), (void *) (&TObjNpcEnemy__collision_body_parts.value), (int) (1));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
     ((TObjNpcEnemy *)arg0)->set_npc_data((void *)((int) (((s32)TObjNpcEnemy::get_entry_by_index((s16)((int) ((s16) *(s32 *)((s8 *)arg0 + 0x5C))))))));
     return arg0;

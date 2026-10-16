@@ -146,7 +146,6 @@ struct TBoss4Type3
     void draw();
     static s32 create(s32 arg0);
     static void *create_yutai(void *arg0, void *arg1, void *arg2);
-    void check_attack_trigger();
     static f32 compute_wave_offset(f32 farg0);
     void reset_timer();
 };

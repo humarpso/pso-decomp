@@ -6,6 +6,7 @@
 class TUnk_804928CC : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_804928CC();
+    void update_body_contact_flag(f32);
     virtual void call_vt13_with_default();
     virtual s32 area_attack_deliver_direct(void *, s32, void *, f32);
     virtual void vfunc_16(void *, void *);

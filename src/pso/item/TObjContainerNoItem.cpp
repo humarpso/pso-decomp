@@ -172,8 +172,8 @@ extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
 void debug_print_item_box_info__18TObjContainerEnemyFv(Obj_801895A4 *self);
 s32 get_current_floor();
-void send_object_state_update(void *, void *);
-s32 access_object_saved_state(void *, void *, int);
+void send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
 f32 receive_physical_attack__18TObjContainerEnemyFPvf(Obj_801894F8 *arg0);
@@ -205,7 +205,7 @@ extern "C" {
 void vfunc_80__19TObjContainerNoItemFv(void *arg0);
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -239,7 +239,7 @@ extern s32 __vt__19TObjContainerNoItem[];
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjContainerNoItem;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
@@ -318,10 +318,10 @@ f32 TObjContainerEnemy::receive_physical_attack(void *, f32) {
     Obj_801894F8 *arg0 = (Obj_801894F8 *)this;
     s16 sp8;
     Pkt_801894F8 pkt;
-    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
+    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 1) != 0)) {
         sp8 = 1;
-        access_object_saved_state(arg0, &sp8, 0);
-        send_object_state_update(arg0, &sp8);
+        access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 0);
+        send_object_state_update__13TUnk_804AF8A0FPv(arg0, &sp8);
         ((TLobby *)(&pkt))->init_packet_67_04();
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();

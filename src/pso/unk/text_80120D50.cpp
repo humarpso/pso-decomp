@@ -13,11 +13,11 @@ struct V_80120D50 : Pad_80120D50 {
 };
 
 extern "C" {
-u8 get_field_ed__10TObjPlayerFv(void *);
+u8 get_field_ed__5TItemFv(void *);
 s32 TItemEquipBase__ct(void *, void *, u8 *);
 u8 *lookup_item_pmt_record(void *);
 u8 get_weapon_class_motion_type(u8);
-s32 set_weapon_category_flags(void *);
+s32 set_weapon_category_flags__11TItemWeaponFv(void *);
 s32 set_status_flags__10TObjPlayerFPvUi(void *, int);
 s32 set_weapon_trail_joints(void *, int, int, int);
 s32 memcpy(void *, void *, int);
@@ -74,7 +74,7 @@ u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x1BC) = 0;
     *(s32 *)((s8 *)arg0 + 0x1C0) = 0;
     *(s32 *)((s8 *)arg0 + 0x1C4) = 0;
-    u8 ed = ((u32 (*)(void *))get_field_ed__10TObjPlayerFv)((void *) (arg0));
+    u8 ed = ((u32 (*)(void *))get_field_ed__5TItemFv)((void *) (arg0));
     if (ed < 0xAA) {
         *(s8 *)((s8 *)arg0 + 0x1D3) = get_weapon_class_motion_type(ed);
         if ((s16) *(s16 *)((s8 *)arg0 + 0x1E8) != -1) {
@@ -88,13 +88,13 @@ u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2) {
     }
     *(s32 *)((s8 *)arg0 + 0x1D4) = -1;
     *(f32 *)((s8 *)arg0 + 0x1D8) = (f32) lbl_805DAC98;
-    if (get_field_ed__10TObjPlayerFv((void *) (arg0)) == 0) {
+    if (get_field_ed__5TItemFv((void *) (arg0)) == 0) {
         *(s16 *)((s8 *)arg0 + 0x1E8) = -1;
     } else {
         ((TObjPlayer *)(&lbl_805D53EC))->clear_id();
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DAC98;
     }
-    set_weapon_category_flags((void *) (arg0));
+    set_weapon_category_flags__11TItemWeaponFv((void *) (arg0));
     if (*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x27) & 1) {
         ((TObjPlayer *)(arg0 + 0x178))->set_flags((int) (0x20));
     }

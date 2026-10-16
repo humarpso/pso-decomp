@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
 #include <stddef.h>
 struct VBase_18_9e83f9 { char pad[0x18]; };
@@ -597,11 +598,11 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 
-s32 enemy_clear_target(void *);
+s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 extern const f32 lbl_805D9FF0;
 
 f64 atan2_float(f32, f32);
-s32 enemy_copy_target_destination(void *);
+s32 enemy_copy_target_destination__12TObjEneDD_STFv(void *);
 s32 enemy_set_target_id(void *, u16);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
 u16 enemy_find_nearest_player_in_range(void *, f32);
@@ -677,7 +678,7 @@ void TObjEneDD::state_chase_target(s32 arg1) {
         } else if (((TObjEneEpsilon *)arg0)->update_death_check() == 0) {
             break;
         }
-        enemy_copy_target_destination(arg0);
+        enemy_copy_target_destination__12TObjEneDD_STFv(arg0);
         ((TObjEneDD *)arg0)->update_velocity();
         (*(s32 *)((s8 *)arg0 + 0x414))++;
         *(s32 *)((s8 *)arg0 + 0x420) = (s32)(lbl_8043BBD8 * atan2_float(*(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8)));
@@ -698,10 +699,10 @@ void handle_flower_state_change(void *arg0, s32 arg1) {
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
         set_field_378__9TObjEneDDFPvi(arg0, 2);
-        enemy_clear_target(arg0);
+        enemy_clear_target__12TObjEneDD_STFUs(arg0);
         return;
     case 3:
-        if ((((s32 (*)())check_hit_flag__16TObjEneRe2FlowerFv)() == 0) && (((TObjEneEpsilon *)arg0)->update_linked_position(lbl_805D9FF0) != 0)) {
+        if ((((s32 (*)())check_hit_flag__16TObjEneRe2FlowerFv)() == 0) && (((TObjEneDD_ST *)arg0)->update_linked_position(lbl_805D9FF0) != 0)) {
             transition_enemy_state(arg0, 3);
         }
     case 5:

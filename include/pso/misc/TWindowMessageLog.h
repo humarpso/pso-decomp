@@ -6,6 +6,9 @@
 
 struct TWindowMessageLog : public TWindowMessage {
     virtual ~TWindowMessageLog();
+    void update_scroll_animation();
+    void update_fade_offset();
+    void clamp_scroll_offset();
     virtual void run_task();
     virtual void render();
     u8 unk_90[0x8];

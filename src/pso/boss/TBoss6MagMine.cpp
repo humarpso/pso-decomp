@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TUnk_804F322C.h"
 
 struct Vec_80368C14 { f32 x, y, z; };
@@ -540,7 +542,7 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)self + 0) = lbl_805D44B0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x40);
     VecCopy__FP3VecPC3Vec(arg0 + 0x384, arg2 + 0x4C);
-    ((TObjPlayer *)self)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)self)->add_flags_2e4(8);
     ((VObj_18_aa4667 *)(self))->m79(arg2);
     if (((TObjEnemy *)self)->exchange_object_state((s32)(&key), (s16)1) != 0) {
         key.a = 0;

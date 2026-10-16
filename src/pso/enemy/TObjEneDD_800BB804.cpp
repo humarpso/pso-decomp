@@ -350,7 +350,7 @@ struct Obj_800BB88C {
 extern "C" {
 void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1);
-void TObjEneDD__sub_800BBA0C(u8 *arg0);
+void sub_800BBA0C__9TObjEneDDFv(u8 *arg0);
 void vfunc_85__9TObjEneDDFv(void *arg0);
 s32 vfunc_83__9TObjEneDDFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -359,20 +359,20 @@ s32 load_enemy_bml_resource(u8 *arg0);
 void transition_enemy_state(V_800BBA18 *self, s16 state);
 s32 TObjEneDD__vt82(V_800BBB18 *self);
 extern const f32 TObjEneDD__data_805D9E8C;
-void reset_state_fields__9TObjEneDDFPv(Obj_800BB88C *self);
+void reset_state_fields__9TObjEneDDFv(Obj_800BB88C *self);
 }
 
 extern "C" {
 
 s32 pack_debug_text_position(s32 arg0, s32 arg1);
 void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
-void TObjEneDD__sub_800BBA0C(u8 *arg0);
+void sub_800BBA0C__9TObjEneDDFv(u8 *arg0);
 void vfunc_79__9TObjEneDDFv(void *arg0);
 u8 vfunc_86__9TObjEneDDFv(void *arg0);
 int get_target_info__9TObjEneDDFPv(void* p);
-void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
+void init_common_from__9TObjEneDDFPUc(u8 *arg0, u8 *arg1);
 void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
-void invoke_initialization_hook__9TObjEneDDFPv(void *arg0);
+void invoke_initialization_hook__9TObjEneDDFv(void *arg0);
 void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
 s32 subtractive_rng_seed(void *, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -382,11 +382,11 @@ s32 reset_photon_effect__12TBoss3VoloptFv(void *);
 
 extern s32 area_random_seed;
 
-void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
-    reset_state_fields__9TObjEneDDFPv((Obj_800BB88C *)(arg0));
-    *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
-    *(s16 *)((s8 *)arg0 + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
-    subtractive_rng_seed((void *) (arg0 + 0x160), (int) (*(u16 *)((s8 *)arg0 + 0x1C) + area_random_seed));
+void TObjEneDD::init_common_from(u8 *arg1) {
+    reset_state_fields__9TObjEneDDFv((Obj_800BB88C *)(((u8 *)this)));
+    *(s16 *)((s8 *)((u8 *)this) + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
+    *(s16 *)((s8 *)((u8 *)this) + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
+    subtractive_rng_seed((void *) (((u8 *)this) + 0x160), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x1C) + area_random_seed));
 }
 
 int get_target_info__9TObjEneDDFPv(void* p) { return fn_800FD8A0(p); }
@@ -395,25 +395,25 @@ s32 pack_debug_text_position(s32 arg0, s32 arg1) {
     return ((arg0 + 0x13) << 0x10) | (arg1 + 0x1A);
 }
 
-void reset_state_fields__9TObjEneDDFPv(Obj_800BB88C *self) {
+void TObjEneDD::reset_state_fields() {
     s32 i;
-    self->f38 = TObjEneDD__data_805D9E8C;
-    self->f3c = TObjEneDD__data_805D9E8C;
-    self->f40 = TObjEneDD__data_805D9E8C;
-    self->f5c = 0;
-    self->f60 = 0;
-    self->f64 = 0;
+    ((Obj_800BB88C *)this)->f38 = TObjEneDD__data_805D9E8C;
+    ((Obj_800BB88C *)this)->f3c = TObjEneDD__data_805D9E8C;
+    ((Obj_800BB88C *)this)->f40 = TObjEneDD__data_805D9E8C;
+    ((Obj_800BB88C *)this)->f5c = 0;
+    ((Obj_800BB88C *)this)->f60 = 0;
+    ((Obj_800BB88C *)this)->f64 = 0;
     for (i = 0; i < 5; i++) {
-        self->f354[i] = TObjEneDD__data_805D9E8C;
+        ((Obj_800BB88C *)this)->f354[i] = TObjEneDD__data_805D9E8C;
     }
-    self->f368 = 0;
-    self->f36c = 0;
-    self->f28 = -1;
-    self->f2a = -1;
+    ((Obj_800BB88C *)this)->f368 = 0;
+    ((Obj_800BB88C *)this)->f36c = 0;
+    ((Obj_800BB88C *)this)->f28 = -1;
+    ((Obj_800BB88C *)this)->f2a = -1;
 }
 
-void invoke_initialization_hook__9TObjEneDDFPv(void *arg0) {
-    struct VObj_800BB8E0_800BB804 *o = (struct VObj_800BB8E0_800BB804 *)arg0;
+void TObjEneDD::invoke_initialization_hook() {
+    struct VObj_800BB8E0_800BB804 *o = (struct VObj_800BB8E0_800BB804 *)this;
     o->m79();
 }
 
@@ -453,8 +453,8 @@ s32 load_enemy_bml_resource(u8 *arg0) {
 
 void set_field_378__9TObjEneDDFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x378) = v; }
 
-void TObjEneDD__sub_800BBA0C(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x374) = (s32) *(s16 *)((s8 *)arg0 + 0x326);
+void TObjEneDD::sub_800BBA0C() {
+    *(s32 *)((s8 *)((u8 *)this) + 0x374) = (s32) *(s16 *)((s8 *)((u8 *)this) + 0x326);
 }
 
 void transition_enemy_state(V_800BBA18 *self, s16 state) {
@@ -474,7 +474,7 @@ void TObjEneDD::vfunc_85() {
         ((VObj_18 *)(this))->m85(*(s16 *)((s8 *)this + 0x326), 3);
     }
     ((VObj_18 *)(this))->m85(*(s16 *)((s8 *)this + 0x326), 0);
-    TObjEneDD__sub_800BBA0C((u8 *)(this));
+    sub_800BBA0C__9TObjEneDDFv((u8 *)(this));
 }
 
 s32 TObjEneDD__vt82(V_800BBB18 *self) {

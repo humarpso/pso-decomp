@@ -233,7 +233,7 @@ s32 get_player_by_client_id(int);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int suppress_slot__11TWindowCtrlFv(void*);
 s32 unsuppress_slot__11TWindowCtrlFv(int);
-s32 set_selected_index__17TWindowSubComCardFs(u32, s32);
+s32 set_selected_index__21TWindowSubComCardListFs(u32, s32);
 s32 calc_window_size__17TWindowSubComCardFPv(u32);
 s32 get_window_layout_position(s32);
 int TWindow__close(void*);
@@ -281,7 +281,7 @@ void open_giveup_window__6TLobbyFPv(void *arg0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)arg0 + 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);
         calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0x2C));
         set_loss_flag__6TLobbyFv(*(u32 *)((s8 *)arg0 + 0x2C));
-        set_selected_index__17TWindowSubComCardFs(*(u32 *)((s8 *)arg0 + 0x2C), 0);
+        set_selected_index__21TWindowSubComCardListFs(*(u32 *)((s8 *)arg0 + 0x2C), 0);
     }
 }
 

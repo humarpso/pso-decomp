@@ -6,6 +6,7 @@
 
 struct TBoss7Joint : public TObjEneDD {
     virtual ~TBoss7Joint();
+    void init_boss_stats();
     virtual void vfunc_62();
     virtual void clear_harmful_statuses();
     virtual void apply_shock_status();

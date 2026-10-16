@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804EDD44.h"
 
 struct Eff_8032E34C {
     u8 pad0[0x18];
@@ -23,11 +24,11 @@ s32 anchor_card_effect(int);
 s32 normalize_vector(int, int);
 extern s32 lbl_805D4218;
 extern const f32 lbl_805DF7E0;
-void TItemWpnCardEffect__ct(u8 *arg0);
+void sub_8032E294__13TUnk_804EDD44Fv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32, f32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TItemWpnCardEffect__ct(u8 *arg0);
+void sub_8032E294__13TUnk_804EDD44Fv(u8 *arg0);
 extern const f64 lbl_804773A8[];
 extern void *lbl_804EDD44[];
 Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5);
@@ -36,17 +37,17 @@ Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f
 extern "C" {
 
 #pragma fp_contract on
-void TItemWpnCardEffect__ct(u8 *arg0) {
+void TUnk_804EDD44::sub_8032E294() {
   f32 var_f0;
   f32 var_f1;
   s32 var_r4;
   u8 *var_r31;
   s32 *new_var;
   u8 *var_r3;
-  var_r31 = (u8 *) arg0;
+  var_r31 = (u8 *) ((u8 *)this);
   new_var = &(*((s32 *) (((s8 *) var_r31) + 0x2C)));
   var_r4 = lbl_805D4218;
-  *((s32 *) (((s8 *) arg0) + 0)) = var_r4;
+  *((s32 *) (((s8 *) ((u8 *)this)) + 0)) = var_r4;
   var_r3 = (u8 *) (var_r31 + 0x38);
   *((s32 *) (((s8 *) var_r31) + 0x30)) = 0;
   *((s32 *) (((s8 *) var_r31) + 0x1C)) = 0;
@@ -92,7 +93,7 @@ Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f
     VecCopy__FP3VecPC3Vec(self->f64, arg2);
     self->f58 = (s32)(lbl_804773A8[0] * atan2_float(arg3[0], arg3[2]));
     self->f50 = arg4;
-    TItemWpnCardEffect__ct((u8 *)self);
+    sub_8032E294__13TUnk_804EDD44Fv((u8 *)self);
     return self;
 }
 

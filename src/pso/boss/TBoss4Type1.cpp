@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/boss/TBoss4Type1.h"
 #include <stddef.h>
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -311,13 +313,13 @@ void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0);
 void TRaderMapCore__sub_80053670(u8 *arg0);
 void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *out);
 void calc_scale_slot_indices__11TBoss4Type2FPvPvPv(S_80053B48 *o, s32 *a, s32 *b);
-void fn_80053D4C(Obj_80053D4C *arg0);
+void sub_80053D4C__11TBoss4Type1Fv(Obj_80053D4C *arg0);
 f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0);
 void set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv(S_80054224 *o, void *src, V_80054224 *in);
 void set_state__11TBoss4Type2FPvi(Boss_800542B0 *arg0, s32 arg1);
 u8 * TBoss4Type2__sub_80054384(void *self, s32 i, s32 j);
-void update_boss4_phase_timer(u8 *arg0);
-void render_effects__10TObjPlayerFPv(void* p);
+void update_boss4_phase_timer__11TBoss4Type1Fv(u8 *arg0);
+void render_effects__11TBoss4Type1Fv(void* p);
 void render_and_update_effects__10TObjPlayerFPv(void* p);
 void request_state_3__11TBoss4Type2FPv(void *arg0);
 void fn_800548E4(u8 *arg0);
@@ -1044,7 +1046,7 @@ void TBoss4Type2__sub_800531BC(void* p) { *(s32*)((char*)p + 0x398) = 75; }
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer::update_follow_camera_offsets() {
+void TBoss4Type1::update_follow_camera_offsets() {
     Obj_80053E40 *o = (Obj_80053E40 *)this;
     XZ_80053E40 pts[7];
     Vec_80053E40 in;
@@ -1337,7 +1339,8 @@ void TBoss4Type2::send_state_to_target(s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void fn_80053D4C(Obj_80053D4C *arg0) {
+void TBoss4Type1::sub_80053D4C() {
+    Obj_80053D4C *arg0 = (Obj_80053D4C *)this;
     Part_80053D4C *q;
     s32 i;
     f32 s;
@@ -1358,7 +1361,7 @@ void fn_80053D4C(Obj_80053D4C *arg0) {
 extern int fold_flush_3;
 #pragma pop
 
-void TObjPlayer::push_players_out_of_colliders() {
+void TBoss4Type1::push_players_out_of_colliders() {
     Obj_80053E40 *o = (Obj_80053E40 *)this;
     XZ_80053E40 pts[7];
     Vec_80053E40 in;
@@ -1483,7 +1486,7 @@ u8 *TBoss4Type2__sub_80054384(void *self, s32 i, s32 j) {
 
 #pragma push
 #pragma opt_propagation off
-void TObjFish::draw_parts() {
+void TBoss4Type1::draw_parts() {
     u8 *arg0 = (u8 *)this;
     s32 i;
     s32 off;
@@ -1531,53 +1534,53 @@ void TBoss4Type2::set_motion_index(s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void update_boss4_phase_timer(u8 *arg0) {
+void TBoss4Type1::update_boss4_phase_timer() {
     f32 temp_f1;
     f32 temp_f1_2;
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x3F4) = 0;
-    *(f32 *)((s8 *)arg0 + 0x3E8) = (f32) (*(f32 *)((s8 *)arg0 + 0x3E8) + *(f32 *)((s8 *)arg0 + 0x3EC));
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x3F0);
+    *(s32 *)((s8 *)((u8 *)this) + 0x3F4) = 0;
+    *(f32 *)((s8 *)((u8 *)this) + 0x3E8) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x3E8) + *(f32 *)((s8 *)((u8 *)this) + 0x3EC));
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x3F0);
     switch (temp_r0) {
     case 0:
-        temp_f1 = *(f32 *)((s8 *)arg0 + 0x3E8);
+        temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x3E8);
         if (temp_f1 >= lbl_805D8B78) {
-            *(f32 *)((s8 *)arg0 + 0x3E8) = (f32) (temp_f1 - lbl_805D8B78);
-            *(s32 *)((s8 *)arg0 + 0x3F4) = 1;
+            *(f32 *)((s8 *)((u8 *)this) + 0x3E8) = (f32) (temp_f1 - lbl_805D8B78);
+            *(s32 *)((s8 *)((u8 *)this) + 0x3F4) = 1;
         }
         break;
     case 1:
-        if (*(f32 *)((s8 *)arg0 + 0x3E8) >= lbl_805D8B7C) {
-            *(f32 *)((s8 *)arg0 + 0x3E8) = (f32) lbl_805D8B7C;
-            *(s32 *)((s8 *)arg0 + 0x3F4) = 1;
+        if (*(f32 *)((s8 *)((u8 *)this) + 0x3E8) >= lbl_805D8B7C) {
+            *(f32 *)((s8 *)((u8 *)this) + 0x3E8) = (f32) lbl_805D8B7C;
+            *(s32 *)((s8 *)((u8 *)this) + 0x3F4) = 1;
         }
         break;
     case 2:
-        if (*(f32 *)((s8 *)arg0 + 0x3E8) >= lbl_805D8B7C) {
-            *(s32 *)((s8 *)arg0 + 0x3E4) = (s32) *(s32 *)((s8 *)((u8 *)&boss4_type1_motion_states.value + (*(s32 *)((s8 *)arg0 + 0x3E4) << 5)) + 4);
-            *(s32 *)((s8 *)arg0 + 0x3F0) = (s32) *(s32 *)((s8 *)(&boss4_type1_motion_states.value) + (*(s32 *)((s8 *)arg0 + 0x3E4) << 5));
-            *(f32 *)((s8 *)arg0 + 0x3E8) = (f32) lbl_805D8B20;
-            *(s32 *)((s8 *)arg0 + 0x3F4) = 1;
+        if (*(f32 *)((s8 *)((u8 *)this) + 0x3E8) >= lbl_805D8B7C) {
+            *(s32 *)((s8 *)((u8 *)this) + 0x3E4) = (s32) *(s32 *)((s8 *)((u8 *)&boss4_type1_motion_states.value + (*(s32 *)((s8 *)((u8 *)this) + 0x3E4) << 5)) + 4);
+            *(s32 *)((s8 *)((u8 *)this) + 0x3F0) = (s32) *(s32 *)((s8 *)(&boss4_type1_motion_states.value) + (*(s32 *)((s8 *)((u8 *)this) + 0x3E4) << 5));
+            *(f32 *)((s8 *)((u8 *)this) + 0x3E8) = (f32) lbl_805D8B20;
+            *(s32 *)((s8 *)((u8 *)this) + 0x3F4) = 1;
         }
         break;
     }
-    temp_f1_2 = *(f32 *)((s8 *)arg0 + 0x3E8);
+    temp_f1_2 = *(f32 *)((s8 *)((u8 *)this) + 0x3E8);
     if ((temp_f1_2 < lbl_805D8B20) || (temp_f1_2 >= lbl_805D8B78)) {
-        *(f32 *)((s8 *)arg0 + 0x3E8) = (f32) lbl_805D8B20;
+        *(f32 *)((s8 *)((u8 *)this) + 0x3E8) = (f32) lbl_805D8B20;
     }
 }
 extern int fold_flush_5;
 #pragma pop
 
-void render_effects__10TObjPlayerFPv(void* p) { toggle_particle_effect__10TObjPlayerFv(p); push_matrix(); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); ((TObjFish *)p)->draw_parts(); pop_matrix(); TParticleCtrl::end_effect_render(); }
+void TBoss4Type1::render_effects() { toggle_particle_effect__10TObjPlayerFv(this); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x60)); ((TBoss4Type1 *)this)->draw_parts(); pop_matrix(); TParticleCtrl::end_effect_render(); }
 
-void TObjPlayer::snapshot_position() {
+void TBoss4Type1::snapshot_position() {
     u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + lbl_805D8B24);
 }
 
-void render_and_update_effects__10TObjPlayerFPv(void* p) { ((TObjPlayer *)p)->push_players_out_of_colliders(); render_effects__10TObjPlayerFPv((void*)(p)); ((TObjPlayer *)p)->update_follow_camera_offsets(); }
+void render_and_update_effects__10TObjPlayerFPv(void* p) { ((TBoss4Type1 *)p)->push_players_out_of_colliders(); render_effects__11TBoss4Type1Fv((void*)(p)); ((TBoss4Type1 *)p)->update_follow_camera_offsets(); }
 
 #pragma push
 #pragma opt_common_subs off
@@ -1593,9 +1596,9 @@ void TBoss4Type2__sub_80054738(Obj_80054738 *self) {
     if (act) {
         (((Boss_800542B0 *)self)->*act)();
     }
-    ((s32 (*)(void *))update_boss4_phase_timer)(self);
-    ((TObjPlayer *)self)->snapshot_position();
-    ((s32 (*)(void *))fn_80053D4C)(self);
+    ((s32 (*)(void *))update_boss4_phase_timer__11TBoss4Type1Fv)(self);
+    ((TBoss4Type1 *)self)->snapshot_position();
+    ((s32 (*)(void *))sub_80053D4C__11TBoss4Type1Fv)(self);
     ((TObjPlayer *)self)->update_collisions();
     submit_cursor_candidate(self, -1);
     ((s32 (*)(void *))TRaderMapCore__sub_80053670)(self);
@@ -1757,7 +1760,7 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 arg1, s32 *arg2) {
     ((TObjEnemy *)self)->initialize((void*)arg1);
     self->vt = __vt__11TBoss4Type1;
     self->f0 = TBoss4Type1__name;
-    ((TObjPlayer *)self)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)self)->add_flags_2e4(8);
     self->f38C = arg2[0];
     ((VObj_80054A1C *)self)->m79(arg2 + 1);
     ((VObj_80054A1C *)self)->m80();

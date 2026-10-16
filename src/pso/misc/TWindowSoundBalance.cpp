@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSoundBalance.h"
 #include "pso/item/TItemMag.h"
 #include "pso/item/TItemProShield.h"
@@ -22,7 +23,7 @@ struct State_80270DCC { u8 pad[4]; s16 f4; s8 f6; };
 extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 update_window_entry_list(void *, void *);
+s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 is_active__19TWindowSoundBalanceFv();
 s32 TWindowSoundBalance__sub_8027095C(void *);
 extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
@@ -129,8 +130,8 @@ void TWindowSoundBalance::run_task() {
         }
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TWindowSubComCard *)arg0)->update_fade();
-    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_fade();
+    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1) {

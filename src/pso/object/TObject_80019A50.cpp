@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 
 struct Ent_80019B08 { s32 key; s32 val; };
 
@@ -16,7 +17,7 @@ extern "C" {
 void sub_80019B78__15TAdDrawLineCtrlFl(Obj_80019B08 *self, s32 idx);
 void fn_80019B08(Obj_80019B08 *self, s32 key);
 void fn_80019EB8(Node_80019AB0 *n, f32 v);
-void set_draw_line_param_all_nodes(Obj_80019AB0 *self, f32 v);
+void set_draw_line_param_all_nodes__15TAdDrawLineCtrlFf(Obj_80019AB0 *self, f32 v);
 }
 
 extern "C" {
@@ -45,10 +46,10 @@ void func_80019A68__Fv(void) {
 
 void TAdDrawLineTask__sub_80019A8C(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(u32*)((char*)p + 0xc) = *(u32*)((char*)q + 0xc); }
 
-void set_draw_line_param_all_nodes(Obj_80019AB0 *self, f32 v) {
+void TAdDrawLineCtrl::set_draw_line_param_all_nodes(f32 v) {
     Node_80019AB0 *n;
-    self->f24 = v;
-    for (n = self->sub->head; n != 0; n = n->next) {
+    ((Obj_80019AB0 *)this)->f24 = v;
+    for (n = ((Obj_80019AB0 *)this)->sub->head; n != 0; n = n->next) {
         fn_80019EB8(n, v);
     }
 }

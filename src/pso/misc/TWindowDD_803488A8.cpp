@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
 
 struct Src_80348A9C { f32 x; f32 y; };
@@ -157,7 +158,7 @@ extern s32 twindowdd_entry_count;
 
 #pragma push
 #pragma fp_contract on
-void TWindowDD::calc_inner_rect(u8 *arg1) {
+void TUnk_804CE018::calc_inner_rect(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     f32 y0;
     f32 ky;

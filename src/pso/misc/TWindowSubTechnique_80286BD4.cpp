@@ -35,11 +35,11 @@ s32 get_window_layout_position(int);
 extern s16 *lbl_804D2E20[];
 extern const f32 lbl_805DD838;
 s32 get_cursor_pos__20TWindowShortListCtrlFv(s32);
-void reset_entries__17TWindowSubComCardFPv(s32);
+void reset_entries__21TWindowSubComCardListFv(s32);
 void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2);
-void update_layout_height__17TWindowSubComCardFPvf(s32, f32);
+void update_layout_height__21TWindowSubComCardListFf(s32, f32);
 void align_menu_entry_positions(s32);
-void set_selected_index__17TWindowSubComCardFs(s32, s32);
+void set_selected_index__21TWindowSubComCardListFs(s32, s32);
 
 }
 
@@ -98,14 +98,14 @@ void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
     s16 *entry;
     entry = lbl_804D2E20[category];
     selected = get_cursor_pos__20TWindowShortListCtrlFv(list);
-    reset_entries__17TWindowSubComCardFPv(list);
+    reset_entries__21TWindowSubComCardListFv(list);
     while (*entry != 19) {
         draw_technique_row__19TWindowSubTechniqueFiii(*entry, playerIndex, list);
         ++entry;
     }
-    update_layout_height__17TWindowSubComCardFPvf(list, lbl_805DD838);
+    update_layout_height__21TWindowSubComCardListFf(list, lbl_805DD838);
     align_menu_entry_positions(list);
-    set_selected_index__17TWindowSubComCardFs(list, selected);
+    set_selected_index__21TWindowSubComCardListFs(list, selected);
 }
 
 s32 TWindowSubTechnique::create_title_window() {

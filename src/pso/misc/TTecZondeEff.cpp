@@ -184,7 +184,7 @@ extern const f32 lbl_805DC99C;
 s32 project_lightning_points(Obj_8023D128 *self, Vec_8023D128 *out, f32 *a, f32 *b);
 f32 newton_sqrtf(f32);
 extern const f32 TTecZondeEff__data_805DC994;
-s32 build_lightning_strip(Obj_8023CED4 *self, Vtx_8023CED4 *out, Vec_8023CED4 *pts, f32 *widths, f32 *heights);
+s32 build_lightning_strip__12TTecZondeEffFPvPvPfPf(Obj_8023CED4 *self, Vtx_8023CED4 *out, Vec_8023CED4 *pts, f32 *widths, f32 *heights);
 }
 
 extern "C" {
@@ -211,7 +211,9 @@ typedef struct Obj_8023CED4 Obj_8023CED4;
 typedef struct Vec_8023CED4 Vec_8023CED4;
 typedef struct Vtx_8023CED4 Vtx_8023CED4;
 #pragma fp_contract on
-s32 build_lightning_strip(Obj_8023CED4 *self, Vtx_8023CED4 *out, Vec_8023CED4 *pts, f32 *widths, f32 *heights) {
+s32 TTecZondeEff::build_lightning_strip(void *out_arg, void *pts_arg, f32 *widths, f32 *heights) {
+    Vtx_8023CED4 *out = (Vtx_8023CED4 *)out_arg;
+    Vec_8023CED4 *pts = (Vec_8023CED4 *)pts_arg;
   f32 px;
   f32 py;
   f32 pz;
@@ -231,10 +233,10 @@ s32 build_lightning_strip(Obj_8023CED4 *self, Vtx_8023CED4 *out, Vec_8023CED4 *p
   px = pts->x;
   py = pts->y;
   pz = pts->z;
-  color = 0xFFFFFF | self->color;
+  color = 0xFFFFFF | ((Obj_8023CED4 *)this)->color;
   p = pts + 1;
   o = out;
-  for (i = 0; i < (self->count - 1); i++)
+  for (i = 0; i < (((Obj_8023CED4 *)this)->count - 1); i++)
   {
     ny = p->y;
     nx = p->x;
@@ -269,8 +271,8 @@ s32 build_lightning_strip(Obj_8023CED4 *self, Vtx_8023CED4 *out, Vec_8023CED4 *p
     pz = p->z;
     p++;
   }
-  ox = TTecZondeEff__data_805DC994 * (dy * widths[self->count - 1]);
-  oy = TTecZondeEff__data_805DC994 * ((-dx) * heights[self->count - 1]);
+  ox = TTecZondeEff__data_805DC994 * (dy * widths[((Obj_8023CED4 *)this)->count - 1]);
+  oy = TTecZondeEff__data_805DC994 * ((-dx) * heights[((Obj_8023CED4 *)this)->count - 1]);
   o[0].x = px + ox;
   o[0].y = py + oy;
   o[0].z = pz;
@@ -457,7 +459,7 @@ void TTecZondeEff::render() {
     model_render_flags = id | 0x10;
     TParticleCtrl::begin_effect_render();
     set_depth_buffer_settings_1__Fv();
-    if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0 && build_lightning_strip((Obj_8023CED4 *)(self), (Vtx_8023CED4 *)(verts), (Vec_8023CED4 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0) {
+    if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0 && build_lightning_strip__12TTecZondeEffFPvPvPfPf((Obj_8023CED4 *)(self), (Vtx_8023CED4 *)(verts), (Vec_8023CED4 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0) {
         TObjPlayer::init_xyz_limits();
         ((TWindowDD *)verts)->draw_transformed_primitive((void*)(self->count * 2), (void*)TTecZondeEff__beam_vertex_data, (void*)1);
         TObjPlayer::reset_transform_state();

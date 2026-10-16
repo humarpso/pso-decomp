@@ -4,8 +4,8 @@
 
 extern "C" {
 
-s32 recalc_combat_stats__10TObjPlayerFv(void *, void *, void *, void *, f32, f32);
-s32 init_trait_flags__10TObjPlayerFPv(void *);
+s32 recalc_combat_stats__13TUnk_804806E8FPvPvPvff(void *, void *, void *, void *, f32, f32);
+s32 init_trait_flags__10TObjPlayerFv(void *);
 s32 get_class_attack_template(void *);
 s32 get_class_defense_template(void *);
 s32 apply_input_mode__10TObjPlayerFi(void *);
@@ -25,11 +25,11 @@ void TObjPlayer::init_player_data() {
     *(void * *)&this->m_2b0 = (void *) (arg0 + 0xD38);
     apply_input_mode__10TObjPlayerFi(arg0);
     set_move_mode__10TObjPlayerFi(arg0);
-    init_trait_flags__10TObjPlayerFPv(arg0);
+    init_trait_flags__10TObjPlayerFv(arg0);
     ((TLobby *)(arg0 + 0xD5C))->copy_from((void *)(get_class_attack_template(arg0)));
     ((TLobby *)(arg0 + 0xD8C))->copy_entry((void *)(get_class_defense_template(arg0)));
     temp_f31_2 = ((TObjPlayer *)arg0)->get_tp_class_factor();
-    recalc_combat_stats__10TObjPlayerFv(arg0, *(void * *)&this->m_2b0, arg0 + 0xD5C, arg0 + 0xD8C, ((TObjPlayer *)arg0)->get_class_hp_factor(), temp_f31_2);
+    recalc_combat_stats__13TUnk_804806E8FPvPvPvff(arg0, *(void * *)&this->m_2b0, arg0 + 0xD5C, arg0 + 0xD8C, ((TObjPlayer *)arg0)->get_class_hp_factor(), temp_f31_2);
     *(f32 *)((s8 *)(*(void * *)&this->m_a4) + 4) = (f32) (TObjPlayer__data_805DC28C * *(f32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x10));
 }
 

@@ -6,6 +6,9 @@
 
 struct TObjEneBalClawBody : public TObjEneBalClaw {
     virtual ~TObjEneBalClawBody();
+    void sub_800C73F4();
+    void sub_8008FF50();
+    void update_dragon_boss_state();
     virtual void vfunc_58();
     u32 m_3dc;
     u32 m_3e0;

@@ -160,7 +160,7 @@ extern const f32 TLazerFenceSw__data_805DBE84;
 extern const f32 lbl_805DBE8C;
 extern const f32 lbl_805DBE90;
 void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
-void refresh_collision_body_centers(void *);
+void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *);
 extern u16 lbl_80445BE0[];
@@ -194,7 +194,7 @@ void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1);
 void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(void *, s32);
 void free_collision_body_parts(void *);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -219,7 +219,7 @@ extern s32 __vt__15TObjLazerFence4[];
 void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLazerFence4;
-        unregister_object_by_id((void *)((s32 *)arg0));
+        unregister_object_by_id__13TUnk_804AF8A0Fv((void *)((s32 *)arg0));
         free_collision_body_parts((void *)(arg0));
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
@@ -253,7 +253,7 @@ void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     init_collision_body_parts(self, laser_fence4_collision_body_sets + (self->f8C % 2) * 0xDC, 5);
     self->flags |= 0x40000000;
     ((TObjPlayer *)self)->reset_photon_effect();
-    refresh_collision_body_centers(self);
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
     return self;
 }
 #undef self
@@ -497,7 +497,7 @@ void TLazerFenceSw::load_resources() {
 void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TLazerFenceSw;
-        unregister_object_by_id((void *)(arg0));
+        unregister_object_by_id__13TUnk_804AF8A0Fv((void *)(arg0));
         free_collision_body_parts((void *)(arg0));
         ((TUnk_804AF8D8 *)((s8 *)arg0 + 0xF0))->destroy(-1);
         __dt__5TOKeyFv(arg0, 0);

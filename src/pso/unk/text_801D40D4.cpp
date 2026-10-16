@@ -156,9 +156,9 @@ void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1) {
     temp_r4 = get_field_ec__5TItemFv((void *) (arg1), (int) (arg1)) << 0x19;
     *arg0 |= temp_r4;
     if (get_field_ec__5TItemFv((void *) (arg1), (int) (temp_r4)) == 1) {
-        *arg0 |= (((TObjPlayer *)arg1)->get_field_ed() << 0x11) & 0x01FE0000;
+        *arg0 |= (((TItem *)arg1)->get_field_ed() << 0x11) & 0x01FE0000;
     } else {
-        *arg0 |= (((TObjPlayer *)arg1)->get_field_ed() << 8) & 0xFF00;
+        *arg0 |= (((TItem *)arg1)->get_field_ed() << 8) & 0xFF00;
     }
     temp_r3 = ((TItemProShield *)arg1)->get_slot_count();
     *arg0 |= temp_r3;

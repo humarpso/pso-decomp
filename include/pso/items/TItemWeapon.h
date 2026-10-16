@@ -11,6 +11,18 @@ struct WeaponPlayerPrefix { u8 object[0x60]; s32 heading; };
 struct WeaponMotionRecord { u32 unknown; u32 frame_count; };
 
 struct TItemWeapon : WeaponObjectPrefix {
+    void create_weapon_trail_effects();
+    void apply_model_params();
+    void spawn_light_task();
+    void set_weapon_category_flags();
+    s8 get_attach_joint();
+    int test_flags_1b8(u32);
+    void apply_to_child(int);
+    void apply_sign_effect(int);
+    void run_with_callback(int);
+    int check_boss2tunnel_field_f4();
+    void draw_shield_particle();
+    void update_screen_particle_effect();
     void sub_80121208(s32);
     void clear_equip_flags(u32);
     void advance_weapon_photon_phase();

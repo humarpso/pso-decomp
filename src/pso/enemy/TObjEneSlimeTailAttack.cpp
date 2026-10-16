@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include <stddef.h>
 #include "pso/enemy/TObjEneSlimeOne.h"
@@ -425,7 +426,7 @@ s32 water_bomb_hit_nearby(u8 *arg0);
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
 void * __dt__21TObjEneSlimeWaterBombFv(void *arg0, s16 arg1);
 void * TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2);
-void TObjPlayer__sub_800E9090(Bomb_800E9090 *self);
+void sub_800E9090__15TObjEneSlimeOneFv(Bomb_800E9090 *self);
 void fn_800E9238(s32 arg0);
 void fn_800E9538(u8 *arg0);
 void update_effect_fade_lifetime(u8 *arg0);
@@ -574,7 +575,7 @@ void set_state__15TObjEneSlimeOneFPvi(TSlime_800EAE78 *arg0, s32 arg1);
 }
 
 extern "C" {
-void TObjPlayer__sub_800E9090(Bomb_800E9090 *self);
+void sub_800E9090__15TObjEneSlimeOneFv(Bomb_800E9090 *self);
 }
 
 extern "C" {
@@ -1430,7 +1431,8 @@ void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2) {
 extern int fold_flush_9;
 #pragma pop
 
-void TObjPlayer__sub_800E9090(Bomb_800E9090 *self) {
+void TObjEneSlimeOne::sub_800E9090() {
+    Bomb_800E9090 *self = (Bomb_800E9090 *)this;
     Vec_800E9090 c;
     Vec_800E9090 b;
     f32 s;
@@ -2135,7 +2137,7 @@ void render__15TObjEneSlimeOneFv(u8 *arg0) {
         if (*(f32 *)((s8 *)arg0 + 0x3A0) < lbl_805DA67C) {
             TObjPlayer::init_render_globals();
         }
-        TObjPlayer__sub_800E9090((Bomb_800E9090 *) (arg0));
+        sub_800E9090__15TObjEneSlimeOneFv((Bomb_800E9090 *) (arg0));
     }
 }
 
@@ -2221,7 +2223,7 @@ u8 *TObjEneSlimeOne__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     initialize__9TObjEnemyFPv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800EB3D4___vt__15TObjEneSlimeOne *)&__vt__15TObjEneSlimeOne).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneSlimeOne_class_name;
-    ((TObjPlayer *)arg0)->add_flags_2e4((int) (2));
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4((int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg3);
     if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
         stack.sp8 = 0;
@@ -2242,7 +2244,7 @@ u8 *init__15TObjEneSlimeOneFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     initialize__9TObjEnemyFPv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800EB4A0___vt__15TObjEneSlimeOne *)&__vt__15TObjEneSlimeOne).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneSlimeOne_class_name;
-    ((TObjPlayer *)arg0)->add_flags_2e4((int) (2));
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4((int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg3);
     if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
         stack.sp8 = 0;

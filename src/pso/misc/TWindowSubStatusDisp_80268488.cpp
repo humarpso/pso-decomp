@@ -8,7 +8,7 @@
 extern "C" {
 
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 TWindowMenu__sub_80266B18(void *, s32);
+s32 sub_80266B18__13TUnk_804CDFE8Fl(void *, s32);
 u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 s32 TWindowSubComCard__sub_8026906C(void);
 

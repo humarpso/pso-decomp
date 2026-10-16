@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void reset_area_entry_state__10TObjPlayerFPv(void *arg0);
-void destroy_owned_object__10TObjPlayerFPv(void* p);
+void destroy_owned_object__10TObjPlayerFv(void* p);
 void init_battle__10TObjPlayerFi(s32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 int sync_current_floor__10TObjPlayerFPv(void*);
@@ -58,7 +59,7 @@ void reset_area_entry_state__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void destroy_owned_object__10TObjPlayerFPv(void* p) { if (*(unsigned int*)((char*)p + 0x548) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x548)); *(int*)((char*)p + 0x548) = 0; } }
+void TObjPlayer::destroy_owned_object() { if (*(unsigned int*)((char*)this + 0x548) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)this + 0x548)); *(int*)((char*)this + 0x548) = 0; } }
 
 }
 

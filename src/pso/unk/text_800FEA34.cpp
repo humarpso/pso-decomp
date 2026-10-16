@@ -1,73 +1,75 @@
 #include "types.h"
+#include "pso/TObjEZBoneRotBase.h"
+#include "pso/TObjEZBoneRotPlayer.h"
 
 extern "C" {
-void fn_800FED0C(u8 *arg0);
-void start_bone_rotation_sequence(u8 *arg0, s32 arg1);
-void fn_800FEC40(u8 *arg0, u8 *arg1);
+void sub_800FED0C__17TObjEZBoneRotBaseFv(u8 *arg0);
+void start_bone_rotation_sequence__19TObjEZBoneRotPlayerFl(u8 *arg0, s32 arg1);
+void sub_800FEC40__17TObjEZBoneRotBaseFPUc(u8 *arg0, u8 *arg1);
 f32 sin_table_lookup(s32);
-void calc_bone_offsets_recursive(void *arg0, void *arg1, s32 arg2, s32 arg3);
+void calc_bone_offsets_recursive__19TObjEZBoneRotPlayerFPvll(void *arg0, void *arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
 
-void calc_bone_offsets_recursive(void *arg0, void *arg1, s32 arg2, s32 arg3) {
+void TObjEZBoneRotPlayer::calc_bone_offsets_recursive(void *arg1, s32 arg2, s32 arg3) {
     s32 k;
     f32 t;
     do {
-        k = *(s32 *)((s8 *)(*(s32 **)((s8 *)arg0 + 0x8C)) + 0);
+        k = *(s32 *)((s8 *)(*(s32 **)((s8 *)this + 0x8C)) + 0);
         if (k < 0) {
             return;
         }
-        if (k == *(s32 *)((s8 *)arg0 + 0x88)) {
+        if (k == *(s32 *)((s8 *)this + 0x88)) {
             t = (f32) arg3 * sin_table_lookup(arg2);
-            *(s32 *)((s8 *)arg1 + 0x14) = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 0) + (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x8C)) + 4) * t);
-            *(s32 *)((s8 *)arg1 + 0x18) = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 4) + (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x8C)) + 8) * t);
-            *(s32 *)((s8 *)arg1 + 0x1C) = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 8) + (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x8C)) + 0xC) * t);
-            *(u8 **)((s8 *)arg0 + 0x90) = *(u8 **)((s8 *)arg0 + 0x90) + 0xC;
-            *(u8 **)((s8 *)arg0 + 0x8C) = *(u8 **)((s8 *)arg0 + 0x8C) + 0x10;
-            if (*(s32 *)((s8 *)(*(s32 **)((s8 *)arg0 + 0x8C)) + 0) < 0) {
+            *(s32 *)((s8 *)arg1 + 0x14) = *(s32 *)((s8 *)(*(u8 **)((s8 *)this + 0x90)) + 0) + (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)this + 0x8C)) + 4) * t);
+            *(s32 *)((s8 *)arg1 + 0x18) = *(s32 *)((s8 *)(*(u8 **)((s8 *)this + 0x90)) + 4) + (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)this + 0x8C)) + 8) * t);
+            *(s32 *)((s8 *)arg1 + 0x1C) = *(s32 *)((s8 *)(*(u8 **)((s8 *)this + 0x90)) + 8) + (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)this + 0x8C)) + 0xC) * t);
+            *(u8 **)((s8 *)this + 0x90) = *(u8 **)((s8 *)this + 0x90) + 0xC;
+            *(u8 **)((s8 *)this + 0x8C) = *(u8 **)((s8 *)this + 0x8C) + 0x10;
+            if (*(s32 *)((s8 *)(*(s32 **)((s8 *)this + 0x8C)) + 0) < 0) {
                 return;
             }
         }
-        *(s32 *)((s8 *)arg0 + 0x88) = *(s32 *)((s8 *)arg0 + 0x88) + 1;
+        *(s32 *)((s8 *)this + 0x88) = *(s32 *)((s8 *)this + 0x88) + 1;
         if (*(void **)((s8 *)arg1 + 0x2C) != NULL) {
-            calc_bone_offsets_recursive(arg0, *(void **)((s8 *)arg1 + 0x2C), arg2 + *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 8), (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0xC) * (f32) arg3));
+            calc_bone_offsets_recursive__19TObjEZBoneRotPlayerFPvll(this, *(void **)((s8 *)arg1 + 0x2C), arg2 + *(s32 *)((s8 *)(*(u8 **)((s8 *)this + 0x20)) + 8), (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)this + 0x20)) + 0xC) * (f32) arg3));
         }
         arg1 = *(void **)((s8 *)arg1 + 0x30);
     } while (arg1 != NULL);
 }
 
-void start_bone_rotation_sequence(u8 *arg0, s32 arg1) {
-    *(s32 *)((s8 *)arg0 + 0x88) = 0;
-    *(s32 *)((s8 *)arg0 + 0x8C) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x10);
-    *(s32 *)((s8 *)arg0 + 0x90) = (s32) (arg0 + 0x24);
-    calc_bone_offsets_recursive((void *)(arg0), (void *)(*(u8 **)((s8 *)arg0 + 0x1C)), (s32)(arg1), (s32)((s32) ((f32) *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0) * *(f32 *)((s8 *)arg0 + 0x94))));
+void TObjEZBoneRotPlayer::start_bone_rotation_sequence(s32 arg1) {
+    *(s32 *)((s8 *)((u8 *)this) + 0x88) = 0;
+    *(s32 *)((s8 *)((u8 *)this) + 0x8C) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x20)) + 0x10);
+    *(s32 *)((s8 *)((u8 *)this) + 0x90) = (s32) (((u8 *)this) + 0x24);
+    calc_bone_offsets_recursive__19TObjEZBoneRotPlayerFPvll((void *)(((u8 *)this)), (void *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)), (s32)(arg1), (s32)((s32) ((f32) *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x20)) + 0) * *(f32 *)((s8 *)((u8 *)this) + 0x94))));
 }
 
-void fn_800FEC40(u8 *arg0, u8 *arg1) {
+void TObjEZBoneRotBase::sub_800FEC40(u8 *arg1) {
     s32 temp_r3;
     u8 *temp_r4;
     u8 *var_r31;
     var_r31 = (u8 *)(arg1);
 loop_1:
-    temp_r3 = *(s32 *)((s8 *)(*(s32 **)((s8 *)arg0 + 0x8C)) + 0);
+    temp_r3 = *(s32 *)((s8 *)(*(s32 **)((s8 *)((u8 *)this) + 0x8C)) + 0);
     if (temp_r3 >= 0) {
-        if (temp_r3 == (s32) *(s32 *)((s8 *)arg0 + 0x88)) {
+        if (temp_r3 == (s32) *(s32 *)((s8 *)((u8 *)this) + 0x88)) {
             *(s32 *)((s8 *)var_r31 + 0) = (s32) (*(s32 *)((s8 *)var_r31 + 0) & 0xFFFFFFFD);
-            *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 0) = (s32) *(s32 *)((s8 *)var_r31 + 0x14);
-            *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 4) = (s32) *(s32 *)((s8 *)var_r31 + 0x18);
-            *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 8) = (s32) *(s32 *)((s8 *)var_r31 + 0x1C);
-            *(u8 **)((s8 *)arg0 + 0x90) = (unsigned char *) ((void *) ((u8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 0xC));
-            *(s32 **)((s8 *)arg0 + 0x8C) = (s32 *) ((u8 *)(*(s32 **)((s8 *)arg0 + 0x8C)) + 0x10);
-            if ((s32) *(s32 *)((s8 *)(*(s32 **)((s8 *)arg0 + 0x8C)) + 0) >= 0) {
+            *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)) + 0) = (s32) *(s32 *)((s8 *)var_r31 + 0x14);
+            *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)) + 4) = (s32) *(s32 *)((s8 *)var_r31 + 0x18);
+            *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)) + 8) = (s32) *(s32 *)((s8 *)var_r31 + 0x1C);
+            *(u8 **)((s8 *)((u8 *)this) + 0x90) = (unsigned char *) ((void *) ((u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)) + 0xC));
+            *(s32 **)((s8 *)((u8 *)this) + 0x8C) = (s32 *) ((u8 *)(*(s32 **)((s8 *)((u8 *)this) + 0x8C)) + 0x10);
+            if ((s32) *(s32 *)((s8 *)(*(s32 **)((s8 *)((u8 *)this) + 0x8C)) + 0) >= 0) {
                 goto block_4;
             }
         } else {
 block_4:
-            *(s32 *)((s8 *)arg0 + 0x88) = (s32) (*(s32 *)((s8 *)arg0 + 0x88) + 1);
+            *(s32 *)((s8 *)((u8 *)this) + 0x88) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x88) + 1);
             temp_r4 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x2C));
             if (temp_r4 != NULL) {
-                fn_800FEC40(arg0, temp_r4);
+                sub_800FEC40__17TObjEZBoneRotBaseFPUc(((u8 *)this), temp_r4);
             }
             var_r31 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x30));
             if (var_r31 != NULL) {
@@ -77,11 +79,11 @@ block_4:
     }
 }
 
-void fn_800FED0C(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x88) = 0;
-    *(s32 *)((s8 *)arg0 + 0x8C) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x10);
-    *(s32 *)((s8 *)arg0 + 0x90) = (s32) (arg0 + 0x24);
-    fn_800FEC40((u8 *)(arg0), (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C)));
+void TObjEZBoneRotBase::sub_800FED0C() {
+    *(s32 *)((s8 *)((u8 *)this) + 0x88) = 0;
+    *(s32 *)((s8 *)((u8 *)this) + 0x8C) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x20)) + 0x10);
+    *(s32 *)((s8 *)((u8 *)this) + 0x90) = (s32) (((u8 *)this) + 0x24);
+    sub_800FEC40__17TObjEZBoneRotBaseFPUc((u8 *)(((u8 *)this)), (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)));
 }
 
 }

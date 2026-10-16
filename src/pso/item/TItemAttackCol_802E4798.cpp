@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_804E355C.h"
 #include "pso/item/TItemAttackCol.h"
 #include "pso/object/TObjOnlineEnding.h"
@@ -51,7 +52,7 @@ s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
     }
     ok = 1;
     if (is_technique_ready__8TTecCtrlFv() == 0 && obj_testFlags30(arg1->obj, 0x60000000) == 0x20000000
-        && *(s16 *)((s8 *)arg0 + 0xAA) != ((TObjPlayer *)(arg1->obj))->get_stat_by_key_state()) {
+        && *(s16 *)((s8 *)arg0 + 0xAA) != ((TUnk_804B9870 *)(arg1->obj))->get_stat_by_key_state()) {
         ok = 0;
     }
     if (obj_testFlags30(arg1->obj, 0x04000000) != 0

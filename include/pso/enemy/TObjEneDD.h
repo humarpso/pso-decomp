@@ -6,6 +6,11 @@
 
 struct TObjEneDD : public TObjEnemy {
     virtual ~TObjEneDD();
+    void sub_800BBA0C();
+    void invoke_initialization_hook();
+    void reset_state_fields();
+    void init_common_from(u8 *);
+    void clear_attack_receipts();
     virtual void vfunc_79();
     virtual s32 vfunc_83();
     virtual void vfunc_84();
@@ -31,7 +36,6 @@ struct TObjEneDD : public TObjEnemy {
     virtual void vfunc_104() = 0;
     int get_flag_b4();
     static f32 calc_elapsed_scaled();
-    void init_float_params();
     void update_velocity();
     static void init_lights();
     static s32 clamp_frame_index(s32 arg0);
@@ -72,7 +76,6 @@ struct TObjEneDD : public TObjEnemy {
     void transform_part_positions();
     void init_model();
     void clear_field_388();
-    void set_active();
     int has_move_failures(s32 arg1);
     void move_to_wall_clamped_destination(f32 farg0, f32 farg1, f32 farg2);
     void move_with_wall_slide_commit(f32 farg0, f32 farg1, f32 farg2);
@@ -80,7 +83,6 @@ struct TObjEneDD : public TObjEnemy {
     void move_clamped_on_ground(f32 farg0, f32 farg1, f32 farg2);
     void move_with_wall_slide_on_ground(f32 farg0, f32 farg1, f32 farg2);
     void move_to_shot_position(f32 farg0, f32 farg1, f32 farg2);
-    void calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2);
     static void set_squared_value(f32 farg0);
     static void collect_target_candidates(s32 arg0, f32 farg0);
     static void create_instance();

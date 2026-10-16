@@ -153,7 +153,6 @@ struct TWindowDD
     void draw(s32 arg1, s32 arg2, f32 farg0);
     void copy_point_table(s32 idx);
     static s32 get_draw_count(void **arg0);
-    void calc_inner_rect(u8 *arg1);
     static s32 get_entry(s32 arg0);
     int handle_word_select();
     static void send_chat_packet(void *data);

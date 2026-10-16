@@ -275,8 +275,8 @@ void rotate_matrix_y(s32, s32);
 void matrix_mult_vec(s32, Vec_80235740 *, Vec_80235740 *);
 void pop_matrices(s32);
 void move_technique_projectile(Obj_80235740 *);
-void advance_lifetime_or_destroy(Obj_80235740 *);
-void dispatch_technique_contact(Obj_80235740 *, s32);
+void advance_lifetime_or_destroy__13TUnk_804CCC68Fv(Obj_80235740 *);
+void dispatch_technique_contact__13TUnk_804CCC68Fv(Obj_80235740 *, s32);
 extern Vec_80235740 tec_megid_offset_vec;
 extern u8 identity_matrix[];
 void run_task__9TTecMegidFv(Obj_80235740 *self);
@@ -506,8 +506,8 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
         }
     }
     move_technique_projectile(self);
-    advance_lifetime_or_destroy(self);
-    dispatch_technique_contact(self, 1);
+    advance_lifetime_or_destroy__13TUnk_804CCC68Fv(self);
+    dispatch_technique_contact__13TUnk_804CCC68Fv(self, 1);
 }
 
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {

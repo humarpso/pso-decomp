@@ -1390,7 +1390,7 @@ void set_scripted_camera_pose(void *, void *, void *);
 void cache_target_and_forward__11TCameraCtrlFl(void *, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 void refresh_and_send_entity_flags__12TBoss8DragonFv(void *);
-void update_prev_position__10TObjPlayerFv(void *);
+void update_prev_position__9TObjEnemyFv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 void advance_animation_playback(void *);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
@@ -1689,8 +1689,8 @@ s32 is_active__15TObjBoss2TunnelFv(void);
 void set_global_flag_800__15TObjBoss2TunnelFv(void);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 enemy_has_live_target__12TObjEneDD_STFv(void *);
-s32 enemy_clear_target(void *);
-s32 set_target_player__13TBoss2DeRolLeFPv(void *, int);
+s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
+s32 set_target_player__12TObjEneDD_STFPv(void *, int);
 s32 enemy_set_target_id(void * a0 = 0, u16 a1 = 0);
 s32 check_v2_mode__9TObjEneDDFv(void);
 s32 project_sound_origin_from_camera(void *, void *, f32);
@@ -1919,14 +1919,14 @@ void handle_death_state__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
         o->pos.x = lbl_805D82C4;
         o->pos.y = TBoss2DeRolLe__data_805D82A0;
         o->pos.z = lbl_805D82C8;
-        update_prev_position__10TObjPlayerFv(o);
+        update_prev_position__9TObjEnemyFv(o);
         for (i = 0; i != 10; i++) {
             assign_slots_from_list(o, o->slots[i]);
         }
         refresh_and_send_entity_flags__12TBoss8DragonFv(o);
         dispatch_by_main_phase__14TBoss4DarkFalzFUs((void *)0x20);
         ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&o->pos, &save);
-        update_prev_position__10TObjPlayerFv(o);
+        update_prev_position__9TObjEnemyFv(o);
         o->flags30 = 0x12008;
         o->m72(0);
         init_all_slots2__11TWindowCtrlFv();
@@ -4298,20 +4298,20 @@ void pick_random_target__13TBoss2DeRolLeFi(s32 arg0) {
 
     n = get_game_mode__6TLobbyFv();
     if (n == 0) {
-        enemy_clear_target((void *) (arg0));
+        enemy_clear_target__12TObjEneDD_STFUs((void *) (arg0));
         return;
     }
     if (n == 1) {
         p = get_player_data__10TObjPlayerFi(0);
-        set_target_player__13TBoss2DeRolLeFPv((void *) (arg0), p);
+        set_target_player__12TObjEneDD_STFPv((void *) (arg0), p);
         return;
     }
     j = (s32) get_random_float__21TObjEneMe3ShinowaRealFv((f32) n * calc_boss4_scale__10TObjPlayerFi((void *) (arg0)));
-    enemy_clear_target((void *) (arg0));
+    enemy_clear_target__12TObjEneDD_STFUs((void *) (arg0));
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(j);
         if (is_alive__9TObjEneDDFv() != 0) {
-            set_target_player__13TBoss2DeRolLeFPv((void *) (arg0), p);
+            set_target_player__12TObjEneDD_STFPv((void *) (arg0), p);
             return;
         }
         if (++j >= n) {
@@ -4741,7 +4741,7 @@ void update_colliders_from_offsets__13TBoss2DeRolLeFi(s32 arg0);
 int play_sound(void *, int);
 void spawn_offset_particle__13TBoss2DeRolLeFiff(s32, f32, f32);
 void set_flags_play_sound__13TBoss2DeRolLeFPv(void *);
-void clear_attack_receipts(void *);
+void clear_attack_receipts__9TObjEneDDFv(void *);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 lbl_805D8448;
 void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0);
@@ -5020,7 +5020,7 @@ void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0) {
         }
     }
     *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
-    clear_attack_receipts(arg0);
+    clear_attack_receipts__9TObjEneDDFv(arg0);
 }
 
 }
@@ -5317,14 +5317,14 @@ s32 update_lobby_state__9TObjEneDDFv(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 get_target_info__9TObjEneDDFPv(void *);
-s32 TObjEneDD__sub_800BBA0C(void *);
+s32 sub_800BBA0C__9TObjEneDDFv(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-s32 send_entity_set_flags__6TLobbyFPv(void *);
+s32 send_entity_set_flags__9TObjEnemyFv(void *);
 void *__nw__7TObjectFUl(int);
 s32 run_tasks__7TObjectFv(void *);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 void run_task__13TBoss2DeRolLeFPv(u8 *arg0);
-s32 fn_800FF788(void *, void *);
+s32 sub_800FF788__14TObjEZRopeBaseFPv(void *, void *);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 s32 __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
@@ -5470,7 +5470,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
   temp_r3 = *((s32 *) (((s8 *) arg0) + 0x3C0));
   if (temp_r3 & 0x8000)
   {
-    send_entity_set_flags__6TLobbyFPv((void *) arg0);
+    send_entity_set_flags__9TObjEnemyFv((void *) arg0);
     queue_destruction__7TObjectFv((void *) arg0);
     return;
   }
@@ -5563,7 +5563,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
     advance_phase_wrap__13TBoss2DeRolLeFPv((void *) arg0);
     update_projectile_spawns__13TBoss2DeRolLeFPv((void *) arg0);
   }
-  TObjEneDD__sub_800BBA0C((void *) arg0);
+  sub_800BBA0C__9TObjEneDDFv((void *) arg0);
   (((VObj_18_bd2ad6 *)(arg0))->m86());
   backup_pos__13TBoss2DeRolLeFi((void *) arg0);
   set_player_state_default__12TBoss8DragonFv((void *) arg0);
@@ -5766,8 +5766,8 @@ void *create__13TUnk_80482D04Fiii(void *, void *, u16, int);
 void *TBoss2Mine__sub_800381B8(void *, void *, u16, int);
 void *__ct__14TBoss2TentacleFP7TObjectii(void *, void *, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-s32 enemy_init_validate_period(void *, int);
-s32 enemy_init_acquire_period(void *, int);
+s32 enemy_init_validate_period__12TObjEneDD_STFl(void *, int);
+s32 enemy_init_acquire_period__12TObjEneDD_STFl(void *, int);
 s32 init_object__12TObjEneDD_STFv(void *, void *);
 s32 update_lobby_state__9TObjEneDDFv(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -5775,7 +5775,7 @@ s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 check_state_flag_2__9TObjEneDDFv(void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, void *);
-s32 invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
+s32 invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 s32 init_position_vectors__9TObjEneDDFPv(void *);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
@@ -6021,7 +6021,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     if ((u32)TBoss2DeRolLe__instance == 0) {
         TBoss2DeRolLe__instance = (s32)self;
     }
-    invoke_initialization_hook__9TObjEneDDFPv(self, arg2);
+    invoke_initialization_hook__9TObjEneDDFv(self, arg2);
     self->f3C0 = 0;
     {
 
@@ -6049,8 +6049,8 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     *(u8 **)((s8 *)self + 0x350) = (u8 *)lbl_8048228C;
     initialize_enemy_state__9TObjEneDDFv(self, 0x2D);
     *(f32 *)((s8 *)self + 0x37C) = TBoss2DeRolLe__data_805D8294;
-    enemy_init_acquire_period(self, 0x1E);
-    enemy_init_validate_period(self, 0x1E);
+    enemy_init_acquire_period__12TObjEneDD_STFl(self, 0x1E);
+    enemy_init_validate_period__12TObjEneDD_STFl(self, 0x1E);
     self->f3C4 = 0;
     self->f3D0 = 0;
     self->f3D4 = 0;

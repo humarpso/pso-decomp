@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
 
 struct UV_80262038 {
     f32 u;
@@ -36,7 +37,7 @@ struct RecoveredFields_8026088C_arg0 {
 
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-void update_keyboard_child_input_from_controller(u8 *arg0, s32 arg1);
+void update_keyboard_child_input_from_controller__19TWindowKeyBoardSoftFl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -83,14 +84,14 @@ s32 TKeyBoardControl__sub_8025CC04(void *);
 s32 TKeyBoardControl__sub_8025CC3C(u32);
 int update_keyboard_close_mode(void*);
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2);
-s32 TWindowKeyBoardSoft__sub_802605DC(Win_802605DC *w);
+s32 sub_802605DC__19TWindowKeyBoardSoftFv(Win_802605DC *w);
 f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3);
 f32 TWindowKeyBoardSoft__sub_802606E0(void);
 s32 TWindowKeyBoardSoft__sub_80260760(void *, int, void *, int);
-void TWindowKeyBoardSoft__sub_80260808(u8 *arg0, s32 arg1);
+void sub_80260808__19TWindowKeyBoardSoftFl(u8 *arg0, s32 arg1);
 s32 TWindowKeyBoardSoft__sub_80261134(void *);
-void handle_page_cycle_input__19TWindowKeyBoardSoftFPvi(u8 *arg0, s32 arg1);
+void handle_page_cycle_input__19TWindowKeyBoardSoftFl(u8 *arg0, s32 arg1);
 void TKeyBoardControl__sub_802613A4(void *arg0);
 f32 TWindowKeyBoardSoft__sub_802614DC(u8 *, u8 *, f32, f32, f32, f32);
 s32 TWindowKeyBoardSoft__sub_802616BC(void *, int);
@@ -170,8 +171,8 @@ void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg
 
 #pragma push
 #pragma fp_contract on
-s32 TWindowKeyBoardSoft__sub_802605DC(Win_802605DC *w) {
-    s32 idx = calc_key_index__19TWindowKeyBoardSoftFiii((s32)(w), (s32)(w->f65), (s32)(w->f66));
+s32 TWindowKeyBoardSoft::sub_802605DC() {
+    s32 idx = calc_key_index__19TWindowKeyBoardSoftFiii((s32)(((Win_802605DC *)this)), (s32)(((Win_802605DC *)this)->f65), (s32)(((Win_802605DC *)this)->f66));
     return idx + ((s8 *)&TWindowKeyBoardSoft__data_8044F124)[((u8 *)&TWindowKeyBoardSoft__data_804CB7C8)[idx]];
 }
 extern int fold_flush_0;
@@ -221,13 +222,13 @@ extern int fold_flush_4;
 
 #pragma push
 #pragma fp_contract on
-void TWindowKeyBoardSoft__sub_80260808(u8 *arg0, s32 arg1) {
+void TWindowKeyBoardSoft::sub_80260808(s32 arg1) {
     s32 temp_r5;
     temp_r5 = arg1 * 0x50;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (2), (int) (temp_r5)) != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x6C) != 0U)) {
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) & 0xFFFFFFEF);
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (2), (int) (temp_r5)) != 0) && ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x6C) != 0U)) {
+        *(s32 *)((s8 *)((u8 *)this) + 0x60) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x60) & 0xFFFFFFEF);
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
-        ((TWindowKeyBoardSoft *)(*(u32 *)((s8 *)arg0 + 0x6C)))->handle_backspace();
+        ((TWindowKeyBoardSoft *)(*(u32 *)((s8 *)((u8 *)this) + 0x6C)))->handle_backspace();
     }
 }
 extern int fold_flush_5;
@@ -236,14 +237,14 @@ extern int fold_flush_5;
 typedef char RecoveredGlobal_8026088C_lbl_8050E208_size[sizeof(RecoveredGlobal_8026088C_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredFields_8026088C_arg0_60_offset[offsetof(RecoveredFields_8026088C_arg0, field_60) == 0x60 ? 1 : -1];
 typedef char RecoveredFields_8026088C_arg0_6C_offset[offsetof(RecoveredFields_8026088C_arg0, field_6C) == 0x6C ? 1 : -1];
-void update_keyboard_child_input_from_controller(u8 *arg0, s32 arg1) {
+void TWindowKeyBoardSoft::update_keyboard_child_input_from_controller(s32 arg1) {
     u32 temp_r3;
     if (((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8026088C_lbl_8050E208 *)&controller_input_state).value + (arg1 * 0x50) + 0x20)), (int)((int) (0x400))) != 0) {
-        temp_r3 = ((RecoveredFields_8026088C_arg0 *)arg0)->field_6C;
+        temp_r3 = ((RecoveredFields_8026088C_arg0 *)((u8 *)this))->field_6C;
         if (temp_r3 != 0U) {
             ((TWindowKeyBoardSoft *)temp_r3)->update_input_state2();
-            if (((TWindowKeyBoardSoft *)(((RecoveredFields_8026088C_arg0 *)arg0)->field_6C))->is_key_state_2() != 0) {
-                ((RecoveredFields_8026088C_arg0 *)arg0)->field_60 = (s32) (((RecoveredFields_8026088C_arg0 *)arg0)->field_60 | 0x10);
+            if (((TWindowKeyBoardSoft *)(((RecoveredFields_8026088C_arg0 *)((u8 *)this))->field_6C))->is_key_state_2() != 0) {
+                ((RecoveredFields_8026088C_arg0 *)((u8 *)this))->field_60 = (s32) (((RecoveredFields_8026088C_arg0 *)((u8 *)this))->field_60 | 0x10);
             }
         }
     }
@@ -280,29 +281,29 @@ extern int fold_flush_6;
 
 #pragma push
 #pragma fp_contract on
-void handle_page_cycle_input__19TWindowKeyBoardSoftFPvi(u8 *arg0, s32 arg1) {
+void TWindowKeyBoardSoft::handle_page_cycle_input(s32 arg1) {
     s32 spC;
     s32 sp8;
     u8 *temp_r30;
     temp_r30 = (u8 *)&controller_input_state.value + (arg1 * 0x50) + 0x20;
     if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x30000)) != 0) {
         play_sound_effect((int) (0x54100), (int) (0), (int) (0), (int) (0));
-        calc_cursor_step__19TWindowKeyBoardSoftFiPvPv((s32) (arg0), &spC, &sp8);
+        calc_cursor_step__19TWindowKeyBoardSoftFiPvPv((s32) (((u8 *)this)), &spC, &sp8);
         if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x10000)) != 0) {
-            *(f32 *)((s8 *)arg0 + 0x68) = (f32) TWindowKeyBoardSoft__data_805DD088;
-            *(u8 *)((s8 *)arg0 + 0x64) = (u8) (*(u8 *)((s8 *)arg0 + 0x64) + 1);
+            *(f32 *)((s8 *)((u8 *)this) + 0x68) = (f32) TWindowKeyBoardSoft__data_805DD088;
+            *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x64) + 1);
         }
         if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x20000)) != 0) {
-            *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DD08C;
-            *(u8 *)((s8 *)arg0 + 0x64) = (u8) (*(u8 *)((s8 *)arg0 + 0x64) - 1);
+            *(f32 *)((s8 *)((u8 *)this) + 0x68) = (f32) lbl_805DD08C;
+            *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x64) - 1);
         }
-        if ((s8) *(u8 *)((s8 *)arg0 + 0x64) < spC) {
-            *(u8 *)((s8 *)arg0 + 0x64) = (u8) sp8;
+        if ((s8) *(u8 *)((s8 *)((u8 *)this) + 0x64) < spC) {
+            *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) sp8;
         }
-        if ((s8) *(u8 *)((s8 *)arg0 + 0x64) > sp8) {
-            *(u8 *)((s8 *)arg0 + 0x64) = (u8) spC;
+        if ((s8) *(u8 *)((s8 *)((u8 *)this) + 0x64) > sp8) {
+            *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) spC;
         }
-        ((TWindowKeyBoardSoft *)arg0)->update_focus_flags();
+        ((TWindowKeyBoardSoft *)((u8 *)this))->update_focus_flags();
     }
 }
 extern int fold_flush_7;
@@ -376,14 +377,14 @@ f32 TWindowKeyBoardSoft__sub_802614DC(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, 
 
 #pragma push
 #pragma fp_contract on
-void spawn_key_effect__19TWindowKeyBoardSoftFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+void TWindowKeyBoardSoft::spawn_key_effect(s32 arg1, s32 arg2) {
     s32 type;
     Vec2_802615B8 pos;
     s32 kind;
 
-    ((void (*)(void *, s32, s32 *, s32))TWindowKeyBoardSoft__sub_80260760)(arg0, ((s32 (*)(void *, s32, s32))calc_key_index__19TWindowKeyBoardSoftFiii)(arg0, arg1, arg2), &type, 0);
-    pos.x = *(f32 *)(arg0 + 0x40) + ((f32 (*)(void *, s32, s32))calc_key_x__19TWindowKeyBoardSoftFiii)(arg0, arg1, arg2);
-    pos.y = TWindowKeyBoardSoft__data_805DD094 + (TWindowKeyBoardSoft__data_805DD088 + (TWindowKeyBoardSoft__data_805DD07C * (f32)arg2 + *(f32 *)(arg0 + 0x44)));
+    ((void (*)(void *, s32, s32 *, s32))TWindowKeyBoardSoft__sub_80260760)(((u8 *)this), ((s32 (*)(void *, s32, s32))calc_key_index__19TWindowKeyBoardSoftFiii)(((u8 *)this), arg1, arg2), &type, 0);
+    pos.x = *(f32 *)(((u8 *)this) + 0x40) + ((f32 (*)(void *, s32, s32))calc_key_x__19TWindowKeyBoardSoftFiii)(((u8 *)this), arg1, arg2);
+    pos.y = TWindowKeyBoardSoft__data_805DD094 + (TWindowKeyBoardSoft__data_805DD088 + (TWindowKeyBoardSoft__data_805DD07C * (f32)arg2 + *(f32 *)(((u8 *)this) + 0x44)));
     switch (type) {
     case 1:
         kind = 3;

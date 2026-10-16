@@ -1,4 +1,5 @@
 #include "pso/misc/TWindowActionPalette.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include <stddef.h>
 
 typedef char palette_children_offset[offsetof(TWindowActionPalette, children) == 0x24 ? 1 : -1];
@@ -64,7 +65,7 @@ extern const u8 lbl_805DCA10[4];
 extern const u8 lbl_805DCA14[4];
 extern const u8 lbl_805DCA18[4];
 s32 is_player_input_active(int);
-s32 update_window_entry_list(void *, void *);
+s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 TObjPlayer__sub_80354D5C(int);
 extern u8 controller_input_state[];
 void run_task__20TWindowActionPaletteFv(u8 *arg0);
@@ -124,7 +125,7 @@ void draw_action_palette_icon(void *, int, u16);
 }
 
 extern "C" {
-s32 setup_window_draw_context(void *, void *);
+s32 setup_window_draw_context__13TUnk_804CE018Fl(void *, void *);
 void draw_visible_window_entries(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -251,7 +252,7 @@ void TWindowActionPalette::draw_frame(int arg1) {
 #pragma pop
 
 void TWindowActionPalette::render() {
-    s32 context = setup_window_draw_context(this, &scale);
+    s32 context = setup_window_draw_context__13TUnk_804CE018Fl(this, &scale);
     draw_visible_window_entries(this, &children, context);
     draw_frame((int)(context));
 }
@@ -314,8 +315,8 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
         ((TWindowActionPalette *)SELF)->set_bank_panel_art(2);
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TWindowSubComCard *)arg0)->update_fade();
-    update_window_entry_list(arg0, arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_fade();
+    update_window_entry_list__13TUnk_804CE018FPv(arg0, arg0 + 0x24);
 }
 
 extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {

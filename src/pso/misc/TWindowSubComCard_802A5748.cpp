@@ -26,11 +26,11 @@ s32 get_selected_menu_value(s32);
 s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 int queue_destruction__7TObjectFv(void*);
-int set_selected_index__17TWindowSubComCardFs(void*);
+int set_selected_index__21TWindowSubComCardListFs(void*);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
 
 int TWindowSubComCard::close() { return queue_destruction__7TObjectFv(this); }
-void TWindowSubComCard::free_member() { void* m = *(void* *)&this->m_2c; if (m) set_selected_index__17TWindowSubComCardFs(m); }
+void TWindowSubComCard::free_member() { void* m = *(void* *)&this->m_2c; if (m) set_selected_index__21TWindowSubComCardListFs(m); }
 s32 TWindowSubComCard::get_slot_or_neg1() {
     s32 v = this->m_2c;
     if ((u32) v == 0U) {

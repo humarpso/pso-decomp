@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/enemy/TObjEneBalClawBody.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -183,7 +186,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_800A04F0(void *);
 s32 advance_animation_playback(void *);
 u8 *find_entity_by_id(u16);
-s32 send_entity_set_flags__6TLobbyFPv(void *);
+s32 send_entity_set_flags__9TObjEnemyFv(void *);
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D964C;
 extern const f32 lbl_805D9664;
@@ -265,7 +268,7 @@ s32 apply_actor_gravity(void *, s32, f32);
 
 extern const f32 lbl_805D9620;
 
-void TObjPlayer::update_dragon_boss_state() {
+void TObjEneBalClawBody::update_dragon_boss_state() {
     s32 temp_r0;
 
     temp_r0 = *(s32 *)((s8 *)this + 0x37C);
@@ -341,7 +344,7 @@ void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0) {
             RESET(arg0);
             return;
         }
-        ((TObjPlayer *)arg0)->find_target_in_range(lbl_805D9644);
+        ((TObjEnemyCustom *)arg0)->find_target_in_range(lbl_805D9644);
         if (arg0->f338 != 0xFFFF) {
             arg0->fB8 = 1;
             arg0->state = 1;
@@ -433,7 +436,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
                 FLD(T_8008F1DC *, 0x2A8) = NULL;
             }
         } else {
-            ((TObjPlayer *)o)->find_target_in_range(lbl_805D9644);
+            ((TObjEnemyCustom *)o)->find_target_in_range(lbl_805D9644);
         }
         if (o->f338 != 0xFFFF) {
             o->f388 &= ~0x20000;
@@ -473,7 +476,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
         push_matrix_from(identity_matrix);
         post_translate_matrix(&o->pos);
         rotate_matrix_y(0, FLD(s32, 0x60));
-        ((TObjPlayer *)o)->render_anim_model(FLD(f32, 0xC0));
+        ((TObjEnemy *)o)->render_anim_model(FLD(f32, 0xC0));
         pop_matrix();
         o->m63(8, o->f3EC);
         o->f3F8 = 0;
@@ -550,7 +553,7 @@ void TObjPlayer::run_death_sequence() {
             for (i = 0; i < ((P_8008F730 *)arg0)->n; i++) {
                 p = find_entity_by_id(((P_8008F730 *)arg0)->ids[i]);
                 if (p != NULL) {
-                    send_entity_set_flags__6TLobbyFPv(p);
+                    send_entity_set_flags__9TObjEnemyFv(p);
                     queue_destruction__7TObjectFv(p);
                 }
             }
@@ -586,7 +589,7 @@ void TObjPlayer::run_death_sequence() {
         advance_animation_playback(arg0);
         if (((VObj_14_c1c33b *)(arg0 + 0x390))->m4() == 1) {
             TObjPlayer::apply_effect_variant_a((s32)(arg0 + 0x38), (s32)0);
-            send_entity_set_flags__6TLobbyFPv(arg0);
+            send_entity_set_flags__9TObjEnemyFv(arg0);
             queue_destruction__7TObjectFv(arg0);
         }
         break;

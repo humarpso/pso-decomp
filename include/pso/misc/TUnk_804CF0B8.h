@@ -6,6 +6,10 @@
 class TUnk_804CF0B8 : public TUnk_804CDFE8 {
 public:
     virtual ~TUnk_804CF0B8();
+    void clear_flag();
+    s16 get_field_20();
+    int get_flag_bit1();
+    s8 alloc_nearest_free_slot();
     int is_balloon_visible();
     int is_active();
     void clear_flag_20();

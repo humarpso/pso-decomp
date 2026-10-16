@@ -6,6 +6,7 @@
 
 struct TObjAreaWarp : public TObjWarpBase {
     virtual ~TObjAreaWarp();
+    void handle_area_selection();
     virtual void confirm_area_transfer(s32);
     virtual void debug_print_area_num();
     void open_confirm_window(u16 arg1);

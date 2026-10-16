@@ -25,7 +25,7 @@ struct RecoveredGlobal_80173FC0___vt__13TORockCaveS03 {
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCave__ct();
 extern RecoveredGlobal_80173FC0_lbl_804B3BA8 cave_rock_collision_body_templates;
@@ -49,7 +49,7 @@ u8 *TORockCaveS03__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *) (cave_rock_resource_bundle), (int) (2));
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) lbl_805DB970;
     init_collision_body_parts((void *) (arg0), (void *) (&cave_rock_collision_body_templates.value), (int) (1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

@@ -3,7 +3,7 @@ extern "C" {
 extern char *chat_log_lines[];
 void append_line__17TWindowMessageLogFPvi(void *, char *);
 void complete_reveal__14TWindowMessageFPv(void *);
-void clamp_scroll_offset__17TWindowMessageLogFPv(void *);
+void clamp_scroll_offset__17TWindowMessageLogFv(void *);
 void load_chat_history__17TWindowMessageLogFPv(void *window);
 }
 
@@ -17,7 +17,7 @@ void load_chat_history__17TWindowMessageLogFPv(void *window) {
         }
     }
     complete_reveal__14TWindowMessageFPv(window);
-    clamp_scroll_offset__17TWindowMessageLogFPv(window);
+    clamp_scroll_offset__17TWindowMessageLogFv(window);
 }
 
 }

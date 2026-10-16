@@ -27,8 +27,8 @@ extern Band_802301EC TTecFoie__emitter_profile_table[];
 u32 find_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
 void move_technique_projectile(u8 *arg0);
-void advance_lifetime_or_destroy(void *arg0);
-void dispatch_technique_contact(void *, s32);
+void advance_lifetime_or_destroy__13TUnk_804CCC68Fv(void *arg0);
+void dispatch_technique_contact__13TUnk_804CCC68Fv(void *, s32);
 void run_task__8TTecFoieFv(Foie_802301EC *self);
 }
 
@@ -47,8 +47,8 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
         }
     }
     move_technique_projectile((u8 *)self);
-    advance_lifetime_or_destroy(self);
-    dispatch_technique_contact(self, 1);
+    advance_lifetime_or_destroy__13TUnk_804CCC68Fv(self);
+    dispatch_technique_contact__13TUnk_804CCC68Fv(self, 1);
 }
 
 u8 *TTecFoie::construct_aimed(s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {

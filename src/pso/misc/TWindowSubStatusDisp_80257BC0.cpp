@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -193,7 +194,7 @@ void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
 void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
 u8 * init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
-void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list);
+void update_window_entry_list__13TUnk_804CE018FPv(Win_80257C28 *self, List_80257C28 *list);
 void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
 void TWindowSubStatusDisp__sub_80258050(void);
 void TWindowSubStatusDisp__sub_80258054(void);
@@ -223,10 +224,11 @@ void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx) {
     }
 }
 
-void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list) {
+void TUnk_804CE018::update_window_entry_list(void *list_arg) {
+    List_80257C28 *list = (List_80257C28 *)list_arg;
     Ent_80257C28 **p;
     u32 n;
-    if (!(self->flags & 0x2000) && (f32)self->counter < lbl_805DCEF0) return;
+    if (!(((Win_80257C28 *)this)->flags & 0x2000) && (f32)((Win_80257C28 *)this)->counter < lbl_805DCEF0) return;
     n = list->count;
     p = list->items;
     while (n-- != 0) {

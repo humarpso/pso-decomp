@@ -5,7 +5,7 @@
 struct S217 { char pad[0x38]; void *f38; };
 
 extern "C" {
-s32 select_cursor_entry__6TLobbyFv(void *);
+s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 extern u32 TQuestListOnline__quest_list_buffer;
 extern void *TQuestListOnline__instance;
 s32 prs_decompress_buffer(s32, s32);
@@ -68,7 +68,7 @@ s32 TQuestListOnline::get_selected_entry() {
     if (p != NULL) {
         void *q = p->f38;
         if (q != NULL && TQuestListOnline__quest_list_buffer != 0U) {
-            u32 idx = select_cursor_entry__6TLobbyFv(q) * 0x98 + 0xC;
+            u32 idx = select_cursor_entry__22TWindowSubShortCutListFv(q) * 0x98 + 0xC;
             return TQuestListOnline__quest_list_buffer + idx;
         }
     }

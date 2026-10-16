@@ -61,7 +61,7 @@ void TObjEneRecon::update_flag_0x444() {
 #include "types.h"
 
 extern "C" {
-void enemy_copy_target_destination(void *);
+void enemy_copy_target_destination__12TObjEneDD_STFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
@@ -77,7 +77,7 @@ void vfunc_28__12TObjEneReconFv(void);
 #pragma push
 #pragma fp_contract on
 void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
-    enemy_copy_target_destination(arg0);
+    enemy_copy_target_destination__12TObjEneDD_STFv(arg0);
     *(f32 *)((s8 *)arg0 + 0x394) = (f32) ((*(f32 *)((s8 *)arg0 + 0x468) * sin_table_lookup(arg1)) + *(f32 *)((s8 *)arg0 + 0x394));
     *(f32 *)((s8 *)arg0 + 0x398) = (f32) *(f32 *)((s8 *)arg0 + 0x460);
     *(f32 *)((s8 *)arg0 + 0x39C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x468) * cos_table_lookup(arg1)) + *(f32 *)((s8 *)arg0 + 0x39C));
@@ -96,11 +96,11 @@ void vfunc_61__12TObjEneReconFv(void);
 void vfunc_28__12TObjEneReconFv(void);
 
 void advance_field398__12TObjEneReconFPv(void *arg0) {
-    ((s32 (*)())enemy_copy_target_destination)();
+    ((s32 (*)())enemy_copy_target_destination__12TObjEneDD_STFv)();
     *(f32 *)((s8 *)arg0 + 0x398) = (f32) (*(f32 *)((s8 *)arg0 + 0x398) + *(f32 *)((s8 *)arg0 + 0x464));
 }
 void sync_height__12TObjEneReconFPv(void *arg0) {
-    ((s32 (*)())enemy_copy_target_destination)();
+    ((s32 (*)())enemy_copy_target_destination__12TObjEneDD_STFv)();
     *(f32 *)((s8 *)arg0 + 0x398) = (f32) *(f32 *)((s8 *)arg0 + 0x460);
 }
 void TObjEneRecon::vfunc_61() {  }

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TUnk_804909C4.h"
@@ -1269,7 +1272,7 @@ s32 TObjPlayer__sub_800A1FEC(void *arg0) {
         self->count++;
         self->timer = 15;
         self->state = 4;
-        ((TObjPlayer *)self)->find_target_in_range(lbl_805D99B0);
+        ((TObjEnemyCustom *)self)->find_target_in_range(lbl_805D99B0);
         if (self->f338 == 0xFFFF) break;
         {
             u8 *p = (u8 *)__nw__7TObjectFUl(0xD4);
@@ -1517,7 +1520,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     initialize_enemy_photon_effect(self);
     F(s32, 0x368) = 0;
     ((TObjEneLappy *)self)->set_param(0x22);
-    ((TObjPlayer *)self)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)self)->add_flags_2e4(8);
     F(s32, 0x36C) = *(s16 *)(arg2 + 0x3E);
     F(s16, 0x33A) = 0xF;
     F(s16, 0x33C) = F(s16, 0x33A);
@@ -1539,7 +1542,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     F(s16, 0x32C) = F(s16, 0x2B8);
     F(s16, 0x32E) = F(s16, 0x2BA);
     F(s16, 0x33E) = F(s16, 0x32C);
-    ((TObjPlayer *)self)->update_prev_position();
+    ((TObjEnemy *)self)->update_prev_position();
     F(s32, 0x388) = 0x550000;
     obj_setFlags30(self, 0x04040000);
     F(s32, 0x64) = 0x8000;

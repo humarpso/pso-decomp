@@ -6,6 +6,9 @@
 
 struct TWindowSubCustomEquip : public TUnk_804CE018 {
     virtual ~TWindowSubCustomEquip();
+    void handle_cursor_input();
+    void update_palette_slot(s32, s32, s32);
+    void sub_80275F08(void *);
     virtual void render();
     u8 _pad1C[0x4];
     s16 m_20;

@@ -79,7 +79,7 @@ s32 mem_alloc(s32);
 extern u32 symbolchat_colli_param_table[];
 extern s32 lbl_805D3190;
 extern int symbol_chat_colli_entries;
-void set_motion_params__10TObjPlayerFPvPv(void *, void *);
+void set_motion_params__13TUnk_804806E8FPv(void *, void *);
 void *memset(void *, int, u32);
 extern u32 symbolchat_colli_param_table[];
 extern int symbol_chat_colli_entries;
@@ -91,7 +91,7 @@ extern "C" {
 void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1);
 u8 is_current_floor_switch_set(u16);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
@@ -118,7 +118,7 @@ void TOSymbolchatColli::init_collision_params() {
   self->radiusSq = self->radius * self->radius;
   memset(self->coll, 0, 0x24);
   self->y358 = self->y3c / lbl_805DBA28;
-  set_motion_params__10TObjPlayerFPvPv(self, self->coll);
+  set_motion_params__13TUnk_804806E8FPv(self, self->coll);
   for (i = 0; i < 3; i++)
   {
     u32 v = self->ids[i];
@@ -224,7 +224,7 @@ void TOSymbolchatColli::load_symbol_chat_data() {
 void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOSymbolchatColli;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
         if (arg1 > 0) {

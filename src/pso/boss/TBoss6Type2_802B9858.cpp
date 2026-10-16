@@ -6,7 +6,7 @@
 
 extern "C" {
 
-void render_body_effects__11TBoss6Type2FPv(u8 *arg0);
+void render_body_effects__11TBoss6Type2Fv(u8 *arg0);
 s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 s32 sum_offsets__11TBoss6Type2Fv();
 s32 post_translate_matrix(void *);
@@ -17,28 +17,28 @@ s32 pop_matrix();
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE410;
 
-void render_body_effects__11TBoss6Type2FPv(u8 *arg0) {
+void TBoss6Type2::render_body_effects() {
     s32 var_r31;
 
     sum_offsets__11TBoss6Type2Fv();
     TObjPlayer::toggle_particle_effect();
     push_matrix();
-    post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    post_translate_matrix((void *) (((u8 *)this) + 0x38));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
     var_r31 = 0;
-    if ((TBoss6Type2__data_805DE410 == *(f32 *)((s8 *)arg0 + 0x41C)) || (TBoss6Type2__data_805DE40C == *(f32 *)((s8 *)arg0 + 0x41C))) {
+    if ((TBoss6Type2__data_805DE410 == *(f32 *)((s8 *)((u8 *)this) + 0x41C)) || (TBoss6Type2__data_805DE40C == *(f32 *)((s8 *)((u8 *)this) + 0x41C))) {
         var_r31 = 1;
     }
     if (var_r31 != 0) {
-        TBoss6PlotFalz__sub_802AC008((f32) (*(f32 *)((s8 *)arg0 + 0x4FC)), (f32) (*(f32 *)((s8 *)arg0 + 0x500)));
+        TBoss6PlotFalz__sub_802AC008((f32) (*(f32 *)((s8 *)((u8 *)this) + 0x4FC)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x500)));
     }
-    ((TBoss6Type2 *)arg0)->draw_body_models();
+    ((TBoss6Type2 *)((u8 *)this))->draw_body_models();
     if (var_r31 != 0) {
         TBoss6PlotFalz::update_camera_target();
     }
     pop_matrix();
     TParticleCtrl::end_effect_render();
-    ((TBoss6Type2 *)arg0)->restore_effect_values();
+    ((TBoss6Type2 *)((u8 *)this))->restore_effect_values();
 }
 
 }

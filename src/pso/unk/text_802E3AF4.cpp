@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemAttackCol.h"
 #include "pso/object/TObjOnlineEnding.h"
 
 struct VBase_18_909b87 { char pad[0x18]; };
@@ -17,23 +18,23 @@ s32 TObjPlayer__sub_8015431C(void *);
 s32 reset_global_table();
 s32 try_add_hit_target__14TItemAttackColFPvPv(void *, int);
 s32 get_attack_entry__16TObjOnlineEndingFi(int);
-void check_object_hits__14TItemAttackColFPv(u8 *arg0);
+void check_object_hits__14TItemAttackColFv(u8 *arg0);
 }
 
 extern "C" {
 
-void check_object_hits__14TItemAttackColFPv(u8 *arg0) {
+void TItemAttackCol::check_object_hits() {
     s32 i;
     s32 e;
     reset_global_table();
-    TObjPlayer__sub_8015431C(arg0 + 0x1C);
+    TObjPlayer__sub_8015431C(((u8 *)this) + 0x1C);
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
-        if (try_add_hit_target__14TItemAttackColFPvPv(arg0, e) != 0) {
-            ((VObj_18_909b87 *)arg0)->m4(e);
-            *(s32 *)((s8 *)arg0 + 0xA4) -= 1;
-            if (*(s32 *)((s8 *)arg0 + 0xA4) == 0) {
-                queue_destruction__7TObjectFv(arg0);
+        if (try_add_hit_target__14TItemAttackColFPvPv(((u8 *)this), e) != 0) {
+            ((VObj_18_909b87 *)((u8 *)this))->m4(e);
+            *(s32 *)((s8 *)((u8 *)this) + 0xA4) -= 1;
+            if (*(s32 *)((s8 *)((u8 *)this) + 0xA4) == 0) {
+                queue_destruction__7TObjectFv(((u8 *)this));
                 reset_global_table();
                 return;
             }

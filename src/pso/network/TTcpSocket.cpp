@@ -1,5 +1,6 @@
 #pragma readonly_strings on
 #include "types.h"
+#include "pso/TProtocol.h"
 #include <stdio.h>
 #include <string.h>
 #include "pso/macros.h"
@@ -553,7 +554,7 @@ int TSocket::is_empty() {
     }
 }
 
-const u8 TSocket::next() {
+const u8 TProtocol::next() {
     const u8 val = m_packet_buffer[m_buffer_offset++];
     if (m_buffer_offset >= m_size) {
         m_buffer_offset = 0;

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/animation/ActorAnimationState.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/npc/TObjNpcEnemy.h"
@@ -100,10 +103,10 @@ struct O_80142B3C { u8 pad[0xD8]; A_80142B3C *tab; struct { u32 x; R_80142B3C *r
 
 int set_field_d8__10TObjPlayerFl(void*);
 f32 get_speed__13TUnk_804806E8Fv();
-void TObjEnePanarms__sub_800E2DE4(void *, int);
+void sub_800E2DE4__10TObjMotionFl(void *, int);
 s32 restore_actor_draw_lighting(s32);
 s32 setup_actor_draw_lighting();
-s32 get_anim_entry_value__10TObjPlayerFPvs(Obj_80142BB4 *self, s16 i);
+s32 get_anim_entry_value__10TObjMotionFs(Obj_80142BB4 *self, s16 i);
 void serialize_node_flags__10TObjPlayerFPv(u8 *arg0);
 void save_joint_matrix_callback(void);
 void draw_motion_model_saving_joints(u8 *arg0);
@@ -111,7 +114,7 @@ void apply_animation_transition(void *, s16);
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void advance_animation_playback(Anim_80143504 *a);
 void set_motion_interpolation_flag__10TObjMotionFv(void *);
-s32 TBoss1Dragon__sub_80143960(void *, int);
+s32 sub_80143960__10TObjMotionFl(void *, int);
 s32 draw_ginja_model_tree__10TObjPlayerFPv(s32, void *, f32);
 s32 draw_ginja_model__10TObjPlayerFl(s32, s32, f32);
 s32 render_model_tree__12TBoss8DragonFPv(u32, s32, f32);
@@ -207,7 +210,7 @@ f32 TObjPlayer::get_table_value_f32(s16 arg1) {
     return (f32)arg0->tab2[arg0->tab[arg1].idx].r->val;
 }
 
-void TObjPlayer::update_animation_frame(s32 arg1) {
+void TObjMotion::update_animation_frame(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     struct E16_80142b8c_80142B08 *a = *(struct E16_80142b8c_80142B08 **)(arg0 + 0xD8);
     s32 n = a[arg1].f4;
@@ -215,8 +218,8 @@ void TObjPlayer::update_animation_frame(s32 arg1) {
     *(s32 *)(arg0 + 0xF8) = b[n].f4;
 }
 
-s32 get_anim_entry_value__10TObjPlayerFPvs(Obj_80142BB4 *self, s16 i) {
-    return self->e2[self->e1[i].idx].b;
+s32 TObjMotion::get_anim_entry_value(s16 i) {
+    return ((Obj_80142BB4 *)this)->e2[((Obj_80142BB4 *)this)->e1[i].idx].b;
 }
 
 void serialize_node_flags__10TObjPlayerFPv(u8 *arg0) {
@@ -279,7 +282,7 @@ s32 TObjPlayer::draw_model_with_callback(s32 arg1, s32 arg2, f32 farg0) {
     return 1;
 }
 
-s32 TObjPlayer::render_anim_model(f32 farg0) {
+s32 TObjEnemy::render_anim_model(f32 farg0) {
     if (((u32) *(u32 *)((s8 *)this + 0xF8) == 0U) || ((u32) *(u32 *)((s8 *)this + 0x34) == 0U)) {
         return 0;
     }
@@ -292,7 +295,7 @@ s32 TObjPlayer::render_anim_model(f32 farg0) {
     return 1;
 }
 
-f32 TObjPlayer::get_speed_or_default() {
+f32 TObjEneDD_ST::get_speed_or_default() {
     if (*(s32 *)((s8 *)this + 0xB0) & 4) {
         return (*(f32 *)&lbl_805DB168);
     }
@@ -401,9 +404,9 @@ void apply_animation_transition(void *arg0, s16 idx) {
     self->actionFlags = e->flags;
     if ((self->flags & 1) || (self->flags & 0x80) || (self->actionFlags & 0x80000000) || (self->actions[self->currentAction].flags & 0x40000000)) {
         self->flags &= ~4;
-        ((TObjPlayer *)self)->update_animation_frame(idx);
-        if (TBoss1Dragon__sub_80143960(self, 0x100) != 0) {
-            TObjEnePanarms__sub_800E2DE4(self, 0x100);
+        ((TObjMotion *)self)->update_animation_frame(idx);
+        if (sub_80143960__10TObjMotionFl(self, 0x100) != 0) {
+            sub_800E2DE4__10TObjMotionFl(self, 0x100);
             self->speed = self->overrideSpeed;
         } else {
             self->speed = e->speed;
@@ -435,14 +438,14 @@ void apply_animation_transition(void *arg0, s16 idx) {
         self->blendSource = self->motion;
         self->sourceFrame = self->frame;
         self->previousAction = self->currentAction;
-        ((TObjPlayer *)self)->update_animation_frame(idx);
+        ((TObjMotion *)self)->update_animation_frame(idx);
         self->blendTarget = self->motion;
         self->targetFrame = lbl_805DB168;
         self->nextMode = e->mode;
         self->frame = lbl_805DB168;
         self->frameCount = self->motion->frameCount;
-        if (TBoss1Dragon__sub_80143960(self, 0x200) != 0) {
-            TObjEnePanarms__sub_800E2DE4(self, 0x200);
+        if (sub_80143960__10TObjMotionFl(self, 0x200) != 0) {
+            sub_800E2DE4__10TObjMotionFl(self, 0x200);
             self->speed = self->overrideBlendSpeed;
         } else {
             self->speed = self->blendSpeed;
@@ -464,8 +467,8 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 
     *(s16 *)((s8 *)arg0 + 0xB8) = arg1;
     *(s16 *)((s8 *)arg0 + 0xBA) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
-    ((TObjPlayer *)arg0)->update_animation_frame(*(s16 *)((s8 *)arg0 + 0xB8));
-    temp_r3 = ((TObjPlayer *)arg0)->get_anim_entry(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->update_animation_frame(*(s16 *)((s8 *)arg0 + 0xB8));
+    temp_r3 = ((TObjMotion *)arg0)->get_anim_entry(*(s16 *)((s8 *)arg0 + 0xB8));
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) *(f32 *)((s8 *)temp_r3 + 8);
     *(s16 *)((s8 *)arg0 + 0xF4) = (s16) *(s16 *)((s8 *)temp_r3 + 0);
     conv = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4);
@@ -501,14 +504,14 @@ void advance_animation_playback(Anim_80143504 *a) {
     case 1:
         if (a->frame >= a->end) {
             a->frame -= a->end;
-            if (TBoss1Dragon__sub_80143960(a, 0x100) != 0) {
+            if (sub_80143960__10TObjMotionFl(a, 0x100) != 0) {
                 a->speed = a->xD0;
             }
         }
         break;
     case 2:
         if (a->frame >= last) {
-            if (((u32 (*)(void *, s16))get_anim_entry_value__10TObjPlayerFPvs)(a, a->tbl[a->cur].next) == 0) {
+            if (((u32 (*)(void *, s16))get_anim_entry_value__10TObjMotionFs)(a, a->tbl[a->cur].next) == 0) {
                 a->frame -= a->end;
             } else {
                 a->cur = a->tbl[a->cur].next;
@@ -528,8 +531,8 @@ void advance_animation_playback(Anim_80143504 *a) {
     case 4:
         if (a->frame >= lbl_805DB16C) {
             a->frame = lbl_805DB168;
-            if (TBoss1Dragon__sub_80143960(a, 0x100) != 0) {
-                TObjEnePanarms__sub_800E2DE4(a, 0x100);
+            if (sub_80143960__10TObjMotionFl(a, 0x100) != 0) {
+                sub_800E2DE4__10TObjMotionFl(a, 0x100);
                 a->speed = a->xD0;
             } else {
                 a->speed = a->tbl[a->cur].speed;

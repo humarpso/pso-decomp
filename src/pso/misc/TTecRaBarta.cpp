@@ -449,7 +449,7 @@ struct Self_80237BD8 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
-s32 apply_technique_to_area_targets(void *, int);
+s32 apply_technique_to_area_targets__13TUnk_804CC148Fv(void *, int);
 
 void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
 extern RafoieBursts_80237DAC rafoie_burst_table[];
@@ -551,7 +551,7 @@ void TTecRaBarta::run_task() {
     }
     temp_r4 = this->age;
     this->age = (s32) (temp_r4 + 1);
-    apply_technique_to_area_targets((void *) (arg0), (int) (temp_r4));
+    apply_technique_to_area_targets__13TUnk_804CC148Fv((void *) (arg0), (int) (temp_r4));
     if ((s32) this->age > (s16) this->m_a8) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }

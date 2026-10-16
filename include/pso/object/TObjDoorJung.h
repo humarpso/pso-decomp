@@ -6,6 +6,7 @@
 
 struct TObjDoorJung : public TUnk_804B0BB8 {
     virtual ~TObjDoorJung();
+    void clamp_state();
     virtual void update_door_switch_state();
     virtual void run_task();
     virtual void render();

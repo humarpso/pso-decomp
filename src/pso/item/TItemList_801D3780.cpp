@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_804C4498.h"
 #include "pso/TItemList.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -393,7 +394,7 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
         *(s32 *)((s8 *)arg0 + 0x28) = 0;
     } else {
         *(u16 *)((s8 *)arg0 + 0x20) = obj_getField1c(arg2);
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) ((TObjPlayer *)arg2)->get_stat_by_key_state();
+        *(s32 *)((s8 *)arg0 + 0x24) = (s32) ((TUnk_804B9870 *)arg2)->get_stat_by_key_state();
         *(s32 *)((s8 *)arg0 + 0x28) = (s32) *(s32 *)((s8 *)arg2 + 0x60);
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg3);

@@ -26,7 +26,7 @@ extern "C" {
 void *__dt__14TWindowBreakInFv(void *arg0, s16 arg1);
 int update_entry_visibility__20TWindowSubStatusDispFi(void*);
 s32 draw_visible_window_entries(s32, s32, s32);
-int update_window_entry_list(void*, void*);
+int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 void __dl__7TObjectFPv(void *);
 s32 draw_default_entry__9TWindowDDFl();
 int initialize_subwindow__9TWindowDDFv(void*);
@@ -37,7 +37,7 @@ void TWindowBreakIn::render() {
     draw_visible_window_entries(arg0, arg0 + 0x24, tmp);
 }
 
-void TWindowBreakIn::run_task() { update_entry_visibility__20TWindowSubStatusDispFi(this); initialize_subwindow__9TWindowDDFv(this); update_window_entry_list(this, (char*)this + 0x24); }
+void TWindowBreakIn::run_task() { update_entry_visibility__20TWindowSubStatusDispFi(this); initialize_subwindow__9TWindowDDFv(this); update_window_entry_list__13TUnk_804CE018FPv(this, (char*)this + 0x24); }
 
 extern s32 __vt__14TWindowBreakIn[];
 

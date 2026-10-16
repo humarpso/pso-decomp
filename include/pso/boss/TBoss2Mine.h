@@ -6,6 +6,9 @@
 
 struct TBoss2Mine : public TObjEneDD {
     virtual ~TBoss2Mine();
+    void set_node_offsets();
+    void init_params(s32, f32);
+    void update_pulse_state();
     virtual void vfunc_105();
     virtual void vfunc_106();
     virtual void vfunc_107(s32);
@@ -30,7 +33,6 @@ struct TBoss2Mine : public TObjEneDD {
     u8 _pad3B4[0x14];
     u32 m_3c8;
     u32 m_3cc;
-    void move_mine();
     void set_launch_position_velocity(u8 *arg1, u8 *arg2);
     void *deleting_dtor(s16 arg1);
     void render();

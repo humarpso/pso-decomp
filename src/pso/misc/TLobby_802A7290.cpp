@@ -91,7 +91,7 @@ extern RecoveredGlobal_802A74B8_lbl_804DD9F8 player_motion_category_table;
 s32 player_motion_provider1_get_actions(s32 arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_802A7848(void *, s32);
 s32 TLobby__sub_802A7868(void *, s32, s32);
-s32 load_action_motion_pairs(void *, s32, s32, s32);
+s32 load_action_motion_pairs__13TUnk_804DDD28Flll(void *, s32, s32, s32);
 s32 forward_801C210C__10TObjPlayerFv(void *, s32);
 void mem_free(void*);
 extern s32 player_action_motion_buffer;
@@ -113,7 +113,7 @@ int vfunc_4__13TUnk_804DDBF0Fv(void);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
 void vfunc_14__13TUnk_804DDBF0Fv(u8 *arg0);
-s32 load_action_motion_pairs(void *, s32, s32, s32);
+s32 load_action_motion_pairs__13TUnk_804DDD28Flll(void *, s32, s32, s32);
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 }
 
@@ -184,7 +184,7 @@ s32 TLobby::handle_message(s32 arg1, s32 arg2, s32 arg3) {
     }
     forward_801C210C__10TObjPlayerFv(this, arg2);
     TLobby__sub_802A7848(this, arg3);
-    temp_r3 = load_action_motion_pairs(this, arg1, arg2, arg3);
+    temp_r3 = load_action_motion_pairs__13TUnk_804DDD28Flll(this, arg1, arg2, arg3);
     if (temp_r3 != 0) {
         ((VObj_802A752C_802A7290 *)this)->m12();
     }
@@ -194,7 +194,7 @@ s32 TLobby::handle_message(s32 arg1, s32 arg2, s32 arg3) {
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1) {
     s32 a = ((TObjPlayer *)arg0)->is_handle_valid();
     s32 b = ((TObjPlayer *)arg0)->sub_802a7290_fwd();
-    s32 r = load_action_motion_pairs(arg0, arg1, a, b);
+    s32 r = load_action_motion_pairs__13TUnk_804DDD28Flll(arg0, arg1, a, b);
     if (r != 0) {
         ((VObj_802A75C8 *)arg0)->m12();
     }

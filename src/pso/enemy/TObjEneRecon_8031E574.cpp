@@ -7,7 +7,7 @@ extern "C" {
 
 u8 *TObjEneRecon__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3, s16 arg4, s32 arg5, s32 arg6);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
+s32 init_common_from__9TObjEneDDFPUc(void *, void *);
 s32 init_object__12TObjEneDD_STFv();
 s16 obj_getField1c(void *);
 
@@ -20,7 +20,7 @@ u8 *TObjEneRecon__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3, s16 arg4, s32 arg5,
     ((TUnk_80494938 *)(arg0 + 0x480))->init_common();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4130;
     *(s16 *)((s8 *)arg0 + 0x434) = obj_getField1c((void *) (arg2));
-    init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));
+    init_common_from__9TObjEneDDFPUc((void *) (arg0), (void *) (arg2));
     *(s16 *)((s8 *)arg0 + 0x1C) = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg5));

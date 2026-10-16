@@ -6,6 +6,11 @@
 
 struct TObjEneEpsilonGuard : public TObjEneEpsilon {
     virtual ~TObjEneEpsilonGuard();
+    void sub_803626A8(s32, s32);
+    void update_guard_state();
+    void sub_8035EA90();
+    void handle_event(s32);
+    void render_guard_effect();
     virtual void vfunc_88();
     virtual void vfunc_89();
     virtual f32 receive_physical_attack(void *, f32);

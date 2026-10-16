@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/player/TUnk_804F14A8.h"
 #include "pso/player/TUnk_804F166C.h"
 
@@ -881,7 +882,7 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
     u8 temp_r3_2;
     if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *) (arg0)) < 0xC) && (reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *) (arg0)), ((temp_r3 == 0) == 0)) && (get_field_ec__5TItemFv() == 0)) {
-        if (((TObjPlayer *)temp_r3)->test_flags_1b8((int) (0x400020)) != 0U) {
+        if (((TItemWeapon *)temp_r3)->test_flags_1b8((int) (0x400020)) != 0U) {
             TObjPlayer::update_battle_control_on_unlock((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)), (s32)((void *) (arg3)));
             return;
         }

@@ -51,7 +51,7 @@ void sub_800A0994__20TObjEneDarkGunCenterFv(void *);
 void TObjEneDarkGunCenter__sub_800A0B18(void);
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(s32);
-void send_entity_set_flags__6TLobbyFPv(void *);
+void send_entity_set_flags__9TObjEnemyFv(void *);
 extern const f64 lbl_8043A488[];
 extern const f32 lbl_805D9970;
 extern const f32 lbl_805D9974;
@@ -324,7 +324,7 @@ void TObjEneDarkGunCenter::run_task() {
         if (self->count > 0) {
             self->f3a4 = 0x5a;
         } else if ((self->f3a4 = t - 1) <= 0) {
-            send_entity_set_flags__6TLobbyFPv(self);
+            send_entity_set_flags__9TObjEnemyFv(self);
             queue_destruction__7TObjectFv(self);
         }
     }

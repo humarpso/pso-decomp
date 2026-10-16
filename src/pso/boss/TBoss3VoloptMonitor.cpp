@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -174,7 +176,7 @@ extern s32 volopt_monitor_object_handle;
 extern s32 volopt_monitor_node_array_handle;
 extern G_80042944 *volopt_monitor_resource_ptr;
 extern u32 volopt_monitor_texture_list;
-s32 recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
+s32 recalc_combat_stats__13TUnk_804806E8FPvPvPvff(void *, s32, s32, s32, f32, f32);
 s32 obj_setFlags30(void *, s32);
 s16 fn_80042960(bool);
 s32 rand();
@@ -454,7 +456,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     }
     ((TBoss3VoloptMonitor *)arg0)->update_state();
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     if (obj_testFlags30((void *) (arg0), (int) (0x800)) == 0) {
         copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
         submit_cursor_candidate((void *) (arg0), (int) (-1));
@@ -533,16 +535,16 @@ void TBoss3VoloptMonitor::sub_80042510() {
     u8 *arg0 = (u8 *)this;
     *(u8 **)((s8 *)arg0 + 0x350) = TBoss3VoloptMonitor__init_param_block;
     *(s16 *)((s8 *)volopt_monitor_boss_stats_ptr_a + 6) = fn_80042960(*(s16 *)((s8 *)arg0 + 0x38C) % 4 != 0);
-    recalc_combat_stats__10TObjPlayerFv(arg0, volopt_monitor_boss_stats_ptr_a, volopt_monitor_boss_stats_ptr_b, volopt_monitor_object_handle, lbl_805D8748, lbl_805D8748);
+    recalc_combat_stats__13TUnk_804806E8FPvPvPvff(arg0, volopt_monitor_boss_stats_ptr_a, volopt_monitor_boss_stats_ptr_b, volopt_monitor_object_handle, lbl_805D8748, lbl_805D8748);
     *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x2B8);
     *(s16 *)((s8 *)arg0 + 0x32E) = *(s16 *)((s8 *)arg0 + 0x2BA);
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TObjEneLappy *)arg0)->set_param(0x2E);
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     *(s16 *)((s8 *)arg0 + 0x38E) = lbl_805D874C * (lbl_805D8740 * (f32)rand());
     *(s16 *)((s8 *)arg0 + 0x390) = lbl_805D8750 * (lbl_805D8740 * (f32)rand());
-    ((TObjPlayer *)arg0)->add_flags_2e4(4);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(4);
     volopt_target_slot_used[*(s16 *)((s8 *)arg0 + 0x38C)] = 0;
     obj_setFlags30(arg0, 0x8000);
     ((VObj_80042510 *)arg0)->m80();

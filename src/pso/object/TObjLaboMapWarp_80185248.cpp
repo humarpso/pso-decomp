@@ -181,7 +181,7 @@ void * TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2);
 void unlock_main_warp_destination(s32 id);
 void clear_enabled_main_warps(void);
 s32 get_floor_warp_bit__16TObjCityMainWarpFi();
-void handle_area_selection__12TObjAreaWarpFPv(void *);
+void handle_area_selection__12TObjAreaWarpFv(void *);
 s32 is_warp_enabled__12TObjAreaWarpFi(s32);
 void __dt__12TObjAreaWarpFv(void *, int);
 void TObjAreaWarp__ct(void *);
@@ -226,7 +226,7 @@ extern const f32 lbl_805DBCA0;
 extern s32 TObjCityMainWarp__sub_80186AF4();
 extern void update_main_warp_visible_mask(int);
 extern void request_active_window_close();
-extern void update_layout_height__17TWindowSubComCardFPvf(void *, f32);
+extern void update_layout_height__21TWindowSubComCardListFf(void *, f32);
 extern void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, int, int, int);
 extern s16 TLobby__data_805D5CE8;
 extern s32 TObjCityMainWarp__enabled_destinations;
@@ -519,7 +519,7 @@ void TObjCityAreaWarp::run_task() {
         if (arg0->t >= lim) {
             arg0->t -= lim;
         }
-        handle_area_selection__12TObjAreaWarpFPv(arg0);
+        handle_area_selection__12TObjAreaWarpFv(arg0);
     }
 }
 
@@ -601,7 +601,7 @@ void run_task__16TObjCityMainWarpFv(u8 *arg0) {
     if (*(f32 *)((s8 *)arg0 + 0xC4) >= lim) {
         *(f32 *)((s8 *)arg0 + 0xC4) -= lim;
     }
-    handle_area_selection__12TObjAreaWarpFPv(arg0);
+    handle_area_selection__12TObjAreaWarpFv(arg0);
 }
 
 s32 TObjCityMainWarp__vt14(s32 arg0) {
@@ -719,9 +719,9 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
             }
             ((TWindowSubComCardList *)(w->win))->set_flag70_bit10();
             ((TLobby *)(w->win))->set_loss_flag();
-            ((void (*)(void *, f32))update_layout_height__17TWindowSubComCardFPvf)(w->win, lbl_805DBC9C);
+            ((void (*)(void *, f32))update_layout_height__21TWindowSubComCardListFf)(w->win, lbl_805DBC9C);
             if (w->win->f3C > lbl_805DBCA0) {
-                ((TWindowSubComCard *)(w->win))->set_scroll_target(lbl_805DBC9C, lbl_805DBCA0);
+                ((TWindowSubComCardList *)(w->win))->set_scroll_target(lbl_805DBC9C, lbl_805DBCA0);
             }
             ((void (*)(void *))align_menu_entry_positions)(w->win);
         }

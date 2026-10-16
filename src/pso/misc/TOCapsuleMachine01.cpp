@@ -44,7 +44,7 @@ u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *TOCapsuleMachine01__model_resource;
 extern s32 lbl_805D58C4;
 extern s32 TOCapsuleMachine01__last_update_frame_tick;
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, int);
 extern RecoveredGlobal_8015A814_lbl_804AFF10 lbl_804AFF10;
@@ -83,7 +83,7 @@ s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -156,7 +156,7 @@ void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOCapsuleMachine01;
         free_collision_body_parts(arg0);
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -177,7 +177,7 @@ u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1) {
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB384;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFF10.value), (int) (1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

@@ -22,7 +22,7 @@ typedef char RecoveredGlobal_802889A8_lbl_804D0530_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 s32 get_player_by_client_id(u32);
-void open__15TWindowMainMenuFPvi(void *, s32);
+void open__15TWindowMainMenuFl(void *, s32);
 extern RecoveredGlobal_802889A8_lbl_804D04F8 lbl_804D04F8;
 extern RecoveredGlobal_802889A8_lbl_804D0530 lbl_804D0530;
 void vfunc_6__17TWindowMainMenu4PFv(u8 *arg0);
@@ -35,18 +35,18 @@ void vfunc_8__17TWindowMainMenu4PFv(void *arg0);
 void vfunc_9__17TWindowMainMenu4PFv(void* p);
 void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1);
 void TWindowMainMenu__ct(void *);
-int TWindowMainMenu__sub_80263FE0(void*);
-int handle_menu_selection__15TWindowMainMenuFPv(void*);
+int sub_80263FE0__15TWindowMainMenuFv(void*);
+int handle_menu_selection__15TWindowMainMenuFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__15TWindowMainMenuFv(void *, int);
-int close_active_submenu__15TWindowMainMenuFPv(void*);
-s32 close_and_clear_flags__15TWindowMainMenuFPv();
+int close_active_submenu__15TWindowMainMenuFv(void*);
+s32 close_and_clear_flags__15TWindowMainMenuFv();
 
-void TWindowMainMenu4P::vfunc_9() { if (close_active_submenu__15TWindowMainMenuFPv(this) != 0) { ((TWindowMainMenu *)this)->show_child_window(); } }
+void TWindowMainMenu4P::vfunc_9() { if (close_active_submenu__15TWindowMainMenuFv(this) != 0) { ((TWindowMainMenu4P *)this)->show_child_window(); } }
 
 void TWindowMainMenu4P::vfunc_8() {
     if (*(s32 *)((s8 *)this + 0x4C) & 1) {
-        close_and_clear_flags__15TWindowMainMenuFPv();
+        close_and_clear_flags__15TWindowMainMenuFv();
     }
 }
 
@@ -57,9 +57,9 @@ void TWindowMainMenu4P::vfunc_6() {
         temp_r3 = (u8 *)(get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54)));
         if (temp_r3 != NULL) {
             if (((TObjPlayer *)temp_r3)->is_ready() != 0) {
-                open__15TWindowMainMenuFPvi(arg0, (s32) &lbl_804D0530.value);
+                open__15TWindowMainMenuFl(arg0, (s32) &lbl_804D0530.value);
             } else {
-                open__15TWindowMainMenuFPvi(arg0, (s32) &lbl_804D04F8.value);
+                open__15TWindowMainMenuFl(arg0, (s32) &lbl_804D04F8.value);
             }
             ((VObj_18_f8ef8c *)(arg0))->m5();
         }
@@ -67,7 +67,7 @@ void TWindowMainMenu4P::vfunc_6() {
 }
 
 void TWindowMainMenu4P::render() {  }
-void TWindowMainMenu4P::run_task() { handle_menu_selection__15TWindowMainMenuFPv(this); TWindowMainMenu__sub_80263FE0(this); }
+void TWindowMainMenu4P::run_task() { handle_menu_selection__15TWindowMainMenuFv(this); sub_80263FE0__15TWindowMainMenuFv(this); }
 
 extern s32 __vt__17TWindowMainMenu4P[];
 

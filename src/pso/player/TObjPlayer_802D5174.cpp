@@ -280,7 +280,7 @@ struct Pl_802D564C : VBase_802D564C {
 struct V_802D577C { f32 x, y, z; };
 
 extern "C" {
-s32 send_6x61_activate_mag_effect(void *, s16);
+s32 send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s16);
 void update_weapon__13TUnk_804E21F8Fv(void *arg0);
 s32 spawn_item__10TObjPlayerFi(void *);
 void spawn_item_from_arg__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -433,7 +433,7 @@ void TUnk_804E21F8::update_weapon() {
         temp_r4_2 = *(s16 *)((s8 *)this + 0x24A);
         if (temp_r4_2 < 5) {
             *(s16 *)((s8 *)this + 0x24A) = (s16) (temp_r4_2 + 1);
-            send_6x61_activate_mag_effect((void *)(this), *(s16 *)((s8 *)this + 0x24A));
+            send_6x61_activate_mag_effect__14TItemEquipBaseFl((void *)(this), *(s16 *)((s8 *)this + 0x24A));
         }
         *(s16 *)((s8 *)this + 0x248) = 0;
     }
@@ -738,10 +738,10 @@ extern "C" {
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 s16 get_validated_attack_stage(void *);
 void fire_spread_shot__10TObjPlayerFPv(u8 *arg0);
-int test_flags_1b8__10TObjPlayerFUl(void *, u32);
+int test_flags_1b8__11TItemWeaponFUl(void *, u32);
 s32 draw_weapon_model(void *);
 void draw_weapon_if_not_hidden__10TObjPlayerFPv(u8 *arg0);
-s32 check_boss2tunnel_field_f4__10TObjPlayerFv(void *);
+s32 check_boss2tunnel_field_f4__11TItemWeaponFv(void *);
 s32 get_player_list__10TObjPlayerFv();
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
@@ -827,18 +827,18 @@ void TObjPlayer__sub_802D5DE0(u8 *arg0) {
         if (*(s32 *)((s8 *)arg0 + 0x1f8) & 1) {
             push_matrix();
             rotate_matrix_x((int) (0), (int) (0x2AAA));
-            check_boss2tunnel_field_f4__10TObjPlayerFv((void *) (arg0));
+            check_boss2tunnel_field_f4__11TItemWeaponFv((void *) (arg0));
             pop_matrix();
             push_matrix();
             rotate_matrix_x((int) (0), (int) (-0x2AAA));
-            check_boss2tunnel_field_f4__10TObjPlayerFv((void *) (arg0));
+            check_boss2tunnel_field_f4__11TItemWeaponFv((void *) (arg0));
             pop_matrix();
         }
     }
 }
 
 void draw_weapon_if_not_hidden__10TObjPlayerFPv(u8 *arg0) {
-    if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x01000000U) == 0U) {
+    if (test_flags_1b8__11TItemWeaponFUl(arg0, 0x01000000U) == 0U) {
         draw_weapon_model((void *) (arg0));
     }
 }

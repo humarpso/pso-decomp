@@ -5,13 +5,13 @@ extern "C" {
 
 s32 TObjPlayer__sub_801C2114();
 s32 set_action_provider_variant__10TObjPlayerFPvs(void *, s16);
-s32 create_inventory__10TObjPlayerFPv();
+s32 create_inventory__10TObjPlayerFv();
 
 u16 obj_getField1c(void *);
 extern s32 player_shared_buffer_base;
 
 void TObjPlayer::init_data_table_ptr() {
-    create_inventory__10TObjPlayerFPv();
+    create_inventory__10TObjPlayerFv();
     set_action_provider_variant__10TObjPlayerFPvs(this, TObjPlayer__sub_801C2114());
     *(s32 *)((s8 *)this + 0xDB4) = (s32) (player_shared_buffer_base + (obj_getField1c(this) * 0x600));
 }

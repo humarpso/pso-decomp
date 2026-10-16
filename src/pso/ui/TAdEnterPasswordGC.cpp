@@ -95,7 +95,7 @@ s32 TKeyBoardControl__sub_8000F9CC(int);
 void queue_destruction__7TObjectFv(void *);
 u32 __nw__7TObjectFUl(int);
 s32 __ct__10TAdTitleGCFv(int, void *, int);
-s32 create_parts__14TAdEnterBaseGCFPv(void *);
+s32 create_parts__14TAdEnterBaseGCFv(void *);
 s32 TAdEnterBaseGC__ct(void *);
 void set_password__18TAdEnterPasswordGCFi(s32 arg0);
 extern s32 __vt__18TAdEnterPasswordGC[];
@@ -306,7 +306,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
     TAdEnterBaseGC__ct((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC *)&__vt__18TAdEnterPasswordGC).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdEnterPasswordGC__class_name;
-    ((TAdEnterBaseGC *)arg0)->reset((int) (2));
+    ((TAdEnterBaseGC *)arg0)->sub_8032B460((int) (2));
     password_entry_dispatch_state = 0;
     *(s32 *)((s8 *)arg0 + 0x40) = 0;
     if ((s8) *(u8 *)((s8 *)(TAdSinglePlyChrSelectGC::get_instance()) + 0x1154C) != 0) {
@@ -315,7 +315,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;
     }
-    create_parts__14TAdEnterBaseGCFPv((void *) (arg0));
+    create_parts__14TAdEnterBaseGCFv((void *) (arg0));
     temp_r3 = __nw__7TObjectFUl((int) (0x138));
     if (temp_r3 != 0U) {
         __ct__10TAdTitleGCFv((int) (temp_r3), (void *) (arg0), (int) (0xC));

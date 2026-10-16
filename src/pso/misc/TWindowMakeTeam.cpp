@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -114,7 +115,7 @@ s32 TWindowMakeTeam::create_status_menu_window() {
     }
     calc_window_size__17TWindowSubComCardFPv(r);
     align_menu_entry_positions(r);
-    ((TWindowSubComCard *)r)->set_selected_index(*(s8 *)(arg0 + 0x1F));
+    ((TWindowSubComCardList *)r)->set_selected_index(*(s8 *)(arg0 + 0x1F));
     return r;
 }
 
@@ -127,7 +128,7 @@ s32 TWindowMakeTeam::create_entry_menu_window() {
     forward_trade_action_default__16TObjCityMainWarpFPviii(r, TWindowMakeTeam::draw_entry_0x110(2), 6, 2);
     calc_window_size__17TWindowSubComCardFPv(r);
     align_menu_entry_positions(r);
-    ((TWindowSubComCard *)r)->set_selected_index(*(s8 *)(arg0 + 0x1E));
+    ((TWindowSubComCardList *)r)->set_selected_index(*(s8 *)(arg0 + 0x1E));
     return r;
 }
 

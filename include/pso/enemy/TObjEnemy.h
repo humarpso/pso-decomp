@@ -4,6 +4,15 @@
 #include "pso/player/TUnk_804806E8.h"
 struct TObjEnemy : public TUnk_804806E8 {
     virtual ~TObjEnemy();
+    s32 send_entity_set_flags();
+    s32 render_anim_model(f32);
+    void update_prev_position();
+    void award_enemy_experience(s32);
+    void distribute_experience();
+    void send_6x9C_enemy_low_game_flags(s32);
+    void set_flags_B0(u32);
+    void sub_800A7798(f32);
+    void render_with_position_override(u8 *, s32);
     virtual void vfunc_79();
     virtual void apply_hit_message_flags(void *);
     virtual void apply_set_data(void *);
@@ -13,7 +22,6 @@ struct TObjEnemy : public TUnk_804806E8 {
     void sub_8002AE64();
     virtual int vfunc_12();
     TObjEnemy* initialize(void* parent);
-    s32 countChildren();
     TObjEnemy* groupRoot();
     u32 subtype;
     u16 targetId;

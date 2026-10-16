@@ -1513,7 +1513,7 @@ void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
         rotate_matrix_y(0, creation_figure_rotation_y);
         TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x460));
         ((TAdSinglePlyChrSelectGC *)arg0)->draw_player_model();
-        ((TObjPlayer *)arg0)->get_item_ptr(0x3A);
+        ((TObjMotion *)arg0)->get_item_ptr(0x3A);
         push_matrix_from();
         TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x2EC));
         play_phase_transition_sound__10TObjPlayerFi(lbl_80540928[*(s16 *)((s8 *)char_select_current_entry + 0xA)].b);
@@ -1521,7 +1521,7 @@ void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
         v = lbl_805408D8[*(s16 *)((s8 *)char_select_current_entry + 0xC)].b;
         if (v != 0) {
             TCharaMaking::enable_making();
-            ((TObjPlayer *)arg0)->get_item_ptr(0x3B);
+            ((TObjMotion *)arg0)->get_item_ptr(0x3B);
             push_matrix_from();
             TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x178));
             play_phase_transition_sound__10TObjPlayerFi(v);
@@ -1531,7 +1531,7 @@ void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
         v = lbl_80540888[*(s16 *)((s8 *)char_select_current_entry + 0xC)].b;
         if (v != 0) {
             TCharaMaking::enable_making();
-            ((TObjPlayer *)arg0)->get_item_ptr(0x3B);
+            ((TObjMotion *)arg0)->get_item_ptr(0x3B);
             push_matrix_from();
             TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x178));
             TCharaMaking::setup_from_data(v, creation_player_character);

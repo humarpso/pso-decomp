@@ -32,7 +32,7 @@ s32 get_model__19TObjContainerJungExFl(s32);
 s32 TObjContainerJung__sub_8018D3B8(s32);
 s32 get_model_by_index__17TObjContainerJungFl(s32);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -96,7 +96,7 @@ extern s32 __vt__22TObjContainerJungEnemy[];
 void *__dt__22TObjContainerJungEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjContainerJungEnemy;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {

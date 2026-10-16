@@ -6,6 +6,7 @@
 class TUnk_804EDD44 : public TObject {
 public:
     virtual ~TUnk_804EDD44();
+    void sub_8032E294();
     virtual void start_card_effect_flash();
     virtual void start_card_effect_trail();
     virtual void vfunc_8();

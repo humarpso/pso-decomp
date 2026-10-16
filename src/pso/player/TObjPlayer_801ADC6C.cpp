@@ -71,7 +71,7 @@ void run_task__12TPhotonPillaFv(void *arg0);
 s32 advance_animation_playback(void *);
 s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, s32);
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
-s32 mark_enemy_body_contacts(void *);
+s32 mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
 s32 update_photon_blast_attachments__13TUnk_804C3248Fv(void *);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
@@ -94,7 +94,7 @@ void TObjPlayer::apply_photon_blast_effects() {
     s32 var_r31;
 
     TObjPlayer::init_all_slots();
-    mark_enemy_body_contacts(this);
+    mark_enemy_body_contacts__13TUnk_804AF8A0Fv(this);
     if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x100000) {
         var_r31 = 0;
         do {

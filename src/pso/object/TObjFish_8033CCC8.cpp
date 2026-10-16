@@ -40,7 +40,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
-void TObjFish::render_fade_model() {
+void TBoss6Demo11_TYPE1_DEAD::render_fade_model() {
     u8 *arg0 = (u8 *)this;
     f32 var_f31;
     s32 temp_r0;
@@ -59,12 +59,12 @@ void TObjFish::render_fade_model() {
         push_matrix();
         TObjPlayer::set_global_flag();
         ((f32 (*)(void *))post_translate_matrix)(arg0 + 0x1C);
-        TObjFish::set_global_param(*(s32 *)&this->m_2c);
-        draw_model_motion(*(s32 *)&this->m_28, *(s32 *)&this->actorFlags, *(f32 *)((s8 *)arg0 + 0x40));
+        TObjFish::set_global_param(*(s32 *)&(*(void * *)((u8 *)this + 0x2C)));
+        draw_model_motion(*(s32 *)&(*(void * *)((u8 *)this + 0x28)), *(s32 *)&(*(u32 *)((u8 *)this + 0x30)), *(f32 *)((s8 *)arg0 + 0x40));
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x38));
-        ((TObjFish *)(this->m_88))->set_draw_callback_list();
-        draw_model_motion(*(s32 *)&this->model, *(s32 *)((s8 *)arg0 + 0x3C), *(f32 *)((s8 *)arg0 + 0x40));
-        ((int (*)(void *))clear_render_callback__8TObjFishFv)(this->m_88);
+        ((TObjFish *)((*(u8 * *)((u8 *)this + 0x88))))->set_draw_callback_list();
+        draw_model_motion(*(s32 *)&(*(void * *)((u8 *)this + 0x34)), *(s32 *)((s8 *)arg0 + 0x3C), *(f32 *)((s8 *)arg0 + 0x40));
+        ((int (*)(void *))clear_render_callback__8TObjFishFv)((*(u8 * *)((u8 *)this + 0x88)));
         TObjPlayer::clear_global_state();
         pop_matrix();
         if (var_f31 < lbl_805DFA58) {
@@ -73,7 +73,7 @@ void TObjFish::render_fade_model() {
     }
 }
 
-void TBoss6Demo11_TYPE1_DEAD::render() { ((TObjFish *)this)->render_fade_model(); }
+void TBoss6Demo11_TYPE1_DEAD::render() { ((TBoss6Demo11_TYPE1_DEAD *)this)->render_fade_model(); }
 
 extern s32 lbl_804EF9EC[];
 

@@ -6,6 +6,10 @@
 #include "pso/TObject.h"
 
 struct TWindowInputNumber {
+    s32 is_locked(s32);
+    u8 test_input_flag();
+    void refresh_digit_entries();
+    void align_digits();
     void render();
     u32 className;
     u8 unknown04[0x14];

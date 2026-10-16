@@ -41,7 +41,7 @@ void *TWindowDD__sub_8034094C(void *arg0, s16 arg1);
 void update_draw__9TWindowDDFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-int update_fade__17TWindowSubComCardFv(void*);
+int update_fade__13TUnk_804CE018Fv(void*);
 
 void TWindowDD::reset_entries(f32 v) {
     E_803403F8 *p = (E_803403F8 *)this;
@@ -118,7 +118,7 @@ s32 TWindowDD_check_input_mask(void *input_context, s32 arg1) {
   return TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (void *) arg1) | test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (void *) arg1);
 }
 
-void update_draw__9TWindowDDFPv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); update_fade__17TWindowSubComCardFv(p); }
+void update_draw__9TWindowDDFPv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); update_fade__13TUnk_804CE018Fv(p); }
 
 void TWindowDD::set_clamped_page(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -241,7 +241,7 @@ void TWindowDD::init_layout_constants() {
     TWindowDD__layout_constants[2] = lbl_805DFC2C;
 }
 
-void TWindowDD::init() { initialize_subwindow(); update_fade__17TWindowSubComCardFv(this); }
+void TWindowDD::init() { initialize_subwindow(); update_fade__13TUnk_804CE018Fv(this); }
 
 extern s32 lbl_804785D8;
 extern const f32 lbl_805DFC6C;

@@ -149,7 +149,7 @@ extern "C" {
 void vfunc_6__9TTecJelinFPv(u8 *self, u8 *target);
 s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
-s32 apply_technique_to_area_targets(void *);
+s32 apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 void run_task__9TTecJelinFv(struct Self_802336F0 *self);
 void construct_area_technique_base(void *);
 extern s32 tec_jelin_class_name_ptr;
@@ -231,7 +231,7 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
             }
         }
     } else {
-        apply_technique_to_area_targets((void *) (self));
+        apply_technique_to_area_targets__13TUnk_804CC148Fv((void *) (self));
     }
     queue_destruction__7TObjectFv((void *) (self));
 }

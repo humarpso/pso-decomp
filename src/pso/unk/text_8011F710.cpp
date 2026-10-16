@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
+#include "pso/item/TItem.h"
 
 #include <stddef.h>
 struct VBase_18_f8c4e0 { char pad[0x18]; };
@@ -117,7 +119,7 @@ Item_8011F760 *get_weapon_range_record(void *, s32);
 s32 is_active_in_game__11TItemWeaponFv(void*);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void play_weapon_owner_sounds(void*);
-u32 test_flags_1b8__10TObjPlayerFUl(void*,u32);
+u32 test_flags_1b8__11TItemWeaponFUl(void*,u32);
 s32 obj_getField1c(void *);
 void set_status_flags__10TObjPlayerFPvUi(void*,u32);
 void fire_shot_at_target__11TItemWeaponFv(void*,WeaponVector*,s32,s32);
@@ -197,7 +199,7 @@ void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3,
                 ((VObj_18_f8c4e0 *)(temp_r3_2))->m73();
                 apply_camera_shake__10TObjPlayerFiii((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (void *) (arg2), (int) (temp_r31_2));
                 ((TObjPlayer *)(&stack.sp8))->reset_status_block();
-                stack.sp8 = ((TObjPlayer *)arg0)->get_field_ed();
+                stack.sp8 = ((TItem *)arg0)->get_field_ed();
                 stack.sp9 = ((TItemProShield *)arg0)->get_slot_count();
                 stack.spC = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
                 stack.sp14 = (u8 *)(arg2);
@@ -217,24 +219,24 @@ void TItemWeapon::vfunc_30() {
         self->heading=self->player->heading;
         self->stage=((TItemWeapon *)self)->get_attack_stage();
         ((TObjPlayer *)(&packet))->reset_status_block();
-        packet.kind=((TObjPlayer *)self)->get_field_ed();
+        packet.kind=((TItem *)self)->get_field_ed();
         packet.variant=((TItemProShield *)self)->get_slot_count();
         packet.player=self->player;
         play_weapon_owner_sounds(&packet);
-        if(test_flags_1b8__10TObjPlayerFUl(self,0x40000)) {
+        if(test_flags_1b8__11TItemWeaponFUl(self,0x40000)) {
             TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c((void *)(self->player)));
-        } else if(test_flags_1b8__10TObjPlayerFUl(self,0x80000) && ((TObjPlayer *)self)->is_mode_two_and_ready()) {
+        } else if(test_flags_1b8__11TItemWeaponFUl(self,0x80000) && ((TObjPlayer *)self)->is_mode_two_and_ready()) {
             TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c((void *)(self->player)));
         }
         self->emit_marker_effects();
         set_status_flags__10TObjPlayerFPvUi(self,0x1000000);
-        if(!test_flags_1b8__10TObjPlayerFUl(self,2)) {
-            if(test_flags_1b8__10TObjPlayerFUl(self,0x8000)) {
+        if(!test_flags_1b8__11TItemWeaponFUl(self,2)) {
+            if(test_flags_1b8__11TItemWeaponFUl(self,0x8000)) {
                 ((TObjPlayer *)self)->draw_status_icon((s32)(&gun_point));
                 fire_shot_at_target__11TItemWeaponFv(self,&gun_point,self->projectile,0);
                 return;
             }
-            if(test_flags_1b8__10TObjPlayerFUl(self,0x20000)) {
+            if(test_flags_1b8__11TItemWeaponFUl(self,0x20000)) {
                 ((TObjPlayer *)self)->update_active_game_effect();
                 return;
             }

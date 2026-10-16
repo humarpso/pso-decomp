@@ -893,7 +893,7 @@ extern void *lbl_804B94BC[4];
 extern void *ancient_boss_warp_resource_block[3];
 extern void *lbl_804B94E8[3];
 extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 void close_windows__17TObjWarpBossMultiFPv(void *arg0);
@@ -939,7 +939,7 @@ void *init__13TAdVIConfigGCFf(void *, void *, f32);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -952,7 +952,7 @@ s32 check_flag_100__10TObjPlayerFPv(void *);
 s32 disallow_rendering__7TObjectFv(u32);
 f32 xz_distance_squared(s32, void *);
 s32 get_current_floor();
-void handle_area_selection__12TObjAreaWarpFPv(void *);
+void handle_area_selection__12TObjAreaWarpFv(void *);
 s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
 s32 has_item_flag_4096__10TObjPlayerFPv(void *);
 s32 check_technique_flag__10TObjPlayerFPv(void *);
@@ -992,7 +992,7 @@ s32 is_local_client_floor_leader();
 extern s32 boss_warp_confirmation_model;
 extern s32 warp_boss_motion;
 void warp_boss_handle_window__12TObjWarpBossFv(void *arg0);
-void update__12TObjWarpBossFPv(void *arg0);
+void update__12TObjWarpBossFv(void *arg0);
 void debug_print_area_num__12TObjWarpBossFv(Wb_8019F2C0 *arg0);
 
 void render_shadows__7TObjectFv();
@@ -1184,7 +1184,7 @@ void run_task__17TObjWarpBossMultiFv(Obj_8019DFE8 *self) {
         if (self->fF8 > (f32)(self->fE4->count - 1)) {
             self->fF8 = lbl_805DC000;
         }
-        handle_area_selection__12TObjAreaWarpFPv(self);
+        handle_area_selection__12TObjAreaWarpFv(self);
         break;
     }
 }
@@ -1192,7 +1192,7 @@ void run_task__17TObjWarpBossMultiFv(Obj_8019DFE8 *self) {
 void *__dt__17TObjWarpBossMultiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjWarpBossMulti;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         __dt__12TObjAreaWarpFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1736,26 +1736,26 @@ s32 TObjWarpBoss::update_warp_dialogs() {
   }
 }
 
-void update__12TObjWarpBossFPv(void *arg0) {
+void TObjWarpBoss::update() {
     s16 temp_r0;
 
     ((s32 (*)())update_warp_boss_visibility__12TObjWarpBossFv)();
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0xDE);
+    temp_r0 = *(s16 *)((s8 *)this + 0xDE);
     switch (temp_r0) {
     case 0:
-        ((TObjWarpBoss *)arg0)->update_warp_confirmation();
+        ((TObjWarpBoss *)this)->update_warp_confirmation();
         return;
     case 1:
-        ((TObjWarpBoss *)arg0)->update_warp_state();
+        ((TObjWarpBoss *)this)->update_warp_state();
         return;
     case 2:
-        ((TObjWarpBoss *)arg0)->update_state();
+        ((TObjWarpBoss *)this)->update_state();
         return;
     case 3:
-        ((s32 (*)(void *))warp_boss_handle_window__12TObjWarpBossFv)(arg0);
+        ((s32 (*)(void *))warp_boss_handle_window__12TObjWarpBossFv)(this);
         return;
     case 4:
-        ((TObjWarpBoss *)arg0)->update_floor_switch_state();
+        ((TObjWarpBoss *)this)->update_floor_switch_state();
         return;
     }
 }
@@ -1806,13 +1806,13 @@ void TObjWarpBoss::run_task() {
         if (!(*(s16 *)((s8 *)arg0 + 0xE2) & 1) && ((s16) *(s16 *)((s8 *)arg0 + 0xDE) != (s16) *(s16 *)((s8 *)arg0 + 0xDC))) {
             if ((s16) *(s16 *)((s8 *)arg0 + 0xE0) != -1) {
                 *(s16 *)((s8 *)arg0 + 0xE0) = -1;
-                update__12TObjWarpBossFPv((void *) (arg0));
+                update__12TObjWarpBossFv((void *) (arg0));
             }
             *(s16 *)((s8 *)arg0 + 0xDE) = (s16) *(s16 *)((s8 *)arg0 + 0xDC);
             *(s16 *)((s8 *)arg0 + 0xE0) = 0;
         }
         ((TObjWarpBoss *)arg0)->update_warp_occupants();
-        update__12TObjWarpBossFPv((void *) (arg0));
+        update__12TObjWarpBossFv((void *) (arg0));
         if ((void *) *(u8 **)((s8 *)arg0 + 0xD4) != NULL) {
             *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) + lbl_805DC004);
             if ((lbl_805DC02C + *(f32 *)((s8 *)arg0 + 0xC4)) >= (f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xD4)) + 4)) {
@@ -1824,7 +1824,7 @@ void TObjWarpBoss::run_task() {
 void *__dt__12TObjWarpBossFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBoss;
-        unregister_object_by_id((void *)((s32 *)arg0));
+        unregister_object_by_id__13TUnk_804AF8A0Fv((void *)((s32 *)arg0));
         close_windows__17TObjWarpBossMultiFPv(arg0);
         __dt__12TObjAreaWarpFv((void *)(arg0), (int)(0));
         if (arg1 > 0) {

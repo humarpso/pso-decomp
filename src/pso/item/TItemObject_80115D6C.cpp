@@ -40,7 +40,7 @@ f32 horizontal_distance_squared(void *, void *);
 s32 sub_801A1DDC__10TObjPlayerFv(void *);
 Obj_80116004 *get_player_by_client_id(s32);
 void send_nearby_player_ids(Obj_80116004 *self, f32 range);
-u8 get_field_ed__10TObjPlayerFv(void *);
+u8 get_field_ed__5TItemFv(void *);
 s32 TItemObject__sub_80115DE8(void *item);
 s32 set_hp_clamped__10TObjPlayerFs(void *, s32);
 s32 get_field_2b8__14TItemProShieldFv(void *);
@@ -138,7 +138,7 @@ void TItemObject::vfunc_14() {
 
 s32 TItemObject__sub_80115DE8(void *item) {
     if (item != NULL) {
-        u8 kind = get_field_ed__10TObjPlayerFv(item);
+        u8 kind = get_field_ed__5TItemFv(item);
         u8 slots = ((TItemProShield *)item)->get_slot_count();
         switch (kind) {
         case 0:
@@ -407,7 +407,7 @@ void TItemObject::vfunc_44() {
 extern s32 lbl_805D2C28;
 
 void TItemObject__vt16(u8 *arg0, u8 *arg1) {
-    if (((u8 (*)())get_field_ed__10TObjPlayerFv)() == 2) {
+    if (((u8 (*)())get_field_ed__5TItemFv)() == 2) {
         *(u8 *)((s8 *)arg1 + 4) = (u8) *(u8 *)((s8 *)arg0 + 0x100);
     }
     set_stack_count__24TShopEquipmentListWindowFSc((void *) (arg1), (void *) (((VObj_18 *)(arg0))->m34()));

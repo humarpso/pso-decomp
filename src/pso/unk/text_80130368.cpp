@@ -71,9 +71,9 @@ void set_technique_roll__13TUnk_804A69DCFl(u8 *arg0);
 s32 init_shoot_model__13TUnk_804A69C0Fv(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
 s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 send_6x61_activate_mag_effect(void *, int);
+s32 send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-s32 for_each_target_in_range__10TObjPlayerFPvf(void *, f32);
+s32 for_each_target_in_range__13TUnk_804A69DCFf(void *, f32);
 void TObjPlayer__sub_801307D0(void);
 extern const f32 lbl_805DB000;
 void emit_marker_effects__13TUnk_804A69DCFv(u8 *arg0);
@@ -122,12 +122,12 @@ void TUnk_804A69DC::emit_marker_effects() {
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (arg0 + 0x208)));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) > 0x1999) {
-            send_6x61_activate_mag_effect((void *) (arg0), (int) (0));
+            send_6x61_activate_mag_effect__14TItemEquipBaseFl((void *) (arg0), (int) (0));
             TItemAttacker::spawn_item_timer((s32)((void *) (arg0)), (s32)((void *) (TObjPlayer__sub_801307D0)), (s32)((int) (0x1E)));
             *(s32 *)((s8 *)arg0 + 0x204) = 0;
             return;
         }
-        for_each_target_in_range__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805DB000));
+        for_each_target_in_range__13TUnk_804A69DCFf((void *) (arg0), (f32) (lbl_805DB000));
         return;
     }
     ((TObjPlayer *)arg0)->update_active_game_effect();

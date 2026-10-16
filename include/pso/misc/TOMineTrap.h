@@ -28,17 +28,12 @@ struct TOMineTrap : public TOMine {
     void set_triggered();
     static void destroy_matching_traps();
     void*get_mine_data_ptr();
-    s32 is_target_in_list(void *obj);
     s32 check_trigger(u32 arg1);
     s32 can_trigger(u32 arg1);
-    void update_state();
     void spawn_effect();
     void attach_to_keymachine();
     void detonate_if_triggered();
     f32 calc_trigger_range(s32 arg1);
-    void update_trigger();
-    void follow_target();
-    void update_float_height();
     void sync_position();
     void send_state_packet(u16 idx);};
 

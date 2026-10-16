@@ -6,6 +6,7 @@
 
 struct TObjBoss1Rock : public TObject {
     virtual ~TObjBoss1Rock();
+    void sub_8002E1CC(u8 *, u8 *, s32);
     void* m_1c;
     u8 _pad20[0x8];
     void* m_28;

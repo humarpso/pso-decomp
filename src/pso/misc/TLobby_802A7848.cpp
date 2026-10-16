@@ -49,7 +49,7 @@ struct Pair_802A7994 { s32 a; s32 b; };
 extern "C" {
 s32 mem_alloc(s32);
 s32 mem_free(s32);
-void copy_motion_pair(void* p, void* q);
+void copy_motion_pair__13TUnk_804DDD28FPv(void* p, void* q);
 int TLobby__sub_802A7B8C(void);
 int vfunc_4__13TUnk_804DDD28Fv(void);
 int vfunc_8__13TUnk_804DDD28Fv(void);
@@ -85,10 +85,10 @@ s32 sub_802A7318__13TUnk_804DDD28Fv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7B50(u8 *arg0);
 s32 *TItemDrop__sub_800F9448(s32, s32);
-void copy_motion_pair(void* p, void* q);
+void copy_motion_pair__13TUnk_804DDD28FPv(void* p, void* q);
 void TLobby__sub_802A7BC8(void* p);
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
-s32 load_action_motion_pairs(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3);
+s32 load_action_motion_pairs__13TUnk_804DDD28Flll(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -134,7 +134,7 @@ s32 TLobby::send_packet(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     return temp_r31;
 }
 
-s32 load_action_motion_pairs(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3) {
+s32 TUnk_804DDD28::load_action_motion_pairs(s32 arg1, s32 arg2, s32 arg3) {
     Pair_802A7994 sp8;
     s32 *slots;
     s32 i;
@@ -142,30 +142,30 @@ s32 load_action_motion_pairs(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3) 
     s32 pkt;
     u8 *dst;
     s32 *drop;
-    if (self->m2() == 0U) {
+    if (((VObj_802A7994 *)this)->m2() == 0U) {
         return 0;
     }
-    slots = self->m6(arg2, arg3);
+    slots = ((VObj_802A7994 *)this)->m6(arg2, arg3);
     if (slots == NULL) {
         return 0;
     }
     TLobby__sub_802A7BC8(&sp8);
-    dst = self->m75(arg2);
-    for (i = 0; i < self->m73(); i++) {
+    dst = ((VObj_802A7994 *)this)->m75(arg2);
+    for (i = 0; i < ((VObj_802A7994 *)this)->m73(); i++) {
         ((void (*)(s32, void *))set_slot_position__6TLobbyFii)(*slots, &sp8);
         f4 = ((TLobby *)(&sp8))->get_field_04();
-        pkt = ((TLobby *)self)->send_packet(arg1, i, f4, ((TLobby *)(&sp8))->get_param());
+        pkt = ((TLobby *)((VObj_802A7994 *)this))->send_packet(arg1, i, f4, ((TLobby *)(&sp8))->get_param());
         if (pkt != 0) {
-            drop = TItemDrop__sub_800F9448(self->m0(arg1, i), pkt);
+            drop = TItemDrop__sub_800F9448(((VObj_802A7994 *)this)->m0(arg1, i), pkt);
         }
-        copy_motion_pair(dst, *(void **)drop);
+        copy_motion_pair__13TUnk_804DDD28FPv(dst, *(void **)drop);
         slots++;
         dst += 8;
     }
     return 1;
 }
 
-void copy_motion_pair(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
+void TUnk_804DDD28::copy_motion_pair(void*q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)this + 0x4) = *(u32*)((char*)q + 0x4); }
 
 u8 *TUnk_804DDD28::vfunc_3(s16 arg1) {
     if (((u8 *)this) != NULL) {

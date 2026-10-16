@@ -64,7 +64,7 @@ void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-int show_child_window__15TWindowMainMenuFv(void*);
+int show_child_window__17TWindowMainMenu4PFv(void*);
 int update_trade_submenu__15TWindowMainMenuFv(void*);
 
 void TWindowSubLog::render() {  }
@@ -140,7 +140,7 @@ Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2) {
 }
 
 void TWindowSubLog::clear_flag4c_bit8() { this->m_4c &= 0xfffffff7; }
-int TWindowSubLog::cleanup() { return show_child_window__15TWindowMainMenuFv(this); }
+int TWindowSubLog::cleanup() { return show_child_window__17TWindowMainMenu4PFv(this); }
 void TWindowSubLog::set_flag4c_bit8() { this->m_4c |= 0x8; }
 int fn_8027B288(void* p) { return update_trade_submenu__15TWindowMainMenuFv(p); }
 void fn_8027B2A8(void* p) { *(u16*)((char*)p + 0x1e) |= 0x200; }

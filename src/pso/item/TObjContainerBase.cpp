@@ -55,8 +55,8 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 void vfunc_6__19TObjContainerNoItemFPsl(u8 *arg0, s16 *arg1, s32 arg2);
-s32 send_object_state_update(void *, void *);
-s32 access_object_saved_state(void *, void *, int);
+s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
+s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 extern const f32 lbl_805DBCF4;
 f32 receive_physical_attack__19TObjContainerNoItemFPvf(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -95,7 +95,7 @@ extern "C" {
 void vfunc_80__17TObjContainerBaseFv(void *arg0);
 void *__dt__17TObjContainerBaseFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(s32 *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 
@@ -118,7 +118,7 @@ extern s32 __vt__17TObjContainerBase[];
 void *__dt__17TObjContainerBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjContainerBase;
-        unregister_object_by_id((s32 *)arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
@@ -195,10 +195,10 @@ void TObjContainerNoItem::vfunc_79() {
 f32 TObjContainerNoItem::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
-        access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
-        send_object_state_update((void *) (arg0), (void *) (&sp8));
+        access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
+        send_object_state_update__13TUnk_804AF8A0FPv((void *) (arg0), (void *) (&sp8));
     }
     return lbl_805DBCF4;
 }

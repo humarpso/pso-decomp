@@ -25,12 +25,12 @@ struct Pair_801F68FC { s32 a; s32 b; };
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 is_message_window_ready();
+s32 is_message_window_ready__18TWindowMessagePageFv();
 extern s8 controller_input_state[];
 void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 is_message_window_ready();
+s32 is_message_window_ready__18TWindowMessagePageFv();
 extern s8 controller_input_state[];
 void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0);
 extern RecoveredGlobal_801F6548_lbl_80512790 offline_quest_filename_buffer_a;
@@ -68,7 +68,7 @@ void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0) {
     s32 (*temp_r12)(void *);
     void *self = arg0;
     arg0 = *(void **)((s8 *)arg0 + 0x34);
-    if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0))) {
+    if (arg0 == NULL || ((is_message_window_ready__18TWindowMessagePageFv() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0))) {
         temp_r12 = *(s32 (**)(void *))((s8 *)self + 0x20);
         if (temp_r12 != NULL) {
             temp_r12(self);
@@ -81,7 +81,7 @@ void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0) {
     s32 (*temp_r12)(void *);
     void *self = arg0;
     arg0 = *(void **)((s8 *)arg0 + 0x34);
-    if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0))) {
+    if (arg0 == NULL || ((is_message_window_ready__18TWindowMessagePageFv() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0))) {
         temp_r12 = *(s32 (**)(void *))((s8 *)self + 0x1C);
         if (temp_r12 != NULL) {
             temp_r12(self);

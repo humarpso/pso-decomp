@@ -6,6 +6,7 @@
 
 struct TOSensorAncient01 : public TOSensor {
     virtual ~TOSensorAncient01();
+    void update_pulse_value();
     virtual void vfunc_16();
     virtual void vfunc_17();
     virtual void vfunc_25();

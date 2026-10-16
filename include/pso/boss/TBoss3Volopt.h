@@ -6,6 +6,7 @@
 
 struct TBoss3Volopt : public TObjEnemyCustom {
     virtual ~TBoss3Volopt();
+    void sub_8003D340();
     u16 get_param_offset(s32);
     s32 get_adjusted_angle(s32);
     u8 unk_38C[0x1C];

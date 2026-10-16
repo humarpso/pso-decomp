@@ -6,6 +6,9 @@
 
 struct TWindowHelpItem
 {
+    void sub_802534B0();
+    void update_tech_disk_details();
+    void init_text(void *);
     void sub_80255E24();
     void set_flag60_bit4();
     u32 m_00;

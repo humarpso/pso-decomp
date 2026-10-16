@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/ui/TUnk_804F3A20.h"
 
@@ -131,7 +132,7 @@ void TAdMultiChgGameModeGC__sub_8036E19C(u8 *arg0, s32 arg1);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
 s32 TAdMultiChgGameModeGC__sub_8036DE10(s32 arg0, s32 arg1, s32 arg2);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
-s32 update_layout_height__17TWindowSubComCardFPvf(void *, f32);
+s32 update_layout_height__21TWindowSubComCardListFf(void *, f32);
 s32 align_menu_entry_positions(void *);
 extern u8 lbl_804F3A18[];
 extern const f32 lbl_805D7020;
@@ -316,13 +317,13 @@ s32 setup_mode_menu__21TAdMultiChgGameModeGCFPvi(void *arg0, s32 arg1) {
         if (arg1 == 0) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, a, 5, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, b, 5, 1);
-            ((TWindowSubComCard *)(self->win))->set_selected_index(1);
+            ((TWindowSubComCardList *)(self->win))->set_selected_index(1);
         } else {
             forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, c, 5, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, d, 5, 1);
-            ((TWindowSubComCard *)(self->win))->set_selected_index(0);
+            ((TWindowSubComCardList *)(self->win))->set_selected_index(0);
         }
-        update_layout_height__17TWindowSubComCardFPvf(self->win, lbl_805D7020);
+        update_layout_height__21TWindowSubComCardListFf(self->win, lbl_805D7020);
         align_menu_entry_positions(self->win);
     }
 }

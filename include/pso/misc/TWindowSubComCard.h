@@ -6,6 +6,10 @@
 
 struct TWindowSubComCard : public TObject {
     virtual ~TWindowSubComCard();
+    void sub_802721D8();
+    u8 *find_entry_rest(void *, s32);
+    void send_state_if_dirty();
+    void handle_close_flag();
     virtual void render();
     virtual void run_task();
     u8 m_1c;
@@ -68,21 +72,14 @@ struct TWindowSubComCard : public TObject {
     f32 calc_offset();
     f32 get_normalized_progress();
     void reparent_to_main_ctrl();
-    void update_fade();
     void update_open_close();
     void begin_scroll(f32 farg0);
     int get_flag();
     void clear_flag_and_release2();
-    void update_scroll_target_position();
     void set_entry_value_clear_flag(s32 idx, s32 val);
-    void update_target_y();
-    void update_scroll_value();
-    void set_selected_index(s16 arg1);
-    void set_scroll_target(f32 farg0, f32 farg1);
     void clear_transition_flag();
     static void draw_text_gray(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     void draw_card_icon(s32 arg1, s32 arg2);
-    void render_selected_entry(s32 arg1);
     void update_selected_entry();
     void update_next_entry(s32 arg1, s32 arg2, s32 arg3);
     s32 get_entry_id();

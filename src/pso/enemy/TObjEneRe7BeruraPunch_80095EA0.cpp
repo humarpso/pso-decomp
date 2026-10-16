@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe7BeruraPunch.h"
 
 struct VBase_14_c1c33b { char pad[0x14]; };
 
@@ -43,14 +44,14 @@ s32 TObjEneRe7Berura__sub_80094D98();
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
-void update_flight__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
+void update_flight__21TObjEneRe7BeruraPunchFv(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094C68(u8 *);
 u8 *find_entity_by_id(u16);
-s32 refresh_collision_body_centers(void *, void *, f32, f32);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *, void *, f32, f32);
 extern Pair_80096150 lbl_80439F28[];
 extern const f32 lbl_805D97AC;
 extern const f32 lbl_805D97B0;
-s32 TObjEneRe7BeruraPunch__sub_80096150(void *arg0);
+s32 sub_80096150__21TObjEneRe7BeruraPunchFv(void *arg0);
 }
 
 extern "C" {
@@ -136,52 +137,52 @@ void TObjEneRe7BeruraPunch::update_velocity_and_snap() {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma fp_contract on
-void update_flight__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
+void TObjEneRe7BeruraPunch::update_flight() {
     typedef char sp8_offset[(offsetof(Stack_80096030, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80096030, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80096030, sp10) == 0x8) ? 1 : -1];
     Stack_80096030 stack;
     s32 var_r31;
     u8 *temp_r3;
-    *(f32 *)((s8 *)arg0 + 0xF4) = (f32) (*(f32 *)((s8 *)arg0 + 0xF4) + lbl_805D97A4);
-    if (*(f32 *)((s8 *)arg0 + 0xF4) > lbl_805D97A8) {
-        *(f32 *)((s8 *)arg0 + 0xF4) = (f32) lbl_805D97A8;
+    *(f32 *)((s8 *)((u8 *)this) + 0xF4) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xF4) + lbl_805D97A4);
+    if (*(f32 *)((s8 *)((u8 *)this) + 0xF4) > lbl_805D97A8) {
+        *(f32 *)((s8 *)((u8 *)this) + 0xF4) = (f32) lbl_805D97A8;
     }
     var_r31 = 0;
-    *(f32 *)((s8 *)arg0 + 0x114) = (f32) (*(f32 *)((s8 *)arg0 + 0x114) + TObjEneRe7BeruraPunch__data_805D97A0);
-    stack.sp8 = (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xBC)) + *(f32 *)((s8 *)arg0 + 0x38);
-    stack.spC = *(f32 *)((s8 *)arg0 + 0xE0);
-    stack.sp10 = (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xC4)) + *(f32 *)((s8 *)arg0 + 0x40);
-    temp_r3 = (u8 *)(csnVector((s32) (arg0 + 0xDC), (s32) &stack.sp8, 0x88E0));
+    *(f32 *)((s8 *)((u8 *)this) + 0x114) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x114) + TObjEneRe7BeruraPunch__data_805D97A0);
+    stack.sp8 = (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)((u8 *)this) + 0xBC)) + *(f32 *)((s8 *)((u8 *)this) + 0x38);
+    stack.spC = *(f32 *)((s8 *)((u8 *)this) + 0xE0);
+    stack.sp10 = (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)((u8 *)this) + 0xC4)) + *(f32 *)((s8 *)((u8 *)this) + 0x40);
+    temp_r3 = (u8 *)(csnVector((s32) (((u8 *)this) + 0xDC), (s32) &stack.sp8, 0x88E0));
     if (temp_r3 != NULL) {
         var_r31 = 1;
-        *(f32 *)((s8 *)arg0 + 0xDC) = (f32) **(f32 **)((s8 *)temp_r3 + 4);
-        *(f32 *)((s8 *)arg0 + 0xDC) = (f32) **(f32 **)((s8 *)temp_r3 + 4);
+        *(f32 *)((s8 *)((u8 *)this) + 0xDC) = (f32) **(f32 **)((s8 *)temp_r3 + 4);
+        *(f32 *)((s8 *)((u8 *)this) + 0xDC) = (f32) **(f32 **)((s8 *)temp_r3 + 4);
     } else {
-        *(f32 *)((s8 *)arg0 + 0xDC) = stack.sp8;
-        *(f32 *)((s8 *)arg0 + 0xE4) = stack.sp10;
+        *(f32 *)((s8 *)((u8 *)this) + 0xDC) = stack.sp8;
+        *(f32 *)((s8 *)((u8 *)this) + 0xE4) = stack.sp10;
     }
-    ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
-    if ((var_r31 != 0) || (TObjEneRe7BeruraPunch__sub_80096150((void *)(arg0)) != 0) || (*(f32 *)((s8 *)arg0 + 0x114) > *(f32 *)((s8 *)arg0 + 0xC8))) {
-        *(s32 *)((s8 *)arg0 + 0xB4) = 2;
-        if (find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0)) != NULL) {
+    ((TObjEneRe7BeruraPunch *)((u8 *)this))->snap_to_ground();
+    if ((var_r31 != 0) || (sub_80096150__21TObjEneRe7BeruraPunchFv((void *)(((u8 *)this))) != 0) || (*(f32 *)((s8 *)((u8 *)this) + 0x114) > *(f32 *)((s8 *)((u8 *)this) + 0xC8))) {
+        *(s32 *)((s8 *)((u8 *)this) + 0xB4) = 2;
+        if (find_entity_by_id(*(u16 *)((s8 *)((u8 *)this) + 0xB0)) != NULL) {
             TObjEneRe7Berura__sub_80094D98();
         }
     }
 }
 #pragma pop
 
-s32 TObjEneRe7BeruraPunch__sub_80096150(void *arg0) {
+s32 TObjEneRe7BeruraPunch::sub_80096150() {
     u8 *temp_r31;
     void *temp_r4_2;
-    temp_r31 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0));
-    *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = *(f32 *)((s8 *)arg0 + 0xCC);
-    *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x30) = *(f32 *)((s8 *)arg0 + 0xCC);
-    temp_r4_2 = *(void **)((s8 *)arg0 + 0xA4);
-    *(f32 *)((s8 *)temp_r4_2 + 0x34) = lbl_805D97AC * (lbl_805D97B0 * *(f32 *)((s8 *)arg0 + 0xF4));
-    refresh_collision_body_centers(arg0, temp_r4_2, lbl_805D97B0, lbl_805D97AC);
-    ((TObjPlayer *)arg0)->update_enemy_collision_flags();
-    temp_r4_2 = *(void **)((s8 *)arg0 + 0xA4);
+    temp_r31 = find_entity_by_id(*(u16 *)((s8 *)this + 0xB0));
+    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = *(f32 *)((s8 *)this + 0xCC);
+    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x30) = *(f32 *)((s8 *)this + 0xCC);
+    temp_r4_2 = *(void **)((s8 *)this + 0xA4);
+    *(f32 *)((s8 *)temp_r4_2 + 0x34) = lbl_805D97AC * (lbl_805D97B0 * *(f32 *)((s8 *)this + 0xF4));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv(this, temp_r4_2, lbl_805D97B0, lbl_805D97AC);
+    ((TObjPlayer *)this)->update_enemy_collision_flags();
+    temp_r4_2 = *(void **)((s8 *)this + 0xA4);
     if ((*(s32 *)((s8 *)temp_r4_2 + 0x18) | *(s32 *)((s8 *)temp_r4_2 + 0x44)) & 0x200000) {
         return 1;
     }
@@ -192,7 +193,7 @@ s32 TObjEneRe7BeruraPunch__sub_80096150(void *arg0) {
     if (TObjEneDD::check_v2_mode() != 0) {
         p.b &= ~2;
     }
-    ((VObj_80096150 *)arg0)->m15(&p, *(s32 *)((s8 *)arg0 + 0xD8));
+    ((VObj_80096150 *)this)->m15(&p, *(s32 *)((s8 *)this + 0xD8));
     if (temp_r31 != 0) {
         TObjEneRe7Berura__sub_80094C68(temp_r31);
     }

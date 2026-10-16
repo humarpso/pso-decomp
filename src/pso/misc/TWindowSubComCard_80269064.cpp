@@ -13,7 +13,7 @@ extern "C" {
 
 int TWindowSubComCard__sub_8026906C(void* p);
 u32 get_player_by_client_id(s32);
-s32 setup_window_draw_context(s32, s32);
+s32 setup_window_draw_context__13TUnk_804CE018Fl(s32, s32);
 s32 draw_visible_window_entries(s32, s32, s32);
 s32 draw_window_tab(s32, s32, s32, f32);
 

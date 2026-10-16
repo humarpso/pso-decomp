@@ -6,6 +6,9 @@
 
 struct TOTrapAncient02R : public TOTrapAncient02 {
     virtual ~TOTrapAncient02R();
+    void init_trap_object_id();
+    void clamp_trap_level_param();
+    void init_trap_param_clamped();
     virtual s32 is_any_player_matching_stat();
     virtual void submit_cursor_and_notify();
     virtual void find_target_player();

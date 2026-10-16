@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TUnk_80486924.h"
 #include "pso/TBoss4Zanzo.h"
 #include <stddef.h>
@@ -1836,7 +1837,7 @@ u8 *TBoss4Type2__ct(u8 *arg0, s32 arg1, s32 *arg2) {
     ((TObjEnemy *)arg0)->initialize((void*)arg1);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80486924;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D27D8;
-    ((TObjPlayer *)arg0)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x38C) = arg2[0];
     ((TUnk_80486924 *)arg0)->apply_set_data(arg2 + 1);
     ((TUnk_80486924 *)arg0)->clear_lobby_object_state();

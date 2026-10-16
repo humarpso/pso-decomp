@@ -87,7 +87,7 @@ f32 xyz_distance_squared(void *, void *);
 s32 project_world_to_screen(int, void *, void *);
 extern s32 camera_ctrl_instance;
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 extern s32 __vt__8TObjDoor[];
 void *__dt__8TObjDoorFv(void *arg0, s16 arg1);
@@ -601,7 +601,7 @@ void run_task__8TObjDoorFv(VObj_8018EF70 *self) {
 void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TObjDoor;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {

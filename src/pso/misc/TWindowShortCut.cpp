@@ -32,12 +32,12 @@ u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern "C" {
 
 void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1);
-int update_window_entry_list(void*, void*);
+int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 int initialize_subwindow__9TWindowDDFv(void*);
-int update_fade__17TWindowSubComCardFv(void*);
+int update_fade__13TUnk_804CE018Fv(void*);
 
 void render__15TWindowShortCutFv(u8 *arg0) {
     s32 temp_r3;
@@ -47,7 +47,7 @@ void render__15TWindowShortCutFv(u8 *arg0) {
     forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (temp_r3));
 }
 
-void TWindowShortCut::run_task() { ((TWindowSubStatusDisp *)(*(void* *)&this->m_60))->update_subwindow(); initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); update_window_entry_list(this, (char*)this + 0x24); }
+void TWindowShortCut::run_task() { ((TWindowSubStatusDisp *)(*(void* *)&this->m_60))->update_subwindow(); initialize_subwindow__9TWindowDDFv(this); update_fade__13TUnk_804CE018Fv(this); update_window_entry_list__13TUnk_804CE018FPv(this, (char*)this + 0x24); }
 
 extern s32 __vt__15TWindowShortCut[];
 

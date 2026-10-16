@@ -6,6 +6,12 @@
 class TUnk_804B2578 : public TUnk_804806E8 {
 public:
     virtual ~TUnk_804B2578();
+    void init_geometry();
+    void sub_80168488();
+    void sub_80168398();
+    void sub_801682E4(s32);
+    s32 sub_80168244(u32);
+    void advance_wrap_offset();
     virtual void vfunc_79();
     virtual void vfunc_80();
     virtual f32 vfunc_81();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804E4B24.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/boss/TObjBoss7TunnelCol.h"
 #include "pso/player/TObjPlayer.h"
@@ -11,13 +12,13 @@ struct VOff_802F1C68_arg0_802f1c68_802F1B7C { char pad_0[0x48]; char f_48[1]; };
 void *TObjBoss7TunnelCol__ct(void *arg0);
 void *__dt__18TObjBoss7TunnelColFv(void *arg0, s16 arg1);
 void rotate_matrix_yxz(void *, void *, void *, void *);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void set_matrix_identity(void *);
 void __dl__7TObjectFPv(void *);
-void clear_obj_links(void *);
+void clear_obj_links__13TUnk_804AF8A0Fv(void *);
 void fn_8002B630(void *, void *);
 s32 get_mode__11TCameraCtrlFPv(s32 *);
-void initialize_linked_object_reference(void *, void *);
+void initialize_linked_object_reference__13TUnk_804AF8A0FPv(void *, void *);
 void translate_matrix_vec3(void *, void *);
 
 void TObjBoss7TunnelCol::render() {  }
@@ -28,8 +29,8 @@ extern s32 __vt__18TObjBoss7TunnelCol[];
 void *__dt__18TObjBoss7TunnelColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjBoss7TunnelCol;
-        unregister_object_by_id(arg0);
-        clear_obj_links(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        clear_obj_links__13TUnk_804AF8A0Fv(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -53,16 +54,16 @@ void *TObjBoss7TunnelCol__ct(void *arg0) {
     *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DECA0;
     *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DEC9C;
     *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DEC9C;
-    initialize_linked_object_reference(arg0, self->f_AC);
+    initialize_linked_object_reference__13TUnk_804AF8A0FPv(arg0, self->f_AC);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }
 
-void TObjBoss7TunnelCol::update_collision() {
+void TUnk_804E4B24::update_collision() {
     struct VOff_802F1C68_arg0_802f1c68_802F1B7C *self = (struct VOff_802F1C68_arg0_802f1c68_802F1B7C *)this;
     set_matrix_identity(self->f_48);
     translate_matrix_vec3(self->f_48, (void *)((char *)this + 28));
-    rotate_matrix_yxz(self->f_48, *(void * *)&this->m_28, this->m_2c, *(void * *)&this->actorFlags);
+    rotate_matrix_yxz(self->f_48, *(void * *)&(*(void * *)((u8 *)this + 0x28)), (*(void * *)((u8 *)this + 0x2C)), *(void * *)&(*(u32 *)((u8 *)this + 0x30)));
 }
 
 extern f32 lbl_805DECA4;

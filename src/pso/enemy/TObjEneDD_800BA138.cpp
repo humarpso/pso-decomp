@@ -135,7 +135,7 @@ int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
 void vfunc_95__9TObjEneDDFv(void *arg0);
 int is_target_unobstructed__9TObjEneDDFl(void* a0 = 0, void* a1 = 0, void* a2 = 0);
-int add_flags_2e4__10TObjPlayerFUl(void*, int);
+int add_flags_2e4__13TUnk_804806E8FUl(void*, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 sub_800BC3E8__13TUnk_804928CCFPUc(void *, s32);
 s32 get_position__12TBoss1DragonFv(void *, s32);
@@ -181,10 +181,10 @@ void TObjEneDD::vfunc_91() {
     }
 }
 
-int TObjEneDD::set_state_8() { return add_flags_2e4__10TObjPlayerFUl(this, 8); }
-int TObjEneDD::check_state_flag_4() { return add_flags_2e4__10TObjPlayerFUl(this, 4); }
-int TObjEneDD::check_state_flag_2() { return add_flags_2e4__10TObjPlayerFUl(this, 2); }
-int TObjEneDD::check_state_flag_1() { return add_flags_2e4__10TObjPlayerFUl(this, 1); }
+int TObjEneDD::set_state_8() { return add_flags_2e4__13TUnk_804806E8FUl(this, 8); }
+int TObjEneDD::check_state_flag_4() { return add_flags_2e4__13TUnk_804806E8FUl(this, 4); }
+int TObjEneDD::check_state_flag_2() { return add_flags_2e4__13TUnk_804806E8FUl(this, 2); }
+int TObjEneDD::check_state_flag_1() { return add_flags_2e4__13TUnk_804806E8FUl(this, 1); }
 
 typedef char RecoveredGlobal_800BA318_lbl_8043B68C_size[sizeof(RecoveredGlobal_800BA318_lbl_8043B68C) == 0xC ? 1 : -1];
 void TObjEneDD::send_damage_message(s32 arg0, u8 *arg1) {

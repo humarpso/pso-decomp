@@ -28,6 +28,13 @@ public:
 
     TQuestVmDownLoadServer(TObject *parent);
     virtual ~TQuestVmDownLoadServer();
+    void sub_801F7FEC();
+    void handle_confirm_input();
+    void sub_801F770C();
+    void sub_801F718C();
+    void sub_801F6D24();
+    void sub_801F6C74();
+    void sub_801F6B00();
     virtual void run_task();
 public:
     static void reset_download_state();

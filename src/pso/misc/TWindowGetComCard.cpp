@@ -54,7 +54,7 @@ void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
 s32 get_selected_menu_value(void *);
 void *init_shop_judgment_window(void *);
-s32 is_message_window_ready(void *);
+s32 is_message_window_ready__18TWindowMessagePageFv(void *);
 void complete_reveal__14TWindowMessageFPv(void *);
 extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC controller_input_state[];
@@ -85,7 +85,7 @@ void TUnk_804CF0B8::sub_80252C68() { *(u8*)((char*)this + 0x71) |= 0x20; }
 int TUnk_804CF0B8::is_flag_set() { return *(u8*)((char*)this + 0x71) & 0x1; }
 void TUnk_804CF0B8::clear_flag_20() { *(u8*)((char*)this + 0x71) &= 0xffffffdf; }
 int TUnk_804CF0B8::is_active() { return (*(u8*)((char*)this + 0x71) >> 2) & 0x1; }
-void TWindowFukidasi::clear_flag() { *(u8*)((char*)this + 0x71) &= 0xfffffffb; }
+void TUnk_804CF0B8::clear_flag() { *(u8*)((char*)this + 0x71) &= 0xfffffffb; }
 int TUnk_804CF0B8::is_balloon_visible() { return (*(u8*)((char*)this + 0x71) >> 5) & 0x1; }
 int fn_80252CBC(void* p) { return *(u16*)((char*)p + 0x0) & 0x10; }
 void TWindowGetComCard::render() {  }
@@ -98,7 +98,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
     switch (self->state) {
     case 0:
     case 1:
-        if (is_message_window_ready(self->fmt) != 0) {
+        if (is_message_window_ready__18TWindowMessagePageFv(self->fmt) != 0) {
             self->state = 2;
         }
         if (TWindowShortListCtrl__check_controller_button(controller_input_state[0].m20, 4) != 0) {

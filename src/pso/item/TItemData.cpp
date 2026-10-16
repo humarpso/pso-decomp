@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 
 struct Parm_8010C1E0;
 struct Item_8010C498;
@@ -1349,7 +1350,7 @@ f32 TItemData::get_shield_set_multiplier(u8 *arg1) {
   {
     case 26:
       temp_r3 = (u8 *) get_item_field_6__10TObjPlayerFPv(arg1);
-      if ((temp_r3 != 0) && (((TObjPlayer *)temp_r3)->get_field_ed() == 0x1A))
+      if ((temp_r3 != 0) && (((TItem *)temp_r3)->get_field_ed() == 0x1A))
     {
       var_f31 = lbl_805DAB74;
     }
@@ -1357,7 +1358,7 @@ f32 TItemData::get_shield_set_multiplier(u8 *arg1) {
     case 38:
       temp_r31 = get_item_field_6__10TObjPlayerFPv(arg1);
       temp_r30 = ((TItemData *)arg1)->get_item_field_2();
-      if (((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (((TObjPlayer *)temp_r31)->get_field_ed() == 1)) && (((TItemProShield *)temp_r31)->get_slot_count() == 5)) && (((TItemProShield *)temp_r30)->get_slot_count() == 0x28))
+      if (((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (((TItem *)temp_r31)->get_field_ed() == 1)) && (((TItemProShield *)temp_r31)->get_slot_count() == 5)) && (((TItemProShield *)temp_r30)->get_slot_count() == 0x28))
     {
       var_f31 = TItemData__data_805DAB78;
     }
@@ -1365,7 +1366,7 @@ f32 TItemData::get_shield_set_multiplier(u8 *arg1) {
     case 36:
       temp_r30_2 = get_item_field_6__10TObjPlayerFPv(arg1);
       temp_r31_2 = ((TItemData *)arg1)->get_item_field_2();
-      if (((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (((TObjPlayer *)temp_r30_2)->get_field_ed() == 2)) && (((TItemProShield *)temp_r30_2)->get_slot_count() == 5)) && (((TItemProShield *)temp_r31_2)->get_slot_count() == 0x26))
+      if (((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (((TItem *)temp_r30_2)->get_field_ed() == 2)) && (((TItemProShield *)temp_r30_2)->get_slot_count() == 5)) && (((TItemProShield *)temp_r31_2)->get_slot_count() == 0x26))
     {
       var_f31 = TItemData__data_805DAB78;
     }
@@ -1373,7 +1374,7 @@ f32 TItemData::get_shield_set_multiplier(u8 *arg1) {
     case 37:
       temp_r30_3 = get_item_field_6__10TObjPlayerFPv(arg1);
       temp_r31_3 = ((TItemData *)arg1)->get_item_field_2();
-      if (((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (((TObjPlayer *)temp_r30_3)->get_field_ed() == 6)) && (((TItemProShield *)temp_r30_3)->get_slot_count() == 6)) && (((TItemProShield *)temp_r31_3)->get_slot_count() == 0x27))
+      if (((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (((TItem *)temp_r30_3)->get_field_ed() == 6)) && (((TItemProShield *)temp_r30_3)->get_slot_count() == 6)) && (((TItemProShield *)temp_r31_3)->get_slot_count() == 0x27))
     {
       var_f31 = TItemData__data_805DAB78;
     }
@@ -1452,21 +1453,21 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
     case 40:
         a1 = get_item_field_6__10TObjPlayerFPv(arg1);
         b1 = ((TItemData *)arg1)->test_flag3();
-        if ((u32)a1 != 0 && (u32)b1 != 0 && ((TObjPlayer *)a1)->get_field_ed() == 1 && ((TItemProShield *)a1)->get_slot_count() == 5 && ((TItemProShield *)b1)->get_slot_count() == 0x26) {
+        if ((u32)a1 != 0 && (u32)b1 != 0 && ((TItem *)a1)->get_field_ed() == 1 && ((TItemProShield *)a1)->get_slot_count() == 5 && ((TItemProShield *)b1)->get_slot_count() == 0x26) {
             v = TItemData__data_805DAB78;
         }
         break;
     case 38:
         a2 = get_item_field_6__10TObjPlayerFPv(arg1);
         b2 = ((TItemData *)arg1)->test_flag3();
-        if ((u32)a2 != 0 && (u32)b2 != 0 && ((TObjPlayer *)a2)->get_field_ed() == 2 && ((TItemProShield *)a2)->get_slot_count() == 5 && ((TItemProShield *)b2)->get_slot_count() == 0x24) {
+        if ((u32)a2 != 0 && (u32)b2 != 0 && ((TItem *)a2)->get_field_ed() == 2 && ((TItemProShield *)a2)->get_slot_count() == 5 && ((TItemProShield *)b2)->get_slot_count() == 0x24) {
             v = TItemData__data_805DAB78;
         }
         break;
     case 39:
         a3 = get_item_field_6__10TObjPlayerFPv(arg1);
         b3 = ((TItemData *)arg1)->test_flag3();
-        if ((u32)a3 != 0 && (u32)b3 != 0 && ((TObjPlayer *)a3)->get_field_ed() == 6 && ((TItemProShield *)a3)->get_slot_count() == 6 && ((TItemProShield *)b3)->get_slot_count() == 0x25) {
+        if ((u32)a3 != 0 && (u32)b3 != 0 && ((TItem *)a3)->get_field_ed() == 6 && ((TItemProShield *)a3)->get_slot_count() == 6 && ((TItemProShield *)b3)->get_slot_count() == 0x25) {
             v = TItemData__data_805DAB78;
         }
         break;

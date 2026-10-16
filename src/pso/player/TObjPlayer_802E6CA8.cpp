@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804E3BD8.h"
 #include "pso/player/TUnk_804E3BC0.h"
 #include "pso/player/TUnk_804E3BA8.h"
 #include "pso/object/TObjFish.h"
@@ -249,7 +250,7 @@ u8 *init_breakup_pieces__10TObjPlayerFPvPvi(u8 *arg0, void *arg1, s32 arg2) {
     s32 i;
     ((TObjPlayer *)arg0)->init_zeroed_object();
     *(u8 **)((s8 *)arg0 + 0x18) = ((u8 *)&lbl_804E3BA8);
-    ((TObjPlayer *)arg0)->alloc_breakup_model(((s32)queue_boss_effect__10TObjPlayerFPv(2)));
+    ((TUnk_804E3BD8 *)arg0)->alloc_breakup_model(((s32)queue_boss_effect__10TObjPlayerFPv(2)));
     *(s32 *)((s8 *)arg0 + 0x2C) = arg2;
     part = *(Part_802E6F10 **)((s8 *)arg0 + 0x28);
     push_matrix();
@@ -341,7 +342,7 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
         n = -1;
     }
     if (n > 0) {
-        ((TObjPlayer *)arg0)->alloc_breakup_model(TBoss3Volopt::collect_and_count(((s32)queue_boss_effect__10TObjPlayerFPv(3)), n));
+        ((TUnk_804E3BD8 *)arg0)->alloc_breakup_model(TBoss3Volopt::collect_and_count(((s32)queue_boss_effect__10TObjPlayerFPv(3)), n));
         TObjPlayer__sub_802E7640(arg0);
         p = arg0->pieces;
         for (i = 0; i < arg0->count; i++, p++) {
@@ -365,7 +366,7 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
 
 void TObjPlayer__sub_802E746C(void) {  }
 void TObjPlayer__sub_802E7470(void) {  }
-void TObjPlayer::alloc_breakup_model(s32 arg1) {
+void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
     s32 *temp_r4;
     s32 *var_r0;
 
@@ -377,7 +378,7 @@ void TObjPlayer::alloc_breakup_model(s32 arg1) {
     temp_r4 = *(s32 **)((s8 *)this + 0x1C);
     *(s32 *)((s8 *)this + 0x24) = (s32) *temp_r4;
     TObjPlayer__sub_802E75B8(this, temp_r4);
-    *(s32 *)&this->m_28 = mem_alloc(*(s32 *)((s8 *)this + 0x24) * 0x2C);
+    *(s32 *)&(*(u32 *)((u8 *)this + 0x28)) = mem_alloc(*(s32 *)((s8 *)this + 0x24) * 0x2C);
 }
 
 extern s32 lbl_804E3BD8[];

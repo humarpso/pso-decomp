@@ -6,6 +6,15 @@
 
 struct TWindowMenu : public TUnk_804CDFE8 {
     virtual ~TWindowMenu();
+    int sub_80266BB8();
+    u8 test_menu_flag();
+    void render_selected_entry(s32);
+    void draw_selected_bar(u8 *);
+    void layout_entries();
+    void update_scroll_value();
+    void advance_past_disabled_menu_rows();
+    void clamp_menu_choice_scroll();
+    void update_target_y();
     void reset_selection();
     int is_visible();
     virtual void render();

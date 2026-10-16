@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -41,7 +42,7 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TBoss8Dragon__sub_802FCCBC(void *);
 extern const f32 lbl_805DED68;
 extern const f32 lbl_805DED6C;
-void TBoss8Dragon__sub_802F4098(u8 *arg0, u8 *arg1);
+void sub_802F4098__12TBoss8DragonFPUc(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *find_entity_by_id(void);
 s32 TBoss8Dragon__sub_802F4760(void *, void *, f32);
@@ -125,9 +126,9 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     return 0;
 }
 
-void TBoss8Dragon__sub_802F4098(u8 *arg0, u8 *arg1) {
-    VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x38);
-    if ((get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_802F4098_main_task *)&main_task).value) & 0x10) && (TBoss8Dragon__sub_802FCCBC(arg0) == 0) && !(*(f32 *)((s8 *)arg0 + 0xC0) > lbl_805DED68)) {
+void TBoss8Dragon::sub_802F4098(u8 *arg1) {
+    VecCopy__FP3VecPC3Vec(arg1, ((u8 *)this) + 0x38);
+    if ((get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_802F4098_main_task *)&main_task).value) & 0x10) && (TBoss8Dragon__sub_802FCCBC(((u8 *)this)) == 0) && !(*(f32 *)((s8 *)((u8 *)this) + 0xC0) > lbl_805DED68)) {
         *(f32 *)((s8 *)arg1 + 8) = (f32) (*(f32 *)((s8 *)arg1 + 8) + lbl_805DED6C);
     }
 }

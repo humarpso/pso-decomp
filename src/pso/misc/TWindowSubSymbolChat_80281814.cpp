@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubShortCutList.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
@@ -87,7 +88,7 @@ extern "C" {
 
 s32 create_menu__20TWindowSubSymbolChatFPv(void *arg0);
 s32 TKeyBoardControl__ct(s32, void *, s32, s32, s32, s32);
-s32 reset_entries__17TWindowSubComCardFPv(s32);
+s32 reset_entries__21TWindowSubComCardListFv(s32);
 s32 TWindowSubComCard__sub_80265660(s32, s32);
 s32 get_selected_menu_value(s32);
 s32 align_menu_entry_positions(s32);
@@ -284,7 +285,7 @@ s32 TWindowSubSymbolChat::create_confirm_window() {
     s32 temp_r31;
 
     temp_r31 = refresh_with_default_list__20TWindowSubStatusDispFll(get_window_layout_position((s32)(0x79)), lbl_804D2B48);
-    ((TWindowSubStatusDisp *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0xAC));
+    ((TUnk_804D0618 *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0xAC));
     TWindowOptionCtrl::add_menu_item(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xBF), 1);
     TWindowOptionCtrl::add_menu_item(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xC0), 0);
     if (TWindowSubSymbolChat__sub_80076FE0(*(s32 *)((s8 *)this + 0x28)) != 0) {
@@ -321,7 +322,7 @@ s32 TWindowSubSymbolChat::create_menu() {
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xBD), 0x26, 7);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xBE), 0x26, 8);
     ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
-    ((TWindowSubComCard *)temp_r31)->set_scroll_target(lbl_805DD73C, lbl_805DD740);
+    ((TWindowSubComCardList *)temp_r31)->set_scroll_target(lbl_805DD73C, lbl_805DD740);
     align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
@@ -346,7 +347,7 @@ s32 create_menu__20TWindowSubSymbolChatFPv(void *arg0) {
         TWindowSubComCard::draw_text_gray(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xB2), 6, 0x1C);
     }
     ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
-    ((TWindowSubComCard *)temp_r31)->set_scroll_target(lbl_805DD73C, lbl_805DD740);
+    ((TWindowSubComCardList *)temp_r31)->set_scroll_target(lbl_805DD73C, lbl_805DD740);
     align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
@@ -382,7 +383,7 @@ extern const f32 lbl_805DD744;
 
 void TWindowSubSymbolChat::open_menu(s32 arg0, s32 arg1) {
     s32 temp_r3;
-    reset_entries__17TWindowSubComCardFPv(arg1);
+    reset_entries__21TWindowSubComCardListFv(arg1);
     temp_r3 = refresh_parts__20TWindowSubSymbolChatFv();
     if (temp_r3 > 0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg1, get_message_10__20TWindowSubStatusDispFl(0xAE), 6, 0xC);
@@ -391,7 +392,7 @@ void TWindowSubSymbolChat::open_menu(s32 arg0, s32 arg1) {
     }
     forward_trade_action_default__16TObjCityMainWarpFPviii(arg1, get_message_10__20TWindowSubStatusDispFl(0xAF), 6, 0x10);
     ((TWindowSubComCardList *)arg1)->set_flag70_bit10();
-    ((TWindowSubComCard *)arg1)->set_scroll_target(lbl_805DD73C, lbl_805DD744);
+    ((TWindowSubComCardList *)arg1)->set_scroll_target(lbl_805DD73C, lbl_805DD744);
     align_menu_entry_positions(arg1);
 }
 s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0) {

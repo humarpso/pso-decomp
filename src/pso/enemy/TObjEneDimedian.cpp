@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
@@ -108,7 +110,7 @@ extern const f32 lbl_805D9AD0;
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void unlink_enemy_group_relations(void *);
+void unlink_enemy_group_relations__13TUnk_80493450Fv(void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -443,7 +445,7 @@ O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1) {
                 arg0->objs[i] = NULL;
             }
         }
-        unlink_enemy_group_relations(arg0);
+        unlink_enemy_group_relations__13TUnk_80493450Fv(arg0);
         free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x3CC, TObjPlayer__sub_800D7C58, 0x1C, 4);
         TObjPlayer__sub_800A05B8((u8 *)arg0 + 0x3A8, -1);
@@ -486,7 +488,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
         lbl_805D5074[*(s32 *)((s8 *)arg0 + 0x334)], TObjEneDimedian__boss_objects[*(s32 *)((s8 *)arg0 + 0x334)]);
     *(u8 **)((s8 *)arg0 + 0x350) = dimedian_movement_params + *(s32 *)((s8 *)arg0 + 0x334) * 0x1C;
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
-    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
     initialize_enemy_photon_effect(arg0);
     f = lbl_805D9ACC * calc_boss4_scale__10TObjPlayerFi(arg0);
@@ -498,7 +500,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     *(s16 *)((s8 *)arg0 + 0x376) = 0;
     *(s32 *)((s8 *)arg0 + 0x378) = 0;
     *(s32 *)((s8 *)arg0 + 0x37C) = 0;
-    ((TObjPlayer *)arg0)->add_flags_2e4(8);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
     *(u32 *)((s8 *)arg0 + 0x30) |= 0x40000;
     *(f32 *)((s8 *)arg0 + 0x388) = lbl_805D9AD0;
     if (TObjEneDD::check_v2_mode() != 0) {

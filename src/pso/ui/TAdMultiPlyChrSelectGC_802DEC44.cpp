@@ -35,7 +35,7 @@ void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0);
 extern "C" {
 
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802DC118(void *, s32);
+s32 sub_802DC118__22TAdMultiPlyChrSelectGCFl(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 *get_localized_text_entry(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -69,7 +69,7 @@ void TAdMultiPlyChrSelectGC::update_button_input() {
         }
     } else {
         *(s32 *)((s8 *)this + 0x44) = 2;
-        TAdMultiPlyChrSelectGC__sub_802DC118(this, TAdMultiPlyChrSelectGC::get_clamped_cursor());
+        sub_802DC118__22TAdMultiPlyChrSelectGCFl(this, TAdMultiPlyChrSelectGC::get_clamped_cursor());
         *(s32 *)((s8 *)this + 0x20) = 3;
     }
 }

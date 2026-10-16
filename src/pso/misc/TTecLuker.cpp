@@ -226,7 +226,7 @@ extern const f32 lbl_805DC860;
 s32 telepipe_record_differs(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
 void *__nw__7TObjectFUl(int);
 s32 obj_getField1c(void *);
-s32 get_stat_by_key_state__10TObjPlayerFv(void *);
+s32 get_stat_by_key_state__13TUnk_804B9870Fv(void *);
 s32 get_current_floor(void);
 u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
@@ -328,7 +328,7 @@ s32 TLobby__send_and_handle_60(s32);
 void stop_sound_request(void *);
 s32 free_collision_body_parts(void *);
 s32 are_players_gathered_near(void *, s32, f32);
-s32 unregister_object_by_id(void *);
+s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 submit_cursor_candidate(void *, s32);
 u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
@@ -397,7 +397,7 @@ extern s32 telepipe_field_collider_vtable[];
 void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = telepipe_field_collider_vtable;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         *(s32 *)((s8 *)arg0 + 0xB0) = 0;
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
@@ -815,7 +815,7 @@ void TTecLuker::setup_telepipe_field() {
     if (s->traveller == (u16)obj_getField1c(s->player)) {
         s16 h;
         s->floor = get_current_floor();
-        h = get_stat_by_key_state__10TObjPlayerFv(s->player);
+        h = get_stat_by_key_state__13TUnk_804B9870Fv(s->player);
         ((Write_802347B4)write_telepipe_record)(s->player + 0x830, obj_getField1c(s->player), s->floor, (u8 *)&s->pos, h);
         ((TTecLuker *)(s->player + 0x830))->send_telepipe_packet();
     }

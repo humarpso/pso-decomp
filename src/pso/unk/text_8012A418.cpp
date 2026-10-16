@@ -146,7 +146,7 @@ u16 get_uid__10TObjPlayerFPv(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
 s32 resolve_hittable_target(s32, s32);
-void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0);
+void send_srank_stat_extra_to_locks__13TUnk_804A4948Fv(Pl_8012A470 *arg0);
 }
 
 extern "C" {
@@ -170,14 +170,14 @@ u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0) {
 #include "pso/player/TObjPlayer.h"
 
 typedef struct Pl_8012A470 Pl_8012A470;
-void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0) {
+void TUnk_804A4948::send_srank_stat_extra_to_locks() {
   s32 st;
   s32 i;
   s32 e;
   u16 uid;
   s32 r;
   s32 v;
-  st = get_extended_state__10TObjPlayerFv(arg0->f0);
+  st = get_extended_state__10TObjPlayerFv(((Pl_8012A470 *)this)->f0);
   if (st != 0)
   {
     for (i = 0; i != get_captured_target_count((((((((((((st & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF); i++)
@@ -187,13 +187,13 @@ void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0) {
       r = resolve_hittable_target(uid, v = (s16) ((unsigned long long) get_captured_target_collider_index(e)));
       if (r != 0)
       {
-        ((TObjPlayer *)arg0)->send_srank_stat_extra(r, v);
+        ((TUnk_804A4948 *)((Pl_8012A470 *)this))->send_srank_stat_extra(r, v);
       }
     }
   }
 }
 
-s32 TObjPlayer::send_srank_stat_extra(u32 arg1, s32 arg2) {
+s32 TUnk_804A4948::send_srank_stat_extra(u32 arg1, s32 arg2) {
     Self_8012A508 *self = (Self_8012A508 *)this;
     VObj_8012A508 *obj = (VObj_8012A508 *)arg1;
     u32 f;
@@ -228,7 +228,7 @@ void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 f
             case 1:
             case 2:
                 if (arg3 == 2) {
-                    ((TObjPlayer *)arg0)->send_srank_stat_extra((u32)(arg2), (s32)(arg4));
+                    ((TUnk_804A4948 *)arg0)->send_srank_stat_extra((u32)(arg2), (s32)(arg4));
                 } else {
                     deliver_hit__11TItemWeaponFPviPviif(arg0, f, arg2, arg3, arg4, farg0);
                 }
@@ -267,7 +267,7 @@ void TUnk_804A4948::emit_marker_effects() {
       }
       if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0)
       {
-        send_srank_stat_extra_to_locks((Pl_8012A470 *)((void *) arg0));
+        send_srank_stat_extra_to_locks__13TUnk_804A4948Fv((Pl_8012A470 *)((void *) arg0));
         return;
       }
       ((TObjPlayer *)arg0)->update_active_game_effect();

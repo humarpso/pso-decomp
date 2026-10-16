@@ -34,12 +34,12 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1);
 s32 sub_8025CB10__19TWindowKeyBoardBaseFv(void *);
 s32 sub_8025EB68__19TWindowKeyBoardBaseFv();
 s32 draw_window_frame(void *, s32);
-s32 TWindowSubStatusDisp__sub_8025E6DC(void *, s32);
+s32 sub_8025E6DC__19TWindowKeyBoardBaseFPUc(void *, s32);
 void __dl__7TObjectFPv(void *);
 void destroy__19TWindowKeyBoardBaseFPvs(void *, int);
 void mem_free(void *);
 int initialize_subwindow__9TWindowDDFv(void*);
-int update_fade__17TWindowSubComCardFv(void*);
+int update_fade__13TUnk_804CE018Fv(void*);
 
 void TWindowKeyBoardBase::render() {
     s32 temp_r31;
@@ -49,11 +49,11 @@ void TWindowKeyBoardBase::render() {
         if (this->m_62 & 2) {
             draw_window_frame(this, temp_r31);
         }
-        TWindowSubStatusDisp__sub_8025E6DC(this, temp_r31);
+        sub_8025E6DC__19TWindowKeyBoardBaseFPUc(this, temp_r31);
     }
 }
 
-void TWindowKeyBoardBase::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); }
+void TWindowKeyBoardBase::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade__13TUnk_804CE018Fv(this); }
 
 extern s32 __vt__19TWindowKeyBoardBase[];
 

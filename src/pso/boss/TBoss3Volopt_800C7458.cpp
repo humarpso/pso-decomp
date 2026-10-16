@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 
 struct V3_800C7458 { f32 x; s32 y; f32 z; };
@@ -96,7 +98,7 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern RecoveredGlobal_800C7698_lbl_8058D490 identity_matrix;
-void render_anim_model_at_pos__12TBoss3VoloptFPv(u8 *arg0);
+void render_anim_model_at_pos__15TObjEneGyaranzoFv(u8 *arg0);
 s32 matrix_mult_vec(int, void *, void *);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -144,11 +146,11 @@ void TObjEnemyCustom::vfunc_65(s32 arg1, s32 arg2) {
     pop_matrix();
 }
 
-void render_anim_model_at_pos__12TBoss3VoloptFPv(u8 *arg0) {
+void TObjEneGyaranzo::render_anim_model_at_pos() {
     push_matrix_from((void *) (&identity_matrix.value));
-    post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    ((TObjPlayer *)arg0)->render_anim_model((f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    post_translate_matrix((void *) (((u8 *)this) + 0x38));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+    ((TObjEnemy *)((u8 *)this))->render_anim_model((f32) (*(f32 *)((s8 *)((u8 *)this) + 0xC0)));
     pop_matrix();
 }
 

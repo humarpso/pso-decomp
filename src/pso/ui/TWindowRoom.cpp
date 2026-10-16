@@ -25,7 +25,7 @@ struct RoomTitleEntry {
 extern "C" {
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
 int get_array_entry__13TUnk_804CE018Fi(void*, int);
-s32 save_position__17TWindowSubComCardFPv(void *);
+s32 save_position__13TUnk_804CE018Fv(void *);
 void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
 void refresh_status_display__9TWindowDDFv(void *);
 s32 set_text_entry_string(s32, s32, s32);
@@ -44,7 +44,7 @@ extern "C" {
 void *__dt__11TWindowRoomFv(void *arg0, s16 arg1);
 void draw_status__11TWindowRoomFi(s32 arg0);
 s32 draw_visible_window_entries(s32, s32, s32);
-int update_window_entry_list(void*, void*);
+int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 s32 set_text_entry_string(s32, s32, s32);
 s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
@@ -76,7 +76,7 @@ void draw_status__11TWindowRoomFi(s32 arg0) {
     ((TWindowRoom *)arg0)->draw_tab((void *)temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
 }
-void TWindowRoom::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list(this, (char*)this + 0x24); }
+void TWindowRoom::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list__13TUnk_804CE018FPv(this, (char*)this + 0x24); }
 
 extern s32 __vt__11TWindowRoom[];
 
@@ -105,7 +105,7 @@ TWindowRoom::TWindowRoom(char *title) {
     refresh_status_display__9TWindowDDFv(entry);
     width = lbl_805DD2F0 + (entry->positionX + entry->width);
     positionX -= width;
-    save_position__17TWindowSubComCardFPv(this);
+    save_position__13TUnk_804CE018Fv(this);
     tabParameter = TWindowSubStatusDisp__sub_802877A4(unknown48 - lbl_805DD2F4);
 }
 

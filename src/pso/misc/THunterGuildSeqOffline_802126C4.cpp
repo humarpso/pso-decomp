@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TQuestListVM.h"
 
@@ -20,7 +21,7 @@ extern VObj_802126C4 *THunterGuildSeqOffline__active_instance;
 void THunterGuildSeqOffline::notify_close() {
     if (THunterGuildSeqOffline__active_instance != NULL) {
         THunterGuildSeqOffline__active_instance->m7(0x19, 1);
-        ((TQuestListVM *)THunterGuildSeqOffline__active_instance)->set_field_20(4);
+        ((TShopWindowBase *)THunterGuildSeqOffline__active_instance)->set_field_20(4);
     }
 }
 

@@ -6,6 +6,7 @@
 class TUnk_804CE7E8 : public TUnk_804D0618 {
 public:
     virtual ~TUnk_804CE7E8();
+    void advance_all_entries(s32);
     void sub_80248B7C(s16);
     void sync_level_field();
     u8 unk_88[0x4];

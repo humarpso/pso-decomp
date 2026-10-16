@@ -62,9 +62,9 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 s32 is_boss_active__13TObjDFHormingFv();
 s32 TBoss4DarkFalz__sub_8004C1AC();
-s32 check_attack_trigger__11TBoss4Type3Fv(void *);
+s32 check_attack_trigger__13TObjDFHormingFv(void *);
 s32 steer_homing_direction(void *);
-s32 fn_8005076C(void *);
+s32 sub_8005076C__13TObjDFHormingFv(void *);
 int queue_destruction__13TObjDFHormingFPv(void* p);
 s32 copy_vec3__11TBoss4Type2FPv(void *, void *);
 void copy_pos__11TNowLoadingFPv(void *, void *);
@@ -270,13 +270,13 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x2FC);
     switch (*(s32 *)((s8 *)arg0 + 0x368)) {
     case 0:
-        fn_8005076C(arg0);
+        sub_8005076C__13TObjDFHormingFv(arg0);
         break;
     case 1:
         steer_homing_direction(arg0);
         break;
     case 2:
-        check_attack_trigger__11TBoss4Type3Fv(arg0);
+        check_attack_trigger__13TObjDFHormingFv(arg0);
         break;
     }
     normalize_vector(arg0 + 0x348);

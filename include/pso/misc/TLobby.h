@@ -727,7 +727,6 @@ struct TLobby : public TObject {
     void set_field_1c(f32 farg0);
     static s32 get_flagged_table_entry(s32 arg0);
     static s32 get_flag_value_if_set();
-    void select_cursor_entry();
     void add_status_disp_entry(s32 arg1, s32 arg2);
     static void reset_message_thread();
     static void update_exi_status();

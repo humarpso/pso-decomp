@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
 #include "pso/misc/TOKeyJungleMain.h"
 
 struct Base_8029D3A4_8029CF68;
@@ -20,7 +21,7 @@ int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 void * __nw__7TObjectFUl(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 void render__8TObjFishFv(u8 *arg0);
-s32 init_fish_school__8TObjFishFPvPvii(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32 arg3);
+s32 init_fish_school__8TObjFishFPvll(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32 arg3);
 extern void* tl_05;
 extern s32 TObjFish__area_bml_resource;
 extern void* __vt__8TObjFish[];
@@ -140,14 +141,14 @@ extern u32 TOKeyJungleMain__static_model_resource;
 void render__15TOKeyJungleMainFv(u8 *arg0);
 void vfunc_17__15TOKeyJungleMainFv(void *arg0);
 void free_collision_body_parts(void *);
-void unregister_object_by_id(void *);
+void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 extern s32 __vt__15TOKeyJungleMain[];
 void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1);
 s32 is_lobby_event_active();
 extern s32 TObjFish__area_event_stage;
-u8 update_state__8TObjFishFPv(void *arg0);
+u8 update_state__8TObjFishFv(void *arg0);
 s32 get_bml_motion(s32, s32);
 extern u32 TOKeyJungleMain__static_model_resource;
 extern const f32 lbl_805DDD38;
@@ -166,7 +167,7 @@ extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__
 extern s32 game_difficulty_selection;
 void send_switch_on__15TOKeyJungleMainFv(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFv(void *);
-s32 refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_switch_id__5TOKeyFv(void *);
 s32 TOKey__ct(void *);
@@ -309,7 +310,7 @@ void TOKeyJungleMain::vfunc_17() {
 void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TOKeyJungleMain;
-        unregister_object_by_id(arg0);
+        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
         free_collision_body_parts(arg0);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
@@ -328,7 +329,7 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFv((void *) (arg0));
     init_collision_body_parts((void *) (arg0), (void *) (&TOKeyJungleMain_collision_body_parts.value), (int) (1));
-    refresh_collision_body_centers((void *) (arg0));
+    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
     reset_photon_effect__10TObjPlayerFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0xD0) = 0;
     *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
@@ -343,31 +344,31 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-u8 update_state__8TObjFishFPv(void *arg0) {
+u8 TObjFish::update_state() {
     s16 temp_r0;
     if ((s32) TObjFish__area_event_stage == 0) {
-        temp_r0 = *(s16 *)((s8 *)arg0 + 0x90);
+        temp_r0 = *(s16 *)((s8 *)this + 0x90);
         switch (temp_r0) {
         case 0:
             if (is_lobby_event_active() == 0) {
-                *(s16 *)((s8 *)arg0 + 0x90) = 2;
-                *(s16 *)((s8 *)arg0 + 0x92) = 0x28;
+                *(s16 *)((s8 *)this + 0x90) = 2;
+                *(s16 *)((s8 *)this + 0x92) = 0x28;
             }
             goto Lend;
         case 2:
-            *(s16 *)((s8 *)arg0 + 0x92) = (s16) (*(s16 *)((s8 *)arg0 + 0x92) - 1);
-            if (*(s16 *)((s8 *)arg0 + 0x92) <= 0) {
-                *(s16 *)((s8 *)arg0 + 0x90) = 3;
+            *(s16 *)((s8 *)this + 0x92) = (s16) (*(s16 *)((s8 *)this + 0x92) - 1);
+            if (*(s16 *)((s8 *)this + 0x92) <= 0) {
+                *(s16 *)((s8 *)this + 0x90) = 3;
             }
             goto Lend;
         case 3:
         default:
             if (is_lobby_event_active() != 0) {
-                *(s16 *)((s8 *)arg0 + 0x90) = 0;
+                *(s16 *)((s8 *)this + 0x90) = 0;
             }
         }
 Lend:
-        return (u8) (*(s16 *)((s8 *)arg0 + 0x90) == 3);
+        return (u8) (*(s16 *)((s8 *)this + 0x90) == 3);
     }
     return 1U;
 }
@@ -454,7 +455,7 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(int);
-u8 update_state__8TObjFishFPv(void *arg0);
+u8 update_state__8TObjFishFv(void *arg0);
 s32 translate_matrix_vec3(int, void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -490,7 +491,7 @@ void render__8TObjFishFv(u8 *arg0) {
 
     if (get_state_flag__9TMainTaskFv() != 1 &&
         ((VObj_18_26a62c *)arg0)->m8(lbl_805DDD40, TObjFish__data_805DDD44) != 0 &&
-        F(Fish_8029D5C8 *, 0xA0) != NULL && ((s32 (*)(void *))update_state__8TObjFishFPv)(arg0) != 0) {
+        F(Fish_8029D5C8 *, 0xA0) != NULL && ((s32 (*)(void *))update_state__8TObjFishFv)(arg0) != 0) {
         f = F(Fish_8029D5C8 *, 0xA0);
         n = F(s32, 0x94);
         push_matrix();
@@ -616,25 +617,26 @@ extern const f32 lbl_805DDD7C;
 
 #pragma push
 #pragma fp_contract on
-s32 init_fish_school__8TObjFishFPvPvii(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32 arg3) {
+s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
+    Vec_8029E170 *arg1 = (Vec_8029E170 *)arg1_arg;
     Ent_8029E170 *p;
     s32 i;
 
     if (TObjFish__area_event_stage == 0 && is_lobby_event_active() != 0) {
-        *(s16 *)((s8 *)arg0 + 0x90) = 0;
+        *(s16 *)((s8 *)((u8 *)this) + 0x90) = 0;
     } else {
-        *(s16 *)((s8 *)arg0 + 0x90) = 3;
+        *(s16 *)((s8 *)((u8 *)this) + 0x90) = 3;
     }
-    *(s16 *)((s8 *)arg0 + 0x92) = 0;
-    if (*(s32 *)((s8 *)arg0 + 0x94) < 1) {
+    *(s16 *)((s8 *)((u8 *)this) + 0x92) = 0;
+    if (*(s32 *)((s8 *)((u8 *)this) + 0x94) < 1) {
         return 0;
     }
-    *(Ent_8029E170 **)((s8 *)arg0 + 0xA0) = (Ent_8029E170 *) alloc__22TQuestVmDownLoadServerFv(*(s32 *)((s8 *)arg0 + 0x94) * 0x44);
-    if (*(Ent_8029E170 **)((s8 *)arg0 + 0xA0) == NULL) {
+    *(Ent_8029E170 **)((s8 *)((u8 *)this) + 0xA0) = (Ent_8029E170 *) alloc__22TQuestVmDownLoadServerFv(*(s32 *)((s8 *)((u8 *)this) + 0x94) * 0x44);
+    if (*(Ent_8029E170 **)((s8 *)((u8 *)this) + 0xA0) == NULL) {
         return 0;
     }
-    p = *(Ent_8029E170 **)((s8 *)arg0 + 0xA0);
-    for (i = 0; i < *(s32 *)((s8 *)arg0 + 0x94); i++) {
+    p = *(Ent_8029E170 **)((s8 *)((u8 *)this) + 0xA0);
+    for (i = 0; i < *(s32 *)((s8 *)((u8 *)this) + 0x94); i++) {
         p->pos.x = lbl_805DDD70 * (arg1->x * (lbl_805DDD64 * (f32) rand() - lbl_805DDD60));
         p->pos.y = lbl_805DDD70 * (arg1->y * (lbl_805DDD64 * (f32) rand() - lbl_805DDD60));
         p->pos.z = lbl_805DDD70 * (arg1->z * (lbl_805DDD64 * (f32) rand() - lbl_805DDD60));
@@ -676,7 +678,7 @@ s32 init_fish_school__8TObjFishFPvPvii(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s
 #define __nw__7TObjectFUl ((u8 * (*)(s32))__nw__7TObjectFUl)
 #define get_global_state__14TOKeyMachine01Fv ((s32 (*)(void))get_global_state__14TOKeyMachine01Fv)
 #define render__8TObjFishFv ((void (*)())render__8TObjFishFv)
-#define init_fish_school__8TObjFishFPvPvii ((s32 (*)(void *, void *, int, int))init_fish_school__8TObjFishFPvPvii)
+#define init_fish_school__8TObjFishFPvll ((s32 (*)(void *, void *, int, int))init_fish_school__8TObjFishFPvll)
 #define tl_05 (*(s32 *)&tl_05)
 #define TObjFish__area_bml_resource (*(u32 *)&TObjFish__area_bml_resource)
 
@@ -734,7 +736,7 @@ u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) < 1) {
         *(s32 *)((s8 *)arg0 + 0x94) = 1;
     }
-    if (init_fish_school__8TObjFishFPvPvii((void *) (arg0), (void *) (arg0 + 0x68), (int) (*(s32 *)((s8 *)arg2 + 0x30)), (int) (*(s32 *)((s8 *)arg2 + 0x34))) == 0) {
+    if (init_fish_school__8TObjFishFPvll((void *) (arg0), (void *) (arg0 + 0x68), (int) (*(s32 *)((s8 *)arg2 + 0x30)), (int) (*(s32 *)((s8 *)arg2 + 0x34))) == 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
     return arg0;
@@ -904,6 +906,6 @@ void TObjFish::load_area_resource() {
 #undef __nw__7TObjectFUl
 #undef get_global_state__14TOKeyMachine01Fv
 #undef render__8TObjFishFv
-#undef init_fish_school__8TObjFishFPvPvii
+#undef init_fish_school__8TObjFishFPvll
 #undef tl_05
 #undef TObjFish__area_bml_resource

@@ -7,6 +7,8 @@
 class TObjEZBoneRotBase : public TObject {
 public:
     virtual ~TObjEZBoneRotBase();
+    void sub_800FED0C();
+    void sub_800FEC40(u8 *);
 };
 
 #endif

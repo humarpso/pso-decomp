@@ -6,6 +6,7 @@
 
 struct TWindowLockOn : public TUnk_804CE018 {
     virtual ~TWindowLockOn();
+    void request_close();
     virtual void render();
     u8 _pad1C[0x4];
     u16 m_20;

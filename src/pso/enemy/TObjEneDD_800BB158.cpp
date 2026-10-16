@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/boss/TBoss5Gryphon.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "types.h"
 #pragma fp_contract on
@@ -17,7 +18,7 @@ extern "C" {
 f32 fabs_float(f32);
 s32 csnVector(void *, void *, int);
 extern const f32 lbl_805D9EA4;
-s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+s32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *csnVectorUnder(f32 *, void *, s32);
 u8 *vfunc_103__9TObjEneDDFPUc(u8 *arg0, u8 *arg1);
 }
@@ -26,12 +27,12 @@ extern "C" {
 
 s32 VecCopy__FP3VecPC3Vec(void *, void *, s32);
 
-void TObjEneDD::calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {
+void TBoss5Gryphon::calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r5;
 
     f32 temp_f3 = farg2 + *(f32 *)((s8 *)arg0 + 0x37C);
-    if (enemy_probe_wall_ahead((u8 *)(arg0), farg0, farg1, temp_f3) == 0U) {
+    if (enemy_probe_wall_ahead__13TBoss5GryphonFfff((u8 *)(arg0), farg0, farg1, temp_f3) == 0U) {
         *(f32 *)((s8 *)arg1 + 0) = (f32) ((farg0 * farg2) + *(f32 *)((s8 *)arg0 + 0x38));
         *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         *(f32 *)((s8 *)arg1 + 8) = (f32) ((farg1 * farg2) + *(f32 *)((s8 *)arg0 + 0x40));
@@ -43,7 +44,7 @@ void TObjEneDD::calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x38, temp_r5);
 }
 typedef struct Stack_800BB218 Stack_800BB218;
-s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+s32 TBoss5Gryphon::enemy_probe_wall_ahead(f32 farg0, f32 farg1, f32 farg2) {
   f32 temp_f31;
   Stack_800BB218 stack;
   f32 temp_f30;
@@ -53,10 +54,10 @@ s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
   {
     return farg0 * 0;
   }
-  stack.sp8 = (*((f32 *) (((s8 *) arg0) + 0x38))) + temp_f30;
-  stack.spC = *((f32 *) (((s8 *) arg0) + 0x300));
-  stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x40))) + temp_f31;
-  return csnVector((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) 0x88E0);
+  stack.sp8 = (*((f32 *) (((s8 *) ((u8 *)this)) + 0x38))) + temp_f30;
+  stack.spC = *((f32 *) (((s8 *) ((u8 *)this)) + 0x300));
+  stack.sp10 = (*((f32 *) (((s8 *) ((u8 *)this)) + 0x40))) + temp_f31;
+  return csnVector((void *) (((u8 *)this) + 0x2FC), (void *) (&stack.sp8), (int) 0x88E0);
 }
 u8 *TObjEneDD::vfunc_103(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
