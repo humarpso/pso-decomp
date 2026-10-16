@@ -6,6 +6,28 @@
 
 struct TObjEneDD : public TObjEnemy {
     virtual ~TObjEneDD();
+    virtual s32 vfunc_83();
+    virtual void vfunc_84();
+    virtual void vfunc_85();
+    virtual u8 vfunc_86();
+    virtual void vfunc_87() = 0;
+    virtual void vfunc_88();
+    virtual void vfunc_89();
+    virtual s32 vfunc_90();
+    virtual void vfunc_91();
+    virtual void vfunc_92();
+    virtual void vfunc_93();
+    virtual void vfunc_94();
+    virtual void vfunc_95();
+    virtual void vfunc_96();
+    virtual void vfunc_97();
+    virtual void vfunc_98();
+    virtual u8 vfunc_99();
+    virtual void vfunc_100();
+    virtual u8 *vfunc_101(u8 *);
+    virtual u8 *vfunc_102();
+    virtual u8 *vfunc_103(u8 *);
+    virtual void vfunc_104() = 0;
     int get_flag_b4();
     static f32 calc_elapsed_scaled();
     void init_float_params();

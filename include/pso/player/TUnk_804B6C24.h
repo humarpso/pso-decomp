@@ -6,14 +6,14 @@
 class TUnk_804B6C24 : public TUnk_804806E8 {
 public:
     virtual ~TUnk_804B6C24();
-    void *destroy_container_object(s16);
-    virtual f32 vfunc_23(void *, void *, void *, s32, s32);
-    virtual f32 vfunc_22(void *, f32);
-    void spawn_item(s32);
     virtual void vfunc_79();
     virtual void vfunc_80();
     virtual void vfunc_81();
     virtual void debug_print_item_box_info();
+    void *destroy_container_object(s16);
+    virtual f32 vfunc_23(void *, void *, void *, s32, s32);
+    virtual f32 vfunc_22(void *, f32);
+    void spawn_item(s32);
     virtual void vfunc_6(s16 *, s32);
     virtual s32 vfunc_27(void *, s32, f32);
     virtual s32 vfunc_26(s32, s32);

@@ -132,6 +132,9 @@ public:
 
     TObject(TObject *parent = NULL);
     virtual ~TObject();
+    virtual void run_task();
+    virtual void render();
+    virtual void render_shadows();
     void set_flag_4();
 
     void *operator new(size_t size);
@@ -145,10 +148,6 @@ public:
     void render_nodes2();
     void empty_func();
     void set_parent(TObject *parent);
-
-    virtual void run_task();
-    virtual void render();
-    virtual void render_shadows();
 
     void empty_func2();
     void log(const char *str);

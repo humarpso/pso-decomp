@@ -6,6 +6,9 @@
 class TUnk_804B1B80 : public TUnk_804AFBF8 {
 public:
     virtual ~TUnk_804B1B80();
+    virtual void vfunc_14();
+    virtual void vfunc_15();
+    virtual void vfunc_16();
     void *init_fields();
     void *destroy(s16);
     s32 sub_80166EA8(int);

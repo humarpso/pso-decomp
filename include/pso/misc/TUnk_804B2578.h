@@ -6,10 +6,10 @@
 class TUnk_804B2578 : public TUnk_804806E8 {
 public:
     virtual ~TUnk_804B2578();
-    void set_scale(f32);
     virtual void vfunc_79();
     virtual void vfunc_80();
     virtual f32 vfunc_81();
+    void set_scale(f32);
     virtual void vfunc_25(u8 *);
     virtual f32 vfunc_24(void *, void *);
     virtual f32 vfunc_23(void *, void *, void *, s32, s32);

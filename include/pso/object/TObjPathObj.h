@@ -6,8 +6,8 @@
 
 struct TObjPathObj : public TUnk_804B9870 {
     virtual ~TObjPathObj();
-    virtual void vfunc_14();
     virtual void vfunc_13(s32);
+    virtual void vfunc_14();
     virtual void render();
     virtual void run_task();
     u8 unk_90[0x4];

@@ -4,13 +4,12 @@
 #include "pso/player/TUnk_804806E8.h"
 struct TObjEnemy : public TUnk_804806E8 {
     virtual ~TObjEnemy();
-    s32 exchange_object_state(s32, s16);
-    void sub_8002AE64();
     virtual void vfunc_79();
     virtual void vfunc_80(void *);
     virtual void vfunc_81(void *);
     virtual void clear_lobby_object_state();
-    virtual void vfunc_83();
+    s32 exchange_object_state(s32, s16);
+    void sub_8002AE64();
     virtual int vfunc_12();
     TObjEnemy* initialize(void* parent);
     s32 countChildren();

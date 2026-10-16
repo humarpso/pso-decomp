@@ -6,9 +6,9 @@
 
 struct TODragonfly : public TUnk_804AFBF8 {
     virtual ~TODragonfly();
+    virtual void vfunc_14();
     void sub_80164A90();
     void sub_80164990();
-    virtual void vfunc_14();
     virtual void render();
     virtual void run_task();
     u8 unk_C8[0x4];

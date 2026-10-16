@@ -6,6 +6,9 @@
 
 struct TObjQuestColBase : public TUnk_804AF8A0 {
     virtual ~TObjQuestColBase();
+    virtual void vfunc_14();
+    virtual int vfunc_15();
+    virtual int vfunc_16();
     s32 update_trigger_state(f32);
     virtual void render();
     u8 unk_AC[0x4];

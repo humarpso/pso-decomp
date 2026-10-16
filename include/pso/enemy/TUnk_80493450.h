@@ -6,7 +6,6 @@
 class TUnk_80493450 : public TObjEnemy {
 public:
     virtual ~TUnk_80493450();
-    void*init_enemy_base();
     virtual void vfunc_83();
     virtual void vfunc_84();
     virtual void vfunc_85();
@@ -27,6 +26,7 @@ public:
     virtual void vfunc_100();
     virtual void vfunc_101();
     virtual void request_stand_action();
+    void*init_enemy_base();
     virtual int test_flag_256();
     virtual void run_task();
     s16 m_374;

@@ -20,8 +20,8 @@ public:
 public:
     TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life);
     virtual ~TItemShoot();
-    virtual void run_task();
     virtual void hook();
+    virtual void run_task();
 public:
     static s32 spawn_shoot_particle();
     static u32 spawn_shoot_particle_attached(s32 arg0, s32 arg1, s32 arg2, f32 farg0);

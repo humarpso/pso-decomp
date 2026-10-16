@@ -6,6 +6,20 @@
 
 struct TObjEneMe3Shinowa : public TObjEneDD_ST {
     virtual ~TObjEneMe3Shinowa();
+    virtual void vfunc_105();
+    virtual u8 can_hit_same_target();
+    virtual void vfunc_107();
+    virtual void vfunc_108();
+    virtual s32 vfunc_109();
+    virtual void vfunc_110();
+    virtual void vfunc_111();
+    virtual void vfunc_112();
+    virtual void action(s32);
+    virtual void vfunc_114();
+    virtual void vfunc_115();
+    virtual void vfunc_116();
+    virtual void update_mirage();
+    virtual void vfunc_118();
     void init_enemy();
     f32 get_node_world_y();
     u8 check_body_collision_at(s32, f32);

@@ -6,6 +6,8 @@
 
 struct TObjEneBm5GibonU : public TObjEneDD_ST {
     virtual ~TObjEneBm5GibonU();
+    virtual void update_state();
+    virtual void render_debug();
     void update_center_position();
     void vfunc_63();
     void vfunc_62();

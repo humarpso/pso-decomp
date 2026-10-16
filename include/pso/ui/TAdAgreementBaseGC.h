@@ -6,6 +6,13 @@
 
 struct TAdAgreementBaseGC : public TObject {
     virtual ~TAdAgreementBaseGC();
+    virtual void vfunc_6();
+    virtual void vfunc_7();
+    virtual void vfunc_8();
+    virtual void vfunc_9();
+    virtual void vfunc_10();
+    virtual void vfunc_11();
+    virtual void vfunc_12();
     u32 m_1c;
     u8 _pad20[0x4];
     u32 m_24;

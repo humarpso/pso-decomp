@@ -6,6 +6,19 @@
 
 struct TObjEneMe1Canadin : public TObjEneDD_ST {
     virtual ~TObjEneMe1Canadin();
+    virtual void vfunc_105();
+    virtual void vfunc_106();
+    virtual void vfunc_107();
+    virtual s32 vfunc_108();
+    virtual int vfunc_109();
+    virtual void vfunc_110(s32);
+    virtual void vfunc_111(s32);
+    virtual void vfunc_112(s32);
+    virtual void vfunc_113();
+    virtual void update_if_ready();
+    virtual void vfunc_115();
+    virtual int vfunc_116();
+    virtual void vfunc_117();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

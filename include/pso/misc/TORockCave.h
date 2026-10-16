@@ -8,7 +8,6 @@ struct TORockCave : public TUnk_804AF8A0 {
     virtual ~TORockCave();
     virtual void vfunc_14();
     virtual void vfunc_15();
-    virtual void vfunc_16();
     void draw_model();
     static void free_instances();
     static void load_resources();

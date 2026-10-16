@@ -6,6 +6,10 @@
 
 struct TWindowMainMenu : public TObject {
     virtual ~TWindowMainMenu();
+    virtual void vfunc_6();
+    virtual void vfunc_7();
+    virtual void vfunc_8();
+    virtual void vfunc_9();
     void set_scale_f();
     u8 unk_1C[0x10];
     u32 m_48;

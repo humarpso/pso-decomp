@@ -6,9 +6,9 @@
 
 struct TObjFogCollision : public TUnk_804B9870 {
     virtual ~TObjFogCollision();
+    virtual void vfunc_13(s32);
     virtual void vfunc_14();
     virtual void draw_volume();
-    virtual void vfunc_13(s32);
     virtual void render();
     u32 m_90;
     u32 m_94;

@@ -7,6 +7,36 @@
 
 struct TItem : public TUnk_804AF8A0 {
     virtual ~TItem();
+    virtual void vfunc_14();
+    virtual void vfunc_15();
+    virtual void vfunc_16();
+    virtual void vfunc_17();
+    virtual void vfunc_18();
+    virtual void vfunc_19();
+    virtual void vfunc_20();
+    virtual s32 vfunc_21(u8 *, s32, s32, s32);
+    virtual void vfunc_22();
+    virtual void vfunc_23();
+    virtual void vfunc_24();
+    virtual void vfunc_25();
+    virtual void vfunc_26();
+    virtual void vfunc_27();
+    virtual void vfunc_28();
+    virtual void vfunc_29();
+    virtual void vfunc_30();
+    virtual void vfunc_31();
+    virtual int vfunc_32();
+    virtual int vfunc_33();
+    virtual void vfunc_34();
+    virtual int vfunc_35();
+    virtual int vfunc_36();
+    virtual int vfunc_37();
+    virtual int vfunc_38();
+    virtual int vfunc_39();
+    virtual void vfunc_40();
+    virtual int vfunc_41();
+    virtual void vfunc_42();
+    virtual int vfunc_43();
     s32 get_item_flags();
     void sub_80102C68();
     void sub_80102C58();

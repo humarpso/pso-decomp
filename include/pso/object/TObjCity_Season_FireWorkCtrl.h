@@ -6,8 +6,8 @@
 
 struct TObjCity_Season_FireWorkCtrl : public TUnk_804B9870 {
     virtual ~TObjCity_Season_FireWorkCtrl();
-    void sub_8018355C();
     virtual void vfunc_13(s32);
+    void sub_8018355C();
     virtual void run_task();
 
     u8 unk_90[0x4];

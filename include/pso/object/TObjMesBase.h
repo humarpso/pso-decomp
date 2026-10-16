@@ -6,6 +6,9 @@
 
 struct TObjMesBase : public TUnk_804AF8A0 {
     virtual ~TObjMesBase();
+    virtual void vfunc_14();
+    virtual void vfunc_15();
+    virtual void vfunc_16();
     virtual void run_task();
     void* messageChild;
     s32 messagePhase;

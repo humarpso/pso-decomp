@@ -6,6 +6,8 @@
 
 struct TObjEneRecon : public TObjEneDD_ST {
     virtual ~TObjEneRecon();
+    virtual void vfunc_105();
+    virtual void vfunc_106();
     void update_flag_0x444();
     void sub_8031D4B0(s32);
     void vfunc_63();

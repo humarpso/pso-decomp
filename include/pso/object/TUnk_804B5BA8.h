@@ -6,6 +6,15 @@
 class TUnk_804B5BA8 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_804B5BA8();
+    virtual s32 check_player_in_range(s32, f32);
+    virtual void begin_state_1();
+    virtual void vfunc_16();
+    virtual void vfunc_17();
+    virtual void check_ground_or_fall();
+    virtual void vfunc_19();
+    virtual void vfunc_20();
+    virtual void dispatch_state();
+    virtual void vfunc_22();
     u8 unk_AC[0x8];
     f32 m_b4;
     u8 unk_B8[0x4];

@@ -13,7 +13,7 @@ struct TItemEquipBase : public TItem {
     virtual void vfunc_48();
     virtual void vfunc_49();
     virtual void vfunc_50();
-    virtual s32 vfunc_51(u8 *, s32, s32, s32);
+    virtual s32 vfunc_21(u8 *, s32, s32, s32);
     u8 unk_F8[0x2];
     s16 m_fa;
     u8 unk_FC[0x2];

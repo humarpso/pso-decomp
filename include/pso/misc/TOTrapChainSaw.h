@@ -6,6 +6,23 @@
 
 struct TOTrapChainSaw : public TUnk_804AFBF8 {
     virtual ~TOTrapChainSaw();
+    virtual void vfunc_14();
+    virtual void decode_params();
+    virtual void vfunc_16();
+    virtual int check_player_contact();
+    virtual void vfunc_18();
+    virtual s32 consume_counter(void *);
+    virtual void set_hit_cooldown_for_player(void *);
+    virtual int clear_field_d8();
+    virtual void update_extension();
+    virtual void update_sweep();
+    virtual void update_state();
+    virtual void vfunc_25();
+    virtual void vfunc_26();
+    virtual void vfunc_27();
+    virtual void vfunc_28();
+    virtual void vfunc_29();
+    virtual f32 vfunc_30();
     virtual void render();
     virtual void run_task();
     u32 m_c8;

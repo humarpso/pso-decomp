@@ -6,6 +6,7 @@
 
 struct TAdEp3Exist : public TObject {
     virtual ~TAdEp3Exist();
+    virtual void vfunc_6();
     u32 m_1c;
     u32 m_20;
     u32 m_24;

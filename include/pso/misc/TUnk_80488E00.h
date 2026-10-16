@@ -6,6 +6,9 @@
 class TUnk_80488E00 : public TUnk_80488A28 {
 public:
     virtual ~TUnk_80488E00();
+    virtual void update_follow_flags();
+    virtual void vfunc_13();
+    virtual void vfunc_14(s32);
     virtual void vfunc_9(u8 *, u8 *);
     s32 predict_obstruction();
     virtual void vfunc_10();

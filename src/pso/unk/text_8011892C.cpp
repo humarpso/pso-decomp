@@ -67,7 +67,7 @@ extern const f32 TItemProUnit__data_805DABF8;
 extern const f32 lbl_805DAC00;
 void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out);
 f32 TItemProUnit__sub_8011901C(void *);
-void vfunc_46__12TItemProUnitFv(Self_80118A78 *self);
+void vfunc_16__12TItemProUnitFv(Self_80118A78 *self);
 u8 get_technique_learn_limit(u8, u8);
 u8 get_cast_technique_level(void *, s16);
 void set_technique_level_entry(void *, s16, u8);
@@ -151,7 +151,7 @@ extern void *__vt__12TItemProUnit[];
 extern s32 lbl_805D2C40;
 extern const f32 TItemProUnit__data_805DABF8;
 
-void TItemProUnit::vfunc_46() {
+void TItemProUnit::vfunc_16() {
     Self_80118A78 *self = (Self_80118A78 *)this;
     if (self->s18c == 0x13) {
         if (TItemProUnit__sub_8011901C(self->data->unit) < self->evp) {
@@ -297,7 +297,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)try_pick_up_item__5TItemFPvi,
     (void *)TItemProUnit__vt12,
     (void *)TItem__sub_801005E0,
-    (void *)vfunc_46__12TItemProUnitFv,
+    (void *)vfunc_16__12TItemProUnitFv,
     (void *)TItem__sub_80100678,
     (void *)TItemProUnit__vt16,
     (void *)set_attach_slot__14TItemEquipBaseFSc,

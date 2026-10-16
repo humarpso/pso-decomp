@@ -8273,6 +8273,7 @@ force_active:
   - vfunc_101__14TObjEneDolmOlmFv
   - vfunc_11__17TQuestListOfflineFv
   - vfunc_13__13TUnk_804B5C08Fl
+  - vfunc_16__12TItemProUnitFv
   - vfunc_20__17TOBarrierEnergy01Fv
   - vfunc_22__16TOTrapAncient02RFPvf
   - vfunc_28__13TObjEneBm3FlyFv
@@ -8286,7 +8287,6 @@ force_active:
   - vfunc_44__13TObjEneRe4BitFv
   - vfunc_45__12TItemProUnitFv
   - vfunc_45__13TObjEneRe4BitFv
-  - vfunc_46__12TItemProUnitFv
   - vfunc_46__13TObjEneRe4BitFv
   - vfunc_47__13TObjEneRe4BitFv
   - vfunc_48__12TItemProUnitFv

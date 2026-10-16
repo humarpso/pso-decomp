@@ -25,7 +25,7 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1);
 
 extern "C" {
 
-void vfunc_46__21TItemProArmorParticleFv(void *arg0);
+void vfunc_16__21TItemProArmorParticleFv(void *arg0);
 void vfunc_44__21TItemProArmorParticleFv(void *arg0);
 void vfunc_45__21TItemProArmorParticleFv(void *arg0);
 void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1);
@@ -49,7 +49,7 @@ void TItemProArmorParticle::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 extern s32 tl_05;
 
-void TItemProArmorParticle::vfunc_46() {
+void TItemProArmorParticle::vfunc_16() {
     s32 temp_r3;
     s32 temp_r31;
 

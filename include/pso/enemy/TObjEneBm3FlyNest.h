@@ -6,6 +6,7 @@
 
 struct TObjEneBm3FlyNest : public TObjEneDD {
     virtual ~TObjEneBm3FlyNest();
+    virtual void render_with_state_debug();
     virtual void render_shadows();
     void init_params();
     void state_initial_emit(s32);

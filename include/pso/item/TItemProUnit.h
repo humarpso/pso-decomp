@@ -6,7 +6,7 @@
 
 struct TItemProUnit : public TItemEquipBase {
     virtual ~TItemProUnit();
-    virtual void vfunc_46();
+    virtual void vfunc_16();
     void vfunc_49();
     void vfunc_48();
     void vfunc_45();

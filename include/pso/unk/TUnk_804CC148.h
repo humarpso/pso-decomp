@@ -6,13 +6,13 @@
 class TUnk_804CC148 : public TEffect {
 public:
     virtual ~TUnk_804CC148();
-    void *destroy_technique_base(s16);
-    void sub_8022C008();
-    void count_if_within_range();
     virtual void vfunc_6(void *);
     virtual void tick_lifetime();
     virtual void vfunc_8(void *);
     virtual void vfunc_9();
+    void *destroy_technique_base(s16);
+    void sub_8022C008();
+    void count_if_within_range();
     virtual void render();
     virtual void run_task();
     u8 unk_70[0x8];

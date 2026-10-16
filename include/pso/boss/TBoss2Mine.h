@@ -6,6 +6,12 @@
 
 struct TBoss2Mine : public TObjEneDD {
     virtual ~TBoss2Mine();
+    virtual void vfunc_105();
+    virtual void vfunc_106();
+    virtual void vfunc_107(s32);
+    virtual void vfunc_108(s32);
+    virtual void vfunc_109();
+    virtual void vfunc_110();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();

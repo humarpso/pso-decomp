@@ -50,7 +50,7 @@ struct RecoveredGlobal_801186EC___vt__14TItemProShield { s32 value; u8 remaining
 struct Status_80118558 { s8 a; u8 b; u8 pad[2]; u32 c; s32 d; s32 e; s32 f; };
 
 extern "C" {
-void vfunc_44__14TItemProShieldFv(u8 *arg0);
+void vfunc_14__14TItemProShieldFv(u8 *arg0);
 s32 set_dfp_bonus__9TItemDataFs(s32 a0, int a1);
 s32 set_bswapped_field_8__9TItemDataFs(s32 a0, int a1);
 void TItemProShield__vt16(void *arg0, void *arg1);
@@ -101,7 +101,7 @@ void TItemProShield__vt28(void *arg0);
 
 extern "C" {
 
-void vfunc_46__14TItemProShieldFv(void *arg0);
+void vfunc_16__14TItemProShieldFv(void *arg0);
 int TItemProShield__vt44(void* p);
 void TItemProShield__vt49(void);
 void set_params__14TItemProShieldFiPv(s32 arg0, void *arg1);
@@ -149,7 +149,7 @@ void set_params__14TItemProShieldFiPv(s32 arg0, void *arg1) {
     set_bswapped_field_8__9TItemDataFs(arg0, *(u8 *)((s8 *)arg1 + 0x199));
 }
 
-void TItemProShield::vfunc_44() {
+void TItemProShield::vfunc_14() {
     u8 *arg0 = (u8 *)this;
     if ((u8) *(u8 *)((s8 *)arg0 + 0x19A) < (u8) *(u8 *)((s8 *)arg0 + 0x198)) {
         *(u8 *)((s8 *)arg0 + 0x198) = 0U;
@@ -159,7 +159,7 @@ void TItemProShield::vfunc_44() {
     }
 }
 
-void TItemProShield::vfunc_46() {
+void TItemProShield::vfunc_16() {
     ((VObj_80118334_801181D0 *)this)->m51();
     register_technique_boosts__14TItemEquipBaseFPvPv(this, *(s32 *)((s8 *)this + 0x194));
     if (*(s32 *)((s8 *)this + 0x19C) & 4) {

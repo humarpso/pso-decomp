@@ -10,7 +10,6 @@ public:
     virtual int vfunc_6();
     virtual void run_task();
     virtual void render();
-    virtual int hook();
 public:
 };
 

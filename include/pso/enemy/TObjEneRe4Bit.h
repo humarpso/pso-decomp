@@ -6,6 +6,8 @@
 
 struct TObjEneRe4Bit : public TObjEneDD_ST {
     virtual ~TObjEneRe4Bit();
+    virtual void vfunc_105();
+    virtual void vfunc_106();
     void sub_800ED408();
     void call_vt_90_91();
     void clear_state_flags_when_done();

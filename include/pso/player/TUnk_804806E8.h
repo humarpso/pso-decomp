@@ -6,11 +6,6 @@
 class TUnk_804806E8 : public TObjMotion {
 public:
     virtual ~TUnk_804806E8();
-    void *destroy_motion_object(s16);
-    void request_box_item_drop(void *, s16);
-    f32 get_speed();
-    virtual void*vfunc_9();
-    virtual void reset_motion_fields();
     virtual s32 vfunc_14(s32);
     virtual s32 vfunc_15(s32);
     virtual s32 vfunc_16();
@@ -76,6 +71,11 @@ public:
     virtual void vfunc_76();
     virtual void vfunc_77();
     virtual void vfunc_78(s32);
+    void *destroy_motion_object(s16);
+    void request_box_item_drop(void *, s16);
+    f32 get_speed();
+    virtual void*vfunc_9();
+    virtual void reset_motion_fields();
     u8 unk_FC[0x8];
     void* m_104;
     u8 unk_108[0x124];

@@ -9,6 +9,9 @@ struct TechniqueContactBody;
 class TUnk_804CCC68 : public TEffect {
 public:
     virtual ~TUnk_804CCC68();
+    virtual void vfunc_6();
+    virtual void debug_print_tech_params();
+    virtual void vfunc_8();
     f32 range;
     f32 traveled;
     f32 previous[3];

@@ -6,6 +6,8 @@
 
 struct TODoorFourLightBase : public TUnk_804B0BB8 {
     virtual ~TODoorFourLightBase();
+    virtual void vfunc_21() = 0;
+    virtual void vfunc_22() = 0;
     virtual s32 init_door_switch_binding();
     virtual void update_door_switch_state();
     virtual void vfunc_6(s16 *, s32);

@@ -6,6 +6,8 @@
 
 struct TObjAreaWarp : public TObjWarpBase {
     virtual ~TObjAreaWarp();
+    virtual void confirm_area_transfer(s32);
+    virtual void vfunc_20();
     void debug_print_area_num();
     void open_confirm_window(u16 arg1);
     u16 find_active_player();};

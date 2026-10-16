@@ -6,6 +6,7 @@
 
 struct TObjCityDoor_Lobby : public TUnk_804B9870 {
     virtual ~TObjCityDoor_Lobby();
+    virtual void dispatch_lobby_action();
     s32 build_door_collision_triangles();
     void process_lobby_action_14();
     virtual void render();

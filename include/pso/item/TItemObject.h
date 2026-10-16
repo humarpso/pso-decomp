@@ -7,6 +7,7 @@
 
 struct TItemObject : public TItem {
     virtual ~TItemObject();
+    virtual void vfunc_44();
     u8 get_tool_pmt_amount_byte();
     u8 sub_80115D7C();
     void*vfunc_9();

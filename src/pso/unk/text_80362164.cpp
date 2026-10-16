@@ -126,7 +126,7 @@ void fn_80362164(u8 *arg0) {
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((TObjEneEpsilonGuard *)arg0)->update_guard_flag();
-        ((TObjEneEpsilonBody *)(arg0))->vfunc_106();
+        ((TObjEneEpsilonBody *)(arg0))->vfunc_85();
     } else if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 1) {
         transition_enemy_state((void *) (arg0), (int) (0));
     }
