@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/object/TObjMotion.h"
@@ -109,7 +110,6 @@ int queue_destruction__7TObjectFv(void*);
 s32 is_alive__9TObjEneDDFv(s32);
 s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
-void run_task__26TObjEneRe2Flower_EffCurse3Fv(Obj_800C4B78 *o);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 obj_setFlags30(void *, s32);
 extern const f32 lbl_805DA03C;
@@ -164,10 +164,7 @@ int queue_destruction__7TObjectFv(void*);
 
 }
 extern "C" {
-void render__7TObjectFv();
-void render_shadows__7TObjectFv();
 void *__dt__26TObjEneRe2Flower_EffCurse3Fv(void *arg0, s16 arg1);
-void run_task__26TObjEneRe2Flower_EffCurse3Fv(struct Obj_800C4B78 *o);
 extern const char lbl_8043BC48[0x1C] = "TObjEneRe2Flower_EffCurse3";
 s32 lbl_805D2A58 = (s32)lbl_8043BC48;
 extern void *__vt__26TObjEneRe2Flower_EffCurse3[];

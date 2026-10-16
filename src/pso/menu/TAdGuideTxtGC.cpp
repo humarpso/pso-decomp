@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/TAdGuideTxtGC.h"
 
 struct Base_802b1a70_802B1990 { char pad[0x18]; };
@@ -41,7 +42,6 @@ void *__dt__13TAdGuideTxtGCFv(void *self, s16 arg1);
 void __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
 void render__13TAdGuideTxtGCFv(void *);
-void render_shadows__7TObjectFv(void *);
 extern s32 lbl_805D3EA0;
 extern s32 lbl_805DE290;
 extern const f32 lbl_805DE294;

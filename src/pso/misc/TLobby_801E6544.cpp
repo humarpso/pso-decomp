@@ -521,7 +521,6 @@ void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
 extern Tbl_801E6CA4 lobby_index_identity_table_b;
 extern u8 lbl_80515BA0[];
 void TLobby__sub_801E6CA4(void);
-void send_slot_entity_or_local__6TLobbyFUsl(u16 arg0, s32 arg1);
 void *memcpy(void *, const void *, u32);
 void quest_check_chat_keyword(void);
 }
@@ -577,7 +576,7 @@ void TLobby::copy_slot_entity_data() {
     u8 buf[0x3C];
     u8 idx;
     idx = (u8) *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 4);
-    send_slot_entity_or_local__6TLobbyFUsl((u16) TLobby__quest_argument_stack.value, (s32) buf);
+    TLobby::send_slot_entity_or_local((u16) TLobby__quest_argument_stack.value, (s32) buf);
     memcpy((void *) (TLobby__script_reg_array + ((idx * 4) & 0x3FC)), buf, 0x3C);
 }
 

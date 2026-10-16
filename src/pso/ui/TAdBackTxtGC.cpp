@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/TAdBackTxtGC.h"
 #include "pso/TAdBackTxtGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -12,7 +13,6 @@ void run_task__12TAdBackTxtGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
-void render_shadows__7TObjectFv(void);
 void *__dt__12TAdBackTxtGCFv(void *self, s16 arg1);
 s32 set_cached_blend_factor(s32, s32);
 s32 restore_saved_depth_alpha_state();
