@@ -6,11 +6,6 @@
 class TUnk_80493450 : public TObjEnemy {
 public:
     virtual ~TUnk_80493450();
-    virtual void vfunc_61();
-    virtual void vfunc_59();
-    virtual s32 update_action_hold_status();
-    virtual s32 update_movement_status();
-    virtual void vfunc_60();
     virtual void vfunc_83();
     virtual void beast_idle_update();
     virtual void update_turn_toward_target();
@@ -31,6 +26,11 @@ public:
     virtual void vfunc_100();
     virtual void vfunc_101();
     virtual void request_stand_action();
+    virtual void vfunc_61();
+    virtual void vfunc_59();
+    virtual s32 update_action_hold_status();
+    virtual s32 update_movement_status();
+    virtual void vfunc_60();
     void*init_enemy_base();
     virtual int test_flag_256();
     virtual void run_task();

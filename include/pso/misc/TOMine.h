@@ -6,14 +6,6 @@
 
 struct TOMine : public TUnk_804806E8 {
     virtual ~TOMine();
-    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
-    virtual void vfunc_6(s16 *, s32);
-    virtual f32 receive_physical_attack(void *, f32);
-    virtual int vfunc_12();
-    virtual void vfunc_7(void *);
-    virtual void vfunc_25(u8 *);
-    virtual s32 try_start_action(s32, s32);
-    virtual s32 roll_physical_accuracy(void *, s32, f32);
     virtual void vfunc_79();
     virtual void vfunc_80();
     virtual void vfunc_81();
@@ -22,6 +14,14 @@ struct TOMine : public TUnk_804806E8 {
     virtual void vfunc_84();
     virtual void vfunc_85();
     virtual void vfunc_86();
+    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual void vfunc_6(s16 *, s32);
+    virtual f32 receive_physical_attack(void *, f32);
+    virtual int vfunc_12();
+    virtual void vfunc_7(void *);
+    virtual void vfunc_25(u8 *);
+    virtual s32 try_start_action(s32, s32);
+    virtual s32 roll_physical_accuracy(void *, s32, f32);
     void* m_334;
     u8 _pad338[0x8];
     u32 m_340;

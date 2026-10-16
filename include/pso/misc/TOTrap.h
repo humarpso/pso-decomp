@@ -6,7 +6,6 @@
 
 struct TOTrap : public TUnk_804806E8 {
     virtual ~TOTrap();
-    virtual f32 receive_physical_attack(void *, f32);
     virtual void find_target_player();
     virtual void submit_cursor_and_notify();
     virtual void vfunc_81();
@@ -18,6 +17,7 @@ struct TOTrap : public TUnk_804806E8 {
     virtual f32 vfunc_87();
     virtual void vfunc_88();
     virtual void vfunc_89();
+    virtual f32 receive_physical_attack(void *, f32);
     virtual s32 try_start_action(s32, s32);
     virtual void vfunc_6(s16 *, s32);
     virtual void vfunc_25(u8 *);

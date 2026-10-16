@@ -4,11 +4,11 @@
 #include "pso/player/TUnk_804806E8.h"
 struct TObjEnemy : public TUnk_804806E8 {
     virtual ~TObjEnemy();
-    virtual s32 vfunc_74(s32);
     virtual void vfunc_79();
     virtual void apply_hit_message_flags(void *);
     virtual void apply_set_data(void *);
     virtual void clear_lobby_object_state();
+    virtual s32 vfunc_74(s32);
     s32 exchange_object_state(s32, s16);
     void sub_8002AE64();
     virtual int vfunc_12();
