@@ -27,7 +27,7 @@ s32 update_dial_state__12TAdDialingGCFl();
 void TAdDialingGC::run_task() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
+    temp_r0 = *(s32 *)&this->m_1c;
     switch (temp_r0) {
     case 0:
         update_dial_state__12TAdDialingGCFl();
@@ -40,7 +40,7 @@ void TAdDialingGC::run_task() {
         break;
     }
     update_selection();
-    *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
+    *(s32 *)&this->m_24 = (s32) (*(s32 *)&this->m_24 + 1);
 }
 typedef char RecoveredGlobal_80328D50___vt__12TAdDialingGC_size[sizeof(RecoveredGlobal_80328D50___vt__12TAdDialingGC) == 0x18 ? 1 : -1];
 u8 *__dt__12TAdDialingGCFv(u8 *arg0, s16 arg1) {

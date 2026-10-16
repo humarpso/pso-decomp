@@ -63,7 +63,7 @@ void queue_destruction__7TObjectFv(void *);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int set_state_0x1a__21TAdMultiChgGameModeGCFv(void*);
 
-s32 TAdSnAkPassConfirmGC::get_confirm_state() { return *(s32*)((char*)this + 0x1c); }
+s32 TAdSnAkPassConfirmGC::get_confirm_state() { return *(s32 *)&this->m_1c; }
 
 void TAdSnAkPassConfirmGC::render() {
     struct VObj_8032BE50_8032BE48 *o = (struct VObj_8032BE50_8032BE48 *)this;

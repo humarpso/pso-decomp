@@ -515,15 +515,15 @@ void TWindowHelpItem::update_stat_disp() {
     s32 e;
     s32 temp_r3;
 
-    temp_r3 = get_player_by_client_id(*(s16 *)((s8 *)this + 0x20));
+    temp_r3 = get_player_by_client_id(this->m_20);
     if (temp_r3 != 0) {
         a = get_array_entry__20TWindowSubStatusDispFi(this, 0);
         b = get_array_entry__20TWindowSubStatusDispFi(this, 1);
         c = get_array_entry__20TWindowSubStatusDispFi(this, 2);
         d = get_array_entry__20TWindowSubStatusDispFi(this, 3);
         e = get_array_entry__20TWindowSubStatusDispFi(this, 4);
-        if (*(u32 *)((s8 *)this + 0x70) != 0) {
-            if (check_equip_requirements(temp_r3, *(u32 *)((s8 *)this + 0x70), &sp8) != 0) {
+        if (this->m_70 != 0) {
+            if (check_equip_requirements(temp_r3, this->m_70, &sp8) != 0) {
                 TWindowHelpItem::set_flag_0x10((u16 *)a, (s32)1);
                 TWindowHelpItem::set_flag_0x10((u16 *)b, (s32)1);
                 TWindowHelpItem::set_flag_0x10((u16 *)c, (s32)1);
@@ -859,7 +859,7 @@ void TWindowHelpItem::init_help_texts() {
     s32 temp_r27;
     s32 temp_r26;
 
-    init_window_layout_entries((void *) ((u8 *) this + 0x24), (void *) (TWindowHelpItem__item_layout_entries), (int) (*(s16 *)((s8 *)this + 0x20)));
+    init_window_layout_entries((void *) ((u8 *) this + 0x24), (void *) (TWindowHelpItem__item_layout_entries), (int) (this->m_20));
     temp_r31 = get_array_entry__20TWindowSubStatusDispFi((void *) (this), (int) (0));
     temp_r30 = get_array_entry__20TWindowSubStatusDispFi((void *) (this), (int) (1));
     temp_r29 = get_array_entry__20TWindowSubStatusDispFi((void *) (this), (int) (2));
@@ -1177,7 +1177,7 @@ void TWindowHelpItem::set_displayed_item_colored(u32 arg1) {
     }
     set_displayed_item_data((void*)((void*)((void*)(arg1))), (void*)((void*)((void*)(var_r5))));
 }
-void TWindowHelpItem::set_displayed_item_data(void* a1, void* a2) { *(void**)((char*)this + 0xa4) = a2; *(void**)((char*)this + 0x70) = a1; update_cursor_selection(); dispatch_item_help(); }
-void TWindowHelpItem::set_items_and_refresh(void* a1, void* a2) { *(void**)((char*)this + 0xa0) = a2; *(void**)((char*)this + 0x6c) = a1; update_cursor_selection(); dispatch_item_help(); }
+void TWindowHelpItem::set_displayed_item_data(void* a1, void* a2) { *(void* *)&this->m_a4 = a2; *(void* *)&this->m_70 = a1; update_cursor_selection(); dispatch_item_help(); }
+void TWindowHelpItem::set_items_and_refresh(void* a1, void* a2) { *(void* *)&this->m_a0 = a2; *(void* *)&this->m_6c = a1; update_cursor_selection(); dispatch_item_help(); }
 
 }

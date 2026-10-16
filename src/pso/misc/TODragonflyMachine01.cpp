@@ -91,14 +91,14 @@ void TODragonflyMachine01::update_timer() {
 void TODragonflyMachine01::run_task() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0xFC) = (s32) (*(s32 *)((s8 *)this + 0xFC) + *(s32 *)((s8 *)this + 0xF8));
-    *(f32 *)((s8 *)this + 0xF0) = (f32) (*(f32 *)((s8 *)this + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)this + 0xFC)));
+    *(s32 *)&this->m_fc = (s32) (*(s32 *)&this->m_fc + *(s32 *)&this->m_f8);
+    *(f32 *)((s8 *)this + 0xF0) = (f32) (this->m_ec * sin_table_lookup(*(s32 *)&this->m_fc));
     if (TObjPlayer::check_demo_mode() == 1) {
         ((DfV_801651B0 *)this)->vf12();
         return;
     }
     update_anim_phase__17TOBarrierEnergy01Fv(this);
-    temp_r0 = *(s32 *)((s8 *)this + 0xAC);
+    temp_r0 = *(s32 *)&this->unk_AC;
     switch (temp_r0) {
     case 0:
         TODragonflyMachine01__sub_80164F50(this);

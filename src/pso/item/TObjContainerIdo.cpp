@@ -44,7 +44,7 @@ void TUnk_804B97C0::run_task() {
 
 void TUnk_804B97C0::render() {
     struct VObj_8017E184_8017E154 *o = (struct VObj_8017E184_8017E154 *)this;
-    if (o->m7(*(f32 *)((s8 *)this + 0xAC), *(f32 *)((s8 *)this + 0xB0)) != 0) {
+    if (o->m7(*(f32 *)&this->unk_AC, *(f32 *)&this->m_b0) != 0) {
         o->m12();
     }
 }

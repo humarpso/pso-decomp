@@ -414,8 +414,8 @@ int TEnding__sub_8008D5B8(void) {  return ending_frame_counter; }
 
 void TObjEneBalClaw::clear_flag_in_state7() {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x374) == 7) {
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
+    if ((s32) *(s32 *)&this->next_action == 7) {
+        *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
         ((TObjEneMe1GiGue *)arg0)->update_if_active(0);
     }
 }

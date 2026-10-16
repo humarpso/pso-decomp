@@ -57,8 +57,8 @@ void __dt__7TObjectFv(void *, int);
 s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r31;
-    temp_r31 = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (*(s32 *)((s8 *)arg0 + 0x28)));
-    TWindowSubEquip__sub_80263AF8((int) (*(s32 *)((s8 *)arg0 + 0x2C)), (int) (1));
+    temp_r31 = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (*(s32 *)&this->m_28));
+    TWindowSubEquip__sub_80263AF8((int) (*(s32 *)&this->m_2c), (int) (1));
     set_field_1c__6TLobbyFf((int) (temp_r31));
     ((TWindowSubStatusDisp *)temp_r31)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
     ((TWindowShortListCtrl *)temp_r31)->set_flag70_bit10();
@@ -95,50 +95,50 @@ void TWindowSubEquip::run_task() {
     s32 temp_r5;
     u8 temp_r0;
     void *temp_r3_2;
-    temp_r3 = is_player_input_active(*(s32 *)((s8 *)this + 0x28));
-    temp_r0 = *(u8 *)((s8 *)this + 0x1C);
+    temp_r3 = is_player_input_active(*(s32 *)&this->m_28);
+    temp_r0 = this->m_1c;
     switch ((s32) temp_r0) {
     case 0:
     case 1:
-        if ((u32) *(u32 *)((s8 *)this + 0x38) != 0U) {
-            TWindowSubEquip__sub_80263AF4(*(void **)((s8 *)this + 0x2C), 1);
-            TWindow__close(*(void **)((s8 *)this + 0x38));
-            *(u32 *)((s8 *)this + 0x38) = 0U;
+        if ((u32) this->m_38 != 0U) {
+            TWindowSubEquip__sub_80263AF4(*(void * *)&this->m_2c, 1);
+            TWindow__close(*(void * *)&this->m_38);
+            this->m_38 = 0U;
         }
-        fn_80255A38(*(s32 *)((s8 *)this + 0x30));
-        *(s32 *)((s8 *)this + 0x20) = -1;
-        *(s32 *)((s8 *)this + 0x24) = -1;
-        ((TWindowSubEquip *)(*(u32 *)((s8 *)this + 0x34)))->update_window();
-        ((TWindowSubItem *)(*(u32 *)((s8 *)this + 0x34)))->clear_selected_and_update_entry();
-        ((TWindowSubMag *)(*(u32 *)((s8 *)this + 0x34)))->start_scroll(lbl_805DD5F0);
-        *(u8 *)((s8 *)this + 0x1C) = 2U;
+        fn_80255A38(*(s32 *)&this->m_30);
+        *(s32 *)&this->m_20 = -1;
+        *(s32 *)&this->m_24 = -1;
+        ((TWindowSubEquip *)(this->m_34))->update_window();
+        ((TWindowSubItem *)(this->m_34))->clear_selected_and_update_entry();
+        ((TWindowSubMag *)(this->m_34))->start_scroll(lbl_805DD5F0);
+        this->m_1c = 2U;
     case 2:
         update();
-        if (((TLobby *)(*(u32 *)((s8 *)this + 0x34)))->get_flag_bit2() != 0) {
-            VObj_80277F4C *o = *(VObj_80277F4C **)((s8 *)this + 0x2C);
+        if (((TLobby *)(this->m_34))->get_flag_bit2() != 0) {
+            VObj_80277F4C *o = *(VObj_80277F4C * *)&this->m_2c;
             o->v7();
-            *(u8 *)((s8 *)this + 0x1C) = 6U;
+            this->m_1c = 6U;
             return;
         }
-        if (((TLobby *)(*(u32 *)((s8 *)this + 0x34)))->get_status_flag() != 0) {
-            *(u8 *)((s8 *)this + 0x1C) = 3U;
+        if (((TLobby *)(this->m_34))->get_status_flag() != 0) {
+            this->m_1c = 3U;
         }
         break;
     case 3:
-        ((TWindowSubStatusDisp *)(*(u32 *)((s8 *)this + 0x34)))->init_scroll_pos();
-        if ((u32) *(u32 *)((s8 *)this + 0x38) == 0U) {
-            *(u32 *)((s8 *)this + 0x38) = open_equip_kind_list(select_cursor_entry__6TLobbyFv(*(u32 *)((s8 *)this + 0x34)));
+        ((TWindowSubStatusDisp *)(this->m_34))->init_scroll_pos();
+        if ((u32) this->m_38 == 0U) {
+            this->m_38 = open_equip_kind_list(select_cursor_entry__6TLobbyFv(this->m_34));
         }
-        ((TWindowSubItem *)(*(u32 *)((s8 *)this + 0x38)))->clear_selected_and_update_entry();
-        *(u8 *)((s8 *)this + 0x1C) = 4U;
+        ((TWindowSubItem *)(this->m_38))->clear_selected_and_update_entry();
+        this->m_1c = 4U;
     case 4:
         update_displayed_item();
-        if (((TLobby *)(*(u32 *)((s8 *)this + 0x38)))->get_flag_bit2() != 0) {
-            *(u8 *)((s8 *)this + 0x1C) = 1U;
+        if (((TLobby *)(this->m_38))->get_flag_bit2() != 0) {
+            this->m_1c = 1U;
             return;
         }
-        if (((TLobby *)(*(u32 *)((s8 *)this + 0x38)))->get_status_flag() != 0) {
-            *(u8 *)((s8 *)this + 0x1C) = 5U;
+        if (((TLobby *)(this->m_38))->get_status_flag() != 0) {
+            this->m_1c = 5U;
             return;
         }
         break;
@@ -146,12 +146,12 @@ void TWindowSubEquip::run_task() {
         temp_r5 = temp_r3 * 0x50;
         if ((TWindowShortListCtrl__check_controller_button(controller_input_state + temp_r5 + 0x20, 2, temp_r5) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state + 0x160, 2) != 0)) {
             play_sound_effect(0x52F16, 0, 0, 0);
-            *(u8 *)((s8 *)this + 0x1C) = 3U;
+            this->m_1c = 3U;
             return;
         }
-        if ((get_player_by_client_id(*(s32 *)((s8 *)this + 0x28)) != 0U) && (is_usable__14TWindowSubItemFi() != 0)) {
+        if ((get_player_by_client_id(*(s32 *)&this->m_28) != 0U) && (is_usable__14TWindowSubItemFi() != 0)) {
             apply_slot_selection();
-            *(u8 *)((s8 *)this + 0x1C) = 1U;
+            this->m_1c = 1U;
         }
         break;
     case 6:

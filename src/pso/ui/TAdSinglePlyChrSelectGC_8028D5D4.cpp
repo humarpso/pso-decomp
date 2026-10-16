@@ -26,7 +26,7 @@ extern "C" {
 
 s32 TAdSinglePlyChrSelectGC::get_result() {
     if (((s32 (*)())is_selection_done__23TAdSinglePlyChrSelectGCFPv)() != 0) {
-        return *(s32 *)((s8 *)this + 0x28);
+        return *(s32 *)&this->m_28;
     }
     return 0;
 }

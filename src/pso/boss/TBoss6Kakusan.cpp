@@ -225,19 +225,19 @@ void TBoss6Kakusan::run_task() {
         boss6_kakusan_homing_end_frame = 0x25;
         TBoss6Kakusan__homing_end_frame_initialized = 1;
     }
-    if (*(s32 *)((s8 *)arg0 + 0x2C) >= TBoss6Kakusan__homing_start_frame && *(s32 *)((s8 *)arg0 + 0x2C) <= boss6_kakusan_homing_end_frame) {
+    if (*(s32 *)&this->m_2c >= TBoss6Kakusan__homing_start_frame && *(s32 *)&this->m_2c <= boss6_kakusan_homing_end_frame) {
         speed = vector_length(arg0 + 0x3C);
         if (!(speed <= TBoss6Kakusan__data_805DF51C)) {
-            pl = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x20));
+            pl = (u8 *)get_player_by_client_id(this->m_20);
             if (is_active__14TBoss6PlotFalzFv() != 0) {
                 VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
                 v.y += lbl_805DF538;
                 subtract_vector(&v, arg0 + 0x30);
                 if (!(vector_length(&v) <= TBoss6Kakusan__data_805DF51C)) {
                     normalize_vector(&v);
-                    v.x *= *(f32 *)((s8 *)arg0 + 0x28);
-                    v.y *= *(f32 *)((s8 *)arg0 + 0x28);
-                    v.z *= *(f32 *)((s8 *)arg0 + 0x28);
+                    v.x *= this->m_28;
+                    v.y *= this->m_28;
+                    v.z *= this->m_28;
                     VecCopy__FP3VecPC3Vec(&w, arg0 + 0x3C);
                     normalize_vector(&w);
                     vec3_add_to(&v, &w);
@@ -253,20 +253,20 @@ void TBoss6Kakusan::run_task() {
         }
     }
     vec3_add_to(arg0 + 0x30, arg0 + 0x3C);
-    if (*(void **)((s8 *)arg0 + 0x54) != NULL) {
-        ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x54)))->copy_pos(arg0 + 0x30);
+    if (*(void * *)&this->m_54 != NULL) {
+        ((TNowLoading *)(*(void * *)&this->m_54))->copy_pos(arg0 + 0x30);
         VecCopy__FP3VecPC3Vec(&a, arg0 + 0x30);
         subtract_vector(&a, arg0 + 0x48);
         direction_to_rotation_xz(&a, &b.x, &b.z);
         *(s32 *)&b.y = 0;
-        ((TBoss4Type2 *)(*(void **)((s8 *)arg0 + 0x54)))->copy_vec3(&b);
+        ((TBoss4Type2 *)(*(void * *)&this->m_54))->copy_vec3(&b);
     }
     if (is_out_of_range() != 0 || ((int (*)(void *))TBoss6Kakusan__sub_8032263C)(arg0) != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
     check_beam_player_hits();
-    *(s32 *)((s8 *)arg0 + 0x2C) += 1;
+    *(s32 *)&this->m_2c += 1;
 }
 
 void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1) {

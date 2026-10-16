@@ -92,10 +92,10 @@ int TWindowCtrl__sub_8024C7F8(void* p);
 
 int TWindowCtrl__sub_8024C7D4(void* p) { return (*(u16*)((char*)p + 0x1c) >> 1) & 0x1; }
 int TWindowCtrl__sub_8024C7E0(void* p) { return (*(u16*)((char*)p + 0x1c) >> 2) & 0x1; }
-int TWindowCtrl::is_enabled() { return (*(u16*)((char*)this + 0x1c) >> 3) & 0x1; }
+int TWindowCtrl::is_enabled() { return (this->m_1c >> 3) & 0x1; }
 int TWindowCtrl__sub_8024C7F8(void* p) { return (*(u16*)((char*)p + 0x1c) >> 4) & 0x1; }
-int TWindowCtrl::is_visible() { return *(u16*)((char*)this + 0x1c) & 0x1; }
-s16 TWindowCtrl::get_field_20() { return *(s16*)((char*)this + 0x20); }
-s16 TWindowCtrl::get_width() { return *(s16*)((char*)this + 0x20); }
+int TWindowCtrl::is_visible() { return this->m_1c & 0x1; }
+s16 TWindowCtrl::get_field_20() { return *(s16 *)&this->m_20; }
+s16 TWindowCtrl::get_width() { return *(s16 *)&this->m_20; }
 
 }

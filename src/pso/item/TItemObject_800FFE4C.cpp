@@ -46,10 +46,10 @@ void TItem::use_combination_recipe() {
     u32 temp_r3_2;
     void *temp_r30;
     void *temp_r3;
-    if ((u32) *(u32 *)((s8 *)this + 0xF0) != 0U) {
+    if ((u32) this->m_f0 != 0U) {
         copy_to_item_data(sp1C);
-        temp_r30 = find_unique_combination_target(*(u32 *)((s8 *)this + 0xF0), sp1C);
-        temp_r3 = find_eligible_combination_recipe(*(u32 *)((s8 *)this + 0xF0), sp1C);
+        temp_r30 = find_unique_combination_target(this->m_f0, sp1C);
+        temp_r3 = find_eligible_combination_recipe(this->m_f0, sp1C);
         if ((temp_r3 != NULL) && (temp_r30 != NULL)) {
             init__9TItemDataFv(sp8);
             sp8[0] = *(u8 *)((s8 *)temp_r3 + 6);

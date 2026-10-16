@@ -69,7 +69,7 @@ s32 TLockOnCursor__sub_8013EB2C(void* p) { return *(s32*)((char*)p + 0x4); }
 int TLockOnCursor__sub_8013EB34(void) {  return TLockOnCursor__target_cursor_model; }
 
 int TLockOnCursor::test_flag_1_at_8() { return test_flags_any((char*)this + 0x8, 1); }
-s32 TLockOnCursor::get_target() { return *(s32*)((char*)this + 0x0); }
+s32 TLockOnCursor::get_target() { return *(s32 *)&this->m_name; }
 Rec_8013EB6C *TLockOnCursor__sub_8013EB6C(Obj_8013EB6C *self, s32 i) {
     return &self->recs[i];
 }

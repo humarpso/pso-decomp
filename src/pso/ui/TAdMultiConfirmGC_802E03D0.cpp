@@ -453,48 +453,48 @@ void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1) {
     }
 }
 
-void TObjPlayer::update_chara_making_if_state3() { if (*(int*)((char*)this + 0xfc) == 3) { update_chara_making(); } }
+void TObjPlayer::update_chara_making_if_state3() { if (this->m_fc == 3) { update_chara_making(); } }
 
 void TObjPlayer::update_chara_making() {
     u8 *arg0 = (u8 *)this;
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    ((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_status_sub();
+    rotate_matrix_y((int) (0), (int) (this->m_60));
+    ((TAdPlyStatusGC *)(this->m_170))->get_status_sub();
     set_global_param__8TObjFishFl();
-    draw_model_with_arg((void*)((int) (((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_field_4a4())));
+    draw_model_with_arg((void*)((int) (((TAdPlyStatusGC *)(this->m_170))->get_field_4a4())));
     ((TObjPlayer *)arg0)->get_item_ptr((int) (0x3A));
     push_matrix_from();
-    ((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_status_data();
+    ((TAdPlyStatusGC *)(this->m_170))->get_status_data();
     set_global_param__8TObjFishFl();
-    ((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_field_4a0();
+    ((TAdPlyStatusGC *)(this->m_170))->get_field_4a0();
     ((s32 (*)())play_phase_transition_sound__10TObjPlayerFi)();
     pop_matrix();
-    if (((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_field_49c() != 0U) {
+    if (((TAdPlyStatusGC *)(this->m_170))->get_field_49c() != 0U) {
         ((TObjPlayer *)arg0)->get_item_ptr((int) (0x3B));
         push_matrix_from();
-        ((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_chara_making_data();
+        ((TAdPlyStatusGC *)(this->m_170))->get_chara_making_data();
         set_global_param__8TObjFishFl();
         TCharaMaking::enable_making();
-        ((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_field_49c();
+        ((TAdPlyStatusGC *)(this->m_170))->get_field_49c();
         ((s32 (*)())play_phase_transition_sound__10TObjPlayerFi)();
         TCharaMaking::clear_flag_bit0();
         pop_matrix();
     }
-    if (((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_field_498() != 0U) {
+    if (((TAdPlyStatusGC *)(this->m_170))->get_field_498() != 0U) {
         ((TObjPlayer *)arg0)->get_item_ptr((int) (0x3B));
         push_matrix_from();
-        ((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_chara_making_data();
+        ((TAdPlyStatusGC *)(this->m_170))->get_chara_making_data();
         set_global_param__8TObjFishFl();
         TCharaMaking::enable_making();
-        TObjPlayer__sub_802E0580((void *)((void *) (arg0)), (int)((int) (((TAdPlyStatusGC *)(*(s32 *)((s8 *)arg0 + 0x170)))->get_field_498())), (void *)((void *) (arg0 + 0x120)));
+        TObjPlayer__sub_802E0580((void *)((void *) (arg0)), (int)((int) (((TAdPlyStatusGC *)(this->m_170))->get_field_498())), (void *)((void *) (arg0 + 0x120)));
         TCharaMaking::clear_flag_bit0();
         pop_matrix();
     }
     pop_matrix();
 }
 
-void TObjPlayer::draw_model_with_arg(void* a1) { *(void**)((char*)this + 0x34) = a1; set_motion_interpolation_flag(this); draw_model_with_callback(); }
+void TObjPlayer::draw_model_with_arg(void* a1) { *(void* *)&this->_pad34 = a1; set_motion_interpolation_flag(this); draw_model_with_callback(); }
 
 void TObjPlayer__sub_802E0580(void * _w0, int _w1, void * _w2) {
     ((s32 (*)(f32))TObjPlayer__sub_802E0468)(lbl_805DE8A8);

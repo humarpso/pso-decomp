@@ -147,8 +147,8 @@ extern const f32 lbl_805DB400;
 
 void TODoorAncient04::vfunc_17() {
     u8 *arg0 = (u8 *)this;
-    if (!(*(s32 *)((s8 *)arg0 + 0xD0) & 1) || (is_any_player_within_radius_xz(lbl_805DB400) == 0)) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 3;
+    if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz(lbl_805DB400) == 0)) {
+        *(s32 *)&this->unk_AC = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
     }
@@ -158,8 +158,8 @@ extern const f32 lbl_805DB404;
 
 void TODoorAncient04::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
-    if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz(lbl_805DB404) != 0)) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 1;
+    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB404) != 0)) {
+        *(s32 *)&this->unk_AC = 1;
         set_indexed_flags(arg0, 0, 8);
         play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
     }
@@ -173,13 +173,13 @@ void TODoorAncient04::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     u8 *temp_r31_4;
-    if ((((VObj *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) && (is_in_view_depth((void *) (arg0), (f32) (lbl_805DB408)) != 0)) {
+    if ((((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) && (is_in_view_depth((void *) (arg0), (f32) (lbl_805DB408)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)(*(s32 *)&TODoorAncient04__texture_lists) + ((*(s32 *)((s8 *)arg0 + 0xD0) * 4) & 4))));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xAC) == 0) {
-            temp_r31 = *(u8 **)((s8 *)arg0 + 0x34);
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)(*(s32 *)&TODoorAncient04__texture_lists) + ((this->m_d0 * 4) & 4))));
+        if ((s32) *(s32 *)&this->unk_AC == 0) {
+            temp_r31 = *(u8 * *)&this->model;
             post_translate_matrix((void *) (temp_r31 + 8));
             draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
             temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
@@ -200,7 +200,7 @@ void TODoorAncient04::render() {
             pop_matrix();
             TParticleCtrl::end_effect_render();
         } else {
-            draw_ginja_model_with_motion((void *) (*(u8 **)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+            draw_ginja_model_with_motion((void *) (*(u8 * *)&this->model), (int) (*(s32 *)&this->unk_BC), (f32) (this->m_b0));
         }
         pop_matrix();
     }

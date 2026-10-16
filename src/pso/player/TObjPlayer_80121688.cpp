@@ -16,13 +16,13 @@ void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 
 void TUnk_804A0AA8::render() {
     u8 *arg0 = (u8 *)this;
-    if ((is_owner_alive__10TObjPlayerFv() != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x58) != 0U) && ((u32) *(u32 *)((s8 *)arg0 + 0x5C) != 0U)) {
+    if ((is_owner_alive__10TObjPlayerFv() != 0) && ((u32) *(u32 *)&this->m_58 != 0U) && ((u32) *(u32 *)&this->m_5C != 0U)) {
         push_matrix();
         TParticleCtrl::begin_effect_render();
-        TObjPlayer::notify_fish_if_valid(*(u32 *)((s8 *)arg0 + 0x5C));
+        TObjPlayer::notify_fish_if_valid(*(u32 *)&this->m_5C);
         post_translate_matrix(arg0 + 0x1C);
         rotate_matrix_by_node_angles(arg0 + 0x28, 1);
-        draw_ginja_object(*(u32 *)((s8 *)arg0 + 0x58));
+        draw_ginja_object(*(u32 *)&this->m_58);
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }
@@ -37,7 +37,7 @@ extern s32 lbl_804A0AA8[];
 void *TObjPlayer::init_item_shoot_model() {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A0AA8;
-    *(u32 *)((s8 *)this + 0x30) = 0;
+    this->actor_flags = 0;
     return this;
 }
 

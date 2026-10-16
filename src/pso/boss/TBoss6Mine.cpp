@@ -251,13 +251,13 @@ void TBoss6Mine::render_shadows() {
 }
 
 void TBoss6Mine::vfunc_63() {
-    if ((s32) *(s32 *)((s8 *)this + 0x380) != 7) {
-        *(s32 *)((s8 *)this + 0x380) = 7;
+    if ((s32) *(s32 *)&this->m_380 != 7) {
+        *(s32 *)&this->m_380 = 7;
     }
 }
 
     extern const float TBoss6Mine__data_805DF584;
-void TBoss6Mine::vfunc_62() { *(int*)((char*)this + 0x30) = (*(int*)((char*)this + 0x30) & 0xfffffdff); *(float*)((char*)this + 0x3c8) = TBoss6Mine__data_805DF584; }
+void TBoss6Mine::vfunc_62() { *(int *)&this->actorFlags = (*(int *)&this->actorFlags & 0xfffffdff); this->m_3c8 = TBoss6Mine__data_805DF584; }
 
 void TBoss6Mine::copy_pos() {
     s32 arg0 = (s32)this;
@@ -272,24 +272,24 @@ void TBoss6Mine::draw() {
     s32 temp_r30;
 
     TObjPlayer::set_global_flag();
-    temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)((s8 *)this + 0x374), 2);
-    temp_r30 = get_bml_model(*(s32 *)((s8 *)this + 0x374), 2);
-    temp_r31_2 = get_bml_motion(*(s32 *)((s8 *)this + 0x374), 0);
+    temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)&this->m_374, 2);
+    temp_r30 = get_bml_model(*(s32 *)&this->m_374, 2);
+    temp_r31_2 = get_bml_motion(*(s32 *)&this->m_374, 0);
     TObjFish::set_global_param(temp_r31);
-    TBoss6PlotFalz__sub_802AC008(*(f32 *)((s8 *)this + 0x3C8), TBoss6Mine__data_805DF580);
-    draw_model_motion(temp_r30, temp_r31_2, *(f32 *)((s8 *)this + 0x39C));
+    TBoss6PlotFalz__sub_802AC008(*(f32 *)&this->m_3c8, TBoss6Mine__data_805DF580);
+    draw_model_motion(temp_r30, temp_r31_2, *(f32 *)&this->_pad39C);
     TBoss6PlotFalz::update_camera_target();
     TObjPlayer::clear_global_state();
 }
 
-void TBoss6Mine::render() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x390)); rotate_matrix_x((void*)0, *(void**)((char*)this + 0x394)); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x398)); draw(); pop_matrix(); }
+void TBoss6Mine::render() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void* *)&this->m_390); rotate_matrix_x((void*)0, *(void* *)&this->m_394); rotate_matrix_y((void*)0, *(void* *)&this->m_398); draw(); pop_matrix(); }
 
 void TBoss6Mine::update_facing_angles() {
     u8 *arg0 = (u8 *)this;
     Vec_80323FA4 v;
     s32 a;
     s32 b;
-    switch (*(s32 *)((s8 *)arg0 + 0x380)) {
+    switch (*(s32 *)&this->m_380) {
     case 5:
     case 6:
         VecCopy__FP3VecPC3Vec((s32) &v, (s32) (arg0 + 0x38));
@@ -307,9 +307,9 @@ void TBoss6Mine::update_facing_angles() {
                 b = 0x2000;
             }
         }
-        *(s32 *)((s8 *)arg0 + 0x390) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x390), a, 0x1111);
-        *(s32 *)((s8 *)arg0 + 0x394) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x394), b, 0x444);
-        *(s32 *)((s8 *)arg0 + 0x398) += 0x888;
+        *(s32 *)&this->m_390 = approach_angle_limited(*(s32 *)&this->m_390, a, 0x1111);
+        *(s32 *)&this->m_394 = approach_angle_limited(*(s32 *)&this->m_394, b, 0x444);
+        *(s32 *)&this->m_398 += 0x888;
         break;
     }
 }

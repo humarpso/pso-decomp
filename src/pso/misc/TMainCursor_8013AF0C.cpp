@@ -29,7 +29,7 @@ int init__13TLockOnCursorFPvPv(void);
 
     extern unsigned char lbl_804A71C4[];
     extern int lockon_list_clear_task_name;
-void*TMainCursor::init_lockon() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A71C4; *(int*)((char*)this + 0x0) = lockon_list_clear_task_name; return this; }
+void*TMainCursor::init_lockon() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A71C4; *(int *)&this->m_name = lockon_list_clear_task_name; return this; }
 void TLOC_End::run_task() {
     s32 arg0 = (s32)this;
     s32 i;

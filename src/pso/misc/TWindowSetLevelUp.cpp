@@ -172,7 +172,7 @@ void draw_window_scrollbar(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset
 }
 
 void TWindowSubStatusDisp::increment_counter() {
-    *(s32 *)((s8 *)this + 8) = (s32) (*(s32 *)((s8 *)this + 8) + 1);
+    *(s32 *)&this->m_prev = (s32) (*(s32 *)&this->m_prev + 1);
 }
 
 s32 TWindowSubStatusDisp::destroy_allocation(s32 arg0, s16 arg1) {
@@ -184,7 +184,7 @@ s32 TWindowSubStatusDisp::destroy_allocation(s32 arg0, s16 arg1) {
 
 void *TWindowSubStatusDisp::reset_selection() {
     copy_position__11TWindowMenuFPv();
-    *(s32 *)((s8 *)this + 8) = 0;
+    *(s32 *)&this->m_prev = 0;
     return this;
 }
 

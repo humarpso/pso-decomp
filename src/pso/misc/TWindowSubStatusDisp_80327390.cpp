@@ -15,7 +15,7 @@ void TWindowSubStatusDisp::render_status_value() {
     u8 *arg0 = (u8 *)this;
     begin_screen_draw((int) (1));
     TObjFish::set_global_param((s32)((void *) (scroll_win_texture_handle)));
-    set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x3C) << 0x18) | 0xFF0000 | 0xFFFF));
+    set_draw_texture_and_color((int) (0), (int) ((*(s32 *)&this->m_3c << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x1C), (f32) (lbl_805DF698));
     TWindowSubStatusDisp::get_player();
 }

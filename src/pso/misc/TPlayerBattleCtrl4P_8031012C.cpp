@@ -383,7 +383,7 @@ void TPlayerBattleCtrl4P::init() {
 
 int TPlayerBattleCtrl4P::init_ctrl_default(void* p) { return ((int (*)(void*, int))set_split_screen_battle_phase)(p, 0); }
 void TPlayerBattleCtrl4P::notify_lobby(void* p, void* a1, void* a2) { play_cue_stream_file(a1); show_duel_result_window((void*)-50, a2); }
-void TPlayerBattleCtrl4P::reset_score_counters() { *(s32*)((char*)this + 0x260) = 0; *(s32*)((char*)this + 0x290) = 0; }
+void TPlayerBattleCtrl4P::reset_score_counters() { this->timed_event_state = 0; *(s32 *)&this->unknown_290 = 0; }
 
 void record_split_screen_battle_results(void) {
     void *obj;
@@ -449,7 +449,7 @@ void record_split_screen_battle_results(void) {
 }
 
 s32 TPlayerBattleCtrl4P::set_state() {
-    *(s32 *)((s8 *)this + 0x260) = 2;
+    this->timed_event_state = 2;
     return 1;
 }
 
@@ -762,7 +762,7 @@ s32 get_split_screen_battle_timer_limit(u8 *arg0) {
     return *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 0x24) * 0x3C;
 }
 
-void TPlayerBattleCtrl4P::set_score(s32 v) { *(s32*)((char*)this + 0x29c) = v; }
+void TPlayerBattleCtrl4P::set_score(s32 v) { this->phase_state = v; }
 
 void set_split_screen_battle_phase(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x298) = arg1;

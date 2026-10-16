@@ -10,7 +10,7 @@ extern const f32 lbl_805DFB08;
 extern const f32 lbl_805DFB0C;
 
 void TBoss4Type2::advance_offset() {
-    *(s32 *)((s8 *)this + 0x58) = (s32) ((f32) *(s32 *)((s8 *)this + 0x58) + lbl_805DFB08);
+    *(s32 *)&this->m_74 = (s32) ((f32) *(s32 *)&this->m_74 + lbl_805DFB08);
     *(s32 *)((s8 *)this + 0x5C) = (s32) ((f32) *(s32 *)((s8 *)this + 0x5C) + lbl_805DFB0C);
 }
 

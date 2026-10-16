@@ -492,7 +492,7 @@ s32 should_show_map__13TRaderMapCoreFv(void) {
     }
     return is_technique_ready__8TTecCtrlFv();
 }
-void TRaderMapCore::reset_counter() { *(s32*)((char*)this + 0x184) = 0; }
+void TRaderMapCore::reset_counter() { *(s32 *)&this->m_184 = 0; }
 
     extern int TRaderMapCore__map_heap;
 
@@ -969,7 +969,7 @@ void TRaderMapCore::draw_player_markers() {
     copy_vec4__13TRaderMapCoreFPvPv(&(*(RecoveredGlobal_801FA350_lbl_8050BEC0 *)&saved_model_draw_color).value, &(*(RecoveredGlobal_801FA350_lbl_8058D4C0 *)&model_material_color).value);
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    model_render_flags |= *(s32 *)((s8 *)arg0 + 0x194);
+    model_render_flags |= *(s32 *)&this->m_194;
     set_chunk_material_override_pair(-0xFF01, 0x100);
     var_r31 = (u8 *)((void *)((u8 *)(arg0) + 0x94));
     var_r30 = 0;
@@ -980,7 +980,7 @@ void TRaderMapCore::draw_player_markers() {
             translate_matrix(0, *(f32 *)((s8 *)var_r31 + 0x0), TRaderMapCore__data_805DC528, *(f32 *)((s8 *)var_r31 + 0x8));
             rotate_matrix_y(0, *(s32 *)((s8 *)var_r31 + 0xC));
             scale_matrix(0, *(f32 *)((s8 *)var_r31 + 0x10), *(f32 *)((s8 *)var_r31 + 0x10), *(f32 *)((s8 *)var_r31 + 0x10));
-            draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x178));
+            draw_ginja_object(*(s32 *)&this->m_178);
             pop_matrix();
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
         }
@@ -993,7 +993,7 @@ void TRaderMapCore::draw_player_markers() {
     model_render_flags = lbl_805D5660;
 }
 
-void TRaderMapCore::copy_transform(void* q) { *(f32*)((char*)this + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)this + 0x14) = *(f32*)((char*)q + 0x14); *(u32*)((char*)this + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)this + 0x1c) = *(u32*)((char*)q + 0x1c); *(f32*)((char*)this + 0x20) = *(f32*)((char*)q + 0x20); *(f32*)((char*)this + 0x24) = *(f32*)((char*)q + 0x24); }
+void TRaderMapCore::copy_transform(void* q) { *(f32 *)&this->m_name = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); *(f32 *)&this->m_down = *(f32*)((char*)q + 0x14); *(u32*)((char*)this + 0x18) = *(u32*)((char*)q + 0x18); *(u32 *)&this->unk_1C = *(u32*)((char*)q + 0x1c); *(f32 *)&this->m_20 = *(f32*)((char*)q + 0x20); *(f32 *)&this->texture_id = *(f32*)((char*)q + 0x24); }
 
 extern s32 local_client_id;
 extern s32 lbl_805DC56C;
@@ -1119,7 +1119,7 @@ void TRaderMapCore::render() {
             draw_player_markers();
             setup_view((s32)((void *) (TRaderMapCore__view_mode)));
             TCameraCtrl::restore_full_screen_view();
-            *(s32 *)((s8 *)arg0 + 0x174) = 0;
+            this->m_174 = 0;
             draw_compass__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__view_mode));
             TCameraCtrl__sub_80068EF0();
             break;
@@ -1240,14 +1240,14 @@ void TRaderMapCore::update_target() {
 
     temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0U) {
-        *(u32 *)((s8 *)this + 0x184) = temp_r3;
+        *(u32 *)&this->m_184 = temp_r3;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x184) != 0U) {
-        if (is_card_flag_set__19TWindowKeyBoardHardFv(obj_getField1c((void*)*(u32 *)((s8 *)this + 0x184))) != 0) {
-            *(s32 *)((s8 *)this + 0x168) = (s32) (*(s32 *)((s8 *)this + 0x168) | lbl_805DC56C);
+    if ((u32) *(u32 *)&this->m_184 != 0U) {
+        if (is_card_flag_set__19TWindowKeyBoardHardFv(obj_getField1c((void*)*(u32 *)&this->m_184)) != 0) {
+            this->m_168 = (s32) (this->m_168 | lbl_805DC56C);
             return;
         }
-        *(s32 *)((s8 *)this + 0x168) = (s32) (*(s32 *)((s8 *)this + 0x168) & 0xFFFFFFFE);
+        this->m_168 = (s32) (this->m_168 & 0xFFFFFFFE);
     }
 }
 

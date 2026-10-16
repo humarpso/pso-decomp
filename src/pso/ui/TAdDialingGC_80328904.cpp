@@ -12,7 +12,7 @@ extern "C" {
 void TAdDialingGC::handle_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x9C);
+    temp_r0 = this->m_9c;
     switch (temp_r0) {
     case 11:
         TAdDialingGC::update_dialing_display(0x11);

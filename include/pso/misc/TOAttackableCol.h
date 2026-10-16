@@ -28,7 +28,10 @@ struct TOAttackableCol : public TUnk_804806E8 {
     static void *create(void *arg0);
     void bswap_state();
     void broadcast_state();
-    u8 unk_340[0x10];
+    u8 unk_340[0x4];
+    s32 m_344;
+    u8 unk_348[0x4];
+    s32 m_34c;
 };
 
 typedef char TOAttackableCol_size[sizeof(TOAttackableCol) == 0x350 ? 1 : -1];

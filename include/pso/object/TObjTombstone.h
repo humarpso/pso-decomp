@@ -6,7 +6,13 @@
 
 struct TObjTombstone : public TUnk_804AF8A0 {
     virtual ~TObjTombstone();
-    u8 unk_AC[0x184];
+    u8 unk_AC[0x4];
+    f32 m_b0;
+    u8 unk_B4[0x4];
+    f32 m_b8;
+    u8 unk_BC[0x6];
+    u8 m_c2;
+    u8 unk_C3[0x16D];
     u32 m_230;
     u32 m_234;
     virtual void render();

@@ -11,7 +11,9 @@ struct TBoss4Type3CollisionState {
 
 struct TBoss4Type3
 {
-    u8 unknown00[0x1C];
+    u8 unk_0[0x4];
+    f32 m_4;
+    u8 unk_8[0x14];
     u8 _pad1C[0x8];
     u32 m_24;
     u8 _pad28[0x8];
@@ -33,9 +35,13 @@ struct TBoss4Type3
     void* m_2fc;
     u8 _pad300[0x2C];
     s16 m_32c;
-    u8 _pad32E[0x10];
+    u8 unk_32E[0xA];
+    s32 m_338;
+    u8 unk_33C[0x2];
     s16 m_33e;
-    u8 _pad340[0x34];
+    u8 unk_340[0x28];
+    s32 m_368;
+    u8 unk_36C[0x8];
     s32 m_374;
     void* m_378;
     u8 _pad37C[0x10];

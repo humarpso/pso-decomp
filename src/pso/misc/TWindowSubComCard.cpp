@@ -67,7 +67,7 @@ void TWindowSubComCard::clear_flag_and_release() {
         ((TWindowSubStatusDisp *)temp)->set_entry_state(1);
     }
 }
-void TQuestListVM::set_selected_entry(void* a1) { set_field_20((s32)((void*)20)); *(void**)((char*)this + 0x23b4) = a1; }
+void TQuestListVM::set_selected_entry(void* a1) { set_field_20((s32)((void*)20)); *(void* *)&this->m_23b4 = a1; }
 void TQuestListVM::poll_download() {
     if (get_serial_access__22TQuestVmDownLoadServerFv() == 0U) {
         poll_serial_access__22TQuestVmDownLoadServerFv();
@@ -77,7 +77,7 @@ void TQuestListVM::poll_download() {
 int TQuestListVM::vfunc_10() {
     void *temp_r3;
 
-    temp_r3 = *(void **)((s8 *)this + 0x23A0);
+    temp_r3 = *(void * *)&this->m_23a0;
     if (temp_r3 != NULL) {
         if (((VObj_8021845C_802183B4 *)temp_r3)->m8() == 0) {
             return 0;
@@ -88,21 +88,21 @@ int TQuestListVM::vfunc_10() {
 }
 
 void TQuestListVM::vfunc_9() {
-    struct VObj_802184C8_802183B4 *o = (struct VObj_802184C8_802183B4 *)*(void **)((s8 *)this + 0x23A0);
+    struct VObj_802184C8_802183B4 *o = (struct VObj_802184C8_802183B4 *)*(void * *)&this->m_23a0;
     if (o != NULL) {
         o->m7();
     }
 }
 
 void TQuestListVM::vfunc_7() {
-    struct VObj_80218500_802183B4 *o = (struct VObj_80218500_802183B4 *)*(void **)((s8 *)this + 0x23A0);
+    struct VObj_80218500_802183B4 *o = (struct VObj_80218500_802183B4 *)*(void * *)&this->m_23a0;
     if (o != NULL) {
         o->m5();
     }
 }
 
 void TQuestListVM::vfunc_6() {
-    struct VObj_80218538_802183B4 *o = (struct VObj_80218538_802183B4 *)*(void **)((s8 *)this + 0x23A0);
+    struct VObj_80218538_802183B4 *o = (struct VObj_80218538_802183B4 *)*(void * *)&this->m_23a0;
     if (o != NULL) {
         o->m4();
     }

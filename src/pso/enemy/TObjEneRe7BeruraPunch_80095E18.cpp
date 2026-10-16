@@ -12,7 +12,7 @@ s32 apply_hit_if_active__10TObjPlayerFPvPf();
 f32 calc_boss4_scale__10TObjPlayerFi();
 s32 obj_getField1c(s32);
 
-int TObjEneRe7BeruraPunch::is_patrol_active() { return (*(u32*)((char*)this + 0xb0) >> 2) & 0x1; }
+int TObjEneRe7BeruraPunch::is_patrol_active() { return (*(u32 *)&this->m_b0 >> 2) & 0x1; }
 
 extern f32 lbl_805D9790;
 

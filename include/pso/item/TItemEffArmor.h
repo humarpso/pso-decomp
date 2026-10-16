@@ -7,11 +7,17 @@
 struct TItemEffArmor : public TObject {
     virtual ~TItemEffArmor();
     u32 m_1c;
-    u8 _pad20[0xC];
+    u8 unk_20[0x4];
+    f32 m_24;
+    u8 unk_28[0x4];
     void* m_2c;
     u8 _pad30[0x8];
     void* m_38;
-    u8 _pad3C[0x2C];
+    u8 unk_3C[0x1C];
+    f32 m_58;
+    u8 unk_5C[0x4];
+    f32 m_60;
+    u8 unk_64[0x4];
     u32 m_68;
     u32 m_6c;
     u32 m_70;

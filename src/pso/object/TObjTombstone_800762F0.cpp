@@ -55,17 +55,17 @@ extern const f32 TObjTombstone__data_805D9174;
 
 void TObjTombstone::setup(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(TObjTombstone__shared_resource_object, 0);
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TObjTombstone__shared_resource_object, 0);
+    this->texture_id = TObjFish__sub_8001EDB0(TObjTombstone__shared_resource_object, 0);
+    *(s32 *)&this->model = get_bml_model(TObjTombstone__shared_resource_object, 0);
     *(s32 *)((s8 *)arg0 + 0xAC) = arg1;
     TObjTombstone::copy_record((void *)(arg0 + 0xC0), (s32)(arg2));
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xD0);
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0xAC) << 0xD);
-    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) TObjTombstone__data_805D9174;
+    this->rotation_y = (s32) (*(s32 *)((s8 *)arg0 + 0xAC) << 0xD);
+    this->m_b0 = (f32) TObjTombstone__data_805D9174;
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) TObjTombstone__data_805D9174;
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) TObjTombstone__data_805D9174;
+    this->m_b8 = (f32) TObjTombstone__data_805D9174;
     *(f32 *)((s8 *)arg0 + 0xBC) = (f32) TObjTombstone__data_805D9174;
-    *(s32 *)((s8 *)arg0 + 0x230) = 0;
+    *(s32 *)&this->m_230 = 0;
     fn_80074E04(*(s32 *)((s8 *)arg0 + 0xAC), arg0 + 0x38);
 }
 

@@ -84,7 +84,7 @@ void TWindowPartyStatus::draw_background(u8 *arg1) {
     f32 temp_f2;
     f32 temp_f31;
     f32 temp_f6;
-    temp_f31 = lbl_805DF1EC / *(f32 *)((s8 *)arg0 + 0x54);
+    temp_f31 = lbl_805DF1EC / this->m_54;
     begin_screen_draw((int) (1));
     TObjFish::set_global_param((s32)((void *) (lbl_805D63F0)));
     set_draw_texture_and_color((int) (0xB), (int) (*(s32 *)((s8 *)arg1 + 0x34)));

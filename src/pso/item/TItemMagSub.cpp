@@ -14,7 +14,7 @@ void TItemMagSub::release_model_and_destroy() {
     u8* arg0=(u8*)this;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(s32 *)&this->textures = 0;
     set_flags__11TItemMagSubFUl(arg0, 0x80U);
 }
 extern "C" {
@@ -62,11 +62,11 @@ void TItemMagSub::set_motion_type(s32 arg1) {
     u8 *temp_r5;
 
     ((void(*)(void))reset__11TItemMagSubFv)();
-    *(s32 *)((s8 *)arg0 + 0x68) = arg1;
-    *(s32 **)((s8 *)arg0 + 0x30) = (s32 *) (item_mag_param_table + (arg1 * 0x64));
-    temp_r5 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x20));
+    this->motion_type = arg1;
+    *(s32 * *)&this->motion = (s32 *) (item_mag_param_table + (arg1 * 0x64));
+    temp_r5 = (unsigned char *) (*(void * *)&this->owner);
     if (temp_r5 != NULL) {
-        s32 elem = **(s32 **)((s8 *)arg0 + 0x30);
+        s32 elem = **(s32 * *)&this->motion;
         if (elem == -1) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xA0), (s32)(temp_r5 + 0x2FC));
             return;
@@ -697,15 +697,15 @@ void TItemMagSub::run_task() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if (mag_owner_freezes_follow(*(s32 *)((s8 *)arg0 + 0x1C)) != 0 ||
-        ((u32 (*)(void *))mag_item_tests_flag_20)(*(u8 **)((s8 *)arg0 + 0x1C)) != 0U) {
+    if (mag_owner_freezes_follow(*(s32 *)&this->item) != 0 ||
+        ((u32 (*)(void *))mag_item_tests_flag_20)(*(u8 * *)&this->item) != 0U) {
         return;
     }
-    if (obj_isState7_324(*(u8 **)((s8 *)arg0 + 0x20)) != 0) {
+    if (obj_isState7_324(*(u8 * *)&this->owner) != 0) {
         ((TItemMagSub *)arg0)->update_special_pose();
         return;
     }
-    *(f32 *)((s8 *)arg0 + 0xB8) = ((TObjPlayer *)(*(u8 **)((s8 *)arg0 + 0x20) + 0x608))->get_mag_scale_f();
+    *(f32 *)((s8 *)arg0 + 0xB8) = ((TObjPlayer *)(*(u8 * *)&this->owner + 0x608))->get_mag_scale_f();
     if (test_flags__11TItemMagSubFUl(arg0, 8U) != 0U) {
         ((TItemMagSub *)arg0)->update_transition();
     } else {
@@ -731,7 +731,7 @@ extern "C" {
 }
 void TItemMagSub::reset() {
     u8* arg0=(u8*)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0xAC, *(s32 *)((s8 *)arg0 + 0x20) + 0x2FC);
+    VecCopy__FP3VecPC3Vec(arg0 + 0xAC, *(s32 *)&this->owner + 0x2FC);
     *(s32 *)((s8 *)arg0 + 0x48) = 0;
     *(s32 *)((s8 *)arg0 + 0x44) = 0;
     *(s32 *)((s8 *)arg0 + 0x40) = 0;
@@ -747,7 +747,7 @@ void TItemMagSub::reset() {
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    *(s32 *)&this->motion = 0;
 }
 extern "C" {
 

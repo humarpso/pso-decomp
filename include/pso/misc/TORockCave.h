@@ -12,7 +12,8 @@ struct TORockCave : public TUnk_804AF8A0 {
     void draw_model();
     static void free_instances();
     static void load_resources();
-    u8 unk_AC[0x8];
+    u8 unk_AC[0x4];
+    f32 m_b0;
 };
 
 typedef char TORockCave_size[sizeof(TORockCave) == 0xB4 ? 1 : -1];

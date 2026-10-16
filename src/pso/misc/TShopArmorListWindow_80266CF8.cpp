@@ -33,8 +33,8 @@ void TShopArmorListWindow::clamp_selection_to_valid_entry() {
 }
 
 void TShopArmorListWindow::save_cursor_selection() {
-    *(s16 *)((s8 *)this + 0x78) = (s16) *(s16 *)((s8 *)this + 0x74);
-    *(s32 *)((s8 *)this + 0x7C) = select_cursor_entry__6TLobbyFv();
+    this->m_78 = (s16) this->m_74;
+    this->m_7c = select_cursor_entry__6TLobbyFv();
 }
 void reset_list__20TShopArmorListWindowFPv(u8 *arg0) {
     u32 i;

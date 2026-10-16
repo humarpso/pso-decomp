@@ -911,16 +911,16 @@ void TUnk_804B2578::render() {
     if ((((s32 (*)(u8 *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) || (TObjPlayer::check_demo_mode() == 1)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 8));
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL && *(void **)((s8 *)arg0 + 0xF8) != NULL) {
-            draw_ginja_model_with_motion(*(void **)((s8 *)arg0 + 0x34), *(void **)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+        if (*(void * *)&this->model != NULL && *(void * *)&this->unknownF8 != NULL) {
+            draw_ginja_model_with_motion(*(void * *)&this->model, *(void * *)&this->unknownF8, this->m_c0);
         }
         if ((void *) TOHangceilingCave01__model_root != NULL) {
             TParticleCtrl::begin_effect_render();
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x358) == 0U) {
+            if ((u32) this->m_358 == 0U) {
                 temp_f2 = *(f32 *)((s8 *)arg0 + 0x354);
-                temp_f1 = *(f32 *)((s8 *)arg0 + 0x350);
+                temp_f1 = this->m_350;
                 temp_r29 = temp_f2 <= temp_f1;
                 temp_r30 = temp_f2 <= (lbl_805DB674 * temp_f1);
                 temp_r31 = temp_f2 <= (lbl_805DB67C * temp_f1);
@@ -963,7 +963,7 @@ void TUnk_804B2578::run_task() {
     if (TObjPlayer::check_demo_mode() == 0) {
         ((VObj_80168834_80168588*)arg0)->m78();
         fn_80168398(arg0);
-        if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
+        if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) this->mode != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
             spawn_particle_effect(arg0 + 0x38, 0x64);
         }
     }

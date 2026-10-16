@@ -41,7 +41,7 @@ void TOContainerAncientItemRare::vfunc_6(s16 *arg1, s32 arg2) {
             ((VObj_8015BF38*)arg0)->m77();
             request_box_item_drop(arg0, arg0 + 0x38, 1);
         }
-        *(s16 *)((s8 *)arg0 + 0x326) = 1;
+        this->mode = 1;
         set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }

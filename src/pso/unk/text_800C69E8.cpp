@@ -44,7 +44,7 @@ void vfunc_98__13TUnk_80493450Fv(void);
 void vfunc_101__13TUnk_80493450Fv(void);
 u16 get_enemy_target_id(void* p);
 
-void TUnk_80493450::vfunc_83() { *(s16*)((char*)this + 0x326) = 1; }
+void TUnk_80493450::vfunc_83() { this->mode = 1; }
 void TUnk_80493450::vfunc_93() {  }
 void TUnk_80493450::vfunc_94() {  }
 void TUnk_80493450::vfunc_95() {  }

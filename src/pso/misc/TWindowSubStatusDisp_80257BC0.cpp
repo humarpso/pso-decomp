@@ -396,7 +396,7 @@ void TWindowSubStatusDisp__sub_80258054(void) {  }
 
 void *TWindowSubStatusDisp::deleting_destructor(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 4) = lbl_804CF998;
+        *(s32 * *)&this->m_flags = lbl_804CF998;
         destroy__20TWindowSubStatusDispFPvs((s32)this, 0);
         if (arg1 > 0) {
             __dl__FPv(this);

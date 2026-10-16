@@ -125,26 +125,26 @@ void TOCapsuleLabo::render() {
     u8 *temp_r31;
     u8 *temp_r31_2;
 
-    *(s32 *)((s8 *)arg0 + 0xE0) = ((VObj802AF370_802af370_802AF2C8 *) arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xE0) == 1) {
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) == 1) {
+    this->m_e0 = ((VObj802AF370_802af370_802AF2C8 *) arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4);
+    if ((s32) this->m_e0 == 1) {
+        TObjFish::set_global_param((int) (this->texture_id));
+        if ((s32) this->m_cc == 1) {
             if ((s32 *) capsule_labo_switch_flags_ptr != NULL) {
                 *capsule_labo_switch_flags_ptr &= 0xFFFFFFF7;
             }
         } else if ((s32 *) capsule_labo_switch_flags_ptr != NULL) {
             *capsule_labo_switch_flags_ptr |= 8;
         }
-        temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
+        temp_r31 = (unsigned char *) (*(void * *)&this->model);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
         temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
         push_matrix();
         post_translate_matrix((void *) (temp_r31_2 + 8));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xE4)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_e4));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
         temp_r31_3 = *(s32 *)((s8 *)temp_r31_2 + 0x2C);
         TParticleCtrl::begin_effect_render();

@@ -153,19 +153,19 @@ void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self) {
 }
 
 void TObjSuisouLobby::update_particle() {
-    if ((s32) *(s32 *)((s8 *)this + 0xC8) == 3) {
-        if ((u32) *(u32 *)((s8 *)this + 0xD4) != 0U) {
-            ((TParticleCtrl *)(*(void **)((s8 *)this + 0xD4)))->clear_active_flag();
+    if ((s32) *(s32 *)&this->m_c8 == 3) {
+        if ((u32) this->m_d4 != 0U) {
+            ((TParticleCtrl *)(*(void * *)&this->m_d4))->clear_active_flag();
         }
-        if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
-            ((TParticleCtrl *)(*(void **)((s8 *)this + 0xD8)))->clear_active_flag();
+        if ((u32) this->m_d8 != 0U) {
+            ((TParticleCtrl *)(*(void * *)&this->m_d8))->clear_active_flag();
         }
     } else {
-        if ((u32) *(u32 *)((s8 *)this + 0xD4) != 0U) {
-            enable__13TParticleCtrlFPv(*(void **)((s8 *)this + 0xD4));
+        if ((u32) this->m_d4 != 0U) {
+            enable__13TParticleCtrlFPv(*(void * *)&this->m_d4);
         }
-        if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
-            enable__13TParticleCtrlFPv(*(void **)((s8 *)this + 0xD8));
+        if ((u32) this->m_d8 != 0U) {
+            enable__13TParticleCtrlFPv(*(void * *)&this->m_d8);
         }
     }
 }

@@ -14,7 +14,8 @@ struct TAdDialingGC : public TObject {
     u16 m_30;
     u8 _pad32[0x36];
     u16 m_68;
-    u8 _pad6A[0x36];
+    u8 unk_6A[0x32];
+    s32 m_9c;
     u32 m_a0;
     u32 m_a4;
     static void select_dial_image(void *self, s32 x);

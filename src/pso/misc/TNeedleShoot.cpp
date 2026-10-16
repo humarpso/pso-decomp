@@ -8,7 +8,7 @@ s32 TNeedleShoot__sub_802A4668();
 s32 update_position__12TNeedleShootFv();
 
 void TNeedleShoot::run_task() {
-    if ((s32) *(s32 *)((s8 *)this + 0xB8) == 1) {
+    if ((s32) *(s32 *)&this->m_b8 == 1) {
         update_position__12TNeedleShootFv();
         update_lifetime__22TObjEneMe1GiGueMissileFv(this);
         return;

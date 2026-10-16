@@ -191,11 +191,11 @@ int queue_destruction__7TObjectFv(void*);
 
 void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) {
+    *(s32 *)&this->unk_1C = arg1;
+    if ((s32) *(s32 *)&this->unk_1C != 0) {
         VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x20)), (const void *)((void *) (arg2)));
         ((TObjPlayer *)(arg0 + 0x30))->copy_xyz((void *) (arg3));
-        *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
+        *(f32 *)&this->m_2c = farg0;
         *(s32 *)((s8 *)arg0 + 0x3C) = arg4;
         *(s32 *)((s8 *)arg0 + 0x40) = arg5;
     }
@@ -206,15 +206,15 @@ extern const f32 TBoss6Rock__data_805DFF4C;
 
 void TUnk_804F1280::render() {
     u8 *arg0 = (u8 *)this;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (*(f32 *)((s8 *)arg0 + 0x2C) - TBoss6Rock__data_805DFF48)) != 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (this->m_2c - TBoss6Rock__data_805DFF48)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x20));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        rotate_matrix_y((int) (0), (int) (this->m_34));
         rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x30)));
         rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x38)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x3C)));
+        TObjFish::set_global_param((int) (this->m_3c));
         TBoss6PlotFalz::set_fade_material_color((f32) (TBoss6Rock__data_805DFF4C));
-        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x40)));
+        draw_ginja_object((int) (*(s32 *)&this->unk_40));
         TObjFish::reset_fish_globals();
         pop_matrix();
     }
@@ -240,7 +240,7 @@ extern s32 lbl_804F1280[];
 void *TBoss6Rock::init_object(void *) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F1280;
-    *(u32 *)((s8 *)this + 0x1C) = 0;
+    *(u32 *)&this->unk_1C = 0;
     return this;
 }
 
@@ -426,7 +426,7 @@ void TBoss6Rock::set_rock_target(s32 i, s32 a, s32 b) {
     }
 }
 
-void TBoss6Rock::release_object() { if (*(unsigned int*)((char*)this + 0xb0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)this + 0xb0)); *(int*)((char*)this + 0xb0) = 0; } }
+void TBoss6Rock::release_object() { if (*(unsigned int *)&this->m_b0 != 0) { queue_destruction__7TObjectFv(*(void* *)&this->m_b0); *(int *)&this->m_b0 = 0; } }
 
 typedef struct Blk_80353F5C Blk_80353F5C;
 typedef struct Elem_80353F5C Elem_80353F5C;
@@ -459,10 +459,10 @@ void TBoss6Rock__sub_80353F5C(Obj_80353F5C *o) {
 #pragma fp_contract on
 void TBoss6Rock::randomize_motion() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (lbl_805DFF70 * (lbl_805DFF6C * (f32) rand()));
-    *(s32 *)((s8 *)arg0 + 0x64) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
-    *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (lbl_805DFF74 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
+    *(s32 *)&this->m_5c = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
+    this->rotation_y = (s32) (lbl_805DFF70 * (lbl_805DFF6C * (f32) rand()));
+    this->rotation_z = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
+    this->m_d0 = (s32) (lbl_805DFF74 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
     VecCopy__FP3VecPC3Vec((void *)((void *) ((u8 *)(arg0) + 0x38)), (const void *)((void *) ((u8 *)(arg0) + 0xD4)));
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DFF78;
 }
@@ -483,15 +483,15 @@ u8 *TBoss6Rock::get_rock_entry(s32 arg0) {
 void TBoss6Rock::break_and_release() {
     u8 *arg0 = (u8 *)this;
     TBoss6Rock__sub_803542E8(arg0, 0);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) == 1) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+    if ((s32) *(s32 *)&this->m_bc == 1) {
+        *(s32 *)&this->m_c8 = 0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 2) {
-        spawn_crush_rocks__10TBoss6RockFPvi(arg0 + 0xD4, *(s32 *)((s8 *)arg0 + 0xB4));
+    if ((s32) *(s32 *)&this->m_c8 != 2) {
+        spawn_crush_rocks__10TBoss6RockFPvi(arg0 + 0xD4, *(s32 *)&this->m_b4);
         play_sound_effect(0x4006AB1F, (u32) (arg0 + 0x38), 0, 0);
         release_object();
         randomize_motion();
-        *(s32 *)((s8 *)arg0 + 0xC4) = 0;
+        *(s32 *)&this->m_c4 = 0;
     }
 }
 #pragma fp_contract on
@@ -505,8 +505,8 @@ void TBoss6Rock::update_fall() {
     f32 var_f2;
     var_f1 = lbl_805DFF94;
     var_f2 = lbl_805DFF98;
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + *(s32 *)((s8 *)arg0 + 0xD0));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) == 1) {
+    this->rotation_y = (s32) (this->rotation_y + this->m_d0);
+    if ((s32) *(s32 *)&this->m_bc == 1) {
         var_f1 = lbl_805DFF9C;
         var_f2 = lbl_805DFFA0;
     }
@@ -524,7 +524,7 @@ void TBoss6Rock::update_fall() {
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
         TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805DFF54));
-        *(s32 *)((s8 *)arg0 + 0xC4) = 2;
+        *(s32 *)&this->m_c4 = 2;
     }
 }
 #pragma pop

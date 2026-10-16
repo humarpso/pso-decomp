@@ -8,9 +8,15 @@ struct TOChatSensor : public TUnk_804B9870 {
     virtual ~TOChatSensor();
     u32 m_90;
     u16 m_94;
-    u8 _pad96[0xA];
+    u8 unk_96[0x2];
+    u32 m_98;
+    u8 unk_9C[0x4];
     u32 m_a0;
-    u8 _padA4[0x20];
+    u8 unk_A4[0x4];
+    u16 m_a8;
+    u8 unk_AA[0xA];
+    s32 m_b4;
+    u8 unk_B8[0xC];
     u32 m_c4;
     u32 m_c8;
     u32 m_cc;

@@ -494,30 +494,30 @@ void TUnk_8048E790::render() {
     s32 temp_r4;
     u16 temp_r3;
     if (all_parents_unqueued_for_destruction__7TObjectFv() != 0) {
-        temp_f3 = *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 0x70) * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0xDC));
-        *(f32 *)((s8 *)arg0 + 0x88) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) * (TParticleCtrl__data_805D9528 + temp_f3));
+        temp_f3 = *(f32 *)((s8 *)(this->m_20) + 0x70) * cos_table_lookup(this->m_dc);
+        this->m_88 = (f32) (this->m_28 * (TParticleCtrl__data_805D9528 + temp_f3));
         *(f32 *)((s8 *)arg0 + 0x8C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) * (TParticleCtrl__data_805D9528 - temp_f3));
-        *(f32 *)((s8 *)arg0 + 0x88) = (f32) (*(f32 *)((s8 *)arg0 + 0x88) * *(f32 *)((s8 *)arg0 + 0xA4));
+        this->m_88 = (f32) (this->m_88 * this->m_a4);
         *(f32 *)((s8 *)arg0 + 0x8C) = (f32) (*(f32 *)((s8 *)arg0 + 0x8C) * *(f32 *)((s8 *)arg0 + 0xA8));
         temp_r3 = *(u16 *)((s8 *)arg0 + 0x24);
         if (temp_r3 & 0x200) {
-            if (((is_split_screen() == 0) || !(*(u16 *)((s8 *)arg0 + 0x24) & 0x400)) && ((u32) *(u32 *)((s8 *)arg0 + 0xB4) != 0U) && ((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U)) {
-                sp8.x = *(f32 *)((s8 *)arg0 + 0x70) + *(f32 *)((s8 *)arg0 + 0x7C);
-                sp8.y = *(f32 *)((s8 *)arg0 + 0x74) + *(f32 *)((s8 *)arg0 + 0x80);
-                sp8.z = *(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)arg0 + 0x84);
-                push_matrix(*(f32 *)((s8 *)arg0 + 0x78));
+            if (((is_split_screen() == 0) || !(*(u16 *)((s8 *)arg0 + 0x24) & 0x400)) && ((u32) *(u32 *)&this->unk_B4 != 0U) && ((u32) this->m_b0 != 0U)) {
+                sp8.x = this->m_70 + *(f32 *)&this->unk_7C;
+                sp8.y = *(f32 *)&this->unk_74 + this->m_80;
+                sp8.z = this->m_78 + *(f32 *)&this->unk_84;
+                push_matrix(this->m_78);
                 post_translate_matrix(&sp8);
-                temp_f1_2 = *(f32 *)((s8 *)arg0 + 0x88);
+                temp_f1_2 = this->m_88;
                 scale_matrix(0, temp_f1_2, temp_f1_2, temp_f1_2);
                 rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0xA0));
                 rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x98));
-                rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x9C));
+                rotate_matrix_y(0, this->m_9c);
                 lbl_805D5660 = model_render_flags;
                 if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
                     TParticleCtrl::begin_effect_render();
                     load_projected_texture_matrix(lbl_805D9540);
                 }
-                rotate_matrix_y(0, (s32) *(s16 *)((s8 *)arg0 + 0x96));
+                rotate_matrix_y(0, (s32) this->m_96);
                 if ((*(u16 *)((s8 *)arg0 + 0x24) & 0x1000) && ((void *) camera_ctrl_instance != NULL)) {
                     rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194));
                 }
@@ -534,12 +534,12 @@ void TUnk_8048E790::render() {
                         apply_particle_model_fade_color(arg0, 0);
                     }
                 }
-                TObjFish::set_global_param(*(u32 *)((s8 *)arg0 + 0xB4));
+                TObjFish::set_global_param(*(u32 *)&this->unk_B4);
                 set_depth_buffer_settings_id__FUl(3);
-                if ((u32) *(u32 *)((s8 *)arg0 + 0xB8) != 0U) {
-                    draw_ginja_model_with_motion(*(u32 *)((s8 *)arg0 + 0xB0), *(u32 *)((s8 *)arg0 + 0xB8), *(f32 *)((s8 *)arg0 + 0xBC));
+                if ((u32) this->m_b8 != 0U) {
+                    draw_ginja_model_with_motion(this->m_b0, this->m_b8, *(f32 *)&this->unk_BC);
                 } else {
-                    draw_ginja_object(*(u32 *)((s8 *)arg0 + 0xB0));
+                    draw_ginja_object(this->m_b0);
                 }
                 if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
                     TParticleCtrl::disable_if_single_screen();
@@ -553,7 +553,7 @@ void TUnk_8048E790::render() {
                 draw_particle_refraction_quad(arg0);
                 return;
             }
-            if (*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 0x88) & 0x20) {
+            if (*(u8 *)((s8 *)(this->m_20) + 0x88) & 0x20) {
                 append_node_to_tail__13TParticleCtrlFPvPv(((s32 *)((u8 *)&TParticleCtrl__data_80511F70 + 0xD8))[*(u16 *)((s8 *)arg0 + 0x1C)], arg0 + 0x6C);
                 return;
             }

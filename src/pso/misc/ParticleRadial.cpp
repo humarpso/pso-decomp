@@ -393,17 +393,17 @@ void TUnk_8048E7A8::render() {
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0) {
         return;
     }
-    if (*(u8 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x88) & 4) {
+    if (*(u8 *)((s8 *)(*(u8 * *)&this->m_20) + 0x88) & 4) {
         if (*(u16 *)((s8 *)arg0 + 0x24) & 0x10) {
-            pos.x = *(f32 *)((s8 *)arg0 + 0x70) + *(f32 *)((s8 *)arg0 + 0x7C);
-            pos.y = *(f32 *)((s8 *)arg0 + 0x74) + *(f32 *)((s8 *)arg0 + 0x80);
-            pos.z = *(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)arg0 + 0x84);
+            pos.x = this->m_70 + *(f32 *)&this->unk_7C;
+            pos.y = *(f32 *)&this->unk_74 + this->m_80;
+            pos.z = this->m_78 + *(f32 *)&this->unk_84;
         } else {
             VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x70);
         }
-        end.x = pos.x + *(f32 *)((s8 *)arg0 + 0x3C);
+        end.x = pos.x + this->m_3c;
         end.y = pos.y + *(f32 *)((s8 *)arg0 + 0x40);
-        end.z = pos.z + *(f32 *)((s8 *)arg0 + 0x44);
+        end.z = pos.z + this->m_44;
         len = vector_length(arg0 + 0x3C);
         if (TParticleCtrl__data_805D955C == len) {
             return;
@@ -412,32 +412,32 @@ void TUnk_8048E7A8::render() {
         project_world_to_screen(0, &end, &s2);
         s2.x = s2.x - s1.x;
         s2.y = s2.y - s1.y;
-        *(s16 *)((s8 *)arg0 + 0x96) = (s16)(lbl_80439560[0] * atan2_float(s2.y, s2.x));
-        *(f32 *)((s8 *)arg0 + 0x88) = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x60) * len;
-        *(f32 *)((s8 *)arg0 + 0x8C) = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x64) * len;
+        this->m_96 = (s16)(lbl_80439560[0] * atan2_float(s2.y, s2.x));
+        this->m_88 = *(f32 *)((s8 *)(*(u8 * *)&this->m_20) + 0x60) * len;
+        *(f32 *)((s8 *)arg0 + 0x8C) = *(f32 *)((s8 *)(*(u8 * *)&this->m_20) + 0x64) * len;
     } else {
-        *(f32 *)((s8 *)arg0 + 0x88) = *(f32 *)((s8 *)arg0 + 0x28);
+        this->m_88 = this->m_28;
         *(f32 *)((s8 *)arg0 + 0x8C) = *(f32 *)((s8 *)arg0 + 0x2C);
     }
-    *(f32 *)((s8 *)arg0 + 0x88) = *(f32 *)((s8 *)arg0 + 0x88) * *(f32 *)((s8 *)arg0 + 0xA4);
+    this->m_88 = this->m_88 * this->m_a4;
     *(f32 *)((s8 *)arg0 + 0x8C) = *(f32 *)((s8 *)arg0 + 0x8C) * *(f32 *)((s8 *)arg0 + 0xA8);
     flags = *(u16 *)((s8 *)arg0 + 0x24);
     if (flags & 0x200) {
-        if (((is_split_screen() == 0) || !(*(u16 *)((s8 *)arg0 + 0x24) & 0x400)) && (*(u32 *)((s8 *)arg0 + 0xB4) != 0U) && (*(u32 *)((s8 *)arg0 + 0xB0) != 0U)) {
+        if (((is_split_screen() == 0) || !(*(u16 *)((s8 *)arg0 + 0x24) & 0x400)) && (*(u32 *)&this->unk_B4 != 0U) && (this->m_b0 != 0U)) {
             Ang_8008BAF8 ang = radial_particle_zero_angles;
             Vec_8008BAF8 pos2;
             direction_to_rotation_xz(arg0 + 0x3C, &ang.x, &ang.z);
-            if (*(u8 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x88) & 4) {
-                pos2.x = *(f32 *)((s8 *)arg0 + 0x70) + *(f32 *)((s8 *)arg0 + 0x7C);
-                pos2.y = *(f32 *)((s8 *)arg0 + 0x74) + *(f32 *)((s8 *)arg0 + 0x80);
-                pos2.z = *(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)arg0 + 0x84);
+            if (*(u8 *)((s8 *)(*(u8 * *)&this->m_20) + 0x88) & 4) {
+                pos2.x = this->m_70 + *(f32 *)&this->unk_7C;
+                pos2.y = *(f32 *)&this->unk_74 + this->m_80;
+                pos2.z = this->m_78 + *(f32 *)&this->unk_84;
             } else {
                 VecCopy__FP3VecPC3Vec(&pos2, arg0 + 0x70);
             }
             ((void (*)(void))push_matrix)();
             post_translate_matrix(&pos2);
-            scale_matrix(0, *(f32 *)((s8 *)arg0 + 0x88), *(f32 *)((s8 *)arg0 + 0x88), *(f32 *)((s8 *)arg0 + 0x88));
-            if (*(u8 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x88) & 4) {
+            scale_matrix(0, this->m_88, this->m_88, this->m_88);
+            if (*(u8 *)((s8 *)(*(u8 * *)&this->m_20) + 0x88) & 4) {
                 rotate_matrix_z(0, ang.z);
                 rotate_matrix_x(0, ang.x);
                 rotate_matrix_y(0, ang.y);
@@ -449,7 +449,7 @@ void TUnk_8048E7A8::render() {
             if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
                 load_projected_texture_matrix(lbl_805D9564);
             }
-            rotate_matrix_y(0, *(s16 *)((s8 *)arg0 + 0x96));
+            rotate_matrix_y(0, this->m_96);
             if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
                 setup_particle_tev(0);
             } else {
@@ -462,12 +462,12 @@ void TUnk_8048E7A8::render() {
                     apply_particle_model_fade_color(arg0, 0);
                 }
             }
-            TObjFish::set_global_param(*(u32 *)((s8 *)arg0 + 0xB4));
+            TObjFish::set_global_param(*(u32 *)&this->unk_B4);
             set_depth_buffer_settings_id__FUl(3);
-            if (*(u32 *)((s8 *)arg0 + 0xB8) != 0U) {
-                draw_ginja_model_with_motion(*(u32 *)((s8 *)arg0 + 0xB0), *(u32 *)((s8 *)arg0 + 0xB8), *(f32 *)((s8 *)arg0 + 0xBC));
+            if (this->m_b8 != 0U) {
+                draw_ginja_model_with_motion(this->m_b0, this->m_b8, *(f32 *)&this->unk_BC);
             } else {
-                draw_ginja_object(*(u32 *)((s8 *)arg0 + 0xB0));
+                draw_ginja_object(this->m_b0);
             }
             if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
                 TParticleCtrl::disable_if_single_screen();
@@ -482,7 +482,7 @@ void TUnk_8048E7A8::render() {
             draw_particle_refraction_quad(arg0);
             return;
         }
-        if (*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 0x88) & 0x20) {
+        if (*(u8 *)((s8 *)(this->m_20) + 0x88) & 0x20) {
             append_node_to_tail__13TParticleCtrlFPvPv(((s32 *)((u8 *)&TParticleCtrl__data_80511F70 + 0xD8))[*(u16 *)((s8 *)arg0 + 0x1C)], arg0 + 0x6C);
             return;
         }

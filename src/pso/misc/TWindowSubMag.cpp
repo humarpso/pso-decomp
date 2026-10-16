@@ -149,25 +149,25 @@ extern "C" {
 void TWindowSubMag::update_mag_help() {
     s32 temp_r3;
 
-    toggle_help_window_on_button(*(s32 *)((s8 *)this + 0x4C), *(s32 *)((s8 *)this + 0x28));
-    temp_r3 = ((TWindowSubMag *)(*(s32 *)((s8 *)this + 0x48)))->get_selected_blast();
-    if (temp_r3 != (s8) *(u8 *)((s8 *)this + 0x1D)) {
-        *(u8 *)((s8 *)this + 0x1D) = (u8) temp_r3;
+    toggle_help_window_on_button(*(s32 *)&this->m_4c, *(s32 *)&this->m_28);
+    temp_r3 = ((TWindowSubMag *)(*(s32 *)&this->m_48))->get_selected_blast();
+    if (temp_r3 != (s8) this->m_1d) {
+        this->m_1d = (u8) temp_r3;
         if (temp_r3 == -1) {
-            send_and_handle__6TLobbyFii(*(s32 *)((s8 *)this + 0x4C), (s32 *)lbl_805DD648, 0x80);
+            send_and_handle__6TLobbyFii(*(s32 *)&this->m_4c, (s32 *)lbl_805DD648, 0x80);
             return;
         }
-        send_and_handle__6TLobbyFii(*(s32 *)((s8 *)this + 0x4C), get_help_text_string(temp_r3 + 0x27), 0x80);
+        send_and_handle__6TLobbyFii(*(s32 *)&this->m_4c, get_help_text_string(temp_r3 + 0x27), 0x80);
     }
 }
 
 void TWindowSubMag::update_displayed_item() {
     s32 temp_r3;
 
-    temp_r3 = select_cursor_entry__6TLobbyFv(*(s32 *)((s8 *)this + 0x34));
-    if (temp_r3 != (s32) *(s32 *)((s8 *)this + 0x24)) {
-        *(s32 *)((s8 *)this + 0x24) = temp_r3;
-        TWindowHelpItem__set_displayed_item_by_id(*(s32 *)((s8 *)this + 0x40), temp_r3);
+    temp_r3 = select_cursor_entry__6TLobbyFv(*(s32 *)&this->m_34);
+    if (temp_r3 != (s32) *(s32 *)&this->m_24) {
+        *(s32 *)&this->m_24 = temp_r3;
+        TWindowHelpItem__set_displayed_item_by_id(*(s32 *)&this->m_40, temp_r3);
     }
 }
 
@@ -176,7 +176,7 @@ s32 TWindowSubMag::count_slots() {
     s32 var_r31;
 
     ((TItemData *)(&sp8))->initialize_mag_data();
-    deserialize_mag__9TItemDataFPvPv(*(s32 *)((s8 *)this + 0x2C), &sp8);
+    deserialize_mag__9TItemDataFPvPv(*(s32 *)&this->m_2c, &sp8);
     var_r31 = 0;
 loop_1:
     if (((TItemMag *)(&sp8))->get_photon_blast_at_slot(var_r31) == -1) {
@@ -192,10 +192,10 @@ loop_1:
 void TWindowSubMag::set_mag_mode(s32 arg1) {
     switch (arg1) {
     case 1:
-        *(s8 *)((s8 *)this + 0x1C) = 5;
+        *(s8 *)&this->m_1c = 5;
         return;
     case 0:
-        *(s8 *)((s8 *)this + 0x1C) = 0xE;
+        *(s8 *)&this->m_1c = 0xE;
         return;
     }
 }
@@ -213,8 +213,8 @@ void *TWindowSubMag::create_learned_blast_toast() {
     s32 n;
     void *win;
     ((TItemData *)((s32 *)&item))->initialize_mag_data();
-    deserialize_mag__9TItemDataFPvPv(*(s32 *)((s8 *)arg0 + 0x2C), (s32 *)&item);
-    n = ((TItemMag *)((s32 *)&item))->get_photon_blast_at_slot(*(s8 *)((s8 *)arg0 + 0x1E));
+    deserialize_mag__9TItemDataFPvPv(*(s32 *)&this->m_2c, (s32 *)&item);
+    n = ((TItemMag *)((s32 *)&item))->get_photon_blast_at_slot(*(s8 *)&this->m_1e);
     if (n == -1) {
         return 0;
     }
@@ -237,8 +237,8 @@ void *TWindowSubMag::create_learned_blast_toast() {
     pos.x -= (0.5f * n + 4.0f) * scale;
     size.x = 8.0f + n;
     size.y = 40.0f;
-    win = create_message_window__6TLobbyFllUls((s32)&pos, (s32 *)&size, 1, *(s32 *)((s8 *)arg0 + 0x28));
-    TWindowSubEquip__sub_80263AF8(*(s32 *)((s8 *)arg0 + 0x30), 6);
+    win = create_message_window__6TLobbyFllUls((s32)&pos, (s32 *)&size, 1, *(s32 *)&this->m_28);
+    TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 6);
     set_field_1c__6TLobbyFf(win);
     send_and_handle__6TLobbyFii((s32)win, (s32 *)get_shared_text_buffer(), 2);
     set_position_xy(win, scale, scale);
@@ -251,11 +251,11 @@ void *TWindowSubMag::create() {
     s32 temp_r3;
 
     temp_r3 = get_window_layout_position((s32)(0xB));
-    temp_r31 = create_message_window__6TLobbyFllUls(temp_r3, lbl_8044FA00, 1, *(s32 *)((s8 *)this + 0x28));
-    TWindowSubEquip__sub_80263AF8(*(s32 *)((s8 *)this + 0x30), 4);
+    temp_r31 = create_message_window__6TLobbyFllUls(temp_r3, lbl_8044FA00, 1, *(s32 *)&this->m_28);
+    TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 4);
     set_field_1c__6TLobbyFf((void *)(temp_r31));
     *(s32 *)((s8 *)temp_r31 + 0x5C) = 0x186A0;
-    call_if_split_screen(temp_r31, *(s32 *)((s8 *)this + 0x28));
+    call_if_split_screen(temp_r31, *(s32 *)&this->m_28);
     return temp_r31;
 }
 
@@ -292,9 +292,9 @@ s32 TWindowSubMag::create_list() {
     s32 temp_r31;
 
     s32 temp_r3 = get_window_layout_position((s32)((s32)(0xD)));
-    temp_r31 = create_equip_kind_window((s32)(temp_r3), (s32 *)(lbl_8044F9F8), (s32)(*(s32 *)((s8 *)this + 0x28)));
+    temp_r31 = create_equip_kind_window((s32)(temp_r3), (s32 *)(lbl_8044F9F8), (s32)(*(s32 *)&this->m_28));
     ((TWindowSubStatusDisp *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x24));
-    TWindowSubEquip__sub_80263AF8(*(s32 *)((s8 *)this + 0x30), 2);
+    TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 2);
     set_field_1c__6TLobbyFf((void *)(temp_r31));
     ((TWindowShortListCtrl *)temp_r31)->set_flag70_bit10();
     ((TShopArmorListWindow *)temp_r31)->close_list();
@@ -308,9 +308,9 @@ s32 TWindowSubMag::setup_list() {
     s32 temp_r3;
 
     temp_r3 = get_window_layout_position((s32)((s32)(7)));
-    temp_r31 = create_equip_kind_window((s32)(temp_r3), (s32 *)(lbl_8044F9F0), (s32)(*(s32 *)((s8 *)this + 0x28)));
+    temp_r31 = create_equip_kind_window((s32)(temp_r3), (s32 *)(lbl_8044F9F0), (s32)(*(s32 *)&this->m_28));
     ((TWindowSubStatusDisp *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x29));
-    TWindowSubEquip__sub_80263AF8(*(s32 *)((s8 *)this + 0x30), 0);
+    TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 0);
     set_field_1c__6TLobbyFf((void *)(temp_r31));
     ((TWindowShortListCtrl *)temp_r31)->set_flag70_bit10();
     ((TWindowSubMag *)temp_r31)->init_and_setup((void*)2);

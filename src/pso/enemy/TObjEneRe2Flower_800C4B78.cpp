@@ -1172,9 +1172,9 @@ void *TObjPlayer::init_target_ref(s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)this + 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
     *(s32 *)((s8 *)this + 0) = (s32) lbl_805D2A58;
     *(s32 *)((s8 *)this + 0x1C) = 0;
-    *(s32 *)((s8 *)this + 0x20) = arg2;
-    if (is_alive__9TObjEneDDFv(*(s32 *)((s8 *)this + 0x20)) != 0) {
-        *(s32 *)((s8 *)this + 0x24) = spawn_continuous_particle_effect_with_flags(*(s32 *)((s8 *)this + 0x20) + 0x38, 0xDE, 0x40);
+    this->m_20 = arg2;
+    if (is_alive__9TObjEneDDFv(this->m_20) != 0) {
+        *(s32 *)((s8 *)this + 0x24) = spawn_continuous_particle_effect_with_flags(this->m_20 + 0x38, 0xDE, 0x40);
     }
     return this;
 }

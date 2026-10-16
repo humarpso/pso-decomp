@@ -8,7 +8,14 @@ public:
     virtual ~TUnk_804B8DD0();
     virtual void render();
     virtual void run_task();
-    u8 unk_1C[0x28];
+    u8 unk_1C[0xC];
+    s32 m_28;
+    u8 unk_2C[0x4];
+    s32 m_30;
+    u8 unk_34[0x4];
+    s32 m_38;
+    u8 unk_3C[0x4];
+    s32 m_40;
 };
 typedef char TUnk_804B8DD0_size[sizeof(TUnk_804B8DD0) == 0x44 ? 1 : -1];
 

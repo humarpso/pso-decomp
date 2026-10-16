@@ -8,7 +8,15 @@ public:
     virtual ~TPhotonFarlla();
     virtual void render();
     virtual void run_task();
-    u8 unk_158[0x50];
+    u8 unk_158[0x24];
+    u16 m_17c;
+    u8 unk_17E[0x6];
+    f32 m_184;
+    u8 unk_188[0xC];
+    s16 m_194;
+    u8 unk_196[0xA];
+    s32 m_1a0;
+    u8 unk_1A4[0x4];
 };
 typedef char TPhotonFarlla_size[sizeof(TPhotonFarlla) == 0x1A8 ? 1 : -1];
 

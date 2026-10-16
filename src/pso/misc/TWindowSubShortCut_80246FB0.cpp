@@ -9,10 +9,10 @@ s32 close_all_children__11TWindowChatFv();
 
 void TWindowSubShortCut::close_and_clear_flag() {
     close_all_children__11TWindowChatFv();
-    *(u16 *)((s8 *)this + 0x1E) = (u16) (*(u16 *)((s8 *)this + 0x1E) & 0xFFFFFFFD);
+    this->m_1e = (u16) (this->m_1e & 0xFFFFFFFD);
     open_next_input_window__11TWindowChatFv(this);
 }
 
-void TWindowSubShortCut::free_icon() { void* m = *(void**)((char*)this + 0x20); if (m) TWindowChat__sub_80247D2C(m); }
+void TWindowSubShortCut::free_icon() { void* m = *(void* *)&this->m_20; if (m) TWindowChat__sub_80247D2C(m); }
 
 }

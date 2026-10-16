@@ -62,9 +62,9 @@ extern f32 lbl_805DFB54;
 void TWindowDD::update(s32 arg1) {
     TWindowDD__sub_80341AF8(arg1);
     ((TWindowDD *)arg1)->reset_cursor();
-    if ((u32) *(u32 *)((s8 *)this + 0x7C) != 0U) {
-        ((TWindowDD *)(*(u32 *)((s8 *)this + 0x7C)))->set_scale(((TWindowDD *)arg1)->get_field_0x74(), (s32) lbl_805DFB54);
-        ((TWindowDD *)(*(u32 *)((s8 *)this + 0x7C)))->set_value_f32(TWindowDD__sub_8034217C(arg1));
+    if ((u32) this->m_98 != 0U) {
+        ((TWindowDD *)(this->m_98))->set_scale(((TWindowDD *)arg1)->get_field_0x74(), (s32) lbl_805DFB54);
+        ((TWindowDD *)(this->m_98))->set_value_f32(TWindowDD__sub_8034217C(arg1));
     }
 }
 

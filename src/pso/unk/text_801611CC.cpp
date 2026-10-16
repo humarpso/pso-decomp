@@ -149,57 +149,57 @@ void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src) {
 void TODoorCave01::vfunc_6(s16 *arg1, s32) {
     u8 *arg0 = (u8 *)this;
     if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 0xF0000 | 1);
+        this->m_d0 = (s32) (this->m_d0 | 0xF0000 | 1);
     }
 }
 
 s32 TODoorCave01::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
-    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
+    *(s32 *)&this->unk_C8 = (s32) this->m_84;
+    temp_r0 = *(s32 *)&this->unk_C8;
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)this + 0xCC) = 0;
+        this->m_cc = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)this + 0xCC) = 1;
-    } else if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
+        this->m_cc = 1;
+    } else if ((s32) *(s32 *)&this->unk_8C < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
-            *(s32 *)((s8 *)this + 0xCC) = 3;
+            this->m_cc = 3;
         } else {
-            *(s32 *)((s8 *)this + 0xCC) = 2;
+            this->m_cc = 2;
         }
     } else {
-        *(s32 *)((s8 *)this + 0xCC) = 2;
+        this->m_cc = 2;
     }
-    return *(s32 *)((s8 *)this + 0xC8);
+    return *(s32 *)&this->unk_C8;
 }
 
 extern const f32 lbl_805DB490;
 
 void TODoorCave01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
-    if (((u8) ((u32) __cntlzw(*(s32 *)((s8 *)arg0 + 0xD0) & 1) >> 5) == 1) || (is_any_player_within_radius_xz(lbl_805DB490) != 1)) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 3;
+    if (((u8) ((u32) __cntlzw(this->m_d0 & 1) >> 5) == 1) || (is_any_player_within_radius_xz(lbl_805DB490) != 1)) {
+        *(s32 *)&this->unk_AC = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
     }
 }
 void TODoorCave01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
-    if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB494)) == 1)) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 1;
+    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB494)) == 1)) {
+        *(s32 *)&this->unk_AC = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
         play_sound_effect((s32)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }
-    if (*(s32 *)((s8 *)arg0 + 0xD0) & 0x100000) {
-        *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (*(f32 *)((s8 *)arg0 + 0xE0) + lbl_805DB498);
-        if (lbl_805DB49C <= *(f32 *)((s8 *)arg0 + 0xE0)) {
-            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFEFFFFF);
+    if (this->m_d0 & 0x100000) {
+        this->m_e0 = (f32) (this->m_e0 + lbl_805DB498);
+        if (lbl_805DB49C <= this->m_e0) {
+            this->m_d0 = (s32) (this->m_d0 & 0xFFEFFFFF);
         }
     } else {
-        *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (*(f32 *)((s8 *)arg0 + 0xE0) - lbl_805DB498);
-        if (*(f32 *)((s8 *)arg0 + 0xE0) <= lbl_805DB4A0) {
-            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 0x100000);
+        this->m_e0 = (f32) (this->m_e0 - lbl_805DB498);
+        if (this->m_e0 <= lbl_805DB4A0) {
+            this->m_d0 = (s32) (this->m_d0 | 0x100000);
         }
     }
 }

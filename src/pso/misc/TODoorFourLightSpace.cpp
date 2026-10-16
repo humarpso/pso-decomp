@@ -128,26 +128,26 @@ void fn_802898EC(void) {  }
 s32 TODoorFourLightSpace::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
-    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
+    *(s32 *)&this->unk_C8 = (s32) this->m_84;
+    temp_r0 = *(s32 *)&this->unk_C8;
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)this + 0xCC) = 0;
+        this->m_cc = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)this + 0xCC) = 1;
-    } else if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
+        this->m_cc = 1;
+    } else if ((s32) *(s32 *)&this->unk_8C < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
-            *(s32 *)((s8 *)this + 0xCC) = 3;
+            this->m_cc = 3;
         } else {
-            *(s32 *)((s8 *)this + 0xCC) = 2;
+            this->m_cc = 2;
         }
     } else {
-        *(s32 *)((s8 *)this + 0xCC) = 2;
+        this->m_cc = 2;
     }
-    return *(s32 *)((s8 *)this + 0xC8);
+    return *(s32 *)&this->unk_C8;
 }
 void TODoorFourLightSpace::vfunc_6(s16 *arg1, s32) {
     if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
+        this->m_d0 = (s32) (this->m_d0 | 1);
     }
 }
 
@@ -158,42 +158,42 @@ void TODoorFourLightSpace::update_door_switch_state() {
     s16 sp8;
     s32 fail;
     s32 i;
-    switch (*(s32 *)((s8 *)arg0 + 0xCC)) {
+    switch (this->m_cc) {
     case 1:
         play_door_sound(arg0);
-        *(s32 *)((s8 *)arg0 + 0xD0) |= 1;
+        this->m_d0 |= 1;
         break;
     case 2:
         fail = 0;
-        for (i = 0; i < *(s32 *)((s8 *)arg0 + 0x88); i++) {
-            if (is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0xC8) + i) == 0) {
+        for (i = 0; i < *(s32 *)&this->m_88; i++) {
+            if (is_current_floor_switch_set(*(s32 *)&this->unk_C8 + i) == 0) {
                 fail = 1;
             }
         }
         if (fail != 0) {
-            *(s32 *)((s8 *)arg0 + 0xD0) &= ~1;
+            this->m_d0 &= ~1;
         } else {
             play_door_sound(arg0);
-            *(s32 *)((s8 *)arg0 + 0xD0) |= 1;
+            this->m_d0 |= 1;
         }
         break;
     case 3:
-        if (!(*(s32 *)((s8 *)arg0 + 0xD0) & 1)) {
+        if (!(this->m_d0 & 1)) {
             s32 bad;
             s32 j;
             bad = 0;
-            for (j = 0; j < *(s32 *)((s8 *)arg0 + 0x88); j++) {
-                if (is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0xC8) + j) == 0) {
+            for (j = 0; j < *(s32 *)&this->m_88; j++) {
+                if (is_current_floor_switch_set(*(s32 *)&this->unk_C8 + j) == 0) {
                     bad = 1;
                 }
             }
             if (bad == 0) {
                 play_door_sound(arg0);
-                *(s32 *)((s8 *)arg0 + 0xD0) |= 1;
+                this->m_d0 |= 1;
             } else {
-                *(s32 *)((s8 *)arg0 + 0xD0) &= ~1;
+                this->m_d0 &= ~1;
             }
-            if (bad == 0 && *(u32 *)((s8 *)arg0 + 0x80) != 0 &&
+            if (bad == 0 && *(u32 *)&this->m_80 != 0 &&
                 access_object_saved_state(arg0, &sp8, 1) == 1) {
                 sp8 = 1;
                 send_object_state_update(arg0, &sp8);
@@ -202,7 +202,7 @@ void TODoorFourLightSpace::update_door_switch_state() {
         }
         break;
     default:
-        *(s32 *)((s8 *)arg0 + 0xD0) &= ~1;
+        this->m_d0 &= ~1;
         break;
     }
 }
@@ -217,23 +217,23 @@ s32 TODoorFourLightSpace::draw_lights() {
     for (i = 0; i < 4; i++) {
         flags[i] = 1;
     }
-    if (!(*(s32 *)((s8 *)self + 0xD0) & 1)) {
+    if (!(this->m_d0 & 1)) {
         s32 j;
-        for (j = 0; j < *(s32 *)((s8 *)self + 0x88); j++) {
-            if (is_current_floor_switch_set(*(s32 *)((s8 *)self + 0xC8) + j) == 1) {
+        for (j = 0; j < *(s32 *)&this->m_88; j++) {
+            if (is_current_floor_switch_set(*(s32 *)&this->unk_C8 + j) == 1) {
                 flags[j] = 1;
             } else {
                 flags[j] = 0;
             }
         }
     }
-    mdl = *(u8 **)((s8 *)self + 0xD4);
+    mdl = *(u8 * *)&this->m_d4;
     pa = (u8 **)(self + 0xD8);
     pb = (u8 **)(self + 0xE8);
     push_matrix();
-    ((void (*)(s32))set_global_param__8TObjFishFl)(*(s32 *)((s8 *)self + 0x24));
+    ((void (*)(s32))set_global_param__8TObjFishFl)(this->texture_id);
     post_translate_matrix(self + 0x38);
-    rotate_matrix_y(0, *(s32 *)((s8 *)self + 0x60));
+    rotate_matrix_y(0, this->rotation_y);
     post_translate_matrix(mdl + 8);
     push_matrix();
     post_translate_matrix(*(u8 **)((s8 *)mdl + 0x2C) + 8);
@@ -250,7 +250,7 @@ s32 TODoorFourLightSpace::draw_lights() {
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
         } else {
-            ((void (*)(s32))set_global_param__8TObjFishFl)(*(s32 *)((s8 *)self + 0x24));
+            ((void (*)(s32))set_global_param__8TObjFishFl)(this->texture_id);
         }
         if (*pa != NULL) {
             push_matrix();
@@ -277,8 +277,8 @@ void TODoorFourLightSpace::render() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if ((((VObj_802898E8 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) == 1) && (is_in_view_depth(arg0, lbl_805DD8F0) == 1)) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
+    if ((((VObj_802898E8 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) && (is_in_view_depth(arg0, lbl_805DD8F0) == 1)) {
+        temp_r0 = *(s32 *)&this->unk_AC;
         switch (temp_r0) {
         case 1:
         case 3:
@@ -286,8 +286,8 @@ void TODoorFourLightSpace::render() {
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
             post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
+            rotate_matrix_y(0, this->rotation_y);
+            draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->unk_BC, this->m_b0);
             pop_matrix();
             return;
         case 2:
@@ -295,12 +295,12 @@ void TODoorFourLightSpace::render() {
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
             post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB4));
+            rotate_matrix_y(0, this->rotation_y);
+            draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->unk_BC, *(f32 *)&this->unk_B4);
             pop_matrix();
             return;
         case 0:
-            temp_r0_2 = *(s32 *)((s8 *)arg0 + 0xCC);
+            temp_r0_2 = this->m_cc;
             if ((temp_r0_2 == 2) || (temp_r0_2 == 3)) {
                 draw_lights();
                 return;
@@ -309,8 +309,8 @@ void TODoorFourLightSpace::render() {
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
             post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-            draw_ginja_object(*(s32 *)((s8 *)arg0 + 0xD4));
+            rotate_matrix_y(0, this->rotation_y);
+            draw_ginja_object(*(s32 *)&this->m_d4);
             pop_matrix();
             break;
         }
@@ -396,27 +396,27 @@ s32 set_global_param__8TObjFishFl();
 s32 TODoorFourLightRuins::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
-    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
+    *(s32 *)&this->unk_C8 = (s32) this->m_84;
+    temp_r0 = *(s32 *)&this->unk_C8;
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)this + 0xCC) = 0;
+        this->m_cc = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)this + 0xCC) = 1;
-    } else if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
+        this->m_cc = 1;
+    } else if ((s32) *(s32 *)&this->unk_8C < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
-            *(s32 *)((s8 *)this + 0xCC) = 3;
+            this->m_cc = 3;
         } else {
-            *(s32 *)((s8 *)this + 0xCC) = 2;
+            this->m_cc = 2;
         }
     } else {
-        *(s32 *)((s8 *)this + 0xCC) = 2;
+        this->m_cc = 2;
     }
-    return *(s32 *)((s8 *)this + 0xC8);
+    return *(s32 *)&this->unk_C8;
 }
 
 void TODoorFourLightRuins::vfunc_6(s16 *arg1, s32) {
     if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
+        this->m_d0 = (s32) (this->m_d0 | 1);
     }
 }
 
@@ -429,49 +429,49 @@ void TODoorFourLightRuins::update_door_switch_state() {
     s32 i;
     s32 off2;
     s32 j;
-    switch (*(s32 *)((s8 *)arg0 + 0xCC)) {
+    switch (this->m_cc) {
     case 1:
         ((s32 (*)(void *))play_door_sound)(arg0);
-        *(s32 *)((s8 *)arg0 + 0xD0) |= 1;
+        this->m_d0 |= 1;
         break;
     case 2:
         off = 0;
-        for (i = 0; i < *(s32 *)((s8 *)arg0 + 0x88); i++) {
-            if (is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0xC8) + i) == 0) {
+        for (i = 0; i < *(s32 *)&this->m_88; i++) {
+            if (is_current_floor_switch_set(*(s32 *)&this->unk_C8 + i) == 0) {
                 off = 1;
             }
         }
         if (off != 0) {
-            *(s32 *)((s8 *)arg0 + 0xD0) &= ~1;
+            this->m_d0 &= ~1;
         } else {
             ((s32 (*)(void *))play_door_sound)(arg0);
-            *(s32 *)((s8 *)arg0 + 0xD0) |= 1;
+            this->m_d0 |= 1;
         }
         break;
     case 3:
-        if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
+        if (this->m_d0 & 1) {
             break;
         }
         off2 = 0;
-        for (j = 0; j < *(s32 *)((s8 *)arg0 + 0x88); j++) {
-            if (is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0xC8) + j) == 0) {
+        for (j = 0; j < *(s32 *)&this->m_88; j++) {
+            if (is_current_floor_switch_set(*(s32 *)&this->unk_C8 + j) == 0) {
                 off2 = 1;
             }
         }
         if (off2 != 0) {
-            *(s32 *)((s8 *)arg0 + 0xD0) &= ~1;
+            this->m_d0 &= ~1;
         } else {
             ((s32 (*)(void *))play_door_sound)(arg0);
-            *(s32 *)((s8 *)arg0 + 0xD0) |= 1;
+            this->m_d0 |= 1;
         }
-        if (off2 == 0 && *(u32 *)((s8 *)arg0 + 0x80) != 0 && ((s32 (*)(void *, void *, int))access_object_saved_state)(arg0, &sp8, 1) == 1) {
+        if (off2 == 0 && *(u32 *)&this->m_80 != 0 && ((s32 (*)(void *, void *, int))access_object_saved_state)(arg0, &sp8, 1) == 1) {
             sp8 = 1;
             ((s32 (*)(void *, void *))send_object_state_update)(arg0, &sp8);
             ((s32 (*)(void *, void *, int))access_object_saved_state)(arg0, &sp8, 0);
         }
         break;
     default:
-        *(s32 *)((s8 *)arg0 + 0xD0) &= ~1;
+        this->m_d0 &= ~1;
         break;
     }
 }
@@ -538,8 +538,8 @@ void TODoorFourLightRuins::render() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if ((((VObj_8028A030 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) == 1) && (is_in_view_depth(arg0, lbl_805DD8F0) == 1)) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
+    if ((((VObj_8028A030 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) && (is_in_view_depth(arg0, lbl_805DD8F0) == 1)) {
+        temp_r0 = *(s32 *)&this->unk_AC;
         switch (temp_r0) {
         case 1:
         case 3:
@@ -547,8 +547,8 @@ void TODoorFourLightRuins::render() {
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
             post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
+            rotate_matrix_y(0, this->rotation_y);
+            draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->unk_BC, this->m_b0);
             pop_matrix();
             return;
         case 2:
@@ -556,12 +556,12 @@ void TODoorFourLightRuins::render() {
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
             post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB4));
+            rotate_matrix_y(0, this->rotation_y);
+            draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->unk_BC, *(f32 *)&this->unk_B4);
             pop_matrix();
             return;
         case 0:
-            temp_r0_2 = *(s32 *)((s8 *)arg0 + 0xCC);
+            temp_r0_2 = this->m_cc;
             if ((temp_r0_2 == 2) || (temp_r0_2 == 3)) {
                 TODoorFourLightRuins::draw_model_and_lights((void *)(arg0));
                 return;
@@ -570,8 +570,8 @@ void TODoorFourLightRuins::render() {
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
             post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-            draw_ginja_object(*(s32 *)((s8 *)arg0 + 0xD4));
+            rotate_matrix_y(0, this->rotation_y);
+            draw_ginja_object(*(s32 *)&this->m_d4);
             pop_matrix();
             break;
         }

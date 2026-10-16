@@ -8,7 +8,15 @@ public:
     virtual ~TUnk_80484610();
     virtual void vfunc_79();
     virtual void run_task();
-    u8 unk_38C[0x184];
+    u8 unk_38C[0xE4];
+    s32 m_470;
+    u8 unk_474[0x8];
+    s32 m_47c;
+    u8 unk_480[0x4];
+    f32 m_484;
+    u8 unk_488[0x4];
+    f32 m_48c;
+    u8 unk_490[0x80];
 };
 typedef char TUnk_80484610_size[sizeof(TUnk_80484610) == 0x510 ? 1 : -1];
 

@@ -7,7 +7,8 @@ class TUnk_804CC9D4 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_804CC9D4();
     virtual void vfunc_13(s32);
-    u8 unk_AC[0x8];
+    u8 unk_AC[0x4];
+    s32 m_b0;
 };
 typedef char TUnk_804CC9D4_size[sizeof(TUnk_804CC9D4) == 0xB4 ? 1 : -1];
 

@@ -47,25 +47,25 @@ void TItemEffPG::run_task() {
         var_r31 = 0;
     }
     if (var_r31 != 0) {
-        temp_f1 = *(f32 *)((s8 *)this + 0x40);
+        temp_f1 = this->m_40;
         if (temp_f1 < *(f32 *)((s8 *)this + 0xC4)) {
-            *(f32 *)((s8 *)this + 0x40) = (f32) (temp_f1 + *(f32 *)((s8 *)this + 0xC8));
+            this->m_40 = (f32) (temp_f1 + this->m_c8);
             temp_f1_2 = *(f32 *)((s8 *)this + 0xC4);
-            if (temp_f1_2 < *(f32 *)((s8 *)this + 0x40)) {
-                *(f32 *)((s8 *)this + 0x40) = temp_f1_2;
+            if (temp_f1_2 < this->m_40) {
+                this->m_40 = temp_f1_2;
             }
         }
         check_hits__14TItemAttackColFPv(this);
         return;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x14) == 0U) {
+    if ((u32) *(u32 *)&this->m_down == 0U) {
         queue_destruction__7TObjectFv(this);
         disallow_rendering__7TObjectFv(this);
         return;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0xD0) != 0U) {
-        TItemEffPG__begin_visual_fade(*(void **)((s8 *)this + 0xD0));
-        *(u32 *)((s8 *)this + 0xD0) = 0U;
+    if ((u32) this->m_d0 != 0U) {
+        TItemEffPG__begin_visual_fade(*(void * *)&this->m_d0);
+        this->m_d0 = 0U;
     }
 }
 
@@ -115,6 +115,6 @@ void TItemEffPG::create(void *arg0, void *arg1) {
     extern const float lbl_805DFE14;
     extern const float lbl_805DFE1C;
     extern const float lbl_805DFE20;
-void*TItemEffPG::init_params() { TObjPlayer__sub_802E451C(); *(int*)((char*)this + 0x10) = 10; *(float*)((char*)this + 0x28) = lbl_805DFE14; *(float*)((char*)this + 0x2c) = lbl_805DFE1C; *(float*)((char*)this + 0x30) = lbl_805DFE20; return this; }
+void*TItemEffPG::init_params() { TObjPlayer__sub_802E451C(); *(int *)&this->m_up = 10; this->m_28 = lbl_805DFE14; *(float *)&this->unk_2C = lbl_805DFE1C; this->m_30 = lbl_805DFE20; return this; }
 
 }

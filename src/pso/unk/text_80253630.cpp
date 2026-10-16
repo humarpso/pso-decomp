@@ -14,14 +14,14 @@ void TWindowHelpItem::refresh_copied_items() {
     s32 temp_r3_3;
     u8 *temp_r3_2;
     u8 *temp_r3_4;
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0xA0);
+    temp_r3 = *(s32 *)&this->m_a0;
     if (temp_r3 != -1) {
         temp_r3_2 = (u8 *)(find_item_by_id(temp_r3));
         if (temp_r3_2 != NULL) {
             ((TItem *)temp_r3_2)->copy_to_item_data(arg0 + 0x74);
         }
     }
-    temp_r3_3 = *(s32 *)((s8 *)arg0 + 0xA4);
+    temp_r3_3 = *(s32 *)&this->m_a4;
     if (temp_r3_3 != -1) {
         temp_r3_4 = (u8 *)(find_item_by_id(temp_r3_3));
         if (temp_r3_4 != NULL) {

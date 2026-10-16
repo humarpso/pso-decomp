@@ -198,15 +198,15 @@ void TUnk_804E3BA8::render() {
     u8 *fx = queue_boss_effect__10TObjPlayerFPv(2);
     Col_802E6CB0 c = lbl_80472C9C;
     node = *(Node_802E6CB0 **)((s8 *)fx + 0x2C);
-    part = *(Part_802E6CB0 **)((s8 *)arg0 + 0x28);
+    part = *(Part_802E6CB0 * *)&this->unk_28;
     draw_effect__10TObjPlayerFv();
     push_matrix();
-    for (i = 0; i < *(s32 *)((s8 *)arg0 + 0x24); i++) {
+    for (i = 0; i < this->m_24; i++) {
         push_matrix();
         post_translate_matrix(part);
         rotate_matrix_z(0, part->f20);
         rotate_matrix_x(0, part->f18);
-        translate_matrix(0, -*(f32 *)((s8 *)arg0 + 0x30), -*(f32 *)((s8 *)arg0 + 0x34), -*(f32 *)((s8 *)arg0 + 0x38));
+        translate_matrix(0, -this->m_30, -*(f32 *)((s8 *)arg0 + 0x34), -this->m_38);
         TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)arg0 + 0x2C));
         switch (part->type) {
         case 0:
@@ -287,7 +287,7 @@ void TUnk_804E3BC0::render() {
     node = *(Node_802E708C **)((s8 *)fx + 0x2C);
     Vec_802E708C s = lbl_80472C90;
     s.z = s.y = s.x = lbl_805DE9F8;
-    part = *(Part_802E708C **)((s8 *)arg0 + 0x28);
+    part = *(Part_802E708C * *)&this->unk_28;
     draw_effect__10TObjPlayerFv();
     for (node = node->child; node != NULL; node = node->next) {
         push_matrix();
@@ -377,7 +377,7 @@ void TObjPlayer::alloc_breakup_model(s32 arg1) {
     temp_r4 = *(s32 **)((s8 *)this + 0x1C);
     *(s32 *)((s8 *)this + 0x24) = (s32) *temp_r4;
     TObjPlayer__sub_802E75B8(this, temp_r4);
-    *(s32 *)((s8 *)this + 0x28) = mem_alloc(*(s32 *)((s8 *)this + 0x24) * 0x2C);
+    *(s32 *)&this->m_28 = mem_alloc(*(s32 *)((s8 *)this + 0x24) * 0x2C);
 }
 
 extern s32 lbl_804E3BD8[];
@@ -402,10 +402,10 @@ u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1) {
 void *TObjPlayer::init_zeroed_object() {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804E3BD8;
-    *(u32 *)((s8 *)this + 0x20) = 0;
+    *(u32 *)&this->m_20 = 0;
     *(u32 *)((s8 *)this + 0x1C) = 0;
     *(u32 *)((s8 *)this + 0x24) = 0;
-    *(u32 *)((s8 *)this + 0x28) = 0;
+    this->m_28 = 0;
     return this;
 }
 

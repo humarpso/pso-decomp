@@ -63,7 +63,7 @@ void TLobby__sub_803DA16C(void*);
 void __ct__7TObjectFP7TObject(void *);
 
     extern const float lbl_805DDDF8;
-void TAdSelectTxtGC::reset_state() { *(short*)((char*)this + 0x8) = 0; *(short*)((char*)this + 0x6) = 0; *(short*)((char*)this + 0x4) = 0; *(short*)((char*)this + 0x2) = 0; *(short*)((char*)this + 0x0) = 0; *(short*)((char*)this + 0xe) = 0; *(short*)((char*)this + 0xc) = 0; *(short*)((char*)this + 0xa) = 0; *(float*)((char*)this + 0x10) = lbl_805DDDF8; *(float*)((char*)this + 0x14) = lbl_805DDDF8; *(int*)((char*)this + 0x20) = 0; *(int*)((char*)this + 0x1c) = 0; *(int*)((char*)this + 0x18) = 0; }
+void TAdSelectTxtGC::reset_state() { *(short *)&this->m_prev = 0; *(short *)&this->m_id = 0; *(short *)&this->m_flags = 0; *(short*)((char*)this + 0x2) = 0; *(short *)&this->m_name = 0; *(short*)((char*)this + 0xe) = 0; *(short *)&this->m_next = 0; *(short*)((char*)this + 0xa) = 0; *(float *)&this->m_up = lbl_805DDDF8; *(float *)&this->m_down = lbl_805DDDF8; *(int*)((char*)this + 0x20) = 0; *(int*)((char*)this + 0x1c) = 0; *(int*)((char*)this + 0x18) = 0; }
 
 void TAdSelectTxtGC__sub_802A16A8(void* p) { *(u8*)((char*)p + 0x0) = 0; *(u8*)((char*)p + 0x1) = 0; *(s16*)((char*)p + 0x2) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 TAdSelectTxtGC__sub_802A16C0(void* p) { return *(s32*)((char*)p + 0x3e8); }

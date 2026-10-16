@@ -130,7 +130,7 @@ void TOHealGeneral::run_task() {
         TOHangerMachine01__sub_80169168(this);
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)this + 0xAC);
+    temp_r0 = *(s32 *)&this->unk_AC;
     switch (temp_r0) {
     case 0:
         find_heal_target__13TOHealGeneralFPv(this);
@@ -150,24 +150,24 @@ void TOHealGeneral::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
 
-    if (((VObj_801695a8_80169520 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj_801695a8_80169520 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
+        temp_r31 = (unsigned char *) (*(void * *)&this->model);
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
         push_matrix();
         temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
         post_translate_matrix((void *) (temp_r31_2 + 8));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xCC)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_cc));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
         pop_matrix();
         push_matrix();
         temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_3 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0xC) - *(f32 *)((s8 *)arg0 + 0xD0)), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0x10)));
-        rotate_matrix_y((int) (0), (int) (-*(s32 *)((s8 *)arg0 + 0xCC)));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_3 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0xC) - *(f32 *)&this->_padD0), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0x10)));
+        rotate_matrix_y((int) (0), (int) (-*(s32 *)&this->m_cc));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();
@@ -308,14 +308,14 @@ void TOHealGeneral::accept_player(u16 arg1) {
     if (*(s32 *)((s8 *)this + 0xD8) > 0) {
         if (arg1 == local_client_id) {
             p = get_player_by_client_id(arg1);
-            if (p == NULL || *(s32 *)((s8 *)this + 0xAC) != 1) {
+            if (p == NULL || *(s32 *)&this->unk_AC != 1) {
                 return;
             }
-            *(s32 *)((s8 *)this + 0xAC) = 2;
-            *(u16 *)((s8 *)this + 0x94) = arg1;
+            *(s32 *)&this->unk_AC = 2;
+            this->m_94 = arg1;
             play_effect_default__10TObjPlayerFii(p, -1);
         } else {
-            *(u16 *)((s8 *)this + 0x94) = 0xFFFF;
+            this->m_94 = 0xFFFF;
         }
     }
 }
@@ -323,24 +323,24 @@ void TOHealGeneral::accept_player(u16 arg1) {
 s32 TOHealGeneral::update_active_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
+    temp_r0 = *(s32 *)&this->unk_C8;
     switch (temp_r0) {
     case 1:
         if (is_any_player_within_radius_xz(lbl_805DB6D8) != 0) {
-            *(s32 *)((s8 *)this + 0xCC) = 1;
+            *(s32 *)&this->m_cc = 1;
         } else {
-            *(s32 *)((s8 *)this + 0xCC) = 0;
+            *(s32 *)&this->m_cc = 0;
         }
         break;
     case 2:
-        if (is_current_floor_switch_set((u16) *(s32 *)((s8 *)this + 0xD0)) == 1) {
-            *(s32 *)((s8 *)this + 0xCC) = 1;
+        if (is_current_floor_switch_set((u16) *(s32 *)&this->_padD0) == 1) {
+            *(s32 *)&this->m_cc = 1;
         } else {
-            *(s32 *)((s8 *)this + 0xCC) = 0;
+            *(s32 *)&this->m_cc = 0;
         }
         break;
     }
-    return *(s32 *)((s8 *)this + 0xCC);
+    return *(s32 *)&this->m_cc;
 }
 
 void TOHealGeneral::set_enable_count(s32 arg1) {
@@ -360,24 +360,24 @@ void TOHealGeneral::set_script_entry(s32 arg1) {
     if (var_r4 < 0) {
         var_r4 = 0;
     }
-    *(s32 *)((s8 *)this + 0xD4) = var_r4;
+    *(s32 *)&this->m_d4 = var_r4;
 }
 
 s32 TOHealGeneral::update_heal_gauge_state() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0xD0) = (s32) *(s32 *)((s8 *)this + 0x84);
-    temp_r0 = *(s32 *)((s8 *)this + 0xD0);
+    *(s32 *)&this->_padD0 = (s32) this->m_84;
+    temp_r0 = *(s32 *)&this->_padD0;
     if (temp_r0 > 0xFF) {
-        *(s32 *)((s8 *)this + 0xC8) = 0;
+        *(s32 *)&this->unk_C8 = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)this + 0xC8) = 1;
+        *(s32 *)&this->unk_C8 = 1;
     } else {
-        *(s32 *)((s8 *)this + 0xC8) = 2;
+        *(s32 *)&this->unk_C8 = 2;
     }
-    set_script_entry((s32)((s32)(*(s32 *)((s8 *)this + 0x88))));
-    set_enable_count((s32)(*(s32 *)((s8 *)this + 0x8C)));
-    return *(s32 *)((s8 *)this + 0xD0);
+    set_script_entry((s32)((s32)(*(s32 *)&this->m_88)));
+    set_enable_count((s32)(*(s32 *)&this->unk_8C));
+    return *(s32 *)&this->_padD0;
 }
 
 }

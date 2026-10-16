@@ -724,18 +724,18 @@ s32 __vt__16TOTrapAncient02R[90] = {
 void TOTrapAncient02R::calc_trap_count() {
     s32 temp_r4;
 
-    *(s32 *)((s8 *)this + 0x360) = (s32) (*(f32 *)((s8 *)this + 0x70) + ((lbl_805DBA7C * (f32) game_difficulty_selection) + lbl_805DBA78));
-    temp_r4 = *(s32 *)((s8 *)this + 0x360);
+    *(s32 *)&this->m_360 = (s32) (*(f32 *)((s8 *)this + 0x70) + ((lbl_805DBA7C * (f32) game_difficulty_selection) + lbl_805DBA78));
+    temp_r4 = *(s32 *)&this->m_360;
     if (temp_r4 < 0) {
-        *(s32 *)((s8 *)this + 0x360) = 0;
+        *(s32 *)&this->m_360 = 0;
         return;
     }
     if ((s32) game_difficulty_selection == 3) {
         if (temp_r4 > 0x1D) {
-            *(s32 *)((s8 *)this + 0x360) = 0x1D;
+            *(s32 *)&this->m_360 = 0x1D;
         }
     } else if (temp_r4 > 0xE) {
-        *(s32 *)((s8 *)this + 0x360) = 0xE;
+        *(s32 *)&this->m_360 = 0xE;
     }
 }
 extern int fold_flush_0;
@@ -1210,19 +1210,19 @@ void TOTrapAncient02::render_particle_chain() {
 
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + *(f32 *)((s8 *)arg0 + 0x344)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    temp_r31 = (unsigned char *) (*(void * *)&this->model);
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
     setup_particle_tev((int) (0));
-    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    TObjFish::set_global_param((int) (this->texture_id));
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
     TParticleCtrl::disable_if_single_screen();
     push_matrix();
     temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC) + *(f32 *)((s8 *)arg0 + 0x348)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC) + this->h348), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
     setup_particle_tev((int) (0));
-    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    TObjFish::set_global_param((int) (this->texture_id));
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
     TParticleCtrl::disable_if_single_screen();
@@ -1231,7 +1231,7 @@ void TOTrapAncient02::render_particle_chain() {
     temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x2C));
     post_translate_matrix((void *) (temp_r31_3 + 8));
     setup_particle_tev((int) (1));
-    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    TObjFish::set_global_param((int) (this->texture_id));
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
     TParticleCtrl::disable_if_single_screen();
@@ -1239,9 +1239,9 @@ void TOTrapAncient02::render_particle_chain() {
     push_matrix();
     temp_r31_4 = (unsigned char *) (*(void **)((s8 *)temp_r31_3 + 0x30));
     post_translate_matrix((void *) (temp_r31_4 + 8));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x34C)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_34c));
     setup_particle_tev((int) (0));
-    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    TObjFish::set_global_param((int) (this->texture_id));
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_4 + 4)));
     TParticleCtrl::disable_if_single_screen();
@@ -1259,15 +1259,15 @@ void TOTrapAncient02::draw_effect_chain() {
     u8 *temp_r31_4;
 
     push_matrix();
-    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    TObjFish::set_global_param((int) (this->texture_id));
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + *(f32 *)((s8 *)arg0 + 0x344)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    temp_r31 = (unsigned char *) (*(void * *)&this->model);
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
     push_matrix();
     temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC) + *(f32 *)((s8 *)arg0 + 0x348)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC) + this->h348), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
     TParticleCtrl::begin_effect_render();
     push_matrix();
@@ -1278,7 +1278,7 @@ void TOTrapAncient02::draw_effect_chain() {
     push_matrix();
     temp_r31_4 = (unsigned char *) (*(void **)((s8 *)temp_r31_3 + 0x30));
     post_translate_matrix((void *) (temp_r31_4 + 8));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x34C)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_34c));
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_4 + 4)));
     pop_matrix();
     TParticleCtrl::end_effect_render();
@@ -1288,10 +1288,10 @@ void TOTrapAncient02::draw_effect_chain() {
 
 void TOTrapAncient02::render() {
     if (get_state_flag__9TMainTaskFv() != 1) {
-        *(s32 *)((s8 *)this + 0x340) = ((V_B_8017AC98 *) this)->m8(lbl_805DBAA4, lbl_805DBA94);
-        if (((s32) *(s32 *)((s8 *)this + 0x340) == 1) && (((s32) *(s32 *)((s8 *)this + 0x358) == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(this) == 0))) {
+        *(s32 *)&this->m_340 = ((V_B_8017AC98 *) this)->m8(lbl_805DBAA4, lbl_805DBA94);
+        if (((s32) *(s32 *)&this->m_340 == 1) && (((s32) *(s32 *)&this->m_358 == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(this) == 0))) {
             set_depth_buffer_settings_id__FUl(3);
-            if ((s32) *(s32 *)((s8 *)this + 0x358) != 0) {
+            if ((s32) *(s32 *)&this->m_358 != 0) {
                 ((TOTrapAncient02 *)this)->render_particle_chain();
             } else {
                 ((TOTrapAncient02 *)this)->draw_effect_chain();

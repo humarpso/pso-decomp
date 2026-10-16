@@ -190,7 +190,7 @@ block_5:
     return 1;
 }
 
-void TBoss7Crawfish::free_child() { if (*(unsigned int*)((char*)this + 0x3cc) != 0) { queue_destruction__7TObjectFv((void*)(*(void**)((char*)this + 0x3cc))); *(int*)((char*)this + 0x3cc) = 0; } }
+void TBoss7Crawfish::free_child() { if (*(unsigned int *)&this->m_3cc != 0) { queue_destruction__7TObjectFv((void*)(*(void* *)&this->m_3cc)); *(int *)&this->m_3cc = 0; } }
 
 void TBoss7Crawfish::spawn_ground_effects() {
     u8 *arg0 = (u8 *)this;
@@ -240,7 +240,7 @@ s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0) {
     return TBoss7Crawfish__data_805DF0D8 == *(f32 *)((s8 *)arg0 + 0x354);
 }
 
-void TBoss7Crawfish::render() { if (is_visible__14TBoss7CrawfishFPv((u8 *)(this)) != 0) { TObjPlayer::notify_fish_if_valid((u32)(*(void**)((char*)this + 0x24))); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((void*)0, *(void**)((char*)this + 0x5c), *(void**)((char*)this + 0x60), *(void**)((char*)this + 0x64)); scale_current_matrix((char*)this + 0x68); draw__16TObjEneRe7BeruraFv(this); pop_matrix(); TObjPlayer::clear_global_state(); } }
+void TBoss7Crawfish::render() { if (is_visible__14TBoss7CrawfishFPv((u8 *)(this)) != 0) { TObjPlayer::notify_fish_if_valid((u32)(*(void* *)&this->texture_id)); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((void*)0, this->m_5c, *(void* *)&this->rotation_y, *(void* *)&this->rotation_z); scale_current_matrix((char*)this + 0x68); draw__16TObjEneRe7BeruraFv(this); pop_matrix(); TObjPlayer::clear_global_state(); } }
 
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 lbl_805DF0EC;

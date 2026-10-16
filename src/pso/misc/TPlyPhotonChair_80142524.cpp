@@ -135,20 +135,20 @@ void TPlyPhotonChair::update_scale_state() {
     f32 var_f31;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x18);
-    var_f31 = *(f32 *)((s8 *)arg0 + 0xC) - *(f32 *)((s8 *)arg0 + 0x14);
+    var_f31 = *(f32 *)&this->m_next - *(f32 *)&this->m_down;
     switch (temp_r0) {
     case 0:
         if (var_f31 < lbl_805DB168) {
-            var_f31 += *(f32 *)((s8 *)arg0 + 0x10);
+            var_f31 += *(f32 *)&this->m_up;
         }
-        *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
+        *(f32 *)&this->m_next = var_f31;
         return;
     case 2:
         if (var_f31 <= lbl_805DB168) {
             var_f31 = lbl_805DB168;
             activate__15TPlyPhotonChairFv();
         }
-        *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
+        *(f32 *)&this->m_next = var_f31;
     case 1:
         return;
     }
@@ -160,22 +160,22 @@ void TPlyPhotonChair::update_bob_motion() {
     f32 var_f31;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x18);
-    var_f31 = *(f32 *)((s8 *)arg0 + 0xC) + *(f32 *)((s8 *)arg0 + 0x14);
+    var_f31 = *(f32 *)&this->m_next + *(f32 *)&this->m_down;
     switch (temp_r0) {
     case 0:
-        temp_f0 = *(f32 *)((s8 *)arg0 + 0x10);
+        temp_f0 = *(f32 *)&this->m_up;
         if (var_f31 >= temp_f0) {
             var_f31 -= temp_f0;
         }
-        *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
+        *(f32 *)&this->m_next = var_f31;
         return;
     case 2:
-        temp_f0_2 = *(f32 *)((s8 *)arg0 + 0x10) - lbl_805DB16C;
+        temp_f0_2 = *(f32 *)&this->m_up - lbl_805DB16C;
         if (var_f31 >= temp_f0_2) {
             var_f31 = temp_f0_2;
             activate__15TPlyPhotonChairFv();
         }
-        *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
+        *(f32 *)&this->m_next = var_f31;
     case 1:
         return;
     }

@@ -17,7 +17,7 @@ void TObjPlayer::approach_field200_max() {
             *(f32 *)((s8 *)this + 0x200) = (f32) lbl_805DAD00;
         }
         temp_f0 = *(f32 *)((s8 *)this + 0x200);
-        *(f32 *)((s8 *)this + 0x1FC) = temp_f0;
+        *(f32 *)&this->m_1fc = temp_f0;
         *(f32 *)((s8 *)this + 0x1F8) = temp_f0;
     }
 }

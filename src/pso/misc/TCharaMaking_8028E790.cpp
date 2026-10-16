@@ -62,8 +62,8 @@ void TCharaMaking::update_light_direction() {
     f32 temp_f31;
     *(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 4) = (f32) (lbl_805DD938 * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x1C)));
     temp_f31 = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x1C));
-    *(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 0) = (f32) (temp_f31 * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x20)));
-    *(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 8) = (f32) (temp_f31 * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x20)));
+    *(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 0) = (f32) (temp_f31 * sin_table_lookup(*(s32 *)&this->m_20));
+    *(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 8) = (f32) (temp_f31 * cos_table_lookup(*(s32 *)&this->m_20));
 }
 
 s32 update_main_menu__12TCharaMakingFi(s32 arg0) {

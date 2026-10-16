@@ -138,14 +138,14 @@ void TBoss6Tube__sub_802B129C(u8 *arg0) {
 #pragma fp_contract on
 void TBoss6Tube::update_wobble() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + (s32) (((-464.0f) * ((3.0517578e-05f) * (f32) rand())) + (-116.0f)));
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x24) <= (0.0f)) {
-        *(s32 *)((s8 *)arg0 + 0x24) = 0;
-        *(s32 *)((s8 *)arg0 + 0x28) = (s32) ((f32) *(s32 *)((s8 *)arg0 + 0x28) + (((13107.0f) * ((3.0517578e-05f) * (f32) rand())) - (6553.0f)));
+    *(s32 *)&this->m_24 = (s32) (*(s32 *)&this->m_24 + (s32) (((-464.0f) * ((3.0517578e-05f) * (f32) rand())) + (-116.0f)));
+    if ((f32) *(s32 *)&this->m_24 <= (0.0f)) {
+        *(s32 *)&this->m_24 = 0;
+        *(s32 *)&this->m_28 = (s32) ((f32) *(s32 *)&this->m_28 + (((13107.0f) * ((3.0517578e-05f) * (f32) rand())) - (6553.0f)));
     }
-    *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + *(s32 *)((s8 *)arg0 + 0x24));
+    *(s32 *)&this->m_28 = (s32) (*(s32 *)&this->m_28 + *(s32 *)&this->m_24);
     TBoss6Tube__scroll_delta = (0.0f);
-    TBoss6Tube__previous_scroll_phase = *(s32 *)((s8 *)arg0 + 0x28);
+    TBoss6Tube__previous_scroll_phase = *(s32 *)&this->m_28;
 }
 #pragma pop
 
@@ -156,10 +156,10 @@ void TBoss6Tube::spawn_trap() {
 }
 
 void TBoss6Tube::update_timer() {
-    *(s32 *)((s8 *)this + 0x20) = (s32) (*(s32 *)((s8 *)this + 0x20) + 1);
-    if ((s32) *(s32 *)((s8 *)this + 0x20) >= 0x10E) {
-        *(s32 *)((s8 *)this + 0x20) = 0;
-        *(s32 *)((s8 *)this + 0x1C) = 1;
+    *(s32 *)&this->m_20 = (s32) (*(s32 *)&this->m_20 + 1);
+    if ((s32) *(s32 *)&this->m_20 >= 0x10E) {
+        *(s32 *)&this->m_20 = 0;
+        *(s32 *)&this->m_1c = 1;
         play_sound_effect(0x4003351F, 0, 0, 0);
         TCameraCtrl::set_shake_preset(2);
     }

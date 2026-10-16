@@ -493,8 +493,8 @@ extern "C" {
 void TObjChallengeRetry::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x20) = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(arg0);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    this->m_20 = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(arg0);
+    temp_r0 = *(s32 *)&this->_pad1c;
     switch (temp_r0) {
     case 0:
         fn_8007313C((u8 *) (arg0));

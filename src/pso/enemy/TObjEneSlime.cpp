@@ -165,7 +165,7 @@ void TObjEneSlime::render() {
     s32 temp_r31;
     temp_r31 = toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
     if (TObjPlayer::check_demo_mode() != 0) {
-        temp_r30 = (*(s32 *)((s8 *)arg0 + 0x36C) * 4) & 4;
+        temp_r30 = (*(s32 *)&this->state36C * 4) & 4;
         debug_printf_at((int) (0x130020), lbl_8043D298, (int) (*(s32 *)((s8 *)((u8 *)(slime_debug_label_table) + temp_r30) + 0)));
         TObjPlayer::toggle_particle_effect();
         push_matrix();

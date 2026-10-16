@@ -6,7 +6,9 @@
 
 class TObjEZRopeBase : public TObject {
 public:
-    u8 _pad1C[0x10];
+    u8 unk_1C[0x4];
+    void * m_20;
+    u8 unk_24[0x8];
  void* m_2c;
 public:
     virtual ~TObjEZRopeBase();

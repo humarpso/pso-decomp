@@ -224,19 +224,19 @@ void TObjLobbyMain::render() {
     u8 *arg0 = (u8 *)this;
     s16 idx;
     s32 r;
-    if (lobby_main_lobby_type != NULL && ((Obj_8035240C *)arg0)->v8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (lobby_main_lobby_type != NULL && ((Obj_8035240C *)arg0)->v8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        if (*(s32 *)((s8 *)arg0 + 0xC8) != 2) {
-            scale_matrix(0, *(f32 *)((s8 *)arg0 + 0xD4), (1.0f), *(f32 *)((s8 *)arg0 + 0xD4));
+        rotate_matrix_y(0, this->rotation_y);
+        if (*(s32 *)&this->m_c8 != 2) {
+            scale_matrix(0, this->m_d4, (1.0f), this->m_d4);
         }
         TObjFish::set_global_param((s32)lobby_main_lobby_type);
-        idx = *(s16 *)((s8 *)arg0 + 0xD0);
+        idx = this->m_d0;
         r = lbl_80479078[idx];
         if (r != 5) {
             r = get_bml_motion(TObjLobbyMain__bml_resource, r);
-            draw_ginja_model_with_motion(get_bml_model(TObjLobbyMain__bml_resource, *(s16 *)((s8 *)arg0 + 0xD0)), r, *(f32 *)((s8 *)arg0 + 0xB0));
+            draw_ginja_model_with_motion(get_bml_model(TObjLobbyMain__bml_resource, this->m_d0), r, this->m_b0);
         } else {
             get_bml_model(TObjLobbyMain__bml_resource, idx);
             draw_ginja_object();
@@ -364,7 +364,7 @@ void TObjLobbyMain::run_task() {
     if (TObjPlayer::check_demo_mode() == 1) {
         TObjLobbyMain__sub_803520D8(this);
     }
-    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
+    temp_r0 = *(s32 *)&this->m_c8;
     switch (temp_r0) {
     case 0:
         update_fade__13TObjLobbyMainFPv(this);

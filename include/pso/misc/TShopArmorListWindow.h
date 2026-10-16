@@ -21,7 +21,13 @@ struct TShopArmorListWindow : public TShopWindowBase {
     u32 m_40;
     u8 _pad44[0x4];
     u32 m_48;
-    u8 _pad4C[0x1A4];
+    u8 unk_4C[0x28];
+    s16 m_74;
+    u8 unk_76[0x2];
+    s16 m_78;
+    u8 unk_7A[0x2];
+    s32 m_7c;
+    u8 unk_80[0x170];
     u32 m_1f0;
     u32 m_1f4;
     void update_selection(void *arg1);

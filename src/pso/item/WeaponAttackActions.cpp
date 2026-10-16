@@ -466,7 +466,7 @@ void TObjPlayer::spawn_light_task() {
 void TItemWeapon::restore_action_type() {
     u8 *arg0 = (u8 *)this;
     if (((TObjPlayer *)arg0)->test_flags_1b8(0x04000000) != 0U) {
-        set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (int) (2));
+        set_action_type__10TObjPlayerFs((int) (*(s32 *)&this->player + 0x7CC), (int) (2));
         clear_equip_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x04000000));
     }
 }
@@ -538,7 +538,7 @@ u8 *TItemWeapon::get_motion_ptr() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
 
-    temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0xF0));
+    temp_r3 = (unsigned char *) (*(void * *)&this->player);
     if (temp_r3 != NULL) {
         ((VObj18c_8011e6e8 *) temp_r3)->m63(0x30, arg0 + 0x1AC);
     }
@@ -559,7 +559,7 @@ void TObjPlayer::apply_model_params() {
     s16 sp8;
     void *temp_r3;
 
-    get_weapon_special_type_amount(*(u8 *)((s8 *)this + 0x1D2) & 0x3F, &spA, &sp8);
+    get_weapon_special_type_amount(this->m_1d2 & 0x3F, &spA, &sp8);
     ((TObjPlayer *)(*(void **)((s8 *)this + 0xF0)))->set_model_id(spA);
     ((TObjPlayer *)(*(void **)((s8 *)this + 0xF0)))->set_model_param(sp8);
     temp_r3 = *(void **)((s8 *)this + 0xF0);

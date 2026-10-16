@@ -23,24 +23,24 @@ void TPhotonRainbow::render() {
     }
     TParticleCtrl::begin_effect_render();
     push_matrix();
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg0 + 0x90);
+    this->texture_id = (s32) *(s32 *)&this->m_90;
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, (s32) *(s32 *)((s8 *)arg0 + 0x60) / 2);
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-    draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x98));
+    rotate_matrix_y(0, (s32) this->rotation_y / 2);
+    TObjFish::set_global_param(this->texture_id);
+    draw_chunk_object(*(s32 *)&this->m_98);
     pop_matrix();
     push_matrix();
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg0 + 0x94);
+    this->texture_id = (s32) *(s32 *)&this->m_94;
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, 0x10000 - *(s32 *)((s8 *)arg0 + 0x60));
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-    draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x9C));
+    rotate_matrix_y(0, 0x10000 - this->rotation_y);
+    TObjFish::set_global_param(this->texture_id);
+    draw_chunk_object(*(s32 *)&this->m_9c);
     pop_matrix();
     TParticleCtrl::end_effect_render();
 }
 
 void TPhotonRainbow::run_task() {
-    *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0xB6);
+    this->rotation_y = (s32) (this->rotation_y + 0xB6);
 }
 
 extern s32 __vt__14TPhotonRainbow[];

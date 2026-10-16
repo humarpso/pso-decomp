@@ -56,7 +56,7 @@ void TORockJungleL01::run_task() { update_obstruction_fade((char*)this + 0xb4); 
 
 void TORockJungleL01::vfunc_15() {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 0) {
+    if ((s32) this->m_d0 != 0) {
         ((VObj_8029c054_8029C030*)(arg0 + 0xB4))->m7();
     }
     set_cull_none__8TObjFishFv();

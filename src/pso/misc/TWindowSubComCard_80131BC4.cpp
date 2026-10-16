@@ -13,13 +13,13 @@ int is_key_active__16TKeyBoardControlFPv(void*);
 s32 TWindowSubComCard::realloc_buffer() {
     s32 temp_r3;
 
-    ((TWindowKeyBoardSoft *)(*(s32 *)((s8 *)this + 0x20)))->measure_text_overflow();
+    ((TWindowKeyBoardSoft *)(*(s32 *)&this->m_20))->measure_text_overflow();
     temp_r3 = mem_alloc();
-    export_keyboard_text(*(s32 *)((s8 *)this + 0x20), temp_r3);
+    export_keyboard_text(*(s32 *)&this->m_20, temp_r3);
     return temp_r3;
 }
 
-int TWindowSubComCard::is_keyboard_active() { return is_active__16TKeyBoardControlFPv(*(void**)((char*)this + 0x20)); }
-int TWindowSubComCard::update_keyboard() { return is_key_active__16TKeyBoardControlFPv(*(void**)((char*)this + 0x20)); }
+int TWindowSubComCard::is_keyboard_active() { return is_active__16TKeyBoardControlFPv(*(void* *)&this->m_20); }
+int TWindowSubComCard::update_keyboard() { return is_key_active__16TKeyBoardControlFPv(*(void* *)&this->m_20); }
 
 }

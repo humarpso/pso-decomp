@@ -30,13 +30,13 @@ void TOAirconCave01::render() {
 
     temp_r4 = (unsigned char *) (*(void **)((s8 *)TOAirconCave01__model_archive + 0x42C));
     temp_r31 = (unsigned char *) (*(void **)((s8 *)temp_r4 + 8));
-    if (((AirV_80156e8c *)arg0)->m8(temp_r4, *(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0x5C);
-        *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (temp_r3 + 0x106);
+    if (((AirV_80156e8c *)arg0)->m8(temp_r4, this->m_c0, *(f32 *)&this->unk_C4) != 0) {
+        temp_r3 = *(s32 *)&this->m_5c;
+        *(s32 *)&this->m_5c = (s32) (temp_r3 + 0x106);
         push_matrix((int) (temp_r3));
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
         pop_matrix();
     }

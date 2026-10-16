@@ -111,17 +111,17 @@ s32 TContainerAncient01__vt18(s32 arg0, s32 arg1) {
 void TContainerAncient01::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj8018B8BC_8018B79C *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x35C) != 0) {
+        rotate_matrix_y(0, this->rotation_y);
+        if ((s32) *(s32 *)&this->m_35c != 0) {
             scale_current_matrix(arg0 + 0x360);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
+            draw_ginja_object(*(s32 *)&this->model);
         } else {
-            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+            draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         }
         pop_matrix();
     }
@@ -132,8 +132,8 @@ void TContainerAncient01::run_task() {
     f32 temp_f1_2;
     s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 0) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x35C) == 0) {
-            temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+        if ((s32) *(s32 *)&this->m_35c == 0) {
+            temp_r0 = this->mode;
             switch (temp_r0) {
             case 0:
                 ((TContainerAncient01 *)arg0)->update_wait_for_player();
@@ -145,14 +145,14 @@ void TContainerAncient01::run_task() {
                 TContainerAncient01__sub_8018B284((void *) (arg0));
                 break;
             default:
-                *(s16 *)((s8 *)arg0 + 0x326) = 0;
-                *(s16 *)((s8 *)arg0 + 0xB8) = (s16) *(s16 *)((s8 *)arg0 + 0x326);
-                *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) TContainerAncient01__data_805DBD1C;
+                this->mode = 0;
+                this->m_b8 = (s16) this->mode;
+                this->m_2b4 = (f32) TContainerAncient01__data_805DBD1C;
                 ((TContainerAncient01 *)arg0)->update_wait_for_player();
                 break;
             }
-            temp_f1 = *(f32 *)((s8 *)arg0 + 0x2B4);
-            *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
+            temp_f1 = this->m_2b4;
+            this->m_2b4 = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
             submit_cursor_candidate((void *) (arg0), (int) (-1), (f32) (temp_f1));
         } else {
             temp_f1_2 = *(f32 *)((s8 *)arg0 + 0x364);
@@ -166,11 +166,11 @@ void TContainerAncient01::run_task() {
             }
         }
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (0))) {
-        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (0));
+    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (0))) {
+        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (0));
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (1))) {
-        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (1));
+    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (1))) {
+        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (1));
     }
     run_task__7TObjectFv((void *) (arg0));
 }

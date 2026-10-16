@@ -341,16 +341,16 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 
 void TTecAnti::copy_params(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0) = (f32) *(f32 *)((s8 *)arg1 + 0);
-    *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
-    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
-    *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
-    *(s16 *)((s8 *)arg0 + 0x10) = (s16) *(s16 *)((s8 *)arg1 + 0x10);
+    *(f32 *)&this->m_name = (f32) *(f32 *)((s8 *)arg1 + 0);
+    *(f32 *)&this->m_flags = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)&this->m_prev = (f32) *(f32 *)((s8 *)arg1 + 8);
+    *(f32 *)&this->m_next = (f32) *(f32 *)((s8 *)arg1 + 0xC);
+    *(s16 *)&this->m_up = (s16) *(s16 *)((s8 *)arg1 + 0x10);
     *(s16 *)((s8 *)arg0 + 0x12) = (s16) *(s16 *)((s8 *)arg1 + 0x12);
-    *(s16 *)((s8 *)arg0 + 0x14) = (s16) *(s16 *)((s8 *)arg1 + 0x14);
+    *(s16 *)&this->m_down = (s16) *(s16 *)((s8 *)arg1 + 0x14);
     *(s16 *)((s8 *)arg0 + 0x16) = (s16) *(s16 *)((s8 *)arg1 + 0x16);
     *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg1 + 0x1C);
+    *(s32 *)&this->source = (s32) *(s32 *)((s8 *)arg1 + 0x1C);
     *(s16 *)((s8 *)arg0 + 0x20) = (s16) *(s16 *)((s8 *)arg1 + 0x20);
     *(u8 *)((s8 *)arg0 + 0x22) = (u8) *(u8 *)((s8 *)arg1 + 0x22);
     *(u8 *)((s8 *)arg0 + 0x23) = (u8) *(u8 *)((s8 *)arg1 + 0x23);

@@ -32,7 +32,7 @@ void TWindowDD::reset_selection() { *(short*)((char*)this + 0x1c) = -1; lbl_805D
 extern s16 lbl_805D6E24;
 
 void TWindowDD::update_selected_id() {
-    if (((s16) *(s16 *)((s8 *)this + 2) == 1) && (TWindowDD__sub_80346FC0((s16)(*(s16 *)((s8 *)this + 4))) != 0)) {
+    if (((s16) *(s16 *)&this->_pad1E == 1) && (TWindowDD__sub_80346FC0((s16)(*(s16 *)((s8 *)this + 4))) != 0)) {
         lbl_805D6E24 = *(s16 *)((s8 *)this + 4);
     }
 }

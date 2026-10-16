@@ -330,8 +330,8 @@ void TObjLazerFenceNorm::draw_model() {
     set_global_param__8TObjFishFl(lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix((void *)((char *)this + 56));
-    rotate_matrix_y(0, *(void **)((s8 *)this + 0x60));
-    draw_ginja_object(*(void **)((s8 *)this + 0xBC));
+    rotate_matrix_y(0, *(void * *)&this->rotation_y);
+    draw_ginja_object(this->m_bc);
     pop_matrix();
 }
 
@@ -342,7 +342,7 @@ void TObjLazerFenceNorm::render() {
     s32 temp_r0;
 
     if (((LazerFenceNormVObj_80192C00*)this)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) {
-        temp_r0 = *(s32 *)((s8 *)this + 0xB4);
+        temp_r0 = *(s32 *)&this->m_b4;
         switch (temp_r0) {
         case 0:
             draw_animated_beam__18TObjLazerFenceNormFPv((Obj_80192B5C *)this);
@@ -366,9 +366,9 @@ void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self) {
 }
 
 void TObjLazerFenceNorm::reset_by_door() {
-    if (is_current_floor_switch_set((u16) *(s16 *)((s8 *)this + 0xB0)) == 0) {
+    if (is_current_floor_switch_set((u16) *(s16 *)&this->m_b0) == 0) {
         set_indexed_flags(this, 0, 1);
-        *(s32 *)((s8 *)this + 0xB4) = 0;
+        *(s32 *)&this->m_b4 = 0;
     }
 }
 

@@ -10,7 +10,8 @@ struct TORockJungleL01 : public TORockCave {
     virtual void vfunc_14();
     virtual void run_task();
     void* m_b4;
-    u8 _padB8[0x1C];
+    u8 unk_B8[0x18];
+    s32 m_d0;
     u32 m_d4;
     void *destroy(s16 arg1);};
 

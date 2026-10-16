@@ -84,7 +84,7 @@ void TObjTombstone::update_rise() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f1_2;
-    if ((is_other_tombstone_closer__13TObjTombstoneFv() == 0) && (*(f32 *)((s8 *)arg0 + 0xB0) < TObjTombstone__data_805D917C)) {
+    if ((is_other_tombstone_closer__13TObjTombstoneFv() == 0) && (this->m_b0 < TObjTombstone__data_805D917C)) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0xB4) + lbl_805D91B4;
         *(f32 *)((s8 *)arg0 + 0xB4) = temp_f1;
         if (temp_f1 > TObjTombstone__data_805D9178) {
@@ -105,12 +105,12 @@ void TObjTombstone::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    *(f32 *)((s8 *)this + 0xB0) = get_distance_to_local_player_xz__13TObjTombstoneFPv(this);
+    this->m_b0 = get_distance_to_local_player_xz__13TObjTombstoneFPv(this);
     update_rise();
     if (is_player_nearby() != 0) {
         TObjTombstone__sub_80075DFC(this);
     }
-    *(s32 *)((s8 *)this + 0x230) = (s32) (*(s32 *)((s8 *)this + 0x230) + 1);
+    *(s32 *)&this->m_230 = (s32) (*(s32 *)&this->m_230 + 1);
     tombstone_first_run_flag = 0;
 }
 

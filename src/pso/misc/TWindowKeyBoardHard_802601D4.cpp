@@ -40,25 +40,25 @@ void TWindowKeyBoardHard::run_task() {
     s32 temp_r3_2;
     void *temp_r3;
 
-    if ((void *) *(void **)((s8 *)this + 0x70) != NULL) {
-        if ((is_key_active__19TWindowKeyBoardHardFv() == 0) && (is_key_active__16TKeyBoardControlFPv(*(void **)((s8 *)this + 0x70)) == 0)) {
+    if ((void *) *(void * *)&this->m_70 != NULL) {
+        if ((is_key_active__19TWindowKeyBoardHardFv() == 0) && (is_key_active__16TKeyBoardControlFPv(*(void * *)&this->m_70) == 0)) {
             if (has_non_modifier_key__16TKeyBoardControlFv(this) != 0) {
                 if ((s32) current_language == 0) {
-                    *(s32 *)((s8 *)this + 0x68) = 0x3C;
+                    *(s32 *)&this->m_68 = 0x3C;
                 }
-                *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) & 0xFFFFFEFF);
-                temp_r3 = *(void **)((s8 *)this + 0x70);
+                *(s32 *)&this->m_60 = (s32) (*(s32 *)&this->m_60 & 0xFFFFFEFF);
+                temp_r3 = *(void * *)&this->m_70;
                 *(s32 *)((s8 *)temp_r3 + 0xB4) = (s32) (*(s32 *)((s8 *)temp_r3 + 0xB4) & 0xFFFFFFBF);
-                if (!(*(s32 *)((s8 *)this + 0x60) & 0x40)) {
-                    TWindowKeyBoardHard__sub_8025CC48(*(void **)((s8 *)this + 0x70));
+                if (!(*(s32 *)&this->m_60 & 0x40)) {
+                    TWindowKeyBoardHard__sub_8025CC48(*(void * *)&this->m_70);
                 }
             }
             update_modifier_flags__16TKeyBoardControlFv(this);
             process_all_key_states__16TKeyBoardControlFv(this);
         }
-        temp_r3_2 = *(s32 *)((s8 *)this + 0x68);
+        temp_r3_2 = *(s32 *)&this->m_68;
         if (temp_r3_2 > 0) {
-            *(s32 *)((s8 *)this + 0x68) = (s32) (temp_r3_2 - 1);
+            *(s32 *)&this->m_68 = (s32) (temp_r3_2 - 1);
         }
         initialize_subwindow__9TWindowDDFv(this);
         update_fade__17TWindowSubComCardFv(this);

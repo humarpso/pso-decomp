@@ -111,10 +111,10 @@ void TObjMesBase::start_message() {
     }
 }
 void TObjMesBase::clear_ref_if_destroyed() {
-    void *p = *(void **)((s8 *)this + 0xAC);
+    void *p = *(void * *)&this->messageChild;
     if ((p != 0) && (((TObject *)p)->all_parents_unqueued_for_destruction() == 0)) {
-        *(u32 *)((s8 *)this + 0xAC) = 0U;
-        *(s32 *)((s8 *)this + 0xB0) = 0;
+        *(u32 *)&this->messageChild = 0U;
+        this->messagePhase = 0;
     }
 }
 void TObjMesBase__vt12(void) {  }
@@ -122,7 +122,7 @@ void TObjMesBase__vt12(void) {  }
 void TObjMesBase::run_task() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0xB0);
+    temp_r0 = this->messagePhase;
     switch (temp_r0) {
     case 0:
         ((VObj_80194CE8_80194C98 *)this)->m12();

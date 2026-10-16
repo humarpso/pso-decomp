@@ -62,15 +62,15 @@ void TItemEffArmor::render() {
     f32 temp_f1;
     push_matrix();
     post_translate_matrix((void *) ((u8 *)(arg0) + 0x2C));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x68)));
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x28);
+    rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_68));
+    temp_f1 = *(f32 *)&this->unk_28;
     scale_matrix((int) (0), (f32) (temp_f1), (f32) (TItemEffArmor__data_805DAAEC), (f32) (temp_f1));
     lbl_805D5660 = model_render_flags;
     model_render_flags |= 0x10;
     copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color.value, &model_material_color.value);
     set_chunk_material_color((void *) ((u8 *)(arg0) + 0x38));
-    TObjPlayer::notify_fish_if_valid(*(u32 *)((s8 *)arg0 + 0x78));
-    draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0x70)), (int) (*(s32 *)((s8 *)arg0 + 0x74)), (f32) (*(f32 *)((s8 *)arg0 + 0x24)));
+    TObjPlayer::notify_fish_if_valid(this->m_78);
+    draw_ginja_model_with_motion((int) (*(s32 *)&this->m_70), (int) (*(s32 *)&this->m_74), (f32) (this->m_24));
     copy_vec4__13TRaderMapCoreFPvPv(&model_material_color.value, &saved_model_draw_color.value);
     model_render_flags = lbl_805D5660;
     pop_matrix();
@@ -81,29 +81,29 @@ void TItemEffArmor::run_task() {
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r4;
-    *(s32 *)((s8 *)arg0 + 0x68) = (s32) (*(s32 *)((s8 *)arg0 + 0x68) + 0x139D);
-    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x6C));
+    *(s32 *)&this->m_68 = (s32) (*(s32 *)&this->m_68 + 0x139D);
+    temp_r4 = (u8 *)(*(u8 * *)&this->m_6c);
     if (temp_r4 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2C), (void *) (temp_r4 + 0x38));
     }
-    *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + ((*(f32 *)((s8 *)arg0 + 0x24) * *(f32 *)((s8 *)arg0 + 0x58)) / lbl_805DAAF0));
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
+    *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + ((this->m_24 * this->m_58) / lbl_805DAAF0));
+    temp_r3 = (u8 *)(*(u8 * *)&this->m_1c);
     if (temp_r3 != NULL) {
         ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x2C);
     }
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) (TItemEffArmor__data_805DAAEC - (*(f32 *)((s8 *)arg0 + 0x24) / lbl_805DAAF0));
-    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x6C));
+    *(f32 *)&this->m_38 = (f32) (TItemEffArmor__data_805DAAEC - (this->m_24 / lbl_805DAAF0));
+    temp_r3_2 = (u8 *)(*(u8 * *)&this->m_6c);
     if (temp_r3_2 != NULL) {
-        publish_actor_light_scalars((int) (obj_getField1c(temp_r3_2)), (f32) (*(f32 *)((s8 *)arg0 + 0x60)), (f32) (*(f32 *)((s8 *)arg0 + 0x5C)));
+        publish_actor_light_scalars((int) (obj_getField1c(temp_r3_2)), (f32) (this->m_60), (f32) (*(f32 *)((s8 *)arg0 + 0x5C)));
     }
     if (*(f32 *)((s8 *)arg0 + 0x5C) >= TItemEffArmor__data_805DAAEC) {
-        *(f32 *)((s8 *)arg0 + 0x64) = (f32) (lbl_805DAAF4 * *(f32 *)((s8 *)arg0 + 0x64));
+        *(f32 *)&this->unk_64 = (f32) (lbl_805DAAF4 * *(f32 *)&this->unk_64);
     }
-    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) (*(f32 *)((s8 *)arg0 + 0x5C) + *(f32 *)((s8 *)arg0 + 0x64));
-    if (lbl_805DAAF0 == *(f32 *)((s8 *)arg0 + 0x24)) {
+    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) (*(f32 *)((s8 *)arg0 + 0x5C) + *(f32 *)&this->unk_64);
+    if (lbl_805DAAF0 == this->m_24) {
         queue_destruction__7TObjectFv(arg0);
     }
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + TItemEffArmor__data_805DAAEC);
+    this->m_24 = (f32) (this->m_24 + TItemEffArmor__data_805DAAEC);
 }
 
 }

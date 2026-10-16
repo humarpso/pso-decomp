@@ -102,8 +102,8 @@ void TOComputerMachine01::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     u8 *temp_r31_4;
-    *(s32 *)((s8 *)arg0 + 0xE0) = ((VObj_18_26a62c *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xE0) == 1) {
+    this->m_e0 = ((VObj_18_26a62c *)(arg0))->m8(this->m_c0, *(f32 *)&this->unk_C4);
+    if ((s32) this->m_e0 == 1) {
         if ((s32) TOComputerMachine01__last_render_frame_tick != (s32) actor_frame_tick) {
             TOComputerMachine01__last_render_frame_tick = actor_frame_tick;
             scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(&TOComputerMachine01__scroll_mesh_ptrs.value) + 0)), (int) (0), (int) (2), (int) (7), (int) (1));
@@ -113,9 +113,9 @@ void TOComputerMachine01::render() {
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        temp_r31 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
+        temp_r31 = (u8 *)(*(u8 * *)&this->model);
         draw_ginja_model((void *) (*(s32 *)((s8 *)temp_r31 + 4)));
         TParticleCtrl::begin_effect_render();
         temp_r31_2 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0x2C));

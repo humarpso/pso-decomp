@@ -8,7 +8,7 @@ s32 pack_color_bits__13TRaderMapCoreFll();
 s32 pack_flags__13TRaderMapCoreFii();
 
 u8 TAdSinglePlyChrSelectGC::test_flag_4c() {
-    return (u8) ((*(s32 *)((s8 *)this + 0x4C) & pack_color_bits__13TRaderMapCoreFll()) != 0);
+    return (u8) ((this->m_4c & pack_color_bits__13TRaderMapCoreFll()) != 0);
 }
 
 u8 TWindowShortListCtrl__check_controller_button(void *arg0) {

@@ -13,7 +13,15 @@ struct TShopEquipmentSellWindow : public TShopWindowBase {
     u32 m_20;
     u32 m_24;
     void* m_28;
-    u8 _pad2C[0x344];
+    u8 unk_2C[0x34];
+    u16 m_60;
+    u8 unk_62[0xA];
+    s32 m_6c;
+    u8 unk_70[0x2];
+    s16 m_72;
+    u8 unk_74[0x2];
+    s16 m_76;
+    u8 unk_78[0x2F8];
     u32 m_370;
     u32 m_374;
     u32 m_378;

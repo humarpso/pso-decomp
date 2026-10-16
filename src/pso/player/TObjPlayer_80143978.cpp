@@ -6,6 +6,6 @@ extern "C" {
 
 s32 TPlyPhotonChair__sub_80143930(void* p);
 
-void*TObjPlayer::get_anim_entry(int a1) {  return (char*)(*(int*)((char*)this + 0xd8)) + a1 * 16; }
+void*TObjPlayer::get_anim_entry(int a1) {  return (char*)(*(int *)&this->m_d8) + a1 * 16; }
 
 }

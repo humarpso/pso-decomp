@@ -156,10 +156,10 @@ void TBoss7Crawfish::run_task() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
-    if (((s16) *(s16 *)((s8 *)arg0 + 0x326) != 5) && (obj_testFlags30((void *) (arg0), (int) (0x800)) != 0)) {
+    if (((s16) this->mode != 5) && (obj_testFlags30((void *) (arg0), (int) (0x800)) != 0)) {
         ((TBoss7Crawfish *)arg0)->change_state((int) (4));
     }
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
         ((TBoss7Crawfish *)arg0)->update_attack_state();
@@ -181,7 +181,7 @@ void TBoss7Crawfish::run_task() {
         break;
     }
     refresh_collision_body_centers((void *) (arg0));
-    if (!(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x02000000)) {
+    if (!(*(s32 *)((s8 *)(this->m_a4) + 0x18) & 0x02000000)) {
         submit_cursor_candidate((void *) (arg0), (int) (-1));
     }
     add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DF0FC));
@@ -278,7 +278,7 @@ void TBoss7Crawfish::vfunc_47() {  }
 void TBoss7Crawfish::vfunc_48(s32) {  }
 void TBoss7Crawfish::vfunc_49() {  }
 void TBoss7Crawfish::vfunc_50() {  }
-f32 TBoss7Crawfish::get_health() { return *(f32*)((char*)this + 0xc8); }
-void TBoss7Crawfish::set_anim_timer(s16 v) { *(s16*)((char*)this + 0xb8) = v; }
+f32 TBoss7Crawfish::get_health() { return this->m_c8; }
+void TBoss7Crawfish::set_anim_timer(s16 v) { this->m_b8 = v; }
 
 }

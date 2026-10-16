@@ -61,7 +61,7 @@ void TObjVoloptCage::render() {
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         draw_chunk_object(volopt_cage_break_model_handle);
         pop_matrix();
     }

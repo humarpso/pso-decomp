@@ -71,9 +71,9 @@ void*TObjPlayer::set_invisible() { TFontSmallLobby__sub_801C0228(this); return t
 int TObjPlayer::clear_flag_4000_callback() { return set_flag_4000(); }
 int TObjPlayer::set_flag_4000() { return TObjPlayer__sub_8011E204(this, 16384); }
 int TObjPlayer::clear_flag_4000() { return set_state_flags__10TObjPlayerFUl(this, 16384); }
-void TObjPlayer::set_battle_flag(s32 v) { *(s32*)((char*)this + 0x3b4) = v; }
-s32 TObjPlayer::get_anim_id() { return *(s32*)((char*)this + 0x3b4); }
-int TObjPlayer::check_flag_0x40000000() { return (*(u32*)((char*)this + 0x334) >> 30) & 0x1; }
-void TObjPlayer::clear_flag_0x2() { *(u32*)((char*)this + 0x334) &= 0xfffffffd; }
+void TObjPlayer::set_battle_flag(s32 v) { this->m_3b4 = v; }
+s32 TObjPlayer::get_anim_id() { return this->m_3b4; }
+int TObjPlayer::check_flag_0x40000000() { return (this->m_334 >> 30) & 0x1; }
+void TObjPlayer::clear_flag_0x2() { this->m_334 &= 0xfffffffd; }
 
 }

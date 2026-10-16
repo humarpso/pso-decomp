@@ -27,8 +27,8 @@ void TAdMultiPlyChrSelectGC::update_field_4E8() {
     *(s32 *)((s8 *)this + 0x4E8) = TAdMultiPlyChrSelectGC__sub_802DFFE8();
 }
 s32 TAdMultiPlyChrSelectGC::get_field_0x530() { return *(s32*)((char*)this + 0x530); }
-void TAdMultiPlyChrSelectGC::set_field_1c(s32 v) { *(s32*)((char*)this + 0x1c) = v; }
-s32 TAdMultiPlyChrSelectGC::get_mode() { return *(s32*)((char*)this + 0x1c); }
+void TAdMultiPlyChrSelectGC::set_field_1c(s32 v) { *(s32 *)&this->m_1c = v; }
+s32 TAdMultiPlyChrSelectGC::get_mode() { return *(s32 *)&this->m_1c; }
 
     extern int lbl_805D6E78;
 

@@ -11,7 +11,7 @@ void TObjPlayer::update_position(s32 arg1) {
     set_position_from__14TBoss4DarkFalzFPv(this, arg1 + 8);
     save_position__14TBoss4DarkFalzFv(this);
     calc_attach_pos();
-    set_position_history_entry__10TObjPlayerFiiff(this, 0, *(f32 *)((s8 *)this + 0x38), *(f32 *)((s8 *)this + 0x40));
+    set_position_history_entry__10TObjPlayerFiiff(this, 0, *(f32 *)&this->m_38, this->m_40);
 }
 
 }

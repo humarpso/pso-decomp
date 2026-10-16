@@ -225,19 +225,19 @@ void TMainCursor::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
 
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 2) {
+    if ((s32) *(s32 *)&this->m_1c != 2) {
         validate_target__11TMainCursorFPv((u8 *)(arg0));
         if (((TMainCursor *)arg0)->check_flag_1() != 0) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
+            *(s32 *)&this->m_1c = 2;
         }
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    temp_r0 = *(s32 *)&this->m_1c;
     switch (temp_r0) {
     case 0:
         *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) - TMainCursor__data_805DB0CC);
-        if (!(*(f32 *)((s8 *)arg0 + 0x30) > *(f32 *)((s8 *)arg0 + 0x34))) {
+        if (!(*(f32 *)((s8 *)arg0 + 0x30) > *(f32 *)&this->m_34)) {
             *(f32 *)((s8 *)arg0 + 0x30) = (f32) *(f32 *)((s8 *)arg0 + 0x28);
-            *(s32 *)((s8 *)arg0 + 0x1C) = 1;
+            *(s32 *)&this->m_1c = 1;
             if (((TMainCursor *)arg0)->init_render_flags() == 0) {
                 if (((TMainCursor *)arg0)->update() != 0) {
                     play_sound_effect(0x3816, arg0 + 0x40, 0, 1);

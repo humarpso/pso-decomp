@@ -39,10 +39,10 @@ void *__nw__7TObjectFUl(int);
 void TObjContainerJungEnemy::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+        if ((s32) this->m_364 != 0) {
             submit_cursor_candidate(this, -1);
         }
     case 1:
@@ -52,7 +52,7 @@ void TObjContainerJungEnemy::vfunc_80() {
 
 void TObjContainerJungEnemy::load_models() {
     s32 var_r0;
-    s32 temp_r3 = *(s32 *)((s8 *)this + 0x88);
+    s32 temp_r3 = *(s32 *)&this->m_88;
     if (temp_r3 < 0) {
         var_r0 = 0;
     } else {
@@ -63,19 +63,19 @@ void TObjContainerJungEnemy::load_models() {
     }
     switch (var_r0) {
     case 0:
-        *(s32 *)((s8 *)this + 0x368) = get_model_by_index__17TObjContainerJungFl(0);
-        *(s32 *)((s8 *)this + 0x36C) = get_model_by_index__17TObjContainerJungFl(1);
-        *(s32 *)((s8 *)this + 0x370) = get_model_by_index__17TObjContainerJungFl(2);
-        *(s32 *)((s8 *)this + 0x374) = get_model_by_index__17TObjContainerJungFl(3);
-        *(s32 *)((s8 *)this + 0x24) = TObjContainerJung__sub_8018D3B8(0);
+        *(s32 *)&this->m_368 = get_model_by_index__17TObjContainerJungFl(0);
+        *(s32 *)&this->m_36c = get_model_by_index__17TObjContainerJungFl(1);
+        *(s32 *)&this->m_370 = get_model_by_index__17TObjContainerJungFl(2);
+        *(s32 *)&this->m_374 = get_model_by_index__17TObjContainerJungFl(3);
+        this->texture_id = TObjContainerJung__sub_8018D3B8(0);
         return;
     default:
     case 1:
-        *(s32 *)((s8 *)this + 0x368) = get_model__19TObjContainerJungExFl(0);
-        *(s32 *)((s8 *)this + 0x36C) = get_model__19TObjContainerJungExFl(1);
-        *(s32 *)((s8 *)this + 0x370) = get_model__19TObjContainerJungExFl(2);
-        *(s32 *)((s8 *)this + 0x374) = get_model__19TObjContainerJungExFl(3);
-        *(s32 *)((s8 *)this + 0x24) = TObjContainerJungEx__sub_8018D900(0);
+        *(s32 *)&this->m_368 = get_model__19TObjContainerJungExFl(0);
+        *(s32 *)&this->m_36c = get_model__19TObjContainerJungExFl(1);
+        *(s32 *)&this->m_370 = get_model__19TObjContainerJungExFl(2);
+        *(s32 *)&this->m_374 = get_model__19TObjContainerJungExFl(3);
+        this->texture_id = TObjContainerJungEx__sub_8018D900(0);
         return;
     }
 }

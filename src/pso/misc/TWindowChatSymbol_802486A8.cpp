@@ -59,7 +59,7 @@ u8 *TWindowChatSymbol__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TUnk_804CE7D0::render() {  }
 void TUnk_804CE7D0::run_task() {
-    set_from_key__20TWindowSubSymbolChatFii(*(s32 *)((s8 *)this + 0x20), get_selected_menu_value(*(s32 *)((s8 *)this + 0x1C)));
+    set_from_key__20TWindowSubSymbolChatFii(this->m_20, get_selected_menu_value(*(s32 *)((s8 *)this + 0x1C)));
 }
 
 extern s32 lbl_804CE7D0[];
@@ -67,7 +67,7 @@ extern s32 lbl_804CE7D0[];
 void *TWindowChatSymbol::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804CE7D0;
-        if (*(void **)((s8 *)this + 0x20) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x20)); *(s32 *)((s8 *)this + 0x20) = 0; }
+        if (this->m_20 != NULL) { TWindow__close(this->m_20); *(s32 *)&this->m_20 = 0; }
         if (*(void **)((s8 *)this + 0x1C) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x1C)); *(s32 *)((s8 *)this + 0x1C) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {

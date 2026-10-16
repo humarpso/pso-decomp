@@ -373,7 +373,7 @@ void TOCtrlDubchik::decay_timer_and_clear_flag() {
     *(f32 *)((s8 *)arg0 + 0x384) = (f32) (*(f32 *)((s8 *)arg0 + 0x384) - TOCtrlDubchik__data_805DB3B0);
     if (*(f32 *)((s8 *)arg0 + 0x384) < TOCtrlDubchik__data_805DB3A8) {
         *(f32 *)((s8 *)arg0 + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
-        *(s16 *)((s8 *)arg0 + 0x326) = 0;
+        this->mode = 0;
         set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
     }
 }
@@ -384,10 +384,10 @@ void TOCtrlDubchik::decay_timer_and_clear_flag() {
 #pragma opt_propagation off
 void TOCtrlDubchik::decay_timer_and_finish() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x388) = (f32) (*(f32 *)((s8 *)arg0 + 0x388) - TOCtrlDubchik__data_805DB3B0);
-    if (*(f32 *)((s8 *)arg0 + 0x388) < TOCtrlDubchik__data_805DB3A8) {
-        *(f32 *)((s8 *)arg0 + 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
-        *(s16 *)((s8 *)arg0 + 0x326) = 5;
+    this->m_388 = (f32) (this->m_388 - TOCtrlDubchik__data_805DB3B0);
+    if (this->m_388 < TOCtrlDubchik__data_805DB3A8) {
+        this->m_388 = (f32) TOCtrlDubchik__data_805DB3A8;
+        this->mode = 5;
     }
 }
 #pragma pop

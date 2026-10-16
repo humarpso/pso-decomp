@@ -115,17 +115,17 @@ s32 TMovie::decode_frame() {
     if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) != 0) {
         TMovie::flush_and_reset();
     }
-    TMovie__decode_frame_callback(*(void ***)((s8 *)arg0 + 4), &frame.field_00);
+    TMovie__decode_frame_callback(*(void ** *)&this->m_flags, &frame.field_00);
     if (frame.field_00 != 0U) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) != 0) {
             TMovie__sub_80143C94((int) (frame.field_00), (int) (frame.field_08), (int) (frame.field_0c));
         } else {
-            flush_framebuffer((void *) (arg0), (void *) (*(void ***)((s8 *)arg0 + 4)), (void *) (&frame.field_00));
+            flush_framebuffer((void *) (arg0), (void *) (*(void ** *)&this->m_flags), (void *) (&frame.field_00));
         }
         ((TMovie *)(arg0 + 0x5C))->copy((void *) (&frame.field_00));
-        lbl_805D6B3C(*(void ***)((s8 *)arg0 + 4));
+        lbl_805D6B3C(*(void ** *)&this->m_flags);
     }
-    temp_r3 = (void **)(*(void ***)((s8 *)arg0 + 4));
+    temp_r3 = (void **)(*(void ** *)&this->m_flags);
     temp_r4 = (u8 *)(*temp_r3);
     temp_r3_2 = (*(s32 (**)(void **, void *))((s8 *)temp_r4 + 0x20))(temp_r3, temp_r4);
     if (temp_r3_2 == 3) {

@@ -31,16 +31,16 @@ struct TOTrapVObj : TOTrapBase {
 void TOTrap::render() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::is_any_teammate_in_state() == 0) {
-        *(s32 *)((s8 *)arg0 + 0x340) = ((TOTrapVObj*)arg0)->m8(lbl_805DBA40, lbl_805DBA44);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x340) == 1) {
+        *(s32 *)&this->m_340 = ((TOTrapVObj*)arg0)->m8(lbl_805DBA40, lbl_805DBA44);
+        if ((s32) *(s32 *)&this->m_340 == 1) {
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-            TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+            rotate_matrix_y(0, this->rotation_y);
+            TObjFish::set_global_param(this->texture_id);
             if (TObjPlayer::check_demo_mode() == 1) {
-                draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
+                draw_chunk_object(*(s32 *)&this->model);
             } else {
-                draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+                draw_model_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
             }
             pop_matrix();
         }

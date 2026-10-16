@@ -113,7 +113,7 @@ void TObjEneRecon::handle_death_state(s32 arg1) {
     switch (arg1) {
     case 4:
         refresh_lobby_state__10TObjPlayerFv();
-        *(s32 *)((s8 *)this + 0x40C) = (s32) (*(s32 *)((s8 *)this + 0x40C) | 1);
+        *(s32 *)&this->m_428 = (s32) (*(s32 *)&this->m_428 | 1);
         TObjEneRecobox__sub_8031F1A8(this);
         ((VObj_8031F374 *)this)->m93();
         return;

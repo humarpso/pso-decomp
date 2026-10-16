@@ -65,7 +65,7 @@ void TWindowTimer::update_chat_parts() {
     u8 *arg0 = (u8 *)this;
     s32 var_r3;
 
-    if (*(s32 *)((s8 *)arg0 + 0x60) & 1) {
+    if (*(s32 *)&this->m_60 & 1) {
         var_r3 = get_window_layout_position(0xA9);
     } else if ((TWindowSubShortMail::is_active() != 0) || (is_com_card_active() != 0) || (is_guild_card_receive_active() != 0)) {
         var_r3 = get_window_layout_position(0xA8);

@@ -31,11 +31,11 @@ void TWindowSubShortMail::hide_window() {
     temp_r3 = *(u16 *)((s8 *)this + 0x1C);
     if (temp_r3 & 4) {
         *(u16 *)((s8 *)this + 0x1C) = (u16) (temp_r3 & 0xFFFFFFFB);
-        if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
-            clear_flag60_bit200__16TKeyBoardControlFPv(*(void **)((s8 *)this + 0x24));
+        if ((u32) this->m_24 != 0U) {
+            clear_flag60_bit200__16TKeyBoardControlFPv(*(void * *)&this->m_24);
         }
-        if (!(*(u16 *)((s8 *)this + 0x1C) & 1) && ((u32) *(u32 *)((s8 *)this + 0x28) != 0U)) {
-            window_request_show(*(void **)((s8 *)this + 0x28));
+        if (!(*(u16 *)((s8 *)this + 0x1C) & 1) && ((u32) this->m_28 != 0U)) {
+            window_request_show(*(void * *)&this->m_28);
         }
     }
 }

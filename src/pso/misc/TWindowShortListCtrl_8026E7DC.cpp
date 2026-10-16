@@ -124,9 +124,9 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag70_bit10__16TObjCityMainWarpFv();
 
 void TWindowShortListCtrl::set_displayed_item(s32 arg1) {
-    if (((u32) *(u32 *)((s8 *)this + 0x34) != 0U) && (arg1 != (s32) *(s32 *)((s8 *)this + 0x38))) {
-        *(s32 *)((s8 *)this + 0x38) = arg1;
-        TWindowHelpItem__set_displayed_item_by_id(*(u32 *)((s8 *)this + 0x34));
+    if (((u32) this->m_34 != 0U) && (arg1 != (s32) *(s32 *)&this->m_38)) {
+        *(s32 *)&this->m_38 = arg1;
+        TWindowHelpItem__set_displayed_item_by_id(this->m_34);
     }
 }
 
@@ -135,7 +135,7 @@ s32 TWindowShortListCtrl::is_technique_usable() {
     u32 temp_r3;
     u8 *temp_r31;
 
-    temp_r3 = get_player_by_client_id((s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))));
+    temp_r3 = get_player_by_client_id((s32)((int) (*(s32 *)&this->m_24)));
     if (temp_r3 == 0U) {
         return 0;
     }
@@ -208,13 +208,13 @@ void TWindowShortListCtrl::assign_item_to_palette(u32 arg0, u32 arg1) {
 }
 
 void TWindowShortListCtrl::destroy_children() {
-    if ((u32) *(u32 *)((s8 *)this + 0x30) != 0U) {
-        queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x30));
-        *(u32 *)((s8 *)this + 0x30) = 0U;
+    if ((u32) this->m_30 != 0U) {
+        queue_destruction__7TObjectFv(*(void * *)&this->m_30);
+        this->m_30 = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x2C) != 0U) {
-        queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x2C));
-        *(u32 *)((s8 *)this + 0x2C) = 0U;
+    if ((u32) this->m_2c != 0U) {
+        queue_destruction__7TObjectFv(*(void * *)&this->m_2c);
+        this->m_2c = 0U;
     }
 }
 
@@ -303,7 +303,7 @@ void refresh_technique_rows__20TWindowShortListCtrlFPviPv(Wn_8026EBB0 *arg0, s32
 void *TWindowShortListCtrl::create_window(s32 arg1, s32 arg2) {
     void *temp_r31;
 
-    temp_r31 = create_window_menu(arg1, 0x13, *(s32 *)((s8 *)this + 0x24));
+    temp_r31 = create_window_menu(arg1, 0x13, *(s32 *)&this->m_24);
     set_flag70_bit10__16TObjCityMainWarpFv();
     *(s32 *)((s8 *)temp_r31 + 0x5C) = 0x01000000;
     ((TWindowOptionCtrl *)temp_r31)->set_flag70_bit100();

@@ -889,7 +889,7 @@ void init_state__14TObjEnePanarmsFPv(u8 *arg0) {
 
 void try_activate__14TObjEnePanarmsFPv(void* p) { if (check_demo_mode__10TObjPlayerFv(p) == 0) { set_state__14TObjEnePanarmsFPvi((Obj_800DED30 *)((void*)(p)), (s32)((void*)((void*)1))); } }
 void TObjEnePanarms__sub_800DE2B0(void* p) { *(s32*)((char*)p + 0x3e0) = 1; *(s32*)((char*)p + 0x3dc) = 1; }
-void TObjEnePanarms::vfunc_61() { *(u32*)((char*)this + 0x30) &= 0xfffffeff; }
+void TObjEnePanarms::vfunc_61() { *(u32 *)&this->m_30 &= 0xfffffeff; }
 
 void TObjEnePanarms::vfunc_62() {
     Obj_800DE2D0 *arg0 = (Obj_800DE2D0 *)this;

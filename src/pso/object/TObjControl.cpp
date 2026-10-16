@@ -827,7 +827,7 @@ void TObjPlayer::update_prev_position() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
-    temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x2B0));
+    temp_r3 = (unsigned char *) (*(void * *)&this->m_2b0);
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)arg0 + 0x300) = (f32) ((lbl_805DA8DC * *(f32 *)((s8 *)temp_r3 + 0x10)) + *(f32 *)((s8 *)arg0 + 0x300));
     }

@@ -76,19 +76,19 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
     typedef char sp18_offset[(offsetof(Stack_80191874, sp18) == 0x10) ? 1 : -1];
     Stack_80191874 stack;
     if (TMainTask::get_state_flag() == 1) {
-        return *(s16 *)((s8 *)arg0 + 0x1E);
+        return this->m_1e;
     }
     if (xz_distance_squared((void *) (camera_ctrl_instance + 0x178), (void *) (arg0 + 0x38)) < (farg1 * farg1)) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 1;
+        this->m_1e = 1;
         return 1;
     }
     matrix_mult_vec((int) (0), (void *) (arg0 + 0x38), (void *) (&stack.sp10));
     if (stack.sp18 > lbl_805DBE2C) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
     if (stack.sp18 < -farg0) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
     if (stack.sp10 < lbl_805DBE2C) {
@@ -97,7 +97,7 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
         stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) + *(f32 *)((s8 *)arg0 + 0x40);
         project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DBE2C) {
-            *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+            this->m_1e = 0;
             return 0;
         }
         goto block_13;
@@ -107,11 +107,11 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
     stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) - *(f32 *)((s8 *)arg0 + 0x40));
     project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
     if (stack.sp8 > lbl_805DBE30) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
 block_13:
-    *(s16 *)((s8 *)arg0 + 0x1E) = 1;
+    this->m_1e = 1;
     return 1;
 }
 #pragma pop
@@ -122,13 +122,13 @@ void TObjHashiBase::render() {
     if (((VDisp *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-        p = *(void **)((s8 *)arg0 + 0xBC);
+        rotate_matrix_y(0, this->m_60);
+        TObjFish::set_global_param(this->m_24);
+        p = *(void * *)&this->motion;
         if (p != NULL) {
-            draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), p, *(f32 *)((s8 *)arg0 + 0xB0));
+            draw_model_motion(this->m_34, p, *(f32 *)((s8 *)arg0 + 0xB0));
         } else {
-            draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
+            draw_ginja_object(this->m_34);
         }
         pop_matrix();
     }

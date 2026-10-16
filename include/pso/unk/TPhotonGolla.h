@@ -8,7 +8,11 @@ public:
     virtual ~TPhotonGolla();
     virtual void render();
     virtual void run_task();
-    u8 unk_158[0x74];
+    u8 unk_158[0x60];
+    s16 m_1b8;
+    u8 unk_1BA[0xA];
+    s32 m_1c4;
+    u8 unk_1C8[0x4];
 };
 typedef char TPhotonGolla_size[sizeof(TPhotonGolla) == 0x1CC ? 1 : -1];
 

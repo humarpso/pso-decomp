@@ -8,7 +8,10 @@ struct TButterfly : public TUnk_804B9870 {
     virtual ~TButterfly();
     u8 unk_90[0xC];
     void* m_9c;
-    u8 _padA0[0x14];
+    u8 unk_A0[0x4];
+    f32 m_a4;
+    u8 unk_A8[0x8];
+    f32 m_b0;
     s16 m_b4;
     s16 m_b6;
     u8 m_b8;

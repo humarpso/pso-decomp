@@ -134,7 +134,7 @@ void TWindowSubSymbolChat::set_entry_name(void *arg1) {
     u8 *arg0 = (u8 *)this;
     strncpy((void *) (arg0 + 4), arg1, (int) (0x16));
     *(s8 *)((s8 *)arg0 + 0x1A) = 0;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)((s8 *)arg0 + 0) | 1);
+    *(s32 *)&this->m_name = (s32) (*(s32 *)&this->m_name | 1);
 }
 
 void TWindowSubSymbolChat::set_flag_bit9(s32 arg1) {
@@ -144,16 +144,16 @@ void TWindowSubSymbolChat::set_flag_bit9(s32 arg1) {
     if (var_r4 != 0) {
         var_r4 = 1;
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) & 0xFFFFFDFF);
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) | (var_r4 << 9));
-    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)((s8 *)arg0 + 0) | 1);
+    *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c & 0xFFFFFDFF);
+    *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c | (var_r4 << 9));
+    *(s32 *)&this->m_name = (s32) (*(s32 *)&this->m_name | 1);
 }
 
 void TWindowSubSymbolChat::set_symbol_index(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) & 0xFFFFFE1F);
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) | (arg1 << 5));
-    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)((s8 *)arg0 + 0) | 1);
+    *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c & 0xFFFFFE1F);
+    *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c | (arg1 << 5));
+    *(s32 *)&this->m_name = (s32) (*(s32 *)&this->m_name | 1);
 }
 
 s32 TWindowSubSymbolChat::count_empty_slots() {
@@ -243,10 +243,10 @@ void TWindowSubSymbolChat::set_entry_bits(u16 v, s32 a, s32 idx, s32 b, s32 c) {
 
 void TWindowSubSymbolChat::set_symbol_flags(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) & 0xFFFFFFE0);
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) | (arg2 * 4));
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) | arg1);
-    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)((s8 *)arg0 + 0) | 1);
+    *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c & 0xFFFFFFE0);
+    *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c | (arg2 * 4));
+    *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c | arg1);
+    *(s32 *)&this->m_name = (s32) (*(s32 *)&this->m_name | 1);
 }
 
 void TWindowSubSymbolChat::refresh_parts() { ((TWindowSubSymbolChat *)((Obj_80077098 *)get_instance__20TWindowSubSymbolChatFv(this)))->count_empty_slots(); }
@@ -257,7 +257,7 @@ void TWindowSubSymbolChat::update_symbol_chat_result() { selected_symbol_chat_pr
 
 void TWindowSubSymbolChat::update_selected_symbol() {
     if (is_initialized__20TWindowSubSymbolChatFv() != 0) {
-        TWindowSubSymbolChat::play_symbol_sound((s32)(((u32) *(u32 *)((s8 *)this + 0x1C) >> 5U) & 0xF));
+        TWindowSubSymbolChat::play_symbol_sound((s32)(((u32) *(u32 *)&this->m_1c >> 5U) & 0xF));
     }
 }
 
@@ -273,7 +273,7 @@ u8 *TWindowSubSymbolChat::get_symbol_chat_data() {
     if (is_symbol_chat_preset_in_use((u32 *)(arg0)) == 0) {
         return get_message_10__20TWindowSubStatusDispFl(0xCC);
     }
-    if ((s8) *(u8 *)((s8 *)arg0 + 4) == 0) {
+    if ((s8) *(u8 *)&this->m_flags == 0) {
         return get_message_10__20TWindowSubStatusDispFl(0xCD);
     }
     return arg0 + 4;

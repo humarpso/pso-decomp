@@ -51,7 +51,7 @@ s32 reset_by_door__18TObjLazerFenceNormFv();
 void TObjLazerFenceNorm::run_task() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0xB4);
+    temp_r0 = *(s32 *)&this->m_b4;
     switch (temp_r0) {
     case 0:
         update_closed__18TObjLazerFenceNormFPv();

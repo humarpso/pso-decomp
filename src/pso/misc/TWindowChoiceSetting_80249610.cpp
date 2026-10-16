@@ -28,7 +28,7 @@ void TWindowFukidasi__sub_80249788(void* p);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 s32 find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(s32, s32, s32, s32);
 
-int TWindowChoiceSetting::is_selected() { return (*(u16*)((char*)this + 0x70) >> 5) & 0x1; }
+int TWindowChoiceSetting::is_selected() { return (this->m_70 >> 5) & 0x1; }
 void TWindowFukidasi::draw_resolved_window(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(arg0, arg1, arg2, *(s32 *)((s8 *)(TWindowCtrlMain__sub_8024CDD0(arg3)) + 0x14));
 }

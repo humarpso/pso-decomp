@@ -111,7 +111,7 @@ u8 TObjPlayer::check_camera_mode() {
 void TObjPlayer__sub_801BE2C0(void* p, s32 v) { *(s32*)((char*)p + 0x370) = v; }
 s32 TObjPlayer__sub_801BE2C8(void* p) { return *(s32*)((char*)p + 0x370); }
 int TObjPlayer__sub_801BE2D0(void* p) { return (*(u32*)((char*)p + 0x890) >> 3) & 0x1; }
-int TObjPlayer::is_ready() { return (*(u32*)((char*)this + 0x890) >> 4) & 0x1; }
+int TObjPlayer::is_ready() { return (*(u32 *)&this->m_890 >> 4) & 0x1; }
 int TObjPlayer::check_stat_flag_41c() { return set_flags__10TObjPlayerFUl((char*)this + 0x41c, 32); }
 int TObjPlayer::check_flag_at_41c() { return set_flags__10TObjPlayerFUl((char*)this + 0x41c, 4); }
 int TObjPlayer::set_flag_41c_bit1() { return set_flags__10TObjPlayerFUl((char*)this + 0x41c, 2); }

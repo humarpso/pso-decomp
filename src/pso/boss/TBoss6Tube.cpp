@@ -11,7 +11,7 @@ void TBoss6Tube::run_task() {
     s32 temp_r0;
 
     if ((TBoss6EmptyWarp__sub_802B1018() == 0) && (query_teammate_state__9TObjEneDDFv() == 0)) {
-        temp_r0 = *(s32 *)((s8 *)this + 0x1C);
+        temp_r0 = *(s32 *)&this->m_1c;
         switch (temp_r0) {
         case 0:
             update_timer();

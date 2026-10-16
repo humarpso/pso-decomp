@@ -68,7 +68,7 @@ void TBoss8Dragon::fill_follow_camera_params(u8 *arg1, u8 *arg2) {
     s32 temp_r0;
     *(f32 *)((s8 *)arg1 + 0) = (f32) lbl_805D8D5C;
     *(f32 *)((s8 *)arg2 + 0) = (f32) lbl_805D8D5C;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x4E4);
+    temp_r0 = this->m_4e4;
     switch (temp_r0) {
     default:
     case 2:
@@ -116,7 +116,7 @@ void TBoss8Dragon__sub_80065F28(void) {  }
 void TBoss8Dragon__sub_80065F2C(void) {  }
 void TBoss8Dragon__sub_80065F30(void) {  }
 void TBoss8Dragon__sub_80065F34(void) {  }
-void TBoss8Dragon::init_color() { *(u8*)((char*)this + 0x0) = 160; *(u8*)((char*)this + 0x1) = 10; }
+void TBoss8Dragon::init_color() { *(u8 *)&this->m_0 = 160; *(u8*)((char*)this + 0x1) = 10; }
 
 void TBoss8Dragon::send_spawn_params_packet() { byteswap_action_packet(); TLobby__send_and_handle_60(this); }
 

@@ -244,17 +244,17 @@ void TObjMapWarpAncient::render() {
     if (((VObj_8017CED8_more_8017cca4_1*)arg0)->m8(lbl_805DBAB8, lbl_805DBABC) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->sourceYaw);
         begin_effect_render__13TParticleCtrlFv();
         if ((s32) *(s32 *)((s8 *)arg0 + 0x88) >= 0) {
-            set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x10C));
-            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x100), *(s32 *)((s8 *)arg0 + 0x118), *(f32 *)((s8 *)arg0 + 0xFC));
+            set_global_param__8TObjFishFl(*(s32 *)&this->m_10c);
+            draw_ginja_model_with_motion(*(s32 *)&this->m_100, *(s32 *)&this->m_118, *(f32 *)&this->unk_FC);
         }
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x110));
-        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x104));
+        set_global_param__8TObjFishFl(*(s32 *)&this->m_110);
+        draw_ginja_object(*(s32 *)&this->m_104);
         end_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x114));
-        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x108));
+        set_global_param__8TObjFishFl(*(s32 *)&this->m_114);
+        draw_ginja_object(*(s32 *)&this->m_108);
         pop_matrix();
     }
 }

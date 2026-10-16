@@ -510,25 +510,25 @@ void TUnk_804CCB28::run_task() {
     typedef char sp20_offset[(offsetof(Stack_80238388, sp20) == 0x18) ? 1 : -1];
     Stack_80238388 stack;
     f32 temp_f1;
-    *(s32 *)((s8 *)arg0 + 0x58) = (s32) (*(s32 *)((s8 *)arg0 + 0x58) + 1);
+    this->m_58 = (s32) (this->m_58 + 1);
     *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (*(s32 *)((s8 *)arg0 + 0x5C) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x5C) >= 0x10) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x58) > 0x6E) {
+    if ((s32) this->m_58 > 0x6E) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 8);
     stack.sp14 = *(s32 *)((s8 *)(&lbl_8044DAF0.value) + 0xC);
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x40);
+    temp_f1 = this->m_40;
     stack.sp18 = temp_f1;
     stack.sp1C = temp_f1;
     stack.sp20 = temp_f1;
-    if (*(f32 *)((s8 *)arg0 + 0x34) >= (temp_f1 - (1.0f))) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x60) != 0) {
-            *(s32 *)((s8 *)arg0 + 0x60) = 0;
+    if (this->m_34 >= (temp_f1 - (1.0f))) {
+        if ((s32) this->m_60 != 0) {
+            this->m_60 = 0;
         }
         approach_position_if_far((void *) (arg0 + 0x34), (void *) (&stack.sp18), (f32) ((0.05f)));
     } else {

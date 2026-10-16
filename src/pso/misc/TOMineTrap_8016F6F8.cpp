@@ -398,7 +398,7 @@ s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__6TOMineFv(void *, s32);
 
-void TOMineTrap::set_state() { *(s16*)((char*)this + 0x326) = 4; }
+void TOMineTrap::set_state() { this->mode = 4; }
 
 s32 TOMineTrap::find_target_in_range() {
     Trap_8016F704 *self = (Trap_8016F704 *)this;
@@ -447,9 +447,9 @@ s32 TOMineTrap::find_target_in_range() {
 
 void TOMineTrap::set_triggered() {
     u8 *arg0 = (u8 *)this;
-    *(s16 *)((s8 *)arg0 + 0x326) = 3;
+    this->mode = 3;
     set_indexed_flags(arg0, 0, 1);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
 }
 
 void TOMineTrap__vt84(u8 *arg0) {
@@ -529,7 +529,7 @@ s32 TOMineTrap::check_trigger(u32 arg1) {
     if (is_target_in_list((void *)(arg1)) == 1) {
         return 0;
     }
-    if (((s32) *(s32 *)((s8 *)this + 0x344) == 2) && (arg1 == (u32) *(u32 *)((s8 *)this + 0x2A8))) {
+    if (((s32) *(s32 *)&this->m_344 == 2) && (arg1 == (u32) *(u32 *)&this->target)) {
         return 0;
     }
     if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
@@ -541,7 +541,7 @@ s32 TOMineTrap::can_trigger(u32 arg1) {
     if (is_target_in_list((void *)(arg1)) == 1) {
         return 0;
     }
-    if (((s32) *(s32 *)((s8 *)this + 0x344) == 2) && (arg1 == (u32) *(u32 *)((s8 *)this + 0x2A8))) {
+    if (((s32) *(s32 *)&this->m_344 == 2) && (arg1 == (u32) *(u32 *)&this->target)) {
         return 0;
     }
     if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
@@ -589,19 +589,19 @@ void TOMineTrap::update_state() {
     *(s32 *)((s8 *)this + 0x348) = (s32) *(f32 *)((s8 *)this + 0x70);
     temp_r0 = *(s32 *)((s8 *)this + 0x348);
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)this + 0x344) = 0;
+        *(s32 *)&this->m_344 = 0;
         return;
     }
     if (temp_r0 > 0) {
-        *(s32 *)((s8 *)this + 0x344) = 1;
+        *(s32 *)&this->m_344 = 1;
         return;
     }
     if (get_main_phase() == 0xE) {
-        *(s32 *)((s8 *)this + 0x344) = 0;
-        *(s32 *)((s8 *)this + 0x8C) = 0x1E;
+        *(s32 *)&this->m_344 = 0;
+        *(s32 *)&this->unk_8C = 0x1E;
         return;
     }
-    *(s32 *)((s8 *)this + 0x344) = 2;
+    *(s32 *)&this->m_344 = 2;
 }
 void TOMineTrap::spawn_effect() {
     s32 arg0 = (s32)this;
@@ -657,9 +657,9 @@ void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
 
 f32 TOMineTrap::trigger_explosion() {
     s16 sp8;
-    if (((u16) *(u16 *)((s8 *)this + 0x1C) >= 0x4000U) && ((u32) *(u32 *)((s8 *)this + 0x80) != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
-        *(s16 *)((s8 *)this + 0x326) = 5;
-        sp8 = *(s16 *)((s8 *)this + 0x326);
+    if (((u16) *(u16 *)&this->unk_1C >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
+        this->mode = 5;
+        sp8 = this->mode;
         send_object_state_update(this, &sp8);
     }
     return lbl_805DB85C;
@@ -723,9 +723,9 @@ f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
 
 void TOMineTrap::update_trigger() {
     s16 sp8;
-    if (((u16) *(u16 *)((s8 *)this + 0x1C) >= 0x4000U) && ((u32) *(u32 *)((s8 *)this + 0x80) != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
-        *(s16 *)((s8 *)this + 0x326) = 3;
-        sp8 = *(s16 *)((s8 *)this + 0x326);
+    if (((u16) *(u16 *)&this->unk_1C >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
+        this->mode = 3;
+        sp8 = this->mode;
         send_object_state_update(this, &sp8);
     }
 }
@@ -800,17 +800,17 @@ void TOMineTrap::update_float_height() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f4;
-    if (!(*(s32 *)((s8 *)arg0 + 0x340) & 2)) {
+    if (!(*(s32 *)&this->m_340 & 2)) {
         temp_f4 = *(f32 *)((s8 *)arg0 + 0x338);
-        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (temp_f4 + ((lbl_805DB884 * ((lbl_805DB888 + *(f32 *)((s8 *)arg0 + 0x54)) - temp_f4)) + (*(const f32 *)&TOMineTrap__data_805DB868)));
-        temp_f1 = lbl_805DB888 + *(f32 *)((s8 *)arg0 + 0x54);
+        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (temp_f4 + ((lbl_805DB884 * ((lbl_805DB888 + this->m_54) - temp_f4)) + (*(const f32 *)&TOMineTrap__data_805DB868)));
+        temp_f1 = lbl_805DB888 + this->m_54;
         if (temp_f1 <= *(f32 *)((s8 *)arg0 + 0x338)) {
             *(f32 *)((s8 *)arg0 + 0x338) = temp_f1;
-            *(s32 *)((s8 *)arg0 + 0x340) = (s32) (*(s32 *)((s8 *)arg0 + 0x340) | 2);
+            *(s32 *)&this->m_340 = (s32) (*(s32 *)&this->m_340 | 2);
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (*(s32 *)((s8 *)arg0 + 0x5C) + 0x800);
-        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (*(f32 *)((s8 *)arg0 + 0x338) + sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x5C)));
+        *(s32 *)&this->m_5c = (s32) (*(s32 *)&this->m_5c + 0x800);
+        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (*(f32 *)((s8 *)arg0 + 0x338) + sin_table_lookup(*(s32 *)&this->m_5c));
     }
 }
 #pragma pop

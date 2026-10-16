@@ -31,23 +31,23 @@ void TObjPlayer::update_control_state() {
     } else {
         TObjEneMe1GiGue__sub_8008FC10((void *) (arg0));
     }
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != (s32) *(s32 *)((s8 *)arg0 + 0x374)) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x37C) != -1) {
-            *(s32 *)((s8 *)arg0 + 0x37C) = -1;
+    if ((s16) this->m_326 != (s32) *(s32 *)&this->m_374) {
+        if ((s32) this->m_37c != -1) {
+            this->m_37c = -1;
             TObjPlayer__sub_8008FF50((void *) (arg0));
         }
-        *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
-        *(s32 *)((s8 *)arg0 + 0x37C) = 0;
+        this->m_326 = (s16) *(s32 *)&this->m_374;
+        this->m_37c = 0;
     }
     TObjPlayer__sub_8008FF50((void *) (arg0));
     ((TObjEneBalClaw *)arg0)->update_wobble();
     ((TObjEneBalClaw *)arg0)->update_claw_angle();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x300);
-    *(f32 *)((s8 *)arg0 + 0x300) = (f32) (temp_f2 + (*(f32 *)((s8 *)arg0 + 0x3B4) + *(f32 *)((s8 *)arg0 + 0x3BC)));
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x3B4);
-    temp_r5 = (unsigned char *) (*(void **)((s8 *)arg0 + 0xA4));
-    *(f32 *)((s8 *)temp_r5 + 4) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x3BC));
+    *(f32 *)((s8 *)arg0 + 0x300) = (f32) (temp_f2 + (*(f32 *)&this->m_3b4 + *(f32 *)&this->m_3bc));
+    temp_f1 = *(f32 *)&this->m_3b4;
+    temp_r5 = (unsigned char *) (*(void * *)&this->m_a4);
+    *(f32 *)((s8 *)temp_r5 + 4) = (f32) (temp_f1 + *(f32 *)&this->m_3bc);
     submit_cursor_candidate((void *) (arg0), (int) (-1), (int) (temp_r5), (f32) (temp_f1), (f32) (temp_f2));
     minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
 }

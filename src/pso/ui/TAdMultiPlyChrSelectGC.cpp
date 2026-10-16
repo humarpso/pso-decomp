@@ -52,9 +52,9 @@ void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
         TAdMultiPlyChrSelectGC::split_slot_index((s32)temp_r3, (s32 *)(&sp14), (s32 *)(&sp10));
         TAdMultiPlyChrSelectGC::init();
-        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_field_4ec(sp14);
-        TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(*(s32 *)((s8 *)this + 0x5C)), (s32)(sp10));
-        *(s32 *)((s8 *)this + 0x9C) = 1;
+        ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_field_4ec(sp14);
+        TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(this->m_5c), (s32)(sp10));
+        this->m_9c = 1;
         return;
     case 4:
         TAdMultiPlyChrSelectGC__sub_802C6920();
@@ -63,10 +63,10 @@ void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
             temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
             TAdMultiPlyChrSelectGC::split_slot_index((s32)temp_r3, (s32 *)(&spC), (s32 *)(&sp8));
             TAdMultiPlyChrSelectGC::init();
-            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_field_4ec(spC);
-            TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(*(s32 *)((s8 *)this + 0x5C)), (s32)(sp8));
+            ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_field_4ec(spC);
+            TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(this->m_5c), (s32)(sp8));
         }
-        *(s32 *)((s8 *)this + 0x9C) = 1;
+        this->m_9c = 1;
         return;
     }
 }
@@ -81,41 +81,41 @@ typedef char RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC_size[sizeof
 #pragma dont_inline on
 void TAdMultiPlyChrSelectGC::initialize_selection_state(s32 arg1) {
     s32 v;
-    *(s32 *)((s8 *)this + 0x1C) = 0;
+    *(s32 *)&this->m_1c = 0;
     *(s32 *)((s8 *)this + 0x30) = -1;
-    *(s32 *)((s8 *)this + 0x34) = -1;
-    *(s32 *)((s8 *)this + 0x44) = 2;
-    *(s32 *)((s8 *)this + 0x38) = 0;
+    this->m_34 = -1;
+    *(s32 *)&this->_pad44 = 2;
+    *(s32 *)&this->unk_38 = 0;
     *(s32 *)((s8 *)this + 0x58) = 0;
     v = TAdMultiPlyChrSelectGC::get_clamped_cursor();
-    *(s32 *)((s8 *)this + 0x4C) = v;
-    *(s32 *)((s8 *)this + 0x2C) = 2;
+    *(s32 *)&this->m_4c = v;
+    *(s32 *)&this->m_2c = 2;
     v = 0;
-    *(s32 *)((s8 *)this + 0x48) = arg1;
-    *(s32 *)((s8 *)this + 0x74) = v;
+    *(s32 *)&this->m_48 = arg1;
+    *(s32 *)&this->m_74 = v;
     lbl_805D68C8 = v;
     *(s32 *)((s8 *)this + 0x50) = v;
-    *(s32 *)((s8 *)this + 0x54) = 1;
+    this->m_54 = 1;
     *(s32 *)((s8 *)this + 0x68) = v;
-    *(s32 *)((s8 *)this + 0x60) = v;
-    *(s32 *)((s8 *)this + 0x5C) = v;
+    *(s32 *)&this->unk_60 = v;
+    this->m_5c = v;
     *(s32 *)((s8 *)this + 0x78) = v;
     *(s32 *)((s8 *)this + 0x70) = v;
-    *(s32 *)((s8 *)this + 0x7C) = v;
+    this->m_7c = v;
     *(s32 *)((s8 *)this + 0x80) = v;
-    *(s32 *)((s8 *)this + 0x84) = v;
+    *(s32 *)&this->m_84 = v;
     *(s32 *)((s8 *)this + 0x88) = v;
-    *(s32 *)((s8 *)this + 0x8C) = v;
+    this->m_8c = v;
     *(s32 *)((s8 *)this + 0x90) = v;
-    *(s32 *)((s8 *)this + 0x94) = v;
+    *(s32 *)&this->m_94 = v;
     *(s32 *)((s8 *)this + 0x98) = v;
-    *(s32 *)((s8 *)this + 0x3C) = v;
-    *(s32 *)((s8 *)this + 0x40) = v;
-    *(s32 *)((s8 *)this + 0x9C) = v;
-    if (*(s32 *)((s8 *)this + 0x48) == 1) {
+    *(s32 *)&this->m_3c = v;
+    *(s32 *)&this->m_40 = v;
+    this->m_9c = v;
+    if (*(s32 *)&this->m_48 == 1) {
         v = 0x1D;
     }
-    *(s32 *)((s8 *)this + 0x20) = v;
+    *(s32 *)&this->m_20 = v;
 }
 #pragma pop
 

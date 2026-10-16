@@ -38,8 +38,8 @@ extern s32 lbl_804A7248[];
 
 void *TLockOnCursor::init_vtable() {
     init_gc_tag((void*)(this));
-    *(s32 **)((s8 *)this + 0x8) = lbl_804A7248;
-    *(u32 *)((s8 *)this + 0x4) = 0;
+    *(s32 * *)&this->m_prev = lbl_804A7248;
+    *(u32 *)&this->m_flags = 0;
     return this;
 }
 
@@ -62,7 +62,7 @@ int TLockOnCursor__sub_8013F000(void *self) {
 }
 
 void* init_sub__13TLockOnCursorFPv(void* p) { fn_8004438C(p); ((TObjPlayer *)((char*)p + 0x8))->init_forward(); return p; }
-void TLockOnCursor::reset_fields() { *(s32*)((char*)this + 0x0) = 0; *(s32*)((char*)this + 0x4) = 0; *(s32*)((char*)this + 0x8) = 0; }
+void TLockOnCursor::reset_fields() { *(s32 *)&this->m_name = 0; *(s32 *)&this->m_flags = 0; *(s32 *)&this->m_prev = 0; }
 
 struct VOff_8013F0A0_arg0 { char pad_0[0x8]; char f_8[1]; };
 void *fn_8013F0A0(void *arg0) {

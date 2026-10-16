@@ -5,9 +5,11 @@
 
 struct TTecGiBarta
 {
-    u8 _pad00[0x1C];
+    u8 unk_0[0x18];
+    void * m_18;
     u32 m_1c;
-    u8 _pad20[0xA8];
+    u8 unk_20[0xA6];
+    s16 m_c6;
     u16 m_c8;
     u8 _padCA[0x2E];
     u32 m_f8;

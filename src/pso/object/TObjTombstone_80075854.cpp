@@ -34,7 +34,7 @@ s32 TObjTombstone::check_height_ready() {
     if (TObjTombstone::check_all_players_active() == 0) {
         return 0;
     }
-    return (u32)__cntlzw(*(f32 *)((s8 *)this + 0xB0) > lbl_805D91A4) >> 5;
+    return (u32)__cntlzw(this->m_b0 > lbl_805D91A4) >> 5;
 }
 
 }

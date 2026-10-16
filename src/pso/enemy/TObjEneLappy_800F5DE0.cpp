@@ -24,7 +24,7 @@ extern "C" {
 
 int initialize_enemy_photon_effect(void* p);
 
-void TObjEneLappy::set_param(s32 v) { *(s32*)((char*)this + 0x370) = v; }
+void TObjEneLappy::set_param(s32 v) { *(s32 *)&this->_pad370 = v; }
 
 int initialize_enemy_photon_effect(void* p) { return ((TBoss3Volopt *)p)->reset_photon_effect(); }
 void render_actor_shadows_default(u8 *arg0) {

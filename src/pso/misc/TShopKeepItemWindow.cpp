@@ -145,14 +145,14 @@ s32 set_field_20__12TQuestListVMFl(void *, s32);
 void TShopKeepItemWindow::vfunc_7() {
     struct VObj_80221844 *temp_r3;
 
-    temp_r3 = (struct VObj_80221844 *)*(void **)((s8 *)this + 0x380);
+    temp_r3 = (struct VObj_80221844 *)*(void * *)&this->m_380;
     if (temp_r3 != NULL) {
         temp_r3->m5();
     }
 }
 
 void TShopKeepItemWindow::vfunc_6() {
-    struct VObj_8022187C_80221844 *o = (struct VObj_8022187C_80221844 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_8022187C_80221844 *o = (struct VObj_8022187C_80221844 *)*(void * *)&this->m_380;
     if (o != NULL) {
         o->m4();
     }
@@ -163,7 +163,7 @@ s32 TShopKeepItemWindow::close_with_cancel_callback() {
 
     temp_r12 = *(s32 (**)(s32))((s8 *)this + 0x398);
     if (temp_r12 != NULL) {
-        temp_r12(*(s32 *)((s8 *)this + 0x380));
+        temp_r12(*(s32 *)&this->m_380);
     }
     sort_bank_items(TShopWindowBase__sub_8022397C(this));
     queue_destruction__7TObjectFv(this);
@@ -174,15 +174,15 @@ s32 TShopKeepItemWindow::close_with_ok_callback() {
 
     temp_r12 = *(s32 (**)(s32))((s8 *)this + 0x394);
     if (temp_r12 != NULL) {
-        temp_r12(*(s32 *)((s8 *)this + 0x380));
+        temp_r12(*(s32 *)&this->m_380);
     }
     sort_bank_items(TShopWindowBase__sub_8022397C(this));
     queue_destruction__7TObjectFv(this);
 }
 
 s32 TShopKeepItemWindow::close() {
-    if ((u32) *(u32 *)((s8 *)this + 0x384) != 0U) {
-        ((TWindowSubItem *)(*(void **)((s8 *)this + 0x384)))->clear_selected_and_update_entry();
+    if ((u32) this->m_384 != 0U) {
+        ((TWindowSubItem *)(*(void * *)&this->m_384))->clear_selected_and_update_entry();
     }
     set_field_20__12TQuestListVMFl(this, 1);
 }
@@ -236,25 +236,25 @@ void TShopKeepItemWindow::update_number_input() {
     f32 temp_f31;
     u16 temp_r31;
     u32 w;
-    w = *(u32 *)((s8 *)this + 0x38C);
+    w = this->m_38c;
     if ((w != 0U) && (((TWindowInputNumber *)w)->is_confirmed() != 0)) {
-        if ((u32) *(u32 *)((s8 *)this + 0x388) == 0U) {
-            temp_r31 = obj_getField1c(*(s32 *)((s8 *)this + 0x24));
-            *(u32 *)((s8 *)this + 0x388) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
-            ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x388)))->set_ready_flag();
+        if ((u32) this->m_388 == 0U) {
+            temp_r31 = obj_getField1c(*(s32 *)&this->m_24);
+            this->m_388 = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+            ((TCheckRoomSequence *)(this->m_388))->set_ready_flag();
             temp_f31 = get_scale__15TShopWindowBaseFv(this);
-            set_position_xy(*(u32 *)((s8 *)this + 0x388), get_scale__15TShopWindowBaseFv(this), temp_f31);
+            set_position_xy(this->m_388, get_scale__15TShopWindowBaseFv(this), temp_f31);
         }
-        *(s32 *)((s8 *)this + 0x378) = ((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)this + 0x38C)))->get_result();
-        TWindow__close((void *)(*(u32 *)((s8 *)this + 0x38C)));
-        *(u32 *)((s8 *)this + 0x38C) = 0U;
+        *(s32 *)&this->m_378 = ((TShopEquipmentSellWindow *)(this->m_38c))->get_result();
+        TWindow__close((void *)(this->m_38c));
+        this->m_38c = 0U;
         set_field_20__12TQuestListVMFl(this, 2);
         return;
     }
-    w = *(u32 *)((s8 *)this + 0x38C);
+    w = this->m_38c;
     if ((w != 0U) && (((TShopEquipmentSellWindow *)w)->is_confirmed() != 0)) {
-        TWindow__close((void *)(*(u32 *)((s8 *)this + 0x38C)));
-        *(u32 *)((s8 *)this + 0x38C) = 0U;
+        TWindow__close((void *)(this->m_38c));
+        this->m_38c = 0U;
         set_field_20__12TQuestListVMFl(this, 3);
     }
 }
@@ -316,7 +316,7 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
 void TShopKeepItemWindow::vfunc_11() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
+    temp_r0 = this->m_20;
     switch (temp_r0) {
     case 0:
         ((TShopKeepItemWindow *)arg0)->rebuild_item_list();

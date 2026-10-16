@@ -48,8 +48,8 @@ void TObjEneMe1Gee_NEEDLE::render() {
     push_matrix();
     TParticleCtrl::begin_effect_render();
     post_translate_matrix((void *) (arg0 + 0x6C));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xA4)));
-    rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xA0)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_a4));
+    rotate_matrix_x((int) (0), (int) (*(s32 *)&this->m_a0));
     TObjFish__sub_8001EDB0((void *) (me1gee_cached_model_handle), (int) (1));
     set_global_param__8TObjFishFl();
     get_bml_model((void *) (me1gee_cached_model_handle), (int) (1));
@@ -58,12 +58,12 @@ void TObjEneMe1Gee_NEEDLE::render() {
     pop_matrix();
 }
 void TObjEneMe1Gee_NEEDLE::run_task() {
-    *(u32 *)((s8 *)this + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)this + 0x34));
-    if ((u32) *(u32 *)((s8 *)this + 0x1C) == 0U) {
+    this->m_1c = find_entity_by_id(this->m_34);
+    if ((u32) this->m_1c == 0U) {
         queue_destruction__7TObjectFv((void *)(this));
         return;
     }
-    if ((s32) *(s32 *)((s8 *)this + 0xB8) == 1) {
+    if ((s32) *(s32 *)&this->m_b8 == 1) {
         update_position__12TNeedleShootFv(this);
         update_lifetime__22TObjEneMe1GiGueMissileFv(this);
         TObjPlayer__sub_802A445C(this, 1);

@@ -96,7 +96,7 @@ void TAdRicoRingCtrl::start_fade_all(f32 x) {
 void TAdRicoRingCtrl::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + *(f32 *)((s8 *)arg0 + 0x28));
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + this->m_28);
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x24);
     if (temp_f1 < lbl_805D7E4C) {
         *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805D7E4C;
@@ -165,8 +165,8 @@ void TAdRicoRingCtrl::start_fade(f32 farg0) {
     }
     ((TObjPlayer *)(arg0 + 0x2C))->set_flags(2);
     if (lbl_805D7E4C != farg0) {
-        *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)((s8 *)arg0 + 0x1C)) / farg0);
-        temp_f0 = (*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)((s8 *)arg0 + 0x20)) / farg0;
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)&this->m_1c) / farg0);
+        temp_f0 = (*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)&this->m_20) / farg0;
         *(f32 *)((s8 *)arg0 + 0x3C) = temp_f0;
         *(f32 *)((s8 *)arg0 + 0x40) = temp_f0;
         *(f32 *)((s8 *)arg0 + 0x44) = temp_f0;
@@ -185,8 +185,8 @@ void TAdRicoRingCtrl::start_anim(f32 farg0) {
     }
     ((TObjPlayer *)(arg0 + 0x2C))->set_flags(1);
     if (lbl_805D7E4C != farg0) {
-        *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((lbl_805D7E54 - *(f32 *)((s8 *)arg0 + 0x1C)) / farg0);
-        temp_f0 = (lbl_805D7E54 - *(f32 *)((s8 *)arg0 + 0x20)) / farg0;
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((lbl_805D7E54 - *(f32 *)&this->m_1c) / farg0);
+        temp_f0 = (lbl_805D7E54 - *(f32 *)&this->m_20) / farg0;
         *(f32 *)((s8 *)arg0 + 0x3C) = temp_f0;
         *(f32 *)((s8 *)arg0 + 0x40) = temp_f0;
         *(f32 *)((s8 *)arg0 + 0x44) = temp_f0;

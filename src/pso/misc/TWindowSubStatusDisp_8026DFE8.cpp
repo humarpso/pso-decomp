@@ -49,18 +49,18 @@ void TUnk_804D0948::render() {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    if (!(*(u16 *)((s8 *)arg0 + 0x70) & 0x80)) {
+    if (!(this->m_70 & 0x80)) {
         draw_selected_list_entry((void *) (arg0), (int) (temp_r3));
     }
-    n = *(s32 *)((s8 *)arg0 + 0x88);
+    n = *(s32 *)&this->unk_88;
     if (n > 0) {
-        draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (*(s16 *)((s8 *)arg0 + 0x72)), n);
+        draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (this->m_72), n);
     }
-    p = *(void **)((s8 *)arg0 + 0x80);
+    p = this->m_80;
     if (p != NULL) {
         forward_render__20TWindowSubStatusDispFv(p, (int) (temp_r3));
     }
-    p = *(void **)((s8 *)arg0 + 0x84);
+    p = *(void * *)&this->unk_84;
     if (p != NULL) {
         draw_window_scrollbar(p, (int) (temp_r3), (void *) (arg0 + 0x68));
     }

@@ -21,7 +21,7 @@ void TWindowSubSymbolChat__sub_80077704(void* p) { *(u8*)((char*)p + 0x0) = 7; *
     extern int selected_symbol_chat_preset;
 int TWindowSubSymbolChat::get_instance() {  return selected_symbol_chat_preset; }
 
-int TWindowSubSymbolChat::is_initialized() { return *(u32*)((char*)this + 0x0) & 0x1; }
+int TWindowSubSymbolChat::is_initialized() { return *(u32 *)&this->m_name & 0x1; }
 void TWindowSubSymbolChat::bswap_entry() { bswap_32__FPUl((void*)(this)); ((TWindowSubSymbolChat *)((char*)this + 0x1c))->byteswap_entry(); }
 
 }

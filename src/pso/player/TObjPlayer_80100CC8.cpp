@@ -38,7 +38,7 @@ void fn_80100D68(void *arg0) {
     copy_to_item_data__5TItemFPv(arg0, &sp8);
     TItemData__sub_8010C738(&sp8);
 }
-void TItemMag::set_field_EE(u8 v) { *(u8*)((char*)this + 0xee) = v; }
+void TItemMag::set_field_EE(u8 v) { this->m_ee = v; }
 void fn_80100D9C(void* p, u8 v) { *(u8*)((char*)p + 0xed) = v; }
 void TWindowSubStatusDisp::lookup_item_data() {
     s32 sp8[4];

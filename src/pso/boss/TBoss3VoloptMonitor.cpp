@@ -474,7 +474,7 @@ void TBoss3VoloptMonitor__sub_800420D8(void) {  }
 void TBoss3VoloptMonitor::update_state() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
         update_state__20TBoss3VoloptHiraisinFv();
@@ -727,7 +727,7 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TBoss3VoloptMonitor::set_flags_30() { *(u32*)((char*)this + 0x30) |= 0x4040000; }
+void TBoss3VoloptMonitor::set_flags_30() { this->actorFlags |= 0x4040000; }
 
 void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFBFBFFFF);

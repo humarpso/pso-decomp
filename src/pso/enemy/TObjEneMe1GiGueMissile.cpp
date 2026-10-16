@@ -84,10 +84,10 @@ void TObjEneMe1GiGueMissile::explode(void *pos) {
         if (p != NULL && horizontal_distance_squared((u8 *)p + 0x38, pos) <= lbl_805DE6D4) {
             Hit_802CE088 h;
             h.kind = 0;
-            h.power = *(f32 *)((s8 *)this + 0xC0);
+            h.power = this->m_c0;
             {
                 Hit_802CE088 h1 = h;
-                if (p->m21(*(void **)((s8 *)this + 0x1C), &h1, 0, -1, -1) > lbl_805DE6D8) {
+                if (p->m21(*(void * *)&this->m_1c, &h1, 0, -1, -1) > lbl_805DE6D8) {
                     obj_setFlags30(p, 0x600);
                 }
             }
@@ -156,8 +156,8 @@ typedef char RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile_size[sizeof
 void TObjEneMe1GiGueMissile::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x34)));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
+    this->m_1c = find_entity_by_id((int) (this->m_34));
+    if ((u32) this->m_1c == 0U) {
         queue_destruction__7TObjectFv((void*)((void *) (arg0)));
         return;
     }

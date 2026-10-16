@@ -60,7 +60,11 @@ struct TBoss1Dragon {
     static void setControlOverride(s16 controlId);
     static void requestActionRefresh();
 
-    u8 unknown000[0x24];
+    u8 unk_0[0x18];
+
+    s32 * m_18;
+
+    u8 unk_1C[0x8];
     s32 textureId;
     u8 unknown028[0x34 - 0x28];
     void* renderModel;

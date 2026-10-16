@@ -83,8 +83,8 @@ s32 memcpy(s32, s32, s32);
 void TEffIndirectCtrl::render() {  }
 
 void TEffIndirectCtrl::copy_and_flush_texture(s32 arg1) {
-    memcpy(*(s32 *)((s8 *)this + 0x1C), arg1, 0x1000);
-    DCFlushRange((s32)(*(s32 *)((s8 *)this + 0x1C)), (s32)(0x1000));
+    memcpy(*(s32 *)&this->m_1c, arg1, 0x1000);
+    DCFlushRange((s32)(*(s32 *)&this->m_1c), (s32)(0x1000));
 }
 
 extern s32 __vt__16TEffIndirectCtrl[];

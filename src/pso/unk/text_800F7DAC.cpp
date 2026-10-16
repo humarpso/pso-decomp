@@ -445,9 +445,9 @@ void *THunterGuildSeqOffline__sub_800F8820(void *arg0, s16 arg1) {
 
 void *THunterGuildSeqOffline::init(void *arg1, void *arg2) {
     init_object__12TBoss3VoloptFPv(this, tl_fade);
-    *(s32 **)((s8 *)this + 0x18) = lbl_804999D0;
+    *(s32 * *)&this->m_34 = lbl_804999D0;
     *(void **)((s8 *)this + 0x24) = arg2;
-    *(f32 *)((s8 *)this + 0x1C) = (0.0f);
+    *(f32 *)&this->m_38 = (0.0f);
     *(u8 *)((s8 *)this + 0x20) = 0;
     *(u8 *)((s8 *)this + 0x21) = 0;
     *(u8 *)((s8 *)this + 0x22) = 0;

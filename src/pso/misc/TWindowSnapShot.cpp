@@ -95,8 +95,8 @@ s32 load_player_motion_data(void) {
     return 1;
 }
 
-s32 TWindowSnapShot::get_size() { return *(s32*)((char*)this + 0x0); }
-s32 TWindowSnapShot::get_field_8() { return *(s32*)((char*)this + 0x8); }
+s32 TWindowSnapShot::get_size() { return *(s32 *)&this->m_name; }
+s32 TWindowSnapShot::get_field_8() { return *(s32 *)&this->m_prev; }
 int TWindowSnapShot::get_height() { return 600; }
 
     extern int player_motion_data_filename_ptr;
@@ -104,7 +104,7 @@ int TWindowSnapShot__sub_802A7EAC(void) {  return player_motion_data_filename_pt
 
 void TWindowSnapShot::play_open_sound() {
     play_sound_effect(0x52F16, 0, 0, 0);
-    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 1);
+    this->m_60 = (u8) (this->m_60 | 1);
 }
 
 extern s32 __vt__15TWindowSnapShot[];
@@ -129,8 +129,8 @@ void render__15TWindowSnapShotFv(u8 *arg0) {
 typedef char RecoveredGlobal_802A7FB0_lbl_8050E208_size[sizeof(RecoveredGlobal_802A7FB0_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSnapShot::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
+    if (!(*(s32 *)&this->m_2c & 2)) {
+        *(s32 *)&this->m_5c = 0x01000000;
     }
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
         play_open_sound();

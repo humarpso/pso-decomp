@@ -12,9 +12,9 @@ s32 queue_destruction__7TObjectFv();
 void TUnk_80484840::run_task() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0x2C) = (s32) (*(s32 *)((s8 *)this + 0x2C) + *(s32 *)((s8 *)this + 0x38));
-    temp_r0 = *(s32 *)((s8 *)this + 0x24) - 1;
-    *(s32 *)((s8 *)this + 0x24) = temp_r0;
+    this->m_2c = (s32) (this->m_2c + this->m_38);
+    temp_r0 = this->m_24 - 1;
+    this->m_24 = temp_r0;
     if (temp_r0 <= 0) {
         queue_destruction__7TObjectFv();
     }

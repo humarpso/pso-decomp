@@ -25,6 +25,6 @@ void *TObjContainerIdo::dt(s16 arg1) {
     }
     return this;
 }
-void*TObjContainerIdo::init_positions() { construct_collider_proxy__10TObjPlayerFv(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_804B97C0); *(float*)((char*)this + 0xac) = lbl_805DC078; *(float*)((char*)this + 0xb0) = lbl_805DC07C; return this; }
+void*TObjContainerIdo::init_positions() { construct_collider_proxy__10TObjPlayerFv(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_804B97C0); *(float *)&this->unk_AC = lbl_805DC078; this->m_b0 = lbl_805DC07C; return this; }
 
 }

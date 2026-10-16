@@ -111,10 +111,10 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 void TObjPlayer::set_pause_flag_from_state() {
     if (get_attack_stage__11TItemWeaponFv() == 2) {
-        *(s32 *)((s8 *)this + 0x1FC) = (s32) (*(s32 *)((s8 *)this + 0x1FC) | 1);
+        this->m_1fc = (s32) (this->m_1fc | 1);
         return;
     }
-    *(s32 *)((s8 *)this + 0x1FC) = (s32) (*(s32 *)((s8 *)this + 0x1FC) & 0xFFFFFFFE);
+    this->m_1fc = (s32) (this->m_1fc & 0xFFFFFFFE);
 }
 
 extern s32 tl_05;
@@ -178,7 +178,7 @@ void *TObjPlayer::enter_state_804F27E0(s32 _w1, void * _w2) {
     construct_srank_weapon(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F27E0;
     set_status_flags__10TObjPlayerFPvUi(this, 3);
-    *(u32 *)((s8 *)this + 0x1FC) = 0;
+    *(u32 *)&this->m_1fc = 0;
     return this;
 }
 u8 *TObjPlayer__sub_803630F0(u8 *arg0) {

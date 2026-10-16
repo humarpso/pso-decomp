@@ -81,20 +81,20 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
 void TObjButterflyLobby::init_params() {
     u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x98, arg0 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0xA4) = 0.0f;
+    this->m_a4 = 0.0f;
     *(f32 *)((s8 *)arg0 + 0xA8) = 0.0f;
-    *(f32 *)((s8 *)arg0 + 0xAC) = 0.0f;
+    this->m_ac = 0.0f;
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.5f * (3.0517578125e-05f * (f32) rand()));
-    *(f32 *)((s8 *)arg0 + 0xB8) = 0.0f;
-    *(s8 *)((s8 *)arg0 + 0xC0) = 0;
-    *(s8 *)((s8 *)arg0 + 0xC1) = 0;
-    *(s16 *)((s8 *)arg0 + 0xBC) = 0x1E;
-    *(s16 *)((s8 *)arg0 + 0xBE) = 0;
+    this->m_b8 = 0.0f;
+    *(s8 *)&this->m_c0 = 0;
+    *(s8 *)&this->m_c1 = 0;
+    this->m_bc = 0x1E;
+    this->m_be = 0;
 }
 
 void TObjButterflyLobby::render() {
-    if ((((ButterflyLobbyVObj_80350958*)this)->m8(400.0f, 20.0f) != 0) && ((s32) *(s32 *)((s8 *)this + 0x90) != 0)) {
-        TObjFish::set_global_param(*(s32 *)((s8 *)this + 0xC8));
+    if ((((ButterflyLobbyVObj_80350958*)this)->m8(400.0f, 20.0f) != 0) && ((s32) *(s32 *)&this->m_90 != 0)) {
+        TObjFish::set_global_param(*(s32 *)&this->m_c8);
         render__18TObjButterflyLobbyFPv((u8 *)(this));
     }
 }

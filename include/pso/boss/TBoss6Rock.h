@@ -15,7 +15,8 @@ struct TBoss6Rock : public TUnk_804AF8A0 {
     u32 m_c0;
     u32 m_c4;
     u32 m_c8;
-    u8 _padCC[0x8];
+    u8 unk_CC[0x4];
+    s32 m_d0;
     void* m_d4;
     u8 _padD8[0xC];
     u32 m_e4;

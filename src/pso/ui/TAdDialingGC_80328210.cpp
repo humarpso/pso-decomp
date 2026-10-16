@@ -50,13 +50,13 @@ void TAdDialingGC::update_dial_state() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x20);
+    temp_r0 = *(s32 *)&this->m_20;
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)this + 0x20) = 1;
+        *(s32 *)&this->m_20 = 1;
         return;
     case 2:
-        temp_r0_2 = *(s32 *)((s8 *)this + 0x9C);
+        temp_r0_2 = this->m_9c;
         if (temp_r0_2 < 0x10) {
             if (temp_r0_2 == 0) {
                 goto block_11;
@@ -65,12 +65,12 @@ void TAdDialingGC::update_dial_state() {
         }
         if (temp_r0_2 < 0x12) {
 block_11:
-            *(s32 *)((s8 *)this + 0x20) = 3;
+            *(s32 *)&this->m_20 = 3;
             return;
         }
 block_12:
         if (TAdDialingGC__sub_803284F8((s32)(this)) != 0) {
-            *(s32 *)((s8 *)this + 0x20) = 3;
+            *(s32 *)&this->m_20 = 3;
         }
         break;
     case 3:
@@ -83,13 +83,13 @@ void TAdDialingGC::update_state() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x20);
+    temp_r0 = *(s32 *)&this->m_20;
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)this + 0x20) = 1;
+        *(s32 *)&this->m_20 = 1;
         return;
     case 2:
-        temp_r0_2 = *(s32 *)((s8 *)this + 0x9C);
+        temp_r0_2 = this->m_9c;
         if (temp_r0_2 < 0x10) {
             if (temp_r0_2 == 0) {
                 goto block_11;
@@ -98,12 +98,12 @@ void TAdDialingGC::update_state() {
         }
         if (temp_r0_2 < 0x12) {
 block_11:
-            *(s32 *)((s8 *)this + 0x20) = 3;
+            *(s32 *)&this->m_20 = 3;
             return;
         }
 block_12:
         if (TAdDialingGC__sub_803284F8((s32)(this)) != 0) {
-            *(s32 *)((s8 *)this + 0x20) = 3;
+            *(s32 *)&this->m_20 = 3;
         }
         break;
     case 3:
@@ -117,40 +117,40 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x20);
+    temp_r0 = *(s32 *)&this->m_20;
     switch (temp_r0) {
     case 0:
-        temp_r4 = *(s32 *)((s8 *)this + 0xA0);
-        *(s32 *)((s8 *)this + 0xA0) = temp_r4 + 1;
-        if ((s32) *(s32 *)((s8 *)this + 0xA0) > 0x5A) {
+        temp_r4 = *(s32 *)&this->m_a0;
+        *(s32 *)&this->m_a0 = temp_r4 + 1;
+        if ((s32) *(s32 *)&this->m_a0 > 0x5A) {
             spawn_title_screen__12TAdDialingGCFPvi((void *)((void *)(this)), (s32)((s32)(temp_r4)));
             show_guide_button();
-            *(s32 *)((s8 *)this + 0xA0) = 0;
-            *(s32 *)((s8 *)this + 0x20) = 1;
+            *(s32 *)&this->m_a0 = 0;
+            *(s32 *)&this->m_20 = 1;
         }
         return;
     case 2:
         if (func_801A5E54__Fv() != 0) {
-            *(s32 *)((s8 *)this + 0x20) = 3;
+            *(s32 *)&this->m_20 = 3;
             return;
         }
-        *(s32 *)((s8 *)this + 0xA0) = (s32) (*(s32 *)((s8 *)this + 0xA0) + 1);
-        temp_r0_2 = *(s32 *)((s8 *)this + 0x9C);
+        *(s32 *)&this->m_a0 = (s32) (*(s32 *)&this->m_a0 + 1);
+        temp_r0_2 = this->m_9c;
         switch (temp_r0_2) {
         case 16:
         case 0:
-            if ((s32) *(s32 *)((s8 *)this + 0xA0) > 0x5A) {
-                *(s32 *)((s8 *)this + 0x20) = 3;
+            if ((s32) *(s32 *)&this->m_a0 > 0x5A) {
+                *(s32 *)&this->m_20 = 3;
                 return;
             }
             break;
         case 17:
-            *(s32 *)((s8 *)this + 0x20) = 3;
+            *(s32 *)&this->m_20 = 3;
             return;
         default:
             show_guide_button();
             if (TAdDialingGC__sub_803284F8((s32)(this)) != 0) {
-                *(s32 *)((s8 *)this + 0x20) = 3;
+                *(s32 *)&this->m_20 = 3;
                 return;
             }
             break;
@@ -187,14 +187,14 @@ s32 TAdDialingGC__sub_803284F8(s32 _w0) {
 
 void TAdDialingGC::update_selection() {
     u8 *arg0 = (u8 *)this;
-    *(s16 *)((s8 *)arg0 + 0x68) = (s16) *(s16 *)((s8 *)arg0 + 0x30);
+    *(s16 *)&this->m_68 = (s16) *(s16 *)&this->m_30;
     if ((s32) TLobby__net_session_mode != 0) {
-        *(s16 *)((s8 *)arg0 + 0x30) = 0;
+        *(s16 *)&this->m_30 = 0;
         return;
     }
     TLobby__sub_803FB184(arg0 + 0x2C);
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x68) != (s16) *(s16 *)((s8 *)arg0 + 0x30)) {
-        *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    if ((s16) *(s16 *)&this->m_68 != (s16) *(s16 *)&this->m_30) {
+        *(s32 *)&this->m_24 = 0;
     }
 }
 
@@ -246,7 +246,7 @@ void TAdDialingGC::update_state_display() {
 void TAdDialingGC::show_guide_button() {
     u8 *arg0 = (u8 *)this;
     Stack_803286AC stack;
-    if (!(*(s32 *)((s8 *)arg0 + 0xA4) & 2)) {
+    if (!(*(s32 *)&this->m_a4 & 2)) {
         init_guide_button_params((void *) (&stack.sp8));
         stack.sp8 = 1;
         stack.sp28 = get_localized_text_entry((int) (0xF), (int) (0x13));
@@ -255,7 +255,7 @@ void TAdDialingGC::show_guide_button() {
         stack.sp10 = lbl_805DF6E8;
         stack.sp18 = lbl_805DF6E8;
         create_guide_button((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805DF6E4));
-        *(s32 *)((s8 *)arg0 + 0xA4) = (s32) (*(s32 *)((s8 *)arg0 + 0xA4) | 2);
+        *(s32 *)&this->m_a4 = (s32) (*(s32 *)&this->m_a4 | 2);
     }
 }
 
@@ -286,21 +286,21 @@ void TAdDialingGC__sub_80328730(s32 arg0) {
 void TAdDialingGC::update() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
+    temp_r0 = *(s32 *)&this->m_1c;
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)this + 0x20) != 0) {
+        if ((s32) *(s32 *)&this->m_20 != 0) {
             update_state_display();
         }
         break;
     case 1:
-        if ((s32) *(s32 *)((s8 *)this + 0x20) == 2) {
+        if ((s32) *(s32 *)&this->m_20 == 2) {
             update_status_message__12TAdDialingGCFv();
             return;
         }
         break;
     case 2:
-        if ((s32) *(s32 *)((s8 *)this + 0x20) == 2) {
+        if ((s32) *(s32 *)&this->m_20 == 2) {
             handle_state__12TAdDialingGCFv();
         }
         break;

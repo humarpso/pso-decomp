@@ -6,7 +6,11 @@
 
 struct TAdScrollWinGC : public TObject {
     virtual ~TAdScrollWinGC();
-    u8 _pad1C[0x20];
+    u8 unk_1C[0x4];
+    f32 m_20;
+    u8 unk_24[0x4];
+    f32 m_28;
+    u8 unk_2C[0x10];
     u32 m_3c;
     u32 m_40;
     u32 m_44;

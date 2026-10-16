@@ -191,10 +191,10 @@ void TUnk_8049442C::render() {
     TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xC8));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xBC));
+    rotate_matrix_y(0, this->m_bc);
     rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0xC0));
     model_render_flags &= 0xFFFFFBFF;
-    draw_chunk_object(*(s32 *)((s8 *)arg0 + 0xC4));
+    draw_chunk_object(this->m_c4);
     pop_matrix();
 }
 void TUnk_8049442C::run_task() {

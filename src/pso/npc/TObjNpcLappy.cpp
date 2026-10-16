@@ -270,10 +270,10 @@ u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2) {
 
 void TObjNpcMaleBase::request_action(s32 arg1) {
     if (arg1 != 1) {
-        *(s16 *)((s8 *)this + 0xB8) = 0;
+        this->m_b8 = 0;
         return;
     }
-    *(s16 *)((s8 *)this + 0xB8) = 1;
+    this->m_b8 = 1;
 }
 
 }

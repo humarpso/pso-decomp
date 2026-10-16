@@ -24,7 +24,7 @@ void TAdYesNoBaseGC__vt5(void);
 u32 find_item_by_id(void);
 s32 spawn_fire_explosion_at(u32 a0 = 0, s32 a1 = 0);
 
-void TAdVIConfigGC::set_field_2c(s32 v) { *(s32*)((char*)this + 0x2c) = v; }
+void TAdVIConfigGC::set_field_2c(s32 v) { *(s32 *)&this->m_2c = v; }
 
 void TAdVIConfigGC::apply_config_if_valid(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();

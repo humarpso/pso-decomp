@@ -49,22 +49,22 @@ void TNpcPlayer::init_equipment() {
     s32 temp_r4;
 
     temp_r4 = *(s32 *)((s8 *)this + 0x34);
-    temp_r31 = *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94);
+    temp_r31 = *(s32 *)((s8 *)(*(void * *)&this->m_78) + 0x94);
     if (temp_r4 & 4) {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 0);
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 1);
-        set_technique_seed_level(temp_r31 + 0x428, 0, *(u8 *)((s8 *)this + 0x50));
-        set_technique_seed_level(temp_r31 + 0x428, 1, *(u8 *)((s8 *)this + 0x50));
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, this->m_50, 0);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, this->m_50, 1);
+        set_technique_seed_level(temp_r31 + 0x428, 0, this->m_50);
+        set_technique_seed_level(temp_r31 + 0x428, 1, this->m_50);
     } else if (temp_r4 & 8) {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 3);
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 4);
-        set_technique_seed_level(temp_r31 + 0x428, 3, *(u8 *)((s8 *)this + 0x50));
-        set_technique_seed_level(temp_r31 + 0x428, 4, *(u8 *)((s8 *)this + 0x50));
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, this->m_50, 3);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, this->m_50, 4);
+        set_technique_seed_level(temp_r31 + 0x428, 3, this->m_50);
+        set_technique_seed_level(temp_r31 + 0x428, 4, this->m_50);
     } else if (temp_r4 & 0x10) {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 6);
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x50), 8);
-        set_technique_seed_level(temp_r31 + 0x428, 6, *(u8 *)((s8 *)this + 0x50));
-        set_technique_seed_level(temp_r31 + 0x428, 8, *(u8 *)((s8 *)this + 0x50));
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, this->m_50, 6);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, this->m_50, 8);
+        set_technique_seed_level(temp_r31 + 0x428, 6, this->m_50);
+        set_technique_seed_level(temp_r31 + 0x428, 8, this->m_50);
     }
     clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x51), 0xF);
     clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)this + 0x51), 0x10);

@@ -18,7 +18,9 @@ public:
     virtual int vfunc_21(void *, void *, void *, float);
     virtual void render();
     virtual void run_task();
-    u8 unk_334[0x34];
+    u8 unk_334[0x2C];
+    s32 m_360;
+    s32 m_364;
 };
 
 #endif

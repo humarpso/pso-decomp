@@ -23,14 +23,14 @@ void TObjPlayer::reset_state() {
     ((TObjPlayer *)(arg0 + 0x340))->init_tag();
     *(s32 *)((s8 *)arg0 + 0x3D4) = 0;
     TObjPlayer__sub_8011E204(arg0, 0x283);
-    *(s32 *)((s8 *)arg0 + 0x3F4) = 0;
+    this->m_3f4 = 0;
     *(s32 *)((s8 *)arg0 + 0x3F0) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3EC) = 0;
+    this->m_3ec = 0;
     *(f32 *)((s8 *)arg0 + 0x400) = (f32) TObjPlayer__data_805DC278;
-    *(f32 *)((s8 *)arg0 + 0x3FC) = (f32) TObjPlayer__data_805DC278;
+    this->m_3fc = (f32) TObjPlayer__data_805DC278;
     *(f32 *)((s8 *)arg0 + 0x3F8) = (f32) TObjPlayer__data_805DC278;
     *(f32 *)((s8 *)arg0 + 0x310) = (f32) TObjPlayer__data_805DC278;
-    *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjPlayer__data_805DC278;
+    this->m_30c = (f32) TObjPlayer__data_805DC278;
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjPlayer__data_805DC278;
     zero_vec3(arg0 + 0x5FC);
 }

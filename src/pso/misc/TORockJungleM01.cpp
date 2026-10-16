@@ -241,7 +241,7 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
 
 void TORockJungleM01::vfunc_15() {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xD8) != 0) {
+    if ((s32) *(s32 *)&this->m_d8 != 0) {
         ((VObj_8029C320*)(arg0 + 0xBC))->m7();
     }
     set_cull_none__8TObjFishFv();

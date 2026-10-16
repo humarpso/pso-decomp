@@ -4,9 +4,16 @@
 struct TObjHashiBase {
     s16 update_object_view_visibility(f32, f32);
     void run_task();
-    u8 _pad00[0x38];
+    u8 unk_0[0x1E];
+    s16 m_1e;
+    u8 unk_20[0x4];
+    s32 m_24;
+    u8 unk_28[0xC];
+    s32 m_34;
     f32 position[3];
-    u8 _pad44[0x60];
+    u8 unk_44[0x1C];
+    s32 m_60;
+    u8 unk_64[0x40];
     void* colliders;
     s32 colliderCount;
     s32 phase;

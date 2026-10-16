@@ -23,7 +23,8 @@ struct TObjOnlineEnding : public TUnk_804B9870 {
     void close_window();
     void create_result_window();
     static void *create(void *arg0);
-    u8 unk_150[0x8];
+    u8 unk_150[0x4];
+    s32 m_154;
 };
 
 typedef char TObjOnlineEnding_size[sizeof(TObjOnlineEnding) == 0x158 ? 1 : -1];

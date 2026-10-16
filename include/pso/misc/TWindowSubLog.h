@@ -16,7 +16,9 @@ struct TWindowSubLog : public TObject {
     void clear_flag4c_bit8();
     int cleanup();
     void set_flag4c_bit8();
-    u8 unk_30[0x50];
+    u8 unk_30[0x1C];
+    u32 m_4c;
+    u8 unk_50[0x30];
 };
 
 typedef char TWindowSubLog_size[sizeof(TWindowSubLog) == 0x80 ? 1 : -1];

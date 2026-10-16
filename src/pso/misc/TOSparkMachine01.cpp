@@ -124,7 +124,7 @@ void TOSparkMachine01::update_spark_toggle(s32 i) {
 void TOSparkMachine01::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 var_r31;
-    if (TOSparkMachine01__data_805DB9EC < *(f32 *)((s8 *)arg0 + 0x6C)) {
+    if (TOSparkMachine01__data_805DB9EC < this->target_scale) {
         var_r31 = 0;
         do {
             update_spark_toggle((s32)(var_r31));
@@ -132,9 +132,9 @@ void TOSparkMachine01::run_task() {
         } while (var_r31 < 4);
         return;
     }
-    *(s8 *)((s8 *)arg0 + 0xA3) = 0;
-    *(s8 *)((s8 *)arg0 + 0xA2) = 0;
-    *(s8 *)((s8 *)arg0 + 0xA0) = 0;
+    *(s8 *)&this->m_a3 = 0;
+    *(s8 *)&this->m_a2 = 0;
+    *(s8 *)&this->m_a0 = 0;
     update_spark_toggle((s32)(1));
 }
 

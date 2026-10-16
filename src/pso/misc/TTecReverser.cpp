@@ -123,11 +123,11 @@ void *__dt__12TTecReverserFPvs(void *arg0, s16 arg1) {
 
 void TUnk_804CCC28::run_task() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x28) == 0xA) {
+    this->m_28 = (s32) (this->m_28 + 1);
+    if ((s32) this->m_28 == 0xA) {
         spawn_particle_effect(arg0 + 0x2C, 0x38);
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x28) > 0xC8) {
+    if ((s32) this->m_28 > 0xC8) {
         queue_destruction__7TObjectFv(arg0);
     }
 }

@@ -115,94 +115,94 @@ void TObjParticleLobby::setup_emitter() {
     s32 v;
     f32 f;
     flags = 0;
-    switch (*(u32 *)((s8 *)this + 0x84)) {
+    switch (*(u32 *)&this->m_84) {
     case 1:
-        *(s32 *)((s8 *)this + 0xD0) = 1;
+        *(s32 *)&this->m_d0 = 1;
         break;
     case 2:
-        *(s32 *)((s8 *)this + 0xD0) = 5;
+        *(s32 *)&this->m_d0 = 5;
         break;
     case 3:
-        *(s32 *)((s8 *)this + 0xD0) = 7;
+        *(s32 *)&this->m_d0 = 7;
         break;
     case 4:
-        *(s32 *)((s8 *)this + 0xD0) = 3;
+        *(s32 *)&this->m_d0 = 3;
         break;
     case 5:
-        *(s32 *)((s8 *)this + 0xD0) = 9;
+        *(s32 *)&this->m_d0 = 9;
         break;
     case 6:
-        *(s32 *)((s8 *)this + 0xD0) = 8;
+        *(s32 *)&this->m_d0 = 8;
         break;
     case 7:
-        *(s32 *)((s8 *)this + 0xD0) = 4;
+        *(s32 *)&this->m_d0 = 4;
         break;
     case 8:
-        *(s32 *)((s8 *)this + 0xD0) = 0xA;
+        *(s32 *)&this->m_d0 = 0xA;
         break;
     case 9:
-        *(s32 *)((s8 *)this + 0xD0) = 0xB;
+        *(s32 *)&this->m_d0 = 0xB;
         break;
     default:
-        *(s32 *)((s8 *)this + 0xD0) = 0;
+        *(s32 *)&this->m_d0 = 0;
         break;
     }
-    if (*(s32 *)((s8 *)this + 0xD0) == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(this)) {
-        *(s32 *)((s8 *)this + 0xC8) = 3;
+    if (*(s32 *)&this->m_d0 == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(this)) {
+        *(s32 *)&this->m_c8 = 3;
     } else {
-        *(s32 *)((s8 *)this + 0xC8) = 0;
+        *(s32 *)&this->m_c8 = 0;
     }
-    v = (s32)*(f32 *)((s8 *)this + 0x68);
+    v = (s32)this->scale;
     if (v < 0) {
         v = 0;
     }
     if (v >= 0x240) {
         v = 0x23F;
     }
-    if (*(void **)((s8 *)this + 0xD4) != NULL) {
-        ((TBoss4Type2 *)(*(void **)((s8 *)this + 0xD4)))->set_param_ptr(v);
+    if (*(void * *)&this->m_d4 != NULL) {
+        ((TBoss4Type2 *)(*(void * *)&this->m_d4))->set_param_ptr(v);
     }
     f = *(f32 *)((s8 *)this + 0x70);
     if (f < 0.0f) {
         t = 0x2;
-        if (*(s32 *)((s8 *)this + 0x88) == 1) {
+        if (*(s32 *)&this->m_88 == 1) {
             t = 0x42;
         }
         flags = t;
-        if (*(s32 *)((s8 *)this + 0x8C) == 1) {
+        if (*(s32 *)&this->unk_8C == 1) {
             flags = t | 0x2000;
         }
     } else if ((s32)f == 2) {
         t = 0x8;
-        if (*(s32 *)((s8 *)this + 0x88) == 1) {
+        if (*(s32 *)&this->m_88 == 1) {
             t = 0x48;
         }
         flags = t;
-        if (*(s32 *)((s8 *)this + 0x8C) == 1) {
+        if (*(s32 *)&this->unk_8C == 1) {
             flags = t | 0x2000;
         }
     } else if ((s32)f == 3) {
         t = 0x4;
-        if (*(s32 *)((s8 *)this + 0x88) == 1) {
+        if (*(s32 *)&this->m_88 == 1) {
             t = 0x44;
         }
         flags = t;
-        if (*(s32 *)((s8 *)this + 0x8C) == 1) {
+        if (*(s32 *)&this->unk_8C == 1) {
             flags = t | 0x2000;
         }
     } else {
-        if (*(s32 *)((s8 *)this + 0x88) == 1) {
+        if (*(s32 *)&this->m_88 == 1) {
             flags = 0x40;
         }
-        if (*(s32 *)((s8 *)this + 0x8C) == 1) {
+        if (*(s32 *)&this->unk_8C == 1) {
             flags |= 0x2000;
         }
     }
-    if (*(void **)((s8 *)this + 0xD4) != NULL) {
-        set_flags__11TBoss4Type2FUl(*(void **)((s8 *)this + 0xD4), flags);
+    if (*(void * *)&this->m_d4 != NULL) {
+        set_flags__11TBoss4Type2FUl(*(void * *)&this->m_d4, flags);
     }
-    if (*(void **)((s8 *)this + 0xD4) != NULL) {
-        ((TNowLoading *)(*(void **)((s8 *)this + 0xD4)))->copy_pos((u8 *)this + 0x38);
+    if (*(void * *)&this->m_d4 != NULL) {
+        ((TNowLoading *)(*(void * *)&this->m_d4))->copy_pos((u8 *)this + 0x38);
     }
 }
 

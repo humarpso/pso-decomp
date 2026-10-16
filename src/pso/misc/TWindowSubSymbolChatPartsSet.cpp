@@ -151,14 +151,14 @@ s32 TWindowSubSymbolChatPartsSet::draw_selected_part_cursor(int arg1) {
 void TWindowSubSymbolChatPartsSet::handle_cancel() {
     if (is_active__20TWindowSubSymbolChatFv((void *)(this)) == 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
-        *(u8 *)((s8 *)this + 0x68) = (u8) (*(u8 *)((s8 *)this + 0x68) | 2);
+        this->m_68 = (u8) (this->m_68 | 2);
     }
 }
 
 void TWindowSubSymbolChatPartsSet::handle_decide() {
     play_sound_effect(0x52D01, 0, 0, 0);
-    *(u8 *)((s8 *)this + 0x68) = (u8) (*(u8 *)((s8 *)this + 0x68) | 1);
-    ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)this + 0x88)))->set_entry_state(2);
+    this->m_68 = (u8) (this->m_68 | 1);
+    ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->set_entry_state(2);
 }
 
 extern s32 lbl_8044FC38;
@@ -229,16 +229,16 @@ void TWindowSubSymbolChatPartsSet::handle_cursor_input() {
     temp_r30 = (u8 *)&controller_input_state.value + 0x20;
     if ((is_on_current_screen__11TCameraCtrlFv(temp_r30, 0xF0) != 0) || (is_flag_set__11TLoadingCurFv((u8 *)&controller_input_state.value + 0x160, 0xF0) != 0)) {
         if ((is_on_current_screen__11TCameraCtrlFv(temp_r30, 0x80) != 0) || (is_flag_set__11TLoadingCurFv((u8 *)&controller_input_state.value + 0x160, 0x80) != 0)) {
-            *(s16 *)((s8 *)this + 0x6A) = (s16) (*(s16 *)((s8 *)this + 0x6A) + 1);
+            *(s16 *)&this->m_6a = (s16) (*(s16 *)&this->m_6a + 1);
         }
         if ((is_on_current_screen__11TCameraCtrlFv(temp_r30, 0x40) != 0) || (is_flag_set__11TLoadingCurFv((u8 *)&controller_input_state.value + 0x160, 0x40) != 0)) {
-            *(s16 *)((s8 *)this + 0x6A) = (s16) (*(s16 *)((s8 *)this + 0x6A) - 1);
+            *(s16 *)&this->m_6a = (s16) (*(s16 *)&this->m_6a - 1);
         }
         if ((is_on_current_screen__11TCameraCtrlFv(temp_r30, 0x10) != 0) || (is_flag_set__11TLoadingCurFv((u8 *)&controller_input_state.value + 0x160, 0x10) != 0)) {
-            *(s16 *)((s8 *)this + 0x6C) = (s16) (*(s16 *)((s8 *)this + 0x6C) - 1);
+            *(s16 *)&this->m_6c = (s16) (*(s16 *)&this->m_6c - 1);
         }
         if ((is_on_current_screen__11TCameraCtrlFv(temp_r30, 0x20) != 0) || (is_flag_set__11TLoadingCurFv((u8 *)&controller_input_state.value + 0x160, 0x20) != 0)) {
-            *(s16 *)((s8 *)this + 0x6C) = (s16) (*(s16 *)((s8 *)this + 0x6C) + 1);
+            *(s16 *)&this->m_6c = (s16) (*(s16 *)&this->m_6c + 1);
         }
         switch ((s8)w->f69) {
         case 0:
@@ -310,8 +310,8 @@ typedef char RecoveredGlobal_80286824_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 void TWindowSubSymbolChatPartsSet::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
-    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
+    if (!(this->m_2c & 2)) {
+        *(s32 *)&this->m_5c = 0x01000000;
     }
     if (is_active__20TWindowSubSymbolChatFv((void *)((void *) (arg0))) == 0) {
         handle_cursor_input();
@@ -325,8 +325,8 @@ void TWindowSubSymbolChatPartsSet::run_task() {
     }
     toggle_selected_part();
     TWindowSubSymbolChatPartsSet__sub_8028625C((Set_8028625C *)((void *) (arg0)));
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD820) {
-        ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)arg0 + 0x88)))->update_subwindow();
+    if ((f32) *(s32 *)&this->m_5c >= lbl_805DD820) {
+        ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->update_subwindow();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

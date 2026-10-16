@@ -52,8 +52,8 @@ void TObjEneMorfosArm::render() {
     }
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    TObjFish::set_global_param((int) (this->texture_id));
     TObjPlayer::toggle_particle_effect();
     ((TObjEneRe7Berura *)arg0)->draw();
     TParticleCtrl::end_effect_render();
@@ -66,14 +66,14 @@ void TObjEneMorfosArm::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     advance_animation_playback();
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xFC));
+    temp_r3 = (u8 *)(*(u8 * *)&this->m_fc);
     if (temp_r3 == NULL) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (int) (TObjEneMorfosArm__sub_803326B4(temp_r3)));
-    *(s32 *)((s8 *)arg0 + 0x60) = TObjEneMorfosArm__sub_803326BC(*(u8 **)((s8 *)arg0 + 0xFC));
-    if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
+    this->rotation_y = TObjEneMorfosArm__sub_803326BC(*(u8 * *)&this->m_fc);
+    if (*(s32 *)&this->animationFlags & 0x10) {
         queue_destruction__7TObjectFv((void *)(arg0));
     }
 }

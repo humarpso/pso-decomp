@@ -503,14 +503,14 @@ void *__nw__7TObjectFUl(int);
 void TObjEnePanarmsAtkColli::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0_2;
-    if (--*(s32 *)((s8 *)arg0 + 0x380) < 0) {
+    if (--*(s32 *)&this->m_380 < 0) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     vec3_add_to(arg0 + 0x38, arg0 + 0x308);
-    *(f32 *)((s8 *)arg0 + 0x378) = (f32) (*(f32 *)((s8 *)arg0 + 0x378) + *(f32 *)((s8 *)arg0 + 0x37C));
-    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x374);
+    *(f32 *)((s8 *)arg0 + 0x378) = (f32) (*(f32 *)((s8 *)arg0 + 0x378) + this->m_37c);
+    temp_r0_2 = *(s32 *)&this->m_374;
     switch (temp_r0_2) {
     case 0:
         ((void (*)(void *))fn_800E35C8)(arg0);

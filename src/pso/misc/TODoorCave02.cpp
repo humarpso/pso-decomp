@@ -56,16 +56,16 @@ extern const f32 lbl_805DB4B0;
 
 void TODoorCave02::vfunc_17() {
     u8 *arg0 = (u8 *)this;
-    if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)cave_door02_resources + 4);
+    if (this->m_d0 & 1) {
+        this->texture_id = (s32) *(s32 *)((s8 *)cave_door02_resources + 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4B0) != 1) {
-            *(s32 *)((s8 *)arg0 + 0xAC) = 3;
+            *(s32 *)&this->unk_AC = 3;
             ((TObjPlayer *)arg0)->clear_player_status_flag((s32)0, (s32)8);
             play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 3;
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)cave_door02_resources + 0);
+        *(s32 *)&this->unk_AC = 3;
+        this->texture_id = (s32) *(s32 *)((s8 *)cave_door02_resources + 0);
         ((TObjPlayer *)arg0)->clear_player_status_flag((s32)NULL, (s32)8);
         play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
     }
@@ -76,19 +76,19 @@ extern const f32 lbl_805DB4C4;
 
 void TODoorCave02::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
-    if (*(s32 *)((s8 *)arg0 + 0xD0) & 0x100000) {
-        *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (*(f32 *)((s8 *)arg0 + 0xD8) + lbl_805DB4B4);
-        if (lbl_805DB4B8 <= *(f32 *)((s8 *)arg0 + 0xD8)) {
-            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFEFFFFF);
+    if (this->m_d0 & 0x100000) {
+        this->m_d8 = (f32) (this->m_d8 + lbl_805DB4B4);
+        if (lbl_805DB4B8 <= this->m_d8) {
+            this->m_d0 = (s32) (this->m_d0 & 0xFFEFFFFF);
         }
     } else {
-        *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (*(f32 *)((s8 *)arg0 + 0xD8) - lbl_805DB4B4);
-        if (*(f32 *)((s8 *)arg0 + 0xD8) <= lbl_805DB4BC) {
-            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 0x100000);
+        this->m_d8 = (f32) (this->m_d8 - lbl_805DB4B4);
+        if (this->m_d8 <= lbl_805DB4BC) {
+            this->m_d0 = (s32) (this->m_d0 | 0x100000);
         }
     }
-    if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB4C0)) == 1)) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 1;
+    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB4C0)) == 1)) {
+        *(s32 *)&this->unk_AC = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
         play_sound_effect((s32)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }
@@ -126,17 +126,17 @@ s32 TODoorCave02::draw_parts(void *arg1_) {
 
 void TODoorCave02::render() {
     u8 *arg0 = (u8 *)this;
-    if ((((VObj_80161D38 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) && (is_in_view_depth(arg0, lbl_805DB4C4) != 0)) {
+    if ((((VObj_80161D38 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) && (is_in_view_depth(arg0, lbl_805DB4C4) != 0)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xAC) == 0) {
-            TObjFish::set_global_param(*(s32 *)(cave_door02_resources + ((*(s32 *)((s8 *)arg0 + 0xD0) * 4) & 4)));
-            draw_parts((void *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)));
-            draw_parts((void *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 0x30)));
+        rotate_matrix_y(0, this->rotation_y);
+        if ((s32) *(s32 *)&this->unk_AC == 0) {
+            TObjFish::set_global_param(*(s32 *)(cave_door02_resources + ((this->m_d0 * 4) & 4)));
+            draw_parts((void *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)));
+            draw_parts((void *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 0x30)));
         } else {
             TObjFish::set_global_param(*(s32 *)((s8 *)cave_door02_resources + 4));
-            draw_ginja_model_with_motion(*(void **)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
+            draw_ginja_model_with_motion(*(void * *)&this->model, *(s32 *)&this->unk_BC, this->m_b0);
         }
         pop_matrix();
     }

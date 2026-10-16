@@ -22,9 +22,9 @@ s32 visit_model_tree_recursive();
 s32 mem_free(void *);
 
 void TScene::offset_position(s32 arg1, s32 arg2) {
-    *(s16 *)((s8 *)this + 0x10) = (s16) (*(s16 *)((s8 *)this + 0x10) + arg1);
+    *(s16 *)&this->m_up = (s16) (*(s16 *)&this->m_up + arg1);
     *(s16 *)((s8 *)this + 0x12) = (s16) (*(s16 *)((s8 *)this + 0x12) + arg2);
-    apply_uv_offset((s16)(*(s16 *)((s8 *)this + 0x10)), (s16)(*(s16 *)((s8 *)this + 0x12)));
+    apply_uv_offset((s16)(*(s16 *)&this->m_up), (s16)(*(s16 *)((s8 *)this + 0x12)));
 }
 
 void TScene::apply_uv_offset(s16 arg1, s16 arg2) {
@@ -49,13 +49,13 @@ void TScene::apply_uv_offset(s16 arg1, s16 arg2) {
 
 void *TScene::destroy_buffers(s16 arg1) {
     if (this != NULL) {
-        if ((u32) *(u32 *)((s8 *)this + 0xC) != 0U) {
-            mem_free(*(void **)((s8 *)this + 0xC));
-            *(u32 *)((s8 *)this + 0xC) = 0U;
+        if ((u32) *(u32 *)&this->m_next != 0U) {
+            mem_free(*(void * *)&this->m_next);
+            *(u32 *)&this->m_next = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)this + 8) != 0U) {
-            mem_free(*(void **)((s8 *)this + 8));
-            *(u32 *)((s8 *)this + 8) = 0U;
+        if ((u32) *(u32 *)&this->m_prev != 0U) {
+            mem_free(*(void * *)&this->m_prev);
+            *(u32 *)&this->m_prev = 0U;
         }
         if (arg1 > 0) {
             __dl__FPv(this);
@@ -70,20 +70,20 @@ extern s32 scroll_uv_coordinate_write_cursor;
 void *TScene::init_buffers(s32 arg1, s32 arg2) {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 4) = 0;
-    *(s32 *)((s8 *)this + 0) = 0;
+    *(s32 *)&this->m_flags = 0;
+    *(s32 *)&this->m_name = 0;
     visit_model_tree_recursive();
-    *(s32 *)((s8 *)this + 8) = 0;
-    *(s32 *)((s8 *)this + 0xC) = 0;
-    temp_r0 = *(s32 *)((s8 *)this + 4);
+    *(s32 *)&this->m_prev = 0;
+    *(s32 *)&this->m_next = 0;
+    temp_r0 = *(s32 *)&this->m_flags;
     if (temp_r0 > 0) {
-        *(s32 *)((s8 *)this + 8) = mem_alloc(temp_r0 * 8);
-        *(s32 *)((s8 *)this + 0xC) = mem_alloc(*(s32 *)((s8 *)this + 0) * 4);
-        scroll_uv_entry_write_cursor = *(s32 *)((s8 *)this + 8);
-        scroll_uv_coordinate_write_cursor = *(s32 *)((s8 *)this + 0xC);
+        *(s32 *)&this->m_prev = mem_alloc(temp_r0 * 8);
+        *(s32 *)&this->m_next = mem_alloc(*(s32 *)&this->m_name * 4);
+        scroll_uv_entry_write_cursor = *(s32 *)&this->m_prev;
+        scroll_uv_coordinate_write_cursor = *(s32 *)&this->m_next;
         visit_matching_models(this, arg1, arg2);
     }
-    *(s16 *)((s8 *)this + 0x10) = 0;
+    *(s16 *)&this->m_up = 0;
     *(s16 *)((s8 *)this + 0x12) = 0;
     return this;
 }

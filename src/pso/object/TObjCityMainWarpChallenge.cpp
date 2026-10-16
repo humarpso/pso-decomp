@@ -101,7 +101,7 @@ void TObjCityMainWarpChallenge__vt18(void *arg0) {
 
 void TObjCityMainWarpChallenge::render() {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) == 0xE) {
+    if ((s32) *(s32 *)&this->_padD8 == 0xE) {
         if (xz_distance_squared(camera_ctrl_instance + 0x178, arg0 + 0x38) > lbl_805DBCB8) {
             return;
         }

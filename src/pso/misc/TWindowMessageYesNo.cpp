@@ -31,7 +31,7 @@ s32 set_status_flag_80__12TQuestThreadFPv(s32);
 
 void TWindowMessageYesNo::render() {  }
 
-void TWindowMessageYesNo::run_task() { if (is_child_visible__17TWindowSubComCardFv(this) != 0) { ((TWindowMenu *)(*(void**)((char*)this + 0x28)))->confirm_selection(); } }
+void TWindowMessageYesNo::run_task() { if (is_child_visible__17TWindowSubComCardFv(this) != 0) { ((TWindowMenu *)(*(void* *)&this->m_28))->confirm_selection(); } }
 
 extern s32 __vt__19TWindowMessageYesNo[];
 

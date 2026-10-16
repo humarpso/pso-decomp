@@ -741,7 +741,7 @@ player_stats *TObjPlayer::get_class_stat_entry(u8 *arg0) {
 
 f32 TObjPlayer::get_tp_class_factor() {
     u8 *arg0 = (u8 *)this;
-    if (*(s32 *)((s8 *)arg0 + 0x890) & 0x10) {
+    if (this->m_890 & 0x10) {
         return lbl_805DC400;
     }
     return player_profession_stat_factors[get_clamped_index__10TObjPlayerFPv(arg0)].tp;

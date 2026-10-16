@@ -205,13 +205,13 @@ void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
-            *(s16 *)((s8 *)arg0 + 0x326) = 1;
+            this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
-        *(s16 *)((s8 *)arg0 + 0x326) = 1;
+        this->mode = 1;
     }
 }
 

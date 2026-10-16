@@ -456,7 +456,7 @@ void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
     }
 }
 
-void TContainerAncient01::reset_hp() { *(short*)((char*)this + 0x326) = 0; *(short*)((char*)this + 0xb8) = *(short*)((char*)this + 0x326); *(float*)((char*)this + 0x2b4) = TContainerAncient01__data_805DBD1C; }
+void TContainerAncient01::reset_hp() { *(short *)&this->mode = 0; *(short *)&this->m_b8 = *(short *)&this->mode; *(float *)&this->m_2b4 = TContainerAncient01__data_805DBD1C; }
 
 s32 TContainerAncient01__sub_8018A688(void *arg0) {
     Obj_8018A688 *self = (Obj_8018A688 *)arg0;
@@ -552,38 +552,38 @@ void TContainerAncient01::check_open_trigger() {
 #pragma fp_contract on
 void TContainerAncient01::init_positions() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x33C) = (f32) (TContainerAncient01__data_805DBD3C + (*(f32 *)((s8 *)arg0 + 0x68) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
-    *(f32 *)((s8 *)arg0 + 0x340) = (f32) (lbl_805DBD40 + (*(f32 *)((s8 *)arg0 + 0x6C) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
-    *(f32 *)((s8 *)arg0 + 0x344) = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)((s8 *)arg0 + 0x70) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
-    *(s32 *)((s8 *)arg0 + 0x370) = (s32) (*(s32 *)((s8 *)arg0 + 0x8C) + 4);
+    this->m_33c = (f32) (TContainerAncient01__data_805DBD3C + (this->scale - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
+    *(f32 *)((s8 *)arg0 + 0x340) = (f32) (lbl_805DBD40 + (this->target_scale - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
+    this->m_344 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)((s8 *)arg0 + 0x70) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
+    *(s32 *)((s8 *)arg0 + 0x370) = (s32) (*(s32 *)&this->unk_8C + 4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x348, arg0 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0x34C) = (f32) (*(f32 *)((s8 *)arg0 + 0x34C) + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
+    this->m_34c = (f32) (this->m_34c + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
     VecCopy__FP3VecPC3Vec(arg0 + 0x354, arg0 + 0x348);
-    *(f32 *)((s8 *)arg0 + 0x358) = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + *(f32 *)((s8 *)arg0 + 0x358));
-    *(s32 *)((s8 *)arg0 + 0x360) = 0;
+    *(f32 *)&this->unk_358 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + *(f32 *)&this->unk_358);
+    *(s32 *)&this->m_360 = 0;
     *(f32 *)((s8 *)arg0 + 0x364) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
-    *(f32 *)((s8 *)arg0 + 0x368) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
-    *(f32 *)((s8 *)arg0 + 0x36C) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
-    *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s32 *)((s8 *)arg0 + 0x64);
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x32C) < 1) {
-        *(s16 *)((s8 *)arg0 + 0x32C) = 1;
+    this->m_368 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
+    *(f32 *)&this->unk_36C = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
+    this->hp = (s16) this->rotation_z;
+    if ((s16) this->hp < 1) {
+        this->hp = 1;
     }
-    *(s16 *)((s8 *)arg0 + 0x338) = 0;
+    this->m_338 = 0;
 }
 #pragma pop
 
 void TContainerAncient01R::vfunc_6(s16 *arg1, s32 arg2) {
     s16 temp_r4;
-    *(s16 *)((s8 *)this + 0x338) = (s16) *arg1;
+    this->m_338 = (s16) *arg1;
     if (arg2 != 0) {
-        temp_r4 = *(s16 *)((s8 *)this + 0x338);
-        if ((*(s16 *)((s8 *)this + 0x32C) - temp_r4) <= 0) {
+        temp_r4 = this->m_338;
+        if ((this->hp - temp_r4) <= 0) {
             ((TContainerAncient01 *)this)->reset_hp();
             ((TContainerAncient01 *)this)->open_container();
-            *(s32 *)((s8 *)this + 0x360) = 1;
+            this->m_360 = 1;
         }
-    } else if ((*(s16 *)((s8 *)this + 0x32C) - *(s16 *)((s8 *)this + 0x338)) <= 0) {
-        *(s32 *)((s8 *)this + 0x360) = 1;
+    } else if ((this->hp - this->m_338) <= 0) {
+        this->m_360 = 1;
     }
 }
 
@@ -640,17 +640,17 @@ s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1) {
 void TContainerAncient01R::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj8018AD04_8018A584 *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x360) != 0) {
+        rotate_matrix_y(0, this->rotation_y);
+        if ((s32) this->m_360 != 0) {
             scale_current_matrix(arg0 + 0x364);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
+            draw_ginja_object(*(s32 *)&this->model);
         } else {
-            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+            draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         }
         pop_matrix();
     }
@@ -661,8 +661,8 @@ void TContainerAncient01R::run_task() {
     f32 temp_f1_2;
     s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 0) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x360) == 0) {
-            temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+        if ((s32) this->m_360 == 0) {
+            temp_r0 = this->mode;
             switch (temp_r0) {
             case 0:
                 ((TContainerAncient01 *)arg0)->check_open_trigger();
@@ -674,32 +674,32 @@ void TContainerAncient01R::run_task() {
                 TContainerAncient01__sub_8018A688((void *) (arg0));
                 break;
             default:
-                *(s16 *)((s8 *)arg0 + 0x326) = 0;
-                *(s16 *)((s8 *)arg0 + 0xB8) = (s16) *(s16 *)((s8 *)arg0 + 0x326);
-                *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
+                this->mode = 0;
+                this->m_b8 = (s16) this->mode;
+                this->m_2b4 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
                 ((TContainerAncient01 *)arg0)->check_open_trigger();
                 break;
             }
-            temp_f1 = *(f32 *)((s8 *)arg0 + 0x2B4);
-            *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
+            temp_f1 = this->m_2b4;
+            this->m_2b4 = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
             submit_cursor_candidate((void *) (arg0), (int) (-1), (f32) (temp_f1));
         } else {
-            temp_f1_2 = *(f32 *)((s8 *)arg0 + 0x368);
+            temp_f1_2 = this->m_368;
             if (temp_f1_2 <= lbl_805DBD50) {
                 *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) - lbl_805DBD54);
-                if (*(f32 *)((s8 *)arg0 + 0x3C) <= (lbl_805DBD58 * *(f32 *)((s8 *)arg0 + 0x368))) {
+                if (*(f32 *)((s8 *)arg0 + 0x3C) <= (lbl_805DBD58 * this->m_368)) {
                     queue_destruction__7TObjectFv(arg0);
                 }
             } else {
-                *(f32 *)((s8 *)arg0 + 0x368) = (f32) (temp_f1_2 - lbl_805DBD54);
+                this->m_368 = (f32) (temp_f1_2 - lbl_805DBD54);
             }
         }
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) == get_bml_motion((int) (TContainerAncient01R__bml_resource), (int) (0))) {
-        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TContainerAncient01R__bml_resource), (int) (0));
+    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01R__bml_resource), (int) (0))) {
+        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01R__bml_resource), (int) (0));
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) == get_bml_motion((int) (TContainerAncient01R__bml_resource), (int) (1))) {
-        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TContainerAncient01R__bml_resource), (int) (1));
+    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01R__bml_resource), (int) (1))) {
+        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01R__bml_resource), (int) (1));
     }
     run_task__7TObjectFv((void *) (arg0));
 }
@@ -790,7 +790,7 @@ void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
     }
 }
 
-void TContainerAncient01::reset_state() { *(short*)((char*)this + 0x326) = 0; *(short*)((char*)this + 0xb8) = *(short*)((char*)this + 0x326); *(float*)((char*)this + 0x2b4) = TContainerAncient01__data_805DBD1C; }
+void TContainerAncient01::reset_state() { *(short *)&this->mode = 0; *(short *)&this->m_b8 = *(short *)&this->mode; *(float *)&this->m_2b4 = TContainerAncient01__data_805DBD1C; }
 
 void TContainerAncient01__sub_8018B284(Obj_8018B284 *self) {
     u32 period;
@@ -883,18 +883,18 @@ void TContainerAncient01::update_wait_for_player() {
 
 void TContainerAncient01::init_state_vectors() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x338) = (f32) (TContainerAncient01__data_805DBD3C + (*(f32 *)((s8 *)arg0 + 0x68) - TContainerAncient01__data_805DBD10));
-    *(f32 *)((s8 *)arg0 + 0x33C) = (f32) (lbl_805DBD40 + (*(f32 *)((s8 *)arg0 + 0x6C) - TContainerAncient01__data_805DBD10));
+    *(f32 *)&this->m_338 = (f32) (TContainerAncient01__data_805DBD3C + (this->scale - TContainerAncient01__data_805DBD10));
+    this->m_33c = (f32) (lbl_805DBD40 + (this->target_scale - TContainerAncient01__data_805DBD10));
     *(f32 *)((s8 *)arg0 + 0x340) = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)((s8 *)arg0 + 0x70) - TContainerAncient01__data_805DBD10));
-    *(s32 *)((s8 *)arg0 + 0x36C) = (s32) (*(s32 *)((s8 *)arg0 + 0x8C) + 4);
+    *(s32 *)&this->unk_36C = (s32) (*(s32 *)&this->unk_8C + 4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x344, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x348) = (f32) (*(f32 *)((s8 *)arg0 + 0x348) + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
     VecCopy__FP3VecPC3Vec(arg0 + 0x350, arg0 + 0x344);
-    *(f32 *)((s8 *)arg0 + 0x354) = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + *(f32 *)((s8 *)arg0 + 0x354));
-    *(s32 *)((s8 *)arg0 + 0x35C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x360) = (f32) TContainerAncient01__data_805DBD10;
+    this->m_354 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + this->m_354);
+    *(s32 *)&this->m_35c = 0;
+    *(f32 *)&this->m_360 = (f32) TContainerAncient01__data_805DBD10;
     *(f32 *)((s8 *)arg0 + 0x364) = (f32) TContainerAncient01__data_805DBD10;
-    *(f32 *)((s8 *)arg0 + 0x368) = (f32) TContainerAncient01__data_805DBD10;
+    this->m_368 = (f32) TContainerAncient01__data_805DBD10;
 }
 #pragma pop
 
@@ -902,10 +902,10 @@ void TContainerAncient01::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             TContainerAncient01__sub_8018B700((Obj_8018B700 *)(this));
-            *(s32 *)((s8 *)this + 0x35C) = 1;
+            *(s32 *)&this->m_35c = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)this + 0x35C) = 1;
+        *(s32 *)&this->m_35c = 1;
     }
 }
 void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0) {

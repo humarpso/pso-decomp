@@ -76,22 +76,22 @@ int TObjPlayer::render_live_monitor_screen() {
         } else if (is_split_screen() == 0) {
             TObjPlayer__sub_80084500();
         } else {
-            TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x20));
+            TObjPlayer::notify_fish_if_valid(this->m_20);
         }
         var_r4 = 0;
         break;
     case 1:
-        TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x20));
-        var_r4 = 2 - ((*(u32 *)((s8 *)this + 0x28) / 3U) % 3);
+        TObjPlayer::notify_fish_if_valid(this->m_20);
+        var_r4 = 2 - ((this->m_28 / 3U) % 3);
         break;
     case 2:
-        TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x20));
-        var_r4 = 2 - ((*(u32 *)((s8 *)this + 0x28) / 90U) % 3);
+        TObjPlayer::notify_fish_if_valid(this->m_20);
+        var_r4 = 2 - ((this->m_28 / 90U) % 3);
         var_r4 += 3;
         break;
     case 3:
-        TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x20));
-        var_r4 = 4 - ((*(u32 *)((s8 *)this + 0x28) / 3U) % 5);
+        TObjPlayer::notify_fish_if_valid(this->m_20);
+        var_r4 = 4 - ((this->m_28 / 3U) % 5);
         var_r4 += 6;
         break;
     case 4:

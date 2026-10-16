@@ -7,7 +7,8 @@ class TOVS2 : public TUnk_804AFBF8 {
 public:
     virtual ~TOVS2();
     virtual void render();
-    u8 unk_C8[0x8];
+    u8 unk_C8[0x4];
+    s32 m_cc;
 };
 
 #endif

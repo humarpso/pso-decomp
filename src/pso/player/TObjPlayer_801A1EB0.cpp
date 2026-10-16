@@ -34,11 +34,11 @@ s16 TObjPlayer::get_stat_by_key_state() {
     if ((u16) *(u16 *)((s8 *)this + 0x1C) < 0x1000U) {
         temp_r3 = TOKeyMachine01::get_global_state();
         if (((u32) (temp_r3 - 1) <= 1U) || (TContainerAncient01::is_global_state_in_table() != 0) || (temp_r3 == 0xC) || (temp_r3 == 0x20)) {
-            return *(s16 *)((s8 *)this + 0x2E);
+            return *(s16 *)&this->m_2e;
         }
-        return *(s16 *)((s8 *)this + 0x28);
+        return *(s16 *)&this->m_28;
     }
-    return *(s16 *)((s8 *)this + 0x28);
+    return *(s16 *)&this->m_28;
 }
 
 void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src) {

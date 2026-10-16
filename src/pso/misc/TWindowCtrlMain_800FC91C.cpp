@@ -136,19 +136,19 @@ void TUnk_8049CA54::run_task() {
     u32 temp_r3_3;
     s32 temp_r3;
 
-    temp_r3 = (s32)get_player_by_client_id(*(s32 *)((s8 *)this + 0x5C));
+    temp_r3 = (s32)get_player_by_client_id(*(s32 *)&this->player_id);
     if (temp_r3 == 0) {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r3_2 = ((s32 (*)(s32))get_card_status_bits__20TWindowShortListCtrlFv)(*(s32 *)((s8 *)this + 0x5C));
-    if ((s32) *(s32 *)((s8 *)this + 0x60) != temp_r3_2) {
-        *(s32 *)((s8 *)this + 0x60) = temp_r3_2;
-        temp_r3_3 = (u32)build_status_text__20TWindowSubStatusDispFi(*(s32 *)((s8 *)this + 0x5C));
+    temp_r3_2 = ((s32 (*)(s32))get_card_status_bits__20TWindowShortListCtrlFv)(*(s32 *)&this->player_id);
+    if ((s32) *(s32 *)&this->unk_60 != temp_r3_2) {
+        *(s32 *)&this->unk_60 = temp_r3_2;
+        temp_r3_3 = (u32)build_status_text__20TWindowSubStatusDispFi(*(s32 *)&this->player_id);
         set_help_text((const char *)temp_r3_3);
         if (temp_r3_3 != 0U) {
-            if ((s32) *(s32 *)((s8 *)this + 0x60) == 3) {
-                temp_r4 = *(s32 *)((s8 *)this + 0x5C);
+            if ((s32) *(s32 *)&this->unk_60 == 3) {
+                temp_r4 = *(s32 *)&this->player_id;
                 set_color(get_status_index_or_default__20TWindowSubStatusDispFPUs((s8 *)lobby_player_status_records + (temp_r4 * 0x11C) + 4, temp_r4));
             } else {
                 set_color(fn_800FCCF4(temp_r3));

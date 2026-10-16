@@ -55,11 +55,11 @@ extern s32 camera_ctrl_instance;
 s16 TObjLazerFence4::update_object_view_visibility(f32 farg0, f32 farg1) {
     u8 *arg0 = (u8 *)this;
     if (TMainTask::get_state_flag() == 1) {
-        return *(s16 *)((s8 *)arg0 + 0x1E);
+        return this->m_1e;
     }
     if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 1;
-        return *(s16 *)((s8 *)arg0 + 0x1E);
+        this->m_1e = 1;
+        return this->m_1e;
     }
     return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }
@@ -97,8 +97,8 @@ void TObjLazerFence4::draw() {
     TObjFish::set_global_param((s32)lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix((void *)((char *)this + 56));
-    rotate_matrix_y(0, *(void **)((s8 *)this + 0x60));
-    draw_ginja_object(*(void **)((s8 *)this + 0xC0));
+    rotate_matrix_y(0, *(void * *)&this->rotation_y);
+    draw_ginja_object(this->m_c0);
     pop_matrix();
 }
 
@@ -131,9 +131,9 @@ void TObjLazerFence4::draw_model() {
 }
 
 void TObjLazerFence4::reset_if_door_closed() {
-    if (is_current_floor_switch_set((u16)(*(u16 *)((s8 *)this + 0xBA))) == 0) {
+    if (is_current_floor_switch_set((u16)(this->m_ba)) == 0) {
         set_indexed_flags(this, 0, 1);
-        *(s32 *)((s8 *)this + 0xAC) = 0;
+        *(s32 *)&this->m_ac = 0;
     }
 }
 
@@ -155,7 +155,7 @@ void TObjLazerFence4::render() {
     s32 temp_r0;
 
     if (((LazerFence4VObj_801930E8*)this)->m8(lbl_805DBE70, lbl_805DBE74) != 0) {
-        temp_r0 = *(s32 *)((s8 *)this + 0xAC);
+        temp_r0 = *(s32 *)&this->m_ac;
         switch (temp_r0) {
         case 0:
             draw_model();

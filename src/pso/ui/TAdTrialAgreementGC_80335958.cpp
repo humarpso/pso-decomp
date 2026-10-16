@@ -100,23 +100,23 @@ void TAdTrialAgreementGC::handle_cursor_input() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r30;
     temp_r30 = (u8 *)&controller_physical_port_bank.value + 0x20;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DF8B4;
+    *(f32 *)&this->m_28 = (f32) lbl_805DF8B4;
     if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
-        *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) - 1);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) < 0) {
-            *(s32 *)((s8 *)arg0 + 0x20) = 3;
+        *(s32 *)&this->_pad20 = (s32) (*(s32 *)&this->_pad20 - 1);
+        if ((s32) *(s32 *)&this->_pad20 < 0) {
+            *(s32 *)&this->_pad20 = 3;
         }
         play_sound_effect((int) (0x54100), (int) (0), (int) (0), (int) (0));
     }
     if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
-        *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) + 1);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) >= 4) {
-            *(s32 *)((s8 *)arg0 + 0x20) = 0;
+        *(s32 *)&this->_pad20 = (s32) (*(s32 *)&this->_pad20 + 1);
+        if ((s32) *(s32 *)&this->_pad20 >= 4) {
+            *(s32 *)&this->_pad20 = 0;
         }
         play_sound_effect((int) (0x54100), (int) (0), (int) (0), (int) (0));
     }
     if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
-        *(s32 *)((s8 *)arg0 + 0x24) = 2;
+        *(s32 *)&this->m_24 = 2;
         play_sound_effect((int) (0x40042309), (int) (0), (int) (0), (int) (0));
     }
 }
@@ -131,13 +131,13 @@ void TAdTrialAgreementGC::render_screen() {
         TCameraCtrl::restore_full_screen_view();
         lbl_805D5660 = model_render_flags;
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {
+        if ((s32) *(s32 *)&this->m_24 == 0) {
             model_render_flags |= 0x10;
             set_chunk_material_color((void *) (arg0 + 0x28));
             bind_title_texture_list();
             TLobby::draw_with_camera((int) (TLobby::get_record((int) (0xA))), (int) (0xA), (int) (0x22), (f32) (lbl_805DF8B0));
         }
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
+        temp_r0 = *(s32 *)&this->m_24;
         if ((temp_r0 == 1) || (temp_r0 == 2)) {
             var_r31 = 0xB;
             do {
@@ -147,12 +147,12 @@ void TAdTrialAgreementGC::render_screen() {
             bind_title_texture_list();
             TObjPlayer::init_xyz_limits();
             temp_r31 = TAdTrialAgreementGC__sub_8033596C((void*)((void *) (arg0)));
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 1) {
+            if ((s32) *(s32 *)&this->m_24 == 1) {
                 draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0xF), (int) (0xF));
                 draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x13), (int) (0x13));
                 draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x17), (int) (0x17));
             }
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 2) {
+            if ((s32) *(s32 *)&this->m_24 == 2) {
                 draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x1B), (int) (0x1B));
                 draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x1F), (int) (0x1F));
                 draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x23), (int) (0x23));
@@ -169,7 +169,7 @@ void TAdTrialAgreementGC::render_screen() {
 void TAdTrialAgreementGC::run_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x24);
+    temp_r0 = *(s32 *)&this->m_24;
     switch (temp_r0) {
     case 0:
         update_title_prompt();
@@ -180,7 +180,7 @@ void TAdTrialAgreementGC::run_state() {
     case 2:
         break;
     }
-    *(s32 *)((s8 *)this + 0x38) = (s32) (*(s32 *)((s8 *)this + 0x38) + 1);
+    *(s32 *)&this->m_38 = (s32) (*(s32 *)&this->m_38 + 1);
 }
 
 extern s32 lbl_804EE458[];

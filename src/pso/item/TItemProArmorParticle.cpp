@@ -64,8 +64,8 @@ void TItemProArmorParticle__vt14(void *arg0) {
 }
 
 void TItemProArmorParticle::vfunc_45() {
-    if ((s32) *(s32 *)((s8 *)this + 0x1A0) == 2) {
-        *(s32 *)((s8 *)this + 0x198) = -1;
+    if ((s32) *(s32 *)&this->m_1a0 == 2) {
+        *(s32 *)&this->m_198 = -1;
     }
     vfunc_45__14TItemEquipBaseFv();
 }
@@ -74,10 +74,10 @@ void TItemProArmorParticle::vfunc_44() {
     s32 temp_r3;
 
     vfunc_44__13TItemProArmorFv();
-    if (((s32) *(s32 *)((s8 *)this + 0x1A0) == 1) && ((u32) *(u32 *)((s8 *)this + 0x174) != 0U)) {
+    if (((s32) *(s32 *)&this->m_1a0 == 1) && ((u32) this->m_174 != 0U)) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
-            ((TItemProArmorParticle *)temp_r3)->initialize((void *)(*(u32 *)((s8 *)this + 0x174)), (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)(*(s32 *)((s8 *)this + 0x19C)));
+            ((TItemProArmorParticle *)temp_r3)->initialize((void *)(this->m_174), (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)(*(s32 *)&this->m_19c));
         }
     }
 }
@@ -110,7 +110,7 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1) {
 void *TItemProArmorParticle::initialize(void *arg1, void *arg2, void *arg3, void *arg4) {
     TItemTimerEvent__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A05C8;
-    *(void **)((s8 *)this + 0x2C) = arg4;
+    this->m_2c = arg4;
     return this;
 }
 

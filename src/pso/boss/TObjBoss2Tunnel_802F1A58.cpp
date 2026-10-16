@@ -28,11 +28,11 @@ void TUnk_804E4AD4::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f1;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) + lbl_805DEC98);
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x24);
-    temp_f0 = *(f32 *)((s8 *)arg0 + 0x28);
+    *(f32 *)&this->unk_28 = (f32) (*(f32 *)&this->unk_28 + lbl_805DEC98);
+    temp_f1 = this->m_24;
+    temp_f0 = *(f32 *)&this->unk_28;
     if (temp_f1 <= temp_f0) {
-        *(f32 *)((s8 *)arg0 + 0x28) = (f32) (temp_f0 - temp_f1);
+        *(f32 *)&this->unk_28 = (f32) (temp_f0 - temp_f1);
     }
 }
 

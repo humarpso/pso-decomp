@@ -42,8 +42,8 @@ int is_flag_2_set__11TWindowCtrlFPv(void* p);
 void set_flag1e_bit8__11TWindowCtrlFPv(void* p);
 void clear_flag1e_bit8__11TWindowCtrlFPv(void* p);
 
-void TWindowCtrl::set_flag1e_bit40() { *(u16*)((char*)this + 0x1e) |= 0x40; }
-u16 TWindowCtrl::get_flags() { return *(u16*)((char*)this + 0x76); }
-int TWindowCtrl::get_flag_bit1() { return (*(u8*)((char*)this + 0x71) >> 1) & 0x1; }
+void TWindowCtrl::set_flag1e_bit40() { this->m_1e |= 0x40; }
+u16 TWindowCtrl::get_flags() { return this->m_76; }
+int TWindowCtrl::get_flag_bit1() { return (this->m_71 >> 1) & 0x1; }
 
 }

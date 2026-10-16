@@ -302,27 +302,27 @@ void TObjVoloptCage::update_breakup() {
     Vec_80048CDC v;
     s32 idx;
 
-    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
+    switch (*(s32 *)&this->state) {
     case -1:
         break;
     case 0:
         play_sound_effect(0x4001C112, (u32)(arg0 + 0x38), 0, 0);
-        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
-        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
+        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, this->rotation_y);
+        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, this->rotation_y);
         ((TObjPlayer *)(arg0 + 0x2FC))->trigger_dell_biter_events();
-        *(s16 *)((s8 *)arg0 + 0x33C) = 0xC;
+        *(s16 *)&this->timer = 0xC;
         disallow_rendering__7TObjectFv(arg0);
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
+        *(s32 *)&this->state = 1;
         break;
     case 1:
-        if (*(s16 *)((s8 *)arg0 + 0x33C) & 1) {
+        if (*(s16 *)&this->timer & 1) {
             idx = (s32)(lbl_805D8860 * (lbl_805D8864 * (lbl_805D8868 * (f32)rand())));
-            v.x = lbl_805D886C * cos_table_lookup(idx) + *(f32 *)((s8 *)arg0 + 0x2FC);
-            v.y = lbl_805D886C * (lbl_805D8868 * (f32)rand()) + *(f32 *)((s8 *)arg0 + 0x300);
-            v.z = lbl_805D886C * sin_table_lookup(idx) + *(f32 *)((s8 *)arg0 + 0x304);
+            v.x = lbl_805D886C * cos_table_lookup(idx) + this->m_2fc;
+            v.y = lbl_805D886C * (lbl_805D8868 * (f32)rand()) + *(f32 *)&this->unk_300;
+            v.z = lbl_805D886C * sin_table_lookup(idx) + this->m_304;
             spawn_particle_effect(&v, 0xFB);
         }
-        if ((*(s16 *)((s8 *)arg0 + 0x33C) -= 1) <= 0) {
+        if ((*(s16 *)&this->timer -= 1) <= 0) {
             queue_destruction__7TObjectFv(arg0);
         }
         break;
@@ -336,21 +336,21 @@ void TObjVoloptCage::update_collision_state() {
     s16 temp_r3;
     s32 temp_r0;
     s32 temp_r4;
-    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
+    switch (*(s32 *)&this->state) {
     case -1:
         break;
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
-        *(s16 *)((s8 *)arg0 + 0x33C) = 0x1E;
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
+        *(s16 *)&this->timer = 0x1E;
+        *(s32 *)&this->state = 1;
     case 1:
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x38C);
-        *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (temp_r4 - 1);
+        temp_r4 = *(s32 *)&this->unk_38C;
+        *(s32 *)&this->unk_38C = (s32) (temp_r4 - 1);
         check_object_collisions__10TObjPlayerFv((void *) (arg0), (int) (temp_r4));
-        if ((s16) (*(s16 *)((s8 *)arg0 + 0x33C) -= 1) <= 0) {
-            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
-            *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
-            *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
+        if ((s16) (*(s16 *)&this->timer -= 1) <= 0) {
+            *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
+            this->referenceHp = (s16) this->hp;
+            *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
             ((VObj_80048E80 *)arg0)->m57();
         }
         break;

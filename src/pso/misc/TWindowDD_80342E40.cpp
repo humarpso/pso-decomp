@@ -53,7 +53,7 @@ void TWindowDD::update() {
         TWindowDD::play_sound();
         if ((s32) *(s32 *)((s8 *)this + 0xB0) == 1) {
             *(s32 *)((s8 *)this + 0xB4) = 0x14;
-            *(s32 *)((s8 *)this + 0x8C) = -0x3C;
+            *(s32 *)&this->m_a8 = -0x3C;
             TWindowDD__sub_803435A0(this);
             return;
         }

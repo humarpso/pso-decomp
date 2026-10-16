@@ -171,14 +171,14 @@ void TItemWeapon::update_trails() {
 
 void TItemWeapon::update_weapon_trails() {
     u8 *arg0 = (u8 *)this;
-    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U)) {
+    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U)) {
         ((VObj_18_4841bb *)(arg0))->m53();
         update_trails();
     }
 }
 void TItemWeapon::draw_equipped_weapon() {
     u8 *arg0 = (u8 *)this;
-    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x1000U) == 0U)) {
+    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x1000U) == 0U)) {
         ((VObj_18_4841bb *)(arg0))->m53();
         if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x400U) != 0U) {
             draw_weapon_at_joint((void *) (arg0), (int) (0x30));

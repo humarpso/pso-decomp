@@ -18,7 +18,7 @@ int bswap_32__FPUl(void*);
 f64 floor();
 
 void TObjPlayer::set_field_dc(s32 v) { *(s32*)((char*)this + 0xdc) = v; }
-void TObjPlayer::set_field_d8(s32 v) { *(s32*)((char*)this + 0xd8) = v; }
+void TObjPlayer::set_field_d8(s32 v) { this->m_d8 = v; }
 void TObjPlayer::reset_lobby_model() { reset_type(); }
 void TObjPlayer::reset_type() { *(s32*)((char*)this + 0x0) = 0; }
 void TObjPlayer::set_type(s32 v) { *(s32*)((char*)this + 0x0) = v; }

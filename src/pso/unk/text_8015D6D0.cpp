@@ -6,16 +6,16 @@ extern "C" {
 s32 TUnk_804B0BB8::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
-    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
+    *(s32 *)&this->unk_C8 = (s32) this->m_84;
+    temp_r0 = *(s32 *)&this->unk_C8;
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)this + 0xCC) = 0;
+        this->m_cc = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)this + 0xCC) = 1;
+        this->m_cc = 1;
     } else {
-        *(s32 *)((s8 *)this + 0xCC) = 2;
+        this->m_cc = 2;
     }
-    return *(s32 *)((s8 *)this + 0xC8);
+    return *(s32 *)&this->unk_C8;
 }
 
 }

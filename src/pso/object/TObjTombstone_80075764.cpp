@@ -22,13 +22,13 @@ void TObjTombstone::update_render_flags() {
 
     if ((u32) TObjTombstone__shared_resource_object != 0U) {
         if ((s32) tombstone_first_run_flag == 0) {
-            scroll_ginja_mesh_uvs((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 0x30)) + 4)), (int) (-8), (int) (0), (int) (0), (int) (1));
+            scroll_ginja_mesh_uvs((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 0x30)) + 4)), (int) (-8), (int) (0), (int) (0), (int) (1));
             tombstone_first_run_flag = 1;
             PPCSync();
         }
-        temp_r3 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 0x30)) + 0x30));
+        temp_r3 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 0x30)) + 0x30));
         temp_r4 = *(s32 **)((s8 *)temp_r3 + 0x30);
-        if (*(s32 *)((s8 *)arg0 + 0x230) & 0x10) {
+        if (*(s32 *)&this->m_230 & 0x10) {
             *(s32 *)((s8 *)temp_r3 + 0) = (s32) (*(s32 *)((s8 *)temp_r3 + 0) & 0xFFFFFFF7);
             *temp_r4 |= 8;
         } else {
@@ -37,9 +37,9 @@ void TObjTombstone::update_render_flags() {
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        draw_ginja_object((void *) (*(void **)((s8 *)arg0 + 0x34)));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
+        draw_ginja_object((void *) (*(void * *)&this->model));
         pop_matrix();
     }
 }

@@ -70,18 +70,18 @@ s32 TObjEnvSoundGlobal::setup_sound() {
     var_r31 = 1;
     temp_r4 = *(s32 *)((s8 *)(&environment_sound_tables_by_area.value) + (TOKeyMachine01::get_global_state() * 4));
     if (temp_r4 != 0U) {
-        copy_pair__18TObjEnvSoundGlobalFPvPv((void*)((void *) (arg0 + 0x94)), (void*)((int) (temp_r4 + (*(s32 *)((s8 *)arg0 + 0x84) * 8))));
+        copy_pair__18TObjEnvSoundGlobalFPvPv((void*)((void *) (arg0 + 0x94)), (void*)((int) (temp_r4 + (this->m_84 * 8))));
     } else {
         var_r31 = 0;
-        *(s32 *)((s8 *)arg0 + 0x94) = -1;
-        *(s32 *)((s8 *)arg0 + 0x98) = -1;
+        *(s32 *)&this->m_94 = -1;
+        *(s32 *)&this->m_98 = -1;
     }
-    *(f32 *)((s8 *)arg0 + 0x90) = (f32) *(s32 *)((s8 *)arg0 + 0x88);
-    if (*(f32 *)((s8 *)arg0 + 0x90) < (-127.0f)) {
-        *(f32 *)((s8 *)arg0 + 0x90) = (f32) (-127.0f);
+    *(f32 *)&this->unk_90 = (f32) *(s32 *)&this->m_88;
+    if (*(f32 *)&this->unk_90 < (-127.0f)) {
+        *(f32 *)&this->unk_90 = (f32) (-127.0f);
     }
-    if (*(f32 *)((s8 *)arg0 + 0x90) > (127.0f)) {
-        *(f32 *)((s8 *)arg0 + 0x90) = (f32) (127.0f);
+    if (*(f32 *)&this->unk_90 > (127.0f)) {
+        *(f32 *)&this->unk_90 = (f32) (127.0f);
     }
     return var_r31;
 }
@@ -160,23 +160,23 @@ s32 TObjEnvSoundEx::init_sound_params() {
     var_r31 = 1;
     temp_r4 = *(s32 *)((s8 *)(&environment_sound_tables_by_area.value) + (TOKeyMachine01::get_global_state() * 4));
     if (temp_r4 != 0U) {
-        ((s32 (*)(void *, int))copy_pair__18TObjEnvSoundGlobalFPvPv)((void *) (arg0 + 0x9C), (int) (temp_r4 + (*(s32 *)((s8 *)arg0 + 0x84) * 8)));
+        ((s32 (*)(void *, int))copy_pair__18TObjEnvSoundGlobalFPvPv)((void *) (arg0 + 0x9C), (int) (temp_r4 + (this->m_84 * 8)));
     } else {
         var_r31 = 0;
-        *(s32 *)((s8 *)arg0 + 0x9C) = -1;
-        *(s32 *)((s8 *)arg0 + 0xA0) = -1;
+        *(s32 *)&this->m_9c = -1;
+        *(s32 *)&this->m_a0 = -1;
     }
-    *(f32 *)((s8 *)arg0 + 0x98) = fabs_float(*(f32 *)((s8 *)arg0 + 0x6C));
-    *(f32 *)((s8 *)arg0 + 0xA4) = (f32) *(f32 *)((s8 *)arg0 + 0x70);
-    if (*(f32 *)((s8 *)arg0 + 0xA4) <= lbl_805DBE18) {
-        *(f32 *)((s8 *)arg0 + 0xA4) = (f32) lbl_805DBE1C;
+    this->m_98 = fabs_float(this->target_scale);
+    *(f32 *)&this->unk_A4 = (f32) *(f32 *)((s8 *)arg0 + 0x70);
+    if (*(f32 *)&this->unk_A4 <= lbl_805DBE18) {
+        *(f32 *)&this->unk_A4 = (f32) lbl_805DBE1C;
     }
-    *(s32 *)((s8 *)arg0 + 0x90) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x90) < -0x7F) {
-        *(s32 *)((s8 *)arg0 + 0x90) = -0x7F;
+    *(s32 *)&this->m_90 = (s32) *(s32 *)&this->m_88;
+    if ((s32) *(s32 *)&this->m_90 < -0x7F) {
+        *(s32 *)&this->m_90 = -0x7F;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x90) > 0x7F) {
-        *(s32 *)((s8 *)arg0 + 0x90) = 0x7F;
+    if ((s32) *(s32 *)&this->m_90 > 0x7F) {
+        *(s32 *)&this->m_90 = 0x7F;
     }
     return var_r31;
 }

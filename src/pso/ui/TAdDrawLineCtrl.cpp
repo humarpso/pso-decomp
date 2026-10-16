@@ -26,7 +26,7 @@ s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TAdDrawLineCtrl::render() {
-    if ((s32) *(s32 *)((s8 *)this + 0x28) == 0) {
+    if ((s32) this->render_mode == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2__Fv();
             goto block_5;
@@ -34,10 +34,10 @@ void TAdDrawLineCtrl::render() {
     } else if ((get_main_phase() != 2) || (TMainTask::get_state_flag() != 1)) {
 block_5:
         TObjPlayer::reset_transform_state();
-        if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
-            ((TObject *)(*(void **)((s8 *)this + 0x20)))->render_nodes();
+        if ((u32) *(u32 *)&this->child_root != 0U) {
+            ((TObject *)(*(void * *)&this->child_root))->render_nodes();
         }
-        if ((s32) *(s32 *)((s8 *)this + 0x28) == 0) {
+        if ((s32) this->render_mode == 0) {
             restore_saved_depth_alpha_state();
         }
     }
@@ -49,7 +49,7 @@ extern void *TAdDrawLineCtrl__class_name;
 void TAdDrawLineCtrl::run_task() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
+    temp_r0 = *(u32 *)&this->child_root;
     if (temp_r0 != 0U) {
         ((TObject *)temp_r0)->run_tasks();
         return;

@@ -365,7 +365,7 @@ s32 TBreakUpMdl::collect_node_positions(u8 *arg1, s32 arg2) {
         compose_motion_node_matrix((int) (var_r28));
         temp_r30 = *(s32 *)((s8 *)var_r28 + 0);
         if (!(temp_r30 & 8)) {
-            temp_r31 = (u8 *)(*(s32 *)((s8 *)arg0 + 4) + (var_r29 * 0x1C));
+            temp_r31 = (u8 *)(*(s32 *)&this->m_flags + (var_r29 * 0x1C));
             temp_r4 = (long) (temp_r31 + 4);
             matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
             VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
@@ -401,7 +401,7 @@ s32 TBreakUpMdl::build_node_records(u8 *arg1, s32 arg2) {
         scale_current_matrix((void *) (var_r28 + 0x20));
         temp_r30 = *(s32 *)((s8 *)var_r28 + 0);
         if (!(temp_r30 & 8)) {
-            temp_r31 = (u8 *)(*(s32 *)((s8 *)arg0 + 4) + (var_r29 * 0x1C));
+            temp_r31 = (u8 *)(*(s32 *)&this->m_flags + (var_r29 * 0x1C));
             temp_r4 = (long) (temp_r31 + 4);
             matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
             VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
@@ -477,6 +477,6 @@ u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-void TBreakUpMdl::copy(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)this + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }
+void TBreakUpMdl::copy(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); *(f32 *)&this->m_down = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }
 
 }

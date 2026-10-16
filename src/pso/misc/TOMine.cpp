@@ -124,21 +124,21 @@ void TOMine::run_task() {
     if (TObjPlayer::check_demo_mode() != 1) {
         ((VObj_80170f64_80170EEC *) arg0)->m77();
         ((TOMineTrap *)arg0)->update_float_height();
-        temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+        temp_r0 = this->mode;
         switch (temp_r0) {
         case 2:
         case 0:
             find_target_player();
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x334));
-            VecCopy__FP3VecPC3Vec((void *) (*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C), (void *) (arg0 + 0x334));
+            VecCopy__FP3VecPC3Vec((void *) (*(s32 *)&this->m_a4 + 0x1C), (void *) (arg0 + 0x334));
             return;
         case 3:
-            temp_r3 = *(s32 *)((s8 *)arg0 + 0x8C);
-            *(s32 *)((s8 *)arg0 + 0x8C) = (s32) (temp_r3 - 1);
+            temp_r3 = *(s32 *)&this->unk_8C;
+            *(s32 *)&this->unk_8C = (s32) (temp_r3 - 1);
             if (temp_r3 < 0) {
-                *(s16 *)((s8 *)arg0 + 0x326) = 4;
+                this->mode = 4;
             }
-            temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x344);
+            temp_r0_2 = *(s32 *)&this->m_344;
             switch (temp_r0_2) {
             default:
                 TOMineTrap__sub_80170CD4((void *) (arg0));
@@ -161,7 +161,7 @@ void TOMine::run_task() {
 
 void TOMine::free_sub_objects() { TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x378))); draw_ginja_object(*(void**)((char*)this + 0x374)); }
 
-void TOMine::free_parts() { TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x24))); draw_ginja_object(*(void**)((char*)this + 0x34)); }
+void TOMine::free_parts() { TObjFish::set_global_param((s32)(*(void* *)&this->texture_id)); draw_ginja_object(this->model); }
 
 extern u32 lbl_805D5A50;
 

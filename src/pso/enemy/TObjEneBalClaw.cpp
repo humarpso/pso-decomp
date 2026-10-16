@@ -93,29 +93,29 @@ void TObjEneBalClaw::update_claw_angle() {
     void *temp_r3_2;
     void *temp_r4;
 
-    if (!(*(s32 *)((s8 *)this + 0x30) & 0x800)) {
-        temp_r4 = *(void **)((s8 *)this + 0xA4);
+    if (!(*(s32 *)&this->actorFlags & 0x800)) {
+        temp_r4 = this->m_a4;
         *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFF9);
-        if (*(s32 *)((s8 *)this + 0x388) & 0x10000) {
-            temp_f1 = *(f32 *)((s8 *)this + 0x3B4);
+        if (*(s32 *)&this->m_388 & 0x10000) {
+            temp_f1 = this->m_3b4;
             temp_f0 = *(f32 *)((s8 *)this + 0x3B0);
             if (temp_f1 < temp_f0) {
-                *(f32 *)((s8 *)this + 0x3B4) = (f32) (temp_f1 + lbl_805D9600);
+                this->m_3b4 = (f32) (temp_f1 + lbl_805D9600);
                 return;
             }
-            *(f32 *)((s8 *)this + 0x3B4) = temp_f0;
-            temp_r3 = *(void **)((s8 *)this + 0xA4);
+            this->m_3b4 = temp_f0;
+            temp_r3 = this->m_a4;
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 4);
             return;
         }
-        temp_f1_2 = *(f32 *)((s8 *)this + 0x3B4);
-        temp_f0_2 = *(f32 *)((s8 *)this + 0x3AC);
+        temp_f1_2 = this->m_3b4;
+        temp_f0_2 = this->m_3ac;
         if (temp_f1_2 > temp_f0_2) {
-            *(f32 *)((s8 *)this + 0x3B4) = (f32) (temp_f1_2 - lbl_805D9600);
+            this->m_3b4 = (f32) (temp_f1_2 - lbl_805D9600);
             return;
         }
-        *(f32 *)((s8 *)this + 0x3B4) = temp_f0_2;
-        temp_r3_2 = *(void **)((s8 *)this + 0xA4);
+        this->m_3b4 = temp_f0_2;
+        temp_r3_2 = this->m_a4;
         *(s32 *)((s8 *)temp_r3_2 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_2 + 0x18) | 2);
     }
 }
@@ -125,7 +125,7 @@ extern u32 lbl_805D4F20;
 void TObjEneBalClaw::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(4);
-    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
+    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 1);
 }
 
 void TObjEneBalClaw::release_global_805D4F20() {
@@ -166,7 +166,7 @@ u8 *TObjEneBalClaw__ct(u8 *arg0) {
 void TObjEneBalClaw::vfunc_61() {  }
 void TObjEneBalClaw::vfunc_59() {  }
 s32 TObjEneBalClaw::vfunc_30() { return 0; }
-void TObjEneBalClawClaw::clear_attack_flag() { *(u32*)((char*)this + 0x388) &= 0xfffeffff; }
+void TObjEneBalClawClaw::clear_attack_flag() { this->m_388 &= 0xfffeffff; }
 void TObjEneBalClawClaw__sub_8008DC14(void) {  }
 
 }

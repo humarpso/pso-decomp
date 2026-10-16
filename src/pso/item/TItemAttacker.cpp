@@ -55,13 +55,13 @@ u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 }
 
 void TItemAttacker::copy_from(void *arg1) {
-    *(s32 *)((s8 *)this + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
-    *(s32 *)((s8 *)this + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
-    *(s32 *)((s8 *)this + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
-    *(u16 *)((s8 *)this + 0xC) = (u16) *(u16 *)((s8 *)arg1 + 0xC);
+    *(s32 *)&this->m_name = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(s32 *)&this->m_flags = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(s32 *)&this->m_prev = (s32) *(s32 *)((s8 *)arg1 + 8);
+    *(u16 *)&this->m_next = (u16) *(u16 *)((s8 *)arg1 + 0xC);
     *(u16 *)((s8 *)this + 0xE) = (u16) *(u16 *)((s8 *)arg1 + 0xE);
-    *(s16 *)((s8 *)this + 0x10) = (s16) *(s16 *)((s8 *)arg1 + 0x10);
-    *(f32 *)((s8 *)this + 0x14) = (f32) *(f32 *)((s8 *)arg1 + 0x14);
+    *(s16 *)&this->m_up = (s16) *(s16 *)((s8 *)arg1 + 0x10);
+    *(f32 *)&this->m_down = (f32) *(f32 *)((s8 *)arg1 + 0x14);
 }
 
 void TItemAttacker::spawn_item_timer(s32 arg0, s32 arg1, s32 arg2) {

@@ -400,42 +400,42 @@ void TODoorJungleMain::run_task() {
     f32 t;
 
     ((VObj_18_26c409 *)(arg0))->m12();
-    if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
+    if (this->m_d0 & 1) {
         flag = 0;
-        *(f32 *)((s8 *)arg0 + 0xB4) += *(f32 *)((s8 *)arg0 + 0xB8);
-        t = *(f32 *)((s8 *)arg0 + 0xB4);
-        if ((f32)(u32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - 1) - lbl_805DDCD4 < t &&
-            t < (f32)(u32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - 1)) {
+        *(f32 *)&this->unk_B4 += this->m_b8;
+        t = *(f32 *)&this->unk_B4;
+        if ((f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1) - lbl_805DDCD4 < t &&
+            t < (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1)) {
             set_indexed_flags((s32)arg0, 0, 8);
-            if (*(void **)((s8 *)arg0 + 0xDC) != NULL) {
-                queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC));
-                *(void **)((s8 *)arg0 + 0xDC) = NULL;
+            if (*(void * *)&this->m_dc != NULL) {
+                queue_destruction__7TObjectFv(*(void * *)&this->m_dc);
+                *(void * *)&this->m_dc = NULL;
             }
         } else {
             flag = 1;
         }
-        if (*(f32 *)((s8 *)arg0 + 0xB4) > (f32)(u32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - 1)) {
+        if (*(f32 *)&this->unk_B4 > (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1)) {
             flag = 0;
-            *(f32 *)((s8 *)arg0 + 0xB4) = (f32)(u32)(*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - 1);
+            *(f32 *)&this->unk_B4 = (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1);
         } else {
             play_persistent_sound(0x43220, arg0, arg0 + 0x38, 0, 0);
         }
         if (flag != 0) {
-            if (++*(s32 *)((s8 *)arg0 + 0xD8) % 30 == 0) {
+            if (++*(s32 *)&this->m_d8 % 30 == 0) {
                 a = lbl_804653E8;
                 b = lbl_804653F4;
                 set_matrix_identity(&mtx);
                 translate_matrix_vec3(&mtx, arg0 + 0x38);
-                rotate_matrix_y((int)&mtx, *(s32 *)((s8 *)arg0 + 0x60));
+                rotate_matrix_y((int)&mtx, this->rotation_y);
                 matrix_mult_vec(&mtx, &a, &a);
                 matrix_mult_vec(&mtx, &b, &b);
                 spawn_particle_effect_with_flags(&a, 0x229, 0x800);
                 spawn_particle_effect_with_flags(&b, 0x229, 0x800);
             }
         }
-        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, *(s32 *)((s8 *)arg0 + 0x60), 0, 0);
+        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, this->rotation_y, 0, 0);
     } else {
-        minimap_render_gate(arg0 + 0x38, 0xFFFF0000, *(s32 *)((s8 *)arg0 + 0x60), 0, 0);
+        minimap_render_gate(arg0 + 0x38, 0xFFFF0000, this->rotation_y, 0, 0);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
     }
 }

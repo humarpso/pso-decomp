@@ -25,7 +25,7 @@ s32 TBoss8Dragon::is_within_xz_distance(u8 *arg1, f32 farg0) {
 f32 TBoss8Dragon::calc_sq_offset(f32 farg0) {
     f32 temp_f0;
 
-    temp_f0 = *(f32 *)((s8 *)this + 8) + farg0;
+    temp_f0 = this->m_8 + farg0;
     return temp_f0 * temp_f0;
 }
 

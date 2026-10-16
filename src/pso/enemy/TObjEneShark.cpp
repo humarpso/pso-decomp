@@ -406,7 +406,7 @@ void TObjEneShark::vfunc_94() {
     stack.spC = lbl_805D9BA4;
     stack.sp10 = lbl_805D9BA8 * *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0x10);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
+    rotate_matrix_y((s32)((int) (0)), (s32)((int) (this->rotation_y)));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));

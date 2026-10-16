@@ -344,12 +344,12 @@ void *TOBoss4Tower__create(void *arg0) {
 
 void TOBoss4Tower::render() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj_80159400 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0x90), *(f32 *)((s8 *)arg0 + 0x94)) != 0) {
+    if (((VObj_80159400 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0x90), this->m_94) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
-        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
+        rotate_matrix_y(0, this->rotation_y);
+        set_global_param__8TObjFishFl(this->texture_id);
+        draw_ginja_object(*(s32 *)&this->model);
         pop_matrix();
     }
 }

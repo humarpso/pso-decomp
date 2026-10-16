@@ -13,13 +13,13 @@ void TObjPlayer::handle_move_input() {
     temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 1:
-        rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x204));
+        rotate_matrix_x(0, this->m_204);
         return;
     case 2:
         scale_current_matrix(arg0 + 0x1F8);
         return;
     case 3:
-        rotate_matrix_x(0, -*(s32 *)((s8 *)arg0 + 0x204));
+        rotate_matrix_x(0, -this->m_204);
         return;
     }
 }

@@ -45,7 +45,7 @@ void TObjPlayer::place_on_area_entry() {
         check_flag__10TObjPlayerFl(arg0, 0x100000) == 0 && is_key_machine_ready__10TObjPlayerFv() != 0) {
         ((TObjPlayer *)arg0)->set_state_flags(0x100000);
         ((TBoss4DarkFalz *)arg0)->set_position_from(get_lobby_entry_ptr__10TObjPlayerFv(arg0));
-        *(s32 *)((s8 *)arg0 + 0x60) = TObjPlayer__sub_801D8C3C(arg0);
+        this->m_60 = TObjPlayer__sub_801D8C3C(arg0);
         play_effect_default__10TObjPlayerFii(arg0, 0x1E);
         TObjPlayer::set_camera_mode(3);
         obj = __nw__7TObjectFUl(0x24);
@@ -60,13 +60,13 @@ void TObjPlayer::place_on_area_entry() {
             e = &TObjPlayer__arrival_override_table[obj_getField1c(arg0)];
             if (obj_isState2_324(arg0) == 0 && TObjPlayer__sub_801BF95C(e) == 1) {
                 TObjPlayer__sub_801BF954(e, 0);
-                *(s32 *)((s8 *)arg0 + 0x60) = ((TObjPlayer *)e)->get_lock_timer();
+                this->m_60 = ((TObjPlayer *)e)->get_lock_timer();
                 ((TBoss4DarkFalz *)arg0)->set_position_from(((TObjPlayer *)e)->get_sub_object());
             } else {
                 other = find_player_arrival_set(arg0, obj_getField1c(arg0));
                 if (other != NULL) {
                     ((TBoss4DarkFalz *)arg0)->set_position_from(other + 0x38);
-                    *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)other + 0x60);
+                    this->m_60 = *(s32 *)((s8 *)other + 0x60);
                 } else {
                     ((TObjPlayer *)arg0)->set_position(TObjPlayer__data_805DC278, TObjPlayer__data_805DC278, TObjPlayer__data_805DC278);
                 }
@@ -76,7 +76,7 @@ void TObjPlayer::place_on_area_entry() {
     ((TBoss4DarkFalz *)arg0)->save_position();
     ((TObjPlayer *)arg0)->calc_attach_pos();
     ((TObjPlayer *)(arg0 + 0x84C))->copy_offset_position(arg0);
-    set_position_history_entry__10TObjPlayerFiiff(arg0, 0, *(f32 *)((s8 *)arg0 + 0x38), *(f32 *)((s8 *)arg0 + 0x40));
+    set_position_history_entry__10TObjPlayerFiiff(arg0, 0, *(f32 *)&this->m_38, this->m_40);
     clear_movement_history(arg0 + 0x6AC);
     if (is_single_screen__10TObjPlayerFv() != 0) {
         reset_cameras_to_actor(arg0, 0);

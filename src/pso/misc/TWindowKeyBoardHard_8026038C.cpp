@@ -20,6 +20,6 @@ void TWindowKeyBoardHard::set_card_window_flag(s32 arg0, s32 arg1) {
 }
 int TWindowKeyBoardHard__sub_8026042C(void* p) { return (*(u32*)((char*)p + 0x60) >> 6) & 0x1; }
 int TWindowKeyBoardHard__sub_80260438(void* p) { return (*(u32*)((char*)p + 0x60) >> 10) & 0x1; }
-int TWindowKeyBoardHard::is_key_active() { return *(u32*)((char*)this + 0x60) & 0x200; }
+int TWindowKeyBoardHard::is_key_active() { return this->m_60 & 0x200; }
 
 }

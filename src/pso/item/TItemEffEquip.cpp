@@ -185,7 +185,7 @@ void*TUnk_8049F038::vfunc_9() {
 
     temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
     if (temp_r3 != NULL) {
-        ((VObj80108B5C_80108b5c *)temp_r3)->m63(*(s32 *)((s8 *)arg0 + 0xB0), arg0 + 0x38);
+        ((VObj80108B5C_80108b5c *)temp_r3)->m63(this->m_b0, arg0 + 0x38);
     }
     return arg0 + 0x38;
 }
@@ -264,7 +264,7 @@ void TUnk_8049F038::run_task() {
 
     temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
     if (temp_r3 != NULL) {
-        ((VObj80108BB0_80108bb0 *)temp_r3)->m63(*(s32 *)((s8 *)arg0 + 0xB0), arg0 + 0x38);
+        ((VObj80108BB0_80108bb0 *)temp_r3)->m63(this->m_b0, arg0 + 0x38);
     }
 }
 

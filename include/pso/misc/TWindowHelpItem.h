@@ -7,15 +7,19 @@
 struct TWindowHelpItem
 {
     u32 m_00;
-    u8 _pad04[0x14];
+    u8 unk_4[0xC];
+    s32 m_10;
+    u8 unk_14[0x4];
     void *m_vtable18;
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
     void* m_24;
-    u8 _pad28[0x8];
+    u8 unk_28[0x4];
+    s32 m_2c;
     void* m_30;
-    u8 _pad34[0x2C];
+    u8 unk_34[0x28];
+    s32 m_5c;
     u8 m_60;
     u8 _pad61[0x3];
     u32 m_64;

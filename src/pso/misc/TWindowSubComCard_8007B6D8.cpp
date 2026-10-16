@@ -15,7 +15,7 @@ int bswap__16TPlyGuildCardTagFv(void*);
 void init_guild_card_tag__17TWindowSubComCardFi(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
 
-s32 TWindowSubComCard::get_card_id() { return *(s32*)((char*)this + 0x4); }
+s32 TWindowSubComCard::get_card_id() { return *(s32 *)&this->m_flags; }
 int TWindowSubComCard::is_active() { return *(u8*)((char*)this + 0x8c) & 0x1; }
 u8 TWindowSubComCard__sub_8007B6EC(void* p) { return *(u8*)((char*)p + 0x8f); }
 
@@ -35,7 +35,7 @@ int TWindowSubComCard::get_keyboard_mode() {  return com_card_keyboard_mode; }
 
 void *TWindowSubComCard::init_guild_card() {
     init_guild_card_tag__17TWindowSubComCardFi((void *)((char *)this + 4));
-    *(u8 *)((s8 *)this + 0x0) = 6;
+    *(u8 *)&this->m_name = 6;
     *(u8 *)((s8 *)this + 0x1) = 37;
     return this;
 }

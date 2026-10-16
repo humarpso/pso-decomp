@@ -25,12 +25,12 @@ void __dt__10TORockCaveFv(void *, int);
 void TORockCaveSimple::play_trigger_effect() {
     u8 *arg0 = (u8 *)this;
     VObj1_80175024 *self = (VObj1_80175024 *)arg0;
-    if (self->m8(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {
+    if (self->m8(*(f32 *)&this->unk_AC, this->m_b0) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
+        draw_ginja_object(*(s32 *)&this->model);
         pop_matrix();
     }
 }

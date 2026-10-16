@@ -8,7 +8,8 @@ public:
     virtual ~TObjEneRe2Flower_Bomb();
     virtual void render();
     virtual void run_task();
-    u8 unk_B0[0x54];
+    u8 unk_B0[0x50];
+    s32 m_100;
 };
 typedef char TObjEneRe2Flower_Bomb_size[sizeof(TObjEneRe2Flower_Bomb) == 0x104 ? 1 : -1];
 

@@ -7,7 +7,8 @@ class TUnk_8048E790 : public TUnk_8048E728 {
 public:
     virtual ~TUnk_8048E790();
     virtual void render();
-    u8 unk_C0[0x20];
+    u8 unk_C0[0x1C];
+    s32 m_dc;
 };
 
 #endif

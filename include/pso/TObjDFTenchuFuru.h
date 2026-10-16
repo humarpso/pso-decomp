@@ -6,7 +6,10 @@
 
 class TObjDFTenchuFuru : public TObject {
 public:
-    u8 _pad1C[0x10];
+    u8 unk_1C[0x4];
+    f32 m_20;
+    u8 unk_24[0x4];
+    s32 m_28;
  void* m_2c;
 public:
     virtual ~TObjDFTenchuFuru();

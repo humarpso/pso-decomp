@@ -7,7 +7,13 @@ class TUnk_8049F3F4 : public TObject {
 public:
     virtual ~TUnk_8049F3F4();
     virtual void run_task();
-    u8 unk_1C[0x28];
+    u8 unk_1C[0x4];
+    s32 m_20;
+    u8 unk_24[0x4];
+    s32 m_28;
+    u8 unk_2C[0x10];
+    u32 m_3c;
+    u8 unk_40[0x4];
 };
 typedef char TUnk_8049F3F4_size[sizeof(TUnk_8049F3F4) == 0x44 ? 1 : -1];
 

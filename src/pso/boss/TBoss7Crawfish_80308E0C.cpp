@@ -35,13 +35,13 @@ void TBoss7Crawfish::update_attack_state() {
     s32 temp_r3;
     void *temp_r4;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x3C8) - 1;
-    *(s32 *)((s8 *)this + 0x3C8) = temp_r0;
+    temp_r0 = this->m_3c8 - 1;
+    this->m_3c8 = temp_r0;
     if (temp_r0 < 0) {
         change_state((s32)(1));
     }
     if ((get_floor__10TObjPlayerFv(this) == 2) && (objInBand__FP7GameObjf(this, lbl_805DF0F8) != 0)) {
-        temp_r4 = *(void **)((s8 *)this + 0xA4);
+        temp_r4 = this->m_a4;
         if (*(s32 *)((s8 *)temp_r4 + 0x18) & 0x02000000) {
             *(s32 *)((s8 *)temp_r4 + 0x18) &= ~0x02000000;
         }
@@ -51,7 +51,7 @@ void TBoss7Crawfish::update_attack_state() {
             spawn_effect(0x3A80B);
         }
     }
-    if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x02000000) {
+    if (*(s32 *)((s8 *)(this->m_a4) + 0x18) & 0x02000000) {
         register_attack_hits__14TBoss7CrawfishFPv(this);
     }
 }

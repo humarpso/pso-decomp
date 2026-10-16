@@ -129,7 +129,7 @@ void TUnk_8049F130::run_task() {
     struct TItemData8_8010a060 sp8;
     s32 temp_r3;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x2C) != get_item_system_generation()) {
+    if ((u32) this->m_2c != get_item_system_generation()) {
         queue_destruction__7TObjectFv(this);
         return;
     }
@@ -138,15 +138,15 @@ void TUnk_8049F130::run_task() {
         sp8.a = 1;
         sp8.b = 2;
         sp8.c = *(u8 *)((s8 *)this + 0x2A);
-        if ((count_nearby_players_with_shield__10TObjPlayerFUsPUc(*(u16 *)((s8 *)this + 0x28), &sp8.a) > 0) && ((s32) *(s32 *)((s8 *)this + 0x20) != -1)) {
-            temp_r3 = (s32)get_player_by_client_id(*(u16 *)((s8 *)this + 0x28));
+        if ((count_nearby_players_with_shield__10TObjPlayerFUsPUc(this->m_28, &sp8.a) > 0) && ((s32) this->m_20 != -1)) {
+            temp_r3 = (s32)get_player_by_client_id(this->m_28);
             if (temp_r3 != 0) {
                 get_field_3e0__12TBoss3VoloptFv();
                 if (is_item_area_enabled() == 1) {
                     if ((s32) *(s32 *)((s8 *)this + 0x24) == 0) {
-                        create_timed_particle_emitter(temp_r3 + 0x2FC, *(s32 *)((s8 *)this + 0x20), 0, 0xA);
+                        create_timed_particle_emitter(temp_r3 + 0x2FC, this->m_20, 0, 0xA);
                     } else {
-                        spawn_particle_effect(temp_r3 + 0x2FC, *(s32 *)((s8 *)this + 0x20));
+                        spawn_particle_effect(temp_r3 + 0x2FC, this->m_20);
                     }
                 }
             }
@@ -186,7 +186,7 @@ void TUnk_8049F148::run_task() {
     u32 temp_r3_3;
     VObj_8010A26C *temp_r3;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x28) != get_item_system_generation()) {
+    if ((u32) this->m_28 != get_item_system_generation()) {
         queue_destruction__7TObjectFv(this);
         return;
     }
@@ -194,8 +194,8 @@ void TUnk_8049F148::run_task() {
     if (temp_r3 != NULL) {
         temp_r3->m63(0x24, sp8);
         temp_r3_2 = get_current_floor();
-        if (temp_r3_2 != (s32) *(s32 *)((s8 *)this + 0x20)) {
-            *(s32 *)((s8 *)this + 0x20) = temp_r3_2;
+        if (temp_r3_2 != (s32) this->m_20) {
+            this->m_20 = temp_r3_2;
             if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == ((TObjPlayer *)temp_r3)->get_field_3e4())) {
                 *(u32 *)((s8 *)this + 0x1C) = create_particle_emitter(sp8, 0x101);
             } else {

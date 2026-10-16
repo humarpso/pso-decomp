@@ -169,7 +169,7 @@ int TObjOnlineEnding::get_instance() {  return player_unique_pair_entry_count; }
     extern unsigned char lbl_8050DAD0[];
 void*TObjOnlineEnding::get_attack_entry(int a0) {  return (char*)lbl_8050DAD0 + a0 * 8; }
 
-void TObjOnlineEnding::close_window() { if (*(unsigned int*)((char*)this + 0x154) != 0) { TWindow__close(*(void**)((char*)this + 0x154)); *(int*)((char*)this + 0x154) = 0; } }
+void TObjOnlineEnding::close_window() { if (*(unsigned int *)&this->m_154 != 0) { TWindow__close(*(void* *)&this->m_154); *(int *)&this->m_154 = 0; } }
 
 }
 
@@ -260,7 +260,7 @@ void TObjOnlineEnding::create_result_window() {
     s32 temp_r30;
     s32 var_r29;
 
-    *(s32 *)((s8 *)this + 0x154) = 0;
+    this->m_154 = 0;
     if (is_flag_set__6TLobbyFv() != 0) {
         temp_r30 = get_layout_id__20TWindowSubStatusDispFv(-1) - 1;
         {
@@ -272,7 +272,7 @@ void TObjOnlineEnding::create_result_window() {
                 temp_r31 = TWindowSubStatusDisp__sub_800718D0();
                 var_r29 = TWindowChallengeResult__ct(var_r29, TLobby__sub_80070ACC(), temp_r31, temp_r30_2);
             }
-            *(s32 *)((s8 *)this + 0x154) = var_r29;
+            this->m_154 = var_r29;
         }
         }
     }

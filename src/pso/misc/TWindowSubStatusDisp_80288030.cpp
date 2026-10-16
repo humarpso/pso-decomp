@@ -54,7 +54,7 @@ void TWindowSubStatusDisp::fill_card_text_entries(s32 arg1) {
     s32 temp_r28;
     s32 temp_r27;
     s32 temp_r26;
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 4));
+    temp_r3 = (u8 *)(*(u8 * *)&this->m_flags);
     temp_r31 = *(s32 *)((s8 *)temp_r3 + 4);
     temp_r30 = *(s32 *)((s8 *)temp_r3 + 0xC);
     temp_r29 = *(s32 *)((s8 *)temp_r3 + 0x14);

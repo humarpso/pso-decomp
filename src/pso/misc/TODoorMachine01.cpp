@@ -173,8 +173,8 @@ extern const f32 lbl_805DB4F0;
 
 void TODoorMachine01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
-    if (!(*(s32 *)((s8 *)arg0 + 0xD0) & 1) || (is_any_player_within_radius_xz(lbl_805DB4F0) != 1)) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 3;
+    if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz(lbl_805DB4F0) != 1)) {
+        *(s32 *)&this->unk_AC = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
     }
@@ -184,20 +184,20 @@ extern void *tl_05;
 
 void TODoorMachine01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
-    if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB4F4)) == 1)) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 1;
+    if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB4F4)) == 1)) {
+        *(s32 *)&this->unk_AC = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
         play_sound_effect((s32)((int) (0x4004BC01)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }
-    if (*(s32 *)((s8 *)arg0 + 0xD0) & 0x100000) {
-        *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (*(f32 *)((s8 *)arg0 + 0xE0) + lbl_805DB4F8);
-        if (lbl_805DB4FC <= *(f32 *)((s8 *)arg0 + 0xE0)) {
-            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFEFFFFF);
+    if (this->m_d0 & 0x100000) {
+        this->m_e0 = (f32) (this->m_e0 + lbl_805DB4F8);
+        if (lbl_805DB4FC <= this->m_e0) {
+            this->m_d0 = (s32) (this->m_d0 & 0xFFEFFFFF);
         }
     } else {
-        *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (*(f32 *)((s8 *)arg0 + 0xE0) - lbl_805DB4F8);
-        if (*(f32 *)((s8 *)arg0 + 0xE0) <= lbl_805DB500) {
-            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 0x100000);
+        this->m_e0 = (f32) (this->m_e0 - lbl_805DB4F8);
+        if (this->m_e0 <= lbl_805DB500) {
+            this->m_d0 = (s32) (this->m_d0 | 0x100000);
         }
     }
 }

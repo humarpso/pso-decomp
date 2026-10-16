@@ -39,7 +39,7 @@ void TBoss1DragonEffBreath::run_task() {
         return;
     }
     if (temp_f1 < lbl_805D8134) {
-        deliver_breath_attack__12TBoss1DragonFPvii((int) TBoss1Dragon::get_instance(), (void *) (arg0 + 0x1C), (int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        deliver_breath_attack__12TBoss1DragonFPvii((int) TBoss1Dragon::get_instance(), (void *) (arg0 + 0x1C), (int) (*(s32 *)&this->m_34));
     }
 }
 

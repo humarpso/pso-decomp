@@ -55,18 +55,18 @@ extern "C" {
 void fn_80316680(void *arg0, s32 arg1);
 s32 __dl__FPv();
 
-int TObjEneDelDepth::get_flag_bit4() { return (*(u32*)((char*)this + 0x30) >> 4) & 0x1; }
+int TObjEneDelDepth::get_flag_bit4() { return (this->actorFlags >> 4) & 0x1; }
 
 int TObjEneDelDepth::find_nearest_enemy_with_flag(s32 arg1, f32 farg0) {
     u8 *arg0 = (u8 *)this;
     u16 temp_r3;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (void *) (arg1), (f32) (farg0));
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFDFFFFFF);
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFDFFFFFF);
     return temp_r3;
 }
 
-s32 TObjEneDelDepth::get_type() { return *(s32*)((char*)this + 0x4); }
+s32 TObjEneDelDepth::get_type() { return *(s32 *)&this->m_flags; }
 
 extern f32 lbl_805D6AC8;
 extern u8 TObjEneDelDepth__state_complete_flag;
@@ -77,25 +77,25 @@ extern f32 lbl_805DF2E8;
 void TObjEneDelDepth::draw_model_part() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 4);
+    temp_r0 = *(s32 *)&this->m_flags;
     if (temp_r0 != -1) {
         if (temp_r0 < 6) {
             TObjFish::set_global_param(TObjFish__sub_8001EDB0(TObjEneDelDepth::get_data(), 0));
-            ((TObjEneRe7Berura *)(*(s32 *)((s8 *)arg0 + 0)))->draw();
+            ((TObjEneRe7Berura *)(*(s32 *)&this->m_name))->draw();
             return;
         }
         if (temp_r0 < 0xA) {
-            TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0xC)));
+            TObjFish::set_global_param((int) (*(s32 *)&this->m_next));
             TObjPlayer::set_global_flag();
-            draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 8)), (int) (*(s32 *)((s8 *)arg0 + 0x10)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
+            draw_model_motion((int) (*(s32 *)&this->m_prev), (int) (*(s32 *)&this->m_up), (f32) (*(f32 *)&this->unk_28));
             TObjPlayer::clear_global_state();
             return;
         }
         TObjPlayer::set_global_flag();
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0xC)));
-        draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 8)), (int) (*(s32 *)((s8 *)arg0 + 0x10)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
+        TObjFish::set_global_param((int) (*(s32 *)&this->m_next));
+        draw_model_motion((int) (*(s32 *)&this->m_prev), (int) (*(s32 *)&this->m_up), (f32) (*(f32 *)&this->unk_28));
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x18)));
-        draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 0x14)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
+        draw_model_motion((int) (*(s32 *)&this->m_down), (int) (*(s32 *)&this->unk_1C), (f32) (*(f32 *)&this->unk_28));
         TObjPlayer::clear_global_state();
     }
 }
@@ -128,7 +128,7 @@ void TObjEneDelDepth::update_animation_frame() {
 s32 TObjEneDelDepth::is_state_complete() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 4);
+    temp_r0 = *(s32 *)&this->m_flags;
     if (temp_r0 == -1) {
         return 1;
     }
@@ -136,11 +136,11 @@ s32 TObjEneDelDepth::is_state_complete() {
         return 0;
     }
     if ((s8) TObjEneDelDepth__state_complete_flag == 0) {
-        f32 temp_f1 = *(f32 *)((s8 *)this + 0x24);
+        f32 temp_f1 = *(f32 *)&this->texture_id;
         TObjEneDelDepth__state_complete_flag = 1;
         lbl_805D6AC8 = temp_f1 - lbl_805DF2E8;
     }
-    if (*(f32 *)((s8 *)this + 0x28) == lbl_805D6AC8) {
+    if (*(f32 *)&this->unk_28 == lbl_805D6AC8) {
         return 1;
     }
     return 0;

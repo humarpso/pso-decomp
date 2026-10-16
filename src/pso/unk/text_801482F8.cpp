@@ -355,24 +355,24 @@ extern s32 local_client_id;
 void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
     u32 temp_r3;
 
-    if ((s32) *(s32 *)((s8 *)this + 0x3A8) > 0) {
+    if ((s32) *(s32 *)&this->m_3a8 > 0) {
         if ((s32) arg1 == (s32) local_client_id) {
             temp_r3 = get_player_by_client_id();
-            if ((temp_r3 != 0U) && ((s16) *(s16 *)((s8 *)this + 0x326) != 3)) {
-                *(s16 *)((s8 *)this + 0x326) = 3;
-                *(s16 *)((s8 *)this + 0x328) = 0;
-                *(u16 *)((s8 *)this + 0x94) = arg1;
-                *(u16 *)((s8 *)this + 0x338) = arg1;
-                *(u32 *)((s8 *)this + 0x2A8) = temp_r3;
-                if ((s32) *(u16 *)((s8 *)this + 0x338) == (s32) local_client_id) {
+            if ((temp_r3 != 0U) && ((s16) this->mode != 3)) {
+                this->mode = 3;
+                this->phase = 0;
+                this->m_94 = arg1;
+                this->targetId = arg1;
+                *(u32 *)&this->target = temp_r3;
+                if ((s32) this->targetId == (s32) local_client_id) {
                     play_effect_default__10TObjPlayerFii(temp_r3, -1);
                 }
                 ((VObj18_801482f8 *) this)->vf160(1);
-                *(s32 *)((s8 *)this + 0x2AC) = 0;
+                *(s32 *)&this->unk_2AC = 0;
             }
         } else {
-            *(u16 *)((s8 *)this + 0x94) = 0xFFFFU;
-            *(u16 *)((s8 *)this + 0x338) = 0xFFFFU;
+            this->m_94 = 0xFFFFU;
+            this->targetId = 0xFFFFU;
         }
     }
 }
@@ -380,7 +380,7 @@ void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
 #define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
 
 void TObjNpcFemaleBase::debug_draw_talk() {
-    if ((fn_8010319C() != 0) && (((u32 (*)(u16))get_player_by_client_id)(*(u16 *)((u8 *)this + 0x94)) != 0)) {
+    if ((fn_8010319C() != 0) && (((u32 (*)(u16))get_player_by_client_id)(this->m_94) != 0)) {
         debug_printf_at(0x1A0020, lbl_8043F544);
     }
 }
@@ -388,32 +388,32 @@ void TObjNpcFemaleBase::debug_draw_talk() {
 void TObjNpcBase::apply_set_params(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x368);
+    temp_r0 = *(s32 *)&this->variant;
     if (temp_r0 <= arg1) {
-        *(s32 *)((s8 *)arg0 + 0x368) = arg1;
+        *(s32 *)&this->variant = arg1;
     } else if (arg2 <= temp_r0) {
-        *(s32 *)((s8 *)arg0 + 0x368) = arg2;
+        *(s32 *)&this->variant = arg2;
     }
     if (lbl_805DB1B8 <= *(f32 *)((s8 *)arg0 + 0x358)) {
-        *(s32 *)((s8 *)arg0 + 0x38C) = 1;
-        *(s32 *)((s8 *)arg0 + 0x3A0) = (s32) (*(f32 *)((s8 *)arg0 + 0x358) - lbl_805DB1B8);
+        *(s32 *)&this->m_38c = 1;
+        *(s32 *)&this->m_3a0 = (s32) (*(f32 *)((s8 *)arg0 + 0x358) - lbl_805DB1B8);
     } else {
-        *(s32 *)((s8 *)arg0 + 0x3A0) = (s32) *(f32 *)((s8 *)arg0 + 0x358);
+        *(s32 *)&this->m_3a0 = (s32) *(f32 *)((s8 *)arg0 + 0x358);
     }
     if (lbl_805DB1B8 <= *(f32 *)((s8 *)arg0 + 0x35C)) {
-        *(s32 *)((s8 *)arg0 + 0x38C) = 1;
-        *(s32 *)((s8 *)arg0 + 0x3A4) = (s32) (*(f32 *)((s8 *)arg0 + 0x35C) - lbl_805DB1B8);
+        *(s32 *)&this->m_38c = 1;
+        *(s32 *)&this->m_3a4 = (s32) (*(f32 *)((s8 *)arg0 + 0x35C) - lbl_805DB1B8);
     } else {
-        *(s32 *)((s8 *)arg0 + 0x3A4) = (s32) *(f32 *)((s8 *)arg0 + 0x35C);
+        *(s32 *)&this->m_3a4 = (s32) *(f32 *)((s8 *)arg0 + 0x35C);
     }
     TObjNpcBase__sub_80149360(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x364));
     TObjNpcBase__sub_80149358(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x360));
-    *(s32 *)((s8 *)arg0 + 0x384) = (s32) *(s32 *)((s8 *)arg0 + 0x60);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x3AC) > 0) {
-        *(f32 *)((s8 *)arg0 + 0x398) = (f32) lbl_805DB1BC;
+    this->m_384 = (s32) this->rotation_y;
+    if ((s32) *(s32 *)&this->m_3ac > 0) {
+        *(f32 *)&this->unk_398 = (f32) lbl_805DB1BC;
         return;
     }
-    *(f32 *)((s8 *)arg0 + 0x398) = (f32) lbl_805DB1C0;
+    *(f32 *)&this->unk_398 = (f32) lbl_805DB1C0;
 }
 
 void TObjNpcBase::update_conversation() {
@@ -553,7 +553,7 @@ void TObjNpcBase::update_conversation() {
 
 void TObjNpcBase::update_wandering() {
     u8 *arg0 = (u8 *)this;
-    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
+    switch (this->phase) {
     case 0: {
         Vec_801489B8 v;
         s32 angle;
@@ -572,8 +572,8 @@ void TObjNpcBase::update_wandering() {
         if (lbl_805DB1D4 < horizontal_distance_squared(&v, arg0 + 0x38)) {
             Vec_801489B8 d = v;
             select_enemy_destination(arg0, &d, 0);
-            *(f32 *)((s8 *)arg0 + 0x308) = *(f32 *)((s8 *)arg0 + 0x310) = lbl_805DB1C4;
-            *(s16 *)((s8 *)arg0 + 0x328) = 1;
+            *(f32 *)((s8 *)arg0 + 0x308) = this->m_310 = lbl_805DB1C4;
+            this->phase = 1;
             ((VObj18_801489B8 *) arg0)->vf160(1);
         }
         break;
@@ -581,17 +581,17 @@ void TObjNpcBase::update_wandering() {
     case 1: {
         u8 *o;
         f32 r;
-        enemy_turn_toward_dest(arg0, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
-        enemy_set_heading_velocity(arg0, *(s32 *)((s8 *)arg0 + 0x60), *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 4));
+        enemy_turn_toward_dest(arg0, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
+        enemy_set_heading_velocity(arg0, this->rotation_y, *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4));
         move_with_wall_slide(arg0);
         if (objInBand__FP7GameObjf(arg0, lbl_805DB1C8) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DB1D8) != 0) {
             ((VObj18_801489B8 *) arg0)->vf168();
         }
         {
             f32 dist = horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x2FC);
-            r = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 4) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC);
-            if (dist < r * r || (*(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x380000)) {
-                *(s16 *)((s8 *)arg0 + 0x328) = 3;
+            r = *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC);
+            if (dist < r * r || (*(u32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) & 0x380000)) {
+                this->phase = 3;
                 ((VObj18_801489B8 *) arg0)->vf160(0);
             }
         }
@@ -600,10 +600,10 @@ void TObjNpcBase::update_wandering() {
     case 2:
         break;
     case 3:
-        (*(s32 *)((s8 *)arg0 + 0x2AC))++;
-        if (lbl_805DB1DC < (f32) *(s32 *)((s8 *)arg0 + 0x2AC)) {
-            *(s16 *)((s8 *)arg0 + 0x328) = 0;
-            *(s32 *)((s8 *)arg0 + 0x2AC) = 0;
+        (*(s32 *)&this->unk_2AC)++;
+        if (lbl_805DB1DC < (f32) *(s32 *)&this->unk_2AC) {
+            this->phase = 0;
+            *(s32 *)&this->unk_2AC = 0;
         }
         break;
     }
@@ -612,23 +612,23 @@ void TObjNpcBase::update_wandering() {
 
 void TObjNpcBase::update_standing() {
     u8 *arg0 = (u8 *)this;
-    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
+    switch (this->phase) {
     case 0:
-        if (*(s32 *)((s8 *)arg0 + 0x60) != *(s32 *)((s8 *)arg0 + 0x384)) {
-            *(s16 *)((s8 *)arg0 + 0x328) = 2;
+        if (this->rotation_y != this->m_384) {
+            this->phase = 2;
             ((VObj18_801482f8 *) arg0)->vf160(1);
         } else {
-            *(s16 *)((s8 *)arg0 + 0x328) = 1;
+            this->phase = 1;
             ((VObj18_801482f8 *) arg0)->vf160(0);
         }
         break;
     case 1:
         break;
     case 2:
-        if (*(s32 *)((s8 *)arg0 + 0x60) != *(s32 *)((s8 *)arg0 + 0x384)) {
-            *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), *(s32 *)((s8 *)arg0 + 0x384), *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
+        if (this->rotation_y != this->m_384) {
+            this->rotation_y = approach_angle_limited(this->rotation_y, this->m_384, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
         } else {
-            *(s16 *)((s8 *)arg0 + 0x328) = 1;
+            this->phase = 1;
             ((VObj18_801482f8 *) arg0)->vf160(0);
         }
         break;
@@ -637,16 +637,16 @@ void TObjNpcBase::update_standing() {
 
 void TObjNpcBase::vfunc_59() {
     s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     if ((temp_r0 >= 4) || (temp_r0 < 1)) {
-        if ((s32) *(s32 *)((s8 *)this + 0x368) != 1) {
-            *(s16 *)((s8 *)this + 0x326) = 1;
-            *(s16 *)((s8 *)this + 0x328) = 0;
+        if ((s32) *(s32 *)&this->variant != 1) {
+            this->mode = 1;
+            this->phase = 0;
             ((VObj18_801482f8 *) this)->vf160(0);
             return;
         }
-        *(s16 *)((s8 *)this + 0x326) = 2;
-        *(s16 *)((s8 *)this + 0x328) = 0;
+        this->mode = 2;
+        this->phase = 0;
         ((VObj18_801482f8 *) this)->vf160(0);
     }
 }

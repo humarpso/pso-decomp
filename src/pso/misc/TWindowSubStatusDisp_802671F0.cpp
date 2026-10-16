@@ -223,7 +223,7 @@ void TWindowSubStatusDisp::clamp_scroll_offset() {
     f32 temp_f1;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x84) != 0U) {
         stack.sp8 = lbl_805DD188;
-        temp_f1 = *(f32 *)((s8 *)arg0 + 0x4C) - lbl_805DD18C;
+        temp_f1 = this->m_4c - lbl_805DD18C;
         stack.spC = temp_f1;
         if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
             stack.spC = temp_f1 - lbl_805DD190;
@@ -263,10 +263,10 @@ void TWindowSubShortCutList::draw_entry(s32 arg1, u8 arg2, s32 arg3, s32 arg4) {
     u8 sp9;
     u8 sp8;
 
-    if ((s16) *(s16 *)((s8 *)this + 0x72) < (s16) *(s16 *)((s8 *)this + 0x76)) {
-        fn_80266BD0(arg1, &sp9, &sp8, *(s16 *)((s8 *)this + 0x20));
-        init_entry__20TWindowSubStatusDispFPvccUcUii(get_array_entry__20TWindowSubStatusDispFi(this, *(s16 *)((s8 *)this + 0x72)), sp9, sp8, arg2, arg3, arg4);
-        *(s16 *)((s8 *)this + 0x72) = (s16) (*(s16 *)((s8 *)this + 0x72) + 1);
+    if ((s16) this->m_72 < (s16) this->m_76) {
+        fn_80266BD0(arg1, &sp9, &sp8, this->m_20);
+        init_entry__20TWindowSubStatusDispFPvccUcUii(get_array_entry__20TWindowSubStatusDispFi(this, this->m_72), sp9, sp8, arg2, arg3, arg4);
+        this->m_72 = (s16) (this->m_72 + 1);
     }
 }
 
@@ -395,10 +395,10 @@ void TWindowSubStatusDisp::add_inventory_item(s32 arg1, s32 arg2, s32 arg3) {
 void TShopEquipmentSellWindow::add_item(s32 arg1, s32 arg2, s32 arg3) {
     s16 temp_r4;
     if (arg1 != 0) {
-        temp_r4 = (s16) *(s16 *)((s8 *)this + 0x72);
-        if (temp_r4 < (s16) *(s16 *)((s8 *)this + 0x76)) {
+        temp_r4 = (s16) this->m_72;
+        if (temp_r4 < (s16) this->m_76) {
             update_from_player__20TWindowSubStatusDispFPvPvii(get_array_entry__20TWindowSubStatusDispFi(this, temp_r4), arg1, arg2, arg3);
-            *(s16 *)((s8 *)this + 0x72) = (s16) (*(s16 *)((s8 *)this + 0x72) + 1);
+            this->m_72 = (s16) (this->m_72 + 1);
         }
     }
 }
@@ -406,10 +406,10 @@ void TShopEquipmentSellWindow::add_item(s32 arg1, s32 arg2, s32 arg3) {
 void TShopJudgmentItemWindow::add_list_entry(s32 arg1, s32 arg2) {
     s16 temp_r4;
     if (arg1 != 0) {
-        temp_r4 = (s16) *(s16 *)((s8 *)this + 0x72);
-        if (temp_r4 < (s16) *(s16 *)((s8 *)this + 0x76)) {
+        temp_r4 = (s16) this->m_72;
+        if (temp_r4 < (s16) this->m_76) {
             init_item_row__20TWindowSubStatusDispFPvPvi(get_array_entry__20TWindowSubStatusDispFi(this, temp_r4), arg1, arg2);
-            *(s16 *)((s8 *)this + 0x72) = (s16) (*(s16 *)((s8 *)this + 0x72) + 1);
+            this->m_72 = (s16) (this->m_72 + 1);
         }
     }
 }
@@ -591,10 +591,10 @@ void TWindowSubStatusDisp::ensure_status_display(s32 arg1) {
     if ((u32) *(u32 *)((s8 *)this + 0x80) == 0U) {
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x24)->alloc();
         if (var_r0 != 0U) {
-            var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r0, arg1, *(s16 *)((s8 *)this + 0x20));
+            var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r0, arg1, this->m_20);
         }
         *(u32 *)((s8 *)this + 0x80) = var_r0;
-        *(s32 *)((s8 *)this + 0x2C) = (s32) (*(s32 *)((s8 *)this + 0x2C) | 0x40);
+        this->m_2c = (s32) (this->m_2c | 0x40);
     }
 }
 
@@ -604,7 +604,7 @@ void TWindowSubMag::start_scroll(f32 farg0) {
     temp_r4 = *(u16 *)((s8 *)this + 0x70);
     if (temp_r4 & 0x20) {
         *(u16 *)((s8 *)this + 0x70) = (u16) (temp_r4 & 0xFFFFFFDF);
-        *(f32 *)((s8 *)this + 0x3C) = farg0;
+        *(f32 *)&this->m_3c = farg0;
         *(s32 *)((s8 *)this + 0x50) = 3;
     }
 }
@@ -617,9 +617,9 @@ void TWindowSubStatusDisp::init_scroll_pos() {
     if (!(temp_r4 & 0x20)) {
         *(u16 *)((s8 *)this + 0x70) = (u16) (temp_r4 | 0x20);
         temp = ((u16 *(*)(void *, s16))get_array_entry__20TWindowSubStatusDispFi)((void *)(this), (s16)(*(s16 *)((s8 *)this + 0x74)));
-        *(f32 *)((s8 *)this + 0x3C) = (f32) (lbl_805DD18C + *(f32 *)((s8 *)temp + 0x14));
-        if (*(s32 *)((s8 *)this + 0x2C) & 0x40) {
-            *(f32 *)((s8 *)this + 0x3C) = (f32) (*(f32 *)((s8 *)this + 0x3C) + lbl_805DD190);
+        this->m_3c = (f32) (lbl_805DD18C + *(f32 *)((s8 *)temp + 0x14));
+        if (this->m_2c & 0x40) {
+            this->m_3c = (f32) (this->m_3c + lbl_805DD190);
         }
         *(s32 *)((s8 *)this + 0x50) = 3;
     }

@@ -14,7 +14,9 @@ public:
     virtual s32 vfunc_20(void *, f32);
     virtual void render();
     virtual void run_task();
-    u8 unk_334[0x34];
+    u8 unk_334[0x20];
+    s32 m_354;
+    u8 unk_358[0x10];
 };
 typedef char TUnk_8048E1A4_size[sizeof(TUnk_8048E1A4) == 0x368 ? 1 : -1];
 

@@ -31,8 +31,8 @@ void TObjPlayer::draw_mag() {
     void *temp_r30;
     void *temp_r29;
 
-    if (((void *) *(void **)((s8 *)this + 0xF4) != NULL) && (get_flag_40__8TItemMagFv() == 0)) {
-        temp_r5 = *(void **)((s8 *)this + 0xF4);
+    if (((void *) this->m_f4 != NULL) && (get_flag_40__8TItemMagFv() == 0)) {
+        temp_r5 = this->m_f4;
         temp_r31 = *(void **)((s8 *)temp_r5 + 0x2C);
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 8);
         temp_r30 = *(void **)((s8 *)temp_r31 + 0x2C);
@@ -80,17 +80,17 @@ void TObjPlayer::try_spawn_cane_effect(s32 arg0) {
 }
 
 void TObjPlayer::update_pulse() {
-    if ((s32) *(s32 *)((s8 *)this + 0x1FC) != 0) {
+    if ((s32) this->m_1fc != 0) {
         *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 0x38E);
         if ((s32) *(s32 *)((s8 *)this + 0x1F8) >= 0x1555) {
             *(s32 *)((s8 *)this + 0x1F8) = 0x1555;
-            *(s32 *)((s8 *)this + 0x1FC) = 0;
+            this->m_1fc = 0;
         }
     } else {
         *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) - 0x38E);
         if ((s32) *(s32 *)((s8 *)this + 0x1F8) <= 0) {
             *(s32 *)((s8 *)this + 0x1F8) = 0x1555;
-            *(s32 *)((s8 *)this + 0x1FC) = 1;
+            this->m_1fc = 1;
         }
     }
 }

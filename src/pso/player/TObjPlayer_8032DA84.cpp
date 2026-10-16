@@ -69,11 +69,11 @@ void TObjPlayer::launch_guardianna_colliders() {
 
     draw_icon((s32)4, (s32)(&sp8));
     if (get_validated_attack_stage(*(s32 *)((s8 *)this + 0xF0) + 0x7CC) == 2) {
-        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)((s8 *)this + 0xF4), 0);
-        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)((s8 *)this + 0xF4), 0x1555);
-        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)((s8 *)this + 0xF4), -0x1555);
+        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0);
+        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0x1555);
+        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, -0x1555);
     } else {
-        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)((s8 *)this + 0xF4), 0);
+        fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0);
     }
     if (get_attack_stage__11TItemWeaponFv(this) == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, this, 4);
@@ -193,14 +193,14 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
 void TUnk_804EDD20::vfunc_8() {
     u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0x70) & 1) {
-        *(f32 *)((s8 *)arg0 + 0x80) = (f32) (*(f32 *)((s8 *)arg0 + 0x80) + lbl_805DF7DC);
-        if (*(f32 *)((s8 *)arg0 + 0x80) > lbl_805DF7E0) {
-            *(f32 *)((s8 *)arg0 + 0x80) = (f32) lbl_805DF7E0;
+        this->m_80 = (f32) (this->m_80 + lbl_805DF7DC);
+        if (this->m_80 > lbl_805DF7E0) {
+            this->m_80 = (f32) lbl_805DF7E0;
         }
     } else {
-        *(f32 *)((s8 *)arg0 + 0x80) = (f32) (*(f32 *)((s8 *)arg0 + 0x80) - lbl_805DF7DC);
-        if (*(f32 *)((s8 *)arg0 + 0x80) < lbl_805DF7D8) {
-            *(f32 *)((s8 *)arg0 + 0x80) = (f32) lbl_805DF7D8;
+        this->m_80 = (f32) (this->m_80 - lbl_805DF7DC);
+        if (this->m_80 < lbl_805DF7D8) {
+            this->m_80 = (f32) lbl_805DF7D8;
         }
     }
 }
@@ -220,7 +220,7 @@ extern "C" {
     extern const float lbl_805DF7D8;
     extern const float lbl_805DF7E0;
     extern const float lbl_805DF7E4;
-void TObjPlayer::init_offset_vectors() { *(int*)((char*)this + 0x70) = 0; *(float*)((char*)this + 0x74) = lbl_805DF7E4; *(float*)((char*)this + 0x78) = lbl_805DF7E4; *(float*)((char*)this + 0x7c) = lbl_805DF7E4; *(float*)((char*)this + 0x80) = lbl_805DF7D8; *(float*)((char*)this + 0x84) = lbl_805DF7E0; *(float*)((char*)this + 0x88) = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
+void TObjPlayer::init_offset_vectors() { this->m_70 = 0; *(float*)((char*)this + 0x74) = lbl_805DF7E4; this->m_78 = lbl_805DF7E4; *(float*)((char*)this + 0x7c) = lbl_805DF7E4; this->m_80 = lbl_805DF7D8; *(float*)((char*)this + 0x84) = lbl_805DF7E0; this->m_88 = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
 
 }
 
@@ -352,9 +352,9 @@ void TUnk_804EDD44::vfunc_8() {  }
 #pragma fp_contract on
 void TUnk_804EDD44::start_card_effect_trail() {
     u8 *arg0 = (u8 *)this;
-    *(u32 *)((s8 *)arg0 + 0x24) = create_particle_emitter((void *) (arg0 + 0x64), (int) (0x1B6));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-        ((TParticleCtrl *)(*(u32 *)((s8 *)arg0 + 0x24)))->set_tint_color((int) (-0x78));
+    this->m_24 = create_particle_emitter((void *) (arg0 + 0x64), (int) (0x1B6));
+    if ((u32) this->m_24 != 0U) {
+        ((TParticleCtrl *)(this->m_24))->set_tint_color((int) (-0x78));
     }
 }
 #pragma pop
@@ -369,7 +369,7 @@ void TUnk_804EDD44::start_card_effect_flash() {
     p = *(u32 *)((s8 *)arg0 + 0x1C);
     if (p != 0U) {
         ((TObjPlayer *)p)->set_position_xy((f32) (lbl_805DF7E8), (f32) (lbl_805DF7E8));
-        q = *(u32 *)((s8 *)arg0 + 0x50);
+        q = this->m_50;
         if (q != 0U) {
             ((TParticleCtrl *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_tint_color((int)(q));
         }

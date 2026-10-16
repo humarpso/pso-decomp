@@ -28,7 +28,7 @@ s32 TObjPlayer::draw_icon(s32 arg1, s32 arg2) {
         ((VObj_104_801207e8 *)temp_r3)->m63(0x30);
     } else if (arg1 == -2) {
         ((VObj_104_801207e8 *)temp_r3)->m63(0x23);
-    } else if ((u32) *(u32 *)((s8 *)this + 0xF4) != 0U) {
+    } else if ((u32) *(u32 *)&this->m_f4 != 0U) {
         floats.sp10 = lbl_805DAC98;
         floats.spC = lbl_805DAC98;
         floats.sp8 = lbl_805DAC98;
@@ -44,7 +44,7 @@ s32 TObjPlayer::draw_icon(s32 arg1, s32 arg2) {
 }
 
 void TObjPlayer::draw_status_icon(s32 arg1) {
-    draw_icon((s32)(*(s16 *)((s8 *)this + 0x1CE)), (s32)(arg1));
+    draw_icon((s32)(this->m_1ce), (s32)(arg1));
 }
 
 }

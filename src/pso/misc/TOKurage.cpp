@@ -118,17 +118,17 @@ void *__nw__7TObjectFUl(int);
 
 void TOKurage::check_player_distance() {
     u8 *arg0 = (u8 *)this;
-    if ((xyz_distance(arg0 + 0xE4, arg0 + 0x38) > *(f32 *)((s8 *)arg0 + 0x6C)) && ((u8) *(u8 *)((s8 *)arg0 + 0x100) != 4)) {
-        *(u8 *)((s8 *)arg0 + 0x100) = 3U;
+    if ((xyz_distance(arg0 + 0xE4, arg0 + 0x38) > this->target_scale) && ((u8) this->m_100 != 4)) {
+        this->m_100 = 3U;
     }
 }
 
 void TOKurage::update_state() {
     f32 temp_f0;
 
-    temp_f0 = *(f32 *)((s8 *)this + 0x68);
+    temp_f0 = this->scale;
     if (is_any_player_within_radius_xz(temp_f0 * temp_f0) == 1) {
-        *(s8 *)((s8 *)this + 0x100) = 4;
+        *(s8 *)&this->m_100 = 4;
     }
 }
 
@@ -144,18 +144,18 @@ void TOKurage::init() {
     u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0xCC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0xE4, arg0 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (0.0f);
+    *(f32 *)&this->m_d8 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0xF8) = (f32) (0.0f);
-    *(s8 *)((s8 *)arg0 + 0x100) = 0;
-    *(s8 *)((s8 *)arg0 + 0x101) = 0;
-    *(s16 *)((s8 *)arg0 + 0xFC) = 0x1E;
-    *(s16 *)((s8 *)arg0 + 0xFE) = 0;
-    *(f32 *)((s8 *)arg0 + 0x104) = (f32) (1.0f);
+    this->m_e0 = (f32) (0.0f);
+    this->m_f8 = (f32) (0.0f);
+    *(s8 *)&this->m_100 = 0;
+    *(s8 *)&this->m_101 = 0;
+    this->m_fc = 0x1E;
+    this->m_fe = 0;
+    *(f32 *)&this->m_104 = (f32) (1.0f);
     *(f32 *)((s8 *)arg0 + 0x108) = (f32) (1.0f);
-    *(f32 *)((s8 *)arg0 + 0x10C) = (f32) (1.0f);
-    *(f32 *)((s8 *)arg0 + 0x110) = (f32) (1.0f);
+    this->m_10c = (f32) (1.0f);
+    *(f32 *)&this->unk_110 = (f32) (1.0f);
 }
 
 #pragma push

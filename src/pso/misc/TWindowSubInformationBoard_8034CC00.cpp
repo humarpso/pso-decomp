@@ -25,11 +25,11 @@ s32 get_keyboard_field_6c__15TWindowMakeTeamFv(s32, s32);
 void TWindowSubInformationBoard::set_page(s32 arg1) {
     s32 temp_r3;
 
-    if (((s32) *(s32 *)((s8 *)this + 0x24) != arg1) && (arg1 != -1)) {
+    if (((s32) *(s32 *)&this->m_24 != arg1) && (arg1 != -1)) {
         temp_r3 = get_info_board_ptr__6TLobbyFv();
         if (temp_r3 != 0) {
-            *(s32 *)((s8 *)this + 0x24) = arg1;
-            ((TLobby *)(*(s32 *)((s8 *)this + 0x34)))->send_and_handle(temp_r3 + (arg1 * 0xBC) + 0x14, 0x80);
+            *(s32 *)&this->m_24 = arg1;
+            ((TLobby *)(*(s32 *)&this->m_34))->send_and_handle(temp_r3 + (arg1 * 0xBC) + 0x14, 0x80);
         }
     }
 }
@@ -39,9 +39,9 @@ extern s32 local_client_id;
 typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8034CC68_lbl_80478C3C) == 0xC ? 1 : -1];
 void TWindowSubInformationBoard::set_message_index(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x24) != arg1) {
-        *(s32 *)((s8 *)arg0 + 0x24) = arg1;
-        ((TLobby *)(*(u8 **)((s8 *)arg0 + 0x34)))->send_and_handle((s32)(TWindowSubStatusDisp::get_message_10((int) (*(s32 *)((s8 *)(&lbl_80478C3C.value) + (arg1 * 4))))), (s32)(0x80));
+    if ((s32) *(s32 *)&this->m_24 != arg1) {
+        *(s32 *)&this->m_24 = arg1;
+        ((TLobby *)(*(u8 * *)&this->m_34))->send_and_handle((s32)(TWindowSubStatusDisp::get_message_10((int) (*(s32 *)((s8 *)(&lbl_80478C3C.value) + (arg1 * 4))))), (s32)(0x80));
     }
 }
 
@@ -65,7 +65,7 @@ void TWindowSubInformationBoard::show_card_a7() {
     s32 temp_r3;
     temp_r3 = get_window_layout_position((s32)(0xA7));
     TLobby::set_window_mode_4((void *)temp_r3, (s32)lbl_80478C34, (s32)1);
-    *(s32 *)((s8 *)this + 0x24) = -1;
+    *(s32 *)&this->m_24 = -1;
 }
 
 }

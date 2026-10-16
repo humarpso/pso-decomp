@@ -244,14 +244,14 @@ void TTecSlicer::deliver_target_hit() {
     f32 range;
     s32 temp_r3;
     u8 *temp_r3_2;
-    if (*(u16 *)((s8 *)arg0 + 0xC4) != 0xFFFF) {
+    if (this->targetId != 0xFFFF) {
         dist = horizontal_distance_squared((s32) (arg0 + 0x9C), (s32) (arg0 + 0x38));
         range = *(f32 *)((s8 *)arg0 + 0xB8) + *(f32 *)((s8 *)arg0 + 0xBC);
         if (dist < range * range) {
-            temp_r3 = resolve_hittable_target(*(u16 *)((s8 *)arg0 + 0xC4), *(s8 *)((s8 *)arg0 + 0xC6));
+            temp_r3 = resolve_hittable_target(this->targetId, *(s8 *)((s8 *)arg0 + 0xC6));
             if (temp_r3 != 0) {
-                temp_r3_2 = *(u8 **)((s8 *)arg0 + 0x108);
-                ((VObj_18_ed5691 *)(temp_r3_2))->m59(*(s32 *)((s8 *)arg0 + 0x10C), temp_r3, *(s16 *)((s8 *)arg0 + 0x11C), *(s8 *)((s8 *)arg0 + 0xC6), *(f32 *)((s8 *)arg0 + 0x120));
+                temp_r3_2 = *(u8 * *)&this->currentWeapon;
+                ((VObj_18_ed5691 *)(temp_r3_2))->m59(*(s32 *)&this->currentPlayer, temp_r3, *(s16 *)((s8 *)arg0 + 0x11C), *(s8 *)((s8 *)arg0 + 0xC6), this->damageMultiplier);
             }
         }
     }
@@ -354,16 +354,16 @@ void TTecSlicer::render() {
     u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 ||
         ((VObj_18_8023B900 *)arg0)->m8(lbl_805DC95C, lbl_805DC960) == 0 ||
-        query_game_join_id__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x118)) == 0U) {
+        query_game_join_id__10TObjPlayerFv(*(s32 *)&this->weaponHandle) == 0U) {
         return;
     }
     lbl_805D5660 = model_render_flags;
-    if (*(s32 *)((s8 *)arg0 + 0x13C) != 0) {
+    if (this->useColorOverride != 0) {
         model_render_flags |= 0x10;
         set_chunk_material_color(arg0 + 0x128);
     }
-    if (*(u32 *)((s8 *)arg0 + 0x24) != 0U && *(u32 *)((s8 *)arg0 + 0x110) != 0U) {
-        TObjPlayer::notify_fish_if_valid(*(u32 *)((s8 *)arg0 + 0x24));
+    if (this->textureHandle != 0U && *(u32 *)&this->model != 0U) {
+        TObjPlayer::notify_fish_if_valid(this->textureHandle);
         TParticleCtrl::begin_effect_render();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
@@ -371,7 +371,7 @@ void TTecSlicer::render() {
         rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
         scale_current_matrix(arg0 + 0x68);
-        draw_ginja_object(*(u32 *)((s8 *)arg0 + 0x110));
+        draw_ginja_object(*(u32 *)&this->model);
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
         TParticleCtrl::end_effect_render();
     }

@@ -8,6 +8,6 @@ int TItemWeapon__ct(void);
     extern unsigned char spawn_shoot_particle_9f[];
     extern unsigned char lbl_804A2450[];
     extern const float lbl_805DAD48;
-void*TObjPlayer::init_vtable_and_handler() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A2450; *(int*)((char*)this + 0x1f0) = (int)spawn_shoot_particle_9f; *(float*)((char*)this + 0x1e4) = lbl_805DAD48; return this; }
+void*TObjPlayer::init_vtable_and_handler() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A2450; *(int*)((char*)this + 0x1f0) = (int)spawn_shoot_particle_9f; this->m_1e4 = lbl_805DAD48; return this; }
 
 }

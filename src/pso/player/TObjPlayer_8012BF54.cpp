@@ -17,10 +17,10 @@ void TObjPlayer::apply_conveyor_move() {
     temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 1:
-        rotate_matrix_z(0, -*(s32 *)((s8 *)this + 0x1FC));
+        rotate_matrix_z(0, -this->m_1fc);
         return;
     case 2:
-        rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x1FC));
+        rotate_matrix_z(0, this->m_1fc);
         return;
     case 3:
         rotate_matrix_x(0, *(s32 *)((s8 *)this + 0x1F8));
@@ -37,9 +37,9 @@ void *TObjPlayer::init_vtable_and_handlers() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = holy_ray_weapon_vtable;
     *(s32 **)((s8 *)this + 0x1F0) = spawn_shoot_particle_attached__10TItemShootFlllf;
-    *(s32 **)((s8 *)this + 0x1F4) = spawn_target_needle;
-    *(s32 **)((s8 *)this + 0x1EC) = spawn_needle_wall_impact;
-    *(u32 *)((s8 *)this + 0x1FC) = 0;
+    this->m_1f4 = spawn_target_needle;
+    this->m_1ec = spawn_needle_wall_impact;
+    *(u32 *)&this->m_1fc = 0;
     *(u32 *)((s8 *)this + 0x1F8) = 0;
     return this;
 }

@@ -12,6 +12,6 @@ s32 TWindowMenu__sub_80266B18(void *, s32);
 u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 s32 TWindowSubComCard__sub_8026906C(void);
 
-int TWindowSubStatusDisp::is_flag80_set() { return *(u16*)((char*)this + 0x0) & 0x80; }
+int TWindowSubStatusDisp::is_flag80_set() { return *(u16 *)&this->m_name & 0x80; }
 
 }

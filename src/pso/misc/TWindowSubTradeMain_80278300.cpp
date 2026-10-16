@@ -42,8 +42,8 @@ extern const f32 lbl_805DD618;
 extern "C" {
 
 void TWindowSubTradeMain::set_trade_state(s16 arg1) {
-    *(s16 *)((s8 *)this + 0x88) = arg1;
-    if ((s16) *(s16 *)((s8 *)this + 0x88) == 3) {
+    this->m_88 = arg1;
+    if ((s16) this->m_88 == 3) {
         *(s16 *)((s8 *)this + 0x8A) = 0x3C;
     }
 }

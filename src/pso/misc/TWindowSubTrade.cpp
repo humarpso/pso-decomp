@@ -55,66 +55,66 @@ void TWindowSubTrade::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r30;
     s32 temp_r5;
-    temp_r30 = is_player_input_active((int) (*(s32 *)((s8 *)arg0 + 0x20)));
-    switch (*(u8 *)((s8 *)arg0 + 0x1C)) {
+    temp_r30 = is_player_input_active((int) (*(s32 *)&this->m_20));
+    switch (this->m_1c) {
     case 0:
     case 1:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-            ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x34)))->close();
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+        if ((u32) this->m_34 != 0U) {
+            ((TWindowSubComCard *)(*(void * *)&this->m_34))->close();
+            this->m_34 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x30));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
+        if ((u32) this->m_30 != 0U) {
+            TWindow__close(*(void * *)&this->m_30);
+            this->m_30 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x2C) = TWindowSubComCard__sub_802B1C1C((void *) (arg0));
+        if ((u32) this->m_2c == 0U) {
+            this->m_2c = TWindowSubComCard__sub_802B1C1C((void *) (arg0));
         }
-        ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x2C)))->clear_flag_and_release();
-        *(u8 *)((s8 *)arg0 + 0x1C) = 2U;
+        ((TWindowSubComCard *)(this->m_2c))->clear_flag_and_release();
+        this->m_1c = 2U;
     case 2:
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x2C)))->get_status_flag() != 0) {
-            ((VObj_18_204a81 *)(*(u8 **)((s8 *)arg0 + 0x28)))->m7();
-            *(u8 *)((s8 *)arg0 + 0x1C) = 7U;
-        } else if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x2C)))->is_visible() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 3U;
+        if (((TWindowSubComCard *)(this->m_2c))->get_status_flag() != 0) {
+            ((VObj_18_204a81 *)(*(u8 * *)&this->m_28))->m7();
+            this->m_1c = 7U;
+        } else if (((TWindowSubComCard *)(this->m_2c))->is_visible() != 0) {
+            this->m_1c = 3U;
         }
         break;
     case 3:
-        if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
-            *(s32 *)((s8 *)arg0 + 0x24) = get_selected_menu_value(*(s32 *)((s8 *)arg0 + 0x2C));
+        if (this->m_2c != 0) {
+            *(s32 *)&this->m_24 = get_selected_menu_value(*(s32 *)&this->m_2c);
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x34) = open_trade_confirm_prompt((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        if ((u32) this->m_34 == 0U) {
+            this->m_34 = open_trade_confirm_prompt((void *) (arg0), (int) (*(s32 *)&this->m_24));
         }
-        *(u8 *)((s8 *)arg0 + 0x1C) = 4U;
+        this->m_1c = 4U;
     case 4:
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x34)))->get_card_data() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 1U;
-        } else if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x34)))->is_child_visible() != 0) {
-            if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x34)))->get_slot_or_neg1() == 0) {
-                *(u8 *)((s8 *)arg0 + 0x1C) = 5U;
+        if (((TWindowSubComCard *)(this->m_34))->get_card_data() != 0) {
+            this->m_1c = 1U;
+        } else if (((TWindowSubComCard *)(this->m_34))->is_child_visible() != 0) {
+            if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
+                this->m_1c = 5U;
             } else {
-                *(u8 *)((s8 *)arg0 + 0x1C) = 1U;
+                this->m_1c = 1U;
             }
         }
         break;
     case 5:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-            ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x34)))->close();
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+        if ((u32) this->m_34 != 0U) {
+            ((TWindowSubComCard *)(*(void * *)&this->m_34))->close();
+            this->m_34 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x30) = open_player_message_window((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x24)), (int) (TWindowSubStatusDisp::get_message_10((int) (0xD7))));
+        if ((u32) this->m_30 == 0U) {
+            this->m_30 = open_player_message_window((void *) (arg0), (int) (*(s32 *)&this->m_24), (int) (TWindowSubStatusDisp::get_message_10((int) (0xD7))));
         }
-        send_modify_trade_proposal__6TLobbyFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        *(u8 *)((s8 *)arg0 + 0x1C) = 6U;
+        send_modify_trade_proposal__6TLobbyFi((int) (*(s32 *)&this->m_24));
+        this->m_1c = 6U;
     case 6:
         temp_r5 = temp_r30 * 0x50;
         if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(((u8 *)(controller_input_state) + temp_r5)) + 0x20), (int) (2), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (2)) != 0)) {
             play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
             cancel_trade__6TLobbyFv();
-            *(u8 *)((s8 *)arg0 + 0x1C) = 1U;
+            this->m_1c = 1U;
         }
         break;
     case 7:

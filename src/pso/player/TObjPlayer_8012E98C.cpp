@@ -15,8 +15,8 @@ void *TObjPlayer::init_state_2() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A5E20;
     set_status_flags__10TObjPlayerFPvUi(this, 2);
-    *(s32 **)((s8 *)this + 0x1F4) = spawn_target_needle;
-    *(s32 **)((s8 *)this + 0x1EC) = spawn_needle_wall_impact;
+    this->m_1f4 = spawn_target_needle;
+    this->m_1ec = spawn_needle_wall_impact;
     *(s32 **)((s8 *)this + 0x1F0) = create_shoot_model__10TObjPlayerFUiiif;
     return this;
 }

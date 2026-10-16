@@ -11,12 +11,14 @@ struct TObjNpcBase : public TObjEnemy {
     virtual void vfunc_58();
     virtual s32 vfunc_30();
     virtual void vfunc_28();
-    u8 unk_374[0x14];
+    u8 unk_374[0x10];
+    s32 m_384;
     u32 m_388;
     u32 m_38c;
     u32 m_390;
     u32 m_394;
-    u8 _pad398[0x8];
+    u8 unk_398[0x4];
+    f32 m_39c;
     u32 m_3a0;
     u32 m_3a4;
     u32 m_3a8;

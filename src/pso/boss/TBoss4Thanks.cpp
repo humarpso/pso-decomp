@@ -182,30 +182,30 @@ extern "C" {
 void TBoss4Thanks::update_fade_out() {
     s32 temp_r3;
 
-    if ((s32) *(s32 *)((s8 *)this + 0x20) != 1) {
-        if ((s32) *(s32 *)((s8 *)this + 0x30) == 0) {
+    if ((s32) this->current_motion != 1) {
+        if ((s32) this->fade_frame == 0) {
             play_sound_effect(0x40033231, 0, 0, 0);
         }
         update_particle_emitters();
-        *(f32 *)((s8 *)this + 0x2C) = (f32) (lbl_805E0188 * (lbl_805E018C - ((f32) *(s32 *)((s8 *)this + 0x30) / lbl_805E0190)));
-        temp_r3 = *(s32 *)((s8 *)this + 0x30);
+        this->fade_amount = (f32) (lbl_805E0188 * (lbl_805E018C - ((f32) this->fade_frame / lbl_805E0190)));
+        temp_r3 = this->fade_frame;
         if (temp_r3 == 0x78) {
             play_sound_effect(0x40033232, 0, 0, 0);
             queue_destruction__7TObjectFv(this);
             return;
         }
-        *(s32 *)((s8 *)this + 0x30) = (s32) (temp_r3 + 1);
+        this->fade_frame = (s32) (temp_r3 + 1);
     }
 }
 
 void TBoss4Thanks::advance_thanks_state() {
-    if ((s32) *(s32 *)((s8 *)this + 0x20) == 1) {
-        *(s32 *)((s8 *)this + 0x24) = 0;
-        *(s32 *)((s8 *)this + 0x1C) = 2;
+    if ((s32) this->current_motion == 1) {
+        this->next_motion = 0;
+        this->state = 2;
     }
 }
 
-void TBoss4Thanks::mark_done() { if (TBoss4Thanks::is_player_nearby((void *)(this)) != 0) { *(int*)((char*)this + 0x24) = 1; *(int*)((char*)this + 0x1c) = 1; } }
+void TBoss4Thanks::mark_done() { if (TBoss4Thanks::is_player_nearby((void *)(this)) != 0) { *(int *)&this->next_motion = 1; *(int *)&this->state = 1; } }
 
 typedef struct Anim_8035C6FC Anim_8035C6FC;
 typedef struct Thanks_8035C6FC Thanks_8035C6FC;

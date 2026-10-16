@@ -7,11 +7,14 @@
 struct TWindowSubMagPhoton : public TUnk_804CE018 {
     virtual ~TWindowSubMagPhoton();
     virtual void render();
-    u8 _pad1C[0x4];
+    u8 unk_1C[0x1];
+    u8 m_1d;
+    u8 unk_1E[0x2];
     s16 m_20;
     u8 _pad22[0x2];
     void* m_24;
-    u8 _pad28[0x8];
+    u8 unk_28[0x4];
+    s32 m_2c;
     void* m_30;
     u8 _pad34[0x2C];
     u8 m_60;

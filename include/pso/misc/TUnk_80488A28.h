@@ -13,7 +13,13 @@ public:
     virtual void vfunc_10();
     virtual void post_update_view();
     virtual void run_task();
-    u8 unk_1C[0x50];
+    u8 unk_1C[0x20];
+    f32 m_3c;
+    u8 unk_40[0x4];
+    f32 m_44;
+    u8 unk_48[0x10];
+    f32 m_58;
+    u8 unk_5C[0x10];
 };
 
 #endif

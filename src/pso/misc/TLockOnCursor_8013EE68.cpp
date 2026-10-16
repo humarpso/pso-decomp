@@ -11,7 +11,7 @@ extern s32 lbl_804A7248[];
 
 void *TLockOnCursor::destroy(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 8) = lbl_804A7248;
+        *(s32 * *)&this->m_prev = lbl_804A7248;
         free_if_valid__14TPlyDispConfigFis(this, 0);
         if (arg1 > 0) {
             __dl__FPv(this);

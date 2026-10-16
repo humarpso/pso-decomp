@@ -323,7 +323,7 @@ u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-void*TAdSinglePlyChrSelectGC::copy_item_data(void* a1) { copy_item_data__6TLobbyFPvPv(this); *(short*)((char*)this + 0x14) = *(short*)((char*)a1 + 0x14); *(short*)((char*)this + 0x16) = *(short*)((char*)a1 + 0x16); return this; }
+void*TAdSinglePlyChrSelectGC::copy_item_data(void* a1) { copy_item_data__6TLobbyFPvPv(this); *(short *)&this->m_down = *(short*)((char*)a1 + 0x14); *(short*)((char*)this + 0x16) = *(short*)((char*)a1 + 0x16); return this; }
 
 u8 *construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     __construct_array(arg0 + 4, (void *)TAdSinglePlyChrSelectGC__sub_80203158, (void *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39B4, 7);
@@ -343,9 +343,9 @@ void TAdSinglePlyChrSelectGC__sub_80203210(void* p) { *(u32*)((char*)p + 0x4) &=
 
 void TAdSinglePlyChrSelectGC::clear_inventory_slot() {
     u8 *arg0 = (u8 *)this;
-    *(s8 *)((s8 *)arg0 + 0) = 0;
+    *(s8 *)&this->m_name = 0;
     *(s8 *)((s8 *)arg0 + 1) = -1;
-    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s32 *)&this->m_flags = 0;
     init__9TItemDataFv(arg0 + 8);
 }
 

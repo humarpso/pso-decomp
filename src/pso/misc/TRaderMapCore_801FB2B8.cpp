@@ -82,8 +82,8 @@ extern const f32 lbl_805DC59C;
 extern const f32 lbl_805DC5A0;
 
 void TRaderMapCore::advance_scroll() {
-    *(s32 *)((s8 *)this + 0x198) = (s32) (*(s32 *)((s8 *)this + 0x198) + 0x888);
-    *(f32 *)((s8 *)this + 0x19C) = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(*(s32 *)((s8 *)this + 0x198)));
+    this->m_198 = (s32) (this->m_198 + 0x888);
+    this->m_19c = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(this->m_198));
 }
 void run_task__13TRaderMapCoreFv(u8 *arg0) {
     s32 temp_r3;

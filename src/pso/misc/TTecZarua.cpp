@@ -185,10 +185,10 @@ void TTecZarua::calc_range() {
     s32 ret;
     struct { s32 v; } tmp;
 
-    ret = calc_technique_parameters(0xC, *(s16 *)((s8 *)arg0 + 0x78), 0xFFFF);
+    ret = calc_technique_parameters(0xC, this->m_78, 0xFFFF);
     tmp.v = ret;
     ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)tmp.v);
-    *(f32 *)((s8 *)arg0 + 0x88) = (f32) (*(s16 *)((s8 *)arg0 + 0xAC) * *(s16 *)((s8 *)arg0 + 0x78));
+    this->m_88 = (f32) (*(s16 *)&this->m_ac * this->m_78);
 }
 
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];

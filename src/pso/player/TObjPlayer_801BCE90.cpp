@@ -15,6 +15,6 @@ void TObjPlayer::update_recobox(s32 arg0) {
     }
     set_flag_20000__10TObjPlayerFi(arg0);
 }
-void TObjPlayer::destroy_child() { void* m = *(void**)((char*)this + 0xd00); if (m) queue_destruction__7TObjectFv(m); }
+void TObjPlayer::destroy_child() { void* m = this->inventory_objects; if (m) queue_destruction__7TObjectFv(m); }
 
 }

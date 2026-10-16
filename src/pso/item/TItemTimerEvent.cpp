@@ -66,39 +66,39 @@ s32 obj_testFlags30(s32, s32);
 s32 set_flag_10000__10TObjPlayerFv();
 
 void TUnk_804A0668::vfunc_7() {
-    if (test_action_mask__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x28), 0x1C) != 0) {
-        *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
+    if (test_action_mask__10TObjPlayerFl(*(s32 *)&this->m_28, 0x1C) != 0) {
+        *(s32 *)&this->m_24 = (s32) (*(s32 *)&this->m_24 + 1);
     }
 }
 
 void TUnk_804A0688::vfunc_6() {
-    ((TBoss3Volopt *)(*(s32 *)((s8 *)this + 0x28)))->get_field_3e0();
-    if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)((s8 *)this + 0x28)) == 0) && (obj_testFlags30(*(s32 *)((s8 *)this + 0x28), 0x800) == 0)) {
-        TObjectV8047c128_subtract_hp(*(s32 *)((s8 *)this + 0x28), 1);
+    ((TBoss3Volopt *)(*(s32 *)&this->m_28))->get_field_3e0();
+    if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)&this->m_28) == 0) && (obj_testFlags30(*(s32 *)&this->m_28, 0x800) == 0)) {
+        TObjectV8047c128_subtract_hp(*(s32 *)&this->m_28, 1);
     }
 }
 
 void TUnk_804A0688::vfunc_7() {
-    if (test_action_mask__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x28), 0x1C) != 0) {
-        *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
+    if (test_action_mask__10TObjPlayerFl(*(s32 *)&this->m_28, 0x1C) != 0) {
+        *(s32 *)&this->m_24 = (s32) (*(s32 *)&this->m_24 + 1);
     }
 }
 
 void TItemTimerEvent::vfunc_7() {
-    *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
+    *(s32 *)&this->m_24 = (s32) (*(s32 *)&this->m_24 + 1);
 }
 
 extern s32 __vt__15TItemTimerEvent[];
 
 void TItemTimerEvent::run_task() {
-    *(u32 *)((s8 *)this + 0x28) = get_player_by_client_id(*(u16 *)((s8 *)this + 0x1C));
-    if ((u32) *(u32 *)((s8 *)this + 0x28) == 0U) {
+    this->m_28 = get_player_by_client_id(this->m_1c);
+    if ((u32) this->m_28 == 0U) {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if ((s32) *(s32 *)((s8 *)this + 0x24) == (s32) *(s32 *)((s8 *)this + 0x20)) {
+    if ((s32) *(s32 *)&this->m_24 == (s32) *(s32 *)&this->m_20) {
         ((VObj_18 *)(this))->m4();
-        *(s32 *)((s8 *)this + 0x24) = 0;
+        *(s32 *)&this->m_24 = 0;
         return;
     }
     ((VObj_18 *)(this))->m5();

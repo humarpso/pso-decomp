@@ -26,7 +26,7 @@ int init__13TLockOnCursorFPvPv(void);
 
     extern unsigned char lbl_804A7290[];
     extern int lbl_805D2CBC;
-void*TMainCursor::init() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A7290; *(int*)((char*)this + 0x0) = lbl_805D2CBC; return this; }
+void*TMainCursor::init() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A7290; *(int *)&this->m_name = lbl_805D2CBC; return this; }
 
 void TMainCursor__sub_8013B2A4(u16 *arg0) {
     get_player_by_client_id(*arg0);
@@ -65,15 +65,15 @@ void TMainCursor__sub_8013B398(void *arg0, void *arg1) {
 }
 void TMainCursor::reset_state() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) TMainCursor__data_805DB0C0;
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) TMainCursor__data_805DB0C0;
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) TMainCursor__data_805DB0C0;
+    *(f32 *)&this->m_24 = (f32) TMainCursor__data_805DB0C0;
+    *(f32 *)&this->m_20 = (f32) TMainCursor__data_805DB0C0;
+    *(f32 *)&this->m_1c = (f32) TMainCursor__data_805DB0C0;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) TMainCursor__data_805DB0C0;
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) TMainCursor__data_805DB0C0;
+    this->m_2c = (f32) TMainCursor__data_805DB0C0;
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) TMainCursor__data_805DB0C0;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    this->m_34 = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TMainCursor__data_805DB0C0;
+    this->m_3c = (f32) TMainCursor__data_805DB0C0;
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
     ((TMainCursor *)arg0)->set_type(0);
     fn_80044330(arg0 + 0x40);

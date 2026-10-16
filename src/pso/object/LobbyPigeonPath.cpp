@@ -889,11 +889,11 @@ void TUnk_804E08D4::vfunc_14() {
     set_global_param__8TObjFishFl((*(s32 *)&lobby_kamome_texture_gvm_handle));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+    rotate_matrix_y(0, this->rotation_y);
     post_translate_matrix(arg0 + 0xAC);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xB8));
-    rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0xC0));
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0x9C), *(f32 *)((s8 *)arg0 + 0xA8));
+    rotate_matrix_y(0, this->m_b8);
+    rotate_matrix_z(0, this->m_c0);
+    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), this->m_9c, this->m_a8);
     pop_matrix();
 }
 
@@ -1087,11 +1087,11 @@ void TUnk_804E0910::vfunc_14() {
     set_global_param__8TObjFishFl((*(s32 *)&lobby_pigeon_texture_gvm));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+    rotate_matrix_y(0, this->rotation_y);
     post_translate_matrix(arg0 + 0xAC);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xB8));
-    rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0xC0));
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0x9C), *(f32 *)((s8 *)arg0 + 0xA8));
+    rotate_matrix_y(0, this->m_b8);
+    rotate_matrix_z(0, this->m_c0);
+    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), this->m_9c, this->m_a8);
     pop_matrix();
 }
 
@@ -1299,11 +1299,11 @@ void TUnk_804E094C::vfunc_14() {
     set_global_param__8TObjFishFl((*(s32 *)&jungle_ebi_texture_gvm_handle));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+    rotate_matrix_y(0, this->rotation_y);
     post_translate_matrix(arg0 + 0xAC);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xB8));
-    rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0xC0));
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0x9C), *(f32 *)((s8 *)arg0 + 0xA8));
+    rotate_matrix_y(0, this->m_b8);
+    rotate_matrix_z(0, this->m_c0);
+    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), this->m_9c, this->m_a8);
     pop_matrix();
 }
 
@@ -1485,12 +1485,12 @@ void TUnk_804E0988::vfunc_14() {
     set_global_param__8TObjFishFl(seabed_dolphin_texture_handle);
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+    rotate_matrix_y(0, this->rotation_y);
     post_translate_matrix(arg0 + 0xAC);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xB8));
-    rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0xC0));
+    rotate_matrix_y(0, this->m_b8);
+    rotate_matrix_z(0, this->m_c0);
     set_global_flag__10TObjPlayerFv();
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0x9C), *(f32 *)((s8 *)arg0 + 0xA8));
+    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), this->m_9c, this->m_a8);
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
 }
@@ -1667,7 +1667,7 @@ void __dl__7TObjectFPv(void *);
 
 void TObjPathObj::render() {
     u8 *arg0 = (u8 *)this;
-    if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18 *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0x90), *(f32 *)((s8 *)arg0 + 0x94)) != 0)) {
+    if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18 *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0x90), this->m_94) != 0)) {
         ((VObj_18 *)(arg0))->m12();
     }
 }

@@ -66,17 +66,17 @@ void TObjEnvSound::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     s32 temp_r0;
-    temp_f0 = *(f32 *)((s8 *)arg0 + 0x90);
-    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (TObjEnvSound::is_sound_enabled((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x98))) != 0)) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x9C);
+    temp_f0 = *(f32 *)&this->unk_90;
+    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (TObjEnvSound::is_sound_enabled((void *) (arg0), (int) (*(s32 *)&this->m_98)) != 0)) {
+        temp_r0 = *(s32 *)&this->m_9c;
         switch (temp_r0) {
         case 0:
             break;
         case 1:
-            play_persistent_sound((int) (*(s32 *)((s8 *)arg0 + 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((int) (*(s32 *)&this->m_98), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             return;
         case 2:
-            play_persistent_sound((int) (*(s32 *)((s8 *)arg0 + 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (*(s32 *)((s8 *)arg0 + 0x94)), (int) (2));
+            play_persistent_sound((int) (*(s32 *)&this->m_98), (void *) (arg0), (void *) (arg0 + 0x38), (int) (*(s32 *)&this->m_94), (int) (2));
             break;
         }
     }

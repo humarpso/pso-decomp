@@ -13,7 +13,7 @@ void *TObjPlayer::init_state_1() {
     *(s32 **)((s8 *)this + 0x18) = lbl_804A1A48;
     set_status_flags__10TObjPlayerFPvUi(this, 1);
     *(u32 *)((s8 *)this + 0x1F8) = 0;
-    *(u32 *)((s8 *)this + 0x1FC) = 1;
+    *(u32 *)&this->m_1fc = 1;
     return this;
 }
 

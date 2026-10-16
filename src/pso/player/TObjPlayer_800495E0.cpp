@@ -116,7 +116,7 @@ void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 
 u8 TObjPlayer::check_flag(s32 arg1) {
-    return (u8) ((*(s32 *)((s8 *)this + 0x334) & arg1) != 0);
+    return (u8) ((*(s32 *)&this->m_334 & arg1) != 0);
 }
 
 s32 TObjPlayer__sub_800495F8(void *arg0) {
@@ -212,7 +212,7 @@ void *TObjPlayer::destroy(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80484A94;
         free_collision_body_parts(this);
         if (*(void **)((s8 *)this + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD4)); }
-        if (*(void **)((s8 *)this + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD8)); }
+        if (*(void * *)&this->m_d8 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_d8); }
         if (*(void **)((s8 *)this + 0x10) != NULL) { TObjPlayer__sub_80049A0C((void*)(*(void **)((s8 *)this + 0x10))); }
         destroy_particle_controller(0);
         if (arg1 > 0) {
@@ -281,11 +281,11 @@ void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0) {
 
 void TUnk_80484AFC::render() {
     u8 *arg0 = (u8 *)this;
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xB0));
+    TObjFish::set_global_param(this->m_b0);
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+    rotate_matrix_x(0, *(s32 *)&this->m_5c);
+    rotate_matrix_y(0, this->rotation_y);
     model_render_flags &= 0xFFFFFBFF;
     draw_chunk_object(*(s32 *)((s8 *)arg0 + 0xAC));
     pop_matrix();

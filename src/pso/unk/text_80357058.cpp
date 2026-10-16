@@ -206,12 +206,12 @@ void TItemEffOrgaFlowShot::update_segments() {
 void TItemEffOrgaFlowShot::update_position_from_velocity() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f2;
-    temp_f2 = lbl_805E0028 * *(f32 *)((s8 *)arg0 + 0x190);
-    *(f32 *)((s8 *)arg0 + 0x40) = temp_f2;
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805E002C + *(f32 *)((s8 *)arg0 + 0x194));
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) ((*(f32 *)((s8 *)arg0 + 0x17C) * temp_f2) + *(f32 *)((s8 *)arg0 + 0x114));
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)arg0 + 0x118);
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x184) * temp_f2) + *(f32 *)((s8 *)arg0 + 0x11C));
+    temp_f2 = lbl_805E0028 * *(f32 *)&this->m_190;
+    this->m_40 = temp_f2;
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805E002C + *(f32 *)&this->m_194);
+    this->m_24 = (f32) ((this->m_17c * temp_f2) + this->m_114);
+    *(f32 *)&this->m_28 = (f32) *(f32 *)((s8 *)arg0 + 0x118);
+    *(f32 *)&this->unk_2C = (f32) ((this->m_184 * temp_f2) + this->m_11c);
 }
 #pragma pop
 

@@ -62,6 +62,6 @@ void TObjPlayer__sub_80129118(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TObjPlayer__sub_80129124(void* p) { *(s32*)((char*)p + 0x1fc) = 0; }
-void TObjPlayer::handle_tunnel_state_0() { if (get_player_list__10TObjPlayerFv(this) == 0) { rotate_matrix_z((void*)0, *(void**)((char*)this + 0x1fc)); } }
+void TObjPlayer::handle_tunnel_state_0() { if (get_player_list__10TObjPlayerFv(this) == 0) { rotate_matrix_z((void*)0, *(void* *)&this->m_1fc); } }
 
 }

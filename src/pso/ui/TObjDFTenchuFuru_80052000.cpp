@@ -45,7 +45,7 @@ void TObjDFUsoTower::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x94);
+    temp_f1 = *(f32 *)&this->unk_94;
     if (lbl_805D8A30 != temp_f1) {
         if (temp_f1 < lbl_805D8A34) {
             TObjPlayer__sub_80052390();
@@ -53,10 +53,10 @@ void TObjDFUsoTower::render() {
         }
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
+        TObjFish::set_global_param(this->texture_id);
+        draw_ginja_object(*(s32 *)&this->model);
         pop_matrix();
-        if (*(f32 *)((s8 *)arg0 + 0x94) < lbl_805D8A34) {
+        if (*(f32 *)&this->unk_94 < lbl_805D8A34) {
             TObjPlayer::sync_player_globals();
         }
     }

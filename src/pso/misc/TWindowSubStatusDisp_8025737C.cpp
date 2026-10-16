@@ -234,11 +234,11 @@ void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time) {
     }
 }
 
-void TAdChrMoveEffectGC::copy4(void* q) { *(u8*)((char*)this + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)this + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)this + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)this + 0x3) = *(u8*)((char*)q + 0x3); }
+void TAdChrMoveEffectGC::copy4(void* q) { *(u8 *)&this->m_name = *(u8*)((char*)q + 0x0); *(u8*)((char*)this + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)this + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)this + 0x3) = *(u8*)((char*)q + 0x3); }
 
 void TWindowSubStatusDisp::update_disp_value() {
     calc_bar_width__20TWindowSubStatusDispFPv();
-    *(s16 *)((s8 *)this + 0x28) = (s16) *(f32 *)((s8 *)this + 0x24);
+    *(s16 *)((s8 *)this + 0x28) = (s16) *(f32 *)&this->m_24;
 }
 
 #pragma push

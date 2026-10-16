@@ -16,17 +16,17 @@ void TObjPlayer::apply_frame_camera_shake() {
 
     temp_r31 = TObjPlayer::get_player_list();
     if (get_slot_count__14TItemProShieldFv(this) != 6) {
-        if (temp_r31 == (s32) *(s32 *)((s8 *)this + 0x21C)) {
-            translate_matrix(0, lbl_805DAF58, *(f32 *)((s8 *)this + 0x224), lbl_805DAF58);
+        if (temp_r31 == (s32) this->m_21c) {
+            translate_matrix(0, lbl_805DAF58, this->m_224, lbl_805DAF58);
         }
         var_r30 = *(s32 *)((s8 *)this + 0x220);
     } else {
-        if (temp_r31 == (s32) *(s32 *)((s8 *)this + 0x21C)) {
+        if (temp_r31 == (s32) this->m_21c) {
             rotate_matrix_x(0, -*(s32 *)((s8 *)this + 0x220));
         }
         var_r30 = (s32) (*(s32 *)((s8 *)this + 0x220) * 2) / 3;
     }
-    if ((temp_r31 == (s32) *(s32 *)((s8 *)this + 0x20C)) || (temp_r31 == (s32) *(s32 *)((s8 *)this + 0x214))) {
+    if ((temp_r31 == (s32) this->m_20c) || (temp_r31 == (s32) this->m_214)) {
         rotate_matrix_z(0, var_r30);
     }
     if ((temp_r31 == (s32) *(s32 *)((s8 *)this + 0x210)) || (temp_r31 == (s32) *(s32 *)((s8 *)this + 0x218))) {

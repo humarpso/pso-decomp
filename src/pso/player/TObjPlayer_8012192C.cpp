@@ -49,11 +49,11 @@ extern f32 lbl_805DACC8;
 extern f32 lbl_805DACCC;
 
 void TObjPlayer::update_freeze_state() {
-    if ((s32) *(s32 *)((s8 *)this + 0x1FC) == 3) {
-        *(s32 *)((s8 *)this + 0x1FC) = 1;
+    if ((s32) this->m_1fc == 3) {
+        this->m_1fc = 1;
     }
-    if (((s32) *(s32 *)((s8 *)this + 0x1FC) == 0) && ((lbl_805DACC8 * (f32) rand()) < lbl_805DACCC)) {
-        *(s32 *)((s8 *)this + 0x1FC) = 2;
+    if (((s32) this->m_1fc == 0) && ((lbl_805DACC8 * (f32) rand()) < lbl_805DACCC)) {
+        this->m_1fc = 2;
     }
 }
 

@@ -22,7 +22,7 @@ s32 pack_flags__13TRaderMapCoreFii(s32 arg1, s32 arg2) {
 }
 
 u8 TRaderMapCore::has_flag() {
-    return (u8) ((*(s32 *)((s8 *)this + 4) & ((s32 (*)())pack_flags__13TRaderMapCoreFii)()) != 0);
+    return (u8) ((*(s32 *)&this->m_flags & ((s32 (*)())pack_flags__13TRaderMapCoreFii)()) != 0);
 }
 
 }

@@ -93,8 +93,8 @@ extern const f32 lbl_805DD838;
 s32 TWindowSubTechnique::open_menu() {
     s32 temp_r31;
 
-    temp_r31 = create_titled_window_menu(get_window_layout_position(0x12), 5, get_message_10__20TWindowSubStatusDispFl(0x2F), *(s32 *)((s8 *)this + 0x28));
-    TWindowSubEquip__sub_80263AF8(*(s32 *)((s8 *)this + 0x30), 0);
+    temp_r31 = create_titled_window_menu(get_window_layout_position(0x12), 5, get_message_10__20TWindowSubStatusDispFl(0x2F), this->playerIndex);
+    TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 0);
     set_field_1c__6TLobbyFf(temp_r31);
     ((TWindowOptionCtrl *)temp_r31)->set_flag70_bit100();
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x9C), 6, 0);
@@ -264,6 +264,6 @@ s32 TWindowSubTechnique__sub_8028753C(s32 arg0) {
 }
 
 void TWindowSubTechnique::clear_flag70_bit80() { *(u16*)((char*)this + 0x70) &= 0xffffff7f; }
-void TWindowSubTradeMain::clear_trade_flag() { *(u16*)((char*)this + 0x70) &= 0xffffffbf; }
+void TWindowSubTradeMain::clear_trade_flag() { this->m_70 &= 0xffffffbf; }
 
 }

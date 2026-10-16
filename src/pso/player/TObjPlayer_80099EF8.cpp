@@ -9,7 +9,7 @@ void fn_80099F00(O_80099F00 *self);
 
 extern "C" {
 
-s32 TObjPlayer::get_field_d8() { return *(s32*)((char*)this + 0xd8); }
+s32 TObjPlayer::get_field_d8() { return this->m_d8; }
 void fn_80099F00(O_80099F00 *self) {
     if (self->xb0 == 0) {
         return;

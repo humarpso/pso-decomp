@@ -16,7 +16,15 @@ struct TWindowSubComCard : public TObject {
     u32 m_28;
     u32 m_2c;
     void* m_30;
-    u8 _pad34[0x24];
+    u8 unk_34[0x4];
+    f32 m_38;
+    u8 unk_3C[0x4];
+    s32 m_40;
+    u8 unk_44[0x4];
+    f32 m_48;
+    u8 unk_4C[0x4];
+    u32 m_50;
+    u8 unk_54[0x4];
     u32 m_58;
     u32 m_5c;
     u32 m_60;

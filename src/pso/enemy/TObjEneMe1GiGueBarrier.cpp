@@ -93,8 +93,8 @@ block_6:
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) == 0) {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            rotate_matrix_y((int) (0), (int) (this->rotation_y));
+            TObjFish::set_global_param((int) (this->texture_id));
             TParticleCtrl::end_effect_render();
             ((TObjEneRe7Berura *)arg0)->draw();
             pop_matrix();
@@ -107,21 +107,21 @@ void TObjEneMe1GiGueBarrier::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0_2;
     u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0xFC);
+    temp_r0 = this->m_fc;
     if (temp_r0 == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (int) (update_and_get_pos__22TObjEneMe1GiGueBarrierFPv((int) (temp_r0))));
-    *(s32 *)((s8 *)arg0 + 0x60) = get_timer__22TObjEneMe1GiGueBarrierFPv((int) (*(u32 *)((s8 *)arg0 + 0xFC)));
+    this->rotation_y = get_timer__22TObjEneMe1GiGueBarrierFPv((int) (this->m_fc));
     advance_animation_playback((void *) (arg0));
-    *(s32 *)((s8 *)arg0 + 0x108) = (s32) (*(s32 *)((s8 *)arg0 + 0x108) - 1);
-    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x104);
+    *(s32 *)&this->m_108 = (s32) (*(s32 *)&this->m_108 - 1);
+    temp_r0_2 = *(s32 *)&this->m_104;
     switch (temp_r0_2) {
     case 0:
-        if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
-            *(s32 *)((s8 *)arg0 + 0x104) = 1;
-            *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        if (*(s32 *)&this->animationFlags & 0x10) {
+            *(s32 *)&this->m_104 = 1;
+            this->m_b8 = 1;
             if (TOKeyMachine01::get_global_state() == 0x23) {
                 play_sound_effect((int) (0x4003A316), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             } else {
@@ -130,15 +130,15 @@ void TObjEneMe1GiGueBarrier::run_task() {
         }
         break;
     case 2:
-        if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
+        if (*(s32 *)&this->animationFlags & 0x10) {
             queue_destruction__7TObjectFv((void *) (arg0));
         }
         break;
     default:
     case 1:
-        if (((s32) *(s32 *)((s8 *)arg0 + 0x108) <= 0) || (is_active_state__22TObjEneMe1GiGueBarrierFPv((int) (*(u32 *)((s8 *)arg0 + 0xFC))) != 0)) {
-            *(s32 *)((s8 *)arg0 + 0x104) = 2;
-            *(s16 *)((s8 *)arg0 + 0xB8) = 2;
+        if (((s32) *(s32 *)&this->m_108 <= 0) || (is_active_state__22TObjEneMe1GiGueBarrierFPv((int) (this->m_fc)) != 0)) {
+            *(s32 *)&this->m_104 = 2;
+            this->m_b8 = 2;
         }
         break;
     }

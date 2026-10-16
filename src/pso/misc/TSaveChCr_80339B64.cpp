@@ -25,17 +25,17 @@ s32 poll_memcard_status();
 int queue_destruction__7TObjectFv(void*);
 s32 save_character__9TSaveChCrFv(void *);
 
-void TSaveChCr::destroy_if_keyboard_idle() { if (*(int*)((char*)this + 0x38) == 0) { queue_destruction__7TObjectFv(this); request_queued_main_phase(); } }
+void TSaveChCr::destroy_if_keyboard_idle() { if (*(int *)&this->timer == 0) { queue_destruction__7TObjectFv(this); request_queued_main_phase(); } }
 int TSaveChCr__sub_80339B94(void* p) { return close_window__9TSaveChCrFv(p); }
 void TSaveChCr::save_if_dirty() { if (TSaveChCr__sub_80339F30(this) != 0) { set_state((s32)((void*)4)); } }
 int TSaveChCr::close_and_advance_to_3() { return close_and_advance__9TSaveChCrFPv(this, 3); }
 void TSaveChCr::update_save_status() {
     s32 var_r3;
 
-    if ((s32) *(s32 *)((s8 *)this + 0x38) <= 0) {
-        *(s32 *)((s8 *)this + 0x28) = 0;
-        *(s32 *)((s8 *)this + 0x2C) = poll_memcard_status();
-        if ((s32) *(s32 *)((s8 *)this + 0x2C) != 0) {
+    if ((s32) this->timer <= 0) {
+        this->m_28 = 0;
+        this->card_status = poll_memcard_status();
+        if ((s32) this->card_status != 0) {
             set_state((s32)((void*)(1)));
             return;
         }
@@ -58,10 +58,10 @@ int TSaveChCr::save_1() { return close_and_advance__9TSaveChCrFPv(this, 1); }
 void TSaveChCr::update_save_state() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)this + 0x2C);
+    temp_r4 = this->card_status;
     if (!(temp_r4 & 2)) {
         if (temp_r4 & 1) {
-            if ((u32) *(u32 *)((s8 *)this + 0x3C) == 0U) {
+            if ((u32) *(u32 *)&this->owned_window == 0U) {
                 close_and_advance__9TSaveChCrFPv((void*)(this), 0);
             }
         } else {

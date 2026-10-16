@@ -1746,7 +1746,7 @@ s32 TAdSinglePlyChrSelectGC::evict_char_entries(s32 arg0) {
 extern "C" {
 void TAdSinglePlyChrSelectGC::update_char_panels() {
     u8 *arg0 = (u8 *)this;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x14) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x10) != 0)) {
+    if (((s32) *(s32 *)&this->m_down != 0) && ((s32) *(s32 *)&this->m_up != 0)) {
         TLobby__sub_803DA16C(arg0 + 0x178);
     }
     if (((s32) *(s32 *)((s8 *)arg0 + 0x188) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x184) != 0)) {

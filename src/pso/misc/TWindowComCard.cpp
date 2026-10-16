@@ -383,10 +383,10 @@ void TUnk_804CE964::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     u8 *temp_r4;
-    temp_r4 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x60));
+    temp_r4 = (unsigned char *) (this->m_60);
     temp_f1 = *(f32 *)((s8 *)temp_r4 + 0x44);
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x68));
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg0 + 0x34);
+    this->m_34 = (f32) (temp_f1 + this->m_68);
+    this->m_44 = (f32) this->m_34;
     ((s32 (*)(void *, int, f32))initialize_subwindow__9TWindowDDFv)((void *)(arg0), (int) (temp_r4), (f32) (temp_f1));
     ((s32 (*)(void *))update_fade__17TWindowSubComCardFv)((void *) (arg0));
     ((s32 (*)(void *, void *))update_window_entry_list)((void *) (arg0), (void *) (arg0 + 0x24));

@@ -33,7 +33,7 @@ int init__13TLockOnCursorFPvPv(void);
 
     extern unsigned char lbl_804A7278[];
     extern int lbl_805D2CC0;
-void*TMainCursor::init_vtable() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A7278; *(int*)((char*)this + 0x0) = lbl_805D2CC0; return this; }
+void*TMainCursor::init_vtable() { init__13TLockOnCursorFPvPv(); *(int*)((char*)this + 0x18) = (int)lbl_804A7278; *(int *)&this->m_name = lbl_805D2CC0; return this; }
 void TLOC_Start::run_task() {
     s32 arg0 = (s32)this;
     Pl_8013B0F0 *pl;

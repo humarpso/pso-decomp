@@ -46,7 +46,15 @@ struct TWindowSubTradeMain : public TObject {
     s32 build_trade_menu();
     virtual void render();
     virtual void run_task();
-    u8 unk_58[0x50];
+    u8 unk_58[0x18];
+    u16 m_70;
+    u8 unk_72[0x2];
+    s16 m_74;
+    u8 unk_76[0xA];
+    u32 m_80;
+    u8 unk_84[0x4];
+    s16 m_88;
+    u8 unk_8A[0x1E];
 };
 
 typedef char TWindowSubTradeMain_size[sizeof(TWindowSubTradeMain) == 0xA8 ? 1 : -1];

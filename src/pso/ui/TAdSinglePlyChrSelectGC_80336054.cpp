@@ -17,14 +17,14 @@ extern s32 tl_fade;
 
 s32 TAdSinglePlyChrSelectGC::start_offline_seq() {
     s32 *temp_r3;
-    if (!(*(s32 *)((s8 *)this + 0x3C) & 2)) {
+    if (!(this->m_3c & 2)) {
         temp_r3 = (s32 *) __nw__7TObjectFUl(0x28);
         if (temp_r3 != NULL) {
             ((THunterGuildSeqOffline *)temp_r3)->init((void *)tl_fade, (void *)queue_destruction_and_cleanup__6TLobbyFv);
         }
-        *(s32 *)((s8 *)this + 0x3C) = (s32) (*(s32 *)((s8 *)this + 0x3C) | 2);
+        this->m_3c = (s32) (this->m_3c | 2);
     }
-    return *(s32 *)((s8 *)this + 0x3C) & 4;
+    return this->m_3c & 4;
 }
 
 }

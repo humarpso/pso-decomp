@@ -16,9 +16,19 @@ struct TWindowActionPalette {
 
     void render();
 
-    u8 unknown_00[0x24];
+    u8 unk_0[0x1];
+
+    u8 m_1;
+
+    u8 unk_2[0x1E];
+
+    s16 m_20;
+
+    u8 unk_22[0x2];
     ChildList children;
-    u8 unknown_2c[0x34];
+    u8 unk_2C[0x28];
+    f32 m_54;
+    u8 unk_58[0x8];
     u8 resources[3][4];
     u8 state;
     u8 unknown_6d[3];

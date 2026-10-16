@@ -9,7 +9,9 @@ public:
     virtual void vfunc_8();
     virtual void start_card_effect_trail();
     virtual void start_card_effect_flash();
-    u8 unk_70[0x20];
+    u8 unk_70[0x10];
+    f32 m_80;
+    u8 unk_84[0xC];
 };
 typedef char TUnk_804EDD20_size[sizeof(TUnk_804EDD20) == 0x90 ? 1 : -1];
 

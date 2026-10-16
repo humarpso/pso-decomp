@@ -66,7 +66,7 @@ void TUnk_804887C8::run_task() {
     f32 temp_f2;
     u8 *temp_r3;
     u8 *temp_r4;
-    *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805D8F28;
+    this->m_58 = (f32) lbl_805D8F28;
     if ((void *) *(u8 **)((s8 *)arg0 + 0x1C) != NULL) {
         temp_r3 = (u8 *)(TCameraCtrl__sub_8003CFF4());
         if (temp_r3 != NULL) {
@@ -79,9 +79,9 @@ void TUnk_804887C8::run_task() {
             stack.sp10 = temp_f1;
             if (lbl_805D8F2C != vector_length((void *) (&stack.sp8), (int) (temp_r4), (f32) (temp_f1), (f32) (temp_f2))) {
                 normalize_vector((void *) (&stack.sp8));
-                *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((lbl_805D8F30 * stack.sp8) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x38));
+                this->m_3c = (f32) ((lbl_805D8F30 * stack.sp8) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x38));
                 *(f32 *)((s8 *)arg0 + 0x40) = (f32) (lbl_805D8F34 + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x3C));
-                *(f32 *)((s8 *)arg0 + 0x44) = (f32) ((lbl_805D8F30 * stack.sp10) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x40));
+                this->m_44 = (f32) ((lbl_805D8F30 * stack.sp10) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x40));
             }
         }
     }

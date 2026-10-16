@@ -558,9 +558,9 @@ void TObjCityDoor_Med::render() {
         set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         translate_matrix(0, lbl_805DBBE8[0], lbl_805DBBE8[0], lbl_805DBBF4);
-        draw_ginja_model_with_motion(get_city_common_model(0x14), get_city_common_motion(0xB), *(f32 *)((s8 *)arg0 + 0xB4));
+        draw_ginja_model_with_motion(get_city_common_model(0x14), get_city_common_motion(0xB), this->m_b4);
         pop_matrix();
     }
 }
@@ -716,7 +716,7 @@ void TObjCityDoor_Warp::run_task() {
     }
     ((VObj_18 *)(arg0))->m19();
     if (((s32 (*)(void *))is_rader_map_active)((void *) (arg0)) == 0) {
-        temp_r3 = *(u8 **)((s8 *)arg0 + 0xA4);
+        temp_r3 = *(u8 * *)&this->m_a4;
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 1);
     }
 }
@@ -881,8 +881,8 @@ void TObjCityDoor_Guild::render() {
         set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        draw_ginja_model_with_motion(get_city_common_model(0x15), get_city_common_motion(0xC), *(f32 *)((s8 *)arg0 + 0xB4));
+        rotate_matrix_y(0, this->rotation_y);
+        draw_ginja_model_with_motion(get_city_common_model(0x15), get_city_common_motion(0xC), this->m_b4);
         pop_matrix();
     }
 }
@@ -984,8 +984,8 @@ void TObjCityDoor_Shop::render() {
         set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        draw_ginja_model_with_motion(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xB8), *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x54), *(f32 *)((s8 *)arg0 + 0xB4));
+        rotate_matrix_y(0, this->rotation_y);
+        draw_ginja_model_with_motion(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xB8), *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x54), this->m_b4);
         pop_matrix();
     }
 }

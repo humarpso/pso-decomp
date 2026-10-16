@@ -256,16 +256,16 @@ void TItem::run_task() {
         ((TItem *)arg0)->update_timer();
         return;
     case 1:
-        *(u32 *)((s8 *)arg0 + 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFv((void *) (arg0))));
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) {
+        this->m_f0 = get_player_by_client_id((void *) (get_id__13TItemProArmorFv((void *) (arg0))));
+        if ((u32) this->m_f0 != 0U) {
             ((TItem *)arg0)->update_owner_visibility();
             ((VObj_18 *)(arg0))->m12();
             ((VObj_18 *)(arg0))->m13();
         }
         break;
     case 2:
-        *(u32 *)((s8 *)arg0 + 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFv((void *) (arg0))));
-        temp_r4 = *(u32 *)((s8 *)arg0 + 0xF0);
+        this->m_f0 = get_player_by_client_id((void *) (get_id__13TItemProArmorFv((void *) (arg0))));
+        temp_r4 = this->m_f0;
         if (temp_r4 != 0U) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r4 + 0x38));
             ((TItem *)arg0)->update_owner_visibility();

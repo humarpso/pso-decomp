@@ -31,7 +31,7 @@ u8 TObjPlayer::is_state_ec1_ed3() {
     int var_r4;
 
     var_r4 = 0;
-    if (((u8) *(u8 *)((s8 *)this + 0xEC) == 1) && ((u8) *(u8 *)((s8 *)this + 0xED) == 3)) {
+    if (((u8) *(u8 *)&this->m_ec == 1) && ((u8) *(u8 *)((s8 *)this + 0xED) == 3)) {
         var_r4 = 1;
     }
     return (u8)var_r4;
@@ -62,14 +62,14 @@ void TOChatSensor::send_switch_states() {
     Stack_801781D8 stack;
     u16 *var_r30;
     s32 var_r29;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x98) == 0U) {
-        if ((u16) *(u16 *)((s8 *)arg0 + 0xA8) < 0x100U) {
+    if ((u32) this->m_98 == 0U) {
+        if ((u16) this->m_a8 < 0x100U) {
             ((TOChatSensor *)(&stack.sp14))->init_packet_type();
-            stack.sp18 = (s16) *(s32 *)((s8 *)arg0 + 0xB4);
-            stack.sp1A = *(u16 *)((s8 *)arg0 + 0xA8);
+            stack.sp18 = (s16) this->m_b4;
+            stack.sp1A = this->m_a8;
             stack.sp1C = 0;
             ((TOChatSensor *)(&stack.sp14))->send_state();
-            clear_floor_switch_flag((int) (*(u16 *)((s8 *)arg0 + 0xA8)), (int) ((s16) *(s32 *)((s8 *)arg0 + 0xB4)));
+            clear_floor_switch_flag((int) (this->m_a8), (int) ((s16) this->m_b4));
         }
     } else {
         var_r30 = (u16 *)((u8 *)(arg0 + 0xAA));
@@ -77,7 +77,7 @@ void TOChatSensor::send_switch_states() {
         do {
             if ((u16) *var_r30 < 0x100U) {
                 ((TOChatSensor *)(&stack.sp8))->init_packet_type();
-                stack.spC = (s16) *(s32 *)((s8 *)arg0 + 0xB4);
+                stack.spC = (s16) this->m_b4;
                 stack.spE = *var_r30;
                 stack.sp10 = 1;
                 ((TOChatSensor *)(&stack.sp8))->send_state();

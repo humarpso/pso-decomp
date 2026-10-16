@@ -13,7 +13,8 @@ struct TSceneSora : public TUnk_804B9870 {
     virtual void run_task();
     static void create_instance();
     static void load_sky_resources();
-    u8 unk_9C[0x8];
+    u8 unk_9C[0x4];
+    f32 m_a0;
 };
 
 typedef char TSceneSora_size[sizeof(TSceneSora) == 0xA4 ? 1 : -1];

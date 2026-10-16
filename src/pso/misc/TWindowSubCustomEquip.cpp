@@ -87,8 +87,8 @@ extern const f32 lbl_805DD568;
 extern const f32 lbl_805DD56C;
 
 void TWindowSubCustomEquip::set_relative_pos(void *arg1) {
-    *(f32 *)((s8 *)this + 0) = (f32) (*(f32 *)((s8 *)arg1 + 8) - lbl_805DD568);
-    *(f32 *)((s8 *)this + 4) = (f32) (*(f32 *)((s8 *)arg1 + 0xC) - lbl_805DD56C);
+    *(f32 *)&this->m_name = (f32) (*(f32 *)((s8 *)arg1 + 8) - lbl_805DD568);
+    *(f32 *)&this->m_flags = (f32) (*(f32 *)((s8 *)arg1 + 0xC) - lbl_805DD56C);
 }
 
 int TWindowSubCustomEquip::layout_selection_parts(void *arg1) {
@@ -98,7 +98,7 @@ int TWindowSubCustomEquip::layout_selection_parts(void *arg1) {
     u8 *b;
     u8 *c;
     u8 *d;
-    if (*(s8 *)((s8 *)this + 0x64) == 0) {
+    if (*(s8 *)&this->m_64 == 0) {
         a = (u8 *)get_array_entry__20TWindowSubStatusDispFi(this, 0x11);
         b = (u8 *)get_array_entry__20TWindowSubStatusDispFi(this, 0x10);
         c = (u8 *)get_array_entry__20TWindowSubStatusDispFi(this, 8);
@@ -113,7 +113,7 @@ int TWindowSubCustomEquip::layout_selection_parts(void *arg1) {
     }
     pos.x = lbl_805DD570 + *(f32 *)((s8 *)p + 8);
     pos.y = lbl_805DD574 + *(f32 *)((s8 *)p + 0xC);
-    set_help_text__15TWindowHelpItemFll(b, *(s16 *)((s8 *)this + 0x20));
+    set_help_text__15TWindowHelpItemFll(b, this->m_20);
     ((TWindowSubSymbolChatPartsSet *)(a + 8))->copy_vec2(&pos);
     ((TWindowSubSymbolChatPartsSet *)(b + 8))->copy_vec2(&pos);
     *(f32 *)((s8 *)a + 0x18) = *(f32 *)((s8 *)p + 0x18);
@@ -154,28 +154,28 @@ void TWindowSubCustomEquip::reset_selection() { layout_entry_group((void *)((voi
 s32 TWindowSubCustomEquip::refresh_palette_slots() {
     u8 *player;
     s32 pal;
-    player = get_player_by_client_id(*(s16 *)((s8 *)this + 0x20));
+    player = get_player_by_client_id(this->m_20);
     if (player == NULL || (pal = select_action_palette__10TObjPlayerFi(player, 0)) == 0) {
         return;
     }
     update_palette_slot__21TWindowSubCustomEquipFPviii(this, 0,
-        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)((s8 *)this + 0x64), 2),
-        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)((s8 *)this + 0x64), 2));
+        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_64, 2),
+        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_64, 2));
     update_palette_slot__21TWindowSubCustomEquipFPviii(this, 1,
-        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)((s8 *)this + 0x64), 1),
-        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)((s8 *)this + 0x64), 1));
+        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_64, 1),
+        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_64, 1));
     update_palette_slot__21TWindowSubCustomEquipFPviii(this, 2,
-        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)((s8 *)this + 0x64), 3),
-        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)((s8 *)this + 0x64), 3));
+        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_64, 3),
+        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_64, 3));
     update_palette_slot__21TWindowSubCustomEquipFPviii(this, 3,
-        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)((s8 *)this + 0x65), 2),
-        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)((s8 *)this + 0x65), 2));
+        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_65, 2),
+        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_65, 2));
     update_palette_slot__21TWindowSubCustomEquipFPviii(this, 4,
-        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)((s8 *)this + 0x65), 1),
-        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)((s8 *)this + 0x65), 1));
+        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_65, 1),
+        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_65, 1));
     update_palette_slot__21TWindowSubCustomEquipFPviii(this, 5,
-        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)((s8 *)this + 0x65), 3),
-        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)((s8 *)this + 0x65), 3));
+        get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_65, 3),
+        TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_65, 3));
 }
 
 #pragma push
@@ -216,41 +216,41 @@ void TWindowSubCustomEquip::update_rotate_anim() {
     s32 var_r4;
 
     var_r4 = 0xB200;
-    if ((s8) *(u8 *)((s8 *)this + 0x62) > 0) {
+    if ((s8) this->m_62 > 0) {
         var_r4 = 0x13200;
     }
-    temp_r3 = *(s32 *)((s8 *)this + 0x68);
+    temp_r3 = *(s32 *)&this->m_68;
     if (var_r4 != temp_r3) {
         if ((s32) (u16) (var_r4 - temp_r3) < 0xC00) {
-            *(s32 *)((s8 *)this + 0x68) = var_r4;
+            *(s32 *)&this->m_68 = var_r4;
         } else {
-            *(s32 *)((s8 *)this + 0x68) = (s32) (temp_r3 + 0xC00);
+            *(s32 *)&this->m_68 = (s32) (temp_r3 + 0xC00);
         }
     }
-    if (*(s32 *)((s8 *)this + 0x68) & 0x8000) {
-        *(s8 *)((s8 *)this + 0x64) = 0;
-        *(s8 *)((s8 *)this + 0x65) = 1;
-        place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(this), (s32)(*(s32 *)((s8 *)this + 0x68)), (s32)(9));
-        place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(this), (s32)(*(s32 *)((s8 *)this + 0x68) + 0x8000), (s32)(0));
+    if (*(s32 *)&this->m_68 & 0x8000) {
+        *(s8 *)&this->m_64 = 0;
+        *(s8 *)&this->m_65 = 1;
+        place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(this), (s32)(*(s32 *)&this->m_68), (s32)(9));
+        place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(this), (s32)(*(s32 *)&this->m_68 + 0x8000), (s32)(0));
         return;
     }
-    *(s8 *)((s8 *)this + 0x64) = 1;
-    *(s8 *)((s8 *)this + 0x65) = 0;
-    place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(this), (s32)(*(s32 *)((s8 *)this + 0x68) + 0x8000), (s32)(9));
-    place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(this), (s32)(*(s32 *)((s8 *)this + 0x68)), (s32)(0));
+    *(s8 *)&this->m_64 = 1;
+    *(s8 *)&this->m_65 = 0;
+    place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(this), (s32)(*(s32 *)&this->m_68 + 0x8000), (s32)(9));
+    place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(this), (s32)(*(s32 *)&this->m_68), (s32)(0));
 }
 
 void TWindowSubCustomEquip::handle_cancel() {
     if (is_selected() == 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
-        *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 2);
+        this->m_60 = (u8) (this->m_60 | 2);
     }
 }
 
 void TWindowSubCustomEquip::handle_decide() {
     play_sound_effect(0x52D01, 0, 0, 0);
-    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 1);
-    ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)this + 0x6C)))->set_entry_state(2);
+    this->m_60 = (u8) (this->m_60 | 1);
+    ((TWindowSubStatusDisp *)(*(s32 *)&this->m_6c))->set_entry_state(2);
 }
 
 extern s32 __vt__21TWindowSubCustomEquip[];
@@ -320,7 +320,7 @@ void TWindowSubCustomEquip::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r30;
     u8 *temp_r30_2;
-    temp_r30 = is_player_input_active((int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
+    temp_r30 = is_player_input_active((int) ((s32) this->m_20));
     if (((TWindowSubCustomEquip *)arg0)->is_selected() == 0) {
         handle_cursor_input__21TWindowSubCustomEquipFPv((u8 *)((void *) (arg0)));
         temp_r30_2 = (u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + (temp_r30 * 0x50) + 0x20;
@@ -334,12 +334,12 @@ void TWindowSubCustomEquip::run_task() {
     update_rotate_anim();
     reset_selection();
     refresh_palette_slots();
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD5A4) {
-        ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)arg0 + 0x6C)))->update_subwindow();
+    if ((f32) *(s32 *)&this->m_5c >= lbl_805DD5A4) {
+        ((TWindowSubStatusDisp *)(*(s32 *)&this->m_6c))->update_subwindow();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
-    *(s16 *)((s8 *)arg0 + 0x66) = (s16) (*(s16 *)((s8 *)arg0 + 0x66) + 1);
+    this->m_66 = (s16) (this->m_66 + 1);
 }
 
 void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1) {

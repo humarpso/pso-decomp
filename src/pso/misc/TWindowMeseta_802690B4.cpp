@@ -14,7 +14,7 @@ int TWindowSubComCard__sub_8026906C(void* p);
 s32 TWindowMeseta::get_meseta_value() {
     void *temp_r3;
 
-    if (get_player_by_client_id(*(s32 *)((s8 *)this + 0x64)) == 0U) {
+    if (get_player_by_client_id(*(s32 *)&this->m_64) == 0U) {
         return 0;
     }
     temp_r3 = get_quest_id__12TQuestListVMFv();
@@ -24,7 +24,7 @@ s32 TWindowMeseta::get_meseta_value() {
     return *(s32 *)((s8 *)temp_r3 + 0x20);
 }
 void TWindowMeseta::draw_value(s32 arg1) {
-    draw_window_tab(arg1, arg1 + 0x10, 3, *(f32 *)((s8 *)this + 0x60));
+    draw_window_tab(arg1, arg1 + 0x10, 3, this->m_60);
 }
 void update_display__13TWindowMesetaFi(s32 arg0) {
     s32 temp_r3;

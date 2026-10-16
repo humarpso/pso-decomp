@@ -93,14 +93,14 @@ void TWindowSubShortMail::close() {
     s32 temp_r30;
     s32 var_r29;
 
-    temp_r31 = realloc_buffer__17TWindowSubComCardFv(*(s32 *)((s8 *)this + 0x5C));
+    temp_r31 = realloc_buffer__17TWindowSubComCardFv(*(s32 *)&this->m_5c);
     TWindowSubComCard__sub_80225E80(temp_r31, get_shared_text_buffer());
-    send_simple_mail__6TLobbyFiPv(*(s32 *)((s8 *)this + 0x2C), get_shared_text_buffer());
+    send_simple_mail__6TLobbyFiPv(*(s32 *)&this->m_2c, get_shared_text_buffer());
     mem_free(temp_r31);
     temp_r31_2 = get_short_mail_ctrl__6TLobbyFv();
     for (var_r29 = 0; var_r29 < temp_r31_2; var_r29 += 1) {
         temp_r30 = TLobby__sub_8022598C(var_r29);
-        if ((u32) *(u32 *)((s8 *)this + 0x30) == get_lobby_id__6TLobbyFPv()) {
+        if ((u32) this->m_30 == get_lobby_id__6TLobbyFPv()) {
             ((s32 (*)(s32)) TWindowSubShortMail__sub_8027FAD0)(temp_r30);
             return;
         }
@@ -110,12 +110,12 @@ void TWindowSubShortMail::close() {
 void TWindowSubShortMail::update_mail_count() {
     s32 temp_r3;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x3C) != 0U) {
-        temp_r3 = select_cursor_entry__6TLobbyFv((void*)(*(s32 *)((s8 *)this + 0x38)));
-        if ((s32) *(s32 *)((s8 *)this + 0x24) != temp_r3) {
-            *(s32 *)((s8 *)this + 0x24) = temp_r3;
-            if (find_short_mail_by_id__6TLobbyFUi(*(s32 *)((s8 *)this + 0x24)) != 0U) {
-                ((TLobby *)(*(u32 *)((s8 *)this + 0x3C)))->send_and_handle(((s32 (*)()) get_mail_ptr__19TWindowSubShortMailFPv)(), 0x482);
+    if ((u32) this->m_3c != 0U) {
+        temp_r3 = select_cursor_entry__6TLobbyFv((void*)(*(s32 *)&this->m_38));
+        if ((s32) *(s32 *)&this->m_24 != temp_r3) {
+            *(s32 *)&this->m_24 = temp_r3;
+            if (find_short_mail_by_id__6TLobbyFUi(*(s32 *)&this->m_24) != 0U) {
+                ((TLobby *)(this->m_3c))->send_and_handle(((s32 (*)()) get_mail_ptr__19TWindowSubShortMailFPv)(), 0x482);
             }
         }
     }
@@ -295,13 +295,13 @@ s32 TWindowSubShortMail::refresh_mail_list(void *arg1) {
     }
     if (n <= 0) {
         ((TWindowSubShortMail *)arg1)->advance_line(-1);
-        if (*(void **)((s8 *)arg0 + 0x3C) != 0) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
-            *(void **)((s8 *)arg0 + 0x3C) = 0;
+        if (*(void * *)&this->m_3c != 0) {
+            TWindow__close(*(void * *)&this->m_3c);
+            *(void * *)&this->m_3c = 0;
         }
-    } else if (*(void **)((s8 *)arg0 + 0x3C) == 0) {
-        *(void **)((s8 *)arg0 + 0x3C) = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0x9C), lbl_8044FACC, 1);
-        *(s32 *)((s8 *)arg0 + 0x24) = -1;
+    } else if (*(void * *)&this->m_3c == 0) {
+        *(void * *)&this->m_3c = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0x9C), lbl_8044FACC, 1);
+        *(s32 *)&this->m_24 = -1;
     }
     if (sel == -1) {
         ((TShopArmorListWindow *)arg1)->clamp_selection_to_valid_entry();
@@ -768,9 +768,9 @@ void TUnk_804D1AD0::render() {  }
 void TUnk_804D1AD0::run_task() {
     is_player_input_active(*(s32 *)((s8 *)this + 0x1C));
     if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x24)))->get_status_flag() != 0) {
-        ((VObj_8027FBF0_8027E620 *) *(void **)((s8 *)this + 0x20))->m7();
+        ((VObj_8027FBF0_8027E620 *) this->m_20)->m7();
     }
-    fn_8027FD94(*(s32 *)((s8 *)this + 0x28), get_selected_menu_value(*(s32 *)((s8 *)this + 0x24)));
+    fn_8027FD94(this->m_28, get_selected_menu_value(*(s32 *)((s8 *)this + 0x24)));
 }
 
 extern s32 status_category_window_vtable[];
@@ -778,8 +778,8 @@ extern s32 status_category_window_vtable[];
 void *TWindowSubShortMail::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = status_category_window_vtable;
-        if (*(void **)((s8 *)this + 0x28) != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void **)((s8 *)this + 0x28))); *(s32 *)((s8 *)this + 0x28) = 0; }
-        if (*(void **)((s8 *)this + 0x24) != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void **)((s8 *)this + 0x24))); *(s32 *)((s8 *)this + 0x24) = 0; }
+        if (*(void * *)&this->m_28 != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void * *)&this->m_28)); *(s32 *)&this->m_28 = 0; }
+        if (*(void * *)&this->m_24 != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void * *)&this->m_24)); *(s32 *)&this->m_24 = 0; }
         __dt__7TObjectFv((void *)(this), (int)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(this));

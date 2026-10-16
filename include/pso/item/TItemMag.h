@@ -9,10 +9,20 @@ struct TItemMag
 {
     void serialize_to_item(void *item);
 
-    u8 _pad0[0x1C];
+    u8 unk_0[0x1];
+    u8 m_1;
+    u8 unk_2[0x2];
+    u32 m_4;
+    u8 unk_8[0x14];
     u8 _pad1C[0x8];
     u32 m_24;
-    u8 _pad28[0xC8];
+    u8 unk_28[0x14];
+    f32 m_3c;
+    u8 unk_40[0x9C];
+    u32 m_dc;
+    u8 unk_E0[0xE];
+    u8 m_ee;
+    u8 unk_EF[0x1];
     MagDrawOwner *m_f0;
     void *m_f4;
     u8 _padF8[0x80];
@@ -25,11 +35,18 @@ struct TItemMag
     void* m_198;
     u8 _pad19C[0x8];
     u8 m_1a4;
-    u8 _pad1A5[0x3];
+    u8 unk_1A5[0x1];
+    u8 m_1a6;
+    u8 unk_1A7[0x1];
     TItemMagSub *children[2];
     s8 *model_entries[2];
     u32 m_1b8;
-    u8 _pad1BC[0x10];
+    u8 unk_1BC[0x1];
+    u8 m_1bd;
+    u8 unk_1BE[0x1];
+    u8 m_1bf;
+    u8 unk_1C0[0x8];
+    f32 m_1c8;
     u32 m_1cc;
     u8 _pad1D0[0x4];
     u16 m_1d4;

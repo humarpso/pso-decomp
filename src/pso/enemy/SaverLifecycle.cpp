@@ -1807,9 +1807,9 @@ void TObjPlayer::init_render_flags() {
 
     ((TBoss4DarkFalz *)arg0)->set_position_from((void *) (arg0 + 0x50));
     refresh_collision_body_centers((void *) (arg0));
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x06040000);
-    temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0xA4));
+    *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags & 0xFFDFFFFF);
+    *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags | 0x06040000);
+    temp_r3 = (unsigned char *) (*(void * *)&this->m_a4);
     *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFFE);
 }
 

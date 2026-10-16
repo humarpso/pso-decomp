@@ -9,7 +9,8 @@ struct TOCtrlDubchik : public TObjEnemy {
     virtual void render();
     u8 unk_374[0xC];
     u32 m_380;
-    u8 _pad384[0x8];
+    u8 unk_384[0x4];
+    f32 m_388;
     u32 m_38c;
     void* m_390;
     u8 _pad394[0x8];

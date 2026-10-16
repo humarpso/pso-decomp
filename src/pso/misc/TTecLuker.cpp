@@ -372,14 +372,14 @@ u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TUnk_804CC9D4::vfunc_13(s32) { *(s32*)((char*)this + 0xb0) = 1; }
+void TUnk_804CC9D4::vfunc_13(s32) { this->m_b0 = 1; }
 
 extern const f32 lbl_805DC858;
 
 void TTecLuker::update_player_target() {
     u8 *arg0 = (u8 *)this;
     if (is_split_screen() != 0) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xAC) != 0) {
+        if ((s32) this->m_ac != 0) {
             submit_cursor_candidate(arg0, -1);
             return;
         }
@@ -527,20 +527,20 @@ void reset_telepipe_record(O_802340A0 *o) {
 }
 
 void TTecLuker::init_fields(s16 arg1) {
-    *(s16 *)((s8 *)this + 0) = arg1;
+    *(s16 *)&this->m_name = arg1;
     *(s16 *)((s8 *)this + 2) = 0;
-    *(s32 *)((s8 *)this + 4) = 0;
+    *(s32 *)&this->m_flags = 0;
 }
 
 void TTecLuker::send_telepipe_packet() {
     u8 *arg0 = (u8 *)this;
     Stack_802340E4 stack;
     init_telepipe_packet_header((void*)((void *) (&stack.sp8)));
-    stack.spC = *(u16 *)((s8 *)arg0 + 0);
-    stack.sp10 = *(s32 *)((s8 *)arg0 + 4);
+    stack.spC = *(u16 *)&this->m_name;
+    stack.sp10 = *(s32 *)&this->m_flags;
     stack.spE = *(s16 *)((s8 *)arg0 + 2);
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (arg0 + 8));
-    stack.sp20 = *(s32 *)((s8 *)arg0 + 0x14);
+    stack.sp20 = *(s32 *)&this->m_down;
     ((TTecLuker *)(&stack.sp8))->send_swapped_telepipe_packet();
 }
 

@@ -9,9 +9,11 @@ struct TOKurage : public TUnk_804AFBF8 {
     u32 m_c8;
     u8 _padCC[0xC];
     void* m_d8;
-    u8 _padDC[0x8];
+    u8 unk_DC[0x4];
+    f32 m_e0;
     void* m_e4;
-    u8 _padE8[0x14];
+    u8 unk_E8[0x10];
+    f32 m_f8;
     s16 m_fc;
     s16 m_fe;
     u8 m_100;
@@ -28,7 +30,9 @@ struct TOKurage : public TUnk_804AFBF8 {
     static void *create(void *arg0);
     static void destroy_static_instance();
     static void load_static_resource();
-    u8 unk_108[0xC];
+    u8 unk_108[0x4];
+    f32 m_10c;
+    u8 unk_110[0x4];
 };
 
 typedef char TOKurage_size[sizeof(TOKurage) == 0x114 ? 1 : -1];

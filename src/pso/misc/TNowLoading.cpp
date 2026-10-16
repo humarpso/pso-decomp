@@ -90,22 +90,22 @@ void TNowLoading::run_task() {
     u32 temp_r3_7;
     u32 temp_r3_8;
     if ((u32) camera_ctrl_instance == 0U) {
-        *(f32 *)((s8 *)arg0 + 0x2C) = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0));
+        *(f32 *)&this->m_2c = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0));
         *(f32 *)((s8 *)arg0 + 0x30) = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4));
-        *(f32 *)((s8 *)arg0 + 0x34) = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8));
-        temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
+        this->m_34 = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8));
+        temp_r3 = this->m_1c;
         if (temp_r3 != 0U) {
             ((TNowLoading *)temp_r3)->copy_pos((void *) (arg0 + 0x2C));
         }
-        temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x20);
+        temp_r3_2 = this->m_20;
         if (temp_r3_2 != 0U) {
             ((TNowLoading *)temp_r3_2)->copy_pos((void *) (arg0 + 0x2C));
         }
-        temp_r3_3 = *(u32 *)((s8 *)arg0 + 0x24);
+        temp_r3_3 = this->m_24;
         if (temp_r3_3 != 0U) {
             ((TNowLoading *)temp_r3_3)->copy_pos((void *) (arg0 + 0x2C));
         }
-        temp_r3_4 = *(u32 *)((s8 *)arg0 + 0x28);
+        temp_r3_4 = this->m_28;
         if (temp_r3_4 != 0U) {
             ((TNowLoading *)temp_r3_4)->copy_pos((void *) (arg0 + 0x2C));
         }
@@ -113,19 +113,19 @@ void TNowLoading::run_task() {
         stack.sp8 = (lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0);
         stack.spC = (lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4);
         stack.sp10 = (lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8);
-        temp_r3_5 = *(u32 *)((s8 *)arg0 + 0x1C);
+        temp_r3_5 = this->m_1c;
         if (temp_r3_5 != 0U) {
             ((TNowLoading *)temp_r3_5)->copy_pos((void *) (&stack.sp8));
         }
-        temp_r3_6 = *(u32 *)((s8 *)arg0 + 0x20);
+        temp_r3_6 = this->m_20;
         if (temp_r3_6 != 0U) {
             ((TNowLoading *)temp_r3_6)->copy_pos((void *) (&stack.sp8));
         }
-        temp_r3_7 = *(u32 *)((s8 *)arg0 + 0x24);
+        temp_r3_7 = this->m_24;
         if (temp_r3_7 != 0U) {
             ((TNowLoading *)temp_r3_7)->copy_pos((void *) (&stack.sp8));
         }
-        temp_r3_8 = *(u32 *)((s8 *)arg0 + 0x28);
+        temp_r3_8 = this->m_28;
         if (temp_r3_8 != 0U) {
             ((TNowLoading *)temp_r3_8)->copy_pos((void *) (&stack.sp8));
         }

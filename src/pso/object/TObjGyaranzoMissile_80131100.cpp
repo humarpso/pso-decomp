@@ -183,9 +183,9 @@ f32 TObjGyaranzoMissile::scale_velocity(f32 farg0) {
     if (vec_squared_length() > lbl_805DB068) {
         temp_f1 = newton_sqrtf();
         temp_f2 = farg0 / temp_f1;
-        *(f32 *)((s8 *)this + 0) = (f32) (*(f32 *)((s8 *)this + 0) * temp_f2);
-        *(f32 *)((s8 *)this + 4) = (f32) (*(f32 *)((s8 *)this + 4) * temp_f2);
-        *(f32 *)((s8 *)this + 8) = (f32) (*(f32 *)((s8 *)this + 8) * temp_f2);
+        *(f32 *)&this->m_name = (f32) (*(f32 *)&this->m_name * temp_f2);
+        *(f32 *)&this->m_flags = (f32) (*(f32 *)&this->m_flags * temp_f2);
+        *(f32 *)&this->m_prev = (f32) (*(f32 *)&this->m_prev * temp_f2);
         return temp_f1;
     }
     return lbl_805DB06C;

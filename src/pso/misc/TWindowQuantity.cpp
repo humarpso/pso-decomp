@@ -50,7 +50,7 @@ void *__nw__7TObjectFUl(int);
 int initialize_subwindow__9TWindowDDFv(void*);
 
 void TWindowQuantity::set_position(s32 arg1) {
-    draw_window_tab(arg1, arg1 + 0x10, 3, *(f32 *)((s8 *)this + 0x60));
+    draw_window_tab(arg1, arg1 + 0x10, 3, this->m_60);
 }
 
 void render__15TWindowQuantityFv(s32 arg0) {

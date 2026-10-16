@@ -243,7 +243,7 @@ void TAdChrSelSlotGC::draw_slot_icons() {
 }
 
 void TAdChrSelSlotGC::render() {
-    if ((s32) *(s32 *)((s8 *)this + 0x124) == 1) {
+    if ((s32) this->enabled == 1) {
         if (TMainTask::get_state_flag() == 1) {
             return;
         }
@@ -257,7 +257,7 @@ block_5:
         draw_slot_icons();
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
-        if ((s32) *(s32 *)((s8 *)this + 0x124) == 0) {
+        if ((s32) this->enabled == 0) {
             restore_saved_depth_alpha_state();
         }
     }

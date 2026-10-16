@@ -64,7 +64,7 @@ int get_attack_damage_scale(void*);
 int TObjPlayer__sub_801D2F4C(void*);
 
 void TObjPlayer::set_model_param(s16 v) { *(s16*)((char*)this + 0x118) = v; }
-void TObjPlayer::set_model_id(s16 v) { *(s16*)((char*)this + 0x116) = v; }
+void TObjPlayer::set_model_id(s16 v) { this->m_116 = v; }
 int TObjPlayer::is_status_subsystem_ready() { return TObjPlayer__sub_801D2F4C((char*)this + 0x7cc); }
 void*TObjPlayer::get_extended_state() { return ((TObjPlayer *)((char*)this + 0x7cc))->get_state_ptr(); }
 int TObjPlayer::query_extended_state() { return get_attack_damage_scale((char*)this + 0x7cc); }

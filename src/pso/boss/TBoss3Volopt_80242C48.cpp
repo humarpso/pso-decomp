@@ -8,7 +8,7 @@ void fn_80242C54(void *arg0);
 
 extern "C" {
 
-int TBoss3Volopt::is_active() { return *(u8*)((char*)this + 0x0) & 0x1; }
+int TBoss3Volopt::is_active() { return *(u8 *)&this->m_name & 0x1; }
 #pragma push
 #pragma fp_contract on
 void fn_80242C54(void *arg0) {

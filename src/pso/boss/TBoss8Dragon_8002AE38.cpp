@@ -18,7 +18,7 @@ int bswap_32__FPUl(void*);
 
 int TBoss8Dragon::test_card_flag_2() { return TWindowKeyBoardHard::test_card_flag((s32)this, (s32)2); }
 
-void TBoss8Dragon::set_speed(f32 v) { *(f32*)((char*)this + 0x10) = v; }
+void TBoss8Dragon::set_speed(f32 v) { this->m_10 = v; }
 
 void fn_8002AE64(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) & 0xFFFFFFFE);

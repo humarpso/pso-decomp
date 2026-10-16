@@ -319,62 +319,62 @@ void TObjPlayer::set_flag_400000() {
 }
 
 short TObjPlayer::get_model_field_m25() {
-    struct VObj_801BE3D8 *o = (struct VObj_801BE3D8 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE3D8 *o = (struct VObj_801BE3D8 *)*(void * *)&this->unk_380;
     return o->m25();
 }
 
 short TObjPlayer::get_action_animation() {
-    struct VObj_801BE40C *o = (struct VObj_801BE40C *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE40C *o = (struct VObj_801BE40C *)*(void * *)&this->unk_380;
     return o->m22();
 }
 
 short TObjPlayer::call_model_m24() {
-    struct VObj_801BE440 *o = (struct VObj_801BE440 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE440 *o = (struct VObj_801BE440 *)*(void * *)&this->unk_380;
     return o->m24();
 }
 
 short TObjPlayer::get_weapon_stat_c() {
-    struct VObj_801BE474 *o = (struct VObj_801BE474 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE474 *o = (struct VObj_801BE474 *)*(void * *)&this->unk_380;
     return o->m26();
 }
 
 short TObjPlayer::call_obj_vt26() {
-    struct VObj_801BE4A8 *o = (struct VObj_801BE4A8 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE4A8 *o = (struct VObj_801BE4A8 *)*(void * *)&this->unk_380;
     return o->m26();
 }
 
 short TObjPlayer::query_child_state() {
-    struct VObj_801BE4DC *o = (struct VObj_801BE4DC *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE4DC *o = (struct VObj_801BE4DC *)*(void * *)&this->unk_380;
     return o->m19();
 }
 
 short TObjPlayer::query_equip() {
-    struct VObj_801BE510 *o = (struct VObj_801BE510 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE510 *o = (struct VObj_801BE510 *)*(void * *)&this->unk_380;
     return o->m27();
 }
 
 short TObjPlayer::get_status() {
-    struct VObj_801BE544 *o = (struct VObj_801BE544 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE544 *o = (struct VObj_801BE544 *)*(void * *)&this->unk_380;
     return o->m14();
 }
 
 short TObjPlayer::get_model_state() {
-    struct VObj_801BE578 *o = (struct VObj_801BE578 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE578 *o = (struct VObj_801BE578 *)*(void * *)&this->unk_380;
     return o->m17();
 }
 
 short TObjPlayer::get_state() {
-    struct VObj_801BE5AC *o = (struct VObj_801BE5AC *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE5AC *o = (struct VObj_801BE5AC *)*(void * *)&this->unk_380;
     return o->m16();
 }
 
 short TObjPlayer::call_subobject_m15() {
-    struct VObj_801BE5E0 *o = (struct VObj_801BE5E0 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE5E0 *o = (struct VObj_801BE5E0 *)*(void * *)&this->unk_380;
     return o->m15();
 }
 
 short TObjPlayer::get_vobj_state_28() {
-    struct VObj_801BE614 *o = (struct VObj_801BE614 *)*(void **)((s8 *)this + 0x380);
+    struct VObj_801BE614 *o = (struct VObj_801BE614 *)*(void * *)&this->unk_380;
     return o->m28();
 }
 

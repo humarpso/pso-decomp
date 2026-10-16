@@ -6,7 +6,33 @@
 class TUnk_8048E728 : public TObject {
 public:
     virtual ~TUnk_8048E728();
-    u8 unk_1C[0xA4];
+    u8 unk_1C[0x4];
+    void * m_20;
+    u8 unk_24[0x4];
+    f32 m_28;
+    u8 unk_2C[0x10];
+    f32 m_3c;
+    u8 unk_40[0x4];
+    f32 m_44;
+    u8 unk_48[0x28];
+    f32 m_70;
+    u8 unk_74[0x4];
+    f32 m_78;
+    u8 unk_7C[0x4];
+    f32 m_80;
+    u8 unk_84[0x4];
+    f32 m_88;
+    u8 unk_8C[0xA];
+    s16 m_96;
+    u8 unk_98[0x4];
+    s32 m_9c;
+    u8 unk_A0[0x4];
+    f32 m_a4;
+    u8 unk_A8[0x8];
+    u32 m_b0;
+    u8 unk_B4[0x4];
+    u32 m_b8;
+    u8 unk_BC[0x4];
 };
 
 #endif

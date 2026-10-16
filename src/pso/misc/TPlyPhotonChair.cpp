@@ -226,14 +226,14 @@ void TPlyPhotonChair::run_task() {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if (((u32) *(u32 *)((s8 *)arg0 + 0x94) == 0U) && (is_mounted__15TPlyPhotonChairFv() == 0)) {
-        *(u32 *)((s8 *)arg0 + 0x94) = 1U;
+    if (((u32) this->m_94 == 0U) && (is_mounted__15TPlyPhotonChairFv() == 0)) {
+        this->m_94 = 1U;
         ((TPlyPhotonChair *)(arg0 + 0x98))->set_state_ready();
         TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0x98)), (f32) (lbl_805E0128));
         ((TPlyPhotonChair *)(arg0 + 0xB4))->set_state_ready();
         TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0xB4)), (f32) (lbl_805E0128));
     }
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x94);
+    temp_r0 = this->m_94;
     switch ((s32) temp_r0) {
     case 0:
         ((TPlyPhotonChair *)(arg0 + 0x98))->update_bob_motion();
@@ -320,7 +320,7 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 int TPlyPhotonChair__sub_8035B520(void* p) { return *(u32*)((char*)p + 0x94) == 0; }
 u16 TPlyPhotonChair__sub_8035B530(void* p) { return *(u16*)((char*)p + 0x90); }
-void TPlyPhotonChair::set_field90(s32 v) { *(s16*)((char*)this + 0x90) = v; }
+void TPlyPhotonChair::set_field90(s32 v) { *(s16 *)&this->unk_90 = v; }
 void TPlyPhotonChair::render(void* p, void* a1) { copy_vec4__13TRaderMapCoreFPvPv(a1, p); }
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v) { *(f32*)((char*)p + 0x14) = v; }
 void TPlyPhotonChair::set_state_ready() { *(s32*)((char*)this + 0x18) = 2; }
@@ -330,20 +330,20 @@ extern const f64 lbl_80479800;
 void TPlyPhotonChair::sync_field10_from_child() {
     void *temp_r4;
 
-    temp_r4 = *(void **)((s8 *)this + 8);
+    temp_r4 = *(void * *)&this->m_prev;
     if (temp_r4 != NULL) {
-        *(f32 *)((s8 *)this + 0x10) = (f32) *(u32 *)((s8 *)temp_r4 + 4);
+        *(f32 *)&this->m_up = (f32) *(u32 *)((s8 *)temp_r4 + 4);
     }
 }
 
-void TPlyPhotonChair::set_field_8(s32 v) { *(s32*)((char*)this + 0x8) = v; }
-void TPlyPhotonChair::set_type(s32 v) { *(s32*)((char*)this + 0x0) = v; }
+void TPlyPhotonChair::set_field_8(s32 v) { *(s32 *)&this->m_prev = v; }
+void TPlyPhotonChair::set_type(s32 v) { *(s32 *)&this->m_name = v; }
 
 extern s32 lbl_804A7478[];
 
 void *TPlyPhotonChair::init() {
     init_parts();
-    *(s32 **)((s8 *)this + 0x4) = lbl_804A7478;
+    *(s32 * *)&this->m_flags = lbl_804A7478;
     TPlyPhotonChair__sub_8035B610((void*)(this));
     return this;
 }
@@ -354,7 +354,7 @@ void TPlyPhotonChair__sub_8035B610(void* a0) { *(int*)((char*)a0 + 0x8) = 0; *(f
 typedef char RecoveredGlobal_8035B630_lbl_804A7488_size[sizeof(RecoveredGlobal_8035B630_lbl_804A7488) == 0x10 ? 1 : -1];
 u8 *TPlyPhotonChair::init_parts() {
     u8 *arg0 = (u8 *)this;
-    *(s32 **)((s8 *)arg0 + 4) = &lbl_804A7488.value;
+    *(s32 * *)&this->m_flags = &lbl_804A7488.value;
     TPlyPhotonChair__sub_8035B66C((void*)((void *) (arg0)));
     return arg0;
 }

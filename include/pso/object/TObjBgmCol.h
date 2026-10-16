@@ -7,7 +7,8 @@
 struct TObjBgmCol : public TUnk_804B9870 {
     virtual ~TObjBgmCol();
     u32 m_90;
-    u8 _pad94[0x8];
+    u8 unk_94[0x4];
+    f32 m_98;
     u32 m_9c;
     s32 check();
     virtual void run_task();

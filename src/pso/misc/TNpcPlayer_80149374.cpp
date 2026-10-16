@@ -41,7 +41,7 @@ void TNpcPlayer::bswap_6x3E() {
     bswap_32__FPUl(arg0 + 0x10);
     bswap_32__FPUl(arg0 + 0x14);
 }
-void TNpcPlayer::init_6x3E_packet() { *(short*)((char*)this + 0x4) = 0; *(short*)((char*)this + 0x6) = 0; *(short*)((char*)this + 0x8) = -1; *(short*)((char*)this + 0xa) = -1; *(float*)((char*)this + 0x14) = lbl_805DB1C4; *(float*)((char*)this + 0x10) = lbl_805DB1C4; *(float*)((char*)this + 0xc) = lbl_805DB1C4; *(unsigned char*)((char*)this + 0x0) = 62; *(unsigned char*)((char*)this + 0x1) = 6; }
+void TNpcPlayer::init_6x3E_packet() { *(short *)&this->m_flags = 0; *(short *)&this->m_id = 0; *(short *)&this->m_prev = -1; *(short*)((char*)this + 0xa) = -1; *(float *)&this->m_down = lbl_805DB1C4; *(float *)&this->m_up = lbl_805DB1C4; *(float *)&this->m_next = lbl_805DB1C4; *(unsigned char *)&this->m_name = 62; *(unsigned char*)((char*)this + 0x1) = 6; }
 void TNpcPlayer__sub_80149448(void *arg0) {
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 2) {
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;

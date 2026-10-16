@@ -212,10 +212,10 @@ void *__nw__7TObjectFUl(int);
 void TObjContainerNoItem::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+        if ((s32) this->m_364 != 0) {
             submit_cursor_candidate(this, -1);
         }
     case 1:
@@ -273,13 +273,13 @@ void TObjContainerEnemy::vfunc_6(s16 *arg1, s32 arg2) {
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
-            *(s16 *)((s8 *)arg0 + 0x326) = 1;
+            this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
-        *(s16 *)((s8 *)arg0 + 0x326) = 1;
+        this->mode = 1;
     }
 }
 

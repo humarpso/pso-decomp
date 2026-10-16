@@ -42,14 +42,14 @@ void *TJudgmentSequence::create(void *arg0) {
 int get_judgment_shop_slot_flags(int a0) {  return TJudgmentSequence__slot_flags[a0]; }
 
 void TShopGetItemWindow::vfunc_7() {
-    struct VObj_8021E524_8021E4C4 *o = (struct VObj_8021E524_8021E4C4 *)*(void **)((s8 *)this + 0x5C);
+    struct VObj_8021E524_8021E4C4 *o = (struct VObj_8021E524_8021E4C4 *)*(void * *)&this->m_5c;
     if (o != NULL) {
         o->m5();
     }
 }
 
 void TShopGetItemWindow::vfunc_6() {
-    struct VObj_8021E55C_8021E4C4 *o = (struct VObj_8021E55C_8021E4C4 *)*(void **)((s8 *)this + 0x5C);
+    struct VObj_8021E55C_8021E4C4 *o = (struct VObj_8021E55C_8021E4C4 *)*(void * *)&this->m_5c;
     if (o != NULL) {
         o->m4();
     }

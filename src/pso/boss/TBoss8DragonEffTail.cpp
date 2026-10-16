@@ -181,9 +181,9 @@ void TBoss8DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
     ((VObj_18 *)(arg1))->m20(*(s32 *)((s8 *)arg0 + 0xAC), arg0, lbl_805DEF18);
 }
 
-void TBoss8DragonEffTail::enable() { *(int*)((char*)this + 0xbc) = 1; get_state(); }
-void TBoss8DragonEffTail::disable() { *(int*)((char*)this + 0xbc) = 0; get_state(); }
-int TBoss8DragonEffTail::get_state() { return fill_value_array(*(void**)((char*)this + 0xb8)); }
+void TBoss8DragonEffTail::enable() { *(int *)&this->m_bc = 1; get_state(); }
+void TBoss8DragonEffTail::disable() { *(int *)&this->m_bc = 0; get_state(); }
+int TBoss8DragonEffTail::get_state() { return fill_value_array(*(void* *)&this->m_b8); }
 
 extern s32 __vt__19TBoss8DragonEffTail[];
 

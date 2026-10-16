@@ -105,6 +105,6 @@ void TObjPlayer__sub_80084840(f32 farg0, f32 farg1, f32 farg2) {
     *(f32 *)0xCC008000 = farg2;
 }
 
-int TObjPlayer::is_inactive() { return *(u32*)((char*)this + 0xcfc) == 0; }
+int TObjPlayer::is_inactive() { return *(u32 *)&this->m_cfc == 0; }
 
 }

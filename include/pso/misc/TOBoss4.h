@@ -8,7 +8,8 @@ struct TOBoss4 : public TUnk_804B9870 {
     virtual ~TOBoss4();
     static void free_instance();
     static void load_static_resource();
-    u8 unk_90[0x8];
+    u8 unk_90[0x4];
+    f32 m_94;
 };
 
 typedef char TOBoss4_size[sizeof(TOBoss4) == 0x98 ? 1 : -1];

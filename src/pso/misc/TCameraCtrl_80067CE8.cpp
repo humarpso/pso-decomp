@@ -112,17 +112,17 @@ void TCameraCtrl::reset_behind_player() {
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_player_by_client_id((s32)(0)));
     if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
+        this->m_30 = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
         stack.sp8 = lbl_805D8F74;
         stack.spC = lbl_805D8F74;
-        stack.sp10 = *(f32 *)((s8 *)arg0 + 0x70);
+        stack.sp10 = this->m_70;
         push_matrix_from((void *) (&identity_matrix.value));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x30)));
+        rotate_matrix_y((int) (0), (int) (this->m_30));
         matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x48) + stack.sp8);
-        *(f32 *)((s8 *)arg0 + 0x40) = (f32) (*(f32 *)((s8 *)arg0 + 0x4C) + stack.spC);
-        *(f32 *)((s8 *)arg0 + 0x44) = (f32) (*(f32 *)((s8 *)arg0 + 0x50) + stack.sp10);
+        this->m_3c = (f32) (*(f32 *)((s8 *)arg0 + 0x48) + stack.sp8);
+        *(f32 *)((s8 *)arg0 + 0x40) = (f32) (this->m_4c + stack.spC);
+        this->m_44 = (f32) (*(f32 *)((s8 *)arg0 + 0x50) + stack.sp10);
     }
 }
 

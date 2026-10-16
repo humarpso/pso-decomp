@@ -40,28 +40,28 @@ extern "C" {
 void TUnk_804B0BB8::update_door_switch_state() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xCC);
+    temp_r0 = this->m_cc;
     switch (temp_r0) {
     case 1:
         play_door_sound((void *) (arg0));
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 1);
+        this->m_d0 = (s32) (this->m_d0 | 1);
         return;
     case 2:
-        if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0xC8))) == 1) {
+        if (is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) {
             play_door_sound((void *) (arg0));
-            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 1);
+            this->m_d0 = (s32) (this->m_d0 | 1);
             return;
         }
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFFFFFFE);
+        this->m_d0 = (s32) (this->m_d0 & 0xFFFFFFFE);
         return;
     case 3:
-        if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0xC8))) == 1) {
+        if (is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) {
             play_door_sound((void *) (arg0));
-            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 1);
+            this->m_d0 = (s32) (this->m_d0 | 1);
         }
         break;
     default:
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFFFFFFE);
+        this->m_d0 = (s32) (this->m_d0 & 0xFFFFFFFE);
         break;
     }
 }
@@ -73,13 +73,13 @@ void TUnk_804B0BB8::run_task() {
         return;
     }
     if ((s32) switch_doors_force_closed != 0) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 0;
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFFFFFFE);
+        *(s32 *)&this->unk_AC = 0;
+        this->m_d0 = (s32) (this->m_d0 & 0xFFFFFFFE);
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (8));
     } else {
         ((VObj_18 *)(arg0))->m12();
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
+    temp_r0 = *(s32 *)&this->unk_AC;
     switch (temp_r0) {
     case 0:
         ((VObj_18 *)(arg0))->m13();
@@ -94,10 +94,10 @@ void TUnk_804B0BB8::run_task() {
         ((VObj_18 *)(arg0))->m16();
         break;
     }
-    if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
-        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, *(s32 *)((s8 *)arg0 + 0x60), 0, 0);
+    if (this->m_d0 & 1) {
+        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, this->rotation_y, 0, 0);
     } else {
-        minimap_render_gate(arg0 + 0x38, 0xFFFF0000, *(s32 *)((s8 *)arg0 + 0x60), 0, 0);
+        minimap_render_gate(arg0 + 0x38, 0xFFFF0000, this->rotation_y, 0, 0);
     }
 }
 

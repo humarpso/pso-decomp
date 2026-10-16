@@ -61,12 +61,12 @@ u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1) {
 
 void *TBoss8Dragon::init_buffer(s32 arg1, s32 arg2) {
     if (arg1 > 0) {
-        *(s32 *)((s8 *)this + 0) = mem_alloc(arg1 * 4);
+        this->m_0 = mem_alloc(arg1 * 4);
     } else {
-        *(s32 *)((s8 *)this + 0) = 0;
+        this->m_0 = 0;
     }
     *(s32 *)((s8 *)this + 4) = arg2;
-    *(s32 *)((s8 *)this + 8) = 0;
+    *(s32 *)&this->m_8 = 0;
     *(s32 *)((s8 *)this + 0xC) = arg1;
     fill_value_array(this);
     return this;

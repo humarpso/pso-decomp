@@ -320,10 +320,10 @@ void TBoss8Dragon::choose_next_camera_shot() {
     u8 *arg0 = (u8 *)this;
     f32 r;
     u8 *p;
-    if (*(s16 *)((s8 *)arg0 + 0x1E) < 0) {
+    if (this->m_1e < 0) {
         return;
     }
-    if (--*(s16 *)((s8 *)arg0 + 0x1E) > 0) {
+    if (--this->m_1e > 0) {
         return;
     }
     r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
@@ -340,14 +340,14 @@ void TBoss8Dragon::choose_next_camera_shot() {
     case 0:
         break;
     case 1:
-        *(s16 *)((s8 *)arg0 + 0x1E) = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
+        this->m_1e = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
         *(u16 *)((s8 *)arg0 + 0x24) = ((int (*)(void *))TBoss8Dragon__sub_8030B80C)(arg0);
         *(s32 *)((s8 *)arg0 + 0x28) = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
-        *(s32 *)((s8 *)arg0 + 0x2C) = lbl_805DF194 * (lbl_805DF198 * (calc_random_ratio__10TObjPlayerFv(arg0 + 0x54) - lbl_805DF19C));
-        *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DF1A0 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF174;
+        this->m_2c = lbl_805DF194 * (lbl_805DF198 * (calc_random_ratio__10TObjPlayerFv(arg0 + 0x54) - lbl_805DF19C));
+        *(f32 *)&this->unk_30 = lbl_805DF1A0 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF174;
         break;
     case 2:
-        *(s16 *)((s8 *)arg0 + 0x1E) = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
+        this->m_1e = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
         *(u16 *)((s8 *)arg0 + 0x24) = ((int (*)(void *))TBoss8Dragon__sub_8030B80C)(arg0);
         p = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x24));
         if (p != NULL) {
@@ -355,7 +355,7 @@ void TBoss8Dragon::choose_next_camera_shot() {
         }
         break;
     case 3:
-        *(s16 *)((s8 *)arg0 + 0x1E) = lbl_805DF1A4 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF1A4;
+        this->m_1e = lbl_805DF1A4 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF1A4;
         *(u16 *)((s8 *)arg0 + 0x24) = ((u16 (*)(void *))call_null__12TBoss8DragonFv)(arg0);
         p = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x24));
         if (p != NULL) {
@@ -363,14 +363,14 @@ void TBoss8Dragon::choose_next_camera_shot() {
         }
         break;
     case 4:
-        *(s16 *)((s8 *)arg0 + 0x1E) = lbl_805DF1A8 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF1A8;
+        this->m_1e = lbl_805DF1A8 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF1A8;
         *(s32 *)((s8 *)arg0 + 0x28) = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
-        *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DF1AC * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x28));
-        *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DF1B0;
+        *(f32 *)&this->m_34 = lbl_805DF1AC * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x28));
+        *(f32 *)&this->m_38 = lbl_805DF1B0;
         *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DF1AC * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x28));
-        *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DF1B4;
+        this->m_40 = lbl_805DF1B4;
         *(f32 *)((s8 *)arg0 + 0x44) = lbl_805DF1B4;
-        *(f32 *)((s8 *)arg0 + 0x48) = lbl_805DF1B4;
+        this->m_48 = lbl_805DF1B4;
         break;
     }
 }
@@ -390,24 +390,24 @@ void TBoss8Dragon::update_live_camera() {
     case 1:
         temp_r3 = (u8 *)(get_player_by_client_id((s32) *(u16 *)((s8 *)arg0 + 0x24)));
         if (temp_r3 != NULL) {
-            *(f32 *)((s8 *)arg0 + 0x34) = (f32) ((lbl_805DF1B8 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3 + 0x38));
-            *(f32 *)((s8 *)arg0 + 0x38) = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) + *(f32 *)((s8 *)arg0 + 0x30));
+            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1B8 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3 + 0x38));
+            *(f32 *)&this->m_38 = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) + *(f32 *)&this->unk_30);
             *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((lbl_805DF1B8 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3 + 0x40));
-            *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
-            *(f32 *)((s8 *)arg0 + 0x44) = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) + *(f32 *)((s8 *)arg0 + 0x30));
-            *(f32 *)((s8 *)arg0 + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x40);
-            *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + *(s32 *)((s8 *)arg0 + 0x2C));
+            this->m_40 = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
+            *(f32 *)((s8 *)arg0 + 0x44) = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) + *(f32 *)&this->unk_30);
+            this->m_48 = (f32) *(f32 *)((s8 *)temp_r3 + 0x40);
+            *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + this->m_2c);
         }
         return;
     case 2:
         temp_r3_2 = (u8 *)(get_player_by_client_id((s32) *(u16 *)((s8 *)arg0 + 0x24)));
         if (temp_r3_2 != NULL) {
-            *(f32 *)((s8 *)arg0 + 0x34) = (f32) ((lbl_805DF1BC * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
-            *(f32 *)((s8 *)arg0 + 0x38) = (f32) (lbl_805DF1C0 + *(f32 *)((s8 *)temp_r3_2 + 0x3C));
+            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1BC * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
+            *(f32 *)&this->m_38 = (f32) (lbl_805DF1C0 + *(f32 *)((s8 *)temp_r3_2 + 0x3C));
             *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((lbl_805DF1BC * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x40));
-            *(f32 *)((s8 *)arg0 + 0x40) = (f32) ((lbl_805DF1C4 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
+            this->m_40 = (f32) ((lbl_805DF1C4 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
             *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805DF1C8 + *(f32 *)((s8 *)temp_r3_2 + 0x3C));
-            *(f32 *)((s8 *)arg0 + 0x48) = (f32) ((lbl_805DF1C4 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x40));
+            this->m_48 = (f32) ((lbl_805DF1C4 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x40));
             TBoss8Dragon__sub_8030B818((u8 *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)temp_r3_2 + 0x60) - 0x8000)));
             return;
         }
@@ -415,12 +415,12 @@ void TBoss8Dragon::update_live_camera() {
     case 3:
         temp_r3_3 = (u8 *)(get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x24)));
         if ((temp_r3_3 != NULL) && (*(f32 *)((s8 *)temp_r3_3 + 0x3C) >= lbl_805DF1B4)) {
-            *(f32 *)((s8 *)arg0 + 0x34) = (f32) ((lbl_805DF1CC * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
-            *(f32 *)((s8 *)arg0 + 0x38) = (f32) (lbl_805DF1A8 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
+            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1CC * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
+            *(f32 *)&this->m_38 = (f32) (lbl_805DF1A8 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
             *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((lbl_805DF1CC * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
-            *(f32 *)((s8 *)arg0 + 0x40) = (f32) ((lbl_805DF1D0 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
+            this->m_40 = (f32) ((lbl_805DF1D0 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
             *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805DF1D4 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
-            *(f32 *)((s8 *)arg0 + 0x48) = (f32) ((lbl_805DF1D0 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
+            this->m_48 = (f32) ((lbl_805DF1D0 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
             TBoss8Dragon__sub_8030B818((u8 *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)temp_r3_3 + 0x60) - 0x8000)));
             return;
         }
@@ -428,7 +428,7 @@ void TBoss8Dragon::update_live_camera() {
     case 5:
         temp_r3_4 = TBoss8Dragon__sub_802F3348((int) (0));
         if ((temp_r3_4 != 0U) && (TBoss8Dragon__sub_802FCCBC((int) (temp_r3_4)) != 0)) {
-            *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+            this->m_1e = 0;
         }
         break;
     }
@@ -437,17 +437,17 @@ void TBoss8Dragon::update_live_camera() {
 
 void TBoss8Dragon::update_toggle_state() {
     if ((s32) *(s32 *)((s8 *)this + 0x4C) >= TBoss8Dragon__sub_802F3638()) {
-        if ((s32) *(s32 *)((s8 *)this + 0x20) == 1) {
-            if ((u32) *(u32 *)((s8 *)this + 0x50) != 0U) {
-                TObjPlayer__sub_80082CBC(*(void **)((s8 *)this + 0x50));
+        if ((s32) *(s32 *)&this->unk_20 == 1) {
+            if ((u32) this->m_50 != 0U) {
+                TObjPlayer__sub_80082CBC(*(void * *)&this->m_50);
             }
-            *(s32 *)((s8 *)this + 0x20) = 0;
+            *(s32 *)&this->unk_20 = 0;
         }
-    } else if ((s32) *(s32 *)((s8 *)this + 0x20) == 0) {
-        if ((u32) *(u32 *)((s8 *)this + 0x50) != 0U) {
-            TObjPlayer__sub_80082CCC(*(void **)((s8 *)this + 0x50));
+    } else if ((s32) *(s32 *)&this->unk_20 == 0) {
+        if ((u32) this->m_50 != 0U) {
+            TObjPlayer__sub_80082CCC(*(void * *)&this->m_50);
         }
-        *(s32 *)((s8 *)this + 0x20) = 1;
+        *(s32 *)&this->unk_20 = 1;
     }
 }
 

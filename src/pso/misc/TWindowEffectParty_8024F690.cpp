@@ -44,8 +44,8 @@ s32 TWindowEffectParty::step_toward_target(f32 farg0, f32 farg1) {
 }
 
 void TWindowEffectParty::calc_effect_position(void *arg1) {
-    *(f32 *)((s8 *)arg1 + 0) = (f32) *(f32 *)((s8 *)this + 0x20);
-    *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)this + 0x24);
+    *(f32 *)((s8 *)arg1 + 0) = (f32) *(f32 *)&this->m_20;
+    *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)&this->_pad24;
     *(f32 *)((s8 *)arg1 + 8) = (f32) (lbl_805DCCC0 / get_scale__15TWindowCtrlMainFv(local_client_id));
 }
 

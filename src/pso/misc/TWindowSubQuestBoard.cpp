@@ -71,15 +71,15 @@ void TUnk_804D1818::run_task() {
     switch ((s8) *(u8 *)((s8 *)this + 0x1C)) {
     case 0:
     case 1:
-        if (*(u32 *)((s8 *)this + 0x2C) != 0U) {
-            TWindow__close(*(void **)((s8 *)this + 0x2C));
-            *(u32 *)((s8 *)this + 0x2C) = 0U;
+        if (this->m_2c != 0U) {
+            TWindow__close(*(void * *)&this->m_2c);
+            this->m_2c = 0U;
         }
         ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x28)))->clear_flag_and_release();
         *(u8 *)((s8 *)this + 0x1C) = 2;
     case 2:
         if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x28)))->get_status_flag() != 0) {
-            (*(VO_8027CCCC **)((s8 *)this + 0x24))->m7();
+            (*(VO_8027CCCC * *)&this->m_24)->m7();
             *(u8 *)((s8 *)this + 0x1C) = 5;
             break;
         }
@@ -89,12 +89,12 @@ void TUnk_804D1818::run_task() {
         break;
     case 3:
         t = get_selected_menu_value(*(s32 *)((s8 *)this + 0x28));
-        *(u32 *)((s8 *)this + 0x2C) = TWindowSubStatusDisp__sub_8027C884(this, t);
+        this->m_2c = TWindowSubStatusDisp__sub_8027C884(this, t);
         *(u8 *)((s8 *)this + 0x1C) = 4;
     case 4:
         ((TWindowSubMagPhoton *)this)->update_photon_selection();
         update_quest_board_card_flags(this);
-        if (((TLobby *)(*(u32 *)((s8 *)this + 0x2C)))->get_flag_bit2() != 0) {
+        if (((TLobby *)(this->m_2c))->get_flag_bit2() != 0) {
             *(u8 *)((s8 *)this + 0x1C) = 1;
         }
         break;
@@ -104,8 +104,8 @@ void TUnk_804D1818::run_task() {
 void *TWindowSubQuestBoard::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__19TWindowSubQuestBoard;
-        if (*(void **)((s8 *)this + 0x2C) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x2C)); *(s32 *)((s8 *)this + 0x2C) = 0; }
-        if (*(void **)((s8 *)this + 0x28) != NULL) { TWindow__close(*(void **)((s8 *)this + 0x28)); *(s32 *)((s8 *)this + 0x28) = 0; }
+        if (*(void * *)&this->m_2c != NULL) { TWindow__close(*(void * *)&this->m_2c); *(s32 *)&this->m_2c = 0; }
+        if (*(void * *)&this->m_28 != NULL) { TWindow__close(*(void * *)&this->m_28); *(s32 *)&this->m_28 = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -149,29 +149,29 @@ int TWindowSubQuestBoard::set_card_flags_direct(int a1) { return set_card_window
 void TWindowSubQuestBoard::render() {  }
 
 void TWindowSubQuestBoard::run_task() {
-    switch (*(u8 *)((s8 *)this + 0x1C)) {
+    switch (this->m_1c) {
     case 0:
     case 1:
-        fn_8027D1E8(*(s32 *)((s8 *)this + 0x28));
-        *(u8 *)((s8 *)this + 0x1C) = 2;
+        fn_8027D1E8(*(s32 *)&this->m_28);
+        this->m_1c = 2;
     case 2:
-        if (TWindowSubQuestBoard__sub_8027D1DC(*(s32 *)((s8 *)this + 0x28)) != 0) {
-            (*(VO_8027CFC8 **)((s8 *)this + 0x24))->m7();
-            *(u8 *)((s8 *)this + 0x1C) = 5;
+        if (TWindowSubQuestBoard__sub_8027D1DC(*(s32 *)&this->m_28) != 0) {
+            (*(VO_8027CFC8 * *)&this->m_24)->m7();
+            this->m_1c = 5;
             break;
         }
-        if (((TWindowSubQuestBoard *)(*(s32 *)((s8 *)this + 0x28)))->is_open() != 0) {
-            *(u8 *)((s8 *)this + 0x1C) = 3;
+        if (((TWindowSubQuestBoard *)(*(s32 *)&this->m_28))->is_open() != 0) {
+            this->m_1c = 3;
         }
         break;
     case 3:
-        *(s32 *)((s8 *)this + 0x2C) = create_instance__17TQuestThreadBoardFi(
-            quest_board_handlers[get_page_index__20TWindowSubQuestBoardFv(*(s32 *)((s8 *)this + 0x28))].f20);
-        *(u8 *)((s8 *)this + 0x1C) = 4;
+        *(s32 *)&this->m_2c = create_instance__17TQuestThreadBoardFi(
+            quest_board_handlers[get_page_index__20TWindowSubQuestBoardFv(*(s32 *)&this->m_28)].f20);
+        this->m_1c = 4;
     case 4:
-        if (((TObject *)(*(s32 *)((s8 *)this + 0x2C)))->all_parents_unqueued_for_destruction() == 0) {
-            *(s32 *)((s8 *)this + 0x2C) = 0;
-            *(u8 *)((s8 *)this + 0x1C) = 1;
+        if (((TObject *)(*(s32 *)&this->m_2c))->all_parents_unqueued_for_destruction() == 0) {
+            *(s32 *)&this->m_2c = 0;
+            this->m_1c = 1;
         }
         break;
     case 5:

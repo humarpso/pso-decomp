@@ -24,6 +24,6 @@ u8 TMainCursor::is_channel_active() {
 
 int TMainCursor::check_visible() { return find_action_slot_for_target__11TMainCursorFllll(this); }
 u8 TMainCursor::get_enabled() { return *(u8*)((char*)this + 0x1); }
-u8 TMainCursor::get_type() { return *(u8*)((char*)this + 0x0); }
+u8 TMainCursor::get_type() { return *(u8 *)&this->m_name; }
 
 }

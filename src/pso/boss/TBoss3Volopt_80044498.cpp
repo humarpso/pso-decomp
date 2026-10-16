@@ -1947,18 +1947,18 @@ void TUnk_80484610::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     s32 temp_r0;
-    temp_f1 = sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x47C));
-    *(s8 *)((s8 *)TBoss3Volopt__data_805D4D00 + 6) = (s8) fabs_float(temp_f1 * *(f32 *)((s8 *)arg0 + 0x484));
+    temp_f1 = sin_table_lookup(this->m_47c);
+    *(s8 *)((s8 *)TBoss3Volopt__data_805D4D00 + 6) = (s8) fabs_float(temp_f1 * this->m_484);
     *(s8 *)((s8 *)TBoss3Volopt__data_805D4D00 + 5) = (s8) fabs_float(temp_f1 * *(f32 *)((s8 *)arg0 + 0x488));
-    *(s8 *)((s8 *)TBoss3Volopt__data_805D4D00 + 4) = (s8) fabs_float(temp_f1 * *(f32 *)((s8 *)arg0 + 0x48C));
-    *(s32 *)((s8 *)arg0 + 0x47C) = (s32) (*(s32 *)((s8 *)arg0 + 0x47C) + *(s32 *)((s8 *)arg0 + 0x480));
+    *(s8 *)((s8 *)TBoss3Volopt__data_805D4D00 + 4) = (s8) fabs_float(temp_f1 * this->m_48c);
+    this->m_47c = (s32) (this->m_47c + *(s32 *)((s8 *)arg0 + 0x480));
     if (TObjPlayer::check_demo_mode() != 1) {
         if (((VObj_18_b8f5cb *)(arg0))->m31() != 0) {
             ((VObj_18_b8f5cb *)(arg0))->m61();
         } else if (((VObj_18_b8f5cb *)(arg0))->m30() != 0) {
             if (TBoss3Volopt__sub_8003F398() != 0) {
                 distribute_part_damage__12TBoss3VoloptFPv((Volopt_80044498 *)((void *)((void *) (arg0))));
-                *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
+                *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
                 *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss3Volopt__data_805D87E4;
             } else {
                 ((VObj_18_b8f5cb *)(arg0))->m60();
@@ -1970,16 +1970,16 @@ void TUnk_80484610::run_task() {
                 obj_clearFlags30((void *) (arg0), (int) (0x4000));
             }
         } else {
-            if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != (s32) *(s32 *)((s8 *)arg0 + 0x374)) {
-                temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
+            if ((s16) this->mode != (s32) *(s32 *)&this->next_action) {
+                temp_r0 = *(s32 *)&this->state;
                 if (temp_r0 != -1) {
-                    *(s32 *)((s8 *)arg0 + 0x470) = temp_r0;
-                    *(s32 *)((s8 *)arg0 + 0x37C) = -1;
+                    this->m_470 = temp_r0;
+                    *(s32 *)&this->state = -1;
                     run_state__12TBoss3VoloptFPv((S_80047714 *)((void *) (arg0)));
                 }
-                *(s32 *)((s8 *)arg0 + 0x380) = (s32) *(s16 *)((s8 *)arg0 + 0x326);
-                *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
-                *(s32 *)((s8 *)arg0 + 0x37C) = 0;
+                *(s32 *)&this->m_380 = (s32) this->mode;
+                this->mode = (s16) *(s32 *)&this->next_action;
+                *(s32 *)&this->state = 0;
             }
             run_state__12TBoss3VoloptFPv((S_80047714 *)((void *) (arg0)));
             ((TObjPlayer *)arg0)->update_prev_position();

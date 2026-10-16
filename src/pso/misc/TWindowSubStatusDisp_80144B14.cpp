@@ -342,8 +342,8 @@ u16 map_char_to_font_code(u16 c) {
 }
 
 void TWindowSubStatusDisp::pack_status_flags(u32 arg1) {
-    *(u8 *)((s8 *)this + 0) = (u8) ((arg1 >> 4U) & 3);
-    *(u8 *)((s8 *)this + 0) = (u8) (*(u8 *)((s8 *)this + 0) | ((arg1 >> 2U) & 0x30));
+    *(u8 *)&this->m_name = (u8) ((arg1 >> 4U) & 3);
+    *(u8 *)&this->m_name = (u8) (*(u8 *)&this->m_name | ((arg1 >> 2U) & 0x30));
     *(u8 *)((s8 *)this + 1) = (u8) (arg1 & 3);
     *(u8 *)((s8 *)this + 1) = (u8) (*(u8 *)((s8 *)this + 1) | ((arg1 * 4) & 0x30));
 }

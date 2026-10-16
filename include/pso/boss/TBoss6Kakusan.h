@@ -8,7 +8,8 @@ struct TBoss6Kakusan : public TObject {
     virtual ~TBoss6Kakusan();
     u32 m_1c;
     u16 m_20;
-    u8 _pad22[0xA];
+    u8 unk_22[0x6];
+    f32 m_28;
     u32 m_2c;
     void* m_30;
     u8 _pad34[0x8];

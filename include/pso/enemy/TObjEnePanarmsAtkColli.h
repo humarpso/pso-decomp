@@ -7,7 +7,8 @@
 struct TObjEnePanarmsAtkColli : public TObjEnemy {
     virtual ~TObjEnePanarmsAtkColli();
     u32 m_374;
-    u8 _pad378[0x8];
+    u8 unk_378[0x4];
+    f32 m_37c;
     u32 m_380;
     u32 m_384;
     u32 m_388;

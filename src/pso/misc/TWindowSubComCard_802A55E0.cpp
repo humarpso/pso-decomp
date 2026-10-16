@@ -30,11 +30,11 @@ int queue_destruction__7TObjectFv(void*);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
 
 void TWindowSubComCard::free_windows() {
-    if ((u32) *(u32 *)((s8 *)this + 0x28) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x28)))->reparent_to_main_ctrl();
+    if ((u32) this->m_28 != 0U) {
+        ((TWindowSubComCard *)(*(void * *)&this->m_28))->reparent_to_main_ctrl();
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x2C) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x2C)))->reparent_to_main_ctrl();
+    if ((u32) this->m_2c != 0U) {
+        ((TWindowSubComCard *)(*(void * *)&this->m_2c))->reparent_to_main_ctrl();
     }
 }
 
@@ -53,7 +53,7 @@ void update_label_positions__17TWindowSubComCardFPvPv(O_802A5628 *arg0, V_802A56
     }
 }
 
-void TWindowSubComCard::update_card_slot() { void* m = *(void**)((char*)this + 0x2c); if (m) ((TAdChrSelASlotGC *)m)->set_flag_40(); }
-void TWindowSubComCard::notify_trade_main() { void* m = *(void**)((char*)this + 0x2c); if (m) ((TWindowSubTradeMain *)m)->clear_trade_flag(); }
+void TWindowSubComCard::update_card_slot() { void* m = *(void* *)&this->m_2c; if (m) ((TAdChrSelASlotGC *)m)->set_flag_40(); }
+void TWindowSubComCard::notify_trade_main() { void* m = *(void* *)&this->m_2c; if (m) ((TWindowSubTradeMain *)m)->clear_trade_flag(); }
 
 }

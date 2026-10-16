@@ -1595,8 +1595,8 @@ void TObjEneDolmOlm::vfunc_83() {
 }
 void TObjEneDolmOlm::vfunc_100() {
     if (calc_boss4_scale__10TObjPlayerFi() < *(f32 *)((s8 *)this + 0x3CC)) {
-        *(s16 *)((s8 *)this + 0x326) = 0xA;
-        *(s16 *)((s8 *)this + 0x328) = 0;
+        this->mode = 0xA;
+        this->phase = 0;
     }
 }
 #pragma push
@@ -1928,9 +1928,9 @@ void check_target_in_range__14TObjEneDolmOlmFPv(u8 *arg0) {
 void TObjEneDolmOlm::advance_position() {
     u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0x300) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) + TObjEneDolmOlm__data_805DEF6C);
+    *(f32 *)&this->unk_300 = (f32) (*(f32 *)&this->unk_300 + TObjEneDolmOlm__data_805DEF6C);
 }
-void TObjEneDolmOlm::request_stand_action() { *(s16*)((char*)this + 0xb8) = 1; }
+void TObjEneDolmOlm::request_stand_action() { this->m_b8 = 1; }
 #pragma push
 #pragma fp_contract on
 void check_path_ahead__14TObjEneDolmOlmFPvif(u8 *arg0, s32 arg1, f32 farg0) {
@@ -2016,9 +2016,9 @@ void TObjEneDolmOlm::vfunc_94() {
     Stack_80300FC0 stack;
     stack.sp8 = TObjEneDolmOlm__data_805DEF54;
     stack.spC = lbl_805DEF58;
-    stack.sp10 = TObjEneDolmOlm__data_805DEF5C * *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0x10);
+    stack.sp10 = TObjEneDolmOlm__data_805DEF5C * *(f32 *)((s8 *)(this->m_2b0) + 0x10);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));

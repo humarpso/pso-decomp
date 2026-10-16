@@ -235,7 +235,7 @@ void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 
 int TWindowSubComCard__sub_80244774(void) {  return lbl_805D3614; }
 
-s32 TWindowSubComCard::get_field_20() { return *(s32*)((char*)this + 0x20); }
+s32 TWindowSubComCard::get_field_20() { return *(s32 *)&this->m_20; }
 
 f32 TWindowSubComCard__sub_80244784(void *arg0) {
     f32 v = ((TWindowSubComCard *)arg0)->calc_offset();
@@ -260,10 +260,10 @@ f32 TWindowSubComCard::calc_offset() {
 f32 TWindowSubComCard::get_normalized_progress() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
-    if (*(s32 *)((s8 *)arg0 + 0x2C) & 0x2000) {
+    if (*(s32 *)&this->m_2c & 0x2000) {
         return (*(const f32 *)&lbl_805DCAC8);
     }
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x5C);
+    temp_r3 = *(s32 *)&this->m_5c;
     if ((f32) temp_r3 >= lbl_805DCAD0) {
         return (*(const f32 *)&lbl_805DCAC8);
     }
@@ -319,20 +319,20 @@ void TWindow__close(u8 *arg0) {
 void TWindowSubTradeMain::request_close() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x2C);
+    temp_r3 = *(s32 *)&this->m_2c;
     if (!(temp_r3 & 1)) {
-        *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (temp_r3 & 0xFFFFFFFB);
+        *(s32 *)&this->m_2c = (s32) (temp_r3 & 0xFFFFFFFB);
         return;
     }
     if (temp_r3 & 2) {
-        *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (temp_r3 | 4);
+        *(s32 *)&this->m_2c = (s32) (temp_r3 | 4);
         return;
     }
     if (!(temp_r3 & 0x20)) {
         ((s32)play_sound_effect((s32)((int) (0x53704)), (s32)((int) (0)), (s32)((int) (0)), (s32)((int) (0))));
     }
-    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) & 0xFFFFFFFE);
-    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 2);
+    *(s32 *)&this->m_2c = (s32) (*(s32 *)&this->m_2c & 0xFFFFFFFE);
+    *(s32 *)&this->m_2c = (s32) (*(s32 *)&this->m_2c | 2);
 }
 
 s32 is_window_reveal_complete(u8 *arg0) {
@@ -806,16 +806,16 @@ void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r) {
 void TWindowSubComCard::update_fade() {
     u32 temp_r5;
 
-    temp_r5 = *(u32 *)((s8 *)this + 0x50);
+    temp_r5 = this->m_50;
     if (temp_r5 == 0) {
         ((s32 (*)(void))save_position__17TWindowSubComCardFPv)();
         return;
     }
-    *(f32 *)((s8 *)this + 0x40) += (*(f32 *)((s8 *)this + 0x30) - *(f32 *)((s8 *)this + 0x40)) / (f32) temp_r5;
-    *(f32 *)((s8 *)this + 0x44) += (*(f32 *)((s8 *)this + 0x34) - *(f32 *)((s8 *)this + 0x44)) / (f32) *(u32 *)((s8 *)this + 0x50);
-    *(f32 *)((s8 *)this + 0x48) += (*(f32 *)((s8 *)this + 0x38) - *(f32 *)((s8 *)this + 0x48)) / (f32) *(u32 *)((s8 *)this + 0x50);
-    *(f32 *)((s8 *)this + 0x4C) += (*(f32 *)((s8 *)this + 0x3C) - *(f32 *)((s8 *)this + 0x4C)) / (f32) *(u32 *)((s8 *)this + 0x50);
-    *(u32 *)((s8 *)this + 0x50) = (u32) (*(u32 *)((s8 *)this + 0x50) - 1);
+    *(f32 *)&this->m_40 += (*(f32 *)&this->m_30 - *(f32 *)&this->m_40) / (f32) temp_r5;
+    *(f32 *)((s8 *)this + 0x44) += (*(f32 *)((s8 *)this + 0x34) - *(f32 *)((s8 *)this + 0x44)) / (f32) this->m_50;
+    this->m_48 += (this->m_38 - this->m_48) / (f32) this->m_50;
+    *(f32 *)((s8 *)this + 0x4C) += (*(f32 *)((s8 *)this + 0x3C) - *(f32 *)((s8 *)this + 0x4C)) / (f32) this->m_50;
+    this->m_50 = (u32) (this->m_50 - 1);
 }
 
 void TWindowSubComCard::update_open_close() {
@@ -823,46 +823,46 @@ void TWindowSubComCard::update_open_close() {
     s32 temp_r3;
     s32 temp_r5;
 
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x5C) < 0x01000000) {
-        temp_r3 = TWindowSubStatusDisp::get_card_window_flags(*(s16 *)((s8 *)arg0 + 0x20));
-        temp_r3 += *(s32 *)((s8 *)arg0 + 0x5C);
-        *(s32 *)((s8 *)arg0 + 0x5C) = temp_r3 + 1;
+    if ((s32) *(s32 *)&this->m_5c < 0x01000000) {
+        temp_r3 = TWindowSubStatusDisp::get_card_window_flags(*(s16 *)&this->m_20);
+        temp_r3 += *(s32 *)&this->m_5c;
+        *(s32 *)&this->m_5c = temp_r3 + 1;
     }
-    temp_r5 = *(s32 *)((s8 *)arg0 + 0x2C);
+    temp_r5 = *(s32 *)&this->m_2c;
     if (!(temp_r5 & 2)) {
         if ((temp_r5 & 0x10) && (((s32 (*)(void *))TWindowSubAreaMapDisp__sub_80246948)(arg0) != 0)) {
             queue_destruction__7TObjectFv(arg0);
         }
     } else if (temp_r5 & 1) {
-        if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DCAD0) {
+        if ((f32) *(s32 *)&this->m_5c >= lbl_805DCAD0) {
             if (temp_r5 & 4) {
                 if (!(temp_r5 & 0x20)) {
                     ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x53704, 0U, 0, 0);
                 }
-                *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) & ~5);
+                *(s32 *)&this->m_2c = (s32) (*(s32 *)&this->m_2c & ~5);
                 return;
             }
-            *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (temp_r5 & 0xFFFFFFFD);
+            *(s32 *)&this->m_2c = (s32) (temp_r5 & 0xFFFFFFFD);
         }
     } else {
         *(s16 *)((s8 *)arg0 + 0x22) = (s16) (*(s16 *)((s8 *)arg0 + 0x22) + 1);
         if ((f32) *(s16 *)((s8 *)arg0 + 0x22) >= lbl_805DCACC) {
-            if (*(s32 *)((s8 *)arg0 + 0x2C) & 0x10) {
+            if (*(s32 *)&this->m_2c & 0x10) {
                 disallow_rendering__7TObjectFv(arg0);
                 queue_destruction__7TObjectFv(arg0);
             }
             *(s16 *)((s8 *)arg0 + 0x22) = 0;
-            temp_r3 = *(s32 *)((s8 *)arg0 + 0x2C);
+            temp_r3 = *(s32 *)&this->m_2c;
             if (temp_r3 & 4) {
                 if (!(temp_r3 & 0x20)) {
                     ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x53703, 0U, 0, 0);
                 }
-                *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) & 0xFFFFFFFB);
-                *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 1);
-                *(s32 *)((s8 *)arg0 + 0x5C) = 0;
+                *(s32 *)&this->m_2c = (s32) (*(s32 *)&this->m_2c & 0xFFFFFFFB);
+                *(s32 *)&this->m_2c = (s32) (*(s32 *)&this->m_2c | 1);
+                *(s32 *)&this->m_5c = 0;
                 return;
             }
-            *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (temp_r3 & 0xFFFFFFFD);
+            *(s32 *)&this->m_2c = (s32) (temp_r3 & 0xFFFFFFFD);
             disallow_rendering__7TObjectFv(arg0);
         }
     }

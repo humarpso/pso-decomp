@@ -8,7 +8,11 @@ struct TTecPlayerInfluence : public TEffect {
     virtual ~TTecPlayerInfluence();
     virtual void tick_lifetime();
     virtual void vfunc_7(void *);
-    u8 unk_70[0x30];
+    u8 unk_70[0x4];
+    f32 m_74;
+    u8 unk_78[0x20];
+    s16 m_98;
+    u8 unk_9A[0x6];
     u32 m_a0;
     s16 m_a4;
     u16 m_a6;

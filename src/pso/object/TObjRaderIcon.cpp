@@ -78,36 +78,36 @@ void TObjRaderIcon::run_task() {
 void TObjRaderIcon::initialize_from_placement() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x90) = 0;
-    *(s32 *)((s8 *)arg0 + 0x94) = 1;
-    *(s32 *)((s8 *)arg0 + 0x98) = 0;
-    *(f32 *)((s8 *)arg0 + 0x9C) = 1.0f;
-    *(s32 *)((s8 *)arg0 + 0xA0) = 0;
-    *(s32 *)((s8 *)arg0 + 0x90) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x90) < 0) {
-        *(s32 *)((s8 *)arg0 + 0x90) = 0;
+    *(s32 *)&this->m_90 = 0;
+    *(s32 *)&this->m_94 = 1;
+    *(s32 *)&this->m_98 = 0;
+    *(f32 *)&this->_pad9C = 1.0f;
+    *(s32 *)&this->m_a0 = 0;
+    *(s32 *)&this->m_90 = (s32) this->m_84;
+    if ((s32) *(s32 *)&this->m_90 < 0) {
+        *(s32 *)&this->m_90 = 0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x90) > 1) {
-        *(s32 *)((s8 *)arg0 + 0x90) = 1;
+    if ((s32) *(s32 *)&this->m_90 > 1) {
+        *(s32 *)&this->m_90 = 1;
     }
-    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
-    if (*(f32 *)((s8 *)arg0 + 0x9C) < 0.0f) {
-        *(f32 *)((s8 *)arg0 + 0x9C) = 0.0f;
+    *(f32 *)&this->_pad9C = (f32) this->scale;
+    if (*(f32 *)&this->_pad9C < 0.0f) {
+        *(f32 *)&this->_pad9C = 0.0f;
     }
-    *(s32 *)((s8 *)arg0 + 0xA0) = (s32) *(s32 *)((s8 *)arg0 + 0x8C);
-    *(s32 *)((s8 *)arg0 + 0x94) = (s32) (u16) ((s32) *(s32 *)((s8 *)arg0 + 0x88) >> 0x10);
-    *(s32 *)((s8 *)arg0 + 0x98) = (s32) (u16) *(s32 *)((s8 *)arg0 + 0x88);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x94) < 0) {
-        *(s32 *)((s8 *)arg0 + 0x94) = 0;
+    *(s32 *)&this->m_a0 = (s32) *(s32 *)&this->unk_8C;
+    *(s32 *)&this->m_94 = (s32) (u16) ((s32) *(s32 *)&this->m_88 >> 0x10);
+    *(s32 *)&this->m_98 = (s32) (u16) *(s32 *)&this->m_88;
+    if ((s32) *(s32 *)&this->m_94 < 0) {
+        *(s32 *)&this->m_94 = 0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x94) > 0xC) {
-        *(s32 *)((s8 *)arg0 + 0x94) = 0xC;
+    if ((s32) *(s32 *)&this->m_94 > 0xC) {
+        *(s32 *)&this->m_94 = 0xC;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x98) < 0) {
-        *(s32 *)((s8 *)arg0 + 0x98) = 0;
+    if ((s32) *(s32 *)&this->m_98 < 0) {
+        *(s32 *)&this->m_98 = 0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x98) > 0xFF - *(s32 *)((s8 *)arg0 + 0x94)) {
-        *(s32 *)((s8 *)arg0 + 0x98) = 0xFF - *(s32 *)((s8 *)arg0 + 0x94);
+    if ((s32) *(s32 *)&this->m_98 > 0xFF - *(s32 *)&this->m_94) {
+        *(s32 *)&this->m_98 = 0xFF - *(s32 *)&this->m_94;
     }
 }
 

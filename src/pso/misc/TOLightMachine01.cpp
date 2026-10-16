@@ -71,9 +71,9 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TOLightMachine01::run_task() {
-    *(s32 *)((s8 *)this + 0xA8) = (s32) (*(s32 *)((s8 *)this + 0xA8) + *(s32 *)((s8 *)this + 0xA4));
-    *(f32 *)((s8 *)this + 0x9C) = (f32) (*(f32 *)((s8 *)this + 0x98) * sin_table_lookup(*(s32 *)((s8 *)this + 0xA8)));
-    *(s32 *)((s8 *)this + 0xAC) = (s32) (*(s32 *)((s8 *)this + 0xAC) + *(s32 *)((s8 *)this + 0x8C));
+    *(s32 *)&this->m_a8 = (s32) (*(s32 *)&this->m_a8 + *(s32 *)&this->m_a4);
+    this->m_9c = (f32) (*(f32 *)((s8 *)this + 0x98) * sin_table_lookup(*(s32 *)&this->m_a8));
+    *(s32 *)&this->m_ac = (s32) (*(s32 *)&this->m_ac + *(s32 *)&this->unk_8C);
 }
 
 extern s32 light_machine_ginja_model_handle;
@@ -82,16 +82,16 @@ extern const f32 lbl_805DB828;
 
 void TOLightMachine01::render() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj_8016E9F4_8016E998 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0x90), *(f32 *)((s8 *)arg0 + 0x94)) != 0) {
+    if (((VObj_8016E9F4_8016E998 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0x90), this->m_94) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 4));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
+        draw_ginja_model(*(s32 *)((s8 *)(*(void * *)&this->model) + 4));
         push_matrix();
-        translate_matrix(0, lbl_805DB828, *(f32 *)((s8 *)arg0 + 0x9C), lbl_805DB828);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xAC));
-        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 4));
+        translate_matrix(0, lbl_805DB828, this->m_9c, lbl_805DB828);
+        rotate_matrix_y(0, *(s32 *)&this->m_ac);
+        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 4));
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(light_machine_ginja_param);
         draw_ginja_object(light_machine_ginja_model_handle);

@@ -10,7 +10,7 @@ void TShopEquipmentListWindow::set_stack_count(s8 arg1) {
         *(s8 *)((s8 *)this + 5) = arg1;
         return;
     }
-    if ((u8) *(u8 *)((s8 *)this + 0) == 3) {
+    if ((u8) *(u8 *)&this->m_name == 3) {
         *(s8 *)((s8 *)this + 5) = 0;
     }
 }

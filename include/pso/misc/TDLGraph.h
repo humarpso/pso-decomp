@@ -18,7 +18,9 @@ struct TDLGraph : public TObject {
     void set_graph_param(s32 v);
     static void update_graph(s32 arg0, s32 arg1);
     static void *create();
-    u8 unk_34[0x30];
+    u8 unk_34[0x8];
+    s32 m_3c;
+    u8 unk_40[0x24];
 };
 
 typedef char TDLGraph_size[sizeof(TDLGraph) == 0x64 ? 1 : -1];

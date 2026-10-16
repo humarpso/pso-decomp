@@ -61,7 +61,7 @@ void TUnk_804E4BF0::run_task() {  }
 
 void *TBoss8Dragon::dt(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_804E4BF0;
+        this->m_18 = lbl_804E4BF0;
         if (boss8_dragon_leader_part == this) {
             boss8_dragon_leader_part = NULL;
         }
@@ -75,7 +75,7 @@ void *TBoss8Dragon::dt(s16 arg1) {
 
 void *TBoss8Dragon::ct(void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(this);
-    *(s32 **)((s8 *)this + 0x18) = lbl_804E4BF0;
+    this->m_18 = lbl_804E4BF0;
     if (boss8_dragon_leader_part == NULL) {
         boss8_dragon_leader_part = this;
     }
@@ -97,7 +97,7 @@ void TBoss8Dragon__sub_802F3C74(void) {  }
 void clear_boss8_dragon_leader_part(void) { boss8_dragon_leader_part = 0; }
 
 u16 TBoss8Dragon::get_part_count_plus(s32 arg1) {
-    return (u16) (*(u16 *)((s8 *)this + 0x22) + arg1);
+    return (u16) (this->m_22 + arg1);
 }
 
 s32 TBoss8Dragon__sub_802F3C94(void *arg0, s32 arg1) {

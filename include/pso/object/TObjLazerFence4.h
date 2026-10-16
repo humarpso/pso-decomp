@@ -18,7 +18,9 @@ struct TObjLazerFence4 : public TUnk_804AF8A0 {
     void reset_if_door_closed();
     virtual void render();
     void *create();
-    u8 unk_BC[0x3C];
+    u8 unk_BC[0x4];
+    void * m_c0;
+    u8 unk_C4[0x34];
 };
 
 typedef char TObjLazerFence4_size[sizeof(TObjLazerFence4) == 0xF8 ? 1 : -1];

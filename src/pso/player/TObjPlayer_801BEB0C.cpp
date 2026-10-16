@@ -66,7 +66,7 @@ void TObjPlayer::set_control_role(s32 v) { *(s32*)((char*)this + 0x3e8) = v; }
 u8 TObjPlayer__sub_801BEB3C(void* p) { return *(u8*)((char*)p + 0x2e7); }
 u8 TObjPlayer__sub_801BEB44(void* p) { return *(u8*)((char*)p + 0x2cb); }
 u8 TObjPlayer__sub_801BEB4C(void* p) { return *(u8*)((char*)p + 0x2af); }
-void TObjPlayer::set_play_time(s32 v) { *(s32*)((char*)this + 0x3bc) = v; }
+void TObjPlayer::set_play_time(s32 v) { this->m_3bc = v; }
 void TObjPlayer::reset_entrance_id() { *(s32*)((char*)this + 0x3c8) = -1; }
 int TObjPlayer__sub_801BEB68(void* p) { return TObjPlayer__sub_801BED98((char*)p + 0x374); }
 u8 TObjPlayer__sub_801BEB8C(void* p) { return *(u8*)((char*)p + 0x293); }

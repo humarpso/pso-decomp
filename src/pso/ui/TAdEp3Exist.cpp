@@ -128,7 +128,7 @@ void TAdEp3Exist::render() {
 int TAdEp3Exist::request_game_mode_transition() { return request_transition__21TAdMultiChgGameModeGCFv(this); }
 int TAdEp3Exist::request_scene_change() { return request_scene_change__21TAdMultiChgGameModeGCFv(this); }
 int TAdEp3Exist__sub_8036F0AC(void* p) { return reset_and_set_mode__21TAdMultiChgGameModeGCFv(p); }
-void TAdEp3Exist::close_window() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { ((TAdScrollWinGC *)(*(void**)((char*)this + 0x1c)))->close_window(); *(int*)((char*)this + 0x1c) = 0; } }
+void TAdEp3Exist::close_window() { if (*(unsigned int *)&this->m_1c != 0) { ((TAdScrollWinGC *)(*(void* *)&this->m_1c))->close_window(); *(int *)&this->m_1c = 0; } }
 
 extern s32 __vt__11TAdEp3Exist[];
 

@@ -8,7 +8,9 @@ public:
     virtual ~TBoss6Demo15_TYPE2_WAIT();
     virtual void render();
     virtual void run_task();
-    u8 unk_1C[0x6C];
+    u8 unk_1C[0x4];
+    u8 * m_20;
+    u8 unk_24[0x64];
 };
 typedef char TBoss6Demo15_TYPE2_WAIT_size[sizeof(TBoss6Demo15_TYPE2_WAIT) == 0x88 ? 1 : -1];
 

@@ -1178,7 +1178,7 @@ void beast_update_dead(u8 *arg0) {
         ((VObj_18_90ef41 *)(arg0))->m90();
     }
 }
-void TObjPlayer::enter_state_8() { if (*(short*)((char*)this + 0x326) != 8) { *(short*)((char*)this + 0x326) = 8; *(short*)((char*)this + 0xb8) = 8; unlink_enemy_group_relations(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__6TLobbyFPv(this); } }
+void TObjPlayer::enter_state_8() { if (*(short *)&this->m_326 != 8) { *(short *)&this->m_326 = 8; *(short*)((char*)this + 0xb8) = 8; unlink_enemy_group_relations(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__6TLobbyFPv(this); } }
 void beast_update_hurt(u8 *arg0) {
     Obj_800C5164 *o = (Obj_800C5164 *)arg0;
     Vec_800C5164 v;
@@ -1219,8 +1219,8 @@ void beast_update_hurt(u8 *arg0) {
     minimap_render_dot(&o->f38, -0x5DB4, 1, 0);
 }
 void TObjPlayer::enter_state7() {
-    if ((s16) *(s16 *)((s8 *)this + 0x326) != 7) {
-        *(s16 *)((s8 *)this + 0x326) = 7;
+    if ((s16) this->m_326 != 7) {
+        this->m_326 = 7;
         *(s16 *)((s8 *)this + 0xB8) = 6;
     }
     obj_clearFlags30(this, 0x240000);
@@ -1640,30 +1640,30 @@ end:
 
 void TObjPlayer::tick_freeze_state() {
     s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->m_326;
     switch (temp_r0) {
     case 1:
         if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
-            *(s16 *)((s8 *)this + 0x326) = 0;
-            *(s16 *)((s8 *)this + 0x328) = 0;
+            this->m_326 = 0;
+            this->m_328 = 0;
         }
         break;
     case 0:
-        switch ((s16) *(s16 *)((s8 *)this + 0x328)) {
+        switch ((s16) this->m_328) {
         case 2:
             if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
-                *(s16 *)((s8 *)this + 0x328) = 0;
+                this->m_328 = 0;
             }
             break;
         }
         break;
     default:
         if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
-            *(s16 *)((s8 *)this + 0x326) = 0;
+            this->m_326 = 0;
         } else {
-            *(s16 *)((s8 *)this + 0x326) = 1;
+            this->m_326 = 1;
         }
-        *(s16 *)((s8 *)this + 0x328) = 0;
+        this->m_328 = 0;
         ((CV_800c63cc *)this)->vf100();
         obj_setFlags30(this, 0x04040000);
         set_indexed_flags(this, 0, 0x0A000000);
@@ -1744,6 +1744,6 @@ void *TObjPlayer__sub_800C68FC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void*TObjPlayer::init_enemy_base() { initialize__9TObjEnemyFPv(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_80493450); *(short*)((char*)this + 0x326) = 0; *(short*)((char*)this + 0x328) = 0; *(short*)((char*)this + 0x374) = 0; *(short*)((char*)this + 0x376) = 0; *(int*)((char*)this + 0x378) = 0; *(int*)((char*)this + 0x37c) = 0; *(float*)((char*)this + 0x380) = (*(const float *)&lbl_805DA034); *(float*)((char*)this + 0x384) = lbl_805DA058; *(float*)((char*)this + 0x388) = lbl_805DA05C; *(int*)((char*)this + 0x38c) = 0; *(int*)((char*)this + 0x390) = 0; *(float*)((char*)this + 0x398) = lbl_805DA060; *(float*)((char*)this + 0x39c) = lbl_805DA064; *(float*)((char*)this + 0x394) = lbl_805DA060; *(float*)((char*)this + 0x3a0) = lbl_805DA060; *(float*)((char*)this + 0x3a4) = lbl_805DA064; return this; }
+void*TObjPlayer::init_enemy_base() { initialize__9TObjEnemyFPv(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_80493450); *(short *)&this->m_326 = 0; *(short *)&this->m_328 = 0; *(short *)&this->m_374 = 0; *(short*)((char*)this + 0x376) = 0; *(int*)((char*)this + 0x378) = 0; *(int *)&this->m_37c = 0; *(float *)&this->unk_380 = (*(const float *)&lbl_805DA034); *(float *)&this->m_384 = lbl_805DA058; *(float*)((char*)this + 0x388) = lbl_805DA05C; this->m_38c = 0; *(int*)((char*)this + 0x390) = 0; *(float*)((char*)this + 0x398) = lbl_805DA060; *(float *)&this->m_39c = lbl_805DA064; *(float *)&this->m_394 = lbl_805DA060; this->m_3a0 = lbl_805DA060; *(float*)((char*)this + 0x3a4) = lbl_805DA064; return this; }
 
 }

@@ -26,7 +26,7 @@ extern s32 lbl_804DC448[];
 void *TORockJungleL01::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804DC448;
-        if (*(void **)((s8 *)this + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD4)); *(s32 *)((s8 *)this + 0xD4) = 0; }
+        if (*(void * *)&this->m_d4 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_d4); *(s32 *)&this->m_d4 = 0; }
         unregister_object_by_id(this);
         free_collision_body_parts(this);
         TObjPlayer__sub_800D7C58((s8 *)this + 0xB4, -1);

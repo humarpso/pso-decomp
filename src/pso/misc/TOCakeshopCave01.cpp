@@ -129,12 +129,12 @@ void TOCakeshopCave01::render() {
     u8 *arg0 = (u8 *)this;
     Model_80159F78 *m;
     s32 i;
-    if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        m = *(Model_80159F78 **)((s8 *)arg0 + 0x34);
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
+        m = *(Model_80159F78 * *)&this->model;
         post_translate_matrix(m->m8);
         draw_ginja_model(m->m4);
         m = m->child;

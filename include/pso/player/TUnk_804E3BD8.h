@@ -6,7 +6,9 @@
 class TUnk_804E3BD8 : public TObject {
 public:
     virtual ~TUnk_804E3BD8();
-    u8 unk_1C[0x10];
+    u8 unk_1C[0x8];
+    s32 m_24;
+    u8 unk_28[0x4];
 };
 
 #endif

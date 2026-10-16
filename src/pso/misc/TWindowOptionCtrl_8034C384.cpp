@@ -33,28 +33,28 @@ int reset_info_board__6TLobbyFv(void*);
 
 int TLobby__sub_8034C384(void* p) { return reset_info_board__6TLobbyFv(p); }
 int TLobby__sub_8034C3A4(void* p) { return reset_info_board__6TLobbyFv(p); }
-s32 TWindowOptionCtrl::get_field_24() { return *(s32*)((char*)this + 0x24); }
+s32 TWindowOptionCtrl::get_field_24() { return *(s32 *)&this->m_24; }
 
 extern s32 local_client_id;
 extern s32 tl_01;
 extern const f32 lbl_805DFDD0;
 
 void TWindowOptionCtrl::open_confirm_dialog(s32 arg1, s32 arg2) {
-    if ((u32) *(u32 *)((s8 *)this + 0x2C) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x2C)))->close();
-        *(u32 *)((s8 *)this + 0x2C) = 0U;
+    if ((u32) this->m_2c != 0U) {
+        ((TWindowSubComCard *)(*(void * *)&this->m_2c))->close();
+        this->m_2c = 0U;
     }
-    *(u32 *)((s8 *)this + 0x2C) = create__19TWindowMessageYesNoFPvPvPvPv(tl_01, local_client_id, 0, 0);
+    this->m_2c = create__19TWindowMessageYesNoFPvPvPvPv(tl_01, local_client_id, 0, 0);
     if (arg2 != 0) {
-        forward_slot_selection__16TAdChrSelASlotGCFPvPv(*(u32 *)((s8 *)this + 0x2C), arg1, get_option_entry__17TWindowOptionCtrlFi(0xCF), lbl_805DFDD0);
+        forward_slot_selection__16TAdChrSelASlotGCFPvPv(this->m_2c, arg1, get_option_entry__17TWindowOptionCtrlFi(0xCF), lbl_805DFDD0);
         return;
     }
-    initialize_option_dialog(*(u32 *)((s8 *)this + 0x2C), arg1, get_option_entry__17TWindowOptionCtrlFi(0xCF), lbl_805DFDD0);
+    initialize_option_dialog(this->m_2c, arg1, get_option_entry__17TWindowOptionCtrlFi(0xCF), lbl_805DFDD0);
 }
 
 void TWindowOptionCtrl::set_option_and_confirm(s32 arg1, s32 arg2) {
-    if (arg1 != (s32) *(s32 *)((s8 *)this + 0x28)) {
-        *(s32 *)((s8 *)this + 0x28) = arg1;
+    if (arg1 != (s32) *(s32 *)&this->m_28) {
+        *(s32 *)&this->m_28 = arg1;
         open_confirm_dialog((s32)(get_localized_text_entry(0x24)), (s32)(arg2));
     }
 }
@@ -73,12 +73,12 @@ void TWindowOptionCtrl::handle_save_result() {
         switch (temp_r3) {
         case 1:
             *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) | 2);
-            *(s32 *)((s8 *)arg0 + 0x24) = 1;
+            *(s32 *)&this->m_24 = 1;
             *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
             break;
         case -4:
             if (*(s32 *)((s8 *)arg0 + 0x20) & 2) {
-                *(s32 *)((s8 *)arg0 + 0x24) = 0;
+                *(s32 *)&this->m_24 = 0;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 3;
             }
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) {
@@ -127,8 +127,8 @@ void TWindowOptionCtrl::handle_save_result() {
             }
             break;
         case -8:
-            if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) && ((s32) *(s32 *)((s8 *)arg0 + 0x28) != 0xF)) {
-                *(s32 *)((s8 *)arg0 + 0x28) = 0xF;
+            if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) && ((s32) *(s32 *)&this->m_28 != 0xF)) {
+                *(s32 *)&this->m_28 = 0xF;
                 open_confirm_dialog((int) (((s32 (*)(int, int)) get_localized_text_entry)((int) (0x16), (int) (5))), (int) (0));
             }
             break;
@@ -142,17 +142,17 @@ void TWindowOptionCtrl::handle_save_result() {
             set_option_and_confirm((int) (0), (int) (1));
             *(s32 *)((s8 *)arg0 + 0x1C) = 2;
         case 2:
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->get_card_data() != 0) {
-                *(s32 *)((s8 *)arg0 + 0x24) = 2;
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_card_data() != 0) {
+                *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->is_child_visible() != 0) {
-                if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->get_slot_or_neg1() == 0) {
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
+                if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_slot_or_neg1() == 0) {
                     *(s32 *)((s8 *)arg0 + 0x1C) = 3;
                     return;
                 }
-                *(s32 *)((s8 *)arg0 + 0x24) = 2;
+                *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
@@ -164,7 +164,7 @@ void TWindowOptionCtrl::handle_save_result() {
             if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), (int) (6)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (6)) != 0)) {
                 play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
-                *(s32 *)((s8 *)arg0 + 0x24) = 2;
+                *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
@@ -184,20 +184,20 @@ void TWindowOptionCtrl::handle_save_result() {
             *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) | 2);
             *(s32 *)((s8 *)arg0 + 0x1C) = 8;
         case 8:
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->get_card_data() != 0) {
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_card_data() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
-                *(s32 *)((s8 *)arg0 + 0x24) = 2;
+                *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->is_child_visible() != 0) {
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
-                if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->get_slot_or_neg1() == 0) {
-                    *(s32 *)((s8 *)arg0 + 0x24) = 3;
+                if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_slot_or_neg1() == 0) {
+                    *(s32 *)&this->m_24 = 3;
                     *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                     return;
                 }
-                *(s32 *)((s8 *)arg0 + 0x24) = 2;
+                *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
@@ -206,21 +206,21 @@ void TWindowOptionCtrl::handle_save_result() {
             *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) | 2);
             *(s32 *)((s8 *)arg0 + 0x1C) = 0xA;
         case 10:
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->get_card_data() != 0) {
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_card_data() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
-                *(s32 *)((s8 *)arg0 + 0x24) = 2;
+                *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->is_child_visible() != 0) {
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
-                if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->get_slot_or_neg1() == 0) {
+                if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_slot_or_neg1() == 0) {
                     TObjBoss2Tunnel::poll_pso_screen_load();
-                    *(s32 *)((s8 *)arg0 + 0x24) = 2;
+                    *(s32 *)&this->m_24 = 2;
                     *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                     return;
                 }
-                *(s32 *)((s8 *)arg0 + 0x24) = 2;
+                *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
@@ -229,19 +229,19 @@ void TWindowOptionCtrl::handle_save_result() {
             *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) | 2);
             *(s32 *)((s8 *)arg0 + 0x1C) = 0xC;
         case 12:
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->get_card_data() != 0) {
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_card_data() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
-                *(s32 *)((s8 *)arg0 + 0x24) = 2;
+                *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->is_child_visible() != 0) {
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_child_visible() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
-                if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x2C)))->get_slot_or_neg1() == 0) {
+                if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_slot_or_neg1() == 0) {
                     *(s32 *)((s8 *)arg0 + 0x1C) = 0xD;
                     return;
                 }
-                *(s32 *)((s8 *)arg0 + 0x24) = 2;
+                *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
                 return;
             }
@@ -283,7 +283,7 @@ void TWindowOptionCtrl::handle_save_result() {
 void *TWindowOptionCtrl::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804F01A8;
-        if (*(void **)((s8 *)this + 0x2C) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x2C)))->close(); *(s32 *)((s8 *)this + 0x2C) = 0; }
+        if (*(void * *)&this->m_2c != NULL) { ((TWindowSubComCard *)(*(void * *)&this->m_2c))->close(); *(s32 *)&this->m_2c = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -299,9 +299,9 @@ void *TWindowOptionCtrl::ct() {
     *(s32 **)((s8 *)this + 0x18) = lbl_804F01A8;
     *(u32 *)((s8 *)this + 0x1C) = 0;
     *(u32 *)((s8 *)this + 0x20) = 0;
-    *(u32 *)((s8 *)this + 0x24) = 0;
-    *(u32 *)((s8 *)this + 0x28) = 14;
-    *(u32 *)((s8 *)this + 0x2C) = 0;
+    this->m_24 = 0;
+    this->m_28 = 14;
+    this->m_2c = 0;
     return this;
 }
 

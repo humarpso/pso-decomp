@@ -110,11 +110,11 @@ void TSceneSora::render() {
         TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
         set_global_param__8TObjFishFl();
         push_matrix();
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x94) != 0U) {
-            draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0x90)), (int) (*(s32 *)((s8 *)arg0 + 0x94)), (f32) (*(f32 *)((s8 *)arg0 + 0xA0)));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        if ((u32) this->m_94 != 0U) {
+            draw_ginja_model_with_motion((int) (*(s32 *)&this->m_90), (int) (*(s32 *)&this->m_94), (f32) (this->m_a0));
         } else {
-            draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x90)));
+            draw_ginja_object((int) (*(s32 *)&this->m_90));
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();

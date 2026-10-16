@@ -53,7 +53,7 @@ void TWindowSubShortCutList::refresh_entries() {
     s32 var_r29;
     save_cursor_selection__20TShopArmorListWindowFv();
     reset_list__20TShopArmorListWindowFPv(this);
-    var_r29 = get_type__20TWindowSubStatusDispFv(*(s32 *)((s8 *)this + 0x88));
+    var_r29 = get_type__20TWindowSubStatusDispFv(*(s32 *)&this->m_88);
     var_r30 = 0;
     var_r29 *= 4;
     do {
@@ -111,7 +111,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
 
 void TWindowSubShortCutList::run_task() {
     update_item_list_window();
-    if ((get_status_flag__6TLobbyFv(this) == 0) && (handle_list_page_flip_input(*(s32 *)((s8 *)this + 0x88)) != 0)) {
+    if ((get_status_flag__6TLobbyFv(this) == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_88) != 0)) {
         refresh_entries();
     }
 }

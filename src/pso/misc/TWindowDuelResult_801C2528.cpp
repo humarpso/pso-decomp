@@ -23,7 +23,7 @@ extern s32 duel_result_window_dispatch_table[];
 void *TWindowDuelResult::init(void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = duel_result_window_dispatch_table;
-    *(void **)((s8 *)this + 0x1C) = arg3;
+    *(void * *)&this->_pad1C = arg3;
     *(void **)((s8 *)this + 0x20) = arg2;
     TLobby::set_and_notify((int)arg2);
     return this;

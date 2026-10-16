@@ -9,7 +9,8 @@ public:
     virtual ~TSaveChCr();
     virtual void run_task();
     s32 state_index;
-    u8 unknown_20[0xC];
+    u8 unk_20[0x8];
+    s32 m_28;
     s32 card_status;
     u8 unknown_30[8];
     s32 timer;

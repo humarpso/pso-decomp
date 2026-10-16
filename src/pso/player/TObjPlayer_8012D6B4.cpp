@@ -3,6 +3,6 @@
 
 extern "C" {
 
-s16 TObjPlayer::get_kill_count() { return *(s16*)((char*)this + 0x11a); }
+s16 TObjPlayer::get_kill_count() { return this->m_11a; }
 
 }

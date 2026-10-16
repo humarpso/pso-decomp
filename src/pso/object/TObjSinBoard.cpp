@@ -160,19 +160,19 @@ void TUnk_804B8DD0::render() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3C) != 0) {
-        *(s32 *)((s8 *)arg0 + 0x38) = (s32) (*(s32 *)((s8 *)arg0 + 0x38) + 0x38E);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x38) >= 0x4000) {
-            *(s32 *)((s8 *)arg0 + 0x38) = 0x4000;
+        this->m_38 = (s32) (this->m_38 + 0x38E);
+        if ((s32) this->m_38 >= 0x4000) {
+            this->m_38 = 0x4000;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0x38) = (s32) (*(s32 *)((s8 *)arg0 + 0x38) - 0x38E);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x38) <= 0) {
-            *(s32 *)((s8 *)arg0 + 0x38) = 0;
+        this->m_38 = (s32) (this->m_38 - 0x38E);
+        if ((s32) this->m_38 <= 0) {
+            this->m_38 = 0;
         }
     }
     temp_r3 = (u8 *)(get_bml_model(gogo_ball_bml_resource, 1));
     if (temp_r3 != NULL) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x28) != 0) {
+        if ((s32) this->m_28 != 0) {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x1C)));
         } else {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x20)));
@@ -184,12 +184,12 @@ void TUnk_804B8DD0::render() {
         ::draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x2C)) + 4)));
         pop_matrix();
         push_matrix();
-        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x38)));
+        rotate_matrix_z((int) (0), (int) (this->m_38));
         rotate_matrix_y((int) (0), (int) (0x8000));
         ::draw_ginja_model((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x2C)) + 0x30)) + 4)));
         pop_matrix();
         push_matrix();
-        rotate_matrix_z((int) (0), (int) (-*(s32 *)((s8 *)arg0 + 0x38)));
+        rotate_matrix_z((int) (0), (int) (-this->m_38));
         ::draw_ginja_model((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x2C)) + 0x30)) + 0x30)) + 4)));
         pop_matrix();
         pop_matrix();
@@ -197,21 +197,21 @@ void TUnk_804B8DD0::render() {
 }
 void TUnk_804B8DD0::run_task() {
     s32 t;
-    if (*(s32 *)((s8 *)this + 0x28) != 0) {
-        if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (*(s32 *)((s8 *)this + 0x40) != 0 ? 0x10 : 1)) {
+    if (this->m_28 != 0) {
+        if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (this->m_40 != 0 ? 0x10 : 1)) {
             *(s32 *)((s8 *)this + 0x3C) = 1;
             update_effects__14TOSwitchAttackFPv((void *)(this));
         } else {
             *(s32 *)((s8 *)this + 0x3C) = 0;
-            *(s32 *)((s8 *)this + 0x30) = 0;
+            this->m_30 = 0;
         }
     } else {
-        if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (*(s32 *)((s8 *)this + 0x40) != 0 ? 0x20 : 2)) {
+        if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (this->m_40 != 0 ? 0x20 : 2)) {
             *(s32 *)((s8 *)this + 0x3C) = 1;
             update_effects__14TOSwitchAttackFPv((void *)(this));
         } else {
             *(s32 *)((s8 *)this + 0x3C) = 0;
-            *(s32 *)((s8 *)this + 0x30) = 0;
+            this->m_30 = 0;
         }
     }
     t = *(s32 *)((s8 *)this + 0x2C);

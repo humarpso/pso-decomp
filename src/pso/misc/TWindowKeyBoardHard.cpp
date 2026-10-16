@@ -34,7 +34,7 @@ extern "C" {
 int TWindowKeyBoardHard__sub_8025CC48(void*);
 s32 is_key_active__19TWindowKeyBoardHardFv();
 
-void TWindowKeyBoardHard::release_keyboard() { void* m = *(void**)((char*)this + 0x70); if (m) TWindowKeyBoardHard__sub_8025CC48(m); }
+void TWindowKeyBoardHard::release_keyboard() { void* m = *(void* *)&this->m_70; if (m) TWindowKeyBoardHard__sub_8025CC48(m); }
 
 void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_80260020 *ctx) {
     s32 flags;
@@ -65,7 +65,7 @@ void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_802600
 
 void TWindowKeyBoardHard::render() {
     s32 temp;
-    if (((s32) *(s32 *)((s8 *)this + 0x68) > 0) && (is_key_active__19TWindowKeyBoardHardFv() == 0)) {
+    if (((s32) *(s32 *)&this->m_68 > 0) && (is_key_active__19TWindowKeyBoardHardFv() == 0)) {
         temp = TWindowDD::draw_default_entry((s32)this);
         draw_status_text__19TWindowKeyBoardHardFPvPv((Win_80260020 *)(this), (Ctx_80260020 *)(temp));
     }

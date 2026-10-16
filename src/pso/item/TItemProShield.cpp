@@ -6,7 +6,7 @@ extern "C" {
 
 void* TItemEquipBase__sub_8010B73C(void* p);
 
-u8 TItemProShield::get_slot_count() { return *(u8*)((char*)this + 0xee); }
+u8 TItemProShield::get_slot_count() { return this->m_ee; }
 void* TItemEquipBase__sub_8010B73C(void* p) { ((TItemEquipBase *)p)->init_slot(); return p; }
 
 }

@@ -20,7 +20,13 @@ struct TWindowCtrl : public TObject {
     u32 m_3c;
     u32 m_40;
     u32 m_44;
-    u8 _pad48[0x4C];
+    u8 unk_48[0x8];
+    s32 m_50;
+    u8 unk_54[0x1D];
+    u8 m_71;
+    u8 unk_72[0x4];
+    u16 m_76;
+    u8 unk_78[0x1C];
     void* m_94;
     virtual void render();
     virtual void run_task();

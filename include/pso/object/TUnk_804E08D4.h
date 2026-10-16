@@ -7,7 +7,15 @@ class TUnk_804E08D4 : public TObjPathObj {
 public:
     virtual ~TUnk_804E08D4();
     virtual void vfunc_14();
-    u8 unk_98[0x38];
+    u8 unk_98[0x4];
+    s32 m_9c;
+    u8 unk_A0[0x8];
+    f32 m_a8;
+    u8 unk_AC[0xC];
+    s32 m_b8;
+    u8 unk_BC[0x4];
+    s32 m_c0;
+    u8 unk_C4[0xC];
 };
 typedef char TUnk_804E08D4_size[sizeof(TUnk_804E08D4) == 0xD0 ? 1 : -1];
 

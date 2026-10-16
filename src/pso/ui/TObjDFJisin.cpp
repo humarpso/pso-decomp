@@ -972,12 +972,12 @@ int set_global_state__16TObjEneRe7BeruraFl(void*);
 void TObjDFTenchuFuru::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805D8AC0);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
-        ((s32 (*)(void *, void *))copy_pos__11TNowLoadingFPv)(*(void **)((s8 *)arg0 + 0x2C), (void *) (arg0 + 0x1C));
+    this->m_20 = (f32) (this->m_20 + lbl_805D8AC0);
+    if ((u32) *(u32 *)&this->m_2c != 0U) {
+        ((s32 (*)(void *, void *))copy_pos__11TNowLoadingFPv)(*(void * *)&this->m_2c, (void *) (arg0 + 0x1C));
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x28) - 1;
-    *(s32 *)((s8 *)arg0 + 0x28) = temp_r0;
+    temp_r0 = this->m_28 - 1;
+    this->m_28 = temp_r0;
     if ((temp_r0 < 0) || ((is_active__14TBoss4DarkFalzFv() == 0) && (is_state_ready__14TBoss4DarkFalzFv() == 0))) {
         ((s32 (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
     }

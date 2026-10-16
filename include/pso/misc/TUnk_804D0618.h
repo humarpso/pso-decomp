@@ -6,7 +6,16 @@
 class TUnk_804D0618 : public TUnk_804CDFE8 {
 public:
     virtual ~TUnk_804D0618();
-    u8 unk_1C[0x6C];
+    u8 unk_1C[0x4];
+    s16 m_20;
+    u8 unk_22[0x4E];
+    u16 m_70;
+    s16 m_72;
+    u8 unk_74[0x2];
+    s16 m_76;
+    u8 unk_78[0x8];
+    void * m_80;
+    u8 unk_84[0x4];
 };
 typedef char TUnk_804D0618_size[sizeof(TUnk_804D0618) == 0x88 ? 1 : -1];
 

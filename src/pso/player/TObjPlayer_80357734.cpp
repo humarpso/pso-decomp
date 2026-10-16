@@ -329,7 +329,7 @@ s32 update_battle_control_if_unlocked__10TObjPlayerFPv();
 
 void *TObjPlayer::reset_field28() {
     TObjPlayer__sub_802E451C();
-    *(s32 *)((s8 *)this + 0x28) = 0;
+    *(s32 *)&this->m_28 = 0;
     return this;
 }
 
@@ -538,15 +538,15 @@ void TUnk_804F166C::run_task() {
     s32 temp_r3_2;
     u8 *temp_r3;
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) - 0x1999);
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) (*(f32 *)((s8 *)arg0 + 0x40) - lbl_805E006C);
+    this->m_40 = (f32) (this->m_40 - lbl_805E006C);
     update_inward_orbit_point((u8 *)((void *)(arg0)));
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x4C));
+    temp_r3 = (u8 *)(*(u8 * *)&this->unk_4C);
     if (temp_r3 != NULL) {
         ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x34);
     }
-    temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x48);
+    temp_r3_2 = this->m_48;
     if (temp_r3_2 > 0) {
-        *(s32 *)((s8 *)arg0 + 0x48) = (s32) (temp_r3_2 - 1);
+        this->m_48 = (s32) (temp_r3_2 - 1);
         return;
     }
     queue_destruction__7TObjectFv(arg0);

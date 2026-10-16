@@ -1500,15 +1500,15 @@ void TQuestVmDownLoadServer__sub_801F7FEC(u8 *arg0) {
 extern "C" {
 void TQuestVmDownLoadServer::close_window() {
     u32 temp_r3;
-    *(s32 *)((s8 *)this + 0x2A0) = 2;
-    temp_r3 = (u32) *(u32 *)((s8 *)this + 0x290);
+    this->state = 2;
+    temp_r3 = (u32) *(u32 *)&this->m_290;
     if (temp_r3 != 0U) {
         TWindow__close((void *)(temp_r3));
-        *(u32 *)((s8 *)this + 0x290) = 0U;
+        *(u32 *)&this->m_290 = 0U;
     }
     close_message();
-    *(s32 *)((s8 *)this + 0x22C) = 0;
-    if ((u32) *(u32 *)((s8 *)this + 0x29C) != 0U) {
+    this->m_22c = 0;
+    if ((u32) *(u32 *)&this->m_29c != 0U) {
         TAdMcSelectGC::update_state();
     }
 }
@@ -1518,24 +1518,24 @@ extern "C" {
 void TQuestVmDownLoadServer::update_mc_select() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    if (((u32) *(u32 *)((s8 *)arg0 + 0x294) == 0U) || (((TMessageWindowController *)(arg0 + 0x1C))->is_ready() != 0)) {
-        if ((void *) *(u8 **)((s8 *)arg0 + 0x29C) == NULL) {
+    if (((u32) *(u32 *)&this->m_294 == 0U) || (((TMessageWindowController *)(arg0 + 0x1C))->is_ready() != 0)) {
+        if ((void *) *(u8 * *)&this->m_29c == NULL) {
             TScene::reset_counter();
             if (lobby_player_construction_window != 0) {
                 disallow_rendering__7TObjectFv(lobby_player_construction_window);
             }
-            *(u32 *)((s8 *)arg0 + 0x29C) = create__13TAdMcSelectGCFPv(tl_03);
+            *(u32 *)&this->m_29c = create__13TAdMcSelectGCFPv(tl_03);
         }
-        if ((void *) *(u8 **)((s8 *)arg0 + 0x29C) != NULL) {
+        if ((void *) *(u8 * *)&this->m_29c != NULL) {
             TAdMcSelectGC::select_if_mc_present();
         }
         if (TWindowShortListCtrl__check_controller_button((void *)((u8 *)&controller_input_state.value + 0x20), 2) != 0) {
             TAdMcSelectGC::select_if_mc_present();
             show_status_message((int) (TQuestVmDownLoadServer__sub_8006EF6C(0x42)), (int) (1));
-            *(s32 *)((s8 *)arg0 + 0x2A0) = 0x14;
+            this->state = 0x14;
             return;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x294) == 0U) {
+        if ((u32) *(u32 *)&this->m_294 == 0U) {
             temp_r0 = *(s32 *)((s8 *)arg0 + 0x2A4);
             switch (temp_r0) {
             case 0:
@@ -1564,15 +1564,15 @@ void TQuestVmDownLoadServer::update_mc_select() {
 
 extern "C" {
 void TQuestVmDownLoadServer::open() {
-    if ((u32) *(u32 *)((s8 *)this + 0x29C) == 0U) {
+    if ((u32) *(u32 *)&this->m_29c == 0U) {
         TScene::reset_counter();
         u32 temp_r3 = lobby_player_construction_window;
         if (temp_r3 != 0U) {
             disallow_rendering__7TObjectFv(temp_r3);
         }
-        *(u32 *)((s8 *)this + 0x29C) = create__13TAdMcSelectGCFPv(tl_03);
+        *(u32 *)&this->m_29c = create__13TAdMcSelectGCFPv(tl_03);
     }
-    *(s32 *)((s8 *)this + 0x2A0) = 4;
+    this->state = 4;
     show_status_message(get_localized_text_entry(0x29, 1), 1);
 }
 }
@@ -1620,36 +1620,36 @@ void TQuestVmDownLoadServer::check_memcard_slot() {
             }
             *(void **)((s8 *)seq + 0x1C) = (void *)TQuestVmDownLoadServer__sub_801F6B98;
             *(void **)((s8 *)seq + 0x20) = (void *)TQuestVmDownLoadServer::clear_field2A0;
-            *(s32 *)((s8 *)arg0 + 0x2A0) = 0x16;
+            this->state = 0x16;
             break;
         case -1:
         case -0xFF:
             return;
         default:
-            if (cap < *(s32 *)((s8 *)arg0 + 0x230)) {
+            if (cap < this->m_230) {
                 show_status_message(TQuestVmDownLoadServer__sub_8006EF6C(0x45), 1);
-                *(s32 *)((s8 *)arg0 + 0x2A0) = 0x12;
+                this->state = 0x12;
                 return;
             }
-            if (TAdPlayerLoadGC__sub_801E0FA4(slot) < *(s32 *)((s8 *)arg0 + 0x298)) {
+            if (TAdPlayerLoadGC__sub_801E0FA4(slot) < this->m_298) {
                 show_status_message(TQuestVmDownLoadServer__sub_8006EF6C(0x60), 1);
-                *(s32 *)((s8 *)arg0 + 0x2A0) = 0x12;
+                this->state = 0x12;
                 return;
             }
-            if (*(void **)((s8 *)arg0 + 0x290) != NULL) {
-                TWindow__close(*(void **)((s8 *)arg0 + 0x290));
-                *(void **)((s8 *)arg0 + 0x290) = NULL;
+            if (this->m_290 != NULL) {
+                TWindow__close(this->m_290);
+                this->m_290 = NULL;
             }
-            *(u32 *)((s8 *)arg0 + 0x290) = init_shop_judgment_window(get_window_layout_position(0x2B));
+            *(u32 *)&this->m_290 = init_shop_judgment_window(get_window_layout_position(0x2B));
             show_status_message(TQuestVmDownLoadServer__sub_8006EF6C(0x40), 1);
-            *(s32 *)((s8 *)arg0 + 0x25C) = slot;
-            *(s32 *)((s8 *)arg0 + 0x2A0) = 6;
+            this->m_25c = slot;
+            this->state = 6;
             return;
         }
     } else if (TWindowShortListCtrl__check_controller_button((void *)((u8 *)&controller_input_state + 0x20), 2) != 0) {
         TAdMcSelectGC::update_state();
         show_status_message(get_localized_text_entry(0x29, 1), 1);
-        *(s32 *)((s8 *)arg0 + 0x2A0) = 4;
+        this->state = 4;
     }
 }
 }
@@ -1662,44 +1662,44 @@ extern "C" {
 void TQuestVmDownLoadServer::handle_confirm_window() {
     s32 temp_r3;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x290) != 0U) {
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x290)))->is_visible() != 0) {
-            temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)this + 0x290));
+    if ((u32) *(u32 *)&this->m_290 != 0U) {
+        if (((TWindowSubComCard *)(*(u32 *)&this->m_290))->is_visible() != 0) {
+            temp_r3 = get_selected_menu_value(*(u32 *)&this->m_290);
             if (temp_r3 == 0) {
-                if ((u32) *(u32 *)((s8 *)this + 0x290) != 0U) {
-                    TWindow__close((void *)(*(void **)((s8 *)this + 0x290)));
-                    *(u32 *)((s8 *)this + 0x290) = 0U;
+                if ((u32) *(u32 *)&this->m_290 != 0U) {
+                    TWindow__close((void *)(this->m_290));
+                    *(u32 *)&this->m_290 = 0U;
                 }
-                *(s32 *)((s8 *)this + 0x2A0) = 7;
+                this->state = 7;
                 return;
             }
             if (temp_r3 == 1) {
-                if ((u32) *(u32 *)((s8 *)this + 0x290) != 0U) {
-                    TWindow__close((void *)(*(void **)((s8 *)this + 0x290)));
-                    *(u32 *)((s8 *)this + 0x290) = 0U;
+                if ((u32) *(u32 *)&this->m_290 != 0U) {
+                    TWindow__close((void *)(this->m_290));
+                    *(u32 *)&this->m_290 = 0U;
                 }
-                if ((u32) *(u32 *)((s8 *)this + 0x28C) != 0U) {
-                    ((TWindowSubItem *)(*(void **)((s8 *)this + 0x28C)))->clear_selected_and_update_entry();
+                if ((u32) *(u32 *)&this->m_28c != 0U) {
+                    ((TWindowSubItem *)(this->m_28c))->clear_selected_and_update_entry();
                 }
                 TAdMcSelectGC::update_state();
                 show_status_message(get_localized_text_entry(0x29, 1), 1);
-                *(s32 *)((s8 *)this + 0x2A0) = 4;
+                this->state = 4;
                 return;
             }
             goto block_12;
         }
 block_12:
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x290)))->get_status_flag() != 0) {
-            if ((u32) *(u32 *)((s8 *)this + 0x290) != 0U) {
-                TWindow__close((void *)(*(void **)((s8 *)this + 0x290)));
-                *(u32 *)((s8 *)this + 0x290) = 0U;
+        if (((TWindowSubComCard *)(*(u32 *)&this->m_290))->get_status_flag() != 0) {
+            if ((u32) *(u32 *)&this->m_290 != 0U) {
+                TWindow__close((void *)(this->m_290));
+                *(u32 *)&this->m_290 = 0U;
             }
-            if ((u32) *(u32 *)((s8 *)this + 0x28C) != 0U) {
-                ((TWindowSubItem *)(*(void **)((s8 *)this + 0x28C)))->clear_selected_and_update_entry();
+            if ((u32) *(u32 *)&this->m_28c != 0U) {
+                ((TWindowSubItem *)(this->m_28c))->clear_selected_and_update_entry();
             }
             TAdMcSelectGC::update_state();
             show_status_message(get_localized_text_entry(0x29, 1), 1);
-            *(s32 *)((s8 *)this + 0x2A0) = 4;
+            this->state = 4;
         }
     }
 }
@@ -1781,29 +1781,29 @@ void TQuestVmDownLoadServer__sub_801F770C(u8 *arg0) {
 extern "C" {
 void TQuestVmDownLoadServer::load_quest_data() {
     u8 *arg0 = (u8 *)this;
-    set_quest_download_server__23TAdSinglePlyChrSelectGCFi(*(s32 *)((s8 *)arg0 + 0x25C));
+    set_quest_download_server__23TAdSinglePlyChrSelectGCFi(this->m_25c);
     lbl_805D49B4 = 1;
-    if (draw_window_bg__23TAdSinglePlyChrSelectGCFllll((s32)(*(s32 *)((s8 *)arg0 + 0x25C)), (void *)(arg0 + 0x270), (s32)(*(s32 *)((s8 *)arg0 + 0x260)), (s32)(*(s32 *)((s8 *)arg0 + 0x264))) == 0) {
-        *(s32 *)((s8 *)arg0 + 0x2A0) = 0xA;
+    if (draw_window_bg__23TAdSinglePlyChrSelectGCFllll((s32)(this->m_25c), (void *)(arg0 + 0x270), (s32)(*(s32 *)&this->m_260), (s32)(*(s32 *)((s8 *)arg0 + 0x264))) == 0) {
+        this->state = 0xA;
         show_status_message(TQuestVmDownLoadServer__sub_8006EF6C(0xC), 1);
         quest_download_in_progress = 1;
         return;
     }
     show_status_message(get_localized_text_entry(0x29, 2), 1);
-    *(s32 *)((s8 *)arg0 + 0x2A0) = 0x17;
+    this->state = 0x17;
     lbl_805D49B4 = 0;
 }
 }
 
 extern "C" {
 void TQuestVmDownLoadServer::abort_download() {
-    if (TAdPlayerLoadGC__sub_801E1B50(*(s32 *)((s8 *)this + 0x25C)) == 0) {
+    if (TAdPlayerLoadGC__sub_801E1B50(this->m_25c) == 0) {
         reset_quest_id__23TAdSinglePlyChrSelectGCFv();
-        if ((u32) *(u32 *)((s8 *)this + 0x260) != 0U) {
-            TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)this + 0x260)));
-            *(u32 *)((s8 *)this + 0x260) = 0U;
+        if ((u32) *(u32 *)&this->m_260 != 0U) {
+            TAdSinglePlyChrSelectGC::safe_free((u32)(this->m_260));
+            *(u32 *)&this->m_260 = 0U;
         }
-        *(s32 *)((s8 *)this + 0x2A0) = 0xB;
+        this->state = 0xB;
         lbl_805D49B4 = 0;
     }
 }
@@ -1814,14 +1814,14 @@ void TQuestVmDownLoadServer::write_memcard_file() {
     u8 *arg0 = (u8 *)this;
     Req_801F7478 req;
     s32 r;
-    if (*(s32 *)((s8 *)arg0 + 0x25C) >= 0 && TAdPlayerLoadGC__sub_801E1B50(*(s32 *)((s8 *)arg0 + 0x25C)) == 0) {
-        if (*(s32 *)((s8 *)arg0 + 0x268) > 0) {
-            if (*(void **)((s8 *)arg0 + 0x260) != NULL) {
-                TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)arg0 + 0x260)));
-                *(void **)((s8 *)arg0 + 0x260) = NULL;
+    if (this->m_25c >= 0 && TAdPlayerLoadGC__sub_801E1B50(this->m_25c) == 0) {
+        if (this->m_268 > 0) {
+            if (this->m_260 != NULL) {
+                TAdSinglePlyChrSelectGC::safe_free((u32)(this->m_260));
+                this->m_260 = NULL;
             }
-            *(void **)((s8 *)arg0 + 0x260) = alloc__22TQuestVmDownLoadServerFv(*(s32 *)((s8 *)arg0 + 0x268) << 13);
-            if (*(void **)((s8 *)arg0 + 0x260) != NULL) {
+            this->m_260 = alloc__22TQuestVmDownLoadServerFv(this->m_268 << 13);
+            if (this->m_260 != NULL) {
                 memset(&req, 0, sizeof(req));
                 strncpy(req.name, TQuestVmDownLoadServer__data_804C8690, 0x12);
                 strncpy(req.title, TQuestVmDownLoadServer__download_file_state.title, 0x22);
@@ -1835,24 +1835,24 @@ void TQuestVmDownLoadServer::write_memcard_file() {
                 req.w58 = (s32)TQuestVmDownLoadServer__download_file_state.f38;
                 req.w5C = TQuestVmDownLoadServer__download_file_state.f34;
                 TAdPlayerLoadGC__sub_801E14E8(&req, 3);
-                r = build_save_file_image__15TAdPlayerLoadGCFPvPv(*(void **)((s8 *)arg0 + 0x260), &req);
+                r = build_save_file_image__15TAdPlayerLoadGCFPvPv(this->m_260, &req);
                 TAdPlayerLoadGC__sub_801E14E4(&req);
                 switch (r) {
                 case -0x100:
-                    *(s32 *)((s8 *)arg0 + 0x2A0) = 0x11;
+                    this->state = 0x11;
                     break;
                 default:
-                    if (r != *(s32 *)((s8 *)arg0 + 0x268)) {
-                        *(s32 *)((s8 *)arg0 + 0x268) = r;
+                    if (r != this->m_268) {
+                        this->m_268 = r;
                     }
-                    *(s32 *)((s8 *)arg0 + 0x2A0) = 0xC;
+                    this->state = 0xC;
                     break;
                 }
             } else {
-                *(s32 *)((s8 *)arg0 + 0x2A0) = 0x11;
+                this->state = 0x11;
             }
         } else {
-            *(s32 *)((s8 *)arg0 + 0x2A0) = 0x11;
+            this->state = 0x11;
         }
     }
 }
@@ -1861,31 +1861,31 @@ void TQuestVmDownLoadServer::write_memcard_file() {
 extern "C" {
 void TQuestVmDownLoadServer::write_quest_data_named() {
     u8 *arg0 = (u8 *)this;
-    set_quest_download_server__23TAdSinglePlyChrSelectGCFi(*(s32 *)((s8 *)arg0 + 0x25C));
+    set_quest_download_server__23TAdSinglePlyChrSelectGCFi(this->m_25c);
     lbl_805D49B4 = 1;
-    if (draw_window_bg__23TAdSinglePlyChrSelectGCFllll((s32)(*(s32 *)((s8 *)arg0 + 0x25C)), (void *)(arg0 + 0x27D), (s32)(*(s32 *)((s8 *)arg0 + 0x260)), (s32)(*(s32 *)((s8 *)arg0 + 0x268))) == 0) {
-        *(s32 *)((s8 *)arg0 + 0x2A0) = 0xD;
+    if (draw_window_bg__23TAdSinglePlyChrSelectGCFllll((s32)(this->m_25c), (void *)(arg0 + 0x27D), (s32)(*(s32 *)&this->m_260), (s32)(this->m_268)) == 0) {
+        this->state = 0xD;
         show_status_message(TQuestVmDownLoadServer__sub_8006EF6C(0xC), 1);
         return;
     }
     show_status_message(get_localized_text_entry(0x29, 2), 1);
-    *(s32 *)((s8 *)arg0 + 0x2A0) = 0x17;
+    this->state = 0x17;
     lbl_805D49B4 = 0;
 }
 }
 
 extern "C" {
 void TQuestVmDownLoadServer::finish_download() {
-    if (TAdPlayerLoadGC__sub_801E1B50(*(s32 *)((s8 *)this + 0x25C)) == 0) {
+    if (TAdPlayerLoadGC__sub_801E1B50(this->m_25c) == 0) {
         reset_quest_id__23TAdSinglePlyChrSelectGCFv();
-        if ((u32) *(u32 *)((s8 *)this + 0x260) != 0U) {
-            TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)this + 0x260)));
-            *(u32 *)((s8 *)this + 0x260) = 0U;
+        if ((u32) *(u32 *)&this->m_260 != 0U) {
+            TAdSinglePlyChrSelectGC::safe_free((u32)(this->m_260));
+            *(u32 *)&this->m_260 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)this + 0x28C) != 0U) {
-            ((TWindowSubItem *)(*(void **)((s8 *)this + 0x28C)))->clear_selected_and_update_entry();
+        if ((u32) *(u32 *)&this->m_28c != 0U) {
+            ((TWindowSubItem *)(this->m_28c))->clear_selected_and_update_entry();
         }
-        *(s32 *)((s8 *)this + 0x2A0) = 0xE;
+        this->state = 0xE;
         lbl_805D49B4 = 0;
     }
 }
@@ -1950,32 +1950,32 @@ void TQuestVmDownLoadServer__sub_801F718C(u8 *arg0) {
 
 extern "C" {
 void TQuestVmDownLoadServer::write_quest_data() {
-    set_quest_download_server__23TAdSinglePlyChrSelectGCFi(*(s32 *)((s8 *)this + 0x25C));
+    set_quest_download_server__23TAdSinglePlyChrSelectGCFi(this->m_25c);
     lbl_805D49B4 = 1;
-    if (draw_window_bg__23TAdSinglePlyChrSelectGCFllll((s32)(*(s32 *)((s8 *)this + 0x25C)), (void *)(lbl_8044BEF4), (s32)(*(s32 *)((s8 *)this + 0x260)), (s32)(*(s32 *)((s8 *)this + 0x26C))) == 0) {
-        *(s32 *)((s8 *)this + 0x2A0) = 0x10;
+    if (draw_window_bg__23TAdSinglePlyChrSelectGCFllll((s32)(this->m_25c), (void *)(lbl_8044BEF4), (s32)(*(s32 *)&this->m_260), (s32)(*(s32 *)&this->unk_26C)) == 0) {
+        this->state = 0x10;
         show_status_message(TQuestVmDownLoadServer__sub_8006EF6C(0xC), 1);
         return;
     }
     show_status_message(get_localized_text_entry(0x29, 2), 1);
-    *(s32 *)((s8 *)this + 0x2A0) = 0x17;
+    this->state = 0x17;
     lbl_805D49B4 = 0;
 }
 }
 
 extern "C" {
 void TQuestVmDownLoadServer::close_download() {
-    if (TAdPlayerLoadGC__sub_801E1B50(*(s32 *)((s8 *)this + 0x25C)) == 0) {
+    if (TAdPlayerLoadGC__sub_801E1B50(this->m_25c) == 0) {
         reset_quest_id__23TAdSinglePlyChrSelectGCFv();
-        if ((u32) *(u32 *)((s8 *)this + 0x260) != 0U) {
-            TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)this + 0x260)));
-            *(u32 *)((s8 *)this + 0x260) = 0U;
+        if ((u32) *(u32 *)&this->m_260 != 0U) {
+            TAdSinglePlyChrSelectGC::safe_free((u32)(this->m_260));
+            *(u32 *)&this->m_260 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)this + 0x28C) != 0U) {
-            ((TWindowSubItem *)(*(void **)((s8 *)this + 0x28C)))->clear_selected_and_update_entry();
+        if ((u32) *(u32 *)&this->m_28c != 0U) {
+            ((TWindowSubItem *)(this->m_28c))->clear_selected_and_update_entry();
         }
         show_status_message((s32)(TQuestVmDownLoadServer__sub_8006EF6C(0x41)), (s32)(1));
-        *(s32 *)((s8 *)this + 0x2A0) = 0x13;
+        this->state = 0x13;
         lbl_805D49B4 = 0;
     }
 }
@@ -1994,16 +1994,16 @@ void TQuestVmDownLoadServer::destroy() {
 
 extern "C" {
 void TQuestVmDownLoadServer::close() {
-    if ((u32) *(u32 *)((s8 *)this + 0x260) != 0U) {
-        TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)this + 0x260)));
-        *(u32 *)((s8 *)this + 0x260) = 0U;
+    if ((u32) *(u32 *)&this->m_260 != 0U) {
+        TAdSinglePlyChrSelectGC::safe_free((u32)(this->m_260));
+        *(u32 *)&this->m_260 = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x28C) != 0U) {
-        ((TWindowSubItem *)(*(void **)((s8 *)this + 0x28C)))->clear_selected_and_update_entry();
+    if ((u32) *(u32 *)&this->m_28c != 0U) {
+        ((TWindowSubItem *)(this->m_28c))->clear_selected_and_update_entry();
     }
     TAdMcSelectGC::update_state();
     show_status_message((s32)(get_localized_text_entry(0x29, 1)), (s32)(1));
-    *(s32 *)((s8 *)this + 0x2A0) = 4;
+    this->state = 4;
     quest_download_in_progress = 0;
 }
 }
@@ -2014,36 +2014,36 @@ void TQuestVmDownLoadServer::check_client_connections() {
     s32 temp_r3;
     s32 var_r30;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x2A0);
+    temp_r0 = this->state;
     if ((temp_r0 == 0) || (temp_r0 == 0x15) || (temp_r0 == 0x16)) {
         return;
     }
     {
         if ((s32) lbl_805D55C0 != 0) {
-            if ((u32) *(u32 *)((s8 *)this + 0x29C) != 0U) {
-                ((TObjLuker *)(*(void **)((s8 *)this + 0x29C)))->set_flag_4();
+            if ((u32) *(u32 *)&this->m_29c != 0U) {
+                ((TObjLuker *)(*(void * *)&this->m_29c))->set_flag_4();
             }
         } else {
-            if ((u32) *(u32 *)((s8 *)this + 0x29C) != 0U) {
-                ((TQuestVmDownLoadServer *)(*(void **)((s8 *)this + 0x29C)))->clear_flag4_bit4();
+            if ((u32) *(u32 *)&this->m_29c != 0U) {
+                ((TQuestVmDownLoadServer *)(*(void * *)&this->m_29c))->clear_flag4_bit4();
             }
             var_r30 = 0;
-            *(s32 *)((s8 *)this + 0x234) = 0;
+            this->m_234 = 0;
             do {
                 if (((TAdPlayerLoadGC *)var_r30)->probe_card_slot() != 0) {
-                    *(s32 *)((s8 *)this + 0x234) = (s32) (*(s32 *)((s8 *)this + 0x234) | (1 << var_r30));
+                    this->m_234 = (s32) (this->m_234 | (1 << var_r30));
                 }
                 var_r30 += 1;
             } while (var_r30 < 8);
-            temp_r3 = *(s32 *)((s8 *)this + 0x234);
-            if (temp_r3 != (s32) *(s32 *)((s8 *)this + 0x238)) {
-                *(s32 *)((s8 *)this + 0x238) = temp_r3;
+            temp_r3 = this->m_234;
+            if (temp_r3 != (s32) this->m_238) {
+                this->m_238 = temp_r3;
                 if ((s32) quest_download_in_progress != 0) {
                     quest_download_in_progress = 0;
                     show_status_message((s32)(TQuestVmDownLoadServer__sub_8006EF6C(0xB)), (s32)(1));
-                    *(s32 *)((s8 *)this + 0x2A0) = 0x12;
+                    this->state = 0x12;
                 } else {
-                    *(s32 *)((s8 *)this + 0x2A0) = 1;
+                    this->state = 1;
                 }
             }
         }
@@ -2065,7 +2065,7 @@ void TQuestVmDownLoadServer::show_status_message(s32 arg1, s32 arg2) {
 }
 
 extern "C" {
-void TQuestVmDownLoadServer::close_message() { if (*(unsigned int*)((char*)this + 0x294) != 0) { ((TMessageWindowController *)((char*)this + 0x1c))->close(); *(int*)((char*)this + 0x294) = 0; } }
+void TQuestVmDownLoadServer::close_message() { if (*(unsigned int *)&this->m_294 != 0) { ((TMessageWindowController *)((char*)this + 0x1c))->close(); *(int *)&this->m_294 = 0; } }
 }
 
 extern "C" {
@@ -2107,7 +2107,7 @@ void TQuestVmDownLoadServer::check_cancel_input() {
     temp_r31 = (u8 *)&(*(RecoveredGlobal_801F6C74_lbl_8050E208 *)&controller_input_state).value + 0x20;
     if ((TWindowShortListCtrl__check_controller_button((void *)(temp_r31), (int) (4)) != 0) || (TWindowShortListCtrl__check_controller_button((void *)(temp_r31), (int) (2)) != 0)) {
         return_to_main_menu__6TLobbyFv();
-        *(s32 *)((s8 *)arg0 + 0x2A0) = 0x15;
+        this->state = 0x15;
     }
 }
 }
@@ -2189,7 +2189,7 @@ extern "C" {
 void TMCFormatSequence::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
+    temp_r0 = this->m_24;
     switch (temp_r0) {
     case 0:
         open_windows__17TMCFormatSequenceFv();

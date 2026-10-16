@@ -79,7 +79,7 @@ u8 *construct_city_vertical_model(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TUnk_804B5C08::vfunc_13(s32) { *(float*)((char*)this + 0x9c) = lbl_805DBC00; *(int*)((char*)this + 0x90) = 1; }
+void TUnk_804B5C08::vfunc_13(s32) { this->m_9c = lbl_805DBC00; *(int*)((char*)this + 0x90) = 1; }
 typedef struct RecoveredFields_80182E90_arg0 RecoveredFields_80182E90_arg0;
 typedef struct VBase_18_26a62c VBase_18_26a62c;
 typedef struct VObj_18_26a62c VObj_18_26a62c;

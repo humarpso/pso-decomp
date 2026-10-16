@@ -61,7 +61,7 @@ void TOAirconCave01__sub_80156D70(u8 *arg0) {
 
 void *TOAirconCave01::destroy(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x14) = lbl_804AF8D8;
+        *(s32 * *)&this->m_down = lbl_804AF8D8;
         TObjPlayer__sub_800D96D0((s32)this, 0);
         if (arg1 > 0) {
             __dl__FPv(this);
@@ -74,7 +74,7 @@ extern s32 lbl_804AF8D8[];
 
 void *TOAirconCave01::init_vtable_804AF8D8() {
     TObjPlayer__sub_800D9718(this);
-    *(s32 **)((s8 *)this + 0x14) = lbl_804AF8D8;
+    *(s32 * *)&this->m_down = lbl_804AF8D8;
     fn_80156CEC(this);
     return this;
 }

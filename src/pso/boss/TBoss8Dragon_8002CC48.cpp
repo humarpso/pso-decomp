@@ -427,11 +427,11 @@ void TBoss8Dragon::set_field_1c() { *(s32*)((char*)this + 0x1c) = 1; }
 void TBoss8Dragon::spawn_child_object() {
     void *o;
     *(u32 *)((s8 *)this + 0x1C) = 0;
-    *(f32 *)((s8 *)this + 0x34) = lbl_805D81A0;
-    *(f32 *)((s8 *)this + 0x30) = lbl_805D81A0;
+    *(f32 *)&this->m_34 = lbl_805D81A0;
+    *(f32 *)&this->unk_30 = lbl_805D81A0;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(*(void **)((s8 *)this + 0x10)), (int)(30));
+        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(*(void * *)&this->m_10), (int)(30));
     }
     *(u32 *)((s8 *)this + 0x3C) = 0;
 }

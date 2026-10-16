@@ -30,26 +30,26 @@ void TAdMultiPlyChrSelectGC::close_and_reset() {
         TWindow__close(*(void **)((s8 *)this + 0x80));
         *(u32 *)((s8 *)this + 0x80) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x94) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x94)))->close();
-        *(u32 *)((s8 *)this + 0x94) = 0U;
+    if ((u32) this->m_94 != 0U) {
+        ((TWindowSubComCard *)(*(void * *)&this->m_94))->close();
+        this->m_94 = 0U;
     }
-    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->reset_cursor_state();
+    ((TAdMultiPlyChrSelectGC *)(this->m_5c))->reset_cursor_state();
     if ((u32) *(u32 *)((s8 *)this + 0x70) != 0U) {
         disallow_rendering__7TObjectFv(*(void **)((s8 *)this + 0x70));
     }
-    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x60)))->set_field_100(1);
-    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x64), 0, &TAdMultiPlyChrSelectGC__data_805DE898);
-    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
+    ((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->unk_60))->set_field_100(1);
+    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)&this->m_64, 0, &TAdMultiPlyChrSelectGC__data_805DE898);
+    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)&this->m_64, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
     *(s32 *)((s8 *)this + 0x30) = -1;
-    if ((((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x6C)))->is_state_closing() == 0) && (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {
+    if ((((TAdMultiPlyChrSelectGC *)(this->m_6c))->is_state_closing() == 0) && (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
         *(s32 *)((s8 *)this + 0x28) = 0x1B;
-        *(s32 *)((s8 *)this + 0x20) = 0x1A;
+        *(s32 *)&this->m_20 = 0x1A;
         return;
     }
-    if ((((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() == 0xE) && (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x6C)))->get_mode() == 0x14)) {
-        *(s32 *)((s8 *)this + 0x20) = 0x1E;
+    if ((((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() == 0xE) && (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() == 0x14)) {
+        *(s32 *)&this->m_20 = 0x1E;
     }
 }
 void TAdMultiPlyChrSelectGC__sub_802DCCA4(Obj_802DCCA4 *arg0) {

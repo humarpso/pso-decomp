@@ -292,7 +292,7 @@ s32 TODragonfly::pick_random_destination(f32 farg0) {
     u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0) = (f32) lbl_805DB580;
     *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 4) = farg0;
-    *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) = (f32) (*(f32 *)((s8 *)arg0 + 0xD0) * (lbl_805DB57C * (f32) rand()));
+    *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) = (f32) (*(f32 *)&this->_padD0 * (lbl_805DB57C * (f32) rand()));
     *(s32 *)((s8 *)(&lbl_8050BFA0.value) + 4) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
     push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)(&lbl_8050BFA0.value) + 4))));
@@ -302,12 +302,12 @@ s32 TODragonfly::pick_random_destination(f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (&lbl_8050BEE0.value));
     subtract_vector((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x38));
     if (((TObjPlayer *)(&lbl_8050BEE0.value))->check_camera_distance() == 1) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 1;
-        *(s32 *)((s8 *)arg0 + 0xCC) = 0;
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (lbl_804411B0 * atan2_float((f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0), (f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8)));
-        *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0) * *(f32 *)((s8 *)arg0 + 0x70));
+        *(s32 *)&this->unk_AC = 1;
+        *(s32 *)&this->m_cc = 0;
+        this->rotation_y = (s32) (lbl_804411B0 * atan2_float((f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0), (f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8)));
+        this->m_e0 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0) * *(f32 *)((s8 *)arg0 + 0x70));
         *(f32 *)((s8 *)arg0 + 0xE4) = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 4) * *(f32 *)((s8 *)arg0 + 0x70));
-        *(f32 *)((s8 *)arg0 + 0xE8) = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) * *(f32 *)((s8 *)arg0 + 0x70));
+        this->m_e8 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) * *(f32 *)((s8 *)arg0 + 0x70));
         return 1;
     }
     return 0;
@@ -385,13 +385,13 @@ void TODragonfly::update_idle() {
 
 void TODragonfly::render() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj_80164c34_80164760 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj_80164c34_80164760 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
         translate_matrix(0, lbl_805DB580, *(f32 *)((s8 *)arg0 + 0xF0), lbl_805DB580);
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-        draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
+        draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unk_BC, this->m_b0);
         pop_matrix();
     }
 }
@@ -399,14 +399,14 @@ void TODragonfly::render() {
 void TODragonfly::run_task() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0xFC) = (s32) (*(s32 *)((s8 *)this + 0xFC) + *(s32 *)((s8 *)this + 0xF8));
-    *(f32 *)((s8 *)this + 0xF0) = (f32) (*(f32 *)((s8 *)this + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)this + 0xFC)));
+    *(s32 *)&this->m_fc = (s32) (*(s32 *)&this->m_fc + *(s32 *)&this->m_f8);
+    *(f32 *)((s8 *)this + 0xF0) = (f32) (this->m_ec * sin_table_lookup(*(s32 *)&this->m_fc));
     if (TObjPlayer::check_demo_mode() == 1) {
         ((DfV_80164cc4_80164760 *)this)->vf12();
         return;
     }
     update_anim_phase__17TOBarrierEnergy01Fv(this);
-    temp_r0 = *(s32 *)((s8 *)this + 0xAC);
+    temp_r0 = *(s32 *)&this->unk_AC;
     switch (temp_r0) {
     case 0:
         update_idle();

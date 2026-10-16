@@ -13,7 +13,12 @@ struct TODragonfly : public TUnk_804AFBF8 {
     u32 m_cc;
     u8 _padD0[0x4];
     void* m_d4;
-    u8 _padD8[0x20];
+    u8 unk_D8[0x8];
+    f32 m_e0;
+    u8 unk_E4[0x4];
+    f32 m_e8;
+    f32 m_ec;
+    u8 unk_F0[0x8];
     u32 m_f8;
     u32 m_fc;
     s32 pick_random_destination(f32 farg0);

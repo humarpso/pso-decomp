@@ -54,10 +54,10 @@ s32 *TQuestThread__sub_801F6548(void) {
     return &offline_quest_filename_buffer_a.value;
 }
 
-void TMCFormatSequence::close_window() { if (*(unsigned int*)((char*)this + 0x34) != 0) { TWindow__close((void*)(*(void**)((char*)this + 0x34))); *(int*)((char*)this + 0x34) = 0; } }
+void TMCFormatSequence::close_window() { if (this->m_34 != 0) { TWindow__close((void*)(*(void* *)&this->m_34)); *(int *)&this->m_34 = 0; } }
 
 void TMCFormatSequence::show_message(s32 arg1, s32 arg2) {
-    u32 v = *(u32 *)((s8 *)this + 0x34);
+    u32 v = *(u32 *)&this->m_34;
     if (v != 0U) {
         ((TLobby *)v)->send_and_handle(arg1, arg2 | 0x81);
     }
@@ -92,12 +92,12 @@ void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0) {
 void TMCFormatSequence::check_memcard_load_result() {
     if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_card_slot() == 0) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-        *(s32 *)((s8 *)this + 0x24) = 3;
+        this->m_24 = 3;
         return;
     }
     if (TAdPlayerLoadGC__sub_801E1B50(*(s32 *)((s8 *)this + 0x28)) == 0) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6B)), (s32)(0));
-        *(s32 *)((s8 *)this + 0x24) = 4;
+        this->m_24 = 4;
     }
 }
 
@@ -106,40 +106,40 @@ void TMCFormatSequence::process_format_result() {
 
     if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_card_slot() == 0) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-        *(s32 *)((s8 *)this + 0x24) = 3;
+        this->m_24 = 3;
         return;
     }
     if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_and_check_card() == 0) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-        *(s32 *)((s8 *)this + 0x24) = 3;
+        this->m_24 = 3;
         return;
     }
     if ((u32) (TAdPlayerLoadGC::check_memcard_status(*(s32 *)((s8 *)this + 0x28)) + 0x10000) != 0xFF03U) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-        *(s32 *)((s8 *)this + 0x24) = 3;
+        this->m_24 = 3;
         return;
     }
-    if (((u32) *(u32 *)((s8 *)this + 0x38) != 0U) && (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x38)))->is_visible() != 0)) {
-        temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)this + 0x38));
+    if (((u32) *(u32 *)&this->m_38 != 0U) && (((TWindowSubComCard *)(*(u32 *)&this->m_38))->is_visible() != 0)) {
+        temp_r3 = get_selected_menu_value(*(u32 *)&this->m_38);
         if (temp_r3 == 0) {
             if (TAdPlayerLoadGC__sub_801E24F8(*(s32 *)((s8 *)this + 0x28), 0, 0, 0, 0) == 0) {
-                *(s32 *)((s8 *)this + 0x24) = 2;
+                this->m_24 = 2;
             } else {
                 show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-                *(s32 *)((s8 *)this + 0x24) = 3;
+                this->m_24 = 3;
             }
         }
         if (temp_r3 == 1) {
             close_window();
-            *(s32 *)((s8 *)this + 0x24) = 4;
+            this->m_24 = 4;
         }
-        TWindow__close((void*)(*(u32 *)((s8 *)this + 0x38)));
-        *(u32 *)((s8 *)this + 0x38) = 0U;
+        TWindow__close((void*)(*(u32 *)&this->m_38));
+        *(u32 *)&this->m_38 = 0U;
     }
-    if (((u32) *(u32 *)((s8 *)this + 0x38) != 0U) && (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x38)))->get_status_flag() != 0)) {
-        *(s32 *)((s8 *)this + 0x24) = 4;
-        TWindow__close((void*)(*(u32 *)((s8 *)this + 0x38)));
-        *(u32 *)((s8 *)this + 0x38) = 0U;
+    if (((u32) *(u32 *)&this->m_38 != 0U) && (((TWindowSubComCard *)(*(u32 *)&this->m_38))->get_status_flag() != 0)) {
+        this->m_24 = 4;
+        TWindow__close((void*)(*(u32 *)&this->m_38));
+        *(u32 *)&this->m_38 = 0U;
         close_window();
     }
 }

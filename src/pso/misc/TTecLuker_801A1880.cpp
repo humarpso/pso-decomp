@@ -3,6 +3,6 @@
 
 extern "C" {
 
-void TTecLuker::set_state(s32 v) { *(s32*)((char*)this + 0x0) = v; }
+void TTecLuker::set_state(s32 v) { *(s32 *)&this->m_name = v; }
 
 }

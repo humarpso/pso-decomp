@@ -223,8 +223,8 @@ s32 TBoss6GravBall::clamp_to_ground() {
 void TBoss6GravBall::update_lifetime(void *) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0xB4) + 1;
-    *(s32 *)((s8 *)this + 0xB4) = temp_r0;
+    temp_r0 = *(s32 *)&this->m_b4 + 1;
+    *(s32 *)&this->m_b4 = temp_r0;
     if (temp_r0 > 0x1E) {
         queue_destruction__7TObjectFv((void *)(this));
     }

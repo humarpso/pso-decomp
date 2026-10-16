@@ -107,15 +107,15 @@ void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
 
 void TItem::set_mode(s8 arg1) {
     if (arg1 == 3) {
-        *(s32 *)((s8 *)this + 0xF0) = 0;
+        *(s32 *)&this->m_f0 = 0;
     }
     if (arg1 == 0) {
-        *(s32 *)((s8 *)this + 0xF0) = 0;
+        *(s32 *)&this->m_f0 = 0;
         claim_ownership__5TItemFii((s32)(this), (s32)(0));
     } else {
         unregister_from_world();
     }
-    *(s8 *)((s8 *)this + 0xEB) = arg1;
+    *(s8 *)&this->render_mode = arg1;
 }
 
 s32 TItem::register_attack() {

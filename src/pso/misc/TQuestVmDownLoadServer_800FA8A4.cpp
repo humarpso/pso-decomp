@@ -63,7 +63,7 @@ u8 *TQuestVmDownLoadServer::init_object() {
     u8 *arg0 = (u8 *)this;
     __ct__7TObjectFP7TObject(arg0, &lbl_80515F48.value);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800FA95C_lbl_8049C700 *)&lbl_8049C700).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2B1C;
+    *(s32 *)&this->m_name = (s32) lbl_805D2B1C;
     return arg0;
 }
 

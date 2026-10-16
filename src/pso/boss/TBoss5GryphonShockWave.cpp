@@ -47,27 +47,27 @@ void TBoss5GryphonShockWave::run_task() {
     s32 temp_r30;
     s32 temp_r3;
     s32 temp_r3_2;
-    if (((TBoss8Dragon *)(*(s32 *)((s8 *)arg0 + 0x38)))->get_flag_bit6() != 0) {
+    if (((TBoss8Dragon *)(*(s32 *)&this->m_38))->get_flag_bit6() != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    temp_r0 = *(s32 *)&this->m_1c;
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
+        *(s32 *)&this->m_1c = 1;
     case 1:
-        eval_bezier_curve__12TBoss8DragonFPviiPvf(arg0 + 0x40, 3, 0, arg0 + 0x2C, (f32) *(s32 *)((s8 *)arg0 + 0x20) / (f32) *(s32 *)((s8 *)arg0 + 0x24));
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x3C) = spawn_continuous_particle_effect_with_flags(arg0 + 0x2C, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 0), 0x40);
+        eval_bezier_curve__12TBoss8DragonFPviiPvf(arg0 + 0x40, 3, 0, arg0 + 0x2C, (f32) *(s32 *)&this->m_20 / (f32) *(s32 *)&this->m_24);
+        if ((u32) this->m_3c == 0U) {
+            this->m_3c = spawn_continuous_particle_effect_with_flags(arg0 + 0x2C, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 0), 0x40);
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
-            ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x3C)))->copy_pos(arg0 + 0x2C);
+        if ((u32) this->m_3c != 0U) {
+            ((TNowLoading *)(this->m_3c))->copy_pos(arg0 + 0x2C);
         }
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0x20);
-        *(s32 *)((s8 *)arg0 + 0x20) = (s32) (temp_r3 + 1);
-        if (temp_r3 > (s32) *(s32 *)((s8 *)arg0 + 0x24)) {
-            *(s32 *)((s8 *)arg0 + 0x20) = 0;
-            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
+        temp_r3 = *(s32 *)&this->m_20;
+        *(s32 *)&this->m_20 = (s32) (temp_r3 + 1);
+        if (temp_r3 > (s32) *(s32 *)&this->m_24) {
+            *(s32 *)&this->m_20 = 0;
+            *(s32 *)&this->m_1c = 2;
         }
         break;
     case 2:
@@ -78,8 +78,8 @@ void TBoss5GryphonShockWave::run_task() {
         spawn_particle_effect_with_flags(arg0 + 0x2C, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 8), 0x40);
         play_sound_effect(0x40033C13, arg0 + 0x2C, 0, 0);
         TBoss8Dragon__sub_80064114(TBoss8Dragon::get_instance_count(), arg0 + 0x2C);
-        spawn_gryphon_tornado(*(s32 *)((s8 *)arg0 + 0x10), *(s32 *)((s8 *)arg0 + 0x38), arg0 + 0x2C, *(u16 *)((s8 *)arg0 + 0x28));
-        *(s32 *)((s8 *)arg0 + 0x1C) = 3;
+        spawn_gryphon_tornado(*(s32 *)&this->m_up, *(s32 *)&this->m_38, arg0 + 0x2C, this->m_28);
+        *(s32 *)&this->m_1c = 3;
         queue_destruction__7TObjectFv(arg0);
         break;
     case 3:

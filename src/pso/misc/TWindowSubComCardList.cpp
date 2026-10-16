@@ -134,7 +134,7 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
 
 void TWindowSubComCardList::run_task() {
     run_task__11TWindowMenuFv();
-    if ((is_visible__17TWindowSubComCardFv(this) == 0) && (handle_list_page_flip_input(*(s32 *)((s8 *)this + 0x8C)) != 0)) {
+    if ((is_visible__17TWindowSubComCardFv(this) == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_8c) != 0)) {
         set_selected_index__17TWindowSubComCardFs(this, 0);
         TWindowSubComCardList__sub_80275360(this);
     }

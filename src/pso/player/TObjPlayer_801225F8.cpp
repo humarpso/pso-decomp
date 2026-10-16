@@ -33,11 +33,11 @@ extern f32 lbl_805DACF0;
 extern f32 lbl_805DACF4;
 
 void TObjPlayer::update_state_1fc() {
-    if ((s32) *(s32 *)((s8 *)this + 0x1FC) == 3) {
-        *(s32 *)((s8 *)this + 0x1FC) = 1;
+    if ((s32) this->m_1fc == 3) {
+        this->m_1fc = 1;
     }
-    if (((s32) *(s32 *)((s8 *)this + 0x1FC) == 0) && ((lbl_805DACF0 * (f32) rand()) < lbl_805DACF4)) {
-        *(s32 *)((s8 *)this + 0x1FC) = 2;
+    if (((s32) this->m_1fc == 0) && ((lbl_805DACF0 * (f32) rand()) < lbl_805DACF4)) {
+        this->m_1fc = 2;
     }
 }
 

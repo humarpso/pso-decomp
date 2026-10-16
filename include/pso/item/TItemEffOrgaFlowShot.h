@@ -12,7 +12,10 @@ struct TItemEffOrgaFlowShot : public TUnk_804E355C {
     u32 m_e0;
     u8 _padE4[0x1C];
     u32 m_100;
-    u8 _pad104[0x1C];
+    u8 unk_104[0x10];
+    f32 m_114;
+    u8 unk_118[0x4];
+    f32 m_11c;
     u32 m_120;
     u8 _pad124[0x1C];
     u32 m_140;
@@ -21,7 +24,10 @@ struct TItemEffOrgaFlowShot : public TUnk_804E355C {
     void* m_164;
     u8 _pad168[0x8];
     void* m_170;
-    u8 _pad174[0x14];
+    u8 unk_174[0x8];
+    f32 m_17c;
+    u8 unk_180[0x4];
+    f32 m_184;
     u32 m_188;
     u8 _pad18C[0x4];
     void* m_190;

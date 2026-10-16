@@ -8,7 +8,12 @@ struct TBoss3VoloptP01 : public TObjEnemyCustom {
     virtual ~TBoss3VoloptP01();
     virtual void render();
     virtual void run_task();
-    u8 _pad38C[0x28];
+    u8 unk_38C[0xE];
+    s16 m_39a;
+    u8 unk_39C[0x8];
+    s32 m_3a4;
+    u8 unk_3A8[0x8];
+    u8 * m_3b0;
     u32 m_3b4;
     u32 m_3b8;
     void* m_3bc;

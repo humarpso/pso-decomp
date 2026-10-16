@@ -272,7 +272,7 @@ Light_801347A4 TObjLight__data_805068FC[8];
 __declspec(section ".data") u32 TObjLight__data_80506A5C;
 #define TObjLight__scene_light_state (*(RecoveredGlobal_801336E0_TObjLight__data_80506320 *)TObjLight__scene_light_state)
 
-void*TObjLight::init_light(int a1) { *(int*)((char*)this + 0x0) = light_type_id_table[a1]; *(float*)((char*)this + 0x10) = TObjLight__data_805DB088; *(float*)((char*)this + 0xc) = TObjLight__data_805DB088; *(float*)((char*)this + 0x8) = TObjLight__data_805DB088; TAdSinglePlyChrSelectGC__sub_80133548(); *(float*)((char*)this + 0x14) = lbl_805DB08C; *(float*)((char*)this + 0x18) = lbl_805DB090; TAdSinglePlyChrSelectGC__sub_80133544(this); *(float*)((char*)this + 0x20) = lbl_805DB094; *(float*)((char*)this + 0x24) = lbl_805DB094; *(float*)((char*)this + 0x28) = lbl_805DB094; TAdSinglePlyChrSelectGC__sub_801334E4(this); return this; }
+void*TObjLight::init_light(int a1) { *(int *)&this->m_name = light_type_id_table[a1]; *(float *)&this->m_up = TObjLight__data_805DB088; *(float *)&this->m_next = TObjLight__data_805DB088; *(float *)&this->m_prev = TObjLight__data_805DB088; TAdSinglePlyChrSelectGC__sub_80133548(); *(float *)&this->m_down = lbl_805DB08C; *(float*)((char*)this + 0x18) = lbl_805DB090; TAdSinglePlyChrSelectGC__sub_80133544(this); *(float *)&this->m_20 = lbl_805DB094; *(float *)&this->texture_id = lbl_805DB094; *(float *)&this->unk_28 = lbl_805DB094; TAdSinglePlyChrSelectGC__sub_801334E4(this); return this; }
 
 void TObjLight__sub_801335EC(void) {  }
 
@@ -611,8 +611,8 @@ void TObjLight::apply_distant_light() {
 }
 
 void TObjLight::set_light(void *arg1, f32 farg0) {
-    init_distant_light(0, *(f32 *)((s8 *)this + 0), *(f32 *)((s8 *)this + 4), *(f32 *)((s8 *)this + 8));
-    GXInitLightDir(TObjLight__gx_light_objects, *(f32 *)((s8 *)this + 0), *(f32 *)((s8 *)this + 4), *(f32 *)((s8 *)this + 8));
+    init_distant_light(0, *(f32 *)&this->m_name, *(f32 *)&this->m_flags, *(f32 *)&this->m_prev);
+    GXInitLightDir(TObjLight__gx_light_objects, *(f32 *)&this->m_name, *(f32 *)&this->m_flags, *(f32 *)&this->m_prev);
     set_gx_light_color(0, *(f32 *)((s8 *)arg1 + 4), *(f32 *)((s8 *)arg1 + 8), *(f32 *)((s8 *)arg1 + 0xC));
     set_light_ambient_color(farg0, farg0, farg0);
     load_gx_light_slot(0);

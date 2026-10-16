@@ -13,7 +13,9 @@ struct TNpcPlayer : public TObject {
     s16 m_2c;
     u8 _pad2E[0x2];
     void* m_30;
-    u8 _pad34[0x28];
+    u8 unk_34[0x1C];
+    u8 m_50;
+    u8 unk_51[0xB];
     void* m_5c;
     u8 _pad60[0x14];
     u32 m_74;

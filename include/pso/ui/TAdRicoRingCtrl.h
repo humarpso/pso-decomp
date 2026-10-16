@@ -17,7 +17,8 @@ struct TAdRicoRingCtrl : public TObject {
     virtual void run_task();
     void start_fade(f32 farg0);
     void start_anim(f32 farg0);
-    u8 unk_24[0x8];
+    u8 unk_24[0x4];
+    f32 m_28;
 };
 
 typedef char TAdRicoRingCtrl_size[sizeof(TAdRicoRingCtrl) == 0x2C ? 1 : -1];

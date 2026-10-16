@@ -169,7 +169,7 @@ void TChallenge4PResult::set_entry_item(void *arg1, s32 arg2) {
     arg0->f[arg2].v = 1;
 }
 
-void TChallenge4PResult::close_window() { if (*(unsigned int*)((char*)this + 0x2c) != 0) { TWindow__close(*(void**)((char*)this + 0x2c)); *(int*)((char*)this + 0x2c) = 0; } }
+void TChallenge4PResult::close_window() { if (*(unsigned int *)&this->message_window != 0) { TWindow__close(*(void* *)&this->message_window); *(int *)&this->message_window = 0; } }
 
 }
 
@@ -194,17 +194,17 @@ extern "C" {
 
 void TChallenge4PResult::init_timer() {
     ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 5))));
-    *(s32 *)((s8 *)this + 0x20) = 0x5A;
+    this->wait_frames = 0x5A;
     *(s32 *)((s8 *)this + 0x1C) = 5;
 }
 void TChallenge4PResult::init_result_state() {
     ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 4))));
-    *(s32 *)((s8 *)this + 0x20) = 0x5A;
+    this->wait_frames = 0x5A;
     *(s32 *)((s8 *)this + 0x1C) = 5;
 }
 void TChallenge4PResult::init() {
     ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 3))));
-    *(s32 *)((s8 *)this + 0x20) = 0x5A;
+    this->wait_frames = 0x5A;
     *(s32 *)((s8 *)this + 0x1C) = 5;
 }
 void TChallenge4PResult__sub_8034B8B0(void* p) { *(s32*)((char*)p + 0x1c) = 3; }
@@ -269,7 +269,7 @@ void TChallenge4PResult::update_wait_input() {
 void TChallenge4PResult::handle_result_code() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
-    temp_r3 = TLobby__sub_80292270((int) (*(s32 *)((s8 *)arg0 + 0x28)), (int) (*(u16 *)((s8 *)arg0 + 0x24)));
+    temp_r3 = TLobby__sub_80292270((int) (this->result_code), (int) (this->slot_index));
     switch (temp_r3) {
     case 2:
         ((TChallenge4PResult *)arg0)->handle_third_reward();
@@ -304,17 +304,17 @@ void TChallenge4PResult::update_input() {
     s32 temp_r5;
     u32 p;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x2C) == 0U) {
+    if ((u32) *(u32 *)&this->message_window == 0U) {
         ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 6))));
     }
-    p = *(u32 *)((s8 *)this + 0x2C);
+    p = *(u32 *)&this->message_window;
     if ((p != 0U) && (is_message_window_ready(p) != 0)) {
-        temp_r3 = *(s32 *)((s8 *)this + 0x20);
+        temp_r3 = this->wait_frames;
         if (temp_r3 > 0) {
-            *(s32 *)((s8 *)this + 0x20) = (s32) (temp_r3 - 1);
+            this->wait_frames = (s32) (temp_r3 - 1);
             return;
         }
-        if (get_player_by_client_id((u16)(*(u16 *)((s8 *)this + 0x24))) != 0U) {
+        if (get_player_by_client_id((u16)(this->slot_index)) != 0U) {
             temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
             if (TWindowShortListCtrl__check_controller_button(controller_input_state + temp_r5 + 0x20, 4, temp_r5) != 0) {
                 *(s32 *)((s8 *)this + 0x1C) = 1;

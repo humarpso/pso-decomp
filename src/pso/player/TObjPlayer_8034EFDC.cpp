@@ -453,7 +453,7 @@ void TObjPlayer::dispatch_by_state() {
         rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x1F8));
         return;
     case 8:
-        rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x1FC));
+        rotate_matrix_z(0, this->m_1fc);
         return;
     }
 }

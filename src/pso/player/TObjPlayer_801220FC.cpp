@@ -7,6 +7,6 @@ int TItemWeapon__ct(void);
 
     extern unsigned char lbl_804A0DB0[];
     extern const float lbl_805DACDC;
-void*TObjPlayer::init_state_vector() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A0DB0; *(float*)((char*)this + 0x200) = lbl_805DACDC; *(float*)((char*)this + 0x1fc) = lbl_805DACDC; *(float*)((char*)this + 0x1f8) = lbl_805DACDC; return this; }
+void*TObjPlayer::init_state_vector() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804A0DB0; *(float*)((char*)this + 0x200) = lbl_805DACDC; *(float *)&this->m_1fc = lbl_805DACDC; *(float*)((char*)this + 0x1f8) = lbl_805DACDC; return this; }
 
 }

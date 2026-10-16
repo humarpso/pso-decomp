@@ -13,7 +13,7 @@ void *TObjPlayer::init_variant() {
     construct_srank_weapon(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A3F20;
     set_status_flags__10TObjPlayerFPvUi(this, 515);
-    *(s32 **)((s8 *)this + 0x1EC) = spawn_weapon_impact_effect;
+    this->m_1ec = spawn_weapon_impact_effect;
     return this;
 }
 

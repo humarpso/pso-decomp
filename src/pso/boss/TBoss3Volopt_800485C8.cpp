@@ -65,8 +65,8 @@ extern s32 lbl_80484870[];
 void *TBoss3Volopt::ct(void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(this, tl_05);
     *(s32 **)((s8 *)this + 0x18) = lbl_80484870;
-    *(void **)((s8 *)this + 0x1C) = arg1;
-    *(void **)((s8 *)this + 0x20) = arg2;
+    *(void * *)&this->unk_1C = arg1;
+    *(void * *)&this->m_20 = arg2;
     return this;
 }
 
@@ -199,11 +199,11 @@ extern s32 lbl_804848A0[];
 void *TBoss3Volopt::init_fade_color(void *arg1, void *arg2) {
     init_object((void *)(tl_fade));
     *(s32 **)((s8 *)this + 0x18) = lbl_804848A0;
-    *(void **)((s8 *)this + 0x24) = arg2;
-    *(f32 *)((s8 *)this + 0x1C) = lbl_805D8858;
-    *(u8 *)((s8 *)this + 0x20) = 255;
+    *(void * *)&this->texture_id = arg2;
+    *(f32 *)&this->unk_1C = lbl_805D8858;
+    this->m_20 = 255;
     *(u8 *)((s8 *)this + 0x21) = 255;
-    *(u8 *)((s8 *)this + 0x22) = 255;
+    this->m_22 = 255;
     lbl_805D4D14 = 0;
     return this;
 }
@@ -215,9 +215,9 @@ extern s32 lbl_804848B8[];
 void TBoss3Volopt::update_fade_out() {
     u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)();
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) + lbl_805D8850);
-    if (*(f32 *)((s8 *)arg0 + 0x1C) >= lbl_805D8858) {
-        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) lbl_805D8858;
+    *(f32 *)&this->unk_1C = (f32) (*(f32 *)&this->unk_1C + lbl_805D8850);
+    if (*(f32 *)&this->unk_1C >= lbl_805D8858) {
+        *(f32 *)&this->unk_1C = (f32) lbl_805D8858;
         temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x24);
         if (temp_r12 != NULL) {
             temp_r12();
@@ -248,11 +248,11 @@ extern u32 TBoss3Volopt__fade_active_flag;
 void *TBoss3Volopt::init_fade(void *arg1, void *arg2) {
     init_object((void *)((void *)(tl_fade)));
     *(s32 **)((s8 *)this + 0x18) = lbl_804848B8;
-    *(void **)((s8 *)this + 0x24) = arg2;
-    *(f32 *)((s8 *)this + 0x1C) = lbl_805D8854;
-    *(u8 *)((s8 *)this + 0x20) = 255;
+    *(void * *)&this->texture_id = arg2;
+    *(f32 *)&this->unk_1C = lbl_805D8854;
+    this->m_20 = 255;
     *(u8 *)((s8 *)this + 0x21) = 255;
-    *(u8 *)((s8 *)this + 0x22) = 255;
+    this->m_22 = 255;
     TBoss3Volopt__fade_active_flag = 0;
     return this;
 }

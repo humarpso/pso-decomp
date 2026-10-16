@@ -287,10 +287,10 @@ void TItemMag::resolve_sentinel_color() {
     u8 *arg0 = (u8 *)this;
     u8 v;
 
-    if (check_class_equip_permission(*(u8 **)((s8 *)arg0 + 0xF0), 0xD7) != 0) {
-        v = (u8) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x896);
+    if (check_class_equip_permission(*(u8 * *)&this->m_f0, 0xD7) != 0) {
+        v = (u8) *(s16 *)((s8 *)(*(u8 * *)&this->m_f0) + 0x896);
     } else {
-        v = (u8) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x894);
+        v = (u8) *(s16 *)((s8 *)(*(u8 * *)&this->m_f0) + 0x894);
     }
     v = v % 9;
     if (v >= 7) {
@@ -299,7 +299,7 @@ void TItemMag::resolve_sentinel_color() {
     if (lbl_805DAB9C * (f32) rand() < lbl_805DABA0) {
         v += 9;
     }
-    *(u8 *)((s8 *)arg0 + 0x1A6) = v;
+    this->m_1a6 = v;
 }
 extern int fold_flush_1;
 #pragma pop
@@ -307,9 +307,9 @@ extern int fold_flush_1;
 void TItemMag::call_preserve_flag(s32 arg1) {
     u8 temp_r31;
 
-    temp_r31 = *(u8 *)((s8 *)this + 1);
+    temp_r31 = this->m_1;
     copy_to_item_data__5TItemFPv(arg1, this);
-    *(u8 *)((s8 *)this + 1) = temp_r31;
+    this->m_1 = temp_r31;
 }
 
 void try_add_action__8TItemMagFii(s32 arg0, s32 arg1) {
@@ -385,7 +385,7 @@ s32 TItemMag::check_evolution_cond(u32 arg0, s32 arg1) {
 s32 TItemMag::check_feed_state(s32 arg1) {
     s16 temp_r3;
 
-    temp_r3 = obj_getS16_32C(*(s32 *)((s8 *)this + 0xF0));
+    temp_r3 = obj_getS16_32C(*(s32 *)&this->m_f0);
     if (arg1 == 7) {
         if (temp_r3 != 0) {
             return 0;
@@ -405,7 +405,7 @@ void TItemMag::copy_owner_data() {
 
     temp_r3 = get_pmt_record__10TObjPlayerFi(((int (*)(void))get_field_ed__10TObjPlayerFv)());
     if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)arg0 + 0x1B8) = (s32) *(s16 *)((s8 *)temp_r3 + 8);
+        *(s32 *)&this->m_1b8 = (s32) *(s16 *)((s8 *)temp_r3 + 8);
         *(u8 *)((s8 *)arg0 + 0x1BC) = (u8) *(u8 *)((s8 *)temp_r3 + 0xB);
         copy_owner_pair(temp_r3 + 0xC, temp_r3 + 0x10);
     }
@@ -751,15 +751,15 @@ void TItemMag::update_feed_anim() {
     s8 temp_r28;
     void *temp_r4;
 
-    if ((void *) *(void **)((s8 *)this + 0xF0) != NULL) {
+    if ((void *) *(void * *)&this->m_f0 != NULL) {
         temp_r25 = ((s32 (*)(void))get_max_stat_flags__8TItemMagFi)();
-        temp_r4 = *(void **)((s8 *)this + 0xF0);
+        temp_r4 = *(void * *)&this->m_f0;
         temp_r28 = (s8) *(u8 *)((s8 *)temp_r4 + 0x88C);
         temp_r29 = ((s16 (*)(void *, void *))get_mag_item_percent)(this, temp_r4);
         temp_r30 = ((s16 (*)(void *))get_mag_level)(this);
         temp_r31 = ((s16 (*)(void *))get_mag_item_data)(this);
         temp_r26 = ((s16 (*)(void *))get_mag_item_stat_percent)(this);
-        if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void **)((s8 *)this + 0xF0), 0xF9) != 0) {
+        if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void * *)&this->m_f0, 0xF9) != 0) {
             if (temp_r25 & 0x108) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r31 <= temp_r30) {
@@ -807,7 +807,7 @@ void TItemMag::update_feed_anim() {
                 }
                 ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x16));
             }
-        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void **)((s8 *)this + 0xF0), 0xFA) != 0) {
+        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void * *)&this->m_f0, 0xFA) != 0) {
             if (temp_r25 & 0x110) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r29 <= temp_r31) {
@@ -855,7 +855,7 @@ void TItemMag::update_feed_anim() {
                 }
                 ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x18));
             }
-        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void **)((s8 *)this + 0xF0), 0xFC) != 0) {
+        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void * *)&this->m_f0, 0xFC) != 0) {
             if (temp_r25 & 0x120) {
                 if (temp_r26 <= 0x2C) {
                     if (!(temp_r28 & 1)) {
@@ -973,17 +973,17 @@ void TItemMag::do_action_by_class() {
 void TItemMag::evolve_first_form() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
+    temp_r3 = (u8 *)(*(u8 * *)&this->m_f0);
     if (temp_r3 != NULL) {
         if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(temp_r3), (s32)(0xF9)) != 0) {
             ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), (s32)(1));
             return;
         }
-        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 **)((s8 *)arg0 + 0xF0)), (s32)(0xFA)) != 0) {
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 * *)&this->m_f0), (s32)(0xFA)) != 0) {
             ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), (s32)(0xD));
             return;
         }
-        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 **)((s8 *)arg0 + 0xF0)), (s32)(0xFC)) != 0) {
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 * *)&this->m_f0), (s32)(0xFC)) != 0) {
             ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), (s32)(0x19));
         }
     }
@@ -998,12 +998,12 @@ void TItemMag::apply_form_change() {
     }
     if (TObjPlayer__sub_80102C30(arg0) == 2) {
         ((VObj_18_8b050c *)(arg0))->m45();
-        *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) | 0x40);
+        *(s32 *)&this->m_18c = (s32) (*(s32 *)&this->m_18c | 0x40);
         ((VObj_18_8b050c *)(arg0))->m44();
         ((s32 (*)(void *))register_photon_blasts__8TItemMagFPv)((void *) (arg0));
     }
     if (((TItemMag *)arg0)->get_flag_40() == 0) {
-        play_sound_effect((int) (0x4000B20A), (int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4000B20A), (int) (*(s32 *)&this->m_f0 + 0x38), (int) (0), (int) (0));
     }
     copy_owner_data();
 }
@@ -1049,7 +1049,7 @@ void TItemMag::feed_by_item_flags(s8 arg1) {
     rand();
     if (arg1 & 0x40) {
         if (check_action_probability(0) != 0) {
-            request_support_action(*(u8 *)((s8 *)this + 0x1BD));
+            request_support_action(this->m_1bd);
         }
     } else if (arg1 & 1) {
         if (check_action_probability(1) != 0) {
@@ -1057,7 +1057,7 @@ void TItemMag::feed_by_item_flags(s8 arg1) {
         }
     } else if (arg1 & 2) {
         if (check_action_probability(2) != 0) {
-            request_support_action(*(u8 *)((s8 *)this + 0x1BF));
+            request_support_action(this->m_1bf);
         }
     } else if (arg1 & 0x80) {
         if (check_action_probability(3) != 0) {
@@ -1092,18 +1092,18 @@ s8 TItemMag::collect_support_events() {
     s32 g;
     s8 ev;
 
-    if (!(*(s32 *)((s8 *)arg0 + 0x18C) & 1)) {
+    if (!(*(s32 *)&this->m_18c & 1)) {
         return 0;
     }
     delta = 0;
-    cur = obj_getS16_32C(*(s32 *)((s8 *)arg0 + 0xF0));
-    lim = get_field_2b8__14TItemProShieldFv(*(void **)((s8 *)arg0 + 0xF0));
+    cur = obj_getS16_32C(*(s32 *)&this->m_f0);
+    lim = get_field_2b8__14TItemProShieldFv(*(void * *)&this->m_f0);
     ev = 0;
-    if (*(s16 *)((s8 *)arg0 + 0x1DC) != cur) {
-        if (cur < *(s16 *)((s8 *)arg0 + 0x1DC)) {
-            delta = *(s16 *)((s8 *)arg0 + 0x1DC) - cur;
+    if (*(s16 *)&this->m_1dc != cur) {
+        if (cur < *(s16 *)&this->m_1dc) {
+            delta = *(s16 *)&this->m_1dc - cur;
         }
-        *(s16 *)((s8 *)arg0 + 0x1DC) = cur;
+        *(s16 *)&this->m_1dc = cur;
     }
     if (cur == 0) {
         if (test_flags__8TItemMagFUl(arg0 + 0x1D4, 2) == 0) {
@@ -1137,22 +1137,22 @@ s8 TItemMag::collect_support_events() {
     } else {
         ((TItemMag *)(arg0 + 0x1D4))->clear_feed_flags(0xC);
     }
-    if (*(s16 *)((s8 *)arg0 + 0x1D4) < (*(VObj_80112720 **)((s8 *)arg0 + 0xF0))->m14()) {
-        *(s16 *)((s8 *)arg0 + 0x1D4) = (*(VObj_80112720 **)((s8 *)arg0 + 0xF0))->m14();
+    if (*(s16 *)&this->m_1d4 < (*(VObj_80112720 * *)&this->m_f0)->m14()) {
+        *(s16 *)&this->m_1d4 = (*(VObj_80112720 * *)&this->m_f0)->m14();
         ev |= 0x20;
     }
     g = get_global_state__14TOKeyMachine01Fv();
-    if (*(s16 *)((s8 *)arg0 + 0x1D6) != g) {
-        *(s16 *)((s8 *)arg0 + 0x1D6) = g;
+    if (this->m_1d6 != g) {
+        this->m_1d6 = g;
         if (is_boss_area() == 1) {
             ev |= 0x80;
         }
     }
-    if (lbl_805DABAC == (f32)((TItemMag *)(*(void **)((s8 *)arg0 + 0xF0)))->get_sub_value() &&
+    if (lbl_805DABAC == (f32)((TItemMag *)(*(void * *)&this->m_f0))->get_sub_value() &&
         test_flags__8TItemMagFUl(arg0 + 0x1D4, 0x40) == 0) {
         ((TItemMag *)(arg0 + 0x1D4))->set_flags(0x40);
         ev |= 0x40;
-    } else if ((f32)((TItemMag *)(*(void **)((s8 *)arg0 + 0xF0)))->get_sub_value() < lbl_805DABAC &&
+    } else if ((f32)((TItemMag *)(*(void * *)&this->m_f0))->get_sub_value() < lbl_805DABAC &&
                test_flags__8TItemMagFUl(arg0 + 0x1D4, 0x40) != 0) {
         ((TItemMag *)(arg0 + 0x1D4))->clear_feed_flags(0x40);
     }
@@ -1215,25 +1215,25 @@ void TItemMag::cast_support_technique(s32 technique) {
     u8 *self = (u8 *)this;
     TargetList_80112BC4 targets;
     s32 level = *(s16 *)((s8 *)self + 0x198) / 40;
-    if (*(u8 **)((s8 *)self + 0xF0) == NULL) {
+    if (*(u8 * *)&this->m_f0 == NULL) {
         return;
     }
     switch (technique) {
     case 13:
-        create__9TTecSiftaFPvPvPv(*(u8 **)((s8 *)self + 0xF0), *(u8 **)((s8 *)self + 0xF0) + 0x38, level);
+        create__9TTecSiftaFPvPvPv(*(u8 * *)&this->m_f0, *(u8 * *)&this->m_f0 + 0x38, level);
         break;
     case 10:
-        create__10TTecDebandFlll(*(u8 **)((s8 *)self + 0xF0), *(u8 **)((s8 *)self + 0xF0) + 0x38, level);
+        create__10TTecDebandFlll(*(u8 * *)&this->m_f0, *(u8 * *)&this->m_f0 + 0x38, level);
         break;
     case 15:
-        create__9TTecRestaFPvPvPv(*(u8 **)((s8 *)self + 0xF0), *(u8 **)((s8 *)self + 0xF0) + 0x38, level);
+        create__9TTecRestaFPvPvPv(*(u8 * *)&this->m_f0, *(u8 * *)&this->m_f0 + 0x38, level);
         break;
     case 17:
         construct_target_cursor_records__10TObjPlayerFv(&targets);
         targets.count = 1;
-        targets.ids[0] = obj_getField1c(*(u8 **)((s8 *)self + 0xF0));
+        targets.ids[0] = obj_getField1c(*(u8 * *)&this->m_f0);
         targets.ids[1] = 0;
-        create__12TTecReverserFPvPvPvPv(*(u8 **)((s8 *)self + 0xF0), *(u8 **)((s8 *)self + 0xF0) + 0x38, &targets, level);
+        create__12TTecReverserFPvPvPvPv(*(u8 * *)&this->m_f0, *(u8 * *)&this->m_f0 + 0x38, &targets, level);
         break;
     case 11:
         return;
@@ -1258,10 +1258,10 @@ s32 TItemMag::apply_feed_stats(u8 *arg1) {
         ((TItemMag *)arg0)->set_field_EE((u8)((void *) (((u8 (*)(void *))get_mag_total_level)((void *) (arg0 + 0x198)))));
         if (TObjPlayer__sub_80102C30((void *) (arg0)) == 2) {
             refresh_owner_stats__5TItemFPv((void *) (arg0));
-            if (obj_isState2_324((int) (*(s32 *)((s8 *)arg0 + 0xF0))) == 0) {
-                arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((int) (*(s32 *)((s8 *)arg0 + 0xF0)));
-                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int) (arg1), (int) (*(s32 *)((s8 *)arg0 + 0xF0)), (int) (0)) == 0)) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv((int) (*(s32 *)((s8 *)arg0 + 0xF0)), (int) (get_field_d8__10TObjPlayerFv((int) (arg1))));
+            if (obj_isState2_324((int) (*(s32 *)&this->m_f0)) == 0) {
+                arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((int) (*(s32 *)&this->m_f0));
+                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int) (arg1), (int) (*(s32 *)&this->m_f0), (int) (0)) == 0)) {
+                    send_6x26_unequip_item__10TObjPlayerFPvPv((int) (*(s32 *)&this->m_f0), (int) (get_field_d8__10TObjPlayerFv((int) (arg1))));
                 }
             }
         }
@@ -1293,7 +1293,7 @@ void TItemMag::request_support_action(s32 arg1) {
         return;
     }
     if (arg1 != 1) {
-        if (get_status_flag() != 0 && !(TItemMag__data_805DABA4 < *(f32 *)((s8 *)this + 0x1C8)) && check_feed_state(arg1) != 0) {
+        if (get_status_flag() != 0 && !(TItemMag__data_805DABA4 < this->m_1c8) && check_feed_state(arg1) != 0) {
             send_6x61_activate_mag_effect(this, arg1);
         }
     } else {
@@ -1305,11 +1305,11 @@ void TItemMag::transfer_energy() {
     u32 temp_r3;
     s32 temp_r4;
 
-    temp_r3 = *(u32 *)((s8 *)this + 0xF0);
+    temp_r3 = *(u32 *)&this->m_f0;
     if ((temp_r3 != 0U) && (((TItemMag *)(temp_r3 + 0x644))->get_mag_id() == 0)) {
-        temp_r4 = *(s32 *)((s8 *)this + 0x1D0) - *(s32 *)((s8 *)this + 0x1CC);
+        temp_r4 = *(s32 *)&this->_pad1D0 - *(s32 *)&this->m_1cc;
         if (temp_r4 > 0) {
-            set_type__10TObjPlayerFl(*(u32 *)((s8 *)this + 0xF0) + 0x644, temp_r4);
+            set_type__10TObjPlayerFl(*(u32 *)&this->m_f0 + 0x644, temp_r4);
         }
     }
 }
@@ -1318,10 +1318,10 @@ void TItemMag::apply_feed_delta() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r4;
 
-    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags__8TItemMagFUl(arg0 + 0x1D4, 0x100) != 0U)) {
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x1D0) - *(s32 *)((s8 *)arg0 + 0x1CC);
+    if (((u32) *(u32 *)&this->m_f0 != 0U) && (test_flags__8TItemMagFUl(arg0 + 0x1D4, 0x100) != 0U)) {
+        temp_r4 = *(s32 *)&this->_pad1D0 - *(s32 *)&this->m_1cc;
         if (temp_r4 > 0) {
-            decrement_clamp__10TObjPlayerFPll(*(u32 *)((s8 *)arg0 + 0xF0) + 0x644, temp_r4);
+            decrement_clamp__10TObjPlayerFPll(*(u32 *)&this->m_f0 + 0x644, temp_r4);
         }
         ((TItemMag *)(arg0 + 0x1D4))->clear_feed_flags(0x100);
     }
@@ -1339,27 +1339,27 @@ void update_protection__8TItemMagFv(u8 *self) {
 }
 
 void TItemMag::update_feed_timer() {
-    if ((s32) *(s32 *)((s8 *)this + 0x1CC) == 0) {
+    if ((s32) *(s32 *)&this->m_1cc == 0) {
         ((s32 (*)(void))update_protection__8TItemMagFv)();
     }
     transfer_energy();
-    if ((s32) *(s32 *)((s8 *)this + 0x1D0) <= (s32) *(s32 *)((s8 *)this + 0x1CC)) {
+    if ((s32) *(s32 *)&this->_pad1D0 <= (s32) *(s32 *)&this->m_1cc) {
         apply_feed_delta();
         request_support_action((s32)((void*)(1)));
     }
-    if ((*(s32 *)((s8 *)this + 0x1CC) % 60) == 0) {
+    if ((*(s32 *)&this->m_1cc % 60) == 0) {
         apply_switch_attack__5TItemFl(this, 0x6C);
     }
 }
 
-void TItemMag::feed_if_over_90() { if (*(int*)((char*)this + 0x1cc) > 90) { request_support_action((s32)((void*)((void*)1))); } }
+void TItemMag::feed_if_over_90() { if (*(int *)&this->m_1cc > 90) { request_support_action((s32)((void*)((void*)1))); } }
 
-void TItemMag::feed_if_over_45() { if (*(int*)((char*)this + 0x1cc) > 45) { request_support_action((s32)((void*)((void*)1))); } }
+void TItemMag::feed_if_over_45() { if (*(int *)&this->m_1cc > 45) { request_support_action((s32)((void*)((void*)1))); } }
 
 void TItemMag::update_feed() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x1CC);
+    temp_r0 = *(s32 *)&this->m_1cc;
     if ((temp_r0 != 0x5A) && (temp_r0 > 0x5A)) {
         request_support_action((s32)((void*)(1)));
     }
@@ -1368,7 +1368,7 @@ void TItemMag::update_feed() {
 void TItemMag::check_level_cap() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x1CC);
+    temp_r0 = *(s32 *)&this->m_1cc;
     if (temp_r0 == 0x5A) {
         cast_support_technique((s32)(0x11));
         return;
@@ -1381,9 +1381,9 @@ void TItemMag::check_level_cap() {
 void TItemMag::check_level_evolve() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x1CC);
+    temp_r0 = *(s32 *)&this->m_1cc;
     if (temp_r0 == 0x5A) {
-        if (obj_getS16_32C(*(s32 *)((s8 *)this + 0xF0)) > 0) {
+        if (obj_getS16_32C(*(s32 *)&this->m_f0) > 0) {
             cast_support_technique((s32)(0xF));
         }
     } else if (temp_r0 > 0x5A) {
@@ -1588,9 +1588,9 @@ extern const f32 TItemMag__data_805DABA8;
 void TItemMag::update() {
     f32 temp_f1;
 
-    temp_f1 = *(f32 *)((s8 *)this + 0x1C8);
+    temp_f1 = this->m_1c8;
     if (TItemMag__data_805DABA4 < temp_f1) {
-        *(f32 *)((s8 *)this + 0x1C8) = (f32) (temp_f1 - TItemMag__data_805DABA8);
+        this->m_1c8 = (f32) (temp_f1 - TItemMag__data_805DABA8);
     }
     if (obj_testFlags30(this, 0x08000000) == 0) {
         set_subs_visible(1);

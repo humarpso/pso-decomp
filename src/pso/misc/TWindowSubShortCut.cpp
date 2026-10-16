@@ -65,14 +65,14 @@ s32 get_message_10__20TWindowSubStatusDispFl(s32);
 void queue_destruction__7TObjectFv(void *);
 s32 select_cursor_entry__6TLobbyFv(s32);
 
-int TWindowSubShortCut::is_shortcut_active() { return *(u8*)((char*)this + 0x60) & 0x4; }
+int TWindowSubShortCut::is_shortcut_active() { return this->m_60 & 0x4; }
 
 extern const f32 lbl_805DD6C0;
 
 s32 TWindowSubShortCut::open_confirm_message() {
     s32 temp_r29;
 
-    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(this, *(s32 *)((s8 *)this + 0x20), 0, 0);
+    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(this, *(s32 *)&this->m_20, 0, 0);
     open_yes_no_prompt(temp_r29, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0x3e), get_window_layout_position((s32)(0x76)), lbl_805DD6C0);
     free_member__17TWindowSubComCardFv(temp_r29, 1);
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
@@ -93,7 +93,7 @@ s32 TWindowSubShortCut::open_menu() {
     s32 temp_r31;
     u32 *temp_r30;
 
-    select_cursor_entry__6TLobbyFv(*(s32 *)((s8 *)this + 0x2C));
+    select_cursor_entry__6TLobbyFv(*(s32 *)&this->m_2c);
     temp_r30 = get_chat_shortcut();
     temp_r31 = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position((s32)(0x74)), 2, get_message_10__20TWindowSubStatusDispFl(0x2C));
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x7E), 6, 5);
@@ -122,145 +122,145 @@ void TWindowSubShortCut::run_task() {
     void *var_r30;
     u8 temp_r0;
     u8 *temp_r3;
-    temp_r0 = *(u8 *)((s8 *)arg0 + 0x1C);
+    temp_r0 = this->m_1c;
     switch (temp_r0) {
     case 0:
     case 1:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x38));
-            *(u32 *)((s8 *)arg0 + 0x38) = 0U;
+        if ((u32) this->m_38 != 0U) {
+            queue_destruction__7TObjectFv(*(void * *)&this->m_38);
+            this->m_38 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-            ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x34)))->close();
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+        if ((u32) this->m_34 != 0U) {
+            ((TWindowSubComCard *)(*(void * *)&this->m_34))->close();
+            this->m_34 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
-            *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
+        if ((u32) this->m_3c != 0U) {
+            TWindow__close(*(void * *)&this->m_3c);
+            this->m_3c = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x30));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
+        if ((u32) this->m_30 != 0U) {
+            TWindow__close(*(void * *)&this->m_30);
+            this->m_30 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x2C) = ((s32 (*)(void *))open_com_card_list__18TWindowSubShortCutFPv)((void *) (arg0));
+        if ((u32) this->m_2c == 0U) {
+            this->m_2c = ((s32 (*)(void *))open_com_card_list__18TWindowSubShortCutFPv)((void *) (arg0));
         }
-        ((TWindowSubShortCutList *)(*(u32 *)((s8 *)arg0 + 0x2C)))->refresh_entries();
-        ((TWindowSubItem *)(*(u32 *)((s8 *)arg0 + 0x2C)))->clear_selected_and_update_entry();
-        *(u8 *)((s8 *)arg0 + 0x1C) = 2U;
+        ((TWindowSubShortCutList *)(this->m_2c))->refresh_entries();
+        ((TWindowSubItem *)(this->m_2c))->clear_selected_and_update_entry();
+        this->m_1c = 2U;
     case 2:
-        if (((TLobby *)(*(u32 *)((s8 *)arg0 + 0x2C)))->get_flag_bit2() != 0) {
-            temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x28));
+        if (((TLobby *)(this->m_2c))->get_flag_bit2() != 0) {
+            temp_r3 = (u8 *)(*(u8 * *)&this->m_28);
             ((VObj_18_204a81 *)(temp_r3))->m7();
-            *(u8 *)((s8 *)arg0 + 0x1C) = 0xBU;
+            this->m_1c = 0xBU;
             return;
         }
-        if (((TLobby *)(*(u32 *)((s8 *)arg0 + 0x2C)))->get_status_flag() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 3U;
+        if (((TLobby *)(this->m_2c))->get_status_flag() != 0) {
+            this->m_1c = 3U;
         }
         break;
     case 3:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
-            ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x34)))->close();
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+        if ((u32) this->m_34 != 0U) {
+            ((TWindowSubComCard *)(*(void * *)&this->m_34))->close();
+            this->m_34 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x30) = open_menu();
+        if ((u32) this->m_30 == 0U) {
+            this->m_30 = open_menu();
         }
-        ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x30)))->clear_flag_and_release();
-        ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x30)))->clear_transition_flag();
-        *(u8 *)((s8 *)arg0 + 0x1C) = 4U;
+        ((TWindowSubComCard *)(this->m_30))->clear_flag_and_release();
+        ((TWindowSubComCard *)(this->m_30))->clear_transition_flag();
+        this->m_1c = 4U;
     case 4:
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x30)))->get_status_flag() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 1U;
+        if (((TWindowSubComCard *)(this->m_30))->get_status_flag() != 0) {
+            this->m_1c = 1U;
             return;
         }
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x30)))->is_visible() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x30)));
+        if (((TWindowSubComCard *)(this->m_30))->is_visible() != 0) {
+            this->m_1c = get_selected_menu_value((int) (this->m_30));
             return;
         }
         break;
     case 5:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x30));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
+        if ((u32) this->m_30 != 0U) {
+            TWindow__close(*(void * *)&this->m_30);
+            this->m_30 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
-            *(s32 *)((s8 *)arg0 + 0x24) = select_cursor_entry__6TLobbyFv(*(s32 *)((s8 *)arg0 + 0x2C));
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
-            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
+        if ((u32) this->m_2c != 0U) {
+            *(s32 *)&this->m_24 = select_cursor_entry__6TLobbyFv(*(s32 *)&this->m_2c);
+            TWindow__close(*(void * *)&this->m_2c);
+            this->m_2c = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x38) == 0U) {
+        if ((u32) this->m_38 == 0U) {
             void *chat = __nw__7TObjectFUl(0x3C);
             if (chat != 0) {
                 chat = TWindowChat__ct(chat, (void *) (arg0), (void *) ((u8 *)(arg0) + 0x40));
             }
-            *(void **)((s8 *)arg0 + 0x38) = chat;
-            ((TWindowSubShortCut *)(*(u32 *)((s8 *)arg0 + 0x38)))->free_icon();
-            ((TWindowSubShortCut *)(*(u32 *)((s8 *)arg0 + 0x38)))->close_and_clear_flag();
-            ((TWindowSubShortCut *)(*(void **)((s8 *)arg0 + 0x38)))->set_flag1e_bit80();
+            *(void * *)&this->m_38 = chat;
+            ((TWindowSubShortCut *)(this->m_38))->free_icon();
+            ((TWindowSubShortCut *)(this->m_38))->close_and_clear_flag();
+            ((TWindowSubShortCut *)(*(void * *)&this->m_38))->set_flag1e_bit80();
         }
-        *(u8 *)((s8 *)arg0 + 0x1C) = 6U;
+        this->m_1c = 6U;
     case 6:
-        if (((TWindowChat *)(*(u32 *)((s8 *)arg0 + 0x38)))->is_visible() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 1U;
+        if (((TWindowChat *)(this->m_38))->is_visible() != 0) {
+            this->m_1c = 1U;
             return;
         }
-        if (((TWindowChat *)(*(u32 *)((s8 *)arg0 + 0x38)))->is_mode_bit4() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 7U;
+        if (((TWindowChat *)(this->m_38))->is_mode_bit4() != 0) {
+            this->m_1c = 7U;
             return;
         }
         break;
     case 7:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x38));
-            *(u32 *)((s8 *)arg0 + 0x38) = 0U;
+        if ((u32) this->m_38 != 0U) {
+            queue_destruction__7TObjectFv(*(void * *)&this->m_38);
+            this->m_38 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) == 0U) {
+        if ((u32) this->m_3c == 0U) {
             var_r30 = __nw__7TObjectFUl(0x74);
             if (var_r30 != 0) {
-                var_r30 = (void *)TWindowShortCut__ct((int) (var_r30), (int) (get_window_layout_position((int) (0x73))), (int) (*(s32 *)((s8 *)arg0 + 0x24)), (void *) ((u8 *)(arg0) + 0x40));
+                var_r30 = (void *)TWindowShortCut__ct((int) (var_r30), (int) (get_window_layout_position((int) (0x73))), (int) (*(s32 *)&this->m_24), (void *) ((u8 *)(arg0) + 0x40));
             }
-            *(void **)((s8 *)arg0 + 0x3C) = var_r30;
+            *(void * *)&this->m_3c = var_r30;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x34) = open_confirm_prompt();
+        if ((u32) this->m_34 == 0U) {
+            this->m_34 = open_confirm_prompt();
         }
-        *(u8 *)((s8 *)arg0 + 0x1C) = 8U;
+        this->m_1c = 8U;
     case 8:
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x34)))->get_card_data() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 1U;
+        if (((TWindowSubComCard *)(this->m_34))->get_card_data() != 0) {
+            this->m_1c = 1U;
             return;
         }
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x34)))->is_child_visible() != 0) {
-            if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x34)))->get_slot_or_neg1() == 0) {
-                store_chat_shortcut((int) (*(s32 *)((s8 *)arg0 + 0x24)), (void *) ((u8 *)(arg0) + 0x40));
-                *(u8 *)((s8 *)arg0 + 0x1C) = 1U;
+        if (((TWindowSubComCard *)(this->m_34))->is_child_visible() != 0) {
+            if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
+                store_chat_shortcut((int) (*(s32 *)&this->m_24), (void *) ((u8 *)(arg0) + 0x40));
+                this->m_1c = 1U;
                 return;
             }
-            *(u8 *)((s8 *)arg0 + 0x1C) = 1U;
+            this->m_1c = 1U;
             return;
         }
         break;
     case 9:
-        ((TWindowOptionCtrl *)(*(u32 *)((s8 *)arg0 + 0x30)))->open();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x34) = open_confirm_message();
+        ((TWindowOptionCtrl *)(this->m_30))->open();
+        if ((u32) this->m_34 == 0U) {
+            this->m_34 = open_confirm_message();
         }
-        *(u8 *)((s8 *)arg0 + 0x1C) = 0xAU;
+        this->m_1c = 0xAU;
     case 10:
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x34)))->get_card_data() != 0) {
-            *(u8 *)((s8 *)arg0 + 0x1C) = 3U;
+        if (((TWindowSubComCard *)(this->m_34))->get_card_data() != 0) {
+            this->m_1c = 3U;
             return;
         }
-        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x34)))->is_child_visible() != 0) {
-            if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x34)))->get_slot_or_neg1() == 0) {
-                select_cursor_entry__6TLobbyFv((int) (*(u32 *)((s8 *)arg0 + 0x2C)));
+        if (((TWindowSubComCard *)(this->m_34))->is_child_visible() != 0) {
+            if (((TWindowSubComCard *)(this->m_34))->get_slot_or_neg1() == 0) {
+                select_cursor_entry__6TLobbyFv((int) (this->m_2c));
                 clear_chat_shortcut();
-                *(u8 *)((s8 *)arg0 + 0x1C) = 1U;
+                this->m_1c = 1U;
                 return;
             }
-            *(u8 *)((s8 *)arg0 + 0x1C) = 3U;
+            this->m_1c = 3U;
         }
         break;
     case 11:
@@ -303,6 +303,6 @@ void *TWindowSubShortCut__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-void TWindowSubShortCut::set_flag1e_bit80() { *(u16*)((char*)this + 0x1e) |= 0x80; }
+void TWindowSubShortCut::set_flag1e_bit80() { this->m_1e |= 0x80; }
 
 }

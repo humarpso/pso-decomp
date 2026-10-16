@@ -32,7 +32,7 @@ void TMainCursor__sub_8013DFC4(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 2) = (s16) (*(s16 *)((s8 *)arg0 + 2) & 0xFFFFFFFE);
 }
 
-s32 TMainCursor::get_state() { return *(s32*)((char*)this + 0x4); }
+s32 TMainCursor::get_state() { return *(s32 *)&this->m_flags; }
 
 s32 TForceOperate::destroy(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
@@ -40,7 +40,7 @@ s32 TForceOperate::destroy(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-void TForceOperate::set_field_0(s16 v) { *(s16*)((char*)this + 0x0) = v; }
+void TForceOperate::set_field_0(s16 v) { *(s16 *)&this->m_name = v; }
 
 void fn_8013E020(Obj_8013E020 *self) {
     self->a = self->b = 0xffff;

@@ -423,7 +423,7 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
 #pragma pop
 
 void set_world_section_id(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
-s32 TFontSmallTask::get_task_id() { return *(s32*)((char*)this + 0x4); }
+s32 TFontSmallTask::get_task_id() { return *(s32 *)&this->m_flags; }
 void reset_leader_selection(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];

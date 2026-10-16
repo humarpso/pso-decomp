@@ -12,9 +12,15 @@ struct TShopJudgmentItemWindow : public TShopWindowBase {
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
-    u8 _pad28[0x28];
+    u8 unk_28[0xC];
+    s32 m_34;
+    u8 unk_38[0x18];
     u32 m_50;
-    u8 _pad54[0xF0];
+    u8 unk_54[0x1E];
+    s16 m_72;
+    u8 unk_74[0x2];
+    s16 m_76;
+    u8 unk_78[0xCC];
     u32 m_144;
     u32 m_148;
     u8 _pad14C[0x4];

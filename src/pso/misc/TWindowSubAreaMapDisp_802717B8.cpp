@@ -10,22 +10,22 @@ s32 TWindowSubAreaMapDisp__sub_80246948();
 extern f32 lbl_805DD480;
 
 void TWindowSubAreaMapDisp::update_visibility() {
-    if ((s32) *(s32 *)((s8 *)this + 0x6C) != 0) {
+    if ((s32) *(s32 *)&this->m_6c != 0) {
         if (TWindowSubAreaMapDisp__sub_80246948() != 0) {
-            *(s32 *)((s8 *)this + 0x6C) = 0;
+            *(s32 *)&this->m_6c = 0;
             TWindowCtrl::clear_active_flag();
             TRaderMapCore::clear();
         }
-    } else if (!(*(s32 *)((s8 *)this + 0x2C) & 2) && (TWindowSubAreaMapDisp__sub_80246948() == 0)) {
-        *(s32 *)((s8 *)this + 0x6C) = 1;
+    } else if (!(this->m_2c & 2) && (TWindowSubAreaMapDisp__sub_80246948() == 0)) {
+        *(s32 *)&this->m_6c = 1;
         TRaderMapCore::open_free_map_view();
         TRaderMapCore::show_radar();
         TWindowCtrl::set_flag_bit0();
         {
             f32 c = lbl_805DD480;
             *(f32 *)((s8 *)this + 0x60) = c;
-            *(f32 *)((s8 *)this + 0x64) = c;
-            *(f32 *)((s8 *)this + 0x68) = c;
+            this->m_64 = c;
+            *(f32 *)&this->unk_68 = c;
         }
     }
 }

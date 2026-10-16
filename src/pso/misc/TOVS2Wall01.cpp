@@ -32,15 +32,15 @@ void TOVS2Wall01::vfunc_6(s16 *arg1, s32 arg2) {
     s32 temp_r0;
 
     if (arg1 != NULL) {
-        *(s16 *)((s8 *)this + 0x326) = (s16) *arg1;
+        this->mode = (s16) *arg1;
     }
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     if (temp_r0 != 1) {
         if ((temp_r0 >= 1) || (temp_r0 < 0)) {
-            *(s16 *)((s8 *)this + 0x326) = 0;
+            this->mode = 0;
         }
     } else {
-        *(s32 *)((s8 *)this + 0x33C) = 0;
+        *(s32 *)&this->m_33c = 0;
         if (arg2 != 0) {
             init__11TOVS2Wall01Fi();
         }
@@ -55,9 +55,9 @@ void TOVS2Wall01::spawn_debris(s32 arg1) {
     u8 *chip;
     temp_r5 = (u8 *)((void *)((u8 *)(&vs2_wall_debris_desc.value) + -4));
     *(ByteBlock_4C *)(copy_storage_8017BC10.bytes) = *(const ByteBlock_4C *)((s32) temp_r5 + 4);
-    (*(f32 *)(copy_storage_8017BC10.bytes + 0xC)) = *(f32 *)((s8 *)arg0 + 0x2FC);
-    (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = *(f32 *)((s8 *)arg0 + 0x300);
-    (*(f32 *)(copy_storage_8017BC10.bytes + 0x14)) = *(f32 *)((s8 *)arg0 + 0x304);
+    (*(f32 *)(copy_storage_8017BC10.bytes + 0xC)) = this->m_2fc;
+    (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = *(f32 *)&this->unk_300;
+    (*(f32 *)(copy_storage_8017BC10.bytes + 0x14)) = this->m_304;
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x38)) = *(f32 *)((s8 *)arg0 + 0x3C);
     (*(s32 *)(copy_storage_8017BC10.bytes + 0x40)) = get_bml_model((int) (TOVS2Wall01__bml_resource), (void *) (arg1));
     (*(s32 *)(copy_storage_8017BC10.bytes + 0x44)) = TObjFish__sub_8001EDB0((int) (TOVS2Wall01__bml_resource), (void *) (arg1));

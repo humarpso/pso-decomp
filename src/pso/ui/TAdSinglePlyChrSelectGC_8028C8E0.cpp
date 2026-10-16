@@ -340,6 +340,6 @@ void close_and_destroy__12TChCrLoadReqFv(void *arg0) {
     }
 }
 
-void TChCrLoadReq::try_advance_state() { if (TAdSinglePlyChrSelectGC__sub_8028C998((void *)(this)) != 0) { start_preview_loads__23TAdSinglePlyChrSelectGCFPv((Gc_8028CB6C *)(this)); *(int*)((char*)this + 0x60) = 2; } }
+void TChCrLoadReq::try_advance_state() { if (TAdSinglePlyChrSelectGC__sub_8028C998((void *)(this)) != 0) { start_preview_loads__23TAdSinglePlyChrSelectGCFPv((Gc_8028CB6C *)(this)); *(int *)&this->state = 2; } }
 
 }

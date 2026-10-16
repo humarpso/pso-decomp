@@ -16,7 +16,8 @@ struct TBoss7Crawfish : public TObjEnemy {
     void* m_374;
     u8 _pad378[0x28];
     u32 m_3a0;
-    u8 _pad3A4[0x28];
+    u8 unk_3A4[0x24];
+    s32 m_3c8;
     u32 m_3cc;
     void spawn_effect(s32 arg1);
     void free_child();

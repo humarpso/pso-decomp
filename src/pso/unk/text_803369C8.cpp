@@ -53,16 +53,16 @@ void TUnk_804EEF80::render() {
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
         render_logo_with_default(get_title_texture_list(), 0xD, -1, lbl_805DF968);
-        draw_title_background_pulse(arg0, lbl_805DF96C, *(s32 *)((s8 *)arg0 + 0x20));
+        draw_title_background_pulse(arg0, lbl_805DF96C, this->m_20);
         draw_title_background_layer(get_title_texture_list(), 3, -1, lbl_805DF970);
-        draw_title_rings(arg0, lbl_805DF974, *(s32 *)((s8 *)arg0 + 0x20));
+        draw_title_rings(arg0, lbl_805DF974, this->m_20);
         TCameraCtrl__sub_80068EF0();
         TParticleCtrl::end_effect_render();
     }
 }
 
 void TUnk_804EEF80::run_task() {
-    *(s32 *)((s8 *)this + 0x20) = (s32) (*(s32 *)((s8 *)this + 0x20) + 1);
+    this->m_20 = (s32) (this->m_20 + 1);
 }
 
 extern s32 lbl_804EEF80[];

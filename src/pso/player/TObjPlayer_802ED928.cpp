@@ -162,7 +162,7 @@ void TObjPlayer::update_or_dispatch() {
         TObjPlayer__sub_802ECAA4(this);
         return;
     }
-    ((VObj_802ED928*)this)->m85(*(s16 *)((s8 *)this + 0x326), 9);
+    ((VObj_802ED928*)this)->m85(this->m_326, 9);
 }
 
 void TObjPlayer__sub_802ED984(void) {  }

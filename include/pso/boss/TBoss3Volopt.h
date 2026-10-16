@@ -6,7 +6,9 @@
 
 struct TBoss3Volopt : public TObjEnemyCustom {
     virtual ~TBoss3Volopt();
-    u8 unk_38C[0x30];
+    u8 unk_38C[0x1C];
+    s32 m_3a8;
+    u8 unk_3AC[0x10];
     u32 m_3bc;
     static void update_phase();
     static void alloc_idle_event();
@@ -57,7 +59,12 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     static void queue_event_1D(s16 arg0, s16 arg1);
     static s32 remap_area_sound_id(s32 arg0);
     void draw_screen_fade();
-    u8 unk_3C0[0x48];
+    u8 unk_3C0[0x20];
+    s32 m_3e0;
+    u8 unk_3E4[0xC];
+    s16 m_3f0;
+    u8 unk_3F2[0x12];
+    s32 m_404;
 };
 
 typedef char TBoss3Volopt_size[sizeof(TBoss3Volopt) == 0x408 ? 1 : -1];

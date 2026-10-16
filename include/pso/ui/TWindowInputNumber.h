@@ -12,7 +12,9 @@ struct TWindowInputNumber {
     void *objectVtable;
     u8 unknown1C[4];
     s16 clientIndex;
-    u8 unknown22[0x3E];
+    u8 unk_22[0x16];
+    f32 m_38;
+    u8 unk_3C[0x24];
     u16 inputFlags;
     s8 digitCount;
     s8 selectedDigit;

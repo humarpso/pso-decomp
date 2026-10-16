@@ -460,8 +460,8 @@ void TTecRaZonde::vfunc_6(void *arg1_arg) {
     u8 *arg1 = (u8 *)arg1_arg;
     Elec_80238E14 d;
     d.type = 3;
-    d.val = *(f32 *)((s8 *)arg0 + 0x88);
-    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)((s8 *)arg0 + 0x1C), d, 0, 8, -1);
+    d.val = this->m_88;
+    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)&this->source, d, 0, 8, -1);
 }
 
 }

@@ -30,16 +30,16 @@ int set_selected_index__17TWindowSubComCardFs(void*);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
 
 int TWindowSubComCard::close() { return queue_destruction__7TObjectFv(this); }
-void TWindowSubComCard::free_member() { void* m = *(void**)((char*)this + 0x2c); if (m) set_selected_index__17TWindowSubComCardFs(m); }
+void TWindowSubComCard::free_member() { void* m = *(void* *)&this->m_2c; if (m) set_selected_index__17TWindowSubComCardFs(m); }
 s32 TWindowSubComCard::get_slot_or_neg1() {
-    s32 v = *(u32 *)((s8 *)this + 0x2C);
+    s32 v = this->m_2c;
     if ((u32) v == 0U) {
         return -1;
     }
     return get_selected_menu_value(v);
 }
 s32 TWindowSubComCard::get_card_data() {
-    s32 v = *(u32 *)((s8 *)this + 0x2C);
+    s32 v = this->m_2c;
     if ((u32) v == 0U) {
         return 0;
     }
@@ -47,10 +47,10 @@ s32 TWindowSubComCard::get_card_data() {
 }
 
 s32 TWindowSubComCard::is_child_visible() {
-    if ((u32) *(u32 *)((s8 *)this + 0x2C) == 0U) {
+    if ((u32) this->m_2c == 0U) {
         return 0;
     }
-    return ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x2C)))->is_visible();
+    return ((TWindowSubComCard *)(*(s32 *)&this->m_2c))->is_visible();
 }
 
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {

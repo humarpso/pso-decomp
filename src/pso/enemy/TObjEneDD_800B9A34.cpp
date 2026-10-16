@@ -29,7 +29,7 @@ extern void *lbl_805D2A34;
 
 void *TObjEneDD::init_object() {
     TObjEneDD__ct(this);
-    *(s32 **)((s8 *)this + 0x18) = lbl_80492558;
+    *(s32 * *)&this->_pad34 = lbl_80492558;
     *(void **)((s8 *)this + 0x0) = lbl_805D2A34;
     enemy_clear_target(this);
     init_float_params();

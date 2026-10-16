@@ -136,7 +136,7 @@ extern const f32 lbl_805DB26C;
 void TObjFogCollision::draw_volume() {
     u8 *arg0 = (u8 *)this;
     f32 s;
-    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB260, *(f32 *)((s8 *)arg0 + 0x68)) != 0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB260, this->scale) != 0) {
         Color_80153B64 c0 = lbl_8044002C;
         Color_80153B64 c3 = fog_collision_color_a;
         Color_80153B64 cd = fog_collision_color_b;
@@ -146,7 +146,7 @@ void TObjFogCollision::draw_volume() {
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
-        switch (*(s32 *)((s8 *)arg0 + 0x90)) {
+        switch (*(s32 *)&this->m_90) {
         case 0:
             set_chunk_material_color(&c0);
             break;
@@ -161,7 +161,7 @@ void TObjFogCollision::draw_volume() {
             break;
         }
         push_matrix();
-        s = lbl_805DB264 * *(f32 *)((s8 *)arg0 + 0x68);
+        s = lbl_805DB264 * this->scale;
         post_translate_matrix(arg0 + 0x38);
         scale_matrix(0, s, lbl_805DB258, s);
         draw_chunk_object(lbl_805D28BC);
@@ -199,7 +199,7 @@ void TObjFogCollision::run_task() {
     if (TObjFogCollision__sub_80153F70() == 0 && TObjFogCollision__sub_80153F68(this) == 0) {
         for (i = 0; i != 4; i++) {
             if (check_collision(i) != 0) {
-                record_fog_collision_hit(i, *(s32 *)((s8 *)this + 0x84), *(s32 *)((s8 *)this + 0x88) == 0);
+                record_fog_collision_hit(i, this->m_84, *(s32 *)&this->m_88 == 0);
             }
         }
     }
@@ -214,14 +214,14 @@ s32 TObjFogCollision::check_collision(u16 arg1) {
 
     temp_r3 = get_player_by_client_id((u16)arg1);
     if (temp_r3 != 0) {
-        temp_f0 = *(f32 *)((s8 *)arg0 + 0x68);
+        temp_f0 = this->scale;
         temp_f31 = temp_f0 * temp_f0;
         temp_f1 = horizontal_distance_squared(arg0 + 0x38, temp_r3 + 0x38);
         if (temp_f31 > temp_f1) {
             return 1;
         }
         if ((lbl_805DB26C + temp_f31) < temp_f1) {
-            *(s32 *)((s8 *)arg0 + 0x94) = 0x3C;
+            *(s32 *)&this->m_94 = 0x3C;
         }
         goto block_5;
     }
@@ -232,13 +232,13 @@ block_5:
 void TObjFogCollision::vfunc_13(s32) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
+    temp_r0 = this->m_84;
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0x84) = 0;
+        this->m_84 = 0;
         return;
     }
     if (temp_r0 >= 0x80) {
-        *(s32 *)((s8 *)arg0 + 0x84) = 0x7F;
+        this->m_84 = 0x7F;
     }
 }
 

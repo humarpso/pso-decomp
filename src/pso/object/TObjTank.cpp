@@ -79,7 +79,7 @@ void TObjTank::render() {
         TObjFish::set_global_param((u32)p);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         get_bml_model((*(s32 *)&tank_bml_resource), 0);
         draw_ginja_object();
         pop_matrix();

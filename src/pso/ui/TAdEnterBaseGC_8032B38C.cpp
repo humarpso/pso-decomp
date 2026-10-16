@@ -72,7 +72,7 @@ void create_parts__14TAdEnterBaseGCFPv(u8 *arg0) {
     *(u32 *)((s8 *)arg0 + 0x2C) = var_r0_2;
 }
 
-void TAdEnterBaseGC::reset(int a1) { *(int*)((char*)this + 0x24) = 0; *(int*)((char*)this + 0x20) = 0; TAdEnterBaseGC__entry_mode = a1; *(int*)((char*)this + 0x38) = 0; *(int*)((char*)this + 0x3c) = 0; *(int*)((char*)this + 0x28) = 0; *(int*)((char*)this + 0x2c) = 0; *(int*)((char*)this + 0x30) = 0; *(int*)((char*)this + 0x34) = 0; password_entry_keyboard_control = 0; }
+void TAdEnterBaseGC::reset(int a1) { *(int*)((char*)this + 0x24) = 0; this->m_20 = 0; TAdEnterBaseGC__entry_mode = a1; *(int*)((char*)this + 0x38) = 0; *(int*)((char*)this + 0x3c) = 0; this->m_28 = 0; *(int*)((char*)this + 0x2c) = 0; this->m_30 = 0; *(int *)&this->unk_34 = 0; password_entry_keyboard_control = 0; }
 
 extern s32 __vt__14TAdEnterBaseGC[];
 

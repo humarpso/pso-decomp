@@ -75,18 +75,18 @@ extern s32 map_csn_collision_flag_table[];
 void TObjMapCsn::update_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x84);
+    temp_r0 = this->m_84;
     if (temp_r0 == 0) {
-        if ((s32) *(s32 *)((s8 *)this + 0x88) == 0) {
-            *(s32 *)((s8 *)this + 0x88) = 1;
+        if ((s32) *(s32 *)&this->m_88 == 0) {
+            *(s32 *)&this->m_88 = 1;
         }
     } else {
         if ((u32) temp_r0 > 5U) {
-            *(s32 *)((s8 *)this + 0x84) = 1;
+            this->m_84 = 1;
         }
-        *(s32 *)((s8 *)this + 0x88) = (s32) map_csn_collision_flag_table[*(s32 *)((s8 *)this + 0x84)];
+        *(s32 *)&this->m_88 = (s32) map_csn_collision_flag_table[this->m_84];
     }
-    *(s32 *)((s8 *)this + 0x88) = (s32) (*(s32 *)((s8 *)this + 0x88) | 0x40000000);
+    *(s32 *)&this->m_88 = (s32) (*(s32 *)&this->m_88 | 0x40000000);
 }
 
 s32 TObjMapCsn::build_box_triangles() {

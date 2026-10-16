@@ -18,15 +18,15 @@ int TWindowSubComCard__sub_8033C19C(void* p);
 void TWindowSubComCard::update_display_state() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)this + 0x28);
+    temp_r4 = *(s32 *)&this->m_28;
     if (!(temp_r4 & 2)) {
         if (temp_r4 & 1) {
-            if ((u32) *(u32 *)((s8 *)this + 0x30) == 0U) {
+            if ((u32) *(u32 *)&this->m_30 == 0U) {
                 update_card_display((void*)0, (void*)(-1), (void*)(-1), (void*)(-1));
             }
         } else {
             if (temp_r4 & 4) {
-                if ((s32) *(s32 *)((s8 *)this + 0x40) != 0) {
+                if ((s32) this->m_40 != 0) {
                     set_state(3);
                     return;
                 }
@@ -34,7 +34,7 @@ void TWindowSubComCard::update_display_state() {
                 return;
             }
             if (temp_r4 & 8) {
-                if ((s32) *(s32 *)((s8 *)this + 0x40) != 0) {
+                if ((s32) this->m_40 != 0) {
                     set_state(3);
                     return;
                 }
@@ -42,7 +42,7 @@ void TWindowSubComCard::update_display_state() {
                 return;
             }
             if (temp_r4 & 0x10) {
-                if ((s32) *(s32 *)((s8 *)this + 0x40) != 0) {
+                if ((s32) this->m_40 != 0) {
                     set_state(3);
                     return;
                 }
@@ -59,7 +59,7 @@ void TWindowSubComCard::update_display_state() {
 void TWindowSubComCard::close_and_update_display() {
     u8 *arg0 = (u8 *)this;
     ((TWindowSubComCard *)arg0)->close_windows();
-    if (*(s32 *)((s8 *)arg0 + 0x28) & 1) {
+    if (*(s32 *)&this->m_28 & 1) {
         ((TWindowSubComCard *)arg0)->update_card_display((void*)0, (void*)(-1), (void*)(-1), (void*)(-1));
     }
 }

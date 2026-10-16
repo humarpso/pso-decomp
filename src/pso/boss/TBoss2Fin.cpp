@@ -53,9 +53,9 @@ void TBoss2Fin::render() {
     s32 yaw;
     Vec_800363B4 v;
     set_global_param__8TObjFishFl(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x2C));
-    seg = *(Seg_800363B4 **)((s8 *)arg0 + 0x20);
+    seg = *(Seg_800363B4 * *)&this->m_20;
     ang = *(Ang_800363B4 **)((s8 *)arg0 + 0x24);
-    pt = *(Vec_800363B4 **)((s8 *)arg0 + 0x2C);
+    pt = *(Vec_800363B4 * *)&this->m_2c;
     for (; seg->n >= 2; pt++, seg++, ang++) {
         for (j = seg->n - 1; j > 0; j--, pt++) {
             push_matrix();

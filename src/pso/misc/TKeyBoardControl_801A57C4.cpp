@@ -117,20 +117,20 @@ s32 TKeyBoardControl::check_input_angle() {
     s32 temp_r5;
     u16 temp_r0;
 
-    temp_r4 = *(void **)((s8 *)this + 8);
+    temp_r4 = *(void * *)&this->m_prev;
     if (temp_r4 == NULL) {
         return 0;
     }
     if (*(f32 *)((s8 *)temp_r4 + 0x24) < lbl_805DC0B0) {
         return 0;
     }
-    temp_r5 = *(s32 *)((s8 *)this + 0);
-    *(s32 *)((s8 *)this + 0) = *(s32 *)((s8 *)temp_r4 + 0x1C);
-    temp_r0 = temp_r5 - *(s32 *)((s8 *)this + 0);
+    temp_r5 = *(s32 *)&this->m_name;
+    *(s32 *)&this->m_name = *(s32 *)((s8 *)temp_r4 + 0x1C);
+    temp_r0 = temp_r5 - *(s32 *)&this->m_name;
     if (((s32) temp_r0 > 0x5000) && ((s32) temp_r0 < 0xB000)) {
-        temp_r4_2 = *(s32 *)((s8 *)this + 4);
-        *(s32 *)((s8 *)this + 4) = (s32) actor_frame_tick;
-        if ((s32) (*(s32 *)((s8 *)this + 4) - temp_r4_2) < 8) {
+        temp_r4_2 = *(s32 *)&this->m_flags;
+        *(s32 *)&this->m_flags = (s32) actor_frame_tick;
+        if ((s32) (*(s32 *)&this->m_flags - temp_r4_2) < 8) {
             return 1;
         }
     }

@@ -158,14 +158,14 @@ extern "C" {
 u8 *TAdVIConfigGC::init(f32 farg0) {
     u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 8));
-    *(f32 *)((s8 *)arg0 + 0) = (f32) (farg0 * farg0);
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    *(f32 *)&this->m_name = (f32) (farg0 * farg0);
+    *(s32 *)&this->m_24 = 0;
     memset((void *) (arg0 + 0x28), (int) (0), (int) (0x60));
-    *(s32 *)((s8 *)arg0 + 4) = count_members__6TLobbyFv();
-    *(s32 *)((s8 *)arg0 + 0x14) = 0;
+    *(s32 *)&this->m_flags = count_members__6TLobbyFv();
+    *(s32 *)&this->m_down = 0;
     *(s32 *)((s8 *)arg0 + 0x18) = 0;
     open_player_names_window__13TAdVIConfigGCFPv((Cfg_80307D00 *)((void *) (arg0)));
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)&this->m_1c = 0;
     return arg0;
 }
 
@@ -179,7 +179,7 @@ void TAdVIConfigGC::render() {
 extern s32 logo_clear_flag;
 
 void TAdVIConfigGC::set_field48_clear_global() {
-    *(s32 *)((s8 *)this + 0x48) = 1;
+    *(s32 *)&this->m_48 = 1;
     logo_clear_flag = 0;
 }
 

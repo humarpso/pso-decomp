@@ -51,15 +51,15 @@ int get_mag_item_percent(void* p);
 int get_mag_item_stat_percent(void* p);
 int get_mag_level(void* p);
 
-int TItemMag::get_status_flag() { return *(u32*)((char*)this + 0x18c) & 0x10; }
+int TItemMag::get_status_flag() { return this->m_18c & 0x10; }
 void TItemMag__sub_80113E3C(void* p) { *(s8*)((char*)p + 0x0) = -32; }
 
 void TItemMag::copy_record(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     *(u8 *)((s8 *)arg0 + 0) = (u8) *(u8 *)((s8 *)arg1 + 0);
-    *(u8 *)((s8 *)arg0 + 1) = (u8) *(u8 *)((s8 *)arg1 + 1);
+    this->m_1 = (u8) *(u8 *)((s8 *)arg1 + 1);
     *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
-    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)&this->m_4 = (s16) *(s16 *)((s8 *)arg1 + 4);
     *(s16 *)((s8 *)arg0 + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
 }
 
@@ -85,15 +85,15 @@ f32 TItemMag__sub_80113EEC(void* p) { return *(f32*)((char*)p + 0x3c); }
 extern f32 TItemMag__data_805DABA4;
 
 void TItemMag::init_feed_timer() {
-    *(f32 *)((s8 *)this + 0x3C) = (f32) TItemMag__data_805DABA4;
+    this->m_3c = (f32) TItemMag__data_805DABA4;
 }
 
 s32 TItemMag::get_mag_id() { return *(s32*)((char*)this + 0x0); }
 f32 TItemMag::get_stat_f32() { return *(f32*)((char*)this + 0x8); }
 int TItemMag::check_state_flag_1() { return test_flags_any((char*)this + 0x4, 1); }
-void TItemMag::clear_feed_flags(u32 v) { *(u32*)((char*)this + 0x4) &= ~v; }
-void TItemMag::set_flags(u32 v) { *(u32*)((char*)this + 0x4) |= v; }
-int TItemMag::test_flags(u32 m) { return *(u32*)((char*)this + 0x4) & m; }
+void TItemMag::clear_feed_flags(u32 v) { this->m_4 &= ~v; }
+void TItemMag::set_flags(u32 v) { this->m_4 |= v; }
+int TItemMag::test_flags(u32 m) { return this->m_4 & m; }
 
 void TItemMag::add_photon_blast(u8 blast) {
     MagData_80113F64 *data = (MagData_80113F64 *)this;

@@ -11,7 +11,8 @@ struct TItemAttackCol : public TUnk_804E355C {
     void* m_c4;
     u8 _padC8[0x8];
     void* m_d0;
-    u8 _padD4[0xC];
+    u8 unk_D4[0x8];
+    f32 m_dc;
     void* m_e0;
     u32 m_e4;
     u32 m_e8;

@@ -333,7 +333,7 @@ extern s32 lbl_805D5098;
 void TObjPlayer::init_level_stats(s32 arg1) {
     s32 var_r0;
 
-    *(s32 *)((s8 *)this + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D5090 + 0x42C)) + 8);
+    *(s32 *)&this->_pad34 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D5090 + 0x42C)) + 8);
     if (arg1 == 0) {
         var_r0 = *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D5090 + 0x42C)) + 0xC);
     } else {
@@ -349,7 +349,7 @@ extern s32 lbl_80491460[];
 void TObjPlayer::clear_flag_04000000() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r6;
-    temp_r6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+    temp_r6 = (u8 *)(*(u8 * *)&this->m_a4);
     *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) & 0xF5FFFFFF);
     obj_clearFlags30(arg0, 0x04000000U);
 }
@@ -357,7 +357,7 @@ void TObjPlayer::clear_flag_04000000() {
 void TObjPlayer::set_invuln_flags() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r5;
-    temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+    temp_r5 = (u8 *)(*(u8 * *)&this->m_a4);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 0x0A000000);
     obj_setFlags30(arg0, 0x04000000U);
 }
@@ -464,8 +464,8 @@ Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2,
 
 void TObjPlayer::cancel_action() {
     if (get_action_priority() != 1) {
-        if ((u32) *(u32 *)((s8 *)this + 0xD0) != 0U) {
-            ((TObjPlayer *)(*(u32 *)((s8 *)this + 0xD0)))->set_cancel_flag();
+        if ((u32) *(u32 *)&this->m_d0 != 0U) {
+            ((TObjPlayer *)(*(u32 *)&this->m_d0))->set_cancel_flag();
         }
         *(s16 *)((s8 *)this + 0xAE) = 2;
     }
@@ -476,13 +476,13 @@ s32 TObjPlayer::get_action_priority() {
 void TObjPlayer::draw_model_no_fog() {
     u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param(lbl_805D5094);
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xD8));
+    TObjFish::set_global_param(this->m_d8);
     push_matrix();
     post_translate_matrix(arg0 + 0xF0);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xC0));
+    rotate_matrix_y(0, this->m_c0);
     scale_matrix(0, 1.3f, 1.3f, 1.3f);
     model_render_flags &= 0xFFFFFBFF;
-    draw_chunk_object(*(s32 *)((s8 *)arg0 + 0xC8));
+    draw_chunk_object(this->m_c8);
     pop_matrix();
 }
 
@@ -550,7 +550,7 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
 void *TObjPlayer::destroy_with_particle_cleanup(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80491478;
-        if (*(void **)((s8 *)this + 0xD0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD0)); *(s32 *)((s8 *)this + 0xD0) = 0; }
+        if (*(void * *)&this->m_d0 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_d0); this->m_d0 = 0; }
         destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

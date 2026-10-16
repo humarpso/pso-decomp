@@ -198,7 +198,7 @@ s32 obj_isState2_324(void *);
 extern const f32 lbl_805D9EB0;
 
 void TObjPlayer::apply_hit_if_active(void *arg1, f32 *arg2) {
-    ((VObj_800bbe90*)arg1)->m20(*(s32 *)((s8 *)this + 0xAC), lbl_805D9EB0);
+    ((VObj_800bbe90*)arg1)->m20(this->m_ac, lbl_805D9EB0);
     if (obj_isState2_324(arg1) == 0) {
         ((VObj_800bbe90*)this)->m18(arg1, *arg2);
     }

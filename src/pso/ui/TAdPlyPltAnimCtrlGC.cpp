@@ -72,7 +72,7 @@ void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0) {
     } while (var_r31 < 5);
 }
 
-void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)((void*)(this))); ((TWindowSubSymbolChatPartsSet *)((char*)this + 0x24))->copy_vec2(a1); *(int*)((char*)this + 0x1c) = 1; }
+void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)((void*)(this))); ((TWindowSubSymbolChatPartsSet *)((char*)this + 0x24))->copy_vec2(a1); *(int *)&this->m_1c = 1; }
 
 extern s32 __vt__19TAdPlyPltAnimCtrlGC[];
 extern u32 plyplt_anim_ctrl_instance;
@@ -80,56 +80,56 @@ extern u32 plyplt_anim_ctrl_instance;
 void TAdPlyPltAnimCtrlGC::run_task() {
     u8 *arg0 = (u8 *)this;
     void *p;
-    if (*(s32 *)((s8 *)arg0 + 0x1C) == 0) {
+    if (*(s32 *)&this->m_1c == 0) {
         return;
     }
-    (*(u32 *)((s8 *)arg0 + 0x20))++;
-    switch ((u32)*(s32 *)((s8 *)arg0 + 0x1C)) {
+    (this->m_20)++;
+    switch ((u32)*(s32 *)&this->m_1c) {
     case 0:
         break;
     case 1:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[0]) {
+        if (this->m_20 >= ply_plt_anim_time_threshold_table[0]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(0)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
-            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
+            *(s32 *)&this->m_1c = 2;
         }
         break;
     case 2:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[1]) {
+        if (this->m_20 >= ply_plt_anim_time_threshold_table[1]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(1)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
-            *(s32 *)((s8 *)arg0 + 0x1C) = 3;
+            *(s32 *)&this->m_1c = 3;
         }
         break;
     case 3:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[2]) {
+        if (this->m_20 >= ply_plt_anim_time_threshold_table[2]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(2)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
-            *(s32 *)((s8 *)arg0 + 0x1C) = 4;
+            *(s32 *)&this->m_1c = 4;
         }
         break;
     case 4:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[3]) {
+        if (this->m_20 >= ply_plt_anim_time_threshold_table[3]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(3)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
-            *(s32 *)((s8 *)arg0 + 0x1C) = 5;
+            *(s32 *)&this->m_1c = 5;
         }
         break;
     case 5:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[4]) {
+        if (this->m_20 >= ply_plt_anim_time_threshold_table[4]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(4)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
-            *(s32 *)((s8 *)arg0 + 0x1C) = 6;
+            *(s32 *)&this->m_1c = 6;
         }
         break;
     case 6:
-        if (*(u32 *)((s8 *)arg0 + 0x20) > 0x1A) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 7;
+        if (this->m_20 > 0x1A) {
+            *(s32 *)&this->m_1c = 7;
         }
         break;
     case 7:

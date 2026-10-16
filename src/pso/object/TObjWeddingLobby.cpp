@@ -88,19 +88,19 @@ void TObjWeddingLobby::render() {
     f32 temp_f1;
     s32 temp_r31;
     s32 temp_r3;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) wedding_lobby_type != 0U)) {
+    if (((s32) *(s32 *)&this->m_c8 != 0) && ((u32) wedding_lobby_type != 0U)) {
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param((s32)((void *) (wedding_lobby_type)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 3) {
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        if ((s32) *(s32 *)&this->m_c8 != 3) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
             scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
         get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), (int) (0));
         draw_ginja_object();
-        draw_ginja_model_with_motion((int) get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), (int) (1)), (int) get_bml_motion((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), (int) (0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+        draw_ginja_model_with_motion((int) get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), (int) (1)), (int) get_bml_motion((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), (int) (0)), (f32) (this->m_b0));
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }

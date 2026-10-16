@@ -983,7 +983,7 @@ void TBoss3VoloptHiraisin::load_params_from_table(s32 i) {
 
 void TBoss3VoloptHiraisin::set_hit_flags_and_notify() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x40000);
+    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 0x40000);
     obj_setFlags30(arg0, 0x800U);
     ((VObj_18_8712ff *)(arg0))->m61();
 }
@@ -995,15 +995,15 @@ void TBoss3VoloptHiraisin::spawn_effects() {
     typedef char sp10_offset[(offsetof(Stack_80041BB4, sp10) == 0x8) ? 1 : -1];
     Stack_80041BB4 stack;
     stack.sp8 = 0;
-    stack.spC = *(s32 *)((s8 *)arg0 + 0x60);
+    stack.spC = this->rotation_y;
     stack.sp10 = 0;
     spawn_directional_particle((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (((u32)__cntlzw(*(s16 *)((s8 *)arg0 + 0x38C) & 3) >> 5) + 0x61));
     spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x45));
 }
 
 void TBoss3VoloptHiraisin::damage_player_if_aligned() {
-    if (!(*(s32 *)((s8 *)this + 0x388) & 0x40000) && ((s32) vol_opt_active_hit_zone >= 0) && ((s32) ((s32) vol_opt_active_hit_zone / 4) == (s32) ((s16) *(s16 *)((s8 *)this + 0x38C) / 4))) {
-        link_photon__10TObjPlayerFUs(*(u16 *)((s8 *)this + 0x2D4), 0);
+    if (!(*(s32 *)&this->m_388 & 0x40000) && ((s32) vol_opt_active_hit_zone >= 0) && ((s32) ((s32) vol_opt_active_hit_zone / 4) == (s32) ((s16) *(s16 *)((s8 *)this + 0x38C) / 4))) {
+        link_photon__10TObjPlayerFUs(this->m_2d4, 0);
     }
 }
 
@@ -1011,21 +1011,21 @@ void TBoss3VoloptHiraisin::update_state() {
     s16 temp_r4;
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x37C);
+    temp_r0 = *(s32 *)&this->state;
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) | 0x02040000);
-        *(s32 *)((s8 *)this + 0x37C) = 1;
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x02040000);
+        *(s32 *)&this->state = 1;
     case 1:
-        temp_r4 = *(s16 *)((s8 *)this + 0x33C);
+        temp_r4 = *(s16 *)&this->timer;
         temp_r4 -= 1;
-        *(s16 *)((s8 *)this + 0x33C) = temp_r4;
+        *(s16 *)&this->timer = temp_r4;
         if (temp_r4 <= 0) {
             ((VObj_80041C78_80041770 *)this)->m57();
         }
         break;
     case -1:
-        *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFDFBFFFF);
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFDFBFFFF);
         break;
     }
 }

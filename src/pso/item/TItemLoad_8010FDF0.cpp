@@ -53,17 +53,17 @@ void *TItemLoad::load_buffer(u32 arg1, s32 arg2) {
     s32 temp_r31;
     s32 temp_r3;
 
-    *(u32 *)((s8 *)this + 0) = 0U;
-    *(s32 *)((s8 *)this + 4) = 0;
+    *(u32 *)&this->m_name = 0U;
+    *(s32 *)&this->m_flags = 0;
     if ((arg2 != 0) && (arg1 != 0U)) {
-        *(u32 *)((s8 *)this + 0) = mem_alloc((void*)(arg2));
+        *(u32 *)&this->m_name = mem_alloc((void*)(arg2));
         temp_r3 = create_item_buff(arg2);
-        if ((temp_r3 != 0) && ((u32) *(u32 *)((s8 *)this + 0) != 0U) && (read_disc_file(arg1, temp_r3) > 0)) {
-            temp_r31 = prs_decompress_alloc(temp_r3, *(u32 *)((s8 *)this + 0), arg2);
+        if ((temp_r3 != 0) && ((u32) *(u32 *)&this->m_name != 0U) && (read_disc_file(arg1, temp_r3) > 0)) {
+            temp_r31 = prs_decompress_alloc(temp_r3, *(u32 *)&this->m_name, arg2);
             ((TItemDrop *)((s32 *)&sp8))->construct();
-            sp8.field1c = *(u32 *)((s8 *)this + 0);
+            sp8.field1c = *(u32 *)&this->m_name;
             sp8.field20 = temp_r31;
-            *(s32 *)((s8 *)this + 4) = apply_rel_relocations((s32 *)&sp8);
+            *(s32 *)&this->m_flags = apply_rel_relocations((s32 *)&sp8);
             ((TItemDrop *)((s32 *)&sp8))->destroy(-1);
         }
         TItemBuff__ct();
@@ -72,7 +72,7 @@ void *TItemLoad::load_buffer(u32 arg1, s32 arg2) {
 }
 
 void TItemLoad::request_load(s32 arg1) {
-    read_checked_align__6TLobbyFlll(*(s32 *)((s8 *)this + 4), *(s32 *)((s8 *)this + 0xC), arg1, this);
+    read_checked_align__6TLobbyFlll(*(s32 *)&this->m_flags, *(s32 *)&this->m_next, arg1, this);
 }
 
 }

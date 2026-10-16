@@ -8,7 +8,9 @@ struct TObjEneSlimeWaterBomb : public TObjEnemy {
     virtual ~TObjEneSlimeWaterBomb();
     virtual void run_task();
     void* m_374;
-    u8 _pad378[0x10];
+    u8 unk_378[0x8];
+    f32 m_380;
+    u8 unk_384[0x4];
     u32 m_388;
     u32 m_38c;
     u8 _pad390[0x4];

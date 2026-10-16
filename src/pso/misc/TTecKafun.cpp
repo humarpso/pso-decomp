@@ -48,18 +48,18 @@ void *__dt__9TTecKafunFv(void *arg0, s16 arg1) {
 void TTecKafun::render() {  }
 void TTecKafun::run_task() {
     u8 *arg0 = (u8 *)this;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) == 0U) {
+    if ((u32) this->m_e8 == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xB4)));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
+    this->source = find_entity_by_id((int) (this->m_b4));
+    if ((u32) this->source == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    spawn_particle_effect((void *) (arg0 + 0x20), (int) (*(s32 *)((s8 *)arg0 + 0xF0)));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xFC) == 1) {
-        spawn_particle_effect((void *) (arg0 + 0x20), (int) (*(s32 *)((s8 *)arg0 + 0xF4)));
+    spawn_particle_effect((void *) (arg0 + 0x20), (int) (*(s32 *)&this->m_f0));
+    if ((s32) *(s32 *)&this->m_fc == 1) {
+        spawn_particle_effect((void *) (arg0 + 0x20), (int) (*(s32 *)&this->m_f4));
     }
     apply_technique_to_area_targets((void *) (arg0));
     queue_destruction__7TObjectFv((void *) (arg0));

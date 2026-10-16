@@ -111,9 +111,9 @@ extern const f64 lbl_8044D0B0;
 void TTecDeband::update_effect_params() {
     u8 *arg0 = (u8 *)this;
     s32 res;
-    res = calc_technique_parameters(0xA, *(s16 *)((s8 *)arg0 + 0xA4), 0xFFFF);
+    res = calc_technique_parameters(0xA, this->m_a4, 0xFFFF);
     ((TTecAnti *)(arg0 + 0x74))->copy_params((u8 *)res);
-    *(f32 *)((s8 *)arg0 + 0x74) = (f32) (*(s16 *)((s8 *)arg0 + 0x98) * *(s16 *)((s8 *)arg0 + 0xA4));
+    this->m_74 = (f32) (this->m_98 * this->m_a4);
 }
 
 void TTecDeband::vfunc_7(void *arg1_arg) {

@@ -37,10 +37,10 @@ int func_803e11f0__Fv(void);
 void TAdRicoRing::render() { push_matrix(this); TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x50))); post_translate_matrix((char*)this + 0x58); rotate_matrix_zyx((void*)0, *(void**)((char*)this + 0x64), *(void**)((char*)this + 0x68), *(void**)((char*)this + 0x6c)); func_803e11e8__FUl((void*)1); draw_chunk_object(*(void**)((char*)this + 0x4c)); func_803e11e8__FUl((void*)2); draw_chunk_object(*(void**)((char*)this + 0x4c)); func_803e11f0__Fv(); pop_matrix(); }
 
 void TAdRicoRingCtrl::set_scale4(f32 farg0) {
-    *(f32 *)((s8 *)this + 0x1C) = farg0;
-    *(f32 *)((s8 *)this + 0x20) = farg0;
+    *(f32 *)&this->m_1c = farg0;
+    *(f32 *)&this->m_20 = farg0;
     *(f32 *)((s8 *)this + 0x24) = farg0;
-    *(f32 *)((s8 *)this + 0x28) = farg0;
+    this->m_28 = farg0;
 }
 
 void TAdRicoRing::update_position() {

@@ -93,9 +93,9 @@ void TWindowSubQuestBoardSelect::run_task() {
         }
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD6B4) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x186A0;
-        ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)arg0 + 0x64)))->update_subwindow();
+    if ((f32) *(s32 *)&this->m_5c >= lbl_805DD6B4) {
+        *(s32 *)&this->m_5c = 0x186A0;
+        ((TWindowSubStatusDisp *)(*(s32 *)&this->m_64))->update_subwindow();
     }
     ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

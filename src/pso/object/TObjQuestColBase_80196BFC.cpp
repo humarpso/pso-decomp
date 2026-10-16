@@ -125,7 +125,7 @@ typedef char RecoveredGlobal_80196C60_lbl_804A7438_size[sizeof(RecoveredGlobal_8
 void TObjQuestColBase::update_room_id_check() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBEF8, lbl_805DBEFC) != 0) {
-        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * *(f32 *)((s8 *)arg0 + 0xAC)));
+        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * *(f32 *)&this->unk_AC));
     }
 }
 
@@ -133,12 +133,12 @@ void TObjQuestColBase::render() {  }
 void TObjQuestColBase::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB8));
+    temp_r3 = (u8 *)(*(u8 * *)&this->m_b8);
     if ((temp_r3 != NULL) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0)) {
-        *(u8 **)((s8 *)arg0 + 0xB8) = NULL;
+        *(u8 * *)&this->m_b8 = NULL;
     }
-    if (((void *) *(u8 **)((s8 *)arg0 + 0xB8) == NULL) && (((VObj_18_551843 *)(arg0))->m13() != 0)) {
-        *(u8 **)((s8 *)arg0 + 0xB8) = ((VObj_18_551843 *)(arg0))->m14();
+    if (((void *) *(u8 * *)&this->m_b8 == NULL) && (((VObj_18_551843 *)(arg0))->m13() != 0)) {
+        *(u8 * *)&this->m_b8 = ((VObj_18_551843 *)(arg0))->m14();
     }
 }
 u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1) {

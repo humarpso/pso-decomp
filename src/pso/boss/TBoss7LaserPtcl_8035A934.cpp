@@ -14,9 +14,9 @@ void TBoss7LaserPtcl::calc_world_position(void *arg1) {
 extern const f32 lbl_805DE9F0;
 
 void TBoss7LaserPtcl::update_position() {
-    *(f32 *)((s8 *)this + 0x38) = (f32) (*(f32 *)((s8 *)this + 0x2C) * *(f32 *)((s8 *)this + 0x4C));
+    *(f32 *)((s8 *)this + 0x38) = (f32) (*(f32 *)((s8 *)this + 0x2C) * this->travel_distance);
     *(f32 *)((s8 *)this + 0x3C) = (f32) (lbl_805DE9F0 - *(f32 *)((s8 *)this + 0x24));
-    *(f32 *)((s8 *)this + 0x40) = (f32) (*(f32 *)((s8 *)this + 0x34) * *(f32 *)((s8 *)this + 0x4C));
+    *(f32 *)((s8 *)this + 0x40) = (f32) (*(f32 *)((s8 *)this + 0x34) * this->travel_distance);
 }
 
 }

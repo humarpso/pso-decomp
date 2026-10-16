@@ -61,8 +61,8 @@ void TObjEneBm9Mericarol::handle_event(s32 arg1) {
         *(s16 *)((s8 *)this + 0xB8) = 2;
         ((V_A *) this)->m94();
         TObjEneBm9Mericarol__sub_802D093C(this);
-        temp_r5 = *(s32 *)((s8 *)this + 0x438);
-        *(s32 *)((s8 *)this + 0x438) = (s32) (temp_r5 & ~0x28);
+        temp_r5 = *(s32 *)&this->m_454;
+        *(s32 *)&this->m_454 = (s32) (temp_r5 & ~0x28);
         set_field_378__9TObjEneDDFPvi(this, 2, temp_r5);
         enemy_clear_target(this);
         return;

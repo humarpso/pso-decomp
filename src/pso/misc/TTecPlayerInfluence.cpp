@@ -213,8 +213,8 @@ void TTecPlayerInfluence::render() {
 
 void TTecPlayerInfluence::tick_lifetime() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x68) = (s32) (*(s32 *)((s8 *)arg0 + 0x68) + 1);
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x68) > *(f32 *)((s8 *)arg0 + 0x70)) {
+    this->age = (s32) (this->age + 1);
+    if ((f32) this->age > *(f32 *)&this->unk_70) {
         queue_destruction__7TObjectFv(arg0);
     }
 }

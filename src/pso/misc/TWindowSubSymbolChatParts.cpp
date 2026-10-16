@@ -218,7 +218,7 @@ extern int fold_flush_1;
 void TWindowSubSymbolChatParts::handle_cancel() {
     if (TWindowSubSymbolChat__sub_80283974() == 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
-        *(u8 *)((s8 *)this + 0x70) = (u8) (*(u8 *)((s8 *)this + 0x70) | 2);
+        this->m_70 = (u8) (this->m_70 | 2);
     }
 }
 
@@ -226,24 +226,24 @@ void TWindowSubSymbolChatParts::add_part() {
     s32 temp_r3;
 
     temp_r3 = ((s32 (*)(void))calc_symbol_index__20TWindowSubSymbolChatFPv)();
-    if (((s8) *(u8 *)((s8 *)this + 0x71) != 0) || (temp_r3 >= (s16) *(s16 *)((s8 *)this + 0x76)) || (refresh_parts__20TWindowSubSymbolChatFv() < 2)) {
+    if (((s8) this->m_71 != 0) || (temp_r3 >= (s16) *(s16 *)&this->m_76) || (refresh_parts__20TWindowSubSymbolChatFv() < 2)) {
         play_sound_effect(0x53F06, 0, 0, 0);
         return;
     }
     play_sound_effect(0x52D01, 0, 0, 0);
-    **(s32 **)((s8 *)this + 0x84) = 1;
-    *(u8 *)((s8 *)this + 0x70) = (u8) (*(u8 *)((s8 *)this + 0x70) | 1);
-    ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)this + 0x88)))->set_entry_state(2);
+    **(s32 * *)&this->_pad84 = 1;
+    this->m_70 = (u8) (this->m_70 | 1);
+    ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->set_entry_state(2);
 }
 
 void TWindowSubSymbolChatParts::handle_add() {
-    if (((s32 (*)(void))calc_symbol_index__20TWindowSubSymbolChatFPv)() >= (s16) *(s16 *)((s8 *)this + 0x76)) {
+    if (((s32 (*)(void))calc_symbol_index__20TWindowSubSymbolChatFPv)() >= (s16) *(s16 *)&this->m_76) {
         play_sound_effect(0x53F06, 0, 0, 0);
         return;
     }
     play_sound_effect(0x52D01, 0, 0, 0);
-    *(u8 *)((s8 *)this + 0x70) = (u8) (*(u8 *)((s8 *)this + 0x70) | 1);
-    ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)this + 0x88)))->set_entry_state(2);
+    this->m_70 = (u8) (this->m_70 | 1);
+    ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->set_entry_state(2);
 }
 
 void fn_80285054(u8 *arg0) {

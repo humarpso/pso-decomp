@@ -46,7 +46,7 @@ u8 TWindowMakeTeam::is_enabled() {
     if (get_mode__6TLobbyFv() == 1) {
         return 0U;
     }
-    return *(u8 *)((s8 *)this + 0x1F);
+    return this->m_1f;
 }
 
 void *TWindowMakeTeam__sub_80264B24(Obj_80264B24 *o) {
@@ -62,41 +62,41 @@ void *TWindowMakeTeam__sub_80264B38(Obj_80264B38 *o) {
 void TWindowMakeTeam::set_state(s32 arg1) {
     switch (arg1) {
     case 0:
-        *(s8 *)((s8 *)this + 0x1C) = 3;
+        *(s8 *)&this->m_1c = 3;
         return;
     case 1:
-        *(s8 *)((s8 *)this + 0x1C) = 5;
+        *(s8 *)&this->m_1c = 5;
         return;
     case 2:
-        *(s8 *)((s8 *)this + 0x1C) = 7;
+        *(s8 *)&this->m_1c = 7;
         return;
     case 3:
-        *(s8 *)((s8 *)this + 0x1C) = 9;
+        *(s8 *)&this->m_1c = 9;
         return;
     case 4:
-        *(u8 *)((s8 *)this + 0x1D) = (u8) (*(u8 *)((s8 *)this + 0x1D) | 1);
-        *(s8 *)((s8 *)this + 0x1C) = 0xB;
+        this->m_1d = (u8) (this->m_1d | 1);
+        *(s8 *)&this->m_1c = 0xB;
         return;
     }
 }
 
 void TWindowMakeTeam::send_state() {
-    if ((s32) *(u8 *)((s8 *)this + 0x1E) != 1) {
-        mark_entry_by_id__17TWindowSubComCardFPvi(*(s32 *)((s8 *)this + 0x2C), 3);
+    if ((s32) this->m_1e != 1) {
+        mark_entry_by_id__17TWindowSubComCardFPvi(*(s32 *)&this->m_2c, 3);
         return;
     }
-    disable_entry_by_id__17TWindowSubComCardFPvi(*(s32 *)((s8 *)this + 0x2C), 3);
+    disable_entry_by_id__17TWindowSubComCardFPvi(*(s32 *)&this->m_2c, 3);
 }
 
 void TWindowMakeTeam::update_ok_button() {
     u8 *temp_r4;
 
-    temp_r4 = *(u8 **)((s8 *)this + 0x24);
+    temp_r4 = *(u8 * *)&this->m_24;
     if ((temp_r4 != NULL) && ((s8) *temp_r4 != 0)) {
-        mark_entry_by_id__17TWindowSubComCardFPvi(*(s32 *)((s8 *)this + 0x2C), 4);
+        mark_entry_by_id__17TWindowSubComCardFPvi(*(s32 *)&this->m_2c, 4);
         return;
     }
-    disable_entry_by_id__17TWindowSubComCardFPvi(*(s32 *)((s8 *)this + 0x2C), 4);
+    disable_entry_by_id__17TWindowSubComCardFPvi(*(s32 *)&this->m_2c, 4);
 }
 
 #define STATUS(n) ((s32 (*)(s8)) init_status_disp__15TWindowMakeTeamFc)(n)

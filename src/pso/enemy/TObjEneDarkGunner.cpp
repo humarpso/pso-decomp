@@ -11,14 +11,14 @@ s32 queue_destruction__7TObjectFv(void *);
 void TObjEneMe1Canadin_EffLineFade::run_task() {
     s32 var_r31;
 
-    var_r31 = *(u8 *)((s8 *)this + 0x37);
+    var_r31 = this->m_37;
     var_r31 -= 0x10;
     if (var_r31 < 0) {
         var_r31 = 0;
         queue_destruction__7TObjectFv(this);
     }
-    *(u8 *)((s8 *)this + 0x37) = (u8) var_r31;
-    *(s8 *)((s8 *)this + 0x3B) = (s8) var_r31;
+    this->m_37 = (u8) var_r31;
+    this->m_3b = (s8) var_r31;
 }
 
 extern s32 lbl_80490458[];

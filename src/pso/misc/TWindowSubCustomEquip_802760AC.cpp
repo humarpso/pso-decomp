@@ -9,7 +9,7 @@ extern "C" {
 s32 TWindowSubCustomEquip::is_type_valid() {
     u8 temp_r0;
 
-    temp_r0 = *(u8 *)((s8 *)this + 0x62);
+    temp_r0 = this->m_62;
     switch ((s8) temp_r0) {
     case 0:
         return 0;

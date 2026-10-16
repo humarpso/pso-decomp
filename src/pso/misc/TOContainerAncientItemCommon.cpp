@@ -181,7 +181,7 @@ void TOContainerAncientItemCommon::vfunc_6(s16 *arg1, s32 arg2) {
             ((struct VObj_8015C098 *) this)->m77();
             ((TObjContainerItem *)this)->spawn_item((s32)this);
         }
-        *(s16 *)((s8 *)this + 0x326) = 1;
+        this->mode = 1;
         set_flag8__6TLobbyFPv(this);
         queue_destruction__7TObjectFv(this);
     }
@@ -279,13 +279,13 @@ void TUnk_804B08BC::vfunc_81() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     if ((u32) ancient_container_resource_bundle != 0U) {
-        switch (*(s16 *)((s8 *)arg0 + 0x326)) {
+        switch (this->mode) {
         case 0:
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-            temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
+            rotate_matrix_y((int) (0), (int) (this->rotation_y));
+            TObjFish::set_global_param((int) (this->texture_id));
+            temp_r31 = (unsigned char *) (*(void * *)&this->model);
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
             draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));

@@ -122,14 +122,14 @@ void TUnk_804ED598::run_task() {
     s32 temp_r0;
     s32 temp_r4;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x40) == 0U) {
+    if ((u32) *(u32 *)&this->unk_40 == 0U) {
         queue_destruction__7TObjectFv((void *)(this));
         return;
     }
-    temp_r4 = *(s32 *)((s8 *)this + 0x3C);
+    temp_r4 = this->m_3c;
     if (temp_r4 != 0) {
         temp_r0 = temp_r4 - 1;
-        *(s32 *)((s8 *)this + 0x3C) = temp_r0;
+        this->m_3c = temp_r0;
         if (temp_r0 == 0) {
             queue_destruction__7TObjectFv((void *)(this));
         }

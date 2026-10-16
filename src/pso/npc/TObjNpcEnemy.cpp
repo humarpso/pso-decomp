@@ -250,20 +250,20 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
     void *temp_r3;
     void *temp_r5;
 
-    *(void **)((s8 *)this + 0x3B8) = arg1;
-    temp_r5 = *(void **)((s8 *)this + 0x3B8);
+    *(void * *)&this->m_3b8 = arg1;
+    temp_r5 = *(void * *)&this->m_3b8;
     if (temp_r5 == NULL) {
-        *(s32 *)((s8 *)this + 0x34) = 0;
-        *(s32 *)((s8 *)this + 0x24) = 0;
-        *(s16 *)((s8 *)this + 0xB8) = 0;
-        *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0xC) = (f32) lbl_805DE7D8;
+        *(s32 *)&this->model = 0;
+        this->texture_id = 0;
+        this->m_b8 = 0;
+        *(f32 *)((s8 *)(this->m_a4) + 0xC) = (f32) lbl_805DE7D8;
         return;
     }
-    *(s32 *)((s8 *)this + 0x34) = (s32) *(s32 *)((s8 *)temp_r5 + 8);
-    temp_r3 = *(void **)((s8 *)this + 0x3B8);
-    *(s32 *)((s8 *)this + 0x24) = (s32) *(s32 *)((s8 *)temp_r3 + 0xC);
-    *(s16 *)((s8 *)this + 0xB8) = (s16) *(s16 *)((s8 *)temp_r5 + 0x1C);
-    temp_r0 = *(u16 *)((s8 *)(*(void **)((s8 *)this + 0x3B8)) + 2);
+    *(s32 *)&this->model = (s32) *(s32 *)((s8 *)temp_r5 + 8);
+    temp_r3 = *(void * *)&this->m_3b8;
+    this->texture_id = (s32) *(s32 *)((s8 *)temp_r3 + 0xC);
+    this->m_b8 = (s16) *(s16 *)((s8 *)temp_r5 + 0x1C);
+    temp_r0 = *(u16 *)((s8 *)(*(void * *)&this->m_3b8) + 2);
     switch ((s32) temp_r0) {
     case 0:
     case 2:
@@ -271,10 +271,10 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
         break;
     case 1:
     case 3:
-        init_npc_animation__10TObjPlayerFPvPvPv(this, *(s32 *)((s8 *)temp_r5 + 0x18), *(s32 *)((s8 *)temp_r5 + 0x14), *(s16 *)((s8 *)this + 0xB8));
+        init_npc_animation__10TObjPlayerFPvPvPv(this, *(s32 *)((s8 *)temp_r5 + 0x18), *(s32 *)((s8 *)temp_r5 + 0x14), this->m_b8);
         break;
     }
-    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)this + 0x3B8)) + 0x10);
+    *(f32 *)((s8 *)(this->m_a4) + 0xC) = (f32) *(f32 *)((s8 *)(*(void * *)&this->m_3b8) + 0x10);
 }
 
 void TObjNpcEnemy__vt91(u8 *arg0) {
@@ -319,12 +319,12 @@ void TObjNpcEnemy::update_state() {
     void *sp4;
     u16 temp_r0;
 
-    sp4 = *(void **)((s8 *)this + 0x3B8);
+    sp4 = *(void * *)&this->m_3b8;
     temp_r0 = *(u16 *)((s8 *)sp4 + 2);
     switch ((s32) temp_r0) {
     case 0:
         set_global_flag__10TObjPlayerFv(this);
-        draw_chunk_object(*(s32 *)((s8 *)this + 0x34));
+        draw_chunk_object(*(s32 *)&this->model);
         TObjPlayer::reset_transform_state();
         TObjPlayer::clear_global_state();
         return;
@@ -333,7 +333,7 @@ void TObjNpcEnemy::update_state() {
         return;
     case 2:
         set_global_flag__10TObjPlayerFv(this);
-        draw_ginja_object(*(s32 *)((s8 *)this + 0x34));
+        draw_ginja_object(*(s32 *)&this->model);
         TObjPlayer::reset_transform_state();
         TObjPlayer::clear_global_state();
         return;
@@ -351,17 +351,17 @@ void TObjNpcEnemy::render() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r4;
 
-    if (((void *) *(void **)((s8 *)arg0 + 0x3B8) != NULL) && (((NpcV_802d7748_802D745C *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0x398), *(f32 *)((s8 *)arg0 + 0x39C)) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x390) == 1)) {
+    if (((void *) *(void * *)&this->m_3b8 != NULL) && (((NpcV_802d7748_802D745C *)arg0)->m8(*(f32 *)&this->unk_398, this->m_39c) != 0) && ((s32) *(s32 *)&this->m_390 == 1)) {
         select_actor_lighting((void *) (arg0));
         if (TObjNpcEnemy__sub_802D7444((void *)((void *) (arg0))) != 0) {
             model_render_flags |= 1;
         }
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (this->texture_id));
         push_matrix_from((int) (0));
         translate_matrix_vec3((int) (0), (void *) (arg0 + 0x38));
-        temp_r4 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x3B8));
+        temp_r4 = (unsigned char *) (*(void * *)&this->m_3b8);
         translate_matrix((int) (0), (int) (temp_r4), (f32) (lbl_805DE7D8), (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805DE7D8));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
         update_state();
         pop_matrix();
         if (TObjNpcEnemy__sub_802D7444((void *)((void *) (arg0))) != 0) {

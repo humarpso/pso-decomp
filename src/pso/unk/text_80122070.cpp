@@ -11,11 +11,11 @@ extern "C" {
 void TObjPlayer::ramp_up_field_1fc() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f2;
-    temp_f2 = *(f32 *)((s8 *)arg0 + 0x1FC);
+    temp_f2 = *(f32 *)&this->m_1fc;
     if (temp_f2 < lbl_805DACDC) {
-        *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) (temp_f2 + lbl_805DACD8);
-        if (lbl_805DACDC <= *(f32 *)((s8 *)arg0 + 0x1FC)) {
-            *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) lbl_805DACDC;
+        *(f32 *)&this->m_1fc = (f32) (temp_f2 + lbl_805DACD8);
+        if (lbl_805DACDC <= *(f32 *)&this->m_1fc) {
+            *(f32 *)&this->m_1fc = (f32) lbl_805DACDC;
         }
     }
 }

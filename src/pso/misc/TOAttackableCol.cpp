@@ -121,32 +121,32 @@ void TOAttackableCol::init_params() {
     s32 temp_r0_2;
     s32 temp_r0_3;
 
-    *(s32 *)((s8 *)this + 0x33C) = (s32) (*(s32 *)((s8 *)this + 0x84) + 1);
-    temp_r0 = *(s32 *)((s8 *)this + 0x33C);
+    *(s32 *)&this->m_33c = (s32) (this->m_84 + 1);
+    temp_r0 = *(s32 *)&this->m_33c;
     if (temp_r0 < 1) {
-        *(s32 *)((s8 *)this + 0x33C) = 1;
+        *(s32 *)&this->m_33c = 1;
     } else if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)this + 0x33C) = 0x100;
+        *(s32 *)&this->m_33c = 0x100;
     }
-    *(s32 *)((s8 *)this + 0x340) = (s32) *(s32 *)((s8 *)this + 0x88);
+    *(s32 *)((s8 *)this + 0x340) = (s32) *(s32 *)&this->m_88;
     if ((s32) *(s32 *)((s8 *)this + 0x340) < 0) {
         *(s32 *)((s8 *)this + 0x340) = 0;
     }
-    *(s32 *)((s8 *)this + 0x344) = (s32) *(s32 *)((s8 *)this + 0x8C);
-    if ((s32) *(s32 *)((s8 *)this + 0x344) < 0) {
-        *(s32 *)((s8 *)this + 0x344) = 0;
+    this->m_344 = (s32) *(s32 *)&this->unk_8C;
+    if ((s32) this->m_344 < 0) {
+        this->m_344 = 0;
     }
-    *(s32 *)((s8 *)this + 0x34C) = (s32) *(f32 *)((s8 *)this + 0x68);
-    temp_r0_2 = *(s32 *)((s8 *)this + 0x34C);
+    this->m_34c = (s32) this->scale;
+    temp_r0_2 = this->m_34c;
     if ((temp_r0_2 < 0) || (temp_r0_2 >= 0x100)) {
-        *(s32 *)((s8 *)this + 0x34C) = -1;
+        this->m_34c = -1;
     }
-    if (*(f32 *)((s8 *)this + 0x6C) < lbl_805DB2C8) {
+    if (this->target_scale < lbl_805DB2C8) {
         set_indexed_flags(this, 0, 0x08000000);
     } else {
         clear_player_status_flag__10TObjPlayerFlUl((void*)(this), (int)(0), (int)(0x08000000));
     }
-    if ((s32) *(s32 *)((s8 *)this + 0x344) == 0) {
+    if ((s32) this->m_344 == 0) {
         *(s32 *)((s8 *)this + 0x348) = (s32) *(f32 *)((s8 *)this + 0x70);
         temp_r0_3 = *(s32 *)((s8 *)this + 0x348);
         if ((temp_r0_3 < 0) || (temp_r0_3 >= 0x100)) {
@@ -189,20 +189,20 @@ void TOAttackableCol::vfunc_6(s16 *arg1, s32 arg2) {
     s16 sp8;
     s32 temp_r0;
     if (arg1 != NULL) {
-        *(s16 *)((s8 *)arg0 + 0x326) = (s16) *arg1;
+        this->mode = (s16) *arg1;
     }
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->mode;
     if (temp_r0 != 1) {
         if ((temp_r0 >= 1) || (temp_r0 < 0)) {
-            *(s16 *)((s8 *)arg0 + 0x326) = 0;
+            this->mode = 0;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0x33C) = 0;
+        *(s32 *)&this->m_33c = 0;
         if (arg2 != 0) {
             ((TOAttackableCol *)arg0)->handle_6x91_update_state();
         }
     }
-    sp8 = *(s16 *)((s8 *)arg0 + 0x326);
+    sp8 = this->mode;
     access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
 }
 
@@ -283,9 +283,9 @@ void TOAttackableCol::check_door_trigger() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x34C);
-    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (is_current_floor_switch_set((u16) temp_r0) == 1)) && ((submit_cursor_candidate(this, -1), (((s32) *(s32 *)((s8 *)this + 0x33C) > 0) == 0)) || (((s32) *(s32 *)((s8 *)this + 0x344) == 0) && (temp_r0_2 = *(s32 *)((s8 *)this + 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)))) {
-        *(s32 *)((s8 *)this + 0x33C) = 0;
+    temp_r0 = this->m_34c;
+    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (is_current_floor_switch_set((u16) temp_r0) == 1)) && ((submit_cursor_candidate(this, -1), (((s32) *(s32 *)&this->m_33c > 0) == 0)) || (((s32) this->m_344 == 0) && (temp_r0_2 = *(s32 *)((s8 *)this + 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)))) {
+        *(s32 *)&this->m_33c = 0;
         send_state_change((u16)((s32)(1)));
     }
 }
@@ -297,10 +297,10 @@ void TOAttackableCol::run_task() {
         TOAttackableCol__sub_80157310((void *)((void *) (arg0)));
         return;
     }
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     default:
-        *(s16 *)((s8 *)arg0 + 0x326) = 0;
+        this->mode = 0;
     case 0:
         check_door_trigger();
         return;

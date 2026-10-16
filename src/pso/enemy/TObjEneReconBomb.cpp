@@ -167,16 +167,16 @@ void TObjEneReconBomb::render() {
     temp_r30 = TObjFish__sub_8001EDB0((void *) (recon_bomb_bml_resource), (int) (2));
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
-    rotate_matrix_zyx((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
+    rotate_matrix_zyx((int) (0), (int) (*(s32 *)&this->m_5c), (int) (this->rotation_y), (int) (this->rotation_z));
     TObjFish::set_global_param((int) (temp_r30));
     draw_chunk_object((int) (temp_r31));
     pop_matrix();
     push_matrix();
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((0.1f) + *(f32 *)((s8 *)arg0 + 0x348)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((0.1f) + this->m_348), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
     direction_to_rotation_xz((void *) (arg0 + 0x248), (void *) (&spC), (void *) (&sp8));
     rotate_matrix_z((int) (0), (int) (sp8));
     rotate_matrix_x((int) (0), (void *) (spC + 0x4000));
-    var_f1 = *(f32 *)((s8 *)arg0 + 0x3C) - *(f32 *)((s8 *)arg0 + 0x348);
+    var_f1 = *(f32 *)((s8 *)arg0 + 0x3C) - this->m_348;
     if (var_f1 > 40.0f) {
         var_f1 = 40.0f;
     } else if (var_f1 < 0.0f) {

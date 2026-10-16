@@ -7,7 +7,12 @@
 struct TObjButterflyLobby : public TUnk_804B9870 {
     virtual ~TObjButterflyLobby();
     u32 m_90;
-    u8 _pad94[0x28];
+    u8 unk_94[0x10];
+    f32 m_a4;
+    u8 unk_A8[0x4];
+    f32 m_ac;
+    u8 unk_B0[0x8];
+    f32 m_b8;
     s16 m_bc;
     s16 m_be;
     u8 m_c0;

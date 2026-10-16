@@ -847,7 +847,7 @@ u8 *TAdEnterSerialAccessGC__ct(u8 *arg0) {
 }
 
 s32 TAdEnterSerialAccessGC::get_field20_state() {
-    u32 temp_r3 = *(u32 *)((s8 *)this + 0x20);
+    u32 temp_r3 = *(u32 *)&this->m_20;
     if (temp_r3 == 0U) {
         return 0;
     }

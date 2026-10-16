@@ -141,12 +141,12 @@ extern "C" {
 
 void TWindowSnapShot::reset() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0) = 0;
-    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s32 *)&this->m_name = 0;
+    *(s32 *)&this->m_flags = 0;
     memset((void *) (arg0 + 0x1C), (int) (0), (int) (0x20));
-    *(s32 *)((s8 *)arg0 + 8) = 0;
-    *(s32 *)((s8 *)arg0 + 0xC) = 0;
-    *(s32 *)((s8 *)arg0 + 0x14) = 0;
+    *(s32 *)&this->m_prev = 0;
+    *(s32 *)&this->m_next = 0;
+    *(s32 *)&this->m_down = 0;
     *(s32 *)((s8 *)arg0 + 0x18) = 0;
 }
 void *TWindowSnapShot__sub_802A5EDC(void *arg0, s16 arg1) {
@@ -162,7 +162,7 @@ void *TWindowSnapShot__sub_802A5EDC(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802A5F24_lbl_804DD098_size[sizeof(RecoveredGlobal_802A5F24_lbl_804DD098) == 0x10 ? 1 : -1];
 u8 *TWindowSnapShot::init_and_reset() {
     u8 *arg0 = (u8 *)this;
-    *(s32 **)((s8 *)arg0 + 0x3C) = &(*(RecoveredGlobal_802A5F24_lbl_804DD098 *)&lbl_804DD098).value;
+    this->m_3c = &(*(RecoveredGlobal_802A5F24_lbl_804DD098 *)&lbl_804DD098).value;
     reset();
     return arg0;
 }
@@ -185,7 +185,7 @@ s32 TWindowSnapShot::start_capture(s32 arg1) {
     fn_802A5CB8((void*)(this));
     fn_802A5C7C(this);
     fn_802A5CC4((u8 *)(this), (s32)(arg1));
-    *(s32 *)((s8 *)this + 0x14) = 1;
+    *(s32 *)&this->m_down = 1;
     return 1;
 }
 int TWindowSnapShot::get_width() { return 32; }

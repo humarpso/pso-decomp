@@ -64,13 +64,13 @@ void *TOVS2Wreck01__ct(void *arg0, void *arg1) {
 
 void TOVS2::render() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0xCC) = ((VObj_8017C640 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) == 1) {
+    this->m_cc = ((VObj_8017C640 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4);
+    if ((s32) this->m_cc == 1) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
+        draw_ginja_object(*(s32 *)&this->model);
         pop_matrix();
     }
 }

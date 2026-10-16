@@ -518,8 +518,8 @@ void TUnk_804F3A20::run_task() {
     typedef char sp10_offset[(offsetof(Stack_8036EA24, sp10) == 0x8) ? 1 : -1];
     Stack_8036EA24 stack;
     u8 *temp_r6;
-    *(s32 *)((s8 *)arg0 + 0x20) = check_system_file_status__23TAdSinglePlyChrSelectGCFv();
-    if (*(s32 *)((s8 *)arg0 + 0x20) & 1) {
+    this->m_20 = check_system_file_status__23TAdSinglePlyChrSelectGCFv();
+    if (this->m_20 & 1) {
         set_state__21TAdMultiChgGameModeGCFPvi((u8 *)((void *)((void *) (arg0))), (s32)((s32)((int) (9))));
     }
     temp_r6 = (u8 *)&multi_chg_game_mode_entry_table.value + (*(s32 *)((s8 *)arg0 + 0x1C) * 0x18);

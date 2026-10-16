@@ -65,13 +65,13 @@ void TObjWarpLobby::open_lobby_menu() {
     s32 i;
     sp[0] = lbl_805DC058;
     sp[1] = lbl_805DC05C;
-    *(s32 *)((s8 *)this + 0xB0) = check_room_seq_4__16TAdChrSelASlotGCFl(sp, 0xF, lbl_805DC058);
+    *(s32 *)&this->m_cc = check_room_seq_4__16TAdChrSelASlotGCFl(sp, 0xF, lbl_805DC058);
     for (i = 0; i < 0xF; i++) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(*(s32 *)((s8 *)this + 0xB0), warp_lobby_directory_label_table[i], 6, i);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(*(s32 *)&this->m_cc, warp_lobby_directory_label_table[i], 6, i);
     }
-    calc_window_size__17TWindowSubComCardFPv(*(s32 *)((s8 *)this + 0xB0));
-    align_menu_entry_positions(*(s32 *)((s8 *)this + 0xB0));
-    ((TObjCityMainWarp *)(*(s32 *)((s8 *)this + 0xB0)))->set_flag70_bit10();
+    calc_window_size__17TWindowSubComCardFPv(*(s32 *)&this->m_cc);
+    align_menu_entry_positions(*(s32 *)&this->m_cc);
+    ((TObjCityMainWarp *)(*(s32 *)&this->m_cc))->set_flag70_bit10();
     request_active_window_close();
 }
 

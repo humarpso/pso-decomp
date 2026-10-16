@@ -560,19 +560,19 @@ void TTecRaBarta::render() {  }
 void TTecRaBarta::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r4;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) == 0U) {
+    if ((u32) this->m_e8 == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xB4)));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
+    this->source = find_entity_by_id((int) (this->m_b4));
+    if ((u32) this->source == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x68);
-    *(s32 *)((s8 *)arg0 + 0x68) = (s32) (temp_r4 + 1);
+    temp_r4 = this->age;
+    this->age = (s32) (temp_r4 + 1);
     apply_technique_to_area_targets((void *) (arg0), (int) (temp_r4));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x68) > (s16) *(s16 *)((s8 *)arg0 + 0xA8)) {
+    if ((s32) this->age > (s16) this->m_a8) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
@@ -612,20 +612,20 @@ void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
     s32 i;
     construct_area_technique_base(this, source, origin, origin, level);
     *(s32 **)((s8 *)this + 0x18) = __vt__11TTecRaBarta;
-    *(u32 *)((s8 *)this + 0) = TTecRaBarta_class_name;
-    *(s32 *)((s8 *)this + 0xF0) = 0;
+    *(u32 *)&this->m_name = TTecRaBarta_class_name;
+    *(s32 *)&this->m_f0 = 0;
     calc_parameters__11TTecRaBartaFv(this);
-    if (*(u8 **)((s8 *)this + 0xE8) != NULL) {
-        *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)this + 0xE8)) + 0xA4)) + 0xC) = *(f32 *)((s8 *)this + 0x90);
+    if (*(u8 * *)&this->m_e8 != NULL) {
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&this->m_e8) + 0xA4)) + 0xC) = this->m_90;
     }
     for (i = 0; i < 32; i++) {
         ((Ids_80237CCC *) this)->ids[i] = 0xFFFF;
     }
-    *(s32 *)((s8 *)this + 0x138) = 0;
+    *(s32 *)&this->m_138 = 0;
     ((VObj_18_80237CCC *) this)->m6(0);
     ((VObj_18_80237CCC *) this)->m7();
-    if (*(void **)((s8 *)this + 0x1C) != NULL) {
-        *(u16 *)((s8 *)this + 0xB4) = obj_getField1c(*(void **)((s8 *)this + 0x1C));
+    if (*(void * *)&this->source != NULL) {
+        this->m_b4 = obj_getField1c(*(void * *)&this->source);
     }
     return this;
 }

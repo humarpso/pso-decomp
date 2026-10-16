@@ -583,7 +583,7 @@ void TChallenge::wait_for_quest() {
             ((s32)TLobby__sub_800739BC((void *) (arg0)));
             ((s32)TLobby__sub_8026A328());
             TObjWarnChime::create((TObject*)arg0);
-            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
+            this->state = 2;
         }
     }
 }

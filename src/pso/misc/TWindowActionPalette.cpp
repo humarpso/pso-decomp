@@ -164,7 +164,7 @@ void TWindowActionPalette::update_slot_sprites(int idx, int mode, u16 slot) {
     u8 *help;
     u8 *cursor;
 
-    player = get_player_by_client_id(*(s16 *)((u8 *)this + 0x20));
+    player = get_player_by_client_id(this->m_20);
     if (player != 0) {
         help = (u8 *)get_array_entry__20TWindowSubStatusDispFi((TWindowActionPalette *)this, lbl_805DCA10[idx]);
         if (is_action_channel_available__10TObjPlayerFii(player, lbl_805DCA14[idx]) != 0) {
@@ -172,7 +172,7 @@ void TWindowActionPalette::update_slot_sprites(int idx, int mode, u16 slot) {
         } else {
             *(s32 *)(help + 0x2C) = 0xFF404040;
         }
-        update_palette_item_count_label(get_array_entry__20TWindowSubStatusDispFi((TWindowActionPalette *)this, lbl_805DCA18[idx]), help, mode, slot, *(s16 *)((u8 *)this + 0x20));
+        update_palette_item_count_label(get_array_entry__20TWindowSubStatusDispFi((TWindowActionPalette *)this, lbl_805DCA18[idx]), help, mode, slot, this->m_20);
         cursor = (u8 *)this + 0x60 + idx * 4;
         if ((u16)mode != ((TMainCursor *)cursor)->get_type() || ((TMainCursor *)cursor)->get_enabled() != slot) {
             ((TWindowActionPalette *)cursor)->set_mode(mode);
@@ -197,7 +197,7 @@ void TWindowActionPalette::draw_frame(int arg1) {
     f32 scale;
     f32 depth;
     scale = TWindowSubComCard__sub_80244784(this);
-    depth = lbl_805DCA48 / *(f32 *)((s8 *)this + 0x54);
+    depth = lbl_805DCA48 / this->m_54;
     begin_screen_draw(1);
     TObjFish::set_global_param((s32)((void *)lbl_805D63F0));
     set_draw_texture_and_color(2, ctx->tex);

@@ -82,32 +82,32 @@ extern void *tl_05;
 #pragma opt_common_subs off
 void TODoorVoShip::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (*(s32 *)((s8 *)arg0 + 0xCC) & 0xE) {
+    if (*(s32 *)&this->m_cc & 0xE) {
         ((TOBarrierEnergy01 *)arg0)->update_anim_phase();
-        if (*(s32 *)((s8 *)arg0 + 0xCC) & 0x10) {
-            *(f32 *)((s8 *)arg0 + 0xDC) = (f32) (*(f32 *)((s8 *)arg0 + 0xDC) + lbl_805DB530);
-            if (lbl_805DB534 <= *(f32 *)((s8 *)arg0 + 0xDC)) {
-                *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB534;
-                *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (*(s32 *)((s8 *)arg0 + 0xCC) & 0xFFFFFFEF);
+        if (*(s32 *)&this->m_cc & 0x10) {
+            *(f32 *)&this->m_dc = (f32) (*(f32 *)&this->m_dc + lbl_805DB530);
+            if (lbl_805DB534 <= *(f32 *)&this->m_dc) {
+                *(f32 *)&this->m_dc = (f32) lbl_805DB534;
+                *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFEF);
             }
         } else {
-            *(f32 *)((s8 *)arg0 + 0xDC) = (f32) (*(f32 *)((s8 *)arg0 + 0xDC) - lbl_805DB530);
-            if (*(f32 *)((s8 *)arg0 + 0xDC) <= lbl_805DB538) {
-                *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB538;
-                *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (*(s32 *)((s8 *)arg0 + 0xCC) | 0x10);
+            *(f32 *)&this->m_dc = (f32) (*(f32 *)&this->m_dc - lbl_805DB530);
+            if (*(f32 *)&this->m_dc <= lbl_805DB538) {
+                *(f32 *)&this->m_dc = (f32) lbl_805DB538;
+                *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc | 0x10);
             }
         }
         if (get_story_flag((s32)((int) (0x2C))) != 0) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (*(s32 *)((s8 *)arg0 + 0xCC) & 0xFFFFFFFD);
+            *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFFD);
         }
         if (get_story_flag((s32)((int) (0x2D))) != 0) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (*(s32 *)((s8 *)arg0 + 0xCC) & 0xFFFFFFFB);
+            *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFFB);
         }
         if (get_story_flag((s32)((int) (0x2E))) != 0) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (*(s32 *)((s8 *)arg0 + 0xCC) & 0xFFFFFFF7);
+            *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFF7);
         }
         if ((get_story_flag((s32)((int) (0x2F))) != 0) || (get_main_phase() == 0xF)) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (*(s32 *)((s8 *)arg0 + 0xCC) & 0xFFFFFFF1);
+            *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFF1);
             ((TObjPlayer *)arg0)->clear_player_status_flag((int)(0), (int)(1U));
         }
     }
@@ -121,37 +121,37 @@ void TODoorVoShip::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     u8 *temp_r31_4;
-    if ((((VObj_801639B4 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) && (*(s32 *)((s8 *)arg0 + 0xCC) & 0xE)) {
+    if ((((VObj_801639B4 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) && (*(s32 *)&this->m_cc & 0xE)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        TObjEneSlimeOne__sub_803E4B54((int) (*(s32 *)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (int) (*(s32 *)((s8 *)arg0 + 0xD0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0xD8)));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
+        TObjEneSlimeOne__sub_803E4B54((int) (*(s32 *)&this->model), (int) (*(s32 *)&this->unk_BC), (int) (*(s32 *)&this->m_d0), (f32) (this->m_b0));
+        TObjFish::set_global_param((int) (*(s32 *)&this->m_d8));
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
         model_render_flags = temp_r4 | 0x20;
         set_chunk_material_color((void *) (arg0 + 0xDC));
         TParticleCtrl::begin_effect_render();
-        temp_r31 = *(u8 **)((s8 *)arg0 + 0xD4);
+        temp_r31 = *(u8 * *)&this->m_d4;
         push_matrix();
         post_translate_matrix((void *) (temp_r31 + 8));
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
-        if (*(s32 *)((s8 *)arg0 + 0xCC) & 4) {
+        if (*(s32 *)&this->m_cc & 4) {
             push_matrix();
             post_translate_matrix((void *) (temp_r31_2 + 8));
             draw_chunk_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
         }
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x30);
-        if (*(s32 *)((s8 *)arg0 + 0xCC) & 2) {
+        if (*(s32 *)&this->m_cc & 2) {
             push_matrix();
             post_translate_matrix((void *) (temp_r31_3 + 8));
             draw_chunk_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
             pop_matrix();
         }
         temp_r31_4 = *(u8 **)((s8 *)temp_r31_3 + 0x30);
-        if (*(s32 *)((s8 *)arg0 + 0xCC) & 8) {
+        if (*(s32 *)&this->m_cc & 8) {
             push_matrix();
             post_translate_matrix((void *) (temp_r31_4 + 8));
             draw_chunk_model((int) (*(s32 *)((s8 *)temp_r31_4 + 4)));

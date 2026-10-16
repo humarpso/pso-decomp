@@ -88,10 +88,10 @@ void TObjEneRe7BeruraPunch::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) != 0) {
+    if ((s32) *(s32 *)&this->m_b4 != 0) {
         lbl_805D5660 = model_render_flags;
         TObjEneDD::clear_global_flag_400();
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) == 2) {
+        if ((s32) *(s32 *)&this->m_b4 == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m6();
             if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                 model_render_flags = lbl_805D5660;
@@ -102,13 +102,13 @@ void TObjEneRe7BeruraPunch::render() {
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        translate_matrix(0, lbl_805D9794, *(f32 *)((s8 *)arg0 + 0xCC), lbl_805D9794);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        temp_f1 = *(f32 *)((s8 *)arg0 + 0xF4);
+        translate_matrix(0, lbl_805D9794, *(f32 *)&this->unk_CC, lbl_805D9794);
+        rotate_matrix_y(0, this->rotation_y);
+        temp_f1 = this->m_f4;
         scale_matrix(0, temp_f1, temp_f1, lbl_805D9798);
-        TObjEneRe7Berura::init_part(*(s32 *)((s8 *)arg0 + 0xB8));
+        TObjEneRe7Berura::init_part(*(s32 *)&this->m_b8);
         pop_matrix();
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) == 2) {
+        if ((s32) *(s32 *)&this->m_b4 == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m7();
         }
         TParticleCtrl::end_effect_render();
@@ -124,10 +124,10 @@ extern const f32 lbl_805D97B4;
 void TObjEneRe7BeruraPunch::update_velocity_and_snap() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_14_c1c33b *)((u8 *)(arg0) + (248)))->m4() != 0) {
-        *(s32 *)((s8 *)arg0 + 0xB4) = 0;
+        *(s32 *)&this->m_b4 = 0;
     }
-    *(f32 *)((s8 *)arg0 + 0xDC) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xBC))) + *(f32 *)((s8 *)arg0 + 0xDC));
-    *(f32 *)((s8 *)arg0 + 0xE4) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xC4))) + *(f32 *)((s8 *)arg0 + 0xE4));
+    *(f32 *)&this->m_dc = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xBC))) + *(f32 *)&this->m_dc);
+    this->m_e4 = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xC4))) + this->m_e4);
     ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
 }
 #pragma pop
@@ -203,21 +203,21 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
 
-    *(s32 *)((s8 *)arg0 + 0xB8) = arg1;
+    *(s32 *)&this->m_b8 = arg1;
     VecCopy__FP3VecPC3Vec(arg0 + 0xDC, arg2);
     ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
-    temp_r3 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0));
+    temp_r3 = find_entity_by_id(this->m_b0);
     if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
+        this->rotation_y = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
     } else {
-        *(s32 *)((s8 *)arg0 + 0x60) = 0;
+        this->rotation_y = 0;
     }
-    *(f32 *)((s8 *)arg0 + 0xBC) = sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805D9794;
-    *(f32 *)((s8 *)arg0 + 0xC4) = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
-    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805D97B4;
+    *(f32 *)((s8 *)arg0 + 0xBC) = sin_table_lookup(this->rotation_y);
+    this->m_c0 = (f32) lbl_805D9794;
+    *(f32 *)((s8 *)arg0 + 0xC4) = cos_table_lookup(this->rotation_y);
+    this->m_c8 = (f32) lbl_805D97B4;
     ((TObjEneRe7BeruraPunch *)arg0)->reset();
-    *(s32 *)((s8 *)arg0 + 0xB4) = 1;
+    *(s32 *)&this->m_b4 = 1;
 }
 
 }

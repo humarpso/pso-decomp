@@ -72,17 +72,17 @@ void TObjKabochaLobby::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) TObjKabochaLobby__lobby_type != 0U) && (((VObj18_8035346c *) arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0)) {
+    if (((s32) *(s32 *)&this->m_c8 != 0) && ((u32) TObjKabochaLobby__lobby_type != 0U) && (((VObj18_8035346c *) arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0)) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (this->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 3) {
-            temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        if ((s32) *(s32 *)&this->m_c8 != 3) {
+            temp_f1 = *(f32 *)&this->unk_CC;
             scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
-        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        draw_ginja_object((int) (*(s32 *)&this->model));
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }

@@ -65,14 +65,14 @@ s32 is_shortcut_active__18TWindowSubShortCutFv();
 void TWindowSubQuestBoardSelect::select_next() {
     u8 temp_r3;
 
-    if ((is_shortcut_active__18TWindowSubShortCutFv() == 0) && (((s32 (*)(void *, u8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(this, *(u8 *)((s8 *)this + 0x61)) == 0)) {
+    if ((is_shortcut_active__18TWindowSubShortCutFv() == 0) && (((s32 (*)(void *, u8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(this, this->m_61) == 0)) {
         do {
-            *(u8 *)((s8 *)this + 0x61) = (u8) (*(u8 *)((s8 *)this + 0x61) + 1);
-            temp_r3 = *(u8 *)((s8 *)this + 0x61);
+            this->m_61 = (u8) (this->m_61 + 1);
+            temp_r3 = this->m_61;
             if ((s8) temp_r3 > 6) {
-                *(u8 *)((s8 *)this + 0x61) = (u8) (temp_r3 - 6);
+                this->m_61 = (u8) (temp_r3 - 6);
             }
-        } while (((s32 (*)(void *, u8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(this, *(u8 *)((s8 *)this + 0x61)) == 0);
+        } while (((s32 (*)(void *, u8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(this, this->m_61) == 0);
         fn_8027D230(this);
     }
 }

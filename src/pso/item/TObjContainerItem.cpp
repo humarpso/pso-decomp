@@ -205,10 +205,10 @@ void *__nw__7TObjectFUl(int);
 void TObjContainerItem::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+        if ((s32) this->m_364 != 0) {
             submit_cursor_candidate(this, -1);
         }
     case 1:
@@ -260,7 +260,7 @@ u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TObjContainerItem::spawn_item(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    request_box_item_drop(arg1, arg0 + 0x38, *(s32 *)((s8 *)arg0 + 0x360), arg0);
+    request_box_item_drop(arg1, arg0 + 0x38, this->m_360, arg0);
 }
 void play_container_break_sound(s32 arg0) {
     u32 temp_r3;

@@ -36,9 +36,9 @@ void *TWindowShortListCtrl::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804C2298;
         TLobby::stop_audio_streams();
-        if (*(void **)((s8 *)this + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x2C)); *(s32 *)((s8 *)this + 0x2C) = 0; }
-        if (*(void **)((s8 *)this + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x28)); *(s32 *)((s8 *)this + 0x28) = 0; }
-        if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24)); *(s32 *)((s8 *)this + 0x24) = 0; }
+        if (*(void * *)&this->m_2c != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_2c); *(s32 *)&this->m_2c = 0; }
+        if (*(void * *)&this->m_28 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_28); *(s32 *)&this->m_28 = 0; }
+        if (*(void * *)&this->m_24 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_24); *(s32 *)&this->m_24 = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

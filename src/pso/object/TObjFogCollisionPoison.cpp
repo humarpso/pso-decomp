@@ -108,11 +108,11 @@ void TObjFogCollision_Manager::run_task() {
     s32 temp_r0;
     s32 var_r4;
     if (TObjPlayer::is_any_teammate_in_state() == 0) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x2C);
+        temp_r0 = *(s32 *)&this->unk_2C;
         switch (temp_r0) {
         case 0:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0) {
-                var_r4 = *(s32 *)((s8 *)arg0 + 0x20);
+                var_r4 = this->m_20;
                 if (var_r4 >= 0x1000) {
                     var_r4 -= 0x1000;
                 }
@@ -122,28 +122,28 @@ void TObjFogCollision_Manager::run_task() {
                     var_r4 = 0x7F;
                 }
                 if ((s32) *(s32 *)((s8 *)arg0 + 0x24) != 0) {
-                    TFogCtrl::select_fog_for_viewport(*(s32 *)((s8 *)arg0 + 0x28), var_r4, 0);
+                    TFogCtrl::select_fog_for_viewport(this->m_28, var_r4, 0);
                 } else {
-                    TFogCtrl::select_fog_for_viewport(*(s32 *)((s8 *)arg0 + 0x28), var_r4, 1);
+                    TFogCtrl::select_fog_for_viewport(this->m_28, var_r4, 1);
                 }
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0;
             } else {
-                *(s32 *)((s8 *)arg0 + 0x2C) = 1;
+                *(s32 *)&this->unk_2C = 1;
                 if ((s32) *(s32 *)((s8 *)arg0 + 0x24) != 0) {
-                    TFogCtrl::restore_fog_for_player(*(s32 *)((s8 *)arg0 + 0x28), 0);
+                    TFogCtrl::restore_fog_for_player(this->m_28, 0);
                 } else {
-                    TFogCtrl::restore_fog_for_player(*(s32 *)((s8 *)arg0 + 0x28), 1);
+                    TFogCtrl::restore_fog_for_player(this->m_28, 1);
                 }
             }
             break;
         case 1:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0) {
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-                *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+                *(s32 *)&this->unk_2C = 0;
             }
             break;
         }
-        *(s32 *)((s8 *)arg0 + 0x20) = 0;
+        this->m_20 = 0;
     }
 }
 
@@ -159,10 +159,10 @@ void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void TObjFogCollisionPoison::record_hit(s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)this + 0x20) <= arg1) {
-        *(s32 *)((s8 *)this + 0x1C) = (s32) (*(s32 *)((s8 *)this + 0x1C) + 1);
-        *(s32 *)((s8 *)this + 0x20) = arg1;
-        *(s32 *)((s8 *)this + 0x24) = arg2;
+    if ((s32) *(s32 *)&this->m_20 <= arg1) {
+        *(s32 *)&this->unk_1C = (s32) (*(s32 *)&this->unk_1C + 1);
+        *(s32 *)&this->m_20 = arg1;
+        this->texture_id = arg2;
     }
 }
 
@@ -238,7 +238,7 @@ u8 TObjFogCollisionPoison::check_switch() {
     s32 temp_r31;
 
     temp_r31 = TObjFogCollisionSwitch__sub_80153A0C();
-    return (u8) (temp_r31 == is_current_floor_switch_set((u16) *(s32 *)((s8 *)this + 0x8C)));
+    return (u8) (temp_r31 == is_current_floor_switch_set((u16) *(s32 *)&this->unk_8C));
 }
 
 void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {
@@ -246,7 +246,7 @@ void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {
     s16 v;
     p = get_player_by_client_id(arg1);
     if (is_valid_target__9TObjEneDDFv(p) != 0) {
-        v = obj_getS16_32C(p) - *(s32 *)((s8 *)this + 0x98);
+        v = obj_getS16_32C(p) - *(s32 *)&this->m_98;
         if (v < 0) {
             v = 0;
         }
@@ -256,7 +256,7 @@ void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {
 
 void TObjFogCollisionPoison::record_poison_hit(u16 arg1) {
     u8 *arg0 = (u8 *)this;
-    record_fog_collision_hit((s32)((void *) (arg1)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x84))), (s32)((int) ((u8) (*(s32 *)((s8 *)arg0 + 0x88) == 0))));
+    record_fog_collision_hit((s32)((void *) (arg1)), (s32)((int) (this->m_84)), (s32)((int) ((u8) (*(s32 *)&this->m_88 == 0))));
 }
 void TObjFogCollisionPoison__sub_80153520(s32 arg0) {
     switch (TOKeyMachine01::get_global_state()) {

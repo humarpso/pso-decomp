@@ -183,9 +183,9 @@ extern const f64 lbl_8044D658;
 void TTecJelin::init_tech_params() {
     u8 *arg0 = (u8 *)this;
     s32 res;
-    res = calc_technique_parameters(0xB, *(s16 *)((s8 *)arg0 + 0x78), 0xFFFF);
+    res = calc_technique_parameters(0xB, this->m_78, 0xFFFF);
     ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)res);
-    *(f32 *)((s8 *)arg0 + 0x88) = (f32) (*(s16 *)((s8 *)arg0 + 0xAC) * *(s16 *)((s8 *)arg0 + 0x78));
+    this->m_88 = (f32) (*(s16 *)&this->m_ac * this->m_78);
 }
 
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];

@@ -74,40 +74,40 @@ void TAdWarningBaseGC::vfunc_8() {
     u8 *arg0 = (u8 *)this;
     u8 *a;
     u8 *b;
-    *(s32 *)((s8 *)arg0 + 0x20) = *(s32 *)((s8 *)arg0 + 0x1C);
-    switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
+    *(s32 *)&this->m_20 = *(s32 *)&this->m_1c;
+    switch (*(s32 *)&this->m_1c) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x2C) = TAdWarningBaseGC__sub_8032D214((V_8032D214 *)arg0);
-        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
+        *(s32 *)&this->m_2c = TAdWarningBaseGC__sub_8032D214((V_8032D214 *)arg0);
+        *(s32 *)&this->m_1c = 1;
         break;
     case 1:
         play_sound_effect(0x53F06, 0, 0, 0);
-        *(s32 *)((s8 *)arg0 + 0x1C) = 2;
+        *(s32 *)&this->m_1c = 2;
         break;
     case 2:
         if (TWindowShortListCtrl__check_controller_button(a = controller_physical_port_bank + 0x20, 4) != 0 ||
             test_flag_4c__23TAdSinglePlyChrSelectGCFv(b = controller_input_state + 0x160, 4) != 0 ||
             TWindowShortListCtrl__check_controller_button(a, 2) != 0 ||
             test_flag_4c__23TAdSinglePlyChrSelectGCFv(b, 2) != 0) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 3;
-            *(s32 *)((s8 *)arg0 + 0x24) = 4;
+            *(s32 *)&this->m_1c = 3;
+            *(s32 *)&this->m_24 = 4;
         }
         break;
     case 3:
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
-            *(void **)((s8 *)arg0 + 0x2C) = NULL;
+        if (*(void * *)&this->m_2c != NULL) {
+            TWindow__close(*(void * *)&this->m_2c);
+            *(void * *)&this->m_2c = NULL;
         }
-        if ((f32)++*(s32 *)((s8 *)arg0 + 0x28) > lbl_805DF7B0) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = *(s32 *)((s8 *)arg0 + 0x24);
+        if ((f32)++*(s32 *)&this->m_28 > lbl_805DF7B0) {
+            *(s32 *)&this->m_1c = *(s32 *)&this->m_24;
         }
         break;
     case 4:
         ((V_8032D214 *)arg0)->m4();
         break;
     }
-    if (*(s32 *)((s8 *)arg0 + 0x20) != *(s32 *)((s8 *)arg0 + 0x1C)) {
-        *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    if (*(s32 *)&this->m_20 != *(s32 *)&this->m_1c) {
+        *(s32 *)&this->m_28 = 0;
     }
 }
 

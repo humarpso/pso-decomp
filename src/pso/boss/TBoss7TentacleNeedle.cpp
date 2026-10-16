@@ -304,7 +304,7 @@ void TBoss7TentacleNeedle::render() {
     push_matrix();
     post_translate_matrix((void *)((char *)this + 28));
     rotate_matrix_by_node_angles((void *)((char *)this + 40), 1);
-    draw_model_motion((*(void * *)&lbl_805D6948), *(void **)((s8 *)this + 0x78), *(f32 *)((s8 *)this + 0x74));
+    draw_model_motion((*(void * *)&lbl_805D6948), *(void * *)&this->m_78, this->m_74);
     pop_matrix();
     TObjPlayer::clear_global_state();
 }
@@ -312,7 +312,7 @@ void TBoss7TentacleNeedle::render() {
 void TBoss7TentacleNeedle::run_task() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x38);
+    temp_r0 = *(s32 *)&this->m_38;
     switch (temp_r0) {
     case 0:
         ((s32 (*)(void))advance_needle_timer__20TBoss7TentacleNeedleFPv)();

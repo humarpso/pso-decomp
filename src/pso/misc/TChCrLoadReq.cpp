@@ -111,7 +111,7 @@ void *TChCrLoadReq__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-void TChCrLoadReq::copy(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)this + 0x4) = *(u32*)((char*)q + 0x4); *(u32*)((char*)this + 0x8) = *(u32*)((char*)q + 0x8); *(u32*)((char*)this + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)this + 0x10) = *(u32*)((char*)q + 0x10); *(u32*)((char*)this + 0x14) = *(u32*)((char*)q + 0x14); *(u32*)((char*)this + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)this + 0x1c) = *(u32*)((char*)q + 0x1c); }
+void TChCrLoadReq::copy(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); *(u32 *)&this->m_flags = *(u32*)((char*)q + 0x4); *(u32 *)&this->m_prev = *(u32*)((char*)q + 0x8); *(u32 *)&this->m_next = *(u32*)((char*)q + 0xc); *(u32 *)&this->m_up = *(u32*)((char*)q + 0x10); *(u32 *)&this->m_down = *(u32*)((char*)q + 0x14); *(u32*)((char*)this + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)this + 0x1c) = *(u32*)((char*)q + 0x1c); }
 
 u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject((void *)((void *) (arg0)), (void *)((void *) (arg1)));

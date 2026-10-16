@@ -42,8 +42,8 @@ void __dl__7TObjectFPv(void *);
 int enable__13TParticleCtrlFPv(void*);
 int set_param_ptr__11TBoss4Type2Fl(void*);
 
-void TEneParticleCtrl::set_param() { void* m = *(void**)((char*)this + 0xc0); if (m) set_param_ptr__11TBoss4Type2Fl(m); }
-void TEneParticleCtrl::free_particle_ctrl() { void* m = *(void**)((char*)this + 0xc0); if (m) enable__13TParticleCtrlFPv(m); }
+void TEneParticleCtrl::set_param() { void* m = *(void* *)&this->m_c0; if (m) set_param_ptr__11TBoss4Type2Fl(m); }
+void TEneParticleCtrl::free_particle_ctrl() { void* m = *(void* *)&this->m_c0; if (m) enable__13TParticleCtrlFPv(m); }
 
 extern s32 __vt__16TEneParticleCtrl[];
 

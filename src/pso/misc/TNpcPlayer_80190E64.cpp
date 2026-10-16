@@ -83,7 +83,7 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 set_player_quest_control_flag(void *);
 int queue_destruction__7TObjectFv(void*);
 
-void TUnk_804B7C04::run_task() { if (*(int*)((char*)this + 0x2c) == 1) { queue_destruction__7TObjectFv(this); } }
+void TUnk_804B7C04::run_task() { if (this->m_2c == 1) { queue_destruction__7TObjectFv(this); } }
 
 extern s32 lbl_804B7C04[];
 

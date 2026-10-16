@@ -163,13 +163,13 @@ s32 TAdMultiPlyChrSelectGC::get_state_result() {
     s32 var_r4;
 
     var_r4 = -1;
-    temp_r0 = *(s32 *)((s8 *)this + 0x20);
+    temp_r0 = *(s32 *)&this->m_20;
     switch (temp_r0) {
     case 0:
         var_r4 = 0;
         break;
     case 12:
-        var_r4 = get_instance__22TAdMultiPlyChrSelectGCFv(*(s32 *)((s8 *)this + 0x5C));
+        var_r4 = get_instance__22TAdMultiPlyChrSelectGCFv(this->m_5c);
         break;
     case 29:
         var_r4 = 0;

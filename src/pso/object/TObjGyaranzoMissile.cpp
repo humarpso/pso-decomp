@@ -268,9 +268,9 @@ void TObjGyaranzoMissile::render() {
     set_global_param__8TObjFishFl();
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    translate_matrix((int) (0), (f32) (lbl_805DA2C4), (f32) (*(f32 *)((s8 *)arg0 + 0xD4) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0xCC)))), (f32) (lbl_805DA2C4));
+    rotate_matrix_x((int) (0), (int) (*(s32 *)&this->m_5c));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    translate_matrix((int) (0), (f32) (lbl_805DA2C4), (f32) (*(f32 *)&this->_padD4 * sin_table_lookup((int) (*(s32 *)&this->m_cc))), (f32) (lbl_805DA2C4));
     model_render_flags &= 0xFFFFFBFF;
     get_bml_model((void *) (gyaranzo_bml_resource), (int) (6));
     draw_chunk_object();

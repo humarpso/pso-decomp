@@ -87,7 +87,7 @@ extern f32 lbl_805DFC94;
 
 void TWindowDD::draw_entry_if_visible(void *arg1) {
     if ((s32) *(s32 *)((s8 *)arg1 + 0x30) >= 0) {
-        draw((s32)arg1, (s32)(*(s32 *)((s8 *)this + 0x60)), (f32)lbl_805DFC94);
+        draw((s32)arg1, (s32)(*(s32 *)&this->m_7c), (f32)lbl_805DFC94);
     }
 }
 

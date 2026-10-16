@@ -34,7 +34,7 @@ extern s32 TDLGraph__graph_object;
 extern "C" {
 
 void TDLGraph::reset() {
-    *(s32 *)((s8 *)this + 0x3C) = 0;
+    this->m_3c = 0;
     fn_8007F5A4((TDLGraph_8007F66C *)(this));
 }
 
@@ -51,7 +51,7 @@ void TDLGraph::render() {
 }
 
 void TDLGraph::run_task() {  }
-void TDLGraph::set_graph_param(s32 v) { *(s32*)((char*)this + 0x20) = v; }
+void TDLGraph::set_graph_param(s32 v) { *(s32 *)&this->m_20 = v; }
 typedef char RecoveredGlobal_8007F77C___vt__8TDLGraph_size[sizeof(RecoveredGlobal_8007F77C___vt__8TDLGraph) == 0x18 ? 1 : -1];
 
 #define G ((u32) TDLGraph__graph_object)

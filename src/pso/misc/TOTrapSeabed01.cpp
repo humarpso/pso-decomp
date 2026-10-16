@@ -743,25 +743,25 @@ inline s32 clampi_802CA5F4(s32 lo, s32 hi, s32 v) {
 #pragma push
 #pragma opt_common_subs off
 void TOTrapSeabed01::clamp_params_and_init() {
-    *(f32 *)((s8 *)this + 0x68) = clampf_802CA5F4(lbl_805DE650[0], lbl_805DE654[0], *(f32 *)((s8 *)this + 0x68));
-    *(s32 *)((s8 *)this + 0x84) = CLAMPI(*(s32 *)((s8 *)this + 0x84), 1, 0x3C);
-    *(s32 *)((s8 *)this + 0x88) = CLAMPI(*(s32 *)((s8 *)this + 0x88), 0, 1);
-    *(s16 *)((s8 *)this + 0x326) = 0;
-    *(f32 *)((s8 *)this + 0x334) = lbl_805DE64C[0];
-    *(f32 *)((s8 *)this + 0x338) = lbl_805DE64C[0];
-    *(s32 *)((s8 *)this + 0x348) = (s32) (lbl_805DE658 * (f32) *(s32 *)((s8 *)this + 0x84));
-    if (*(s32 *)((s8 *)this + 0x88) != 0) {
-        *(s32 *)((s8 *)this + 0x34C) = 1;
+    this->scale = clampf_802CA5F4(lbl_805DE650[0], lbl_805DE654[0], this->scale);
+    this->m_84 = CLAMPI(this->m_84, 1, 0x3C);
+    *(s32 *)&this->m_88 = CLAMPI(*(s32 *)&this->m_88, 0, 1);
+    this->mode = 0;
+    this->range = lbl_805DE64C[0];
+    this->dist = lbl_805DE64C[0];
+    *(s32 *)&this->m_348 = (s32) (lbl_805DE658 * (f32) this->m_84);
+    if (*(s32 *)&this->m_88 != 0) {
+        *(s32 *)&this->m_34c = 1;
     } else {
-        *(s32 *)((s8 *)this + 0x34C) = 0;
+        *(s32 *)&this->m_34c = 0;
     }
-    *(f32 *)((s8 *)this + 0xC8) = *(f32 *)((s8 *)this + 0x68);
-    if (*(f32 *)((s8 *)this + 0x6C) < TOTrapSeabed01__data_805DE644[0]) {
-        *(f32 *)((s8 *)this + 0x6C) = TOTrapSeabed01__data_805DE644[0];
+    this->m_c8 = this->scale;
+    if (this->target_scale < TOTrapSeabed01__data_805DE644[0]) {
+        this->target_scale = TOTrapSeabed01__data_805DE644[0];
     }
-    *(f32 *)((s8 *)this + 0x354) = ((VObj_802CA5F4 *)this)->m85(*(f32 *)((s8 *)this + 0x6C));
-    *(s32 *)((s8 *)this + 0x8C) = CLAMPI(*(s32 *)((s8 *)this + 0x8C), 0, 5);
-    *(s32 *)((s8 *)this + 0x350) = trap_seabed01_param_index_table[*(s32 *)((s8 *)this + 0x8C)];
+    *(f32 *)&this->m_354 = ((VObj_802CA5F4 *)this)->m85(this->target_scale);
+    *(s32 *)&this->unk_8C = CLAMPI(*(s32 *)&this->unk_8C, 0, 5);
+    *(s32 *)&this->m_350 = trap_seabed01_param_index_table[*(s32 *)&this->unk_8C];
 }
 #pragma pop
 
@@ -807,11 +807,11 @@ void TOTrapSeabed01::vfunc_6(s16 *arg1, s32 arg2) {
         if (arg2 == 1) {
             ((VObj_802CA8C8_eabed01 *)this)->m83();
         }
-        s32 tmp = *(s32 *)((s8 *)this + 0x358);
+        s32 tmp = *(s32 *)&this->m_358;
         if (tmp >= 0) {
             stop_sound_request(tmp);
             tmp = -1;
-            *(s32 *)((s8 *)this + 0x358) = tmp;
+            *(s32 *)&this->m_358 = tmp;
         }
         ((s32 (*)(void *))fn_802C9D38)(this);
         set_flag8__6TLobbyFPv(this);

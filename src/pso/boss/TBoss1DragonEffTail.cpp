@@ -164,9 +164,9 @@ void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
     }
 }
 
-void TBoss1DragonEffTail::enable() { *(int*)((char*)this + 0xbc) = 1; is_visible(); }
-void TBoss1DragonEffTail::disable() { *(int*)((char*)this + 0xbc) = 0; is_visible(); }
-int TBoss1DragonEffTail::is_visible() { return fill_value_array(*(void**)((char*)this + 0xb8)); }
+void TBoss1DragonEffTail::enable() { *(int *)&this->m_bc = 1; is_visible(); }
+void TBoss1DragonEffTail::disable() { *(int *)&this->m_bc = 0; is_visible(); }
+int TBoss1DragonEffTail::is_visible() { return fill_value_array(*(void* *)&this->m_b8); }
 
 extern s32 __vt__19TBoss1DragonEffTail[];
 

@@ -13,7 +13,8 @@ struct TObjEneMe1GiGueMissile : public TNeedleShoot {
     virtual void render();
     virtual void run_task();
     void update_lifetime();
-    u8 unk_BC[0x8];
+    u8 unk_BC[0x4];
+    f32 m_c0;
 };
 
 typedef char TObjEneMe1GiGueMissile_size[sizeof(TObjEneMe1GiGueMissile) == 0xC4 ? 1 : -1];

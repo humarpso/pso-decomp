@@ -53,7 +53,7 @@ void TUnk_804A2660::run_task() {
     s32 var_r31;
     s32 var_r30;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x28) != get_item_system_generation()) {
+    if ((u32) this->m_28 != get_item_system_generation()) {
         queue_destruction__7TObjectFv((void *)(this));
         return;
     }
@@ -62,7 +62,7 @@ void TUnk_804A2660::run_task() {
         var_r30 = find_item_by_id(*(s32 *)((s8 *)this + 0x1C));
         if ((var_r30 != 0) && (TObjPlayer__sub_80102C30() == 2)) {
             var_r31 = 1;
-            if (((TObjPlayer *)var_r30)->draw_icon((s32)(*(s32 *)((s8 *)this + 0x20)), (s32)sp8) != 0) {
+            if (((TObjPlayer *)var_r30)->draw_icon((s32)(this->m_20), (s32)sp8) != 0) {
                 ((TNowLoading *)(*(u32 *)((s8 *)this + 0x24)))->copy_pos(sp8);
                 if ((((TItemMag *)var_r30)->get_flag_40() == 0) || (obj_testFlags30(var_r30, 0x08000000) == 0)) {
                     ((TParticleCtrl *)(*(u32 *)((s8 *)this + 0x24)))->clear_active_flag();

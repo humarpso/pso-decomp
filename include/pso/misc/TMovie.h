@@ -10,7 +10,13 @@ struct TMovie : public TObject {
     u32 m_1c;
     u32 m_20;
     void* m_24;
-    u8 _pad28[0x1C];
+    u8 unk_28[0x4];
+    u32 m_2c;
+    u8 unk_30[0x4];
+    u32 m_34;
+    u8 unk_38[0x4];
+    u32 m_3c;
+    u8 unk_40[0x4];
     u32 m_44;
     u32 m_48;
     static void flush_cache();

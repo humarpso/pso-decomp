@@ -18,7 +18,8 @@ struct TOBind : public TUnk_804AF8A0 {
     static void *create(void *arg0);
     static void free_static_model();
     static void load_static_resource();
-    u8 unk_D0[0x8];
+    u8 unk_D0[0x4];
+    f32 m_d4;
 };
 
 typedef char TOBind_size[sizeof(TOBind) == 0xD8 ? 1 : -1];

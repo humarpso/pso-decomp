@@ -38,17 +38,17 @@ void TChCrEffTag::refresh_label() {
     Stack_8029AA74 stack;
     s32 temp_r0;
     u32 temp_r3;
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0x28);
+    temp_r3 = *(u32 *)&this->label;
     if (temp_r3 != 0U) {
         TChCrEffTagStr__sub_8029AED0((int) (temp_r3));
-        *(u32 *)((s8 *)arg0 + 0x28) = 0U;
+        *(u32 *)&this->label = 0U;
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) TChCrEffTag__selected_heading;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    this->heading = (s32) TChCrEffTag__selected_heading;
+    temp_r0 = this->heading;
     if (temp_r0 >= 0) {
         stack.sp8 = lbl_805DDC90;
         stack.spC = lbl_805DDC94;
-        *(u32 *)((s8 *)arg0 + 0x28) = create_str__11TChCrEffTagFPvPvPv((void *) (arg0), (int) (*(s32 *)((s8 *)(&lbl_804652A4.value) + (temp_r0 * 4))), (void *) (&stack.sp8));
+        *(u32 *)&this->label = create_str__11TChCrEffTagFPvPvPv((void *) (arg0), (int) (*(s32 *)((s8 *)(&lbl_804652A4.value) + (temp_r0 * 4))), (void *) (&stack.sp8));
     }
 }
 

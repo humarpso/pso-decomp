@@ -44,9 +44,9 @@ int update_fade__17TWindowSubComCardFv(void*);
 void TWindowKeyBoardBase::render() {
     s32 temp_r31;
 
-    if ((TWindowKeyBoardHard__sub_8025EB68() == 0) && ((TWindowChat__sub_8025CB10(this) != 0) || (*(u16 *)((s8 *)this + 0x62) & 2))) {
+    if ((TWindowKeyBoardHard__sub_8025EB68() == 0) && ((TWindowChat__sub_8025CB10(this) != 0) || (this->m_62 & 2))) {
         temp_r31 = TWindowDD::draw_default_entry((s32)this);
-        if (*(u16 *)((s8 *)this + 0x62) & 2) {
+        if (this->m_62 & 2) {
             draw_window_frame(this, temp_r31);
         }
         TWindowSubStatusDisp__sub_8025E6DC(this, temp_r31);

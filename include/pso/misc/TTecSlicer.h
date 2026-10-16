@@ -9,7 +9,9 @@ struct TTecSlicer {
 
     u8 base[0x24];
     u32 textureHandle;
-    u8 unknown28[0x10];
+    u8 unk_28[0x8];
+    void * m_30;
+    u8 unk_34[0x4];
     f32 position[3];
     f32 previousPosition[3];
     u8 unknown50[0xC];

@@ -185,7 +185,7 @@ s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv) {
     return 0;
 }
 
-void TScene::copy_header_and_vec(void* q) { *(u16*)((char*)this + 0x0) = *(u16*)((char*)q + 0x0); *(u16*)((char*)this + 0x2) = *(u16*)((char*)q + 0x2); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); }
+void TScene::copy_header_and_vec(void* q) { *(u16 *)&this->m_name = *(u16*)((char*)q + 0x0); *(u16*)((char*)this + 0x2) = *(u16*)((char*)q + 0x2); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); }
 
 void TScene__sub_80205FD0(void) {  }
 

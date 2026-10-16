@@ -104,9 +104,9 @@ s32 call_vt78__10TObjPlayerFv();
 void TObjEnemyCustom::vfunc_79() {
     s16 temp_r31;
 
-    temp_r31 = *(s16 *)((s8 *)this + 0x326);
+    temp_r31 = this->mode;
     call_vt78__10TObjPlayerFv();
-    *(s16 *)((s8 *)this + 0x326) = temp_r31;
+    this->mode = temp_r31;
 }
 
 u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius) {
@@ -312,8 +312,8 @@ u8 TObjPlayer::find_target_in_range(f32 farg0) {
         return ((u8 (*)(void *, f32))select_nearest_target__10TObjPlayerFPvf)(this, farg0);
     }
     *(u16 *)((s8 *)this + 0x338) = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(this, 0, farg0);
-    *(s32 *)((s8 *)this + 0x2A8) = get_player_by_client_id(*(u16 *)((s8 *)this + 0x338));
-    return (u8) (*(s32 *)((s8 *)this + 0x2A8) != 0);
+    this->m_2a8 = get_player_by_client_id(*(u16 *)((s8 *)this + 0x338));
+    return (u8) (this->m_2a8 != 0);
 }
 
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1) {

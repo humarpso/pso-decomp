@@ -44,7 +44,7 @@ extern "C" {
 int TWindowSubCustomEquip__sub_80275DA8(void* p);
 int fn_80275D90(void* p);
 
-int TWindowSubCustomEquip::is_selected() { return *(u8*)((char*)this + 0x60) & 0x1; }
+int TWindowSubCustomEquip::is_selected() { return this->m_60 & 0x1; }
 int TWindowSubCustomEquip__sub_80275DA8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
 void TWindowSubCustomEquip::clear_flag_and_set_entry_state() {
     Obj_80275DB4 *o = (Obj_80275DB4 *)this;

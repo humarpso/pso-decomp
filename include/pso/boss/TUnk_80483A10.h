@@ -9,7 +9,9 @@ public:
     virtual s32 vfunc_30();
     virtual void render();
     virtual void run_task();
-    u8 unk_38C[0x48];
+    u8 unk_38C[0xC];
+    s32 m_398;
+    u8 unk_39C[0x38];
 };
 typedef char TUnk_80483A10_size[sizeof(TUnk_80483A10) == 0x3D4 ? 1 : -1];
 

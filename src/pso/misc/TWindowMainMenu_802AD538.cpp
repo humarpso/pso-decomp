@@ -526,8 +526,8 @@ void TWindowMainMenu::set_target_y(f32 farg0) {
         farg0 += lbl_805DE160;
     }
     farg0 += lbl_805DE164;
-    if (*(f32 *)((s8 *)this + 0x3C) != farg0) {
-        *(f32 *)((s8 *)this + 0x3C) = farg0;
+    if (*(f32 *)&this->_pad58 != farg0) {
+        *(f32 *)&this->_pad58 = farg0;
         *(s32 *)((s8 *)this + 0x50) = 8;
     }
 }

@@ -52,15 +52,15 @@ void TItem::update_timer() {
     s16 temp_r3;
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)this + 0x60);
-    *(s32 *)((s8 *)this + 0x60) = (s32) (temp_r4 + 0x200);
+    temp_r4 = this->rotation_y;
+    this->rotation_y = (s32) (temp_r4 + 0x200);
     if (fn_8010319C((s32) this) != 0) {
-        temp_r3 = *(s16 *)((s8 *)this + 0xE6);
+        temp_r3 = *(s16 *)&this->m_e6;
         if (temp_r3 == 0x384) {
-            *(u16 *)((s8 *)this + 0x94) = 0xFFFF;
-            *(s16 *)((s8 *)this + 0xE6) = 0;
+            this->m_94 = 0xFFFF;
+            *(s16 *)&this->m_e6 = 0;
         } else {
-            *(s16 *)((s8 *)this + 0xE6) = (s16) (temp_r3 + 1);
+            *(s16 *)&this->m_e6 = (s16) (temp_r3 + 1);
         }
     }
     submit_cursor_candidate(this, -1);

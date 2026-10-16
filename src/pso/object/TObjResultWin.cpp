@@ -50,7 +50,7 @@ __declspec(section ".sdata2") extern const char challenge_result_newline[] = "\n
 __declspec(section ".sdata2") extern const f32 challenge_result_split_screen_position;
 __declspec(section ".sdata2") extern const f32 challenge_result_window_depth;
 
-void TAdChrSelASlotGC::set_flag_40() { *(u16*)((char*)this + 0x70) |= 0x40; }
+void TAdChrSelASlotGC::set_flag_40() { *(u16 *)&this->m_70 |= 0x40; }
 int TObjNewFloorWin__sub_8007410C(void) {  return current_lobby_id; }
 }
 

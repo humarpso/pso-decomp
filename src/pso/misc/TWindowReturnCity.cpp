@@ -93,7 +93,7 @@ void return_to_city_after_defeat(void) {
 }
 
 s32 TWindowReturnCity::query_battle_state() {
-    struct VObj_8026D208 *o = (struct VObj_8026D208 *)get_player_by_client_id(*(s32 *)((s8 *)this + 0x24));
+    struct VObj_8026D208 *o = (struct VObj_8026D208 *)get_player_by_client_id(*(s32 *)&this->m_24);
     if (o == NULL) {
         return 0;
     }
@@ -108,45 +108,45 @@ void TWindowReturnCity::run_task() {
     s32 temp_r0;
     s32 temp_r3;
     if ((s32) lbl_805D55C0 != 1) {
-        temp_r0 = *(s32 *)((s8 *)this + 0x20);
+        temp_r0 = *(s32 *)&this->m_20;
         switch (temp_r0) {
         case 2:
             break;
         case 0:
-            *(s32 *)((s8 *)this + 0x20) = 1;
+            *(s32 *)&this->m_20 = 1;
         case 1:
             if ((query_battle_state() == 0) || ((s32) TWindowReturnCity__client_scan_index != 4)) {
                 TWindowReturnCity::clear_flag_bit5();
-                TWindowReturnCity__sub_8024ACA8(*(s32 *)((s8 *)this + 0x24));
+                TWindowReturnCity__sub_8024ACA8(*(s32 *)&this->m_24);
                 TWindowCtrl::clear_flag_2();
                 queue_destruction__7TObjectFv(this);
-                *(s32 *)((s8 *)this + 0x20) = 2;
+                *(s32 *)&this->m_20 = 2;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x1C)))->get_card_data() != 0) {
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_1c))->get_card_data() != 0) {
                 TWindowReturnCity::clear_flag_bit5();
-                TWindowReturnCity__sub_8024ACA8(*(s32 *)((s8 *)this + 0x24));
+                TWindowReturnCity__sub_8024ACA8(*(s32 *)&this->m_24);
                 TWindowCtrl::clear_flag_2();
                 queue_destruction__7TObjectFv(this);
-                *(s32 *)((s8 *)this + 0x20) = 2;
+                *(s32 *)&this->m_20 = 2;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x1C)))->is_child_visible() != 0) {
-                temp_r3 = ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x1C)))->get_slot_or_neg1();
+            if (((TWindowSubComCard *)(*(s32 *)&this->m_1c))->is_child_visible() != 0) {
+                temp_r3 = ((TWindowSubComCard *)(*(s32 *)&this->m_1c))->get_slot_or_neg1();
                 if (temp_r3 == 0) {
-                    TWindowReturnCity__client_scan_index = *(s32 *)((s8 *)this + 0x24);
+                    TWindowReturnCity__client_scan_index = *(s32 *)&this->m_24;
                     u32 task = __nw__7TObjectFUl(0x28);
                     if (task != 0U) {
                         ((THunterGuildSeqOffline *)task)->init((void *)tl_00, (void *)return_to_city_after_defeat);
                     }
-                    *(s32 *)((s8 *)this + 0x20) = 2;
+                    *(s32 *)&this->m_20 = 2;
                 }
                 if (temp_r3 == 1) {
                     TWindowReturnCity::clear_flag_bit5();
-                    TWindowReturnCity__sub_8024ACA8(*(s32 *)((s8 *)this + 0x24));
+                    TWindowReturnCity__sub_8024ACA8(*(s32 *)&this->m_24);
                     TWindowCtrl::clear_flag_2();
                     queue_destruction__7TObjectFv(this);
-                    *(s32 *)((s8 *)this + 0x20) = 2;
+                    *(s32 *)&this->m_20 = 2;
                 }
             }
             break;

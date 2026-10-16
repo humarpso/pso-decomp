@@ -174,7 +174,7 @@ f32 calc_boss4_scale__10TObjPlayerFi();
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
-s16 TObjPlayer::get_field_2c8() { return *(s16*)((char*)this + 0x2c8); }
+s16 TObjPlayer::get_field_2c8() { return *(s16 *)&this->m_2c8; }
 s16 TObjPlayer__sub_800A776C(void* p) { return *(s16*)((char*)p + 0x2ca); }
 int TObjPlayer__sub_800A7774(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x38); }
 
@@ -278,7 +278,7 @@ void TObjEneDimedian::vfunc_93() {
 
 int TObjEneDimedian::vfunc_92() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x390) = 1;
+    this->m_390 = 1;
     if (((A7B00Obj_800a7b00_800A7764*)(arg0 + 0x3A8))->m4() == 1) {
         queue_destruction__7TObjectFv(arg0);
     }

@@ -6,7 +6,11 @@
 
 struct TOLightMachine01 : public TUnk_804B9870 {
     virtual ~TOLightMachine01();
-    u8 _pad90[0x14];
+    u8 unk_90[0x4];
+    f32 m_94;
+    u8 unk_98[0x4];
+    f32 m_9c;
+    u8 unk_A0[0x4];
     u32 m_a4;
     u32 m_a8;
     u32 m_ac;

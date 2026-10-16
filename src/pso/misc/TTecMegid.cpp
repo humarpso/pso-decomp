@@ -534,7 +534,7 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
     *(void **)((s8 *)arg0 + 0x18) = __vt__9TTecMegid;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D37E8;
+    *(s32 *)&this->m_1c = lbl_805D37E8;
     init_parameters();
     *(f32 *)((s8 *)arg0 + 0x178) = lbl_805DC884;
     for (i = 0; i < 0x20; i++) {
@@ -550,8 +550,8 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
 }
 
 void TUnk_804CCA78::run_task() {
-    *(s16 *)((s8 *)this + 0x1E) = (s16) (*(s16 *)((s8 *)this + 0x1E) + 1);
-    if ((s16) *(s16 *)((s8 *)this + 0x1E) > (s16) *(s16 *)((s8 *)this + 0x1C)) {
+    this->m_1e = (s16) (this->m_1e + 1);
+    if ((s16) this->m_1e > (s16) *(s16 *)((s8 *)this + 0x1C)) {
         queue_destruction__7TObjectFv((void *)((void *)(this)));
     }
 }

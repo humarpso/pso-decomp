@@ -72,13 +72,13 @@ void TLanguage__sub_802A0204(void) {
 }
 
 void TODoorFourLightBase::clamp_light_index() {
-    if ((s32) *(s32 *)((s8 *)this + 0x88) < 0) {
-        *(s32 *)((s8 *)this + 0x88) = 0;
+    if ((s32) *(s32 *)&this->m_88 < 0) {
+        *(s32 *)&this->m_88 = 0;
     }
-    if ((s32) *(s32 *)((s8 *)this + 0x88) > 4) {
-        *(s32 *)((s8 *)this + 0x88) = 4;
+    if ((s32) *(s32 *)&this->m_88 > 4) {
+        *(s32 *)&this->m_88 = 4;
     }
-    *(s32 *)((s8 *)this + 0xF8) = (s32) *(s32 *)((s8 *)this + 0x88);
+    *(s32 *)&this->m_f8 = (s32) *(s32 *)&this->m_88;
 }
 
 }

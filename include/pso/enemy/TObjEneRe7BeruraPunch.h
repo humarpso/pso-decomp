@@ -10,14 +10,20 @@ struct TObjEneRe7BeruraPunch : public TUnk_804928CC {
     u8 _padB2[0x2];
     u32 m_b4;
     u32 m_b8;
-    u8 _padBC[0x14];
+    u8 unk_BC[0x4];
+    f32 m_c0;
+    u8 unk_C4[0x4];
+    f32 m_c8;
+    u8 unk_CC[0x4];
     u32 m_d0;
     u32 m_d4;
     u8 _padD8[0x4];
     void* m_dc;
-    u8 _padE0[0x8];
+    u8 unk_E0[0x4];
+    f32 m_e4;
     void* m_e8;
-    u8 _padEC[0xC];
+    u8 unk_EC[0x8];
+    f32 m_f4;
     void* m_f8;
     u8 _padFC[0x10];
     u32 m_10c;
@@ -29,7 +35,9 @@ struct TObjEneRe7BeruraPunch : public TUnk_804928CC {
     virtual void render();
     void update_velocity_and_snap();
     void launch(s32 arg1, s32 arg2);
-    u8 unk_110[0xC];
+    u8 unk_110[0x4];
+    f32 m_114;
+    u8 unk_118[0x4];
 };
 
 typedef char TObjEneRe7BeruraPunch_size[sizeof(TObjEneRe7BeruraPunch) == 0x11C ? 1 : -1];

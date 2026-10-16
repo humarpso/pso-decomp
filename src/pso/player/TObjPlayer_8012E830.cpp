@@ -3,6 +3,6 @@
 
 extern "C" {
 
-void TObjPlayer::start_weapon_recoil() { *(s32*)((char*)this + 0x1fc) = 1; }
+void TObjPlayer::start_weapon_recoil() { this->m_1fc = 1; }
 
 }

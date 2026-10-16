@@ -20,7 +20,7 @@ void TOChatSensor::send_state() { swap_state_endian(); TLobby__send_and_handle_6
 
 void TOChatSensor::swap_state_endian() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
 
-void TOChatSensor::init_packet_type() { *(u8*)((char*)this + 0x0) = 147; *(u8*)((char*)this + 0x1) = 3; }
+void TOChatSensor::init_packet_type() { *(u8 *)&this->m_name = 147; *(u8*)((char*)this + 0x1) = 3; }
 
 extern s32 camera_ctrl_instance;
 

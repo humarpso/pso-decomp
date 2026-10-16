@@ -34,37 +34,37 @@ void TWindowEffectParty::run_task() {
     u8 temp_r0;
     u8 temp_r3;
 
-    temp_r3 = *(u8 *)((s8 *)this + 0x1E);
+    temp_r3 = this->m_1e;
     if (((s8) temp_r3 > 0) && ((((u32)TWindowCtrl__sub_8024FB80((s8)((s8) (temp_r3 - 1)))) == 0U) || (fn_80244994() == 0))) {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r0 = *(u8 *)((s8 *)this + 0x1C);
+    temp_r0 = this->m_1c;
     switch ((s8) temp_r0) {
     case 0:
-        *(u8 *)((s8 *)this + 0x1C) = 1U;
+        this->m_1c = 1U;
     case 1:
-        if (step_toward_target(lbl_805DCCD4, *(f32 *)((s8 *)this + 0x24)) != 0) {
-            *(u8 *)((s8 *)this + 0x1C) = 2U;
+        if (step_toward_target(lbl_805DCCD4, *(f32 *)&this->_pad24) != 0) {
+            this->m_1c = 2U;
         }
         break;
     case 2:
-        if (step_toward_target(lbl_805DCCD4, *(f32 *)((s8 *)this + 0x2C)) != 0) {
-            *(u8 *)((s8 *)this + 0x1C) = 3U;
+        if (step_toward_target(lbl_805DCCD4, *(f32 *)&this->_pad2C) != 0) {
+            this->m_1c = 3U;
         }
         break;
     case 3:
-        if (step_toward_target(*(f32 *)((s8 *)this + 0x28), *(f32 *)((s8 *)this + 0x2C)) != 0) {
-            *(u8 *)((s8 *)this + 0x1C) = 4U;
+        if (step_toward_target(*(f32 *)&this->m_28, *(f32 *)&this->_pad2C) != 0) {
+            this->m_1c = 4U;
         }
         break;
     case 4:
         queue_destruction__7TObjectFv(this);
         break;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x30) != 0U) {
+    if ((u32) this->m_30 != 0U) {
         calc_effect_position(&sp8);
-        ((TNowLoading *)(*(u32 *)((s8 *)this + 0x30)))->copy_pos(&sp8);
+        ((TNowLoading *)(this->m_30))->copy_pos(&sp8);
     }
 }
 

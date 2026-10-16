@@ -15,12 +15,12 @@ void TUnk_804A2548::run_task() {
     f32 temp_f1_2;
 
     if (has_game_join_id() != 0) {
-        temp_f1 = *(f32 *)((s8 *)this + 0x40);
-        if (temp_f1 < *(f32 *)((s8 *)this + 0xC4)) {
-            *(f32 *)((s8 *)this + 0x40) = (f32) (temp_f1 + lbl_805DAD50);
-            temp_f1_2 = *(f32 *)((s8 *)this + 0xC4);
-            if (temp_f1_2 < *(f32 *)((s8 *)this + 0x40)) {
-                *(f32 *)((s8 *)this + 0x40) = temp_f1_2;
+        temp_f1 = this->m_40;
+        if (temp_f1 < *(f32 *)&this->unk_C4) {
+            this->m_40 = (f32) (temp_f1 + lbl_805DAD50);
+            temp_f1_2 = *(f32 *)&this->unk_C4;
+            if (temp_f1_2 < this->m_40) {
+                this->m_40 = temp_f1_2;
             }
         } else {
             queue_destruction__7TObjectFv(this);

@@ -14,7 +14,9 @@ public:
     virtual s32 init_door_switch_binding();
     virtual void vfunc_20();
     virtual void run_task();
-    u8 unk_C8[0xC];
+    u8 unk_C8[0x4];
+    s32 m_cc;
+    s32 m_d0;
 };
 
 #endif

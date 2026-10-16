@@ -71,7 +71,7 @@ void run_task__22TObjFogCollisionPoisonFv(void *self) {
 void TObjFogCollisionPoison::vfunc_13(s32) {
     f32 var_f2;
 
-    *(s32 *)((s8 *)this + 0x98) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv(*(f32 *)((s8 *)this + 0x6C));
+    *(s32 *)&this->m_98 = (s32) get_random_float__21TObjEneMe3ShinowaRealFv(this->target_scale);
     switch ((s32) game_difficulty_selection) {
     default:
     case 0:
@@ -87,7 +87,7 @@ void TObjFogCollisionPoison::vfunc_13(s32) {
         var_f2 = lbl_805DB25C;
         break;
     }
-    *(s32 *)((s8 *)this + 0x98) = (s32) ((f32) *(s32 *)((s8 *)this + 0x98) * var_f2);
+    *(s32 *)&this->m_98 = (s32) ((f32) *(s32 *)&this->m_98 * var_f2);
 }
 
 extern s32 __vt__22TObjFogCollisionPoison[];

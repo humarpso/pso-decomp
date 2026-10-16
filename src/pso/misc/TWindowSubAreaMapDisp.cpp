@@ -201,8 +201,8 @@ void TWindowSubAreaMapDisp::render() {
 
     temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame(this, temp_r3);
-    forward_render__20TWindowSubStatusDispFv(*(s32 *)((s8 *)this + 0x70), temp_r3);
-    if ((s32) *(s32 *)((s8 *)this + 0x6C) != 0) {
+    forward_render__20TWindowSubStatusDispFv(*(s32 *)&this->m_70, temp_r3);
+    if ((s32) *(s32 *)&this->m_6c != 0) {
         ((s32 (*)(void *, s32))TWindowSubStatusDisp__sub_80271A6C)(this, temp_r3);
         ((s32 (*)(void *, s32))fn_80271848)(this, temp_r3);
     }
@@ -213,8 +213,8 @@ void TWindowSubAreaMapDisp::run_task() {
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TWindowSubAreaMapDisp *)arg0)->update_visibility();
     ((TWindowSubAreaMapDisp *)arg0)->update_manual_scroll();
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD4F0) {
-        ((TWindowSubStatusDisp *)(*(u8 **)((s8 *)arg0 + 0x70)))->update_subwindow();
+    if ((f32) *(s32 *)&this->m_5c >= lbl_805DD4F0) {
+        ((TWindowSubStatusDisp *)(*(u8 * *)&this->m_70))->update_subwindow();
     }
 }
 u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1) {

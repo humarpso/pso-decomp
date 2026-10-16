@@ -58,12 +58,12 @@ void TObjBoss5Pillar::render() {
         push_matrix();
         TObjFish::set_global_param((s32)((void *) (boss5_common_texture_list)));
         post_translate_matrix((void *) (arg0 + 0x2C));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 3) {
-            fn_8028ADDC((int) (*(s32 *)((s8 *)arg0 + 0x48)));
-            draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0x38)), (int) (*(s32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
-            TObjBoss5PillarDemo__sub_8028ADB0((int) (*(s32 *)((s8 *)arg0 + 0x48)));
+        if ((s32) *(s32 *)&this->m_1c != 3) {
+            fn_8028ADDC((int) (*(s32 *)&this->m_48));
+            draw_ginja_model_with_motion((int) (*(s32 *)&this->m_38), (int) (*(s32 *)&this->m_40), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
+            TObjBoss5PillarDemo__sub_8028ADB0((int) (*(s32 *)&this->m_48));
         }
-        draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0x3C)), (int) (*(s32 *)((s8 *)arg0 + 0x44)), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
+        draw_ginja_model_with_motion((int) (*(s32 *)&this->m_3c), (int) (*(s32 *)&this->m_44), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
         pop_matrix();
     }
 }

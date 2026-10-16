@@ -9,7 +9,7 @@ void TItemWeapon__ct(void *);
 void TObjPlayer::update_from_owner() {
     void *temp_r3;
 
-    temp_r3 = *(void **)((s8 *)this + 0xF4);
+    temp_r3 = this->m_f4;
     if (temp_r3 != NULL) {
         submit_computer_command__10TObjPlayerFv(*(s32 *)((s8 *)temp_r3 + 0x2C), *(s16 *)((s8 *)this + 0x1F8), 0, 1);
     }

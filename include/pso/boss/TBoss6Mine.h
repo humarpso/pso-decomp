@@ -28,7 +28,8 @@ struct TBoss6Mine : public TObjEnemy {
     void* m_3b0;
     u8 _pad3B4[0x8];
     void* m_3bc;
-    u8 _pad3C0[0xC];
+    u8 unk_3C0[0x8];
+    float m_3c8;
     u32 m_3cc;
     void copy_pos();
     void draw();

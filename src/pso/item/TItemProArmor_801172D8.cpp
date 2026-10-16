@@ -28,7 +28,7 @@ void TItemProArmor::apply_armor_stat() {
         var_r31 = get_stat_value();
         break;
     }
-    add_actor_tp(*(s32 *)((s8 *)this + 0xF0), var_r31);
+    add_actor_tp(*(s32 *)&this->m_f0, var_r31);
 }
 
 extern s32 lbl_8049FE00[];

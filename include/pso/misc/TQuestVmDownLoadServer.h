@@ -14,7 +14,9 @@ public:
     u8 _pad23C[0x20];
     s32 m_25c;
     void *m_260;
-    u8 _pad264[0xC];
+    u8 unk_264[0x4];
+    s32 m_268;
+    u8 unk_26C[0x4];
     char m_270[0xD];
     char m_27d[0xD];
     void *m_28c;

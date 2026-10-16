@@ -104,24 +104,24 @@ s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
     typedef char sp14_offset[(offsetof(Stack_801A2340, sp14) == 0xC) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_801A2340, sp18) == 0x10) ? 1 : -1];
     Stack_801A2340 stack;
-    if (*(u16 *)((s8 *)arg0 + 4) & 0x400) {
+    if (this->m_flags & 0x400) {
         if (is_in_shadow_range((f32) (farg1), (void *) (arg0 + 0x38)) != 0) {
-            *(s16 *)((s8 *)arg0 + 0x1E) = 1;
+            this->m_1e = 1;
             return 1;
         }
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
     if (TMainTask::get_state_flag() == 1) {
-        return *(s16 *)((s8 *)arg0 + 0x1E);
+        return this->m_1e;
     }
     transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) (&stack.sp10));
     if (stack.sp18 > lbl_805DC098) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
     if (stack.sp18 < -farg0) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
     if (stack.sp10 < lbl_805DC098) {
@@ -130,7 +130,7 @@ s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
         stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) + *(f32 *)((s8 *)arg0 + 0x40);
         project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DC098) {
-            *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+            this->m_1e = 0;
             return 0;
         }
         goto block_15;
@@ -140,11 +140,11 @@ s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
     stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) - *(f32 *)((s8 *)arg0 + 0x40));
     project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
     if (stack.sp8 > lbl_805DC09C) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
 block_15:
-    *(s16 *)((s8 *)arg0 + 0x1E) = 1;
+    this->m_1e = 1;
     return 1;
 }
 #pragma pop

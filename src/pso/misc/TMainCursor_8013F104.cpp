@@ -45,9 +45,9 @@ void TMainCursor__sub_8013F104(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void TMainCursor__sub_8013F10C(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 void TMainCursor__sub_8013F114(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 
-void TMainCursor::set_cursor_id(s16 v) { *(s16*)((char*)this + 0x0) = v; }
+void TMainCursor::set_cursor_id(s16 v) { *(s16 *)&this->m_name = v; }
 void TMainCursor::set_field2(s16 v) { *(s16*)((char*)this + 0x2) = v; }
-void TMainCursor::set_size(f32 v) { *(f32*)((char*)this + 0x4) = v; }
+void TMainCursor::set_size(f32 v) { *(f32 *)&this->m_flags = v; }
 
 void TMainCursor__sub_8013F13C(s32 *arg0) {
     *arg0 += 1;
@@ -62,7 +62,7 @@ Rec_8013F154 *get_record_at__11TMainCursorFPvi(Obj_8013F154 *self, s32 i) {
 s32 TMainCursor__sub_8013F168(void* p) { return *(s32*)((char*)p + 0x0); }
 void TMainCursor__sub_8013F170(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 
-f32 TMainCursor::get_pos() { return *(f32*)((char*)this + 0x0); }
+f32 TMainCursor::get_pos() { return *(f32 *)&this->m_name; }
 void TMainCursor__sub_8013F180(void* p, f32 v) { *(f32*)((char*)p + 0x0) = v; }
 
 int TMainCursor::get_rader_map() { return copy_vec4__13TRaderMapCoreFPvPv(this); }
@@ -71,7 +71,7 @@ extern s32 lbl_804A7254[];
 
 void *TMainCursor::destroy(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x10) = lbl_804A7254;
+        *(s32 * *)&this->m_up = lbl_804A7254;
         if (arg1 > 0) {
             __dl__FPv(this);
         }

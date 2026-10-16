@@ -41,7 +41,25 @@ struct TAdChrSelASlotGC : public TObject {
     void init(s32 arg1);
     s32 get_slot_index();
     void forward_slot_selection(void* a1, void* a2);
-    u8 unk_34[0x4C];
+    u8 unk_34[0x4];
+    s32 m_38;
+    u8 unk_3C[0x4];
+    s32 m_40;
+    u8 unk_44[0x4];
+    u32 m_48;
+    u8 unk_4C[0x4];
+    u32 m_50;
+    u8 unk_54[0x4];
+    u32 m_58;
+    u8 unk_5C[0x4];
+    u32 m_60;
+    u8 unk_64[0x4];
+    u32 m_68;
+    u8 unk_6C[0x4];
+    u32 m_70;
+    u8 unk_74[0x4];
+    u32 m_78;
+    u8 unk_7C[0x4];
 };
 
 typedef char TAdChrSelASlotGC_size[sizeof(TAdChrSelASlotGC) == 0x80 ? 1 : -1];

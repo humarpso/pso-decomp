@@ -15,8 +15,8 @@ s32 advance_item_id_counter(s32);
 s32 set_flag8__6TLobbyFPv(s32);
 
 void TItem::assign_id_and_init(s32 arg1, s32 arg2) {
-    if ((s32) *(s32 *)((s8 *)this + 0xC) == -1) {
-        *(s32 *)((s8 *)this + 0xC) = advance_item_id_counter(arg1);
+    if ((s32) *(s32 *)&this->m_next == -1) {
+        *(s32 *)&this->m_next = advance_item_id_counter(arg1);
     }
     send_drop_item_6x5D__5TItemFPviPv(this, arg1, arg2);
 }

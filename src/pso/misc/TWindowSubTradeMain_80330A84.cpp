@@ -516,7 +516,7 @@ typedef struct RecoveredFields_80331434_arg0 RecoveredFields_80331434_arg0;
 
 s32 TWindowSubTradeMain::open_confirm_yes_no() {
     u8 *arg0 = (u8 *)this;
-    s32 w = ((s32 (*)(void *, s32, s32, s32))create__19TWindowMessageYesNoFPvPvPvPv)(arg0, *(s32 *)((s8 *)arg0 + 0x28), 0, 0);
+    s32 w = ((s32 (*)(void *, s32, s32, s32))create__19TWindowMessageYesNoFPvPvPvPv)(arg0, *(s32 *)&this->m_28, 0, 0);
     ((s32 (*)(s32, s32, s32, s32, f32))open_yes_no_prompt)(w, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0xE6), ((s32 (*)(int))get_window_layout_position)(0x5F), TWindowSubTradeMain__data_805DF858);
     ((s32 (*)(s32, int))free_member__17TWindowSubComCardFv)(w, 1);
     return w;

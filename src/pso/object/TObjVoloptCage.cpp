@@ -146,7 +146,7 @@ s32 update_capture__14TObjVoloptCageFPv();
 void TObjVoloptCage::update_state() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 7:
         TObjVoloptCage__sub_80049000();
@@ -171,20 +171,20 @@ void TObjVoloptCage::run_task() {
         TObjVoloptCage__sub_800C76F0((void *) (arg0));
         return;
     }
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 7) {
+    if ((s16) this->mode != 7) {
         if (((VObj_18 *)(arg0))->m31() != 0) {
             ((VObj_18 *)(arg0))->m61();
         } else if (((VObj_18 *)(arg0))->m30() != 0) {
             ((VObj_18 *)(arg0))->m60();
         }
     }
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != (s32) *(s32 *)((s8 *)arg0 + 0x374)) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x37C) != -1) {
-            *(s32 *)((s8 *)arg0 + 0x37C) = -1;
+    if ((s16) this->mode != (s32) *(s32 *)&this->next_action) {
+        if ((s32) *(s32 *)&this->state != -1) {
+            *(s32 *)&this->state = -1;
             update_state();
         }
-        *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
-        *(s32 *)((s8 *)arg0 + 0x37C) = 0;
+        this->mode = (s16) *(s32 *)&this->next_action;
+        *(s32 *)&this->state = 0;
     }
     update_state();
     ((TObjPlayer *)arg0)->update_prev_position();

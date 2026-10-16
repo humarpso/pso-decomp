@@ -55,7 +55,7 @@ void *lbl_804CFA28[6] = {
 };
 
 void TWindowHelpItem::reset_float_field() {
-    *(f32 *)((s8 *)this + 0x1C) = (f32) (9e+05f);
+    *(f32 *)&this->_pad1C = (f32) (9e+05f);
 }
 
 extern const u32 lbl_805DCFAC = 0x00000000;

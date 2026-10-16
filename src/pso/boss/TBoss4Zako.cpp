@@ -905,9 +905,9 @@ void TBoss4Zako::update_sink_state() {
 extern "C" {
 #pragma push
 void TBoss4Zako::set_state3() {
-    TBoss4Uro__sub_8005D6D4(*(void **)((s8 *)this + 0x378));
+    TBoss4Uro__sub_8005D6D4(this->m_378);
     *(s32 *)((s8 *)this + 0x3A8) = 0;
-    *(s32 *)((s8 *)this + 0x374) = 3;
+    this->m_374 = 3;
 }
 #pragma pop
 }

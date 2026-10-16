@@ -9,7 +9,8 @@ struct TObjLobbyMain : public TUnk_804AFBF8 {
     u32 m_c8;
     u8 _padCC[0x4];
     s16 m_d0;
-    u8 _padD2[0x6];
+    u8 unk_D2[0x2];
+    f32 m_d4;
     u32 m_d8;
     u32 m_dc;
     virtual void render();

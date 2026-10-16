@@ -63,11 +63,11 @@ extern const f32 lbl_805DEF24;
 void TOJungleDesign::render() {
     u8 *arg0 = (u8 *)this;
     if (((JDVObj_802feeb4 *)arg0)->m8(lbl_805DEF20, lbl_805DEF24) == 1) {
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (this->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_yxz((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
-        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0xAC)));
+        rotate_matrix_yxz((int) (0), (int) (*(s32 *)&this->m_5c), (int) (this->rotation_y), (int) (this->rotation_z));
+        draw_ginja_object((int) (*(s32 *)&this->m_ac));
         pop_matrix();
     }
 }

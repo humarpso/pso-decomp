@@ -146,7 +146,7 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
 
 void *TItemLoad::dt(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x14) = lbl_8049F40C;
+        *(s32 * *)&this->m_down = lbl_8049F40C;
         TItemLoad__sub_8010FCB4(this, 0);
         if (arg1 > 0) {
             __dl__FPv(this);
@@ -208,7 +208,7 @@ extern s32 lbl_8049F41C[];
 
 void *TItemLoad::construct(void * _w1, int _w2, int _w3) {
     init__9TItemLoadFv(this, _w1, _w2, _w3);
-    *(s32 **)((s8 *)this + 0x14) = lbl_8049F41C;
+    *(s32 * *)&this->m_down = lbl_8049F41C;
     *(u32 *)((s8 *)this + 0x24) = 0;
     return this;
 }

@@ -25,7 +25,7 @@ s32 TWindowCtrlMain__sub_8024CE58();
 
 extern "C" {
 
-void TQuestListVM::set_field_20(s32 v) { *(s32*)((char*)this + 0x20) = v; }
+void TQuestListVM::set_field_20(s32 v) { *(s32 *)&this->m_20 = v; }
 
 void TObjNewFloorWin::run_task() {
     TObjNewFloorWin_80073DCC *self = (TObjNewFloorWin_80073DCC *)this;

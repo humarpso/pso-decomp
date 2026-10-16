@@ -153,11 +153,11 @@ void TOBarrierEnergy01::update_anim_phase() {
     f32 temp_f0;
     f32 temp_f1;
 
-    *(f32 *)((s8 *)this + 0xB0) = (f32) (*(f32 *)((s8 *)this + 0xB0) + *(f32 *)((s8 *)this + 0xB8));
-    temp_f1 = *(f32 *)((s8 *)this + 0xB4);
-    temp_f0 = *(f32 *)((s8 *)this + 0xB0);
+    this->m_b0 = (f32) (this->m_b0 + this->m_b8);
+    temp_f1 = *(f32 *)&this->unk_B4;
+    temp_f0 = this->m_b0;
     if (temp_f1 < temp_f0) {
-        *(f32 *)((s8 *)this + 0xB0) = (f32) (temp_f0 - temp_f1);
+        this->m_b0 = (f32) (temp_f0 - temp_f1);
     }
 }
 

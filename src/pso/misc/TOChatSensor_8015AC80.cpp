@@ -49,11 +49,11 @@ void TOChatSensor::check_player_proximity() {
 
     temp_r3 = get_player_by_client_id((void *) (local_client_id));
     if (temp_r3 != 0U) {
-        if (horizontal_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)((s8 *)arg0 + 0x9C)) {
-            *(s32 *)((s8 *)arg0 + 0xA0) = 1;
+        if (horizontal_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)&this->unk_9C) {
+            *(s32 *)&this->m_a0 = 1;
             return;
         }
-        *(s32 *)((s8 *)arg0 + 0xA0) = 0;
+        *(s32 *)&this->m_a0 = 0;
     }
 }
 
@@ -115,30 +115,30 @@ void TOChatSensor::init_params() {
     f32 temp_f0;
     s32 temp_r5;
 
-    *(u32 *)((s8 *)this + 0x90) = (u32) *(u32 *)((s8 *)this + 0x5C);
-    if ((u32) *(u32 *)((s8 *)this + 0x90) >= 2U) {
-        *(u32 *)((s8 *)this + 0x90) = 0U;
+    this->m_90 = (u32) *(u32 *)&this->m_5c;
+    if ((u32) this->m_90 >= 2U) {
+        this->m_90 = 0U;
     }
-    *(u32 *)((s8 *)this + 0x98) = (u32) *(u32 *)((s8 *)this + 0x60);
-    if ((u32) *(u32 *)((s8 *)this + 0x98) >= 2U) {
-        *(u32 *)((s8 *)this + 0x90) = 0U;
+    this->m_98 = (u32) *(u32 *)&this->rotation_y;
+    if ((u32) this->m_98 >= 2U) {
+        this->m_90 = 0U;
     }
-    temp_f0 = *(f32 *)((s8 *)this + 0x68);
-    *(f32 *)((s8 *)this + 0x9C) = (f32) (temp_f0 * temp_f0);
-    if ((u32) *(u32 *)((s8 *)this + 0x90) == 0U) {
-        *(s32 *)((s8 *)this + 0x94) = (s32) *(s32 *)((s8 *)this + 0x84);
+    temp_f0 = this->scale;
+    *(f32 *)&this->unk_9C = (f32) (temp_f0 * temp_f0);
+    if ((u32) this->m_90 == 0U) {
+        *(s32 *)&this->m_94 = (s32) this->m_84;
     } else {
-        *(u16 *)((s8 *)this + 0x94) = (u16) *(s32 *)((s8 *)this + 0x84);
-        if ((u16) *(u16 *)((s8 *)this + 0x94) > 0x100U) {
-            *(u16 *)((s8 *)this + 0x94) = 0xFFFF;
+        this->m_94 = (u16) this->m_84;
+        if ((u16) this->m_94 > 0x100U) {
+            this->m_94 = 0xFFFF;
         }
     }
-    *(s32 *)((s8 *)this + 0xCC) = (s32) *(s32 *)((s8 *)this + 0x88);
-    temp_r5 = *(s32 *)((s8 *)this + 0xCC);
+    *(s32 *)&this->m_cc = (s32) *(s32 *)&this->m_88;
+    temp_r5 = *(s32 *)&this->m_cc;
     if ((temp_r5 != 0) && ((temp_r5 < 0) || ((s32) *chat_sensor_table <= temp_r5))) {
-        *(s32 *)((s8 *)this + 0xCC) = 0;
+        *(s32 *)&this->m_cc = 0;
     }
-    *(s32 *)((s8 *)this + 0xC8) = 0;
+    *(s32 *)&this->m_c8 = 0;
 }
 
 typedef struct Stack_8015AF10 Stack_8015AF10;
@@ -158,26 +158,26 @@ void TOChatSensor::render() {
 void TOChatSensor::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x90) == 0U) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
+    if ((u32) this->m_90 == 0U) {
+        temp_r0 = *(s32 *)&this->m_c8;
         switch (temp_r0) {
         case 0:
             check_player_proximity();
             return;
         case 1:
-            if (((u32) *(u32 *)((s8 *)arg0 + 0xC4) != 0U) && (((TObject *)(*(u32 *)((s8 *)arg0 + 0xC4)))->all_parents_unqueued_for_destruction() == 0)) {
-                *(u32 *)((s8 *)arg0 + 0xC4) = 0U;
-                *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+            if (((u32) this->m_c4 != 0U) && (((TObject *)(this->m_c4))->all_parents_unqueued_for_destruction() == 0)) {
+                this->m_c4 = 0U;
+                *(s32 *)&this->m_c8 = 0;
                 return;
             }
             break;
         }
     } else {
-        if (is_current_floor_switch_set((int) (*(u16 *)((s8 *)arg0 + 0x94))) == 0) {
+        if (is_current_floor_switch_set((int) (this->m_94)) == 0) {
             check_player_proximity();
             return;
         }
-        *(s32 *)((s8 *)arg0 + 0xA0) = 0;
+        *(s32 *)&this->m_a0 = 0;
     }
 }
 

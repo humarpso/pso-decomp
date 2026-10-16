@@ -5,6 +5,6 @@ extern "C" {
 
 int close_adxf_handle__6TLobbyFPv(void*);
 
-void TItemLoad::free_texture() { if (*(unsigned int*)((char*)this + 0x4) != 0) { close_adxf_handle__6TLobbyFPv(*(void**)((char*)this + 0x4)); *(int*)((char*)this + 0x4) = 0; *(int*)((char*)this + 0xc) = 0; } }
+void TItemLoad::free_texture() { if (*(unsigned int *)&this->m_flags != 0) { close_adxf_handle__6TLobbyFPv(*(void* *)&this->m_flags); *(int *)&this->m_flags = 0; *(int *)&this->m_next = 0; } }
 
 }

@@ -121,19 +121,19 @@ int update_with_player__14TItemEquipBaseFv(void*);
 extern s32 model_render_flags;
 
 void TItemProShield::deactivate_shield_effect(s32 arg1) {
-    if (((u32) *(u32 *)((s8 *)this + 0xF4) != 0U) && ((u32) *(u32 *)((s8 *)this + 0xF0) != 0U) && (obj_testFlags30(this, 0x08000000) == 0) && (get_flag_40__8TItemMagFv((void *)(this)) == 0)) {
-        ((TObjPlayer *)(*(u32 *)((s8 *)this + 0xF0)))->get_item_ptr(arg1);
+    if (((u32) this->m_f4 != 0U) && ((u32) this->m_f0 != 0U) && (obj_testFlags30(this, 0x08000000) == 0) && (get_flag_40__8TItemMagFv((void *)(this)) == 0)) {
+        ((TObjPlayer *)(this->m_f0))->get_item_ptr(arg1);
         push_matrix_from();
         TObjPlayer__sub_80364198();
         model_render_flags &= 0xFFFFFFEF;
         get_mag_scale__10TObjPlayerFv(this);
         set_model_fade_alpha__10TObjPlayerFf();
-        if (*(s32 *)((s8 *)this + 0x19C) & 2) {
+        if (*(s32 *)&this->m_19c & 2) {
             TParticleCtrl::begin_effect_render();
         }
-        TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x24));
-        draw_ginja_object(*(u32 *)((s8 *)this + 0xF4));
-        if (*(s32 *)((s8 *)this + 0x19C) & 2) {
+        TObjPlayer::notify_fish_if_valid(this->texture_id);
+        draw_ginja_object(this->m_f4);
+        if (*(s32 *)&this->m_19c & 2) {
             TParticleCtrl::end_effect_render();
         }
         TObjPlayer::warn_if_gauge_low();

@@ -14,7 +14,10 @@ struct TObjEneBalClaw : public TObjEnemyCustom {
     virtual s32 vfunc_30();
     u8 _pad38C[0x4];
     void* m_390;
-    u8 _pad394[0x24];
+    u8 unk_394[0x18];
+    f32 m_3ac;
+    u8 unk_3B0[0x4];
+    f32 m_3b4;
     u32 m_3b8;
     void render_scaled(s32 arg1);
     void update_wobble();

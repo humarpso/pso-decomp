@@ -157,8 +157,8 @@ u8 *create_conversation_camera(s32 arg0) {
 typedef char RecoveredGlobal_8006B4A0_lbl_804381E0_size[sizeof(RecoveredGlobal_8006B4A0_lbl_804381E0) == 0x1E0 ? 1 : -1];
 void TUnk_80488AD8::run_task() {
     u8 *arg0 = (u8 *)this;
-    approach_camera_vector(arg0 + 0x1C, (u8 *)&fixed_npc_camera_destination_table.value + (*(s32 *)((s8 *)arg0 + 0x34) * 0x18), lbl_805D8FF8);
-    approach_camera_vector(arg0 + 0x28, (u8 *)&fixed_npc_camera_destination_table.value + (*(s32 *)((s8 *)arg0 + 0x34) * 0x18) + 0xC, lbl_805D8FF8);
+    approach_camera_vector(arg0 + 0x1C, (u8 *)&fixed_npc_camera_destination_table.value + (this->m_34 * 0x18), lbl_805D8FF8);
+    approach_camera_vector(arg0 + 0x28, (u8 *)&fixed_npc_camera_destination_table.value + (this->m_34 * 0x18) + 0xC, lbl_805D8FF8);
     TCameraCtrl__fixed_npc_camera_active = 1;
     set_active_camera_pose(arg0 + 0x1C, arg0 + 0x28);
 }
@@ -288,12 +288,12 @@ void TCameraCtrl::copy_camera_params() {
     if ((u32) camera_ctrl_instance != 0U) {
         temp_r3 = ((TCameraCtrl *)camera_ctrl_instance)->get_params();
         *(f32 *)((s8 *)this + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x28);
-        *(f32 *)((s8 *)this + 0x4C) = (f32) *(f32 *)((s8 *)temp_r3 + 0x2C);
+        this->m_4c = (f32) *(f32 *)((s8 *)temp_r3 + 0x2C);
         *(f32 *)((s8 *)this + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 0x30);
-        *(f32 *)((s8 *)this + 0x3C) = (f32) *(f32 *)((s8 *)temp_r3 + 0x1C);
+        this->m_3c = (f32) *(f32 *)((s8 *)temp_r3 + 0x1C);
         *(f32 *)((s8 *)this + 0x40) = (f32) *(f32 *)((s8 *)temp_r3 + 0x20);
-        *(f32 *)((s8 *)this + 0x44) = (f32) *(f32 *)((s8 *)temp_r3 + 0x24);
-        *(s32 *)((s8 *)this + 0x54) = (s32) (lbl_805D9000 * (f32) *(s32 *)((s8 *)temp_r3 + 0x14));
+        this->m_44 = (f32) *(f32 *)((s8 *)temp_r3 + 0x24);
+        this->m_54 = (s32) (lbl_805D9000 * (f32) *(s32 *)((s8 *)temp_r3 + 0x14));
         *(f32 *)((s8 *)this + 0x58) = (f32) *(f32 *)((s8 *)temp_r3 + 0x10);
     }
 }

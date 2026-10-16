@@ -18,11 +18,11 @@ void TUnk_804CC870::run_task() {
     if (temp_r3 != 0) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (temp_r3 + 0x38));
     }
-    *(s32 *)((s8 *)arg0 + 0x48) = (s32) (*(s32 *)((s8 *)arg0 + 0x48) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x48) >= 7) {
-        *(s32 *)((s8 *)arg0 + 0x48) = 0;
+    this->m_48 = (s32) (this->m_48 + 1);
+    if ((s32) this->m_48 >= 7) {
+        this->m_48 = 0;
     }
-    if (*(f32 *)((s8 *)arg0 + 0x38) <= lbl_805DC844) {
+    if (this->m_38 <= lbl_805DC844) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

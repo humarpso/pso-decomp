@@ -9,7 +9,12 @@ struct TMainCursor : public TObject {
     u32 m_1c;
     void* m_20;
     void* m_24;
-    u8 _pad28[0x18];
+    u8 unk_28[0x4];
+    f32 m_2c;
+    u8 unk_30[0x4];
+    s32 m_34;
+    u8 unk_38[0x4];
+    f32 m_3c;
     void* m_40;
     u8 _pad44[0x8];
     void* m_4c;

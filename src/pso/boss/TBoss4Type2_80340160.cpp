@@ -35,7 +35,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
         ((TBoss4Type2 *)arg0)->advance_offset();
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x4C), (void *) (arg0 + 0x40));
         fn_8033FE30((void *) (arg0));
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x20));
+        temp_r3 = (u8 *)(this->m_20);
         if (temp_r3 != NULL) {
             ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x40);
         }
@@ -49,7 +49,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
 
 void *TBoss4Type2::destroy(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_804EFB78;
+        *(s32 * *)&this->m_34 = lbl_804EFB78;
         if (*(void **)((s8 *)this + 0x20) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x20))); *(s32 *)((s8 *)this + 0x20) = 0; }
         fn_80340040(this);
         __dt__7TObjectFv(this, 0);

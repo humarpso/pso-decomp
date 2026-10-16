@@ -3186,20 +3186,20 @@ void choose_next_action__13TBoss5GryphonFPvPv(u8 *arg0, u32 *arg1) {
 void TBoss8Dragon::update_target_from_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x4E4);
+    temp_r0 = this->m_4e4;
     switch (temp_r0) {
     default:
     case 0:
-        *(s32 *)((s8 *)this + 0x774) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x778)) + 0x40);
+        this->m_774 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x778)) + 0x40);
         return;
     case 1:
-        *(s32 *)((s8 *)this + 0x774) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x778)) + 8);
+        this->m_774 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x778)) + 8);
         return;
     case 3:
-        *(s32 *)((s8 *)this + 0x774) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x778)) + 0x60);
+        this->m_774 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x778)) + 0x60);
         return;
     case 2:
-        *(s32 *)((s8 *)this + 0x774) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x778)) + 0x5C);
+        this->m_774 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)this + 0x778)) + 0x5C);
         return;
     }
 }
@@ -3259,7 +3259,7 @@ void TBoss8Dragon::flush_pending_effect() {
 
 void TBoss8Dragon::update_periodic_effect() {
     TBoss8Dragon::update_epsilon_position();
-    if (!(*(s32 *)((s8 *)this + 0x490) & 0x1F)) {
+    if (!(this->m_490 & 0x1F)) {
         if (enemy_validate_retained_target(this) != 0) {
             enemy_copy_target_destination(this);
         } else {
@@ -3267,18 +3267,18 @@ void TBoss8Dragon::update_periodic_effect() {
         }
         ((s32 (*)(void *))TBoss8Dragon__sub_80064AB0)(this);
     }
-    *(s32 *)((s8 *)this + 0x490) = (s32) (*(s32 *)((s8 *)this + 0x490) + 1);
+    this->m_490 = (s32) (this->m_490 + 1);
 }
 
 void TBoss8Dragon::scale_size(f32 farg0, f32 farg1, f32 farg2) {
-    *(f32 *)((s8 *)this + 0x474) = (f32) (*(f32 *)((s8 *)this + 0x474) * farg0);
+    this->m_474 = (f32) (this->m_474 * farg0);
     *(f32 *)((s8 *)this + 0x478) = (f32) (*(f32 *)((s8 *)this + 0x478) * farg1);
-    *(f32 *)((s8 *)this + 0x47C) = (f32) (*(f32 *)((s8 *)this + 0x47C) * farg0);
+    this->m_47c = (f32) (this->m_47c * farg0);
     *(s32 *)((s8 *)this + 0x480) = (s32) ((f32) *(s32 *)((s8 *)this + 0x480) * farg2);
 }
 
 void TBoss8Dragon::fire_at_angle(s32 arg1) {
-    turn_toward_angle_limited__13TBoss5GryphonFPvii(this, arg1, (s32) (lbl_80437EB0 * atan2_float(-*(f32 *)((s8 *)this + 0x38), -*(f32 *)((s8 *)this + 0x40))));
+    turn_toward_angle_limited__13TBoss5GryphonFPvii(this, arg1, (s32) (lbl_80437EB0 * atan2_float(-*(f32 *)&this->m_38, -this->m_40)));
 }
 
 void update_heading__13TBoss5GryphonFPvi(void *arg0, s32 arg1) {
@@ -3298,7 +3298,7 @@ void turn_toward_angle_limited__13TBoss5GryphonFPvii(void *selfv, s32 arg1, s32 
 
 void TBoss8Dragon::update_facing(f32 farg0) {
     update_velocity__9TObjEneDDFv();
-    ((s32 (*)(void *, s32, f32))move_along_angle__13TBoss5GryphonFPvif)(this, (s32) (lbl_80437EB0 * atan2_float(*(f32 *)((s8 *)this + 0x3A0), *(f32 *)((s8 *)this + 0x3A8))), farg0);
+    ((s32 (*)(void *, s32, f32))move_along_angle__13TBoss5GryphonFPvif)(this, (s32) (lbl_80437EB0 * atan2_float(*(f32 *)((s8 *)this + 0x3A0), this->m_3a8)), farg0);
 }
 
 #pragma push
@@ -4994,7 +4994,7 @@ extern int fold_flush_25;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss8Dragon::copy_spawn_params(void* a1) { *(short*)((char*)a1 + 0x2) = *(unsigned short*)((char*)this + 0x1c); VecCopy__FP3VecPC3Vec((void*)((char*)a1 + 0x4), (void*)((char*)this + 0x38)); *(void**)((char*)a1 + 0x10) = *(void**)((char*)this + 0x60); ((TBoss8Dragon *)a1)->send_spawn_params_packet(); }
+void TBoss8Dragon::copy_spawn_params(void* a1) { *(short*)((char*)a1 + 0x2) = *(unsigned short*)((char*)this + 0x1c); VecCopy__FP3VecPC3Vec((void*)((char*)a1 + 0x4), (void*)((char*)this + 0x38)); *(void**)((char*)a1 + 0x10) = *(void* *)&this->m_60; ((TBoss8Dragon *)a1)->send_spawn_params_packet(); }
 #pragma pop
 
 #pragma push
@@ -5075,7 +5075,7 @@ extern int fold_flush_27;
 #pragma dont_inline off
 void TBoss8Dragon::copy_action_state(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
-    *(s16 *)((s8 *)arg0 + 0) = (s16) *(s16 *)((s8 *)arg1 + 0);
+    *(s16 *)&this->m_0 = (s16) *(s16 *)((s8 *)arg1 + 0);
     *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
     *(ByteBlock_10 *)((s32) arg0 + 4) = *(const ByteBlock_10 *)((s32) arg1 + 4);
 }
@@ -5279,7 +5279,7 @@ void TBoss8Dragon::reset_angle() { *(float*)((char*)this + 0x3c) = lbl_805D8D84;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss8Dragon::set_phase() { *(s32*)((char*)this + 0x4e4) = 3; }
+void TBoss8Dragon::set_phase() { this->m_4e4 = 3; }
 #pragma pop
 
 #pragma push
@@ -5298,7 +5298,7 @@ void TBoss8Dragon::set_phase() { *(s32*)((char*)this + 0x4e4) = 3; }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss8Dragon::set_attack_phase() { *(s32*)((char*)this + 0x4e4) = 2; }
+void TBoss8Dragon::set_attack_phase() { this->m_4e4 = 2; }
 #pragma pop
 
 #pragma push
@@ -5336,7 +5336,7 @@ void set_flag_4e4__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x4e4) = 1; }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss8Dragon::clear_timer() { *(s32*)((char*)this + 0x4e4) = 0; }
+void TBoss8Dragon::clear_timer() { this->m_4e4 = 0; }
 #pragma pop
 
 #pragma push

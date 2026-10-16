@@ -206,8 +206,8 @@ void queue_destruction__7TObjectFv(void *);
 void TItemAttackCol::add_to_active_list(void* a0) { fn_802E3BA8((void*)(attack_collider_render_owner), a0); attack_collider_active_count = (attack_collider_active_count + 0x1); }
 
 void TItemAttackCol::shift_collision_bounds() {
-    *(s32 *)((s8 *)this + 0x104) = (s32) (*(s32 *)((s8 *)this + 0x104) + 0xCCC);
-    *(s32 *)((s8 *)this + 0x11C) = (s32) (*(s32 *)((s8 *)this + 0x11C) - 0xCCC);
+    *(s32 *)&this->_pad104 = (s32) (*(s32 *)&this->_pad104 + 0xCCC);
+    *(s32 *)&this->m_11c = (s32) (*(s32 *)&this->m_11c - 0xCCC);
 }
 
 void TItemAttackCol::vfunc_6(s32 *a) {
@@ -256,7 +256,7 @@ void TItemAttackCol::move_with_collision(void *arg1) {
         VecCopy__FP3VecPC3Vec((s32 *)(arg0 + 0x24), (s32)(hit->pos));
         cb = *(Cb_802E3D8C *)((s8 *)arg0 + 0x138);
         if (cb != NULL) {
-            cb(*(s32 *)((s8 *)arg0 + 0xAC), arg0 + 0x24, arg0 + 0xD0);
+            cb(this->m_ac, arg0 + 0x24, arg0 + 0xD0);
         }
     } else {
         VecCopy__FP3VecPC3Vec((s32 *)(arg0 + 0x24), (s32)(arg1));
@@ -265,13 +265,13 @@ void TItemAttackCol::move_with_collision(void *arg1) {
 
 void TItemAttackCol::render() {
     u8 *arg0 = (u8 *)this;
-    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0xAC))) == 0U) {
+    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (this->m_ac)) == 0U) {
         return;
     }
     {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) != 0U) {
-            if ((u32) *(u32 *)((s8 *)arg0 + 0xEC) != 0U) {
-                TObjPlayer::notify_fish_if_valid((u32)(*(void **)((s8 *)arg0 + 0xEC)));
+        if ((u32) this->m_e8 != 0U) {
+            if ((u32) this->m_ec != 0U) {
+                TObjPlayer::notify_fish_if_valid((u32)(*(void * *)&this->m_ec));
             }
             TParticleCtrl::begin_effect_render();
             attack_collider_render_owner = (int)arg0;
@@ -281,7 +281,7 @@ void TItemAttackCol::render() {
             rotate_matrix_by_node_angles((void *) (arg0 + 0xF0), (int) (1));
             rotate_matrix_by_node_angles((void *) (arg0 + 0xFC), (int) (1));
             scale_current_matrix((void *) (arg0 + 0x108));
-            run_with_transform_context__10TObjPlayerFii((int) (*(u32 *)((s8 *)arg0 + 0xE8)), (void *) TItemAttackCol::add_to_active_list);
+            run_with_transform_context__10TObjPlayerFii((int) (this->m_e8), (void *) TItemAttackCol::add_to_active_list);
             pop_matrix();
             attack_collider_render_owner = 0;
             TParticleCtrl::end_effect_render();
@@ -300,31 +300,31 @@ void TItemAttackCol::run_task() {
         disallow_rendering__7TObjectFv((void *) (arg0));
         return;
     }
-    if (*(s32 *)((s8 *)arg0 + 0xE4) & 4) {
+    if (*(s32 *)&this->m_e4 & 4) {
         shift_collision_bounds();
     }
-    if (*(s32 *)((s8 *)arg0 + 0xE4) & 0x20) {
-        *(s32 *)((s8 *)arg0 + 0x100) = (s32) (*(s32 *)((s8 *)arg0 + 0x100) + 0x888);
+    if (*(s32 *)&this->m_e4 & 0x20) {
+        *(s32 *)&this->m_100 = (s32) (*(s32 *)&this->m_100 + 0x888);
     }
     ((VObj_18_f8ef8c *)(arg0))->m5();
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0x12C);
+    temp_r3 = this->m_12c;
     if (temp_r3 != 0U) {
         copy_position__15TEffStarLight2DFPv((int) (temp_r3), (void *) (arg0 + 0x24));
     }
-    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x130);
+    temp_r3_2 = this->m_130;
     if (temp_r3_2 != 0U) {
         ((TNowLoading *)temp_r3_2)->copy_pos((void *) (arg0 + 0x24));
     }
-    temp_r3_3 = *(u32 *)((s8 *)arg0 + 0x134);
+    temp_r3_3 = this->m_134;
     if (temp_r3_3 != 0U) {
         ((TNowLoading *)temp_r3_3)->copy_pos((void *) (arg0 + 0x24));
     }
-    temp_r3_4 = *(u32 *)((s8 *)arg0 + 0x140);
+    temp_r3_4 = this->m_140;
     if (temp_r3_4 != 0U) {
         ((TNowLoading *)temp_r3_4)->copy_pos((void *) (arg0 + 0x24));
     }
     check_hits__14TItemAttackColFPv((void *) (arg0));
-    if ((*(f32 *)((s8 *)arg0 + 0xDC) <= vec_distance_squared((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
+    if ((this->m_dc <= vec_distance_squared((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

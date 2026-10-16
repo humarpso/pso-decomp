@@ -20,10 +20,10 @@ void *TObjPlayer::init_event_callbacks() {
     ((TObjPlayer *)(self->f_1FC))->init_forward();
     ((TObjPlayer *)((char *)this + 376))->set_flags(32);
     set_status_flags__10TObjPlayerFPvUi(this, 515);
-    *(s32 **)((s8 *)this + 0x1EC) = notify_hit_target__10TObjPlayerFUlUlUlUl;
-    *(s32 **)((s8 *)this + 0x1F4) = TObjPlayer__sub_80128A74;
+    this->m_1ec = notify_hit_target__10TObjPlayerFUlUlUlUl;
+    this->m_1f4 = TObjPlayer__sub_80128A74;
     *(s32 **)((s8 *)this + 0x1F0) = spawn_shot_effect__10TObjPlayerFiiif;
-    *(f32 *)((s8 *)this + 0x1E4) = lbl_805DADF8;
+    *(f32 *)&this->m_1e4 = lbl_805DADF8;
     ((TObjPlayer *)(self->f_1FC))->clear_id();
     return this;
 }

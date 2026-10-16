@@ -84,7 +84,7 @@ f32 sample_acceleration_curve(Curve_8007E16C *c, f32 t) {
 #pragma pop
 
 int TObjBoss2Tunnel::check_param_threshold(f32 arg1) {
-    return arg1 >= *(f32 *)((u8 *)this + 20);
+    return arg1 >= *(f32 *)&this->m_down;
 }
 void init_acceleration_curve(Curve_8007E210 *c, f32 a, f32 d, f32 length, f32 speed) {
     f32 sq;

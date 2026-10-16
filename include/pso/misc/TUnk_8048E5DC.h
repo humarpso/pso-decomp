@@ -9,7 +9,13 @@ public:
     virtual void render_shadows();
     virtual void render();
     virtual void run_task();
-    u8 unk_1C[0x20];
+    u8 unk_1C[0x4];
+    f32 m_20;
+    u8 unk_24[0x4];
+    f32 m_28;
+    u8 unk_2C[0x4];
+    f32 m_30;
+    u8 unk_34[0x8];
 };
 typedef char TUnk_8048E5DC_size[sizeof(TUnk_8048E5DC) == 0x3C ? 1 : -1];
 

@@ -109,7 +109,7 @@ void *__vt__11TObjDFDemo3[13] = {
 void TObjDFDemo3::render() {
     u8 *arg0 = (u8 *)this;
     f32 a = 1.0f;
-    s32 t = *(s32 *)((s8 *)arg0 + 0xB0);
+    s32 t = *(s32 *)&this->m_b0;
     if (t < 5) {
         a = (f32)t / 5.0f;
     } else if (t > 0x86) {
@@ -124,14 +124,14 @@ void TObjDFDemo3::render() {
     push_matrix();
     TObjPlayer::set_global_flag();
     post_translate_matrix(arg0 + 0xA0);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xAC));
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x98));
-    ((TObjFish *)(*(s32 *)((s8 *)arg0 + 0xB8)))->set_draw_callback_list();
+    rotate_matrix_y(0, *(s32 *)&this->m_ac);
+    TObjFish::set_global_param(*(s32 *)&this->m_98);
+    ((TObjFish *)(*(s32 *)&this->m_b8))->set_draw_callback_list();
     func_803e11e8__FUl(1);
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x94), *(s32 *)((s8 *)arg0 + 0x9C), *(f32 *)((s8 *)arg0 + 0xB4));
-    clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0xB8));
+    draw_model_motion(*(s32 *)&this->m_94, *(s32 *)&this->m_9c, *(f32 *)&this->_padB4);
+    clear_render_callback__8TObjFishFv(*(s32 *)&this->m_b8);
     func_803e11e8__FUl(2);
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x94), *(s32 *)((s8 *)arg0 + 0x9C), *(f32 *)((s8 *)arg0 + 0xB4));
+    draw_model_motion(*(s32 *)&this->m_94, *(s32 *)&this->m_9c, *(f32 *)&this->_padB4);
     func_803e11f0__Fv();
     TObjPlayer::clear_global_state();
     pop_matrix();
@@ -149,37 +149,37 @@ void TObjDFDemo3::run_task() {
     s32 temp_r0;
     s32 temp_r0_2;
     u32 temp_r3;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xB0) >= 0x5A) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x90) != 0U) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x90)));
-            *(u32 *)((s8 *)arg0 + 0x90) = 0U;
+    if ((s32) *(s32 *)&this->m_b0 >= 0x5A) {
+        if ((u32) this->m_90 != 0U) {
+            TBoss4Type2::request_destroy((u32)(*(void * *)&this->m_90));
+            this->m_90 = 0U;
         }
     } else {
-        temp_r3 = *(u32 *)((s8 *)arg0 + 0x90);
+        temp_r3 = this->m_90;
         if (temp_r3 == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x90) = create_particle_emitter(arg0 + 0xBC, 0x1BD);
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x90) != 0U) {
-                ((TBoss4Type2 *)((void *) *(u32 *)((s8 *)arg0 + 0x90)))->set_flags(0x40);
+            this->m_90 = create_particle_emitter(arg0 + 0xBC, 0x1BD);
+            if ((u32) this->m_90 != 0U) {
+                ((TBoss4Type2 *)((void *) this->m_90))->set_flags(0x40);
             }
         } else if (temp_r3 != 0U) {
             ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0xBC);
         }
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xB0) == 0x86) {
+    if ((s32) *(s32 *)&this->m_b0 == 0x86) {
         temp_r3 = spawn_particle_effect(arg0 + 0xA0, 0x9B);
         if (temp_r3 != 0U) {
             ((TBoss4Type2 *)temp_r3)->set_flags(0x40);
         }
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB0);
+    temp_r0 = *(s32 *)&this->m_b0;
     if ((temp_r0 == 0x28) || (temp_r0 == 0x3C)) {
         play_sound_effect(0x4003D03A, arg0 + 0xA0, 0, 1);
     }
-    if ((*(f32 *)((s8 *)arg0 + 0xB4) += 1.0f) > 119.0f) {
-        *(f32 *)((s8 *)arg0 + 0xB4) = 119.0f;
+    if ((*(f32 *)&this->_padB4 += 1.0f) > 119.0f) {
+        *(f32 *)&this->_padB4 = 119.0f;
     }
-    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0xB0) + 1;
-    *(s32 *)((s8 *)arg0 + 0xB0) = temp_r0_2;
+    temp_r0_2 = *(s32 *)&this->m_b0 + 1;
+    *(s32 *)&this->m_b0 = temp_r0_2;
     if (temp_r0_2 >= 0x8C) {
         queue_destruction__7TObjectFv(arg0);
     }

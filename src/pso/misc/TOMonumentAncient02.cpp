@@ -148,25 +148,25 @@ void TOMonumentAncient02::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
+    temp_r0 = *(s32 *)&this->unk_AC;
     switch (temp_r0) {
     default:
-        *(s32 *)((s8 *)arg0 + 0xAC) = 1;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) != 0U) {
-            enable__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0xE8));
+        *(s32 *)&this->unk_AC = 1;
+        if ((u32) this->m_e8 != 0U) {
+            enable__13TParticleCtrlFPv(*(void * *)&this->m_e8);
         }
         return;
     case 1:
-        if ((TRaderMapCore::is_not_split_screen() != 1) && ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 1)) {
+        if ((TRaderMapCore::is_not_split_screen() != 1) && ((s32) *(s32 *)&this->m_ec == 1)) {
             submit_cursor_candidate(arg0, -1);
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) != 0U) {
-            enable__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0xE8));
+        if ((u32) this->m_e8 != 0U) {
+            enable__13TParticleCtrlFPv(*(void * *)&this->m_e8);
             return;
         }
         break;
     case 2:
-        play_persistent_sound(*(s32 *)((s8 *)arg0 + 0xD4), arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(*(s32 *)&this->m_d4, arg0, arg0 + 0x38, 0, 0);
         break;
     }
 }

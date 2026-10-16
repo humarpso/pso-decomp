@@ -69,20 +69,20 @@ s32 toggle_help_window_on_button(void *, s16);
 s32 decay_page_arrow_offset(s32);
 
 void TWindowHelpItem::update_cursor_selection() {
-    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 1);
-    if ((s32) *(s32 *)((s8 *)this + 0xA4) != -1) {
-        *(s32 *)((s8 *)this + 0x68) = (s32) *(s32 *)((s8 *)this + 0x70);
-        *(s32 *)((s8 *)this + 0x9C) = (s32) *(s32 *)((s8 *)this + 0xA4);
+    this->m_60 = (u8) (this->m_60 | 1);
+    if ((s32) *(s32 *)&this->m_a4 != -1) {
+        *(s32 *)&this->m_68 = (s32) *(s32 *)&this->m_70;
+        *(s32 *)&this->m_9c = (s32) *(s32 *)&this->m_a4;
         return;
     }
-    if ((s32) *(s32 *)((s8 *)this + 0xA0) != -1) {
-        *(s32 *)((s8 *)this + 0x68) = (s32) *(s32 *)((s8 *)this + 0x6C);
-        *(s32 *)((s8 *)this + 0x9C) = (s32) *(s32 *)((s8 *)this + 0xA0);
+    if ((s32) *(s32 *)&this->m_a0 != -1) {
+        *(s32 *)&this->m_68 = (s32) *(s32 *)&this->m_6c;
+        *(s32 *)&this->m_9c = (s32) *(s32 *)&this->m_a0;
         return;
     }
-    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) & 0xFE);
-    *(s32 *)((s8 *)this + 0x68) = 0;
-    *(s32 *)((s8 *)this + 0x9C) = -1;
+    this->m_60 = (u8) (this->m_60 & 0xFE);
+    *(s32 *)&this->m_68 = 0;
+    *(s32 *)&this->m_9c = -1;
 }
 
 void TWindowHelpItem__sub_80255B20(u8 *arg0) {
@@ -100,24 +100,24 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0) {
 
 void TWindowHelpItem::update_display() {
     u8 *arg0 = (u8 *)this;
-    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
+    if (!(this->m_2c & 2)) {
+        this->m_5c = 0x01000000;
     }
-    if ((*(u8 *)((s8 *)arg0 + 0x60) & 1) && (fn_80244994(arg0) != 0) && !(*(s32 *)((s8 *)arg0 + 0x2C) & 4)) {
-        if (!(*(u8 *)((s8 *)arg0 + 0x60) & 4)) {
-            if (handle_list_page_flip_input(*(s32 *)((s8 *)arg0 + 0x64)) != 0) {
+    if ((this->m_60 & 1) && (fn_80244994(arg0) != 0) && !(this->m_2c & 4)) {
+        if (!(this->m_60 & 4)) {
+            if (handle_list_page_flip_input(*(s32 *)&this->m_64) != 0) {
                 ((TWindowHelpItem *)arg0)->dispatch_item_help();
             }
         } else {
-            decay_page_arrow_offset(*(s32 *)((s8 *)arg0 + 0x64));
+            decay_page_arrow_offset(*(s32 *)&this->m_64);
         }
         ((TWindowHelpItem *)arg0)->invoke_callback_pmf();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list(arg0, arg0 + 0x24);
-    if (!(*(u8 *)((s8 *)arg0 + 0x60) & 8)) {
-        toggle_help_window_on_button(arg0, *(s16 *)((s8 *)arg0 + 0x20));
+    if (!(this->m_60 & 8)) {
+        toggle_help_window_on_button(arg0, this->m_20);
     }
 }
 
@@ -125,8 +125,8 @@ extern s32 TWindowHelpItem__object_vtable[];
 
 void *TWindowHelpItem::dt(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = TWindowHelpItem__object_vtable;
-        delete_if_allocated(*(void **)((s8 *)this + 0x64), 1);
+        *(s32 * *)&this->m_vtable18 = TWindowHelpItem__object_vtable;
+        delete_if_allocated(*(void * *)&this->m_64, 1);
         destroy_window_base__9TWindowDDFs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

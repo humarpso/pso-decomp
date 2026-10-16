@@ -146,12 +146,12 @@ void TUnk_8049FEB8::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r3 = *(s16 *)((s8 *)this + 0x1E);
+    temp_r3 = this->m_1e;
     if (temp_r3 == 0) {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    *(s16 *)((s8 *)this + 0x1E) = (s16) (temp_r3 - 1);
+    this->m_1e = (s16) (temp_r3 - 1);
 }
 
 extern s32 lbl_8049FEB8[];
@@ -159,7 +159,7 @@ extern s32 lbl_8049FEB8[];
 void *TItemProArmor::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049FEB8;
-        TItemTimerEvent::clear_timer_slot(*(u16 *)((s8 *)this + 0x1C));
+        TItemTimerEvent::clear_timer_slot(*(u16 *)&this->unk_1C);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -189,7 +189,7 @@ void create__13TItemProArmorFiUi(s32 arg0, u32 arg1) {
 }
 
     extern int tl_05;
-void TItemProArmor::create_armor() { create__13TItemProArmorFiUi((s32)((s32)((void*)(tl_05))), (u32)((u32)((void*)(*(int*)((char*)this + 0xf0))))); }
+void TItemProArmor::create_armor() { create__13TItemProArmorFiUi((s32)((s32)((void*)(tl_05))), (u32)((u32)((void*)(*(int *)&this->m_f0)))); }
 
 extern s32 lbl_8049FED0[];
 

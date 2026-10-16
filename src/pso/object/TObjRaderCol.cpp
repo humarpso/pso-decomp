@@ -99,11 +99,11 @@ void TObjRaderCol::check_local_player_in_range(void *arg0_) {
 void TObjRaderCol::run_task() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x98);
+    temp_r0 = *(s32 *)&this->m_98;
     switch (temp_r0) {
     case 0:
-        TRaderMapCore::block_region_by_id((s16) *(s32 *)((s8 *)this + 0x94));
-        *(s32 *)((s8 *)this + 0x98) = 1;
+        TRaderMapCore::block_region_by_id((s16) *(s32 *)&this->m_94);
+        *(s32 *)&this->m_98 = 1;
         return;
     case 1:
         if (TRaderMapCore::is_not_split_screen() == 1) {

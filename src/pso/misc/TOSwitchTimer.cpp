@@ -73,36 +73,36 @@ void TOSwitchTimer::run_task() {
     s32 temp_r3_2;
     u32 temp_r3;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x90);
+    temp_r0 = *(s32 *)&this->m_90;
     switch (temp_r0) {
     case 0:
-        temp_r3 = is_current_floor_switch_set(*(u16 *)((s8 *)this + 0xA8));
-        if ((s32) *(u8 *)((s8 *)this + 0xB0) != (s32) temp_r3) {
-            *(u8 *)((s8 *)this + 0xB0) = temp_r3;
+        temp_r3 = is_current_floor_switch_set(this->m_a8);
+        if ((s32) this->m_b0 != (s32) temp_r3) {
+            this->m_b0 = temp_r3;
             if (temp_r3 == 1) {
-                *(s32 *)((s8 *)this + 0x90) = 1;
-                *(s32 *)((s8 *)this + 0x94) = 0;
-                if ((u32) *(u32 *)((s8 *)this + 0x98) == 0U) {
-                    *(u8 *)((s8 *)this + 0xB0) = 0U;
+                *(s32 *)&this->m_90 = 1;
+                *(s32 *)&this->m_94 = 0;
+                if ((u32) this->m_98 == 0U) {
+                    this->m_b0 = 0U;
                 }
             }
         }
         return;
     case 1:
-        if ((s32) *(s32 *)((s8 *)this + 0x9C) == 1) {
-            if ((s32) *(s32 *)((s8 *)this + 0x94) < (s32) *(s32 *)((s8 *)this + 0xA4)) {
-                if ((*(s32 *)((s8 *)this + 0x94) % 30) == 0) {
+        if ((s32) *(s32 *)&this->m_9c == 1) {
+            if ((s32) *(s32 *)&this->m_94 < (s32) *(s32 *)&this->m_a4) {
+                if ((*(s32 *)&this->m_94 % 30) == 0) {
                     play_sound_effect(0x53218, 0, 0, 0);
                 }
             } else {
                 play_persistent_sound(0x53218, this, 0, 0, 0);
             }
         }
-        temp_r3_2 = *(s32 *)((s8 *)this + 0x94);
-        *(s32 *)((s8 *)this + 0x94) = (s32) (temp_r3_2 + 1);
-        if (temp_r3_2 == (s32) *(s32 *)((s8 *)this + 0xA0)) {
+        temp_r3_2 = *(s32 *)&this->m_94;
+        *(s32 *)&this->m_94 = (s32) (temp_r3_2 + 1);
+        if (temp_r3_2 == (s32) *(s32 *)&this->m_a0) {
             send_switch_states__12TOChatSensorFv(this);
-            *(s32 *)((s8 *)this + 0x90) = 0;
+            *(s32 *)&this->m_90 = 0;
         }
         break;
     }

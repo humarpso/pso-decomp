@@ -284,7 +284,7 @@ void TWindowSubStatusDisp::vt13() {
     void *temp_r31_4;
     void *temp_r31_5;
 
-    temp_r3 = get_player_by_client_id(*(s16 *)((s8 *)this + 0x20));
+    temp_r3 = get_player_by_client_id(this->m_20);
     if (temp_r3 != 0) {
         temp_r31 = get_array_entry__20TWindowSubStatusDispFi(this, 2);
         *(s32 *)((s8 *)temp_r31 + 0x20) = (s32) ((TWindowSubStatusDisp *)temp_r3)->get_stat();

@@ -60,10 +60,10 @@ void TPhotonFarlla::run_task() {
     s32 temp_r3_4;
     s32 temp_r3_5;
     u32 temp_r3_2;
-    *(s32 *)((s8 *)arg0 + 0x1A4) = (s32) (*(s32 *)((s8 *)arg0 + 0x1A4) + 1);
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x1A4) == 0x32) && ((s32) *(s32 *)((s8 *)arg0 + 0x1A0) == 0)) {
-        *(s32 *)((s8 *)arg0 + 0x1A0) = 1;
-        temp_r3 = find_entity_by_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x17C)));
+    *(s32 *)&this->unk_1A4 = (s32) (*(s32 *)&this->unk_1A4 + 1);
+    if (((s32) *(s32 *)&this->unk_1A4 == 0x32) && ((s32) this->m_1a0 == 0)) {
+        this->m_1a0 = 1;
+        temp_r3 = find_entity_by_id((int) ((s32) this->m_17c));
         if (temp_r3 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp20), (void *) (temp_r3 + 0x38));
             stack.sp24 += lbl_805DC15C;
@@ -73,23 +73,23 @@ void TPhotonFarlla::run_task() {
             construct_photon_magic_square_normal((int) (temp_r3_2), (void *) (arg0), (int) (0), (void *) (&stack.sp20), (int) (0x78));
         }
     }
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x1A4) == 0x64) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1)) {
+    if (((s32) *(s32 *)&this->unk_1A4 == 0x64) && ((s16) this->m_b8 == 1)) {
         begin_photon_summon_camera((void *) (arg0), (int) (1));
-        *(s32 *)((s8 *)arg0 + 0x1A4) = 0;
+        *(s32 *)&this->unk_1A4 = 0;
         ((TObjEnePanarms *)arg0)->set_field_b8((int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (0));
     }
-    *(s16 *)((s8 *)arg0 + 0x194) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
+    this->m_194 = (s16) this->m_b8;
     update_state__10TSceneSoraFPv((void *) (arg0));
     advance_animation_playback((void *) (arg0));
     update_photon_blast_attachments((void *) (arg0));
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
-    if (lbl_805DC160 == (f32) *(s32 *)((s8 *)arg0 + 0x1A4)) {
+    if (lbl_805DC160 == (f32) *(s32 *)&this->unk_1A4) {
         ((TObjPlayer *)arg0)->update_all_slots();
     }
-    if (lbl_805DC164 == (f32) *(s32 *)((s8 *)arg0 + 0x1A4)) {
-        temp_r3_3 = find_entity_by_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x17C)));
+    if (lbl_805DC164 == (f32) *(s32 *)&this->unk_1A4) {
+        temp_r3_3 = find_entity_by_id((int) ((s32) this->m_17c));
         if (temp_r3_3 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (temp_r3_3 + 0x38));
         }
@@ -98,22 +98,22 @@ void TPhotonFarlla::run_task() {
         stack.sp18 += lbl_805DC16C;
         spawn_particle_effect((void *) (&stack.sp14), (int) (0x15F));
     }
-    temp_r3_4 = *(s32 *)((s8 *)arg0 + 0x1A4);
+    temp_r3_4 = *(s32 *)&this->unk_1A4;
     if ((lbl_805DC170 == (f32) temp_r3_4) || (lbl_805DC174 == (f32) temp_r3_4)) {
-        temp_r3_5 = find_entity_by_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x17C)));
+        temp_r3_5 = find_entity_by_id((int) ((s32) this->m_17c));
         if (temp_r3_5 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3_5 + 0x38));
             stack.spC += lbl_805DC168;
         }
         spawn_particle_effect((void *) (&stack.sp8), (int) (0x151));
     }
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x1A4) > lbl_805DC178) {
-        temp_f1 = *(f32 *)((s8 *)arg0 + 0x184);
+    if ((f32) *(s32 *)&this->unk_1A4 > lbl_805DC178) {
+        temp_f1 = this->m_184;
         if (temp_f1 > lbl_805DC17C) {
-            *(f32 *)((s8 *)arg0 + 0x184) = (f32) (temp_f1 - lbl_805DC180);
+            this->m_184 = (f32) (temp_f1 - lbl_805DC180);
         }
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1A0) != 0) {
+    if ((s32) this->m_1a0 != 0) {
         play_persistent_sound((int) (0x4002462F), (void *) (arg0), (int) (0), (int) (0), (int) (0));
     }
 }

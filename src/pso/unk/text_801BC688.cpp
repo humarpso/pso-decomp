@@ -24,7 +24,7 @@ extern "C" {
 #pragma fp_contract on
 void TObjPlayer::release_child_object() {
     void *temp_r3;
-    temp_r3 = *(void **)((s8 *)this + 0x380);
+    temp_r3 = *(void * *)&this->unk_380;
     if (temp_r3 != NULL) {
         ((VObj_801BC688 *)temp_r3)->m1(1);
     }
@@ -45,42 +45,42 @@ void TObjPlayer::init_action_provider() {
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(((TLobby *)temp_r3)->ct_variant());
         }
-        *(u8 **)((s8 *)arg0 + 0x380) = var_r0;
+        *(u8 * *)&this->unk_380 = var_r0;
     } else if (TObjPlayer::get_hold_effect_count() == 0) {
         temp_r3_2 = (u8 *)(heap_alloc__10TObjPlayerFPv(0xC));
         var_r0_2 = (u8 *)(temp_r3_2);
         if (var_r0_2 != NULL) {
             var_r0_2 = (u8 *)(init_vtable8__6TLobbyFPv(temp_r3_2));
         }
-        *(u8 **)((s8 *)arg0 + 0x380) = var_r0_2;
+        *(u8 * *)&this->unk_380 = var_r0_2;
     }
-    *(s8 *)((s8 *)arg0 + 0x33B) = 0;
+    this->m_33b = 0;
     *(s8 *)((s8 *)arg0 + 0x33A) = 0;
-    *(s8 *)((s8 *)arg0 + 0x339) = 0;
+    this->m_339 = 0;
     *(s8 *)((s8 *)arg0 + 0x338) = 0;
     *(s32 *)((s8 *)arg0 + 0x33C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x36C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x370) = 0;
+    this->m_36c = 0;
+    *(s32 *)&this->unk_370 = 0;
     ((TObjPlayer *)arg0)->reset_entrance_id();
     ((TObjPlayer *)(arg0 + 0x66C))->set_vec3_const();
     *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) TObjPlayer__data_805DC278;
-    *(s32 *)((s8 *)arg0 + 0x334) = 0;
+    *(s32 *)&this->m_334 = 0;
     set_input_mode__10TObjPlayerFPvi((void *) (arg0), (int) (0));
     set_move_mode__10TObjPlayerFPvi((void *) (arg0), (int) (0));
     *(s16 *)((s8 *)arg0 + 0x3C0) = -1;
-    *(f32 *)((s8 *)arg0 + 0x3C4) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)&this->m_3c4 = (f32) TObjPlayer__data_805DC278;
     ((TObjPlayer *)arg0)->set_battle_flag((int) (0));
-    *(s32 *)((s8 *)arg0 + 0x314) = 0;
-    *(s32 *)((s8 *)arg0 + 0xD00) = 0;
-    *(s32 *)((s8 *)arg0 + 0x424) = 0;
-    *(s32 *)((s8 *)arg0 + 0xE0) = 0;
+    this->m_314 = 0;
+    *(s32 *)&this->inventory_objects = 0;
+    this->m_424 = 0;
+    this->m_e0 = 0;
     *(s32 *)((s8 *)arg0 + 0xDB4) = 0;
     set_floor_index__10TObjPlayerFPvi((void *) (arg0), (int) (0xF));
     set_floor__10TObjPlayerFPvi((void *) (arg0), (int) (0xF));
-    *(s32 *)((s8 *)arg0 + 0x54C) = 0;
+    this->m_54c = 0;
     *(s32 *)((s8 *)arg0 + 0x3B8) = 0;
     *(s32 *)((s8 *)arg0 + 0x420) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3D0) = 0;
+    this->m_3d0 = 0;
     ((TObjPlayer *)arg0)->reset_state();
     set_flag_400000__10TObjPlayerFi((void *) (arg0));
     if (TObjPlayer::get_player_count() == 1) {

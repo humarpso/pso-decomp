@@ -424,7 +424,7 @@ void update__11TCameraCtrlFv();
 extern void *tl_05;
 
 void TUnk_804C3248::update_if_active() {
-    if (!(*(s32 *)((s8 *)this + 0x154) & 1)) {
+    if (!(*(s32 *)&this->unk_154 & 1)) {
         update__11TCameraCtrlFv();
         update__10TSceneSoraFv((s32)(this));
         ((s32 (*)(void *))update_all_default__8TFogCtrlFv)(this);

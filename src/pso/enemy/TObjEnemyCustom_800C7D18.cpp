@@ -185,19 +185,19 @@ extern f32 lbl_805DA070;
 void TObjEnemyCustom::update_state() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x37C);
+    temp_r0 = *(s32 *)&this->state;
     switch (temp_r0) {
     case 0:
-        *(s16 *)((s8 *)this + 0xB8) = 0;
-        *(s32 *)((s8 *)this + 0x37C) = 1;
+        this->m_b8 = 0;
+        *(s32 *)&this->state = 1;
     case 1:
         advance_animation_playback(this);
-        if (!(*(s32 *)((s8 *)this + 0x30) & 0x800000)) {
+        if (!(*(s32 *)&this->actorFlags & 0x800000)) {
             apply_actor_gravity(this, 0, lbl_805DA070);
         }
         break;
     case -1:
-        *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFFBFFFF);
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
         break;
     }
 }
@@ -224,20 +224,20 @@ void TObjEnemyCustom::run_task() {
         TObjVoloptCage__sub_800C76F0(arg0);
         return;
     }
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != (s32) *(s32 *)((s8 *)arg0 + 0x374)) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x37C) != -1) {
-            *(s32 *)((s8 *)arg0 + 0x37C) = -1;
+    if ((s16) this->mode != (s32) *(s32 *)&this->next_action) {
+        if ((s32) *(s32 *)&this->state != -1) {
+            *(s32 *)&this->state = -1;
             ((TObjEnemyCustom *)arg0)->dispatch_state();
         }
-        *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
-        *(s32 *)((s8 *)arg0 + 0x37C) = 0;
+        this->mode = (s16) *(s32 *)&this->next_action;
+        *(s32 *)&this->state = 0;
     }
     ((TObjEnemyCustom *)arg0)->dispatch_state();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x37C) == -1) {
-        *(s32 *)((s8 *)arg0 + 0x37C) = -1;
+    if ((s32) *(s32 *)&this->state == -1) {
+        *(s32 *)&this->state = -1;
         ((TObjEnemyCustom *)arg0)->dispatch_state();
-        *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
-        *(s32 *)((s8 *)arg0 + 0x37C) = 0;
+        this->mode = (s16) *(s32 *)&this->next_action;
+        *(s32 *)&this->state = 0;
     }
     ((TObjPlayer *)arg0)->update_prev_position();
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);

@@ -15,7 +15,7 @@ void *TObjPlayer::setup_action() {
     *(s32 **)((s8 *)this + 0x18) = s_rank_psychogun_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(this, 547);
     *(s32 **)((s8 *)this + 0x1F0) = create_gun_shot;
-    *(s32 **)((s8 *)this + 0x1EC) = spawn_weapon_impact_effect;
+    this->m_1ec = spawn_weapon_impact_effect;
     return this;
 }
 

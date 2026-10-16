@@ -20,26 +20,26 @@ void TWindowCtrl::update_window_visibility() {
     s32 temp_r3;
     s32 temp_r31;
 
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
-        temp_r3 = *(s16 *)((s8 *)arg0 + 0x22);
+    if ((u32) this->m_38 != 0U) {
+        temp_r3 = *(s16 *)&this->m_22;
         if (temp_r3 > 0) {
-            *(s16 *)((s8 *)arg0 + 0x22) = (s16) (temp_r3 - 1);
+            *(s16 *)&this->m_22 = (s16) (temp_r3 - 1);
         }
         if (get_player_by_client_id(local_client_id) == 0U) {
-            ((TWindowChat *)(*(u32 *)((s8 *)arg0 + 0x38)))->update();
+            ((TWindowChat *)(this->m_38))->update();
             return;
         }
         temp_r31 = TObjPlayer::get_current_target_id();
         if ((TWindowCtrl::get_display_flag() != 0) || (has_player_active_menu__11TWindowCtrlFv(local_client_id) != 0) || (is_slot_visible__11TWindowCtrlFv(local_client_id) != 0) || (apply_default_vec__11TWindowCtrlFll(arg0, local_client_id) != 0) || (((u16)temp_r31 != 0xffffU) && ((s32)(u16)temp_r31 != (s32) local_client_id))) {
-            ((TWindowChat *)(*(u32 *)((s8 *)arg0 + 0x38)))->update();
+            ((TWindowChat *)(this->m_38))->update();
             return;
         }
-        ((TWindowChat *)(*(u32 *)((s8 *)arg0 + 0x38)))->open_input();
-        if ((((TWindowChat *)(*(u32 *)((s8 *)arg0 + 0x38)))->is_mode_bit4() != 0) && (chat_accept_submission(arg0 + 0x94) != 0)) {
-            TWindowChat__sub_80247E50(*(u32 *)((s8 *)arg0 + 0x38));
+        ((TWindowChat *)(this->m_38))->open_input();
+        if ((((TWindowChat *)(this->m_38))->is_mode_bit4() != 0) && (chat_accept_submission(arg0 + 0x94) != 0)) {
+            TWindowChat__sub_80247E50(this->m_38);
         }
-        if (((TWindowChat *)(*(u32 *)((s8 *)arg0 + 0x38)))->is_visible() != 0) {
-            TWindowChat__sub_80247DFC(*(u32 *)((s8 *)arg0 + 0x38));
+        if (((TWindowChat *)(this->m_38))->is_visible() != 0) {
+            TWindowChat__sub_80247DFC(this->m_38);
         }
     }
 }

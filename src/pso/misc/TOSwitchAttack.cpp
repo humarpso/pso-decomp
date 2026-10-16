@@ -21,26 +21,26 @@ extern const f32 lbl_805DBA00;
 void TOSwitchAttack::init_params() {
     f32 temp_f0;
 
-    *(u8 *)((s8 *)this + 0xA7) = (u8) *(s32 *)((s8 *)this + 0x5C);
-    temp_f0 = *(f32 *)((s8 *)this + 0x68);
-    *(f32 *)((s8 *)this + 0x94) = (f32) (temp_f0 * temp_f0);
-    *(f32 *)((s8 *)this + 0x98) = (f32) (*(f32 *)((s8 *)this + 0x6C) * (lbl_805DBA00 * (f32) (game_difficulty_selection + 1)));
+    this->m_a7 = (u8) *(s32 *)&this->m_5c;
+    temp_f0 = this->scale;
+    this->m_94 = (f32) (temp_f0 * temp_f0);
+    *(f32 *)&this->unk_98 = (f32) (this->target_scale * (lbl_805DBA00 * (f32) (game_difficulty_selection + 1)));
     *(f32 *)((s8 *)this + 0x90) = (f32) *(f32 *)((s8 *)this + 0x70);
-    if ((u8) *(u8 *)((s8 *)this + 0xA7) >= 0x15U) {
-        *(u8 *)((s8 *)this + 0xA7) = 0U;
+    if ((u8) this->m_a7 >= 0x15U) {
+        this->m_a7 = 0U;
     }
-    *(s32 *)((s8 *)this + 0x9C) = 0;
-    *(u16 *)((s8 *)this + 0xA0) = (u16) *(s32 *)((s8 *)this + 0x84);
-    if ((u16) *(u16 *)((s8 *)this + 0xA0) >= 0x100U) {
-        *(u16 *)((s8 *)this + 0xA0) = 0xFFFFU;
+    *(s32 *)&this->m_9c = 0;
+    this->m_a0 = (u16) this->m_84;
+    if ((u16) this->m_a0 >= 0x100U) {
+        this->m_a0 = 0xFFFFU;
     }
-    *(u16 *)((s8 *)this + 0xA2) = (u16) *(s32 *)((s8 *)this + 0x88);
-    if ((u16) *(u16 *)((s8 *)this + 0xA2) >= 0x100U) {
-        *(u16 *)((s8 *)this + 0xA2) = 0xFFFFU;
+    this->m_a2 = (u16) *(s32 *)&this->m_88;
+    if ((u16) this->m_a2 >= 0x100U) {
+        this->m_a2 = 0xFFFFU;
     }
-    *(u16 *)((s8 *)this + 0xA4) = (u16) *(s32 *)((s8 *)this + 0x8C);
-    if ((u16) *(u16 *)((s8 *)this + 0xA4) > 1U) {
-        *(u16 *)((s8 *)this + 0xA4) = 1U;
+    this->m_a4 = (u16) *(s32 *)&this->unk_8C;
+    if ((u16) this->m_a4 > 1U) {
+        this->m_a4 = 1U;
     }
 }
 

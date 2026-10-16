@@ -10,7 +10,7 @@ void TParticleCtrl::destroy_particle() {
     void *x;
     x = validate_ctrl__13TParticleCtrlFv(this);
     if (x != NULL) {
-        queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x4));
+        queue_destruction__7TObjectFv(*(void * *)&this->m_flags);
     }
 }
 

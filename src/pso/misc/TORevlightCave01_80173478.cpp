@@ -38,23 +38,23 @@ void TORevlightCave01::run_task() {
     if (TObjPlayer::check_demo_mode() == 1) {
         TORevlightCave01__sub_80173478((void *)((void *) (arg0)));
     }
-    *(s32 *)((s8 *)arg0 + 0xC8) = (s32) (*(s32 *)((s8 *)arg0 + 0xC8) + *(s32 *)((s8 *)arg0 + 0xCC));
+    *(s32 *)&this->m_c8 = (s32) (*(s32 *)&this->m_c8 + *(s32 *)&this->m_cc);
 }
 
 void TORevlightCave01::render() {
     u8 *arg0 = (u8 *)this;
-    if (((TORevlightCave01_80173478*)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((TORevlightCave01_80173478*)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
-        rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 4));
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xC8));
-        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 4));
+        rotate_matrix_z(0, this->rotation_z);
+        rotate_matrix_x(0, *(s32 *)&this->m_5c);
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
+        draw_ginja_model(*(s32 *)((s8 *)(*(void * *)&this->model) + 4));
+        rotate_matrix_y(0, *(s32 *)&this->m_c8);
+        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 4));
         TParticleCtrl::begin_effect_render();
-        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 0x2C)) + 4));
+        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 0x2C)) + 4));
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }

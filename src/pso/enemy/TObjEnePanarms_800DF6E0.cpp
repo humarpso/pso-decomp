@@ -40,6 +40,6 @@ s32 TObjEnePanarms__sub_800DFB44(O_800DFB44 *self) {
     return self->state == 7 || self->state == 8;
 }
 
-int TObjEnePanarms::get_state_flag() { return (*(u32*)((char*)this + 0x30) >> 4) & 0x1; }
+int TObjEnePanarms::get_state_flag() { return (*(u32 *)&this->m_30 >> 4) & 0x1; }
 
 }

@@ -70,9 +70,9 @@ void TUnk_804CC148::render() {
 }
 
 void TUnk_804CC148::tick_lifetime() {
-    *(s32 *)((s8 *)this + 0x6C) = 1;
-    *(s32 *)((s8 *)this + 0x68) = (s32) (*(s32 *)((s8 *)this + 0x68) + 1);
-    if ((f32) *(s32 *)((s8 *)this + 0x68) > *(f32 *)((s8 *)this + 0x70)) {
+    *(s32 *)&this->field_6c = 1;
+    this->age = (s32) (this->age + 1);
+    if ((f32) this->age > *(f32 *)((s8 *)this + 0x70)) {
         queue_destruction__7TObjectFv(this);
     }
 }
@@ -127,7 +127,7 @@ void __dt__7TEffectFv(void *, int);
 void TUnk_804CC148::run_task() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x6C);
+    temp_r0 = *(s32 *)&this->field_6c;
     switch (temp_r0) {
     case 0:
         TTecLuker__sub_8022C008();

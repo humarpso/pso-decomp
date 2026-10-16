@@ -958,19 +958,19 @@ void *TWindowSubStatusDisp::dispose(s16 arg1) {
     u16 temp_r3_2;
 
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 4) = lbl_804CF9B0;
-        if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
-            temp_r3 = *(u16 *)((s8 *)this + 0);
+        *(s32 * *)&this->m_flags = lbl_804CF9B0;
+        if ((u32) *(u32 *)&this->m_24 != 0U) {
+            temp_r3 = *(u16 *)&this->m_name;
             if (temp_r3 & 0x10) {
-                *(u16 *)((s8 *)this + 0) = (u16) (temp_r3 & 0xFFFFFFEF);
-                mem_free(*(u32 *)((s8 *)this + 0x24));
+                *(u16 *)&this->m_name = (u16) (temp_r3 & 0xFFFFFFEF);
+                mem_free(*(u32 *)&this->m_24);
             }
         }
-        if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
-            temp_r3_2 = *(u16 *)((s8 *)this + 0);
+        if ((u32) *(u32 *)&this->m_20 != 0U) {
+            temp_r3_2 = *(u16 *)&this->m_name;
             if (temp_r3_2 & 8) {
-                *(u16 *)((s8 *)this + 0) = (u16) (temp_r3_2 & 0xFFFFFFF7);
-                mem_free(*(u32 *)((s8 *)this + 0x20));
+                *(u16 *)&this->m_name = (u16) (temp_r3_2 & 0xFFFFFFF7);
+                mem_free(*(u32 *)&this->m_20);
             }
         }
         deleting_destructor__20TWindowSubStatusDispFs(this, 0);

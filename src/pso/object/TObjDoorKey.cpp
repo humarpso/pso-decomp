@@ -171,7 +171,7 @@ void TObjDoorKey::render() {
         if ((u32) *(u32 *)((s8 *)this + 0xF8) != 0U) {
             ((TParticleCtrl *)(*(void **)((s8 *)this + 0xF8)))->clear_active_flag();
         }
-        temp_r0 = *(s32 *)((s8 *)this + 0xD4);
+        temp_r0 = *(s32 *)&this->m_f0;
         switch (temp_r0) {
         case 0:
             draw_inactive_badge();

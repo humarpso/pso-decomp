@@ -204,8 +204,8 @@ void TTecResta::init_parameters() {
 void TUnk_804CCBC0::run_task() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)this + 0x2C);
-    *(s32 *)((s8 *)this + 0x2C) = (s32) (temp_r4 + 1);
+    temp_r4 = this->m_2c;
+    this->m_2c = (s32) (temp_r4 + 1);
     if (temp_r4 > 0xB4) {
         queue_destruction__7TObjectFv();
     }

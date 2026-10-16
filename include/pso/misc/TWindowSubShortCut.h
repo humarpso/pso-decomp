@@ -7,7 +7,8 @@
 struct TWindowSubShortCut : public TObject {
     virtual ~TWindowSubShortCut();
     u8 m_1c;
-    u8 _pad1D[0x3];
+    u8 unk_1D[0x1];
+    u16 m_1e;
     u32 m_20;
     u32 m_24;
     u32 m_28;
@@ -26,7 +27,9 @@ struct TWindowSubShortCut : public TObject {
     void set_flag1e_bit80();
     void close_and_clear_flag();
     void free_icon();
-    u8 unk_44[0x50];
+    u8 unk_44[0x1C];
+    u8 m_60;
+    u8 unk_61[0x33];
 };
 
 typedef char TWindowSubShortCut_size[sizeof(TWindowSubShortCut) == 0x94 ? 1 : -1];

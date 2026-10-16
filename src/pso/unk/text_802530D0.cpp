@@ -13,7 +13,7 @@ s32 TWindowHelpItem::is_item_already_equipped() {
     s32 temp_r3;
     s32 field;
     u32 diff;
-    field = *(s32 *)((s8 *)this + 0xA4);
+    field = *(s32 *)&this->m_a4;
     if (field == -1) {
         return 0;
     }
@@ -24,7 +24,7 @@ s32 TWindowHelpItem::is_item_already_equipped() {
     if (((TObjPlayer *)temp_r3)->test_item_flags(8) == 0U) {
         return 0;
     }
-    diff = (u32) ((TItemProArmor *)temp_r3)->get_id() - (u32) (s32) *(s16 *)((s8 *)this + 0x20);
+    diff = (u32) ((TItemProArmor *)temp_r3)->get_id() - (u32) (s32) this->m_20;
     return (s32) ((u32) __cntlzw(diff) >> 5);
 }
 

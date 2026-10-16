@@ -6,7 +6,10 @@
 
 class TMCFormatSequence : public TObject {
 public:
-    u8 _pad1C[0x1C];
+    u8 unk_1C[0x8];
+    s32 m_24;
+    u8 unk_28[0xC];
+    unsigned int m_34;
  void* m_38;
 public:
     virtual ~TMCFormatSequence();

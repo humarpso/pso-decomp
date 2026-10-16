@@ -98,10 +98,10 @@ void TObjContainerJungEx::load_resource_instance() {
 #pragma opt_propagation off
 void TObjDoaEx01::vfunc_18() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) - *(f32 *)((s8 *)arg0 + 0xB8));
-    if (*(f32 *)((s8 *)arg0 + 0xB0) < TObjDoaEx01__data_805DBDA0) {
-        *(f32 *)((s8 *)arg0 + 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
-        *(s32 *)((s8 *)arg0 + 0xAC) = 0;
+    this->m_b0 = (f32) (this->m_b0 - this->m_b8);
+    if (this->m_b0 < TObjDoaEx01__data_805DBDA0) {
+        this->m_b0 = (f32) TObjDoaEx01__data_805DBDA0;
+        *(s32 *)&this->unk_AC = 0;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
     }
 }

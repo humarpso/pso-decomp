@@ -13,19 +13,37 @@ struct TObjEneBm5Wolf
     void roaming_state(int event);
     void choose_roaming_destination();
 
-    u8 _pad0[0x38];
+    u8 unk_0[0x4];
+
+    void ** m_4;
+
+    u8 unk_8[0x30];
     f32 position[3];
     u8 _pad44[0x1C];
     s32 facing;
-    u8 _pad64[0x54];
+    u8 unk_64[0x4C];
+    s32 m_b0;
+    u8 unk_B4[0x4];
     s16 requestedAction;
-    u8 _padBA[0xE];
+    u8 unk_BA[0x6];
+    f32 m_c0;
+    u8 unk_C4[0x4];
     f32 playbackSpeed;
-    u8 _padCC[0x25A];
+    u8 unk_CC[0x23C];
+    f32 m_308;
+    u8 unk_30C[0x4];
+    f32 m_310;
+    u8 unk_314[0x12];
     s16 m_326;
-    u8 _pad328[0x28];
+    u8 unk_328[0x4];
+    s16 m_32c;
+    u8 unk_32E[0x10];
+    s16 m_33e;
+    u8 unk_340[0x10];
     u32 m_350;
-    u8 _pad354[0x3C];
+    u8 unk_354[0x24];
+    s32 m_378;
+    u8 unk_37C[0x14];
     void* target;
     f32 destination[3];
     f32 destinationDirection[3];
@@ -58,7 +76,9 @@ struct TObjEneBm5Wolf
     u32 m_42c;
     u32 m_430;
     f32 stoppingDistance;
-    u8 _pad438[0x30];
+    u8 unk_438[0x4];
+    f32 m_43c;
+    u8 unk_440[0x28];
     s32 nearTarget;
     static void advance_spawn_timer();
     void despawn_state(s32 msg);

@@ -959,7 +959,7 @@ s32 TObjPlayer::update_hide_sequence() {
     s32 temp_r4;
     s32 temp_r5;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
+    temp_r0 = this->m_37c;
     switch (temp_r0) {
     case 0:
         obj_clearFlags30(arg0, 0x240300);
@@ -968,16 +968,16 @@ s32 TObjPlayer::update_hide_sequence() {
         temp_r4 = temp_r5 & 0xFFB7FFFF;
         *(s32 *)((s8 *)arg0 + 0x388) = temp_r4;
         *(s16 *)((s8 *)arg0 + 0xB8) = 8;
-        *(s16 *)((s8 *)arg0 + 0x39C) = TObjPlayer__sub_800A3210((s32)(1), (s32)(temp_r4), (s32)(temp_r5));
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
+        this->m_39c = TObjPlayer__sub_800A3210((s32)(1), (s32)(temp_r4), (s32)(temp_r5));
+        this->m_37c = 1;
     case 1:
         advance_animation_playback(arg0);
-        if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x800000)) {
+        if (!(*(s32 *)&this->actor_flags & 0x800000)) {
             apply_actor_gravity(arg0, 0, lbl_805D9984);
         }
         ((TObjPlayer *)arg0)->update_collisions();
-        temp_r3 = *(s16 *)((s8 *)arg0 + 0x39C) - 1;
-        *(s16 *)((s8 *)arg0 + 0x39C) = (s16) temp_r3;
+        temp_r3 = this->m_39c - 1;
+        this->m_39c = (s16) temp_r3;
         if ((s16) temp_r3 <= 0) {
             set_hidden_flag();
         }
@@ -991,7 +991,7 @@ s32 TObjPlayer::update_hide_sequence() {
 }
 
 void TObjPlayer::trigger_action_if_not_flagged() {
-    if (!(*(s32 *)((s8 *)this + 0x30) & 0x800) && !(*(s32 *)((s8 *)this + 0x388) & 0x800000)) {
+    if (!(*(s32 *)&this->actor_flags & 0x800) && !(*(s32 *)((s8 *)this + 0x388) & 0x800000)) {
         update_if_active__15TObjEneMe1GiGueFl(this, 6);
     }
 }
@@ -1195,7 +1195,7 @@ void TObjPlayer__sub_800A1D70(u8 *arg0) {
 
 void TObjEneDarkGunner::vfunc_62() {
     s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     if (temp_r0 != 4) {
         if ((temp_r0 == 2) && (((TObjPlayer *)this)->is_flag_set_388_bit26() != 0) && (get_enemy_entity(*(u16 *)((s8 *)this + 0x428)) != 0U)) {
             trigger_targets_action__10TObjPlayerFv();
@@ -1439,7 +1439,7 @@ s32 TObjPlayer__sub_800A2390(void *arg0_) {
 #pragma pop
 
 void TObjPlayer::set_hidden_flag() {
-    if (!(*(s32 *)((s8 *)this + 0x30) & 0x800)) {
+    if (!(*(s32 *)&this->actor_flags & 0x800)) {
         update_if_active__15TObjEneMe1GiGueFl(this, 1);
         *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) | 0x20000);
     }
@@ -1579,11 +1579,11 @@ s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2) {
 
 int TObjPlayer::is_flag_set_388_bit26() { return (*(u32*)((char*)this + 0x388) >> 26) & 0x1; }
 
-void TObjPlayer::set_fields_24_34_from_global(void* a1) { *(int*)((char*)this + 0x34) = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int*)((char*)this + 0x24) = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
+void TObjPlayer::set_fields_24_34_from_global(void* a1) { *(int *)&this->_pad34 = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int*)((char*)this + 0x24) = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
 
-void TObjPlayer::clear_counter() { *(s32*)((char*)this + 0x340) = 0; }
+void TObjPlayer::clear_counter() { *(s32 *)&this->m_340 = 0; }
 
-void TObjPlayer::set_cancel_flag() { *(s32*)((char*)this + 0x340) = 1; }
+void TObjPlayer::set_cancel_flag() { *(s32 *)&this->m_340 = 1; }
 
 s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id) {
     Obj_800A3290 *other;
@@ -1624,7 +1624,7 @@ void TUnk_804909C4::run_task() {
     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
     vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0xAC));
     {
-        void *p = (void *) *(void **)((s8 *)arg0 + 0xD0);
+        void *p = (void *) this->m_d0;
         if (p != NULL) {
             ((TNowLoading *)p)->copy_pos((void *) (arg0 + 0x38));
         }
@@ -1633,8 +1633,8 @@ void TUnk_804909C4::run_task() {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC4) - 1;
-    *(s32 *)((s8 *)arg0 + 0xC4) = temp_r0;
+    temp_r0 = this->m_c4 - 1;
+    this->m_c4 = temp_r0;
     if (temp_r0 <= 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }

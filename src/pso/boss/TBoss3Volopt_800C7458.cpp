@@ -118,12 +118,12 @@ s32 TBoss3Volopt::query_field_30(s32 *arg1) {
     if (arg1 == NULL) {
         return 0;
     }
-    temp_r31 = *(s32 *)((s8 *)this + 0x30);
-    *(s32 *)((s8 *)this + 0x30) = 0;
+    temp_r31 = *(s32 *)&this->actorFlags;
+    *(s32 *)&this->actorFlags = 0;
     (*(s32 **)&volopt_active_node_cursor) = arg1;
     volopt_active_node_counter = 0;
     ((s32 (*)())collect_active_nodes__12TBoss3VoloptFPv)();
-    *(s32 *)((s8 *)this + 0x30) = temp_r31;
+    *(s32 *)&this->actorFlags = temp_r31;
     *(*(s32 **)&volopt_active_node_cursor) = 0;
     return volopt_active_node_counter;
 }

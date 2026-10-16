@@ -63,8 +63,8 @@ extern "C" {
 int TObjEneMe1Gee_NEEDLE::queue_destruction() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC0) - 1;
-    *(s32 *)((s8 *)arg0 + 0xC0) = temp_r0;
+    temp_r0 = this->m_c0 - 1;
+    this->m_c0 = temp_r0;
     if (temp_r0 <= 0) {
         queue_destruction__7TObjectFv((void*)arg0);
     }
@@ -77,7 +77,7 @@ int TObjEneMe1Gee_NEEDLE::vfunc_6() {
     } else {
         play_sound_effect((int) (0x3A847), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
     }
-    *(s32 *)((s8 *)arg0 + 0xB8) = 0;
+    *(s32 *)&this->m_b8 = 0;
 }
 
 }

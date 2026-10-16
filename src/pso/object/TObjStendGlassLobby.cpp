@@ -70,17 +70,17 @@ void TObjStendGlassLobby::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U)) {
+    if (((s32) *(s32 *)&this->m_c8 != 0) && ((u32) *(u32 *)&this->texture_id != 0U)) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param((int) (*(u32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(u32 *)&this->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 3) {
-            temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        if ((s32) *(s32 *)&this->m_c8 != 3) {
+            temp_f1 = *(f32 *)&this->_padCC;
             scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
-        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        draw_ginja_object((int) (*(s32 *)&this->model));
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
@@ -127,16 +127,16 @@ void TObjStendGlassLobby::run_task() {
 }
 
 void TObjStendGlassLobby::update_state() {
-    if ((s32) *(s32 *)((s8 *)this + 0x84) < 1) {
-        *(s32 *)((s8 *)this + 0xD0) = 0;
+    if ((s32) this->m_84 < 1) {
+        *(s32 *)&this->m_d0 = 0;
     } else {
-        *(s32 *)((s8 *)this + 0xD0) = 1;
+        *(s32 *)&this->m_d0 = 1;
     }
-    if ((s32) *(s32 *)((s8 *)this + 0xD0) == TLobby::get_filtered_event_theme()) {
-        *(s32 *)((s8 *)this + 0xC8) = 3;
+    if ((s32) *(s32 *)&this->m_d0 == TLobby::get_filtered_event_theme()) {
+        *(s32 *)&this->m_c8 = 3;
         return;
     }
-    *(s32 *)((s8 *)this + 0xC8) = 0;
+    *(s32 *)&this->m_c8 = 0;
 }
 
 extern void *tl_05;

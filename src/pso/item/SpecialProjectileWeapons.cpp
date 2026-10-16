@@ -130,13 +130,13 @@ void *weapon_star_light_follower_vtable[6] = {
 void TUnk_804A2018::run_task() {
     s32 sp8;
     s32 temp_r3;
-    if ((u32) *(u32 *)((s8 *)this + 0x28) != ((u32)get_item_system_generation())) {
+    if ((u32) this->m_28 != ((u32)get_item_system_generation())) {
         queue_destruction__7TObjectFv(this);
         return;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
         temp_r3 = ((s32)find_item_by_id(*(s32 *)((s8 *)this + 0x1C)));
-        if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)temp_r3)->draw_icon((s32)((s32)(*(s32 *)((s8 *)this + 0x20))), (s32)((s32 *)(&sp8))) != 0)) {
+        if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)temp_r3)->draw_icon((s32)((s32)(this->m_20)), (s32)((s32 *)(&sp8))) != 0)) {
             if (((TItemMag *)temp_r3)->get_flag_40() == 0) {
                 copy_position__15TEffStarLight2DFPv(*(u32 *)((s8 *)this + 0x24), &sp8);
                 return;
@@ -437,18 +437,18 @@ void TUnk_804A2148::render() {
     u8 *temp_r3_2;
 
     if (is_owner_alive__10TObjPlayerFv() != 0) {
-        temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x58));
-        if ((temp_r3 != NULL) && ((u32) *(u32 *)((s8 *)arg0 + 0x5C) != 0U)) {
+        temp_r3 = (unsigned char *) (*(void * *)&this->m_58);
+        if ((temp_r3 != NULL) && ((u32) *(u32 *)&this->m_5C != 0U)) {
             temp_r3_2 = (unsigned char *) (*(void **)((s8 *)temp_r3 + 0x2C));
             temp_r31 = (unsigned char *) (*(void **)((s8 *)temp_r3_2 + 0x30));
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFFB);
             *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 10.0f;
             push_matrix();
-            TObjPlayer::notify_fish_if_valid((int) (*(u32 *)((s8 *)arg0 + 0x5C)));
+            TObjPlayer::notify_fish_if_valid((int) (*(u32 *)&this->m_5C));
             post_translate_matrix((void *) (arg0 + 0x1C));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x2C)));
-            rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x28) - 0x4000));
-            draw_ginja_object((void *) (*(void **)((s8 *)arg0 + 0x58)));
+            rotate_matrix_y((int) (0), (int) (this->m_count));
+            rotate_matrix_x((int) (0), (int) (this->m_28 - 0x4000));
+            draw_ginja_object((void *) (*(void * *)&this->m_58));
             pop_matrix();
             *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 1.0f;
         }

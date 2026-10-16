@@ -26,21 +26,21 @@ void *__nw__7TObjectFUl(int);
 s32 queue_destruction__7TObjectFv(void *);
 
     extern const float lbl_805E0360;
-void TAdDialingMessageWindow::set_flag_and_notify() { *(int*)((char*)this + 0x1c) = (*(int*)((char*)this + 0x1c) | 0x1); create_draw_line_ctrl__13TAdMcSelectGCFiif((void*)(*(int*)((char*)this + 0x28)), 17, lbl_805E0360); }
+void TAdDialingMessageWindow::set_flag_and_notify() { *(int *)&this->m_1c = (*(int *)&this->m_1c | 0x1); create_draw_line_ctrl__13TAdMcSelectGCFiif((void*)(*(int *)&this->m_28), 17, lbl_805E0360); }
 
-void TAdDialingMessageWindow::run_child_tasks() { void* m = *(void**)((char*)this + 0x28); if (m) ((TObject *)m)->run_tasks(); }
+void TAdDialingMessageWindow::run_child_tasks() { void* m = *(void* *)&this->m_28; if (m) ((TObject *)m)->run_tasks(); }
 
 extern s32 __vt__23TAdDialingMessageWindow[];
 
 void TAdDialingMessageWindow::render() {
-    if (*(s32 *)((s8 *)this + 0x1C) & 1) {
+    if (*(s32 *)&this->m_1c & 1) {
         TAdDialingGC__sub_80328B24(lbl_8047A400, lbl_8047A408);
-        if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
-            ((TAdSinglePlyChrSelectGC *)(*(void **)((s8 *)this + 0x20)))->render_status_disp(lbl_805E0364, lbl_805E0368);
+        if ((u32) this->m_20 != 0U) {
+            ((TAdSinglePlyChrSelectGC *)(*(void * *)&this->m_20))->render_status_disp(lbl_805E0364, lbl_805E0368);
         }
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x28) != 0U) {
-        ((TObject *)(*(void **)((s8 *)this + 0x28)))->render_nodes();
+    if ((u32) this->m_28 != 0U) {
+        ((TObject *)(*(void * *)&this->m_28))->render_nodes();
     }
 }
 

@@ -19,7 +19,7 @@ extern s32 lbl_8049F42C[];
 void *TItemLoad::init() {
     struct VOff_8010FD2C_arg0_8010fd2c *self = (struct VOff_8010FD2C_arg0_8010fd2c *)this;
     init_buffer__9TItemLoadFPviii(this);
-    *(s32 **)((s8 *)this + 0x14) = lbl_8049F42C;
+    *(s32 * *)&this->m_down = lbl_8049F42C;
     ((TObjPlayer *)(self->f_1C))->init_forward();
     *(u32 *)((s8 *)this + 0x18) = 0;
     ((TObjPlayer *)(self->f_1C))->clear_id();

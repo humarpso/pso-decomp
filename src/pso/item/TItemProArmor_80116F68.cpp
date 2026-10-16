@@ -217,7 +217,7 @@ u8 *create_telepipe_item(u8 *arg0) {
     return NULL;
 }
 
-int TItemProArmor::get_stat_value() { return obj_getS16_2BA(*(void**)((char*)this + 0xf0)); }
+int TItemProArmor::get_stat_value() { return obj_getS16_2BA(*(void* *)&this->m_f0); }
 
 extern s32 game_difficulty_selection;
 

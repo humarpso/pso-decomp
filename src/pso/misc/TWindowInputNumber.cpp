@@ -14,22 +14,22 @@ s32 is_confirmed__18TWindowInputNumberFv();
 s32 save_position__17TWindowSubComCardFPv();
 
 void TWindowInputNumber::mark_confirmed() {
-    if (!(*(u16 *)((s8 *)this + 0x60) & 8) && (is_confirmed__18TWindowInputNumberFv() == 0)) {
-        *(u16 *)((s8 *)this + 0x60) = (u16) (*(u16 *)((s8 *)this + 0x60) | 4);
+    if (!(this->inputFlags & 8) && (is_confirmed__18TWindowInputNumberFv() == 0)) {
+        this->inputFlags = (u16) (this->inputFlags | 4);
     }
 }
 void TWindowInputNumber::confirm_input() {
     s32 temp_r3;
     u32 temp;
 
-    temp_r3 = *(s32 *)((s8 *)this + 0x6C);
-    if ((temp_r3 < (s32) *(s32 *)((s8 *)this + 0x64)) || (temp_r3 > (s32) *(s32 *)((s8 *)this + 0x68))) {
+    temp_r3 = this->value;
+    if ((temp_r3 < (s32) this->minimum) || (temp_r3 > (s32) this->maximum)) {
         play_sound_effect((s32)(0x53F06), (s32)(0), (s32)(0), (s32)(0));
         return;
     }
     play_sound_effect((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
-    *(u16 *)((s8 *)this + 0x60) = (u16) (*(u16 *)((s8 *)this + 0x60) | 2);
-    temp = (u32) *(u32 *)((s8 *)this + 0x70);
+    this->inputFlags = (u16) (this->inputFlags | 2);
+    temp = (u32) *(u32 *)&this->unknown70;
     if (temp != 0U) {
         ((TWindowSubStatusDisp *)temp)->set_entry_state(2);
     }
@@ -39,9 +39,9 @@ extern s32 number_input_decimal_place_values[];
 
 void TWindowInputNumber::update() {
     play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
-    *(s32 *)((s8 *)this + 0x6C) = (s32) (*(s32 *)((s8 *)this + 0x6C) - number_input_decimal_place_values[(s8) *(u8 *)((s8 *)this + 0x63)]);
-    if ((s32) *(s32 *)((s8 *)this + 0x6C) < (s32) *(s32 *)((s8 *)this + 0x64)) {
-        *(s32 *)((s8 *)this + 0x6C) = (s32) *(s32 *)((s8 *)this + 0x68);
+    this->value = (s32) (this->value - number_input_decimal_place_values[(s8) *(u8 *)&this->selectedDigit]);
+    if ((s32) this->value < (s32) this->minimum) {
+        this->value = (s32) this->maximum;
     }
     refresh_digit_entries__18TWindowInputNumberFPv(this);
     align_digits__18TWindowInputNumberFv(this);
@@ -51,9 +51,9 @@ extern s32 number_input_decimal_place_values[];
 
 void TWindowInputNumber::update_value() {
     play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
-    *(s32 *)((s8 *)this + 0x6C) = (s32) (*(s32 *)((s8 *)this + 0x6C) + number_input_decimal_place_values[(s8) *(u8 *)((s8 *)this + 0x63)]);
-    if ((s32) *(s32 *)((s8 *)this + 0x6C) > (s32) *(s32 *)((s8 *)this + 0x68)) {
-        *(s32 *)((s8 *)this + 0x6C) = (s32) *(s32 *)((s8 *)this + 0x64);
+    this->value = (s32) (this->value + number_input_decimal_place_values[(s8) *(u8 *)&this->selectedDigit]);
+    if ((s32) this->value > (s32) this->maximum) {
+        this->value = (s32) this->minimum;
     }
     refresh_digit_entries__18TWindowInputNumberFPv(this);
     align_digits__18TWindowInputNumberFv(this);
@@ -61,13 +61,13 @@ void TWindowInputNumber::update_value() {
 
 void TWindowInputNumber::handle_decrement() {
     play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
-    *(u8 *)((s8 *)this + 0x63) = (u8) (*(u8 *)((s8 *)this + 0x63) - 1);
-    if ((s8) *(u8 *)((s8 *)this + 0x63) < 0) {
-        if (*(u16 *)((s8 *)this + 0x60) & 1) {
-            *(u8 *)((s8 *)this + 0x63) = 0U;
+    *(u8 *)&this->selectedDigit = (u8) (*(u8 *)&this->selectedDigit - 1);
+    if ((s8) *(u8 *)&this->selectedDigit < 0) {
+        if (this->inputFlags & 1) {
+            *(u8 *)&this->selectedDigit = 0U;
             return;
         }
-        *(u8 *)((s8 *)this + 0x63) = (u8) (*(u8 *)((s8 *)this + 0x62) - 1);
+        *(u8 *)&this->selectedDigit = (u8) (*(u8 *)&this->digitCount - 1);
     }
 }
 
@@ -75,18 +75,18 @@ void TWindowInputNumber::move_cursor_next() {
     u8 temp_r4;
 
     play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
-    *(u8 *)((s8 *)this + 0x63) = (u8) (*(u8 *)((s8 *)this + 0x63) + 1);
-    if ((s8) *(u8 *)((s8 *)this + 0x63) >= (s8) (temp_r4 = *(u8 *)((s8 *)this + 0x62))) {
-        if (*(u16 *)((s8 *)this + 0x60) & 1) {
-            *(u8 *)((s8 *)this + 0x63) = (u8) (temp_r4 - 1);
+    *(u8 *)&this->selectedDigit = (u8) (*(u8 *)&this->selectedDigit + 1);
+    if ((s8) *(u8 *)&this->selectedDigit >= (s8) (temp_r4 = *(u8 *)&this->digitCount)) {
+        if (this->inputFlags & 1) {
+            *(u8 *)&this->selectedDigit = (u8) (temp_r4 - 1);
             return;
         }
-        *(u8 *)((s8 *)this + 0x63) = 0U;
+        *(u8 *)&this->selectedDigit = 0U;
     }
 }
 
 void TWindowInputNumber::set_value(f32 farg0) {
-    *(f32 *)((s8 *)this + 0x38) = farg0;
+    this->m_38 = farg0;
     save_position__17TWindowSubComCardFPv();
     align_digits__18TWindowInputNumberFv(this);
 }

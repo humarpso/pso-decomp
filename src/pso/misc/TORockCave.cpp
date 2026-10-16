@@ -121,13 +121,13 @@ extern u32 rock_cave_model_resource;
 
 void TORockCave::draw_model() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj_18 *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {
+    if (((VObj_18 *)(arg0))->m8(*(f32 *)&this->unk_AC, this->m_b0) != 0) {
         ((VObj_18 *)(arg0))->m12();
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
+        draw_ginja_object((int) (*(s32 *)&this->model));
         pop_matrix();
         ((VObj_18 *)(arg0))->m13();
     }

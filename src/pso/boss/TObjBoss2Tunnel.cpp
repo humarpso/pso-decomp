@@ -10,12 +10,12 @@ extern const f32 TObjBoss2Tunnel__data_805D9234;
 extern f32 lbl_805D923C;
 
 void TObjBoss2Tunnel::advance_phase() {
-    TObjBoss2Tunnel__sub_8007DDB0(*(f32 *)((s8 *)this + 0x1C));
-    *(f32 *)((s8 *)this + 0x1C) = (f32) (*(f32 *)((s8 *)this + 0x1C) + lbl_805D923C);
+    TObjBoss2Tunnel__sub_8007DDB0(*(f32 *)&this->_pad1C);
+    *(f32 *)&this->_pad1C = (f32) (*(f32 *)&this->_pad1C + lbl_805D923C);
 }
 
 void TObjBoss2Tunnel::update_position() {
-    eval_piecewise_curve(*(f32 *)((s8 *)this + 0x1C));
+    eval_piecewise_curve(*(f32 *)&this->_pad1C);
 }
 
 #pragma push

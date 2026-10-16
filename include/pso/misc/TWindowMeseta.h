@@ -8,7 +8,8 @@ struct TWindowMeseta : public TUnk_804CE018 {
     virtual ~TWindowMeseta();
     u8 _pad1C[0x8];
     void* m_24;
-    u8 _pad28[0x3C];
+    u8 unk_28[0x38];
+    f32 m_60;
     u32 m_64;
     u32 m_68;
     void* m_6c;

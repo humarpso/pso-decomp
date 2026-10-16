@@ -20,10 +20,10 @@ void *TObjPlayer::init_trade_action() {
     ((TObjPlayer *)(self->f_1F8))->init_forward();
     ((TObjPlayer *)((char *)this + 376))->set_flags(32);
     set_status_flags__10TObjPlayerFPvUi(this, 515);
-    *(s32 **)((s8 *)this + 0x1EC) = rocket_punch_wall_impact;
-    *(s32 **)((s8 *)this + 0x1F4) = rocket_punch_target_impact;
+    this->m_1ec = rocket_punch_wall_impact;
+    this->m_1f4 = rocket_punch_target_impact;
     *(s32 **)((s8 *)this + 0x1F0) = rocket_punch_create_shot;
-    *(f32 *)((s8 *)this + 0x1E4) = lbl_805DAEF0;
+    *(f32 *)&this->m_1e4 = lbl_805DAEF0;
     ((TObjPlayer *)(self->f_1F8))->clear_id();
     return this;
 }

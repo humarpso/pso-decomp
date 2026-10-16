@@ -7,9 +7,12 @@
 struct TWindowChatSymbol : public TUnk_804CE018 {
     virtual ~TWindowChatSymbol();
     virtual void render();
-    u8 _pad1C[0x8];
+    u8 unk_1C[0x4];
+    void * m_20;
     void* m_24;
-    u8 _pad28[0x34];
+    u8 unk_28[0x4];
+    s32 m_2c;
+    u8 unk_30[0x2C];
     u32 m_5c;
     u32 m_60;
     u32 m_64;

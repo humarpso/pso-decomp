@@ -242,7 +242,7 @@ void*TItemObject::vfunc_9() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r4;
 
-    temp_r4 = *(u32 *)((s8 *)arg0 + 0xF0);
+    temp_r4 = this->m_f0;
     if (temp_r4 != 0U) {
         return (unsigned char *) (temp_r4 + 0x38);
     }

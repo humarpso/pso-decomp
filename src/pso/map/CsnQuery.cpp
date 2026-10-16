@@ -634,7 +634,7 @@ void TObjPlayer::copy_wall_polygon(u8 *arg1) {
     *(u16 *)((s8 *)arg0 + 6) = (u16) *(u16 *)((s8 *)arg1 + 6);
     *(ByteBlock_C *)((s32) arg0 + 8) = *(const ByteBlock_C *)((s32) arg1 + 8);
     *(ByteBlock_C *)((s32) arg0 + 0x14) = *(const ByteBlock_C *)((s32) arg1 + 0x14);
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg1 + 0x20);
+    *(f32 *)&this->m_20 = (f32) *(f32 *)((s8 *)arg1 + 0x20);
 }
 
 Wall_8007A138 *query_collision_segment_groups(Vec_8007A138 *a, Vec_8007A138 *b, u32 mask) {

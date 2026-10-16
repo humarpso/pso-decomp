@@ -6,7 +6,8 @@
 class TUnk_804B5E48 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_804B5E48();
-    u8 unk_AC[0x8];
+    u8 unk_AC[0x4];
+    f32 m_b0;
 };
 
 #endif

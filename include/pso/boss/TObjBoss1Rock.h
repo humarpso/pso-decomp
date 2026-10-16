@@ -9,7 +9,8 @@ struct TObjBoss1Rock : public TObject {
     void* m_1c;
     u8 _pad20[0x8];
     void* m_28;
-    u8 _pad2C[0x8];
+    u8 unk_2C[0x4];
+    f32 m_30;
     u32 m_34;
     u32 m_38;
     u32 m_3c;

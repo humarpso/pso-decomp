@@ -33,15 +33,15 @@ extern s32 TLobby__designated_client_id;
 void *TObjTombstone::init(s32 arg1, s32 arg2, s32 arg3) {
     construct_collider_proxy__10TObjPlayerFv();
     *(s32 **)((s8 *)this + 0x18) = __vt__13TObjTombstone;
-    *(s32 *)((s8 *)this + 0) = (s32) TObjTombstone__class_name;
+    *(s32 *)&this->m_name = (s32) TObjTombstone__class_name;
     if ((u32) TObjTombstone__shared_resource_object == 0U) {
         return this;
     }
     setup(arg2, arg3);
     init_parts();
-    *(s32 *)((s8 *)this + 0x234) = 0;
+    *(s32 *)&this->m_234 = 0;
     if ((s32) local_client_id != (s32) TLobby__designated_client_id) {
-        *(s32 *)((s8 *)this + 0x234) = 1;
+        *(s32 *)&this->m_234 = 1;
     }
     return this;
 }

@@ -93,12 +93,12 @@ s32 pop_matrix();
 void TOExplosiveMachine::explode() {
     u8 *arg0 = (u8 *)this;
     VObj1_80166568 *self = (VObj1_80166568 *)arg0;
-    if (self->m8(*(f32 *)((s8 *)arg0 + 0x90), *(f32 *)((s8 *)arg0 + 0x94)) != 0) {
+    if (self->m8(*(f32 *)((s8 *)arg0 + 0x90), this->m_94) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
-        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
+        rotate_matrix_y(0, this->rotation_y);
+        TObjFish::set_global_param(this->texture_id);
+        draw_ginja_object(*(s32 *)&this->model);
         pop_matrix();
     }
 }

@@ -12,7 +12,7 @@ s32 xfree__FPv();
 
 s32 TQuestListVM::get_quest_id() {
     u8 *arg0 = (u8 *)this;
-    return *(s32 *)((s8 *)arg0 + 0x2B0);
+    return this->m_2b0;
 }
 
     extern int TQuestListVM__decrypted_quest_buffer;

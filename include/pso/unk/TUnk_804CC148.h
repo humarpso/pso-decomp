@@ -12,7 +12,20 @@ public:
     virtual void vfunc_9();
     virtual void render();
     virtual void run_task();
-    u8 unk_70[0x7C];
+    u8 unk_70[0x8];
+    s16 m_78;
+    u8 unk_7A[0xE];
+    f32 m_88;
+    u8 unk_8C[0x4];
+    f32 m_90;
+    u8 unk_94[0x14];
+    s16 m_a8;
+    u8 unk_AA[0x2];
+    s32 m_ac;
+    u8 unk_B0[0x4];
+    u16 m_b4;
+    u8 unk_B6[0x32];
+    u32 m_e8;
 };
 
 #endif

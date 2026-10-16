@@ -16,7 +16,7 @@ extern s32 lbl_804A7478[];
 
 void *TPlyPhotonChair::destroy(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 4) = lbl_804A7478;
+        *(s32 * *)&this->m_flags = lbl_804A7478;
         TPlyPhotonChair__sub_801438E0((void *)(this), (s16)(0));
         if (arg1 > 0) {
             __dl__FPv(this);
@@ -37,10 +37,10 @@ void *TPlyPhotonChair__sub_801438E0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-f32 TPlyPhotonChair::get_float_c() { return *(f32*)((char*)this + 0xc); }
+f32 TPlyPhotonChair::get_float_c() { return *(f32 *)&this->m_next; }
 
 s32 TPlyPhotonChair__sub_80143930(void* p) { return *(s32*)((char*)p + 0x8); }
-s32 TPlyPhotonChair::get_id() { return *(s32*)((char*)this + 0x0); }
+s32 TPlyPhotonChair::get_id() { return *(s32 *)&this->m_name; }
 void TPlyPhotonChair::activate() { *(s32*)((char*)this + 0x18) = 1; }
 
 void set_motion_interpolation_flag(u8 *arg0) {

@@ -787,17 +787,17 @@ void TObjAreaWarpEnding::create_and_init() {
 }
 
 void TObjAreaWarpEnding::open_confirm_window(s16 arg1) {
-    if ((u32) *(u32 *)((s8 *)this + 0xB0) == 0U) {
-        *(u32 *)((s8 *)this + 0xB0) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
+    if ((u32) this->m_cc == 0U) {
+        this->m_cc = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         if (get_main_phase() == 0xE) {
-            ((TWindowSubTradeMain *)(*(u32 *)((s8 *)this + 0xB0)))->add_text_entry(get_localized_text_entry(9, 0x26), 3, 0, -1);
+            ((TWindowSubTradeMain *)(this->m_cc))->add_text_entry(get_localized_text_entry(9, 0x26), 3, 0, -1);
         } else {
-            ((TWindowSubTradeMain *)(*(u32 *)((s8 *)this + 0xB0)))->add_text_entry(get_localized_text_entry(9, 0x23), 2, 0, -1);
+            ((TWindowSubTradeMain *)(this->m_cc))->add_text_entry(get_localized_text_entry(9, 0x23), 2, 0, -1);
         }
-        calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)this + 0xB0));
-        align_menu_entry_positions(*(u32 *)((s8 *)this + 0xB0));
-        ((TObjCityMainWarp *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag70_bit10();
-        ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag_40();
+        calc_window_size__17TWindowSubComCardFPv(this->m_cc);
+        align_menu_entry_positions(this->m_cc);
+        ((TObjCityMainWarp *)(this->m_cc))->set_flag70_bit10();
+        ((TAdChrSelASlotGC *)(this->m_cc))->set_flag_40();
         *(s16 *)((s8 *)this + 0xB8) = arg1;
     }
 }
@@ -1329,13 +1329,13 @@ void *TObjAreaWarp__ct(void *arg0) {
 void TObjMapWarpForest::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj8019CF38_8019CCF0 *) arg0)->m8(lbl_805DBFD4, lbl_805DBFD8) != 0) {
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x10C));
+        TObjFish::set_global_param(*(s32 *)&this->textures);
         ((s32 (*)(void))push_matrix)();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x100));
+        rotate_matrix_y(0, this->sourceYaw);
+        draw_ginja_object(*(s32 *)&this->baseModel);
         TParticleCtrl::begin_effect_render();
-        ((s32 (*)(s32, s32, f32))draw_ginja_model_with_motion)(*(s32 *)((s8 *)arg0 + 0x104), *(s32 *)((s8 *)arg0 + 0x108), *(f32 *)((s8 *)arg0 + 0xFC));
+        ((s32 (*)(s32, s32, f32))draw_ginja_model_with_motion)(*(s32 *)&this->beamModel, *(s32 *)&this->motion, this->frame);
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }

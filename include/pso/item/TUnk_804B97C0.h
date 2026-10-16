@@ -10,7 +10,8 @@ public:
     virtual void vfunc_15();
     virtual void render();
     virtual void run_task();
-    u8 unk_AC[0x8];
+    u8 unk_AC[0x4];
+    float m_b0;
 };
 
 #endif

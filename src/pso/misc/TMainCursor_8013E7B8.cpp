@@ -119,7 +119,7 @@ int TMainCursor__sub_8013E900(void* p) { return get_type__11TMainCursorFv(p); }
 s16 TMainCursor__sub_8013E920(void* p) { return *(s16*)((char*)p + 0x2); }
 void TMainCursor__sub_8013E928(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 void TMainCursor__sub_8013E930(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-u16 TMainCursor::get_target_id() { return *(u16*)((char*)this + 0x20); }
+u16 TMainCursor::get_target_id() { return *(u16 *)&this->m_20; }
 int TMainCursor::is_cursor_clear() { return (test_flags_any((char*)this + 0x1c, 1)) == 0; }
 
 void TMainCursor__sub_8013E970(u8 *arg0, s16 arg1, s16 arg2, s16 arg3) {
@@ -128,10 +128,10 @@ void TMainCursor__sub_8013E970(u8 *arg0, s16 arg1, s16 arg2, s16 arg3) {
     *(s16 *)((s8 *)arg0 + 4) = arg3;
 }
 
-void TMainCursor::set_color_mode(s32 v) { *(s32*)((char*)this + 0x10) = v; }
-void TMainCursor::set_color(s32 v) { *(s32*)((char*)this + 0x8) = v; }
-void TMainCursor::set_field_0c(s32 v) { *(s32*)((char*)this + 0xc) = v; }
-void TMainCursor::set_flags(s32 v) { *(s32*)((char*)this + 0x14) = v; }
+void TMainCursor::set_color_mode(s32 v) { *(s32 *)&this->m_up = v; }
+void TMainCursor::set_color(s32 v) { *(s32 *)&this->m_prev = v; }
+void TMainCursor::set_field_0c(s32 v) { *(s32 *)&this->m_next = v; }
+void TMainCursor::set_flags(s32 v) { *(s32 *)&this->m_down = v; }
 
 int TMainCursor__sub_8013E9A0(void* p) { return TMainCursor__sub_8013DFC4(p); }
 int TMainCursor__sub_8013E9C0(void* p) { return set_slot__20TWindowActionPaletteFUc(p); }

@@ -14,7 +14,7 @@ void TObjPlayer::refresh_inventory_slot() {
     void *temp_r3;
 
     refresh_owner_stats__5TItemFPv();
-    temp_r3 = *(void **)((s8 *)this + 0xF4);
+    temp_r3 = this->m_f4;
     if (temp_r3 != NULL) {
         submit_computer_command__10TObjPlayerFv(*(s32 *)((s8 *)temp_r3 + 0x2C), 2, 0, 1);
     }

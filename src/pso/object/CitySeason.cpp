@@ -499,10 +499,10 @@ void TObjCity_Season_Board::render() {
     u8 *arg0 = (u8 *)this;
     if (((u32) lbl_805D5B38 != 0U) && (((Fn801838D4VObj_801838d4*)arg0)->m8(lbl_805DBC44, lbl_805DBC48) != 0)) {
         set_global_param__8TObjFishFl(lbl_805D5B44);
-        scroll_strip_uvs(lbl_805D5B48, (s16) *(s32 *)((s8 *)arg0 + 0x90), 0);
+        scroll_strip_uvs(lbl_805D5B48, (s16) *(s32 *)&this->unk_90, 0);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         draw_chunk_object(lbl_805D5B3C);
         draw_chunk_object(lbl_805D5B40);
         pop_matrix();
@@ -512,10 +512,10 @@ void TObjCity_Season_Board::render() {
 void TObjCity_Season_Board::run_task() {
     s32 temp_r4;
 
-    *(s32 *)((s8 *)this + 0x90) = (s32) (*(s32 *)((s8 *)this + 0x90) + 2);
-    temp_r4 = *(s32 *)((s8 *)this + 0x90);
+    *(s32 *)&this->unk_90 = (s32) (*(s32 *)&this->unk_90 + 2);
+    temp_r4 = *(s32 *)&this->unk_90;
     if (temp_r4 >= 0x100) {
-        *(s32 *)((s8 *)this + 0x90) = (s32) (temp_r4 - 0x100);
+        *(s32 *)&this->unk_90 = (s32) (temp_r4 - 0x100);
     }
 }
 
@@ -863,9 +863,9 @@ void TObjCity_Season_21_21::render() {
             ((s32 (*)(void *, int, int))scroll_strip_uvs)((void *) (lbl_805D5B34), (int) (0), (int) ((s16) *(s32 *)((s8 *)arg0 + 0xB4)));
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+            ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (this->rotation_y));
             ((s32 (*)(void *))draw_chunk_object)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x42C)) + 0x18)));
-            ((s32 (*)(void *, void *, f32))draw_model_motion)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x42C)) + 8)), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x430)) + 4)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+            ((s32 (*)(void *, void *, f32))draw_model_motion)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x42C)) + 8)), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x430)) + 4)), (f32) (this->m_b0));
             pop_matrix();
         }
     }
@@ -1029,7 +1029,7 @@ void TObjCity_Season_HalloweenPumpkin::render() {
         ((s32 (*)(int))set_global_param__8TObjFishFl)((int) (*(s32 *)((s8 *)(&city_season_xmas_model_table.value) + 0xC)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (this->rotation_y));
         ((s32 (*)(void *))draw_chunk_object)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r31 + 0x42C)) + 8)));
         pop_matrix();
     }
@@ -1038,7 +1038,7 @@ void TObjCity_Season_HalloweenPumpkin::render() {
 void TObjCity_Season_HalloweenPumpkin::run_task() {
     u8 *arg0 = (u8 *)this;
     if ((u32) *(u32 *)((s8 *)(&city_season_easter_egg_model_table.value) + 0xC) != 0U) {
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0x40);
+        this->rotation_y = (s32) (this->rotation_y + 0x40);
     }
 }
 
@@ -1177,7 +1177,7 @@ void TObjCity_Season_XmasWreath::render() {
         ((s32 (*)(int))set_global_param__8TObjFishFl)((int) (*(s32 *)((s8 *)(&city_season_xmas_model_table.value) + 8)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        ((s32 (*)(int, int))rotate_matrix_y)((int) (0), (int) (this->rotation_y));
         ((s32 (*)(void *))draw_chunk_object)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r31 + 0x42C)) + 0x58)));
         pop_matrix();
     }
@@ -1291,9 +1291,9 @@ void TObjCity_Season_XmasTree::render() {
         set_global_param__8TObjFishFl(*(s32 *)((s8 *)city_season_xmas_model_table + 8));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x78), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0xC), *(f32 *)((s8 *)arg0 + 0xB0));
-        ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x68), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 4), *(f32 *)((s8 *)arg0 + 0xB0));
+        rotate_matrix_y(0, this->rotation_y);
+        ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x78), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0xC), this->m_b0);
+        ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x68), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 4), this->m_b0);
         draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x88));
         draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x98));
         pop_matrix();
@@ -1415,8 +1415,8 @@ void TObjCity_Season_ValentineHeart::render() {
         set_global_param__8TObjFishFl(*(s32 *)((s8 *)city_season_xmas_model_table + 4));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x28), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0x14), *(f32 *)((s8 *)arg0 + 0xB0));
+        rotate_matrix_y(0, this->rotation_y);
+        ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x28), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0x14), this->m_b0);
         pop_matrix();
     }
 }
@@ -1532,7 +1532,7 @@ void TObjCity_Season_EasterEgg::render() {
         set_global_param__8TObjFishFl(city_season_xmas_model_table[0]);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x18));
         draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x8));
         pop_matrix();

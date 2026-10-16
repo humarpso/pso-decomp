@@ -70,29 +70,29 @@ void TWindowSubGameEnd::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 slot;
     void *obj;
-    switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
     case 1:
-        if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->get_card_data() != 0) {
-            (*(VObj_18_204a81 **)((s8 *)arg0 + 0x24))->m7();
+        if (((TWindowSubComCard *)(*(s32 *)&this->m_28))->get_card_data() != 0) {
+            (*(VObj_18_204a81 * *)&this->m_24)->m7();
             return;
         }
-        if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->is_child_visible() != 0) {
-            slot = ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->get_slot_or_neg1();
+        if (((TWindowSubComCard *)(*(s32 *)&this->m_28))->is_child_visible() != 0) {
+            slot = ((TWindowSubComCard *)(*(s32 *)&this->m_28))->get_slot_or_neg1();
             if (slot == 0) {
                 if (window_sub_game_end_active_flag != 1) {
                     obj = (void *)__nw__7TObjectFUl(0x28);
                     if (obj != NULL) {
                         ((THunterGuildSeqOffline *)obj)->init((void *)tl_00, (void *)((void *)TKeyBoardControl::init_char_select));
                     }
-                    fn_8024AB54(*(s32 *)((s8 *)arg0 + 0x20));
+                    fn_8024AB54(*(s32 *)&this->m_20);
                     send_logout__6TLobbyFv();
                     window_sub_game_end_active_flag = 1;
                 }
-                *(s32 *)((s8 *)arg0 + 0x1C) = 2;
+                *(s32 *)&this->m_1c = 2;
             }
             if (slot == 1) {
-                (*(VObj_18_204a81 **)((s8 *)arg0 + 0x24))->m7();
+                (*(VObj_18_204a81 * *)&this->m_24)->m7();
             }
         }
         break;

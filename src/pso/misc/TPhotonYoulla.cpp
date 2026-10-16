@@ -130,27 +130,27 @@ void TPhotonYoulla::render() {
 void TPhotonYoulla::run_task() {
     f32 temp_f1;
 
-    if (((s32) *(s32 *)((s8 *)this + 0x1A4) == 0x32) && ((s32) *(s32 *)((s8 *)this + 0x1A0) == 0)) {
-        *(s32 *)((s8 *)this + 0x1A0) = 1;
+    if (((s32) *(s32 *)&this->m_1a4 == 0x32) && ((s32) *(s32 *)&this->m_1a0 == 0)) {
+        *(s32 *)&this->m_1a0 = 1;
     }
-    if ((lbl_805DC264 == (f32) *(s32 *)((s8 *)this + 0x1A4)) && ((s16) *(s16 *)((s8 *)this + 0xB8) == 1)) {
+    if ((lbl_805DC264 == (f32) *(s32 *)&this->m_1a4) && ((s16) this->m_b8 == 1)) {
         spawn_photon_blast_attachment_effects(this, 6);
-        *(s32 *)((s8 *)this + 0x1A4) = 0;
+        *(s32 *)&this->m_1a4 = 0;
         set_field_b8__14TObjEnePanarmsFs(this, 0);
     }
-    *(s16 *)((s8 *)this + 0x194) = (s16) *(s16 *)((s8 *)this + 0xB8);
+    *(s16 *)&this->m_194 = (s16) this->m_b8;
     advance_animation_playback(this);
     update_photon_blast_attachments(this);
     *(s16 *)((s8 *)this + 0x14C) = (s16) (*(s16 *)((s8 *)this + 0x14C) + 0xF);
     *(s16 *)((s8 *)this + 0x14C) = (s16) (u8) *(s16 *)((s8 *)this + 0x14C);
-    *(s32 *)((s8 *)this + 0x1A4) = (s32) (*(s32 *)((s8 *)this + 0x1A4) + 1);
-    if ((f32) *(s32 *)((s8 *)this + 0x1A4) > lbl_805DC268) {
-        temp_f1 = *(f32 *)((s8 *)this + 0x184);
+    *(s32 *)&this->m_1a4 = (s32) (*(s32 *)&this->m_1a4 + 1);
+    if ((f32) *(s32 *)&this->m_1a4 > lbl_805DC268) {
+        temp_f1 = *(f32 *)&this->m_184;
         if (temp_f1 > lbl_805DC26C) {
-            *(f32 *)((s8 *)this + 0x184) = (f32) (temp_f1 - lbl_805DC270);
+            *(f32 *)&this->m_184 = (f32) (temp_f1 - lbl_805DC270);
         }
     }
-    if (lbl_805DC274 == (f32) *(s32 *)((s8 *)this + 0x1A4)) {
+    if (lbl_805DC274 == (f32) *(s32 *)&this->m_1a4) {
         queue_destruction__7TObjectFv(this);
     }
 }

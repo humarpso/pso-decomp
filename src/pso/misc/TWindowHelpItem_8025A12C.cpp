@@ -105,40 +105,40 @@ void TWindowHelpItem::set_flag_0x10(u16 *arg0, s32 arg1) {
 
 void TWindowHelpItem::set_flag8_and_field20(s32 arg1) {
     *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 8);
-    *(s32 *)((s8 *)this + 0x20) = arg1;
+    *(s32 *)&this->m_20 = arg1;
 }
 
 void TWindowHelpItem::set_compare_color(s32 arg1) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
+    temp_r0 = *(s32 *)&this->_pad1C;
     if (temp_r0 == arg1) {
-        *(s32 *)((s8 *)this + 0x10) = -1;
+        this->m_10 = -1;
         return;
     }
     if (temp_r0 > arg1) {
-        *(s32 *)((s8 *)this + 0x10) = 0xFF77E8FF;
+        this->m_10 = 0xFF77E8FF;
     } else {
-        *(s32 *)((s8 *)this + 0x10) = 0xFFDD8C41;
+        this->m_10 = 0xFFDD8C41;
     }
-    *(s32 *)((s8 *)this + 0x14) = 0x1E;
+    *(s32 *)&this->unk_14 = 0x1E;
     set_flag4_and_field1c((s32)(arg1));
 }
 
 void TWindowHelpItem::set_flag4_and_field1c(s32 arg1) {
     *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 4);
-    *(s32 *)((s8 *)this + 0x1C) = arg1;
+    *(s32 *)&this->_pad1C = arg1;
 }
 
 void TWindowHelpItem::set_help_text(u32 arg1) {
     s32 temp_r3;
 
-    mem_free(*(s32 *)((s8 *)this + 0x18));
-    *(s32 *)((s8 *)this + 0x18) = 0;
+    mem_free(*(s32 *)&this->m_vtable18);
+    *(s32 *)&this->m_vtable18 = 0;
     if (arg1 != 0U) {
         temp_r3 = measure_string_len__20TWindowSubStatusDispFv(arg1);
-        *(s32 *)((s8 *)this + 0x18) = mem_alloc(temp_r3 + 1);
-        strncpy(*(s32 *)((s8 *)this + 0x18), arg1, temp_r3 + 1);
+        *(s32 *)&this->m_vtable18 = mem_alloc(temp_r3 + 1);
+        strncpy(*(s32 *)&this->m_vtable18, arg1, temp_r3 + 1);
     }
 }
 

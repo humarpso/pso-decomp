@@ -360,7 +360,7 @@ s32 TWindowDD::setup_entry(s32 arg1) {
 
     s32 temp_r4;
     var_r31 = 0;
-    temp_r30 = *(u32 *)((s8 *)this + 0x6C);
+    temp_r30 = this->m_88;
     if ((temp_r30 != 0U) && ((temp_r4 = TWindowDD__sub_80348B70(arg1)) != 0)) {
         ((TWindowDD *)temp_r30)->set_first_entry_text(temp_r4);
         TWindowDD__sub_803412A0(temp_r30);

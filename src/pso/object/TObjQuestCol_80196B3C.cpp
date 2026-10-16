@@ -19,16 +19,16 @@ void *TObjQuestCol__ct(void *arg0) {
 
 s32 TObjQuestCol::update_trigger_state(f32 farg0) {
     if (is_within_range__16TObjQuestColBaseFf(farg0 * farg0) != 0) {
-        if ((s32) *(s32 *)((s8 *)this + 0xB4) != 0) {
-            *(s32 *)((s8 *)this + 0xB4) = 0;
+        if ((s32) *(s32 *)&this->m_b4 != 0) {
+            *(s32 *)&this->m_b4 = 0;
             return 1;
         }
         return 0;
     }
-    if ((s32) *(s32 *)((s8 *)this + 0xB4) != 0) {
+    if ((s32) *(s32 *)&this->m_b4 != 0) {
         return 2;
     }
-    *(s32 *)((s8 *)this + 0xB4) = 1;
+    *(s32 *)&this->m_b4 = 1;
     return 3;
 }
 

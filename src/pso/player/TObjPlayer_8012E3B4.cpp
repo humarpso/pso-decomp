@@ -17,7 +17,7 @@ void TUnk_804A5D10::run_task() {
         return;
     }
     vec3_add_to(arg0 + 0x2C, arg0 + 0x20);
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + lbl_805DAF70);
+    this->m_24 = (f32) (this->m_24 + lbl_805DAF70);
 }
 
 }

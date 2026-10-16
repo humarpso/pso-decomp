@@ -12,7 +12,7 @@ extern s32 lbl_804F1C58[];
 void *TOBoss4Rock::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804F1C58;
-        mem_free(*(void **)((s8 *)this + 0x28));
+        mem_free(*(void * *)&this->unk_28);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

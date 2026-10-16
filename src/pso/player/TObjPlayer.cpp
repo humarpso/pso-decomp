@@ -185,11 +185,11 @@ void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjPlayer::set_position(f32 a, f32 b, f32 c) { *(f32*)((char*)this + 0x38) = a; *(f32*)((char*)this + 0x3c) = b; *(f32*)((char*)this + 0x40) = c; }
+void TObjPlayer::set_position(f32 a, f32 b, f32 c) { *(f32 *)&this->m_38 = a; *(f32*)((char*)this + 0x3c) = b; this->m_40 = c; }
 
 void TObjPlayer::set_meseta(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2B0)) + 0x20) = arg1;
+    *(s32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x20) = arg1;
 }
 
 void TObjPlayer__sub_801BEE24(void* p, s16 v) { *(s16*)((char*)p + 0x2be) = v; }
@@ -340,7 +340,7 @@ int TObjPlayer::copy_vec_at_18() { return VecCopy__FP3VecPC3Vec((char*)this + 0x
 
 int has_water_ground_flag(void* p) { return test_flags_any(p, 4); }
 
-void TPlayerLobbyMarker::set_material_index(u8 v) { *(u8*)((char*)this + 0x1c) = v; }
+void TPlayerLobbyMarker::set_material_index(u8 v) { this->material_index = v; }
 
 typedef char RecoveredGlobal_801BF414_lbl_804C3FA8_size[sizeof(RecoveredGlobal_801BF414_lbl_804C3FA8) == 0x18 ? 1 : -1];
 }

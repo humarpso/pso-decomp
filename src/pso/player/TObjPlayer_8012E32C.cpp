@@ -29,8 +29,8 @@ void TUnk_804A5D10::render() {
             push_matrix();
             post_translate_matrix(arg0 + 0x2C);
             rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x3C));
-            rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x38));
-            rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x40));
+            rotate_matrix_x(0, this->m_38);
+            rotate_matrix_z(0, this->m_40);
             draw_ginja_object(temp_r31);
             pop_matrix();
         }

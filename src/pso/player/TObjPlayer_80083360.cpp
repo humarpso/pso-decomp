@@ -48,7 +48,7 @@ void TObjPlayer::init_render_target_singleton() {
 }
 void TUnk_8048E5F4::render() {
     if (!(TObjPlayer__sub_800847CC() & 4)) {
-        if (*(s32 *)((s8 *)this + 0x1C) & 1) {
+        if (*(s32 *)&this->unk_1C & 1) {
             if (TObjPlayer__sub_800847A8() == 1) {
                 TCameraCtrl::restore_full_screen_view();
                 TParticleCtrl::begin_effect_render();

@@ -43,37 +43,37 @@ extern "C" {
 
 int TWindow__close(void*);
 
-void TAdScrollWinGC::close_window() { if (*(unsigned int*)((char*)this + 0x40) != 0) { TWindow__close(*(void**)((char*)this + 0x40)); *(int*)((char*)this + 0x40) = 0; } }
+void TAdScrollWinGC::close_window() { if (*(unsigned int *)&this->m_40 != 0) { TWindow__close(*(void* *)&this->m_40); *(int *)&this->m_40 = 0; } }
 
 void TAdScrollWinGC::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 d;
     u32 a;
-    switch (*(s32 *)((s8 *)arg0 + 0x4C)) {
+    switch (*(s32 *)&this->m_4c) {
     case 0:
         break;
     case 1:
-        if (++*(s32 *)((s8 *)arg0 + 0x50) > lbl_805DF69C) {
+        if (++*(s32 *)&this->m_50 > lbl_805DF69C) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }
         break;
     }
-    *(u32 *)((s8 *)arg0 + 0x3C) += 0xC;
-    *(u32 *)((s8 *)arg0 + 0x3C) = *(u32 *)((s8 *)arg0 + 0x3C) > 0xFF ? 0xFF : *(u32 *)((s8 *)arg0 + 0x3C);
+    this->m_3c += 0xC;
+    this->m_3c = this->m_3c > 0xFF ? 0xFF : this->m_3c;
     *(f32 *)((s8 *)arg0 + 0x1C) = lbl_805DF6A0;
-    *(f32 *)((s8 *)arg0 + 0x20) = lbl_805DF6A4;
+    this->m_20 = lbl_805DF6A4;
     *(f32 *)((s8 *)arg0 + 0x24) = lbl_805DF6A8;
-    *(f32 *)((s8 *)arg0 + 0x28) = lbl_805DF6AC;
+    this->m_28 = lbl_805DF6AC;
     d = *(s16 *)((s8 *)controller_physical_port_bank + 0x3A);
     if (d < 0) {
         d += 0x19;
-        if (*(void **)((s8 *)arg0 + 0x40) != 0) {
-            fn_8026A61C(*(void **)((s8 *)arg0 + 0x40), lbl_805DF6B0 * d);
+        if (*(void * *)&this->m_40 != 0) {
+            fn_8026A61C(*(void * *)&this->m_40, lbl_805DF6B0 * d);
         }
     }
-    if (d > 0 && *(void **)((s8 *)arg0 + 0x40) != 0) {
-        ((TAdScrollWinGC *)(*(void **)((s8 *)arg0 + 0x40)))->advance_scroll(lbl_805DF6B0 * (d - 0x19));
+    if (d > 0 && *(void * *)&this->m_40 != 0) {
+        ((TAdScrollWinGC *)(*(void * *)&this->m_40))->advance_scroll(lbl_805DF6B0 * (d - 0x19));
     }
 }
 

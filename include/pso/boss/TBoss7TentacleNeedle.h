@@ -15,7 +15,8 @@ struct TBoss7TentacleNeedle : public TObject {
     u32 m_38;
     u32 m_3c;
     u32 m_40;
-    u8 _pad44[0x34];
+    u8 unk_44[0x30];
+    f32 m_74;
     u32 m_78;
     virtual void render();
     virtual void run_task();};

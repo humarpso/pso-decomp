@@ -39,7 +39,7 @@ void TItemLoad::clear_slots() {
 }
 
 void TItemLoad__sub_801107B4(void) {  }
-int TItemLoad::get_ring_lobby() { return TLobby__sub_803CC4C0(*(void**)((char*)this + 0x4)); }
+int TItemLoad::get_ring_lobby() { return TLobby__sub_803CC4C0(*(void* *)&this->m_flags); }
 s32 TItemLoad__sub_801107DC(void* p) { return *(s32*)((char*)p + 0xc); }
 s32 TItemLoad__sub_801107E4(void* p) { return *(s32*)((char*)p + 0x1c); }
 void* TItemLoad__sub_801107EC(void* p) { return (char*)p + 0x2c; }

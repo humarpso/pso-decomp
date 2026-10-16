@@ -28,7 +28,7 @@ extern "C" {
 s32 TObjEnemy::mask_sub_flags(s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = *(void **)((s8 *)this + 0x80);
+    temp_r5 = this->m_80;
     if (temp_r5 != NULL) {
         *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) & arg1);
         return 1;

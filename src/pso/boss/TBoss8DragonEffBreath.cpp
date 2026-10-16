@@ -51,8 +51,8 @@ void TBoss8DragonEffBreath::run_task() {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if ((temp_f1 < lbl_805DEEF4) && ((ent = get_enemy_entity((int) (*(u16 *)((s8 *)arg0 + 0x38)))) != 0U)) {
-        TBoss8Dragon::setup_breath_instance((void *)ent, (int)((void *) (arg0 + 0x1C)), (u32)((int) (*(s32 *)((s8 *)arg0 + 0x34))), (int)((int) (*(s32 *)((s8 *)arg0 + 0x3C))));
+    if ((temp_f1 < lbl_805DEEF4) && ((ent = get_enemy_entity((int) (this->m_38))) != 0U)) {
+        TBoss8Dragon::setup_breath_instance((void *)ent, (int)((void *) (arg0 + 0x1C)), (u32)((int) (*(s32 *)&this->m_34)), (int)((int) (*(s32 *)&this->m_3c)));
     }
 }
 

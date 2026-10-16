@@ -967,15 +967,15 @@ void TUnk_804835D8::run_task() {
     f32 temp_f1;
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0x1E) {
-        *(f32 *)((s8 *)arg0 + 0x20) += (1.0f);
-        temp_f1 = *(f32 *)((s8 *)arg0 + 0x20);
+        this->m_20 += (1.0f);
+        temp_f1 = this->m_20;
         if (temp_f1 > (7e+01f)) {
-            *(f32 *)((s8 *)arg0 + 0x20) = (f32) (7e+01f);
+            this->m_20 = (f32) (7e+01f);
             queue_destruction__7TObjectFv(arg0);
             return;
         }
         *(f32 *)((s8 *)(*(u8 * *)&lbl_805D4C04) + 8) = (f32) -temp_f1;
-        *(f32 *)((s8 *)(*(u8 * *)&lbl_805D4C08) + 8) = (f32) *(f32 *)((s8 *)arg0 + 0x20);
+        *(f32 *)((s8 *)(*(u8 * *)&lbl_805D4C08) + 8) = (f32) this->m_20;
     }
 }
 #pragma pop

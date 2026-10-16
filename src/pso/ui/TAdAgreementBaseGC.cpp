@@ -113,41 +113,41 @@ void TAdAgreementBaseGC::update_state() {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r4;
-    *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg0 + 0x1C);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
+    *(s32 *)&this->_pad20 = (s32) *(s32 *)&this->m_1c;
+    temp_r0 = *(s32 *)&this->m_1c;
     switch (temp_r0) {
     case 0:
-        *(u32 *)((s8 *)arg0 + 0x2C) = ((VObj_18_fbe024 *)(arg0))->m8();
-        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
+        this->m_2c = ((VObj_18_fbe024 *)(arg0))->m8();
+        *(s32 *)&this->m_1c = 1;
         break;
     case 1:
-        if (((TAdSinglePlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x30)))->get_selected_slot() == 1) {
-            temp_r3 = TAdSinglePlyChrSelectGC__sub_801334DC((int) (*(s32 *)((s8 *)arg0 + 0x30)));
+        if (((TAdSinglePlyChrSelectGC *)(*(s32 *)&this->m_30))->get_selected_slot() == 1) {
+            temp_r3 = TAdSinglePlyChrSelectGC__sub_801334DC((int) (*(s32 *)&this->m_30));
             switch (temp_r3) {
             case 0:
-                *(s32 *)((s8 *)arg0 + 0x1C) = 2;
-                *(s32 *)((s8 *)arg0 + 0x24) = 3;
+                *(s32 *)&this->m_1c = 2;
+                *(s32 *)&this->m_24 = 3;
                 break;
             case 1:
-                *(s32 *)((s8 *)arg0 + 0x1C) = 2;
-                *(s32 *)((s8 *)arg0 + 0x24) = 4;
+                *(s32 *)&this->m_1c = 2;
+                *(s32 *)&this->m_24 = 4;
                 break;
             }
         } else if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_physical_port_bank.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
-            *(s32 *)((s8 *)arg0 + 0x24) = 5;
+            *(s32 *)&this->m_1c = 2;
+            *(s32 *)&this->m_24 = 5;
         }
         break;
     case 2:
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
-            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
+        if ((u32) this->m_2c != 0U) {
+            TWindow__close(*(void * *)&this->m_2c);
+            this->m_2c = 0U;
         }
         ((VObj_18_fbe024 *)(arg0))->m4();
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x28) + 1;
-        *(s32 *)((s8 *)arg0 + 0x28) = temp_r4;
+        temp_r4 = *(s32 *)&this->m_28 + 1;
+        *(s32 *)&this->m_28 = temp_r4;
         if ((f32) temp_r4 > lbl_805DF710) {
-            *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg0 + 0x24);
+            *(s32 *)&this->m_1c = (s32) *(s32 *)&this->m_24;
         }
         break;
     case 3:
@@ -160,8 +160,8 @@ void TAdAgreementBaseGC::update_state() {
         ((VObj_18_fbe024 *)(arg0))->m7();
         break;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x20) != (s32) *(s32 *)((s8 *)arg0 + 0x1C)) {
-        *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    if ((s32) *(s32 *)&this->_pad20 != (s32) *(s32 *)&this->m_1c) {
+        *(s32 *)&this->m_28 = 0;
     }
 }
 

@@ -22,11 +22,11 @@ extern s32 TOMonumentAncient01__resource_bundle;
 
 void TOMonumentAncient01::render() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj1_8017262C*)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) == 1) {
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+    if (((VObj1_8017262C*)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) {
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         get_bml_model(TOMonumentAncient01__resource_bundle, 2);
         draw_ginja_object();
         TParticleCtrl::begin_effect_render();

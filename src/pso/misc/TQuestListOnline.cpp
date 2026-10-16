@@ -157,72 +157,72 @@ extern s32 TQuestListOnline__decompression_cursor;
 void TQuestListOnline::handle_quest_confirm() {
     s32 v;
     s32 n;
-    if (*(void **)((s8 *)this + 0x44) != NULL && ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x44)))->is_visible() != 0) {
-        v = get_selected_menu_value(*(void **)((s8 *)this + 0x44));
+    if (*(void * *)&this->confirm_window != NULL && ((TWindowSubComCard *)(*(void * *)&this->confirm_window))->is_visible() != 0) {
+        v = get_selected_menu_value(*(void * *)&this->confirm_window);
         if (v == 0) {
             if (THunterGuildSeqOffline::check_party_gathered() == 1) {
-                if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
-                    (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x14, 1);
+                if (*(VObj_18_802178E4 * *)&this->sequence != NULL) {
+                    (*(VObj_18_802178E4 * *)&this->sequence)->m7(0x14, 1);
                 }
                 send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__protocol_instance, selected_entry, 0, &lbl_805DC6A0, &lbl_805DC6A0);
-                queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x44));
-                *(void **)((s8 *)this + 0x44) = NULL;
-                if (*(void **)((s8 *)this + 0x40) != NULL) {
-                    queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x40));
-                    *(void **)((s8 *)this + 0x40) = NULL;
+                queue_destruction__7TObjectFv(*(void * *)&this->confirm_window);
+                *(void * *)&this->confirm_window = NULL;
+                if (*(void * *)&this->info_window != NULL) {
+                    queue_destruction__7TObjectFv(*(void * *)&this->info_window);
+                    *(void * *)&this->info_window = NULL;
                 }
-                if (*(void **)((s8 *)this + 0x3C) != NULL) {
-                    queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x3C));
-                    *(void **)((s8 *)this + 0x3C) = NULL;
+                if (*(void * *)&this->description_window != NULL) {
+                    queue_destruction__7TObjectFv(*(void * *)&this->description_window);
+                    *(void * *)&this->description_window = NULL;
                 }
-                if (*(void **)((s8 *)this + 0x38) != NULL) {
-                    queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x38));
-                    *(void **)((s8 *)this + 0x38) = NULL;
+                if (*(void * *)&this->list_window != NULL) {
+                    queue_destruction__7TObjectFv(*(void * *)&this->list_window);
+                    *(void * *)&this->list_window = NULL;
                 }
                 set_field_20__12TQuestListVMFl((void*)(this), (int)(0xC));
                 return;
             }
-            if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
-                (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x10, 1);
+            if (*(VObj_18_802178E4 * *)&this->sequence != NULL) {
+                (*(VObj_18_802178E4 * *)&this->sequence)->m7(0x10, 1);
             }
-            ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x44)))->clear_flag_and_release();
+            ((TWindowSubComCard *)(*(void * *)&this->confirm_window))->clear_flag_and_release();
             return;
         }
         if (v == 1) {
-            TWindow__close(*(void **)((s8 *)this + 0x44));
-            *(void **)((s8 *)this + 0x44) = NULL;
-            if (*(void **)((s8 *)this + 0x40) != NULL) {
-                TWindow__close(*(void **)((s8 *)this + 0x40));
-                *(void **)((s8 *)this + 0x40) = NULL;
+            TWindow__close(*(void * *)&this->confirm_window);
+            *(void * *)&this->confirm_window = NULL;
+            if (*(void * *)&this->info_window != NULL) {
+                TWindow__close(*(void * *)&this->info_window);
+                *(void * *)&this->info_window = NULL;
             }
-            if (*(void **)((s8 *)this + 0x38) != NULL) {
-                ((TWindowSubItem *)(*(void **)((s8 *)this + 0x38)))->clear_selected_and_update_entry();
+            if (*(void * *)&this->list_window != NULL) {
+                ((TWindowSubItem *)(*(void * *)&this->list_window))->clear_selected_and_update_entry();
             }
             n = selection_stage;
             selection_stage = n - 1;
             close_windows();
-            if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
-                (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x19, 1);
+            if (*(VObj_18_802178E4 * *)&this->sequence != NULL) {
+                (*(VObj_18_802178E4 * *)&this->sequence)->m7(0x19, 1);
             }
             set_field_20__12TQuestListVMFl((void*)(this), (int)(1));
             return;
         }
     }
-    if (*(void **)((s8 *)this + 0x44) != NULL && ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x44)))->get_status_flag() != 0) {
-        TWindow__close(*(void **)((s8 *)this + 0x44));
-        *(void **)((s8 *)this + 0x44) = NULL;
-        if (*(void **)((s8 *)this + 0x40) != NULL) {
-            TWindow__close(*(void **)((s8 *)this + 0x40));
-            *(void **)((s8 *)this + 0x40) = NULL;
+    if (*(void * *)&this->confirm_window != NULL && ((TWindowSubComCard *)(*(void * *)&this->confirm_window))->get_status_flag() != 0) {
+        TWindow__close(*(void * *)&this->confirm_window);
+        *(void * *)&this->confirm_window = NULL;
+        if (*(void * *)&this->info_window != NULL) {
+            TWindow__close(*(void * *)&this->info_window);
+            *(void * *)&this->info_window = NULL;
         }
-        if (*(void **)((s8 *)this + 0x38) != NULL) {
-            ((TWindowSubItem *)(*(void **)((s8 *)this + 0x38)))->clear_selected_and_update_entry();
+        if (*(void * *)&this->list_window != NULL) {
+            ((TWindowSubItem *)(*(void * *)&this->list_window))->clear_selected_and_update_entry();
         }
         n = selection_stage;
         selection_stage = n - 1;
         close_windows();
-        if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
-            (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x19, 1);
+        if (*(VObj_18_802178E4 * *)&this->sequence != NULL) {
+            (*(VObj_18_802178E4 * *)&this->sequence)->m7(0x19, 1);
         }
         set_field_20__12TQuestListVMFl((void*)(this), (int)(1));
     }
@@ -353,7 +353,7 @@ void TQuestListOnline::build_list_window() {
     s32 off;
     s32 i;
     u8 *e;
-    if (((VObj_18_80217F88 *)*(void **)((s8 *)this + 0x6C))->m8() != 0) {
+    if (((VObj_18_80217F88 *)*(void * *)&this->sequence)->m8() != 0) {
         if (list_window == 0U) {
             id = obj_getField1c(window_owner);
             list_window = create_item_list_window(get_guild_text(0), 0x40, id);

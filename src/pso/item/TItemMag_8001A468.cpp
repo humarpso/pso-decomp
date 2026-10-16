@@ -132,7 +132,7 @@ s32 TObjPlayer::get_flag890_state() {
     s32 temp_r4;
     s32 var_r3;
 
-    temp_r4 = *(s32 *)((s8 *)this + 0x890);
+    temp_r4 = this->m_890;
     var_r3 = 0;
     if (temp_r4 & 0x20) {
         var_r3 = 0;

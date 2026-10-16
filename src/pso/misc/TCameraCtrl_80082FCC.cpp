@@ -134,9 +134,9 @@ void TUnk_8048E5DC::render_shadows() {
         set_perspective_projection_from_fov((int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x19C)), (f32) (lbl_805D940C), (f32) (lbl_805D93D8), (f32) (lbl_805D9410));
         set_camera_look_at((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (void *) (&stack.sp20));
         if ((void *) camera_ctrl_instance != NULL) {
-            stack.sp14 = *(f32 *)((s8 *)arg0 + 0x2C) - *(f32 *)((s8 *)arg0 + 0x20);
-            stack.sp18 = *(f32 *)((s8 *)arg0 + 0x30) - *(f32 *)((s8 *)arg0 + 0x24);
-            stack.sp1C = *(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)((s8 *)arg0 + 0x28);
+            stack.sp14 = *(f32 *)((s8 *)arg0 + 0x2C) - this->m_20;
+            stack.sp18 = this->m_30 - *(f32 *)((s8 *)arg0 + 0x24);
+            stack.sp1C = *(f32 *)((s8 *)arg0 + 0x34) - this->m_28;
             direction_to_pitch_yaw((void *) (&stack.sp14), (void *) (&stack.sp10), (void *) (&stack.spC));
             calc_axes_from_angles__11TCameraCtrlFiii((void *) (camera_ctrl_instance), (int) (stack.sp10), (int) (stack.spC));
         }

@@ -35,10 +35,10 @@ void TBoss6Type2::update_recover_timer() {
     if (*(f32 *)((s8 *)arg0 + 0x400) < lbl_805DF97C) {
         *(f32 *)((s8 *)arg0 + 0x400) = (f32) lbl_805DF97C;
     }
-    *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x3CC) >= 0x5A) {
+    this->m_3cc = (s32) (this->m_3cc + 1);
+    if ((s32) this->m_3cc >= 0x5A) {
         TBoss6Type2__sub_8032F5C4(arg0);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x40C) != 0) {
+        if ((s32) this->m_40c != 0) {
             set_action__11TBoss6Type2FPvi((void *)((void *) (arg0)), (s32)((int) (1)));
             return;
         }
@@ -58,8 +58,8 @@ void TBoss6Type2::update_ramp_timer() {
     if (*(f32 *)((s8 *)arg0 + 0x400) > lbl_805DF984) {
         *(f32 *)((s8 *)arg0 + 0x400) = (f32) lbl_805DF984;
     }
-    *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x3CC) >= (s32) *(s32 *)((s8 *)arg0 + 0x3C0)) {
+    this->m_3cc = (s32) (this->m_3cc + 1);
+    if ((s32) this->m_3cc >= (s32) this->m_3c0) {
         set_action__11TBoss6Type2FPvi(arg0, 5);
     }
 }
@@ -67,10 +67,10 @@ void TBoss6Type2::update_ramp_timer() {
 
 void TBoss6Type2__sub_80336FB8(void* p) { *(int*)((char*)p + 0x3cc) = 0; ((TBoss6Type2 *)p)->ensure_particle_emitter((s32)((void*)0)); }
 void TBoss6Type2::tick_attack_timer() {
-    *(s32 *)((s8 *)this + 0x3CC) = (s32) (*(s32 *)((s8 *)this + 0x3CC) - 1);
-    if ((s32) *(s32 *)((s8 *)this + 0x3CC) < 0) {
+    this->m_3cc = (s32) (this->m_3cc - 1);
+    if ((s32) this->m_3cc < 0) {
         destroy_part_object((s32)((void*)(3)));
-        if ((s32) *(s32 *)((s8 *)this + 0x40C) != 0) {
+        if ((s32) this->m_40c != 0) {
             set_action__11TBoss6Type2FPvi(this, 1);
             return;
         }
@@ -97,7 +97,7 @@ void TBoss6Type2::update_effect_subsystems() {
     push_out_from_target();
     push_out_from_points();
     enforce_min_distance();
-    if ((s32) *(s32 *)((s8 *)this + 0x40C) != 0) {
+    if ((s32) this->m_40c != 0) {
         set_action__11TBoss6Type2FPvi(this, 1);
     }
 }
@@ -106,15 +106,15 @@ void TBoss6Type2::update_attack_state() {
     fly_toward_target__11TBoss6Type2Fv();
     push_out_from_target();
     enforce_min_distance();
-    if ((s32) *(s32 *)((s8 *)this + 0x40C) == 0) {
+    if ((s32) this->m_40c == 0) {
         set_action__11TBoss6Type2FPvi(this, 2);
     }
 }
 void TBoss6Type2__sub_80337160(void) {  }
 void TBoss6Type2::advance_phase_counter() {
     TBoss6Type2__sub_8032FB84();
-    *(s32 *)((s8 *)this + 0x3CC) = (s32) (*(s32 *)((s8 *)this + 0x3CC) + 1);
-    if ((s32) *(s32 *)((s8 *)this + 0x3CC) >= 4) {
+    this->m_3cc = (s32) (this->m_3cc + 1);
+    if ((s32) this->m_3cc >= 4) {
         set_action__11TBoss6Type2FPvi(this, 1);
     }
 }

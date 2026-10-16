@@ -126,27 +126,27 @@ s32 get_main_phase();
 s32 TODoorFourLightBase::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
-    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
+    *(s32 *)&this->unk_C8 = (s32) this->m_84;
+    temp_r0 = *(s32 *)&this->unk_C8;
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)this + 0xCC) = 0;
+        this->m_cc = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)this + 0xCC) = 1;
-    } else if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
+        this->m_cc = 1;
+    } else if ((s32) *(s32 *)&this->unk_8C < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
-            *(s32 *)((s8 *)this + 0xCC) = 3;
+            this->m_cc = 3;
         } else {
-            *(s32 *)((s8 *)this + 0xCC) = 2;
+            this->m_cc = 2;
         }
     } else {
-        *(s32 *)((s8 *)this + 0xCC) = 2;
+        this->m_cc = 2;
     }
-    return *(s32 *)((s8 *)this + 0xC8);
+    return *(s32 *)&this->unk_C8;
 }
 
 void TODoorFourLightBase::vfunc_6(s16 *arg1, s32) {
     if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
+        this->m_d0 = (s32) (this->m_d0 | 1);
     }
 }
 
@@ -155,46 +155,46 @@ extern s32 __vt__19TODoorFourLightBase[];
 void TODoorFourLightBase::update_door_switch_state() {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    switch (*(s32 *)((s8 *)arg0 + 0xCC)) {
+    switch (this->m_cc) {
     case 1:
         play_door_sound(arg0);
-        *(s32 *)((s8 *)arg0 + 0xD0) |= 1;
+        this->m_d0 |= 1;
         break;
     case 2: {
         s32 found = 0;
         s32 i;
-        for (i = 0; i < *(s32 *)((s8 *)arg0 + 0xF8); i++) {
-            if (((u8 (*)(u16))is_current_floor_switch_set)(*(s32 *)((s8 *)arg0 + 0xC8) + i) == 0) {
+        for (i = 0; i < *(s32 *)&this->m_f8; i++) {
+            if (((u8 (*)(u16))is_current_floor_switch_set)(*(s32 *)&this->unk_C8 + i) == 0) {
                 found = 1;
             }
         }
         if (found != 0) {
-            *(s32 *)((s8 *)arg0 + 0xD0) &= ~1;
+            this->m_d0 &= ~1;
         } else {
             play_door_sound(arg0);
-            *(s32 *)((s8 *)arg0 + 0xD0) |= 1;
+            this->m_d0 |= 1;
         }
         break;
     }
     case 3: {
         s32 found;
         s32 i;
-        if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
+        if (this->m_d0 & 1) {
             break;
         }
         found = 0;
-        for (i = 0; i < *(s32 *)((s8 *)arg0 + 0xF8); i++) {
-            if (((u8 (*)(u16))is_current_floor_switch_set)(*(s32 *)((s8 *)arg0 + 0xC8) + i) == 0) {
+        for (i = 0; i < *(s32 *)&this->m_f8; i++) {
+            if (((u8 (*)(u16))is_current_floor_switch_set)(*(s32 *)&this->unk_C8 + i) == 0) {
                 found = 1;
             }
         }
         if (found != 0) {
-            *(s32 *)((s8 *)arg0 + 0xD0) &= ~1;
+            this->m_d0 &= ~1;
         } else {
             play_door_sound(arg0);
-            *(s32 *)((s8 *)arg0 + 0xD0) |= 1;
+            this->m_d0 |= 1;
         }
-        if (found == 0 && *(void **)((s8 *)arg0 + 0x80) != NULL && access_object_saved_state(arg0, &sp8, 1) == 1) {
+        if (found == 0 && this->m_80 != NULL && access_object_saved_state(arg0, &sp8, 1) == 1) {
             sp8 = 1;
             send_object_state_update(arg0, &sp8);
             access_object_saved_state(arg0, &sp8, 0);
@@ -202,7 +202,7 @@ void TODoorFourLightBase::update_door_switch_state() {
         break;
     }
     default:
-        *(s32 *)((s8 *)arg0 + 0xD0) &= ~1;
+        this->m_d0 &= ~1;
         break;
     }
 }

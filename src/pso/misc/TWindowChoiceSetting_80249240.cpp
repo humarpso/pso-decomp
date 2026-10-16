@@ -63,7 +63,7 @@ void TWindowChoiceSetting::run_task() {
     u8 *temp_r30_2;
     u8 *temp_r30_3;
     if ((((TWindowChoiceSetting *)arg0)->is_selected() == 0) && (((TWindowSubComCard *)arg0)->is_open() == 0)) {
-        if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
+        if (this->m_70 & 0x10) {
             temp_r30 = (u8 *)&controller_input_state.value + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
                 ((TWindowChoiceSetting *)arg0)->move_cursor_prev();
@@ -88,12 +88,12 @@ void TWindowChoiceSetting::run_task() {
             ((TWindowChoiceSetting *)arg0)->request_close();
         }
     }
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DCBC0) {
-        temp_r3 = *(u32 *)((s8 *)arg0 + 0x78);
+    if ((f32) this->m_5c >= lbl_805DCBC0) {
+        temp_r3 = this->m_78;
         if (temp_r3 != 0U) {
             ((TWindowSubStatusDisp *)temp_r3)->update_subwindow();
         }
-        temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x7C);
+        temp_r3_2 = *(u32 *)&this->unk_7C;
         if (temp_r3_2 != 0U) {
             ((TWindowSubStatusDisp *)temp_r3_2)->increment_counter();
         }

@@ -28,10 +28,10 @@ s32 queue_destruction__7TObjectFv(void *);
 extern s8 controller_physical_port_bank[];
 
 void TAdMultiPlyChrSelectGC::check_cancel_input() {
-    if ((((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x6C)))->get_mode() < 0x14) || (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {
+    if ((((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() < 0x14) || (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {
         TAdPlayerLoadGC::set_state(1);
         *(s32 *)((s8 *)this + 0x58) = 0;
-        *(s32 *)((s8 *)this + 0x20) = 0x1D;
+        *(s32 *)&this->m_20 = 0x1D;
     }
 }
 
@@ -69,20 +69,20 @@ extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC::handle_input() {
     void *temp_r31;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x94) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x94)))->close();
-        *(u32 *)((s8 *)this + 0x94) = 0U;
+    if ((u32) this->m_94 != 0U) {
+        ((TWindowSubComCard *)(*(void * *)&this->m_94))->close();
+        this->m_94 = 0U;
     }
-    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x6C)))->get_mode() < 0x14) {
+    if (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() < 0x14) {
         if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() < 0xE) {
             *(s32 *)((s8 *)this + 0x58) = 0;
         }
-        *(s32 *)((s8 *)this + 0x20) = 0x1D;
+        *(s32 *)&this->m_20 = 0x1D;
         return;
     }
     temp_r31 = controller_physical_port_bank + 0x20;
     if ((TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) || (TWindowShortListCtrl__check_controller_button(temp_r31, 2) != 0)) {
-        *(s32 *)((s8 *)this + 0x20) = 0x1F;
+        *(s32 *)&this->m_20 = 0x1F;
     }
 }
 void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0) {

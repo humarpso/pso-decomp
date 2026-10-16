@@ -15,8 +15,8 @@ u32 TQuestListVM::decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3) {
     u32 spC;
     u32 sp8;
 
-    spC = *(u32 *)((s8 *)arg0 + 0);
-    sp8 = *(u32 *)((s8 *)arg0 + 4);
+    spC = *(u32 *)&this->m_name;
+    sp8 = *(u32 *)&this->m_flags;
     bswap_32__FPUl(&spC);
     bswap_32__FPUl(&sp8);
     if (spC > arg3) {

@@ -410,11 +410,11 @@ void TOTrap::run_task() {
     }
     if (TObjPlayer::is_any_teammate_in_state() == 0) {
         ((VObj_18 *)(arg0))->m82();
-        temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+        temp_r0 = this->mode;
         switch (temp_r0) {
         case 0:
             if (((VObj_18 *)(arg0))->m81() != 0) {
-                *(s16 *)((s8 *)arg0 + 0x326) = 1;
+                this->mode = 1;
             }
             ((VObj_18 *)(arg0))->m77();
             return;

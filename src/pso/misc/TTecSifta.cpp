@@ -141,9 +141,9 @@ void play_sifta_cast_sound(Obj_8023ACA8 *arg0) {
 void TTecSifta::update_effect_params() {
     u8 *arg0 = (u8 *)this;
     s32 res;
-    res = calc_technique_parameters(0xD, *(s16 *)((s8 *)arg0 + 0xA4), 0xFFFF);
+    res = calc_technique_parameters(0xD, this->m_a4, 0xFFFF);
     ((TTecAnti *)(arg0 + 0x74))->copy_params((u8 *)res);
-    *(f32 *)((s8 *)arg0 + 0x74) = (f32) (*(s16 *)((s8 *)arg0 + 0x98) * *(s16 *)((s8 *)arg0 + 0xA4));
+    this->m_74 = (f32) (this->m_98 * this->m_a4);
 }
 
 void TTecSifta::create_instance(void *arg1, void *arg2, void *arg3) {

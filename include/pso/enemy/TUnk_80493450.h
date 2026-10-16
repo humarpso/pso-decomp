@@ -28,7 +28,9 @@ public:
     virtual void request_stand_action();
     virtual int test_flag_256();
     virtual void run_task();
-    u8 unk_374[0x34];
+    u8 unk_374[0x1C];
+    s32 m_390;
+    u8 unk_394[0x14];
 };
 
 #endif

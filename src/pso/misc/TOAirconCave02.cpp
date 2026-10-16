@@ -34,11 +34,11 @@ void TOAirconCave02::render() {
 
     temp_r4 = (unsigned char *) (*(void **)((s8 *)TOAirconCave02__bml_resource + 0x42C));
     temp_r31 = *(s32 *)((s8 *)temp_r4 + 8);
-    if (((VObj570D4_801570d4 *) arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj570D4_801570d4 *) arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
         draw_ginja_object((int) (temp_r31));
         pop_matrix();
     }

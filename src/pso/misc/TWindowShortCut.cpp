@@ -47,7 +47,7 @@ void render__15TWindowShortCutFv(u8 *arg0) {
     forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (temp_r3));
 }
 
-void TWindowShortCut::run_task() { ((TWindowSubStatusDisp *)(*(void**)((char*)this + 0x60)))->update_subwindow(); initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); update_window_entry_list(this, (char*)this + 0x24); }
+void TWindowShortCut::run_task() { ((TWindowSubStatusDisp *)(*(void* *)&this->m_60))->update_subwindow(); initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); update_window_entry_list(this, (char*)this + 0x24); }
 
 extern s32 __vt__15TWindowShortCut[];
 

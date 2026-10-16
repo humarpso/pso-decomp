@@ -10,7 +10,7 @@ void TProtocol::handle_cmd_AC(packet &pkt) {
         TQuestListOnline::handle_quest_ready();
         return;
     }
-    *(s8 *)((s8 *)this + 0x2A) = 1;
+    *(s8 *)&this->m_is_invalid_packet = 1;
 }
 
 }

@@ -99,7 +99,7 @@ void TOContainerAncientItemNone::vfunc_6(s16 *arg1, s32 arg2) {
         if (arg2 != 0) {
             ((VObj_8015BE34 *)this)->m77();
         }
-        *(s16 *)((s8 *)this + 0x326) = 1;
+        this->mode = 1;
         set_flag8__6TLobbyFPv(this);
         queue_destruction__7TObjectFv(this);
     }

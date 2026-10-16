@@ -82,7 +82,7 @@ void TWindowSubStatusDisp::handle_input() {
     u8 *temp_r29;
     u8 *temp_r29_2;
     u8 *temp_r29_3;
-    temp_r31 = is_player_input_active((int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
+    temp_r31 = is_player_input_active((int) ((s32) this->m_20));
     if ((((TWindowSubStatusDisp *)arg0)->get_flag() == 0) && (((TLobby *)arg0)->get_status_flag() == 0) && (fn_80244994((void *) (arg0)) != 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r29 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
@@ -110,7 +110,7 @@ void TWindowSubStatusDisp::handle_input() {
         }
     }
     center_list_selection((void *) (arg0));
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DCBA8) {
+    if ((f32) *(s32 *)&this->m_5c >= lbl_805DCBA8) {
         temp_r3 = *(u32 *)((s8 *)arg0 + 0x80);
         if (temp_r3 != 0U) {
             ((TWindowSubStatusDisp *)temp_r3)->update_subwindow();

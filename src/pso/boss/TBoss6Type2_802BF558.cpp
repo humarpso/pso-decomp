@@ -76,12 +76,12 @@ void TBoss6Type2::start_death_sequence(u8 *arg0) {
 void TBoss6Type2::update_zako_spawn_timer() {
     s32 temp_r0;
 
-    if (((s32) *(s32 *)((s8 *)this + 0x504) == 0) && (((TBoss6Type2 *)this)->turn_toward_target_position() == 0)) {
-        *(s32 *)((s8 *)this + 0x504) = 1;
+    if (((s32) *(s32 *)&this->unk_504 == 0) && (((TBoss6Type2 *)this)->turn_toward_target_position() == 0)) {
+        *(s32 *)&this->unk_504 = 1;
     }
     update_zako();
-    temp_r0 = *(s32 *)((s8 *)this + 0x460) - 1;
-    *(s32 *)((s8 *)this + 0x460) = temp_r0;
+    temp_r0 = this->m_460 - 1;
+    this->m_460 = temp_r0;
     if (temp_r0 < 0) {
         set_action_state((void *)0x22);
     }
@@ -125,12 +125,12 @@ void TBoss6Type2::reset_timers_and_spawn_particle() {
 void TBoss6Type2::update_zako_phase() {
     s32 temp_r0;
 
-    if (((s32) *(s32 *)((s8 *)this + 0x504) == 0) && (((TBoss6Type2 *)this)->turn_toward_target_position() == 0)) {
-        *(s32 *)((s8 *)this + 0x504) = 1;
+    if (((s32) *(s32 *)&this->unk_504 == 0) && (((TBoss6Type2 *)this)->turn_toward_target_position() == 0)) {
+        *(s32 *)&this->unk_504 = 1;
     }
     update_zako();
-    temp_r0 = *(s32 *)((s8 *)this + 0x460) - 1;
-    *(s32 *)((s8 *)this + 0x460) = temp_r0;
+    temp_r0 = this->m_460 - 1;
+    this->m_460 = temp_r0;
     if (temp_r0 < 0) {
         set_action_state((void *)0xC);
     }
@@ -139,22 +139,22 @@ void TBoss6Type2::init_attack_params() {
     s32 temp_r0;
 
     *(s32 *)((s8 *)this + 0x45C) = 0x4B;
-    *(s32 *)((s8 *)this + 0x460) = 0x4B;
-    *(s32 *)((s8 *)this + 0x504) = 0;
-    temp_r0 = *(s32 *)((s8 *)this + 0x374);
+    this->m_460 = 0x4B;
+    *(s32 *)&this->unk_504 = 0;
+    temp_r0 = *(s32 *)&this->m_374;
     switch (temp_r0) {
     case 4:
-        *(s32 *)((s8 *)this + 0x46C) = 0;
+        *(s32 *)&this->m_46c = 0;
         break;
     case 5:
-        *(s32 *)((s8 *)this + 0x46C) = 1;
+        *(s32 *)&this->m_46c = 1;
         break;
     default:
-        *(s32 *)((s8 *)this + 0x46C) = 0;
+        *(s32 *)&this->m_46c = 0;
         break;
     }
     TBoss6Type2__sub_802BB7C0(this);
-    switch ((s32) *(s32 *)((s8 *)this + 0x374)) {
+    switch ((s32) *(s32 *)&this->m_374) {
     case 5:
         spawn_particle_slot(0xD);
         break;
@@ -175,21 +175,21 @@ void TBoss6Type2__sub_802BF834(u8 *arg0) {
     }
 }
 
-void TBoss6Type2::check_state_0x460_eq0() { if (*(int*)((char*)this + 0x460) == 0) { send_state_action_packet__11TBoss6Type2FPv(this); } }
+void TBoss6Type2::check_state_0x460_eq0() { if (*(int *)&this->m_460 == 0) { send_state_action_packet__11TBoss6Type2FPv(this); } }
 void TBoss6Type2__sub_802BF904(void* p) { *(s32*)((char*)p + 0x45c) = 45; *(s32*)((char*)p + 0x460) = 45; }
 void TBoss6Type2::tick_action_timer() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x460) - 1;
-    *(s32 *)((s8 *)this + 0x460) = temp_r0;
+    temp_r0 = this->m_460 - 1;
+    this->m_460 = temp_r0;
     if (temp_r0 < 0) {
         set_action_state((void *)0x22);
     }
 }
 void TBoss6Type2::pick_next_zako() {
-    if ((s32) *(s32 *)((s8 *)this + 0x460) == 0) {
-        *(u16 *)((s8 *)this + 0x466) = TBoss6Type2__sub_802BB694();
-        if (*(u16 *)((s8 *)this + 0x466) == 0xFFFF) {
+    if ((s32) this->m_460 == 0) {
+        this->m_466 = TBoss6Type2__sub_802BB694();
+        if (this->m_466 == 0xFFFF) {
             update_action_state();
             return;
         }
@@ -230,26 +230,26 @@ void TBoss6Type2::reset_state_timers() {
 
     temp_r0 = *(s32 *)((s8 *)this + 0x4EC);
     *(s32 *)((s8 *)this + 0x45C) = temp_r0;
-    *(s32 *)((s8 *)this + 0x460) = temp_r0;
+    this->m_460 = temp_r0;
     TBoss6Type2__sub_802BB768();
 }
 void TBoss6Type2::tick_timer_460() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x460) - 1;
-    *(s32 *)((s8 *)this + 0x460) = temp_r0;
+    temp_r0 = this->m_460 - 1;
+    this->m_460 = temp_r0;
     if (temp_r0 < 0) {
         set_action_state((void *)0x22);
     }
 }
 void TBoss6Type2::select_attack_state() {
-    if ((s32) *(s32 *)((s8 *)this + 0x460) == 0) {
+    if ((s32) this->m_460 == 0) {
         if (TBoss6Type2__sub_802BA9E4() != 0) {
             send_action_packet__11TBoss6Type2FPvc((void*)(this), (void*)(0xD));
             return;
         }
         if ((get_phase() == 0xD) && (is_ready_to_attack() != 0)) {
-            *(s16 *)((s8 *)this + 0x464) = is_falz_ready();
+            *(s16 *)&this->m_464 = is_falz_ready();
             send_action_packet__11TBoss6Type2FPvc((void*)(this), (void*)(0x18));
             return;
         }
@@ -258,8 +258,8 @@ void TBoss6Type2::select_attack_state() {
             return;
         }
         if (get_phase() == 0xD) {
-            *(s32 *)((s8 *)this + 0x428) = pick_random_other_index();
-            *(s32 *)((s8 *)this + 0x430) = choose_next_index();
+            *(s32 *)&this->m_428 = pick_random_other_index();
+            *(s32 *)&this->m_430 = choose_next_index();
             send_action_packet__11TBoss6Type2FPvc((void*)(this), (void*)(1));
             return;
         }

@@ -34,7 +34,7 @@ s32 TObjPlayer::get_hp_by_flag() {
     if (test_flags_any(arg0 + 0x1F8, 4) != 0) {
         return *(s32 *)((s8 *)arg0 + 0x188);
     }
-    return *(s32 *)((s8 *)arg0 + 0x184);
+    return this->m_184;
 }
 
 }

@@ -14,7 +14,9 @@ struct TNowLoading : public TObject {
     virtual void render();
     virtual void run_task();
     void copy_pos(void* q);
-    u8 unk_30[0xC];
+    u8 unk_30[0x4];
+    f32 m_34;
+    u8 unk_38[0x4];
 };
 
 typedef char TNowLoading_size[sizeof(TNowLoading) == 0x3C ? 1 : -1];

@@ -14,7 +14,9 @@ struct TQuestListVM : public TShopWindowBase {
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
-    u8 _pad28[0x2340];
+    u8 unk_28[0x288];
+    s32 m_2b0;
+    u8 unk_2B4[0x20B4];
     u32 m_2368;
     u8 _pad236C[0x4];
     u32 m_2370;

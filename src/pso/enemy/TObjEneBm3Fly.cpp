@@ -3966,12 +3966,12 @@ void update__13TObjEneBm3FlyFPv(void *arg0) {
 
 void TObjEneBm3Fly::vfunc_61() {  }
 
-void TObjEneBm3Fly::vfunc_62() { if (*(short*)((char*)this + 0x326) != 6) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)6); } }
+void TObjEneBm3Fly::vfunc_62() { if (*(short *)&this->animation_id != 6) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)6); } }
 
 void TObjEneBm3Fly::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->animation_id;
     if ((temp_r0 != 8) && (temp_r0 != 9) && (temp_r0 != 7)) {
         if (was_hit_by_ranged__9TObjEneDDFv() != 0) {
             ((int (*)(void*, void*))transition_enemy_state)((void*)((void *) (arg0)), (void*)((int) (7)));
@@ -4181,8 +4181,8 @@ s32 TObjEneBm3Fly::init_child_params() {
     *(f32 *)((s8 *)this + 0x44C) = (2.0f) * calc_elapsed_scaled__9TObjEneDDFv(this) + (45.0f);
     *(f32 *)((s8 *)this + 0x450) = (2.0f) * calc_elapsed_scaled__9TObjEneDDFv(this) + (15.0f);
     *(s32 *)((s8 *)this + 0x454) = 0;
-    *(s32 *)((s8 *)this + 0x458) = 0;
-    *(s32 *)((s8 *)this + 0x45C) = 0;
+    *(s32 *)&this->particle_effect = 0;
+    this->alternate_phase = 0;
     *(s32 *)((s8 *)this + 0x3C0) = 0;
     *(s32 *)((s8 *)this + 0x3C4) = 0;
     *(s32 *)((s8 *)this + 0x3C8) = 0;
@@ -4202,8 +4202,8 @@ s32 TObjEneBm3Fly::init_child_params() {
     *(f32 *)((s8 *)this + 0x400) = (0.0f);
     *(f32 *)((s8 *)this + 0x404) = (0.0f);
     *(f32 *)((s8 *)this + 0x408) = (0.0f);
-    *(s16 *)((s8 *)this + 0x326) = 0;
-    return ((VObj_18_800B1F80 *)this)->m85(*(s16 *)((s8 *)this + 0x326), 4);
+    this->animation_id = 0;
+    return ((VObj_18_800B1F80 *)this)->m85(this->animation_id, 4);
 }
 #pragma pop
 

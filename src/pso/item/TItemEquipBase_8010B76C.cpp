@@ -18,7 +18,7 @@ int clear_flags__11TAdRicoRingFUl(void*, int);
 int set_flags__10TObjPlayerFUl(void*, int);
 
     extern const float lbl_805DAB60;
-void TItemEquipBase::init_slot() { *(short*)((char*)this + 0x0) = -1; *(short*)((char*)this + 0x2) = 0; *(float*)((char*)this + 0x4) = lbl_805DAB60; }
+void TItemEquipBase::init_slot() { *(short *)&this->m_name = -1; *(short*)((char*)this + 0x2) = 0; *(float *)&this->m_flags = lbl_805DAB60; }
 
 int TItemEquipBase::check_flag_32() { return set_flags__10TObjPlayerFUl((char*)this + 0xc, 32); }
 int TItemEquipBase::clear_flag_c_bit5() { return clear_flags__11TAdRicoRingFUl((char*)this + 0xc, 32); }
