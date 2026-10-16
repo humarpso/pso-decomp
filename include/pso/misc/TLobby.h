@@ -1384,6 +1384,9 @@ struct TLobby : public TObject {
     static void set_slot(int a0);
     static void op_mod_reg(s32 arg0, s32 arg1);
     static void dispatch_command(s32 arg0);
+    static void send_slot_entity_or_local(u16 arg0, s32 arg1);
+    void send_slot_entity(u16 arg1, s32 arg2);
+    void start_entry_timer(u16 arg1, s32 src);
 };
 
 typedef char TLobby_size[sizeof(TLobby) == 0x1C ? 1 : -1];

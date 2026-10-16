@@ -7598,6 +7598,7 @@ force_active:
   - send_obj_position_event__10TEndingPicFl
   - send_packet__6TLobbyFllll
   - send_partner_attack_stage_request__10TNpcPlayerFv
+  - send_slot_entity__6TLobbyFUsl
   - send_srank_stat_extra__13TUnk_804A4948FUll
   - send_srank_stat_extra_to_locks__13TUnk_804A4948Fv
   - send_state_60__10TNpcPlayerFv
@@ -8010,7 +8011,7 @@ force_active:
   - start_bone_rotation__12T_OWEHMS_ExpFv
   - start_download__12TChCrLoadAfsFv
   - start_duel_battle__6TLobbyFPv
-  - start_entry_timer__6TLobbyFPvUsi
+  - start_entry_timer__6TLobbyFUsl
   - start_fade__9TAdFadeGCFPv
   - start_get_type_async__16TKeyBoardControlFllll
   - start_match__19TPlayerBattleCtrl4PFv
